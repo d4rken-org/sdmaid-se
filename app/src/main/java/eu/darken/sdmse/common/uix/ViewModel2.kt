@@ -54,7 +54,7 @@ abstract class ViewModel2(
         try {
             scope.launch(context = context, block = block)
         } catch (e: CancellationException) {
-            log(TAG, WARN) { "launch()ed coroutine was canceled (scope=$scope): ${e.asLog()}" }
+            log(_tag, WARN) { "launch()ed coroutine was canceled (scope=$scope): ${e.asLog()}" }
         }
     }
 

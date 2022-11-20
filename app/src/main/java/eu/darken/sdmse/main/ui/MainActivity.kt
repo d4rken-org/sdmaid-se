@@ -26,7 +26,8 @@ class MainActivity : Activity2() {
         super.onCreate(savedInstanceState)
 
         val splashScreen = installSplashScreen()
-        splashScreen.setKeepVisibleCondition { showSplashScreen && savedInstanceState == null }
+
+        splashScreen.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
 
         ui = MainActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)

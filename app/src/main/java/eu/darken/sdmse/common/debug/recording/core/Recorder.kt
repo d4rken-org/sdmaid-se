@@ -42,7 +42,7 @@ class Recorder @Inject constructor() {
     }
 
     companion object {
-        internal val TAG = logTag("Debug", "Log", "Recorder")
+        internal val TAG = logTag("Debug", "Log", "eu.darken.sdmse.common.debug.recording.core.Recorder")
     }
 
 }

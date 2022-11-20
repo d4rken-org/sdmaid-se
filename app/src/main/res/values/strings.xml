@@ -1,22 +1,45 @@
 <resources>
-    <string name="app_name">SD Maid SE</string>
     <string name="label_settings">Settings</string>
     <string name="label_help">Help</string>
-    <string name="label_example_fragment">Example Fragment</string>
-    <string name="label_another_fragment">Another Fragment</string>
-    <string name="action_show_another_fragment">Show another fragment</string>
-    <string name="msg_what_up_this_is_another_fragment">What up! This is another fragment!</string>
-    <string name="general_error_label">Error</string>
 
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
     <string name="general_copy_action">Copy</string>
+    <string name="general_remove_action">Remove</string>
+    <string name="general_wipe_action">Wipe</string>
+    <string name="general_cancel_action">Cancel</string>
+    <string name="general_thanks_action">Thanks</string>
+    <string name="general_gotit_action">Got it</string>
+    <string name="general_create_account_action">Create account</string>
+    <string name="general_link_existing_action">Link to existing account</string>
+    <string name="general_na_label">N/A</string>
+    <string name="general_empty_label">Empty</string>
+    <string name="general_dismiss_action">Dismiss</string>
+    <string name="general_maybe_later_action">Maybe later</string>
+    <string name="general_manage_action">Manage</string>
+    <string name="general_sync_action">Synchronize</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_select_server_label">Select server</string>
+    <string name="general_quota_label">Quota</string>
+    <string name="general_tap_hint_msg">Tap for more options</string>
+    <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_donate_action">Donate</string>
+    <string name="general_check_action">Check</string>
+    <string name="general_internal_not_available_msg">Internet connection unavailable</string>
+    <string name="general_refresh_action">Refresh</string>
+
+    <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
+
+    <string name="onboarding_card_title">Welcome to Octi</string>
+    <string name="onboarding_card_message">Octi is a very young app and still being improved. If you experience issues or just have a great idea, please let me know!\n\nConsider upgrading to Octi Pro to support me developing it.</string>
+    <string name="onboarding_setupsync_title">Setup synchronization</string>
+    <string name="onboarding_setupsync_message">Currently you are only seeing this device. To connect your Octi installations, setup a common synchronization service.</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>

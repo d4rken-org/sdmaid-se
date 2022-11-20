@@ -8,6 +8,7 @@ import android.util.TypedValue
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
@@ -46,3 +47,9 @@ fun Context.dpToPx(dp: Float): Int {
 fun Context.spToPx(sp: Float): Float {
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, resources.displayMetrics)
 }
+
+fun Context.getQuantityString2(@StringRes stringRes: Int, quantity: Int) = resources.getQuantityString(
+    stringRes,
+    quantity,
+    quantity
+)

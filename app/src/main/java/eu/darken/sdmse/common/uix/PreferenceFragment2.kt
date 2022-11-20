@@ -76,4 +76,5 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
             }
         }
     }
+
 }

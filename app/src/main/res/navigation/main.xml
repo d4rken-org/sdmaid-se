@@ -7,8 +7,7 @@
     <fragment
         android:id="@+id/exampleFragment"
         android:name="eu.darken.sdmse.main.ui.main.MainFragment"
-        tools:layout="@layout/main_fragment"
-        android:label="@string/label_example_fragment">
+        tools:layout="@layout/main_fragment">
         <argument
             android:name="exampleArgument"
             app:argType="string" />

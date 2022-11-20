@@ -85,6 +85,26 @@ fun LibraryExtension.setupLibraryDefaults() {
     }
 }
 
+
+fun com.android.build.api.dsl.CommonExtension<
+        com.android.build.api.dsl.LibraryBuildFeatures,
+        com.android.build.api.dsl.LibraryBuildType,
+        com.android.build.api.dsl.LibraryDefaultConfig,
+        com.android.build.api.dsl.LibraryProductFlavor,
+        >.setupModuleBuildTypes() {
+    buildTypes {
+        debug {
+            consumerProguardFiles("proguard-rules.pro")
+        }
+        create("beta") {
+            consumerProguardFiles("proguard-rules.pro")
+        }
+        release {
+            consumerProguardFiles("proguard-rules.pro")
+        }
+    }
+}
+
 fun com.android.build.api.dsl.SigningConfig.setupCredentials(
     signingPropsPath: File? = null
 ) {

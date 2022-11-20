@@ -104,7 +104,7 @@ class RecorderService : Service2() {
 
     companion object {
         private val TAG =
-            logTag("Debug", "Log", "Recorder", "Service")
+            logTag("Debug", "Log", "eu.darken.sdmse.common.debug.recording.core.Recorder", "Service")
         private val NOTIF_CHANID_DEBUG = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.debug"
         private const val STOP_ACTION = "STOP_SERVICE"
         private const val NOTIFICATION_ID = 53

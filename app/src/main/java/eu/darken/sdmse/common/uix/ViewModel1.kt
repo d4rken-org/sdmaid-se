@@ -6,15 +6,15 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 
 abstract class ViewModel1 : ViewModel() {
-    val TAG: String = logTag("VM", javaClass.simpleName)
+   internal val _tag: String = logTag("VM", javaClass.simpleName)
 
     init {
-        log(TAG) { "Initialized" }
+        log(_tag) { "Initialized" }
     }
 
     @CallSuper
     override fun onCleared() {
-        log(TAG) { "onCleared()" }
+        log(_tag) { "onCleared()" }
         super.onCleared()
     }
 }

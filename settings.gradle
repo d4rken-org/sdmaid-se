@@ -1,2 +1,5 @@
 rootProject.name = "SD Maid SE"
 include ':app'
+include ':app-root'
+include ':app-common'
+include ':app-common-test'
