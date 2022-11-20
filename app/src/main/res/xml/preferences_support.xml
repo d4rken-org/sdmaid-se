@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:icon="@drawable/ic_card_text_onsurface"
+        android:title="@string/documentation_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://darken.eu" />
+    </Preference>
+    <Preference
+        android:icon="@drawable/ic_github_onsurface"
+        android:summary="@string/issue_tracker_description"
+        android:title="@string/issue_tracker_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/d4rken/sdmaid-se" />
+    </Preference>
+    <Preference
+        android:icon="@drawable/ic_email_onsurface"
+        android:key="support.email.darken"
+        android:title="@string/email_developer_label" />
+
+    <PreferenceCategory app:title="@string/settings_category_other_label">
+        <Preference
+            android:icon="@drawable/ic_id_onsurface"
+            android:key="support.installid"
+            android:summary="@string/support_installid_desc"
+            android:title="@string/support_installid_label" />
+        <Preference
+            android:icon="@drawable/ic_baseline_bug_report_24"
+            android:key="support.debuglog"
+            android:summary="@string/support_debuglog_desc"
+            android:title="@string/support_debuglog_label" />
+    </PreferenceCategory>
+</PreferenceScreen>

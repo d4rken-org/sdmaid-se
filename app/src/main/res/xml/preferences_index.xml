@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:fragment="eu.darken.sdmse.main.ui.settings.general.GeneralSettingsFragment"
+        app:summary="@string/general_settings_desc"
+        app:title="@string/general_settings_label" />
+
+    <PreferenceCategory android:title="@string/settings_category_other_label">
+
+        <Preference
+            android:icon="@drawable/ic_changelog_onsurface"
+            android:key="core.changelog"
+            android:title="@string/changelog_label"
+            app:summary="v?.?.?">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://darken.eu/" />
+        </Preference>
+
+        <Preference
+            android:icon="@drawable/ic_baseline_contact_support_24"
+            app:fragment="eu.darken.sdmse.main.ui.settings.support.SupportFragment"
+            app:summary="¯\\_(ツ)_/¯"
+            app:title="@string/settings_support_label" />
+
+        <Preference
+            android:icon="@drawable/ic_heart"
+            app:fragment="eu.darken.sdmse.main.ui.settings.acks.AcknowledgementsFragment"
+            app:summary="@string/general_thank_you_label"
+            app:title="@string/settings_acknowledgements_label" />
+        <Preference
+            android:icon="@drawable/ic_baseline_privacy_tip_24"
+            android:key="core.privacy"
+            app:summary="@string/settings_privacy_policy_desc"
+            app:title="@string/settings_privacy_policy_label" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

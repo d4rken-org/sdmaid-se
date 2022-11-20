@@ -1,0 +1,14 @@
+changelog:
+  exclude:
+    labels:
+      - changelog-ignore
+  categories:
+    - title: ":rocket: Enhancements"
+      labels:
+        - enhancement
+    - title: ":lady_beetle: Bug fixes"
+      labels:
+        - bug
+    - title: ":shrug: Other changes"
+      labels:
+        - "*"

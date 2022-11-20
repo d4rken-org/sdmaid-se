@@ -1,0 +1,15 @@
+.idea
+/.idea/**/*
+!/.idea/codeStyles/
+!/.idea/codeStyles/**/*
+*.iml
+.gradle
+build/
+/local.properties
+.local/*
+*.jks
+/fastlane/report.xml
+/captures
+.externalNativeBuild
+.cxx
+.DS_Store

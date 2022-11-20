@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        app:icon="@drawable/ic_email_onsurface"
+        app:key="core.device.label"
+        app:summary="A device label"
+        app:title="Device label" />
+
+    <Preference
+        app:icon="@drawable/ic_card_text_onsurface"
+        app:fragment="eu.darken.sdmse.main.ui.settings.general.advanced.AdvancedSettingsFragment"
+        app:summary="Advanced settings summary"
+        app:title="Advanced settings" />
+
+    <PreferenceCategory android:title="@string/settings_category_other_label">
+
+        <CheckBoxPreference
+            app:icon="@drawable/ic_spider_thread_onsurface"
+            app:key="debug.bugreport.automatic.enabled"
+            app:summary="Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it."
+            app:title="Automatic bug reports" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,3 @@
+package testhelpers
+
+class IsAUnitTest

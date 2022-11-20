@@ -1,0 +1,2 @@
+rootProject.name = "SD Maid SE"
+include ':app'

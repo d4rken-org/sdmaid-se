@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/settings_licenses_label"
+        app:iconSpaceReserved="false">
+        <Preference
+            android:key="license.bugsnag"
+            android:summary="Client side library for crash monitoring via bugsnag.com. (MIT)"
+            android:title="Bugsnag"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/bugsnag/bugsnag-android" />
+        </Preference>
+        <Preference
+            android:key="license.materialdesignicons"
+            android:summary="materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)"
+            android:title="Material Design Icons"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Templarian/MaterialDesign" />
+        </Preference>
+        <Preference
+            android:key="license.lottie"
+            android:summary="Airbnb's Lottie for Android. (APACHE 2.0)"
+            android:title="Lottie"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/airbnb/lottie-android" />
+        </Preference>
+        <Preference
+            android:key="license.kotlin"
+            android:summary="The Kotlin Programming Language. (APACHE 2.0)"
+            android:title="Kotlin"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/JetBrains/kotlin" />
+        </Preference>
+        <Preference
+            android:key="license.dagger"
+            android:summary="A fast dependency injector for Android and Java. (APACHE 2.0)"
+            android:title="Dagger"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/google/dagger" />
+        </Preference>
+        <Preference
+            android:key="android.android"
+            android:summary="Android Open Source Project (APACHE 2.0)"
+            android:title="Android"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://source.android.com/source/licenses.html" />
+        </Preference>
+        <Preference
+            android:key="android.logo"
+            android:summary="The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License."
+            android:title="Android"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://developer.android.com/distribute/tools/promote/brand.html" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

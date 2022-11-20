@@ -1,0 +1,153 @@
+name: Tagged releases
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release-github:
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+    environment: foss-production
+    steps:
+      - name: Decode Keystore
+        env:
+          ENCODED_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+        run: |
+          TMP_KEYSTORE_DIR_PATH="${RUNNER_TEMP}"/keystore
+          mkdir -p "${TMP_KEYSTORE_DIR_PATH}"
+          TMP_KEYSTORE_FILE_PATH="${TMP_KEYSTORE_DIR_PATH}"/keystore.jks
+          echo $ENCODED_KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"
+          echo "STORE_PATH=$(echo $TMP_KEYSTORE_FILE_PATH)" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get the version
+        id: tagger
+        uses: jimschubert/query-tag-action@v2
+        with:
+          skip-unshallow: 'true'
+          abbrev: false
+          commit-ish: HEAD
+
+      - name: Install JDK ${{ matrix.java_version }}
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: Assemble beta APK
+        if: contains(steps.tagger.outputs.tag, '-beta')
+        run: ./gradlew assembleFossBeta
+        env:
+          VERSION: ${{ github.ref }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
+
+      - name: Assemble production APK
+        if: "!contains(steps.tagger.outputs.tag, '-beta')"
+        run: ./gradlew assembleFossRelease
+        env:
+          VERSION: ${{ github.ref }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
+
+      - name: Create pre-release
+        if: contains(steps.tagger.outputs.tag, '-beta')
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: true
+          tag_name: ${{ steps.tagger.outputs.tag }}
+          name: ${{ steps.tagger.outputs.tag }}
+          generate_release_notes: true
+          files: app/build/outputs/apk/foss/beta/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create release
+        if: "!contains(steps.tagger.outputs.tag, '-beta')"
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: false
+          tag_name: ${{ steps.tagger.outputs.tag }}
+          name: ${{ steps.tagger.outputs.tag }}
+          generate_release_notes: true
+          files: app/build/outputs/apk/foss/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-gplay:
+    name: Create Google Play release
+    runs-on: ubuntu-latest
+    environment: gplay-production
+    steps:
+      - name: Decode Keystore
+        env:
+          ENCODED_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+        run: |
+          TMP_KEYSTORE_DIR_PATH="${RUNNER_TEMP}"/keystore
+          mkdir -p "${TMP_KEYSTORE_DIR_PATH}"
+          TMP_KEYSTORE_FILE_PATH="${TMP_KEYSTORE_DIR_PATH}"/keystore.jks
+          echo $ENCODED_KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"
+          echo "STORE_PATH=$(echo $TMP_KEYSTORE_FILE_PATH)" >> $GITHUB_ENV
+
+      - name: Decode Google Play service account key
+        env:
+          ENCODED_SERVICE_KEY: ${{ secrets.GPLAY_SERVICE_ACCOUNT_KEY_JSON_BASE64 }}
+        run: |
+          TMP_SERVICEKEY_DIR="${RUNNER_TEMP}"/gplaykey
+          mkdir -p "${TMP_SERVICEKEY_DIR}"
+          TMP_SERVICEKEY_FILE_PATH="${TMP_SERVICEKEY_DIR}"/service_account.json
+          echo $ENCODED_SERVICE_KEY | base64 -di > "${TMP_SERVICEKEY_FILE_PATH}"
+          echo "SUPPLY_JSON_KEY=$(echo $TMP_SERVICEKEY_FILE_PATH)" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get the version
+        id: tagger
+        uses: jimschubert/query-tag-action@v2
+        with:
+          skip-unshallow: 'true'
+          abbrev: false
+          commit-ish: HEAD
+
+      - name: Install JDK ${{ matrix.java_version }}
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: Set up ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.6
+          bundler-cache: true
+
+      - name: Assemble beta and upload to Google Play
+        if: contains(steps.tagger.outputs.tag, '-beta')
+        run: bundle exec fastlane beta
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
+
+      - name: Assemble production and upload to Google Play
+        if: "!contains(steps.tagger.outputs.tag, '-beta')"
+        run: bundle exec fastlane production
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
