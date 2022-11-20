@@ -47,4 +47,7 @@ dependencies {
     addSerialization()
     addIO()
     addTesting()
+
+    implementation("com.github.d4rken.rxshell:core:v3.0.0")
+    implementation("com.github.d4rken.rxshell:root:v3.0.0")
 }
