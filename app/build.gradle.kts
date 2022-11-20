@@ -133,10 +133,8 @@ android {
 
     sourceSets {
         getByName("test") {
-            java.srcDir("$projectDir/src/testShared/java")
         }
         getByName("androidTest") {
-            java.srcDir("$projectDir/src/testShared/java")
             assets.srcDirs(files("$projectDir/schemas"))
         }
     }

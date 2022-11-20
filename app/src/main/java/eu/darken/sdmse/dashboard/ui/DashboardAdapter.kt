@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.main
+package eu.darken.sdmse.dashboard.ui
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
@@ -14,8 +14,8 @@ import eu.darken.sdmse.databinding.SomeItemLineBinding
 import javax.inject.Inject
 
 
-class SomeAdapter @Inject constructor() : ModularAdapter<SomeAdapter.ItemVH>(),
-    HasAsyncDiffer<SomeAdapter.Item> {
+class DashboardAdapter @Inject constructor() : ModularAdapter<DashboardAdapter.ItemVH>(),
+    HasAsyncDiffer<DashboardAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
