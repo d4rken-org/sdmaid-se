@@ -1,0 +1,130 @@
+<resources>
+
+    <style name="Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="DefaultListItemContainer">
+        <item name="android:layout_width">match_parent</item>
+        <!--<item name="android:focusable">true</item>-->
+        <!--<item name="android:background">@drawable/list_selector_background_default</item>-->
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
+    <style name="OneLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="OneLineListItemContainerDense" parent="OneLineListItemContainer">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="TwoLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:minHeight">72dp</item>
+    </style>
+
+    <style name="TwoLineListItemContainerDense" parent="TwoLineListItemContainer">
+        <item name="android:layout_height">64dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
+    <style name="ThreeLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">88dp</item>
+        <item name="android:minHeight">88dp</item>
+    </style>
+
+    <style name="ListItemTextTitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ListItemTextPrimary" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="ListItemIconPrimary">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:contentDescription">Preview image</item>
+    </style>
+
+    <style name="ListItemIconSecondary">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+    </style>
+
+    <style name="MyCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="TextInputLayoutOutlinedDense" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">?colorOnSurface</item>
+        <item name="hintTextColor">?colorOnSurface</item>
+        <item name="android:colorPrimary">?colorOnSurface</item>
+        <item name="android:textColorPrimary">?colorOnSurface</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="ProgressStyleSpinner" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="ProgressStyleSpinnerSmall" parent="ProgressStyleSpinner">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Highlight" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?colorSecondary</item>
+    </style>
+
+    <style name="LoadingOverlayViewStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:id">@id/loading_overlay</item>
+    </style>
+
+<!--    <style name="Widget.MaterialComponents.Button.TextButton2" parent="Widget.MaterialComponents.Button.TextButton">-->
+<!--        <item name="android:textColor">@color/material_button_texts</item>-->
+<!--    </style>-->
+
+    <style name="BreadCrumbBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Flush.Highlighted" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="backgroundTint">?colorSecondary</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Flush" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/bg_flatbutton</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.TextButton.Card" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>

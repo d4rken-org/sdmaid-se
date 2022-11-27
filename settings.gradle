@@ -1,8 +1,9 @@
 rootProject.name = "SD Maid SE"
 include ':app'
-include ':app-root'
+include ':app-common-root'
 include ':app-common'
 include ':app-common-test'
 include ':app-module-appcleaner'
 include ':app-module-corpsefinder'
 include ':app-module-systemcleaner'
+include ':app-common-io'

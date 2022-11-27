@@ -21,6 +21,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".common.files.ui.picker.PathPickerActivity"
+            android:parentActivityName=".main.ui.MainActivity"
+            android:theme="@style/AppThemeActionBar" />
+
+        <receiver
+            android:name=".common.pkgs.pkgops.installer.InstallerReceiver"
+            android:exported="false" />
+
         <receiver
             android:name="eu.darken.sdmse.main.core.receiver.ExampleReceiver"
             android:enabled="true"

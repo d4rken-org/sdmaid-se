@@ -145,7 +145,8 @@ dependencies {
 
     implementation(project(":app-common"))
     testImplementation(project(":app-common-test"))
-    implementation(project(":app-root"))
+    implementation(project(":app-common-root"))
+    implementation(project(":app-common-io"))
 
     addDI()
     addCoroutines()

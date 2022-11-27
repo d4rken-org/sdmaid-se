@@ -29,6 +29,16 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
 
+    <style name="AppThemeNoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeActionBar" parent="AppTheme">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+    </style>
+
     <style name="AppThemeSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">?colorPrimary</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/launch_screen</item>

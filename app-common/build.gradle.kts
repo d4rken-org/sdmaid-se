@@ -48,4 +48,10 @@ dependencies {
     addSerialization()
     addIO()
     addTesting()
+
+    implementation("io.coil-kt:coil:2.0.0-rc02")
+
+    implementation("com.airbnb.android:lottie:3.5.0")
+
+    implementation("com.github.d4rken.rxshell:core:v3.0.0")
 }

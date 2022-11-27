@@ -1,0 +1,16 @@
+<resources>
+    <declare-styleable name="PreferenceView">
+        <attr name="pvIcon" format="reference" />
+        <attr name="pvTitle" format="reference|string" />
+        <attr name="pvDescription" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerViewWrapperLayout">
+        <attr name="rvwEmptyIcon" format="reference" />
+        <attr name="rvwEmptyText" format="reference|string" />
+        <attr name="rvwExplanationIcon" format="reference" />
+        <attr name="rvwExplanationText" format="reference|string" />
+        <attr name="rvwLoading" format="boolean" />
+        <attr name="rvwLoadingUntilFirstChange" format="boolean" />
+    </declare-styleable>
+</resources>

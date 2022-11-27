@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <eu.darken.sdmse.common.ui.BreadCrumbBar
+        android:id="@+id/breadcrumb_bar"
+        style="@style/BreadCrumbBarStyle"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <eu.darken.sdmse.common.ui.RecyclerViewWrapperLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:rvwLoading="true"
+        app:rvwLoadingUntilFirstChange="true"
+        app:layout_constraintBottom_toTopOf="@+id/select_action"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breadcrumb_bar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/files_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </eu.darken.sdmse.common.ui.RecyclerViewWrapperLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_action"
+        style="@style/Widget.MaterialComponents.Button.Highlight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/general_select_path_action"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

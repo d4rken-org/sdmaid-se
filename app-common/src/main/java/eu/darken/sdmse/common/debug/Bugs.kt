@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.debug
 
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -14,6 +15,8 @@ object Bugs {
             log(TAG, WARN) { "Bug tracking not initialized yet." }
         }
     }
+
+    var isDebug = BuildConfigWrap.DEBUG
 
     private val TAG = logTag("Debug", "Bugs")
 }
