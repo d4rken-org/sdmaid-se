@@ -6,20 +6,12 @@ import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.files.core.local.root.ClientModule
-import eu.darken.sdmse.common.pkgs.pkgops.installer.RemoteInstallRequest
 import timber.log.Timber
 import java.io.IOException
 
 class PkgOpsClient @AssistedInject constructor(
     @Assisted private val connection: PkgOpsConnection
 ) : ClientModule {
-
-    fun install(request: RemoteInstallRequest) = try {
-        connection.install(request)
-    } catch (e: Exception) {
-        Timber.tag(TAG).e(e, "install(request=${request.packageName}) failed.")
-        throw fakeIOException(e.getRootCause())
-    }
 
     fun getUserNameForUID(uid: Int): String? = try {
         connection.getUserNameForUID(uid)

@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.doNavigate
 
 
 abstract class Fragment2(@LayoutRes val layoutRes: Int?) : Fragment(layoutRes ?: 0) {
@@ -77,4 +79,5 @@ abstract class Fragment2(@LayoutRes val layoutRes: Int?) : Fragment(layoutRes ?:
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    fun NavDirections.navigate() = doNavigate(this)
 }

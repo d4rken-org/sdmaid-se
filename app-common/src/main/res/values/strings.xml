@@ -5,4 +5,15 @@
     <string name="general_home_action">Return to start</string>
     <string name="general_pick_a_path_action">Pick a path</string>
     <string name="general_empty_list_desc">The list is empty.</string>
+    <string name="general_select_type_label">Select type</string>
+
+    <string name="storage_type_local_label">Local storage</string>
+
+    <string name="general_error_label">Error</string>
+    <string name="general_error_type_mismatch_msg">Type mismatch: Wanted %1$s, but got %2$s.</string>
+    <string name="general_error_cant_access_msg">Can\'t access %s.</string>
+    <string name="general_error_root_unavailable">Root access is unavailable.</string>
+    <string name="general_error_empty_result_msg">The result was empty.</string>
+
+    <string name="general_todo_msg">TODO (Not implemented yet)</string>
 </resources>

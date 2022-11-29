@@ -21,28 +21,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".common.files.ui.picker.PathPickerActivity"
-            android:parentActivityName=".main.ui.MainActivity"
-            android:theme="@style/AppThemeActionBar" />
-
-        <receiver
-            android:name=".common.pkgs.pkgops.installer.InstallerReceiver"
-            android:exported="false" />
-
-        <receiver
-            android:name="eu.darken.sdmse.main.core.receiver.ExampleReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.HEADSET_PLUG" />
-            </intent-filter>
-        </receiver>
-        <service
-            android:name="eu.darken.sdmse.main.core.service.ExampleService"
-            android:exported="false" />
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

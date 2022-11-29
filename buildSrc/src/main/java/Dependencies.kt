@@ -43,7 +43,8 @@ fun BaseExtension.setupKotlinOptions() {
             "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
             "-Xuse-experimental=kotlin.time.ExperimentalTime",
             "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xjvm-default=all"
         )
     }
 }
@@ -95,6 +96,9 @@ fun DependencyHandlerScope.addSerialization() {
 
 fun DependencyHandlerScope.addIO() {
     implementation("com.squareup.okio:okio:3.1.0")
+
+    implementation("com.github.d4rken.rxshell:core:v3.0.0")
+    implementation("com.github.d4rken.rxshell:root:v3.0.0")
 }
 
 fun DependencyHandlerScope.addRetrofit() {
@@ -111,6 +115,9 @@ fun DependencyHandlerScope.addAndroidCore() {
 
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // TODO refactor away
+    implementation("com.jakewharton.timber:timber:+")
 }
 
 fun DependencyHandlerScope.addWorkerManager() {

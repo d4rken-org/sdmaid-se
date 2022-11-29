@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.pkgs
 
 import android.content.pm.PackageInfo
 
-class AppPkg(packageInfo: PackageInfo) : eu.darken.sdmse.common.pkgs.BasePkgInfo(packageInfo) {
+class AppPkg(packageInfo: PackageInfo) : BasePkgInfo(packageInfo) {
 
     override val installLocation: Int = packageInfo.installLocation
 
@@ -16,8 +16,8 @@ class AppPkg(packageInfo: PackageInfo) : eu.darken.sdmse.common.pkgs.BasePkgInfo
             return if (applicationInfo!!.sourceDir.isEmpty()) null else applicationInfo!!.sourceDir
         }
 
-    override val packageType: eu.darken.sdmse.common.pkgs.Pkg.Type =
-        _root_ide_package_.eu.darken.sdmse.common.pkgs.Pkg.Type.NORMAL
+    override val packageType: Pkg.Type =
+        Pkg.Type.NORMAL
 
     @Throws(Exception::class)
     override fun <T> tryField(fieldName: String): T? {

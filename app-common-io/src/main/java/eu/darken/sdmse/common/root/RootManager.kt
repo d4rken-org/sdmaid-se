@@ -2,13 +2,13 @@ package eu.darken.sdmse.common.root
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.GeneralSettings
+import eu.darken.rxshell.root.RootContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.rxshell.root.RootContext
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -19,7 +19,6 @@ import javax.inject.Singleton
 @Singleton
 class RootManager @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val generalSettings: GeneralSettings,
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
@@ -29,27 +28,21 @@ class RootManager @Inject constructor(
     suspend fun isRooted(): Boolean = withContext(dispatcherProvider.IO) {
         log(TAG, VERBOSE) { "isRooted()?" }
 
-        when {
-            generalSettings.isRootDisabled -> {
-                log(TAG, WARN) { "Rootcheck is disabled!" }
-                false
-            }
-            else -> cacheLock.withLock {
-                cachedContext?.let { return@withContext it.isRooted }
+        cacheLock.withLock {
+            cachedContext?.let { return@withContext it.isRooted }
 
-                try {
-                    RootContext.Builder(context).build()
-                        .timeout(15, TimeUnit.SECONDS)
-                        .blockingGet()
-                        .also {
-                            cachedContext = it
-                            log(TAG) { "New RootContext obtained: $it" }
-                        }
-                        .isRooted
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Error while obtaining RootContext: ${e.asLog()}" }
-                    false
-                }
+            try {
+                RootContext.Builder(context).build()
+                    .timeout(15, TimeUnit.SECONDS)
+                    .blockingGet()
+                    .also {
+                        cachedContext = it
+                        log(TAG) { "New RootContext obtained: $it" }
+                    }
+                    .isRooted
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Error while obtaining RootContext: ${e.asLog()}" }
+                false
             }
         }
     }

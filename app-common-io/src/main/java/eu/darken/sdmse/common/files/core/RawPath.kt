@@ -6,14 +6,15 @@ import eu.darken.sdmse.common.TypeMissMatchException
 import kotlinx.parcelize.Parcelize
 import java.io.File
 
-@Parcelize @Keep
+@Parcelize
+@Keep
 @JsonClass(generateAdapter = true)
 data class RawPath(
     override val path: String
-) : eu.darken.sdmse.common.files.core.APath {
+) : APath {
 
-    override var pathType: eu.darken.sdmse.common.files.core.APath.PathType
-        get() = eu.darken.sdmse.common.files.core.APath.PathType.RAW
+    override var pathType: APath.PathType
+        get() = APath.PathType.RAW
         set(value) {
             TypeMissMatchException.check(value, pathType)
         }
@@ -24,7 +25,7 @@ data class RawPath(
     override val segments: List<String>
         get() = throw NotImplementedError()
 
-    override fun child(vararg segments: String): eu.darken.sdmse.common.files.core.APath {
+    override fun child(vararg segments: String): APath {
         throw NotImplementedError()
     }
 

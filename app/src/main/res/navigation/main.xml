@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/dashboardFragment">
+
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="eu.darken.sdmse.dashboard.ui.DashboardFragment"
+        android:name="eu.darken.sdmse.main.ui.dashboard.DashboardFragment"
         tools:layout="@layout/dashboard_fragment">
         <action
             android:id="@+id/action_dashboardFragment_to_settingsContainerFragment"
@@ -17,14 +18,5 @@
         android:id="@+id/settingsContainerFragment"
         android:name="eu.darken.sdmse.main.ui.settings.SettingsFragment"
         tools:layout="@layout/settings_fragment" />
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="eu.darken.sdmse.main.ui.main.MainFragment"
-        tools:layout="@layout/main_fragment">
-        <action
-            android:id="@+id/action_mainFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
 
 </navigation>

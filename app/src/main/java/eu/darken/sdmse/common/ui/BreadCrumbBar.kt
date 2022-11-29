@@ -9,11 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import androidx.core.content.ContextCompat
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.RawPath
+import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.databinding.BrowsingbarBreadcrumbbarViewBinding
 import java.io.File
 
@@ -72,7 +72,7 @@ class BreadCrumbBar<ItemT : APath> @JvmOverloads constructor(
             )
 
             if (crumbs[crumbs.size - 1] == crumb) {
-                name.setTextColor(ContextCompat.getColor(context, R.color.colorSecondary))
+                name.setTextColor(context.getColorForAttr(R.attr.colorSecondary))
             }
 
             item.layoutParams = layoutParams

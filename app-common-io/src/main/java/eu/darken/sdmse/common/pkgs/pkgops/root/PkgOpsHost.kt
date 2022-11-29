@@ -7,8 +7,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.pkgs.pkgops.installer.RemoteInstallRequest
-import eu.darken.sdmse.common.pkgs.pkgops.installer.routine.DefaultInstallRoutine
 import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
 import java.lang.reflect.Method
@@ -19,14 +17,7 @@ class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
     @RootProcessShell private val sharedShell: SharedShell,
     private val libcoreTool: LibcoreTool,
-    private val installRoutineFactory: DefaultInstallRoutine.Factory
 ) : PkgOpsConnection.Stub() {
-    override fun install(request: RemoteInstallRequest): Int = try {
-        installRoutineFactory.create(rootMode = true).install(request)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "install(request=${request.packageName}) failed." }
-        throw wrapPropagating(e)
-    }
 
     override fun getUserNameForUID(uid: Int): String? = try {
         libcoreTool.getNameForUid(uid)

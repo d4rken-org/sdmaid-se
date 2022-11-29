@@ -84,19 +84,19 @@ class PkgOps @Inject constructor(
         }
 
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): $pkgInfo" }
-        pkgInfo?.let { _root_ide_package_.eu.darken.sdmse.common.pkgs.AppPkg(it) }
+        pkgInfo?.let { AppPkg(it) }
     }
 
     suspend fun listPkgs(flags: Int = 0): Collection<Pkg> = ipcFunnel.use {
         log(TAG, VERBOSE) { "listPkgs($flags)..." }
         try {
             packageManager.getInstalledPackages(flags)
-                .map { _root_ide_package_.eu.darken.sdmse.common.pkgs.AppPkg(it) }
+                .map { AppPkg(it) }
                 .toList()
                 .also { log(TAG, VERBOSE) { "listPkgs($flags): size=${it.size}" } }
         } catch (e: Exception) {
             if (e.hasCause(TransactionTooLargeException::class)) {
-                throw RuntimeException("${IPCFunnel.TAG}:listPkgs($flags):TransactionTooLargeException")
+                throw RuntimeException("${TAG}:listPkgs($flags):TransactionTooLargeException")
             }
             throw RuntimeException(e)
         }
@@ -137,7 +137,7 @@ class PkgOps @Inject constructor(
 
     suspend fun viewArchive(path: String, flags: Int = 0): NormalPkg? = ipcFunnel.use {
         packageManager.getPackageArchiveInfo(path, flags)?.let {
-            _root_ide_package_.eu.darken.sdmse.common.pkgs.AppPkg(
+            AppPkg(
                 it
             )
         }

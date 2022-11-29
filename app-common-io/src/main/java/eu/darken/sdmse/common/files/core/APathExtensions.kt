@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files.core
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.local.LocalPath
@@ -9,7 +10,6 @@ import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.files.core.saf.crumbsTo
 import okio.Sink
 import okio.Source
-import timber.log.Timber
 import java.io.File
 import java.io.FileNotFoundException
 import java.util.*
@@ -95,22 +95,18 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
 suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
     if (exists(gateway)) {
         if (gateway.lookup(downCast()).isDirectory) {
-            Timber.v("Directory already exists, not creating: %s", this)
+            log(VERBOSE) { "Directory already exists, not creating: $this" }
             return this
         } else {
-            val ex = IllegalStateException("Exists, but is not a directory: $this")
-            Timber.w(ex)
-            throw ex
+            throw IllegalStateException("Exists, but is not a directory: $this")
         }
     }
     try {
         gateway.createDir(downCast())
-        Timber.v("Directory created: %s", this)
+        log(VERBOSE) { "Directory created: $this" }
         return this
     } catch (e: Exception) {
-        val ex = IllegalStateException("Couldn't create Directory: $this", e)
-        Timber.w(ex)
-        throw ex
+        throw IllegalStateException("Couldn't create Directory: $this", e)
     }
 }
 
@@ -119,9 +115,9 @@ suspend fun <T : APath> T.deleteAll(gateway: APathGateway<T, out APathLookup<T>>
         gateway.listFiles(downCast()).forEach { it.deleteAll(gateway) }
     }
     if (gateway.delete(this)) {
-        Timber.v("File.release(): Deleted %s", this)
+        log(VERBOSE) { "File.release(): Deleted $this" }
     } else if (!exists(gateway)) {
-        Timber.w("File.release(): File didn't exist: %s", this)
+        log(WARN) { "File.release(): File didn't exist: $this" }
     } else {
         throw FileNotFoundException("Failed to delete file: $this")
     }

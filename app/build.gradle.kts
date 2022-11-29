@@ -111,16 +111,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xopt-in=kotlin.ExperimentalStdlibApi",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlinx.coroutines.FlowPreview",
-            "-Xopt-in=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.RequiresOptIn"
-        )
-    }
+    setupKotlinOptions()
 
     testOptions {
         unitTests {
@@ -164,6 +155,8 @@ dependencies {
     addWorkerManager()
 
     addTesting()
+
+    implementation("com.airbnb.android:lottie:3.5.0")
 
     implementation("io.coil-kt:coil:2.0.0-rc02")
 

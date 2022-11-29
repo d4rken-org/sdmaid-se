@@ -6,6 +6,7 @@ import androidx.core.view.isInvisible
 import coil.imageLoader
 import coil.request.Disposable
 import coil.request.ImageRequest
+import eu.darken.sdmse.common.pkgs.Pkg
 
 fun ImageRequest.Builder.loadingView(
     imageView: View,

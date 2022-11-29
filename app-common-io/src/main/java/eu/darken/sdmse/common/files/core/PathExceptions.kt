@@ -1,9 +1,9 @@
 package eu.darken.sdmse.common.files.core
 
 import android.content.Context
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
+import eu.darken.sdmse.common.files.R
 import java.io.File
 import java.io.IOException
 
