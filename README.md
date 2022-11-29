@@ -6,13 +6,9 @@
 
 SD Maid SE is a file management tool for Android. Its core purpose is freeing up space and removing unwanted data.
 
-[SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor
-to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). It's a complete rewrite that is optimized
-for newer Android versions and focuses only
-on [SD Maid's](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) most popular features. More details
-about [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm)
-versus [SD Maid SE](https://github.com/d4rken/sdmaid-se) can be found in
-the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
+[SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm).
+It's a complete rewrite that is optimized for newer Android versions and focuses only on [SD Maid's](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) most popular features.
+More details about [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) versus [SD Maid SE](https://github.com/d4rken/sdmaid-se) can be found in the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
 
 Features include:
 
@@ -30,6 +26,7 @@ Features include:
 | [Google Play Beta](https://play.google.com/apps/testing/eu.darken.sdmse)     | ?                                                                                                                                                                                                                                                          |
 | [Github Releases](https://github.com/d4rken-org/sdmse/releases)              | [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/sdmse?include_prereleases&label=GitHub)](https://github.com/d4rken-org/sdmse/releases/latest)                                                 |
 | [F-Droid (IzzyOnDroid)](https://apt.izzysoft.de/packages/eu.darken.sdmse/)   | [![](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/eu.darken.sdmse)](https://apt.izzysoft.de/packages/eu.darken.sdmse/)                                                                                                 |
+
 
 ## Support the project
 
