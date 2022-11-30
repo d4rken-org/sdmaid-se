@@ -17,7 +17,7 @@ import java.io.File
 data class SAFPath(
     internal val treeRoot: Uri,
     internal val crumbs: List<String>
-) : eu.darken.sdmse.common.files.core.APath {
+) : APath {
 
     init {
         require(SAFGateway.isTreeUri(treeRoot)) { "SAFFile URI's must be a tree uri: $treeRoot" }
@@ -33,8 +33,8 @@ data class SAFPath(
         return super.userReadablePath(context)
     }
 
-    override var pathType: eu.darken.sdmse.common.files.core.APath.PathType
-        get() = eu.darken.sdmse.common.files.core.APath.PathType.SAF
+    override var pathType: APath.PathType
+        get() = APath.PathType.SAF
         set(value) {
             TypeMissMatchException.check(value, pathType)
         }

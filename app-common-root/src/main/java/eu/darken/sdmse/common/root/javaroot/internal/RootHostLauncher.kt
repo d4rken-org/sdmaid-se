@@ -29,7 +29,8 @@ class RootHostLauncher @Inject constructor(
     fun <Binder : Any, Host : RootHost> createConnection(
         binderClass: KClass<Binder>,
         rootHostClass: KClass<Host>,
-        enableDebug: Boolean
+        enableDebug: Boolean = false,
+        useMountMaster: Boolean = false,
     ): Flow<Binder> = callbackFlow {
         log(TAG) { "Initiating connection to host($rootHostClass) via binder($binderClass)" }
 
@@ -72,6 +73,10 @@ class RootHostLauncher @Inject constructor(
                 isDebug = enableDebug,
                 waitForDebugger = false
             )
+
+            if (useMountMaster) {
+                Cmd.builder("su --mount-master").submit(rootSession).observeOn(Schedulers.io()).blockingGet()
+            }
 
             val cmd = cmdBuilder.build(rootHostOptions)
             log { "Launching root host: $rootHostClass" }

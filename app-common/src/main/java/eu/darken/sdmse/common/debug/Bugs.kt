@@ -16,7 +16,7 @@ object Bugs {
         }
     }
 
-    var isDebug = BuildConfigWrap.DEBUG
+    var isDebug = BuildConfigWrap.DEBUG || BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV
 
     private val TAG = logTag("Debug", "Bugs")
 }

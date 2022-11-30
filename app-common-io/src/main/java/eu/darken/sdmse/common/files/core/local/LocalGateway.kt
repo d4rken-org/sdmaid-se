@@ -1,5 +1,7 @@
 package eu.darken.sdmse.common.files.core.local
 
+import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -15,8 +17,7 @@ import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.SharedShell
-import eu.darken.sdmse.common.user.UserHandleBB
-import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
@@ -34,12 +35,11 @@ import javax.inject.Singleton
 @Singleton
 class LocalGateway @Inject constructor(
     private val javaRootClient: JavaRootClient,
-    private val deviceEnvironment: DeviceEnvironment,
+    private val storageEnvironment: StorageEnvironment,
     private val ipcFunnel: IPCFunnel,
     private val libcoreTool: LibcoreTool,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val environment: DeviceEnvironment
 ) : APathGateway<LocalPath, LocalPathLookup> {
 
     // Represents the resource that keeps the gateway resources alive
@@ -55,7 +55,7 @@ class LocalGateway @Inject constructor(
         return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
-    private suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
+    suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
         if (rootCheckValue != 0) return@withLock rootCheckValue == 1
 
         rootCheckValue = try {
@@ -158,7 +158,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     rootOps { it.lookUp(path) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: Exception) {
             throw ReadException(path, cause = e).also {
@@ -188,7 +188,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     rootOps { it.listFiles(path) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             throw ReadException(path, cause = e).also {
@@ -222,7 +222,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     rootOps { it.lookupFiles(path) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
@@ -241,7 +241,7 @@ class LocalGateway @Inject constructor(
                 else -> when {
                     javaFile.exists() -> true
                     javaFile.parentFile?.exists() == true -> true
-                    else -> environment.externalDirs.any { javaFile.path.startsWith(it.path) }
+                    else -> storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
                 }
             }
 
@@ -252,7 +252,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canAccessParent) -> {
                     rootOps { it.exists(path) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "exists(path=$path, mode=$mode) failed:\n${e.asLog()}" }
@@ -311,8 +311,8 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    fun isStorageRoot(path: LocalPath, userHandle: UserHandleBB): Boolean {
-        return deviceEnvironment.getPublicStorage(userHandle).any { it.localPath == path }
+    fun isStorageRoot(path: LocalPath, userHandle: UserHandle2): Boolean {
+        return storageEnvironment.getPublicStorage(userHandle).any { it.localPath == path }
     }
 
     override suspend fun read(path: LocalPath): Source = read(path, Mode.AUTO)
@@ -335,7 +335,7 @@ class LocalGateway @Inject constructor(
                         it.readFile(path).callbacks { resource.close() }
                     }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("read(path=%s, mode=%s) failed.", path, mode)
@@ -364,7 +364,7 @@ class LocalGateway @Inject constructor(
                         it.writeFile(path).callbacks { resource.close() }
                     }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("write(path=%s, mode=%s) failed.", path, mode)
@@ -390,7 +390,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps { it.delete(path) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("delete(path=%s, mode=%s) failed.", path, mode)
@@ -417,7 +417,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("createSymlink(linkPath=%s, targetPath=%s, mode=%s) failed.", linkPath, targetPath, mode)
@@ -446,7 +446,7 @@ class LocalGateway @Inject constructor(
                         it.setModifiedAt(path, modifiedAt)
                     }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("setModifiedAt(path=%s, modifiedAt=%s, mode=%s) failed.", path, modifiedAt, mode)
@@ -471,7 +471,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps { it.setPermissions(path, permissions) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("setPermissions(path=%s, permissions=%s, mode=%s) failed.", path, permissions, mode)
@@ -499,7 +499,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps { it.setOwnership(path, ownership) }
                 }
-                else -> throw IOException("No matching mode.")
+                else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
             Timber.tag(TAG).w("setOwnership(path=%s, ownership=%s, mode=%s) failed.", path, ownership, mode)

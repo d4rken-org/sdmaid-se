@@ -2,12 +2,14 @@ package eu.darken.sdmse.common.dagger
 
 import android.app.Application
 import android.app.NotificationManager
+import android.content.ContentResolver
 import android.content.Context
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
 import android.os.BatteryManager
 import android.os.PowerManager
+import android.os.UserManager
 import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
@@ -55,5 +57,14 @@ class AndroidModule {
 
     @Provides
     @Singleton
-    fun packagemanager(@ApplicationContext context: Context): PackageManager = context.packageManager
+    fun packageManager(@ApplicationContext context: Context): PackageManager = context.packageManager
+
+    @Provides
+    @Singleton
+    fun userManager(@ApplicationContext context: Context): UserManager =
+        context.getSystemService(Context.USER_SERVICE) as UserManager
+
+    @Provides
+    @Singleton
+    fun contentResolver(@ApplicationContext context: Context): ContentResolver = context.contentResolver
 }

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Process
 import android.os.TransactionTooLargeException
+import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -13,7 +14,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.hasCause
-import eu.darken.sdmse.common.files.core.DeviceEnvironment
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.AppPkg
@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.user.UserHandleBB
+import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import timber.log.Timber
@@ -35,7 +35,7 @@ import javax.inject.Singleton
 class PkgOps @Inject constructor(
     private val javaRootClient: JavaRootClient,
     private val ipcFunnel: IPCFunnel,
-    private val deviceEnvironment: DeviceEnvironment,
+    private val storageEnvironment: StorageEnvironment,
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
 ) : HasSharedResource<Any> {
@@ -157,14 +157,14 @@ class PkgOps @Inject constructor(
         }
     }
 
-    fun getPathInfos(packageName: String, userHandle: UserHandleBB): PkgPathInfo {
+    fun getPathInfos(packageName: String, userHandle: UserHandle2): PkgPathInfo {
         val pubPrimary = LocalPath.build(
-            deviceEnvironment.getPublicPrimaryStorage(userHandle).localPath,
+            storageEnvironment.getPublicPrimaryStorage(userHandle).localPath,
             "Android",
             "data",
             packageName
         )
-        val pubSecondary = deviceEnvironment.getPublicSecondaryStorage(userHandle)
+        val pubSecondary = storageEnvironment.getPublicSecondaryStorage(userHandle)
             .map { LocalPath.build(it.localPath, "Android", "data", packageName) }
         return PkgPathInfo(packageName, pubPrimary, pubSecondary)
     }

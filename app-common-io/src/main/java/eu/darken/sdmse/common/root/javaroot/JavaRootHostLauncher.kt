@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.root.javaroot
 
+import eu.darken.sdmse.common.MountMaster
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -15,13 +16,17 @@ class JavaRootHostLauncher @Inject constructor(
     private val rootHostLauncher: RootHostLauncher,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
+    private val mountMaster: MountMaster,
 ) {
+
+    var useMountMaster: Boolean = false
 
     fun create(): Flow<JavaRootClient.Connection> = rootHostLauncher
         .createConnection(
             binderClass = JavaRootConnection::class,
             rootHostClass = JavaRootHost::class,
-            enableDebug = Bugs.isDebug
+            enableDebug = Bugs.isDebug,
+            useMountMaster = useMountMaster,
         )
         .onStart { log(TAG) { "Initiating connection to host." } }
         .map { ipc ->

@@ -16,20 +16,18 @@ data class SAFPathLookup(
     override val target: SAFPath?
 ) : APathLookup<SAFPath> {
 
-    override fun child(vararg segments: String): SAFPath {
-        return lookedUp.child(*segments)
-    }
+    override fun child(vararg segments: String): SAFPath = lookedUp.child(*segments)
 
-    @IgnoredOnParcel
-    override val path: String = lookedUp.path
+    @IgnoredOnParcel override val path: String
+        get() = lookedUp.path
 
-    @IgnoredOnParcel
-    override val name: String = lookedUp.name
+    @IgnoredOnParcel override val name: String
+        get() = lookedUp.name
 
-    @IgnoredOnParcel
-    override val segments: List<String> = lookedUp.segments
+    @IgnoredOnParcel override val segments: List<String>
+        get() = lookedUp.segments
 
-    @IgnoredOnParcel
-    override val pathType: eu.darken.sdmse.common.files.core.APath.PathType = lookedUp.pathType
+    @IgnoredOnParcel override val pathType: APath.PathType
+        get() = lookedUp.pathType
 
 }

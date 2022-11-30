@@ -11,14 +11,14 @@ import eu.darken.sdmse.common.serialization.MyPolymorphicJsonAdapterFactory
 interface APath : Parcelable {
     val path: String
     val name: String
-    val pathType: eu.darken.sdmse.common.files.core.APath.PathType
+    val pathType: PathType
 
     // TODO use AString
     fun userReadablePath(context: Context) = path
     fun userReadableName(context: Context) = name
 
     val segments: List<String>
-    fun child(vararg segments: String): eu.darken.sdmse.common.files.core.APath
+    fun child(vararg segments: String): APath
 
     @Keep
     enum class PathType {
@@ -27,10 +27,10 @@ interface APath : Parcelable {
 
     companion object {
         val MOSHI_FACTORY: MyPolymorphicJsonAdapterFactory<APath> =
-            MyPolymorphicJsonAdapterFactory.of(eu.darken.sdmse.common.files.core.APath::class.java, "pathType")
-                .withSubtype(eu.darken.sdmse.common.files.core.RawPath::class.java, eu.darken.sdmse.common.files.core.APath.PathType.RAW.name)
-                .withSubtype(LocalPath::class.java, eu.darken.sdmse.common.files.core.APath.PathType.LOCAL.name)
-                .withSubtype(SAFPath::class.java, eu.darken.sdmse.common.files.core.APath.PathType.SAF.name)
+            MyPolymorphicJsonAdapterFactory.of(APath::class.java, "pathType")
+                .withSubtype(RawPath::class.java, PathType.RAW.name)
+                .withSubtype(LocalPath::class.java, PathType.LOCAL.name)
+                .withSubtype(SAFPath::class.java, PathType.SAF.name)
                 .skipLabelSerialization()
     }
 

@@ -5,7 +5,7 @@ import okio.Sink
 import okio.Source
 import java.util.*
 
-interface APathGateway<P : eu.darken.sdmse.common.files.core.APath, PLU : APathLookup<P>> : HasSharedResource<Any> {
+interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any> {
 
     suspend fun createDir(path: P): Boolean
 

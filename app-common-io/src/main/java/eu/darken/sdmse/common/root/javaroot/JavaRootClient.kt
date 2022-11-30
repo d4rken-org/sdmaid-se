@@ -24,9 +24,7 @@ class JavaRootClient @Inject constructor(
         val ipc: JavaRootConnection,
         val clientModules: List<ClientModule>
     ) {
-        inline fun <reified T> getModule(): T {
-            return clientModules.single { it is T } as T
-        }
+        inline fun <reified T> getModule(): T = clientModules.single { it is T } as T
     }
 
     suspend fun <T> runSessionAction(action: suspend (Connection) -> T): T = get().use {

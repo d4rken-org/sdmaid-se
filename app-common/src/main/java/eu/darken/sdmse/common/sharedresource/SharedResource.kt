@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.error.getStackTraceString
 import eu.darken.sdmse.common.error.tryUnwrap
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
@@ -64,7 +65,7 @@ open class SharedResource<T : Any> constructor(
         .onCompletion {
             lock.withLock {
                 isAlive = false
-                log(tag) { "Releasing shared resource..." }
+                log(tag, VERBOSE) { "Releasing shared resource..." }
 
                 // Cancel all borrowed resources
                 childScope.coroutineContext.cancelChildren()
@@ -99,14 +100,19 @@ open class SharedResource<T : Any> constructor(
 
     suspend fun get(): Resource<T> {
         if (Bugs.isDebug && !isAlive) {
-//            log(tag, VERBOSE) { "get() Reviving SharedResource: ${Throwable().getStackTraceString()}" }
-            log(tag, VERBOSE) { "get() Reviving SharedResource" }
+            log(tag, VERBOSE) { "get() Reviving SharedResource: $tag\n${Throwable().getStackTraceString()}" }
+//            log(tag, VERBOSE) { "get() Reviving SharedResource" }
         }
 
         val activeLease = lock.withLock {
             val job = resourceHolder.launchIn(childScope).apply {
                 invokeOnCompletion {
-                    log(tag, VERBOSE) { "get(): Resource lease completed (activeLeases=${activeLeases.size})" }
+                    log(tag, VERBOSE) {
+                        "get(): Resource lease completed (leases=${activeLeases.size}, parents=${parents.size})"
+                    }
+                    if (Bugs.isDebug && parents.isNotEmpty()) {
+                        log(tag, VERBOSE) { "parents=${parents.values.joinToString("\n")}" }
+                    }
                 }
             }
 
@@ -214,7 +220,8 @@ open class SharedResource<T : Any> constructor(
      */
     suspend fun addParent(parent: SharedResource<*>): SharedResource<T> {
         if (!parent.isAlive) {
-            log(tag, WARN) { "Parent(${parent.tag}) is closed, not adding keep alive." }
+            log(tag, WARN) { "Parent(${parent.tag}) is closed, not adding keep alive: ${Throwable().asLog()}" }
+//            log(tag, WARN) { "Parent(${parent.tag}) is closed, not adding keep alive." }
             return this
         }
 
