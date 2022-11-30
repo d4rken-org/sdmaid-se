@@ -1,8 +1,9 @@
 package eu.darken.sdmse.common.files.core
 
-import android.content.Context
 import android.os.Parcelable
 import androidx.annotation.Keep
+import eu.darken.sdmse.common.castring.CaString
+import eu.darken.sdmse.common.castring.toCaString
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.serialization.MyPolymorphicJsonAdapterFactory
@@ -13,9 +14,10 @@ interface APath : Parcelable {
     val name: String
     val pathType: PathType
 
-    // TODO use AString
-    fun userReadablePath(context: Context) = path
-    fun userReadableName(context: Context) = name
+    val userReadablePath: CaString
+        get() = path.toCaString()
+    val userReadableName: CaString
+        get() = name.toCaString()
 
     val segments: List<String>
     fun child(vararg segments: String): APath
