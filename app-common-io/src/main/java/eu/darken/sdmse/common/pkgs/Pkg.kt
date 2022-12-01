@@ -1,21 +1,46 @@
 package eu.darken.sdmse.common.pkgs
 
-import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.os.Parcelable
+import androidx.core.content.ContextCompat
+import kotlinx.parcelize.Parcelize
 
 interface Pkg {
 
+    val id: Id
+
     val packageName: String
+        get() = id.pkgName
 
-    val versionCode: Long
+    fun getLabel(context: Context): String? {
+        context.packageManager.getLabel2(id)?.let { return it }
 
-    val packageType: Type
+        AKnownPkg.values
+            .singleOrNull { it.id == id }
+            ?.labelRes
+            ?.let { return context.getString(it) }
 
-  suspend fun getLabel(pkgOps: PkgOps): String?
-
-    @Throws(Exception::class)
-    fun <T> tryField(fieldName: String): T?
-
-    enum class Type {
-        NORMAL, INSTANT
+        return null
     }
+
+    fun getIcon(context: Context): Drawable? {
+        context.packageManager.getIcon2(id)?.let { return it }
+
+        AKnownPkg.values
+            .singleOrNull { it.id == id }
+            ?.iconRes
+            ?.let { ContextCompat.getDrawable(context, it) }
+            ?.let { return it }
+
+        return null
+    }
+
+    @Parcelize
+    data class Id(
+        val pkgName: String,
+    ) : Parcelable {
+        override fun toString(): String = pkgName
+    }
+
 }

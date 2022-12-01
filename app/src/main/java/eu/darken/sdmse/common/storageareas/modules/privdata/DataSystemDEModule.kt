@@ -41,7 +41,7 @@ class DataSystemDEModule @Inject constructor(
             .filter { it.type == StorageArea.Type.DATA && it.hasFlags(StorageArea.Flag.PRIMARY) }
             .map { area ->
                 userManager2.allUsers.mapNotNull { userHandle ->
-                    val path = LocalPath.build(area.path as LocalPath, "system_de", userHandle.userId.toString())
+                    val path = LocalPath.build(area.path as LocalPath, "system_de", userHandle.handleId.toString())
 
                     if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
                         log(TAG, WARN) { "Does not exist: $path" }

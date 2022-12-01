@@ -1,11 +1,11 @@
 package eu.darken.sdmse.common.files.core.saf
 
-import android.content.Context
 import android.net.Uri
 import androidx.annotation.Keep
 import androidx.documentfile.provider.DocumentFile
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
+import eu.darken.sdmse.common.castring.CaString
 import eu.darken.sdmse.common.files.core.APath
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
@@ -23,15 +23,11 @@ data class SAFPath(
         require(SAFGateway.isTreeUri(treeRoot)) { "SAFFile URI's must be a tree uri: $treeRoot" }
     }
 
-    override fun userReadableName(context: Context): String {
-        // TODO
-        return super.userReadableName(context)
-    }
+    override val userReadableName: CaString
+        get() = super.userReadableName
 
-    override fun userReadablePath(context: Context): String {
-        // TODO
-        return super.userReadablePath(context)
-    }
+    override val userReadablePath: CaString
+        get() = super.userReadablePath
 
     override var pathType: APath.PathType
         get() = APath.PathType.SAF

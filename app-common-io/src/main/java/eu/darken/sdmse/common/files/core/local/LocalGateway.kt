@@ -46,14 +46,13 @@ class LocalGateway @Inject constructor(
     // Internal resources should add themselfes as child to this
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    private var rootCheckValue = 0
-    private val rootCheckLock = Mutex()
-
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
         javaRootClient.addParent(this)
-
         return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
+
+    private var rootCheckValue = 0
+    private val rootCheckLock = Mutex()
 
     suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
         if (rootCheckValue != 0) return@withLock rootCheckValue == 1

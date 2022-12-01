@@ -25,6 +25,6 @@ open class App : Application() {
     }
 
     companion object {
-        internal val TAG = logTag("SDMSE")
+        internal val TAG = logTag("App")
     }
 }

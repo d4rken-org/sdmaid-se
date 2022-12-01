@@ -7,10 +7,10 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.storageareas.StorageAreaManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -19,6 +19,7 @@ class DashboardFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: StorageAreaManager,
+    private val pkgOps: PkgOps,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = flow {
@@ -27,7 +28,7 @@ class DashboardFragmentVM @Inject constructor(
             DebugCardVH.Item(
                 onCheck = {
                     launch {
-                        areaManager.areas.first()
+                        pkgOps.queryAllPkgs()
                     }
                 }
             ).run { items.add(this) }

@@ -9,11 +9,36 @@
 
     <string name="storage_type_local_label">Local storage</string>
 
-    <string name="general_error_label">Error</string>
     <string name="general_error_type_mismatch_msg">Type mismatch: Wanted %1$s, but got %2$s.</string>
     <string name="general_error_cant_access_msg">Can\'t access %s.</string>
     <string name="general_error_root_unavailable">Root access is unavailable.</string>
     <string name="general_error_empty_result_msg">The result was empty.</string>
 
     <string name="general_todo_msg">TODO (Not implemented yet)</string>
+
+    <string name="general_share_action">Share</string>
+    <string name="general_done_action">Done</string>
+    <string name="general_copy_action">Copy</string>
+    <string name="general_remove_action">Remove</string>
+    <string name="general_wipe_action">Wipe</string>
+    <string name="general_cancel_action">Cancel</string>
+    <string name="general_thanks_action">Thanks</string>
+    <string name="general_gotit_action">Got it</string>
+    <string name="general_create_account_action">Create account</string>
+    <string name="general_link_existing_action">Link to existing account</string>
+    <string name="general_na_label">N/A</string>
+    <string name="general_empty_label">Empty</string>
+    <string name="general_dismiss_action">Dismiss</string>
+    <string name="general_maybe_later_action">Maybe later</string>
+    <string name="general_manage_action">Manage</string>
+    <string name="general_sync_action">Synchronize</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_select_server_label">Select server</string>
+    <string name="general_quota_label">Quota</string>
+    <string name="general_tap_hint_msg">Tap for more options</string>
+    <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_donate_action">Donate</string>
+    <string name="general_check_action">Check</string>
+    <string name="general_internal_not_available_msg">Internet connection unavailable</string>
+    <string name="general_refresh_action">Refresh</string>
 </resources>

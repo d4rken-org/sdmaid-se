@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.dagger
+package eu.darken.sdmse.common
 
 import android.app.Application
 import android.app.NotificationManager
@@ -10,7 +10,6 @@ import android.net.wifi.WifiManager
 import android.os.BatteryManager
 import android.os.PowerManager
 import android.os.UserManager
-import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,10 +49,6 @@ class AndroidModule {
     @Singleton
     fun wifiManager(context: Context): WifiManager =
         context.getSystemService(Context.WIFI_SERVICE) as WifiManager
-
-    @Provides
-    @Singleton
-    fun workManager(context: Context): WorkManager = WorkManager.getInstance(context)
 
     @Provides
     @Singleton

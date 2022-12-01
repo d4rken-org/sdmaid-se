@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest>
 
-    <application>
-        <activity
-            android:name=".common.files.ui.picker.PathPickerActivity"
-            android:parentActivityName=".main.ui.MainActivity"
-            android:theme="@style/AppThemeActionBar" />
-    </application>
 </manifest>

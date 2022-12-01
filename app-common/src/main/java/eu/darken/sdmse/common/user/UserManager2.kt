@@ -20,15 +20,15 @@ class UserManager2 @Inject constructor(
 ) {
 
     val currentUser: UserHandle2
-        get() = if (!hasMultiUserSupport) UserHandle2(userId = 0) else Process.myUserHandle().toUserHandle2()
+        get() = if (!hasMultiUserSupport) UserHandle2(handleId = 0) else Process.myUserHandle().toUserHandle2()
 
     val systemUser: UserHandle2
-        get() = UserHandle2(userId = -1)
+        get() = UserHandle2(handleId = -1)
 
     val allUsers: List<UserHandle2>
         get() = userManager.userProfiles.map { it.toUserHandle2() }
 
-    fun isAdminUser(userHandle: UserHandle2): Boolean = !hasMultiUserSupport || userHandle.userId == 0
+    fun isAdminUser(userHandle: UserHandle2): Boolean = !hasMultiUserSupport || userHandle.handleId == 0
 
     val hasMultiUserSupport: Boolean by lazy {
         try {
@@ -51,10 +51,10 @@ class UserManager2 @Inject constructor(
         if (id == null) id = userManager.getSerialNumberForUser(this).toInt()
 
         if (id == -1) id = this.hashCode()
-        return UserHandle2(userId = id)
+        return UserHandle2(handleId = id)
     }
 
-    suspend fun getHandleForId(rawId: Int) = UserHandle2(userId = rawId)
+    suspend fun getHandleForId(rawId: Int) = UserHandle2(handleId = rawId)
 
     companion object {
         private val TAG = logTag("UserManager2")

@@ -9,7 +9,7 @@ plugins {
 apply(plugin = "dagger.hilt.android.plugin")
 
 android {
-    namespace = "${ProjectConfig.packageName}.common.files"
+    namespace = "${ProjectConfig.packageName}.common.io"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {

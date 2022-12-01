@@ -74,7 +74,7 @@ class PrivateDataModule @Inject constructor(
                 userManager2.allUsers.map { user ->
                     StorageArea(
                         type = StorageArea.Type.PRIVATE_DATA,
-                        path = LocalPath.build(mirrorStorage, folder.name, "null", "${user.userId}"),
+                        path = LocalPath.build(mirrorStorage, folder.name, "null", "${user.handleId}"),
                         userHandle = user,
                         flags = setOf(StorageArea.Flag.PRIMARY),
                     )

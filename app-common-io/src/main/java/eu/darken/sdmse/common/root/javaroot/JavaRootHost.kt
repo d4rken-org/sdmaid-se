@@ -76,7 +76,6 @@ class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, Ro
     companion object {
         internal val TAG = logTag("Root", "Java", "Host")
 
-        @SuppressLint("LogNotTimber")
         @JvmStatic
         fun main(args: Array<String>) {
             Log.v(TAG, "main(args=$args)")

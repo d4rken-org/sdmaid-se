@@ -2,13 +2,17 @@ package eu.darken.sdmse.common.pkgs.pkgops.root
 
 import android.app.ActivityManager
 import android.content.Context
+import android.content.pm.PackageInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
+import eu.darken.sdmse.common.user.UserHandle2
 import java.lang.reflect.Method
 import javax.inject.Inject
 
@@ -41,6 +45,17 @@ class PkgOpsHost @Inject constructor(
         true
     } catch (e: Exception) {
         log(TAG, ERROR) { "forceStop(packageName=$packageName) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun getInstalledPackagesAsUser(flags: Int, handleId: Int): List<PackageInfo> = try {
+        log(TAG, VERBOSE) { "getInstalledPackagesAsUser($flags, $handleId)..." }
+        val packageManager = context.packageManager
+        packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+            log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, handleId=$handleId) failed." }
         throw wrapPropagating(e)
     }
 

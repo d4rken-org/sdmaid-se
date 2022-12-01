@@ -2,42 +2,44 @@ package eu.darken.sdmse.common.pkgs.pkgops
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.*
 import android.graphics.drawable.Drawable
 import android.os.Process
-import android.os.TransactionTooLargeException
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.error.hasCause
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.pkgs.AppPkg
-import eu.darken.sdmse.common.pkgs.NormalPkg
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgPathInfo
+import eu.darken.sdmse.common.pkgs.container.ApkArchive
+import eu.darken.sdmse.common.pkgs.container.NormalPkg
+import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
+import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.plus
+import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class PkgOps @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
+    private val dispatcherProvider: DispatcherProvider,
     private val javaRootClient: JavaRootClient,
     private val ipcFunnel: IPCFunnel,
     private val storageEnvironment: StorageEnvironment,
-    @AppScope private val appScope: CoroutineScope,
-    dispatcherProvider: DispatcherProvider,
+    private val userManager: UserManager2,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(
@@ -50,6 +52,24 @@ class PkgOps @Inject constructor(
         return javaRootClient.runModuleAction(PkgOpsClient::class.java) {
             return@runModuleAction action(it)
         }
+    }
+
+    private var rootCheckValue = 0
+    private val rootCheckLock = Mutex()
+
+    suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
+        if (rootCheckValue != 0) return@withLock rootCheckValue == 1
+
+        rootCheckValue = try {
+            javaRootClient.runSessionAction { it.ipc.checkBase() }
+            log(TAG, INFO) { "Root is available." }
+            1
+        } catch (e: RootUnavailableException) {
+            log(TAG, INFO) { "Root is NOT available." }
+            -1
+        }
+
+        return@withLock rootCheckValue == 1
     }
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
@@ -74,41 +94,78 @@ class PkgOps @Inject constructor(
         it.forceStop(packageName)
     }
 
-    suspend fun queryPkg(pkgName: String, flags: Int = 0): Pkg? = ipcFunnel.use {
+
+    suspend fun queryPkg(
+        pkgName: String,
+        flags: Int = MATCH_UNINSTALLED_PACKAGES,
+        userHandle: UserHandle2 = userManager.currentUser
+    ): Pkg? = ipcFunnel.use {
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags)..." }
+
         val pkgInfo: PackageInfo? = try {
             packageManager.getPackageInfo(pkgName, flags)
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (e: NameNotFoundException) {
             log(TAG, VERBOSE) { "Pkg was not found, trying list-based lookup" }
             packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName }
         }
 
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): $pkgInfo" }
-        pkgInfo?.let { AppPkg(it) }
+
+        pkgInfo?.let {
+            NormalPkg(
+                packageInfo = it,
+                userHandles = setOf(userHandle),
+                installerInfo = it.getInstallerInfo(packageManager)
+            )
+        }
     }
 
-    suspend fun listPkgs(flags: Int = 0): Collection<Pkg> = ipcFunnel.use {
-        log(TAG, VERBOSE) { "listPkgs($flags)..." }
-        try {
-            packageManager.getInstalledPackages(flags)
-                .map { AppPkg(it) }
-                .toList()
-                .also { log(TAG, VERBOSE) { "listPkgs($flags): size=${it.size}" } }
-        } catch (e: Exception) {
-            if (e.hasCause(TransactionTooLargeException::class)) {
-                throw RuntimeException("${TAG}:listPkgs($flags):TransactionTooLargeException")
+    suspend fun queryAllPkgs(): Collection<Pkg> {
+        log(TAG, VERBOSE) { "queryAllPkgs()..." }
+
+        @Suppress("DEPRECATION")
+        val resultBase = ipcFunnel.use {
+            val matchAll = packageManager.getInstalledPackages(MATCH_ALL)
+            val matchUninstalled = packageManager.getInstalledPackages(MATCH_UNINSTALLED_PACKAGES)
+            (matchAll + matchUninstalled).distinctBy { it.packageName }.map {
+                NormalPkg(
+                    packageInfo = it,
+                    userHandles = setOf(userManager.currentUser),
+                    installerInfo = it.getInstallerInfo(packageManager)
+                )
             }
-            throw RuntimeException(e)
         }
+
+        val result = if (hasRoot()) {
+            val otherUsers = userManager.allUsers - userManager.currentUser
+            val otherUserPkgs: List<Pair<PackageInfo, UserHandle2>> = otherUsers.map { userHandle ->
+                rootOps { it.getInstalledPackagesAsUser(0, userHandle) }.map { it to userHandle }
+            }.flatten()
+            resultBase.map { basePkg ->
+                val twins = otherUserPkgs
+                    .filter { it.first.packageName == basePkg.packageName }
+                    .map { it.second }
+                basePkg.copy(
+                    userHandles = basePkg.userHandles + twins
+                )
+            }
+        } else {
+            resultBase
+        }
+
+        log(TAG, VERBOSE) { "queryAllPkgs(): size=${result.size}" }
+        require(result.isEmpty() || result.any { it.packageName == BuildConfigWrap.APPLICATION_ID })
+
+        return result
     }
 
     suspend fun queryAppInfos(
         pkg: String,
-        flags: Int = PackageManager.GET_UNINSTALLED_PACKAGES
+        flags: Int = GET_UNINSTALLED_PACKAGES
     ): ApplicationInfo? = ipcFunnel.use {
         try {
             packageManager.getApplicationInfo(pkg, flags)
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (e: NameNotFoundException) {
             log(TAG, WARN) { "queryAppInfos($pkg=pkg,flags=$flags) packageName not found." }
             null
         }
@@ -117,10 +174,10 @@ class PkgOps @Inject constructor(
     suspend fun getLabel(packageName: String): String? = ipcFunnel.use {
         try {
             packageManager
-                .getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES)
+                .getApplicationInfo(packageName, GET_UNINSTALLED_PACKAGES)
                 .loadLabel(packageManager)
                 .toString()
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (e: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(packageName=$packageName) packageName not found." }
             null
         }
@@ -129,22 +186,23 @@ class PkgOps @Inject constructor(
     suspend fun getLabel(applicationInfo: ApplicationInfo): String? = ipcFunnel.use {
         try {
             applicationInfo.loadLabel(packageManager).toString()
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (e: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(applicationInfo=$applicationInfo) packageName not found." }
             null
         }
     }
 
-    suspend fun viewArchive(path: String, flags: Int = 0): NormalPkg? = ipcFunnel.use {
-        packageManager.getPackageArchiveInfo(path, flags)?.let {
-            AppPkg(
-                it
+    suspend fun viewArchive(path: LocalPath, flags: Int = 0): ApkArchive? = ipcFunnel.use {
+        packageManager.getPackageArchiveInfo(path.path, flags)?.let {
+            ApkArchive(
+                id = Pkg.Id(it.packageName),
+                packageInfo = it,
             )
         }
     }
 
     suspend fun getIcon(pkg: String): Drawable? {
-        val appInfo = queryAppInfos(pkg, PackageManager.GET_UNINSTALLED_PACKAGES)
+        val appInfo = queryAppInfos(pkg, GET_UNINSTALLED_PACKAGES)
         return appInfo?.let { getIcon(it) }
     }
 
@@ -156,19 +214,6 @@ class PkgOps @Inject constructor(
             null
         }
     }
-
-    fun getPathInfos(packageName: String, userHandle: UserHandle2): PkgPathInfo {
-        val pubPrimary = LocalPath.build(
-            storageEnvironment.getPublicPrimaryStorage(userHandle).localPath,
-            "Android",
-            "data",
-            packageName
-        )
-        val pubSecondary = storageEnvironment.getPublicSecondaryStorage(userHandle)
-            .map { LocalPath.build(it.localPath, "Android", "data", packageName) }
-        return PkgPathInfo(packageName, pubPrimary, pubSecondary)
-    }
-
     companion object {
         val TAG = logTag("PkgOps")
     }

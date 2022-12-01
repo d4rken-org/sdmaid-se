@@ -9,6 +9,7 @@ import android.util.Log
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.parcel.unmarshall
@@ -55,6 +56,8 @@ abstract class RootHost(
 
         if (options.isDebug) {
             Logging.install(LogCatLogger())
+            Log.i(tag, "Debug logger installed")
+            log(tag, INFO) { "Debug logger installed" }
 
             setAppName("$ourPkgName:rootHost")
 
