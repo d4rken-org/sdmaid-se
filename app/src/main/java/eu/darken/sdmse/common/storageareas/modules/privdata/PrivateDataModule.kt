@@ -130,7 +130,7 @@ class PrivateDataModule @Inject constructor(
             .run { resultAreas.addAll(this) }
 
         try {
-            val path = LocalPath.build("/dbdata", "databases")
+            val path = LocalPath.build("/dbdata", "clutter")
 
             if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
                 StorageArea(

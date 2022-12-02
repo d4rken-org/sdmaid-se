@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkArchive
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
@@ -120,8 +121,8 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun queryAllPkgs(): Collection<Pkg> {
-        log(TAG, VERBOSE) { "queryAllPkgs()..." }
+    suspend fun getInstalledPackages(): Collection<Installed> {
+        log(TAG, VERBOSE) { "getInstalledPackages()..." }
 
         @Suppress("DEPRECATION")
         val resultBase = ipcFunnel.use {
@@ -153,7 +154,7 @@ class PkgOps @Inject constructor(
             resultBase
         }
 
-        log(TAG, VERBOSE) { "queryAllPkgs(): size=${result.size}" }
+        log(TAG, VERBOSE) { "getInstalledPackages(): size=${result.size}" }
         require(result.isEmpty() || result.any { it.packageName == BuildConfigWrap.APPLICATION_ID })
 
         return result

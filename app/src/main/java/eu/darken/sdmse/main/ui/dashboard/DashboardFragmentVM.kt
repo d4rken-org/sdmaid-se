@@ -28,7 +28,7 @@ class DashboardFragmentVM @Inject constructor(
             DebugCardVH.Item(
                 onCheck = {
                     launch {
-                        pkgOps.queryAllPkgs()
+                        pkgOps.getInstalledPackages()
                     }
                 }
             ).run { items.add(this) }

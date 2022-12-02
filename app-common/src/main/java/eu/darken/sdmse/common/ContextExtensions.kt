@@ -11,6 +11,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import okio.Source
+import okio.source
 
 
 @ColorInt
@@ -53,3 +55,7 @@ fun Context.getQuantityString2(@StringRes stringRes: Int, quantity: Int) = resou
     quantity,
     quantity
 )
+
+fun Context.openAsset(path: String): Source {
+    return assets.open(path).source()
+}

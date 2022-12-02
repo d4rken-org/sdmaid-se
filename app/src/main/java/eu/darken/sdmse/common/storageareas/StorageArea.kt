@@ -19,7 +19,6 @@ data class StorageArea(
      * X other users
      */
     val userHandle: UserHandle2,
-    val restrictedCharset: Boolean = type.isPublic
 ) : Parcelable {
 
     enum class Flag {
