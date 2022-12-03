@@ -3,8 +3,8 @@ package eu.darken.sdmse.common.clutter.manual
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.storageareas.StorageArea
 
 @Keep
 @JsonClass(generateAdapter = true)
@@ -22,7 +22,7 @@ data class JsonMarkerGroup constructor(
     @Keep
     @JsonClass(generateAdapter = true)
     data class JsonMarker(
-        @Json(name = "loc") val areaType: StorageArea.Type,
+        @Json(name = "loc") val areaType: DataArea.Type,
         @Json(name = "path") val path: String?,
         @Json(name = "contains") val contains: String?,
         @Json(name = "regex") val regex: String?,

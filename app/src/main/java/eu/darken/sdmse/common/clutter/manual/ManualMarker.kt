@@ -1,15 +1,15 @@
 package eu.darken.sdmse.common.clutter.manual
 
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.hashCode
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.restrictedCharset
 import java.util.regex.Pattern
 
 data class ManualMarker(
     private val pkgs: Set<String>,
-    override val areaType: StorageArea.Type,
+    override val areaType: DataArea.Type,
     private val path: String?,
     private val contains: String?,
     private val regex: String?,
@@ -35,7 +35,7 @@ data class ManualMarker(
     override val isPrefixFreeBasePathDirect: Boolean
         get() = regex == null
 
-    override fun match(areaType: StorageArea.Type, prefixFree: String): Marker.Match? {
+    override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
         if (this.areaType !== areaType) return null
         if (prefixFree.isEmpty()) return null
         require(prefixFree[0] != '/') { "Not prefixFree: $prefixFree" }

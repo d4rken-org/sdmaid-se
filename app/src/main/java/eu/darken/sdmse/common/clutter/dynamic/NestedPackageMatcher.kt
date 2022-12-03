@@ -1,13 +1,13 @@
 package eu.darken.sdmse.common.clutter.dynamic
 
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.restrictedCharset
 import java.io.File
 
 open class NestedPackageMatcher(
-    val areaType: StorageArea.Type,
+    val areaType: DataArea.Type,
     val baseDir: String,
     val badMatches: Set<String>
 ) : MarkerSource {
@@ -22,10 +22,10 @@ open class NestedPackageMatcher(
         require(baseDir.isNotEmpty()) { "BaseDir is empty" }
 
         dynamicMarkers.add(object : Marker {
-            override val areaType: StorageArea.Type = this@NestedPackageMatcher.areaType
+            override val areaType: DataArea.Type = this@NestedPackageMatcher.areaType
             override val flags: Set<Marker.Flag> = emptySet()
 
-            override fun match(location: StorageArea.Type, prefixFree: String): Marker.Match? {
+            override fun match(location: DataArea.Type, prefixFree: String): Marker.Match? {
                 val split = prefixFree.split("/")
                 if (split.size != baseDirsSplit.size + 1) return null
                 for (i in baseDirsSplit.indices) {
@@ -44,11 +44,11 @@ open class NestedPackageMatcher(
         })
     }
 
-    override suspend fun getMarkerForLocation(location: StorageArea.Type): Collection<Marker> {
+    override suspend fun getMarkerForLocation(location: DataArea.Type): Collection<Marker> {
         return if (location === this.areaType) dynamicMarkers else emptyList()
     }
 
-    override suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
@@ -63,7 +63,7 @@ open class NestedPackageMatcher(
     }
 
     private class PackageMarker constructor(
-        override val areaType: StorageArea.Type,
+        override val areaType: DataArea.Type,
         override val prefixFreeBasePath: String,
         val packageName: String
     ) : Marker {
@@ -71,7 +71,7 @@ open class NestedPackageMatcher(
 
         override val flags: Set<Marker.Flag> = emptySet()
 
-        override fun match(areaType: StorageArea.Type, prefixFree: String): Marker.Match? {
+        override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
             if (this.areaType !== areaType) return null
 
             return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) {

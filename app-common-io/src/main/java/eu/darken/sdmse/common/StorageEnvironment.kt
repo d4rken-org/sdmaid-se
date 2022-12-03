@@ -102,7 +102,7 @@ class StorageEnvironment @Inject constructor(
 
     companion object {
 
-        val TAG = logTag("StorageArea", "DeviceEnvironment")
+        val TAG = logTag("DataArea", "DeviceEnvironment")
 
         internal fun buildUri(volume: StorageVolumeX): Uri {
             return Uri.parse("content://com.android.externalstorage.documents/tree/${Uri.encode(volume.uuid)}")

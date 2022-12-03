@@ -2,6 +2,8 @@ package eu.darken.sdmse.common.clutter.manual
 
 import android.content.Context
 import android.content.res.AssetManager
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataArea.Type.*
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.NEG
@@ -9,8 +11,6 @@ import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchTyp
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.serialization.SerializationModule
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.StorageArea.Type.*
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.collections.shouldNotContain
@@ -122,7 +122,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
 
     data class Candi(
         val matchType: MatchType,
-        val areaType: StorageArea.Type,
+        val areaType: DataArea.Type,
         val flags: Collection<Marker.Flag> = emptySet(),
         val packages: Collection<String> = emptySet(),
         val prefixFreePath: String,

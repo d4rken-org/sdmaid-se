@@ -1,9 +1,9 @@
 package eu.darken.sdmse.common.clutter
 
-import eu.darken.sdmse.common.storageareas.StorageArea
+import eu.darken.sdmse.common.areas.DataArea
 
 interface MarkerSource {
-    suspend fun getMarkerForLocation(areaType: StorageArea.Type): Collection<Marker>
+    suspend fun getMarkerForLocation(areaType: DataArea.Type): Collection<Marker>
     suspend fun getMarkerForPackageName(packageName: String): Collection<Marker>
-    suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Collection<Marker.Match>
+    suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match>
 }

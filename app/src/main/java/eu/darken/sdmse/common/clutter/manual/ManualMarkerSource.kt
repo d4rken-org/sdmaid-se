@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.clutter.manual
 
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -8,7 +9,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.storageareas.StorageArea
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.util.regex.Pattern
@@ -27,10 +27,10 @@ open class ManualMarkerSource(
     }
 
     private val locationCacheLock = Mutex()
-    private val locationCache = mutableMapOf<StorageArea.Type, Collection<Marker>>()
+    private val locationCache = mutableMapOf<DataArea.Type, Collection<Marker>>()
 
     override suspend fun getMarkerForLocation(
-        areaType: StorageArea.Type
+        areaType: DataArea.Type
     ): Set<Marker> = locationCacheLock.withLock {
 
         val markers = locationCache[areaType]
@@ -54,7 +54,7 @@ open class ManualMarkerSource(
         results
     }
 
-    override suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Set<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Set<Marker.Match> {
         val result = mutableSetOf<Marker.Match>()
         for (marker in getMarkerForLocation(areaType)) {
             val match = marker.match(areaType, prefixFreeBasePath)

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.clutter.dynamic
 
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.storageareas.StorageArea.Type.SDCARD
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest

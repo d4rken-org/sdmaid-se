@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.clutter.dynamic.modules
 
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.StorageArea.Type.SDCARD
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import kotlinx.coroutines.test.runTest
@@ -28,7 +28,7 @@ class EveryPlayDynamicMarkerTest {
     }
 
     @Test fun testGetForLocation() = runTest {
-        for (location in StorageArea.Type.values()) {
+        for (location in DataArea.Type.values()) {
             val markers = markerSource.getMarkerForLocation(location)
             if (location == SDCARD) {
                 markers.single().apply {

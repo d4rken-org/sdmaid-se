@@ -1,15 +1,15 @@
 package eu.darken.sdmse.common.clutter.dynamic
 
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.isCaseInsensitive
 import java.io.File
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 open class NestedPackageV2Matcher(
-    val storageAreaType: StorageArea.Type,
+    val dataAreaType: DataArea.Type,
     val basePath: String,
     val goodMatches: Set<Pattern>,
     val badMatches: Set<Pattern>,
@@ -19,7 +19,7 @@ open class NestedPackageV2Matcher(
     private val dynamicMarkers = mutableSetOf<Marker>()
     private val markerMapByPkg = mutableMapOf<String, Set<Marker>?>()
 
-    val ignoreCase: Boolean = storageAreaType.isCaseInsensitive
+    val ignoreCase: Boolean = dataAreaType.isCaseInsensitive
 
     interface Converter {
         fun onConvertMatchToPackageNames(matcher: Matcher): Set<String>
@@ -45,10 +45,10 @@ open class NestedPackageV2Matcher(
             override val flags: Set<Marker.Flag>
                 get() = this@NestedPackageV2Matcher.flags
 
-            override val areaType: StorageArea.Type
-                get() = this@NestedPackageV2Matcher.storageAreaType
+            override val areaType: DataArea.Type
+                get() = this@NestedPackageV2Matcher.dataAreaType
 
-            override fun match(areaType: StorageArea.Type, prefixFreePath: String): Marker.Match? {
+            override fun match(areaType: DataArea.Type, prefixFreePath: String): Marker.Match? {
                 if (!prefixFreePath.startsWith(prefixFreeBasePath, ignoreCase)) {
                     return null
                 }
@@ -76,22 +76,22 @@ open class NestedPackageV2Matcher(
         })
     }
 
-    override suspend fun getMarkerForLocation(areaType: StorageArea.Type): Collection<Marker> {
-        return if (areaType === storageAreaType) dynamicMarkers else emptyList()
+    override suspend fun getMarkerForLocation(areaType: DataArea.Type): Collection<Marker> {
+        return if (areaType === dataAreaType) dynamicMarkers else emptyList()
     }
 
-    override suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
     override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> = markerMapByPkg[packageName]
         ?: converter.onConvertPackageNameToPaths(packageName)
-            .map { PackageMarker(storageAreaType, basePath + File.separatorChar + it, packageName, emptySet()) }
+            .map { PackageMarker(dataAreaType, basePath + File.separatorChar + it, packageName, emptySet()) }
             .toSet()
             .also { markerMapByPkg[packageName] = it }
 
     private class PackageMarker constructor(
-        override val areaType: StorageArea.Type,
+        override val areaType: DataArea.Type,
         override val prefixFreeBasePath: String,
         val packageName: String,
         override val flags: Set<Marker.Flag>
@@ -101,7 +101,7 @@ open class NestedPackageV2Matcher(
 
         override val isPrefixFreeBasePathDirect: Boolean = true
 
-        override fun match(areaType: StorageArea.Type, prefixFree: String): Marker.Match? {
+        override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
             if (this.areaType !== areaType) return null
 
             return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) Marker.Match(setOf(packageName)) else null

@@ -2,16 +2,16 @@ package eu.darken.sdmse.common.clutter
 
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
-import eu.darken.sdmse.common.storageareas.StorageArea
+import eu.darken.sdmse.common.areas.DataArea
 
 @Keep
 interface Marker {
 
-    val areaType: StorageArea.Type
+    val areaType: DataArea.Type
 
     val flags: Set<Flag>
 
-    fun match(areaType: StorageArea.Type, prefixFree: String): Match?
+    fun match(areaType: DataArea.Type, prefixFree: String): Match?
 
     val prefixFreeBasePath: String
 

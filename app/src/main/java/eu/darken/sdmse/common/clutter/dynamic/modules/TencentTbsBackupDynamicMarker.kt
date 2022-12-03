@@ -6,14 +6,14 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.dynamic.NestedPackageMatcher
-import eu.darken.sdmse.common.storageareas.StorageArea
 import javax.inject.Inject
 
 @Reusable
 class TencentTbsBackupDynamicMarker @Inject constructor() : NestedPackageMatcher(
-    StorageArea.Type.SDCARD,
+    DataArea.Type.SDCARD,
     "tencent/tbs/backup",
     setOf(".nomedia")
 ) {

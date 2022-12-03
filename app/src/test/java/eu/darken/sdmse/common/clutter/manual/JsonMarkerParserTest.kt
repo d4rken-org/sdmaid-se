@@ -2,9 +2,9 @@ package eu.darken.sdmse.common.clutter.manual
 
 import android.content.Context
 import android.content.res.AssetManager
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.serialization.SerializationModule
-import eu.darken.sdmse.common.storageareas.StorageArea
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
@@ -59,7 +59,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
 
         markerGroups[0].mrks[0].apply {
-            areaType shouldBe StorageArea.Type.SDCARD
+            areaType shouldBe DataArea.Type.SDCARD
 
             regex shouldBe null
             contains shouldBe null
@@ -94,7 +94,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
 
         markerGroups[0].mrks[0].apply {
-            areaType shouldBe StorageArea.Type.SDCARD
+            areaType shouldBe DataArea.Type.SDCARD
 
             regex shouldBe null
             contains shouldBe null
@@ -104,7 +104,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
 
         markerGroups[0].mrks[1].apply {
-            areaType shouldBe StorageArea.Type.SDCARD
+            areaType shouldBe DataArea.Type.SDCARD
 
             regex shouldBe "^(?:Backup/.+?\\.novabackup)\$"
             contains shouldBe ".novabackup"

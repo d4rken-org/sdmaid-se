@@ -1,8 +1,8 @@
 package eu.darken.sdmse.common.clutter.dynamic
 
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.storageareas.StorageArea
-import eu.darken.sdmse.common.storageareas.StorageArea.Type.SDCARD
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
@@ -68,7 +68,7 @@ class NestedPackageMatcherTest {
 
     @Test fun testGetForLocationSingle() = runTest {
         val markerSource = NestedPackageMatcher(SDCARD, "dir", setOf("bad", "match"))
-        for (location in StorageArea.Type.values()) {
+        for (location in DataArea.Type.values()) {
             val markers: Collection<Marker> = markerSource.getMarkerForLocation(location)
 
             if (location == SDCARD) {
@@ -85,7 +85,7 @@ class NestedPackageMatcherTest {
 
     @Test fun testGetForLocationDouble() = runTest {
         val markerSource = NestedPackageMatcher(SDCARD, "double/nest", setOf("bad", "match"))
-        for (location in StorageArea.Type.values()) {
+        for (location in DataArea.Type.values()) {
             val markers: Collection<Marker> = markerSource.getMarkerForLocation(location)
 
             if (location == SDCARD) {

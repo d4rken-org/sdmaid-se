@@ -1,11 +1,11 @@
 package eu.darken.sdmse.common.clutter.manual
 
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.storageareas.StorageArea
 
 suspend fun MarkerSourceTestTool.check(
     matchType: MarkerSourceTestTool.Candi.MatchType,
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag>,
     packages: List<String>,
     prefixFreePath: String,
@@ -23,7 +23,7 @@ suspend fun MarkerSourceTestTool.check(
 
 suspend fun MarkerSourceTestTool.check(
     matchType: MarkerSourceTestTool.Candi.MatchType,
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag> = emptySet(),
     packageName: String,
     prefixFreePath: String,
@@ -40,7 +40,7 @@ suspend fun MarkerSourceTestTool.check(
 }
 
 suspend fun MarkerSourceTestTool.pos(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag> = emptySet(),
     packages: Collection<String>,
     prefixFreePath: String,
@@ -57,7 +57,7 @@ suspend fun MarkerSourceTestTool.pos(
 }
 
 suspend fun MarkerSourceTestTool.pos(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flag: Marker.Flag,
     packageName: String,
     prefixFreePath: String,
@@ -74,7 +74,7 @@ suspend fun MarkerSourceTestTool.pos(
 }
 
 suspend fun MarkerSourceTestTool.pos(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag> = emptySet(),
     packageName: String,
     prefixFreePath: String,
@@ -91,7 +91,7 @@ suspend fun MarkerSourceTestTool.pos(
 }
 
 suspend fun MarkerSourceTestTool.pos(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     packageName: String,
     prefixFreePath: String,
 ) {
@@ -107,7 +107,7 @@ suspend fun MarkerSourceTestTool.pos(
 }
 
 suspend fun MarkerSourceTestTool.neg(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag> = emptySet(),
     packages: Collection<String>,
     prefixFreePath: String,
@@ -125,7 +125,7 @@ suspend fun MarkerSourceTestTool.neg(
 
 
 suspend fun MarkerSourceTestTool.neg(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     prefixFreePath: String,
 ) {
     val candi = MarkerSourceTestTool.Candi(
@@ -140,7 +140,7 @@ suspend fun MarkerSourceTestTool.neg(
 }
 
 suspend fun MarkerSourceTestTool.neg(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     flags: Collection<Marker.Flag> = emptySet(),
     packageName: String,
     prefixFreePath: String,
@@ -157,7 +157,7 @@ suspend fun MarkerSourceTestTool.neg(
 }
 
 suspend fun MarkerSourceTestTool.neg(
-    areaType: StorageArea.Type,
+    areaType: DataArea.Type,
     packageName: String,
     prefixFreePath: String,
 ) {

@@ -2,8 +2,8 @@ package eu.darken.sdmse.common.clutter
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.storageareas.StorageArea
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -40,13 +40,13 @@ class ClutterRepo @Inject constructor(
         return result
     }
 
-    override suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
         val result = mutableSetOf<Marker.Match>()
         for (markerSource in markerSources) result.addAll(markerSource.match(areaType, prefixFreeBasePath))
         return result
     }
 
-    override suspend fun getMarkerForLocation(areaType: StorageArea.Type): Collection<Marker> {
+    override suspend fun getMarkerForLocation(areaType: DataArea.Type): Collection<Marker> {
         val result = mutableSetOf<Marker>()
         for (markerSource in markerSources) result.addAll(markerSource.getMarkerForLocation(areaType))
         return result
