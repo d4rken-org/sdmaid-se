@@ -7,8 +7,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.toPkgId
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.util.regex.Pattern
@@ -19,8 +21,8 @@ open class ManualMarkerSource(
 ) : MarkerSource {
 
     private val dataCacheLock = Mutex()
-    private var dataCache: Map<String, Collection<ManualMarker>>? = null
-    private suspend fun getCachedMarkerMap(): Map<String, Collection<ManualMarker>> = dataCacheLock.withLock {
+    private var dataCache: Map<Pkg.Id, Collection<ManualMarker>>? = null
+    private suspend fun getCachedMarkerMap(): Map<Pkg.Id, Collection<ManualMarker>> = dataCacheLock.withLock {
         dataCache?.let { return@withLock it }
         log(TAG) { "Generating marker map..." }
         buildDatabase(clutterEntriesProvider()).also { dataCache = it }
@@ -63,22 +65,22 @@ open class ManualMarkerSource(
         return result
     }
 
-    override suspend fun getMarkerForPackageName(packageName: String): Set<Marker> {
+    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Set<Marker> {
         val result = mutableSetOf<Marker>()
-        val markers: Collection<ManualMarker>? = getCachedMarkerMap()[packageName]
+        val markers: Collection<ManualMarker>? = getCachedMarkerMap()[pkgId]
         if (markers != null) result.addAll(markers)
         return result
     }
 
     private suspend fun buildDatabase(
         clutterEntries: Collection<JsonMarkerGroup>
-    ): Map<String, MutableCollection<ManualMarker>> {
+    ): Map<Pkg.Id, MutableCollection<ManualMarker>> {
         log(TAG, VERBOSE) { "buildDatabase(entries=${clutterEntries.size})..." }
 
         val startTimeMarkerGeneration = System.currentTimeMillis()
         val installedApps: Collection<Installed> = pkgOps.getInstalledPackages()
         var markerCount: Long = 0
-        val clutterMap: HashMap<String, MutableCollection<ManualMarker>> = LinkedHashMap()
+        val clutterMap: HashMap<Pkg.Id, MutableCollection<ManualMarker>> = LinkedHashMap()
         var counter = 0
         clutterEntries.forEach { entry ->
             counter++
@@ -86,10 +88,10 @@ open class ManualMarkerSource(
             require(!((entry.pkgs == null || entry.pkgs.isEmpty()) && (entry.regexPkgs == null || entry.regexPkgs.size < 0))) { "Invalid marker: No pkgs defined #$counter:$entry" }
             require(entry.mrks.isNotEmpty()) { "Invalid marker: No markers defined #$counter:$entry" }
 
-            val markerPkgs: MutableSet<String> = HashSet()
+            val rawPkgs = mutableSetOf<String>()
             if (entry.pkgs != null) {
                 for (pkg in entry.pkgs) {
-                    if (!markerPkgs.add(pkg)) {
+                    if (!rawPkgs.add(pkg)) {
                         log(TAG, WARN) { "Package defined multiple times: $pkg" }
                     }
                 }
@@ -100,7 +102,7 @@ open class ManualMarkerSource(
                     for (app in installedApps) {
                         if (pattern.matcher(app.packageName).matches()) {
                             log(TAG, VERBOSE) { "Regex package match: pkg=${app.packageName}, entry=$entry" }
-                            if (!markerPkgs.add(app.packageName)) {
+                            if (!rawPkgs.add(app.packageName)) {
                                 log(TAG, WARN) { "Package defined multiple times: ${app.packageName}" }
                             }
                         }
@@ -108,8 +110,9 @@ open class ManualMarkerSource(
                 }
                 // If we found no installed app matches the regex, we still need to add the marker to be able to detect this as corpse.
                 // We add the regexes as packages, but theoretically random data would work too
-                if (markerPkgs.isEmpty()) markerPkgs.addAll(entry.regexPkgs)
+                if (rawPkgs.isEmpty()) rawPkgs.addAll(entry.regexPkgs)
             }
+            val markerPkgs = rawPkgs.map { it.toPkgId() }.toSet()
             val markerSet: MutableCollection<ManualMarker> = HashSet()
             for (raw in entry.mrks) {
                 val newMarker = ManualMarker(

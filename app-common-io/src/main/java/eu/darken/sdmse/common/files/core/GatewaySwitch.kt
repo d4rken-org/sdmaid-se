@@ -120,6 +120,6 @@ class GatewaySwitch @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("GatewaySwitch")
+        val TAG = logTag("Gateway", "Switch")
     }
 }

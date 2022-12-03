@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.clutter.dynamic.modules
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import kotlinx.coroutines.test.runTest
@@ -14,7 +15,7 @@ class PrivateToSdcardPathDevMistakeMarkerTest {
     @Test fun testMatching() = runTest {
         markerSource.match(SDCARD, "data/data").size shouldBe 0
         markerSource.match(SDCARD, "data/data/com.package.rollkuchen").single().apply {
-            packageNames.single() shouldBe "com.package.rollkuchen"
+            packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
@@ -33,8 +34,8 @@ class PrivateToSdcardPathDevMistakeMarkerTest {
     }
 
     @Test fun testGetForPackageName() = runTest {
-        val testPkg = "com.pkg.test"
-        markerSource.getMarkerForPackageName(testPkg).single().apply {
+        val testPkg = "com.pkg.test".toPkgId()
+        markerSource.getMarkerForPkg(testPkg).single().apply {
             prefixFreeBasePath shouldBe "data/data/$testPkg"
             match(SDCARD, "data/data/$testPkg/something") shouldBe null
             match(SDCARD, "data/data/$testPkg") shouldNotBe null

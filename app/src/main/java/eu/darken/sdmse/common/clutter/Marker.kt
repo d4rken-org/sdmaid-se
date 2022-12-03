@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.clutter
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.pkgs.Pkg
 
 @Keep
 interface Marker {
@@ -27,7 +28,7 @@ interface Marker {
 
     @Keep
     class Match constructor(
-        val packageNames: Set<String>,
+        val packageNames: Set<Pkg.Id>,
         val flags: Set<Flag> = emptySet()
     ) {
 

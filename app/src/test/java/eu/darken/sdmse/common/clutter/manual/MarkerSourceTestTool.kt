@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchTyp
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.POS
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationModule
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
@@ -98,7 +99,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
             } else {
                 for (pkg in candidate.packages) {
                     withClue("We should have matched $pkg but didn't: $matches") {
-                        matches.any { it.packageNames.contains(pkg) } shouldBe true
+                        matches.any { it.packageNames.contains(pkg.toPkgId()) } shouldBe true
                     }
                 }
             }
@@ -110,7 +111,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
                 } else {
                     for (pkg in candidate.packages) {
                         withClue("Match didn't have require flag $flag for $pkg: $matches") {
-                            matches.any { it.packageNames.contains(pkg) && it.flags.contains(flag) } shouldBe true
+                            matches.any { it.packageNames.contains(pkg.toPkgId()) && it.flags.contains(flag) } shouldBe true
                         }
                     }
                 }

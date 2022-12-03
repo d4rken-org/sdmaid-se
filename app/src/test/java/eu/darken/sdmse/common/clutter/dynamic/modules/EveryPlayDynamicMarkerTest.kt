@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.clutter.dynamic.modules
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import kotlinx.coroutines.test.runTest
@@ -15,7 +16,7 @@ class EveryPlayDynamicMarkerTest {
         markerSource.match(SDCARD, ".EveryplayCache").size shouldBe 0
 
         markerSource.match(SDCARD, ".EveryplayCache/com.package.rollkuchen").single().apply {
-            packageNames.single() shouldBe "com.package.rollkuchen"
+            packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
@@ -42,8 +43,8 @@ class EveryPlayDynamicMarkerTest {
     }
 
     @Test fun testGetForPackageName() = runTest {
-        val testPkg = "com.pkg.test"
-        markerSource.getMarkerForPackageName(testPkg).single().apply {
+        val testPkg = "com.pkg.test".toPkgId()
+        markerSource.getMarkerForPkg(testPkg).single().apply {
             prefixFreeBasePath shouldBe "$EVERYPLAY_CACHE/$testPkg"
             match(SDCARD, "$EVERYPLAY_CACHE/$testPkg/something") shouldBe null
             match(SDCARD, "$EVERYPLAY_CACHE/$testPkg") shouldNotBe null

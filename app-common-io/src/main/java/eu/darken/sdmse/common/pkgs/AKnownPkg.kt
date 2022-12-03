@@ -22,7 +22,7 @@ sealed class AKnownPkg constructor(override val id: Pkg.Id) : Pkg {
         override val labelRes: Int = R.string.apps_known_installer_gplay_label
         override val iconRes: Int = R.drawable.ic_baseline_gplay_24
         override val urlGenerator: ((Pkg.Id) -> String) = {
-            "https://play.google.com/store/apps/details?id=${it.pkgName}"
+            "https://play.google.com/store/apps/details?id=${it.name}"
         }
     }
 

@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.Pkg
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,9 +19,9 @@ class ClutterRepo @Inject constructor(
 
     val sourceCount: Int = markerSources.size
 
-    override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> {
+    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Collection<Marker> {
         val result = mutableSetOf<Marker>()
-        for (markerSource in markerSources) result.addAll(markerSource.getMarkerForPackageName(packageName))
+        for (markerSource in markerSources) result.addAll(markerSource.getMarkerForPkg(pkgId))
         return result
     }
 

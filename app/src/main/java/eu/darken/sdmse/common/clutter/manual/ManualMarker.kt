@@ -5,10 +5,11 @@ import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.hashCode
+import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.regex.Pattern
 
 data class ManualMarker(
-    private val pkgs: Set<String>,
+    private val pkgs: Set<Pkg.Id>,
     override val areaType: DataArea.Type,
     private val path: String?,
     private val contains: String?,

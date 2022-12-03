@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.pkgs.AKnownPkg
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.toStub
 import eu.darken.sdmse.common.pkgs.toKnownPkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 
 data class InstallerInfo(
     val installingPkg: Pkg?,
@@ -33,7 +34,7 @@ data class InstallerInfo(
             return context.getString(R.string.general_na_label)
         }
 
-        return installingPkg?.getLabel(context) ?: installer!!.id.pkgName
+        return installingPkg?.getLabel(context) ?: installer!!.id.name
     }
 
     fun getIcon(context: Context): Drawable {
@@ -65,15 +66,15 @@ private fun PackageInfo.getInstallerInfoApi30(packageManager: PackageManager): I
         null
     }
     val initiatingPkg = sourceInfo?.initiatingPackageName
-        ?.let { Pkg.Id(it) }
+        ?.toPkgId()
         ?.let { it.toKnownPkg() ?: it.toStub() }
 
     val installingPkg = sourceInfo?.installingPackageName
-        ?.let { Pkg.Id(it) }
+        ?.toPkgId()
         ?.let { it.toKnownPkg() ?: it.toStub() }
 
     val originatingPkg = sourceInfo?.originatingPackageName
-        ?.let { Pkg.Id(it) }
+        ?.toPkgId()
         ?.let { it.toKnownPkg() ?: it.toStub() }
 
     return InstallerInfo(

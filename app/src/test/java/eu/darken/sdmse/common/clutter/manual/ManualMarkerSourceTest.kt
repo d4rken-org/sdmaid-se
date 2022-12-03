@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.clutter.manual
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker.Flag.*
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -100,7 +101,7 @@ class ManualMarkerSourceTest : BaseTest() {
         neg(PRIVATE_DATA, "sENSITIVE")
         neg(PRIVATE_DATA, "SENSITIVe")
 
-        getMarkerSource().getMarkerForPackageName("case.sensitivity.pkg").distinct().size shouldBe 3
+        getMarkerSource().getMarkerForPkg("case.sensitivity.pkg".toPkgId()).distinct().size shouldBe 3
     }
 
     @Test fun `match regex pkgs`() = testEnv {

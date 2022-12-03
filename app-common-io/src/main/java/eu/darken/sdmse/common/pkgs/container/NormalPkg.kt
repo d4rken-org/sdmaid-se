@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
 
 data class NormalPkg(
@@ -16,14 +17,14 @@ data class NormalPkg(
     override val userHandles: Set<UserHandle2>,
 ) : BasePkg() {
 
-    override val id: Pkg.Id = Pkg.Id(packageInfo.packageName)
+    override val id: Pkg.Id = packageInfo.packageName.toPkgId()
 
     private var _label: String? = null
     override fun getLabel(context: Context): String {
         _label?.let { return it }
         val newLabel = context.packageManager.getLabel2(id)
             ?: super.getLabel(context)
-            ?: id.pkgName
+            ?: id.name
         _label = newLabel
         return newLabel
     }

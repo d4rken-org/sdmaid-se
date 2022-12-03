@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.clutter.dynamic
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
@@ -27,7 +28,7 @@ class NestedPackageMatcherTest {
 
         matches.iterator().next().packageNames.apply {
             size shouldBe 1
-            first() shouldBe "com.package.rollkuchen"
+            first() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
@@ -42,7 +43,7 @@ class NestedPackageMatcherTest {
 
         matches.iterator().next().packageNames.apply {
             size shouldBe 1
-            first() shouldBe "com.package.rollkuchen"
+            first() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
@@ -102,9 +103,9 @@ class NestedPackageMatcherTest {
 
     @Test fun testGetForPackageNameSingle() = runTest {
         val markerSource = NestedPackageMatcher(SDCARD, "dir", setOf("bad", "match"))
-        val testPkg = "test.pkg"
+        val testPkg = "test.pkg".toPkgId()
 
-        markerSource.getMarkerForPackageName(testPkg).single().apply {
+        markerSource.getMarkerForPkg(testPkg).single().apply {
             prefixFreeBasePath shouldBe "dir/$testPkg"
 
             match(SDCARD, "dir/$testPkg/something") shouldBe null
@@ -115,9 +116,9 @@ class NestedPackageMatcherTest {
 
     @Test fun testGetForPackageNameDouble() = runTest {
         val markerSource = NestedPackageMatcher(SDCARD, "double/nest", setOf("bad", "match"))
-        val testPkg = "test.pkg"
+        val testPkg = "test.pkg".toPkgId()
 
-        markerSource.getMarkerForPackageName(testPkg).single().apply {
+        markerSource.getMarkerForPkg(testPkg).single().apply {
             prefixFreeBasePath shouldBe "double/nest/$testPkg"
 
             match(SDCARD, "double/nest/$testPkg/something") shouldBe null

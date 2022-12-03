@@ -4,6 +4,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -17,20 +19,21 @@ open class NestedPackageV2Matcher(
     val converter: Converter
 ) : MarkerSource {
     private val dynamicMarkers = mutableSetOf<Marker>()
-    private val markerMapByPkg = mutableMapOf<String, Set<Marker>?>()
+    private val markerMapByPkg = mutableMapOf<Pkg.Id, Set<Marker>?>()
 
     val ignoreCase: Boolean = dataAreaType.isCaseInsensitive
 
     interface Converter {
-        fun onConvertMatchToPackageNames(matcher: Matcher): Set<String>
-        fun onConvertPackageNameToPaths(packageName: String): Set<String>
+        fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id>
+        fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String>
+
         class PackagePathConverter : Converter {
-            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<String> {
-                return setOf(matcher.group(1).replace(File.separatorChar, '.'))
+            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> {
+                return setOf(matcher.group(1).replace(File.separatorChar, '.').toPkgId())
             }
 
-            override fun onConvertPackageNameToPaths(packageName: String): Set<String> {
-                return setOf(packageName.replace('.', File.separatorChar))
+            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> {
+                return setOf(pkgId.name.replace('.', File.separatorChar))
             }
         }
     }
@@ -84,16 +87,16 @@ open class NestedPackageV2Matcher(
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
-    override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> = markerMapByPkg[packageName]
-        ?: converter.onConvertPackageNameToPaths(packageName)
-            .map { PackageMarker(dataAreaType, basePath + File.separatorChar + it, packageName, emptySet()) }
+    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Collection<Marker> = markerMapByPkg[pkgId]
+        ?: converter.onConvertPackageNameToPaths(pkgId)
+            .map { PackageMarker(dataAreaType, "$basePath${File.separatorChar}$it", pkgId, emptySet()) }
             .toSet()
-            .also { markerMapByPkg[packageName] = it }
+            .also { markerMapByPkg[pkgId] = it }
 
     private class PackageMarker constructor(
         override val areaType: DataArea.Type,
         override val prefixFreeBasePath: String,
-        val packageName: String,
+        val pkgId: Pkg.Id,
         override val flags: Set<Marker.Flag>
     ) : Marker {
 
@@ -104,7 +107,7 @@ open class NestedPackageV2Matcher(
         override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
             if (this.areaType !== areaType) return null
 
-            return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) Marker.Match(setOf(packageName)) else null
+            return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) Marker.Match(setOf(pkgId)) else null
         }
     }
 }

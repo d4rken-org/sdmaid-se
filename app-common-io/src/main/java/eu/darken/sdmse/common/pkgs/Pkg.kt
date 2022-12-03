@@ -11,7 +11,7 @@ interface Pkg {
     val id: Id
 
     val packageName: String
-        get() = id.pkgName
+        get() = id.name
 
     fun getLabel(context: Context): String? {
         context.packageManager.getLabel2(id)?.let { return it }
@@ -38,9 +38,9 @@ interface Pkg {
 
     @Parcelize
     data class Id(
-        val pkgName: String,
+        val name: String,
     ) : Parcelable {
-        override fun toString(): String = pkgName
+        override fun toString(): String = name
     }
 
 }

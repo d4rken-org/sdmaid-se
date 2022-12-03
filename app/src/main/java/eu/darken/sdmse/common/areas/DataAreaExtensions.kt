@@ -8,6 +8,9 @@ val DataArea.Type.isPublic
 val DataArea.Type.restrictedCharset: Boolean
     get() = isPublic
 
+/**
+ * https://source.android.com/devices/storage/traditional
+ */
 val DataArea.Type.isCaseInsensitive: Boolean
     get() = isPublic
 

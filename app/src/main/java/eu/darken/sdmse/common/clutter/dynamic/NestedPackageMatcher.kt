@@ -4,6 +4,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
 
 open class NestedPackageMatcher(
@@ -13,7 +15,7 @@ open class NestedPackageMatcher(
 ) : MarkerSource {
 
     private val dynamicMarkers: MutableCollection<Marker> = HashSet()
-    private val markerMapByPkg: MutableMap<String, MutableCollection<Marker>> = HashMap()
+    private val markerMapByPkg: MutableMap<Pkg.Id, MutableCollection<Marker>> = HashMap()
 
     val baseDirsSplit = baseDir.split("/").toTypedArray()
     private val ignoreCase: Boolean = areaType.restrictedCharset
@@ -25,7 +27,7 @@ open class NestedPackageMatcher(
             override val areaType: DataArea.Type = this@NestedPackageMatcher.areaType
             override val flags: Set<Marker.Flag> = emptySet()
 
-            override fun match(location: DataArea.Type, prefixFree: String): Marker.Match? {
+            override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
                 val split = prefixFree.split("/")
                 if (split.size != baseDirsSplit.size + 1) return null
                 for (i in baseDirsSplit.indices) {
@@ -35,7 +37,7 @@ open class NestedPackageMatcher(
                 }
                 if (this@NestedPackageMatcher.badMatches.contains(split[split.size - 1])) return null
 
-                return if (!split.last().contains(".")) null else Marker.Match(setOf(split.last()))
+                return if (!split.last().contains(".")) null else Marker.Match(setOf(split.last().toPkgId()))
             }
 
             override val prefixFreeBasePath: String = baseDir
@@ -52,12 +54,12 @@ open class NestedPackageMatcher(
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
-    override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> {
-        var markers = markerMapByPkg[packageName]
+    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Collection<Marker> {
+        var markers = markerMapByPkg[pkgId]
         if (markers == null) {
             markers = HashSet()
-            markers.add(PackageMarker(areaType, baseDir + File.separatorChar + packageName, packageName))
-            markerMapByPkg[packageName] = markers
+            markers.add(PackageMarker(areaType, "$baseDir${File.separatorChar}${pkgId.name}", pkgId))
+            markerMapByPkg[pkgId] = markers
         }
         return markers
     }
@@ -65,7 +67,7 @@ open class NestedPackageMatcher(
     private class PackageMarker constructor(
         override val areaType: DataArea.Type,
         override val prefixFreeBasePath: String,
-        val packageName: String
+        val pkgId: Pkg.Id,
     ) : Marker {
         private val ignoreCase: Boolean = areaType.restrictedCharset
 
@@ -75,7 +77,7 @@ open class NestedPackageMatcher(
             if (this.areaType !== areaType) return null
 
             return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) {
-                Marker.Match(setOf(packageName))
+                Marker.Match(setOf(pkgId))
             } else null
         }
 

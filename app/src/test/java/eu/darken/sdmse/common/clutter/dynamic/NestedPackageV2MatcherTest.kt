@@ -2,6 +2,8 @@ package eu.darken.sdmse.common.clutter.dynamic
 
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -13,9 +15,9 @@ import java.util.regex.Pattern
 class NestedPackageV2MatcherTest {
 
     val stubConverter = object : NestedPackageV2Matcher.Converter {
-        override fun onConvertMatchToPackageNames(matcher: Matcher): Set<String> = emptySet()
+        override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> = emptySet()
 
-        override fun onConvertPackageNameToPaths(packageName: String): Set<String> = emptySet()
+        override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> = emptySet()
     }
 
     @Test fun testBadInit_empty1() {
@@ -72,15 +74,15 @@ class NestedPackageV2MatcherTest {
 
     @Test fun testSimpleCase() = runTest {
         val converter: NestedPackageV2Matcher.Converter = object : NestedPackageV2Matcher.Converter {
-            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<String> {
-                val pkgs: MutableSet<String> = LinkedHashSet()
-                pkgs.add(matcher.group(1)!!.replace(File.separatorChar, '.'))
+            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> {
+                val pkgs: MutableSet<Pkg.Id> = LinkedHashSet()
+                pkgs.add(matcher.group(1)!!.replace(File.separatorChar, '.').toPkgId())
                 return pkgs
             }
 
-            override fun onConvertPackageNameToPaths(packageName: String): Set<String> {
+            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> {
                 val paths: MutableSet<String> = LinkedHashSet()
-                paths.add(packageName.replace('.', File.separatorChar))
+                paths.add(pkgId.name.replace('.', File.separatorChar))
                 return paths
             }
         }
@@ -103,20 +105,20 @@ class NestedPackageV2MatcherTest {
         run {
             // Normal match
             markerSource.match(SDCARD, "pre/fix/com/package/rollkuchen").single().apply {
-                packageNames.single() shouldBe "com.package.rollkuchen"
+                packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
                 flags shouldBe setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN)
             }
         }
         run {
             // Casing
             markerSource.match(SDCARD, "pre/fix/com/package/ROLLKUCHEN").single().apply {
-                packageNames.single() shouldBe "com.package.ROLLKUCHEN"
+                packageNames.single() shouldBe "com.package.ROLLKUCHEN".toPkgId()
                 flags shouldBe setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN)
             }
         }
         run {
             // getMarkerForPackageName
-            markerSource.getMarkerForPackageName("com.package.ROLLKUCHEN").single().apply {
+            markerSource.getMarkerForPkg("com.package.ROLLKUCHEN".toPkgId()).single().apply {
                 prefixFreeBasePath shouldBe "pre/fix/com/package/ROLLKUCHEN"
                 isPrefixFreeBasePathDirect shouldBe true
             }

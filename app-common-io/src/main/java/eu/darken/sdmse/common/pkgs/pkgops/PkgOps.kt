@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -95,19 +96,18 @@ class PkgOps @Inject constructor(
         it.forceStop(packageName)
     }
 
-
     suspend fun queryPkg(
-        pkgName: String,
+        pkgName: Pkg.Id,
         flags: Int = MATCH_UNINSTALLED_PACKAGES,
         userHandle: UserHandle2 = userManager.currentUser
-    ): Pkg? = ipcFunnel.use {
+    ): Installed? = ipcFunnel.use {
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags)..." }
 
         val pkgInfo: PackageInfo? = try {
-            packageManager.getPackageInfo(pkgName, flags)
+            packageManager.getPackageInfo(pkgName.name, flags)
         } catch (e: NameNotFoundException) {
             log(TAG, VERBOSE) { "Pkg was not found, trying list-based lookup" }
-            packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName }
+            packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName.name }
         }
 
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): $pkgInfo" }
@@ -161,11 +161,11 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun queryAppInfos(
-        pkg: String,
+        pkg: Pkg.Id,
         flags: Int = GET_UNINSTALLED_PACKAGES
     ): ApplicationInfo? = ipcFunnel.use {
         try {
-            packageManager.getApplicationInfo(pkg, flags)
+            packageManager.getApplicationInfo(pkg.name, flags)
         } catch (e: NameNotFoundException) {
             log(TAG, WARN) { "queryAppInfos($pkg=pkg,flags=$flags) packageName not found." }
             null
@@ -196,13 +196,13 @@ class PkgOps @Inject constructor(
     suspend fun viewArchive(path: LocalPath, flags: Int = 0): ApkArchive? = ipcFunnel.use {
         packageManager.getPackageArchiveInfo(path.path, flags)?.let {
             ApkArchive(
-                id = Pkg.Id(it.packageName),
+                id = it.packageName.toPkgId(),
                 packageInfo = it,
             )
         }
     }
 
-    suspend fun getIcon(pkg: String): Drawable? {
+    suspend fun getIcon(pkg: Pkg.Id): Drawable? {
         val appInfo = queryAppInfos(pkg, GET_UNINSTALLED_PACKAGES)
         return appInfo?.let { getIcon(it) }
     }
@@ -215,6 +215,7 @@ class PkgOps @Inject constructor(
             null
         }
     }
+
     companion object {
         val TAG = logTag("PkgOps")
     }

@@ -20,7 +20,7 @@ fun PackageManager.getPackageInfo2(
 
 fun PackageManager.getLabel2(
     pkgId: Pkg.Id,
-): String? = getPackageInfo2(pkgId.pkgName)
+): String? = getPackageInfo2(pkgId.name)
     ?.applicationInfo
     ?.let {
         if (it.labelRes != 0) it.loadLabel(this).toString()
@@ -29,7 +29,7 @@ fun PackageManager.getLabel2(
 
 fun PackageManager.getIcon2(
     pkgId: Pkg.Id,
-): Drawable? = getPackageInfo2(pkgId.pkgName)
+): Drawable? = getPackageInfo2(pkgId.name)
     ?.applicationInfo
     ?.let { if (it.icon != 0) it.loadIcon(this) else null }
 
