@@ -1,13 +1,11 @@
-package eu.darken.sdmse.common.common.clutter
+package eu.darken.sdmse.common.clutter.manual
 
 import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
-import eu.darken.sdmse.common.clutter.manual.JsonMarkerParser
-import eu.darken.sdmse.common.clutter.manual.ManualMarkerSource
-import eu.darken.sdmse.common.common.clutter.MarkerSourceTestTool.Candi.MatchType.NEG
-import eu.darken.sdmse.common.common.clutter.MarkerSourceTestTool.Candi.MatchType.POS
+import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.NEG
+import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.POS
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.serialization.SerializationModule

@@ -62,13 +62,16 @@ fun DependencyHandlerScope.addDI() {
     implementation("com.google.dagger:dagger-android:${Versions.Dagger.core}")
 
     kapt("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
+    kaptTest("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
+
     kapt("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
+    kaptTest("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
 
     implementation("com.google.dagger:hilt-android:${Versions.Dagger.core}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
+    kaptTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 
     testImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
-    kaptTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 
     androidTestImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")

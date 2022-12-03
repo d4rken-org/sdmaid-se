@@ -1,9 +1,8 @@
-package eu.darken.sdmse.common.common.clutter
+package eu.darken.sdmse.common.clutter.manual
 
 import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.clutter.manual.JsonMarkerParser
 import eu.darken.sdmse.common.serialization.SerializationModule
 import eu.darken.sdmse.common.storageareas.StorageArea
 import io.kotest.assertions.throwables.shouldThrow

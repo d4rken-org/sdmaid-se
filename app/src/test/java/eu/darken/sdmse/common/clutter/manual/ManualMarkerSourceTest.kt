@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.common.clutter
+package eu.darken.sdmse.common.clutter.manual
 
 import eu.darken.sdmse.common.clutter.Marker.Flag.*
 import eu.darken.sdmse.common.storageareas.StorageArea.Type.PRIVATE_DATA

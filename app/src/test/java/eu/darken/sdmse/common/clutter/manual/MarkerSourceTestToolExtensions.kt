@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.common.clutter
+package eu.darken.sdmse.common.clutter.manual
 
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.storageareas.StorageArea

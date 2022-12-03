@@ -1,7 +1,6 @@
-package eu.darken.sdmse.common.common.clutter
+package eu.darken.sdmse.common.clutter.manual
 
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.clutter.manual.ManualMarker
 import eu.darken.sdmse.common.storageareas.StorageArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.storageareas.StorageArea.Type.SDCARD
 import io.kotest.matchers.shouldBe

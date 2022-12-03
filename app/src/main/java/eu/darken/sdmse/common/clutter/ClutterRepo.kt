@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ClutterRepository @Inject constructor(
+class ClutterRepo @Inject constructor(
     @ApplicationContext context: Context,
     private val markerSources: Set<@JvmSuppressWildcards MarkerSource>,
 ) : MarkerSource {
@@ -31,6 +31,8 @@ class ClutterRepository @Inject constructor(
 //        Timber.tag(TAG).d("Loaded %d marker sources", markerSources.size)
 //        for (s in markerSources) Timber.tag(TAG).d("Loaded: %s", s)
     }
+
+    val sourceCount: Int = markerSources.size
 
     override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> {
         val result = mutableSetOf<Marker>()
