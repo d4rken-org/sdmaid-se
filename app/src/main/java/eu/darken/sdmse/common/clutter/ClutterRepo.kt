@@ -1,35 +1,19 @@
 package eu.darken.sdmse.common.clutter
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ClutterRepo @Inject constructor(
-    @ApplicationContext context: Context,
     private val markerSources: Set<@JvmSuppressWildcards MarkerSource>,
 ) : MarkerSource {
 
-
     init {
-//        if (BuildConfig.DEBUG) markerSources.add(DebugMarkerSource(context, appRepo))
-//        markerSources.add(ProductionMarkerSource(context, appRepo))
-//        markerSources.add(EveryplayMarkerMatcher())
-//        markerSources.add(UTSystemConfigMarkerMatcher())
-//        markerSources.add(IQQIMarkerMatcher())
-//        markerSources.add(PrivateToSdcardPathDevMistakeMarker())
-//        markerSources.add(PrivateToSdcardPathDevMistakeMarker2())
-//        markerSources.add(VideoCacheMarkerMatcher())
-//        markerSources.add(BmwGroupMarkerMatcher())
-//        markerSources.add(HelpshiftDynamicMarker())
-//        markerSources.add(TencentEncryptedLogsMarkerMatcher())
-//        markerSources.add(TencentMsflogsMarkerMatcher())
-//        markerSources.add(TencentTbsBackupDynamicMarker())
-//        Timber.tag(TAG).d("Loaded %d marker sources", markerSources.size)
-//        for (s in markerSources) Timber.tag(TAG).d("Loaded: %s", s)
+        log(TAG, INFO) { "Loaded $markerSources clutter sources." }
     }
 
     val sourceCount: Int = markerSources.size
