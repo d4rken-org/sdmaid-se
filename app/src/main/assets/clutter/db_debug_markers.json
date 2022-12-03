@@ -132,5 +132,25 @@
 	{"loc": "DALVIK_PROFILE", "path": "sdm_test_custodian", "flags": ["custodian"]},
 	{"loc": "PUBLIC_MEDIA", "path": "sdm_test_custodian", "flags": ["custodian"]}
   ]
+}, {
+  "pkgs": ["unique1", "shared1"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder1", "flags": ["custodian"]}]
+}, {
+  "pkgs": ["unique2", "shared1", "shared2"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder2", "flags": ["common"]}]
+}, {
+  "pkgs": ["unique3", "shared2"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder3", "flags": ["keeper"]}]
+}, {
+  "regexPkgs": ["^(?:regex\\.package\\..+?)$"],
+  "mrks": [{"loc": "SDCARD", "path": "RegexPackageTest", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["case.sensitivity.pkg"],
+  "mrks": [
+	{"loc": "SDCARD", "path": "INSENSITIVE"},
+	{"loc": "SDCARD", "path": "insensitive"},
+	{"loc": "PRIVATE_DATA", "path": "SENSITIVE"},
+	{"loc": "PRIVATE_DATA", "path": "sensitive"}
+  ]
 }
 ]

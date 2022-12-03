@@ -33,19 +33,19 @@ class ClutterRepository @Inject constructor(
     }
 
     override suspend fun getMarkerForPackageName(packageName: String): Collection<Marker> {
-        val result: MutableCollection<Marker> = ArrayList()
+        val result = mutableSetOf<Marker>()
         for (markerSource in markerSources) result.addAll(markerSource.getMarkerForPackageName(packageName))
         return result
     }
 
     override suspend fun match(areaType: StorageArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
-        val result: MutableCollection<Marker.Match> = ArrayList()
+        val result = mutableSetOf<Marker.Match>()
         for (markerSource in markerSources) result.addAll(markerSource.match(areaType, prefixFreeBasePath))
         return result
     }
 
     override suspend fun getMarkerForLocation(areaType: StorageArea.Type): Collection<Marker> {
-        val result: MutableCollection<Marker> = ArrayList()
+        val result = mutableSetOf<Marker>()
         for (markerSource in markerSources) result.addAll(markerSource.getMarkerForLocation(areaType))
         return result
     }

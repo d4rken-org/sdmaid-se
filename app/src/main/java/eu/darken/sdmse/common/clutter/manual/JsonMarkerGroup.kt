@@ -26,7 +26,7 @@ data class JsonMarkerGroup constructor(
         @Json(name = "path") val path: String?,
         @Json(name = "contains") val contains: String?,
         @Json(name = "regex") val regex: String?,
-        @Json(name = "flags") val flags: List<Marker.Flag>?,
+        @Json(name = "flags") val flags: Set<Marker.Flag>?,
     ) {
         init {
             require(path != null || contains != null || regex != null) { "No path matching defined: $this" }

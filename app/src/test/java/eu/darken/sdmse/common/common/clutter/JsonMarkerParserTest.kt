@@ -26,8 +26,7 @@ class JsonMarkerParserTest : BaseTest() {
     @MockK lateinit var assetManager: AssetManager
     private var testData: ByteArray? = null
 
-    @BeforeEach
-    fun setup() {
+    @BeforeEach fun setup() {
         MockKAnnotations.init(this)
         every { context.assets } returns assetManager
         every { assetManager.open(any()) } answers {
@@ -35,13 +34,11 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @AfterEach
-    fun teardown() {
+    @AfterEach fun teardown() {
         testData = null
     }
 
-    @Test
-    fun `normal marker`() {
+    @Test fun `normal marker`() {
         testData = """
             [
                 {
@@ -73,8 +70,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `regex marker`() {
+    @Test fun `regex marker`() {
         testData = """
             [
                 {
@@ -119,8 +115,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `invalid group`() {
+    @Test fun `invalid group`() {
         testData = """
             [
                 {
@@ -133,8 +128,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `empty marker`() {
+    @Test fun `empty marker`() {
         testData = """
             [
                 {
@@ -149,8 +143,7 @@ class JsonMarkerParserTest : BaseTest() {
     }
 
 
-    @Test
-    fun `missing marker`() {
+    @Test fun `missing marker`() {
         testData = """
             [
                 {
@@ -164,8 +157,7 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `invalid marker`() {
+    @Test fun `invalid marker`() {
         testData = """
             [
                 {
@@ -179,15 +171,13 @@ class JsonMarkerParserTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `parse debug set`() {
+    @Test fun `parse debug set`() {
         JsonMarkerParser(context, moshi).fromAssets("./src/main/assets/clutter/db_debug_markers.json").apply {
             isEmpty() shouldBe false
         }
     }
 
-    @Test
-    fun `parse prod set`() {
+    @Test fun `parse prod set`() {
         JsonMarkerParser(context, moshi).fromAssets("./src/main/assets/clutter/db_clutter_markers.json").apply {
             isEmpty() shouldBe false
             (size > 1000) shouldBe true

@@ -39,23 +39,24 @@ data class ManualMarker(
         if (this.areaType !== areaType) return null
         if (prefixFree.isEmpty()) return null
         require(prefixFree[0] != '/') { "Not prefixFree: $prefixFree" }
-        var match = false
-        if (path != null && regex == null) {
-            match = prefixFree.equals(path, ignoreCase)
-        } else if (regex != null) {
-            match = if (path != null && !prefixFree.startsWith(path, ignoreCase)) {
-                false
-            } else if (contains != null && !prefixFree.contains(contains, ignoreCase)) {
-                false
-            } else {
-                pattern!!.matcher(prefixFree).matches()
+
+        val match = when {
+            path != null && regex == null -> {
+                prefixFree.equals(path, ignoreCase)
             }
+            regex != null -> {
+                if (path != null && !prefixFree.startsWith(path, ignoreCase)) {
+                    false
+                } else if (contains != null && !prefixFree.contains(contains, ignoreCase)) {
+                    false
+                } else {
+                    pattern!!.matcher(prefixFree).matches()
+                }
+            }
+            else -> false
         }
-        return if (match) {
-            Marker.Match(pkgs, flags)
-        } else {
-            null
-        }
+
+        return if (match) Marker.Match(pkgs, flags) else null
     }
 
     override fun equals(other: Any?): Boolean {
