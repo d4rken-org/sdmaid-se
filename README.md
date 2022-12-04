@@ -15,7 +15,7 @@ Features include:
 * Storage overview (StorageAnalyzer)
 
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm).
-A complete rewrite, optimized for newer Android versions, with a focuses on [SD Maid's](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) most popular features.
+A complete rewrite, optimized for newer Android versions, with a focus on [SD Maid's](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) most popular features.
 More details about SD Maid vs SD Maid SE can be found in the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
 
 ## Download
