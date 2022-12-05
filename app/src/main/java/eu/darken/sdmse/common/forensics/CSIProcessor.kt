@@ -7,13 +7,13 @@ interface CSIProcessor {
 
     suspend fun hasJurisdiction(type: DataArea.Type): Boolean
 
-    suspend fun matchLocation(target: APath): AreaInfo?
+    suspend fun identifyArea(target: APath): AreaInfo?
 
-    suspend fun process(item: APath, areaInfo: AreaInfo): Result
+    suspend fun findOwners(areaInfo: AreaInfo): Result
 
     data class Result(
         val owners: Set<Owner> = emptySet(),
-        val hasUnknownOwner: Boolean = false,
+        val hasKnownUnknownOwner: Boolean = false,
     )
 
 }

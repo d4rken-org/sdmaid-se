@@ -8,8 +8,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Owner(
     val pkgId: Pkg.Id,
-    val flags: Set<Marker.Flag>,
-    val isInstalled: Boolean?,
+    val flags: Set<Marker.Flag> = emptySet(),
+//    val isInstalled: Boolean?,
 ) : Parcelable {
 
     fun hasFlag(flag: Marker.Flag): Boolean = flags.contains(flag)

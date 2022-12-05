@@ -134,15 +134,15 @@ fun String.pathChopOffLast(): String? {
     val cutOff = lastIndexOf(File.separator)
     return if (cutOff == -1) null else substring(0, cutOff)
 }
-//
-//    fun getFirstDirName(path: String): String {
-//        var _path = path
-//        if (_path.startsWith(File.separator)) {
-//            _path = _path.substring(1)
-//        }
-//        val names = _path.split(Pattern.quote(File.separator)).toTypedArray()
-//        return names[0]
-//    }
+
+fun String.getFirstDirElement(seperator: String = File.separator): String {
+    var workPath = this
+    if (workPath.startsWith(File.separator)) {
+        workPath = workPath.substring(1)
+    }
+    val names = workPath.split(seperator).toTypedArray()
+    return names[0]
+}
 //
 //    fun isChildOf(parent: SDMFile, children: Collection<SDMFile?>): Collection<SDMFile> {
 //        val filteredChildren: MutableCollection<SDMFile> = HashSet<SDMFile>()

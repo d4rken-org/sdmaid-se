@@ -8352,9 +8352,6 @@
   "pkgs": ["org.acestream"],
   "mrks": [{"loc": "PUBLIC_DATA", "path": "org.acestream.player"}]
 }, {
-  "pkgs": ["com.htc.vzwqualitylogger"],
-  "mrks": [{"loc": "ROOT", "path": "vzw"}]
-}, {
   "pkgs": ["com.paragon.mounter"],
   "mrks": [{"loc": "SDCARD", "path": ".paragon_TCPlugin.log"}]
 }, {

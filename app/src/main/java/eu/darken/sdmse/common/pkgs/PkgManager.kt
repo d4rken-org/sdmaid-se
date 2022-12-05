@@ -15,7 +15,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PkgRepo @Inject constructor(
+class PkgManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val pkgOps: PkgOps,
     private val pkgEventListener: PackageEventListener,
