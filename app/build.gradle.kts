@@ -12,7 +12,7 @@ android {
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = ProjectConfig.packageName
+        namespace = ProjectConfig.packageName
 
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk

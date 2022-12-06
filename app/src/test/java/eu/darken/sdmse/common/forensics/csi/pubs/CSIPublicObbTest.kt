@@ -85,7 +85,7 @@ class CSIPublicObbTest : BaseCSITest() {
 
     private fun getProcessor() = CSIPublicObb(
         areaManager = areaManager,
-        pkgManager = pkgManager,
+        pkgRepo = pkgRepo,
         clutterRepo = clutterRepo,
         gatewaySwitch = gatewaySwitch,
         storageManager = storageManager,

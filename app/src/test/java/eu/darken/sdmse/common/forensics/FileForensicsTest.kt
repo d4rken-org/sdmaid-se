@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.forensics
 
 import android.content.Context
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -16,7 +16,7 @@ import testhelpers.BaseTest
 class FileForensicsTest : BaseTest() {
 
     @MockK lateinit var context: Context
-    @MockK lateinit var pkgManager: PkgManager
+    @MockK lateinit var pkgRepo: PkgRepo
     @MockK lateinit var csiProcessor: CSIProcessor
     @MockK lateinit var testAreaInfo: AreaInfo
     val processors = mutableSetOf<CSIProcessor>()
@@ -34,7 +34,7 @@ class FileForensicsTest : BaseTest() {
     }
 
     @Test fun init() = runTest {
-        val forensics = FileForensics(context, pkgManager, processors)
+        val forensics = FileForensics(context, pkgRepo, processors)
         val testPath = LocalPath.build("/test")
         val areaInfo = forensics.determineLocationType(testPath)
         areaInfo shouldBe testAreaInfo

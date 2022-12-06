@@ -1,16 +1,22 @@
 package eu.darken.sdmse.common.forensics.csi
 
 import android.os.storage.StorageManager
+import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
 import io.kotest.matchers.shouldBe
+import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -20,16 +26,24 @@ import testhelpers.BaseTest
 
 abstract class BaseCSITest : BaseTest() {
 
-    @MockK lateinit var pkgManager: PkgManager
+    @MockK lateinit var pkgRepo: PkgRepo
     @MockK lateinit var areaManager: DataAreaManager
     @MockK lateinit var clutterRepo: ClutterRepo
     @MockK lateinit var storageManager: StorageManager
     @MockK lateinit var gatewaySwitch: GatewaySwitch
+    @MockK lateinit var userManager2: UserManager2
+    @MockK lateinit var storageEnvironment: StorageEnvironment
+    @MockK lateinit var pkgOps: PkgOps
 
     open fun setup() {
+        if (!::pkgOps.isInitialized) {
+            MockKAnnotations.init(this)
+        }
         coEvery { clutterRepo.match(any(), any()) } returns emptySet()
-        coEvery { pkgManager.isInstalled(any()) } returns false
+        coEvery { pkgRepo.isInstalled(any()) } returns false
         coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
+        coEvery { userManager2.currentUser } returns UserHandle2(0)
+        every { storageEnvironment.dataDir } returns LocalPath.build("/data")
     }
 
     open fun teardown() {
@@ -47,7 +61,7 @@ abstract class BaseCSITest : BaseTest() {
     }
 
     open fun mockApp(pkgId: Pkg.Id, source: APath? = null) {
-        coEvery { pkgManager.isInstalled(pkgId) } returns true
+        coEvery { pkgRepo.isInstalled(pkgId) } returns true
 
 //        val packageInfo: SDMPkgInfo = Mockito.mock(SDMPkgInfo::class.java)
 //        Mockito.`when`(packageInfo.getPackageName()).thenReturn(pkgId)

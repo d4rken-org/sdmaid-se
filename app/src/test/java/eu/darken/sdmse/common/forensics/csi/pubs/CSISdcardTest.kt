@@ -82,7 +82,7 @@ class CSISdcardTest : BaseCSITest() {
 
     private fun getProcessor() = CSISdcard(
         areaManager = areaManager,
-        pkgManager = pkgManager,
+        pkgRepo = pkgRepo,
         clutterRepo = clutterRepo,
     )
 

@@ -17,8 +17,9 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
 import javax.inject.Inject
@@ -26,7 +27,7 @@ import javax.inject.Inject
 @Reusable
 class CSIPublicMedia @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgManager: PkgManager,
+    private val pkgRepo: PkgRepo,
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
 
@@ -73,11 +74,11 @@ class CSIPublicMedia @Inject constructor(
         val dirNameAsPkg = areaInfo.prefixFreePath.getFirstDirElement()
         var hiddenDirAsPkg: String? = null
 
-        if (pkgManager.isInstalled(dirNameAsPkg.toPkgId())) {
+        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId())) {
             owners.add(Owner(dirNameAsPkg.toPkgId()))
         } else {
             hiddenDirAsPkg = cleanDirName(dirNameAsPkg)
-            if (hiddenDirAsPkg != null && pkgManager.isInstalled(hiddenDirAsPkg.toPkgId())) {
+            if (hiddenDirAsPkg != null && pkgRepo.isInstalled(hiddenDirAsPkg.toPkgId())) {
                 owners.add(Owner(hiddenDirAsPkg.toPkgId()))
             }
         }

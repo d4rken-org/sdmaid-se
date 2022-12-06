@@ -1,13 +1,14 @@
 package eu.darken.sdmse.common.pkgs.features
 
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageInfo
-import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserHandle2
 import java.time.Instant
 
-interface Installed : Pkg {
-    val packageInfo: PackageInfo
+interface Installed : HasPackageInfo {
+
+    val sourceDir: LocalPath?
+        get() = packageInfo.applicationInfo?.sourceDir?.let { LocalPath.build(it) }
 
     val userHandles: Set<UserHandle2>
 

@@ -85,7 +85,7 @@ class CSIPublicMediaTest : BaseCSITest() {
 
     private fun getProcessor() = CSIPublicMedia(
         areaManager = areaManager,
-        pkgManager = pkgManager,
+        pkgRepo = pkgRepo,
         clutterRepo = clutterRepo,
     )
 

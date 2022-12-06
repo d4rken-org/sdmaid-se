@@ -12,10 +12,11 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.container.ApkArchive
+import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
@@ -193,9 +194,11 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun viewArchive(path: LocalPath, flags: Int = 0): ApkArchive? = ipcFunnel.use {
+    suspend fun viewArchive(path: APath, flags: Int = 0): ApkInfo? = ipcFunnel.use {
+        // TODO Can we support SAF here?
+        path as LocalPath
         packageManager.getPackageArchiveInfo(path.path, flags)?.let {
-            ApkArchive(
+            ApkInfo(
                 id = it.packageName.toPkgId(),
                 packageInfo = it,
             )

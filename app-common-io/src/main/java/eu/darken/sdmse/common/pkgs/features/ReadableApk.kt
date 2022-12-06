@@ -1,16 +1,13 @@
 package eu.darken.sdmse.common.pkgs.features
 
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageInfo
+import android.content.pm.PermissionInfo
 import android.os.Build
 import androidx.core.content.pm.PackageInfoCompat
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.pkgs.Pkg
 
 // A Pkg where we have access to an APK
-interface ReadableApk : Pkg {
-
-    val packageInfo: PackageInfo
+interface ReadableApk : HasPackageInfo {
 
     val applicationInfo: ApplicationInfo?
         get() = packageInfo.applicationInfo
@@ -33,4 +30,9 @@ interface ReadableApk : Pkg {
     val apiMinimumLevel: Int?
         get() = if (hasApiLevel(Build.VERSION_CODES.N)) applicationInfo?.minSdkVersion else null
 
+    val requestedPermissions: Collection<String>
+        get() = packageInfo.requestedPermissions?.toSet() ?: emptySet()
+
+    val declaredPermissions: Collection<PermissionInfo>
+        get() = packageInfo.permissions?.toSet() ?: emptySet()
 }

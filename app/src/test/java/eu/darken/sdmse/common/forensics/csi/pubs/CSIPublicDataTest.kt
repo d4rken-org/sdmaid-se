@@ -85,7 +85,7 @@ class CSIPublicDataTest : BaseCSITest() {
 
     private fun getProcessor() = CSIPublicData(
         areaManager = areaManager,
-        pkgManager = pkgManager,
+        pkgRepo = pkgRepo,
         clutterRepo = clutterRepo,
     )
 

@@ -18,7 +18,7 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.pathChopOffLast
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -26,7 +26,7 @@ import javax.inject.Inject
 @Reusable
 class CSISdcard @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgManager: PkgManager,
+    private val pkgRepo: PkgRepo,
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
 

@@ -24,8 +24,9 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
 import javax.inject.Inject
@@ -33,7 +34,7 @@ import javax.inject.Inject
 @Reusable
 class CSIPublicObb @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgManager: PkgManager,
+    private val pkgRepo: PkgRepo,
     private val areaManager: DataAreaManager,
     private val storageManager: StorageManager,
     private val gatewaySwitch: GatewaySwitch,
@@ -82,7 +83,7 @@ class CSIPublicObb @Inject constructor(
 
         val dirNameAsPkg = areaInfo.prefixFreePath.getFirstDirElement()
 
-        if (pkgManager.isInstalled(dirNameAsPkg.toPkgId())) {
+        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId())) {
             owners.add(Owner(dirNameAsPkg.toPkgId()))
         } else {
             clutterRepo.match(areaInfo.type, dirNameAsPkg)

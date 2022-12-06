@@ -15,7 +15,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PkgManager @Inject constructor(
+class PkgRepo @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val pkgOps: PkgOps,
     private val pkgEventListener: PackageEventListener,
@@ -42,7 +42,7 @@ class PkgManager @Inject constructor(
 
         return CachedInfo(
             id = pkgId,
-            installed = queried,
+            data = queried,
         ).also {
             pkgCache[pkgId] = it
         }
@@ -50,12 +50,14 @@ class PkgManager @Inject constructor(
 
     suspend fun isInstalled(pkgId: Pkg.Id): Boolean = queryCache(pkgId).isInstalled
 
+    suspend fun getPkg(pkgId: Pkg.Id): Installed? = queryCache(pkgId).data
+
     data class CachedInfo(
         val id: Pkg.Id,
-        val installed: Installed?,
+        val data: Installed?,
     ) {
         val isInstalled: Boolean
-            get() = installed != null
+            get() = data != null
     }
 
     companion object {

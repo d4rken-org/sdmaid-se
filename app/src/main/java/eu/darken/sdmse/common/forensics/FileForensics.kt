@@ -8,14 +8,14 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.pkgs.PkgManager
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class FileForensics @Inject constructor(
     @ApplicationContext val context: Context,
-    private val pkgManager: PkgManager,
+    private val pkgRepo: PkgRepo,
     private val localCsiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
 ) {
 
@@ -46,7 +46,7 @@ class FileForensics @Inject constructor(
                 if (Bugs.isDebug) throw IllegalStateException("Missing CSI processor")
             }
 
-        val installedOwners = result.owners.filter { pkgManager.isInstalled(it.pkgId) }.toSet()
+        val installedOwners = result.owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet()
 
         val ownerInfo = OwnerInfo(
             areaInfo = areaInfo,
