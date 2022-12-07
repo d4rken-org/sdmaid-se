@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs
 
+import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -7,8 +8,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -22,20 +22,25 @@ class PkgRepo @Inject constructor(
 ) {
 
     private val cacheLock = Mutex()
-    private val pkgCache = mutableMapOf<Pkg.Id, CachedInfo>()
+    private val pkgCache = MutableStateFlow(mapOf<Pkg.Id, CachedInfo>())
+    val pkgs: Flow<Collection<Installed>> = pkgCache.map { cachedInfo ->
+        cachedInfo.values.mapNotNull { it.data }
+    }
 
     init {
         pkgEventListener.events
             .onEach {
                 cacheLock.withLock {
-                    pkgCache.clear()
+                    pkgCache.value = pkgOps.getInstalledPackages()
+                        .map { CachedInfo(id = it.id, data = it) }
+                        .associateBy { it.id }
                 }
             }
             .launchIn(appScope)
     }
 
     private suspend fun queryCache(pkgId: Pkg.Id): CachedInfo = cacheLock.withLock {
-        pkgCache[pkgId]?.let { return@withLock it }
+        pkgCache.value[pkgId]?.let { return@withLock it }
 
         log(TAG, VERBOSE) { "Cache miss for $pkgId" }
         val queried = pkgOps.queryPkg(pkgId)
@@ -44,7 +49,9 @@ class PkgRepo @Inject constructor(
             id = pkgId,
             data = queried,
         ).also {
-            pkgCache[pkgId] = it
+            pkgCache.value = pkgCache.value.mutate {
+                this[pkgId] = it
+            }
         }
     }
 

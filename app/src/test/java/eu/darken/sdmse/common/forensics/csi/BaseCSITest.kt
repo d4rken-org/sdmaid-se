@@ -6,12 +6,12 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
@@ -21,7 +21,10 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
 import org.junit.Test
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
 
 abstract class BaseCSITest : BaseTest() {
@@ -35,19 +38,27 @@ abstract class BaseCSITest : BaseTest() {
     @MockK lateinit var storageEnvironment: StorageEnvironment
     @MockK lateinit var pkgOps: PkgOps
 
+    private val pkgs = mutableSetOf<Installed>()
+
+    @BeforeEach
     open fun setup() {
         if (!::pkgOps.isInitialized) {
             MockKAnnotations.init(this)
         }
         coEvery { clutterRepo.match(any(), any()) } returns emptySet()
-        coEvery { pkgRepo.isInstalled(any()) } returns false
         coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
         coEvery { userManager2.currentUser } returns UserHandle2(0)
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
+
+        coEvery { pkgRepo.isInstalled(any()) } returns false
+        coEvery { pkgRepo.getPkg(any()) } returns null
+        every { pkgRepo.pkgs } returns flowOf(pkgs)
+        coEvery { pkgOps.viewArchive(any(), any()) } returns null
     }
 
+    @AfterEach
     open fun teardown() {
-
+        pkgs.clear()
     }
 
     suspend fun CSIProcessor.assertJurisdiction(type: DataArea.Type) {
@@ -60,19 +71,18 @@ abstract class BaseCSITest : BaseTest() {
         }
     }
 
-    open fun mockApp(pkgId: Pkg.Id, source: APath? = null) {
+    open fun mockPkg(pkgId: Pkg.Id, source: LocalPath? = null): Installed {
+        val mockPkg = mockk<Installed>().apply {
+            every { id } returns pkgId
+            every { sourceDir } returns source
+            every { packageInfo } returns mockk()
+        }
         coEvery { pkgRepo.isInstalled(pkgId) } returns true
+        coEvery { pkgRepo.getPkg(pkgId) } returns mockPkg
 
-//        val packageInfo: SDMPkgInfo = Mockito.mock(SDMPkgInfo::class.java)
-//        Mockito.`when`(packageInfo.getPackageName()).thenReturn(pkgId)
-//        val applicationInfo = Mockito.mock(ApplicationInfo::class.java)
-//        applicationInfo.sourceDir = if (source != null) source.getPath() else null
-//        Mockito.`when`(packageInfo.getApplicationInfo()).thenReturn(applicationInfo)
-//        if (source != null) {
-//            Mockito.`when`(packageInfo.getSourceDir())
-//                .then(Answer<String> { invocation: InvocationOnMock? -> source.getPath() } as Answer<String>)
-//        }
-//        appMap.put(pkgId, packageInfo)
+        return mockPkg.also {
+            pkgs.add(it)
+        }
     }
 
     open fun mockMarker(pkgId: Pkg.Id, location: DataArea.Type, prefixFree: String) {
@@ -100,14 +110,6 @@ abstract class BaseCSITest : BaseTest() {
 
     @Test abstract fun `determine area successfully`()
 
-    @Test abstract fun `determine area UNsuccessfully`()
-
-    @Test abstract fun `find default owner`()
-
-    @Test abstract fun `find default owner indirectly`()
-
-    @Test abstract fun `find owner via direct clutter hit`()
-
-    @Test abstract fun `find no owner or fallback`()
+    @Test abstract fun `fail to determine area`()
 
 }
