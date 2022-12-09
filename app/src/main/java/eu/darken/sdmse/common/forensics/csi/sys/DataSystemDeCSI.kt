@@ -18,14 +18,14 @@ import java.io.File
 import javax.inject.Inject
 
 @Reusable
-class DataSystemCSI @Inject constructor(
+class DataSystemDeCSI @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
-    override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DATA_SYSTEM
+    override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DATA_SYSTEM_DE
 
     override suspend fun identifyArea(target: APath): AreaInfo? =
         areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.DATA_SYSTEM }
+            .filter { it.type == DataArea.Type.DATA_SYSTEM_DE }
             .mapNotNull { area ->
                 val base = "${area.path.path}${File.separator}"
                 if (!target.path.startsWith(base)) return@mapNotNull null
@@ -41,10 +41,10 @@ class DataSystemCSI @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataSystemCSI): CSIProcessor
+        @Binds @IntoSet abstract fun mod(mod: DataSystemDeCSI): CSIProcessor
     }
 
     companion object {
-        val TAG: String = logTag("CSI", "Data", "System")
+        val TAG: String = logTag("CSI", "Data", "System", "De")
     }
 }

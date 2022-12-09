@@ -37,11 +37,6 @@ class PortableCSI @Inject constructor(
             )
         }
 
-    override suspend fun findOwners(areaInfo: AreaInfo): CSIProcessor.Result {
-        require(hasJurisdiction(areaInfo.type)) { "Wrong jurisdiction: ${areaInfo.type}" }
-        return CSIProcessor.Result()
-    }
-
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: PortableCSI): CSIProcessor

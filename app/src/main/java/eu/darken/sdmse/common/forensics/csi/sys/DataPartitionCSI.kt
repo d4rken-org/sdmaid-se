@@ -41,7 +41,6 @@ class DataPartitionCSI @Inject constructor(
 
         val matchedArea = dataAreas.singleOrNull { target.path.startsWith(it.path.path) } ?: return null
 
-
         if (getBadMatches().any { target.path.startsWith(it) }) return null
 
         return AreaInfo(

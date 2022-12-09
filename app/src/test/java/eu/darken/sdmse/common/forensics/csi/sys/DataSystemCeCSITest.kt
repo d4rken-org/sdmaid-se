@@ -13,7 +13,7 @@ import org.junit.Before
 import org.junit.Test
 import java.util.*
 
-class DataSystemCSITest : BaseCSITest() {
+class DataSystemCeCSITest : BaseCSITest() {
 
     private val baseDataPath1 = LocalPath.build("/data")
     private val baseDataPath2 = LocalPath.build("/mnt/expand", UUID.randomUUID().toString())
@@ -115,8 +115,8 @@ class DataSystemCSITest : BaseCSITest() {
     }
 
     private val bases = setOf(
-        storageDataSystem1.path,
-        storageDataSystem2.path,
+        storageDataSystemCE1.path,
+        storageDataSystemCE2.path,
     ).map { it as LocalPath }
 
     @Before override fun setup() {
@@ -144,12 +144,12 @@ class DataSystemCSITest : BaseCSITest() {
         )
     }
 
-    private fun getProcessor() = DataSystemCSI(
+    private fun getProcessor() = DataSystemCeCSI(
         areaManager = areaManager,
     )
 
     @Test override fun `test jurisdiction`() = runTest {
-        getProcessor().assertJurisdiction(DataArea.Type.DATA_SYSTEM)
+        getProcessor().assertJurisdiction(DataArea.Type.DATA_SYSTEM_CE)
     }
 
     @Test override fun `determine area successfully`() = runTest {
@@ -158,7 +158,7 @@ class DataSystemCSITest : BaseCSITest() {
         for (base in bases) {
             val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
             processor.identifyArea(testFile1)!!.apply {
-                type shouldBe DataArea.Type.DATA_SYSTEM
+                type shouldBe DataArea.Type.DATA_SYSTEM_CE
                 prefix shouldBe "${base.path}/"
                 prefixFreePath shouldBe testFile1.name
                 isBlackListLocation shouldBe false
@@ -174,10 +174,10 @@ class DataSystemCSITest : BaseCSITest() {
             processor.identifyArea(LocalPath.build(base, "app-asec", UUID.randomUUID().toString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "app-private", UUID.randomUUID().toString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "app-lib", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "system", UUID.randomUUID().toString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "", UUID.randomUUID().toString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "system_de", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system_ce", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system", UUID.randomUUID().toString())) shouldNotBe null
+            processor.identifyArea(LocalPath.build(base, "system_ce", UUID.randomUUID().toString())) shouldNotBe null
         }
     }
 
