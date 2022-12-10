@@ -50,8 +50,6 @@ class CacheModule @Inject constructor(
         )
     }
 
-    override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> = emptySet()
-
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: CacheModule): DataAreaModule

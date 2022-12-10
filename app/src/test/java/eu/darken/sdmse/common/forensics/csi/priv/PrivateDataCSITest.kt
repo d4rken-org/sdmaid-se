@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -105,7 +106,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PRIVATE_DATA
                 prefix shouldBe "${base.path}/"
@@ -118,8 +119,8 @@ class PrivateDataCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", UUID.randomUUID().toString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/mnt/expand", UUID.randomUUID().toString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/mnt/expand", randomString())) shouldBe null
     }
 
     @Test fun `find default owner`() = runTest {
@@ -154,7 +155,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val packageName = "com.test.pkg".toPkgId()
         mockPkg(packageName)
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(packageName, DataArea.Type.PRIVATE_DATA, prefixFree)
 
         for (base in bases) {
@@ -181,7 +182,7 @@ class PrivateDataCSITest : BaseCSITest() {
         }
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val locationInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo).apply {

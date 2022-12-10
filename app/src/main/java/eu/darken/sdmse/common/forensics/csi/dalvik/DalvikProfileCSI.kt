@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.forensics.csi.sys
+package eu.darken.sdmse.common.forensics.csi.dalvik
 
 import dagger.Binds
 import dagger.Module
@@ -14,18 +14,22 @@ import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DirNameCheck
 import java.io.File
 import javax.inject.Inject
 
 @Reusable
-class DataSystemCeCSI @Inject constructor(
+class DalvikProfileCSI @Inject constructor(
     private val areaManager: DataAreaManager,
+    private val dirNameCheck: DirNameCheck,
+    private val clutterCheck: DalvikClutterCheck,
 ) : LocalCSIProcessor {
 
-    override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DATA_SYSTEM_CE
+    override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DALVIK_PROFILE
 
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
-        .filter { it.type == DataArea.Type.DATA_SYSTEM_CE }
+        .filter { it.type == DataArea.Type.DALVIK_PROFILE }
         .mapNotNull { area ->
             val base = "${area.path.path}${File.separator}"
             if (!target.path.startsWith(base)) return@mapNotNull null
@@ -34,17 +38,31 @@ class DataSystemCeCSI @Inject constructor(
                 dataArea = area,
                 file = target,
                 prefix = base,
-                isBlackListLocation = false
+                isBlackListLocation = true
             )
         }
         .singleOrNull()
 
+    override suspend fun findOwners(areaInfo: AreaInfo): CSIProcessor.Result {
+        val results = mutableSetOf<DalvikCheck.Result>()
+        results.add(dirNameCheck.process(areaInfo))
+
+        if (results.all { it.owners.isEmpty() }) {
+            results.add(clutterCheck.process(areaInfo))
+        }
+
+        return CSIProcessor.Result(
+            owners = results.map { it.owners }.flatten().toSet(),
+            hasKnownUnknownOwner = results.any { it.hasKnownUnknownOwner },
+        )
+    }
+
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataSystemCeCSI): CSIProcessor
+        @Binds @IntoSet abstract fun mod(mod: DalvikProfileCSI): CSIProcessor
     }
 
     companion object {
-        val TAG: String = logTag("Csi", "Data", "System", "Ce")
+        val TAG: String = logTag("CSI", "Dalvik", "Profile")
     }
 }

@@ -59,6 +59,12 @@ data class DataArea(
          * Apps2SD https://play.google.com/store/apps/details?id=com.a0soft.gphone.app2sd
          */
         @Json(name = "DATA_SDEXT2") DATA_SDEXT2("DATA_SDEXT2"),
+
+        @Json(name = "SYSTEM") SYSTEM("SYSTEM"),
+        @Json(name = "SYSTEM_APP") SYSTEM_APP("SYSTEM_APP"),
+        @Json(name = "SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
+        @Json(name = "OEM") OEM("OEM"),
+
         ;
 
         companion object {

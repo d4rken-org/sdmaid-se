@@ -1,71 +1,94 @@
-//package eu.darken.sdmse.common.forensics.csi.dalvik;
-//
-//import java.io.File;
-//import java.util.Collection;
-//
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import eu.thedarken.sdm.App;
-//import eu.thedarken.sdm.tools.forensics.FileForensics;
-//import eu.thedarken.sdm.tools.forensics.Location;
-//import eu.thedarken.sdm.tools.forensics.LocationInfo;
-//import eu.thedarken.sdm.tools.forensics.OwnerInfo;
-//import eu.thedarken.sdm.tools.forensics.csi.CSIProcessor;
-//import eu.thedarken.sdm.tools.forensics.csi.checks.ClutterCheck;
-//import eu.thedarken.sdm.tools.io.SDMFile;
-//import eu.thedarken.sdm.tools.storage.Storage;
-//
-//public class CSIDalvikDex extends CSIProcessor {
-//    static final String TAG = App.logTag("CSIDalvikDex");
-//
-//    private final DalvikCandidateGenerator sourceGenerator;
-//    private final ClutterCheck clutterCheck;
-//    private final CustomDexOptCheck customDexOptCheck;
-//    private final SourceDirCheck sourceDirCheck;
-//    private final ApkCheck apkCheck;
-//    private final ExistCheck existCheck;
-//    private final OddOnesCheck oddOnesCheck;
-//
-//    public CSIDalvikDex(FileForensics fileForensics) {
-//        super(fileForensics);
-//        sourceGenerator = new DalvikCandidateGenerator(this);
-//        clutterCheck = new ClutterCheck(this);
-//        customDexOptCheck = new CustomDexOptCheck(this);
-//        sourceDirCheck = new SourceDirCheck(this);
-//        apkCheck = new ApkCheck(this);
-//        existCheck = new ExistCheck(this);
-//        oddOnesCheck = new OddOnesCheck(this);
-//    }
-//
-//
-//    @Override
-//    public boolean hasJurisdiction(@NonNull Location type) {
-//        return type == Location.DALVIK_DEX;
-//    }
-//
-//    @Nullable
-//    @Override
-//    public LocationInfo matchLocation(@NonNull SDMFile file) {
-//        Collection<Storage> storages = getStorageManager().getStorages(Location.DALVIK_DEX, true);
-//        for (Storage storage : storages) {
-//            String base = storage.getFile().getPath() + File.separator;
-//            if (file.getPath().startsWith(base)) {
-//                return new LocationInfo(file, Location.DALVIK_DEX, base, true, storage);
-//            }
-//        }
-//        return null;
-//    }
-//
-//    @SuppressWarnings("UnnecessaryReturnStatement")
-//    @Override
-//    public void process(@NonNull OwnerInfo ownerInfo) {
-//        Collection<SDMFile> candidates = sourceGenerator.getCandidates(ownerInfo.getItem());
-//        if (sourceDirCheck.check(ownerInfo, candidates)) return;
-//        if (customDexOptCheck.check(ownerInfo, candidates)) return;
-//        if (clutterCheck.check(ownerInfo)) return;
-//        if (apkCheck.check(ownerInfo, candidates)) return;
-//        if (existCheck.check(ownerInfo, candidates)) return;
-//        if (oddOnesCheck.check(ownerInfo)) return;
-//    }
-//
-//}
+package eu.darken.sdmse.common.forensics.csi.dalvik
+
+import dagger.Binds
+import dagger.Module
+import dagger.Reusable
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.forensics.AreaInfo
+import eu.darken.sdmse.common.forensics.CSIProcessor
+import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
+import java.io.File
+import javax.inject.Inject
+
+@Reusable
+class DalvikDexCSI @Inject constructor(
+    private val areaManager: DataAreaManager,
+    private val sourceGenerator: DalvikCandidateGenerator,
+    private val clutterCheck: DalvikClutterCheck,
+    private val customDexOptCheck: CustomDexOptCheck,
+    private val sourceDirCheck: SourceDirCheck,
+    private val apkCheck: ApkCheck,
+    private val existCheck: ExistCheck,
+    private val oddOnesCheck: OddOnesCheck,
+) : LocalCSIProcessor {
+
+    override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DALVIK_DEX
+
+    override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
+        .filter { it.type == DataArea.Type.DALVIK_DEX }
+        .mapNotNull { area ->
+            val base = "${area.path.path}${File.separator}"
+            if (!target.path.startsWith(base)) return@mapNotNull null
+
+            AreaInfo(
+                dataArea = area,
+                file = target,
+                prefix = base,
+                isBlackListLocation = true
+            )
+        }
+        .singleOrNull()
+
+    override suspend fun findOwners(areaInfo: AreaInfo): CSIProcessor.Result {
+        val basePath = areaInfo.file as? LocalPath ?: return CSIProcessor.Result()
+
+        val candidates = sourceGenerator.getCandidates(basePath).toMutableList()
+
+        sourceDirCheck.check(candidates)
+            .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        customDexOptCheck.check(areaInfo).let { (result, extraPath) ->
+            extraPath?.let { candidates.add(it) }
+            if (!result.isEmpty()) {
+                return CSIProcessor.Result(result.owners, result.hasKnownUnknownOwner)
+            }
+        }
+
+        clutterCheck.process(areaInfo)
+            .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        apkCheck.check(candidates)
+            .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        existCheck.check(candidates)
+            .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        oddOnesCheck.check(areaInfo)
+            .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        return CSIProcessor.Result()
+    }
+
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds @IntoSet abstract fun mod(mod: DalvikDexCSI): CSIProcessor
+    }
+
+    companion object {
+        val TAG: String = logTag("CSI", "Dalvik", "Dex")
+    }
+}

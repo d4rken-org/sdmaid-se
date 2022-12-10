@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.pub
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -68,7 +69,7 @@ class PortableCSITest : BaseCSITest() {
     @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in portablePaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PORTABLE
                 prefixFreePath shouldBe testFile1.name
@@ -81,10 +82,10 @@ class PortableCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in portablePaths) {
-            processor.identifyArea(LocalPath.build("$base/Android/data", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/obb", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/data", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/obb", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android", randomString())) shouldBe null
         }
     }
 

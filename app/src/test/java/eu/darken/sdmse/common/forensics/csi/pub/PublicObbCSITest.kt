@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -99,7 +100,7 @@ class PublicObbCSITest : BaseCSITest() {
     override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in obbPaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_OBB
                 prefixFreePath shouldBe testFile1.name
@@ -112,9 +113,9 @@ class PublicObbCSITest : BaseCSITest() {
     override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in obbPaths) {
-            processor.identifyArea(LocalPath.build("$base/Android/data", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/data", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android", randomString())) shouldBe null
         }
     }
 
@@ -150,7 +151,7 @@ class PublicObbCSITest : BaseCSITest() {
         val pkgId = "com.test.pkg".toPkgId()
         mockPkg(pkgId, null)
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(pkgId, DataArea.Type.PUBLIC_OBB, prefixFree)
 
         for (base in obbPaths) {
@@ -170,7 +171,7 @@ class PublicObbCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in obbPaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

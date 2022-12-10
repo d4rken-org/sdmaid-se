@@ -56,8 +56,6 @@ class SdcardsModule @Inject constructor(
         return sdcards
     }
 
-    override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> = firstPass
-
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {

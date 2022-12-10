@@ -40,6 +40,11 @@ data class LocalPath(
 
     override fun describeContents(): Int = 0
 
+    fun parent(): LocalPath? {
+        val raw = segments.dropLast(1)
+        return if (raw.isEmpty()) null else build(*raw.toTypedArray())
+    }
+
     companion object {
         fun build(base: LocalPath, vararg crumbs: String): LocalPath {
             return build(base.path, *crumbs)

@@ -17,26 +17,26 @@ class StorageAreaFactory @Inject constructor(
 ) {
 
     suspend fun build(): Collection<DataArea> = gatewaySwitch.use {
-        val firstPassResult = areaModules.map { it.firstPass() }.flatten()
-        log(TAG, VERBOSE) { "build(): First pass: ${firstPassResult.joinToString("\n")}" }
+        val firstPass = areaModules.map { it.firstPass() }.flatten()
+        log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
 
-        val secondPass = areaModules.map { it.secondPass(firstPassResult) }.flatten()
+        val secondPass = areaModules.map { it.secondPass(firstPass) }.flatten()
         log(TAG, VERBOSE) { "build(): Second pass:\n${secondPass.joinToString("\n")}" }
 
-        val uniqueAreas = secondPass.toSet()
-        if (secondPass.size != uniqueAreas.size) {
-            log(TAG, WARN) { "build(): Cleaned areas: ${uniqueAreas.joinToString("\n")}" }
+        val newAreas = (firstPass + secondPass).toSet()
+        if (firstPass.size + secondPass.size != newAreas.size) {
+            log(TAG, WARN) { "build(): Cleaned areas: ${newAreas.joinToString("\n")}" }
         }
 
-        if (BuildConfigWrap.BUILD_TYPE != RELEASE && uniqueAreas.size != secondPass.size) {
+        if (BuildConfigWrap.BUILD_TYPE != RELEASE && firstPass.size + secondPass.size != newAreas.size) {
             throw IllegalStateException("Duplicate data areas")
         }
 
-        if (BuildConfigWrap.BUILD_TYPE != RELEASE && uniqueAreas.map { it.path }.toSet().size != uniqueAreas.size) {
+        if (BuildConfigWrap.BUILD_TYPE != RELEASE && newAreas.map { it.path }.toSet().size != newAreas.size) {
             throw IllegalStateException("Duplicate data areas with overlapping paths")
         }
 
-        log(TAG, INFO) { "Detected storage areas:\n${uniqueAreas.joinToString("\n")}" }
+        log(TAG, INFO) { "Detected storage areas:\n${newAreas.joinToString("\n")}" }
 
         secondPass
     }

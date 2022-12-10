@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.misc
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.every
@@ -11,7 +12,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class DataSDExt2CSITest : BaseCSITest() {
 
@@ -80,7 +80,7 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SDEXT2
                 prefix shouldBe "${base.path}/"
@@ -94,15 +94,15 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in dataPaths) {
 
-            processor.identifyArea(LocalPath.build(base, "app", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-asec", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-private", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-lib", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system_de", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system_ce", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-asec", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-private", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-lib", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "system_de", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "system_ce", randomString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "sdext2")) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "sdext2", UUID.randomUUID().toString())) shouldNotBe null
+            processor.identifyArea(LocalPath.build(base, "sdext2", randomString())) shouldNotBe null
         }
     }
 
@@ -110,7 +110,7 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

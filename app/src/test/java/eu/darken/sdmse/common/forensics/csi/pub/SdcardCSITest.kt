@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -93,7 +94,7 @@ class SdcardCSITest : BaseCSITest() {
     @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in sdcards) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.SDCARD
                 prefixFreePath shouldBe testFile1.name
@@ -106,9 +107,9 @@ class SdcardCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in sdcards) {
-            processor.identifyArea(LocalPath.build("$base/Android/data", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/obb", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/data", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/obb", randomString())) shouldBe null
         }
     }
 
@@ -117,7 +118,7 @@ class SdcardCSITest : BaseCSITest() {
         val pkgId = "com.test.pkg".toPkgId()
         mockPkg(pkgId, null)
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(pkgId, DataArea.Type.SDCARD, prefixFree)
 
         for (base in sdcards) {
@@ -138,7 +139,7 @@ class SdcardCSITest : BaseCSITest() {
         val pkgId = "com.test.pkg".toPkgId()
         mockPkg(pkgId, null)
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(pkgId, DataArea.Type.SDCARD, prefixFree)
 
         for (base in sdcards) {
@@ -245,7 +246,7 @@ class SdcardCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdcards) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

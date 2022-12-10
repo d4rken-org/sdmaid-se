@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.forensics.csi.source.tools
+package eu.darken.sdmse.common.forensics.csi.dalvik.tools
 
 import dagger.Binds
 import dagger.Module
@@ -8,25 +8,25 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.forensics.AreaInfo
-import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
 import javax.inject.Inject
 
 @Reusable
-class ClutterCheck @Inject constructor(
+class DalvikClutterCheck @Inject constructor(
     private val clutterRepo: ClutterRepo,
-) : AppSourceCheck {
+) : DalvikCheck {
 
-    override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
+    suspend fun process(areaInfo: AreaInfo): DalvikCheck.Result {
         val dirName: String = areaInfo.prefixFreePath.getFirstDirElement()
         val matches = clutterRepo.match(areaInfo.type, dirName)
         val owners = matches.map { it.toOwners() }.flatten().toSet()
-        return AppSourceCheck.Result(owners)
+        return DalvikCheck.Result(owners)
     }
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: ClutterCheck): AppSourceCheck
+        @Binds @IntoSet abstract fun mod(mod: DalvikClutterCheck): DalvikCheck
     }
 }

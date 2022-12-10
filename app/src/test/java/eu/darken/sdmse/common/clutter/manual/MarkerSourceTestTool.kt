@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchTyp
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.serialization.SerializationModule
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
@@ -21,7 +22,6 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import java.io.File
-import java.util.*
 
 class MarkerSourceTestTool(private val assetPath: String) {
 
@@ -66,13 +66,13 @@ class MarkerSourceTestTool(private val assetPath: String) {
     }
 
     suspend fun checkBasics() {
-        neg(SDCARD, emptySet(), emptySet(), UUID.randomUUID().toString())
+        neg(SDCARD, emptySet(), emptySet(), randomString())
         neg(PUBLIC_DATA, emptySet(), emptySet(), "")
-        neg(PUBLIC_DATA, emptySet(), emptySet(), UUID.randomUUID().toString())
+        neg(PUBLIC_DATA, emptySet(), emptySet(), randomString())
         neg(DATA, emptySet(), emptySet(), "")
-        neg(DATA, emptySet(), emptySet(), UUID.randomUUID().toString())
+        neg(DATA, emptySet(), emptySet(), randomString())
         neg(PRIVATE_DATA, emptySet(), emptySet(), "")
-        neg(PRIVATE_DATA, emptySet(), emptySet(), UUID.randomUUID().toString())
+        neg(PRIVATE_DATA, emptySet(), emptySet(), randomString())
     }
 
     suspend fun checkCandidates(candidate: Candi) {

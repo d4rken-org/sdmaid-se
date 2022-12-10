@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.sys
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -10,7 +11,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class DownloadCacheCSITest : BaseCSITest() {
 
@@ -45,7 +45,7 @@ class DownloadCacheCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in basePaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DOWNLOAD_CACHE
                 prefix shouldBe "${base.path}/"
@@ -58,7 +58,7 @@ class DownloadCacheCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", UUID.randomUUID().toString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
         processor.identifyArea(LocalPath.build("/")) shouldBe null
     }
 
@@ -66,7 +66,7 @@ class DownloadCacheCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in basePaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val areaInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(areaInfo).apply {

@@ -33,8 +33,6 @@ class PrivateDataModule @Inject constructor(
 
     private val mirrorStorage = LocalPath.build("/data_mirror")
 
-    override suspend fun firstPass(): Collection<DataArea> = emptySet()
-
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

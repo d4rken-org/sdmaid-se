@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.areas.modules.privdata
+package eu.darken.sdmse.common.areas.modules.system
 
 import dagger.Binds
 import dagger.Module
@@ -7,26 +7,31 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.exists
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
+import java.io.File
+import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * https://github.com/d4rken/sdmaid-public/issues/441
+ */
 @Reusable
-class DataAppModule @Inject constructor(
+class OemModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
 
-    override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
+    override suspend fun firstPass(): Collection<DataArea> {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (!gateway.hasRoot()) {
@@ -34,31 +39,34 @@ class DataAppModule @Inject constructor(
             return emptySet()
         }
 
-        return firstPass
-            .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
-            .mapNotNull { area ->
-                val path = LocalPath.build(area.path as LocalPath, "app")
-
-                if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
-                    log(TAG, WARN) { "Does not exist: $path" }
-                    return@mapNotNull null
-                }
-
+        val originalPath = File("/oem")
+        val resolvedPath = try {
+            originalPath.canonicalFile
+        } catch (e: IOException) {
+            log(TAG, ERROR) { "Failed to resolve canonical oem path" }
+            originalPath
+        }
+        val finalPath = LocalPath.build(resolvedPath)
+        return if (finalPath.exists(gatewaySwitch)) {
+            setOf(
                 DataArea(
-                    type = DataArea.Type.APP_APP,
-                    path = path,
+                    type = DataArea.Type.OEM,
+                    path = LocalPath.build(resolvedPath),
                     userHandle = userManager2.systemUser,
-                    flags = area.flags,
+                    flags = emptySet(),
                 )
-            }
+            )
+        } else {
+            emptySet()
+        }
     }
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataAppModule): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: OemModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "DataApp")
+        val TAG = logTag("DataArea", "Module", "Oem")
     }
 }

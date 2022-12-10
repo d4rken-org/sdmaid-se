@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -12,7 +13,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class AppSourceAsecCSITest : BaseCSITest() {
 
@@ -50,7 +50,7 @@ class AppSourceAsecCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_ASEC
                 prefix shouldBe "${base.path}/"
@@ -63,9 +63,9 @@ class AppSourceAsecCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", UUID.randomUUID().toString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/app", UUID.randomUUID().toString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/data", UUID.randomUUID().toString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/app", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/data", randomString())) shouldBe null
     }
 
     @Test fun testProcess_hit() = runTest {
@@ -95,7 +95,7 @@ class AppSourceAsecCSITest : BaseCSITest() {
 
         val packageName = "some.pkg".toPkgId()
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(packageName, DataArea.Type.APP_ASEC, prefixFree)
 
         for (base in bases) {
@@ -111,7 +111,7 @@ class AppSourceAsecCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val suffix = UUID.randomUUID().toString() + ".asec"
+            val suffix = randomString() + ".asec"
             val toHit = LocalPath.build(base, suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
                 prefix shouldBe "${base.path}/"

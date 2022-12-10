@@ -88,8 +88,6 @@ class PortableModule @Inject constructor(
         return maybes
     }
 
-    override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> = emptySet()
-
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: PortableModule): DataAreaModule

@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.source.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -14,7 +15,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class AppSourcePrivateCSITest : BaseCSITest() {
 
@@ -43,7 +43,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
         similarityFilter = SimilarityFilter(pkgRepo),
         sourceChecks = setOf(
             ApkDirCheck(pkgOps),
-            ClutterCheck(clutterRepo),
+            AppSourceClutterCheck(clutterRepo),
             DirectApkCheck(pkgOps, pkgRepo),
             DirToPkgCheck(pkgRepo),
             FileToPkgCheck(pkgRepo),
@@ -60,7 +60,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_APP_PRIVATE
                 prefix shouldBe "${base.path}/"
@@ -73,9 +73,9 @@ class AppSourcePrivateCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", UUID.randomUUID().toString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/app", UUID.randomUUID().toString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/data", UUID.randomUUID().toString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/app", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/data", randomString())) shouldBe null
     }
 
     @Test fun testProcess_hit() = runTest {
@@ -189,7 +189,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
 
         val packageName = "some.pkg".toPkgId()
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(packageName, DataArea.Type.APP_APP_PRIVATE, prefixFree)
 
         for (base in bases) {
@@ -205,7 +205,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val suffix = UUID.randomUUID().toString()
+            val suffix = randomString()
             val toHit = LocalPath.build(base, suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
                 prefix shouldBe "${base.path}/"

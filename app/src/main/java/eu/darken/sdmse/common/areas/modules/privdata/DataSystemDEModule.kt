@@ -27,8 +27,6 @@ class DataSystemDEModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
 
-    override suspend fun firstPass(): Collection<DataArea> = emptySet()
-
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

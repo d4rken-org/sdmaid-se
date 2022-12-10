@@ -17,8 +17,6 @@ import javax.inject.Inject
 @Reusable
 class PublicDataModule @Inject constructor() : DataAreaModule {
 
-    override suspend fun firstPass(): Collection<DataArea> = emptySet()
-
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val sdcardAreas = firstPass.filter { it.type == DataArea.Type.SDCARD }
 

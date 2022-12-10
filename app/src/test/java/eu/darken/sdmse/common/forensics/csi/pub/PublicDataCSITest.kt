@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -12,7 +13,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class PublicDataCSITest : BaseCSITest() {
     val sdcardPath1 = LocalPath.build("/card1")
@@ -96,7 +96,7 @@ class PublicDataCSITest : BaseCSITest() {
     @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in dataPaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_DATA
                 prefixFreePath shouldBe testFile1.name
@@ -109,9 +109,9 @@ class PublicDataCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in dataPaths) {
-            processor.identifyArea(LocalPath.build("$base/Android/obb", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", UUID.randomUUID().toString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android", UUID.randomUUID().toString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/obb", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build("$base/Android", randomString())) shouldBe null
         }
     }
 
@@ -147,7 +147,7 @@ class PublicDataCSITest : BaseCSITest() {
         val pkgId = "com.test.pkg".toPkgId()
         mockPkg(pkgId, null)
 
-        val prefixFree = UUID.randomUUID().toString()
+        val prefixFree = randomString()
         mockMarker(pkgId, DataArea.Type.PUBLIC_DATA, prefixFree)
 
         for (base in dataPaths) {
@@ -167,7 +167,7 @@ class PublicDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in dataPaths) {
-            val testFile1 = LocalPath.build(base, UUID.randomUUID().toString())
+            val testFile1 = LocalPath.build(base, randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {
