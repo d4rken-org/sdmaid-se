@@ -15,9 +15,10 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import java.io.File
+import javax.inject.Inject
 
 @Reusable
-class DataSDExt2CSI(
+class DataSDExt2CSI @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DATA_SDEXT2
