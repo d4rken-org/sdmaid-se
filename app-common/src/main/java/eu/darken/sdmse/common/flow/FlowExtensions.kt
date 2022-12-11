@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.flow
 
+import eu.darken.sdmse.common.coroutine.cancelAfterRun
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -72,3 +73,6 @@ fun <T> Flow<T>.setupCommonEventHandlers(tag: String, identifier: () -> String) 
             throw it
         }
     }
+
+suspend fun <T> Flow<*>.launchForAction(scope: CoroutineScope, action: suspend () -> T): T = this
+    .launchIn(scope).cancelAfterRun(action)

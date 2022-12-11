@@ -36,4 +36,6 @@
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
     <string name="settings_support_label">Support</string>
+    <string name="general_progress_searching">Searching</string>
+    <string name="general_progress_filtering">Filtering</string>
 </resources>

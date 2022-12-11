@@ -16,17 +16,17 @@ import javax.inject.Singleton
 class FileForensics @Inject constructor(
     @ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
-    private val localCsiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
+    private val csiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
 ) {
 
     init {
-        log(TAG, INFO) { "${localCsiProcessors.size} CSI processors loaded." }
+        log(TAG, INFO) { "${csiProcessors.size} CSI processors loaded." }
     }
 
     suspend fun determineLocationType(file: APath): AreaInfo {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
-        return localCsiProcessors.firstNotNullOf { it.identifyArea(file) }
+        return csiProcessors.firstNotNullOf { it.identifyArea(file) }
     }
 
     suspend fun findOwners(file: APath): OwnerInfo {
@@ -38,7 +38,7 @@ class FileForensics @Inject constructor(
 
         val startFindingOwner = System.currentTimeMillis()
 
-        val result = localCsiProcessors
+        val result = csiProcessors
             .firstOrNull { it.hasJurisdiction(areaInfo.type) }
             ?.findOwners(areaInfo)
             ?: CSIProcessor.Result().also {

@@ -10,6 +10,7 @@ import android.net.wifi.WifiManager
 import android.os.BatteryManager
 import android.os.PowerManager
 import android.os.UserManager
+import android.os.storage.StorageManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,6 +59,11 @@ class AndroidModule {
     @Singleton
     fun userManager(@ApplicationContext context: Context): UserManager =
         context.getSystemService(Context.USER_SERVICE) as UserManager
+
+    @Provides
+    @Singleton
+    fun storageManager(@ApplicationContext context: Context): StorageManager =
+        context.getSystemService(Context.STORAGE_SERVICE) as StorageManager
 
     @Provides
     @Singleton

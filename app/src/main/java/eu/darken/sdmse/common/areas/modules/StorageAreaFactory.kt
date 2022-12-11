@@ -16,7 +16,7 @@ class StorageAreaFactory @Inject constructor(
     private val areaModules: Set<@JvmSuppressWildcards DataAreaModule>,
 ) {
 
-    suspend fun build(): Collection<DataArea> = gatewaySwitch.use {
+    suspend fun build(): Collection<DataArea> = gatewaySwitch.useSharedResource {
         val firstPass = areaModules.map { it.firstPass() }.flatten()
         log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
 

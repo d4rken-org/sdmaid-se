@@ -11,7 +11,7 @@ interface HasSharedResource<T : Any> {
         sharedResource.addParent(parent.sharedResource)
     }
 
-    suspend fun <R> use(block: suspend (T) -> R): R {
+    suspend fun <R> useSharedResource(block: suspend (T) -> R): R {
         return sharedResource.get().use { block(it.item) }
     }
 }

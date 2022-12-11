@@ -10,6 +10,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -20,6 +22,7 @@ class DashboardFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val pkgOps: PkgOps,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = flow {
@@ -28,7 +31,7 @@ class DashboardFragmentVM @Inject constructor(
             DebugCardVH.Item(
                 onCheck = {
                     launch {
-                        pkgOps.getInstalledPackages()
+                        taskManager.submit(CorpseFinderScanTask())
                     }
                 }
             ).run { items.add(this) }
