@@ -7,10 +7,10 @@ import java.util.*
 // TODO support symlinks?
 // TODO unit test coverage
 class PathTreeFlow<
-    P : eu.darken.sdmse.common.files.core.APath,
-    PL : APathLookup<P>,
-    GT : APathGateway<P, PL>
-    > constructor(
+        P : APath,
+        PL : APathLookup<P>,
+        GT : APathGateway<P, PL>
+        > constructor(
     private val gateway: GT,
     private val start: P,
 ) : AbstractFlow<PL>() {

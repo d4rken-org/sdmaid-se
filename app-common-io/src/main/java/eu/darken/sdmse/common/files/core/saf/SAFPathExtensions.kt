@@ -13,3 +13,6 @@ fun SAFPath.crumbsTo(child: SAFPath): Array<String> {
     }
     return child.crumbs.subList(lastMatchingIndex, child.crumbs.size).toTypedArray()
 }
+
+val SAFPath.isStorageRoot: Boolean
+    get() = crumbs.isEmpty() && treeRoot.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1

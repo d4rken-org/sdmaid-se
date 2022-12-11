@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.files.core.local
 
 import eu.darken.rxshell.cmd.RxCmdShell
-import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -17,7 +16,6 @@ import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.SharedShell
-import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
@@ -35,7 +33,6 @@ import javax.inject.Singleton
 @Singleton
 class LocalGateway @Inject constructor(
     private val javaRootClient: JavaRootClient,
-    private val storageEnvironment: StorageEnvironment,
     private val ipcFunnel: IPCFunnel,
     private val libcoreTool: LibcoreTool,
     @AppScope private val appScope: CoroutineScope,
@@ -240,7 +237,7 @@ class LocalGateway @Inject constructor(
                 else -> when {
                     javaFile.exists() -> true
                     javaFile.parentFile?.exists() == true -> true
-                    else -> storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
+                    else -> false //storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
                 }
             }
 
@@ -308,10 +305,6 @@ class LocalGateway @Inject constructor(
             Timber.tag(TAG).w("canRead(path=%s, mode=%s) failed.", path, mode)
             throw ReadException(path, cause = e)
         }
-    }
-
-    fun isStorageRoot(path: LocalPath, userHandle: UserHandle2): Boolean {
-        return storageEnvironment.getPublicStorage(userHandle).any { it.localPath == path }
     }
 
     override suspend fun read(path: LocalPath): Source = read(path, Mode.AUTO)

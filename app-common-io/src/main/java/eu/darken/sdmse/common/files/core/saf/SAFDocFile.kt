@@ -12,17 +12,16 @@ import android.provider.DocumentsContract
 import android.system.Os
 import android.system.StructStat
 import android.text.TextUtils
-import androidx.annotation.RequiresApi
 import eu.darken.sdmse.common.asSequence
 import eu.darken.sdmse.common.files.core.Ownership
 import eu.darken.sdmse.common.files.core.Permissions
 import eu.darken.sdmse.common.files.core.useQuietly
 import timber.log.Timber
+import java.io.File
 import java.io.IOException
 import java.util.*
 
 
-@RequiresApi(21)
 internal data class SAFDocFile(
     private val context: Context,
     private val resolver: ContentResolver,
@@ -135,8 +134,7 @@ internal data class SAFDocFile(
 
         requireNotNull(foundUris) { "Unable to query for $name in $uri" }
 
-        val pair = foundUris.singleOrNull { it.second == name }
-        if (pair == null) return null
+        val pair = foundUris.singleOrNull { it.second == name } ?: return null
 
         return SAFDocFile(context, resolver, DocumentsContract.buildDocumentUriUsingTree(uri, pair.first))
     }
@@ -247,7 +245,20 @@ internal data class SAFDocFile(
     }
 
     companion object {
-        @RequiresApi(21)
+
+        fun buildTreeUri(baseUri: Uri, crumbs: List<String>): Uri {
+            val uriBuilder = StringBuilder().apply {
+                append(baseUri)
+                append("/document/")
+                append(Uri.encode(DocumentsContract.getTreeDocumentId(baseUri)))
+                crumbs.forEach {
+                    append(Uri.encode(File.separator))
+                    append(Uri.encode(it))
+                }
+            }
+            return Uri.parse(uriBuilder.toString())
+        }
+
         fun fromTreeUri(context: Context, contentResolver: ContentResolver, treeUri: Uri): SAFDocFile {
             var documentId = DocumentsContract.getTreeDocumentId(treeUri)
             if (DocumentsContract.isDocumentUri(context, treeUri)) {

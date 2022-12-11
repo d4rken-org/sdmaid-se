@@ -36,11 +36,24 @@ data class SAFPath(
         }
 
     override val path: String
-        get() = if (crumbs.isNotEmpty()) {
-            crumbs.joinToString(File.pathSeparator)
-        } else {
-            treeRoot.pathSegments.joinToString(File.pathSeparator)
+        get() {
+            return if (crumbs.isNotEmpty()) {
+                crumbs.joinToString(File.pathSeparator)
+            } else {
+                treeRoot.pathSegments.joinToString(File.pathSeparator)
+            }
         }
+
+    val pathUri by lazy {
+        val uriString = StringBuilder(treeRoot.toString()).apply {
+            append(Uri.encode(":"))
+            crumbs.forEach {
+                append(Uri.encode(it))
+                if (it != crumbs.last()) append(Uri.encode(File.separator))
+            }
+        }
+        Uri.parse(uriString.toString())
+    }
 
     override val name: String
         get() = if (crumbs.isNotEmpty()) {

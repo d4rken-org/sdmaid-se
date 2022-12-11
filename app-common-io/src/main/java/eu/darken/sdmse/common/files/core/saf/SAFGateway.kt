@@ -20,6 +20,7 @@ import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.*
 import timber.log.Timber
+import java.io.File
 import java.io.IOException
 import java.util.*
 import javax.inject.Inject
@@ -42,17 +43,45 @@ class SAFGateway @Inject constructor(
         block: suspend CoroutineScope.() -> T
     ): T = withContext(dispatcherProvider.IO) { block() }
 
+    /**
+     * SAFPaths have a normalized treeUri, e.g.:
+     * content://com.android.externalstorage.documents/tree/primary
+     * SAFDocFiles need require a treeUri that actually gives us access though, i.e. the closet SAF permission we have.
+     */
     private fun findDocFile(file: SAFPath): SAFDocFile? {
-        val treeRoot = SAFDocFile.fromTreeUri(context, contentResolver, file.treeRoot)
+        val targetSegments = mutableListOf<String>().apply {
+            addAll(file.crumbs)
+        }
+        val missingSegments = mutableListOf<String>()
 
-        var current: SAFDocFile? = treeRoot
-        for (seg in file.crumbs) {
-            current = current?.findFile(seg)
-            if (current == null) break
+        val availablePermissions = contentResolver.persistedUriPermissions
+            .filter { it.isReadPermission && it.isWritePermission }
+            .map { it to it.uri.path!!.split(":").last().split(File.separator) }
+            .sortedByDescending { it.second.size }
+
+        var uriStart: Uri? = null
+
+        while (targetSegments.isNotEmpty() && uriStart == null) {
+            for ((perm, permCrumbs) in availablePermissions) {
+                if (permCrumbs == targetSegments) {
+                    uriStart = perm.uri
+                    break
+                }
+            }
+
+            if (targetSegments.isNotEmpty() && uriStart == null) {
+                missingSegments.add(0, targetSegments.removeLast())
+            }
         }
 
-//       if(BBDebug.isDebug()) Timber.tag(TAG).v("getDocumentFile(file=$file): ${current?.uri}")
-        return current
+//        var current: SAFDocFile? = SAFDocFile.fromTreeUri(context, contentResolver, uriStart ?: file.treeRoot)
+//        for (seg in missingSegments) {
+//            current = current?.findFile(seg)
+//            if (current == null) break
+//        }
+
+        val targetTreeUri = SAFDocFile.buildTreeUri(uriStart ?: file.treeRoot, missingSegments)
+        return SAFDocFile.fromTreeUri(context, contentResolver, targetTreeUri)
     }
 
     @Throws(IOException::class)
@@ -128,7 +157,7 @@ class SAFGateway @Inject constructor(
                     path.child(name)
                 }
         } catch (e: Exception) {
-            Timber.tag(TAG).w("lookupFiles(%s) failed.", path)
+            Timber.tag(TAG).w("listFiles(%s) failed.", path)
             throw ReadException(path, cause = e)
         }
     }
@@ -172,20 +201,22 @@ class SAFGateway @Inject constructor(
     @Throws(IOException::class)
     override suspend fun lookup(path: SAFPath): SAFPathLookup = runIO {
         try {
-            val file = findDocFile(path)!!
+            val docFile = findDocFile(path)!!
+            if (!docFile.readable) throw IllegalStateException("readable=false")
+
             val fileType: FileType = when {
-                file.isDirectory -> FileType.DIRECTORY
+                docFile.isDirectory -> FileType.DIRECTORY
                 else -> FileType.FILE
             }
-            val fstat = file.fstat()
+            val fstat = docFile.fstat()
 
             SAFPathLookup(
                 lookedUp = path,
                 fileType = fileType,
-                modifiedAt = file.lastModified,
+                modifiedAt = docFile.lastModified,
                 ownership = fstat?.let { Ownership(it.st_uid.toLong(), it.st_gid.toLong()) },
                 permissions = fstat?.let { Permissions(it.st_mode) },
-                size = file.length,
+                size = docFile.length,
                 target = null
             )
         } catch (e: Exception) {
@@ -213,6 +244,7 @@ class SAFGateway @Inject constructor(
     override suspend fun read(path: SAFPath): Source = runIO {
         try {
             val docFile = findDocFile(path)!!
+            if (!docFile.readable) throw IllegalStateException("readable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.READ)
             ParcelFileDescriptor.AutoCloseInputStream(pfd).source().buffer()
@@ -226,6 +258,7 @@ class SAFGateway @Inject constructor(
     override suspend fun write(path: SAFPath): Sink = runIO {
         try {
             val docFile = findDocFile(path)!!
+            if (!docFile.writable) throw IllegalStateException("writable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.WRITE)
             ParcelFileDescriptor.AutoCloseOutputStream(pfd).sink().buffer()
@@ -318,10 +351,6 @@ class SAFGateway @Inject constructor(
         val requestIntent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
         requestIntent.putExtra("android.content.extra.SHOW_ADVANCED", true)
         return requestIntent
-    }
-
-    fun isStorageRoot(path: SAFPath): Boolean {
-        return path.crumbs.isEmpty() && path.treeRoot.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1
     }
 
     companion object {

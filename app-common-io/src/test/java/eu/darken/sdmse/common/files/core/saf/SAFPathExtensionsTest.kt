@@ -52,4 +52,15 @@ class SAFPathExtensionsTest {
         parent.crumbsTo(child)
     }
 
+    @Test
+    fun `test storage root detection`() {
+        val nonRoot = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
+        SAFPath.build(nonRoot).isStorageRoot shouldBe false
+        SAFPath.build(nonRoot, "crumb1").isStorageRoot shouldBe false
+
+        val root = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A")
+        SAFPath.build(root).isStorageRoot shouldBe true
+        SAFPath.build(root, "crumb1").isStorageRoot shouldBe false
+    }
+
 }
