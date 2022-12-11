@@ -41,6 +41,7 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
     implementation(project(":app-common-root"))
+    testImplementation(project(":app-common-test"))
 
     addAndroidCore()
     addAndroidUI()
@@ -49,4 +50,6 @@ dependencies {
     addSerialization()
     addIO()
     addTesting()
+    testImplementation("org.robolectric:robolectric:4.3.1")
+    testImplementation("androidx.test.ext:junit:1.1.1")
 }
