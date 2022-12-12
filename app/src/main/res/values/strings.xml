@@ -38,4 +38,16 @@
     <string name="settings_support_label">Support</string>
     <string name="general_progress_searching">Searching</string>
     <string name="general_progress_filtering">Filtering</string>
+
+    <string name="setup_incomplete_card_title">Setup incomplete</string>
+    <string name="setup_incomplete_card_body">Finish SD Maid SE\'s setup to get better results.</string>
+    <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
+    <string name="setup_incomplete_card_continue_action">Continue setup</string>
+    <string name="setup_title">Setup</string>
+    <string name="setup_saf_card_title">Storage access framework</string>
+    <string name="setup_saf_card_body">Allow SD Maid to scan additional areas. Grant access by clicking each entry below.</string>
+    <string name="setup_saf_card_body2">Entries will turn green when access was granted successfully. In most cases the window will open with the correct path preselected and you just have to confirm.</string>
+    <string name="data_area_public_app_data_official_label">Default Public App Data</string>
+    <string name="data_area_public_storage_label">Public Storage</string>
+    <string name="data_area_sdcard_label">SD-Card</string>
 </resources>

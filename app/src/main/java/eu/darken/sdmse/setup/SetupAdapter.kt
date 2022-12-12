@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.setup
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -11,14 +11,13 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import javax.inject.Inject
 
 
-class DashboardAdapter @Inject constructor() :
-    ModularAdapter<DashboardAdapter.BaseVH<DashboardAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<DashboardAdapter.Item> {
+class SetupAdapter @Inject constructor() :
+    ModularAdapter<SetupAdapter.BaseVH<SetupAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<SetupAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -26,8 +25,7 @@ class DashboardAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is DebugCardVH.Item }) { DebugCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SetupCardVH.Item }) { SetupCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

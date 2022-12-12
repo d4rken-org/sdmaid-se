@@ -50,6 +50,6 @@ dependencies {
     addSerialization()
     addIO()
     addTesting()
-    testImplementation("org.robolectric:robolectric:4.3.1")
-    testImplementation("androidx.test.ext:junit:1.1.1")
+    testImplementation("org.robolectric:robolectric:4.5.1")
+    testImplementation("androidx.test.ext:junit:1.1.4")
 }

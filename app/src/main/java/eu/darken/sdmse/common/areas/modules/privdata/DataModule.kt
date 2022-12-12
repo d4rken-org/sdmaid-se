@@ -6,15 +6,15 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.toLocalPath
+import eu.darken.sdmse.common.storage.StorageEnvironment
+import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserManager2
-import eu.darken.sdmse.common.wrps.storagemanager.StorageManager2
 import timber.log.Timber
 import javax.inject.Inject
 

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.forensics.csi
 
 import android.os.storage.StorageManager
-import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.ClutterRepo
@@ -13,6 +12,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import io.kotest.matchers.shouldBe

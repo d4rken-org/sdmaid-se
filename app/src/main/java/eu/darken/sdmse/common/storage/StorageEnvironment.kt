@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common
+package eu.darken.sdmse.common.storage
 
 import android.content.Context
 import android.net.Uri
@@ -11,15 +11,13 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.toLocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.user.UserHandle2
-import eu.darken.sdmse.common.wrps.storagemanager.StorageManager2
-import eu.darken.sdmse.common.wrps.storagemanager.StorageVolumeX
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class StorageEnvironment @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val storageManagerX: StorageManager2
+    private val storageManager: StorageManager2,
 ) {
 
     fun getVariable(variableName: String): String? = System.getenv(variableName)
@@ -47,7 +45,7 @@ class StorageEnvironment @Inject constructor(
 
     fun getPublicPrimaryStorage(userHandle: UserHandle2): DeviceStorage {
         val path = Environment.getExternalStorageDirectory()
-        val volume = storageManagerX.getStorageVolume(path)
+        val volume = storageManager.getStorageVolume(path)
         requireNotNull(volume) { "Can't find volume for $path" }
         return DeviceStorage(
             LocalPath.build(path),
@@ -73,7 +71,7 @@ class StorageEnvironment @Inject constructor(
         return pathResult
             .filter { it != primary }
             .map {
-                val volume = storageManagerX.getStorageVolume(it.asFile())
+                val volume = storageManager.getStorageVolume(it.asFile())
                 requireNotNull(volume) { "Can't find volume for $it" }
                 DeviceStorage(
                     it,
@@ -104,7 +102,7 @@ class StorageEnvironment @Inject constructor(
 
         val TAG = logTag("DataArea", "DeviceEnvironment")
 
-        internal fun buildUri(volume: StorageVolumeX): Uri {
+        internal fun buildUri(volume: eu.darken.sdmse.common.storage.StorageVolumeX): Uri {
             return Uri.parse("content://com.android.externalstorage.documents/tree/${Uri.encode(volume.uuid)}")
         }
 

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.wrps.storagemanager
+package eu.darken.sdmse.common.storage
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi

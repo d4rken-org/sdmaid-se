@@ -1,17 +1,15 @@
-package eu.darken.sdmse.common.wrps.storagemanager
+package eu.darken.sdmse.common.storage
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.os.UserHandle
 import android.os.storage.StorageVolume
 import android.provider.DocumentsContract
-import androidx.annotation.RequiresApi
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import kotlinx.parcelize.Parceler
@@ -25,134 +23,39 @@ import java.lang.reflect.Method
  * http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.0.2_r1/android/os/storage/StorageVolume.java
  */
 @Parcelize
-@RequiresApi(Build.VERSION_CODES.KITKAT)
 @TypeParceler<Any, AnyParceler>
 class StorageVolumeX constructor(
     private val volumeObj: Any
 ) : Parcelable {
     private val volumeClass: Class<*> = volumeObj.javaClass
 
-    @get:RequiresApi(Build.VERSION_CODES.N)
+
     private val volume: StorageVolume
         get() = volumeObj as StorageVolume
 
-    private val methodIsPrimary: Method? by lazy {
-        try {
-            volumeClass.getMethod("isPrimary")
-        } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"isPrimary\")")
-            null
-        }
-    }
-
-    @get:SuppressLint("NewApi")
     val isPrimary: Boolean?
-        get() = if (hasApiLevel(24)) {
-            volume.isPrimary
-        } else {
-            try {
-                methodIsPrimary?.invoke(volumeObj) as? Boolean
-            } catch (e: ReflectiveOperationException) {
-                Timber.tag(TAG).d("StorageVolume.isPrimary reflection failed.")
-                null
-            }
-        }
-
-    private val methodIsRemovable: Method? by lazy {
-        try {
-            volumeClass.getMethod("isRemovable")
-        } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"isRemovable\")")
-            null
-        }
-    }
+        get() = volume.isPrimary
 
     @get:SuppressLint("NewApi")
     val isRemovable: Boolean?
-        get() = if (hasApiLevel(24)) {
-            volume.isRemovable
-        } else {
-            try {
-                methodIsRemovable?.invoke(volumeObj) as? Boolean
-            } catch (e: ReflectiveOperationException) {
-                Timber.tag(TAG).d("StorageVolume.isRemovable reflection failed.")
-                null
-            }
-        }
-
-    private val methodIsEmulated: Method? by lazy {
-        try {
-            volumeClass.getMethod("isEmulated")
-        } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"isEmulated\")")
-            null
-        }
-    }
+        get() = volume.isRemovable
 
     /**
      * Returns true if the volume is emulated.
      *
      * @return is removable
      */
-    @get:SuppressLint("NewApi")
-    val isEmulated: Boolean?
-        get() = if (hasApiLevel(24)) {
-            volume.isEmulated
-        } else {
-            try {
-                methodIsEmulated?.invoke(volumeObj) as? Boolean
-            } catch (e: ReflectiveOperationException) {
-                Timber.tag(TAG).d("StorageVolume.isEmulated reflection failed.")
-                null
-            }
-        }
-
-    private val methodGetUuid: Method? by lazy {
-        try {
-            volumeClass.getMethod("getUuid")
-        } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"getUuid\")")
-            null
-        }
-    }
+    val isEmulated: Boolean
+        get() = volume.isEmulated
 
     /**
      * http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.0.0_r1/com/android/server/MountService.java#904
      */
-    @get:SuppressLint("NewApi")
     val uuid: String?
-        get() = if (hasApiLevel(24)) {
-            volume.uuid
-        } else {
-            try {
-                methodGetUuid?.invoke(volumeObj) as? String?
-            } catch (e: ReflectiveOperationException) {
-                Timber.tag(TAG).d("StorageVolume.uuid reflection failed.")
-                null
-            }
-        }
+        get() = volume.uuid
 
-    private val methodGetState: Method? by lazy {
-        try {
-            volumeClass.getMethod("getState")
-        } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"getState\")")
-            null
-        }
-    }
-
-    @get:SuppressLint("NewApi")
     val state: String?
-        get() = try {
-            if (hasApiLevel(24)) {
-                volume.state
-            } else {
-                methodGetState?.invoke(volumeObj) as? String
-            }
-        } catch (e: ReflectiveOperationException) {
-            Timber.tag(TAG).d("StorageVolume.state reflection failed.")
-            null
-        }
+        get() = volume.state
 
     private val methodGetPath: Method? by lazy {
         try {
@@ -180,14 +83,6 @@ class StorageVolumeX constructor(
         }
     }
 
-    val pathFile: File?
-        get() = try {
-            methodGetPathFile?.invoke(volumeObj) as? File
-        } catch (e: ReflectiveOperationException) {
-            Timber.tag(TAG).d("StorageVolume.pathFile reflection failed.")
-            null
-        }
-
     private val methodGetUserLabel: Method? by lazy {
         try {
             volumeClass.getMethod("getUserLabel")
@@ -214,7 +109,6 @@ class StorageVolumeX constructor(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun getDescription(context: Context?): String? = if (hasApiLevel(30)) {
         volume.getDescription(context)
     } else {
@@ -251,39 +145,50 @@ class StorageVolumeX constructor(
             null
         }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    fun createAccessIntent(directory: String?): Intent? {
+    fun createAccessIntent(directory: String? = null): Intent? {
         return volume.createAccessIntent(directory)
+//        return Intent(ACTION_OPEN_EXTERNAL_DIRECTORY).apply {
+//            putExtra(EXTRA_STORAGE_VOLUME, volume)
+//            putExtra(EXTRA_DIRECTORY_NAME, directory)
+//        }
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    fun createOpenDocumentTreeIntent(): Intent {
-        return volume.createOpenDocumentTreeIntent()
-    }
-
-    @get:RequiresApi(Build.VERSION_CODES.Q)
     val rootUri: Uri
-        get() = createOpenDocumentTreeIntent()
-            .getParcelableExtra(DocumentsContract.EXTRA_INITIAL_URI)!!
+        @SuppressLint("NewApi")
+        get() = if (hasApiLevel(29)) {
+            volume.createOpenDocumentTreeIntent().getParcelableExtra(DocumentsContract.EXTRA_INITIAL_URI)!!
+        } else {
+            DocumentsContract.buildRootUri(
+                EXTERNAL_STORAGE_PROVIDER_AUTHORITY,
+                if (isEmulated) EXTERNAL_STORAGE_PRIMARY_EMULATED_ROOT_ID else uuid!!
+            )
+        }
 
-    @get:RequiresApi(Build.VERSION_CODES.Q)
+
     val documentUri: Uri
         get() = rootUri.toString()
             .replace("/root/", "/document/")
             .let { Uri.parse(it) }
 
-    @get:RequiresApi(Build.VERSION_CODES.Q)
+
     val treeUri: Uri
         get() = rootUri.toString()
             .replace("/root/", "/tree/")
             .let { Uri.parse(it) }
 
-    @get:RequiresApi(Build.VERSION_CODES.R)
+
     val directory: File?
+        @SuppressLint("NewApi")
         get() = if (hasApiLevel(30)) {
             volume.directory
         } else {
-            null
+            try {
+                methodGetPathFile?.invoke(volumeObj) as? File
+            } catch (e: ReflectiveOperationException) {
+                Timber.tag(TAG).d("StorageVolume.pathFile reflection failed.")
+                null
+            }
+
         }
 
     fun dump(): String = try {
@@ -303,6 +208,7 @@ class StorageVolumeX constructor(
         sb.append("emulated=$isEmulated, ")
         sb.append("owner=$owner, ")
         sb.append("userlabel=$userLabel, ")
+        @SuppressLint("NewApi")
         if (hasApiLevel(29)) {
             sb.append("rootUri=$rootUri")
         }
@@ -312,6 +218,11 @@ class StorageVolumeX constructor(
 
     companion object {
         val TAG: String = logTag("StorageVolumeX")
+        private const val EXTERNAL_STORAGE_PROVIDER_AUTHORITY = "com.android.externalstorage.documents"
+        private const val EXTERNAL_STORAGE_PRIMARY_EMULATED_ROOT_ID = "primary"
+        const val EXTRA_STORAGE_VOLUME = "android.os.storage.extra.STORAGE_VOLUME"
+        const val EXTRA_DIRECTORY_NAME = "android.os.storage.extra.DIRECTORY_NAME"
+        private const val ACTION_OPEN_EXTERNAL_DIRECTORY = "android.os.storage.action.OPEN_EXTERNAL_DIRECTORY"
     }
 }
 

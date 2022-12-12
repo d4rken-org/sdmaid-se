@@ -60,4 +60,28 @@
     <color name="md_theme_dark_surfaceTint">#75DAA3</color>
     <color name="md_theme_dark_surfaceTintColor">#75DAA3</color>
     <color name="error">#B3261E</color>
+
+    <color name="light_blue">#03a9f4</color>
+    <color name="cyan">#00bcd4</color>
+    <color name="teal">#009688</color>
+    <color name="green">#4caf50</color>
+    <color name="light_green">#8bc34a</color>
+    <color name="lime">#cddc39</color>
+    <color name="yellow">#ffeb3b</color>
+    <color name="amber">#ffc107</color>
+    <color name="orange">#ff9800</color>
+    <color name="deep_orange">#ff5722</color>
+    <color name="deep_purple">#673ab7</color>
+    <color name="purple">#9c27b0</color>
+    <color name="red">#e51c23</color>
+    <color name="brown">#795548</color>
+    <color name="black">#000000</color>
+
+    <color name="state_positive_3">@color/green</color>
+    <color name="state_positive_2">@color/teal</color>
+    <color name="state_positive_1">@color/cyan</color>
+    <color name="state_neutral_0">@android:color/white</color>
+    <color name="state_negative_1">@color/yellow</color>
+    <color name="state_negative_2">@color/orange</color>
+    <color name="state_negative_3">@color/red</color>
 </resources>

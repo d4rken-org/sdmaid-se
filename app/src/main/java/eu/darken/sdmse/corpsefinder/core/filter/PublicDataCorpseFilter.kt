@@ -19,9 +19,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.listFiles
+import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.RiskLevel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
@@ -44,6 +46,13 @@ class PublicDataCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun filter(): Collection<Corpse> = gatewaySwitch.useSharedResource {
+        val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+
+        if (hasApiLevel(33) && !gateway.hasRoot()) {
+            log(TAG, INFO) { "LocalGateway has no root, skipping public data on Android 13" }
+            return@useSharedResource emptySet()
+        }
+
         areaManager.currentAreas()
             .filter { it.type == DataArea.Type.PUBLIC_DATA }
             .map { area ->

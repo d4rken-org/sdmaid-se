@@ -5,7 +5,6 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.saf.SAFGateway
-import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
@@ -111,12 +110,6 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun setOwnership(path: APath, ownership: Ownership): Boolean {
         return getGateway(path).setOwnership(path, ownership)
-    }
-
-    fun tryReleaseResources(path: APath) {
-        if (path is SAFPath) {
-            safGateway.releasePermission(path)
-        }
     }
 
     companion object {

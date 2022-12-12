@@ -6,7 +6,6 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -15,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalGateway
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 

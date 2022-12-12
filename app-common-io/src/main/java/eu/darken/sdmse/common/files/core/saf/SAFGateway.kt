@@ -20,7 +20,6 @@ import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.*
 import timber.log.Timber
-import java.io.File
 import java.io.IOException
 import java.util.*
 import javax.inject.Inject
@@ -49,38 +48,12 @@ class SAFGateway @Inject constructor(
      * SAFDocFiles need require a treeUri that actually gives us access though, i.e. the closet SAF permission we have.
      */
     private fun findDocFile(file: SAFPath): SAFDocFile? {
-        val targetSegments = mutableListOf<String>().apply {
-            addAll(file.crumbs)
-        }
-        val missingSegments = mutableListOf<String>()
+        val match = file.matchPermission(contentResolver.persistedUriPermissions)
 
-        val availablePermissions = contentResolver.persistedUriPermissions
-            .filter { it.isReadPermission && it.isWritePermission }
-            .map { it to it.uri.path!!.split(":").last().split(File.separator) }
-            .sortedByDescending { it.second.size }
-
-        var uriStart: Uri? = null
-
-        while (targetSegments.isNotEmpty() && uriStart == null) {
-            for ((perm, permCrumbs) in availablePermissions) {
-                if (permCrumbs == targetSegments) {
-                    uriStart = perm.uri
-                    break
-                }
-            }
-
-            if (targetSegments.isNotEmpty() && uriStart == null) {
-                missingSegments.add(0, targetSegments.removeLast())
-            }
-        }
-
-//        var current: SAFDocFile? = SAFDocFile.fromTreeUri(context, contentResolver, uriStart ?: file.treeRoot)
-//        for (seg in missingSegments) {
-//            current = current?.findFile(seg)
-//            if (current == null) break
-//        }
-
-        val targetTreeUri = SAFDocFile.buildTreeUri(uriStart ?: file.treeRoot, missingSegments)
+        val targetTreeUri = SAFDocFile.buildTreeUri(
+            match?.permission?.uri ?: file.treeRoot,
+            match?.missingSegments ?: file.crumbs
+        )
         return SAFDocFile.fromTreeUri(context, contentResolver, targetTreeUri)
     }
 
@@ -300,57 +273,6 @@ class SAFGateway @Inject constructor(
 
     override suspend fun createSymlink(linkPath: SAFPath, targetPath: SAFPath): Boolean {
         throw UnsupportedOperationException("SAF doesn't support symlinks. createSymlink(linkPath=$linkPath, targetPath=$targetPath)")
-    }
-
-    fun takePermission(path: SAFPath): Boolean {
-        if (hasPermission(path)) {
-            Timber.tag(TAG).d("Already have permission for %s", path)
-            return true
-        }
-        Timber.tag(TAG).d("Taking uri permission for %s", path)
-        var permissionTaken = false
-        try {
-            contentResolver.takePersistableUriPermission(path.treeRoot, RW_FLAGSINT)
-            permissionTaken = true
-        } catch (e: SecurityException) {
-            Timber.tag(TAG).e(e, "Failed to take permission")
-            try {
-                contentResolver.releasePersistableUriPermission(path.treeRoot, RW_FLAGSINT)
-            } catch (e2: SecurityException) {
-                Timber.tag(TAG).e(e2, "Error while releasing during error...")
-            }
-        }
-        printCurrentPermissions()
-        return permissionTaken
-    }
-
-    fun releasePermission(path: SAFPath): Boolean {
-        Timber.tag(TAG).d("Releasing uri permission for %s", path)
-        contentResolver.releasePersistableUriPermission(path.treeRoot, RW_FLAGSINT)
-        printCurrentPermissions()
-        return true
-    }
-
-    private fun printCurrentPermissions() {
-        val current = getPermissions()
-        Timber.tag(TAG).d("Now holding %d permissions.", current.size)
-        for (p in current) {
-            Timber.tag(TAG).d("#%d: %s", current.indexOf(p), p)
-        }
-    }
-
-    fun getPermissions(): Collection<SAFPath> {
-        return contentResolver.persistedUriPermissions.map { SAFPath.build(it.uri) }
-    }
-
-    fun hasPermission(path: SAFPath): Boolean {
-        return getPermissions().contains(path)
-    }
-
-    fun createPickerIntent(): Intent {
-        val requestIntent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-        requestIntent.putExtra("android.content.extra.SHOW_ADVANCED", true)
-        return requestIntent
     }
 
     companion object {

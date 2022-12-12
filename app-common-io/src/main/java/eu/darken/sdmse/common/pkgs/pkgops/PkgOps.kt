@@ -6,7 +6,6 @@ import android.content.pm.PackageManager.*
 import android.graphics.drawable.Drawable
 import android.os.Process
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.StorageEnvironment
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -41,7 +40,6 @@ class PkgOps @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val javaRootClient: JavaRootClient,
     private val ipcFunnel: IPCFunnel,
-    private val storageEnvironment: StorageEnvironment,
     private val userManager: UserManager2,
 ) : HasSharedResource<Any> {
 

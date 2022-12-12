@@ -12,11 +12,19 @@
         <action
             android:id="@+id/action_dashboardFragment_to_settingsContainerFragment"
             app:destination="@id/settingsContainerFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/settingsContainerFragment"
         android:name="eu.darken.sdmse.main.ui.settings.SettingsFragment"
         tools:layout="@layout/settings_fragment" />
+
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="eu.darken.sdmse.setup.SetupFragment"
+        tools:layout="@layout/setup_fragment" />
 
 </navigation>

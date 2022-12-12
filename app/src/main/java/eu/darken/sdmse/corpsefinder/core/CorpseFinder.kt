@@ -6,7 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -32,7 +31,6 @@ import javax.inject.Singleton
 @Singleton
 class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
     private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
 ) : SDMTool {
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)

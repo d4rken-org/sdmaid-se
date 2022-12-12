@@ -64,6 +64,22 @@
         <item name="android:layout_width">24dp</item>
     </style>
 
+    <style name="SmallListItemPrimary" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SmallListItemSecondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SmallListItemIcon">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:contentDescription">Icon</item>
+    </style>
+
     <style name="MyCardView" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
@@ -101,9 +117,9 @@
         <item name="android:id">@id/loading_overlay</item>
     </style>
 
-<!--    <style name="Widget.MaterialComponents.Button.TextButton2" parent="Widget.MaterialComponents.Button.TextButton">-->
-<!--        <item name="android:textColor">@color/material_button_texts</item>-->
-<!--    </style>-->
+    <!--    <style name="Widget.MaterialComponents.Button.TextButton2" parent="Widget.MaterialComponents.Button.TextButton">-->
+    <!--        <item name="android:textColor">@color/material_button_texts</item>-->
+    <!--    </style>-->
 
     <style name="BreadCrumbBarStyle">
         <item name="android:layout_width">match_parent</item>

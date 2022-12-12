@@ -3,6 +3,7 @@ package eu.darken.sdmse.common
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.util.TypedValue
 import androidx.annotation.AttrRes
@@ -58,4 +59,8 @@ fun Context.getQuantityString2(@StringRes stringRes: Int, quantity: Int) = resou
 
 fun Context.openAsset(path: String): Source {
     return assets.open(path).source()
+}
+
+fun Context.getColorStateListFor(@ColorRes colorRes: Int): ColorStateList {
+    return ColorStateList.valueOf(ContextCompat.getColor(this, colorRes))
 }

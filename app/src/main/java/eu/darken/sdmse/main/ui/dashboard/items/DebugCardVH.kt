@@ -17,10 +17,12 @@ class DebugCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         checkAction.setOnClickListener { item.onCheck() }
+        safAction.setOnClickListener { item.onSAF() }
     }
 
     data class Item(
         val onCheck: () -> Unit,
+        val onSAF: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

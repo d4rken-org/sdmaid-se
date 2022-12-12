@@ -15,8 +15,8 @@ import java.io.File
 @Keep @Parcelize
 @JsonClass(generateAdapter = true)
 data class SAFPath(
-    internal val treeRoot: Uri,
-    internal val crumbs: List<String>
+    val treeRoot: Uri,
+    val crumbs: List<String>
 ) : APath {
 
     init {
@@ -45,6 +45,8 @@ data class SAFPath(
         }
 
     val pathUri by lazy {
+        if (segments.isEmpty()) return@lazy treeRoot
+
         val uriString = StringBuilder(treeRoot.toString()).apply {
             append(Uri.encode(":"))
             crumbs.forEach {

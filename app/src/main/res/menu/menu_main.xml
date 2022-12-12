@@ -2,10 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="eu.darken.sdmse.main.ui.MainActivity">
-
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/label_settings"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always" />
 </menu>
