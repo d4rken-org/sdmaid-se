@@ -15,11 +15,12 @@ class Architecture @Inject constructor() {
             else -> listOf("arm", "arm64")
         }
 
+    @Suppress("DEPRECATION")
     val architectures: List<Type> by lazy {
         log(TAG) { "Architectures: Build.CPU_ABI=${Build.CPU_ABI}, Build.CPU_ABI2=${Build.CPU_ABI2}" }
-        log(TAG) { "Architectures: Build.SUPPORTED_ABIS=${Build.SUPPORTED_ABIS}" }
-        log(TAG) { "Architectures: Build.SUPPORTED_32_BIT_ABIS=${Build.SUPPORTED_32_BIT_ABIS}" }
-        log(TAG) { "Architectures: Build.SUPPORTED_64_BIT_ABIS=${Build.SUPPORTED_64_BIT_ABIS}" }
+        log(TAG) { "Architectures: Build.SUPPORTED_ABIS=${Build.SUPPORTED_ABIS.toList()}" }
+        log(TAG) { "Architectures: Build.SUPPORTED_32_BIT_ABIS=${Build.SUPPORTED_32_BIT_ABIS.toList()}" }
+        log(TAG) { "Architectures: Build.SUPPORTED_64_BIT_ABIS=${Build.SUPPORTED_64_BIT_ABIS.toList()}" }
 
         val rawMain: String = Build.SUPPORTED_ABIS[0].lowercase()
         val detectedMain: Type = if (rawMain.contains("x86")) Type.X86 else Type.ARM
