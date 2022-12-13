@@ -23,6 +23,7 @@ class SetupFragmentVM @Inject constructor(
     private val setupManager: SetupManager,
     private val safSetupModule: SAFSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
     val events = SingleLiveEvent<SetupEvents>()
 
     val listItems: LiveData<List<SetupAdapter.Item>> = setupManager.state
@@ -35,7 +36,7 @@ class SetupFragmentVM @Inject constructor(
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
                             setupState = state,
-                            onPathClicked = { events.postValue(SetupEvents.RequestSafAccess(it)) },
+                            onPathClicked = { events.postValue(SetupEvents.SafRequestAccess(it)) },
                             onHelp = {
                                 TODO()
                             },
@@ -55,8 +56,12 @@ class SetupFragmentVM @Inject constructor(
     fun onSafAccessGranted(uri: Uri?) = launch {
         log(TAG) { "onSafAccessGranted(uri=$uri)" }
         if (uri == null) return@launch
-        safSetupModule.takePermission(uri)
-        setupManager.refresh()
+        try {
+            safSetupModule.takePermission(uri)
+            setupManager.refresh()
+        } catch (e: IllegalArgumentException) {
+            events.postValue(SetupEvents.SafWrongPathError(e))
+        }
     }
 
     companion object {

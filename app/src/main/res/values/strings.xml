@@ -31,23 +31,24 @@
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
 
+    <string name="settings_support_label">Support</string>
     <string name="support_installid_label">Install ID</string>
     <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
-    <string name="settings_support_label">Support</string>
-    <string name="general_progress_searching">Searching</string>
-    <string name="general_progress_filtering">Filtering</string>
 
-    <string name="setup_incomplete_card_title">Setup incomplete</string>
+    <string name="data_area_public_app_data_official_label">Default Public App Data</string>
+    <string name="data_area_public_storage_label">Public Storage</string>
+    <string name="data_area_sdcard_label">SD-Card</string>
+
+    <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid SE\'s setup to get better results.</string>
     <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
     <string name="setup_incomplete_card_continue_action">Continue setup</string>
     <string name="setup_title">Setup</string>
     <string name="setup_saf_card_title">Storage access framework</string>
-    <string name="setup_saf_card_body">Allow SD Maid to scan additional areas. Grant access by clicking each entry below.</string>
+    <string name="setup_saf_card_body">Allow SD Maid to scan additional areas.\nGrant access by clicking each entry below.</string>
     <string name="setup_saf_card_body2">Entries will turn green when access was granted successfully. In most cases the window will open with the correct path preselected and you just have to confirm.</string>
-    <string name="data_area_public_app_data_official_label">Default Public App Data</string>
-    <string name="data_area_public_storage_label">Public Storage</string>
-    <string name="data_area_sdcard_label">SD-Card</string>
+    <string name="setup_saf_error_wrong_path">You selected the wrong path</string>
+
 </resources>

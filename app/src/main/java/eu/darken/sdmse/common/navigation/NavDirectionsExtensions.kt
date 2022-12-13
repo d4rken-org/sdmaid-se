@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.navigation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
-import eu.darken.sdmse.common.livedata.SingleLiveEvent
+import eu.darken.sdmse.common.SingleLiveEvent
 
 fun NavDirections.navVia(pub: MutableLiveData<in NavDirections>) = pub.postValue(this)
 

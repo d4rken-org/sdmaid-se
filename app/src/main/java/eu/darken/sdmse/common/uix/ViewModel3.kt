@@ -1,10 +1,10 @@
 package eu.darken.sdmse.common.uix
 
 import androidx.navigation.NavDirections
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.error.ErrorEventSource
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.livedata.SingleLiveEvent
 import eu.darken.sdmse.common.navigation.NavEventSource
 import eu.darken.sdmse.common.navigation.navVia
 import kotlinx.coroutines.flow.Flow

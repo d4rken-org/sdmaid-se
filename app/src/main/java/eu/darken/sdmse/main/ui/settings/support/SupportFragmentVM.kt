@@ -7,10 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EmailTool
 import eu.darken.sdmse.common.InstallId
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.recording.core.RecorderModule
-import eu.darken.sdmse.common.livedata.SingleLiveEvent
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
