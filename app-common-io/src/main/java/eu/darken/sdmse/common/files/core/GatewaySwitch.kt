@@ -19,7 +19,7 @@ class GatewaySwitch @Inject constructor(
     private val safGateway: SAFGateway,
     private val localGateway: LocalGateway,
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
 ) : APathGateway<APath, APathLookup<APath>> {
 
 //    /**

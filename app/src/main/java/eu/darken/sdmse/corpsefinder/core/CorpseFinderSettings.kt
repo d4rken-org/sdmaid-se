@@ -38,7 +38,8 @@ class CorpseFinderSettings @Inject constructor(
 
     val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", true)
 
-//    const val PREFKEY_REMOVE_KEEPERS = "keepers.remove"
+    val includeRiskUserGenerated = dataStore.createValue("risk.include.usergenerated", false)
+    val includeRiskCommon = dataStore.createValue("risk.include.common", false)
 
     override val mapper = PreferenceStoreMapper(
         filterPublicMediaEnabled,

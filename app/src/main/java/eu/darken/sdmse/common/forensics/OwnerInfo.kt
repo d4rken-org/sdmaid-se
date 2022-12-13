@@ -19,15 +19,10 @@ data class OwnerInfo constructor(
         get() = areaInfo.file
 
     val isKeeper: Boolean
-        get() {
-            for (owner in owners) if (owner.hasFlag(Marker.Flag.KEEPER)) return true
-            return false
-        }
+        get() = owners.any { it.hasFlag(Marker.Flag.KEEPER) }
+
     val isCommon: Boolean
-        get() {
-            for (owner in owners) if (owner.hasFlag(Marker.Flag.COMMON)) return true
-            return false
-        }
+        get() = owners.any { it.hasFlag(Marker.Flag.COMMON) }
 
     val isCorpse: Boolean
         get() {

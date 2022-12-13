@@ -20,7 +20,6 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
@@ -71,7 +70,6 @@ class CorpseFinder @Inject constructor(
         val result = filters
             .onEach { it.addParent(this@CorpseFinder) }
             .map { filter ->
-                currentCoroutineContext()
                 filter.withProgress(this@CorpseFinder) {
                     scan()
                 }

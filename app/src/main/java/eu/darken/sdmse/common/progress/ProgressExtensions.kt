@@ -7,10 +7,11 @@ import eu.darken.sdmse.common.castring.CaString
 import eu.darken.sdmse.common.castring.toCaString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlin.coroutines.EmptyCoroutineContext
 
 fun <T : Progress.Client> T.updateProgressPrimary(primary: String) {
     updateProgress { (it ?: Progress.Data()).copy(primary = primary.toCaString()) }
@@ -57,16 +58,14 @@ suspend fun <T : Progress.Host> T.forwardProgressTo(client: Progress.Client) = p
     .onCompletion { client.updateProgress { null } }
 
 suspend fun <T : Progress.Host, R> T.withProgress(client: Progress.Client, action: suspend T.() -> R): R {
-    val scope = CoroutineScope(currentCoroutineContext())
+    val scope = CoroutineScope(EmptyCoroutineContext)
 
-    val forwardingJob = forwardProgressTo(client)
-        .onCompletion { scope.cancel() }
-        .launchIn(scope)
+    val forwardingJob = forwardProgressTo(client).launchIn(scope)
 
     return try {
         action()
     } finally {
-        forwardingJob.cancel()
-        scope.cancel()
+        forwardingJob.cancelAndJoin()
+        scope.cancel("Finished scope")
     }
 }

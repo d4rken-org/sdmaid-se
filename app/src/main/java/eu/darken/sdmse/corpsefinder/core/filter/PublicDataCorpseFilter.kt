@@ -12,9 +12,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.castring.toCaString
-import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,11 +24,11 @@ import eu.darken.sdmse.common.files.core.listFiles
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.forensics.RiskLevel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
+import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toSet
 import java.io.IOException
@@ -38,7 +37,6 @@ import javax.inject.Inject
 @Reusable
 class PublicDataCorpseFilter @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
@@ -48,15 +46,17 @@ class PublicDataCorpseFilter @Inject constructor(
     appScope = appScope
 ) {
 
-    override suspend fun scan(): Collection<Corpse> = gatewaySwitch.useSharedResource {
+    override suspend fun scan(): Collection<Corpse> {
+        gatewaySwitch.addParent(this)
+
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (hasApiLevel(33) && !gateway.hasRoot()) {
             log(TAG, INFO) { "LocalGateway has no root, skipping public data on Android 13" }
-            return@useSharedResource emptySet()
+            return emptySet()
         }
 
-        areaManager.currentAreas()
+        return areaManager.currentAreas()
             .filter { it.type == DataArea.Type.PUBLIC_DATA }
             .map { area ->
                 updateProgressPrimary(
@@ -64,11 +64,11 @@ class PublicDataCorpseFilter @Inject constructor(
                 )
                 log(TAG) { "Reading $area" }
                 updateProgressSecondary(R.string.general_progress_searching)
-                val pubDataContents = area.path.listFiles(gatewaySwitch)
+                val topLevelContents = area.path.listFiles(gatewaySwitch)
 
                 log(TAG) { "Filtering $area" }
                 updateProgressSecondary(R.string.general_progress_filtering)
-                doFilter(pubDataContents)
+                doFilter(topLevelContents)
             }
             .flatten()
     }
@@ -76,7 +76,8 @@ class PublicDataCorpseFilter @Inject constructor(
     @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Counter(0, candidates.size))
 
-        val removeKeepers: Boolean = true // corpseFinderSettings
+        val includeRiskUserGenerated: Boolean = corpseFinderSettings.includeRiskUserGenerated.value()
+        val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
         return candidates
             .onEach { increaseProgress() }
@@ -88,8 +89,8 @@ class PublicDataCorpseFilter @Inject constructor(
                 }
             }
             .filter { !it.isCurrentlyOwned }
-            .filter { !it.isKeeper || removeKeepers }
-            .filter { !it.isCommon }
+            .filter { !it.isKeeper || includeRiskUserGenerated }
+            .filter { !it.isCommon || includeRiskCommon }
             .filter { it.isCorpse }
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
@@ -98,8 +99,8 @@ class PublicDataCorpseFilter @Inject constructor(
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.owners.any { it.hasFlag(Marker.Flag.KEEPER) } -> RiskLevel.USER_GENERATED
-                        ownerInfo.owners.any { it.hasFlag(Marker.Flag.COMMON) } -> RiskLevel.COMMON
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }

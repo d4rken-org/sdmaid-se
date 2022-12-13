@@ -4,7 +4,6 @@ import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.OwnerInfo
-import eu.darken.sdmse.common.forensics.RiskLevel
 
 data class Corpse(
     val ownerInfo: OwnerInfo,
