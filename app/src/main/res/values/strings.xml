@@ -10,11 +10,6 @@
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
 
-    <string name="onboarding_card_title">Welcome to Octi</string>
-    <string name="onboarding_card_message">Octi is a very young app and still being improved. If you experience issues or just have a great idea, please let me know!\n\nConsider upgrading to Octi Pro to support me developing it.</string>
-    <string name="onboarding_setupsync_title">Setup synchronization</string>
-    <string name="onboarding_setupsync_message">Currently you are only seeing this device. To connect your Octi installations, setup a common synchronization service.</string>
-
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
     <string name="settings_licenses_label">Licenses</string>

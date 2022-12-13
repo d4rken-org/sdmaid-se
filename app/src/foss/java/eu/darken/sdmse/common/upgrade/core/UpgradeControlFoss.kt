@@ -34,8 +34,8 @@ class UpgradeControlFoss @Inject constructor(
     override fun launchBillingFlow(activity: Activity) {
         MaterialAlertDialogBuilder(activity).apply {
             setIcon(R.drawable.ic_heart)
-            setTitle(R.string.upgrades_upgrade_octi_title)
-            setMessage(R.string.upgrades_upgrade_octi_body)
+            setTitle(R.string.upgrades_upgrade_sdmse_title)
+            setMessage(R.string.upgrades_upgrade_sdmse_body)
             setPositiveButton(R.string.foss_upgrade_donate_label) { _, _ ->
                 fossCache.upgrade.valueBlocking = FossUpgrade(
                     upgradedAt = Instant.now(),

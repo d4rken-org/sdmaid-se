@@ -134,7 +134,7 @@ class UpgradeRepoGplay @Inject constructor(
 
     companion object {
         private fun BillingData.getProSku(): PurchasedSku? = purchasedSkus
-            .firstOrNull { it.sku == OctiSku.PRO_UPGRADE.sku }
+            .firstOrNull { it.sku == SDMaidSESKU.PRO_UPGRADE.sku }
 
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">Octi FOSS</string>
+    <string name="app_name_upgraded">SD Maid SE (FOSS)</string>
     <string name="foss_upgrade_donate_label">Donate</string>
     <string name="foss_upgrade_alreadydonated_label">I already donated</string>
-    <string name="foss_upgrade_no_money_label">I\'m starving</string>
-    <string name="upgrades_upgrade_octi_title">Support Octi</string>
-    <string name="upgrades_upgrade_octi_body">Do you like that this app has no ads and doesn\'t sell your data? Show your support and get more features!</string>
+    <string name="foss_upgrade_no_money_label">I\'m not generous</string>
+    <string name="upgrades_upgrade_sdmse_title">Support SD Maid SE</string>
+    <string name="upgrades_upgrade_sdmse_body">Do you like that this app has no ads and doesn\'t sell your data? Show your support and get more features!</string>
 </resources>
