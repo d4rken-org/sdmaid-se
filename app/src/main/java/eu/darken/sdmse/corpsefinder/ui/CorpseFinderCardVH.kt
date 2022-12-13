@@ -27,7 +27,10 @@ class CorpseFinderCardVH(parent: ViewGroup) :
             statusPrimary.text = item.progress.primary.get(context)
             statusSecondary.text = item.progress.secondary.get(context)
         } else if (item.data != null) {
-            statusPrimary.text = getQuantityString(R.plurals.result_x_items, item.data.corpses.size)
+            statusPrimary.text = getQuantityString(
+                R.plurals.corpsefinder_result_x_corpses_found,
+                item.data.corpses.size
+            )
             val space = Formatter.formatFileSize(context, item.data.totalSize)
             statusSecondary.text = getString(R.string.x_space_can_be_freed, space)
         } else {

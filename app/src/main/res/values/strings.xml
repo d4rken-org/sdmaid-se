@@ -50,10 +50,14 @@
     <string name="setup_saf_card_body">Allow SD Maid to scan additional areas.\nGrant access by clicking each entry below.</string>
     <string name="setup_saf_card_body2">Entries will turn green when access was granted successfully. In most cases the window will open with the correct path preselected and you just have to confirm.</string>
     <string name="setup_saf_error_wrong_path">You selected the wrong path</string>
-    <string name="corpsefinder_dashboard_card_title">CorpseFinder</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>
     <string name="general_delete_all_action">Delete all</string>
     <string name="general_show_details_action">Show details</string>
 
+    <string name="corpsefinder_dashboard_card_title">CorpseFinder</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d remain found</item>
+        <item quantity="other">%d remains found</item>
+    </plurals>
 </resources>
