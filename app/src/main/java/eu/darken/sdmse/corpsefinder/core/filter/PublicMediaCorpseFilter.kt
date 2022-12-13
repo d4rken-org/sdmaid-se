@@ -14,8 +14,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.castring.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
@@ -45,6 +44,13 @@ class PublicMediaCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun scan(): Collection<Corpse> {
+        if (corpseFinderSettings.filterPublicMediaEnabled.value()) {
+            log(TAG, VERBOSE) { "Scanning..." }
+        } else {
+            log(TAG) { "Filter is disabled" }
+            return emptyList()
+        }
+
         gatewaySwitch.addParent(this)
 
         return areaManager.currentAreas()

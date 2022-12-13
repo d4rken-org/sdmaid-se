@@ -23,7 +23,6 @@ import eu.darken.sdmse.common.files.core.listFiles
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
@@ -33,8 +32,9 @@ import kotlinx.coroutines.flow.toSet
 import java.io.IOException
 import javax.inject.Inject
 
+
 @Reusable
-class PublicObbCorpseFilter @Inject constructor(
+class PrivateDataCorpseFilter @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
@@ -46,7 +46,7 @@ class PublicObbCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun scan(): Collection<Corpse> {
-        if (corpseFinderSettings.filterPublicObbEnabled.value()) {
+        if (corpseFinderSettings.filterPrivateDataEnabled.value()) {
             log(TAG, VERBOSE) { "Scanning..." }
         } else {
             log(TAG) { "Filter is disabled" }
@@ -54,15 +54,16 @@ class PublicObbCorpseFilter @Inject constructor(
         }
 
         gatewaySwitch.addParent(this)
+
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-        if (hasApiLevel(33) && !gateway.hasRoot()) {
-            log(TAG, INFO) { "LocalGateway has no root, skipping public data on Android 13" }
+        if (!gateway.hasRoot()) {
+            log(TAG, INFO) { "LocalGateway has no root, skipping private data" }
             return emptySet()
         }
 
         return areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.PUBLIC_OBB }
+            .filter { it.type == DataArea.Type.PRIVATE_DATA }
             .map { area ->
                 updateProgressPrimary(
                     { c: Context -> c.getString(R.string.general_progress_processing_x, area.label) }.toCaString()
@@ -89,7 +90,7 @@ class PublicObbCorpseFilter @Inject constructor(
             .filter { !shouldBeExcluded(it) }
             .map { fileForensics.findOwners(it) }
             .filter { ownerInfo ->
-                (ownerInfo.areaInfo.type == DataArea.Type.PUBLIC_OBB).also {
+                (ownerInfo.areaInfo.type == DataArea.Type.PRIVATE_DATA).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
                 }
             }
@@ -114,17 +115,18 @@ class PublicObbCorpseFilter @Inject constructor(
     }
 
     private fun shouldBeExcluded(inspectedDir: APath): Boolean = when (inspectedDir.name) {
-        ".nomedia" -> true
+        "hosts" -> true
+        "lost+found" -> true
         else -> false
     }
 
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: PublicObbCorpseFilter): CorpseFilter
+        @Binds @IntoSet abstract fun mod(mod: PrivateDataCorpseFilter): CorpseFilter
     }
 
     companion object {
-        val TAG: String = logTag("CorpseFinder", "Filter", "PublicObb")
+        val TAG: String = logTag("CorpseFinder", "Filter", "PrivateData")
     }
 }
