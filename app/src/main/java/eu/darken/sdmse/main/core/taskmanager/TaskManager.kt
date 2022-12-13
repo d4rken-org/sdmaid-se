@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.StatsRepo
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,8 +24,22 @@ class TaskManager @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
+    private val concurrencyLock = Semaphore(1)
+    private var queuedTasks = 0
+
     suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = useSharedResource {
         log(TAG) { "submit(task=$task)..." }
+        try {
+            queuedTasks++
+            log(TAG) { "Queued tasks: $queuedTasks" }
+            concurrentTasks(task)
+        } finally {
+            queuedTasks--
+            log(TAG) { "Tasks remaining: $queuedTasks" }
+        }
+    }
+
+    private suspend fun concurrentTasks(task: SDMTool.Task): SDMTool.Task.Result = concurrencyLock.withPermit {
         val start = System.currentTimeMillis()
 
         val tool = tools.single { it.type == task.type }
