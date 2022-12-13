@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="general_create_dir">Create folder</string>
-    <string name="general_select_path_action">Select path</string>
-    <string name="general_home_action">Return to start</string>
-    <string name="general_pick_a_path_action">Pick a path</string>
-    <string name="general_empty_list_desc">The list is empty.</string>
-    <string name="general_select_type_label">Select type</string>
 
     <string name="storage_type_local_label">Local storage</string>
 

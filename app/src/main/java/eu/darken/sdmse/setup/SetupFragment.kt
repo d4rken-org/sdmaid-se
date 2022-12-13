@@ -61,7 +61,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
             when (it) {
                 is SetupEvents.SafRequestAccess -> safRequestLauncher.launch(it.item)
                 is SetupEvents.SafWrongPathError -> {
-                    Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
                         .setAction(R.string.general_help_action) {
                             webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                         }
