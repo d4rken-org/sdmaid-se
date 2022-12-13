@@ -24,6 +24,7 @@ class PortableCSI @Inject constructor(
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.PORTABLE
 
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
+        .filter { it.type == DataArea.Type.PORTABLE }
         .firstOrNull { area ->
             val base = area.path
             target.path.startsWith(base.path + "/") && target.path != base.path
