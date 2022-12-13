@@ -2,17 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditTextPreference
-        app:icon="@drawable/ic_email_onsurface"
-        app:key="core.device.label"
-        app:summary="A device label"
-        app:title="Device label" />
+    <PreferenceCategory android:title="@string/settings_category_ui_label">
 
-    <Preference
-        app:icon="@drawable/ic_card_text_onsurface"
-        app:fragment="eu.darken.sdmse.main.ui.settings.general.advanced.AdvancedSettingsFragment"
-        app:summary="Advanced settings summary"
-        app:title="Advanced settings" />
+        <ListPreference
+            android:icon="@drawable/ic_theme_onsurface"
+            android:key="core.ui.theme.type"
+            android:title="@string/ui_theme_setting_label" />
+    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
 

@@ -23,19 +23,26 @@
 
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">General tweaks that affect the whole app.</string>
-    <string name="changelog_label">Changelog</string>
-    <string name="settings_acknowledgements_label">Acknowledgements</string>
-    <string name="documentation_label">Documentation</string>
-    <string name="email_developer_label">Email developer</string>
+    <string name="settings_category_ui_label">User interface</string>
 
-    <string name="issue_tracker_label">Issue tracker</string>
-    <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
+    <string name="ui_theme_setting_label">Theme</string>
+    <string name="ui_theme_dark_label">Dark</string>
+    <string name="ui_theme_light_label">Light</string>
+    <string name="ui_theme_system_label">System</string>
 
     <string name="settings_support_label">Support</string>
+    <string name="documentation_label">Documentation</string>
+    <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
+    <string name="issue_tracker_label">Issue tracker</string>
     <string name="support_installid_label">Install ID</string>
     <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">A place to hang out in and ask questions.</string>
+
+    <string name="changelog_label">Changelog</string>
+    <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="data_area_public_app_data_official_label">Default Public App Data</string>
     <string name="data_area_public_storage_label">Public Storage</string>

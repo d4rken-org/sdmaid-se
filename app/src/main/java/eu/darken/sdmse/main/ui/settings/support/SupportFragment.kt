@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -26,18 +27,14 @@ class SupportFragment : PreferenceFragment2() {
     override val settings: GeneralSettings by lazy { generalSettings }
 
     @Inject lateinit var clipboardHelper: ClipboardHelper
+    @Inject lateinit var webpageTool: WebpageTool
 
     private val installIdPref by lazy { findPreference<Preference>("support.installid")!! }
-    private val supportMailPref by lazy { findPreference<Preference>("support.email.darken")!! }
     private val debugLogPref by lazy { findPreference<Preference>("support.debuglog")!! }
 
     override fun onPreferencesCreated() {
         installIdPref.setOnPreferenceClickListener {
             vm.copyInstallID()
-            true
-        }
-        supportMailPref.setOnPreferenceClickListener {
-            vm.sendSupportMail()
             true
         }
         debugLogPref.setOnPreferenceClickListener {

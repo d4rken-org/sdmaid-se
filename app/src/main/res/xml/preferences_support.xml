@@ -18,9 +18,13 @@
             android:data="https://github.com/d4rken/sdmaid-se" />
     </Preference>
     <Preference
-        android:icon="@drawable/ic_email_onsurface"
-        android:key="support.email.darken"
-        android:title="@string/email_developer_label" />
+        android:icon="@drawable/ic_discord_onsurface"
+        android:summary="@string/discord_description"
+        android:title="@string/discord_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://discord.gg/8Fjy6PTfXu" />
+    </Preference>
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference

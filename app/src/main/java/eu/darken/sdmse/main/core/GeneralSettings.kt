@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.core
 
 import android.content.Context
-import android.os.Build
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -25,11 +24,11 @@ class GeneralSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val deviceLabel = dataStore.createValue("core.device.label", Build.DEVICE)
+    val themeType = dataStore.createValue("core.ui.theme.type", ThemeType.SYSTEM.identifier)
 
     override val mapper = PreferenceStoreMapper(
         debugSettings.isAutoReportingEnabled,
-        deviceLabel
+        themeType,
     )
 
     companion object {
