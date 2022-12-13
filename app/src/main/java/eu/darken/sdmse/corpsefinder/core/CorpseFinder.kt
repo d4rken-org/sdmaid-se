@@ -11,8 +11,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -20,6 +20,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
@@ -32,11 +33,14 @@ import javax.inject.Singleton
 class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
-) : SDMTool {
+) : SDMTool, Progress.Client {
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
-    private val progressPub = DynamicStateFlow<Progress.Data?>(TAG, appScope) { null }
-    override val progress: Flow<Progress.Data?> = progressPub.flow
+    private val progressPub = MutableStateFlow<Progress.Data?>(null)
+    override val progress: Flow<Progress.Data?> = progressPub
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.value = update(progressPub.value)
+    }
 
     private val internalData = MutableStateFlow(null as Data?)
     val data: Flow<Data?> = internalData
@@ -66,7 +70,12 @@ class CorpseFinder @Inject constructor(
 
         val result = filters
             .onEach { it.addParent(this@CorpseFinder) }
-            .map { it.filter() }
+            .map { filter ->
+                currentCoroutineContext()
+                filter.withProgress(this@CorpseFinder) {
+                    scan()
+                }
+            }
             .flatten()
 
         internalData.value = Data(

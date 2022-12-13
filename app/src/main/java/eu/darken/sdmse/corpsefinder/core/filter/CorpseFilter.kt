@@ -17,11 +17,11 @@ abstract class CorpseFilter(
     private val progressPub = DynamicStateFlow<Progress.Data?>(tag, appScope) { null }
     override val progress: Flow<Progress.Data?> = progressPub.flow
 
-    override fun updateProgress(update: suspend (Progress.Data?) -> Progress.Data?) {
-//        progressPub.updateAsync(update)
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.updateAsync({ throw it }, update)
     }
 
-    abstract suspend fun filter(
+    abstract suspend fun scan(
 
     ): Collection<Corpse>
 

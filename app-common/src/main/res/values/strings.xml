@@ -33,6 +33,7 @@
     <string name="general_refresh_action">Refresh</string>
     <string name="general_progress_searching">Searching</string>
     <string name="general_progress_filtering">Filtering</string>
+    <string name="general_progress_processing_x">Processing %s</string>
     <string name="general_help_action">Help</string>
 
     <plurals name="result_x_items">

@@ -2,8 +2,13 @@ package eu.darken.sdmse.common.progress
 
 import android.content.Context
 import androidx.annotation.StringRes
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.castring.CaString
 import eu.darken.sdmse.common.castring.toCaString
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 
@@ -48,5 +53,20 @@ fun <T : Progress.Client> T.increaseProgress() {
 }
 
 suspend fun <T : Progress.Host> T.forwardProgressTo(client: Progress.Client) = progress
-    .onCompletion { client.updateProgress { null } }
     .onEach { pro -> client.updateProgress { pro } }
+    .onCompletion { client.updateProgress { null } }
+
+suspend fun <T : Progress.Host, R> T.withProgress(client: Progress.Client, action: suspend T.() -> R): R {
+    val scope = CoroutineScope(currentCoroutineContext())
+
+    val forwardingJob = forwardProgressTo(client)
+        .onCompletion { scope.cancel() }
+        .launchIn(scope)
+
+    return try {
+        action()
+    } finally {
+        forwardingJob.cancel()
+        scope.cancel()
+    }
+}

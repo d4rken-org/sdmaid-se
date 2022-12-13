@@ -20,7 +20,7 @@ interface Marker {
 
     @Keep
     enum class Flag(val raw: String) {
-        @Json(name = "keeper") KEEPER("keeper"),
+        @Json(name = "keeper") KEEPER("keeper"), // TODO rename to USER_GENERATED and check clutter db
         @Json(name = "common") COMMON("common"),
         @Json(name = "custodian") CUSTODIAN("custodian"),
         ;

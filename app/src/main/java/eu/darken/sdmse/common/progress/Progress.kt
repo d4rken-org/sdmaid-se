@@ -21,7 +21,7 @@ interface Progress {
     }
 
     interface Client {
-        fun updateProgress(update: suspend (Data?) -> Data?)
+        fun updateProgress(update: (Data?) -> Data?)
     }
 
     sealed class Count(val current: Long, val max: Long) {

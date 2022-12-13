@@ -1,5 +1,6 @@
 package eu.darken.sdmse.corpsefinder.core.filter
 
+import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -10,6 +11,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.castring.toCaString
+import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -45,7 +48,7 @@ class PublicDataCorpseFilter @Inject constructor(
     appScope = appScope
 ) {
 
-    override suspend fun filter(): Collection<Corpse> = gatewaySwitch.useSharedResource {
+    override suspend fun scan(): Collection<Corpse> = gatewaySwitch.useSharedResource {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (hasApiLevel(33) && !gateway.hasRoot()) {
@@ -56,7 +59,9 @@ class PublicDataCorpseFilter @Inject constructor(
         areaManager.currentAreas()
             .filter { it.type == DataArea.Type.PUBLIC_DATA }
             .map { area ->
-                updateProgressPrimary(area.label)
+                updateProgressPrimary(
+                    { c: Context -> c.getString(R.string.general_progress_processing_x, area.label) }.toCaString()
+                )
                 log(TAG) { "Reading $area" }
                 updateProgressSecondary(R.string.general_progress_searching)
                 val pubDataContents = area.path.listFiles(gatewaySwitch)
@@ -92,7 +97,11 @@ class PublicDataCorpseFilter @Inject constructor(
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
-                    riskLevel = RiskLevel.NORMAL
+                    riskLevel = when {
+                        ownerInfo.owners.any { it.hasFlag(Marker.Flag.KEEPER) } -> RiskLevel.USER_GENERATED
+                        ownerInfo.owners.any { it.hasFlag(Marker.Flag.COMMON) } -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }
             }
             .toList()
