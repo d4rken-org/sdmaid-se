@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
@@ -54,6 +55,11 @@ class DalvikProfileModule @Inject constructor(
                     path = it,
                     userHandle = userManager2.systemUser,
                 )
+            }
+            .filter {
+                val canRead = it.path.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read $it" }
+                canRead
             }
     }
 

@@ -9,9 +9,12 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
+import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
@@ -20,28 +23,57 @@ import javax.inject.Inject
 class SdcardsModule @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val userManager2: UserManager2,
+    private val gatewaySwitch: GatewaySwitch,
+    private val safMapper: SAFMapper,
 ) : DataAreaModule {
 
     override suspend fun firstPass(): Collection<DataArea> {
         val sdcards = mutableSetOf<DataArea>()
 
-        // We can't scan /storage/emulated with root for multi user sdcards, because the paths might not be visible for root users.
         // TODO we are not getting multiuser sdcards
         storageEnvironment.getPublicPrimaryStorage(userManager2.currentUser)
-            .let {
+            .let { origPath ->
+                if (origPath.canRead(gatewaySwitch)) {
+                    origPath
+                } else {
+                    log(TAG, INFO) { "Can't read $origPath" }
+                    val safPath = safMapper.toSAFPath(origPath)
+                    if (safPath?.canRead(gatewaySwitch) == true) {
+                        log(TAG, WARN) { "Switched from $origPath to $safPath" }
+                        safPath
+                    } else {
+                        null
+                    }
+                }
+            }
+            ?.let {
                 DataArea(
-                    path = it.localPath,
+                    path = it,
                     type = DataArea.Type.SDCARD,
                     userHandle = userManager2.currentUser,
                     flags = setOf(DataArea.Flag.PRIMARY),
                 )
             }
-            .run { sdcards.add(this) }
+            ?.run { sdcards.add(this) }
 
         storageEnvironment.getPublicSecondaryStorage(userManager2.currentUser)
+            .mapNotNull { origPath ->
+                if (origPath.canRead(gatewaySwitch)) {
+                    origPath
+                } else {
+                    log(TAG, INFO) { "Can't read $origPath" }
+                    val safPath = safMapper.toSAFPath(origPath)
+                    if (safPath?.canRead(gatewaySwitch) == true) {
+                        log(TAG, WARN) { "Switched from $origPath to $safPath" }
+                        safPath
+                    } else {
+                        null
+                    }
+                }
+            }
             .map {
                 DataArea(
-                    path = it.localPath,
+                    path = it,
                     type = DataArea.Type.SDCARD,
                     userHandle = userManager2.currentUser,
                     flags = setOf(DataArea.Flag.SECONDARY),

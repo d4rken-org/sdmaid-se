@@ -263,7 +263,7 @@ class LocalGateway @Inject constructor(
             val file = path.asFile()
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
-                else -> file.parentsInclusive.firstOrNull { it.exists() }?.canWrite() ?: false
+                else -> file.exists() && file.parentsInclusive.firstOrNull { it.exists() }?.canWrite() ?: false
             }
 
             when {
@@ -288,7 +288,7 @@ class LocalGateway @Inject constructor(
             val file = path.asFile()
             val canNormalOpen = when (mode) {
                 Mode.ROOT -> false
-                else -> file.parentsInclusive.firstOrNull { it.exists() }?.isReadable() ?: false
+                else -> file.exists() && file.parentsInclusive.firstOrNull { it.exists() }?.isReadable() ?: false
             }
 
             when {

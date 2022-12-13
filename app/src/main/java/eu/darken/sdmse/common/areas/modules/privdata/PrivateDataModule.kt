@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.hasApiLevel
@@ -79,6 +80,11 @@ class PrivateDataModule @Inject constructor(
                 }
             }
             .flatten()
+            .filter {
+                val canRead = it.path.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read $it" }
+                canRead
+            }
     }
 
     // Pre Android 11, pre /data_mirror
@@ -125,12 +131,17 @@ class PrivateDataModule @Inject constructor(
                 }
             }
             .flatten()
+            .filter {
+                val canRead = it.path.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read $it" }
+                canRead
+            }
             .run { resultAreas.addAll(this) }
 
         try {
             val path = LocalPath.build("/dbdata", "clutter")
 
-            if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
+            if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
                     path = gateway.lookup(path, mode = LocalGateway.Mode.ROOT),
@@ -144,7 +155,7 @@ class PrivateDataModule @Inject constructor(
         try {
             val path = LocalPath.build("/datadata")
 
-            if (gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
+            if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
                     path = gateway.lookup(path, mode = LocalGateway.Mode.ROOT),

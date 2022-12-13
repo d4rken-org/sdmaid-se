@@ -1,15 +1,12 @@
 package eu.darken.sdmse.common.storage
 
 import android.content.Context
-import android.net.Uri
 import android.os.Environment
 import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.toLocalPath
-import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.user.UserHandle2
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -43,18 +40,15 @@ class StorageEnvironment @Inject constructor(
                 root?.let { LocalPath.build(it) }
             }
 
-    fun getPublicPrimaryStorage(userHandle: UserHandle2): DeviceStorage {
+    fun getPublicPrimaryStorage(userHandle: UserHandle2): LocalPath {
         val path = Environment.getExternalStorageDirectory()
         val volume = storageManager.getStorageVolume(path)
         requireNotNull(volume) { "Can't find volume for $path" }
-        return DeviceStorage(
-            LocalPath.build(path),
-            SAFPath.build(buildUri(volume))
-        )
+        return LocalPath.build(path)
     }
 
     // http://androidxref.com/5.1.1_r6/xref/frameworks/base/core/java/android/os/Environment.java#136
-    fun getPublicSecondaryStorage(userHandle: UserHandle2): Collection<DeviceStorage> {
+    fun getPublicSecondaryStorage(userHandle: UserHandle2): Collection<LocalPath> {
         val pathResult = mutableListOf<LocalPath>()
         for (extMyDir in ContextCompat.getExternalFilesDirs(context, null)) {
             if (extMyDir == null) continue
@@ -67,44 +61,15 @@ class StorageEnvironment @Inject constructor(
             if (findRoot == null) continue
             pathResult.add(LocalPath.build(findRoot))
         }
-        val primary = getPublicPrimaryStorage(userHandle).localPath
-        return pathResult
-            .filter { it != primary }
-            .map {
-                val volume = storageManager.getStorageVolume(it.asFile())
-                requireNotNull(volume) { "Can't find volume for $it" }
-                DeviceStorage(
-                    it,
-                    SAFPath.build(buildUri(volume))
-                )
-            }
+        val primary = getPublicPrimaryStorage(userHandle)
+        return pathResult.filter { it != primary }
     }
 
-
-    fun getPublicStorage(userHandle: UserHandle2): Collection<DeviceStorage> {
+    fun getPublicStorage(userHandle: UserHandle2): Collection<LocalPath> {
         return listOf(getPublicPrimaryStorage(userHandle)).plus(getPublicSecondaryStorage(userHandle))
     }
 
-    fun mapToSAF(localPath: LocalPath): SAFPath {
-        TODO()
-    }
-
-    fun mapToLocal(safPath: SAFPath): LocalPath {
-        TODO()
-    }
-
-    data class DeviceStorage(
-        val localPath: LocalPath,
-        val safPath: SAFPath
-    )
-
     companion object {
-
         val TAG = logTag("DataArea", "DeviceEnvironment")
-
-        internal fun buildUri(volume: eu.darken.sdmse.common.storage.StorageVolumeX): Uri {
-            return Uri.parse("content://com.android.externalstorage.documents/tree/${Uri.encode(volume.uuid)}")
-        }
-
     }
 }

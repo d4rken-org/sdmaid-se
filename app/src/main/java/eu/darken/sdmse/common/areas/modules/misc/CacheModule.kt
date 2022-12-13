@@ -36,7 +36,7 @@ class CacheModule @Inject constructor(
 
         val basePath = environment.cacheDir
 
-        if (!gateway.exists(basePath, mode = LocalGateway.Mode.ROOT)) {
+        if (!gateway.canRead(basePath, mode = LocalGateway.Mode.ROOT)) {
             log(TAG, INFO) { "Doesn't exist: $basePath" }
             return emptySet()
         }

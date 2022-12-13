@@ -8,29 +8,40 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import javax.inject.Inject
 
 @Reusable
-class PublicMediaModule @Inject constructor() : DataAreaModule {
+class PublicMediaModule @Inject constructor(
+    private val gatewaySwitch: GatewaySwitch,
+) : DataAreaModule {
 
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val sdcardAreas = firstPass.filter { it.type == DataArea.Type.SDCARD }
 
-        val areas = sdcardAreas.map { sdcard ->
-            val sdPath = sdcard.path as LocalPath
-            DataArea(
-                type = DataArea.Type.PUBLIC_MEDIA,
-                path = sdPath.child("Android", "media"),
-                flags = sdcard.flags,
-                userHandle = sdcard.userHandle,
-            )
-        }
+        val areas = sdcardAreas
+            .map { dataArea ->
+                dataArea to dataArea.path.child("Android", "media")
+            }
+            .filter {
+                val canRead = it.second.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read ${it.second}" }
+                canRead
+            }
+            .map { (parentArea, path) ->
+                DataArea(
+                    type = DataArea.Type.PUBLIC_MEDIA,
+                    path = path,
+                    flags = parentArea.flags,
+                    userHandle = parentArea.userHandle,
+                )
+            }
 
-        log(TAG, Logging.Priority.VERBOSE) { "secondPass(): $areas" }
+        log(TAG, VERBOSE) { "secondPass(): $areas" }
 
         return areas
     }

@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.exists
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
@@ -47,7 +47,7 @@ class OemModule @Inject constructor(
             originalPath
         }
         val finalPath = LocalPath.build(resolvedPath)
-        return if (finalPath.exists(gatewaySwitch)) {
+        return if (finalPath.canRead(gatewaySwitch)) {
             setOf(
                 DataArea(
                     type = DataArea.Type.OEM,

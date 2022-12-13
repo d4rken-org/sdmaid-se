@@ -10,12 +10,15 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.local.LocalGateway
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.lookup
+import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
@@ -26,24 +29,31 @@ class PortableModule @Inject constructor(
     private val environment: StorageEnvironment,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
+    private val safMapper: SAFMapper,
 ) : DataAreaModule {
 
     override suspend fun firstPass(): Collection<DataArea> {
-        val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
-
-        if (!gateway.hasRoot()) {
-            log(TAG, INFO) { "LocalGateway has no root, skipping." }
-            return emptySet()
-        }
-
         return loadPossibleUsbStorageLocations()
-            .mapNotNull {
-                if (!gateway.exists(it, mode = LocalGateway.Mode.AUTO)) {
-                    return@mapNotNull null
-                }
-                log(TAG, INFO) { "Path exists: $it" }
+            .mapNotNull { origPath ->
+                var readablePath: APath? = null
 
-                gateway.lookup(it, mode = LocalGateway.Mode.AUTO)
+                if (origPath.canRead(gatewaySwitch)) {
+                    readablePath = origPath
+                }
+
+                if (readablePath == null) {
+                    // TODO we don't request SAF permission for this during setup
+                    val safPath = safMapper.toSAFPath(origPath)
+                    if (safPath?.canRead(gatewaySwitch) == true) {
+                        log(TAG, WARN) { "Switched from $origPath to $safPath" }
+                        readablePath = safPath
+                    }
+                }
+
+                if (readablePath == null) return@mapNotNull null
+                log(TAG, INFO) { "Path exists: $origPath" }
+
+                readablePath.lookup(gatewaySwitch)
             }
             .map {
                 DataArea(
@@ -52,8 +62,6 @@ class PortableModule @Inject constructor(
                     userHandle = userManager2.currentUser,
                 )
             }
-
-
     }
 
     @SuppressLint("SdCardPath")

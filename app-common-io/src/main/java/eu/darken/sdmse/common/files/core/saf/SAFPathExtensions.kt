@@ -39,15 +39,16 @@ fun SAFPath.matchPermission(permissions: Collection<UriPermission>): PermissionM
         }
         .sortedByDescending { it.second.size }
 
-    do {
+    while (true) {
         for ((perm, permsegments) in availablePermissions) {
             val samePrefix = pathUri.path!!.split(":").first() == perm.uri.path!!.split(":").first()
             if (samePrefix && permsegments == targetSegments) {
                 return PermissionMatch(perm, missingSegments)
             }
         }
-        targetSegments.removeLastOrNull()?.let { missingSegments.add(0, it) }
-    } while (targetSegments.isNotEmpty())
+
+        targetSegments.removeLastOrNull()?.also { missingSegments.add(0, it) } ?: break
+    }
 
     return null
 }

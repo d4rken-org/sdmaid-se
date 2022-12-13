@@ -13,7 +13,7 @@ open class PathException(
     cause: Throwable? = null
 ) : IOException("$message <-> ${path.path}", cause)
 
-class ReadException(
+open class ReadException(
     path: APath,
     message: String = "Can't read from path.",
     cause: Throwable? = null

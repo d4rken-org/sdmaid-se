@@ -10,13 +10,12 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
-import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 
@@ -37,24 +36,22 @@ class DataSystemDEModule @Inject constructor(
 
         return firstPass
             .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
-            .map { area ->
-                userManager2.allUsers.mapNotNull { userHandle ->
-                    val path = LocalPath.build(area.path as LocalPath, "system_de", userHandle.handleId.toString())
-
-                    if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
-                        log(TAG, WARN) { "Does not exist: $path" }
-                        return@mapNotNull null
-                    }
-
+            .map { parentArea ->
+                userManager2.allUsers.map { userHandle ->
                     DataArea(
                         type = DataArea.Type.DATA_SYSTEM_DE,
-                        path = path,
+                        path = parentArea.path.child("system_de", userHandle.handleId.toString()),
                         userHandle = userHandle,
-                        flags = area.flags,
+                        flags = parentArea.flags,
                     )
                 }
             }
             .flatten()
+            .filter {
+                val canRead = it.path.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read $it" }
+                canRead
+            }
     }
 
     @Module @InstallIn(SingletonComponent::class)

@@ -36,7 +36,11 @@ class StorageAreaFactory @Inject constructor(
             throw IllegalStateException("Duplicate data areas with overlapping paths")
         }
 
-        log(TAG, INFO) { "Detected storage areas:\n${newAreas.joinToString("\n")}" }
+        if (newAreas.isEmpty()) {
+            log(TAG, ERROR) { "No accessible data areas detected!" }
+        } else {
+            log(TAG, INFO) { "Accessible data areas:\n${newAreas.joinToString("\n")}" }
+        }
 
         secondPass
     }

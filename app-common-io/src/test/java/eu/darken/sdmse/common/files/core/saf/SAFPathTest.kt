@@ -29,7 +29,7 @@ class SAFPathTest {
         json.toComparableJson() shouldBe """
             {
                 "treeRoot": "$testUri",
-                "crumbs": ["seg1","seg2","seg3"],
+                "segments": ["seg1","seg2","seg3"],
                 "pathType":"SAF"
             }
         """.toComparableJson()
@@ -47,7 +47,7 @@ class SAFPathTest {
         json.toComparableJson() shouldBe """
             {
                 "treeRoot": "$testUri",
-                "crumbs": ["seg3","seg2","seg1"],
+                "segments": ["seg3","seg2","seg1"],
                 "pathType":"SAF"
             }
         """.toComparableJson()

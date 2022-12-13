@@ -9,6 +9,7 @@ import android.provider.DocumentsContract
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -49,7 +50,11 @@ class SAFGateway @Inject constructor(
      */
     private fun findDocFile(file: SAFPath): SAFDocFile {
         val match = file.matchPermission(contentResolver.persistedUriPermissions)
-            ?: throw IllegalStateException("Can't find matching permission")
+
+        if (match == null) {
+            log(TAG, VERBOSE) { "No UriPermission match for $file" }
+            throw MissingUriPermissionException(file)
+        }
 
         val targetTreeUri = SAFDocFile.buildTreeUri(
             match.permission.uri,
@@ -158,6 +163,8 @@ class SAFGateway @Inject constructor(
     override suspend fun canWrite(path: SAFPath): Boolean = runIO {
         try {
             findDocFile(path).writable
+        } catch (e: MissingUriPermissionException) {
+            false
         } catch (e: Exception) {
             throw ReadException(path, cause = e)
         }
@@ -167,6 +174,8 @@ class SAFGateway @Inject constructor(
     override suspend fun canRead(path: SAFPath): Boolean = runIO {
         try {
             findDocFile(path).readable
+        } catch (e: MissingUriPermissionException) {
+            false
         } catch (e: Exception) {
             throw ReadException(path, cause = e)
         }

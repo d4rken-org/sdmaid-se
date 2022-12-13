@@ -1,12 +1,8 @@
 package eu.darken.sdmse.common.storage
 
 import android.content.ContentResolver
-import android.content.Context
 import android.net.Uri
-import android.os.Build
-import androidx.annotation.RequiresApi
 import dagger.Reusable
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,33 +20,15 @@ import javax.inject.Inject
 @Reusable
 class SAFMapper @Inject constructor(
     private val storageManager2: StorageManager2,
-    @ApplicationContext private val context: Context,
     private val contentResolver: ContentResolver,
 ) {
-    @RequiresApi(Build.VERSION_CODES.R)
-    suspend fun toNavigationUri(localPath: LocalPath): Uri? {
-        val osStorage = storageManager2.storageVolumes
-            .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
-            .filter { it.directory != null }
-            .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
-            .also { log(TAG) { "Target osStorage for $localPath is $it" } }
-
-        if (osStorage?.directory == null) return null
-
-        val prefixFreeFile = localPath.path.replace("${osStorage.directory!!.path}${File.separatorChar}", "")
-
-        return osStorage.documentUri.toString()
-            .let { "$it%3A${Uri.encode(prefixFreeFile)}" }
-            .let { Uri.parse(it) }
-            .also { log(TAG) { "Returning uri for navigation: $it" } }
-    }
 
     suspend fun toSAFPath(localPath: LocalPath): SAFPath? {
         val osStorage = storageManager2.storageVolumes
             .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
             .filter { it.directory != null }
             .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
-            .also { log(TAG) { "Target osStorage for $localPath is $it" } }
+            ?.also { log(TAG) { "Target storageVolumes for $localPath is $it" } }
             ?: return null
 
         val prefixFreeFile = if (osStorage.directory!!.path != localPath.path) {
@@ -72,51 +50,6 @@ class SAFMapper @Inject constructor(
             log(TAG, VERBOSE) { "toSAFPath($localPath):$it" }
         }
     }
-
-//    private fun getSAFPathLegacy(localPath: LocalPath): SAFPath? {
-////        val path = localPath.path
-////        var volumeRoot: VolumeRoot? = null
-////        for (root in roots) {
-////            val rootPath = root.storagePath.path
-////            if (root.storagePath.path == file.path) {
-////                volumeRoot = root
-////                break
-////            }
-////            if (path.startsWith(rootPath) && (volumeRoot == null || rootPath.length > volumeRoot.storagePath.path.length)) {
-////                volumeRoot = root
-////            }
-////        }
-////        if (volumeRoot == null) throw IOException("No matching (UriPermission/VolumeRoot): " + file.path)
-////        val directRootMatch = file.path == volumeRoot.storagePath.absolutePath
-////        val returnUri: Uri
-////        val uriBuilder = Uri.Builder()
-////        uriBuilder.scheme(ContentResolver.SCHEME_CONTENT)
-////        uriBuilder.authority(AUTHORITY)
-////        uriBuilder.appendPath(PATH_TREE)
-////        uriBuilder.appendPath(volumeRoot.documentId)
-////        uriBuilder.appendPath(PATH_DOCUMENT)
-////        if (directRootMatch) {
-////            uriBuilder.appendPath(volumeRoot.documentId)
-////        } else {
-////            val subTree = file.path.replace(volumeRoot.storagePath.absolutePath + "/", "")
-////            uriBuilder.appendPath(volumeRoot.documentId + subTree)
-////        }
-////        returnUri = uriBuilder.build()
-////        Timber.tag(TAG).v("getUri(): ${file.path} -> $returnUri")
-//        val osStorage = storageManager2.storageVolumes
-//            .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
-//            .filter { it.directory != null }
-//            .firstOrNull { localPath.directory.startsWith(it.directory!!.path) }
-//            .also { log(TAG) { "Target osStorage for $localPath is $it" } }
-//            ?: return null
-//
-//        val prefixFreeFile = localPath.path.replace("${osStorage.pathFile!!.path}${File.separatorChar}", "")
-//
-//        return SAFPath.build(
-//            base = osStorage.treeUri,
-//            segs = prefixFreeFile.split(File.separator).toTypedArray()
-//        )
-//    }
 
     suspend fun toLocalPath(safPath: SAFPath): LocalPath {
         return TODO()

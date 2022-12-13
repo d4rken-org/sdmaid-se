@@ -9,13 +9,12 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
-import eu.darken.sdmse.common.files.core.local.LocalPath
 import javax.inject.Inject
 
 @Reusable
@@ -33,19 +32,20 @@ class SystemAppModule @Inject constructor(
 
         return firstPass
             .filter { it.type == DataArea.Type.SYSTEM }
-            .mapNotNull { area ->
-                val path = LocalPath.build(area.path as LocalPath, "app")
-
-                if (!gateway.exists(path, mode = LocalGateway.Mode.ROOT)) {
-                    log(TAG, WARN) { "Does not exist: $path" }
-                    return@mapNotNull null
-                }
-
+            .map { systemArea ->
+                systemArea to systemArea.path.child("app")
+            }
+            .filter {
+                val canRead = it.second.canRead(gatewaySwitch)
+                if (!canRead) log(TAG) { "Can't read ${it.second}" }
+                canRead
+            }
+            .map { (parentArea, path) ->
                 DataArea(
                     type = DataArea.Type.SYSTEM_APP,
                     path = path,
-                    userHandle = area.userHandle,
-                    flags = area.flags,
+                    userHandle = parentArea.userHandle,
+                    flags = parentArea.flags,
                 )
             }
     }
