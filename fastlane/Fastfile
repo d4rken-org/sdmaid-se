@@ -1,0 +1,77 @@
+# Customise this file, documentation can be found here:
+# https://docs.fastlane.tools/actions/
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.208.0"
+
+default_platform :android
+
+platform :android do
+  before_all do
+  	#ensure_git_status_clean
+  end
+
+  lane :beta do
+    gradle(task: 'clean bundleGplayBeta')
+    sh "bash ./remove_unsupported_languages.sh"
+  	supply(
+        track: 'beta',
+        package_name: 'eu.darken.sdmse',
+        skip_upload_changelogs: 'false',
+        skip_upload_apk: 'true',
+        skip_upload_images: 'true',
+        skip_upload_screenshots: 'true',
+        skip_upload_metadata: 'true',
+  	)
+  end
+
+  lane :production do
+    gradle(task: 'clean bundleGplayRelease')
+    sh "bash ./remove_unsupported_languages.sh"
+    supply(
+        track: 'beta',
+        package_name: 'eu.darken.sdmse',
+        skip_upload_changelogs: 'false',
+        skip_upload_apk: 'true',
+        skip_upload_images: 'true',
+        skip_upload_screenshots: 'true',
+        skip_upload_metadata: 'true',
+    )
+  end
+
+  lane :listing_only do
+    sh "bash ./remove_unsupported_languages.sh"
+    supply(
+      track: 'production',
+      skip_upload_apk: 'true',
+      skip_upload_images: 'true',
+      skip_upload_screenshots: 'true',
+      skip_upload_changelogs: true,
+      skip_upload_aab: 'true'
+    )
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
