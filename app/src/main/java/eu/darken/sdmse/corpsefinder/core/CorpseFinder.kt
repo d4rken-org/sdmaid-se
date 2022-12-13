@@ -92,7 +92,10 @@ class CorpseFinder @Inject constructor(
 
     data class Data(
         val corpses: Collection<Corpse>
-    )
+    ) {
+        val totalSize: Long
+            get() = corpses.sumOf { it.size }
+    }
 
     @InstallIn(SingletonComponent::class)
     @Module

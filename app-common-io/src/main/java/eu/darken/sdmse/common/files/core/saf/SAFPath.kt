@@ -7,7 +7,6 @@ import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import eu.darken.sdmse.common.castring.CaString
 import eu.darken.sdmse.common.files.core.APath
-import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.io.File
 
@@ -16,7 +15,7 @@ import java.io.File
 @JsonClass(generateAdapter = true)
 data class SAFPath(
     val treeRoot: Uri,
-    val crumbs: List<String>
+    override val segments: List<String>,
 ) : APath {
 
     init {
@@ -36,43 +35,33 @@ data class SAFPath(
         }
 
     override val path: String
-        get() {
-            return if (crumbs.isNotEmpty()) {
-                crumbs.joinToString(File.pathSeparator)
-            } else {
-                treeRoot.pathSegments.joinToString(File.pathSeparator)
-            }
-        }
+        get() = "${File.separator}${(treeRoot.pathSegments + segments).joinToString(File.separator)}"
 
     val pathUri by lazy {
         if (segments.isEmpty()) return@lazy treeRoot
 
         val uriString = StringBuilder(treeRoot.toString()).apply {
             append(Uri.encode(":"))
-            crumbs.forEach {
+            segments.forEach {
                 append(Uri.encode(it))
-                if (it != crumbs.last()) append(Uri.encode(File.separator))
+                if (it != segments.last()) append(Uri.encode(File.separator))
             }
         }
         Uri.parse(uriString.toString())
     }
 
     override val name: String
-        get() = if (crumbs.isNotEmpty()) {
-            crumbs.last()
+        get() = if (segments.isNotEmpty()) {
+            segments.last()
         } else {
             treeRoot.pathSegments.last().split('/').last()
         }
 
-    @IgnoredOnParcel
-    override val segments: List<String>
-        get() = crumbs
-
     override fun child(vararg segments: String): SAFPath {
-        return build(this.treeRoot, *this.crumbs.toTypedArray(), *segments)
+        return build(this.treeRoot, *this.segments.toTypedArray(), *segments)
     }
 
-    override fun toString(): String = "SAFFile(treeRoot=$treeRoot, crumbs=$crumbs)"
+    override fun toString(): String = "SAFFile(treeRoot=$treeRoot, segments=$segments)"
 
     companion object {
         fun build(documentFile: DocumentFile): SAFPath {

@@ -145,7 +145,7 @@ fun DependencyHandlerScope.addAndroidUI() {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.material:material:1.8.0-alpha03")
+    implementation("com.google.android.material:material:1.7.0")
 }
 
 fun DependencyHandlerScope.addTesting() {

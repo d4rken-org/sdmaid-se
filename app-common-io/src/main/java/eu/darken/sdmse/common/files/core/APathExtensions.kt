@@ -7,7 +7,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
 import eu.darken.sdmse.common.files.core.saf.SAFPath
-import eu.darken.sdmse.common.files.core.saf.crumbsTo
 import okio.Sink
 import okio.Source
 import java.io.File
@@ -200,6 +199,10 @@ suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>>
 
 suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>>): List<T>? {
     return if (exists(gateway)) gateway.listFiles(downCast()) else null
+}
+
+suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+    return gateway.canRead(downCast())
 }
 
 suspend fun <T : APath> T.canWrite(gateway: APathGateway<T, out APathLookup<T>>): Boolean {

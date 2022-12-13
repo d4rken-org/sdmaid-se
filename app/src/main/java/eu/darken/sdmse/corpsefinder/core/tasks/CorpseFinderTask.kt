@@ -1,5 +1,6 @@
 package eu.darken.sdmse.corpsefinder.core.tasks
 
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.parcelize.Parcelize
@@ -30,8 +31,8 @@ data class CorpseFinderScanTask(
 
 @Parcelize
 data class CorpseFinderDeleteTask(
-    val toDelete: Set<Pkg.Id>,
-    val isWatcherTask: Boolean,
+    val toDelete: Set<APath> = emptySet(),
+    val isWatcherTask: Boolean = false,
 ) : CorpseFinderTask() {
 
     @Parcelize

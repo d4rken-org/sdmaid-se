@@ -82,15 +82,14 @@ class PublicDataCorpseFilter @Inject constructor(
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
                 }
             }
-            .filter { !it.isCurrentlyOwned() }
+            .filter { !it.isCurrentlyOwned }
             .filter { !it.isKeeper || removeKeepers }
             .filter { !it.isCommon }
             .filter { it.isCorpse }
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
                 Corpse(
-                    path = ownerInfo.item,
-                    areaInfo = ownerInfo.areaInfo,
+                    ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = RiskLevel.NORMAL
@@ -105,7 +104,6 @@ class PublicDataCorpseFilter @Inject constructor(
         "lost+found" -> true
         else -> false
     }
-
 
     @InstallIn(SingletonComponent::class)
     @Module

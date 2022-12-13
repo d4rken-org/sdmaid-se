@@ -14,17 +14,21 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.canRead
 import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFGateway
+import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageManager2
 import javax.inject.Inject
 
 @Reusable
 class PublicDataModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
-    private val storageManager2: StorageManager2
+    private val storageManager2: StorageManager2,
+    private val safMapper: SAFMapper,
 ) : DataAreaModule {
 
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
@@ -34,22 +38,26 @@ class PublicDataModule @Inject constructor(
         val safGateway = gatewaySwitch.getGateway(APath.PathType.SAF) as SAFGateway
 
         val areas = sdcardAreas
-            .filter {
-                if (hasApiLevel(33) && !localGateway.hasRoot()) {
-                    log(TAG, INFO) { "Skipping (API33 and no root): $it" }
-                    false
-//                } else if (hasApiLevel(30) && safGateway.) {
-//                    log(TAG, INFO) { "Skipping (API30+ and no SAF grant): $it" }
-//                    false
+            .map { dataArea ->
+                val accessPath: APath? = if (hasApiLevel(33) && !localGateway.hasRoot()) {
+                    log(TAG, INFO) { "Skipping (API33 and no root): $dataArea" }
+                    null
+                } else if (hasApiLevel(30)) {
+                    when (val target = dataArea.path.child("Android", "data")) {
+                        is LocalPath -> safMapper.toSAFPath(target)
+                        is SAFPath -> target
+                        else -> null
+                    }
                 } else {
-                    true
+                    null
                 }
+                dataArea to accessPath
             }
-            .map { sdcard ->
-                val sdPath = sdcard.path as LocalPath
+            .filter { it.second?.canRead(gatewaySwitch) ?: false }
+            .map { (sdcard, path) ->
                 DataArea(
                     type = DataArea.Type.PUBLIC_DATA,
-                    path = sdPath.child("Android", "data"),
+                    path = path!!,
                     flags = sdcard.flags,
                     userHandle = sdcard.userHandle,
                 )

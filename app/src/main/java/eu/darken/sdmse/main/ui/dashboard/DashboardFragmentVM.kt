@@ -17,6 +17,10 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
@@ -34,30 +38,44 @@ class DashboardFragmentVM @Inject constructor(
     private val safMapper: SAFMapper,
     private val gatewaySwitch: GatewaySwitch,
     private val setupManager: SetupManager,
+    private val corpseFinder: CorpseFinder,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(randomString())
     private var isSetupDismissed = false
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
 
+    private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
+        corpseFinder.data,
+        corpseFinder.progress,
+    ) { data, progress ->
+        CorpseFinderCardVH.Item(
+            data = data,
+            progress = progress,
+            onScan = {
+                launch { taskManager.submit(CorpseFinderScanTask()) }
+            },
+            onDelete = {
+                launch { taskManager.submit(CorpseFinderDeleteTask()) }
+            }
+        )
+    }
+
     val listItems: LiveData<List<DashboardAdapter.Item>> = combine(
         setupManager.state,
+        corpseFinderItem,
         refreshTrigger,
-    ) { setupState, _ ->
+    ) { setupState, corpseFinderItem, _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
         if (BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV) {
             DebugCardVH.Item(
                 onCheck = {
                     launch {
-//                        taskManager.submit(CorpseFinderScanTask())
-                        val lPath = LocalPath.build("/storage/emulated/0/SAFParent/SAFChild/SAFChild2/test2.txt")
-//                        val navUri = safMapper.toNavigationUri(lPath)
-//                        log(TAG) { "Result: $navUri" }
-                        val result = safMapper.toSAFPath(lPath)
-                        log(TAG) { "Result: $result" }
-                        result?.walk(gatewaySwitch)?.collectLatest {
-                            log(TAG) { "WALK: $it" }
-                        }
+                        LocalPath.build("/storage/emulated/0")
+                            .walk(gatewaySwitch)
+                            .collectLatest {
+                                log(TAG) { "WALK: $it" }
+                            }
                     }
                 },
                 onSAF = {
@@ -78,10 +96,14 @@ class DashboardFragmentVM @Inject constructor(
             ).run { items.add(this) }
         }
 
+
+        items.add(corpseFinderItem)
+
         items
     }
         .setupCommonEventHandlers(TAG) { "listItems" }
         .asLiveData2()
+
 
     companion object {
         private val TAG = logTag("Dashboard", "Fragment", "VM")

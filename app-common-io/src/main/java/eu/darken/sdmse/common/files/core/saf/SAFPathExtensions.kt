@@ -1,25 +1,24 @@
 package eu.darken.sdmse.common.files.core.saf
 
 import android.content.UriPermission
-import eu.darken.sdmse.common.dropLastColon
 import java.io.File
 
 
 fun SAFPath.crumbsTo(child: SAFPath): Array<String> {
     require(this.treeRoot == child.treeRoot) { "roots don't match $treeRoot <> ${child.treeRoot}" }
-    require(child.crumbs.size >= crumbs.size) { "${child.crumbs} isn't a child of $crumbs" }
+    require(child.segments.size >= segments.size) { "${child.segments} isn't a child of $segments" }
     var lastMatchingIndex = 0
-    for ((index, parentCrumb) in crumbs.withIndex()) {
-        require(parentCrumb == child.crumbs[index]) {
-            "Not parent and child: $crumbs - ${child.crumbs}"
+    for ((index, parentCrumb) in segments.withIndex()) {
+        require(parentCrumb == child.segments[index]) {
+            "Not parent and child: $segments - ${child.segments}"
         }
         lastMatchingIndex = index + 1
     }
-    return child.crumbs.subList(lastMatchingIndex, child.crumbs.size).toTypedArray()
+    return child.segments.subList(lastMatchingIndex, child.segments.size).toTypedArray()
 }
 
 val SAFPath.isStorageRoot: Boolean
-    get() = crumbs.isEmpty() && treeRoot.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1
+    get() = segments.isEmpty() && treeRoot.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1
 
 data class PermissionMatch(
     val permission: UriPermission,
@@ -28,7 +27,7 @@ data class PermissionMatch(
 
 fun SAFPath.matchPermission(permissions: Collection<UriPermission>): PermissionMatch? {
     val targetSegments = mutableListOf<String>().apply {
-        addAll(crumbs)
+        addAll(segments)
     }
     val missingSegments = mutableListOf<String>()
 
@@ -41,8 +40,9 @@ fun SAFPath.matchPermission(permissions: Collection<UriPermission>): PermissionM
         .sortedByDescending { it.second.size }
 
     do {
-        for ((perm, permCrumbs) in availablePermissions) {
-            if (permCrumbs == targetSegments && perm.uri.dropLastColon() == pathUri) {
+        for ((perm, permsegments) in availablePermissions) {
+            val samePrefix = pathUri.path!!.split(":").first() == perm.uri.path!!.split(":").first()
+            if (samePrefix && permsegments == targetSegments) {
                 return PermissionMatch(perm, missingSegments)
             }
         }
