@@ -47,7 +47,7 @@ class PrivateDataCorpseFilter @Inject constructor(
 
     override suspend fun scan(): Collection<Corpse> {
         if (corpseFinderSettings.filterPrivateDataEnabled.value()) {
-            log(TAG, VERBOSE) { "Scanning..." }
+            log(TAG) { "Scanning..." }
         } else {
             log(TAG) { "Filter is disabled" }
             return emptyList()
@@ -94,10 +94,9 @@ class PrivateDataCorpseFilter @Inject constructor(
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
                 }
             }
-            .filter { !it.isCurrentlyOwned }
+            .filter { it.isCorpse }
             .filter { !it.isKeeper || includeRiskUserGenerated }
             .filter { !it.isCommon || includeRiskCommon }
-            .filter { it.isCorpse }
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
                 Corpse(

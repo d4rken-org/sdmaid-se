@@ -112,7 +112,7 @@ open class SharedResource<T : Any> constructor(
                         "get(): Resource lease completed (leases=${activeLeases.size}, parents=${parents.size})"
                     }
                     if (Bugs.isDebug && parents.isNotEmpty()) {
-                        log(iTag, VERBOSE) { "parents=${parents.values.joinToString("\n")}" }
+                        log(iTag, VERBOSE) { "parents=${parents.values.toList().joinToString("\n")}" }
                     }
                 }
             }

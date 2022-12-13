@@ -53,7 +53,6 @@ class FileForensics @Inject constructor(
             owners = result.owners,
             installedOwners = installedOwners,
             hasUnknownOwner = result.hasKnownUnknownOwner,
-            isCurrentlyOwned = result.hasKnownUnknownOwner || installedOwners.isNotEmpty()
         )
 
         val timeForProcessing = System.currentTimeMillis() - startFindingOwner

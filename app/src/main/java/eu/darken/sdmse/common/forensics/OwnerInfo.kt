@@ -12,7 +12,6 @@ data class OwnerInfo constructor(
     val owners: Set<Owner>,
     val installedOwners: Set<Owner>,
     val hasUnknownOwner: Boolean,
-    val isCurrentlyOwned: Boolean,
 ) : Parcelable {
 
     val item: APath
@@ -25,11 +24,10 @@ data class OwnerInfo constructor(
         get() = owners.any { it.hasFlag(Marker.Flag.COMMON) }
 
     val isCorpse: Boolean
-        get() {
-            if (areaInfo.isBlackListLocation) return !isCurrentlyOwned else {
-                if (!isCurrentlyOwned && owners.isNotEmpty()) return true
-            }
-            return false
+        get() = when {
+            areaInfo.isBlackListLocation -> installedOwners.isEmpty() && !hasUnknownOwner
+            owners.isNotEmpty() -> installedOwners.isEmpty() && !hasUnknownOwner
+            else -> false
         }
 
     fun getOwner(pkgId: Pkg.Id): Owner? = owners.singleOrNull { it.pkgId == pkgId }
