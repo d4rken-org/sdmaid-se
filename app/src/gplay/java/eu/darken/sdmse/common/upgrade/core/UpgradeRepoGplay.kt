@@ -74,12 +74,12 @@ class UpgradeRepoGplay @Inject constructor(
     override fun launchBillingFlow(activity: Activity) {
         MaterialAlertDialogBuilder(activity).apply {
             setIcon(R.drawable.ic_heart)
-            setTitle(R.string.upgrades_upgrade_octi_title)
-            setMessage(R.string.upgrades_upgrade_octi_body)
+            setTitle(R.string.upgrades_upgrade_sdmse_title)
+            setMessage(R.string.upgrades_upgrade_sdmse_body)
             setPositiveButton(R.string.general_upgrade_action) { _, _ ->
                 scope.launch {
                     try {
-                        billingDataRepo.startIapFlow(activity, OctiSku.PRO_UPGRADE.sku)
+                        billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
                     } catch (e: Exception) {
                         log(TAG) { "startIapFlow failed:${e.asLog()}" }
                         withContext(dispatcherProvider.Main) {

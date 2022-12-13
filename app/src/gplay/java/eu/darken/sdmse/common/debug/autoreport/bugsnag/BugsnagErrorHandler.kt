@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import com.bugsnag.android.Event
 import com.bugsnag.android.OnErrorCallback
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.BuildConfig
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
@@ -36,7 +35,7 @@ class BugsnagErrorHandler @Inject constructor(
             context.tryFormattedSignature()?.let { event.addMetadata(tab, "signatures", it) }
         }
 
-        return debugSettings.isAutoReportingEnabled.valueBlocking && !BuildConfig.DEBUG
+        return debugSettings.isAutoReportingEnabled.valueBlocking && !BuildConfigWrap.DEBUG
     }
 
     companion object {
