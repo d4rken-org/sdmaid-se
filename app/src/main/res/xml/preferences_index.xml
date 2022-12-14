@@ -3,12 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <Preference
         android:icon="@drawable/ic_baseline_settings_24"
-        app:fragment="eu.darken.sdmse.main.ui.settings.general.GeneralSettingsFragment"
+        app:fragment="eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsFragment"
         app:summary="@string/general_settings_desc"
         app:title="@string/general_settings_label" />
 
-    <PreferenceCategory android:title="@string/settings_category_other_label">
+    <PreferenceCategory android:title="@string/settings_category_tools_label">
+        <Preference
+            android:icon="@drawable/ghost"
+            app:fragment="eu.darken.sdmse.corpsefinder.ui.settings.CorpseFinderSettingsFragment"
+            app:summary="@string/corpsefinder_settings_summary"
+            app:title="@string/corpsefinder_tool_name" />
+    </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/settings_category_other_label">
         <Preference
             android:icon="@drawable/ic_changelog_onsurface"
             android:key="core.changelog"

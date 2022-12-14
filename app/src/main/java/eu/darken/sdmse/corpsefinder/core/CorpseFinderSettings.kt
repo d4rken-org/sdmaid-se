@@ -53,7 +53,9 @@ class CorpseFinderSettings @Inject constructor(
         filterAppSourceEnabled,
         filterAppSourcePrivateEnabled,
         filterAppToSdEnabled,
-        isUninstallWatcherEnabled
+        isUninstallWatcherEnabled,
+        includeRiskCommon,
+        includeRiskUserGenerated,
     )
 
     companion object {

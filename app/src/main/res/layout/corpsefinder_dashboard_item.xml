@@ -15,7 +15,7 @@
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/corpsefinder_dashboard_card_title"
+            android:text="@string/corpsefinder_tool_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -25,7 +25,7 @@
             style="@style/TextAppearance.Material3.LabelSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Data belonging to already removed apps."
+            android:text="@string/corpsefinder_explanation_short"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />

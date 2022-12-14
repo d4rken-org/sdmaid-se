@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        app:enabled="false"
+        app:icon="@drawable/ic_eye"
+        app:key="watcher.uninstall.enabled"
+        app:summary="@string/corpsefinder_watcher_summary"
+        app:title="@string/corpsefinder_watcher_title" />
+
+    <PreferenceCategory android:title="@string/settings_category_filter">
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.publicmedia.enabled"
+            app:summary="@string/corpsefinder_filter_summary_publicmedia"
+            app:title="/sdcard/Android/media" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.publicobb.enabled"
+            app:summary="@string/corpsefinder_filter_summary_publicobb"
+            app:title="/sdcard/Android/obb" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.publicdata.enabled"
+            app:summary="@string/corpsefinder_filter_summary_publicdata"
+            app:title="/sdcard/Android/data" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.sdcard.enabled"
+            app:summary="@string/corpsefinder_filter_summary_sdcard"
+            app:title="/sdcard" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.privatedata.enabled"
+            app:summary="@string/corpsefinder_filter_summary_privatedata"
+            app:title="/data/data" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.appasec.enabled"
+            app:summary="@string/corpsefinder_filter_summary_appasec"
+            app:title="/data/app-asec" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:summary="@string/corpsefinder_filter_summary_dalvik"
+            app:key="filter.dalvikcache.enabled"
+            app:title="/data/dalvik-cache" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.applib.enabled"
+            app:summary="@string/corpsefinder_filter_summary_applib"
+            app:title="/data/app-lib" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.appsource.enabled"
+            app:summary="@string/corpsefinder_filter_summary_appsource"
+            app:title="/data/app" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:key="filter.appsourceprivate.enabled"
+            app:summary="@string/corpsefinder_filter_summary_appsource_private"
+            app:title="/data/app-private" />
+        <CheckBoxPreference
+            app:icon="@drawable/air_filter"
+            app:summary="@string/corpsefinder_filter_summary_app2sd"
+            app:key="filter.apptosd.enabled"
+            app:title="App2SD" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_risklevel">
+        <CheckBoxPreference
+            app:icon="@drawable/image_multiple"
+            app:key="risk.include.usergenerated"
+            app:summary="@string/corpsefinder_settings_risk_usergen_summary"
+            app:title="@string/corpsefinder_settings_risk_usergen_title" />
+        <CheckBoxPreference
+            app:icon="@drawable/file_question"
+            app:key="risk.include.common"
+            app:summary="@string/corpsefinder_settings_risk_common_summary"
+            app:title="@string/corpsefinder_settings_risk_common_title" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
