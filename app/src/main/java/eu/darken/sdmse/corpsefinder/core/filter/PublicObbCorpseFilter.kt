@@ -46,12 +46,11 @@ class PublicObbCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun scan(): Collection<Corpse> {
-        if (corpseFinderSettings.filterPublicObbEnabled.value()) {
-            log(TAG) { "Scanning..." }
-        } else {
+        if (!corpseFinderSettings.filterPublicObbEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
         }
+        log(TAG) { "Scanning..." }
 
         gatewaySwitch.addParent(this)
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
@@ -81,7 +80,7 @@ class PublicObbCorpseFilter @Inject constructor(
     @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Counter(0, candidates.size))
 
-        val includeRiskUserGenerated: Boolean = corpseFinderSettings.includeRiskUserGenerated.value()
+        val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
         return candidates
@@ -94,7 +93,7 @@ class PublicObbCorpseFilter @Inject constructor(
                 }
             }
             .filter { it.isCorpse }
-            .filter { !it.isKeeper || includeRiskUserGenerated }
+            .filter { !it.isKeeper || includeRiskKeeper }
             .filter { !it.isCommon || includeRiskCommon }
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()

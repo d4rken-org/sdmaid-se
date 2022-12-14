@@ -27,7 +27,7 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.toSet
+import kotlinx.coroutines.flow.toList
 import java.io.IOException
 import javax.inject.Inject
 
@@ -44,12 +44,11 @@ class PublicMediaCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun scan(): Collection<Corpse> {
-        if (corpseFinderSettings.filterPublicMediaEnabled.value()) {
-            log(TAG) { "Scanning..." }
-        } else {
+        if (!corpseFinderSettings.filterPublicMediaEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
         }
+        log(TAG) { "Scanning..." }
 
         gatewaySwitch.addParent(this)
 
@@ -73,7 +72,7 @@ class PublicMediaCorpseFilter @Inject constructor(
     @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Counter(0, candidates.size))
 
-        val includeRiskUserGenerated: Boolean = corpseFinderSettings.includeRiskUserGenerated.value()
+        val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
         return candidates
@@ -86,10 +85,10 @@ class PublicMediaCorpseFilter @Inject constructor(
                 }
             }
             .filter { it.isCorpse }
-            .filter { !it.isKeeper || includeRiskUserGenerated }
+            .filter { !it.isKeeper || includeRiskKeeper }
             .filter { !it.isCommon || includeRiskCommon }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+                val content = ownerInfo.item.walk(gatewaySwitch).toList()
                 Corpse(
                     ownerInfo = ownerInfo,
                     content = content,

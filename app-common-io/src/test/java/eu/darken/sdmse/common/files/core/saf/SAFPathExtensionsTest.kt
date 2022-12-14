@@ -63,4 +63,14 @@ class SAFPathExtensionsTest {
         SAFPath.build(root, "crumb1").isStorageRoot shouldBe false
     }
 
+    @Test
+    fun `is file a parent of another file`() {
+        val parent = SAFPath.build(testUri1, "the", "parent")
+        parent.isParentOf(SAFPath.build(testUri1, "the")) shouldBe false
+        parent.isParentOf(SAFPath.build(testUri1, "the", "parent")) shouldBe false
+        parent.isParentOf(SAFPath.build(testUri1, "the", "parent2")) shouldBe false
+        parent.isParentOf(SAFPath.build(testUri1, "the", "parent", "child")) shouldBe true
+        parent.isParentOf(SAFPath.build(testUri1, "the", "parent", "child", "child")) shouldBe true
+        parent.isParentOf(SAFPath.build(testUri1, "the", "parent", "child1", "child2")) shouldBe true
+    }
 }

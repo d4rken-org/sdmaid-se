@@ -38,7 +38,7 @@ class CorpseFinderSettings @Inject constructor(
 
     val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", true)
 
-    val includeRiskUserGenerated = dataStore.createValue("risk.include.usergenerated", false)
+    val includeRiskKeeper = dataStore.createValue("risk.include.keeper", false)
     val includeRiskCommon = dataStore.createValue("risk.include.common", false)
 
     override val mapper = PreferenceStoreMapper(
@@ -55,7 +55,7 @@ class CorpseFinderSettings @Inject constructor(
         filterAppToSdEnabled,
         isUninstallWatcherEnabled,
         includeRiskCommon,
-        includeRiskUserGenerated,
+        includeRiskKeeper,
     )
 
     companion object {

@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
+import eu.darken.sdmse.common.files.core.local.isParentOf
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import okio.Sink
 import okio.Source
@@ -34,14 +35,6 @@ fun APath.asFile(): File = when (this) {
 fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(gateway: GT): PathTreeFlow<P, PL, GT> {
     return PathTreeFlow(gateway, downCast())
 }
-
-//fun FileType.toMMRefType(): MMRef.Type {
-//    return when (this) {
-//        FileType.DIRECTORY -> MMRef.Type.DIRECTORY
-//        FileType.FILE -> MMRef.Type.FILE
-//        FileType.SYMBOLIC_LINK -> MMRef.Type.SYMLINK
-//    }
-//}
 
 /**
  * // FIXME not sure if this can be fixed?
@@ -134,25 +127,6 @@ suspend fun <T : APath> T.createSymlink(gateway: APathGateway<T, out APathLookup
     return gateway.createSymlink(downCast(), target)
 }
 
-//suspend fun <T : APath> T.setMetaData(gateway: APathGateway<T, out APathLookup<T>>, props: Props): Boolean {
-//    val modSuc = if (props is Props.HasModifiedDate) {
-//        setModifiedAt(gateway, props.modifiedAt)
-//    } else {
-//        true
-//    }
-//    val permSuc = if (props is Props.HasPermissions) {
-//        props.permissions?.let { setPermissions(gateway, it) } ?: true
-//    } else {
-//        true
-//    }
-//    val ownSuc = if (props is Props.HasOwner) {
-//        props.ownership?.let { setOwnership(gateway, it) } ?: true
-//    } else {
-//        true
-//    }
-//    return modSuc && permSuc && ownSuc
-//}
-
 suspend fun <T : APath> T.setModifiedAt(gateway: APathGateway<T, out APathLookup<T>>, modifiedAt: Date): Boolean {
     return gateway.setModifiedAt(downCast(), modifiedAt)
 }
@@ -166,19 +140,6 @@ suspend fun <T : APath> T.setPermissions(
 
 suspend fun <T : APath> T.setOwnership(gateway: APathGateway<T, out APathLookup<T>>, ownership: Ownership): Boolean {
     return gateway.setOwnership(downCast(), ownership)
-}
-
-inline fun <reified T : APath> T.relativeTo(parent: T): APath? {
-    // TODO TEST
-    return when (pathType) {
-        APath.PathType.LOCAL -> {
-            val rel = File(this.path).relativeToOrNull(File(parent.path))
-            rel?.let { LocalPath.build(it.path) }
-        }
-//       APath.PathType.RAW -> TODO()
-//       APath.PathType.SAF -> TODO()
-        else -> TODO()
-    }
 }
 
 suspend fun <P : APath, PLU : APathLookup<P>> P.lookup(gateway: APathGateway<P, PLU>): PLU {
@@ -240,5 +201,35 @@ suspend fun <T : APath> T.tryMkDirs(gateway: APathGateway<T, out APathLookup<T>>
         throw IllegalStateException("Couldn't create Directory: $this").also {
             log(VERBOSE) { "Couldn't create Directory: ${it.asLog()}" }
         }
+    }
+}
+
+//
+//    fun isChildOf(parent: SDMFile, children: Collection<SDMFile?>): Collection<SDMFile> {
+//        val filteredChildren: MutableCollection<SDMFile> = HashSet<SDMFile>()
+//        for (child in children) {
+//            if (isChildOf(parent, child)) filteredChildren.add(child)
+//        }
+//        return filteredChildren
+//    }
+//
+//    fun <T : SDMFile?> isChildOf(parents: Collection<T>, children: Collection<T>): Collection<T> {
+//        val filteredChildren: MutableCollection<T> = HashSet()
+//        for (parent in parents) {
+//            for (child in children) {
+//                if (isChildOf(parent, child)) filteredChildren.add(child)
+//            }
+//        }
+//        return filteredChildren
+//    }
+
+fun APath.isParentOf(child: APath): Boolean {
+    if (this.pathType != child.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $child)")
+    }
+    return when (pathType) {
+        APath.PathType.LOCAL -> (this as LocalPath).isParentOf(child as LocalPath)
+        APath.PathType.SAF -> (this as SAFPath).isParentOf(child as SAFPath)
+        APath.PathType.RAW -> child.path.startsWith(this.path + "/")
     }
 }

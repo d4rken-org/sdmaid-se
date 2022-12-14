@@ -63,8 +63,8 @@
     <string name="corpsefinder_settings_summary">Adjust scan filters and risk levels.</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risklevel</string>
-    <string name="corpsefinder_settings_risk_usergen_title">Include desirable remnants</string>
-    <string name="corpsefinder_settings_risk_usergen_summary">Files that you might want to keep, even if the app is uninstalled, e.g. photos you took or backups you created.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Include desirable remnants</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Files that you might want to keep, even if the app is uninstalled, e.g. photos you took or backups you created.</string>
     <string name="corpsefinder_settings_risk_common_title">Include common names</string>
     <string name="corpsefinder_settings_risk_common_summary">Data with too common names, e.g. a folder \"Notes\" is owned by too many apps unknown apps.</string>
     <string name="corpsefinder_watcher_title">Uninstall watcher</string>

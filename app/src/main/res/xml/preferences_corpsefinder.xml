@@ -72,8 +72,8 @@
         <CheckBoxPreference
             app:icon="@drawable/image_multiple"
             app:key="risk.include.usergenerated"
-            app:summary="@string/corpsefinder_settings_risk_usergen_summary"
-            app:title="@string/corpsefinder_settings_risk_usergen_title" />
+            app:summary="@string/corpsefinder_settings_risk_keeper_summary"
+            app:title="@string/corpsefinder_settings_risk_keeper_title" />
         <CheckBoxPreference
             app:icon="@drawable/file_question"
             app:key="risk.include.common"

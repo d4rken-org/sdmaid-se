@@ -237,7 +237,9 @@ class LocalGateway @Inject constructor(
                 else -> when {
                     javaFile.exists() -> true
                     javaFile.parentFile?.exists() == true -> true
-                    else -> false //storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
+                    else -> {
+                        false //                        storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
+                    }
                 }
             }
 

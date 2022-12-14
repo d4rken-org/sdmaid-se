@@ -46,19 +46,18 @@ class PrivateDataCorpseFilter @Inject constructor(
 ) {
 
     override suspend fun scan(): Collection<Corpse> {
-        if (corpseFinderSettings.filterPrivateDataEnabled.value()) {
-            log(TAG) { "Scanning..." }
-        } else {
+        if (!corpseFinderSettings.filterPrivateDataEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
         }
+        log(TAG) { "Scanning..." }
 
         gatewaySwitch.addParent(this)
 
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (!gateway.hasRoot()) {
-            log(TAG, INFO) { "LocalGateway has no root, skipping private data" }
+            log(TAG, INFO) { "LocalGateway has no root, skipping." }
             return emptySet()
         }
 
@@ -82,7 +81,7 @@ class PrivateDataCorpseFilter @Inject constructor(
     @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Counter(0, candidates.size))
 
-        val includeRiskUserGenerated: Boolean = corpseFinderSettings.includeRiskUserGenerated.value()
+        val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
         return candidates
@@ -95,7 +94,7 @@ class PrivateDataCorpseFilter @Inject constructor(
                 }
             }
             .filter { it.isCorpse }
-            .filter { !it.isKeeper || includeRiskUserGenerated }
+            .filter { !it.isKeeper || includeRiskKeeper }
             .filter { !it.isCommon || includeRiskCommon }
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()

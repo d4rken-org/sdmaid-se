@@ -23,26 +23,26 @@ class FileForensics @Inject constructor(
         log(TAG, INFO) { "${csiProcessors.size} CSI processors loaded." }
     }
 
-    suspend fun determineLocationType(file: APath): AreaInfo {
+    suspend fun identifyArea(file: APath): AreaInfo {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
         return csiProcessors.firstNotNullOf { it.identifyArea(file) }
     }
 
     suspend fun findOwners(file: APath): OwnerInfo {
-        val startDetermineLocation = System.currentTimeMillis()
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute:" + file.path)
 
-        val areaInfo = determineLocationType(file)
-        val timeForLocation = System.currentTimeMillis() - startDetermineLocation
+        return findOwners(identifyArea(file))
+    }
 
+    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo {
         val startFindingOwner = System.currentTimeMillis()
 
         val result = csiProcessors
             .firstOrNull { it.hasJurisdiction(areaInfo.type) }
             ?.findOwners(areaInfo)
             ?: CSIProcessor.Result().also {
-                log(TAG, WARN) { "No CSI processor has juridiction for $file: $areaInfo" }
+                log(TAG, WARN) { "No CSI processor has juridiction: $areaInfo" }
                 if (Bugs.isDebug) throw IllegalStateException("Missing CSI processor")
             }
 
@@ -61,11 +61,9 @@ class FileForensics @Inject constructor(
             time += timeForProcessing
             count++
             val avg = time / count
-            log(TAG, VERBOSE) {
-                "Location: ${timeForLocation}ms (${areaInfo.type.name}), Processing: ${timeForProcessing}ms, avg. ${avg}ms ($file)"
-            }
-            for (own in ownerInfo.owners) log(TAG, VERBOSE) { "Matched $file to ${own.pkgId}" }
-            if (ownerInfo.hasUnknownOwner) log(TAG, VERBOSE) { "$file has an unknown Owner" }
+            log(TAG, VERBOSE) { "Processing: ${timeForProcessing}ms, avg. ${avg}ms ($areaInfo)" }
+            for (own in ownerInfo.owners) log(TAG, VERBOSE) { "Matched $areaInfo to ${own.pkgId}" }
+            if (ownerInfo.hasUnknownOwner) log(TAG, VERBOSE) { "$areaInfo has an unknown Owner" }
         }
 
         return ownerInfo

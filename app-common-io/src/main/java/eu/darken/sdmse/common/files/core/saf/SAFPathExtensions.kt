@@ -52,3 +52,10 @@ fun SAFPath.matchPermission(permissions: Collection<UriPermission>): PermissionM
 
     return null
 }
+
+fun SAFPath.isParentOf(child: SAFPath): Boolean {
+    if (this.treeRoot != child.treeRoot) return false
+    if (this.segments.size > child.segments.size) return false
+    if (this == child) return false
+    return child.segments.take(this.segments.size) == this.segments
+}

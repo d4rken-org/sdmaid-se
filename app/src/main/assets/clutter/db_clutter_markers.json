@@ -3510,10 +3510,7 @@
   "pkgs": ["com.telekom.wetterinfo"],
   "mrks": [{"loc": "SDCARD", "path": ".telekom"}]
 }, {
-  "pkgs": ["com.softeight.android.dictadroid.full"],
-  "mrks": [{"loc": "SDCARD", "path": "dictadroid", "flags": ["keeper"]}]
-}, {
-  "pkgs": ["com.softeight.android.dictadroid.lite"],
+  "pkgs": ["com.softeight.android.dictadroid.lite", "com.softeight.android.dictadroid.full"],
   "mrks": [{"loc": "SDCARD", "path": "dictadroid", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.redirectin.rockplayer.android.unified.lite"],
@@ -3784,13 +3781,7 @@
 	{"loc": "SDCARD", "path": "ZooperWidget"}
   ]
 }, {
-  "pkgs": ["com.flightradar24free"],
-  "mrks": [{"loc": "SDCARD", "path": "Flightradar24"}]
-}, {
-  "pkgs": ["com.flightradar24pro"],
-  "mrks": [{"loc": "SDCARD", "path": "Flightradar24"}]
-}, {
-  "pkgs": ["com.flightradar24premium"],
+  "pkgs": ["com.flightradar24premium", "com.flightradar24free", "com.flightradar24pro"],
   "mrks": [{"loc": "SDCARD", "path": "Flightradar24"}]
 }, {
   "pkgs": ["com.zenpie.genialwriting2"],

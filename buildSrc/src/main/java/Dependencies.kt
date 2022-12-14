@@ -38,12 +38,15 @@ fun BaseExtension.setupKotlinOptions() {
     kotlinOptions {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xopt-in=kotlin.ExperimentalStdlibApi",
             "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
             "-Xuse-experimental=kotlin.time.ExperimentalTime",
             "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xopt-in=kotlin.ExperimentalStdlibApi",
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xopt-in=kotlinx.coroutines.FlowPreview",
+            "-Xopt-in=kotlin.time.ExperimentalTime",
+            "-Xopt-in=kotlin.RequiresOptIn",
             "-Xjvm-default=all"
         )
     }

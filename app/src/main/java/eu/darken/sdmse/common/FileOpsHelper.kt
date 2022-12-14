@@ -143,42 +143,7 @@ fun String.getFirstDirElement(seperator: String = File.separator): String {
     val names = workPath.split(seperator).toTypedArray()
     return names[0]
 }
-//
-//    fun isChildOf(parent: SDMFile, children: Collection<SDMFile?>): Collection<SDMFile> {
-//        val filteredChildren: MutableCollection<SDMFile> = HashSet<SDMFile>()
-//        for (child in children) {
-//            if (isChildOf(parent, child)) filteredChildren.add(child)
-//        }
-//        return filteredChildren
-//    }
-//
-//    fun <T : SDMFile?> isChildOf(parents: Collection<T>, children: Collection<T>): Collection<T> {
-//        val filteredChildren: MutableCollection<T> = HashSet()
-//        for (parent in parents) {
-//            for (child in children) {
-//                if (isChildOf(parent, child)) filteredChildren.add(child)
-//            }
-//        }
-//        return filteredChildren
-//    }
-//
-//    fun <T : SDMFile?> isChildOf(parent: T, child: T): Boolean {
-//        return isChildOf(parent.getJavaFile(), child.getJavaFile())
-//    }
-//
-//    fun isChildOf(parent: File, _child: File): Boolean {
-//        // Chop down path till we get a hit
-//        var child = _child.parentFile
-//        while (child != null) {
-//            child = if (parent.absolutePath == child.absolutePath) {
-//                return true
-//            } else {
-//                child.parentFile
-//            }
-//        }
-//        return false
-//    }
-//
+
 //    @Throws(IOException::class) fun copy(src: SDMFile, dst: SDMFile) {
 //        Timber.tag(TAG).d("Copying %s -> %s", src, dst)
 //        var `in`: InputStream? = null

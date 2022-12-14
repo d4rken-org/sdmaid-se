@@ -6,10 +6,6 @@ import eu.darken.sdmse.common.files.core.Ownership
 import eu.darken.sdmse.common.files.core.Permissions
 import java.io.File
 
-fun File.asSFile(): eu.darken.sdmse.common.files.core.APath {
-    return LocalPath.build(file = this)
-}
-
 fun File.getAPathFileType(): FileType = when {
     // Order matters!
     isSymbolicLink() -> FileType.SYMBOLIC_LINK

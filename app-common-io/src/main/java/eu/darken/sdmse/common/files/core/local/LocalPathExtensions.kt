@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import timber.log.Timber
+import java.io.File
 import java.util.*
 
 
@@ -81,4 +82,17 @@ fun LocalPath.performLookup(
         permissions = fstat?.let { Permissions(it.st_mode) },
         target = file.readLink()?.let { LocalPath.build(it) }
     )
+}
+
+fun LocalPath.isParentOf(child: LocalPath): Boolean {
+    val _parent = this.asFile()
+    var cur: File? = child.asFile()
+    while (cur != null) {
+        cur = if (_parent.absolutePath == cur.absolutePath) {
+            return true
+        } else {
+            cur.parentFile
+        }
+    }
+    return false
 }

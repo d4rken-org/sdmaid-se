@@ -23,10 +23,19 @@ data class OwnerInfo constructor(
     val isCommon: Boolean
         get() = owners.any { it.hasFlag(Marker.Flag.COMMON) }
 
+    val isOwned: Boolean
+        get() = hasUnknownOwner || installedOwners.isNotEmpty()
+
     val isCorpse: Boolean
         get() = when {
-            areaInfo.isBlackListLocation -> installedOwners.isEmpty() && !hasUnknownOwner
-            owners.isNotEmpty() -> installedOwners.isEmpty() && !hasUnknownOwner
+            areaInfo.isBlackListLocation -> {
+                // For blacklist locations anything without current owner is a corpse
+                installedOwners.isEmpty() && !hasUnknownOwner
+            }
+            owners.isNotEmpty() -> {
+                // For whitelist locations, we need an owner to check against
+                installedOwners.isEmpty() && !hasUnknownOwner
+            }
             else -> false
         }
 
