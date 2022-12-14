@@ -33,11 +33,11 @@ class StorageVolumeX constructor(
     private val volume: StorageVolume
         get() = volumeObj as StorageVolume
 
-    val isPrimary: Boolean?
+    val isPrimary: Boolean
         get() = volume.isPrimary
 
     @get:SuppressLint("NewApi")
-    val isRemovable: Boolean?
+    val isRemovable: Boolean
         get() = volume.isRemovable
 
     /**
@@ -164,12 +164,10 @@ class StorageVolumeX constructor(
             )
         }
 
-
     val documentUri: Uri
         get() = rootUri.toString()
             .replace("/root/", "/document/")
             .let { Uri.parse(it) }
-
 
     val treeUri: Uri
         get() = rootUri.toString()
@@ -202,12 +200,9 @@ class StorageVolumeX constructor(
     override fun toString(): String {
         val sb = StringBuilder("StorageVolumeX(")
         sb.append("uuid=$uuid, ")
-        sb.append("state=$state, ")
-        sb.append("path=$path, ")
-        sb.append("primary=$isPrimary, ")
-        sb.append("emulated=$isEmulated, ")
-        sb.append("owner=$owner, ")
+        sb.append("directory=$directory, ")
         sb.append("userlabel=$userLabel, ")
+        sb.append("volumeX=$volume, ")
         @SuppressLint("NewApi")
         if (hasApiLevel(29)) {
             sb.append("rootUri=$rootUri")
