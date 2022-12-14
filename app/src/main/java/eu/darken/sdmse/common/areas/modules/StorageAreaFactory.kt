@@ -42,7 +42,7 @@ class StorageAreaFactory @Inject constructor(
             log(TAG, INFO) { "Accessible data areas:\n${newAreas.joinToString("\n")}" }
         }
 
-        secondPass
+        newAreas
     }
 
     companion object {
