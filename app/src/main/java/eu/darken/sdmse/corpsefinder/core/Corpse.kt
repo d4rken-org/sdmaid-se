@@ -18,4 +18,6 @@ data class Corpse(
 
     val size: Long
         get() = content.sumOf { it.size }
+
+    override fun toString(): String = "Corpse(path=$path, owners=${ownerInfo.owners})"
 }

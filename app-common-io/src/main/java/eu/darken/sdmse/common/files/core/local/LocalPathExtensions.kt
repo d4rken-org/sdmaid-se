@@ -85,14 +85,8 @@ fun LocalPath.performLookup(
 }
 
 fun LocalPath.isParentOf(child: LocalPath): Boolean {
-    val _parent = this.asFile()
-    var cur: File? = child.asFile()
-    while (cur != null) {
-        cur = if (_parent.absolutePath == cur.absolutePath) {
-            return true
-        } else {
-            cur.parentFile
-        }
-    }
-    return false
+    val parentPath = this.asFile().absolutePath
+    val childPath = child.asFile().absolutePath
+
+    return childPath.startsWith(parentPath + File.separator)
 }

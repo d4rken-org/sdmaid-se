@@ -16,4 +16,15 @@ class LocalPathExtensionsTest {
         crumbs shouldBe arrayOf("has", "a", "child")
     }
 
+    @Test
+    fun `parent child relationship`() {
+        val parent = LocalPath.build("base", "the", "parent")
+        parent.isParentOf(LocalPath.build("base", "the")) shouldBe false
+        parent.isParentOf(LocalPath.build("base", "the", "parent")) shouldBe false
+        parent.isParentOf(LocalPath.build("base", "the", "parent2")) shouldBe false
+        parent.isParentOf(LocalPath.build("base", "the", "parent", "child")) shouldBe true
+        parent.isParentOf(LocalPath.build("base", "the", "parent", "child", "child")) shouldBe true
+        parent.isParentOf(LocalPath.build("base", "the", "parent", "child1", "child2")) shouldBe true
+    }
+
 }

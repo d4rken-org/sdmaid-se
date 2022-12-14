@@ -19,8 +19,8 @@ import javax.inject.Inject
  */
 @Reusable
 class SAFMapper @Inject constructor(
-    private val storageManager2: StorageManager2,
     private val contentResolver: ContentResolver,
+    private val storageManager2: StorageManager2,
 ) {
 
     suspend fun toSAFPath(localPath: LocalPath): SAFPath? {

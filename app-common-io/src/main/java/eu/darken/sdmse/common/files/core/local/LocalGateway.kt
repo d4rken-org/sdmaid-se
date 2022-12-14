@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.SharedShell
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
@@ -37,6 +38,7 @@ class LocalGateway @Inject constructor(
     private val libcoreTool: LibcoreTool,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
+    private val storageEnvironment: StorageEnvironment,
 ) : APathGateway<LocalPath, LocalPathLookup> {
 
     // Represents the resource that keeps the gateway resources alive
@@ -237,9 +239,10 @@ class LocalGateway @Inject constructor(
                 else -> when {
                     javaFile.exists() -> true
                     javaFile.parentFile?.exists() == true -> true
-                    else -> {
-                        false //                        storageEnvironment.externalDirs.any { javaFile.path.startsWith(it.path) }
-                    }
+                    else -> storageEnvironment.externalDirs
+                        .map { it.asFile() }
+                        .firstOrNull { javaFile.path.startsWith(it.path) }
+                        ?.canRead() ?: false
                 }
             }
 
