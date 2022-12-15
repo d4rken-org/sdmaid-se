@@ -84,4 +84,7 @@
         <item quantity="one">%d remain found</item>
         <item quantity="other">%d remains found</item>
     </plurals>
+    <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
+    <string name="dataarea_warningcard_label">Data areas</string>
+    <string name="dataarea_warningcard_reload_action">Reload data areas</string>
 </resources>

@@ -18,4 +18,4 @@ val DataArea.Type.isCaseInsensitive: Boolean
 
 fun DataArea.hasFlags(vararg lookup: DataArea.Flag): Boolean = flags.containsAll(lookup.toList())
 
-suspend fun DataAreaManager.currentAreas(): Collection<DataArea> = areas.first()
+suspend fun DataAreaManager.currentAreas(): Collection<DataArea> = state.first().areas

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.forensics.csi.pub
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.randomString
@@ -48,12 +49,14 @@ class PortableCSITest : BaseCSITest() {
         MockKAnnotations.init(this)
         super.setup()
 
-        every { areaManager.areas } returns flowOf(
-            setOf(
-                storageSdcard1,
-                storagePublicData1,
-                portableStorage1,
-                portableStorage2,
+        every { areaManager.state } returns flowOf(
+            DataAreaManager.State(
+                areas = setOf(
+                    storageSdcard1,
+                    storagePublicData1,
+                    portableStorage1,
+                    portableStorage2,
+                )
             )
         )
     }

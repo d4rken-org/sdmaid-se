@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import javax.inject.Inject
@@ -29,6 +30,7 @@ class DashboardAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is DebugCardVH.Item }) { DebugCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SetupCardVH.Item }) { SetupCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is DataAreaCardVH.Item }) { DataAreaCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is CorpseFinderCardVH.Item }) { CorpseFinderCardVH(it) })
     }
 

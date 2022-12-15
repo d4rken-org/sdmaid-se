@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.forensics.csi.sys
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -122,24 +123,26 @@ class DataCSITest : BaseCSITest() {
     @Before override fun setup() {
         super.setup()
 
-        every { areaManager.areas } returns flowOf(
-            setOf(
-                storageData1,
-                storageData2,
-                storageDataApp1,
-                storageDataApp2,
-                storageDataAppAsec1,
-                storageDataAppAsec2,
-                storageDataAppPrivate1,
-                storageDataAppPrivate2,
-                storageDataAppLib1,
-                storageDataAppLib2,
-                storageDataSystem1,
-                storageDataSystem2,
-                storageDataSystemCE1,
-                storageDataSystemCE2,
-                storageDataSystemDE1,
-                storageDataSystemDE2,
+        every { areaManager.state } returns flowOf(
+            DataAreaManager.State(
+                areas = setOf(
+                    storageData1,
+                    storageData2,
+                    storageDataApp1,
+                    storageDataApp2,
+                    storageDataAppAsec1,
+                    storageDataAppAsec2,
+                    storageDataAppPrivate1,
+                    storageDataAppPrivate2,
+                    storageDataAppLib1,
+                    storageDataAppLib2,
+                    storageDataSystem1,
+                    storageDataSystem2,
+                    storageDataSystemCE1,
+                    storageDataSystemCE2,
+                    storageDataSystemDE1,
+                    storageDataSystemDE2,
+                )
             )
         )
     }

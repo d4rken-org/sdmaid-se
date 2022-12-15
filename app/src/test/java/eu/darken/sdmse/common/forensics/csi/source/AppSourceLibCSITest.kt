@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.source
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
@@ -32,9 +33,11 @@ class AppSourceLibCSITest : BaseCSITest() {
     @Before override fun setup() {
         super.setup()
 
-        every { areaManager.areas } returns flowOf(
-            setOf(
-                appSourcesArea,
+        every { areaManager.state } returns flowOf(
+            DataAreaManager.State(
+                areas = setOf(
+                    appSourcesArea,
+                )
             )
         )
     }

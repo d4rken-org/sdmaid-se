@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
-    android:backgroundTint="?colorSecondaryContainer"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:backgroundTint="?colorTertiaryContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,9 +15,9 @@
             android:id="@+id/title"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
+            android:textColor="?colorOnTertiaryContainer"
             android:layout_height="wrap_content"
-            android:text="@string/setup_incomplete_card_title"
-            android:textColor="?colorOnSecondaryContainer"
+            android:text="@string/dataarea_warningcard_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -28,31 +28,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="?colorOnSecondaryContainer"
-            android:text="@string/setup_incomplete_card_body"
-            app:layout_constraintBottom_toTopOf="@id/continue_setup_action"
+            android:textColor="?colorOnTertiaryContainer"
+            android:text="@string/dataarea_warningcard_empty_message"
+            app:layout_constraintBottom_toTopOf="@id/check_action"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/dismiss_action"
+            android:id="@+id/check_action"
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?colorOnSecondaryContainer"
             android:layout_marginTop="8dp"
-            android:text="@string/setup_incomplete_card_dismiss_action"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/body" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/continue_setup_action"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/setup_incomplete_card_continue_action"
+            android:text="@string/dataarea_warningcard_reload_action"
+            android:textColor="?colorOnTertiaryContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
 

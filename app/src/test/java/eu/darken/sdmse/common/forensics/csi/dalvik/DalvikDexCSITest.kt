@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.forensics.csi.dalvik
 
 import eu.darken.sdmse.common.Architecture
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
@@ -82,18 +83,20 @@ class CSIDalvikDexTest : BaseCSITest() {
 
     @Before override fun setup() {
         super.setup()
-        every { areaManager.areas } returns flowOf(
-            setOf(
-                storageData1,
-                storageData2,
-                storageSystem,
-                storageSystemApp,
-                storageSystemPrivApp,
-                storageDalvikProfileX861,
-                storageDalvikProfileX641,
-                storageDalvikProfileX862,
-                storageDalvikProfileX642,
-                storageVendor
+        every { areaManager.state } returns flowOf(
+            DataAreaManager.State(
+                areas = setOf(
+                    storageData1,
+                    storageData2,
+                    storageSystem,
+                    storageSystemApp,
+                    storageSystemPrivApp,
+                    storageDalvikProfileX861,
+                    storageDalvikProfileX641,
+                    storageDalvikProfileX862,
+                    storageDalvikProfileX642,
+                    storageVendor
+                )
             )
         )
     }

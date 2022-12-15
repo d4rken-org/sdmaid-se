@@ -13,15 +13,14 @@ import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.randomString
-import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.setup.SetupManager
@@ -33,9 +32,7 @@ class DashboardFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
-    private val pkgOps: PkgOps,
     private val taskManager: TaskManager,
-    private val safMapper: SAFMapper,
     private val gatewaySwitch: GatewaySwitch,
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
@@ -61,11 +58,29 @@ class DashboardFragmentVM @Inject constructor(
         )
     }
 
+    private val dataAreaInfo = areaManager.latestState
+        .map {
+            if (it == null) return@map null
+            if (it.areas.isNotEmpty()) return@map null
+            DataAreaCardVH.Item(
+                state = it,
+                onReload = {
+                    launch {
+                        areaManager.reload()
+                    }
+                }
+            )
+        }
+
     val listItems: LiveData<List<DashboardAdapter.Item>> = combine(
         setupManager.state,
+        dataAreaInfo,
         corpseFinderItem,
         refreshTrigger,
-    ) { setupState, corpseFinderItem, _ ->
+    ) { setupState: SetupManager.SetupState,
+        dataAreaInfo: DataAreaCardVH.Item?,
+        corpseFinderItem: CorpseFinderCardVH.Item,
+        _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
         if (BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV) {
             DebugCardVH.Item(
@@ -96,6 +111,7 @@ class DashboardFragmentVM @Inject constructor(
             ).run { items.add(this) }
         }
 
+        dataAreaInfo?.let { items.add(it) }
 
         items.add(corpseFinderItem)
 

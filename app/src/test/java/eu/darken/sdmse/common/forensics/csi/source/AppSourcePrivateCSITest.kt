@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.forensics.csi.source
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.source.tools.*
@@ -31,9 +32,11 @@ class AppSourcePrivateCSITest : BaseCSITest() {
     @Before override fun setup() {
         super.setup()
 
-        every { areaManager.areas } returns flowOf(
-            setOf(
-                appSourcesArea,
+        every { areaManager.state } returns flowOf(
+            DataAreaManager.State(
+                areas = setOf(
+                    appSourcesArea,
+                )
             )
         )
     }
