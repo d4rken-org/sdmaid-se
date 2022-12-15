@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <Preference
         android:icon="@drawable/ic_baseline_settings_24"
-        app:fragment="eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsFragment"
+        app:fragment="eu.darken.sdmse.main.ui.settings.general.GeneralSettingsFragment"
         app:summary="@string/general_settings_desc"
         app:title="@string/general_settings_label" />
 
