@@ -24,8 +24,8 @@ class PublicMediaModule @Inject constructor(
         val sdcardAreas = firstPass.filter { it.type == DataArea.Type.SDCARD }
 
         val areas = sdcardAreas
-            .map { dataArea ->
-                dataArea to dataArea.path.child("Android", "media")
+            .map { parentArea ->
+                parentArea to parentArea.path.child("Android", "media")
             }
             .filter {
                 val canRead = it.second.canRead(gatewaySwitch)

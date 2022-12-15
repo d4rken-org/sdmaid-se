@@ -34,33 +34,34 @@ class PublicObbModule @Inject constructor(
         val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         val areas = sdcardAreas
-            .map { dataArea ->
+            .mapNotNull { parentArea ->
                 val accessPath: APath? = when {
                     hasApiLevel(33) -> {
                         when {
                             localGateway.hasRoot() -> {
-                                when (val target = dataArea.path) {
+                                when (val target = parentArea.path) {
                                     is LocalPath -> target
                                     is SAFPath -> safMapper.toLocalPath(target)
                                     else -> null
                                 }
                             }
                             else -> {
-                                log(TAG, INFO) { "Skipping Android/data (API33 and no root): $dataArea" }
+                                log(TAG, INFO) { "Skipping Android/data (API33 and no root): $parentArea" }
                                 null
                             }
                         }
                     }
                     hasApiLevel(30) -> {
-                        when (val target = dataArea.path) {
+                        when (val target = parentArea.path) {
                             is LocalPath -> safMapper.toSAFPath(target)
                             is SAFPath -> target
                             else -> null
                         }
                     }
-                    else -> dataArea.path
+                    else -> parentArea.path
                 }
-                dataArea to accessPath!!.child("Android", "obb")
+                val dataAccessPath = accessPath?.child("Android", "obb") ?: return@mapNotNull null
+                parentArea to dataAccessPath
             }
             .filter {
                 val canRead = it.second.canRead(gatewaySwitch)

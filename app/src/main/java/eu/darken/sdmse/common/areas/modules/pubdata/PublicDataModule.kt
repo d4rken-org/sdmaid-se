@@ -34,35 +34,36 @@ class PublicDataModule @Inject constructor(
         val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         val areas = sdcardAreas
-            .map { dataArea ->
+            .mapNotNull { parentArea ->
                 val accessPath: APath? = when {
                     hasApiLevel(33) -> {
                         when {
                             localGateway.hasRoot() -> {
                                 // If we have root, we need to convert any SAFPath back
-                                when (val target = dataArea.path) {
+                                when (val target = parentArea.path) {
                                     is LocalPath -> target
                                     is SAFPath -> safMapper.toLocalPath(target)
                                     else -> null
                                 }
                             }
                             else -> {
-                                log(TAG, INFO) { "Skipping Android/data (API33 and no root): $dataArea" }
+                                log(TAG, INFO) { "Skipping Android/data (API33 and no root): $parentArea" }
                                 null
                             }
                         }
                     }
                     hasApiLevel(30) -> {
                         // On API30 we can do the direct SAF grant workaround
-                        when (val target = dataArea.path) {
+                        when (val target = parentArea.path) {
                             is LocalPath -> safMapper.toSAFPath(target)
                             is SAFPath -> target
                             else -> null
                         }
                     }
-                    else -> dataArea.path
+                    else -> parentArea.path
                 }
-                dataArea to accessPath!!.child("Android", "data")
+                val childPath = accessPath?.child("Android", "data") ?: return@mapNotNull null
+                parentArea to childPath
             }
             .filter {
                 val canRead = it.second.canRead(gatewaySwitch)
