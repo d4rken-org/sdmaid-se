@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="eu.darken.sdmse">
 
+    <!--    For some reason this affects PackageManager.getSharedLibraries() results, i.e. trichromelibrary-->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

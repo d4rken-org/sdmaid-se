@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import java.util.*
 import javax.inject.Inject
@@ -30,21 +29,22 @@ class SharedLibraryPkgSource @Inject constructor(
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useSharedResource {
         log(TAG, VERBOSE) { "getPkgs()" }
-        val libraryPkgs = packageManager.getSharedLibraries2(0)
+        val libraryPkgs = pkgOps.getSharedLibraries(0)
             .onEach { log(TAG, VERBOSE) { "Checking $it" } }
             .filter { it.type != 0 } // Built in types like .jars
-            .mapNotNull {
-                val apkPath = it.clawOutPath()
-                val apkInfo = apkPath?.path?.let { path ->
+            .mapNotNull { libraryInfo ->
+                val apkPath = libraryInfo.clawOutPath()
+                val apkInfo = apkPath?.let { path ->
                     try {
-                        pkgOps.viewArchive(apkPath, 0)
+                        pkgOps.viewArchive(path, 0)
                     } catch (e: Exception) {
-                        log(TAG) { "PkgInfo lookup on clawed path failed $it: ${e.asLog()}" }
+                        log(TAG) { "PkgInfo lookup on clawed path failed $libraryInfo: ${e.asLog()}" }
                         null
                     }
                 } ?: return@mapNotNull null
 
                 LibraryPkg(
+                    sharedLibraryInfo = libraryInfo,
                     apkPath = apkPath,
                     packageInfo = apkInfo.packageInfo,
                 )

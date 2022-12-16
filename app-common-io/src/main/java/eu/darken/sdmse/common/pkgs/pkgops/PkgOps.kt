@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.pkgs.pkgops
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.*
+import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -20,6 +21,7 @@ import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
+import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
@@ -211,6 +213,12 @@ class PkgOps @Inject constructor(
             Timber.tag(TAG).d(e)
             null
         }
+    }
+
+    suspend fun getSharedLibraries(
+        flags: Int = 0
+    ): List<SharedLibraryInfo> = ipcFunnel.use {
+        packageManager.getSharedLibraries2(flags)
     }
 
     companion object {
