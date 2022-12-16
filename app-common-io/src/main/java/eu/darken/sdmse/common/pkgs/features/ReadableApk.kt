@@ -7,7 +7,7 @@ import androidx.core.content.pm.PackageInfoCompat
 import eu.darken.sdmse.common.hasApiLevel
 
 // A Pkg where we have access to an APK
-interface ReadableApk : HasPackageInfo {
+interface ReadableApk : PkgInfo {
 
     val applicationInfo: ApplicationInfo?
         get() = packageInfo.applicationInfo

@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import kotlinx.coroutines.CoroutineScope
@@ -17,8 +18,10 @@ import javax.inject.Singleton
 @Singleton
 class PkgRepo @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
+    pkgEventListener: PackageEventListener,
+    private val pkgSources: Set<@JvmSuppressWildcards PkgDataSource>,
+    private val gatewaySwitch: GatewaySwitch,
     private val pkgOps: PkgOps,
-    private val pkgEventListener: PackageEventListener,
 ) {
 
     private val cacheLock = Mutex()
@@ -30,24 +33,46 @@ class PkgRepo @Inject constructor(
     init {
         pkgEventListener.events
             .onEach {
+                log(TAG) { "Refreshing package cache due to event: $it" }
                 cacheLock.withLock {
-                    pkgCache.value = pkgOps.getInstalledPackages()
-                        .map { CachedInfo(id = it.id, data = it) }
-                        .associateBy { it.id }
+                    pkgCache.value = generatePkgcache()
                 }
             }
             .launchIn(appScope)
     }
 
+    private suspend fun generatePkgcache(): Map<Pkg.Id, CachedInfo> {
+        log(TAG) { "Generating package cache" }
+        return gatewaySwitch.useSharedResource {
+            pkgOps.useSharedResource {
+                pkgSources
+                    .map { source ->
+                        source.getPkgs().also {
+                            log(TAG) { "${it.size} pkgs from $source" }
+                        }
+                    }
+                    .flatten()
+                    .distinctBy { it.id }
+                    .map { CachedInfo(id = it.id, data = it) }
+                    .associateBy { it.id }
+                    .also { log(TAG) { "Pkgs total: ${it.size}" } }
+            }
+        }
+    }
+
     private suspend fun queryCache(pkgId: Pkg.Id): CachedInfo = cacheLock.withLock {
+        if (pkgCache.value.isEmpty()) {
+            log(TAG) { "Package cache doesn't exist yet..." }
+            pkgCache.value = generatePkgcache()
+        }
+
         pkgCache.value[pkgId]?.let { return@withLock it }
 
         log(TAG, VERBOSE) { "Cache miss for $pkgId" }
-        val queried = pkgOps.queryPkg(pkgId)
 
         return CachedInfo(
             id = pkgId,
-            data = queried,
+            data = null,
         ).also {
             pkgCache.value = pkgCache.value.mutate {
                 this[pkgId] = it
@@ -57,7 +82,7 @@ class PkgRepo @Inject constructor(
 
     suspend fun isInstalled(pkgId: Pkg.Id): Boolean = queryCache(pkgId).isInstalled
 
-    suspend fun getPkg(pkgId: Pkg.Id): Installed? = queryCache(pkgId).data
+    suspend fun getPkg(pkgId: Pkg.Id): Pkg? = queryCache(pkgId).data
 
     data class CachedInfo(
         val id: Pkg.Id,

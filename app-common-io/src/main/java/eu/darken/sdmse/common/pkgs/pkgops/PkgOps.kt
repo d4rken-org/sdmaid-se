@@ -115,14 +115,12 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun getInstalledPackages(): Collection<Installed> {
+    suspend fun getInstalledPackages(flags: Int = 0): Collection<Installed> {
         log(TAG, VERBOSE) { "getInstalledPackages()..." }
 
         @Suppress("DEPRECATION")
         val resultBase = ipcFunnel.use {
-            val matchAll = packageManager.getInstalledPackages(MATCH_ALL)
-            val matchUninstalled = packageManager.getInstalledPackages(MATCH_UNINSTALLED_PACKAGES)
-            (matchAll + matchUninstalled).distinctBy { it.packageName }.map {
+            packageManager.getInstalledPackages(flags).map {
                 NormalPkg(
                     packageInfo = it,
                     userHandles = setOf(userManager.currentUser),
@@ -148,7 +146,7 @@ class PkgOps @Inject constructor(
             resultBase
         }
 
-        log(TAG, VERBOSE) { "getInstalledPackages(): size=${result.size}" }
+        log(TAG, VERBOSE) { "getInstalledPackages(flags=$flags): size=${result.size}" }
         require(result.isEmpty() || result.any { it.packageName == BuildConfigWrap.APPLICATION_ID })
 
         return result

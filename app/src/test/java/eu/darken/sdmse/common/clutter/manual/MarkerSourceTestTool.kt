@@ -8,8 +8,8 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.NEG
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.POS
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.serialization.SerializationModule
@@ -18,9 +18,9 @@ import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
 import java.io.File
 
 class MarkerSourceTestTool(private val assetPath: String) {
@@ -29,7 +29,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
 
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
-    private val pkgOps: PkgOps = mockk()
+    private val pkgRepo: PkgRepo = mockk()
 
     private val testApps = mutableListOf<Installed>()
 
@@ -41,13 +41,13 @@ class MarkerSourceTestTool(private val assetPath: String) {
             File(arg<String>(0)).inputStream()
         }
 
-        coEvery { pkgOps.getInstalledPackages() } returns testApps
+        every { pkgRepo.pkgs } returns flowOf(testApps)
     }
 
     fun getMarkerSource(): MarkerSource {
         cachedSource?.let { return it }
 
-        return ManualMarkerSource(pkgOps) {
+        return ManualMarkerSource(pkgRepo) {
             JsonMarkerParser(context, moshi).fromAssets(assetPath)
         }.also {
             cachedSource = it

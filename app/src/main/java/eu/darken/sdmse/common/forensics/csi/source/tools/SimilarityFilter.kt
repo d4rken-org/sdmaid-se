@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.features.Installed
 import javax.inject.Inject
 
 
@@ -35,7 +36,9 @@ class SimilarityFilter @Inject constructor(
         // Do we have an owner that could falsely match this, despite not using it?
         return toCheck.filter { candidate ->
 
-            val sourceDir = pkgRepo.getPkg(candidate.pkgId)?.sourceDir ?: return@filter true
+            val sourceDir = pkgRepo.getPkg(candidate.pkgId)
+                ?.let { it as? Installed }
+                ?.sourceDir ?: return@filter true
 
             if (sourceDir.path.startsWith(firstDirHyphenPath) && !sourceDir.path.startsWith(firstDirPath)) {
                 // /data/app/some.pkg-3 starts with /data/app/some.pkg- but not with /data/app/some.pkg-2
