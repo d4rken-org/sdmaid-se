@@ -62,7 +62,10 @@ class PublicObbCSITest : BaseCSITest() {
         every { type } returns DataArea.Type.PUBLIC_MEDIA
         every { flags } returns emptySet()
     }
-
+    val sdcardPaths = setOf(
+        storageSdcard1.path as LocalPath,
+        storageSdcard2.path as LocalPath
+    )
     val obbPaths = setOf(
         storagePublicObb1.path as LocalPath,
         storagePublicObb2.path as LocalPath
@@ -115,10 +118,10 @@ class PublicObbCSITest : BaseCSITest() {
 
     override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
-        for (base in obbPaths) {
-            processor.identifyArea(LocalPath.build("$base/Android/data", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android", randomString())) shouldBe null
+        for (base in sdcardPaths) {
+            processor.identifyArea(LocalPath.build(base, "Android/data", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "Android", randomString())) shouldBe null
         }
     }
 

@@ -39,9 +39,9 @@ class DataPartitionCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? {
         val dataAreas = areaManager.currentAreas().filter { it.type == DataArea.Type.DATA }
 
-        val matchedArea = dataAreas.singleOrNull { target.path.startsWith(it.path.path) } ?: return null
-
         if (getBadMatches().any { target.path.startsWith(it) }) return null
+
+        val matchedArea = dataAreas.singleOrNull { target.path.startsWith(it.path.path) } ?: return null
 
         return AreaInfo(
             dataArea = matchedArea,
@@ -89,6 +89,8 @@ class DataPartitionCSI @Inject constructor(
             DataArea.Type.DATA_SYSTEM_DE,
             DataArea.Type.DATA_SYSTEM_CE,
             DataArea.Type.DATA_SDEXT2,
+            DataArea.Type.DALVIK_DEX,
+            DataArea.Type.DALVIK_PROFILE,
         )
 
         val part1 = dataAreas

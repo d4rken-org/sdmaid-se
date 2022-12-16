@@ -115,6 +115,30 @@ class DataCSITest : BaseCSITest() {
         every { path } returns LocalPath.build(baseDataPath2, "system_de")
     }
 
+    private val storageDalvikDex1 = mockk<DataArea>().apply {
+        every { flags } returns emptySet()
+        every { type } returns DataArea.Type.DALVIK_DEX
+        every { path } returns LocalPath.build(baseDataPath1, "dalvik-cache", "arm64")
+    }
+
+    private val storageDalvikDex2 = mockk<DataArea>().apply {
+        every { flags } returns emptySet()
+        every { type } returns DataArea.Type.DALVIK_DEX
+        every { path } returns LocalPath.build(baseDataPath2, "dalvik-cache", "arm64")
+    }
+
+    private val storageDalvikProfile1 = mockk<DataArea>().apply {
+        every { flags } returns emptySet()
+        every { type } returns DataArea.Type.DALVIK_PROFILE
+        every { path } returns LocalPath.build(baseDataPath1, "dalvik-cache", "profiles")
+    }
+
+    private val storageDalvikProfile2 = mockk<DataArea>().apply {
+        every { flags } returns emptySet()
+        every { type } returns DataArea.Type.DALVIK_PROFILE
+        every { path } returns LocalPath.build(baseDataPath2, "dalvik-cache", "profiles")
+    }
+
     private val bases = setOf(
         storageData1.path,
         storageData2.path,
@@ -142,6 +166,10 @@ class DataCSITest : BaseCSITest() {
                     storageDataSystemCE2,
                     storageDataSystemDE1,
                     storageDataSystemDE2,
+                    storageDalvikDex1,
+                    storageDalvikDex2,
+                    storageDalvikProfile1,
+                    storageDalvikProfile2,
                 )
             )
         )
@@ -174,13 +202,15 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in bases) {
 
-            processor.identifyArea(LocalPath.build("$base/app", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/app-asec", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/app-private", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/app-lib", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/system", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/system_ce", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/system_de", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "app", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "app-asec", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "app-private", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "app-lib", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "system", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "system_ce", randomString())) shouldBe null
+//            processor.identifyArea(LocalPath.build(base, "system_de", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "dalvik-cache/arm64", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "dalvik-cache/profiles/", randomString())) shouldBe null
         }
     }
 

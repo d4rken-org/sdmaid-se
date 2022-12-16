@@ -110,9 +110,9 @@ class SdcardCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in sdcards) {
-            processor.identifyArea(LocalPath.build("$base/Android/data", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/media", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build("$base/Android/obb", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "Android/data", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "Android/media", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "Android/obb", randomString())) shouldBe null
         }
     }
 
