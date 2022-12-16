@@ -53,11 +53,18 @@ class PublicDataModule @Inject constructor(
                         }
                     }
                     hasApiLevel(30) -> {
+                        val target = parentArea.path
                         // On API30 we can do the direct SAF grant workaround
-                        when (val target = parentArea.path) {
-                            is LocalPath -> safMapper.toSAFPath(target)
-                            is SAFPath -> target
-                            else -> null
+                        when {
+                            localGateway.hasRoot() -> when (target) {
+                                is SAFPath -> safMapper.toLocalPath(target)
+                                else -> target
+                            }
+                            else -> when (target) {
+                                is LocalPath -> safMapper.toSAFPath(target)
+                                is SAFPath -> target
+                                else -> null
+                            }
                         }
                     }
                     else -> parentArea.path
