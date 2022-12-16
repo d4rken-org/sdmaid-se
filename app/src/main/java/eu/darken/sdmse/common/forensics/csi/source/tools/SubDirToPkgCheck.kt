@@ -6,6 +6,9 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.listFiles
 import eu.darken.sdmse.common.forensics.AreaInfo
@@ -38,8 +41,10 @@ class SubDirToPkgCheck @Inject constructor(
         if (!topDirMatcher.matches()) return AppSourceCheck.Result()
 
         val subDir = try {
-            areaInfo.file.listFiles(gatewaySwitch).singleOrNull()?.path ?: return AppSourceCheck.Result()
+            val subDirContent = areaInfo.file.listFiles(gatewaySwitch)
+            subDirContent.singleOrNull()?.name ?: return AppSourceCheck.Result()
         } catch (e: Exception) {
+            log(TAG) { "Failed to list subdir for ${areaInfo.file}: ${e.asLog()}" }
             return AppSourceCheck.Result()
         }
 
@@ -60,5 +65,6 @@ class SubDirToPkgCheck @Inject constructor(
     companion object {
         private val ANDROID11_TOPDIR = Pattern.compile("^(~~.+?==)\$")
         private val ANDROID11_SUBDIR = Pattern.compile("^([\\w.\\-]+)(?:-[a-zA-Z0-9=_-]{24})$")
+        val TAG: String = logTag("CSI", "App", "Tools", "SubDirToPkgCheck")
     }
 }
