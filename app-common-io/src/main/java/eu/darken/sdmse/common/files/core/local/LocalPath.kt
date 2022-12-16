@@ -32,7 +32,8 @@ data class LocalPath(
         get() = file.name
 
     @IgnoredOnParcel
-    override val segments: List<String> = file.parentsInclusive.map { it.name }.toList()
+    override val segments: List<String>
+        get() = file.parentsInclusive.map { it.name }.toList()
 
     override fun child(vararg segments: String): LocalPath = build(this.file, *segments)
 

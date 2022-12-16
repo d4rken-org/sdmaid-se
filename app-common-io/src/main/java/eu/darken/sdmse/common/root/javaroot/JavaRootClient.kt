@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.root.javaroot
 
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -28,7 +29,7 @@ class JavaRootClient @Inject constructor(
     }
 
     suspend fun <T> runSessionAction(action: suspend (Connection) -> T): T = get().use {
-        log(TAG, VERBOSE) { "runSessionAction(action=$action)" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "runSessionAction(action=$action)" }
         return action(it.item)
     }
 
@@ -37,7 +38,7 @@ class JavaRootClient @Inject constructor(
         moduleClass: Class<out R>,
         action: suspend (R) -> T
     ): T = runSessionAction { session ->
-        log(TAG, VERBOSE) { "runModuleAction(moduleClass=$moduleClass, action=$action)" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "runModuleAction(moduleClass=$moduleClass, action=$action)" }
         val module = session.clientModules.single { moduleClass.isInstance(it) } as R
         return@runSessionAction action(module)
     }

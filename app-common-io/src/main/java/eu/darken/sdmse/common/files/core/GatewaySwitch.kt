@@ -8,6 +8,8 @@ import eu.darken.sdmse.common.files.core.saf.SAFGateway
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import okio.Sink
 import okio.Source
 import java.util.*
@@ -22,35 +24,42 @@ class GatewaySwitch @Inject constructor(
     dispatcherProvider: DispatcherProvider,
 ) : APathGateway<APath, APathLookup<APath>> {
 
-//    /**
-//     * A context appropriate for blocking IO
-//     */
-//    val gatewayContext: CoroutineContext
-//        get() = dispatcherProvider.IO
-//
-//    suspend fun <T> runIO(action: suspend CoroutineScope.() -> T) = withContext(dispatcherProvider.IO) {
-//        action()
-//    }
+    private val parentalLock = Mutex()
+    private var adoptSaf = false
+    private var adoptLocal = false
 
-    suspend fun <T : APath> getGateway(path: T): APathGateway<T, APathLookup<T>> {
+    private suspend fun <T : APath> getGateway(path: T): APathGateway<T, APathLookup<T>> {
         @Suppress("UNCHECKED_CAST")
         return getGateway(path.pathType) as APathGateway<T, APathLookup<T>>
     }
 
-    suspend fun getGateway(type: APath.PathType): APathGateway<*, *> {
+    private suspend fun resolveGatewayType(type: APath.PathType): APathGateway<*, *> {
         val gateway = when (type) {
-            APath.PathType.SAF -> safGateway
-            APath.PathType.LOCAL -> localGateway
+            APath.PathType.SAF -> parentalLock.withLock {
+                if (!adoptSaf) {
+                    safGateway.addParent(this)
+                    adoptSaf = true
+                }
+                safGateway
+            }
+            APath.PathType.LOCAL -> parentalLock.withLock {
+                if (!adoptLocal) {
+                    localGateway.addParent(this)
+                    adoptLocal = true
+                }
+                localGateway
+            }
             else -> throw NotImplementedError()
         }
-        gateway.addParent(this)
         return gateway
     }
 
-    override val sharedResource = SharedResource.createKeepAlive(
-        "${TAG}:SharedResource",
-        appScope + dispatcherProvider.IO
-    )
+    suspend fun getGateway(type: APath.PathType): APathGateway<*, *> {
+        return resolveGatewayType(type)
+    }
+
+    override val sharedResource =
+        SharedResource.createKeepAlive("${TAG}:SharedResource", appScope + dispatcherProvider.IO)
 
     override suspend fun createDir(path: APath): Boolean {
         return getGateway(path).createDir(path)

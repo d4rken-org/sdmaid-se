@@ -29,7 +29,6 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toSet
-import java.io.IOException
 import javax.inject.Inject
 
 
@@ -79,17 +78,17 @@ class AppSourceCorpseFilter @Inject constructor(
             .flatten()
     }
 
-    @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
-        updateProgressCount(Progress.Count.Counter(0, candidates.size))
+ private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
+     updateProgressCount(Progress.Count.Counter(0, candidates.size))
 
-        val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
-        val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
+     val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
+     val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
-        return candidates
-            .onEach { increaseProgress() }
-            .map { fileForensics.findOwners(it) }
-            .filter { ownerInfo ->
-                (ownerInfo.areaInfo.type == DataArea.Type.APP_APP).also {
+     return candidates
+         .onEach { log(TAG) { "Checking $it" } }
+         .map { fileForensics.findOwners(it) }
+         .filter { ownerInfo ->
+             (ownerInfo.areaInfo.type == DataArea.Type.APP_APP).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
                 }
             }
@@ -109,6 +108,7 @@ class AppSourceCorpseFilter @Inject constructor(
                     }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }
             }
+         .onEach { increaseProgress() }
             .toList()
     }
 

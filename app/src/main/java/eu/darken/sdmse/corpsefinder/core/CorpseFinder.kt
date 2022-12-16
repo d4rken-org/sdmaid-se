@@ -68,10 +68,11 @@ class CorpseFinder @Inject constructor(
         val scanStart = System.currentTimeMillis()
 
         val result = filters
-            .onEach { it.addParent(this@CorpseFinder) }
             .map { filter ->
-                filter.withProgress(this@CorpseFinder) {
-                    scan()
+                filter.useSharedResource {
+                    filter.withProgress(this@CorpseFinder) {
+                        scan()
+                    }
                 }
             }
             .flatten()

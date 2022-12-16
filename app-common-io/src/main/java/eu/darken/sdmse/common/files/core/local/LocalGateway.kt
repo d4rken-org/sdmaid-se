@@ -46,7 +46,6 @@ class LocalGateway @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
-        javaRootClient.addParent(this)
         return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 

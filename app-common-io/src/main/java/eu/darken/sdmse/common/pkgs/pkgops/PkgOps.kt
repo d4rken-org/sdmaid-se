@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -43,16 +44,10 @@ class PkgOps @Inject constructor(
     private val userManager: UserManager2,
 ) : HasSharedResource<Any> {
 
-    override val sharedResource = SharedResource.createKeepAlive(
-        TAG,
-        appScope + dispatcherProvider.IO
-    )
+    override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: (PkgOpsClient) -> T): T {
-        sharedResource.addParent(javaRootClient)
-        return javaRootClient.runModuleAction(PkgOpsClient::class.java) {
-            return@runModuleAction action(it)
-        }
+        return javaRootClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
     private var rootCheckValue = 0
@@ -100,13 +95,13 @@ class PkgOps @Inject constructor(
         flags: Int = MATCH_UNINSTALLED_PACKAGES,
         userHandle: UserHandle2 = userManager.currentUser
     ): Installed? = ipcFunnel.use {
-        log(TAG, VERBOSE) { "queryPkg($pkgName, $flags)..." }
-
         val pkgInfo: PackageInfo? = try {
             packageManager.getPackageInfo(pkgName.name, flags)
         } catch (e: NameNotFoundException) {
-            log(TAG, VERBOSE) { "Pkg was not found, trying list-based lookup" }
-            packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName.name }
+//            log(TAG, VERBOSE) { "Pkg was not found, trying list-based lookup" }
+//            packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName.name }
+            log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): null" }
+            null
         }
 
         log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): $pkgInfo" }
@@ -195,6 +190,9 @@ class PkgOps @Inject constructor(
     suspend fun viewArchive(path: APath, flags: Int = 0): ApkInfo? = ipcFunnel.use {
         // TODO Can we support SAF here?
         path as LocalPath
+        val jFile = path.asFile()
+        if (!jFile.exists()) return@use null
+
         packageManager.getPackageArchiveInfo(path.path, flags)?.let {
             ApkInfo(
                 id = it.packageName.toPkgId(),

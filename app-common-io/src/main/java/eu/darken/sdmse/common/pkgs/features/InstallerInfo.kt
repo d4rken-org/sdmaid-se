@@ -1,10 +1,12 @@
 package eu.darken.sdmse.common.pkgs.features
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -51,6 +53,7 @@ fun Installed.isSideloaded(): Boolean {
     return installerInfo.allInstallers.none { it.id == AKnownPkg.GooglePlay.id }
 }
 
+@SuppressLint("NewApi")
 fun PackageInfo.getInstallerInfo(
     packageManager: PackageManager,
 ): InstallerInfo = if (hasApiLevel(Build.VERSION_CODES.R)) {
@@ -59,6 +62,7 @@ fun PackageInfo.getInstallerInfo(
     getInstallerInfoLegacy(packageManager)
 }
 
+@RequiresApi(Build.VERSION_CODES.R)
 private fun PackageInfo.getInstallerInfoApi30(packageManager: PackageManager): InstallerInfo {
     val sourceInfo = try {
         packageManager.getInstallSourceInfo(packageName)

@@ -108,10 +108,12 @@ open class SharedResource<T : Any> constructor(
         val activeLease = lock.withLock {
             val job = resourceHolder.launchIn(childScope).apply {
                 invokeOnCompletion {
-                    log(iTag, VERBOSE) {
-                        "get(): Resource lease completed (leases=${activeLeases.size}, parents=${parents.size})"
+                    if (Bugs.isTrace) {
+                        log(iTag, VERBOSE) {
+                            "get(): Resource lease completed (leases=${activeLeases.size}, parents=${parents.size})"
+                        }
                     }
-                    if (Bugs.isDebug && parents.isNotEmpty()) {
+                    if (Bugs.isTrace && parents.isNotEmpty()) {
                         log(iTag, VERBOSE) { "parents=${parents.values.toList().joinToString("\n")}" }
                     }
                 }
@@ -121,7 +123,7 @@ open class SharedResource<T : Any> constructor(
         }
 
         val resource = try {
-            log(iTag, VERBOSE) { "get(): Retrieving resource" }
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Retrieving resource" }
             when (val event = resourceHolder.first()) {
                 is Event.Error -> throw event.error
                 is Event.Resource -> event.resource
@@ -136,9 +138,9 @@ open class SharedResource<T : Any> constructor(
             if (activeLease.isClosed) {
                 log(iTag, ERROR) { "get(): We got a resource, but the lease is already closed???" }
             } else {
-                log(iTag, VERBOSE) { "get(): Adding new lease: $activeLease" }
+                if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Adding new lease: $activeLease" }
                 activeLeases.add(activeLease)
-                log(iTag, VERBOSE) { "get(): Now holding ${activeLeases.size} lease(s)" }
+                if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Now holding ${activeLeases.size} lease(s)" }
             }
         }
 
@@ -150,7 +152,7 @@ open class SharedResource<T : Any> constructor(
             get() = !job.isActive
 
         override fun close() {
-            log(iTag, VERBOSE) { "Closing keep alive" }
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "Closing keep alive" }
             if (!job.isActive) {
                 log(iTag, WARN) { "Already closed!" }
             } else {
@@ -181,7 +183,7 @@ open class SharedResource<T : Any> constructor(
         if (!children.add(wrapped)) {
             log(iTag, WARN) { "addChild(): Child resource has already been added: $resource" }
         } else {
-            log(iTag, VERBOSE) { "addChild(): Resource now has ${children.size} children: $resource" }
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "addChild(): Resource now has ${children.size} children: $resource" }
         }
     }
 
@@ -221,7 +223,10 @@ open class SharedResource<T : Any> constructor(
      */
     suspend fun addParent(parent: SharedResource<*>): SharedResource<T> {
         if (!parent.isAlive) {
-            log(iTag, WARN) { "Parent(${parent.iTag}) is closed, not adding keep alive: ${Throwable().asLog()}" }
+            if (Bugs.isTrace) log(
+                iTag,
+                WARN
+            ) { "Parent(${parent.iTag}) is closed, not adding keep alive: ${Throwable().asLog()}" }
 //            log(tag, WARN) { "Parent(${parent.tag}) is closed, not adding keep alive." }
             return this
         }

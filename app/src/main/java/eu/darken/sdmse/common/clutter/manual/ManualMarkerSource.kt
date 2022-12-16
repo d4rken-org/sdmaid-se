@@ -133,7 +133,7 @@ open class ManualMarkerSource(
             }
             for (pkg in markerPkgs) {
                 if (clutterMap.containsKey(pkg)) {
-                    log(TAG) {
+                    log(TAG, WARN) {
                         "Package '$pkg' is defined multiple times:\nMerging:\n$markerSet\ninto:\n${clutterMap[pkg]}"
                     }
                     clutterMap[pkg]!!.addAll(markerSet)

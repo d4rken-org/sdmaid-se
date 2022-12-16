@@ -2,7 +2,11 @@ package eu.darken.sdmse.common.pkgs
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserHandle2
 import java.io.IOException
 import kotlin.reflect.full.isSubclassOf
@@ -48,4 +52,13 @@ fun PackageManager.getInstalledPackagesAsUser(
         .call(this, flags, userHandle.handleId) as List<PackageInfo>
 } catch (e: Exception) {
     throw IOException("getInstalledPackagesAsUser($flags,$userHandle) failed", e)
+}
+
+// WORKAROUND
+fun PackageManager.getSharedLibraries2(flags: Int): List<SharedLibraryInfo> = try {
+    getSharedLibraries(flags)
+} catch (e: Exception) {
+    log("PackageManager", ERROR) { "Failed getSharedLibraries($flags)" }
+    // https://github.com/d4rken/sdmaid-public/issues/3100
+    if (hasApiLevel(29)) throw e else emptyList()
 }

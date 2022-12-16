@@ -71,7 +71,7 @@
     <PreferenceCategory android:title="@string/settings_category_risklevel">
         <CheckBoxPreference
             app:icon="@drawable/image_multiple"
-            app:key="risk.include.usergenerated"
+            app:key="risk.include.keeper"
             app:summary="@string/corpsefinder_settings_risk_keeper_summary"
             app:title="@string/corpsefinder_settings_risk_keeper_title" />
         <CheckBoxPreference

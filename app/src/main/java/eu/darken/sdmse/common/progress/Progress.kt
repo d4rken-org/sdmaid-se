@@ -48,9 +48,9 @@ interface Progress {
             }
         }
 
-        class Counter(current: Long, max: Long) : Count(current, max) {
+        class Counter(current: Long = 0, max: Long) : Count(current, max) {
 
-            constructor(current: Int, max: Int) : this(current.toLong(), max.toLong())
+            constructor(current: Int = 0, max: Int) : this(current.toLong(), max.toLong())
 
             override fun displayValue(context: Context): String = "$current/$max"
 

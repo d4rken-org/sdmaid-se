@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.forensics
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -9,11 +10,13 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class FileForensics @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     @ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
     private val csiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
