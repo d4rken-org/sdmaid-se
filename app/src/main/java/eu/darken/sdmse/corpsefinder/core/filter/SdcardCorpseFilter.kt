@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -30,24 +29,19 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 @Reusable
 class SdcardCorpseFilter @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
-) : CorpseFilter(
-    TAG,
-    appScope = appScope
-) {
+) : CorpseFilter(TAG) {
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
@@ -58,7 +52,6 @@ class SdcardCorpseFilter @Inject constructor(
         }
         log(TAG) { "Scanning..." }
 
-        gatewaySwitch.addParent(this)
         updateProgressPrimary("SDCARD")
 
         return doReverseCSI()

@@ -32,11 +32,11 @@ class ShellPkgSource @Inject constructor(
 ) : PkgDataSource {
 
 
-    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useSharedResource {
+    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
 
         val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
-        if (!localGateway.hasRoot()) return@useSharedResource emptySet()
+        if (!localGateway.hasRoot()) return@useRes emptySet()
 
         val result = Cmd.builder("pm list packages -f").execute(RxCmdShell.builder().root(true).build())
         Timber.tag(TAG).d("Result: %s", result)

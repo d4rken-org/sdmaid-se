@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.castring.toCaString
-import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -27,7 +26,6 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toSet
 import java.io.IOException
 import javax.inject.Inject
@@ -35,15 +33,11 @@ import javax.inject.Inject
 
 @Reusable
 class AppLibCorpseFilter @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-) : CorpseFilter(
-    TAG,
-    appScope = appScope
-) {
+) : CorpseFilter(TAG) {
 
     override suspend fun scan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterAppLibEnabled.value()) {
@@ -51,8 +45,6 @@ class AppLibCorpseFilter @Inject constructor(
             return emptyList()
         }
         log(TAG) { "Scanning..." }
-
-        gatewaySwitch.addParent(this)
 
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

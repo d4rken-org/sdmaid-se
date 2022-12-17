@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.castring.toCaString
-import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -30,23 +29,18 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toSet
 import java.util.*
 import javax.inject.Inject
 
 @Reusable
 class DalvikCorpseFilter @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-) : CorpseFilter(
-    TAG,
-    appScope = appScope
-) {
+) : CorpseFilter(TAG) {
 
     override suspend fun scan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterDalvikCacheEnabled.value()) {
@@ -54,8 +48,6 @@ class DalvikCorpseFilter @Inject constructor(
             return emptyList()
         }
         log(TAG) { "Scanning..." }
-
-        gatewaySwitch.addParent(this)
 
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

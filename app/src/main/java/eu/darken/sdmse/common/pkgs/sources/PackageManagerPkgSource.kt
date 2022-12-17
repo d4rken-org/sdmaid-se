@@ -21,7 +21,7 @@ class PackageManagerPkgSource @Inject constructor(
     private val pkgOps: PkgOps,
 ) : PkgDataSource {
 
-    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useSharedResource {
+    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG, VERBOSE) { "getPkgs()" }
 
         val matchAll = pkgOps.getInstalledPackages(PackageManager.MATCH_ALL)

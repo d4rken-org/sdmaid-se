@@ -25,12 +25,12 @@ class SystemManifestPkgSource @Inject constructor(
 ) : PkgDataSource {
 
 
-    override suspend fun getPkgs(): Collection<Installed> = gatewaySwitch.useSharedResource {
+    override suspend fun getPkgs(): Collection<Installed> = gatewaySwitch.useRes {
         log(TAG) { "getPkgs()" }
 
         val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-        if (!localGateway.hasRoot()) return@useSharedResource emptySet()
+        if (!localGateway.hasRoot()) return@useRes emptySet()
 
         val pkgs = mutableSetOf<HiddenPkg>()
 

@@ -34,10 +34,7 @@ class SAFGateway @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : APathGateway<SAFPath, SAFPathLookup> {
 
-    override val sharedResource = SharedResource.createKeepAlive(
-        "${TAG}:SharedResource",
-        appScope + dispatcherProvider.IO
-    )
+    override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> runIO(
         block: suspend CoroutineScope.() -> T

@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.root.javaroot.internal.RootIPC
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
 import java.util.concurrent.TimeoutException
@@ -61,7 +62,7 @@ class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, Ro
         val keepAliveToken: Resource<*> = sharedResource.get()
 
         log(TAG) { "Launching SharedShell with root" }
-        sharedShell.addParent(this.sharedResource)
+        adoptChildResource(sharedShell)
 
         try {
             log(TAG) { "Ready, now broadcasting..." }

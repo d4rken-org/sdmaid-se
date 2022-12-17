@@ -8,20 +8,27 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.sharedresource.closeAll
 import javax.inject.Inject
 
 @Reusable
-class StorageAreaFactory @Inject constructor(
+class DataAreaFactory @Inject constructor(
+    private val pkgOps: PkgOps,
     private val gatewaySwitch: GatewaySwitch,
     private val areaModules: Set<@JvmSuppressWildcards DataAreaModule>,
 ) {
 
-    suspend fun build(): Collection<DataArea> = gatewaySwitch.useSharedResource {
+    suspend fun build(): Collection<DataArea> {
+        val leases = setOf(pkgOps, gatewaySwitch).map { it.sharedResource.get() }
+
         val firstPass = areaModules.map { it.firstPass() }.flatten()
         log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
 
         val secondPass = areaModules.map { it.secondPass(firstPass) }.flatten()
         log(TAG, VERBOSE) { "build(): Second pass:\n${secondPass.joinToString("\n")}" }
+
+        leases.closeAll()
 
         val newAreas = (firstPass + secondPass).toSet()
         if (firstPass.size + secondPass.size != newAreas.size) {
@@ -42,7 +49,7 @@ class StorageAreaFactory @Inject constructor(
             log(TAG, INFO) { "Accessible data areas:\n${newAreas.joinToString("\n")}" }
         }
 
-        newAreas
+        return newAreas
     }
 
     companion object {

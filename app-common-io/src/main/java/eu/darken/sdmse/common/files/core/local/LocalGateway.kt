@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
@@ -69,7 +70,7 @@ class LocalGateway @Inject constructor(
 
     private val sharedUserShell = SharedShell(TAG, appScope + dispatcherProvider.IO)
     private suspend fun getShellSession(): Resource<RxCmdShell.Session> {
-        return sharedUserShell.session.addParent(this).get()
+        return sharedUserShell.session.also { adoptChildResource(it) }.get()
     }
 
     private suspend fun <T> runIO(
@@ -326,6 +327,7 @@ class LocalGateway @Inject constructor(
                     javaFile.source()
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
+                    // We need to keep the resource alive until the caller is done with the Source object
                     val resource = javaRootClient.get()
                     rootOps {
                         it.readFile(path).callbacks { resource.close() }
@@ -355,6 +357,7 @@ class LocalGateway @Inject constructor(
                     file.sink()
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
+                    // We need to keep the resource alive until the caller is done with the Sink object
                     val resource = javaRootClient.get()
                     rootOps {
                         it.writeFile(path).callbacks { resource.close() }

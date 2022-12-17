@@ -1,28 +1,21 @@
 package eu.darken.sdmse.corpsefinder.core.filter
 
-import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.sharedresource.HasSharedResource
-import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.corpsefinder.core.Corpse
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 
 abstract class CorpseFilter(
     private val tag: String,
-    private val appScope: CoroutineScope,
-) : Progress.Host, Progress.Client, HasSharedResource<Any> {
+) : Progress.Host, Progress.Client {
 
-    override val sharedResource = SharedResource.createKeepAlive(tag, appScope)
-    private val progressPub = DynamicStateFlow<Progress.Data?>(tag, appScope) { null }
-    override val progress: Flow<Progress.Data?> = progressPub.flow
+    private val progressPub = MutableStateFlow<Progress.Data?>(null)
+    override val progress: Flow<Progress.Data?> = progressPub
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
-        progressPub.updateAsync({ throw it }, update)
+        progressPub.value = update(progressPub.value)
     }
 
-    abstract suspend fun scan(
-
-    ): Collection<Corpse>
+    abstract suspend fun scan(): Collection<Corpse>
 
 }

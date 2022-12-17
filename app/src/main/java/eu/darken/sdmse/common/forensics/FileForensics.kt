@@ -8,8 +8,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.sharedresource.HasSharedResource
+import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -20,16 +25,21 @@ class FileForensics @Inject constructor(
     @ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
     private val csiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
-) {
+    gatewaySwitch: GatewaySwitch,
+    pkgOps: PkgOps,
+) : HasSharedResource<Any> {
+    private val commonResources = setOf(gatewaySwitch, pkgOps)
+    override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     init {
         log(TAG, INFO) { "${csiProcessors.size} CSI processors loaded." }
+        log(TAG, VERBOSE) { csiProcessors.joinToString("\n") }
     }
 
-    suspend fun identifyArea(file: APath): AreaInfo {
+    suspend fun identifyArea(file: APath): AreaInfo = keepResourceHoldersAlive(commonResources) {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
-        return csiProcessors.firstNotNullOf { it.identifyArea(file) }
+        csiProcessors.firstNotNullOf { it.identifyArea(file) }
     }
 
     suspend fun findOwners(file: APath): OwnerInfo {
@@ -38,7 +48,7 @@ class FileForensics @Inject constructor(
         return findOwners(identifyArea(file))
     }
 
-    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo {
+    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo = keepResourceHoldersAlive(commonResources) {
         val startFindingOwner = System.currentTimeMillis()
 
         val result = csiProcessors
@@ -69,7 +79,7 @@ class FileForensics @Inject constructor(
             if (ownerInfo.hasUnknownOwner) log(TAG, VERBOSE) { "$areaInfo has an unknown Owner" }
         }
 
-        return ownerInfo
+        ownerInfo
     }
 
     private var time: Long = 0

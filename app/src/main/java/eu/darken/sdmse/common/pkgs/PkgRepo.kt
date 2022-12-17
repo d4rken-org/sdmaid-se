@@ -43,8 +43,8 @@ class PkgRepo @Inject constructor(
 
     private suspend fun generatePkgcache(): Map<Pkg.Id, CachedInfo> {
         log(TAG) { "Generating package cache" }
-        return gatewaySwitch.useSharedResource {
-            pkgOps.useSharedResource {
+        return gatewaySwitch.useRes {
+            pkgOps.useRes {
                 pkgSources
                     .map { source ->
                         source.getPkgs().also {

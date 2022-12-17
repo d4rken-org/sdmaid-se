@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.areas
 
-import eu.darken.sdmse.common.areas.modules.StorageAreaFactory
+import eu.darken.sdmse.common.areas.modules.DataAreaFactory
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @Singleton
 class DataAreaManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val areaFactory: StorageAreaFactory,
+    private val areaFactory: DataAreaFactory,
 ) {
 
     private val refreshTrigger = MutableStateFlow(randomString())

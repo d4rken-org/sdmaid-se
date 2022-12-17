@@ -6,6 +6,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
+import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.StatsRepo
 import kotlinx.coroutines.CoroutineScope
@@ -23,16 +25,21 @@ class TaskManager @Inject constructor(
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
+    private val children = tools
 
     private val concurrencyLock = Semaphore(1)
     private var queuedTasks = 0
 
-    suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = useSharedResource {
+    suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         log(TAG) { "submit(task=$task)..." }
-        try {
+        children.forEach { adoptChildResource(it) }
+
+        return try {
             queuedTasks++
             log(TAG) { "Queued tasks: $queuedTasks" }
-            concurrentTasks(task)
+            keepResourceHoldersAlive(tools) {
+                concurrentTasks(task)
+            }
         } finally {
             queuedTasks--
             log(TAG) { "Tasks remaining: $queuedTasks" }
@@ -43,8 +50,8 @@ class TaskManager @Inject constructor(
         val start = System.currentTimeMillis()
 
         val tool = tools.single { it.type == task.type }
-        tool.addParent(this@TaskManager)
-        val result = tool.submit(task)
+
+        val result = tool.useRes { tool.submit(task) }
 
         val stop = System.currentTimeMillis()
         log(TAG) { "submit(task=$task) after ${stop - start}ms: $result" }

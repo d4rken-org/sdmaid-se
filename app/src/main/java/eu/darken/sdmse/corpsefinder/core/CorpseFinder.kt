@@ -11,9 +11,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
@@ -32,7 +36,13 @@ import javax.inject.Singleton
 class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
+    fileForensics: FileForensics,
+    gatewaySwitch: GatewaySwitch,
+    pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
+
+    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
+
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -51,7 +61,7 @@ class CorpseFinder @Inject constructor(
         task as CorpseFinderTask
         log(TAG) { "submit($task) starting..." }
         try {
-            val result = useSharedResource {
+            val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
                     is CorpseFinderDeleteTask -> deleteCorpse(task)
                     is CorpseFinderScanTask -> performScan(task)
@@ -69,10 +79,8 @@ class CorpseFinder @Inject constructor(
 
         val result = filters
             .map { filter ->
-                filter.useSharedResource {
-                    filter.withProgress(this@CorpseFinder) {
-                        scan()
-                    }
+                filter.withProgress(this@CorpseFinder) {
+                    scan()
                 }
             }
             .flatten()

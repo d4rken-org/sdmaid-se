@@ -50,7 +50,11 @@ class DashboardFragmentVM @Inject constructor(
             data = data,
             progress = progress,
             onScan = {
-                launch { taskManager.submit(CorpseFinderScanTask()) }
+                launch {
+                    taskManager.useRes {
+                        taskManager.submit(CorpseFinderScanTask())
+                    }
+                }
             },
             onDelete = {
                 launch { taskManager.submit(CorpseFinderDeleteTask()) }

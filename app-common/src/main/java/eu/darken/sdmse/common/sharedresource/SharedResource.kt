@@ -4,7 +4,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.error.getStackTraceString
+import eu.darken.sdmse.common.debug.traceCall
 import eu.darken.sdmse.common.error.tryUnwrap
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
@@ -18,25 +18,24 @@ import kotlinx.coroutines.sync.withLock
  */
 @Suppress("ProtectedInFinal")
 open class SharedResource<T : Any> constructor(
-    private val tag: String,
+    tag: String,
     parentScope: CoroutineScope,
     source: Flow<T>,
 ) : KeepAlive {
     private val iTag = "$tag:SR"
+    override val resourceId: String = iTag
 
-    private val childScope = CoroutineScope(parentScope.newCoroutineContext(SupervisorJob()))
+    private val leaseScope = CoroutineScope(parentScope.newCoroutineContext(SupervisorJob()))
 
     private val lock = Mutex()
 
-    private val activeLeases = mutableSetOf<ActiveLease>()
-    private val children = mutableSetOf<KeepAlive>()
-    private val parents = mutableMapOf<SharedResource<*>, Resource<T>>()
+    private val leases = mutableSetOf<ActiveLease>()
+    private val children = mutableMapOf<SharedResource<*>, KeepAlive>()
 
     override val isClosed: Boolean
         get() = !isAlive
 
-    var isAlive: Boolean = false
-        private set
+    private var isAlive: Boolean = false
 
     private val resourceHolder: Flow<Event<T>> = source
         .onStart {
@@ -44,22 +43,10 @@ open class SharedResource<T : Any> constructor(
                 isAlive = true
                 log(iTag, VERBOSE) { "Acquiring shared resource..." }
 
-                if (activeLeases.isNotEmpty()) {
-                    log(iTag, WARN) { "Non-empty activeLeases: $activeLeases" }
-                    if (Bugs.isDebug) throw IllegalStateException("Non-empty activeLeases: $activeLeases")
-                    activeLeases.forEach { it.close() }
-                    activeLeases.clear()
-                }
-
                 if (children.isNotEmpty()) {
-                    log(iTag, WARN) { "Non-empty child references: $children" }
-                    if (Bugs.isDebug) throw IllegalStateException("Non-empty child references: $children")
+                    val _children = children.values.toList()
+                    log(iTag, WARN) { "Non-empty child references: $_children" }
                     children.clear()
-                }
-
-                if (parents.isNotEmpty()) {
-                    log(iTag, WARN) { "Non-empty parent references: $parents" }
-                    parents.clear()
                 }
             }
         }
@@ -68,24 +55,27 @@ open class SharedResource<T : Any> constructor(
                 isAlive = false
                 log(iTag, VERBOSE) { "Releasing shared resource..." }
 
-                // Cancel all borrowed resources
-                childScope.coroutineContext.cancelChildren()
-
-                activeLeases
-                    .filterNot { it.isClosed }
-                    .forEach {
-                        log(iTag, WARN) { "Shared resource released with despite active lease: $it" }
-                        if (Bugs.isDebug) throw IllegalStateException("Shared resource released with despite active leases: $activeLeases")
-                    }
-                activeLeases.clear()
-
-                children.forEach {
+                children.values.forEach {
                     log(iTag, VERBOSE) { "Closing child resource: $it" }
                     it.close()
                 }
                 children.clear()
 
-                parents.clear()
+                leases.toList().let {
+                    if (it.isEmpty()) return@let
+
+                    if (Bugs.isDebug) {
+                        val _leases = this
+                        log(iTag, VERBOSE) { "Cleaning up remaining leases: $_leases" }
+                    }
+
+                    it.closeAll()
+                    leases.map { l -> l.job }.joinAll()
+                    leases.clear()
+                }
+
+                // This cancels all active leases, at the latest.
+                leaseScope.coroutineContext.cancelChildren()
             }
         }
         .map {
@@ -101,25 +91,36 @@ open class SharedResource<T : Any> constructor(
 
     suspend fun get(): Resource<T> {
         if (Bugs.isDebug && !isAlive) {
-            log(iTag, VERBOSE) { "get() Reviving SharedResource: $iTag\n${Throwable().getStackTraceString()}" }
-//            log(tag, VERBOSE) { "get() Reviving SharedResource" }
+            if (Bugs.isTrace) {
+                log(iTag, VERBOSE) { "get(): Reviving SharedResource\n${traceCall()}" }
+            } else {
+                log(iTag, VERBOSE) { "get(): Reviving SharedResource" }
+            }
         }
 
         val activeLease = lock.withLock {
-            val job = resourceHolder.launchIn(childScope).apply {
+            val job = resourceHolder.launchIn(leaseScope).apply {
                 invokeOnCompletion {
                     if (Bugs.isTrace) {
-                        log(iTag, VERBOSE) {
-                            "get(): Resource lease completed (leases=${activeLeases.size}, parents=${parents.size})"
-                        }
-                    }
-                    if (Bugs.isTrace && parents.isNotEmpty()) {
-                        log(iTag, VERBOSE) { "parents=${parents.values.toList().joinToString("\n")}" }
+                        val leaseSize = leases.size
+                        log(iTag, VERBOSE) { "get(): Lease completed (leases=$leaseSize, $job)" }
                     }
                 }
             }
 
-            ActiveLease(job)
+            ActiveLease(
+                job,
+                if (Bugs.isTrace) traceCall() else null
+            ).also {
+                if (Bugs.isTrace) {
+                    log(iTag, VERBOSE) { "get(): Adding new lease ($job)" }
+                }
+                leases.add(it)
+                if (Bugs.isTrace) {
+                    val leaseSize = leases.size
+                    log(iTag, VERBOSE) { "get(): Now holding $leaseSize lease(s)" }
+                }
+            }
         }
 
         val resource = try {
@@ -134,34 +135,42 @@ open class SharedResource<T : Any> constructor(
             throw e.tryUnwrap()
         }
 
-        lock.withLock {
-            if (activeLease.isClosed) {
-                log(iTag, ERROR) { "get(): We got a resource, but the lease is already closed???" }
-            } else {
-                if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Adding new lease: $activeLease" }
-                activeLeases.add(activeLease)
-                if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Now holding ${activeLeases.size} lease(s)" }
-            }
-        }
-
         return Resource(resource, activeLease)
     }
 
-    inner class ActiveLease(private val job: Job) : KeepAlive {
+    private inner class ActiveLease(
+        val job: Job,
+        val traceTag: String? = null
+    ) : KeepAlive {
+        override val resourceId: String = this@SharedResource.resourceId
+
         override val isClosed: Boolean
             get() = !job.isActive
 
         override fun close() {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "Closing keep alive" }
-            if (!job.isActive) {
-                log(iTag, WARN) { "Already closed!" }
-            } else {
+            if (Bugs.isTrace) {
+                log(iTag, VERBOSE) { "Closing keep alive ($job)${traceTag?.let { "\n$it" } ?: ""}" }
+            }
+
+            val removed = leases.remove(this)
+
+            if (job.isActive) {
                 job.cancel()
-                activeLeases.remove(this)
+            } else {
+                if (Bugs.isTrace) log(iTag, WARN) { "Already closed! ($job)" }
+            }
+
+            if (Bugs.isTrace) {
+                val leaseSize = leases.size
+                if (removed) {
+                    log(iTag, VERBOSE) { "Active lease removed (now $leaseSize) ($job)" }
+                } else {
+                    log(iTag, WARN) { "Lease was already removed? (now $leaseSize) ($job)" }
+                }
             }
         }
 
-        override fun toString(): String = "ActiveLease(job=$job)"
+        override fun toString(): String = "ActiveLease(job=$job)${traceTag?.let { "\n$it" } ?: ""}"
     }
 
     /**
@@ -171,97 +180,64 @@ open class SharedResource<T : Any> constructor(
      * When the root shell closes, the backup module needs to "close" too.
      * But the backupmodule, while open, keeps the root shell alive.
      */
-    suspend fun addChild(resource: Resource<*>) = lock.withLock {
-        if (!isAlive) {
-            log(iTag, WARN) { "addChild(): Can't add holder is already closed: $resource" }
-            resource.close()
+    suspend fun addChild(child: SharedResource<*>) = lock.withLock {
+        if (children.contains(child)) {
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "Already keeping child alive: $child" }
             return@withLock
         }
 
-        val wrapped = ChildResource(resource)
-
-        if (!children.add(wrapped)) {
-            log(iTag, WARN) { "addChild(): Child resource has already been added: $resource" }
-        } else {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "addChild(): Resource now has ${children.size} children: $resource" }
-        }
-    }
-
-    private class ChildResource(private val resource: Resource<*>) : KeepAlive {
-        var closed: Boolean = false
-
-        override val isClosed: Boolean
-            get() = closed || resource.isClosed
-
-        override fun close() {
-            closed = true
-            resource.close()
+        if (!isAlive) {
+            log(iTag, VERBOSE) { "addChild(): Can't add child, we are not alive: $child" }
+            child.close()
+            return@withLock
         }
 
-        override fun toString(): String = "ChildResource(isClosed=$isClosed, resource=$resource)"
+        val keepAlive = child.get()
+        val wrapped = Child(child, keepAlive)
+        children[child] = wrapped
 
-        override fun equals(other: Any?): Boolean {
-            if (this === other) return true
-            if (other !is ChildResource) return false
-
-            if (resource != other.resource) return false
-
-            return true
+        if (Bugs.isTrace) {
+            val childrenSize = children.size
+            log(iTag, VERBOSE) { "addChild(): Resource now has $childrenSize children: $child" }
         }
-
-        override fun hashCode(): Int = resource.hashCode()
-    }
-
-    suspend fun addParent(parent: HasSharedResource<*>): SharedResource<T> = addParent(parent.sharedResource)
-
-    /**
-     * Convenience method to add us as child to a parent. See [addChild]
-     * While the parent is alive, we will be kept alive too.
-     *
-     * rootResource.keepAliveWith(appBackupModule)
-     * While the app backup module is active, don't release the root resource so it can be re-used
-     */
-    suspend fun addParent(parent: SharedResource<*>): SharedResource<T> {
-        if (!parent.isAlive) {
-            if (Bugs.isTrace) log(
-                iTag,
-                WARN
-            ) { "Parent(${parent.iTag}) is closed, not adding keep alive: ${Throwable().asLog()}" }
-//            log(tag, WARN) { "Parent(${parent.tag}) is closed, not adding keep alive." }
-            return this
-        }
-
-        if (parents.contains(parent)) {
-            log(iTag, VERBOSE) { "Parent already contains us as keep-alive" }
-            return this
-        }
-
-        log(iTag, VERBOSE) { "Adding us as new keep-alive to parent $parent" }
-
-        val ourself = get()
-
-        lock.withLock {
-            if (parents.contains(parent)) {
-                // Race condition, synchronizing on get() would lead to dead-lock
-                ourself.close()
-            } else {
-                // Store this so we can detect duplicate calls to `keepAliveWith`
-                parents[parent] = ourself
-                // Add our self as child to the parent, so if the parent is cancelled, we can be cancelled too
-                parent.addChild(ourself)
-            }
-        }
-
-        return this
     }
 
     override fun close() {
+        if (!isAlive) return
         log(iTag) { "close()" }
-        childScope.coroutineContext.cancelChildren()
+        leaseScope.coroutineContext.cancelChildren()
     }
 
     override fun toString(): String =
-        "SharedResource(tag=$iTag, leases=${activeLeases.size}, children=${children.size}, parents=${parents.size})"
+        "SharedResource(tag=$iTag, leases=${leases.size}, children=${children.size})"
+
+    private inner class Child(
+        private val child: SharedResource<*>,
+        private val ourKeepAlive: KeepAlive
+    ) : KeepAlive {
+        override val resourceId: String = child.resourceId
+
+        private var closed: Boolean = false
+
+        override val isClosed: Boolean
+            get() = closed || ourKeepAlive.isClosed
+
+        override fun close() {
+            closed = true
+            ourKeepAlive.close()
+        }
+
+        override fun toString(): String = "ChildResource(isClosed=$isClosed, child=$child)"
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (other !is SharedResource<*>.Child) return false
+            if (resourceId != other.resourceId) return false
+            return true
+        }
+
+        override fun hashCode(): Int = resourceId.hashCode()
+    }
 
     sealed class Event<T> {
 
@@ -274,7 +250,7 @@ open class SharedResource<T : Any> constructor(
             tag,
             scope,
             callbackFlow {
-                send(Any())
+                send("$tag{${Any().hashCode()}}")
                 awaitClose()
             }
         )

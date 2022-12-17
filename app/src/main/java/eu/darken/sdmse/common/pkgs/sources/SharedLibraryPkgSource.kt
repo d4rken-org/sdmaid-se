@@ -27,7 +27,7 @@ class SharedLibraryPkgSource @Inject constructor(
     private val packageManager: PackageManager,
 ) : PkgDataSource {
 
-    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useSharedResource {
+    override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG, VERBOSE) { "getPkgs()" }
         val libraryPkgs = pkgOps.getSharedLibraries(0)
             .onEach { log(TAG, VERBOSE) { "Checking $it" } }
