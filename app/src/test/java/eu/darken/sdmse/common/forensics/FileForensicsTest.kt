@@ -5,15 +5,19 @@ import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.sharedresource.Resource
+import eu.darken.sdmse.common.sharedresource.SharedResource
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import kotlinx.coroutines.test.runTest
+import io.mockk.mockk
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.runTest2
 
 class FileForensicsTest : BaseTest() {
 
@@ -31,13 +35,26 @@ class FileForensicsTest : BaseTest() {
 
         coEvery { csiProcessor.identifyArea(any()) } returns testAreaInfo
         processors.add(csiProcessor)
+
+        every { gatewaySwitch.sharedResource } returns mockk<SharedResource<Any>>().apply {
+            coEvery { get() } returns mockk<Resource<Any>>().apply {
+                every { close() } returns Unit
+            }
+            every { close() } returns Unit
+        }
+        every { pkgOps.sharedResource } returns mockk<SharedResource<Any>>().apply {
+            coEvery { get() } returns mockk<Resource<Any>>().apply {
+                every { close() } returns Unit
+            }
+            every { close() } returns Unit
+        }
     }
 
     @AfterEach fun teardown() {
 
     }
 
-    @Test fun init() = runTest {
+    @Test fun init() = runTest2(autoCancel = true) {
         val forensics = FileForensics(this, context, pkgRepo, processors, gatewaySwitch, pkgOps)
         val testPath = LocalPath.build("/test")
         val areaInfo = forensics.identifyArea(testPath)

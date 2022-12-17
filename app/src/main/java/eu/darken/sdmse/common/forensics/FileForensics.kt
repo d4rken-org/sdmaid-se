@@ -28,7 +28,9 @@ class FileForensics @Inject constructor(
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
 ) : HasSharedResource<Any> {
+
     private val commonResources = setOf(gatewaySwitch, pkgOps)
+
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     init {
