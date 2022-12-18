@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
@@ -26,9 +27,15 @@ class GeneralSettings @Inject constructor(
 
     val themeType = dataStore.createValue("core.ui.theme.type", ThemeType.SYSTEM.identifier)
 
+    val isBugReporterEnabled = dataStore.createValue(
+        "core.bugreporter.enabled",
+        BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
+    )
+
     override val mapper = PreferenceStoreMapper(
-        debugSettings.isAutoReportingEnabled,
+        debugSettings.isDebugMode,
         themeType,
+        isBugReporterEnabled
     )
 
     companion object {

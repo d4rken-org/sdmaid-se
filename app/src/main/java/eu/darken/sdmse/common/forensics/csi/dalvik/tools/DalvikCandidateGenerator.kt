@@ -6,6 +6,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
@@ -147,9 +149,9 @@ class DalvikCandidateGenerator @Inject constructor(
             }
         }
         val stop = System.currentTimeMillis()
-        if (Bugs.isDebug) {
-//            log(TAG) { "Generation time: ${stop - start}" }
-//            for (p in candidates) log(TAG, VERBOSE) { "Potential parent: $p" }
+        if (Bugs.isTrace) {
+            log(TAG) { "Generation time: ${stop - start}" }
+            for (p in candidates) log(TAG, VERBOSE) { "Potential parent: $p" }
         }
         return candidates
     }

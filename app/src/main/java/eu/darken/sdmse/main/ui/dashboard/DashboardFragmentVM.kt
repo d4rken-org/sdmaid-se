@@ -3,15 +3,12 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -33,14 +30,29 @@ class DashboardFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val taskManager: TaskManager,
-    private val gatewaySwitch: GatewaySwitch,
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
+    private val debugSettings: DebugSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(randomString())
     private var isSetupDismissed = false
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
+
+    private val debugItem = combine(
+        debugSettings.isDebugMode.flow,
+        debugSettings.isTraceMode.flow
+    ) { isDebug, isTrace ->
+        if (!isDebug) return@combine null
+        DebugCardVH.Item(
+            isTraceEnabled = isTrace,
+            onTraceEnabled = { debugSettings.isTraceMode.valueBlocking = it },
+            onRunTest = {
+
+            }
+        )
+    }
+
 
     private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
         corpseFinder.data,
@@ -77,31 +89,20 @@ class DashboardFragmentVM @Inject constructor(
         }
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = combine(
+        debugItem,
         setupManager.state,
         dataAreaInfo,
         corpseFinderItem,
         refreshTrigger,
-    ) { setupState: SetupManager.SetupState,
+    ) { debugItem: DebugCardVH.Item?,
+        setupState: SetupManager.SetupState,
         dataAreaInfo: DataAreaCardVH.Item?,
         corpseFinderItem: CorpseFinderCardVH.Item,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
-        if (BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV) {
-            DebugCardVH.Item(
-                onCheck = {
-                    launch {
-                        LocalPath.build("/storage/emulated/0")
-                            .walk(gatewaySwitch)
-                            .collectLatest {
-                                log(TAG) { "WALK: $it" }
-                            }
-                    }
-                },
-                onSAF = {
 
-                }
-            ).run { items.add(this) }
-        }
+        debugItem?.let { items.add(it) }
+
         if (!setupState.isComplete && !isSetupDismissed) {
             SetupCardVH.Item(
                 setupState = setupState,

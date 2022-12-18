@@ -33,8 +33,9 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             entryValues = ThemeType.values().map { it.name }.toTypedArray()
             setSummary(ThemeType.valueOf(settings.themeType.valueBlocking).labelRes)
         }
-        findPreference<Preference>("debug.bugreport.automatic.enabled")?.isEnabled =
-            BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
+        findPreference<Preference>(
+            "core.bugreporter.enabled"
+        )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
         super.onPreferencesCreated()
     }
 

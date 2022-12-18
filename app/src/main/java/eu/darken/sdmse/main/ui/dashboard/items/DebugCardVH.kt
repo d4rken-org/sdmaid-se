@@ -16,13 +16,17 @@ class DebugCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        checkAction.setOnClickListener { item.onCheck() }
-        safAction.setOnClickListener { item.onSAF() }
+        traceEnabled.apply {
+            isChecked = item.isTraceEnabled
+            setOnCheckedChangeListener { _, isChecked -> item.onTraceEnabled(isChecked) }
+        }
+        testAction.setOnClickListener { item.onRunTest() }
     }
 
     data class Item(
-        val onCheck: () -> Unit,
-        val onSAF: () -> Unit,
+        val isTraceEnabled: Boolean,
+        val onTraceEnabled: (Boolean) -> Unit,
+        val onRunTest: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

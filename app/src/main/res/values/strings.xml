@@ -24,6 +24,7 @@
     <string name="ui_theme_dark_label">Dark</string>
     <string name="ui_theme_light_label">Light</string>
     <string name="ui_theme_system_label">System</string>
+    <string name="ui_theme_setting_explanation">Change the current app theme and override system settings.</string>
 
     <string name="settings_support_label">Support</string>
     <string name="documentation_label">Documentation</string>
@@ -87,4 +88,8 @@
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
     <string name="dataarea_warningcard_label">Data areas</string>
     <string name="dataarea_warningcard_reload_action">Reload data areas</string>
+    <string name="debug_mode_label">Debug mode</string>
+    <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
+    <string name="debug_bugreporter_label">Automatic bug reports</string>
+    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it.</string>
 </resources>

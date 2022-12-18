@@ -7,6 +7,7 @@
         <ListPreference
             android:icon="@drawable/ic_theme_onsurface"
             android:key="core.ui.theme.type"
+            app:summary="@string/ui_theme_setting_explanation"
             android:title="@string/ui_theme_setting_label" />
     </PreferenceCategory>
 
@@ -14,10 +15,15 @@
 
         <CheckBoxPreference
             app:icon="@drawable/ic_spider_thread_onsurface"
-            app:key="debug.bugreport.automatic.enabled"
-            app:summary="Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it."
-            app:title="Automatic bug reports" />
+            app:key="core.bugreporter.enabled"
+            app:summary="@string/debug_bugreporter_summary"
+            app:title="@string/debug_bugreporter_label" />
 
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_bug_report_24"
+            app:key="debug.enabled"
+            app:summary="@string/debug_mode_explanation"
+            app:title="@string/debug_mode_label" />
     </PreferenceCategory>
 
 </PreferenceScreen>

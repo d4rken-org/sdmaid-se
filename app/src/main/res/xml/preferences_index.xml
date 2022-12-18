@@ -37,6 +37,7 @@
             app:fragment="eu.darken.sdmse.main.ui.settings.acks.AcknowledgementsFragment"
             app:summary="@string/general_thank_you_label"
             app:title="@string/settings_acknowledgements_label" />
+
         <Preference
             android:icon="@drawable/ic_baseline_privacy_tip_24"
             android:key="core.privacy"

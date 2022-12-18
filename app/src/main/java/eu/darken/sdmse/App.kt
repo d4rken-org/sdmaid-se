@@ -11,12 +11,15 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.*
 import eu.darken.sdmse.common.debug.recording.core.RecorderModule
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.ThemeType
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -33,6 +36,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var recorderModule: RecorderModule
     @Inject lateinit var imageLoaderFactory: ImageLoaderFactory
+    @Inject lateinit var debugSettings: DebugSettings
 
     override fun onCreate() {
         super.onCreate()
@@ -40,6 +44,16 @@ open class App : Application(), Configuration.Provider {
             Logging.install(LogCatLogger())
             log(TAG) { "BuildConfig.DEBUG=true" }
         }
+
+        combine(
+            debugSettings.isDebugMode.flow,
+            debugSettings.isTraceMode.flow,
+        ) { isDebug, isTrace ->
+            log(TAG) { "isDebug=$isDebug, isTrace=$isTrace" }
+            Bugs.isDebug = isDebug
+            Bugs.isTrace = isDebug && isTrace
+        }.launchIn(appScope)
+
 
         bugReporter.setup(this)
 

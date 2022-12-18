@@ -19,9 +19,7 @@ class DebugSettings @Inject constructor(
     private val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val isAutoReportingEnabled = dataStore.createValue(
-        "debug.bugreport.automatic.enabled",
-        BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
-    )
+    val isDebugMode = dataStore.createValue("debug.enabled", BuildConfigWrap.DEBUG)
+    val isTraceMode = dataStore.createValue("debug.trace.enabled", false)
 
 }
