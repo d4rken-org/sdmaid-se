@@ -10,6 +10,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.ca.toCaDrawable
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.datastore.value
@@ -42,6 +44,10 @@ class SdcardCorpseFilter @Inject constructor(
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
 ) : CorpseFilter(TAG) {
+
+    init {
+        updateProgress { DEFAULT_PROGRESS }
+    }
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
@@ -249,6 +255,12 @@ class SdcardCorpseFilter @Inject constructor(
     }
 
     companion object {
+        val DEFAULT_PROGRESS = Progress.Data(
+            icon = R.drawable.filter_multiple.toCaDrawable(),
+            primary = R.string.corpsefinder_filter_sdcard_summary.toCaString(),
+            secondary = R.string.general_progress_loading.toCaString(),
+            count = Progress.Count.Indeterminate()
+        )
         val TAG: String = logTag("CorpseFinder", "Filter", "Sdcard")
     }
 }

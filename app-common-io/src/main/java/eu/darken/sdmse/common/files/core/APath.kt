@@ -2,8 +2,8 @@ package eu.darken.sdmse.common.files.core
 
 import android.os.Parcelable
 import androidx.annotation.Keep
-import eu.darken.sdmse.common.castring.CaString
-import eu.darken.sdmse.common.castring.toCaString
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.serialization.MyPolymorphicJsonAdapterFactory

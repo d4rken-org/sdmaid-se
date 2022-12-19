@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.castring
+package eu.darken.sdmse.common.ca
 
 import android.content.Context
 

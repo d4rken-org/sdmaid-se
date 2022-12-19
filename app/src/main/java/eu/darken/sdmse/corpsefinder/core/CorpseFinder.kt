@@ -5,17 +5,17 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
@@ -60,10 +60,13 @@ class CorpseFinder @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
         task as CorpseFinderTask
         log(TAG) { "submit($task) starting..." }
+        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressSecondary(easterEggProgressMsg)
+        updateProgressCount(Progress.Count.Indeterminate())
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
-                    is CorpseFinderDeleteTask -> deleteCorpse(task)
+                    is CorpseFinderDeleteTask -> deleteCorspes(task)
                     is CorpseFinderScanTask -> performScan(task)
                 }
             }
@@ -75,6 +78,8 @@ class CorpseFinder @Inject constructor(
     }
 
     private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result = try {
+        log(TAG, VERBOSE) { "performScan($task)" }
+
         val scanStart = System.currentTimeMillis()
 
         val result = filters
@@ -99,7 +104,9 @@ class CorpseFinder @Inject constructor(
         CorpseFinderScanTask.Error(e)
     }
 
-    private suspend fun deleteCorpse(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
+    private suspend fun deleteCorspes(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
+        log(TAG, VERBOSE) { "deleteCorspes($task)" }
+
         CorpseFinderDeleteTask.Success(TODO())
     } catch (e: Exception) {
         log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }

@@ -1,15 +1,15 @@
 package eu.darken.sdmse.common.progress
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.text.format.Formatter
-import eu.darken.sdmse.common.castring.CaString
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
 import kotlinx.coroutines.flow.Flow
 import kotlin.math.ceil
 
 interface Progress {
     data class Data(
-        val icon: Drawable? = null,
+        val icon: CaDrawable? = null,
         val primary: CaString = CaString.EMPTY,
         val secondary: CaString = CaString.EMPTY,
         val count: Count = Count.None(),

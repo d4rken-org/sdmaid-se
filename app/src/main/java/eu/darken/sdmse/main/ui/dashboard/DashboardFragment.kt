@@ -33,7 +33,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     else -> super.onOptionsItemSelected(it)
                 }
             }
-            subtitle = "Buildtype: ${BuildConfigWrap.BUILD_TYPE}"
+            subtitle = when (BuildConfigWrap.BUILD_TYPE) {
+                BuildConfigWrap.BuildType.DEV,
+                BuildConfigWrap.BuildType.BETA -> BuildConfigWrap.VERSION_DESCRIPTION
+                BuildConfigWrap.BuildType.RELEASE -> null
+            }
         }
 
         ui.list.setupDefaults(dashAdapter, dividers = false)

@@ -5,7 +5,7 @@ import androidx.annotation.Keep
 import androidx.documentfile.provider.DocumentFile
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
-import eu.darken.sdmse.common.castring.CaString
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.core.APath
 import kotlinx.parcelize.Parcelize
 import java.io.File
