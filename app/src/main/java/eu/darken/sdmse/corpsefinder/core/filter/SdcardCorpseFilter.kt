@@ -162,19 +162,19 @@ class SdcardCorpseFilter @Inject constructor(
         updateProgressCount(Progress.Count.Percent(0, clutterMarkerList.size))
         updateProgressSecondary(R.string.general_progress_filtering)
 
+        val areas = areaManager.currentAreas().filter { it.type == DataArea.Type.SDCARD }
+
         val uncleaned = clutterMarkerList
             .asFlow()
             .onEach { increaseProgress() }
             .filter { it.isPrefixFreeBasePathDirect } // Can't reverse-match regex
             .mapNotNull { marker ->
                 // Get files for this marker, based on it's basepath.
-                val existing = getMarkersThatExist(marker)
-                if (existing.isNotEmpty()) {
-                    log(TAG) { "Resolved $marker to existing $existing" }
-                    marker to existing
-                } else {
-                    null
-                }
+                val existing = getMarkersThatExist(areas, marker)
+                if (existing.isEmpty()) return@mapNotNull null
+
+                log(TAG) { "Resolved $marker to existing $existing" }
+                marker to existing
             }
             .map { (marker, potentialCorpses) ->
                 // marker + List<AreaInfo> --> areaInfo + List<Owner>
@@ -208,21 +208,20 @@ class SdcardCorpseFilter @Inject constructor(
         return cleaned
     }
 
-    private suspend fun getMarkersThatExist(marker: Marker): Collection<AreaInfo> {
+    private suspend fun getMarkersThatExist(areas: Collection<DataArea>, marker: Marker): Collection<AreaInfo> {
         // If we have the same prefixFreeBasePath for two items one could be direct and one not.
         val cacheKey = CacheKey(marker.prefixFreeBasePath, marker.isPrefixFreeBasePathDirect)
         val cachedData = fileCache[cacheKey]
         if (cachedData != null) return cachedData
 
         val candidatesThatExist = mutableSetOf<APath>()
-        areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.SDCARD }
-            .map { it.path.child(marker.prefixFreeBasePath) }
-            .filter { it.exists(gatewaySwitch) }
-            .map { candidate ->
+        areas
+            .map { it to it.path.child(marker.prefixFreeBasePath) }
+            .filter { it.second.exists(gatewaySwitch) }
+            .map { (area, candidate) ->
                 // Sdcard names are case-insensitive, the marker name is fixed though..
                 // Actual name could be "MiBand" but by using the marker prefix we would end up with "miband"
-                (candidate as? LocalPath)?.asFile()?.parentFile
+                val resolved = (candidate as? LocalPath)?.asFile()?.parentFile
                     ?.listFiles()
                     ?.singleOrNull { candidate.path != it.path && candidate.path.lowercase() == it.path.lowercase() }
                     ?.let {
@@ -230,15 +229,19 @@ class SdcardCorpseFilter @Inject constructor(
                         it.toLocalPath()
                     }
                     ?: candidate
+                area to resolved
             }
-            .forEach { candidate ->
+            .forEach { (area, candidate) ->
                 // We don't add the sdcard root as candidate.
                 if (marker.prefixFreeBasePath.isNotEmpty() && candidate.canRead(gatewaySwitch)) {
                     candidatesThatExist.add(candidate)
                 }
                 if (!marker.isPrefixFreeBasePathDirect) {
                     // <sdcard(level0|1)>/(level1|2)/(level2|3)/(level3|4)/corpse
-                    val files = candidate.walk(gatewaySwitch)
+                    val files = candidate.walk(
+                        gatewaySwitch,
+                        filter = { item -> item.segments.size <= (4 + area.path.segments.size) }
+                    )
                         .onEach { log(TAG, INFO) { "Walking: $it" } }
                         .toList()
                     candidatesThatExist.addAll(files)

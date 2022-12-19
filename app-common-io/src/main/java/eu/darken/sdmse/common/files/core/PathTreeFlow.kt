@@ -13,6 +13,7 @@ class PathTreeFlow<
         > constructor(
     private val gateway: GT,
     private val start: P,
+    private val filter: (PL) -> Boolean = { true }
 ) : AbstractFlow<PL>() {
 
     override suspend fun collectSafely(collector: FlowCollector<PL>) {
@@ -28,10 +29,12 @@ class PathTreeFlow<
 
             val lookUp = queue.removeFirst()
 
-            lookUp.lookedUp.lookupFiles(gateway).forEach { child ->
-                if (child.isDirectory) queue.addFirst(child)
-                collector.emit(child)
-            }
+            lookUp.lookedUp.lookupFiles(gateway)
+                .filter { filter(it) }
+                .forEach { child ->
+                    if (child.isDirectory) queue.addFirst(child)
+                    collector.emit(child)
+                }
         }
     }
 

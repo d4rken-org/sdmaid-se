@@ -32,8 +32,11 @@ fun APath.asFile(): File = when (this) {
     else -> File(this.path)
 }
 
-fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(gateway: GT): PathTreeFlow<P, PL, GT> {
-    return PathTreeFlow(gateway, downCast())
+fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(
+    gateway: GT,
+    filter: (PL) -> Boolean = { true }
+): PathTreeFlow<P, PL, GT> {
+    return PathTreeFlow(gateway, downCast(), filter)
 }
 
 /**

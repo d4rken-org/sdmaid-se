@@ -8,10 +8,15 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -34,6 +39,8 @@ class DashboardFragmentVM @Inject constructor(
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
     private val debugSettings: DebugSettings,
+    private val gatewaySwitch: GatewaySwitch,
+    private val safMapper: SAFMapper,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(randomString())
@@ -49,7 +56,16 @@ class DashboardFragmentVM @Inject constructor(
             isTraceEnabled = isTrace,
             onTraceEnabled = { debugSettings.isTraceMode.valueBlocking = it },
             onRunTest = {
-
+                launch {
+                    val path = LocalPath.build("/storage/emulated/0/")
+                    path.walk(
+                        gatewaySwitch,
+                        filter = { item -> item.segments.size <= 4 + path.segments.size }
+                    )
+                        .collectLatest {
+                            log { "# PATH: $it" }
+                        }
+                }
             }
         )
     }
