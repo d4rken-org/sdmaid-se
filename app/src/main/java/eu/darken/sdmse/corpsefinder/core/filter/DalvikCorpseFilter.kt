@@ -29,7 +29,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.toSet
+import kotlinx.coroutines.flow.*
 import java.util.*
 import javax.inject.Inject
 
@@ -40,9 +40,9 @@ class DalvikCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-) : CorpseFilter(TAG) {
+) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
-    override suspend fun scan(): Collection<Corpse> {
+    override suspend fun doScan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterDalvikCacheEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
@@ -117,11 +117,15 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterDalvikProfiles(${profileItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Counter(max = profileItems.size))
+        updateProgressCount(Progress.Count.Percent(current = 0, max = profileItems.size))
 
         return profileItems
-            .onEach { log(TAG) { "Checking profile $it" } }
-            .map { fileForensics.findOwners(it) }
+            .asFlow()
+            .map {
+                log(TAG) { "Checking $it" }
+                increaseProgress()
+                fileForensics.findOwners(it)
+            }
             .filter { ownerInfo ->
                 (ownerInfo.areaInfo.type == DataArea.Type.DALVIK_PROFILE).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
@@ -143,7 +147,7 @@ class DalvikCorpseFilter @Inject constructor(
                     }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }
             }
-            .onEach { increaseProgress() }
+            .toList()
     }
 
     private suspend fun doFilterOdex(
@@ -152,11 +156,15 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterOdex(${dalvikItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Counter(max = dalvikItems.size))
+        updateProgressCount(Progress.Count.Percent(current = 0, max = dalvikItems.size))
 
         return dalvikItems
-            .onEach { log(TAG) { "Checking dex $it" } }
-            .map { fileForensics.findOwners(it) }
+            .asFlow()
+            .map {
+                log(TAG) { "Checking $it" }
+                increaseProgress()
+                fileForensics.findOwners(it)
+            }
             .filter { ownerInfo ->
                 (ownerInfo.areaInfo.type == DataArea.Type.DALVIK_DEX).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
@@ -178,7 +186,7 @@ class DalvikCorpseFilter @Inject constructor(
                     }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }
             }
-            .onEach { increaseProgress() }
+            .toList()
     }
 
     @InstallIn(SingletonComponent::class)
@@ -188,6 +196,11 @@ class DalvikCorpseFilter @Inject constructor(
     }
 
     companion object {
+        val DEFAULT_PROGRESS = Progress.Data(
+            primary = R.string.corpsefinder_filter_dalvik_label.toCaString(),
+            secondary = R.string.general_progress_loading.toCaString(),
+            count = Progress.Count.Indeterminate()
+        )
         val TAG: String = logTag("CorpseFinder", "Filter", "Dalvik")
     }
 }

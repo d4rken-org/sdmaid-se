@@ -3,11 +3,12 @@ package eu.darken.sdmse.common.progress
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.annotation.StringRes
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
@@ -65,7 +66,16 @@ fun <T : Progress.Client> T.updateProgressCount(count: Progress.Count) {
 }
 
 fun <T : Progress.Client> T.increaseProgress() {
-    updateProgress { it?.copy(count = (it.count as Progress.Count.Counter).increment()) }
+    updateProgress {
+        when (it?.count) {
+            is Progress.Count.Counter -> it.copy(count = (it.count as Progress.Count.Counter).increment())
+            is Progress.Count.Percent -> it.copy(count = (it.count as Progress.Count.Percent).increment())
+            else -> {
+                log(ERROR) { "Can't increaseProgress() on type: ${it?.count}" }
+                it
+            }
+        }
+    }
 }
 
 suspend fun <T : Progress.Host> T.forwardProgressTo(client: Progress.Client) = progress

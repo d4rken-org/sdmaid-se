@@ -51,12 +51,6 @@
         <CheckBoxPreference
             app:enabled="false"
             app:icon="@drawable/air_filter"
-            app:key="filter.appasec.enabled"
-            app:summary="@string/corpsefinder_filter_appasec_summary"
-            app:title="@string/corpsefinder_filter_appasec_label" />
-        <CheckBoxPreference
-            app:enabled="false"
-            app:icon="@drawable/air_filter"
             app:key="filter.dalvikcache.enabled"
             app:summary="@string/corpsefinder_filter_dalvik_summary"
             app:title="@string/corpsefinder_filter_dalvik_label" />
@@ -78,6 +72,12 @@
             app:key="filter.appsourceprivate.enabled"
             app:summary="@string/corpsefinder_filter_appsource_private_summary"
             app:title="@string/corpsefinder_filter_appsource_private_label" />
+        <CheckBoxPreference
+            app:enabled="false"
+            app:icon="@drawable/air_filter"
+            app:key="filter.appasec.enabled"
+            app:summary="@string/corpsefinder_filter_appasec_summary"
+            app:title="@string/corpsefinder_filter_appasec_label" />
         <CheckBoxPreference
             app:enabled="false"
             app:icon="@drawable/air_filter"

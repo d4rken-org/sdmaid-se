@@ -26,7 +26,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.toSet
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 
@@ -36,9 +36,9 @@ class AppSourceCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-) : CorpseFilter(TAG) {
+) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
-    override suspend fun scan(): Collection<Corpse> {
+    override suspend fun doScan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterAppSourceEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
@@ -69,17 +69,21 @@ class AppSourceCorpseFilter @Inject constructor(
             .flatten()
     }
 
- private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
-     updateProgressCount(Progress.Count.Counter(0, candidates.size))
+    private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
+        updateProgressCount(Progress.Count.Percent(0, candidates.size))
 
-     val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
-     val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
+        val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
+        val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
-     return candidates
-         .onEach { log(TAG) { "Checking $it" } }
-         .map { fileForensics.findOwners(it) }
-         .filter { ownerInfo ->
-             (ownerInfo.areaInfo.type == DataArea.Type.APP_APP).also {
+        return candidates
+            .asFlow()
+            .map {
+                log(TAG) { "Checking $it" }
+                increaseProgress()
+                fileForensics.findOwners(it)
+            }
+            .filter { ownerInfo ->
+                (ownerInfo.areaInfo.type == DataArea.Type.APP_APP).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
                 }
             }
@@ -99,7 +103,6 @@ class AppSourceCorpseFilter @Inject constructor(
                     }
                 ).also { log(TAG, INFO) { "Found Corpse: $it" } }
             }
-         .onEach { increaseProgress() }
             .toList()
     }
 
@@ -110,6 +113,11 @@ class AppSourceCorpseFilter @Inject constructor(
     }
 
     companion object {
+        val DEFAULT_PROGRESS = Progress.Data(
+            primary = R.string.corpsefinder_filter_appsource_label.toCaString(),
+            secondary = R.string.general_progress_loading.toCaString(),
+            count = Progress.Count.Indeterminate()
+        )
         val TAG: String = logTag("CorpseFinder", "Filter", "App", "Source")
     }
 }

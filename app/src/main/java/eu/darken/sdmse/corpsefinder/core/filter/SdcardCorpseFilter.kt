@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
@@ -31,8 +30,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @Reusable
@@ -43,15 +41,11 @@ class SdcardCorpseFilter @Inject constructor(
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
-) : CorpseFilter(TAG) {
-
-    init {
-        updateProgress { DEFAULT_PROGRESS }
-    }
+) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
-    override suspend fun scan(): Collection<Corpse> {
+    override suspend fun doScan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterSdcardEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
@@ -60,7 +54,9 @@ class SdcardCorpseFilter @Inject constructor(
 
         updateProgressPrimary("SDCARD")
 
-        return doReverseCSI()
+        val result = doReverseCSI()
+        fileCache.clear()
+        return result
     }
 
     /**
@@ -74,7 +70,7 @@ class SdcardCorpseFilter @Inject constructor(
 
         // Deep search each possible corpse
         updateProgressSecondary(R.string.general_progress_filtering)
-        updateProgressCount(Progress.Count.Counter(0, potentialCorpses.size * 2))
+        updateProgressCount(Progress.Count.Percent(0, potentialCorpses.size))
 
         val deadItems = mutableSetOf<OwnerInfo>()
         val aliveItems = mutableSetOf<OwnerInfo>()
@@ -105,6 +101,7 @@ class SdcardCorpseFilter @Inject constructor(
         }
 
         // Remove those that are blocked by a living item
+        updateProgressCount(Progress.Count.Percent(0, deadItems.size * 2))
         val itemBlockedIterator = deadItems.iterator()
         while (itemBlockedIterator.hasNext()) {
             val possibleCorpse = itemBlockedIterator.next()
@@ -139,8 +136,9 @@ class SdcardCorpseFilter @Inject constructor(
             deadItems.forEach { log(TAG) { "Final dead: ${it.item}" } }
         }
 
+        updateProgressCount(Progress.Count.Percent(0, deadItems.size))
         return deadItems.map { ownerInfo ->
-            Corpse(
+            val corpse = Corpse(
                 ownerInfo = ownerInfo,
                 content = ownerInfo.item.walk(gatewaySwitch).toList(),
                 isWriteProtected = ownerInfo.item.canWrite(gatewaySwitch),
@@ -149,17 +147,24 @@ class SdcardCorpseFilter @Inject constructor(
                     ownerInfo.isCommon -> RiskLevel.COMMON
                     else -> RiskLevel.NORMAL
                 }
-            ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            )
+
+            increaseProgress()
+            log(TAG, INFO) { "Found Corpse: $corpse" }
+
+            corpse
         }
     }
 
     private suspend fun findPotentialCorpses(): Collection<OwnerInfo> {
         val clutterMarkerList = clutterRepo.getMarkerForLocation(DataArea.Type.SDCARD)
 
-        updateProgressCount(Progress.Count.Counter(0, clutterMarkerList.size))
+        updateProgressCount(Progress.Count.Percent(0, clutterMarkerList.size))
         updateProgressSecondary(R.string.general_progress_filtering)
 
         val uncleaned = clutterMarkerList
+            .asFlow()
+            .onEach { increaseProgress() }
             .filter { it.isPrefixFreeBasePathDirect } // Can't reverse-match regex
             .mapNotNull { marker ->
                 // Get files for this marker, based on it's basepath.
@@ -178,6 +183,7 @@ class SdcardCorpseFilter @Inject constructor(
                     areaInfo to match.packageNames.map { Owner(it, match.flags) }
                 }
             }
+            .toList()
             .flatten()
             .groupBy { it.first }
             .mapValues { (areaInfo, listOfOwnerLists) ->
@@ -192,7 +198,7 @@ class SdcardCorpseFilter @Inject constructor(
                     hasUnknownOwner = false
                 )
             }
-            .onEach { increaseProgress() }
+
 
         val cleaned = uncleaned.toSet()
         val duplicates = uncleaned - uncleaned.intersect(cleaned)
@@ -203,7 +209,6 @@ class SdcardCorpseFilter @Inject constructor(
     }
 
     private suspend fun getMarkersThatExist(marker: Marker): Collection<AreaInfo> {
-        // TODO does caching here actually help?
         // If we have the same prefixFreeBasePath for two items one could be direct and one not.
         val cacheKey = CacheKey(marker.prefixFreeBasePath, marker.isPrefixFreeBasePathDirect)
         val cachedData = fileCache[cacheKey]
@@ -256,7 +261,6 @@ class SdcardCorpseFilter @Inject constructor(
 
     companion object {
         val DEFAULT_PROGRESS = Progress.Data(
-            icon = R.drawable.filter_multiple.toCaDrawable(),
             primary = R.string.corpsefinder_filter_sdcard_summary.toCaString(),
             secondary = R.string.general_progress_loading.toCaString(),
             count = Progress.Count.Indeterminate()

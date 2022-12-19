@@ -24,10 +24,12 @@ interface Progress {
         fun updateProgress(update: (Data?) -> Data?)
     }
 
-    sealed class Count(val current: Long, val max: Long) {
-        abstract fun displayValue(context: Context): String?
+    sealed interface Count {
+        val current: Long
+        val max: Long
+        fun displayValue(context: Context): String?
 
-        class Percent(current: Long, max: Long) : Count(current, max) {
+        data class Percent(override val current: Long, override val max: Long) : Count {
 
             constructor(current: Int, max: Int) : this(current.toLong(), max.toLong())
 
@@ -38,17 +40,13 @@ interface Progress {
                 if (current == 0L) return "0%"
                 return "${ceil(((current.toDouble() / max.toDouble()) * 100)).toInt()}%"
             }
-        }
 
-        class Size(current: Long, max: Long) : Count(current, max) {
-            override fun displayValue(context: Context): String {
-                val curSize = Formatter.formatShortFileSize(context, current)
-                val maxSize = Formatter.formatShortFileSize(context, max)
-                return "$curSize/$maxSize"
+            fun increment(): Percent {
+                return Percent(current + 1, max)
             }
         }
 
-        class Counter(current: Long = 0, max: Long) : Count(current, max) {
+        class Counter(override val current: Long, override val max: Long) : Count {
 
             constructor(current: Int = 0, max: Int) : this(current.toLong(), max.toLong())
 
@@ -57,11 +55,19 @@ interface Progress {
             fun increment() = Counter(current + 1, max)
         }
 
-        class Indeterminate : Count(0, 0) {
+        data class Size(override val current: Long, override val max: Long) : Count {
+            override fun displayValue(context: Context): String {
+                val curSize = Formatter.formatShortFileSize(context, current)
+                val maxSize = Formatter.formatShortFileSize(context, max)
+                return "$curSize/$maxSize"
+            }
+        }
+
+        data class Indeterminate(override val current: Long = 0, override val max: Long = 0) : Count {
             override fun displayValue(context: Context): String = ""
         }
 
-        class None : Count(-1, -1) {
+        data class None(override val current: Long = -1, override val max: Long = -1) : Count {
             override fun displayValue(context: Context): String? = null
         }
     }

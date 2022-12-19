@@ -2,6 +2,8 @@ package eu.darken.sdmse.corpsefinder.ui
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
@@ -23,9 +25,13 @@ class CorpseFinderCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
+        activityContainer.isGone = item.progress == null && item.data == null
+        progressBar.isInvisible = item.progress == null
+        statusPrimary.isInvisible = item.progress != null
+        statusSecondary.isInvisible = item.progress != null
+
         if (item.progress != null) {
-            statusPrimary.text = item.progress.primary.get(context)
-            statusSecondary.text = item.progress.secondary.get(context)
+            progressBar.setProgress(item.progress)
         } else if (item.data != null) {
             statusPrimary.text = getQuantityString(
                 R.plurals.corpsefinder_result_x_corpses_found,

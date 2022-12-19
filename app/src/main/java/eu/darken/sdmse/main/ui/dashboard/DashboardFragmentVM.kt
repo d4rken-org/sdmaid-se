@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -52,7 +53,6 @@ class DashboardFragmentVM @Inject constructor(
             }
         )
     }
-
 
     private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
         corpseFinder.data,
@@ -123,6 +123,7 @@ class DashboardFragmentVM @Inject constructor(
         items
     }
         .setupCommonEventHandlers(TAG) { "listItems" }
+        .throttleLatest(500)
         .asLiveData2()
 
 

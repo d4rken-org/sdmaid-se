@@ -80,8 +80,6 @@
     <string name="corpsefinder_filter_sdcard_summary">General public storage, internal and external (e.g. SD cards).</string>
     <string name="corpsefinder_filter_privatedata_label">Private app data</string>
     <string name="corpsefinder_filter_privatedata_summary">Private app data, e.g. credentials, app settings but also browser caches.</string>
-    <string name="corpsefinder_filter_appasec_label">Install data</string>
-    <string name="corpsefinder_filter_appasec_summary">Encrypted app install data.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Cached app execution data.</string>
     <string name="corpsefinder_filter_applib_label">App libraries</string>
@@ -90,6 +88,8 @@
     <string name="corpsefinder_filter_appsource_summary">App installation data, i.e. where APKs go.</string>
     <string name="corpsefinder_filter_appsource_private_label">Private app sources</string>
     <string name="corpsefinder_filter_appsource_private_summary">Restricted app installation data, e.g. protected third party apps.</string>
+    <string name="corpsefinder_filter_appasec_label">Encrypted app resources</string>
+    <string name="corpsefinder_filter_appasec_summary">Encrypted app resources, e.g. game assets.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data moved to external storage by App2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">

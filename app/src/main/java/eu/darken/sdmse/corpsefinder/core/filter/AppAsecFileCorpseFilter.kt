@@ -26,7 +26,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.toSet
+import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
 
@@ -37,9 +37,9 @@ class AppAsecFileCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-) : CorpseFilter(TAG) {
+) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
-    override suspend fun scan(): Collection<Corpse> {
+    override suspend fun doScan(): Collection<Corpse> {
         if (!corpseFinderSettings.filterAppSourceAsecEnabled.value()) {
             log(TAG) { "Filter is disabled" }
             return emptyList()
@@ -70,14 +70,18 @@ class AppAsecFileCorpseFilter @Inject constructor(
     }
 
     @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
-        updateProgressCount(Progress.Count.Counter(0, candidates.size))
+        updateProgressCount(Progress.Count.Percent(0, candidates.size))
 
         val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
         return candidates
-            .onEach { increaseProgress() }
-            .map { fileForensics.findOwners(it) }
+            .asFlow()
+            .map {
+                log(TAG) { "Checking $it" }
+                increaseProgress()
+                fileForensics.findOwners(it)
+            }
             .filter { ownerInfo ->
                 (ownerInfo.areaInfo.type == DataArea.Type.APP_ASEC).also {
                     if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
@@ -109,6 +113,11 @@ class AppAsecFileCorpseFilter @Inject constructor(
     }
 
     companion object {
+        val DEFAULT_PROGRESS = Progress.Data(
+            primary = R.string.corpsefinder_filter_appasec_label.toCaString(),
+            secondary = R.string.general_progress_loading.toCaString(),
+            count = Progress.Count.Indeterminate()
+        )
         val TAG: String = logTag("CorpseFinder", "Filter", "App", "Asec")
     }
 }
