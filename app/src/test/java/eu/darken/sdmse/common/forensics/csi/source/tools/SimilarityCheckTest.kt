@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.forensics.csi.source.tools
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
@@ -16,7 +15,7 @@ import testhelpers.BaseTest
 
 class SimilarityCheckTest : BaseTest() {
 
-    private val pkgRepo: PkgRepo = mockk<PkgRepo>()
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk<eu.darken.sdmse.common.pkgs.PkgRepo>()
 
     private val areaInfo = mockk<AreaInfo>().apply {
         every { prefix } returns "/abc"

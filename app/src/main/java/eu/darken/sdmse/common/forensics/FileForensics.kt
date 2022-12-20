@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -23,7 +22,7 @@ import javax.inject.Singleton
 class FileForensics @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext val context: Context,
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
     private val csiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,

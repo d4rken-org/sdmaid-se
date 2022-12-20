@@ -5,7 +5,6 @@ import android.os.Bundle
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -22,7 +21,7 @@ import testhelpers.BaseTest
 
 class ApkDirCheckTest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: PkgRepo
+    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
     @MockK lateinit var pkgOps: PkgOps
 
     @Before fun setup() {

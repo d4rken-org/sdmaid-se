@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.storage.StorageEnvironment
@@ -30,7 +29,7 @@ import javax.inject.Inject
 
 @Reusable
 class PrivateDataCSI @Inject constructor(
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
     private val pkgOps: PkgOps,
     private val areaManager: DataAreaManager,
     private val clutterRepo: ClutterRepo,

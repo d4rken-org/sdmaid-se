@@ -7,14 +7,13 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.getFirstDirElement
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import javax.inject.Inject
 
 
 @Reusable
 class SimilarityFilter @Inject constructor(
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
 ) {
 
     suspend fun filterFalsePositives(areaInfo: AreaInfo, toCheck: Collection<Owner>): Collection<Owner> {

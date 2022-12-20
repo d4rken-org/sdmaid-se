@@ -37,8 +37,22 @@
                 android:text="Enable trace mode" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/test_action"
+                android:id="@+id/areas_reload_action"
                 style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reload data areas" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pkgs_reload_action"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reload pkgs" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/test_action"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Run tests" />

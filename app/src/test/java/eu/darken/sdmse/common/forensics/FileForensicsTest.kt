@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.forensics
 import android.content.Context
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -22,7 +21,7 @@ import testhelpers.coroutine.runTest2
 class FileForensicsTest : BaseTest() {
 
     @MockK lateinit var context: Context
-    @MockK lateinit var pkgRepo: PkgRepo
+    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
     @MockK lateinit var csiProcessor: CSIProcessor
     @MockK lateinit var testAreaInfo: AreaInfo
     @MockK lateinit var gatewaySwitch: GatewaySwitch

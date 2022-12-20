@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.pkgs
 
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -35,10 +36,15 @@ class PkgRepo @Inject constructor(
             .onEach {
                 log(TAG) { "Refreshing package cache due to event: $it" }
                 cacheLock.withLock {
-                    pkgCache.value = generatePkgcache()
+                    reload()
                 }
             }
             .launchIn(appScope)
+    }
+
+    suspend fun reload() = cacheLock.withLock {
+        log(TAG) { "reload()" }
+        pkgCache.value = generatePkgcache()
     }
 
     private suspend fun generatePkgcache(): Map<Pkg.Id, CachedInfo> {
@@ -53,7 +59,10 @@ class PkgRepo @Inject constructor(
                     }
                     .flatten()
                     .distinctBy { it.id }
-                    .map { CachedInfo(id = it.id, data = it) }
+                    .map {
+                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Installed package: $it" }
+                        CachedInfo(id = it.id, data = it)
+                    }
                     .associateBy { it.id }
                     .also { log(TAG) { "Pkgs total: ${it.size}" } }
             }

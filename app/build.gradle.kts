@@ -138,6 +138,7 @@ dependencies {
     testImplementation(project(":app-common-test"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-io"))
+    implementation(project(":app-common-pkgs"))
 
     addDI()
     addCoroutines()

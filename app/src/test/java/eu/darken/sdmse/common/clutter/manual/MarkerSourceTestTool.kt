@@ -8,7 +8,6 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.NEG
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.POS
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
@@ -29,7 +28,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
 
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
-    private val pkgRepo: PkgRepo = mockk()
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk()
 
     private val testApps = mutableListOf<Installed>()
 

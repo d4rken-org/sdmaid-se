@@ -4,7 +4,6 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
@@ -19,7 +18,7 @@ import testhelpers.BaseTest
 
 class LuckyPatcherCheckTest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: PkgRepo
+    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
 
     @Before fun setup() {
         MockKAnnotations.init(this)

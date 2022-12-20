@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressSecondary
@@ -32,7 +31,7 @@ class ToSDCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
 

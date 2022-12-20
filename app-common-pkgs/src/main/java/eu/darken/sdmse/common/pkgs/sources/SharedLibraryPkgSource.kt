@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -50,11 +51,10 @@ class SharedLibraryPkgSource @Inject constructor(
                 )
             }
         log(TAG) { "Found ${libraryPkgs.size} library pkgs" }
-        log(TAG, VERBOSE) { libraryPkgs.joinToString { "$it\n" } }
+        log(TAG, VERBOSE) { libraryPkgs.joinToString("\n") }
 
         libraryPkgs
     }
-
 
     private fun SharedLibraryInfo.clawOutPath(): LocalPath? {
         val path = try {
@@ -63,7 +63,11 @@ class SharedLibraryPkgSource @Inject constructor(
             parcel.setDataPosition(0)
             val raw = String(parcel.marshall())
             parcel.recycle()
-            LIBRARY_PATH_CLAW.find(raw)?.groupValues?.getOrNull(1)
+            if (Bugs.isDebug) log(TAG, VERBOSE) { "Trying to claw: $raw" }
+            getClawPatterns(this.name).firstNotNullOfOrNull {
+                it.find(raw)?.groupValues?.getOrNull(1)
+            }
+
         } catch (e: Exception) {
             log(TAG) { "Library claw failed on $this: ${e.asLog()}" }
             null
@@ -78,7 +82,18 @@ class SharedLibraryPkgSource @Inject constructor(
     }
 
     companion object {
-        private val LIBRARY_PATH_CLAW = Regex("^.+(/data/.+?\\.apk).+\$")
+        private val LIBRARY_DATA_PATH_CLAW = Regex("^.+(/data/.+?\\.apk).+\$")
+        private val LIBRARY_PRODUCT_PATH_CLAW = Regex("^.+(/product/.+?\\.apk).+\$")
+        private val LIBRARY_GENERIC_PATH_CLAW = Regex("((?:/\\w+)+/.+\\.apk)")
+        internal fun getClawPatterns(pkgName: String): Set<Regex> {
+            return setOf(
+                Regex("((?:/\\w+)+/.+\\.apk)(?:\\W+#\\W+)(${Regex.escape(pkgName)})"),
+                LIBRARY_DATA_PATH_CLAW,
+                LIBRARY_PRODUCT_PATH_CLAW,
+                LIBRARY_GENERIC_PATH_CLAW,
+            )
+        }
+
         private val TAG = logTag("PkgRepo", "Source", "SharedLibrary")
     }
 }

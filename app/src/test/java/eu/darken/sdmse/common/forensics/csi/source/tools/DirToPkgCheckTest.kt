@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.forensics.csi.source.tools
 
 import eu.darken.sdmse.common.forensics.AreaInfo
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
@@ -17,7 +16,7 @@ import java.io.File
 
 class DirToPkgCheckTest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: PkgRepo
+    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
 
     @Before fun setup() {
         MockKAnnotations.init(this)

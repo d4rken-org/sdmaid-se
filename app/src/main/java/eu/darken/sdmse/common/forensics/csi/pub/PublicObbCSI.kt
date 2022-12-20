@@ -26,7 +26,6 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
 import javax.inject.Inject
@@ -34,7 +33,7 @@ import javax.inject.Inject
 @Reusable
 class PublicObbCSI @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
     private val areaManager: DataAreaManager,
     private val storageManager: StorageManager,
     private val gatewaySwitch: GatewaySwitch,

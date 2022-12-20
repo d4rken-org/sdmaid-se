@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.storage.StorageEnvironment
@@ -29,7 +28,7 @@ import testhelpers.BaseTest
 
 abstract class BaseCSITest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: PkgRepo
+    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
     @MockK lateinit var areaManager: DataAreaManager
     @MockK lateinit var clutterRepo: ClutterRepo
     @MockK lateinit var storageManager: StorageManager
@@ -47,6 +46,7 @@ abstract class BaseCSITest : BaseTest() {
         }
         coEvery { clutterRepo.match(any(), any()) } returns emptySet()
         coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
+        coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { userManager2.currentUser } returns UserHandle2(0)
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 

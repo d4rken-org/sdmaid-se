@@ -10,14 +10,13 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
 class LuckyPatcherCheck @Inject constructor(
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {

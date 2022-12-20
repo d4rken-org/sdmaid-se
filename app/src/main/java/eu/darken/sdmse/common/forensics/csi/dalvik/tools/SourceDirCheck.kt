@@ -4,13 +4,12 @@ import dagger.Reusable
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import javax.inject.Inject
 
 @Reusable
 class SourceDirCheck @Inject constructor(
-    private val pkgRepo: PkgRepo
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
 ) : DalvikCheck {
 
     suspend fun check(candidates: Collection<LocalPath>): DalvikCheck.Result {

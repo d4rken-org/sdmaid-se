@@ -4,7 +4,6 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -20,7 +19,7 @@ class DirNameCheckTest : BaseTest() {
         every { type } returns DataArea.Type.DALVIK_PROFILE
         every { prefixFreePath } returns testPkgId.name
     }
-    private val pkgRepo: PkgRepo = mockk<PkgRepo>().apply {
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk<eu.darken.sdmse.common.pkgs.PkgRepo>().apply {
         coEvery { isInstalled(any()) } returns false
     }
 

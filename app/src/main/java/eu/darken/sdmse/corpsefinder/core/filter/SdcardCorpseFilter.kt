@@ -25,7 +25,6 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
@@ -40,7 +39,7 @@ class SdcardCorpseFilter @Inject constructor(
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: PkgRepo,
+    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
