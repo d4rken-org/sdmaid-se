@@ -20,12 +20,16 @@ class DebugCardVH(parent: ViewGroup) :
             isChecked = item.isTraceEnabled
             setOnCheckedChangeListener { _, isChecked -> item.onTraceEnabled(isChecked) }
         }
+        pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }
+        areasReloadAction.setOnClickListener { item.onReloadAreas() }
         testAction.setOnClickListener { item.onRunTest() }
     }
 
     data class Item(
         val isTraceEnabled: Boolean,
         val onTraceEnabled: (Boolean) -> Unit,
+        val onReloadAreas: () -> Unit,
+        val onReloadPkgs: () -> Unit,
         val onRunTest: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

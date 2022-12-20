@@ -6,17 +6,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.autoreport.DebugSettings
-import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.randomString
-import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -38,37 +32,12 @@ class DashboardFragmentVM @Inject constructor(
     private val taskManager: TaskManager,
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
-    private val debugSettings: DebugSettings,
-    private val gatewaySwitch: GatewaySwitch,
-    private val safMapper: SAFMapper,
+    private val debugCardProvider: DebugCardProvider,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(randomString())
     private var isSetupDismissed = false
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
-
-    private val debugItem = combine(
-        debugSettings.isDebugMode.flow,
-        debugSettings.isTraceMode.flow
-    ) { isDebug, isTrace ->
-        if (!isDebug) return@combine null
-        DebugCardVH.Item(
-            isTraceEnabled = isTrace,
-            onTraceEnabled = { debugSettings.isTraceMode.valueBlocking = it },
-            onRunTest = {
-                launch {
-                    val path = LocalPath.build("/storage/emulated/0/")
-                    path.walk(
-                        gatewaySwitch,
-                        filter = { item -> item.segments.size <= 4 + path.segments.size }
-                    )
-                        .collectLatest {
-                            log { "# PATH: $it" }
-                        }
-                }
-            }
-        )
-    }
 
     private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
         corpseFinder.data,
@@ -111,7 +80,7 @@ class DashboardFragmentVM @Inject constructor(
         }
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = combine(
-        debugItem,
+        debugCardProvider.create(this),
         setupManager.state,
         dataAreaInfo,
         corpseFinderItem,
