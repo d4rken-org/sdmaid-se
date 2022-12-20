@@ -37,15 +37,29 @@ class DalvikCandidateGenerator @Inject constructor(
         val newSourcePaths = HashSet<LocalPath>()
         val currentAreas = areaManager.currentAreas()
 
-        for (area in currentAreas.filter { it.type == DataArea.Type.APP_APP }) {
-            newSourcePaths.add(area.path as LocalPath)
-        }
-        for (area in currentAreas.filter { it.type == DataArea.Type.SYSTEM_APP }) {
-            newSourcePaths.add(area.path as LocalPath)
-        }
-        for (area in currentAreas.filter { it.type == DataArea.Type.SYSTEM }) {
-            newSourcePaths.add(LocalPath.build(area.path as LocalPath, "framework"))
-        }
+        currentAreas
+            .filter { it.type == DataArea.Type.APP_APP }
+            .map { it.path }
+            .filterIsInstance<LocalPath>()
+            .forEach { newSourcePaths.add(it) }
+
+        currentAreas
+            .filter { it.type == DataArea.Type.SYSTEM_APP }
+            .map { it.path }
+            .filterIsInstance<LocalPath>()
+            .forEach { newSourcePaths.add(it) }
+
+        currentAreas
+            .filter { it.type == DataArea.Type.APEX }
+            .map { it.path }
+            .filterIsInstance<LocalPath>()
+            .forEach { newSourcePaths.add(it) }
+
+        currentAreas
+            .filter { it.type == DataArea.Type.SYSTEM }
+            .map { it.path }
+            .filterIsInstance<LocalPath>()
+            .forEach { newSourcePaths.add(LocalPath.build(it, "framework")) }
 
         return newSourcePaths.also {
             _sourceAreas = it
@@ -87,10 +101,34 @@ class DalvikCandidateGenerator @Inject constructor(
         return result
     }
 
-    private fun fileNameToPath(fileName: String): LocalPath {
-        var pathFromName = fileName.replace("@", File.separator)
-        if (!pathFromName.startsWith("/")) pathFromName = File.separator + pathFromName
-        return LocalPath.build(pathFromName)
+    private fun fileNameToPathVariants(fileName: String): Collection<LocalPath> {
+        val variants = mutableSetOf<LocalPath>()
+
+        fileName.replace("@", File.separator)
+            .let { if (!it.startsWith("/")) File.separator + it else it }
+            .let { variants.add(LocalPath.build(it)) }
+
+        /**
+         * apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk
+         * to
+         * /apex/com.android.permission/priv-app/GooglePermissionController@M_2022_06/GooglePermissionController.apk
+         */
+        MODDATE_PART1.findAll(fileName).lastOrNull()
+            ?.let { it.groupValues[1] }
+            ?.let {
+                try {
+                    Regex("@$it@(\\w+)@$it")
+                } catch (e: Exception) {
+                    null
+                }
+            }
+            ?.find(fileName)
+            ?.let { it.groupValues[1] }
+            ?.let { fileName.replace("@", File.separator).replace(File.separatorChar + it, "@$it") }
+            ?.let { if (!it.startsWith("/")) File.separator + it else it }
+            ?.let { variants.add(LocalPath.build(it)) }
+
+        return variants
     }
 
     suspend fun getCandidates(dexFile: LocalPath): Collection<LocalPath> {
@@ -99,72 +137,88 @@ class DalvikCandidateGenerator @Inject constructor(
 
         // Dex file contains the direct path
         // system@framework@boot.oat -> /system/framework/boot.oat
-        val nameAsPath: LocalPath = fileNameToPath(dexFile.name)
-        candidates.add(nameAsPath)
+        candidates.addAll(fileNameToPathVariants(dexFile.name))
 
         // data@app@com.test.apk@classes.dex -> /data/app/com.test.apk
-        val pathWithoutPostFix: LocalPath = fileNameToPath(removePostFix(dexFile.name, false))
-        candidates.add(pathWithoutPostFix)
-
-        // data@app@com.test.apk@classes.dex -> /data/app/com.test
-        val pathWithoutExtension: LocalPath = fileNameToPath(removePostFix(dexFile.name, true))
-        for (ext in SOURCE_EXTENSIONS) {
-            candidates.add(LocalPath.build(pathWithoutExtension.parent()!!, pathWithoutExtension.name + ext))
-        }
+        val pathsWithoutPostFix = fileNameToPathVariants(removePostFix(dexFile.name, false))
+        candidates.addAll(pathsWithoutPostFix)
 
         // Account for architecture in direct and indirect matches
         // /data/dalvik-cache/x86/system@framework@boot.oat -> /system/framework/x86/boot.oat
-        for (folder in architecture.folderNames) {
-            val argFolder = File.separator + folder + File.separator
-            if (dexFile.path.contains(argFolder)) {
-                candidates.add(
-                    LocalPath.build(pathWithoutPostFix.parent()!!, argFolder, pathWithoutPostFix.name)
-                )
-                // Do this for all storages
-                for (parent in getSourcePaths()) {
+        pathsWithoutPostFix.forEach { pathWithoutPostFix ->
+            architecture.folderNames.forEach { folder ->
+                val argFolder = File.separator + folder + File.separator
+                if (dexFile.path.contains(argFolder)) {
                     candidates.add(
-                        LocalPath.build(parent, argFolder, pathWithoutPostFix.name)
+                        LocalPath.build(pathWithoutPostFix.parent()!!, argFolder, pathWithoutPostFix.name)
                     )
+                    // Do this for all storages
+                    getSourcePaths().forEach { parent ->
+                        candidates.add(
+                            LocalPath.build(parent, argFolder, pathWithoutPostFix.name)
+                        )
+                    }
                 }
             }
         }
 
-        // Source has different extension
-        for (parent in getSourcePaths()) {
-            // Target has a direct name match on a different location
-            candidates.add(LocalPath.build(parent, dexFile.name))
-            // We have something like test.apk@classes.dex and a possible direct match, just different storage
-            candidates.add(LocalPath.build(parent, pathWithoutPostFix.name))
-            // Webview.apk@classes.dex -> Webview/base.apk
-            candidates.add(LocalPath.build(parent, pathWithoutExtension.name + File.separator + "base.apk"))
-            // Webview.dex -> Webview/Webview.apk
-            candidates.add(
-                LocalPath.build(
-                    parent,
-                    pathWithoutExtension.name + File.separator + pathWithoutPostFix.name
-                )
-            )
-            for (extension in SOURCE_EXTENSIONS) {
-                candidates.add(LocalPath.build(parent, pathWithoutExtension.name + extension))
+        // data@app@com.test.apk@classes.dex -> /data/app/com.test
+        val pathsWithoutExtension = fileNameToPathVariants(removePostFix(dexFile.name, true))
+        pathsWithoutExtension.forEach {
+            for (ext in SOURCE_EXTENSIONS) {
+                candidates.add(LocalPath.build(it.parent()!!, it.name + ext))
             }
         }
+        pathsWithoutPostFix.forEach { pathWithoutPostFix ->
+            pathsWithoutExtension.forEach { pathWithoutExtension ->
+                // Source has different extension
+                getSourcePaths().forEach { parent ->
+                    // Target has a direct name match on a different location
+                    candidates.add(LocalPath.build(parent, dexFile.name))
+                    // We have something like test.apk@classes.dex and a possible direct match, just different storage
+                    candidates.add(LocalPath.build(parent, pathWithoutPostFix.name))
+                    // Webview.apk@classes.dex -> Webview/base.apk
+                    candidates.add(LocalPath.build(parent, pathWithoutExtension.name + File.separator + "base.apk"))
+                    // Webview.dex -> Webview/Webview.apk
+                    candidates.add(
+                        LocalPath.build(
+                            parent,
+                            pathWithoutExtension.name + File.separator + pathWithoutPostFix.name
+                        )
+                    )
+                    SOURCE_EXTENSIONS.forEach { extension ->
+                        candidates.add(LocalPath.build(parent, pathWithoutExtension.name + extension))
+                    }
+                }
+            }
+        }
+
+        val cleaned = candidates.filter { it.path[0] == File.separatorChar }
+
         val stop = System.currentTimeMillis()
         if (Bugs.isTrace) {
             log(TAG) { "Generation time: ${stop - start}" }
-            for (p in candidates) log(TAG, VERBOSE) { "Potential parent: $p" }
+            for (p in cleaned) log(TAG, VERBOSE) { "Potential parent: $p" }
         }
-        return candidates
+        return cleaned
     }
 
     companion object {
         val TAG: String = logTag("CSI", "Dalvik", "Dex", "CandidateGenerator")
 
+        /**
+         * apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk@classes.vdex
+         * to
+         * GooglePermissionController
+         */
+        private val MODDATE_PART1 = Regex("@(\\w+)(?:\\.\\w+)?$")
         private val POSTFIX_EXTENSIONS = arrayOf(
             "@classes.dex",
             "@classes.odex",
             "@classes.dex.art",
             "@classes.oat",
-            "@classes.vdex"
+            "@classes.vdex",
+            "@classes.art",
         )
         private val DEX_EXTENSIONS = arrayOf(
             ".dex",

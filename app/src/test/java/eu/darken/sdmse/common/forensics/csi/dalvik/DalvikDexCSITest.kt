@@ -6,6 +6,8 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
+import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -95,7 +97,7 @@ class CSIDalvikDexTest : BaseCSITest() {
                     storageDalvikProfileX641,
                     storageDalvikProfileX862,
                     storageDalvikProfileX642,
-                    storageVendor
+                    storageVendor,
                 )
             )
         )
@@ -163,245 +165,252 @@ class CSIDalvikDexTest : BaseCSITest() {
             processor.identifyArea(LocalPath.build(base, "/something64", randomString())) shouldBe null
         }
     }
-//
-//    @Test fun testProcess_hit() {
-//        val packageName = "com.test.pkg"
-//        for (base in dalviks) {
-//            val targets: Collection<Pair<out SDMFile?, out SDMFile?>> = Arrays.asList(
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-1.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-1.apk@classes.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/mnt/expand/uuid/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "mnt@expand@uuid@app@com.test.pkg-12.apk@classes.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.odex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.dex.art")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.oat")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.odex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.oat")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
-//                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.vdex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/system/framework/com.test.pkg-2.apk"),
-//                    LocalPath.build(base, "system@framework@com.test.pkg-2.jar@classes.odex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/system/app/com.test.pkg-2.jar"),
-//                    LocalPath.build(base, "system@app@com.test.pkg-2.apk@classes.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/system/app/Wallet/Wallet.apk"),
-//                    LocalPath.build(base, "system@app@Wallet@Wallet.apk@classes.dex")
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/system/priv-app/NetworkRecommendation/NetworkRecommendation.apk"),
-//                    LocalPath.build(base, "/system@priv-app@NetworkRecommendation@NetworkRecommendation.apk@classes.dex")
-//                        
-//                ),
-//                Pair<F, S>(
-//                    LocalPath.build("/system/priv-app/NetworkRecommendation/NetworkRecommendation.apk"),
-//                    LocalPath.build(base, "/system@priv-app@NetworkRecommendation@NetworkRecommendation.apk@classes.vdex")
-//                        
-//                )
-//            )
-//            for (toHit in targets) {
-//                setupApp(packageName, toHit.first)
-//                val locationInfo: LocationInfo = csiModule.matchLocation(toHit.second)
-//                val ownerInfo = OwnerInfo(locationInfo)
-//                csiModule.process(ownerInfo)
-//                ownerInfo.checkOwnerState(fileForensics)
-//                MatcherAssert.assertThat(
-//                    toHit.second.toString() + " doesn't match " + toHit.first.toString(),
-//                    ownerInfo.isCurrentlyOwned(),
-//                    Is.`is`(true)
-//                )
-//                assertEquals(1, ownerInfo.getOwners().size())
-//                assertEquals(packageName, ownerInfo.getOwners().get(0).getPackageName())
-//            }
-//        }
-//    }
-//
-//    @Test fun testProcess_hit_unknown_owner() {
-//        val packageName = "com.test.pkg"
-//        val targets: MutableCollection<Pair<out SDMFile?, out SDMFile?>> = ArrayList<Pair<out SDMFile?, out SDMFile?>>()
-//        for (base in dalviksX86) {
-//            targets.addAll(
-//                Arrays.asList(
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x86/boot.art"),
-//                        LocalPath.build(base, "system@framework@boot.art")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x86/boot.oat"),
-//                        LocalPath.build(base, "system@framework@boot.oat")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x86/boot-framework.art"),
-//                        LocalPath.build(base, "system@framework@boot-framework.art")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x86/boot-framework.oat"),
-//                        LocalPath.build(base, "system@framework@boot-framework.oat")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x86/boot-framework.vdex"),
-//                        LocalPath.build(base, "system@framework@boot-framework.vdex")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/serviceitems.jar"),
-//                        LocalPath.build(base, "system@framework@serviceitems.jar@classes.dex")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/settings.jar"),
-//                        LocalPath.build(base, "system@framework@settings.jar@classes.dex")
-//                    )
-//                )
-//            )
-//        }
-//        for (base in dalviksX64) {
-//            targets.addAll(
-//                Arrays.asList(
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x64/boot.art"),
-//                        LocalPath.build(base, "system@framework@boot.art")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x64/boot.oat"),
-//                        LocalPath.build(base, "system@framework@boot.oat")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x64/boot-framework.art"),
-//                        LocalPath.build(base, "system@framework@boot-framework.art")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x64/boot-framework.oat"),
-//                        LocalPath.build(base, "system@framework@boot-framework.oat")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/x64/boot-framework.vdex"),
-//                        LocalPath.build(base, "system@framework@boot-framework.vdex")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/serviceitems.jar"),
-//                        LocalPath.build(base, "system@framework@serviceitems.jar@classes.dex")
-//                    ),
-//                    Pair<F, S>(
-//                        LocalPath.build("/system/framework/settings.jar"),
-//                        LocalPath.build(base, "system@framework@settings.jar@classes.dex")
-//                    )
-//                )
-//            )
-//        }
-//        for (toHit in targets) {
-//            setupApp(packageName, toHit.first)
-//            val locationInfo: LocationInfo = csiModule.matchLocation(toHit.second)
-//            val ownerInfo = OwnerInfo(locationInfo)
-//            csiModule.process(ownerInfo)
-//            ownerInfo.checkOwnerState(fileForensics)
-//            MatcherAssert.assertThat(
-//                toHit.second.toString() + " doesn't match " + toHit.first.toString(),
-//                ownerInfo.isCurrentlyOwned(),
-//                Is.`is`(true)
-//            )
-//        }
-//    }
-//
-//    @Test fun testProcess_hit_child() {}
-//    @Test fun testProcess_hit_default_unknowns() {
-//        val packageName = "com.test.pkg"
-//        for (base in dalviks) {
-//            val targets: Collection<Pair<out SDMFile?, out SDMFile?>> = listOf(
-//                Pair<F, S>(LocalPath.build(""), LocalPath.build(base, "minimode.dex"))
-//            )
-//            for (toHit in targets) {
-//                setupApp(packageName, toHit.first)
-//                val locationInfo: LocationInfo = csiModule.matchLocation(toHit.second)
-//                val ownerInfo = OwnerInfo(locationInfo)
-//                csiModule.process(ownerInfo)
-//                ownerInfo.checkOwnerState(fileForensics)
-//                Assert.assertTrue(toHit.first.toString(), ownerInfo.isCurrentlyOwned())
-//            }
-//        }
-//    }
-//
-//    @Test fun testProcess_hit_custom_apk() {
-//        val packageInfo: SDMPkgInfo = Mockito.mock(SDMPkgInfo::class.java)
-//        Mockito.`when`(packageInfo.getPackageName()).thenReturn("eu.thedarken.sdm.test")
-//        setupApp(packageInfo.getPackageName(), null)
-//        for (base in dalviks) {
-//            val apk: SDMFile = LocalPath.build("/data/app/test-2.apk")
-//            val target: SDMFile = LocalPath.build(base, "data@app@test-2.apk@classes.dex")
-//            Mockito.`when`(ipcFunnel.submit(ArgumentMatchers.any(IPCFunnel.ArchiveQuery::class.java)))
-//                .thenAnswer(label@ Answer { invocation: InvocationOnMock ->
-//                    val query: IPCFunnel.ArchiveQuery = invocation.getArgument(0)
-//                    if (query.getPath().equals(apk.getPath())) return@label packageInfo
-//                    null
-//                } as Answer<SDMPkgInfo?>)
-//            val locationInfo: LocationInfo = csiModule.matchLocation(target)
-//            val ownerInfo = OwnerInfo(locationInfo)
-//            csiModule.process(ownerInfo)
-//            ownerInfo.checkOwnerState(fileForensics)
-//            MatcherAssert.assertThat(ownerInfo.toString(), ownerInfo.isCurrentlyOwned(), Is.`is`(true))
-//            assertEquals(1, ownerInfo.getOwners().size())
-//            assertEquals(packageInfo.getPackageName(), ownerInfo.getOwners().get(0).getPackageName())
-//        }
-//    }
-//
-//    @Test fun testProcess_clutter_hit() {
-//        val packageName = "com.test.pkg"
-//        setupApp(packageName, null)
-//        val prefixFree = randomString()
-//        addMarker(packageName, Location.DALVIK_DEX, prefixFree)
-//        for (base in dalviks) {
-//            val toHit: SDMFile = LocalPath.build(base, prefixFree)
-//            val locationInfo: LocationInfo = csiModule.matchLocation(toHit)
-//            Assert.assertNotNull(locationInfo)
-//            assertEquals(base.getPath() + File.separator, locationInfo.getPrefix())
-//            val ownerInfo = OwnerInfo(locationInfo)
-//            csiModule.process(ownerInfo)
-//            ownerInfo.checkOwnerState(fileForensics)
-//            assertEquals(1, ownerInfo.getOwners().size())
-//            assertEquals(packageName, ownerInfo.getOwners().get(0).getPackageName())
-//            Assert.assertTrue(ownerInfo.isCurrentlyOwned())
-//        }
-//    }
-//
-//    @Test fun testProcess_nothing() {
-//        for (base in dalviks) {
-//            val testFile1: SDMFile = LocalPath.build(base, randomString())
-//            val locationInfo1: LocationInfo = csiModule.matchLocation(testFile1)
-//            val ownerInfo1 = OwnerInfo(locationInfo1)
-//            csiModule.process(ownerInfo1)
-//            ownerInfo1.checkOwnerState(fileForensics)
-//            Assert.assertTrue(ownerInfo1.isCorpse())
-//            Assert.assertFalse(ownerInfo1.isCurrentlyOwned())
-//        }
-//    }
+
+    @Test fun testProcess_hit() = runTest {
+        val packageName = "com.test.pkg".toPkgId()
+        for (base in dalviks) {
+            val targets: Collection<Pair<LocalPath, LocalPath>> = listOf(
+                Pair(
+                    LocalPath.build("/apex/com.android.permission/priv-app/GooglePermissionController@M_2022_06/GooglePermissionController.apk"),
+                    LocalPath.build(
+                        base,
+                        "/data/dalvik-cache/arm64/apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk@classes.vdex"
+                    )
+                ),
+                Pair(
+                    LocalPath.build("/apex/com.android.permission/priv-app/GooglePermissionController@M_2022_06/GooglePermissionController.apk"),
+                    LocalPath.build(
+                        base,
+                        "/data/dalvik-cache/arm64/apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk@classes.art"
+                    )
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-1.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-1.apk@classes.dex")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.dex")
+                ),
+                Pair(
+                    LocalPath.build("/mnt/expand/uuid/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "mnt@expand@uuid@app@com.test.pkg-12.apk@classes.dex")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.odex")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.dex.art")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk@classes.oat")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.dex")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.odex")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.oat")
+                ),
+                Pair(
+                    LocalPath.build("/data/app/com.test.pkg-12.apk"),
+                    LocalPath.build(base, "data@app@com.test.pkg-12.apk.vdex")
+                ),
+                Pair(
+                    LocalPath.build("/system/framework/com.test.pkg-2.apk"),
+                    LocalPath.build(base, "system@framework@com.test.pkg-2.jar@classes.odex")
+                ),
+                Pair(
+                    LocalPath.build("/system/app/com.test.pkg-2.jar"),
+                    LocalPath.build(base, "system@app@com.test.pkg-2.apk@classes.dex")
+                ),
+                Pair(
+                    LocalPath.build("/system/app/Wallet/Wallet.apk"),
+                    LocalPath.build(base, "system@app@Wallet@Wallet.apk@classes.dex")
+                ),
+                Pair(
+                    LocalPath.build("/system/priv-app/NetworkRecommendation/NetworkRecommendation.apk"),
+                    LocalPath.build(
+                        base,
+                        "/system@priv-app@NetworkRecommendation@NetworkRecommendation.apk@classes.dex"
+                    )
+
+                ),
+                Pair(
+                    LocalPath.build("/system/priv-app/NetworkRecommendation/NetworkRecommendation.apk"),
+                    LocalPath.build(
+                        base,
+                        "/system@priv-app@NetworkRecommendation@NetworkRecommendation.apk@classes.vdex"
+                    )
+                ),
+            )
+
+            targets.forEach {
+                coEvery { gatewaySwitch.exists(it.first) } returns true
+            }
+
+            val processor = getProcessor()
+
+            for (toHit in targets) {
+                mockPkg(packageName, toHit.first)
+                val areaInfo = processor.identifyArea(toHit.second)!!.apply {
+                    type shouldBe DataArea.Type.DALVIK_DEX
+                }
+                processor.findOwners(areaInfo).apply {
+                    owners.first().pkgId shouldBe packageName
+                }
+            }
+        }
+    }
+
+    @Test fun testProcess_hit_unknown_owner() = runTest {
+        val packageName = "com.test.pkg".toPkgId()
+        val targets = mutableListOf<Pair<LocalPath, LocalPath>>()
+        for (base in dalviksX86) {
+            targets.addAll(
+                listOf(
+                    Pair(
+                        LocalPath.build("/system/framework/x86/boot.art"),
+                        LocalPath.build(base, "system@framework@boot.art")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x86/boot.oat"),
+                        LocalPath.build(base, "system@framework@boot.oat")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x86/boot-framework.art"),
+                        LocalPath.build(base, "system@framework@boot-framework.art")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x86/boot-framework.oat"),
+                        LocalPath.build(base, "system@framework@boot-framework.oat")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x86/boot-framework.vdex"),
+                        LocalPath.build(base, "system@framework@boot-framework.vdex")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/serviceitems.jar"),
+                        LocalPath.build(base, "system@framework@serviceitems.jar@classes.dex")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/settings.jar"),
+                        LocalPath.build(base, "system@framework@settings.jar@classes.dex")
+                    )
+                )
+            )
+        }
+        for (base in dalviksX64) {
+            targets.addAll(
+                listOf(
+                    Pair(
+                        LocalPath.build("/system/framework/x64/boot.art"),
+                        LocalPath.build(base, "system@framework@boot.art")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x64/boot.oat"),
+                        LocalPath.build(base, "system@framework@boot.oat")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x64/boot-framework.art"),
+                        LocalPath.build(base, "system@framework@boot-framework.art")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x64/boot-framework.oat"),
+                        LocalPath.build(base, "system@framework@boot-framework.oat")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/x64/boot-framework.vdex"),
+                        LocalPath.build(base, "system@framework@boot-framework.vdex")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/serviceitems.jar"),
+                        LocalPath.build(base, "system@framework@serviceitems.jar@classes.dex")
+                    ),
+                    Pair(
+                        LocalPath.build("/system/framework/settings.jar"),
+                        LocalPath.build(base, "system@framework@settings.jar@classes.dex")
+                    )
+                )
+            )
+        }
+        targets.forEach {
+            coEvery { gatewaySwitch.exists(it.first) } returns true
+        }
+
+        val processor = getProcessor()
+
+        for (toHit in targets) {
+            mockPkg(packageName, toHit.first)
+            val areaInfo = processor.identifyArea(toHit.second)!!.apply {
+                type shouldBe DataArea.Type.DALVIK_DEX
+            }
+            processor.findOwners(areaInfo).apply {
+                owners.first().pkgId shouldBe packageName
+            }
+        }
+    }
+
+    @Test fun testProcess_hit_custom_apk() = runTest {
+        val pkgId = "eu.thedarken.sdm.test".toPkgId()
+
+        val processor = getProcessor()
+
+        for (base in dalviks) {
+            val apk = LocalPath.build("/data/app/test-2.apk")
+            val apkArchive = mockk<ApkInfo>().apply {
+                every { id } returns pkgId
+            }
+            coEvery { pkgOps.viewArchive(apk, 0) } returns apkArchive
+
+            val target = LocalPath.build(base, "data@app@test-2.apk@classes.dex")
+
+            val areaInfo = processor.identifyArea(target)!!.apply {
+                type shouldBe DataArea.Type.DALVIK_DEX
+            }
+            processor.findOwners(areaInfo).apply {
+                owners.first().pkgId shouldBe pkgId
+            }
+        }
+    }
+
+    @Test fun testProcess_clutter_hit() = runTest {
+        val packageName = "com.test.pkg".toPkgId()
+        mockPkg(packageName)
+
+        val prefixFree = randomString()
+        mockMarker(packageName, DataArea.Type.DALVIK_DEX, prefixFree)
+
+        val processor = getProcessor()
+
+        for (base in dalviks) {
+            val areaInfo = processor.identifyArea(LocalPath.build(base, prefixFree))!!.apply {
+                type shouldBe DataArea.Type.DALVIK_DEX
+            }
+            processor.findOwners(areaInfo).apply {
+                owners.first().pkgId shouldBe packageName
+            }
+        }
+    }
+
+    @Test fun testProcess_nothing() = runTest {
+        val processor = getProcessor()
+        for (base in dalviks) {
+            val testFile = LocalPath.build(base, randomString())
+            val areaInfo = processor.identifyArea(testFile)!!.apply {
+                type shouldBe DataArea.Type.DALVIK_DEX
+            }
+            processor.findOwners(areaInfo).apply {
+                owners shouldBe emptySet()
+            }
+        }
+    }
 }

@@ -71,12 +71,12 @@ class FileForensics @Inject constructor(
 
         val timeForProcessing = System.currentTimeMillis() - startFindingOwner
 
-        if (Bugs.isDebug) {
+        if (Bugs.isTrace) {
             time += timeForProcessing
             count++
             val avg = time / count
             log(TAG, VERBOSE) { "Processing: ${timeForProcessing}ms, avg. ${avg}ms ($areaInfo)" }
-            for (own in ownerInfo.owners) log(TAG, VERBOSE) { "Matched $areaInfo to ${own.pkgId}" }
+            for (own in ownerInfo.owners) log(TAG, VERBOSE) { "Matched ${areaInfo.file} to ${own.pkgId}" }
             if (ownerInfo.hasUnknownOwner) log(TAG, VERBOSE) { "$areaInfo has an unknown Owner" }
         }
 
