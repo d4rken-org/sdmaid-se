@@ -34,7 +34,9 @@ class DebugCardProvider @Inject constructor(
                 vm.launch { dataAreaManager.reload() }
             },
             onReloadPkgs = {
-                vm.launch { pkgRepo.reload() }
+                vm.launch {
+                    pkgRepo.reload()
+                }
             },
             onRunTest = {
                 vm.launch {

@@ -20,6 +20,7 @@ class DataAreaFactory @Inject constructor(
 ) {
 
     suspend fun build(): Collection<DataArea> {
+        log(TAG) { "build()" }
         val leases = setOf(pkgOps, gatewaySwitch).map { it.sharedResource.get() }
 
         val firstPass = areaModules.map { it.firstPass() }.flatten()

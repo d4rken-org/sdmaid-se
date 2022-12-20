@@ -65,6 +65,8 @@ data class DataArea(
         @Json(name = "SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
         @Json(name = "OEM") OEM("OEM"),
 
+        @Json(name = "APEX") APEX("APEX"),
+
         ;
 
         companion object {
