@@ -1,0 +1,411 @@
+package eu.darken.sdmse.corpsefinder.core.filter
+
+import dagger.Reusable
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.files.core.local.LocalGateway
+import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.forensics.Owner
+import eu.darken.sdmse.common.forensics.OwnerInfo
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.corpsefinder.core.Corpse
+import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
+import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import kotlinx.coroutines.flow.*
+import java.util.regex.Pattern
+import javax.inject.Inject
+
+@Reusable
+class ToSDCorpseFilter @Inject constructor(
+    private val areaManager: DataAreaManager,
+    private val gatewaySwitch: GatewaySwitch,
+    private val fileForensics: FileForensics,
+    private val corpseFinderSettings: CorpseFinderSettings,
+    private val pkgRepo: PkgRepo,
+) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
+
+
+    override suspend fun doScan(): Collection<Corpse> {
+        if (!corpseFinderSettings.filterAppToSdEnabled.value()) {
+            log(TAG) { "Filter is disabled" }
+            return emptyList()
+        }
+        log(TAG) { "Scanning..." }
+
+        val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+
+        if (!gateway.hasRoot()) {
+            log(TAG, INFO) { "LocalGateway has no root, skipping public data on Android 13" }
+            return emptySet()
+        }
+
+        val areas = areaManager.currentAreas()
+
+        val results = mutableSetOf<Corpse>()
+        results.addAll(digPublicData(areas))
+        results.addAll(digPublicObb(areas))
+        results.addAll(digDalvikProfile(areas))
+        results.addAll(digDalvikCache(areas))
+        results.addAll(digPrivateData(areas))
+        results.addAll(digApkData(areas))
+        results.addAll(digLibraryData(areas))
+        return results
+    }
+
+    private suspend fun Collection<DataArea>.getCandidates(
+        areaType: DataArea.Type,
+        vararg segments: String
+    ): Collection<APath> = this
+        .asFlow()
+        .filter { it.type == areaType }
+        .map {
+            updateProgressSecondary(R.string.general_progress_searching)
+            it.path.child(*segments)
+        }
+        .filter { it.exists(gatewaySwitch) }
+        .map {
+            log(TAG) { "Searching: $it" }
+            it.listFiles(gatewaySwitch)
+        }
+        .toList()
+        .flatten()
+
+    /**
+     * Public data
+     * Link2SD
+     * /storage/emulated/0/Android/data/some.app > /data/sdext2/Link2SD/bind/data/some.app
+     * /storage/emulated/0/Android/data/some.app > /storage/sdcard1/Link2SD/bind/data/some.app
+     * Apps2SD:
+     * /storage/emulated/0/Android/data/some.app > /data/sdext2/Android/data/some.app
+     * /storage/emulated/0/Android/data/some.app > /storage/sdcard1/Apps2SD/Android/data/some.app
+     */
+    private suspend fun digPublicData(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD public data." }
+
+        val candidates = mutableSetOf<APath>()
+
+        candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Link2SD", "bind", "data"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Link2SD", "bind", "data"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Apps2SD", "Android", "data"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Android", "data"))
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .map { areaInfo ->
+                val dirPkg = areaInfo.file.name.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+    /**
+     * Obb data
+     * Link2SD
+     * /storage/emulated/0/Android/obb/some.app > /storage/sdcard1/Link2SD/bind/obb/some.app
+     * /storage/emulated/0/Android/obb/some.app > /data/sdext2/Link2SD/bind/obb/some.app
+     * Apps2SD
+     * /storage/emulated/0/Android/obb/some.app > /storage/sdcard1/Apps2SD/Android/obb/some.app
+     * /storage/emulated/0/Android/obb/some.app > /data/sdext2/Android/obb/some.app
+     */
+    private suspend fun digPublicObb(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD public obb." }
+
+        val candidates = mutableSetOf<APath>()
+
+        candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Link2SD", "bind", "obb"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Link2SD", "bind", "obb"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Apps2SD", "Android", "obb"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Android", "obb"))
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .map { areaInfo ->
+                val dirPkg = areaInfo.file.name.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+    /**
+     * Dalvik-Cache
+     * /data/dalvik-cache/profiles/some.app is ignored by both Link2SD and Apps2SD.
+     */
+    private fun digDalvikProfile(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD dalvik-profile." }
+        return emptySet()
+    }
+
+    /**
+     * Dalvik-Cache
+     * Link2SD
+     * /data/dalvik-cache/arm/some.app-1.odex > /data/sdext2/dalvik-cache/arm/some.app-1.odex
+     * /data/dalvik-cache/arm64/some.app-1.odex > /data/sdext2/dalvik-cache/arm64/some.app-1.odex
+     * Apps2SD
+     * /data/dalvik-cache/arm/some.app-1.odex > /data/sdext2/dalvik-cache/some.app-1.odex
+     */
+    private suspend fun digDalvikCache(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD dalvik-cache." }
+
+        val candidates = mutableSetOf<APath>()
+
+        // TODO Support x86?
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "dalvik-cache", "arm"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "dalvik-cache", "arm64"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "dalvik-cache"))
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { areaInfo ->
+                val fileName: String = areaInfo.file.name
+                val matcher = DALVIK_MATCHER.matcher(fileName)
+                if (!matcher.matches()) return@mapNotNull null
+
+                val dirPkg = matcher.group(1)!!.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .filter { ownerInfo ->
+                val fileName = ownerInfo.item.name
+                var nameToPath = fileName.replace("@classes.dex", "")
+                nameToPath = nameToPath.replace("@classes.odex", "")
+                nameToPath = nameToPath.replace("@classes.dex.art", "")
+                nameToPath = nameToPath.replace("@classes.oat", "")
+                val file = ownerInfo.item.child(*nameToPath.split("@").toTypedArray())
+
+                val exists = file.exists(gatewaySwitch)
+                if (exists) log(TAG) { "File exists: $file for $ownerInfo" }
+                exists
+            }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+    /**
+     * Private data - Both
+     * /data/data/app.package.dir > /data/sdext2/data/app.package.dir
+     */
+    private suspend fun digPrivateData(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD private data." }
+
+        val candidates = areas.getCandidates(DataArea.Type.DATA_SDEXT2, "data")
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .map { areaInfo ->
+                val dirPkg = areaInfo.file.name.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+    /**
+     * APK data
+     * Link2SD
+     * /data/app/some.app-1 > /data/sdext2/some.app-1
+     * /data/app/some.other.app-1.apk > /data/sdext2/some.other.app-1.apk
+     * Apps2SD
+     * /data/app/some.app-1 > /data/sdext2/apk/some.app-1
+     * /data/app/some.other.app-1.apk > /data/sdext2/apk/some.other.app-1.apk
+     */
+    private suspend fun digApkData(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD apk data." }
+
+        val candidates = mutableSetOf<APath>()
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "apk"))
+        candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2))
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { areaInfo ->
+                val name = areaInfo.file.name
+                val candidateName: String = if (name.endsWith(".apk")) name.substring(0, name.length - 4) else name
+                var matcher = APKDIR.matcher(candidateName)
+                if (!matcher.matches()) matcher = APPDIR_ANDROIDO.matcher(candidateName)
+                if (!matcher.matches()) return@mapNotNull null
+
+                val dirPkg = matcher.group(1)!!.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+    /**
+     * App library data
+     * Link2SD
+     * /data/app-lib/some.app > /data/sdext2/app-lib/some.app-1 (Only on <5.0).
+     * Apps2SD
+     * /data/app/some.app/lib > /data/sdext2/app-lib/some.app-1
+     * /data/app-lib/some.app > /data/sdext2/app-lib/some.app-1
+     */
+    private suspend fun digLibraryData(areas: Collection<DataArea>): Collection<Corpse> {
+        log(TAG) { "Checking Link2SD & Apps2SD library data." }
+
+        val candidates = areas.getCandidates(DataArea.Type.DATA_SDEXT2, "app-lib")
+
+        updateProgressSecondary(R.string.general_progress_filtering)
+        return candidates
+            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { areaInfo ->
+                val matcher = APPLIB_DIR.matcher(areaInfo.file.name)
+                if (!matcher.matches()) return@mapNotNull null
+
+                val dirPkg = matcher.group(1)!!.toPkgId()
+                val owners = setOf(Owner(dirPkg))
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    hasUnknownOwner = false,
+                )
+            }
+            .filter { it.isCorpse }
+            .map { ownerInfo ->
+                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+
+                Corpse(
+                    ownerInfo = ownerInfo,
+                    content = content,
+                    isWriteProtected = false,
+                    riskLevel = when {
+                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isCommon -> RiskLevel.COMMON
+                        else -> RiskLevel.NORMAL
+                    }
+                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
+            }
+    }
+
+//    @InstallIn(SingletonComponent::class)
+//    @Module
+//    abstract class DIM {
+//        @Binds @IntoSet abstract fun mod(mod: ToSDCorpseFilter): CorpseFilter
+//    }
+
+    companion object {
+        val DEFAULT_PROGRESS = Progress.Data(
+            primary = R.string.corpsefinder_filter_app2sd_label.toCaString(),
+            secondary = R.string.general_progress_loading.toCaString(),
+            count = Progress.Count.Indeterminate()
+        )
+        val TAG: String = logTag("CorpseFinder", "Filter", "App2SD")
+        private val DALVIK_MATCHER =
+            Pattern.compile("^(?:(?:.+?@)+?)([\\w\\.\\_\\-]+)(?:-\\d+\\.(?:apk|jar|zip)@\\w+\\.(?:dex|odex|jar|art))$")
+        private val APKDIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
+        private val APPDIR_ANDROIDO = Pattern.compile("^([\\w.\\-]+)(?:\\-[a-zA-Z0-9=_-]{24})$")
+        private val APPLIB_DIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
+    }
+}

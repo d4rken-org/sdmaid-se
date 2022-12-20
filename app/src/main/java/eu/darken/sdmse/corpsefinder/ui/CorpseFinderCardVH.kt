@@ -44,8 +44,22 @@ class CorpseFinderCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
-        scanAction.setOnClickListener { item.onScan() }
-        deleteAction.setOnClickListener { item.onDelete }
+        detailsAction.apply {
+            isGone = item.progress != null || item.data == null
+            setOnClickListener { item.onCancel() }
+        }
+        scanAction.apply {
+            isGone = item.progress != null
+            setOnClickListener { item.onScan() }
+        }
+        deleteAction.apply {
+            isGone = item.progress != null || item.data == null
+            setOnClickListener { item.onDelete }
+        }
+        cancelAction.apply {
+            isGone = item.progress == null
+            setOnClickListener { item.onCancel }
+        }
     }
 
     data class Item(
@@ -53,6 +67,8 @@ class CorpseFinderCardVH(parent: ViewGroup) :
         val progress: Progress.Data?,
         val onScan: () -> Unit,
         val onDelete: () -> Unit,
+        val onViewDetails: () -> Unit,
+        val onCancel: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

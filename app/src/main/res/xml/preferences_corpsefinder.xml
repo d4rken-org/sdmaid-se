@@ -78,12 +78,13 @@
             app:key="filter.appasec.enabled"
             app:summary="@string/corpsefinder_filter_appasec_summary"
             app:title="@string/corpsefinder_filter_appasec_label" />
-        <CheckBoxPreference
-            app:enabled="false"
-            app:icon="@drawable/air_filter"
-            app:key="filter.apptosd.enabled"
-            app:summary="@string/corpsefinder_filter_app2sd_summary"
-            app:title="@string/corpsefinder_filter_app2sd_label" />
+
+        <!--        <CheckBoxPreference-->
+        <!--            app:enabled="false"-->
+        <!--            app:icon="@drawable/air_filter"-->
+        <!--            app:key="filter.apptosd.enabled"-->
+        <!--            app:summary="@string/corpsefinder_filter_app2sd_summary"-->
+        <!--            app:title="@string/corpsefinder_filter_app2sd_label" />-->
 
     </PreferenceCategory>
 

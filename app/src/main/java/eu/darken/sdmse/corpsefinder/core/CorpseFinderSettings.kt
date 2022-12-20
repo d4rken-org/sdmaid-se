@@ -34,7 +34,7 @@ class CorpseFinderSettings @Inject constructor(
     val filterAppLibEnabled = dataStore.createValue("filter.applib.enabled", true)
     val filterAppSourceEnabled = dataStore.createValue("filter.appsource.enabled", true)
     val filterAppSourcePrivateEnabled = dataStore.createValue("filter.appsourceprivate.enabled", true)
-    val filterAppToSdEnabled = dataStore.createValue("filter.apptosd.enabled", true)
+    val filterAppToSdEnabled = dataStore.createValue("filter.apptosd.enabled", false)
 
     val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", true)
 

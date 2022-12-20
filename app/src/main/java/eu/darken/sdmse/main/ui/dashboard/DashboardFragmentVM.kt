@@ -86,6 +86,12 @@ class DashboardFragmentVM @Inject constructor(
             },
             onDelete = {
                 launch { taskManager.submit(CorpseFinderDeleteTask()) }
+            },
+            onCancel = {
+
+            },
+            onViewDetails = {
+
             }
         )
     }
