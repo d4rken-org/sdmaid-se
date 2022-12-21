@@ -35,14 +35,13 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         preferenceManager.preferenceDataStore = settings.mapper
+        addPreferencesFromResource(preferenceFile)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        refreshPreferenceScreen()
-
         settings.dataStore.data
             .onEach {
-                log(VERBOSE) { "Preferences changed." }
+                log(VERBOSE) { "Preferences changed: it" }
                 onPreferencesChanged()
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
