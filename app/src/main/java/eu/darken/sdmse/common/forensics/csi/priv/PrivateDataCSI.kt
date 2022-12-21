@@ -121,10 +121,16 @@ class PrivateDataCSI @Inject constructor(
             }
         } else if (currentName.endsWith(".overlay")) {
             val ownerPkg = currentName.substring(0, currentName.lastIndexOf(".overlay"))
-            val apk = LocalPath.build("system", "vendor", "overlay", ownerPkg, "$ownerPkg.apk")
-            val info = pkgOps.viewArchive(apk, 0)
-            if (info != null && info.packageName == currentName) {
-                return ownerPkg
+            val targets = setOf(
+                LocalPath.build("system", "vendor", "overlay", ownerPkg, "$ownerPkg.apk"),
+                // lge/lucye_global_com/lucye:8.0.0/OPR1.170623.032/191911309bbbd:user/release-keys
+                LocalPath.build("/OP/OPEN_EU/overlay/app/$ownerPkg.apk"),
+            )
+            targets.forEach {
+                val info = pkgOps.viewArchive(it, 0)
+                if (info != null && info.packageName == currentName) {
+                    return ownerPkg
+                }
             }
         }
         return null

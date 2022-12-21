@@ -8,6 +8,7 @@ import coil.Coil
 import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
@@ -44,6 +45,8 @@ open class App : Application(), Configuration.Provider {
             Logging.install(LogCatLogger())
             log(TAG) { "BuildConfig.DEBUG=true" }
         }
+
+        log(TAG) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
 
         combine(
             debugSettings.isDebugMode.flow,

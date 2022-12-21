@@ -5,6 +5,7 @@ import android.os.Build
 // Can't be const because that prevents them from being mocked in tests
 @Suppress("MayBeConstant")
 object BuildWrap {
+    val FINGERPRINT: String = Build.FINGERPRINT
 
     val VERSION = VersionWrap
 
