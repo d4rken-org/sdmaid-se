@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.debug.autoreport.bugsnag.NOPBugsnagErrorHandler
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -25,6 +26,7 @@ import javax.inject.Singleton
 @Singleton
 class GooglePlayReporting @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val generalSettings: GeneralSettings,
     private val debugSettings: DebugSettings,
     private val installId: InstallId,
     private val bugsnagLogger: Provider<BugsnagLogger>,
@@ -33,7 +35,7 @@ class GooglePlayReporting @Inject constructor(
 ) : AutomaticBugReporter {
 
     override fun setup(application: Application) {
-        val isEnabled = debugSettings.isAutoReportingEnabled.valueBlocking
+        val isEnabled = generalSettings.isBugReporterEnabled.valueBlocking
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
         if (isEnabled) {
@@ -43,7 +45,7 @@ class GooglePlayReporting @Inject constructor(
         }
         try {
             val bugsnagConfig = Configuration.load(context).apply {
-                if (debugSettings.isAutoReportingEnabled.valueBlocking) {
+                if (generalSettings.isBugReporterEnabled.valueBlocking) {
                     Logging.install(bugsnagLogger.get())
                     setUser(installId.id, null, null)
                     autoTrackSessions = true

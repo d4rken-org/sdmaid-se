@@ -4,12 +4,14 @@ import android.system.Os
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.rxshell.extra.CmdHelper
+import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.Ownership
 import eu.darken.sdmse.common.files.core.Permissions
 import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import timber.log.Timber
 import java.io.File
 import java.util.*
 
@@ -18,7 +20,7 @@ fun LocalPath.crumbsTo(child: LocalPath): Array<String> {
     val childPath = child.path
     val parentPath = this.path
     val pure = childPath.replaceFirst(parentPath, "")
-    return pure.split(java.io.File.separatorChar)
+    return pure.split(File.separatorChar)
         .filter { it.isNotEmpty() }
         .toTypedArray()
 }
@@ -42,7 +44,7 @@ fun LocalPath.performLookup(
     val fstat = try {
         Os.lstat(file.path)
     } catch (e: Exception) {
-        Timber.tag(LocalGateway.TAG).w(e, "fstat failed on %s", this)
+        log(LocalGateway.TAG, Logging.Priority.WARN) { "fstat failed on $this: ${e.asLog()}" }
         null
     }
 

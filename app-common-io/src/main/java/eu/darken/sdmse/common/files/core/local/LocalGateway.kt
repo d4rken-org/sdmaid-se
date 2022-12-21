@@ -11,8 +11,9 @@ import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.root.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
-import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
+import eu.darken.sdmse.common.root.javaroot.runModuleAction
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource

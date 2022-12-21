@@ -24,8 +24,9 @@ import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
-import eu.darken.sdmse.common.root.javaroot.RootUnavailableException
+import eu.darken.sdmse.common.root.javaroot.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2

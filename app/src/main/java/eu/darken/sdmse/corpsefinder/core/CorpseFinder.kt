@@ -66,8 +66,8 @@ class CorpseFinder @Inject constructor(
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
-                    is CorpseFinderDeleteTask -> deleteCorspes(task)
                     is CorpseFinderScanTask -> performScan(task)
+                    is CorpseFinderDeleteTask -> deleteCorspes(task)
                 }
             }
             log(TAG, INFO) { "submit($task) finished: $result" }
@@ -81,7 +81,7 @@ class CorpseFinder @Inject constructor(
         log(TAG, VERBOSE) { "performScan($task)" }
 
         val scanStart = System.currentTimeMillis()
-
+        internalData.value = null
         val result = filters
             .map { filter ->
                 filter.withProgress(this@CorpseFinder) {

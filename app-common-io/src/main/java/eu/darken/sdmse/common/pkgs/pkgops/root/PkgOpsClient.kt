@@ -4,11 +4,13 @@ import android.content.pm.PackageInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.files.core.local.root.ClientModule
 import eu.darken.sdmse.common.user.UserHandle2
-import timber.log.Timber
 import java.io.IOException
 
 class PkgOpsClient @AssistedInject constructor(
@@ -18,28 +20,28 @@ class PkgOpsClient @AssistedInject constructor(
     fun getUserNameForUID(uid: Int): String? = try {
         connection.getUserNameForUID(uid)
     } catch (e: Exception) {
-        Timber.tag(TAG).e(e, "getUserNameForUID(uid=$uid) failed.")
+        log(TAG, ERROR) { "getUserNameForUID(uid=$uid) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
     fun getGroupNameforGID(gid: Int): String? = try {
         connection.getGroupNameforGID(gid)
     } catch (e: Exception) {
-        Timber.tag(TAG).e(e, "getGroupNameforGID(gid=$gid) failed.")
+        log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
     fun forceStop(packageName: String): Boolean = try {
         connection.forceStop(packageName)
     } catch (e: Exception) {
-        Timber.tag(TAG).e(e, "forceStop(packageName=$packageName) failed.")
+        log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
     fun getInstalledPackagesAsUser(flags: Int, userHandle: UserHandle2): List<PackageInfo> = try {
         connection.getInstalledPackagesAsUser(flags, userHandle.handleId)
     } catch (e: Exception) {
-        Timber.tag(TAG).e(e, "getInstalledPackagesAsUser(flags=$flags, userHandle=$userHandle) failed.")
+        log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, userHandle=$userHandle) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
@@ -53,12 +55,12 @@ class PkgOpsClient @AssistedInject constructor(
         return IOException(message, e.cause)
     }
 
-    companion object {
-        val TAG = logTag("Root", "Java", "PkgOps", "Client")
-    }
-
     @AssistedFactory
     interface Factory {
         fun create(connection: PkgOpsConnection): PkgOpsClient
+    }
+
+    companion object {
+        val TAG = logTag("Root", "Java", "PkgOps", "Client")
     }
 }

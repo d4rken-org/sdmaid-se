@@ -13,6 +13,9 @@ import android.system.Os
 import android.system.StructStat
 import android.text.TextUtils
 import eu.darken.sdmse.common.asSequence
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.Ownership
 import eu.darken.sdmse.common.files.core.Permissions
 import eu.darken.sdmse.common.files.core.useQuietly
@@ -167,8 +170,9 @@ internal data class SAFDocFile(
         val updated: Int = resolver.update(uri, updateValues, null, null)
         updated == 1
     } catch (e: Exception) {
-        Timber.tag(SAFGateway.TAG)
-            .w("setLastModified(lastModified=%s) failed on %s, due to %s", lastModified, this, e.toString())
+        log(SAFGateway.TAG, WARN) {
+            "setLastModified(lastModified=$lastModified) failed on $this: ${e.asLog()}"
+        }
         false
     }
 
@@ -177,7 +181,7 @@ internal data class SAFDocFile(
             Os.fchmod(pfd.fileDescriptor, permissions.mode)
             true
         } catch (e: Exception) {
-            Timber.tag(SAFGateway.TAG).w(e, "setPermissions(permissions=%s) failed on %s", permissions, this)
+            log(SAFGateway.TAG, WARN) { "setPermissions(permissions=$permissions) failed on $this: ${e.asLog()}" }
             false
         }
     }
@@ -187,7 +191,7 @@ internal data class SAFDocFile(
             Os.fchown(pfd.fileDescriptor, ownership.userId.toInt(), ownership.groupId.toInt())
             true
         } catch (e: Exception) {
-            Timber.tag(SAFGateway.TAG).w(e, "setOwnership(ownership=%s) failed on %s", ownership, this)
+            log(SAFGateway.TAG, WARN) { "setOwnership(ownership=$ownership) failed on $this: ${e.asLog()}" }
             false
         }
     }
@@ -197,15 +201,13 @@ internal data class SAFDocFile(
             val pfd = openPFD(resolver, FileMode.READ)
             pfd.use { Os.fstat(pfd.fileDescriptor) }
         } catch (e: Exception) {
-            Timber.tag(SAFGateway.TAG).w(e, "Failed to fstat SAFPath: %s", this)
+            log(SAFGateway.TAG, WARN) { "Failed to fstat SAFPath: $this: ${e.asLog()}" }
             null
         }
     }
 
     fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
-        val pfd = contentResolver.openFileDescriptor(this.uri, mode.value)
-        if (pfd == null) throw IOException("Couldn't open $uri")
-        return pfd
+        return contentResolver.openFileDescriptor(uri, mode.value) ?: throw IOException("Couldn't open $uri")
     }
 
     @SuppressLint("Recycle")
@@ -219,7 +221,7 @@ internal data class SAFDocFile(
                 }
             }
         } catch (e: Exception) {
-            Timber.tag(SAFGateway.TAG + ":SAFDocFile").w(e, "queryForString(column=%s)", column)
+            log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column): ${e.asLog()}" }
             null
         }
     }

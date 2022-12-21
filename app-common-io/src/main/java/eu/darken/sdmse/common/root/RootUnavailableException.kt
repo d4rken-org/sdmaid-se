@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root
 
 import android.content.Context
 import androidx.annotation.StringRes

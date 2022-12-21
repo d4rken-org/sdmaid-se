@@ -37,7 +37,7 @@ class ShellPkgSource @Inject constructor(
 
         val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
         if (!localGateway.hasRoot()) return@useRes emptySet()
-
+        // TODO run this via root service?
         val result = Cmd.builder("pm list packages -f").execute(RxCmdShell.builder().root(true).build())
         Timber.tag(TAG).d("Result: %s", result)
 

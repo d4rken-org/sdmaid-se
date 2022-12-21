@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 class BugsnagErrorHandler @Inject constructor(
     @ApplicationContext private val context: Context,
     private val bugsnagLogger: BugsnagLogger,
+    private val generalSettings: GeneralSettings,
     private val debugSettings: DebugSettings,
 ) : OnErrorCallback {
 
@@ -35,7 +37,7 @@ class BugsnagErrorHandler @Inject constructor(
             context.tryFormattedSignature()?.let { event.addMetadata(tab, "signatures", it) }
         }
 
-        return debugSettings.isAutoReportingEnabled.valueBlocking && !BuildConfigWrap.DEBUG
+        return generalSettings.isBugReporterEnabled.valueBlocking && !BuildConfigWrap.DEBUG
     }
 
     companion object {
