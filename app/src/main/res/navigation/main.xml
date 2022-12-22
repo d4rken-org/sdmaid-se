@@ -15,6 +15,15 @@
         <action
             android:id="@+id/action_dashboardFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_corpseFinderDetailsFragment"
+            app:destination="@id/corpseFinderDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
+            app:destination="@id/systemCleanerDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appCleanerDetailsFragment"
+            app:destination="@id/appCleanerDetailsFragment" />
     </fragment>
 
     <fragment
@@ -26,5 +35,16 @@
         android:id="@+id/setupFragment"
         android:name="eu.darken.sdmse.setup.SetupFragment"
         tools:layout="@layout/setup_fragment" />
-
+    <fragment
+        android:id="@+id/corpseFinderDetailsFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
+        tools:layout="@layout/corpsefinder_details_fragment" />
+    <fragment
+        android:id="@+id/systemCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.details.SystemCleanerDetailsFragment"
+        tools:layout="@layout/systemcleaner_details_fragment" />
+    <fragment
+        android:id="@+id/appCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
+        tools:layout="@layout/appcleaner_details_fragment" />
 </navigation>

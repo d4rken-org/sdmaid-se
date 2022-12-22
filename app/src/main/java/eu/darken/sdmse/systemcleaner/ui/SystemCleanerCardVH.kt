@@ -1,4 +1,4 @@
-package eu.darken.sdmse.corpsefinder.ui
+package eu.darken.sdmse.systemcleaner.ui
 
 import android.text.format.Formatter
 import android.view.ViewGroup
@@ -7,20 +7,20 @@ import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.corpsefinder.core.CorpseFinder
-import eu.darken.sdmse.databinding.CorpsefinderDashboardItemBinding
+import eu.darken.sdmse.databinding.SystemcleanerDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 
 
-class CorpseFinderCardVH(parent: ViewGroup) :
-    DashboardAdapter.BaseVH<CorpseFinderCardVH.Item, CorpsefinderDashboardItemBinding>(
-        R.layout.corpsefinder_dashboard_item,
+class SystemCleanerCardVH(parent: ViewGroup) :
+    DashboardAdapter.BaseVH<SystemCleanerCardVH.Item, SystemcleanerDashboardItemBinding>(
+        R.layout.systemcleaner_dashboard_item,
         parent
     ) {
 
-    override val viewBinding = lazy { CorpsefinderDashboardItemBinding.bind(itemView) }
+    override val viewBinding = lazy { SystemcleanerDashboardItemBinding.bind(itemView) }
 
-    override val onBindData: CorpsefinderDashboardItemBinding.(
+    override val onBindData: SystemcleanerDashboardItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -35,7 +35,7 @@ class CorpseFinderCardVH(parent: ViewGroup) :
         } else if (item.data != null) {
             statusPrimary.text = getQuantityString(
                 R.plurals.corpsefinder_result_x_corpses_found,
-                item.data.corpses.size
+                item.data.filterContents.size
             )
             val space = Formatter.formatFileSize(context, item.data.totalSize)
             statusSecondary.text = getString(R.string.x_space_can_be_freed, space)
@@ -63,7 +63,7 @@ class CorpseFinderCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val data: CorpseFinder.Data?,
+        val data: SystemCleaner.Data?,
         val progress: Progress.Data?,
         val onScan: () -> Unit,
         val onDelete: () -> Unit,

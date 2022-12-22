@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.appcleaner.ui.AppCleanerCardVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -15,6 +16,7 @@ import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerCardVH
 import javax.inject.Inject
 
 
@@ -32,6 +34,8 @@ class DashboardAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is SetupCardVH.Item }) { SetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is DataAreaCardVH.Item }) { DataAreaCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is CorpseFinderCardVH.Item }) { CorpseFinderCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SystemCleanerCardVH.Item }) { SystemCleanerCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AppCleanerCardVH.Item }) { AppCleanerCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

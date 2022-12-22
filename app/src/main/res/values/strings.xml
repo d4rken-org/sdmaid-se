@@ -58,12 +58,21 @@
     <string name="general_delete_all_action">Delete all</string>
     <string name="general_show_details_action">Show details</string>
 
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
+    <string name="dataarea_warningcard_label">Data areas</string>
+    <string name="dataarea_warningcard_reload_action">Reload data areas</string>
+    <string name="debug_mode_label">Debug mode</string>
+    <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
+    <string name="debug_bugreporter_label">Automatic bug reports</string>
+    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it.</string>
+
     <string name="settings_category_tools_label">Tools</string>
-    <string name="corpsefinder_explanation_short">Data belonging to already removed apps.</string>
-    <string name="corpsefinder_settings_summary">Adjust scan filters and risk levels.</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risklevel</string>
+
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data belonging to already removed apps.</string>
+    <string name="corpsefinder_settings_summary">Adjust scan filters and risk levels.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Include desirable remnants</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Files that you might want to keep, even if the app is uninstalled, e.g. photos you took or backups you created.</string>
     <string name="corpsefinder_settings_risk_common_title">Include common names</string>
@@ -96,11 +105,10 @@
         <item quantity="one">%d remain found</item>
         <item quantity="other">%d remains found</item>
     </plurals>
-    <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
-    <string name="dataarea_warningcard_label">Data areas</string>
-    <string name="dataarea_warningcard_reload_action">Reload data areas</string>
-    <string name="debug_mode_label">Debug mode</string>
-    <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
-    <string name="debug_bugreporter_label">Automatic bug reports</string>
-    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it.</string>
+
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">Superfluos data that doesn\'t belong any specific app.</string>
+
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
 </resources>

@@ -58,6 +58,10 @@ class TaskManager @Inject constructor(
         result
     }
 
+    suspend fun cancel(type: SDMTool.Type) {
+        log(TAG) { "cancel($type)" }
+    }
+
     companion object {
         private val TAG = logTag("TaskManager")
     }
