@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressSecondary
@@ -24,22 +25,18 @@ import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.flow.*
 import java.util.regex.Pattern
 import javax.inject.Inject
+import javax.inject.Provider
 
 @Reusable
 class ToSDCorpseFilter @Inject constructor(
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
-    private val corpseFinderSettings: CorpseFinderSettings,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
 
     override suspend fun doScan(): Collection<Corpse> {
-        if (!corpseFinderSettings.filterAppToSdEnabled.value()) {
-            log(TAG) { "Filter is disabled" }
-            return emptyList()
-        }
         log(TAG) { "Scanning..." }
 
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
@@ -388,10 +385,19 @@ class ToSDCorpseFilter @Inject constructor(
             }
     }
 
+    @Reusable
+    class Factory @Inject constructor(
+        private val settings: CorpseFinderSettings,
+        private val filterProvider: Provider<ToSDCorpseFilter>
+    ) : CorpseFilter.Factory {
+        override suspend fun isEnabled(): Boolean = settings.filterAppToSdEnabled.value()
+        override suspend fun create(): CorpseFilter = filterProvider.get()
+    }
+
 //    @InstallIn(SingletonComponent::class)
 //    @Module
 //    abstract class DIM {
-//        @Binds @IntoSet abstract fun mod(mod: ToSDCorpseFilter): CorpseFilter
+//        @Binds @IntoSet abstract fun mod(mod: Factory): CorpseFilter.Factory
 //    }
 
     companion object {

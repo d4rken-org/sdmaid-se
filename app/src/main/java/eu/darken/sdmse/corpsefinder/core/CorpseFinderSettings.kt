@@ -24,12 +24,12 @@ class CorpseFinderSettings @Inject constructor(
         get() = context.dataStore
 
     // TODO change defaults
+    val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", true)
     val filterPublicMediaEnabled = dataStore.createValue("filter.publicmedia.enabled", true)
     val filterPublicObbEnabled = dataStore.createValue("filter.publicobb.enabled", true)
     val filterPublicDataEnabled = dataStore.createValue("filter.publicdata.enabled", true)
     val filterSdcardEnabled = dataStore.createValue("filter.sdcard.enabled", true)
     val filterPrivateDataEnabled = dataStore.createValue("filter.privatedata.enabled", true)
-    val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", true)
     val filterDalvikCacheEnabled = dataStore.createValue("filter.dalvikcache.enabled", true)
     val filterAppLibEnabled = dataStore.createValue("filter.applib.enabled", true)
     val filterAppSourceEnabled = dataStore.createValue("filter.appsource.enabled", true)

@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import java.io.IOException
 import javax.inject.Inject
+import javax.inject.Provider
 
 @Reusable
 class PublicMediaCorpseFilter @Inject constructor(
@@ -41,10 +42,6 @@ class PublicMediaCorpseFilter @Inject constructor(
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     override suspend fun doScan(): Collection<Corpse> {
-        if (!corpseFinderSettings.filterPublicMediaEnabled.value()) {
-            log(TAG) { "Filter is disabled" }
-            return emptyList()
-        }
         log(TAG) { "Scanning..." }
 
         return areaManager.currentAreas()
@@ -107,10 +104,19 @@ class PublicMediaCorpseFilter @Inject constructor(
         else -> false
     }
 
+    @Reusable
+    class Factory @Inject constructor(
+        private val settings: CorpseFinderSettings,
+        private val filterProvider: Provider<PublicMediaCorpseFilter>
+    ) : CorpseFilter.Factory {
+        override suspend fun isEnabled(): Boolean = settings.filterPublicMediaEnabled.value()
+        override suspend fun create(): CorpseFilter = filterProvider.get()
+    }
+
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: PublicMediaCorpseFilter): CorpseFilter
+        @Binds @IntoSet abstract fun mod(mod: Factory): CorpseFilter.Factory
     }
 
     companion object {

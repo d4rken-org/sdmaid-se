@@ -26,4 +26,8 @@ abstract class CorpseFilter(
 
     internal abstract suspend fun doScan(): Collection<Corpse>
 
+    interface Factory {
+        suspend fun isEnabled(): Boolean
+        suspend fun create(): CorpseFilter
+    }
 }

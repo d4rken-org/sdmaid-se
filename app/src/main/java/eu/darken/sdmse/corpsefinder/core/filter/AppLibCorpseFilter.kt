@@ -29,6 +29,7 @@ import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
+import javax.inject.Provider
 
 
 @Reusable
@@ -40,10 +41,6 @@ class AppLibCorpseFilter @Inject constructor(
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     override suspend fun doScan(): Collection<Corpse> {
-        if (!corpseFinderSettings.filterAppLibEnabled.value()) {
-            log(TAG) { "Filter is disabled" }
-            return emptyList()
-        }
         log(TAG) { "Scanning..." }
 
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
@@ -107,10 +104,19 @@ class AppLibCorpseFilter @Inject constructor(
             .toList()
     }
 
+    @Reusable
+    class Factory @Inject constructor(
+        private val settings: CorpseFinderSettings,
+        private val filterProvider: Provider<AppLibCorpseFilter>
+    ) : CorpseFilter.Factory {
+        override suspend fun isEnabled(): Boolean = settings.filterAppLibEnabled.value()
+        override suspend fun create(): CorpseFilter = filterProvider.get()
+    }
+
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: AppLibCorpseFilter): CorpseFilter
+        @Binds @IntoSet abstract fun mod(mod: Factory): CorpseFilter.Factory
     }
 
     companion object {

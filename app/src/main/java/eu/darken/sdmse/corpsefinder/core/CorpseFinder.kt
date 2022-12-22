@@ -35,7 +35,7 @@ import javax.inject.Singleton
 @Singleton
 class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
+    private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
     fileForensics: FileForensics,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
@@ -63,6 +63,7 @@ class CorpseFinder @Inject constructor(
         updateProgressPrimary(R.string.general_progress_loading)
         updateProgressSecondary(easterEggProgressMsg)
         updateProgressCount(Progress.Count.Indeterminate())
+
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
@@ -82,7 +83,13 @@ class CorpseFinder @Inject constructor(
 
         val scanStart = System.currentTimeMillis()
         internalData.value = null
-        val result = filters
+
+        val filters = filterFactories
+            .filter { it.isEnabled() }
+            .map { it.create() }
+            .onEach { log(TAG) { "Created filter: $it" } }
+
+        val results = filters
             .map { filter ->
                 filter.withProgress(this@CorpseFinder) {
                     scan()
@@ -91,7 +98,7 @@ class CorpseFinder @Inject constructor(
             .flatten()
 
         internalData.value = Data(
-            corpses = result
+            corpses = results
         )
 
         val scanStop = System.currentTimeMillis()

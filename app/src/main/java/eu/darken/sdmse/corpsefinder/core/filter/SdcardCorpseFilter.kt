@@ -25,12 +25,14 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
+import javax.inject.Provider
 
 @Reusable
 class SdcardCorpseFilter @Inject constructor(
@@ -39,16 +41,12 @@ class SdcardCorpseFilter @Inject constructor(
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
     override suspend fun doScan(): Collection<Corpse> {
-        if (!corpseFinderSettings.filterSdcardEnabled.value()) {
-            log(TAG) { "Filter is disabled" }
-            return emptyList()
-        }
         log(TAG) { "Scanning..." }
 
         updateProgressPrimary("SDCARD")
@@ -255,10 +253,19 @@ class SdcardCorpseFilter @Inject constructor(
 
     data class CacheKey(val path: String, val direct: Boolean)
 
+    @Reusable
+    class Factory @Inject constructor(
+        private val settings: CorpseFinderSettings,
+        private val filterProvider: Provider<SdcardCorpseFilter>
+    ) : CorpseFilter.Factory {
+        override suspend fun isEnabled(): Boolean = settings.filterSdcardEnabled.value()
+        override suspend fun create(): CorpseFilter = filterProvider.get()
+    }
+
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: SdcardCorpseFilter): CorpseFilter
+        @Binds @IntoSet abstract fun mod(mod: Factory): CorpseFilter.Factory
     }
 
     companion object {
