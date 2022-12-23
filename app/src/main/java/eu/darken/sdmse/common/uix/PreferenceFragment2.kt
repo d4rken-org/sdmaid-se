@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.uix
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -36,19 +37,20 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         preferenceManager.preferenceDataStore = settings.mapper
         addPreferencesFromResource(preferenceFile)
+        onPreferencesCreated()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         settings.dataStore.data
             .onEach {
                 log(VERBOSE) { "Preferences changed: it" }
                 onPreferencesChanged()
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
-
-        super.onViewCreated(view, savedInstanceState)
     }
 
+    @SuppressLint("RestrictedApi")
     override fun getCallbackFragment(): Fragment? = parentFragment
 
     fun refreshPreferenceScreen() {
