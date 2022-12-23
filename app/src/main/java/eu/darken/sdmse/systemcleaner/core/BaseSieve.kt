@@ -6,8 +6,9 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.isDirectory
+import eu.darken.sdmse.common.files.core.isFile
 import eu.darken.sdmse.common.forensics.FileForensics
-import java.util.regex.Pattern
 
 class BaseSieve @AssistedInject constructor(
     @Assisted private val config: Config,
@@ -52,28 +53,28 @@ class BaseSieve @AssistedInject constructor(
             if (System.currentTimeMillis() - subject.modifiedAt.time < it) return false
         }
 
-        config.possibleBasePathes
+        config.basePaths
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
                 if (basePaths.none { subject.path.startsWith(it) }) return false
             }
 
-        config.possiblePathContains
+        config.pathContains
             ?.takeIf { it.isNotEmpty() }
             ?.let { pathContains ->
                 // Path contains
                 if (pathContains.none { subject.path.contains(it) }) return false
             }
 
-        config.possibleNameInits
+        config.namePrefixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { inits ->
                 // Check name starts with
                 if (inits.none { subject.name.startsWith(it) }) return false
             }
 
-        config.possibleNameEndings
+        config.nameSuffixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { ends ->
                 if (ends.none { subject.name.endsWith(it) }) return false
@@ -89,10 +90,10 @@ class BaseSieve @AssistedInject constructor(
         config.regex
             ?.takeIf { it.isNotEmpty() }
             ?.let { regexes ->
-                if (regexes.none { it.matcher(subject.path).matches() }) return false
+                if (regexes.none { it.matches(subject.path) }) return false
             }
 
-        config.locations
+        config.areaTypes
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
                 val areaInfo = fileForensics.identifyArea(subject)
@@ -109,13 +110,13 @@ class BaseSieve @AssistedInject constructor(
         val minimumAge: Long? = null,
         val targetType: TargetType? = null,
         val isEmpty: Boolean? = null,
-        val locations: Set<DataArea.Type>? = null,
-        val possibleBasePathes: Set<String>? = null,
-        val possiblePathContains: Set<String>? = null,
-        val possibleNameInits: Set<String>? = null,
-        val possibleNameEndings: Set<String>? = null,
+        val areaTypes: Set<DataArea.Type>? = null,
+        val basePaths: Set<String>? = null,
+        val pathContains: Set<String>? = null,
+        val namePrefixes: Set<String>? = null,
+        val nameSuffixes: Set<String>? = null,
         val exclusions: Set<String>? = null,
-        val regex: Set<Pattern>? = null,
+        val regex: Set<Regex>? = null,
     )
 
     @AssistedFactory

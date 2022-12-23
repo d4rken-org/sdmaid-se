@@ -44,6 +44,7 @@ class SystemCrawler @Inject constructor(
         val filters = filterFactories
             .filter { it.isEnabled() }
             .map { it.create() }
+            .onEach { it.initialize() }
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
@@ -61,6 +62,7 @@ class SystemCrawler @Inject constructor(
                 .asFlow()
                 .flowOn(dispatcherProvider.IO)
                 .flatMapMerge(4) { area ->
+                    // TODO prevent overlap between /storage/emulated/0 and /data/media/0?
                     area.path.walk(gatewaySwitch)
                 }
                 .buffer(256)

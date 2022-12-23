@@ -7,6 +7,8 @@ interface SystemCleanerFilter {
 
     suspend fun targetTypes(): Collection<DataArea.Type>
 
+    suspend fun initialize()
+
     suspend fun sieve(item: APathLookup<*>): Boolean
 
     interface Factory {

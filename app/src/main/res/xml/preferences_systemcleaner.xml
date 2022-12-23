@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/settings_category_filter">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:key="filter.logfiles.enabled"
+            app:summary="@string/systemcleaner_filter_logfiles_summary"
+            app:title="@string/systemcleaner_filter_logfiles_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_ads_click_24"
+            app:key="filter.advertisements.enabled"
+            app:summary="@string/systemcleaner_filter_advertisements_summary"
+            app:title="@string/systemcleaner_filter_advertisements_label" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter
+package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import dagger.Binds
 import dagger.Module
@@ -14,8 +14,7 @@ import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
+import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import java.util.*
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -26,17 +25,23 @@ class LogFilesFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
-    
+
     override suspend fun targetTypes(): Collection<DataArea.Type> = setOf(
         DataArea.Type.DATA,
         DataArea.Type.SDCARD,
         DataArea.Type.DOWNLOAD_CACHE,
     )
 
-    private val sieve by lazy {
+    private lateinit var sieve: BaseSieve
+    private lateinit var mediaLocations: Set<APath>
+
+    override suspend fun initialize() {
+        mediaLocations = areaManager.currentAreas()
+            .map { it.path.child("media") }
+            .toSet()
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            possibleNameEndings = setOf(".log"),
+            nameSuffixes = setOf(".log"),
             exclusions = setOf(
                 ".indexeddb.leveldb/",
                 "/t/Paths/",
@@ -44,18 +49,9 @@ class LogFilesFilter @Inject constructor(
                 "/app_webview/"
             )
         )
-        baseSieveFactory.create(config)
+        sieve = baseSieveFactory.create(config)
     }
-    private val cacheLock = Mutex()
-    private var _mediaLocations: Set<APath>? = null
 
-    private suspend fun getMediaLocations(): Set<APath> = cacheLock.withLock {
-        if (_mediaLocations != null) return@withLock _mediaLocations!!
-        areaManager.currentAreas()
-            .map { it.path.child("media") }
-            .toSet()
-            .also { _mediaLocations = it }
-    }
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
         if (!sieve.match(item)) return false
@@ -64,7 +60,7 @@ class LogFilesFilter @Inject constructor(
         val badTelegramMatch = EDGECASE_TELEGRAMX.matcher(item.path).matches()
 
         // https://github.com/d4rken/sdmaid-public/issues/961
-        val overlap = getMediaLocations().any { item.path.startsWith(it.path) }
+        val overlap = mediaLocations.any { item.path.startsWith(it.path) }
         return !overlap && !badTelegramMatch
     }
 

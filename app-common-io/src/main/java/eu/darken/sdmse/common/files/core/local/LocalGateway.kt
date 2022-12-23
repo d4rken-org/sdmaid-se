@@ -170,10 +170,11 @@ class LocalGateway @Inject constructor(
 
     suspend fun listFiles(path: LocalPath, mode: Mode = Mode.AUTO): List<LocalPath> = runIO {
         try {
+            val javaFile = path.asFile()
             val nonRootList: List<File>? = try {
                 when (mode) {
                     Mode.ROOT -> null
-                    else -> path.asFile().listFiles2()
+                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                 }
             } catch (e: Exception) {
                 null

@@ -25,6 +25,7 @@ class SystemCleanerSettings @Inject constructor(
 
     // TODO change defaults
     val filterLogFilesEnabled = dataStore.createValue("filter.logfiles.enabled", true)
+    val filterAdvertisementsEnabled = dataStore.createValue("filter.advertisements.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,

@@ -112,6 +112,10 @@
         <item quantity="one">%d filter match</item>
         <item quantity="other">%d filter matches</item>
     </plurals>
+    <string name="systemcleaner_filter_logfiles_label">Log files</string>
+    <string name="systemcleaner_filter_logfiles_summary">Log files (*.log) from all over the device.</string>
+    <string name="systemcleaner_filter_advertisements_label">Ad files</string>
+    <string name="systemcleaner_filter_advertisements_summary">Files that have been created for or by advertisements.</string>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
