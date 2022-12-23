@@ -90,7 +90,7 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just regex`() = runTest {
         val config = BaseSieve.Config(
-            regex = setOf(Regex("^/a.c/[0-9]+$"))
+            regexes = setOf(Regex("^/a.c/[0-9]+$"))
         )
 
         create(config).match(

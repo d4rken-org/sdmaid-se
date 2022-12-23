@@ -87,7 +87,7 @@ class BaseSieve @AssistedInject constructor(
                 if (exclusions.any { subject.path.contains(it) }) return false
             }
 
-        config.regex
+        config.regexes
             ?.takeIf { it.isNotEmpty() }
             ?.let { regexes ->
                 if (regexes.none { it.matches(subject.path) }) return false
@@ -116,7 +116,7 @@ class BaseSieve @AssistedInject constructor(
         val namePrefixes: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,
         val exclusions: Set<String>? = null,
-        val regex: Set<Regex>? = null,
+        val regexes: Set<Regex>? = null,
     )
 
     @AssistedFactory

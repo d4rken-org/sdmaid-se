@@ -13,6 +13,11 @@
             app:key="filter.advertisements.enabled"
             app:summary="@string/systemcleaner_filter_advertisements_summary"
             app:title="@string/systemcleaner_filter_advertisements_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_running_with_errors_24"
+            app:key="filter.anr.enabled"
+            app:summary="@string/systemcleaner_filter_anr_summary"
+            app:title="@string/systemcleaner_filter_anr_label" />
 
     </PreferenceCategory>
 

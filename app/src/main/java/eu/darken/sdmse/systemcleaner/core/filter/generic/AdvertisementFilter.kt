@@ -10,6 +10,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.isDirectory
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
@@ -141,9 +143,10 @@ class AdvertisementFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = setOf(DataArea.Type.SDCARD),
             basePaths = basePaths,
-            regex = rawRegexes.map { Regex(it) }.toSet()
+            regexes = rawRegexes.map { Regex(it) }.toSet()
         )
         sieve = baseSieveFactory.create(config)
+        log(TAG) { "initialized()" }
     }
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
@@ -151,10 +154,12 @@ class AdvertisementFilter @Inject constructor(
         return !item.name.endsWith("chartboost") || item.isDirectory
     }
 
+    override fun toString(): String = "AdvertisementFilter(${hashCode()})"
+
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<LogFilesFilter>
+        private val filterProvider: Provider<AdvertisementFilter>
     ) : SystemCleanerFilter.Factory {
         override suspend fun isEnabled(): Boolean = settings.filterAdvertisementsEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
@@ -164,5 +169,9 @@ class AdvertisementFilter @Inject constructor(
     @Module
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: Factory): SystemCleanerFilter.Factory
+    }
+
+    companion object {
+        private val TAG = logTag("SystemCleaner", "Filter", "Advertisements")
     }
 }

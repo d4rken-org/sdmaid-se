@@ -5,12 +5,14 @@ import android.os.Build
 // Can't be const because that prevents them from being mocked in tests
 @Suppress("MayBeConstant")
 object BuildWrap {
-    val FINGERPRINT: String = Build.FINGERPRINT
+    val FINGERPRINT: String
+        get() = Build.FINGERPRINT
 
     val VERSION = VersionWrap
 
     object VersionWrap {
-        val SDK_INT = Build.VERSION.SDK_INT
+        val SDK_INT
+            get() = Build.VERSION.SDK_INT
     }
 }
 

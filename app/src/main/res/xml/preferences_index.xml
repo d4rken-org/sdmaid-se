@@ -13,6 +13,11 @@
             app:fragment="eu.darken.sdmse.corpsefinder.ui.settings.CorpseFinderSettingsFragment"
             app:summary="@string/corpsefinder_settings_summary"
             app:title="@string/corpsefinder_tool_name" />
+        <Preference
+            android:icon="@drawable/ic_baseline_view_list_24"
+            app:fragment="eu.darken.sdmse.systemcleaner.ui.settings.SystemCleanerSettingsFragment"
+            app:summary="@string/systemcleaner_explanation_short"
+            app:title="@string/systemcleaner_tool_name" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

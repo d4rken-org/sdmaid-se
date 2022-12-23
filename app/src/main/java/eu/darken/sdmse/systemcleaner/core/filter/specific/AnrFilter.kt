@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.specific
 
 import dagger.Binds
 import dagger.Module
@@ -9,21 +9,20 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.util.*
-import java.util.regex.Pattern
+import java.lang.String
 import javax.inject.Inject
 import javax.inject.Provider
 
-@Reusable
-class LogFilesFilter @Inject constructor(
+class AnrFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
@@ -35,46 +34,47 @@ class LogFilesFilter @Inject constructor(
     )
 
     private lateinit var sieve: BaseSieve
-    private lateinit var mediaLocations: Set<APath>
 
     override suspend fun initialize() {
-        mediaLocations = areaManager.currentAreas()
-            .map { it.path.child("media") }
-            .toSet()
+        val regexPairs = areaManager.currentAreas()
+            .filter { it.type == DataArea.Type.DATA }
+            .filter { it.hasFlags(DataArea.Flag.PRIMARY) }
+            .map { area ->
+                val path = area.path.child("anr").path + "/"
+                val regex = String.format(
+                    "^(?:%s/anr/[\\W\\w]+)$".replace("/", "\\/"),
+                    area.path.path.replace("\\", "\\\\")
+                )
+                path to regex
+            }
+
+        require(regexPairs.isNotEmpty()) { "Filter underdefined" }
+
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            nameSuffixes = setOf(".log"),
-            exclusions = setOf(
-                ".indexeddb.leveldb/",
-                "/t/Paths/",
-                "/app_chrome/",
-                "/app_webview/"
-            )
+            areaTypes = setOf(DataArea.Type.DATA),
+            basePaths = regexPairs.map { it.first }.toSet(),
+            regexes = regexPairs.map { Regex(it.second) }.toSet(),
         )
+
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
-
-        // https://github.com/d4rken/sdmaid-public/issues/2147
-        val badTelegramMatch = EDGECASE_TELEGRAMX.matcher(item.path).matches()
-
-        // https://github.com/d4rken/sdmaid-public/issues/961
-        val overlap = mediaLocations.any { item.path.startsWith(it.path) }
-        return !overlap && !badTelegramMatch
+        return sieve.match(item)
     }
 
-    override fun toString(): String = "LogFilesFilter(${hashCode()})"
+    override fun toString(): kotlin.String = "AnrFilter(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<LogFilesFilter>
+        private val filterProvider: Provider<AnrFilter>,
+        private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterLogFilesEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterAnrEnabled.value() && rootManager.isRooted()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -85,7 +85,6 @@ class LogFilesFilter @Inject constructor(
     }
 
     companion object {
-        private val EDGECASE_TELEGRAMX = Pattern.compile(".+/pmc/db/\\d+\\.log")
-        private val TAG = logTag("SystemCleaner", "Filter", "LogFiles")
+        private val TAG = logTag("SystemCleaner", "Filter", "Anr")
     }
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.forensics.csi.source
 
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.Marker
@@ -13,6 +14,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkObject
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -33,6 +35,12 @@ class AppSourceMainCSITest : BaseCSITest() {
 
     @Before override fun setup() {
         super.setup()
+
+        mockkObject(BuildWrap)
+        every { BuildWrap.FINGERPRINT } returns ""
+        every { BuildWrap.VERSION } returns mockk<BuildWrap.VersionWrap>().apply {
+            every { SDK_INT } returns 30
+        }
 
         every { areaManager.state } returns flowOf(
             DataAreaManager.State(
