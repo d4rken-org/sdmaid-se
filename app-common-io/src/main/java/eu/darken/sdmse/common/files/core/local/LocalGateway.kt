@@ -198,24 +198,28 @@ class LocalGateway @Inject constructor(
 
     override suspend fun lookupFiles(path: LocalPath): List<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
 
-    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.AUTO): List<LocalPathLookup> = withContext(
+    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): List<LocalPathLookup> = withContext(
         dispatcherProvider.IO
     ) {
         try {
+            val javaFile = path.asFile()
             val nonRootList = try {
                 when (mode) {
                     Mode.ROOT -> null
-                    else -> path.asFile().listFiles2()
+                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                 }
             } catch (e: Exception) {
                 null
-            }?.map { it.toLocalPath() }
+            }
 
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     if (nonRootList == null) throw ReadException(path)
                     getShellSession().use { sessionResource ->
-                        nonRootList.map { it.performLookup(ipcFunnel, libcoreTool, sessionResource.item) }
+                        nonRootList
+                            .filter { it.canRead() }
+                            .map { it.toLocalPath() }
+                            .map { it.performLookup(ipcFunnel, libcoreTool, sessionResource.item) }
                     }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {

@@ -1,10 +1,11 @@
 package eu.darken.sdmse.common.files.core.local
 
 import android.system.Os
+import android.system.StructStat
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.rxshell.extra.CmdHelper
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.Ownership
@@ -41,10 +42,10 @@ fun LocalPath.performLookup(
     libcoreTool: LibcoreTool? = null,
     shellSession: RxCmdShell.Session? = null
 ): LocalPathLookup {
-    val fstat = try {
+    val fstat: StructStat? = try {
         Os.lstat(file.path)
     } catch (e: Exception) {
-        log(LocalGateway.TAG, Logging.Priority.WARN) { "fstat failed on $this: ${e.asLog()}" }
+        log(LocalGateway.TAG, WARN) { "fstat failed on $this: ${e.asLog()}" }
         null
     }
 

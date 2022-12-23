@@ -27,7 +27,7 @@ class TaskManager @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
     private val children = tools
 
-    private val concurrencyLock = Semaphore(1)
+    private val concurrencyLock = Semaphore(2)
     private var queuedTasks = 0
 
     suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {

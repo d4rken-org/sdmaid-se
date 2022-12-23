@@ -34,8 +34,8 @@ class SystemCleanerCardVH(parent: ViewGroup) :
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
             statusPrimary.text = getQuantityString(
-                R.plurals.corpsefinder_result_x_corpses_found,
-                item.data.filterContents.size
+                R.plurals.systemcleaner_result_x_items_found,
+                item.data.sieveContents.sumOf { it.items.size }
             )
             val space = Formatter.formatFileSize(context, item.data.totalSize)
             statusSecondary.text = getString(R.string.x_space_can_be_freed, space)

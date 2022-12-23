@@ -23,20 +23,20 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Duration
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class SystemCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-//    private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
     fileForensics: FileForensics,
-    gatewaySwitch: GatewaySwitch,
+    private val gatewaySwitch: GatewaySwitch,
+    private val crawlerProvider: Provider<SystemCrawler>,
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
@@ -62,6 +62,7 @@ class SystemCleaner @Inject constructor(
         updateProgressPrimary(R.string.general_progress_loading)
         updateProgressSecondary(easterEggProgressMsg)
         updateProgressCount(Progress.Count.Indeterminate())
+
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
@@ -78,20 +79,20 @@ class SystemCleaner @Inject constructor(
 
     private suspend fun performScan(task: SystemCleanerScanTask): SystemCleanerTask.Result = try {
         log(TAG, VERBOSE) { "performScan($task)" }
+        updateProgressPrimary(R.string.general_progress_searching)
 
         val scanStart = System.currentTimeMillis()
         internalData.value = null
-//        val result = filters
-//            .map { filter ->
-//                filter.withProgress(this@AppCleaner) {
-//                    scan()
-//                }
-//            }
-//            .flatten()
-//
-//        internalData.value = Data(
-//            corpses = result
-//        )
+
+        val crawler = crawlerProvider.get()
+
+        val results = crawler.withProgress(this) {
+            crawl()
+        }
+
+        internalData.value = Data(
+            sieveContents = results
+        )
 
         val scanStop = System.currentTimeMillis()
         val time = Duration.ofMillis(scanStop - scanStart)
@@ -113,10 +114,10 @@ class SystemCleaner @Inject constructor(
     }
 
     data class Data(
-        val filterContents: Collection<FilterContent>
+        val sieveContents: Collection<SieveContent>
     ) {
         val totalSize: Long
-            get() = filterContents.sumOf { it.size }
+            get() = sieveContents.sumOf { it.size }
     }
 
     @InstallIn(SingletonComponent::class)

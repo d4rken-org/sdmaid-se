@@ -108,6 +108,10 @@
 
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Superfluos data that doesn\'t belong any specific app.</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d filter match</item>
+        <item quantity="other">%d filter matches</item>
+    </plurals>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
