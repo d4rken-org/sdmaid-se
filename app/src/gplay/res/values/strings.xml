@@ -3,6 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="upgrades_gplay_unavailable_error">Google Play services are unavailable.</string>
     <string name="upgrades_no_purchases_found_check_account">No purchases found. Are you using the right account?</string>
-    <string name="upgrades_upgrade_sdmse_title">Upgrade SD Maid SE</string>
+    <string name="upgrades_upgrade_sdmse_title">Upgrade SD Maid</string>
     <string name="upgrades_upgrade_sdmse_body">Do you like that this app has no ads and doesn\'t sell your data? Upgrade to SD Maid SE Pro, get more features and show your support!</string>
 </resources>
