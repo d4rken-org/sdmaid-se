@@ -2,16 +2,17 @@ package eu.darken.sdmse.common.files.core.saf
 
 import android.net.Uri
 import com.squareup.moshi.JsonDataException
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.RawPath
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.serialization.SerializationModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.json.toComparableJson
+import java.time.Instant
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
@@ -83,5 +84,58 @@ class SAFPathTest {
             val json = moshi.adapter(RawPath::class.java).toJson(original)
             moshi.adapter(SAFPath::class.java).fromJson(json)
         }
+    }
+
+
+    @Test
+    fun `path comparison`() {
+        val file1a = SAFPath.build(testUri, "seg1", "seg2")
+        val file1b = SAFPath.build(testUri, "seg1", "seg2")
+        val file2 = SAFPath.build(testUri, "seg1", "test")
+        file1a shouldBe file1b
+        file1a shouldNotBe file2
+    }
+
+    @Test
+    fun `lookup comparison`() {
+        val lookup1a = SAFPathLookup(
+            lookedUp = SAFPath.build(testUri, "seg1", "seg2"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup1b = SAFPathLookup(
+            lookedUp = SAFPath.build(testUri, "seg1", "seg2"),
+            fileType = FileType.FILE,
+            size = 8,
+            modifiedAt = Instant.ofEpochMilli(123),
+            ownership = Ownership(1, 1),
+            permissions = Permissions(444),
+            target = null,
+        )
+        val lookup1c = SAFPathLookup(
+            SAFPath.build(testUri, "seg1", "seg2"),
+            fileType = FileType.DIRECTORY,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(testUri, "seg1", "test"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        lookup1a shouldBe lookup1b
+        lookup1a shouldNotBe lookup1c
+        lookup1a shouldNotBe lookup2
     }
 }

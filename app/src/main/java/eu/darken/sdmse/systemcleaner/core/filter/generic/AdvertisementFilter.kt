@@ -27,7 +27,7 @@ class AdvertisementFilter @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun targetTypes(): Collection<DataArea.Type> = setOf(
+    override suspend fun targetAreas(): Collection<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
     )
 

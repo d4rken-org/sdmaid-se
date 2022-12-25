@@ -3,14 +3,14 @@ package eu.darken.sdmse.common.files.core.local
 import eu.darken.sdmse.common.files.core.*
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import java.util.*
+import java.time.Instant
 
 @Parcelize
 data class LocalPathLookup(
     override val lookedUp: LocalPath,
     override val fileType: FileType,
     override val size: Long,
-    override val modifiedAt: Date,
+    override val modifiedAt: Instant,
     override val ownership: Ownership?,
     override val permissions: Permissions?,
     override val target: LocalPath?
@@ -27,4 +27,19 @@ data class LocalPathLookup(
     @IgnoredOnParcel override val pathType: APath.PathType
         get() = lookedUp.pathType
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is LocalPathLookup) return false
+
+        if (lookedUp != other.lookedUp) return false
+        if (fileType != other.fileType) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = lookedUp.hashCode()
+        result = 31 * result + fileType.hashCode()
+        return result
+    }
 }

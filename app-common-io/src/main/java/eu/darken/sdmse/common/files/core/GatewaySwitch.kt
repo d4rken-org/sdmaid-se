@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import okio.Sink
 import okio.Source
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -99,7 +100,7 @@ class GatewaySwitch @Inject constructor(
         return useGateway(linkPath) { createSymlink(linkPath, targetPath) }
     }
 
-    override suspend fun setModifiedAt(path: APath, modifiedAt: Date): Boolean {
+    override suspend fun setModifiedAt(path: APath, modifiedAt: Instant): Boolean {
         return useGateway(path) { setModifiedAt(path, modifiedAt) }
     }
 

@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
-import java.util.*
+import java.time.Instant
 
 
 fun LocalPath.crumbsTo(child: LocalPath): Array<String> {
@@ -80,7 +80,7 @@ fun LocalPath.performLookup(
         fileType = file.getAPathFileType(),
         lookedUp = this,
         size = file.length(),
-        modifiedAt = Date(file.lastModified()),
+        modifiedAt = Instant.ofEpochMilli(file.lastModified()),
         ownership = ownership,
         permissions = fstat?.let { Permissions(it.st_mode) },
         target = file.readLink()?.let { LocalPath.build(it) }

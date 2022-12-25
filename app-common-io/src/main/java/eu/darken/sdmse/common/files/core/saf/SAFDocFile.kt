@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.core.useQuietly
 import timber.log.Timber
 import java.io.File
 import java.io.IOException
+import java.time.Instant
 import java.util.*
 
 
@@ -100,8 +101,8 @@ internal data class SAFDocFile(
             return true
         }
 
-    val lastModified: Date
-        get() = Date(queryForLong(DocumentsContract.Document.COLUMN_LAST_MODIFIED) ?: 0)
+    val lastModified: Instant
+        get() = Instant.ofEpochMilli(queryForLong(DocumentsContract.Document.COLUMN_LAST_MODIFIED) ?: 0)
 
     val length: Long
         get() = queryForLong(DocumentsContract.Document.COLUMN_SIZE) ?: 0
@@ -164,9 +165,9 @@ internal data class SAFDocFile(
         return DocumentsContract.deleteDocument(resolver, uri)
     }
 
-    fun setLastModified(lastModified: Date): Boolean = try {
+    fun setLastModified(lastModified: Instant): Boolean = try {
         val updateValues = ContentValues()
-        updateValues.put(DocumentsContract.Document.COLUMN_LAST_MODIFIED, lastModified.time)
+        updateValues.put(DocumentsContract.Document.COLUMN_LAST_MODIFIED, lastModified.toEpochMilli())
         val updated: Int = resolver.update(uri, updateValues, null, null)
         updated == 1
     } catch (e: Exception) {

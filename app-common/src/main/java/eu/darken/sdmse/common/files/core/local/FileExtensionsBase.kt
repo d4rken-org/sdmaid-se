@@ -130,3 +130,5 @@ val File.parents: Sequence<File>
 
 val File.parentsInclusive: Sequence<File>
     get() = sequenceOf(this) + parents
+
+fun String.fixSlass(): String = replace("/", File.separator)

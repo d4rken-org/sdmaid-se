@@ -12,6 +12,7 @@ import okio.Sink
 import okio.Source
 import java.io.File
 import java.io.FileNotFoundException
+import java.time.Instant
 import java.util.*
 
 fun APath.crumbsTo(child: APath): Array<String> {
@@ -130,7 +131,7 @@ suspend fun <T : APath> T.createSymlink(gateway: APathGateway<T, out APathLookup
     return gateway.createSymlink(downCast(), target)
 }
 
-suspend fun <T : APath> T.setModifiedAt(gateway: APathGateway<T, out APathLookup<T>>, modifiedAt: Date): Boolean {
+suspend fun <T : APath> T.setModifiedAt(gateway: APathGateway<T, out APathLookup<T>>, modifiedAt: Instant): Boolean {
     return gateway.setModifiedAt(downCast(), modifiedAt)
 }
 

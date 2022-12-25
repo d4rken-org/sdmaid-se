@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.files.core
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import okio.Sink
 import okio.Source
-import java.util.*
+import java.time.Instant
 
 interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any> {
 
@@ -31,7 +31,7 @@ interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any>
 
     suspend fun createSymlink(linkPath: P, targetPath: P): Boolean
 
-    suspend fun setModifiedAt(path: P, modifiedAt: Date): Boolean
+    suspend fun setModifiedAt(path: P, modifiedAt: Instant): Boolean
 
     suspend fun setPermissions(path: P, permissions: Permissions): Boolean
 

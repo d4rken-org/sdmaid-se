@@ -28,6 +28,7 @@ import okio.*
 import timber.log.Timber
 import java.io.File
 import java.io.IOException
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -430,13 +431,13 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun setModifiedAt(path: LocalPath, modifiedAt: Date): Boolean = setModifiedAt(
+    override suspend fun setModifiedAt(path: LocalPath, modifiedAt: Instant): Boolean = setModifiedAt(
         path,
         modifiedAt,
         Mode.AUTO
     )
 
-    suspend fun setModifiedAt(path: LocalPath, modifiedAt: Date, mode: Mode = Mode.AUTO): Boolean = runIO {
+    suspend fun setModifiedAt(path: LocalPath, modifiedAt: Instant, mode: Mode = Mode.AUTO): Boolean = runIO {
         try {
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
@@ -444,7 +445,7 @@ class LocalGateway @Inject constructor(
             }
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
-                    path.file.setLastModified(modifiedAt.time)
+                    path.file.setLastModified(modifiedAt.toEpochMilli())
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps {

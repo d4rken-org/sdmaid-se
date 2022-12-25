@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.files.core.APathLookup
 
 interface SystemCleanerFilter {
 
-    suspend fun targetTypes(): Collection<DataArea.Type>
+    suspend fun targetAreas(): Collection<DataArea.Type>
 
     suspend fun initialize()
 

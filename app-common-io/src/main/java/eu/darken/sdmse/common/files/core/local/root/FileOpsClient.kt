@@ -13,7 +13,7 @@ import okio.Sink
 import okio.Source
 import timber.log.Timber
 import java.io.IOException
-import java.util.*
+import java.time.Instant
 
 class FileOpsClient @AssistedInject constructor(
     @Assisted private val fileOpsConnection: FileOpsConnection
@@ -102,8 +102,8 @@ class FileOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
-    fun setModifiedAt(path: LocalPath, modifiedAt: Date): Boolean = try {
-        fileOpsConnection.setModifiedAt(path, modifiedAt.time)
+    fun setModifiedAt(path: LocalPath, modifiedAt: Instant): Boolean = try {
+        fileOpsConnection.setModifiedAt(path, modifiedAt.toEpochMilli())
     } catch (e: Exception) {
         Timber.tag(TAG).e(e, "setModifiedAt(path=$path, modifiedAt=$modifiedAt) failed.")
         throw fakeIOException(e.getRootCause())

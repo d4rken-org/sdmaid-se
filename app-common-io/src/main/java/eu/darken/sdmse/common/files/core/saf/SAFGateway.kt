@@ -22,6 +22,7 @@ import kotlinx.coroutines.withContext
 import okio.*
 import timber.log.Timber
 import java.io.IOException
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -248,7 +249,7 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    override suspend fun setModifiedAt(path: SAFPath, modifiedAt: Date): Boolean = runIO {
+    override suspend fun setModifiedAt(path: SAFPath, modifiedAt: Instant): Boolean = runIO {
         try {
             val docFile = findDocFile(path)
 

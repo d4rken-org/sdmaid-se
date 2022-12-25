@@ -48,7 +48,7 @@ class SystemCrawler @Inject constructor(
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
-            .map { it.targetTypes() }
+            .map { it.targetAreas() }
             .flatten()
             .toSet()
             .map { type -> currentAreas.filter { it.type == type } }
