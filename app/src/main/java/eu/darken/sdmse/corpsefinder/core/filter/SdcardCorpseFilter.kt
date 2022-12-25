@@ -104,7 +104,7 @@ class SdcardCorpseFilter @Inject constructor(
             val possibleCorpse = itemBlockedIterator.next()
 
             val remove = aliveItems.any { livingBlocker ->
-                val isBlocked = possibleCorpse.item.isParentOf(livingBlocker.item)
+                val isBlocked = possibleCorpse.item.isAncestorOf(livingBlocker.item)
                 if (isBlocked) log(TAG) { "Blocked by living item: ${possibleCorpse.item} by ${livingBlocker.item}" }
                 isBlocked
             }
@@ -119,7 +119,7 @@ class SdcardCorpseFilter @Inject constructor(
             val possibleNested = itemCoveredIterator.next()
 
             val remove = deadItems.any { corpse ->
-                val isCovered = corpse.item.isParentOf(possibleNested.item)
+                val isCovered = corpse.item.isAncestorOf(possibleNested.item)
                 log(TAG) { "Covered nested corpse: ${possibleNested.item} by ${corpse.item}" }
                 isCovered
             }

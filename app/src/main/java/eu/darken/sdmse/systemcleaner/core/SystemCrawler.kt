@@ -5,6 +5,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
@@ -15,7 +17,6 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
-import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -26,25 +27,34 @@ class SystemCrawler @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
     private val dispatcherProvider: DispatcherProvider,
-    private val rootManager: RootManager,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
+
+    init {
+        filterFactories.forEach { log(TAG) { "Available filter: $it" } }
+    }
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
     }
 
     suspend fun crawl(): Collection<SieveContent> {
+        log(TAG) { "crawl()" }
         updateProgressPrimary(R.string.general_progress_searching)
         updateProgressSecondary(R.string.general_progress_generating_searchpaths)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val filters = filterFactories
+            .asFlow()
             .filter { it.isEnabled() }
             .map { it.create() }
-            .onEach { it.initialize() }
+            .onEach {
+                log(TAG) { "Initializing $it" }
+                it.initialize()
+            }
+            .toList()
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
@@ -65,10 +75,17 @@ class SystemCrawler @Inject constructor(
                     // TODO prevent overlap between /storage/emulated/0 and /data/media/0?
                     area.path.walk(gatewaySwitch)
                 }
-                .buffer(256)
-                .collectLatest { item ->
+                .buffer(1024)
+                .collect { item ->
                     updateProgressSecondary(item.path)
-                    val matched = filters.firstOrNull { it.sieve(item) }
+                    val matched = filters.firstOrNull {
+                        try {
+                            it.sieve(item)
+                        } catch (e: Exception) {
+                            log(TAG, Logging.Priority.ERROR) { "Sieve failed ($it): ${e.asLog()}" }
+                            false
+                        }
+                    }
                     if (matched != null) {
                         log(TAG) { "$matched matched $item" }
                         sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)

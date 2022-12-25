@@ -11,12 +11,13 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.time.Instant
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
-class SAFPathTest {
+class SAFPathTest : BaseTest() {
 
     val testUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
 
@@ -134,8 +135,9 @@ class SAFPathTest {
             permissions = null,
             target = null,
         )
-        lookup1a shouldBe lookup1b
+        lookup1a shouldNotBe lookup1b
         lookup1a shouldNotBe lookup1c
         lookup1a shouldNotBe lookup2
     }
+
 }

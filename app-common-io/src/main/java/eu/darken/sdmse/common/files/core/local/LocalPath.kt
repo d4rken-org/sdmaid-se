@@ -56,16 +56,22 @@ data class LocalPath(
         }
 
         fun build(vararg crumbs: String): LocalPath {
-            var compacter = File(crumbs[0])
+            var compacter = File(
+                if (crumbs[0].startsWith(File.separatorChar)) {
+                    crumbs[0]
+                } else {
+                    File.separator + crumbs[0]
+                }
+            )
+
             for (i in 1 until crumbs.size) {
                 compacter = File(compacter, crumbs[i])
             }
+
             return build(compacter)
         }
 
-        fun build(file: File): LocalPath {
-            return LocalPath(file)
-        }
+        fun build(file: File): LocalPath = LocalPath(file)
     }
 
 

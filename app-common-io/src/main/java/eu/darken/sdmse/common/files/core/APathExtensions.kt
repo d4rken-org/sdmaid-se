@@ -6,8 +6,12 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
+import eu.darken.sdmse.common.files.core.local.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.isParentOf
 import eu.darken.sdmse.common.files.core.saf.SAFPath
+import eu.darken.sdmse.common.files.core.saf.crumbsTo
+import eu.darken.sdmse.common.files.core.saf.isAncestorOf
+import eu.darken.sdmse.common.files.core.saf.isParentOf
 import okio.Sink
 import okio.Source
 import java.io.File
@@ -227,13 +231,35 @@ suspend fun <T : APath> T.tryMkDirs(gateway: APathGateway<T, out APathLookup<T>>
 //        return filteredChildren
 //    }
 
+fun APath.isAncestorOf(descendant: APath): Boolean {
+    if (this.pathType != descendant.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $descendant)")
+    }
+    return when (pathType) {
+        APath.PathType.LOCAL -> (this.downCast() as LocalPath).isAncestorOf(descendant.downCast() as LocalPath)
+        APath.PathType.SAF -> (this.downCast() as SAFPath).isAncestorOf(descendant.downCast() as SAFPath)
+        APath.PathType.RAW -> descendant.downCast().path.startsWith(this.downCast().path + "/")
+    }
+}
+
 fun APath.isParentOf(child: APath): Boolean {
     if (this.pathType != child.pathType) {
         throw IllegalArgumentException("Can't compare different types ($this and $child)")
     }
     return when (pathType) {
-        APath.PathType.LOCAL -> (this as LocalPath).isParentOf(child as LocalPath)
-        APath.PathType.SAF -> (this as SAFPath).isParentOf(child as SAFPath)
-        APath.PathType.RAW -> child.path.startsWith(this.path + "/")
+        APath.PathType.LOCAL -> (this.downCast() as LocalPath).isParentOf(child.downCast() as LocalPath)
+        APath.PathType.SAF -> (this.downCast() as SAFPath).isParentOf(child.downCast() as SAFPath)
+        APath.PathType.RAW -> this.downCast().child(child.name) == child
+    }
+}
+
+fun APath.matches(other: APath): Boolean {
+    if (this.pathType != other.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $other)")
+    }
+    return when (pathType) {
+        APath.PathType.LOCAL -> (this.downCast() as LocalPath).path == (other.downCast() as LocalPath).path
+        APath.PathType.SAF -> (this.downCast() as SAFPath).path == (other.downCast() as SAFPath).path
+        APath.PathType.RAW -> other.downCast().path == this.downCast().path
     }
 }

@@ -1,6 +1,5 @@
 package testhelpers
 
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -13,7 +12,6 @@ open class BaseTest {
         Logging.clearAll()
         Logging.install(eu.darken.sdmse.common.JUnitLogger())
         testClassName = this.javaClass.simpleName
-        Bugs.isTrace = true
     }
 
     companion object {
@@ -26,7 +24,6 @@ open class BaseTest {
             unmockkAll()
             log(testClassName!!, VERBOSE) { "onTestClassFinished()" }
             Logging.clearAll()
-            Bugs.isTrace = false
         }
     }
 }

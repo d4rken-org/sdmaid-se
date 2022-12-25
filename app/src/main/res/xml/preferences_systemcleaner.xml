@@ -18,6 +18,11 @@
             app:key="filter.anr.enabled"
             app:summary="@string/systemcleaner_filter_anr_summary"
             app:title="@string/systemcleaner_filter_anr_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_folder_open_24"
+            app:key="filter.emptydirectories.enabled"
+            app:summary="@string/systemcleaner_filter_emptydirectories_summary"
+            app:title="@string/systemcleaner_filter_emptydirectories_label" />
 
     </PreferenceCategory>
 

@@ -87,9 +87,13 @@ fun LocalPath.performLookup(
     )
 }
 
-fun LocalPath.isParentOf(child: LocalPath): Boolean {
+fun LocalPath.isAncestorOf(child: LocalPath): Boolean {
     val parentPath = this.asFile().absolutePath
     val childPath = child.asFile().absolutePath
 
     return childPath.startsWith(parentPath + File.separator)
+}
+
+fun LocalPath.isParentOf(child: LocalPath): Boolean {
+    return child(child.name) == child
 }

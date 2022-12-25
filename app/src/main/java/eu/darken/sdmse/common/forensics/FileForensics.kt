@@ -40,7 +40,7 @@ class FileForensics @Inject constructor(
     suspend fun identifyArea(file: APath): AreaInfo? = keepResourceHoldersAlive(commonResources) {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
-        csiProcessors.firstNotNullOf { it.identifyArea(file) }
+        csiProcessors.firstNotNullOfOrNull { it.identifyArea(file) }
     }
 
     suspend fun findOwners(file: APath): OwnerInfo? {

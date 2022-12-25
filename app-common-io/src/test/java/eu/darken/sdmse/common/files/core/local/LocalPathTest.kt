@@ -8,11 +8,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
 import java.time.Instant
 
-class LocalPathTest {
+class LocalPathTest : BaseTest() {
     private val testFile = File("./testfile")
 
     @AfterEach
@@ -80,6 +81,12 @@ class LocalPathTest {
     }
 
     @Test
+    fun `path are always absolute`() {
+        LocalPath.build("test", "file1").path shouldBe "/test/file1"
+        LocalPath.build("").path shouldBe "/"
+    }
+
+    @Test
     fun `path comparison`() {
         val file1a = LocalPath.build("test", "file1")
         val file1b = LocalPath.build("test", "file1")
@@ -126,7 +133,7 @@ class LocalPathTest {
             permissions = null,
             target = null,
         )
-        lookup1a shouldBe lookup1b
+        lookup1a shouldNotBe lookup1b
         lookup1a shouldNotBe lookup1c
         lookup1a shouldNotBe lookup2
     }

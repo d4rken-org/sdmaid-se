@@ -6,10 +6,9 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.FileType
-import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.local.LocalPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -28,6 +27,7 @@ import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
+import java.time.Instant
 import java.util.*
 
 abstract class SystemCleanerFilterTest : BaseTest() {
@@ -163,7 +163,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     private val storageSdcard1 = mockk<DataArea>().apply {
         every { flags } returns setOf(DataArea.Flag.PRIMARY)
         every { type } returns Type.SDCARD
-        every { path } returns LocalPath.build("storage", "emulated", "0")
+        every { path } returns LocalPath.build("/storage", "emulated", "0")
     }
 
     private val storageSdcard2 = mockk<DataArea>().apply {
@@ -253,6 +253,10 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
         coEvery { gatewaySwitch.exists(any()) } returns false
+        coEvery { gatewaySwitch.canRead(any()) } returns false
+        coEvery { gatewaySwitch.lookupFiles(any()) } answers {
+            throw ReadException(arg<APath>(0))
+        }
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
@@ -345,25 +349,29 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 require(!(flagsCollection.contains(Flags.DIR) && flagsCollection.contains(Flags.FILE))) { "Can't be both file and dir." }
 
                 val mockPath = area.path.child(targetPath)
-                mockk<APathLookup<*>>()
-                    .apply {
-                        callback?.invoke(this)
-                        every { path } returns mockPath.path
-                        every { name } returns mockPath.name
-
-                        if (flagsCollection.contains(Flags.DIR)) {
-                            every { fileType } returns FileType.DIRECTORY
-                        } else if (flagsCollection.contains(Flags.FILE)) {
-                            every { fileType } returns FileType.FILE
-                        }
-
-                        every { size } returns if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L
+                LocalPathLookup(
+                    lookedUp = mockPath as LocalPath,
+                    fileType = if (flagsCollection.contains(Flags.DIR)) {
+                        FileType.DIRECTORY
+                    } else if (flagsCollection.contains(Flags.FILE)) {
+                        FileType.FILE
+                    } else {
+                        throw IllegalArgumentException("Unknown file type")
+                    },
+                    size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
+                    modifiedAt = Instant.EPOCH,
+                    ownership = null,
+                    permissions = null,
+                    target = null,
+                ).also {
+                    coEvery { fileForensics.identifyArea(it) } returns mockk<AreaInfo>().apply {
+                        every { type } returns areaType
                     }
-                    .also {
-                        coEvery { fileForensics.identifyArea(it) } returns mockk<AreaInfo>().apply {
-                            every { type } returns areaType
-                        }
+                    coEvery { gatewaySwitch.canRead(it) } returns true
+                    if (flagsCollection.contains(Flags.DIR)) {
+                        coEvery { gatewaySwitch.lookupFiles(any()) } returns emptyList()
                     }
+                }
             }
     }
 

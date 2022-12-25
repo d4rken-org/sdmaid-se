@@ -118,6 +118,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Files that have been created for or by advertisements.</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
     <string name="systemcleaner_filter_anr_summary">Traces from \'application not responding\' events.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Empty directories</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Empty directories from all over the device. Nested directories may require multiple passes.</string>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>

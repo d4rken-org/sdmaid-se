@@ -96,8 +96,8 @@ class BaseSieve @AssistedInject constructor(
         config.areaTypes
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
-                val areaInfo = fileForensics.identifyArea(subject)
-                if (areaInfo != null && !types.contains(areaInfo.type)) return false
+                val areaInfo = fileForensics.identifyArea(subject) ?: return false
+                if (!types.contains(areaInfo.type)) return false
             }
 
         return true
