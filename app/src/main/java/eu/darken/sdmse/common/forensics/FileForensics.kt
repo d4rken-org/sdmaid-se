@@ -37,19 +37,19 @@ class FileForensics @Inject constructor(
         log(TAG, VERBOSE) { csiProcessors.joinToString("\n") }
     }
 
-    suspend fun identifyArea(file: APath): AreaInfo = keepResourceHoldersAlive(commonResources) {
+    suspend fun identifyArea(file: APath): AreaInfo? = keepResourceHoldersAlive(commonResources) {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
         csiProcessors.firstNotNullOf { it.identifyArea(file) }
     }
 
-    suspend fun findOwners(file: APath): OwnerInfo {
+    suspend fun findOwners(file: APath): OwnerInfo? {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute:" + file.path)
 
-        return findOwners(identifyArea(file))
+        return identifyArea(file)?.let { findOwners(it) }
     }
 
-    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo = keepResourceHoldersAlive(commonResources) {
+    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo? = keepResourceHoldersAlive(commonResources) {
         val startFindingOwner = System.currentTimeMillis()
 
         val result = csiProcessors

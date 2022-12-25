@@ -74,7 +74,7 @@ class AppSourceCorpseFilter @Inject constructor(
 
         return candidates
             .asFlow()
-            .map {
+            .mapNotNull {
                 log(TAG) { "Checking $it" }
                 increaseProgress()
                 fileForensics.findOwners(it)

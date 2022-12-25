@@ -118,7 +118,7 @@ class DalvikCorpseFilter @Inject constructor(
 
         return profileItems
             .asFlow()
-            .map {
+            .mapNotNull {
                 log(TAG) { "Checking $it" }
                 increaseProgress()
                 fileForensics.findOwners(it)
@@ -157,7 +157,7 @@ class DalvikCorpseFilter @Inject constructor(
 
         return dalvikItems
             .asFlow()
-            .map {
+            .mapNotNull {
                 log(TAG) { "Checking $it" }
                 increaseProgress()
                 fileForensics.findOwners(it)

@@ -25,10 +25,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Provider
@@ -70,7 +67,7 @@ class PublicMediaCorpseFilter @Inject constructor(
         return candidates
             .asFlow()
             .filter { !shouldBeExcluded(it) }
-            .map {
+            .mapNotNull {
                 log(TAG) { "Checking $it" }
                 increaseProgress()
                 fileForensics.findOwners(it)

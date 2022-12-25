@@ -76,7 +76,7 @@ class PrivateDataCorpseFilter @Inject constructor(
         return candidates
             .asFlow()
             .filter { !shouldBeExcluded(it) }
-            .map {
+            .mapNotNull {
                 log(TAG) { "Checking $it" }
                 increaseProgress()
                 fileForensics.findOwners(it)

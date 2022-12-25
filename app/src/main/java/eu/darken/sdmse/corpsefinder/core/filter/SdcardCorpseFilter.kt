@@ -246,7 +246,7 @@ class SdcardCorpseFilter @Inject constructor(
             }
 
         return candidatesThatExist
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .filter { it.type == DataArea.Type.SDCARD }
             .also { fileCache[cacheKey] = it }
     }

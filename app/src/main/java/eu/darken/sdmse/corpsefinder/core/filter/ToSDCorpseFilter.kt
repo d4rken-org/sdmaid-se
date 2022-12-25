@@ -98,7 +98,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
                 val owners = setOf(Owner(dirPkg))
@@ -147,7 +147,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
                 val owners = setOf(Owner(dirPkg))
@@ -204,7 +204,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
                 val fileName: String = areaInfo.file.name
                 val matcher = DALVIK_MATCHER.matcher(fileName)
@@ -259,7 +259,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
                 val owners = setOf(Owner(dirPkg))
@@ -305,7 +305,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
                 val name = areaInfo.file.name
                 val candidateName: String = if (name.endsWith(".apk")) name.substring(0, name.length - 4) else name
@@ -354,7 +354,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_filtering)
         return candidates
-            .map { fileForensics.identifyArea(it) }
+            .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
                 val matcher = APPLIB_DIR.matcher(areaInfo.file.name)
                 if (!matcher.matches()) return@mapNotNull null

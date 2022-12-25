@@ -46,11 +46,11 @@ class BaseSieve @AssistedInject constructor(
         }
 
         config.maximumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.time > it) return false
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it) return false
         }
 
         config.minimumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.time < it) return false
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it) return false
         }
 
         config.basePaths
@@ -97,7 +97,7 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
                 val areaInfo = fileForensics.identifyArea(subject)
-                if (!types.contains(areaInfo.type)) return false
+                if (areaInfo != null && !types.contains(areaInfo.type)) return false
             }
 
         return true
