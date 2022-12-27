@@ -11,6 +11,9 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.LocalPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.randomString
@@ -30,9 +33,11 @@ import testhelpers.BaseTest
 import java.time.Instant
 import java.util.*
 
+@Suppress("MemberVisibilityCanBePrivate")
 abstract class SystemCleanerFilterTest : BaseTest() {
 
     @MockK lateinit var pkgOps: PkgOps
+    @MockK lateinit var pkgRepo: PkgRepo
     @MockK lateinit var areaManager: DataAreaManager
     @MockK lateinit var fileForensics: FileForensics
     @MockK lateinit var gatewaySwitch: GatewaySwitch
@@ -40,175 +45,173 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     @MockK lateinit var systemCleanerSettings: SystemCleanerSettings
 
 
-    private val storageData1 = mockk<DataArea>().apply {
+    val storageData1 = mockk<DataArea>().apply {
         every { flags } returns setOf(DataArea.Flag.PRIMARY)
         every { type } returns Type.DATA
         every { path } returns LocalPath.build("/data")
     }
 
-    private val storageData2 = mockk<DataArea>().apply {
+    val storageData2 = mockk<DataArea>().apply {
         every { flags } returns setOf(DataArea.Flag.SECONDARY)
         every { type } returns Type.DATA
         every { path } returns LocalPath.build("/mnt/expand", randomString())
     }
 
-    private val storageDataApp1 = mockk<DataArea>().apply {
+    val storageDataApp1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.APP_APP
         every { path } returns storageData1.path.child("app")
     }
 
-    private val storageDataApp2 = mockk<DataArea>().apply {
+    val storageDataApp2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.APP_APP
         every { path } returns storageData2.path.child("app")
     }
 
-    private val storageDataAppAsec1 = mockk<DataArea>().apply {
+    val storageDataAppAsec1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.APP_ASEC
         every { path } returns storageData1.path.child("app-asec")
     }
 
-    private val storageDataAppAsec2 = mockk<DataArea>().apply {
+    val storageDataAppAsec2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.APP_ASEC
         every { path } returns storageData2.path.child("app-asec")
     }
 
-    private val storageDataAppPrivate1 = mockk<DataArea>().apply {
+    val storageDataAppPrivate1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.APP_APP_PRIVATE
         every { path } returns storageData1.path.child("app-private")
     }
 
-    private val storageDataAppPrivate2 = mockk<DataArea>().apply {
+    val storageDataAppPrivate2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.APP_APP_PRIVATE
         every { path } returns storageData2.path.child("app-private")
     }
 
-    private val storageDataAppLib1 = mockk<DataArea>().apply {
+    val storageDataAppLib1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.APP_LIB
         every { path } returns storageData1.path.child("app-lib")
     }
 
-    private val storageDataAppLib2 = mockk<DataArea>().apply {
+    val storageDataAppLib2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.APP_LIB
         every { path } returns storageData2.path.child("app-lib")
     }
 
-    private val storageDataSystem1 = mockk<DataArea>().apply {
+    val storageDataSystem1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.DATA_SYSTEM
         every { path } returns storageData1.path.child("system")
     }
 
-    private val storageDataSystem2 = mockk<DataArea>().apply {
+    val storageDataSystem2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.DATA_SYSTEM
         every { path } returns storageData2.path.child("system")
     }
 
-    private val storageDataSystemCE1 = mockk<DataArea>().apply {
+    val storageDataSystemCE1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.DATA_SYSTEM_CE
         every { path } returns storageData1.path.child("system_ce")
     }
 
-    private val storageDataSystemCE2 = mockk<DataArea>().apply {
+    val storageDataSystemCE2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.DATA_SYSTEM_CE
         every { path } returns storageData2.path.child("system_ce")
     }
 
-    private val storageDataSystemDE1 = mockk<DataArea>().apply {
+    val storageDataSystemDE1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.DATA_SYSTEM_DE
         every { path } returns storageData1.path.child("system_de")
     }
 
-    private val storageDataSystemDE2 = mockk<DataArea>().apply {
+    val storageDataSystemDE2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.DATA_SYSTEM_DE
         every { path } returns storageData2.path.child("system_de")
     }
 
-    private val storageDalvikDex1 = mockk<DataArea>().apply {
+    val storageDalvikDex1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.DALVIK_DEX
         every { path } returns storageData1.path.child("dalvik-cache", "arm64")
     }
 
-    private val storageDalvikDex2 = mockk<DataArea>().apply {
+    val storageDalvikDex2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.DALVIK_DEX
         every { path } returns storageData2.path.child("dalvik-cache", "arm64")
     }
 
-    private val storageDalvikProfile1 = mockk<DataArea>().apply {
+    val storageDalvikProfile1 = mockk<DataArea>().apply {
         every { flags } returns storageData1.flags
         every { type } returns Type.DALVIK_PROFILE
         every { path } returns storageData1.path.child("dalvik-cache", "profiles")
     }
 
-    private val storageDalvikProfile2 = mockk<DataArea>().apply {
+    val storageDalvikProfile2 = mockk<DataArea>().apply {
         every { flags } returns storageData2.flags
         every { type } returns Type.DALVIK_PROFILE
         every { path } returns storageData2.path.child("dalvik-cache", "profiles")
     }
 
-    private val storageSdcard1 = mockk<DataArea>().apply {
+    val storageSdcard1 = mockk<DataArea>().apply {
         every { flags } returns setOf(DataArea.Flag.PRIMARY)
         every { type } returns Type.SDCARD
         every { path } returns LocalPath.build("/storage", "emulated", "0")
     }
 
-    private val storageSdcard2 = mockk<DataArea>().apply {
+    val storageSdcard2 = mockk<DataArea>().apply {
         every { flags } returns setOf(DataArea.Flag.SECONDARY)
         every { type } returns Type.SDCARD
         every { path } returns LocalPath.build("/storage", "ABCD-EFGH")
     }
 
-    private val storageAndroidData1 = mockk<DataArea>().apply {
+    val storageAndroidData1 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard1.flags
         every { type } returns Type.PUBLIC_DATA
         every { path } returns storageSdcard1.path.child("Android", "data")
     }
 
-    private val storageAndroidData2 = mockk<DataArea>().apply {
+    val storageAndroidData2 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard2.flags
         every { type } returns Type.PUBLIC_DATA
         every { path } returns storageSdcard2.path.child("Android", "data")
     }
 
-    private val storageAndroidObb1 = mockk<DataArea>().apply {
+    val storageAndroidObb1 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard1.flags
         every { type } returns Type.PUBLIC_OBB
         every { path } returns storageSdcard1.path.child("Android", "obb")
     }
 
-    private val storageAndroidObb2 = mockk<DataArea>().apply {
+    val storageAndroidObb2 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard2.flags
         every { type } returns Type.PUBLIC_OBB
         every { path } returns storageSdcard2.path.child("Android", "obb")
     }
 
-    private val storageAndroidMedia1 = mockk<DataArea>().apply {
+    val storageAndroidMedia1 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard1.flags
         every { type } returns Type.PUBLIC_MEDIA
         every { path } returns storageSdcard1.path.child("Android", "media")
     }
 
-    private val storageAndroidMedia2 = mockk<DataArea>().apply {
+    val storageAndroidMedia2 = mockk<DataArea>().apply {
         every { flags } returns storageSdcard2.flags
         every { type } returns Type.PUBLIC_MEDIA
         every { path } returns storageSdcard2.path.child("Android", "media")
     }
-
-    private val pkgs = mutableSetOf<Installed>()
 
     @BeforeEach
     open fun setup() {
@@ -260,6 +263,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
+
+        coEvery { pkgRepo.getPkg(any()) } returns null
     }
 
     @AfterEach
@@ -281,15 +286,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         mockNegative(Type.SDCARD, "Pictures", Flags.DIR)
         mockNegative(Type.SDCARD, "Camera", Flags.DIR)
         mockNegative(Type.SDCARD, "Music", Flags.DIR)
-//        mockNegative(DataArea.Type.SDCARD, null, Flags.DIR)
-//        if (rootContext!!.isRooted) {
-//            mockNegative(DataArea.Type.SDCARD, null, Flags.DIR)
-//            mockNegative(DataArea.Type.PRIVATE_DATA, null, Flags.DIR)
-//            mockNegative(DataArea.Type.DATA, null, Flags.DIR)
-//            mockNegative(DataArea.Type.SYSTEM_APP, null, Flags.DIR)
-//            mockNegative(DataArea.Type.SYSTEM, null, Flags.DIR)
-//            mockNegative(DataArea.Type.DOWNLOAD_CACHE, null, Flags.DIR)
-//        }
+        mockNegative(Type.SDCARD, "", Flags.DIR)
     }
 
     suspend fun confirm(filter: SystemCleanerFilter) {
@@ -373,6 +370,30 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     }
                 }
             }
+    }
+
+    private val pkgs = mutableMapOf<Pkg.Id, Installed>()
+    suspend fun mockPkg(pkgId: Pkg.Id): Installed {
+        val installed = mockk<Installed>().apply {
+            every { id } returns pkgId
+        }
+        pkgs[pkgId] = installed
+        coEvery { pkgRepo.getPkg(pkgId) } answers {
+            pkgs[arg(0)]
+        }
+        return installed
+    }
+
+    private val pkgArchives = mutableMapOf<String, ApkInfo>()
+    suspend fun mockArchive(pkgId: Pkg.Id, path: APath): ApkInfo {
+        val apkInfo = mockk<ApkInfo>().apply {
+            every { id } returns pkgId
+        }
+        pkgArchives[path.path] = apkInfo
+        coEvery { pkgOps.viewArchive(any(), any()) } answers {
+            pkgArchives[arg<APath>(0).path]
+        }
+        return apkInfo
     }
 
 }

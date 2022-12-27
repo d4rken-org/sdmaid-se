@@ -66,7 +66,7 @@ class AnrFilter @Inject constructor(
         return sieve.match(item)
     }
 
-    override fun toString(): kotlin.String = "AnrFilter(${hashCode()})"
+    override fun toString(): kotlin.String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(

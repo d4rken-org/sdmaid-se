@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.lookupFiles
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -40,6 +41,7 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 vm.launch {
+                    LocalPath.build("/sdcard/Download").lookupFiles(gatewaySwitch)
                     fileForensics.findOwners(LocalPath.build("/data/dalvik-cache/arm64/apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk@classes.dex"))
 //                    pkgOps.queryPkg("com.google.android.permissioncontroller".toPkgId()).let {
 //                        log { " Queried PKGS: $it" }

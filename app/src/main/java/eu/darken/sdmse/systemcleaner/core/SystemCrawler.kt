@@ -5,7 +5,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -64,6 +64,7 @@ class SystemCrawler @Inject constructor(
             .map { type -> currentAreas.filter { it.type == type } }
             .flatten()
             .toSet()
+        log(TAG) { "Target areas wanted by filters: $targetAreas" }
 
         val sieveContents = mutableMapOf<SystemCleanerFilter, Set<APathLookup<*>>>()
 
@@ -82,7 +83,7 @@ class SystemCrawler @Inject constructor(
                         try {
                             it.sieve(item)
                         } catch (e: Exception) {
-                            log(TAG, Logging.Priority.ERROR) { "Sieve failed ($it): ${e.asLog()}" }
+                            log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
                             false
                         }
                     }

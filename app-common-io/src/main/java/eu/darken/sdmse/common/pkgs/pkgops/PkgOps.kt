@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.asFile
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.downCast
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
@@ -190,7 +190,7 @@ class PkgOps @Inject constructor(
 
     suspend fun viewArchive(path: APath, flags: Int = 0): ApkInfo? = ipcFunnel.use {
         // TODO Can we support SAF here?
-        path as LocalPath
+        path.downCast()
         val jFile = path.asFile()
         if (!jFile.exists()) return@use null
 

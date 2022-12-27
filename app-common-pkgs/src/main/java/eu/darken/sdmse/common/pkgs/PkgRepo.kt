@@ -91,7 +91,7 @@ class PkgRepo @Inject constructor(
 
     suspend fun isInstalled(pkgId: Pkg.Id): Boolean = queryCache(pkgId).isInstalled
 
-    suspend fun getPkg(pkgId: Pkg.Id): Pkg? = queryCache(pkgId).data
+    suspend fun getPkg(pkgId: Pkg.Id): Installed? = queryCache(pkgId).data
 
     data class CachedInfo(
         val id: Pkg.Id,

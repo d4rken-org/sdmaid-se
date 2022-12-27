@@ -6,13 +6,14 @@ import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.toPkgId
 
 data class HiddenPkg(
     override val packageInfo: PackageInfo,
-) : InstalledPkg() {
+) : Installed {
 
     override val id: Pkg.Id = packageInfo.packageName.toPkgId()
 

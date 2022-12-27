@@ -123,4 +123,6 @@
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
+    <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
 </resources>

@@ -114,7 +114,7 @@ class EmptyDirectoryFilter @Inject constructor(
         return content.isEmpty()
     }
 
-    override fun toString(): String = "EmptyDirectoryFilter(${hashCode()})"
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(

@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.pkgs.features
 import android.content.pm.ApplicationInfo
 import android.content.pm.PermissionInfo
 import android.os.Build
-import androidx.core.content.pm.PackageInfoCompat
 import eu.darken.sdmse.common.hasApiLevel
 
 // A Pkg where we have access to an APK
@@ -11,12 +10,6 @@ interface ReadableApk : PkgInfo {
 
     val applicationInfo: ApplicationInfo?
         get() = packageInfo.applicationInfo
-
-    val versionName: String?
-        get() = packageInfo.versionName
-
-    val versionCode: Long
-        get() = PackageInfoCompat.getLongVersionCode(packageInfo)
 
     val sharedUserId: String?
         get() = packageInfo.sharedUserId

@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.ReadableApk
 import eu.darken.sdmse.common.pkgs.getIcon2
@@ -16,7 +17,7 @@ data class NormalPkg(
     override val packageInfo: PackageInfo,
     override val installerInfo: InstallerInfo,
     override val userHandles: Set<UserHandle2>,
-) : InstalledPkg(), ReadableApk, ExtendedInstallData {
+) : Installed, ReadableApk, ExtendedInstallData {
 
     private var _label: String? = null
     override fun getLabel(context: Context): String {

@@ -28,12 +28,14 @@ class SystemCleanerSettings @Inject constructor(
     val filterAdvertisementsEnabled = dataStore.createValue("filter.advertisements.enabled", true)
     val filterAnrEnabled = dataStore.createValue("filter.anr.enabled", true)
     val filterEmptyDirectoriesEnabled = dataStore.createValue("filter.emptydirectories.enabled", true)
+    val filterSuperfluosApksEnabled = dataStore.createValue("filter.superfluosapks.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,
         filterAdvertisementsEnabled,
         filterAnrEnabled,
-        filterEmptyDirectoriesEnabled
+        filterEmptyDirectoriesEnabled,
+        filterSuperfluosApksEnabled
     )
 
     companion object {

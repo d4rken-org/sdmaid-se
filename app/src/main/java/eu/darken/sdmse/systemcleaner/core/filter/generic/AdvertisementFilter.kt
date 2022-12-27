@@ -154,7 +154,7 @@ class AdvertisementFilter @Inject constructor(
         return !item.name.endsWith("chartboost") || item.isDirectory
     }
 
-    override fun toString(): String = "AdvertisementFilter(${hashCode()})"
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(

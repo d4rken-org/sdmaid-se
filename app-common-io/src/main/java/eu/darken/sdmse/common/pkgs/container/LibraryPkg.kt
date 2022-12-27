@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.ReadableApk
 import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
@@ -19,7 +20,7 @@ data class LibraryPkg(
     private val sharedLibraryInfo: SharedLibraryInfo,
     private val apkPath: APath,
     override val packageInfo: PackageInfo,
-) : InstalledPkg(), ReadableApk {
+) : Installed, ReadableApk {
     override val id: Pkg.Id
         get() {
             val rawId = if (versionCode == -1L) {
