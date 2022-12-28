@@ -20,7 +20,7 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class LinuxFoldersFilter @Inject constructor(
+class LinuxFilesFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
@@ -60,9 +60,9 @@ class LinuxFoldersFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<LinuxFoldersFilter>
+        private val filterProvider: Provider<LinuxFilesFilter>
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterLinuxFoldersEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterLinuxFilesEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -73,6 +73,6 @@ class LinuxFoldersFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "LinuxFolders")
+        private val TAG = logTag("SystemCleaner", "Filter", "LinuxFiles")
     }
 }

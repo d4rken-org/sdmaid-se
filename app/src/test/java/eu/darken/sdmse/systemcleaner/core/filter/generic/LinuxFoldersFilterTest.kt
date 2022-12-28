@@ -20,7 +20,7 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = LinuxFoldersFilter(
+    private fun create() = LinuxFilesFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
