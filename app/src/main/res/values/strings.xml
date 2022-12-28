@@ -126,5 +126,7 @@
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
-    <string name="systemcleaner_filter_lostdir_summary">Temporary files that are created when transfering data between Android devices.</string>
+    <string name="systemcleaner_filter_lostdir_summary">Temporary files that are created when transferring data between Android devices.</string>
+    <string name="systemcleaner_filter_linuxfolders_label">Linux folders</string>
+    <string name="systemcleaner_filter_linuxfolders_summary">Files &amp; folders that are created when storage has been connected to a linux computer.</string>
 </resources>

@@ -33,6 +33,11 @@
             app:key="filter.lostdir.enabled"
             app:summary="@string/systemcleaner_filter_lostdir_summary"
             app:title="@string/systemcleaner_filter_lostdir_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_usb_24"
+            app:key="filter.linuxfolders.enabled"
+            app:summary="@string/systemcleaner_filter_linuxfolders_summary"
+            app:title="@string/systemcleaner_filter_linuxfolders_label" />
 
     </PreferenceCategory>
 
