@@ -43,6 +43,11 @@
             app:key="filter.macfiles.enabled"
             app:summary="@string/systemcleaner_filter_macfiles_summary"
             app:title="@string/systemcleaner_filter_macfiles_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/image_multiple"
+            app:key="filter.thumbnails.enabled"
+            app:summary="@string/systemcleaner_filter_thumbnails_summary"
+            app:title="@string/systemcleaner_filter_thumbnails_label" />
 
     </PreferenceCategory>
 
