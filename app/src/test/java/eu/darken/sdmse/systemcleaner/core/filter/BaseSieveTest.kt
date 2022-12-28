@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.FileType
+import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import io.kotest.matchers.shouldBe
@@ -51,7 +52,7 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just basepaths`() = runTest {
         val config = BaseSieve.Config(
-            basePaths = setOf("/abc")
+            basePaths = setOf(LocalPath.build("abc"))
         )
         create(config).match(
             mockk<APathLookup<*>>().apply {

@@ -5,6 +5,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.isDirectory
 import eu.darken.sdmse.common.files.core.isFile
@@ -57,7 +58,7 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
-                if (basePaths.none { subject.path.startsWith(it) }) return false
+                if (basePaths.none { subject.path.startsWith(it.path) }) return false
             }
 
         config.pathContains
@@ -111,7 +112,7 @@ class BaseSieve @AssistedInject constructor(
         val targetType: TargetType? = null,
         val isEmpty: Boolean? = null,
         val areaTypes: Set<DataArea.Type>? = null,
-        val basePaths: Set<String>? = null,
+        val basePaths: Set<APath>? = null,
         val pathContains: Set<String>? = null,
         val namePrefixes: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,

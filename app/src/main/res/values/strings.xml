@@ -125,4 +125,6 @@
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
+    <string name="systemcleaner_filter_lostdir_summary">Temporary files that are created when transfering data between Android devices.</string>
 </resources>
