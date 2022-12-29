@@ -130,7 +130,9 @@
     <string name="systemcleaner_filter_linuxfiles_label">Linux files</string>
     <string name="systemcleaner_filter_linuxfiles_summary">Files &amp; folders that are created when storage has been connected to a linux computer.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac files</string>
-    <string name="systemcleaner_filter_macfiles_summary">Files &amp; folders that are created when connecting to an Apple computer.</string>
+    <string name="systemcleaner_filter_macfiles_summary">Files &amp; folders that are created when browsing storage with Apple\'s finder app.</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows files</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Data that the Windows file explorer can create on connected storage. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Thumbnail images</string>
     <string name="systemcleaner_filter_thumbnails_summary">Cached previews for images and videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Temporary files</string>

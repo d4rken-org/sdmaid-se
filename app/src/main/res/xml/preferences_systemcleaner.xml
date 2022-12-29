@@ -29,15 +29,20 @@
             app:summary="@string/systemcleaner_filter_lostdir_summary"
             app:title="@string/systemcleaner_filter_lostdir_label" />
         <CheckBoxPreference
-            app:icon="@drawable/ic_baseline_usb_24"
+            app:icon="@drawable/ic_os_linux"
             app:key="filter.linuxfiles.enabled"
             app:summary="@string/systemcleaner_filter_linuxfiles_summary"
             app:title="@string/systemcleaner_filter_linuxfiles_label" />
         <CheckBoxPreference
-            app:icon="@drawable/ic_baseline_usb_24"
+            app:icon="@drawable/ic_os_mac"
             app:key="filter.macfiles.enabled"
             app:summary="@string/systemcleaner_filter_macfiles_summary"
             app:title="@string/systemcleaner_filter_macfiles_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_os_windows"
+            app:key="filter.windowsfiles.enabled"
+            app:summary="@string/systemcleaner_filter_windowsfiles_summary"
+            app:title="@string/systemcleaner_filter_windowsfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/image_multiple"
             app:key="filter.thumbnails.enabled"
