@@ -33,6 +33,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterLinuxFilesEnabled = dataStore.createValue("filter.linuxfiles.enabled", true)
     val filterMacFilesEnabled = dataStore.createValue("filter.macfiles.enabled", true)
     val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", true)
+    val filterTempFilesEnabled = dataStore.createValue("filter.tempfiles.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,
@@ -44,6 +45,7 @@ class SystemCleanerSettings @Inject constructor(
         filterLinuxFilesEnabled,
         filterMacFilesEnabled,
         filterThumbnailsEnabled,
+        filterTempFilesEnabled
     )
 
     companion object {

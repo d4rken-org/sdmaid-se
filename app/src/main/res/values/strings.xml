@@ -133,4 +133,6 @@
     <string name="systemcleaner_filter_macfiles_summary">Files &amp; folders that are created when connecting to an Apple computer.</string>
     <string name="systemcleaner_filter_thumbnails_label">Thumbnail images</string>
     <string name="systemcleaner_filter_thumbnails_summary">Cached previews for images and videos.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Temporary files</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Temporary files, usually shortlived caches for active operations.</string>
 </resources>
