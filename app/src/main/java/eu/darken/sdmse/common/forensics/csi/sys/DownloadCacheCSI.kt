@@ -18,7 +18,7 @@ import java.io.File
 import javax.inject.Inject
 
 @Reusable
-class CachePartitionCSI @Inject constructor(
+class DownloadCacheCSI @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
 
@@ -42,10 +42,10 @@ class CachePartitionCSI @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: CachePartitionCSI): CSIProcessor
+        @Binds @IntoSet abstract fun mod(mod: DownloadCacheCSI): CSIProcessor
     }
 
     companion object {
-        val TAG: String = logTag("CSI", "System", "CachePartition")
+        val TAG: String = logTag("CSI", "System", "DownloadCache")
     }
 }

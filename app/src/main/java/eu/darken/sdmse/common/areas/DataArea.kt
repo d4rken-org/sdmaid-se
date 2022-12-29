@@ -22,7 +22,9 @@ data class DataArea(
 ) : Parcelable {
 
     enum class Flag {
-        PRIMARY, SECONDARY, EMULATED
+        PRIMARY,
+        SECONDARY, // TODO isn't a primary flag enough? It's either primary or it isn't...
+        EMULATED
     }
 
     @Keep @Parcelize

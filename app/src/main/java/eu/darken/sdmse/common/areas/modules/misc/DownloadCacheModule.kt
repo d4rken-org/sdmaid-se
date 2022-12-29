@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 
 @Reusable
-class CacheModule @Inject constructor(
+class DownloadCacheModule @Inject constructor(
     private val environment: StorageEnvironment,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
@@ -34,28 +34,24 @@ class CacheModule @Inject constructor(
             return emptySet()
         }
 
-        val basePath = environment.cacheDir
-
-        if (!gateway.canRead(basePath, mode = LocalGateway.Mode.ROOT)) {
-            log(TAG, INFO) { "Doesn't exist: $basePath" }
-            return emptySet()
-        }
-
-        return setOf(
-            DataArea(
-                type = DataArea.Type.DOWNLOAD_CACHE,
-                path = basePath,
-                userHandle = userManager2.systemUser,
-            )
-        )
+        return environment.downloadCacheDirs
+            .filter { gateway.canRead(it, mode = LocalGateway.Mode.ROOT) }
+            .map {
+                DataArea(
+                    type = DataArea.Type.DOWNLOAD_CACHE,
+                    path = it,
+                    userHandle = userManager2.systemUser,
+                    flags = if (it == environment.downloadCacheDirs.first()) setOf(DataArea.Flag.PRIMARY) else emptySet()
+                )
+            }
     }
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: CacheModule): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: DownloadCacheModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "Cache")
+        val TAG: String = logTag("DataArea", "Module", "DownloadCache")
     }
 }

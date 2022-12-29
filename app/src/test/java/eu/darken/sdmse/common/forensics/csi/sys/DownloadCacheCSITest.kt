@@ -36,7 +36,7 @@ class DownloadCacheCSITest : BaseCSITest() {
         )
     }
 
-    private fun getProcessor() = CachePartitionCSI(
+    private fun getProcessor() = DownloadCacheCSI(
         areaManager = areaManager,
     )
 
