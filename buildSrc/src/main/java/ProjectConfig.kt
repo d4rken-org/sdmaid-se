@@ -1,6 +1,8 @@
+import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import java.io.File
 import java.io.FileInputStream
 import java.time.Instant
@@ -102,6 +104,36 @@ fun com.android.build.api.dsl.CommonExtension<
         release {
             consumerProguardFiles("proguard-rules.pro")
         }
+    }
+}
+
+
+private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
+    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
+
+fun BaseExtension.setupKotlinOptions() {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
+            "-Xuse-experimental=kotlin.time.ExperimentalTime",
+            "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xopt-in=kotlin.ExperimentalStdlibApi",
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xopt-in=kotlinx.coroutines.FlowPreview",
+            "-Xopt-in=kotlin.time.ExperimentalTime",
+            "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xjvm-default=all"
+        )
+    }
+}
+
+fun BaseExtension.setupCompileOptions() {
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 

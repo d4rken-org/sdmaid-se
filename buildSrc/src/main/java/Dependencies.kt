@@ -1,10 +1,6 @@
-import com.android.build.gradle.BaseExtension
-import org.gradle.api.Action
-import org.gradle.api.JavaVersion
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.DependencyHandlerScope
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 private fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
@@ -29,36 +25,6 @@ private fun DependencyHandler.`testRuntimeOnly`(dependencyNotation: Any): Depend
 
 private fun DependencyHandler.`debugImplementation`(dependencyNotation: Any): Dependency? =
     add("debugImplementation", dependencyNotation)
-
-
-private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
-    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
-
-fun BaseExtension.setupKotlinOptions() {
-    kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
-            "-Xuse-experimental=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xopt-in=kotlin.ExperimentalStdlibApi",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlinx.coroutines.FlowPreview",
-            "-Xopt-in=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xjvm-default=all"
-        )
-    }
-}
-
-fun BaseExtension.setupCompileOptions() {
-    compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-}
 
 fun DependencyHandlerScope.addDI() {
     implementation("com.google.dagger:dagger:${Versions.Dagger.core}")

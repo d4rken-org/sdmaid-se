@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -33,6 +35,17 @@ android {
         }
         tasks.withType<Test> {
             useJUnitPlatform()
+            testLogging {
+                outputs.upToDateWhen { false }
+                events = setOf(
+                    TestLogEvent.PASSED,
+                    TestLogEvent.FAILED,
+                    TestLogEvent.SKIPPED,
+                    TestLogEvent.STANDARD_ERROR
+                )
+                showCauses = true
+                showExceptions = true
+            }
         }
     }
 }
