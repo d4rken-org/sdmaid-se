@@ -42,7 +42,6 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flags.FILE)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flags.FILE)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flags.FILE)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flags.FILE)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, randomString(), Flags.DIR)
         mockPositive(DataArea.Type.DOWNLOAD_CACHE, randomString(), Flags.FILE)
         mockPositive(DataArea.Type.DOWNLOAD_CACHE, "recovery/${randomString()}", Flags.FILE)

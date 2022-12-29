@@ -45,7 +45,10 @@ class DownloadCacheFilter @Inject constructor(
             exclusions = setOf(
                 "dalvik-cache",
                 "lost+found",
-                "recovery/last_log".replace("/", File.separator)
+                "recovery/last_log".replace("/", File.separator),
+                "last_postrecovery",
+                "last_data_partition_info",
+                "last_dataresizing",
             )
         )
         sieve = baseSieveFactory.create(config)
