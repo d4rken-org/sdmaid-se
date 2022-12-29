@@ -213,6 +213,12 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         every { path } returns storageSdcard2.path.child("Android", "media")
     }
 
+    val storageCachePartition = mockk<DataArea>().apply {
+        every { flags } returns emptySet()
+        every { type } returns Type.DOWNLOAD_CACHE
+        every { path } returns LocalPath.build("cache")
+    }
+
     @BeforeEach
     open fun setup() {
         if (!::pkgOps.isInitialized) {
@@ -250,6 +256,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     storageAndroidObb2,
                     storageAndroidMedia1,
                     storageAndroidMedia2,
+                    storageCachePartition,
                 )
             )
         )

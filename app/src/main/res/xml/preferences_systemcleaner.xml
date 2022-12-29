@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/settings_category_filter">
+    <PreferenceCategory android:title="@string/settings_category_filter_generic">
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.logfiles.enabled"
@@ -13,11 +13,6 @@
             app:key="filter.advertisements.enabled"
             app:summary="@string/systemcleaner_filter_advertisements_summary"
             app:title="@string/systemcleaner_filter_advertisements_label" />
-        <CheckBoxPreference
-            app:icon="@drawable/ic_baseline_running_with_errors_24"
-            app:key="filter.anr.enabled"
-            app:summary="@string/systemcleaner_filter_anr_summary"
-            app:title="@string/systemcleaner_filter_anr_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_folder_open_24"
             app:key="filter.emptydirectories.enabled"
@@ -53,6 +48,24 @@
             app:key="filter.tempfiles.enabled"
             app:summary="@string/systemcleaner_filter_tempfiles_summary"
             app:title="@string/systemcleaner_filter_tempfiles_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_eye"
+            app:key="filter.analytics.enabled"
+            app:summary="@string/systemcleaner_filter_analytics_summary"
+            app:title="@string/systemcleaner_filter_analytics_label" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_filter_specific">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_running_with_errors_24"
+            app:key="filter.anr.enabled"
+            app:summary="@string/systemcleaner_filter_anr_summary"
+            app:title="@string/systemcleaner_filter_anr_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_downloading_24"
+            app:key="filter.cachepartition.enabled"
+            app:summary="@string/systemcleaner_filter_cachepartition_summary"
+            app:title="@string/systemcleaner_filter_cachepartition_label" />
 
     </PreferenceCategory>
 
