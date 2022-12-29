@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
@@ -69,8 +70,13 @@ class DownloadCacheFilter @Inject constructor(
         private val filterProvider: Provider<DownloadCacheFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean =
-            settings.filterDownloadCacheEnabled.value() && rootManager.isRooted()
+
+        override suspend fun isEnabled(): Boolean {
+            val enabled = settings.filterDownloadCacheEnabled.value()
+            val isRooted = rootManager.isRooted()
+            if (enabled && !isRooted) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
+            return enabled && isRooted
+        }
 
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
