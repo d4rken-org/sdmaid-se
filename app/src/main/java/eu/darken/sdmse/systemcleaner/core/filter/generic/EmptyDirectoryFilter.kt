@@ -55,11 +55,7 @@ class EmptyDirectoryFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.DIRECTORY,
-            areaTypes = setOf(
-                DataArea.Type.SDCARD,
-                DataArea.Type.PUBLIC_MEDIA,
-                DataArea.Type.PUBLIC_DATA
-            ),
+            areaTypes = targetAreas(),
             exclusions = setOf(
                 "/mnt/asec".fixSlass(),
                 "/mnt/obb".fixSlass(),

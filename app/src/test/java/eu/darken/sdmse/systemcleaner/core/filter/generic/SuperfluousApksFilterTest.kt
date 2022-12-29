@@ -29,6 +29,7 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
         },
         pkgOps = pkgOps,
         pkgRepo = pkgRepo,
+        areaManager = areaManager,
     )
 
     @Test fun testFilter() = runTest {

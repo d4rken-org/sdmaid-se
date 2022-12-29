@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -27,12 +28,21 @@ class TempFilesFilter @Inject constructor(
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
         DataArea.Type.PUBLIC_DATA,
+        DataArea.Type.PUBLIC_MEDIA,
         DataArea.Type.DATA,
+        DataArea.Type.PRIVATE_DATA,
+        DataArea.Type.DATA_SYSTEM,
+        DataArea.Type.DATA_SYSTEM_DE,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
+        val basePaths = areaManager.currentAreas()
+            .filter { targetAreas().contains(it.type) }
+            .map { it.path }
+            .toSet()
+
         val pathContains = tempSuffixes + setOf(
             ".mmsyscache",
             "sdm_write_test-"
@@ -40,6 +50,8 @@ class TempFilesFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
+            areaTypes = targetAreas(),
+            basePaths = basePaths,
             pathContains = pathContains,
             exclusions = setOf(
                 "/backup/pending/",

@@ -30,8 +30,13 @@ class LogFilesFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.DATA,
-        DataArea.Type.SDCARD,
+        DataArea.Type.PRIVATE_DATA,
+        DataArea.Type.DATA_SYSTEM,
+        DataArea.Type.DATA_SYSTEM_CE,
+        DataArea.Type.DATA_SYSTEM_DE,
         DataArea.Type.DOWNLOAD_CACHE,
+        DataArea.Type.SDCARD,
+        DataArea.Type.PUBLIC_DATA,
     )
 
     private lateinit var sieve: BaseSieve
@@ -41,9 +46,15 @@ class LogFilesFilter @Inject constructor(
         mediaLocations = areaManager.currentAreas()
             .map { it.path.child("media") }
             .toSet()
+        val basePaths = areaManager.currentAreas()
+            .filter { targetAreas().contains(it.type) }
+            .map { it.path }
+            .toSet()
         val config = BaseSieve.Config(
+            areaTypes = targetAreas(),
             targetType = BaseSieve.TargetType.FILE,
             nameSuffixes = setOf(".log"),
+            basePaths = basePaths,
             exclusions = setOf(
                 ".indexeddb.leveldb/",
                 "/t/Paths/",

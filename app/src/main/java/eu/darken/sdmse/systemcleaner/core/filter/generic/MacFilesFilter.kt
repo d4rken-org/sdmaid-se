@@ -27,13 +27,14 @@ class MacFilesFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
+        DataArea.Type.PUBLIC_MEDIA,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
         val basePaths = areaManager.currentAreas()
-            .filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA).contains(it.type) }
+            .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .toSet()
         val regexes = setOf(
@@ -47,7 +48,7 @@ class MacFilesFilter @Inject constructor(
             Regex("^(?:[\\W\\w]+/\\.TemporaryItems)$".replace("/", "\\" + File.separator)),
         )
         val config = BaseSieve.Config(
-            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA),
+            areaTypes = targetAreas(),
             basePaths = basePaths,
             regexes = regexes,
         )

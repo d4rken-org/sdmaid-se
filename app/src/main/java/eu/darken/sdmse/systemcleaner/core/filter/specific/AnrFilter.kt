@@ -29,7 +29,6 @@ class AnrFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.DATA,
-        DataArea.Type.SDCARD,
         DataArea.Type.DOWNLOAD_CACHE,
     )
 
@@ -37,7 +36,7 @@ class AnrFilter @Inject constructor(
 
     override suspend fun initialize() {
         val regexPairs = areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.DATA }
+            .filter { targetAreas().contains(it.type) }
             .filter { it.hasFlags(DataArea.Flag.PRIMARY) }
             .map { area ->
                 val path = area.path.child("anr")
@@ -52,7 +51,7 @@ class AnrFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            areaTypes = setOf(DataArea.Type.DATA),
+            areaTypes = targetAreas(),
             basePaths = regexPairs.map { it.first }.toSet(),
             regexes = regexPairs.map { Regex(it.second) }.toSet(),
         )

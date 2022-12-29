@@ -43,7 +43,7 @@ class LostDirFilter @Inject constructor(
         )
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            areaTypes = targetAreas(),
             basePaths = basePaths,
             regexes = regexes,
         )

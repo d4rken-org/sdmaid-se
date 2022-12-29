@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
-import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
@@ -31,7 +30,7 @@ class TempFilesFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        val areas = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA, DataArea.Type.PUBLIC_DATA)
+        val areas = create().targetAreas()
         areaManager.currentAreas()
             .filter { areas.contains(it.type) }
             .onEach {

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class CachePartitionFiltertest : SystemCleanerFilterTest() {
+class DownloadCacheFiltertest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -27,7 +27,7 @@ class CachePartitionFiltertest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = CachePartitionFilter(
+    private fun create() = DownloadCacheFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -39,16 +39,22 @@ class CachePartitionFiltertest : SystemCleanerFilterTest() {
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "dalvik-cache", Flags.DIR)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "lost+found", Flags.DIR)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_log", Flags.DIR)
+        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flags.FILE)
+        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flags.FILE)
+        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flags.FILE)
+        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flags.FILE)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, randomString(), Flags.DIR)
         mockPositive(DataArea.Type.DOWNLOAD_CACHE, randomString(), Flags.FILE)
         mockPositive(DataArea.Type.DOWNLOAD_CACHE, "recovery/${randomString()}", Flags.FILE)
+        mockPositive(DataArea.Type.DOWNLOAD_CACHE, "magisk.log", Flags.FILE)
+        mockPositive(DataArea.Type.DOWNLOAD_CACHE, "magisk.log.bak", Flags.FILE)
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        CachePartitionFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterCachePartitionEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -56,9 +62,9 @@ class CachePartitionFiltertest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        CachePartitionFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterCachePartitionEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

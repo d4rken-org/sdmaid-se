@@ -33,7 +33,7 @@ class LinuxFilesFilter @Inject constructor(
 
     override suspend fun initialize() {
         val basePaths = areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.SDCARD }
+            .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .toSet()
         val regexes = setOf(
@@ -42,7 +42,7 @@ class LinuxFilesFilter @Inject constructor(
         )
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.DIRECTORY,
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            areaTypes = targetAreas(),
             basePaths = basePaths,
             regexes = regexes,
         )

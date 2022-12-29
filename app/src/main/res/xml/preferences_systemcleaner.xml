@@ -63,9 +63,9 @@
             app:title="@string/systemcleaner_filter_anr_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_downloading_24"
-            app:key="filter.cachepartition.enabled"
-            app:summary="@string/systemcleaner_filter_cachepartition_summary"
-            app:title="@string/systemcleaner_filter_cachepartition_label" />
+            app:key="filter.downloadcache.enabled"
+            app:summary="@string/systemcleaner_filter_downloadcache_summary"
+            app:title="@string/systemcleaner_filter_downloadcache_label" />
 
     </PreferenceCategory>
 

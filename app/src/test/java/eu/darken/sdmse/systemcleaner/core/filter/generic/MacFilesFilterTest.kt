@@ -30,8 +30,9 @@ class MacFilesFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
+        val areas = create().targetAreas()
         areaManager.currentAreas()
-            .filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA).contains(it.type) }
+            .filter { areas.contains(it.type) }
             .forEach {
                 val loc = it.type
                 mockPositive(loc, "._something", Flags.FILE)

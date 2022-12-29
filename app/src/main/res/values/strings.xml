@@ -137,8 +137,8 @@
     <string name="systemcleaner_filter_tempfiles_summary">Temporary files, usually shortlived caches for active operations.</string>
     <string name="systemcleaner_filter_analytics_label">Analytics files</string>
     <string name="systemcleaner_filter_analytics_summary">Data related to analytics and bug tracking.</string>
-    <string name="systemcleaner_filter_cachepartition_label">Cache partition</string>
-    <string name="systemcleaner_filter_cachepartition_summary">Data on the system\'s cache partition.</string>
+    <string name="systemcleaner_filter_downloadcache_label">Download cache</string>
+    <string name="systemcleaner_filter_downloadcache_summary">System cache folder used for various things (e.g. OTA updates).</string>
     <string name="settings_category_filter_generic">Generic filter</string>
     <string name="settings_category_filter_specific">Specific filter</string>
 </resources>

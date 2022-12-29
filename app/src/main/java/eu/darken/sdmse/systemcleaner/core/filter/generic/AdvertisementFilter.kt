@@ -41,7 +41,7 @@ class AdvertisementFilter @Inject constructor(
         // TODO this doesn't work on SAFPath files
 
         areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.SDCARD }
+            .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .forEach { toCheck ->
                 basePaths.add(toCheck.child("ppy_cross"))
@@ -142,7 +142,7 @@ class AdvertisementFilter @Inject constructor(
             }
 
         val config = BaseSieve.Config(
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            areaTypes = targetAreas(),
             basePaths = basePaths,
             regexes = rawRegexes.map { Regex(it) }.toSet()
         )

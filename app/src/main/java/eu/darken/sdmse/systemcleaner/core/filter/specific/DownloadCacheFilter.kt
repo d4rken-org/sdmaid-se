@@ -21,7 +21,7 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class CachePartitionFilter @Inject constructor(
+class DownloadCacheFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
@@ -62,11 +62,11 @@ class CachePartitionFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<CachePartitionFilter>,
+        private val filterProvider: Provider<DownloadCacheFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
         override suspend fun isEnabled(): Boolean =
-            settings.filterCachePartitionEnabled.value() && rootManager.isRooted()
+            settings.filterDownloadCacheEnabled.value() && rootManager.isRooted()
 
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
@@ -78,6 +78,6 @@ class CachePartitionFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "CachePartition")
+        private val TAG = logTag("SystemCleaner", "Filter", "DownloadCache")
     }
 }

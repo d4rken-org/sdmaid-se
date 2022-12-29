@@ -7,6 +7,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,6 +26,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
+    private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(DataArea.Type.SDCARD)
@@ -31,9 +34,14 @@ class SuperfluousApksFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
+        val basePaths = areaManager.currentAreas()
+            .filter { targetAreas().contains(it.type) }
+            .map { it.path }
+            .toSet()
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            areaTypes = targetAreas(),
+            basePaths = basePaths,
             nameSuffixes = setOf(".apk"),
             exclusions = EXCLUSIONS
         )

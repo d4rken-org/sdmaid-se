@@ -19,8 +19,13 @@ class StorageEnvironment @Inject constructor(
 
     fun getVariable(variableName: String): String? = System.getenv(variableName)
 
-    val cacheDir: LocalPath
-        get() = Environment.getDownloadCacheDirectory().toLocalPath()
+    val downloadCacheDirs: Collection<LocalPath>
+        get() = setOf(
+            Environment.getDownloadCacheDirectory().toLocalPath(),
+            dataDir.child("cache"),
+            LocalPath.build("/cache"),
+        )
+            .sortedBy { it.path == Environment.getDownloadCacheDirectory().path }
 
     val systemDir: LocalPath
         get() = Environment.getRootDirectory().toLocalPath()
