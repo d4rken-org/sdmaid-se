@@ -45,6 +45,7 @@ class DownloadCacheFilter @Inject constructor(
             exclusions = setOf(
                 "dalvik-cache",
                 "lost+found",
+                // Some apps use these logs to determine the type of recovery
                 "recovery/last_log".replace("/", File.separator),
                 "last_postrecovery",
                 "last_data_partition_info",
