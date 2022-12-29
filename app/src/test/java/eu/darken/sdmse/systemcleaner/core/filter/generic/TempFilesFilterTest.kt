@@ -49,6 +49,8 @@ class TempFilesFilterTest : SystemCleanerFilterTest() {
                 mockPositive(it.type, ".escheck.temp", Flags.FILE)
                 mockPositive(it.type, "nested/${randomString()}.tmp", Flags.FILE)
                 mockPositive(it.type, "nested/${randomString()}.temp", Flags.FILE)
+                mockPositive(it.type, ".mmsyscache", Flags.FILE)
+                mockPositive(it.type, "sdm_write_test-9d2542dc-a7fa-4c31-b5be-ad16c6a2d45c", Flags.FILE)
             }
         confirm(create())
     }

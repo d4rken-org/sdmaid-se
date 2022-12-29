@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -23,31 +24,52 @@ class TempFilesFilter @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun targetAreas(): Collection<DataArea.Type> = setOf(
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
+        DataArea.Type.PUBLIC_DATA,
         DataArea.Type.DATA,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
+        val pathContains = tempSuffixes + setOf(
+            ".mmsyscache",
+            "sdm_write_test-"
+        )
 
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
-            nameSuffixes = setOf(".tmp", ".temp"),
+            pathContains = pathContains,
             exclusions = setOf(
                 "/backup/pending/",
                 "/cache/recovery/",
                 "com.drweb.pro.market/files/pro_settings", // TODO move to exclusion manager?
             )
         )
+
+
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
 
+    private val tempSuffixes = setOf(
+        ".tmp",
+        ".temp",
+    )
+    private val sdmTempFileRegex = Regex(
+        "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
+    )
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        if (!sieve.match(item)) return false
+
+        return when {
+            tempSuffixes.any { item.name.endsWith(it) } -> true
+            item.name == ".mmsyscache" -> true
+            sdmTempFileRegex.matchEntire(item.name) != null -> true
+            else -> false
+        }
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

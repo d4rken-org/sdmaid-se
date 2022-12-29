@@ -26,7 +26,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : SystemCleanerFilter {
 
-    override suspend fun targetAreas(): Collection<DataArea.Type> = setOf(DataArea.Type.SDCARD)
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(DataArea.Type.SDCARD)
 
     private lateinit var sieve: BaseSieve
 

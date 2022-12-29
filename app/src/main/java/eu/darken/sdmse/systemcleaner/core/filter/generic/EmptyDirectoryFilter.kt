@@ -27,7 +27,7 @@ class EmptyDirectoryFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : SystemCleanerFilter {
 
-    override suspend fun targetAreas(): Collection<DataArea.Type> = setOf(
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
         DataArea.Type.PUBLIC_DATA,
         DataArea.Type.PUBLIC_MEDIA,

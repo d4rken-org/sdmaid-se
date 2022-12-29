@@ -27,7 +27,7 @@ class AnrFilter @Inject constructor(
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun targetAreas(): Collection<DataArea.Type> = setOf(
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.DATA,
         DataArea.Type.SDCARD,
         DataArea.Type.DOWNLOAD_CACHE,

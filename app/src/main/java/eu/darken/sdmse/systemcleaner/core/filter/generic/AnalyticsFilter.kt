@@ -20,32 +20,36 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class ThumbnailsFilter @Inject constructor(
+class AnalyticsFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
+        DataArea.Type.PUBLIC_DATA,
+        DataArea.Type.PRIVATE_DATA,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
         val basePaths = areaManager.currentAreas()
-            .filter { setOf(DataArea.Type.SDCARD).contains(it.type) }
+            .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .toSet()
 
+        val pathContains = setOf(".bugsense")
         val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\.thumbnails/[\\W\\w]+)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/Camera/thumbnails/[\\W\\w]+)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))
         )
 
         val config = BaseSieve.Config(
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            targetType = BaseSieve.TargetType.FILE,
             basePaths = basePaths,
+            pathContains = pathContains,
             regexes = regexes,
+            areaTypes = targetAreas(),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -61,9 +65,9 @@ class ThumbnailsFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<ThumbnailsFilter>
+        private val filterProvider: Provider<AnalyticsFilter>
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterThumbnailsEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterAnalyticsEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -74,6 +78,6 @@ class ThumbnailsFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "Thumbnails")
+        private val TAG = logTag("SystemCleaner", "Filter", "AnalyticsFiles")
     }
 }
