@@ -63,7 +63,7 @@ class SystemModule @Inject constructor(
                     type = DataArea.Type.SYSTEM,
                     path = LocalPath.build(resolvedPath),
                     userHandle = userManager2.systemUser,
-                    flags = setOf(DataArea.Flag.SECONDARY),
+                    flags = emptySet(),
                 ).run { areas.add(this) }
 
             }

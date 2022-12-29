@@ -76,7 +76,7 @@ class SdcardsModule @Inject constructor(
                     path = it,
                     type = DataArea.Type.SDCARD,
                     userHandle = userManager2.currentUser,
-                    flags = setOf(DataArea.Flag.SECONDARY),
+                    flags = emptySet(),
                 )
             }
             .run { sdcards.addAll(this) }

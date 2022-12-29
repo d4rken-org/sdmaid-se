@@ -23,7 +23,6 @@ data class DataArea(
 
     enum class Flag {
         PRIMARY,
-        SECONDARY, // TODO isn't a primary flag enough? It's either primary or it isn't...
         EMULATED
     }
 

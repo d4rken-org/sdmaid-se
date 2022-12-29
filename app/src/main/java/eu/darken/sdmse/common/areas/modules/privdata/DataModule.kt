@@ -69,7 +69,7 @@ class DataModule @Inject constructor(
                         type = DataArea.Type.DATA,
                         path = path,
                         userHandle = userManager2.currentUser,
-                        flags = setOf(DataArea.Flag.SECONDARY)
+                        flags = emptySet(),
                     )
                 }
                 ?.run { areas.addAll(this) }

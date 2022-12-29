@@ -52,7 +52,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     val storageData2 = mockk<DataArea>().apply {
-        every { flags } returns setOf(DataArea.Flag.SECONDARY)
+        every { flags } returns emptySet()
         every { type } returns Type.DATA
         every { path } returns LocalPath.build("/mnt/expand", randomString())
     }
@@ -172,7 +172,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     val storageSdcard2 = mockk<DataArea>().apply {
-        every { flags } returns setOf(DataArea.Flag.SECONDARY)
+        every { flags } returns emptySet()
         every { type } returns Type.SDCARD
         every { path } returns LocalPath.build("/storage", "ABCD-EFGH")
     }
