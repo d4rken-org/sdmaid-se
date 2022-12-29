@@ -27,6 +27,7 @@ class LostDirFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve

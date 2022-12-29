@@ -28,6 +28,7 @@ class MacFilesFilter @Inject constructor(
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
         DataArea.Type.PUBLIC_MEDIA,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve
