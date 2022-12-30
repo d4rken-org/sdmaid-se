@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.core
 
 import dagger.Reusable
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -11,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
@@ -66,6 +68,11 @@ class SystemCrawler @Inject constructor(
             .toSet()
         log(TAG) { "Target areas wanted by filters: $targetAreas" }
 
+        val sdcardChildOverLaps = setOf(DataArea.Type.PUBLIC_DATA, DataArea.Type.PUBLIC_MEDIA, DataArea.Type.PUBLIC_OBB)
+        val sdcardOverlaps = currentAreas
+            .filter { sdcardChildOverLaps.contains(it.type) }
+            .map { it.path }
+
         val sieveContents = mutableMapOf<SystemCleanerFilter, Set<APathLookup<*>>>()
 
         gatewaySwitch.useRes {
@@ -74,7 +81,16 @@ class SystemCrawler @Inject constructor(
                 .flowOn(dispatcherProvider.IO)
                 .flatMapMerge(4) { area ->
                     // TODO prevent overlap between /storage/emulated/0 and /data/media/0?
-                    area.path.walk(gatewaySwitch)
+
+                    if (area.type == DataArea.Type.SDCARD) {
+                        area.path.walk(
+                            gatewaySwitch,
+                            // Prevent overlap between SDCARD and PUBLIC_DATA/MEDIA/OBB
+                            filter = { toCheck -> sdcardOverlaps.none { it.isAncestorOf(toCheck) } }
+                        )
+                    } else {
+                        area.path.walk(gatewaySwitch)
+                    }
                 }
                 .buffer(1024)
                 .collect { item ->
