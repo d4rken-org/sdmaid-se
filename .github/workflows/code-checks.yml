@@ -7,10 +7,14 @@ on:
     branches: [ main ]
 
 jobs:
-  test-foss:
-    name: Test FOSS flavor
+  build-all:
+    name: Build all variants
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor: [ Foss,Gplay ]
+        variant: [ Debug,Beta,Release ]
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -19,19 +23,21 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: gradle
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build FOSS variant
-        run: ./gradlew assembleFossDebug
-      - name: Test FOSS variant
-        run: ./gradlew testFossDebugUnitTest
+      - name: Build ${{ matrix.variant }} + ${{ matrix.flavor }}
+        run: ./gradlew assemble${{ matrix.variant }}${{ matrix.flavor }}
 
-  test-gplay:
-    name: Test Google Play flavor
+  test-all:
+    name: Run all tests
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor: [ Foss,Gplay ]
+        variant: [ Debug,Beta,Release ]
+        modules: [ app,app-common,app-common-io,app-common-pkgs,app-common-root,app-common-test ]
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -40,11 +46,8 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: gradle
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build Google Play variant
-        run: ./gradlew assembleGplayDebug
       - name: Test Google Play variant
-        run: ./gradlew testGplayDebugUnitTest
+        run: ./gradlew ${{ matrix.modules }}:test${{ matrix.flavor }}${{ matrix.variant }}UnitTest
