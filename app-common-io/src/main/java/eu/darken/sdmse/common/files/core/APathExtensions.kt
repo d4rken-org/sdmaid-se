@@ -242,6 +242,17 @@ fun APath.isAncestorOf(descendant: APath): Boolean {
     }
 }
 
+fun APath.isDescendantOf(ancestor: APath): Boolean {
+    if (this.pathType != ancestor.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $ancestor)")
+    }
+    return ancestor.isAncestorOf(this)
+}
+
+/**
+ * A parent is a DIRECT ancestor
+ * See [isAncestorOf]
+ */
 fun APath.isParentOf(child: APath): Boolean {
     if (this.pathType != child.pathType) {
         throw IllegalArgumentException("Can't compare different types ($this and $child)")
@@ -251,6 +262,13 @@ fun APath.isParentOf(child: APath): Boolean {
         APath.PathType.SAF -> (this.downCast() as SAFPath).isParentOf(child.downCast() as SAFPath)
         APath.PathType.RAW -> this.downCast().child(child.name) == child
     }
+}
+
+fun APath.isChildOf(parent: APath): Boolean {
+    if (this.pathType != parent.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $parent)")
+    }
+    return parent.isParentOf(this)
 }
 
 fun APath.matches(other: APath): Boolean {

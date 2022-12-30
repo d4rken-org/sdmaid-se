@@ -91,9 +91,13 @@ fun LocalPath.isAncestorOf(child: LocalPath): Boolean {
     val parentPath = this.asFile().absolutePath
     val childPath = child.asFile().absolutePath
 
-    return childPath.startsWith(parentPath + File.separator)
+    return when (parentPath) {
+        childPath -> false
+        File.separator -> childPath.startsWith(parentPath)
+        else -> childPath.startsWith(parentPath + File.separator)
+    }
 }
 
 fun LocalPath.isParentOf(child: LocalPath): Boolean {
-    return child(child.name) == child
+    return isAncestorOf(child) && child(child.name) == child
 }

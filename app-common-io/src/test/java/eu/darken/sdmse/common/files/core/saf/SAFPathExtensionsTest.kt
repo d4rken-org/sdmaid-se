@@ -1,8 +1,8 @@
 package eu.darken.sdmse.common.files.core.saf
 
 import android.net.Uri
-import eu.darken.sdmse.common.files.core.FileType
-import eu.darken.sdmse.common.files.core.matches
+import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -14,6 +14,7 @@ import java.time.Instant
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
 class SAFPathExtensionsTest : BaseTest() {
+    private val baseTreeUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A")
 
     private val testUri1: Uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
     private val testUri2: Uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
@@ -110,5 +111,186 @@ class SAFPathExtensionsTest : BaseTest() {
         lookup1.matches(lookup1) shouldBe true
         lookup1.matches(lookup2) shouldBe false
         file2.matches(lookup2) shouldBe true
+    }
+
+
+    @Test
+    fun `isAncestorOf operator`() {
+        val file1 = SAFPath.build(baseTreeUri, "parent")
+        val file2 = SAFPath.build(baseTreeUri, "parent", "child", "niece")
+
+        val lookup1 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent", "child", "niece"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.isAncestorOf(file1) shouldBe false
+        file1.isAncestorOf(file2) shouldBe true
+        file1.isAncestorOf(lookup1) shouldBe false
+        file1.isAncestorOf(lookup2) shouldBe true
+
+        file2.isAncestorOf(file1) shouldBe false
+        file2.isAncestorOf(file2) shouldBe false
+        file2.isAncestorOf(lookup1) shouldBe false
+        file2.isAncestorOf(lookup2) shouldBe false
+
+        lookup1.isAncestorOf(file1) shouldBe false
+        lookup1.isAncestorOf(file2) shouldBe true
+        lookup1.isAncestorOf(lookup1) shouldBe false
+        lookup1.isAncestorOf(lookup2) shouldBe true
+
+        lookup2.isAncestorOf(file1) shouldBe false
+        lookup2.isAncestorOf(file2) shouldBe false
+        lookup2.isAncestorOf(lookup1) shouldBe false
+        lookup2.isAncestorOf(lookup2) shouldBe false
+    }
+
+    @Test
+    fun `isDescendantOf operator`() {
+        val file1 = SAFPath.build(baseTreeUri, "parent")
+        val file2 = SAFPath.build(baseTreeUri, "parent", "child", "niece")
+
+        val lookup1 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent", "child", "niece"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.isDescendantOf(file1) shouldBe false
+        file1.isDescendantOf(file2) shouldBe false
+        file1.isDescendantOf(lookup1) shouldBe false
+        file1.isDescendantOf(lookup2) shouldBe false
+
+        file2.isDescendantOf(file1) shouldBe true
+        file2.isDescendantOf(file2) shouldBe false
+        file2.isDescendantOf(lookup1) shouldBe true
+        file2.isDescendantOf(lookup2) shouldBe false
+
+        lookup1.isDescendantOf(file1) shouldBe false
+        lookup1.isDescendantOf(file2) shouldBe false
+        lookup1.isDescendantOf(lookup1) shouldBe false
+        lookup1.isDescendantOf(lookup2) shouldBe false
+
+        lookup2.isDescendantOf(file1) shouldBe true
+        lookup2.isDescendantOf(file2) shouldBe false
+        lookup2.isDescendantOf(lookup1) shouldBe true
+        lookup2.isDescendantOf(lookup2) shouldBe false
+    }
+
+    @Test
+    fun `isParentOf operator`() {
+        val file1 = SAFPath.build(baseTreeUri, "parent")
+        val file2 = SAFPath.build(baseTreeUri, "parent", "child")
+
+        val lookup1 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent", "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.isParentOf(file1) shouldBe false
+        file1.isParentOf(file2) shouldBe true
+        file1.isParentOf(lookup1) shouldBe false
+        file1.isParentOf(lookup2) shouldBe true
+
+        file2.isParentOf(file1) shouldBe false
+        file2.isParentOf(file2) shouldBe false
+        file2.isParentOf(lookup1) shouldBe false
+        file2.isParentOf(lookup2) shouldBe false
+
+        lookup1.isParentOf(file1) shouldBe false
+        lookup1.isParentOf(file2) shouldBe true
+        lookup1.isParentOf(lookup1) shouldBe false
+        lookup1.isParentOf(lookup2) shouldBe true
+
+        lookup2.isParentOf(file1) shouldBe false
+        lookup2.isParentOf(file2) shouldBe false
+        lookup2.isParentOf(lookup1) shouldBe false
+        lookup2.isParentOf(lookup2) shouldBe false
+    }
+
+    @Test
+    fun `isChildOf operator`() {
+        val file1 = SAFPath.build(baseTreeUri, "parent")
+        val file2 = SAFPath.build(baseTreeUri, "parent", "child")
+
+        val lookup1 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "parent", "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.isChildOf(file1) shouldBe false
+        file1.isChildOf(file2) shouldBe false
+        file1.isChildOf(lookup1) shouldBe false
+        file1.isChildOf(lookup2) shouldBe false
+
+        file2.isChildOf(file1) shouldBe true
+        file2.isChildOf(file2) shouldBe false
+        file2.isChildOf(lookup1) shouldBe true
+        file2.isChildOf(lookup2) shouldBe false
+
+        lookup1.isChildOf(file1) shouldBe false
+        lookup1.isChildOf(file2) shouldBe false
+        lookup1.isChildOf(lookup1) shouldBe false
+        lookup1.isChildOf(lookup2) shouldBe false
+
+        lookup2.isChildOf(file1) shouldBe true
+        lookup2.isChildOf(file2) shouldBe false
+        lookup2.isChildOf(lookup1) shouldBe true
+        lookup2.isChildOf(lookup2) shouldBe false
     }
 }

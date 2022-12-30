@@ -57,10 +57,10 @@ data class LocalPath(
 
         fun build(vararg crumbs: String): LocalPath {
             var compacter = File(
-                if (crumbs[0].startsWith(File.separatorChar)) {
-                    crumbs[0]
-                } else {
-                    File.separator + crumbs[0]
+                when {
+                    crumbs.isEmpty() -> File.separator
+                    crumbs[0].startsWith(File.separatorChar) -> crumbs[0]
+                    else -> File.separator + crumbs[0]
                 }
             )
 
