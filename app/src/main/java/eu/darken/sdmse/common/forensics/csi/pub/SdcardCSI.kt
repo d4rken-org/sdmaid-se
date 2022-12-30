@@ -13,6 +13,9 @@ import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.isAncestorOf
+import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
@@ -25,14 +28,12 @@ import javax.inject.Inject
 @Reusable
 class SdcardCSI @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
 
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.SDCARD
 
     override suspend fun identifyArea(target: APath): AreaInfo? {
-        val targetPath: String = target.path
         val dataAreas = areaManager.currentAreas()
             .filter { it.type == DataArea.Type.SDCARD }
             .sortedWith(DEEPEST_NEST_FIRST)
@@ -40,17 +41,19 @@ class SdcardCSI @Inject constructor(
         var primary: DataArea? = null
         for (area in dataAreas) {
             if (area.hasFlags(DataArea.Flag.PRIMARY)) primary = area
-            val base: String = area.path.path
-            if (targetPath.startsWith(base + File.separator) && targetPath != base) {
+
+            if (area.path.isAncestorOf(target)) {
+                val overlaps = setOf(
+                    area.path.child(*PublicObbCSI.BASE_SEGMENTS),
+                    area.path.child(*PublicDataCSI.BASE_SEGMENTS),
+                    area.path.child(*PublicMediaCSI.BASE_SEGMENTS),
+                )
                 // This sdcard fits and it should be the most specific due to sorting.
-                return if (!targetPath.startsWith(base + PublicObbCSI.PUBLIC_OBB)
-                    && !targetPath.startsWith(base + PublicDataCSI.PUBLIC_DATA)
-                    && !targetPath.startsWith(base + PublicMediaCSI.ANDROID_MEDIA)
-                ) {
+                return if (overlaps.none { it.isAncestorOf(target) }) {
                     AreaInfo(
                         dataArea = area,
                         file = target,
-                        prefix = base + File.separator,
+                        prefix = area.path.path + File.separator,
                         isBlackListLocation = false,
                     )
                 } else {
@@ -63,11 +66,13 @@ class SdcardCSI @Inject constructor(
         // If we can't find a primary sdcard, the legacy pathes etc. are no good.
         if (primary == null) return null
 
-        return if (target.path.startsWith(LEGACY_PATH.path + File.separator) && targetPath != LEGACY_PATH.path
-            && !targetPath.startsWith(File(LEGACY_PATH, PublicObbCSI.PUBLIC_OBB).path)
-            && !targetPath.startsWith(File(LEGACY_PATH, PublicDataCSI.PUBLIC_DATA).path)
-            && !targetPath.startsWith(File(LEGACY_PATH, PublicMediaCSI.ANDROID_MEDIA).path)
-        ) {
+        val legacyOverlaps = setOf(
+            LEGACY_PATH.child(*PublicObbCSI.BASE_SEGMENTS),
+            LEGACY_PATH.child(*PublicDataCSI.BASE_SEGMENTS),
+            LEGACY_PATH.child(*PublicMediaCSI.BASE_SEGMENTS),
+        )
+
+        return if (LEGACY_PATH.matches(target) && legacyOverlaps.none { it.isAncestorOf(target) }) {
             AreaInfo(
                 dataArea = primary,
                 file = target,
@@ -110,7 +115,7 @@ class SdcardCSI @Inject constructor(
 
     companion object {
         val TAG: String = logTag("CSI", "Sdcard")
-        private val LEGACY_PATH = File("/storage/emulated/legacy/")
+        val LEGACY_PATH = LocalPath.build("storage", "emulated", "legacy")
 
         val DEEPEST_NEST_FIRST: Comparator<DataArea> = Comparator<DataArea> { object1: DataArea, object2: DataArea ->
             val nestLevel1: Int = object1.path.path.split(Pattern.quote(File.separator)).size

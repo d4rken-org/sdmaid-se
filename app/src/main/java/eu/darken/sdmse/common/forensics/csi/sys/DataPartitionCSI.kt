@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
@@ -32,14 +33,14 @@ class DataPartitionCSI @Inject constructor(
     private val clutterRepo: ClutterRepo,
 ) : LocalCSIProcessor {
 
-    private var badMatches: Collection<String>? = null
+    private var badMatches: Collection<APath>? = null
 
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DATA
 
     override suspend fun identifyArea(target: APath): AreaInfo? {
         val dataAreas = areaManager.currentAreas().filter { it.type == DataArea.Type.DATA }
 
-        if (getBadMatches().any { target.path.startsWith(it) }) return null
+        if (getBadMatches().any { it.isAncestorOf(target) }) return null
 
         val matchedArea = dataAreas.singleOrNull { target.path.startsWith(it.path.path) } ?: return null
 
@@ -75,7 +76,7 @@ class DataPartitionCSI @Inject constructor(
 
     private val cacheLock = Mutex()
 
-    private suspend fun getBadMatches(): Collection<String> = cacheLock.withLock {
+    private suspend fun getBadMatches(): Collection<APath> = cacheLock.withLock {
         badMatches?.let { return@withLock it }
 
         val dataAreas = areaManager.currentAreas()
@@ -96,11 +97,11 @@ class DataPartitionCSI @Inject constructor(
         val part1 = dataAreas
             .filter { badMatchTypes.contains(it.type) }
             .filter { it.hasFlags(DataArea.Flag.PRIMARY) || it.type != DataArea.Type.DATA }
-            .map { "${it.path.path}${File.separator}" }
+            .map { it.path }
 
         val part2 = dataAreas
             .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
-            .map { LocalPath.build(it.path.path, PrivateDataCSI.DEFAULT_DIR).path + File.separator }
+            .map { LocalPath.build(it.path.path, PrivateDataCSI.DEFAULT_DIR) }
 
         (part1 + part2).also {
             badMatches = it

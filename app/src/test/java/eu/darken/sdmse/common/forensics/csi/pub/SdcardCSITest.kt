@@ -22,10 +22,22 @@ class SdcardCSITest : BaseCSITest() {
     val basePathSdcard2 = LocalPath.build("/card2")
     val sdcards = setOf(basePathSdcard1, basePathSdcard2)
 
+    val storagePrivateData1 = mockk<DataArea>().apply {
+        every { path } returns LocalPath.build("/data/data")
+        every { type } returns DataArea.Type.PRIVATE_DATA
+        every { flags } returns emptySet()
+    }
+
+    val storagePrivateData2 = mockk<DataArea>().apply {
+        every { path } returns LocalPath.build("/data_mirror/data_de/null/0")
+        every { type } returns DataArea.Type.PRIVATE_DATA
+        every { flags } returns emptySet()
+    }
+
     val storageSdcard1 = mockk<DataArea>().apply {
         every { path } returns basePathSdcard1
         every { type } returns DataArea.Type.SDCARD
-        every { flags } returns emptySet()
+        every { flags } returns setOf(DataArea.Flag.PRIMARY)
     }
     val storagePublicData1 = mockk<DataArea>().apply {
         every { path } returns LocalPath.build(basePathSdcard1, "Android/data")
@@ -71,6 +83,8 @@ class SdcardCSITest : BaseCSITest() {
         every { areaManager.state } returns flowOf(
             DataAreaManager.State(
                 areas = setOf(
+                    storagePrivateData1,
+                    storagePrivateData2,
                     storageSdcard1,
                     storagePublicData1,
                     storagePublicObb1,
@@ -86,7 +100,6 @@ class SdcardCSITest : BaseCSITest() {
 
     private fun getProcessor() = SdcardCSI(
         areaManager = areaManager,
-        pkgRepo = pkgRepo,
         clutterRepo = clutterRepo,
     )
 
@@ -114,6 +127,10 @@ class SdcardCSITest : BaseCSITest() {
             processor.identifyArea(LocalPath.build(base, "Android/media", randomString())) shouldBe null
             processor.identifyArea(LocalPath.build(base, "Android/obb", randomString())) shouldBe null
         }
+
+        processor.identifyArea(
+            LocalPath.build("/some/folder")
+        ) shouldBe null
     }
 
     @Test fun `find owner via direct clutter hit`() = runTest {

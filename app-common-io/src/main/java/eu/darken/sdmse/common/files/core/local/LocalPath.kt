@@ -33,7 +33,10 @@ data class LocalPath(
 
     @IgnoredOnParcel
     override val segments: List<String>
-        get() = file.parentsInclusive.map { it.name }.toList()
+        get() = when (path) {
+            File.separator -> listOf("")
+            else -> path.split(File.separatorChar)
+        }
 
     override fun child(vararg segments: String): LocalPath = build(this.file, *segments)
 

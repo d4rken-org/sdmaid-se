@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
@@ -25,10 +26,7 @@ class PortableCSI @Inject constructor(
 
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
         .filter { it.type == DataArea.Type.PORTABLE }
-        .firstOrNull { area ->
-            val base = area.path
-            target.path.startsWith(base.path + "/") && target.path != base.path
-        }
+        .firstOrNull { area -> area.path.isAncestorOf(target) }
         ?.let {
             AreaInfo(
                 dataArea = it,

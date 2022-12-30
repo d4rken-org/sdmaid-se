@@ -8,10 +8,12 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
 import eu.darken.sdmse.common.files.core.local.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.isParentOf
-import eu.darken.sdmse.common.files.core.saf.SAFPath
+import eu.darken.sdmse.common.files.core.local.startsWith
+import eu.darken.sdmse.common.files.core.saf.*
 import eu.darken.sdmse.common.files.core.saf.crumbsTo
 import eu.darken.sdmse.common.files.core.saf.isAncestorOf
 import eu.darken.sdmse.common.files.core.saf.isParentOf
+import eu.darken.sdmse.common.files.core.saf.startsWith
 import okio.Sink
 import okio.Source
 import java.io.File
@@ -281,3 +283,22 @@ fun APath.matches(other: APath): Boolean {
         APath.PathType.RAW -> other.downCast().path == this.downCast().path
     }
 }
+
+fun APath.containsSegments(vararg target: String): Boolean {
+    return Collections.indexOfSubList(this.segments, target.toList()) != -1
+}
+
+fun APath.startsWith(prefix: APath): Boolean {
+    if (this.pathType != prefix.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $prefix)")
+    }
+    return when (pathType) {
+        APath.PathType.LOCAL -> (this.downCast() as LocalPath).startsWith(prefix.downCast() as LocalPath)
+        APath.PathType.SAF -> (this.downCast() as SAFPath).startsWith(prefix.downCast() as SAFPath)
+        APath.PathType.RAW -> this.downCast().path.startsWith(prefix.downCast().path)
+    }
+}
+
+
+
+

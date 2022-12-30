@@ -87,6 +87,19 @@ class LocalPathTest : BaseTest() {
     }
 
     @Test
+    fun `segment generation`() {
+        LocalPath.build("a", "b", "c").segments shouldBe listOf("", "a", "b", "c")
+        LocalPath.build().segments shouldBe listOf("")
+    }
+
+    @Test
+    fun `parent generation`() {
+        LocalPath.build("a", "b", "c").parent() shouldBe LocalPath.build("a", "b")
+        LocalPath.build("a").parent() shouldBe LocalPath.build()
+        LocalPath.build().parent() shouldBe null
+    }
+
+    @Test
     fun `path comparison`() {
         val file1a = LocalPath.build("test", "file1")
         val file1b = LocalPath.build("test", "file1")

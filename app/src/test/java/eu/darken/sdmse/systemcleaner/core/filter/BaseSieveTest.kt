@@ -3,6 +3,7 @@ package eu.darken.sdmse.systemcleaner.core.filter
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.FileType
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.local.LocalPathLookup
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import io.kotest.matchers.shouldBe
@@ -11,6 +12,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
 
 class BaseSieveTest : BaseTest() {
 
@@ -27,6 +29,16 @@ class BaseSieveTest : BaseTest() {
     fun `matching nothing`() = runTest {
         create(BaseSieve.Config()).match(mockk()) shouldBe true
     }
+
+    private val baseLookup = LocalPathLookup(
+        lookedUp = LocalPath.build(""),
+        fileType = FileType.FILE,
+        size = 16,
+        modifiedAt = Instant.EPOCH,
+        ownership = null,
+        permissions = null,
+        target = null,
+    )
 
     @Test
     fun `just filetypes`() = runTest {
@@ -55,19 +67,13 @@ class BaseSieveTest : BaseTest() {
             basePaths = setOf(LocalPath.build("abc"))
         )
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/abc/123"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
         ) shouldBe true
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/abc"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/abc"))
         ) shouldBe true
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/def"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/def"))
         ) shouldBe false
     }
 
@@ -77,14 +83,10 @@ class BaseSieveTest : BaseTest() {
             exclusions = setOf("bc")
         )
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/def"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/def"))
         ) shouldBe true
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/abc/123"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
         ) shouldBe false
     }
 
@@ -95,14 +97,10 @@ class BaseSieveTest : BaseTest() {
         )
 
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/ac/123"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/ac/123"))
         ) shouldBe false
         create(config).match(
-            mockk<APathLookup<*>>().apply {
-                every { path } returns "/abc/123"
-            }
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
         ) shouldBe true
     }
 }

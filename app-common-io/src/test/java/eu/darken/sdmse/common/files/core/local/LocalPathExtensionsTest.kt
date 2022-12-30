@@ -285,4 +285,55 @@ class LocalPathExtensionsTest : BaseTest() {
         lookup2.isChildOf(lookup1) shouldBe true
         lookup2.isChildOf(lookup2) shouldBe false
     }
+
+
+    @org.junit.Test
+    fun `startsWith operator`() {
+        val file1 = LocalPath.build("chi")
+        val file2 = LocalPath.build("child")
+
+        val lookup1 = LocalPathLookup(
+            lookedUp = LocalPath.build("chi"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = LocalPathLookup(
+            lookedUp = LocalPath.build("child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.startsWith(file1) shouldBe true
+        file1.startsWith(file2) shouldBe false
+        file1.startsWith(lookup1) shouldBe true
+        file1.startsWith(lookup2) shouldBe false
+
+        file2.startsWith(file1) shouldBe true
+        file2.startsWith(file2) shouldBe true
+        file2.startsWith(lookup1) shouldBe true
+        file2.startsWith(lookup2) shouldBe true
+
+        lookup1.startsWith(file1) shouldBe true
+        lookup1.startsWith(file2) shouldBe false
+        lookup1.startsWith(lookup1) shouldBe true
+        lookup1.startsWith(lookup2) shouldBe false
+
+        lookup2.startsWith(file1) shouldBe true
+        lookup2.startsWith(file2) shouldBe true
+        lookup2.startsWith(lookup1) shouldBe true
+        lookup2.startsWith(lookup2) shouldBe true
+
+
+        val file3 = LocalPath.build("/data/app/eu.thedarken.sdm.test-")
+        val file4 = LocalPath.build("/data/app/eu.thedarken.sdm.test-2/base.apk")
+        file4.startsWith(file3) shouldBe true
+    }
 }

@@ -632,4 +632,132 @@ class APathExtensionTest : BaseTest() {
             lookup2.isChildOf(lookup1)
         }
     }
+
+
+    @Test
+    fun `startsWith operator - LocalPath`() {
+        val file1: APath = LocalPath.build("parent", "chi")
+        val file2: APath = LocalPath.build("parent", "child")
+
+        val lookup1: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("parent", "chi"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("parent", "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.startsWith(file1) shouldBe true
+        file1.startsWith(file2) shouldBe false
+        file1.startsWith(lookup1) shouldBe true
+        file1.startsWith(lookup2) shouldBe false
+
+        file2.startsWith(file1) shouldBe true
+        file2.startsWith(file2) shouldBe true
+        file2.startsWith(lookup1) shouldBe true
+        file2.startsWith(lookup2) shouldBe true
+
+        lookup1.startsWith(file1) shouldBe true
+        lookup1.startsWith(file2) shouldBe false
+        lookup1.startsWith(lookup1) shouldBe true
+        lookup1.startsWith(lookup2) shouldBe false
+
+        lookup2.startsWith(file1) shouldBe true
+        lookup2.startsWith(file2) shouldBe true
+        lookup2.startsWith(lookup1) shouldBe true
+        lookup2.startsWith(lookup2) shouldBe true
+    }
+
+    @Test
+    fun `startsWith operator - SAFPath`() {
+        val file1: APath = SAFPath.build(treeUri, "parent", "chi")
+        val file2: APath = SAFPath.build(treeUri, "parent", "child")
+
+        val lookup1: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "parent", "chi"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "parent", "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.startsWith(file1) shouldBe true
+        file1.startsWith(file2) shouldBe false
+        file1.startsWith(lookup1) shouldBe true
+        file1.startsWith(lookup2) shouldBe false
+
+        file2.startsWith(file1) shouldBe true
+        file2.startsWith(file2) shouldBe true
+        file2.startsWith(lookup1) shouldBe true
+        file2.startsWith(lookup2) shouldBe true
+
+        lookup1.startsWith(file1) shouldBe true
+        lookup1.startsWith(file2) shouldBe false
+        lookup1.startsWith(lookup1) shouldBe true
+        lookup1.startsWith(lookup2) shouldBe false
+
+        lookup2.startsWith(file1) shouldBe true
+        lookup2.startsWith(file2) shouldBe true
+        lookup2.startsWith(lookup1) shouldBe true
+        lookup2.startsWith(lookup2) shouldBe true
+    }
+
+    @Test
+    fun `startsWith operator - mixed types`() {
+        val file1: APath = LocalPath.build("parent", "chi")
+        val file2: APath = SAFPath.build(treeUri, "parent", "child")
+
+        val lookup1: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("parent", "chi"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "parent", "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        shouldThrow<IllegalArgumentException> {
+            file1.startsWith(file2)
+        }
+        shouldThrow<IllegalArgumentException> {
+            file2.startsWith(file1)
+        }
+        shouldThrow<IllegalArgumentException> {
+            lookup1.startsWith(lookup2)
+        }
+        shouldThrow<IllegalArgumentException> {
+            lookup2.startsWith(lookup1)
+        }
+    }
 }

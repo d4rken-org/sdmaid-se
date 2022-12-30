@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -70,11 +71,12 @@ class LogFilesFilter @Inject constructor(
     override suspend fun sieve(item: APathLookup<*>): Boolean {
         if (!sieve.match(item)) return false
 
+        // TODO Support SAF path matching?
         // https://github.com/d4rken/sdmaid-public/issues/2147
         val badTelegramMatch = EDGECASE_TELEGRAMX.matcher(item.path).matches()
 
         // https://github.com/d4rken/sdmaid-public/issues/961
-        val overlap = mediaLocations.any { item.path.startsWith(it.path) }
+        val overlap = mediaLocations.any { it.isAncestorOf(item) }
         return !overlap && !badTelegramMatch
     }
 

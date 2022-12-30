@@ -66,3 +66,24 @@ fun SAFPath.isParentOf(child: SAFPath): Boolean {
     if (this == child) return false
     return child.segments.dropLast(1) == this.segments
 }
+
+fun SAFPath.startsWith(prefix: SAFPath): Boolean {
+    if (treeRoot != prefix.treeRoot) return false
+    if (this == prefix) return true
+    if (segments.size < prefix.segments.size) return false
+
+    return when {
+        prefix.segments.size == 1 -> {
+            segments.first().startsWith(prefix.segments.first())
+        }
+        segments.size == prefix.segments.size -> {
+            val match = prefix.segments.dropLast(1) == segments.dropLast(1)
+            match && segments.last().startsWith(prefix.segments.last())
+        }
+        else -> {
+            val match = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size - 1)
+            match && segments[prefix.segments.size - 1].startsWith(prefix.segments.last())
+        }
+    }
+
+}

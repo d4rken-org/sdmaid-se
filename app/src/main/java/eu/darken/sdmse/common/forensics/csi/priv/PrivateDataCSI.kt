@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
@@ -42,24 +43,23 @@ class PrivateDataCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? {
         var userPrimary: DataArea? = null
         for (area in areaManager.currentAreas().filter { it.type == DataArea.Type.PRIVATE_DATA }) {
-            val base = area.path
+
             if (userManager.currentUser === area.userHandle) {
                 userPrimary = area
             }
-            if (target.path.startsWith(base.path + File.separator) && target.path != base.path
-            ) {
+            if (area.path.isAncestorOf(target)) {
                 return AreaInfo(
                     dataArea = area,
                     file = target,
-                    prefix = "${base.path}${File.separator}",
+                    prefix = "${area.path.path}${File.separator}",
                     isBlackListLocation = true,
                 )
             }
         }
         if (userPrimary != null) {
             // TODO on Android11+ this matches the data_mirror overlay in /data/data, evaluate whether we should keep matching this
-            val defaultPrivateDataDir = File(storageEnvironment.dataDir.path, DEFAULT_DIR)
-            if (target.path.startsWith("${defaultPrivateDataDir.path}${File.separator}") && target.path != defaultPrivateDataDir.path) {
+            val defaultPrivateDataDir = storageEnvironment.dataDir.child(DEFAULT_DIR)
+            if (defaultPrivateDataDir.isAncestorOf(target)) {
                 return AreaInfo(
                     userPrimary,
                     target,

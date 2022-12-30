@@ -293,4 +293,49 @@ class SAFPathExtensionsTest : BaseTest() {
         lookup2.isChildOf(lookup1) shouldBe true
         lookup2.isChildOf(lookup2) shouldBe false
     }
+
+    @Test
+    fun `startsWith operator`() {
+        val file1 = SAFPath.build(baseTreeUri, "chi")
+        val file2 = SAFPath.build(baseTreeUri, "child")
+
+        val lookup1 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "chi"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val lookup2 = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "child"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        file1.startsWith(file1) shouldBe true
+        file1.startsWith(file2) shouldBe false
+        file1.startsWith(lookup1) shouldBe true
+        file1.startsWith(lookup2) shouldBe false
+
+        file2.startsWith(file1) shouldBe true
+        file2.startsWith(file2) shouldBe true
+        file2.startsWith(lookup1) shouldBe true
+        file2.startsWith(lookup2) shouldBe true
+
+        lookup1.startsWith(file1) shouldBe true
+        lookup1.startsWith(file2) shouldBe false
+        lookup1.startsWith(lookup1) shouldBe true
+        lookup1.startsWith(lookup2) shouldBe false
+
+        lookup2.startsWith(file1) shouldBe true
+        lookup2.startsWith(file2) shouldBe true
+        lookup2.startsWith(lookup1) shouldBe true
+        lookup2.startsWith(lookup2) shouldBe true
+    }
 }

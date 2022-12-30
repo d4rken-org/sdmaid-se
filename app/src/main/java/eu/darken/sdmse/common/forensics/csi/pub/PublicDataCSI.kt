@@ -13,10 +13,13 @@ import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.containsSegments
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.pub.SdcardCSI.Companion.LEGACY_PATH
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -38,30 +41,23 @@ class PublicDataCSI @Inject constructor(
         for (area in areaManager.currentAreas().filter { it.type == DataArea.Type.PUBLIC_DATA }) {
             if (area.hasFlags(DataArea.Flag.PRIMARY)) primary = area
 
-            val base = area.path
-            if (target.path.startsWith("${base.path}${File.separator}") && target.path != base.path) {
+            if (area.path.isAncestorOf(target)) {
                 return AreaInfo(
                     dataArea = area,
                     file = target,
-                    prefix = "${base.path}${File.separator}",
+                    prefix = "${area.path.path}${File.separator}",
                     isBlackListLocation = true
                 )
             }
         }
 
-        if (target.path.contains(PUBLIC_DATA) && primary != null) {
-            var prefix: String? = null
-            if (target.path.startsWith("${LEGACY_PATH.path}${File.separator}") && target.path != LEGACY_PATH.path) {
-                prefix = LEGACY_PATH.path
-            }
-            if (prefix != null) {
-                return AreaInfo(
-                    dataArea = primary,
-                    file = target,
-                    prefix = "$prefix$PUBLIC_DATA",
-                    isBlackListLocation = true,
-                )
-            }
+        if (target.containsSegments(*BASE_SEGMENTS) && primary != null && LEGACY_PATH.isAncestorOf(target)) {
+            return AreaInfo(
+                dataArea = primary,
+                file = target,
+                prefix = LEGACY_PATH.child(*BASE_SEGMENTS).path,
+                isBlackListLocation = true,
+            )
         }
 
         return null
@@ -123,7 +119,6 @@ class PublicDataCSI @Inject constructor(
 
     companion object {
         val TAG: String = logTag("CSI", "Public", "Data")
-        private val LEGACY_PATH = File("/storage/emulated/legacy/")
-        val PUBLIC_DATA = "/Android/data/".replace("/", File.separator)
+        val BASE_SEGMENTS = arrayOf("Android", "data")
     }
 }

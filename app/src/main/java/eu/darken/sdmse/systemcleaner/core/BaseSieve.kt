@@ -5,10 +5,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.isDirectory
-import eu.darken.sdmse.common.files.core.isFile
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.forensics.FileForensics
 
 class BaseSieve @AssistedInject constructor(
@@ -58,7 +55,7 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
-                if (basePaths.none { subject.path.startsWith(it.path) }) return false
+                if (basePaths.none { subject.startsWith(it) }) return false
             }
 
         config.pathContains

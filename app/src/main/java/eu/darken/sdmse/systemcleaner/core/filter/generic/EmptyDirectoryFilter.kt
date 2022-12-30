@@ -93,7 +93,7 @@ class EmptyDirectoryFilter @Inject constructor(
 
         // Exclude Android/data/<pkg>/files
         if (item.name == "cache" || item.name == "files") {
-            if (protectedAreaPaths.any { it.segments == item.segments.drop(2) }) return false
+            if (protectedAreaPaths.any { it.segments == item.segments.dropLast(2) }) return false
         }
 
         if (item.size > 4096) return false

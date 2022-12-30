@@ -43,7 +43,7 @@ class SimilarityCheckTest : BaseTest() {
             Owner(pkgB)
         )
         create().filterFalsePositives(areaInfo, owners).apply {
-            single().pkgId shouldBe "pkgA".toPkgId()
+            map { it.pkgId } shouldBe setOf("pkgA".toPkgId())
         }
     }
 

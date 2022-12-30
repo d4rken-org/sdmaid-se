@@ -16,14 +16,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.listFiles
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
+import eu.darken.sdmse.common.forensics.csi.pub.SdcardCSI.Companion.LEGACY_PATH
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -47,30 +46,23 @@ class PublicObbCSI @Inject constructor(
         for (area in areaManager.currentAreas().filter { it.type == DataArea.Type.PUBLIC_OBB }) {
             if (area.hasFlags(DataArea.Flag.PRIMARY)) primary = area
 
-            val base = area.path
-            if (target.path.startsWith("${base.path}${File.separator}") && target.path != base.path) {
+            if (area.path.isAncestorOf(target)) {
                 return AreaInfo(
                     dataArea = area,
                     file = target,
-                    prefix = "${base.path}${File.separator}",
+                    prefix = "${area.path.path}${File.separator}",
                     isBlackListLocation = true
                 )
             }
         }
 
-        if (target.path.contains(PUBLIC_OBB) && primary != null) {
-            var prefix: String? = null
-            if (target.path.startsWith("${LEGACY_PATH.path}${File.separator}") && target.path != LEGACY_PATH.path) {
-                prefix = LEGACY_PATH.path
-            }
-            if (prefix != null) {
-                return AreaInfo(
-                    dataArea = primary,
-                    file = target,
-                    prefix = "$prefix$PUBLIC_OBB",
-                    isBlackListLocation = true,
-                )
-            }
+        if (target.containsSegments(*BASE_SEGMENTS) && primary != null && LEGACY_PATH.isAncestorOf(target)) {
+            return AreaInfo(
+                dataArea = primary,
+                file = target,
+                prefix = LEGACY_PATH.child(*BASE_SEGMENTS).path,
+                isBlackListLocation = true,
+            )
         }
 
         return null
@@ -117,7 +109,6 @@ class PublicObbCSI @Inject constructor(
 
     companion object {
         val TAG: String = logTag("CSI", "Public", "Obb")
-        private val LEGACY_PATH = File("/storage/emulated/legacy/")
-        val PUBLIC_OBB = "/Android/obb/".replace("/", File.separator)
+        val BASE_SEGMENTS = arrayOf("Android", "obb")
     }
 }

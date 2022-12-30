@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
@@ -36,7 +37,7 @@ class AppSourceAsecCSI @Inject constructor(
         .filter { it.type == DataArea.Type.APP_ASEC }
         .mapNotNull { area ->
             val base = "${area.path.path}${File.separator}"
-            if (!target.path.startsWith(base)) return@mapNotNull null
+            if (!area.path.isAncestorOf(target)) return@mapNotNull null
 
             AreaInfo(
                 dataArea = area,
