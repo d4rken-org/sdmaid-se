@@ -87,7 +87,6 @@ fun LibraryExtension.setupLibraryDefaults() {
     }
 }
 
-
 fun com.android.build.api.dsl.CommonExtension<
         com.android.build.api.dsl.LibraryBuildFeatures,
         com.android.build.api.dsl.LibraryBuildType,
@@ -106,7 +105,6 @@ fun com.android.build.api.dsl.CommonExtension<
         }
     }
 }
-
 
 private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
