@@ -8,11 +8,32 @@ on:
 
 jobs:
   build-all:
-    name: Build all variants
+    name: Assemble all variants
     strategy:
       fail-fast: false
       matrix:
         flavor: [ Foss,Gplay ]
+        variant: [ Debug,Release ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build (Flavor ${{ matrix.flavor }}, Variant ${{ matrix.variant }})
+        run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
+
+  test-all:
+    name: Run all tests
+    strategy:
+      fail-fast: false
+      matrix:
         variant: [ Debug,Beta,Release ]
     runs-on: ubuntu-latest
     steps:
@@ -26,27 +47,5 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build ${{ matrix.variant }} + ${{ matrix.flavor }}
-        run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
-
-  test-all:
-    name: Run all tests
-    strategy:
-      fail-fast: false
-      matrix:
-        variant: [ Debug,Release ]
-        modules: [ app,app-common,app-common-io,app-common-pkgs,app-common-root,app-common-test ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-          cache: gradle
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Test Google Play variant
-        run: ./gradlew ${{ matrix.modules }}:test${{ matrix.variant }}UnitTest
+      - name: Run tests (Variant ${{ matrix.variant }})
+        run: ./gradlew test${{ matrix.variant }}
