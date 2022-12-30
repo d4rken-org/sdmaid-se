@@ -27,15 +27,14 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build ${{ matrix.variant }} + ${{ matrix.flavor }}
-        run: ./gradlew assemble${{ matrix.variant }}${{ matrix.flavor }}
+        run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
 
   test-all:
     name: Run all tests
     strategy:
       fail-fast: false
       matrix:
-        flavor: [ Foss,Gplay ]
-        variant: [ Debug,Beta,Release ]
+        variant: [ Debug,Release ]
         modules: [ app,app-common,app-common-io,app-common-pkgs,app-common-root,app-common-test ]
     runs-on: ubuntu-latest
     steps:
@@ -50,4 +49,4 @@ jobs:
         run: chmod +x gradlew
 
       - name: Test Google Play variant
-        run: ./gradlew ${{ matrix.modules }}:test${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+        run: ./gradlew ${{ matrix.modules }}:test${{ matrix.variant }}UnitTest
