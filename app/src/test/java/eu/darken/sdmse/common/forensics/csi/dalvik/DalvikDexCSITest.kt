@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.Architecture
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.local.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
@@ -136,8 +137,8 @@ class CSIDalvikDexTest : BaseCSITest() {
             val testFile1 = LocalPath.build(path, randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_DEX
-                prefix shouldBe "${path.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe path
+                prefixFreePath shouldBe testFile1.removePrefix(path)
                 isBlackListLocation shouldBe true
             }
         }

@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
 import eu.darken.sdmse.common.serialization.SerializationModule
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.collections.shouldNotContain
@@ -66,16 +67,22 @@ class MarkerSourceTestTool(private val assetPath: String) {
 
     suspend fun checkBasics() {
         neg(SDCARD, emptySet(), emptySet(), randomString())
-        neg(PUBLIC_DATA, emptySet(), emptySet(), "")
+        shouldThrow<IllegalArgumentException> {
+            neg(PUBLIC_DATA, emptySet(), emptySet(), "")
+        }
         neg(PUBLIC_DATA, emptySet(), emptySet(), randomString())
-        neg(DATA, emptySet(), emptySet(), "")
+        shouldThrow<IllegalArgumentException> {
+            neg(DATA, emptySet(), emptySet(), "")
+        }
         neg(DATA, emptySet(), emptySet(), randomString())
-        neg(PRIVATE_DATA, emptySet(), emptySet(), "")
+        shouldThrow<IllegalArgumentException> {
+            neg(PRIVATE_DATA, emptySet(), emptySet(), "")
+        }
         neg(PRIVATE_DATA, emptySet(), emptySet(), randomString())
     }
 
     suspend fun checkCandidates(candidate: Candi) {
-        val matches = getMarkerSource().match(candidate.areaType, candidate.prefixFreePath)
+        val matches = getMarkerSource().match(candidate.areaType, candidate.prefixFreePath.split("/"))
         matches shouldNotBe null
 
         if (candidate.matchType == NEG) {

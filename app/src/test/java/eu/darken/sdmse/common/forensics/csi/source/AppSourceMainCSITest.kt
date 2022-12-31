@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.source.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
@@ -31,7 +32,7 @@ class AppSourceMainCSITest : BaseCSITest() {
 
     private val bases = setOf(
         appSourcesArea.path,
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -73,11 +74,11 @@ class AppSourceMainCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_APP
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe base
+                prefixFreePath shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }
@@ -99,13 +100,13 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "eu.thedarken.sdm.test-1.apk"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-12.apk"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-123.apk"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-1"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-12"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-123"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-RLEuLDrRIaICTBfF4FhaFg==/base.apk"),
+                it.child("eu.thedarken.sdm.test-1.apk"),
+                it.child("eu.thedarken.sdm.test-12.apk"),
+                it.child("eu.thedarken.sdm.test-123.apk"),
+                it.child("eu.thedarken.sdm.test-1"),
+                it.child("eu.thedarken.sdm.test-12"),
+                it.child("eu.thedarken.sdm.test-123"),
+                it.child("eu.thedarken.sdm.test-RLEuLDrRIaICTBfF4FhaFg==/base.apk"),
             )
         }.flatten()
 
@@ -125,9 +126,9 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "eu.thedarken.sdm.test-123/abc"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-123/abc/def"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-RLEuLDrRIaICTBfF4FhaFg==/abc/def"),
+                it.child("eu.thedarken.sdm.test-123/abc"),
+                it.child("eu.thedarken.sdm.test-123/abc/def"),
+                it.child("eu.thedarken.sdm.test-RLEuLDrRIaICTBfF4FhaFg==/abc/def"),
             )
         }.flatten()
 
@@ -147,7 +148,7 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "test.apk"),
+                it.child("test.apk"),
             )
         }.flatten()
 
@@ -172,7 +173,7 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "ApiDemos"),
+                it.child("ApiDemos"),
             )
         }.flatten()
 
@@ -183,7 +184,7 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         for (base in targets) {
             for (apkName in validApkNames) {
-                val target = LocalPath.build(base, apkName)
+                val target = base.child(apkName)
                 val apkArchive = mockk<ApkInfo>().apply {
                     every { id } returns packageName
                 }
@@ -207,7 +208,7 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         for (base in bases) {
 
-            val locationInfo = processor.identifyArea(LocalPath.build(base, prefixFree))!!
+            val locationInfo = processor.identifyArea(base.child(prefixFree))!!
             processor.findOwners(locationInfo).apply {
                 owners.single().pkgId shouldBe packageName
             }
@@ -223,10 +224,10 @@ class AppSourceMainCSITest : BaseCSITest() {
         val prefixFree = "something-123.odex"
 
         for (base in bases) {
-            val toHit = LocalPath.build(base, prefixFree)
+            val toHit = base.child(prefixFree)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe prefixFree
+                prefix shouldBe base
+                prefixFreePath shouldBe listOf(prefixFree)
             }
 
             processor.findOwners(locationInfo).apply {
@@ -243,10 +244,10 @@ class AppSourceMainCSITest : BaseCSITest() {
 
         for (base in bases) {
             val suffix = randomString()
-            val toHit = LocalPath.build(base, suffix)
+            val toHit = base.child(suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe suffix
+                prefix shouldBe base
+                prefixFreePath shouldBe listOf(suffix)
             }
 
             processor.findOwners(locationInfo).apply {
@@ -265,7 +266,7 @@ class AppSourceMainCSITest : BaseCSITest() {
         for (base in bases) {
             run {
                 // Stale and shouldn't have an owner
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-1")
+                val toHit = base.child("eu.thedarken.sdm.test-1")
                 val locationInfo = processor.identifyArea(toHit)!!
 
                 processor.findOwners(locationInfo).apply {
@@ -275,7 +276,7 @@ class AppSourceMainCSITest : BaseCSITest() {
             }
             run {
                 // Stale and shouldn't have an owner
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-1/base.apk")
+                val toHit = base.child("eu.thedarken.sdm.test-1/base.apk")
                 val locationInfo = processor.identifyArea(toHit)!!
 
                 processor.findOwners(locationInfo).apply {
@@ -284,14 +285,14 @@ class AppSourceMainCSITest : BaseCSITest() {
                 }
             }
             run {
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-2")
+                val toHit = base.child("eu.thedarken.sdm.test-2")
                 val locationInfo = processor.identifyArea(toHit)!!
                 processor.findOwners(locationInfo).apply {
                     owners.single().pkgId shouldBe packageName
                 }
             }
             run {
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-2/base.apk")
+                val toHit = base.child("eu.thedarken.sdm.test-2/base.apk")
                 val locationInfo = processor.identifyArea(toHit)!!
                 processor.findOwners(locationInfo).apply {
                     owners.single().pkgId shouldBe packageName
@@ -308,7 +309,7 @@ class AppSourceMainCSITest : BaseCSITest() {
         for (base in bases) {
             run {
                 // Stale and shouldn't have an owner
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-1")
+                val toHit = base.child("eu.thedarken.sdm.test-1")
                 val locationInfo = processor.identifyArea(toHit)!!
 
                 processor.findOwners(locationInfo).apply {
@@ -318,7 +319,7 @@ class AppSourceMainCSITest : BaseCSITest() {
             }
             run {
                 // Stale and shouldn't have an owner
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-1/base.apk")
+                val toHit = base.child("eu.thedarken.sdm.test-1/base.apk")
                 val locationInfo = processor.identifyArea(toHit)!!
 
                 processor.findOwners(locationInfo).apply {
@@ -327,14 +328,14 @@ class AppSourceMainCSITest : BaseCSITest() {
                 }
             }
             run {
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-2")
+                val toHit = base.child("eu.thedarken.sdm.test-2")
                 val locationInfo = processor.identifyArea(toHit)!!
                 processor.findOwners(locationInfo).apply {
                     owners.single().pkgId shouldBe packageName
                 }
             }
             run {
-                val toHit = LocalPath.build(base, "eu.thedarken.sdm.test-2/base.apk")
+                val toHit = base.child("eu.thedarken.sdm.test-2/base.apk")
                 val locationInfo = processor.identifyArea(toHit)!!
                 processor.findOwners(locationInfo).apply {
                     owners.single().pkgId shouldBe packageName

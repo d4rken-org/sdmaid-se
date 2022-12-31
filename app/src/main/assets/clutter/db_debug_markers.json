@@ -57,6 +57,7 @@
 	  {"loc": "PUBLIC_DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
 	  {"loc": "PRIVATE_DATA", "path": "sdm_test_common", "flags": ["common"]},
 	  {"loc": "PRIVATE_DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
 	  {"loc": "APP_ASEC", "path": "sdm_test_common", "flags": ["common"]},
 	  {"loc": "APP_ASEC", "path": "sdm_test_keeper", "flags": ["keeper"]},
 	  {"loc": "PUBLIC_OBB", "path": "sdm_test_common", "flags": ["common"]},

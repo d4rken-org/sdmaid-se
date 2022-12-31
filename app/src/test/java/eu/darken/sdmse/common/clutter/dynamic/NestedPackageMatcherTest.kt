@@ -14,15 +14,15 @@ import org.junit.jupiter.api.Test
 class NestedPackageMatcherTest {
     @Test fun testBadInit_emptyPath() {
         shouldThrow<IllegalArgumentException> {
-            NestedPackageMatcher(SDCARD, "", emptySet())
+            NestedPackageMatcher(SDCARD, listOf(""), emptySet())
         }
     }
 
     @Test fun testMatchingSingle() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "dir", emptySet())
-        markerSource.match(SDCARD, "dir").size shouldBe 0
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("dir"), emptySet())
+        markerSource.match(SDCARD, listOf("dir")).size shouldBe 0
 
-        val matches = markerSource.match(SDCARD, "dir/com.package.rollkuchen").apply {
+        val matches = markerSource.match(SDCARD, listOf("dir", "com.package.rollkuchen")).apply {
             size shouldBe 1
         }
 
@@ -33,11 +33,11 @@ class NestedPackageMatcherTest {
     }
 
     @Test fun testMatchingDouble() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "double/nest", emptySet())
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("double", "nest"), emptySet())
 
-        markerSource.match(SDCARD, "double/nest").size shouldBe 0
+        markerSource.match(SDCARD, listOf("double", "nest")).size shouldBe 0
 
-        val matches = markerSource.match(SDCARD, "double/nest/com.package.rollkuchen").apply {
+        val matches = markerSource.match(SDCARD, listOf("double", "nest", "com.package.rollkuchen")).apply {
             size shouldBe 1
         }
 
@@ -48,35 +48,35 @@ class NestedPackageMatcherTest {
     }
 
     @Test fun testBadMatchesSingle() = runTest {
-        NestedPackageMatcher(SDCARD, "dir", setOf("bad", "match")).apply {
-            match(SDCARD, "dir/bad").size shouldBe 0
-            match(SDCARD, "dir/match").size shouldBe 0
+        NestedPackageMatcher(SDCARD, listOf("dir"), setOf("bad", "match")).apply {
+            match(SDCARD, listOf("dir", "bad")).size shouldBe 0
+            match(SDCARD, listOf("dir", "match")).size shouldBe 0
         }
     }
 
     @Test fun testBadMatchesDouble() = runTest {
-        NestedPackageMatcher(SDCARD, "double/nest", setOf("bad", "match")).apply {
-            match(SDCARD, "double/nest/bad").size shouldBe 0
-            match(SDCARD, "double/nest/match").size shouldBe 0
-            match(SDCARD, "double/bad").size shouldBe 0
-            match(SDCARD, "double/match").size shouldBe 0
-            match(SDCARD, "nest/bad").size shouldBe 0
-            match(SDCARD, "nest/match").size shouldBe 0
-            match(SDCARD, "double/nest").size shouldBe 0
-            match(SDCARD, "double/nest").size shouldBe 0
+        NestedPackageMatcher(SDCARD, listOf("double", "nest"), setOf("bad", "match")).apply {
+            match(SDCARD, listOf("double", "nest", "bad")).size shouldBe 0
+            match(SDCARD, listOf("double", "nest", "match")).size shouldBe 0
+            match(SDCARD, listOf("double", "bad")).size shouldBe 0
+            match(SDCARD, listOf("double", "match")).size shouldBe 0
+            match(SDCARD, listOf("nest", "bad")).size shouldBe 0
+            match(SDCARD, listOf("nest", "match")).size shouldBe 0
+            match(SDCARD, listOf("double", "nest")).size shouldBe 0
+            match(SDCARD, listOf("double", "nest")).size shouldBe 0
         }
     }
 
     @Test fun testGetForLocationSingle() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "dir", setOf("bad", "match"))
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("dir"), setOf("bad", "match"))
         for (location in DataArea.Type.values()) {
             val markers: Collection<Marker> = markerSource.getMarkerForLocation(location)
 
             if (location == SDCARD) {
                 markers.size shouldBeGreaterThan 0
                 markers.forEach { marker ->
-                    marker.prefixFreeBasePath shouldBe "dir"
-                    marker.isPrefixFreeBasePathDirect shouldBe false
+                    marker.segments shouldBe listOf("dir")
+                    marker.isDirectMatch shouldBe false
                 }
             } else {
                 markers.size shouldBe 0
@@ -85,15 +85,15 @@ class NestedPackageMatcherTest {
     }
 
     @Test fun testGetForLocationDouble() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "double/nest", setOf("bad", "match"))
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("double", "nest"), setOf("bad", "match"))
         for (location in DataArea.Type.values()) {
             val markers: Collection<Marker> = markerSource.getMarkerForLocation(location)
 
             if (location == SDCARD) {
                 markers.size shouldBeGreaterThan 0
                 markers.forEach { marker ->
-                    marker.prefixFreeBasePath shouldBe "double/nest"
-                    marker.isPrefixFreeBasePathDirect shouldBe false
+                    marker.segments shouldBe listOf("double", "nest")
+                    marker.isDirectMatch shouldBe false
                 }
             } else {
                 markers.size shouldBe 0
@@ -102,28 +102,28 @@ class NestedPackageMatcherTest {
     }
 
     @Test fun testGetForPackageNameSingle() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "dir", setOf("bad", "match"))
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("dir"), setOf("bad", "match"))
         val testPkg = "test.pkg".toPkgId()
 
         markerSource.getMarkerForPkg(testPkg).single().apply {
-            prefixFreeBasePath shouldBe "dir/$testPkg"
+            segments shouldBe listOf("dir", "$testPkg")
 
-            match(SDCARD, "dir/$testPkg/something") shouldBe null
-            match(SDCARD, "dir/$testPkg") shouldNotBe null
-            isPrefixFreeBasePathDirect shouldBe true
+            match(SDCARD, listOf("dir", "$testPkg", "something")) shouldBe null
+            match(SDCARD, listOf("dir", "$testPkg")) shouldNotBe null
+            isDirectMatch shouldBe true
         }
     }
 
     @Test fun testGetForPackageNameDouble() = runTest {
-        val markerSource = NestedPackageMatcher(SDCARD, "double/nest", setOf("bad", "match"))
+        val markerSource = NestedPackageMatcher(SDCARD, listOf("double", "nest"), setOf("bad", "match"))
         val testPkg = "test.pkg".toPkgId()
 
         markerSource.getMarkerForPkg(testPkg).single().apply {
-            prefixFreeBasePath shouldBe "double/nest/$testPkg"
+            segments shouldBe listOf("double", "nest", "$testPkg")
 
-            match(SDCARD, "double/nest/$testPkg/something") shouldBe null
-            match(SDCARD, "double/nest/$testPkg") shouldNotBe null
-            isPrefixFreeBasePathDirect shouldBe true
+            match(SDCARD, listOf("double", "nest", "$testPkg", "something")) shouldBe null
+            match(SDCARD, listOf("double", "nest", "$testPkg")) shouldNotBe null
+            isDirectMatch shouldBe true
         }
     }
 }

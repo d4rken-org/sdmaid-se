@@ -15,7 +15,7 @@ import javax.inject.Inject
 @Reusable
 class EveryplayMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    ".EveryplayCache",
+    listOf(".EveryplayCache"),
     setOf(".nomedia", "images", "videos")
 ) {
     override fun toString(): String = "EveryplayMarkerSource"

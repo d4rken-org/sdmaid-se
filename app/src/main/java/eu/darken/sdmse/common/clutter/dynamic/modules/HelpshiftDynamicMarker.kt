@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class HelpshiftDynamicMarker @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    ".backups",
+    listOf(".backups"),
     setOf(".nomedia")
 ) {
     override fun toString(): String = "HelpshiftDynamicMarker"

@@ -4,45 +4,47 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 
 open class NestedPackageMatcher(
     val areaType: DataArea.Type,
-    val baseDir: String,
+    val baseSegments: List<String>,
     val badMatches: Set<String>
 ) : MarkerSource {
 
     private val dynamicMarkers: MutableCollection<Marker> = HashSet()
     private val markerMapByPkg: MutableMap<Pkg.Id, MutableCollection<Marker>> = HashMap()
 
-    val baseDirsSplit = baseDir.split("/").toTypedArray()
     private val ignoreCase: Boolean = areaType.restrictedCharset
 
     init {
-        require(baseDir.isNotEmpty()) { "BaseDir is empty" }
+        require(baseSegments.isNotEmpty()) { "baseSegments is empty" }
+        require(baseSegments != listOf("")) { "baseSegments is initialised with root only" }
 
         dynamicMarkers.add(object : Marker {
             override val areaType: DataArea.Type = this@NestedPackageMatcher.areaType
             override val flags: Set<Marker.Flag> = emptySet()
 
-            override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
-                val split = prefixFree.split("/")
-                if (split.size != baseDirsSplit.size + 1) return null
-                for (i in baseDirsSplit.indices) {
-                    if (!split[i].equals(baseDirsSplit[i], ignoreCase)) {
+            override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+                if (otherSegments.size != baseSegments.size + 1) return null
+                for (i in baseSegments.indices) {
+                    if (!otherSegments[i].equals(baseSegments[i], ignoreCase)) {
                         return null
                     }
                 }
-                if (this@NestedPackageMatcher.badMatches.contains(split[split.size - 1])) return null
+                if (this@NestedPackageMatcher.badMatches.contains(otherSegments[otherSegments.size - 1])) return null
 
-                return if (!split.last().contains(".")) null else Marker.Match(setOf(split.last().toPkgId()))
+                return when {
+                    !otherSegments.last().contains(".") -> null
+                    else -> Marker.Match(setOf(otherSegments.last().toPkgId()))
+                }
             }
 
-            override val prefixFreeBasePath: String = baseDir
+            override val segments: List<String> = baseSegments
 
-            override val isPrefixFreeBasePathDirect: Boolean = false
+            override val isDirectMatch: Boolean = false
         })
     }
 
@@ -50,7 +52,7 @@ open class NestedPackageMatcher(
         return if (location === this.areaType) dynamicMarkers else emptyList()
     }
 
-    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: List<String>): Collection<Marker.Match> {
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
@@ -58,7 +60,7 @@ open class NestedPackageMatcher(
         var markers = markerMapByPkg[pkgId]
         if (markers == null) {
             markers = HashSet()
-            markers.add(PackageMarker(areaType, "$baseDir${File.separatorChar}${pkgId.name}", pkgId))
+            markers.add(PackageMarker(areaType, baseSegments.plus(pkgId.name), pkgId))
             markerMapByPkg[pkgId] = markers
         }
         return markers
@@ -66,21 +68,21 @@ open class NestedPackageMatcher(
 
     private class PackageMarker constructor(
         override val areaType: DataArea.Type,
-        override val prefixFreeBasePath: String,
+        override val segments: List<String>,
         val pkgId: Pkg.Id,
     ) : Marker {
         private val ignoreCase: Boolean = areaType.restrictedCharset
 
         override val flags: Set<Marker.Flag> = emptySet()
 
-        override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
-            if (this.areaType !== areaType) return null
+        override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+            if (this.areaType !== otherAreaType) return null
 
-            return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) {
+            return if (otherSegments.matches(this.segments, ignoreCase)) {
                 Marker.Match(setOf(pkgId))
             } else null
         }
 
-        override val isPrefixFreeBasePathDirect: Boolean = true
+        override val isDirectMatch: Boolean = true
     }
 }

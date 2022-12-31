@@ -13,19 +13,19 @@ class EveryPlayDynamicMarkerTest {
     private val markerSource = EveryplayMarkerMatcher()
 
     @Test fun testMatching() = runTest {
-        markerSource.match(SDCARD, ".EveryplayCache").size shouldBe 0
+        markerSource.match(SDCARD, listOf(".EveryplayCache")).size shouldBe 0
 
-        markerSource.match(SDCARD, ".EveryplayCache/com.package.rollkuchen").single().apply {
+        markerSource.match(SDCARD, listOf(".EveryplayCache", "com.package.rollkuchen")).single().apply {
             packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
     @Test fun testBadMatches() = runTest {
-        markerSource.match(SDCARD, ".EveryplayCache/.nomedia").size shouldBe 0
+        markerSource.match(SDCARD, listOf(".EveryplayCache", ".nomedia")).size shouldBe 0
 
-        markerSource.match(SDCARD, ".EveryplayCache/images").size shouldBe 0
+        markerSource.match(SDCARD, listOf(".EveryplayCache", "images")).size shouldBe 0
 
-        markerSource.match(SDCARD, ".EveryplayCache/videos").size shouldBe 0
+        markerSource.match(SDCARD, listOf(".EveryplayCache", "videos")).size shouldBe 0
     }
 
     @Test fun testGetForLocation() = runTest {
@@ -33,8 +33,8 @@ class EveryPlayDynamicMarkerTest {
             val markers = markerSource.getMarkerForLocation(location)
             if (location == SDCARD) {
                 markers.single().apply {
-                    prefixFreeBasePath shouldBe EVERYPLAY_CACHE
-                    isPrefixFreeBasePathDirect shouldBe false
+                    segments shouldBe EVERYPLAY_CACHE
+                    isDirectMatch shouldBe false
                 }
             } else {
                 markers.isEmpty() shouldBe true
@@ -43,16 +43,16 @@ class EveryPlayDynamicMarkerTest {
     }
 
     @Test fun testGetForPackageName() = runTest {
-        val testPkg = "com.pkg.test".toPkgId()
-        markerSource.getMarkerForPkg(testPkg).single().apply {
-            prefixFreeBasePath shouldBe "$EVERYPLAY_CACHE/$testPkg"
-            match(SDCARD, "$EVERYPLAY_CACHE/$testPkg/something") shouldBe null
-            match(SDCARD, "$EVERYPLAY_CACHE/$testPkg") shouldNotBe null
-            isPrefixFreeBasePathDirect shouldBe true
+        val testPkg = "com.pkg.test"
+        markerSource.getMarkerForPkg(testPkg.toPkgId()).single().apply {
+            segments shouldBe EVERYPLAY_CACHE + listOf(testPkg)
+            match(SDCARD, EVERYPLAY_CACHE + listOf(testPkg, "something")) shouldBe null
+            match(SDCARD, EVERYPLAY_CACHE + listOf(testPkg)) shouldNotBe null
+            isDirectMatch shouldBe true
         }
     }
 
     companion object {
-        private const val EVERYPLAY_CACHE = ".EveryplayCache"
+        private val EVERYPLAY_CACHE = listOf(".EveryplayCache")
     }
 }

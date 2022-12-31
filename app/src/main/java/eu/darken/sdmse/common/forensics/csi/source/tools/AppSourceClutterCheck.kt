@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.getFirstDirElement
 import javax.inject.Inject
 
 @Reusable
@@ -19,8 +18,8 @@ class AppSourceClutterCheck @Inject constructor(
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
-        val dirName: String = areaInfo.prefixFreePath.getFirstDirElement()
-        val matches = clutterRepo.match(areaInfo.type, dirName)
+        val dirName: String = areaInfo.prefixFreePath.first()
+        val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
         val owners = matches.map { it.toOwners() }.flatten().toSet()
         return AppSourceCheck.Result(owners)
     }

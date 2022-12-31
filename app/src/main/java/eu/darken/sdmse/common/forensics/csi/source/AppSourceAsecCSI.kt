@@ -18,10 +18,8 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -36,13 +34,12 @@ class AppSourceAsecCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
         .filter { it.type == DataArea.Type.APP_ASEC }
         .mapNotNull { area ->
-            val base = "${area.path.path}${File.separator}"
             if (!area.path.isAncestorOf(target)) return@mapNotNull null
 
             AreaInfo(
                 dataArea = area,
                 file = target,
-                prefix = base,
+                prefix = area.path,
                 isBlackListLocation = true
             )
         }
@@ -53,7 +50,7 @@ class AppSourceAsecCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        val dirName = areaInfo.prefixFreePath.getFirstDirElement()
+        val dirName = areaInfo.prefixFreePath.first()
         dirName
             .let { ASEC_FILE.matcher(it) }
             .takeIf { it.matches() }
@@ -62,7 +59,7 @@ class AppSourceAsecCSI @Inject constructor(
             ?.let { owners.add(Owner(it)) }
 
         if (owners.isEmpty()) {
-            val matches = clutterRepo.match(areaInfo.type, dirName)
+            val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
             owners.addAll(matches.map { it.toOwners() }.flatten())
         }
 

@@ -27,7 +27,7 @@ class ClutterRepo @Inject constructor(
         return result
     }
 
-    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: List<String>): Collection<Marker.Match> {
         val result = mutableSetOf<Marker.Match>()
         for (markerSource in markerSources) result.addAll(markerSource.match(areaType, prefixFreeBasePath))
         return result

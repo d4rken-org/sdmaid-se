@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -28,7 +29,7 @@ class AppSourceLibCSITest : BaseCSITest() {
 
     private val bases = setOf(
         appSourcesArea.path,
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -60,11 +61,11 @@ class AppSourceLibCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_LIB
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe base
+                prefixFreePath shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }
@@ -86,9 +87,9 @@ class AppSourceLibCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "eu.thedarken.sdm.test-1"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-12"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-123"),
+                it.child("eu.thedarken.sdm.test-1"),
+                it.child("eu.thedarken.sdm.test-12"),
+                it.child("eu.thedarken.sdm.test-123"),
             )
         }.flatten()
 
@@ -108,10 +109,10 @@ class AppSourceLibCSITest : BaseCSITest() {
 
         val targets = bases.map {
             setOf(
-                LocalPath.build(it, "eu.thedarken.sdm.test-1/something.so"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-1/abc/def"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-12/abc/def"),
-                LocalPath.build(it, "eu.thedarken.sdm.test-123/abc/def"),
+                it.child("eu.thedarken.sdm.test-1/something.so"),
+                it.child("eu.thedarken.sdm.test-1/abc/def"),
+                it.child("eu.thedarken.sdm.test-12/abc/def"),
+                it.child("eu.thedarken.sdm.test-123/abc/def"),
             )
         }.flatten()
 
@@ -133,7 +134,7 @@ class AppSourceLibCSITest : BaseCSITest() {
 
         for (base in bases) {
 
-            val locationInfo = processor.identifyArea(LocalPath.build(base, prefixFree))!!
+            val locationInfo = processor.identifyArea(base.child(prefixFree))!!
             processor.findOwners(locationInfo).apply {
                 owners.single().pkgId shouldBe packageName
             }
@@ -145,10 +146,10 @@ class AppSourceLibCSITest : BaseCSITest() {
 
         for (base in bases) {
             val suffix = randomString()
-            val toHit = LocalPath.build(base, suffix)
+            val toHit = base.child(suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe suffix
+                prefix shouldBe base
+                prefixFreePath shouldBe listOf(suffix)
             }
 
             processor.findOwners(locationInfo).apply {
@@ -166,8 +167,8 @@ class AppSourceLibCSITest : BaseCSITest() {
             val mockPkg = mockPkg(packageName)
 
             val targets = setOf(
-                LocalPath.build(base, "blabla"),
-                LocalPath.build(base, "blabla/something.so"),
+                base.child("blabla"),
+                base.child("blabla/something.so"),
             )
 
             for (target in targets) {

@@ -17,7 +17,7 @@ import javax.inject.Inject
 @Reusable
 class PrivateToSdcardPathDevMistakeMarker @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "data/data",
+    listOf("data", "data"),
     emptySet()
 ) {
     override fun toString(): String = "PrivateToSdcardPathDevMistakeMarker"

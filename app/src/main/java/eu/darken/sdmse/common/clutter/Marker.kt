@@ -12,11 +12,20 @@ interface Marker {
 
     val flags: Set<Flag>
 
-    fun match(areaType: DataArea.Type, prefixFree: String): Match?
+    val segments: List<String>
 
-    val prefixFreeBasePath: String
+    /**
+     * i.e. no regex match
+     */
+    val isDirectMatch: Boolean
 
-    val isPrefixFreeBasePathDirect: Boolean
+    /**
+     * e.g.
+     * /storage/emulated/0/Some/Folder
+     * ->
+     * Type.SDCARD [Some,Folder]
+     */
+    fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Match?
 
     @Keep
     enum class Flag(val raw: String) {

@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class UTSystemConfigMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    ".UTSystemConfig",
+    listOf(".UTSystemConfig"),
     emptySet(),
 ) {
     override fun toString(): String = "UTSystemConfigMarkerSource"

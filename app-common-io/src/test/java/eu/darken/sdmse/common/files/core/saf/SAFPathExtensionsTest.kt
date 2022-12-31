@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.files.core.saf
 import android.net.Uri
 import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.isAncestorOf
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -337,5 +338,44 @@ class SAFPathExtensionsTest : BaseTest() {
         lookup2.startsWith(file2) shouldBe true
         lookup2.startsWith(lookup1) shouldBe true
         lookup2.startsWith(lookup2) shouldBe true
+    }
+
+    @Test fun `remove prefix`() {
+        val prefix = SAFPath.build(baseTreeUri, "pre", "fix")
+        val pre = SAFPath.build(baseTreeUri, "pre")
+        val prefixLookup = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "pre", "fix"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val preLookup = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "pre"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        prefix.removePrefix(prefix) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix)
+        }
+        prefix.removePrefix(pre) shouldBe listOf("fix")
+        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+
+        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup)
+        }
+        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
+        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
     }
 }

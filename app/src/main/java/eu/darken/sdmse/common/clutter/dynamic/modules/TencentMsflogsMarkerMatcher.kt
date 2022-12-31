@@ -15,7 +15,7 @@ import javax.inject.Inject
 @Reusable
 class TencentMsflogsMarkerMatcher @Inject constructor() : NestedPackageV2Matcher(
     DataArea.Type.SDCARD,
-    "tencent/msflogs",
+    listOf("tencent", "msflogs"),
     setOf(Pattern.compile("^(?>tencent/msflogs/((?:\\w+/){2}\\w+))$", Pattern.CASE_INSENSITIVE)),
     emptySet(),
     emptySet(),

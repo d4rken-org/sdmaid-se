@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.pub
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
@@ -63,12 +64,12 @@ class PublicObbCSITest : BaseCSITest() {
         every { flags } returns emptySet()
     }
     val sdcardPaths = setOf(
-        storageSdcard1.path as LocalPath,
-        storageSdcard2.path as LocalPath
+        storageSdcard1.path,
+        storageSdcard2.path,
     )
     val obbPaths = setOf(
-        storagePublicObb1.path as LocalPath,
-        storagePublicObb2.path as LocalPath
+        storagePublicObb1.path,
+        storagePublicObb2.path,
     )
 
     @Before override fun setup() {
@@ -106,11 +107,11 @@ class PublicObbCSITest : BaseCSITest() {
     override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in obbPaths) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_OBB
-                prefixFreePath shouldBe testFile1.name
-                prefix shouldBe "${base.path}/"
+                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefix shouldBe base
                 isBlackListLocation shouldBe true
             }
         }
@@ -119,9 +120,9 @@ class PublicObbCSITest : BaseCSITest() {
     override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in sdcardPaths) {
-            processor.identifyArea(LocalPath.build(base, "Android/data", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "Android/media", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "Android", randomString())) shouldBe null
+            processor.identifyArea(base.child("Android/data", randomString())) shouldBe null
+            processor.identifyArea(base.child("Android/media", randomString())) shouldBe null
+            processor.identifyArea(base.child("Android", randomString())) shouldBe null
         }
     }
 
@@ -130,7 +131,7 @@ class PublicObbCSITest : BaseCSITest() {
         mockPkg(packageName)
 
         for (base in obbPaths) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test")
+            val toHit = base.child("eu.thedarken.sdm.test")
             val locationInfo = getProcessor().identifyArea(toHit)!!
 
             getProcessor().findOwners(locationInfo).apply {
@@ -140,9 +141,9 @@ class PublicObbCSITest : BaseCSITest() {
         }
 
         for (base in obbPaths) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test/abc/def")
+            val toHit = base.child("eu.thedarken.sdm.test/abc/def")
             val locationInfo = getProcessor().identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             getProcessor().findOwners(locationInfo).apply {
@@ -161,10 +162,10 @@ class PublicObbCSITest : BaseCSITest() {
         mockMarker(pkgId, DataArea.Type.PUBLIC_OBB, prefixFree)
 
         for (base in obbPaths) {
-            val toHit = LocalPath.build(base, prefixFree)
+            val toHit = base.child(prefixFree)
 
             val areaInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             processor.findOwners(areaInfo).apply {
@@ -177,7 +178,7 @@ class PublicObbCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in obbPaths) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

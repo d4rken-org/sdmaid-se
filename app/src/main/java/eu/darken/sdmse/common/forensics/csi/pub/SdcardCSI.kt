@@ -15,12 +15,10 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
-import eu.darken.sdmse.common.pathChopOffLast
 import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -53,7 +51,7 @@ class SdcardCSI @Inject constructor(
                     AreaInfo(
                         dataArea = area,
                         file = target,
-                        prefix = area.path.path + File.separator,
+                        prefix = area.path,
                         isBlackListLocation = false,
                     )
                 } else {
@@ -72,11 +70,11 @@ class SdcardCSI @Inject constructor(
             LEGACY_PATH.child(*PublicMediaCSI.BASE_SEGMENTS),
         )
 
-        return if (LEGACY_PATH.matches(target) && legacyOverlaps.none { it.isAncestorOf(target) }) {
+        return if (LEGACY_PATH.isAncestorOf(target) && legacyOverlaps.none { it.isAncestorOf(target) }) {
             AreaInfo(
                 dataArea = primary,
                 file = target,
-                prefix = LEGACY_PATH.path + File.separator,
+                prefix = LEGACY_PATH,
                 isBlackListLocation = false
             )
         } else null
@@ -86,10 +84,9 @@ class SdcardCSI @Inject constructor(
         require(hasJurisdiction(areaInfo.type)) { "Wrong jurisdiction: ${areaInfo.type}" }
 
         // Chop down path till we get a hit
-        var bestBet: String? = areaInfo.file.path.replace(areaInfo.prefix, "")
-        if (bestBet!!.startsWith(File.separator)) bestBet = bestBet.substring(1)
+        var bestBet = areaInfo.prefixFreePath
         val owners = mutableSetOf<Owner>()
-        while (bestBet != null) {
+        while (bestBet.isNotEmpty()) {
             val matches = clutterRepo.match(areaInfo.dataArea.type, bestBet)
             val newOwners = matches
                 .map { match -> match.packageNames.map { it to match.flags } }
@@ -98,7 +95,7 @@ class SdcardCSI @Inject constructor(
 
             owners.addAll(newOwners)
             bestBet = if (owners.isEmpty()) {
-                bestBet.pathChopOffLast()
+                bestBet.dropLast(1)
             } else {
                 break
             }

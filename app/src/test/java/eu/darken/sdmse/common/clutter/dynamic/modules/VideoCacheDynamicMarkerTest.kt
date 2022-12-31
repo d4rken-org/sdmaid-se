@@ -13,7 +13,7 @@ class VideoCacheDynamicMarkerTest {
 
     @Test fun testMatching() = runTest {
         markerSource.match(SDCARD, BASEDIR).size shouldBe 0
-        markerSource.match(SDCARD, "${BASEDIR}/com.package.rollkuchen").single().apply {
+        markerSource.match(SDCARD, BASEDIR.plus("com.package.rollkuchen")).single().apply {
             packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
@@ -23,8 +23,8 @@ class VideoCacheDynamicMarkerTest {
             val markers = markerSource.getMarkerForLocation(location)
             if (location == SDCARD) {
                 markers.single().apply {
-                    prefixFreeBasePath shouldBe BASEDIR
-                    isPrefixFreeBasePathDirect shouldBe false
+                    segments shouldBe BASEDIR
+                    isDirectMatch shouldBe false
                 }
             } else {
                 markers.size shouldBe 0
@@ -33,16 +33,16 @@ class VideoCacheDynamicMarkerTest {
     }
 
     @Test fun testGetForPackageName() = runTest {
-        val testPkg = "com.pkg.test".toPkgId()
-        markerSource.getMarkerForPkg(testPkg).single().apply {
-            prefixFreeBasePath shouldBe "${BASEDIR}/$testPkg"
-            match(SDCARD, "${BASEDIR}/$testPkg/something") shouldBe null
-            match(SDCARD, "${BASEDIR}/$testPkg") shouldNotBe null
-            isPrefixFreeBasePathDirect shouldBe true
+        val testPkg = "com.pkg.test"
+        markerSource.getMarkerForPkg(testPkg.toPkgId()).single().apply {
+            segments shouldBe BASEDIR.plus(testPkg)
+            match(SDCARD, BASEDIR.plus(testPkg).plus("something")) shouldBe null
+            match(SDCARD, BASEDIR.plus(testPkg)) shouldNotBe null
+            isDirectMatch shouldBe true
         }
     }
 
     companion object {
-        private const val BASEDIR = "VideoCache"
+        private val BASEDIR = listOf("VideoCache")
     }
 }

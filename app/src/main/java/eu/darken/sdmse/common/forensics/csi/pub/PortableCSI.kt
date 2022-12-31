@@ -31,7 +31,7 @@ class PortableCSI @Inject constructor(
             AreaInfo(
                 dataArea = it,
                 file = target,
-                prefix = "${it.path.path}/",
+                prefix = it.path,
                 isBlackListLocation = false,
             )
         }

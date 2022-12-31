@@ -17,14 +17,14 @@ class NestedPackageV2MatcherTest {
     val stubConverter = object : NestedPackageV2Matcher.Converter {
         override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> = emptySet()
 
-        override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> = emptySet()
+        override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>> = emptySet()
     }
 
     @Test fun testBadInit_empty1() {
         shouldThrow<IllegalArgumentException> {
             NestedPackageV2Matcher(
                 SDCARD,
-                "",
+                listOf(""),
                 setOf(Pattern.compile("")),
                 emptySet(),
                 emptySet(),
@@ -37,7 +37,7 @@ class NestedPackageV2MatcherTest {
         shouldThrow<IllegalArgumentException> {
             NestedPackageV2Matcher(
                 SDCARD,
-                "prefix",
+                listOf("prefix"),
                 emptySet(),
                 emptySet(),
                 emptySet(),
@@ -50,7 +50,7 @@ class NestedPackageV2MatcherTest {
         shouldThrow<IllegalArgumentException> {
             NestedPackageV2Matcher(
                 SDCARD,
-                "bad/prefix/",
+                listOf("bad", "prefix"),
                 setOf(Pattern.compile("")),
                 emptySet(),
                 emptySet(),
@@ -63,7 +63,7 @@ class NestedPackageV2MatcherTest {
         shouldThrow<IllegalArgumentException> {
             NestedPackageV2Matcher(
                 SDCARD,
-                "/",
+                listOf("/"),
                 setOf(Pattern.compile("")),
                 emptySet(),
                 emptySet(),
@@ -80,38 +80,38 @@ class NestedPackageV2MatcherTest {
                 return pkgs
             }
 
-            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> {
-                val paths: MutableSet<String> = LinkedHashSet()
-                paths.add(pkgId.name.replace('.', File.separatorChar))
+            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>> {
+                val paths: MutableSet<List<String>> = LinkedHashSet()
+                paths.add(pkgId.name.split('.'))
                 return paths
             }
         }
         val markerSource = NestedPackageV2Matcher(
             SDCARD,
-            "pre/fix",
+            listOf("pre", "fix"),
             setOf(Pattern.compile("^(?>pre/fix/((?:\\w+/){2}\\w+))$", Pattern.CASE_INSENSITIVE)),
             setOf(Pattern.compile("^(?>pre/fix/((?:\\w+/){2}bad_last_dir))$", Pattern.CASE_INSENSITIVE)),  // BAD
             setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN),
             converter
         )
-        markerSource.match(SDCARD, "pre").size shouldBe 0
-        markerSource.match(SDCARD, "pre/fix").size shouldBe 0
+        markerSource.match(SDCARD, listOf("pre")).size shouldBe 0
+        markerSource.match(SDCARD, listOf("prefix")).size shouldBe 0
 
         run {
 
             // This should have no match
-            markerSource.match(SDCARD, "pre/fix/com/package/bad_last_dir").size shouldBe 0
+            markerSource.match(SDCARD, listOf("pre", "fix", "com", "package", "bad_last_dir")).size shouldBe 0
         }
         run {
             // Normal match
-            markerSource.match(SDCARD, "pre/fix/com/package/rollkuchen").single().apply {
+            markerSource.match(SDCARD, listOf("pre", "fix", "com", "package", "rollkuchen")).single().apply {
                 packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
                 flags shouldBe setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN)
             }
         }
         run {
             // Casing
-            markerSource.match(SDCARD, "pre/fix/com/package/ROLLKUCHEN").single().apply {
+            markerSource.match(SDCARD, listOf("pre", "fix", "com", "package", "ROLLKUCHEN")).single().apply {
                 packageNames.single() shouldBe "com.package.ROLLKUCHEN".toPkgId()
                 flags shouldBe setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN)
             }
@@ -119,15 +119,15 @@ class NestedPackageV2MatcherTest {
         run {
             // getMarkerForPackageName
             markerSource.getMarkerForPkg("com.package.ROLLKUCHEN".toPkgId()).single().apply {
-                prefixFreeBasePath shouldBe "pre/fix/com/package/ROLLKUCHEN"
-                isPrefixFreeBasePathDirect shouldBe true
+                segments shouldBe listOf("pre", "fix", "com", "package", "ROLLKUCHEN")
+                isDirectMatch shouldBe true
             }
         }
         run {
             // getMarkerForLocation
             markerSource.getMarkerForLocation(SDCARD).single().apply {
-                prefixFreeBasePath shouldBe "pre/fix"
-                isPrefixFreeBasePathDirect shouldBe false
+                segments shouldBe listOf("pre", "fix")
+                isDirectMatch shouldBe false
             }
         }
     }

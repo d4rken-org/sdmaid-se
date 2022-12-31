@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class BmwGroupMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "bmwgroup",
+    listOf("bmwgroup"),
     setOf(".nomedia")
 ) {
     override fun toString(): String = "BmwGroupMarkerSource"

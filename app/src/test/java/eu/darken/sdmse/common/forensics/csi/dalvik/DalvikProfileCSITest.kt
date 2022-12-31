@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.dalvik
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DirNameCheck
@@ -37,7 +38,7 @@ class DalvikProfileCSITest : BaseCSITest() {
     private val profilePaths = setOf(
         areaProfile1.path,
         areaProfile2.path
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -66,11 +67,11 @@ class DalvikProfileCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (profilePath in profilePaths) {
-            val testFile1 = LocalPath.build(profilePath, randomString())
+            val testFile1 = profilePath.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_PROFILE
-                prefix shouldBe "${profilePath.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe profilePath
+                prefixFreePath shouldBe testFile1.removePrefix(profilePath)
                 isBlackListLocation shouldBe true
             }
         }
@@ -90,7 +91,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         mockPkg(packageName)
 
         for (base in profilePaths) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test")
+            val toHit = base.child("eu.thedarken.sdm.test")
             val locationInfo = getProcessor().identifyArea(toHit)!!
 
             getProcessor().findOwners(locationInfo).apply {
@@ -100,9 +101,9 @@ class DalvikProfileCSITest : BaseCSITest() {
         }
 
         for (base in profilePaths) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test/abc/def")
+            val toHit = base.child("eu.thedarken.sdm.test/abc/def")
             val locationInfo = getProcessor().identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             getProcessor().findOwners(locationInfo).apply {
@@ -120,8 +121,8 @@ class DalvikProfileCSITest : BaseCSITest() {
         mockMarker(pkgId, DataArea.Type.DALVIK_PROFILE, prefixFree)
 
         for (base in profilePaths) {
-            val areaInfo = processor.identifyArea(LocalPath.build(base, prefixFree))!!.apply {
-                prefix shouldBe "${base.path}/"
+            val areaInfo = processor.identifyArea(base.child(prefixFree))!!.apply {
+                prefix shouldBe base
             }
 
             processor.findOwners(areaInfo).apply {
@@ -134,7 +135,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (profile in profilePaths) {
-            val testFile1 = LocalPath.build(profile, randomString())
+            val testFile1 = profile.child(randomString())
             val areaInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(areaInfo).apply {

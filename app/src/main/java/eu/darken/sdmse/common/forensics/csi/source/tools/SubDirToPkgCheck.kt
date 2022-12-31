@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -32,7 +31,7 @@ class SubDirToPkgCheck @Inject constructor(
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
         if (!hasApiLevel(30)) return AppSourceCheck.Result()
 
-        val potPkgNames = areaInfo.prefixFreePath.split(Pattern.quote(File.separator).toRegex()).toTypedArray()
+        val potPkgNames = areaInfo.prefixFreePath
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
 
         val topDir = potPkgNames[0]

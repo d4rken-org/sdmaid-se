@@ -15,13 +15,13 @@ class BmwGroupMarkerMatcherTest {
         markerSource.match(SDCARD, BASEDIR).apply {
             size shouldBe 0
         }
-        markerSource.match(SDCARD, "$BASEDIR/com.package.rollkuchen").single().apply {
+        markerSource.match(SDCARD, BASEDIR + listOf("com.package.rollkuchen")).single().apply {
             packageNames.single() shouldBe "com.package.rollkuchen".toPkgId()
         }
     }
 
     @Test fun testBadMatches() = runTest {
-        markerSource.match(SDCARD, "$BASEDIR/.nomedia").size shouldBe 0
+        markerSource.match(SDCARD, BASEDIR + listOf(".nomedia")).size shouldBe 0
     }
 
     @Test fun testGetForLocation() = runTest {
@@ -29,8 +29,8 @@ class BmwGroupMarkerMatcherTest {
             val markers = markerSource.getMarkerForLocation(location)
             if (location == SDCARD) {
                 markers.single().apply {
-                    prefixFreeBasePath shouldBe BASEDIR
-                    isPrefixFreeBasePathDirect shouldBe false
+                    segments shouldBe BASEDIR
+                    isDirectMatch shouldBe false
                 }
             } else {
                 markers.size shouldBe 0
@@ -39,16 +39,16 @@ class BmwGroupMarkerMatcherTest {
     }
 
     @Test fun testGetForPackageName() = runTest {
-        val testPkg = "com.pkg.test".toPkgId()
-        markerSource.getMarkerForPkg(testPkg).single().apply {
-            prefixFreeBasePath shouldBe "$BASEDIR/$testPkg"
-            match(SDCARD, "$BASEDIR/$testPkg/something") shouldBe null
-            match(SDCARD, "$BASEDIR/$testPkg") shouldNotBe null
-            isPrefixFreeBasePathDirect shouldBe true
+        val testPkg = "com.pkg.test"
+        markerSource.getMarkerForPkg(testPkg.toPkgId()).single().apply {
+            segments shouldBe BASEDIR + listOf(testPkg)
+            match(SDCARD, BASEDIR + listOf(testPkg, "something")) shouldBe null
+            match(SDCARD, BASEDIR + listOf(testPkg)) shouldNotBe null
+            isDirectMatch shouldBe true
         }
     }
 
     companion object {
-        private const val BASEDIR = "bmwgroup"
+        private val BASEDIR = listOf("bmwgroup")
     }
 }

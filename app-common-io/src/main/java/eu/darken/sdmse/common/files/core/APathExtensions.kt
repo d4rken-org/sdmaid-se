@@ -8,11 +8,13 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
 import eu.darken.sdmse.common.files.core.local.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.isParentOf
+import eu.darken.sdmse.common.files.core.local.removePrefix
 import eu.darken.sdmse.common.files.core.local.startsWith
 import eu.darken.sdmse.common.files.core.saf.*
 import eu.darken.sdmse.common.files.core.saf.crumbsTo
 import eu.darken.sdmse.common.files.core.saf.isAncestorOf
 import eu.darken.sdmse.common.files.core.saf.isParentOf
+import eu.darken.sdmse.common.files.core.saf.removePrefix
 import eu.darken.sdmse.common.files.core.saf.startsWith
 import okio.Sink
 import okio.Source
@@ -299,6 +301,61 @@ fun APath.startsWith(prefix: APath): Boolean {
     }
 }
 
+fun APath.removePrefix(prefix: APath): List<String> {
+    if (this.pathType != prefix.pathType) {
+        throw IllegalArgumentException("Can't compare different types ($this and $prefix)")
+    }
+    return when (pathType) {
+        APath.PathType.LOCAL -> (this.downCast() as LocalPath).removePrefix(prefix.downCast() as LocalPath)
+        APath.PathType.SAF -> (this.downCast() as SAFPath).removePrefix(prefix.downCast() as SAFPath)
+        APath.PathType.RAW -> this.downCast().segments.drop(prefix.downCast().segments.size)
+    }
+}
 
+fun List<String>?.matches(other: List<String>?, ignoreCase: Boolean = false): Boolean {
+    if (this == null) return other == null
+    if (this.size != other?.size) return false
+    return indices.all { this[it].equals(other[it], ignoreCase) }
+}
 
+fun List<String>?.isAncestorOf(other: List<String>?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size >= other.size) return false
 
+    return indices.all { this[it].equals(other[it], ignoreCase) }
+}
+
+fun List<String>?.contains(other: List<String>?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size < other.size) return false
+    return if (ignoreCase) {
+        Collections.indexOfSubList(this.map { it.lowercase() }, other.map { it.lowercase() }) != -1
+    } else {
+        Collections.indexOfSubList(this, other) != -1
+    }
+}
+
+fun List<String>?.startsWith(other: List<String>?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size < other.size) return false
+
+    val thisCase = if (ignoreCase) this.map { it.lowercase() } else this
+    val otherCase = if (ignoreCase) other.map { it.lowercase() } else other
+
+    return when {
+        thisCase.isEmpty() -> {
+            otherCase.isEmpty()
+        }
+        otherCase.size == 1 -> {
+            thisCase.first().startsWith(otherCase.first())
+        }
+        thisCase.size == otherCase.size -> {
+            val match = otherCase.dropLast(1) == thisCase.dropLast(1)
+            match && thisCase.last().startsWith(otherCase.last())
+        }
+        else -> {
+            val match = otherCase.dropLast(1) == thisCase.dropLast(thisCase.size - otherCase.size + 1)
+            match && thisCase[otherCase.size - 1].startsWith(otherCase.last())
+        }
+    }
+}

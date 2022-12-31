@@ -49,7 +49,7 @@ class DalvikCorpseFilter @Inject constructor(
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (!gateway.hasRoot()) {
-            log(TAG, INFO) { "LocalGateway has no root, skipping." }
+            log(TAG) { "LocalGateway has no root, skipping." }
             return emptySet()
         }
 

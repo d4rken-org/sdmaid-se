@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.priv
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -16,7 +17,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.io.File
 import java.util.*
 
 class PrivateDataCSITest : BaseCSITest() {
@@ -72,7 +72,7 @@ class PrivateDataCSITest : BaseCSITest() {
         privData5.path,
         privData6.path,
         privData7.path,
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -109,11 +109,11 @@ class PrivateDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PRIVATE_DATA
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe base
+                prefixFreePath shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }
@@ -133,7 +133,7 @@ class PrivateDataCSITest : BaseCSITest() {
         mockPkg(packageName)
 
         for (base in bases) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test")
+            val toHit = base.child("eu.thedarken.sdm.test")
             val locationInfo = processor.identifyArea(toHit)!!.apply {
 
             }
@@ -144,7 +144,7 @@ class PrivateDataCSITest : BaseCSITest() {
         }
 
         for (base in bases) {
-            val toHit = LocalPath.build(base, "eu.thedarken.sdm.test/abc/def")
+            val toHit = base.child("eu.thedarken.sdm.test/abc/def")
             val locationInfo = processor.identifyArea(toHit)!!
             processor.findOwners(locationInfo).apply {
                 owners.single().pkgId shouldBe packageName
@@ -162,9 +162,9 @@ class PrivateDataCSITest : BaseCSITest() {
         mockMarker(packageName, DataArea.Type.PRIVATE_DATA, prefixFree)
 
         for (base in bases) {
-            val toHit = LocalPath.build(base, prefixFree)
+            val toHit = base.child(prefixFree)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}${File.separator}"
+                prefix shouldBe base
             }
 
             processor.findOwners(locationInfo).apply {
@@ -177,7 +177,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val locationInfo = processor.identifyArea(LocalPath.build(base, "_test.package/test"))!!
+            val locationInfo = processor.identifyArea(base.child("_test.package/test"))!!
 
             processor.findOwners(locationInfo).apply {
                 owners.single().pkgId shouldBe "test.package".toPkgId()
@@ -185,7 +185,7 @@ class PrivateDataCSITest : BaseCSITest() {
         }
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             val locationInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo).apply {
@@ -202,9 +202,9 @@ class PrivateDataCSITest : BaseCSITest() {
 
         for (base in bases) {
             val targets = setOf(
-                LocalPath.build(base, "_eu.thedarken.sdm.test/test"),
-                LocalPath.build(base, ".eu.thedarken.sdm.test/test"),
-                LocalPath.build(base, ".external.eu.thedarken.sdm.test/test")
+                base.child("_eu.thedarken.sdm.test/test"),
+                base.child(".eu.thedarken.sdm.test/test"),
+                base.child(".external.eu.thedarken.sdm.test/test")
             )
             for (toHit in targets) {
                 val locationInfo = processor.identifyArea(toHit)!!
@@ -226,7 +226,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val packageName = "com.lge.theme.highcontrast".toPkgId()
 
         for (base in bases) {
-            val areaInfo = processor.identifyArea(LocalPath.build(base, corpseName))!!
+            val areaInfo = processor.identifyArea(base.child(corpseName))!!
 
             processor.findOwners(areaInfo).apply {
                 owners.single().pkgId shouldBe packageName
@@ -235,7 +235,7 @@ class PrivateDataCSITest : BaseCSITest() {
 
         mockPkg(packageName)
         for (base in bases) {
-            val areaInfo = processor.identifyArea(LocalPath.build(base, corpseName))!!
+            val areaInfo = processor.identifyArea(base.child(corpseName))!!
 
             processor.findOwners(areaInfo).apply {
                 owners.single().pkgId shouldBe packageName
@@ -263,7 +263,7 @@ class PrivateDataCSITest : BaseCSITest() {
         )
 
         for (base in bases) {
-            val areaInfo = processor.identifyArea(LocalPath.build(base, corpseName))!!
+            val areaInfo = processor.identifyArea(base.child(corpseName))!!
             processor.findOwners(areaInfo).apply {
                 owners.single().pkgId shouldBe ownerPackage.toPkgId()
             }
@@ -271,7 +271,7 @@ class PrivateDataCSITest : BaseCSITest() {
         mockPkg(ownerPackage.toPkgId())
 
         for (base in bases) {
-            val areaInfo = processor.identifyArea(LocalPath.build(base, corpseName))!!
+            val areaInfo = processor.identifyArea(base.child(corpseName))!!
             processor.findOwners(areaInfo).apply {
                 owners.single().pkgId shouldBe ownerPackage.toPkgId()
             }

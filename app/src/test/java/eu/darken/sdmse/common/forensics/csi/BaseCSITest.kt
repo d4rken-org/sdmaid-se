@@ -89,7 +89,7 @@ abstract class BaseCSITest : BaseTest() {
 
         val marker = mockk<Marker>().apply {
             every { areaType } returns location
-            every { prefixFreeBasePath } returns prefixFree
+            every { segments } returns prefixFree.split("/")
             every { flags } returns emptySet()
         }
 
@@ -97,12 +97,12 @@ abstract class BaseCSITest : BaseTest() {
             every { packageNames } returns setOf(pkgId)
             every { flags } returns emptySet()
         }
-        every { marker.match(location, prefixFree) } returns match
+        every { marker.match(location, prefixFree.split("/")) } returns match
 
         clutterRepo.apply {
             coEvery { getMarkerForPkg(pkgId) } returns setOf(marker)
             coEvery { getMarkerForLocation(location) } returns setOf(marker)
-            coEvery { match(location, prefixFree) } returns setOf(match)
+            coEvery { match(location, prefixFree.split("/")) } returns setOf(match)
         }
     }
 

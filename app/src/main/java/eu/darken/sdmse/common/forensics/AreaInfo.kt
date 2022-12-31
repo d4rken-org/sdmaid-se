@@ -9,14 +9,15 @@ import kotlinx.parcelize.Parcelize
 data class AreaInfo(
     val dataArea: DataArea,
     val file: APath,
-    val prefix: String,
+    val prefix: APath,
     val isBlackListLocation: Boolean,
 ) : Parcelable {
 
     val type: DataArea.Type
         get() = dataArea.type
 
-    val prefixFreePath: String
-        get() = file.path.replace(prefix, "")
+    // TODO would subList have noticeably better performance?
+    val prefixFreePath: List<String>
+        get() = file.segments.drop(prefix.segments.size)
 
 }

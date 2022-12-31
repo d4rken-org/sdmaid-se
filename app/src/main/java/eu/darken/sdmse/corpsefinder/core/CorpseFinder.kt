@@ -91,9 +91,11 @@ class CorpseFinder @Inject constructor(
 
         val results = filters
             .map { filter ->
-                filter.withProgress(this@CorpseFinder) {
+                val corpses = filter.withProgress(this@CorpseFinder) {
                     scan()
                 }
+                log(TAG, INFO) { "$filter found ${corpses.size} corpses" }
+                corpses
             }
             .flatten()
 

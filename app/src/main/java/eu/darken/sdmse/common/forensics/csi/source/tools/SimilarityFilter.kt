@@ -3,11 +3,9 @@ package eu.darken.sdmse.common.forensics.csi.source.tools
 import dagger.Reusable
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
-import eu.darken.sdmse.common.getFirstDirElement
 import javax.inject.Inject
 
 
@@ -18,8 +16,8 @@ class SimilarityFilter @Inject constructor(
 
     suspend fun filterFalsePositives(areaInfo: AreaInfo, toCheck: Collection<Owner>): Collection<Owner> {
         // com.mxtech.ffmpeg.x86-3 || com.mxtech.ffmpeg.x86-tmEGrx2zM5CeRFI72KWLSA==
-        val firstDirName = areaInfo.prefixFreePath.getFirstDirElement()
-        val firstDirPath = LocalPath.build(areaInfo.prefix, firstDirName)
+        val firstDirName = areaInfo.prefixFreePath.first()
+        val firstDirPath = areaInfo.prefix.child(firstDirName)
 
         val firstDirHyphenPath = run {
             val hyphenPos = firstDirName.indexOf('-')
@@ -28,7 +26,7 @@ class SimilarityFilter @Inject constructor(
                 // com.mxtech.ffmpeg.x86-
                 firstDirNameHyphen = firstDirName.substring(0, hyphenPos + 1)
             }
-            LocalPath.build(areaInfo.prefix, firstDirNameHyphen)
+            areaInfo.prefix.child(firstDirNameHyphen)
         }
 
         // https://github.com/d4rken/sdmaid-public/issues/996

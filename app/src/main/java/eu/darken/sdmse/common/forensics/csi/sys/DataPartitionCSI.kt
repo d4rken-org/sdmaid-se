@@ -15,16 +15,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.priv.PrivateDataCSI
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.pathChopOffLast
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.io.File
 import javax.inject.Inject
 
 @Reusable
@@ -42,12 +41,12 @@ class DataPartitionCSI @Inject constructor(
 
         if (getBadMatches().any { it.isAncestorOf(target) }) return null
 
-        val matchedArea = dataAreas.singleOrNull { target.path.startsWith(it.path.path) } ?: return null
+        val matchedArea = dataAreas.singleOrNull { target.startsWith(it.path) } ?: return null
 
         return AreaInfo(
             dataArea = matchedArea,
             file = target,
-            prefix = "${matchedArea.path.path}${File.separator}",
+            prefix = matchedArea.path,
             isBlackListLocation = false
         )
     }
@@ -57,16 +56,15 @@ class DataPartitionCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        var bestBet: String? = areaInfo.file.path.replace(areaInfo.prefix, "")
-        if (bestBet?.startsWith(File.separator) == true) bestBet = bestBet.substring(1)
+        var bestBet = areaInfo.prefixFreePath
 
-        while (bestBet != null) {
+        while (bestBet.isNotEmpty()) {
             val matches = clutterRepo.match(areaInfo.type, bestBet)
             owners.addAll(matches.map { it.toOwners() }.flatten())
 
             if (owners.isNotEmpty()) break
 
-            bestBet = bestBet.pathChopOffLast()
+            bestBet = bestBet.dropLast(1)
         }
 
         return CSIProcessor.Result(

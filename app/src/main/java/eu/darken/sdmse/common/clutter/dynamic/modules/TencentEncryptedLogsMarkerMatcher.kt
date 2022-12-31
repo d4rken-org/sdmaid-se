@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class TencentEncryptedLogsMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "tencent/wns/EncryptLogs",
+    listOf("tencent", "wns", "EncryptLogs"),
     setOf(".nomedia")
 ) {
     override fun toString(): String = "TencentMsflogsMarkerMatcher"

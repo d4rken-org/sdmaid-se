@@ -13,15 +13,15 @@ import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.isAncestorOf
+import eu.darken.sdmse.common.files.core.isDescendantOf
+import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -36,13 +36,12 @@ class AppSourceLibCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
         .filter { it.type == DataArea.Type.APP_LIB }
         .mapNotNull { area ->
-            val base = "${area.path.path}${File.separator}"
             if (!area.path.isAncestorOf(target)) return@mapNotNull null
 
             AreaInfo(
                 dataArea = area,
                 file = target,
-                prefix = base,
+                prefix = area.path,
                 isBlackListLocation = true
             )
         }
@@ -53,7 +52,7 @@ class AppSourceLibCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        val dirName = areaInfo.prefixFreePath.getFirstDirElement()
+        val dirName = areaInfo.prefixFreePath.first()
         dirName
             .let { APPLIB_DIR.matcher(it) }
             .takeIf { it.matches() }
@@ -65,16 +64,15 @@ class AppSourceLibCSI @Inject constructor(
             pkgRepo.currentPkgs()
                 .filter { it.packageInfo.applicationInfo != null }
                 .filter {
-                    val targetPath = areaInfo.file.path
-                    val nativLibDir = it.packageInfo.applicationInfo.nativeLibraryDir
-                    targetPath == nativLibDir || targetPath.startsWith("${nativLibDir}${File.separator}")
+                    val nativLibDir = LocalPath.build(it.packageInfo.applicationInfo.nativeLibraryDir)
+                    areaInfo.file == nativLibDir || areaInfo.file.isDescendantOf(nativLibDir)
                 }
                 .map { Owner(it.id) }
                 .run { owners.addAll(this) }
         }
 
         if (owners.isEmpty()) {
-            val matches = clutterRepo.match(areaInfo.type, dirName)
+            val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
             owners.addAll(matches.map { it.toOwners() }.flatten())
         }
 

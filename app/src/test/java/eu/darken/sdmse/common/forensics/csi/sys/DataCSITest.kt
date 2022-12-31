@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.sys
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
@@ -142,7 +143,7 @@ class DataCSITest : BaseCSITest() {
     private val bases = setOf(
         storageData1.path,
         storageData2.path,
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -188,11 +189,11 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe base
+                prefixFreePath shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe false
             }
         }
@@ -202,15 +203,15 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in bases) {
 
-//            processor.identifyArea(LocalPath.build(base, "app", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "app-asec", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "app-private", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "app-lib", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "system", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "system_ce", randomString())) shouldBe null
-//            processor.identifyArea(LocalPath.build(base, "system_de", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "dalvik-cache/arm64", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "dalvik-cache/profiles/", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "app", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "app-asec", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "app-private", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "app-lib", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "system", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "system_ce", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "system_de", randomString())) shouldBe null
+            processor.identifyArea(base.child("dalvik-cache/arm64", randomString())) shouldBe null
+            processor.identifyArea(base.child("dalvik-cache/profiles/", randomString())) shouldBe null
         }
     }
 
@@ -224,9 +225,9 @@ class DataCSITest : BaseCSITest() {
         mockMarker(packageName, DataArea.Type.DATA, prefixFree)
 
         for (base in bases) {
-            val toHit = LocalPath.build(base, prefixFree)
+            val toHit = base.child(prefixFree)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             processor.findOwners(locationInfo).apply {
@@ -239,7 +240,7 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

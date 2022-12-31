@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -104,13 +105,14 @@ class SystemCrawler @Inject constructor(
                         }
                     }
                     if (matched != null) {
-                        log(TAG) { "$matched matched $item" }
+                        log(TAG, INFO) { "$matched matched $item" }
                         sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)
                     }
                 }
         }
 
         return sieveContents.map { entry ->
+            log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches." }
             SieveContent(
                 items = entry.value
             )

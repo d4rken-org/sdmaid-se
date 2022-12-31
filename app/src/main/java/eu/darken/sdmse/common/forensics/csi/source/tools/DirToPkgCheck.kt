@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -27,7 +26,7 @@ class DirToPkgCheck @Inject constructor(
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
-        val potPkgNames = areaInfo.prefixFreePath.split(File.separator)
+        val potPkgNames = areaInfo.prefixFreePath
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
 
         val owners = listOf(CODESOURCE_DIR, APPDIR_ANDROIDO)

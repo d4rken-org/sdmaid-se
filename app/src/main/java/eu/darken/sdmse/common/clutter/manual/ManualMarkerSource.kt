@@ -56,7 +56,7 @@ open class ManualMarkerSource(
         results
     }
 
-    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Set<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: List<String>): Set<Marker.Match> {
         val result = mutableSetOf<Marker.Match>()
         for (marker in getMarkerForLocation(areaType)) {
             val match = marker.match(areaType, prefixFreeBasePath)
@@ -118,7 +118,7 @@ open class ManualMarkerSource(
                 val newMarker = ManualMarker(
                     markerPkgs,
                     raw.areaType,
-                    raw.path,
+                    raw.path?.split("/"),
                     raw.contains,
                     raw.regex,
                     raw.flags ?: emptySet()

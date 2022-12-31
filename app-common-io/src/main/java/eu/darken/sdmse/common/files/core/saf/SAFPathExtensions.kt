@@ -85,5 +85,9 @@ fun SAFPath.startsWith(prefix: SAFPath): Boolean {
             match && segments[prefix.segments.size - 1].startsWith(prefix.segments.last())
         }
     }
+}
 
+fun SAFPath.removePrefix(prefix: SAFPath): List<String> {
+    if (!startsWith(prefix)) throw IllegalArgumentException("$prefix is not a prefix of $this")
+    return segments.drop(prefix.segments.size)
 }

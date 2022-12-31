@@ -760,4 +760,154 @@ class APathExtensionTest : BaseTest() {
             lookup2.startsWith(lookup1)
         }
     }
+
+    @Test fun `remove prefix - LocalPath`() {
+        val prefix: APath = LocalPath.build("pre", "fix")
+        val pre: APath = LocalPath.build("pre")
+
+        val prefixLookup: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("pre", "fix"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val preLookup: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("pre"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        prefix.removePrefix(prefix) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix)
+        }
+        prefix.removePrefix(pre) shouldBe listOf("fix")
+        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+
+        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup)
+        }
+        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
+        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
+    }
+
+    @Test fun `remove prefix - SAFPath`() {
+        val prefix: APath = SAFPath.build(treeUri, "pre", "fix")
+        val pre: APath = SAFPath.build(treeUri, "pre")
+        val prefixLookup: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "pre", "fix"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val preLookup: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "pre"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        prefix.removePrefix(prefix) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix)
+        }
+        prefix.removePrefix(pre) shouldBe listOf("fix")
+        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+
+        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup)
+        }
+        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
+        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
+    }
+
+    @Test fun `remove prefix - mixed types`() {
+        val prefix: APath = LocalPath.build("pre", "fix")
+        val pre: APath = SAFPath.build(treeUri, "pre")
+
+        prefix.removePrefix(prefix) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix)
+        }
+        shouldThrow<IllegalArgumentException> {
+            prefix.removePrefix(pre) shouldBe listOf("pre")
+        }
+        shouldThrow<IllegalArgumentException> {
+            prefix.removePrefix(pre) shouldBe listOf("pre", "fix")
+        }
+    }
+
+    @Test
+    fun `test segment matches`() {
+        emptyList<String>().matches(emptyList()) shouldBe true
+        null.matches(listOf("abc", "def")) shouldBe false
+        listOf("abc", "def").matches(null) shouldBe false
+        listOf("abc", "def").matches(listOf("abc", "def")) shouldBe true
+        listOf("abc", "DEF").matches(listOf("abc", "def")) shouldBe false
+        listOf("abc", "DEF").matches(listOf("abc", "def"), ignoreCase = true) shouldBe true
+    }
+
+    @Test
+    fun `test segment isAncestorOf`() {
+        emptyList<String>().isAncestorOf(emptyList()) shouldBe false
+        null.isAncestorOf(listOf("abc", "def")) shouldBe false
+        listOf("abc", "def").isAncestorOf(null) shouldBe false
+        listOf("abc").isAncestorOf(listOf("abc", "def")) shouldBe true
+        listOf("ABC").isAncestorOf(listOf("abc", "def")) shouldBe false
+        listOf("ABC").isAncestorOf(listOf("abc", "def"), ignoreCase = true) shouldBe true
+    }
+
+    @Test
+    fun `test segment contains`() {
+        emptyList<String>().contains(emptyList()) shouldBe true
+        listOf("abc", "def", "ghi").contains(listOf("abc", "def", "ghi")) shouldBe true
+        listOf("abc", "def", "ghi").contains(listOf("abc", "def")) shouldBe true
+        listOf("abc", "def", "ghi").contains(listOf("def")) shouldBe true
+        listOf("abc", "DEF", "ghi").contains(listOf("def")) shouldBe false
+        listOf("abc", "DEF", "ghi").contains(listOf("def"), ignoreCase = true) shouldBe true
+    }
+
+    @Test
+    fun `test segment startsWith`() {
+        emptyList<String>().startsWith(emptyList()) shouldBe true
+        null.startsWith(listOf("abc", "def")) shouldBe false
+        listOf("abc", "def").startsWith(null) shouldBe false
+
+        listOf("abc", "def").startsWith(listOf("abc", "def")) shouldBe true
+        listOf("abc", "def").startsWith(listOf("abc", "de")) shouldBe true
+        listOf("abc", "def").startsWith(listOf("abc")) shouldBe true
+        listOf("abc", "def").startsWith(listOf("ab")) shouldBe true
+
+        listOf("ABc", "def").startsWith(listOf("abc", "def")) shouldBe false
+        listOf("ABc", "def").startsWith(listOf("abc", "def"), ignoreCase = true) shouldBe true
+
+        listOf("ABc", "def").startsWith(listOf("abc", "de")) shouldBe false
+        listOf("ABc", "def").startsWith(listOf("abc", "de"), ignoreCase = true) shouldBe true
+
+        listOf("ABc", "def").startsWith(listOf("abc")) shouldBe false
+        listOf("ABc", "def").startsWith(listOf("abc"), ignoreCase = true) shouldBe true
+
+        listOf("ABc", "def").startsWith(listOf("ab")) shouldBe false
+        listOf("ABc", "def").startsWith(listOf("ab"), ignoreCase = true) shouldBe true
+    }
 }

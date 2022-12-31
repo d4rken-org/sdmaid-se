@@ -4,6 +4,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.files.core.isAncestorOf
+import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
@@ -12,7 +14,7 @@ import java.util.regex.Pattern
 
 open class NestedPackageV2Matcher(
     val dataAreaType: DataArea.Type,
-    val basePath: String,
+    val basePath: List<String>,
     val goodMatches: Set<Pattern>,
     val badMatches: Set<Pattern>,
     val flags: Set<Marker.Flag>,
@@ -25,23 +27,23 @@ open class NestedPackageV2Matcher(
 
     interface Converter {
         fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id>
-        fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String>
+        fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>>
 
         class PackagePathConverter : Converter {
             override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> {
                 return setOf(matcher.group(1).replace(File.separatorChar, '.').toPkgId())
             }
 
-            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<String> {
-                return setOf(pkgId.name.replace('.', File.separatorChar))
+            override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>> {
+                return setOf(pkgId.name.split('.'))
             }
         }
     }
 
     init {
         require(basePath.isNotEmpty()) { "Prefix is empty" }
-        require(!basePath.endsWith(File.separator)) { "Prefix should not end with " + File.separatorChar }
-        require(!goodMatches.isEmpty()) { "Good matches is empty" }
+        require(!basePath.any { it.contains(File.separator) }) { "Prefix should not contain " + File.separatorChar }
+        require(goodMatches.isNotEmpty()) { "Good matches is empty" }
         require(goodMatches.iterator().next().pattern().isNotEmpty()) { "Empty patterns are not allowed" }
 
         dynamicMarkers.add(object : Marker {
@@ -51,13 +53,14 @@ open class NestedPackageV2Matcher(
             override val areaType: DataArea.Type
                 get() = this@NestedPackageV2Matcher.dataAreaType
 
-            override fun match(areaType: DataArea.Type, prefixFreePath: String): Marker.Match? {
-                if (!prefixFreePath.startsWith(prefixFreeBasePath, ignoreCase)) {
+            override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+                if (!this.segments.isAncestorOf(otherSegments, ignoreCase)) {
                     return null
                 }
+                val joinedSegments = otherSegments.joinToString("/")
                 var goodMatcher: Matcher? = null
                 for (p in goodMatches) {
-                    val matcher = p.matcher(prefixFreePath)
+                    val matcher = p.matcher(joinedSegments)
                     if (matcher.matches()) {
                         goodMatcher = matcher
                         break
@@ -65,7 +68,7 @@ open class NestedPackageV2Matcher(
                 }
                 if (goodMatcher == null) return null
                 for (p in badMatches) {
-                    if (p.matcher(prefixFreePath).matches()) {
+                    if (p.matcher(joinedSegments).matches()) {
                         return null
                     }
                 }
@@ -73,9 +76,9 @@ open class NestedPackageV2Matcher(
                 return Marker.Match(pkgNames, this@NestedPackageV2Matcher.flags)
             }
 
-            override val prefixFreeBasePath: String = this@NestedPackageV2Matcher.basePath
+            override val segments: List<String> = this@NestedPackageV2Matcher.basePath
 
-            override val isPrefixFreeBasePathDirect: Boolean = false
+            override val isDirectMatch: Boolean = false
         })
     }
 
@@ -83,31 +86,34 @@ open class NestedPackageV2Matcher(
         return if (areaType === dataAreaType) dynamicMarkers else emptyList()
     }
 
-    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: String): Collection<Marker.Match> {
+    override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: List<String>): Collection<Marker.Match> {
         return dynamicMarkers.mapNotNull { it.match(areaType, prefixFreeBasePath) }
     }
 
-    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Collection<Marker> = markerMapByPkg[pkgId]
-        ?: converter.onConvertPackageNameToPaths(pkgId)
-            .map { PackageMarker(dataAreaType, "$basePath${File.separatorChar}$it", pkgId, emptySet()) }
+    override suspend fun getMarkerForPkg(pkgId: Pkg.Id): Collection<Marker> {
+        val fromCache = markerMapByPkg[pkgId]
+        if (fromCache != null) return fromCache
+        return converter.onConvertPackageNameToPaths(pkgId)
+            .map { PackageMarker(dataAreaType, basePath.plus(it), pkgId, emptySet()) }
             .toSet()
             .also { markerMapByPkg[pkgId] = it }
+    }
 
     private class PackageMarker constructor(
         override val areaType: DataArea.Type,
-        override val prefixFreeBasePath: String,
+        override val segments: List<String>,
         val pkgId: Pkg.Id,
         override val flags: Set<Marker.Flag>
     ) : Marker {
 
         private val ignoreCase: Boolean = areaType.isCaseInsensitive
 
-        override val isPrefixFreeBasePathDirect: Boolean = true
+        override val isDirectMatch: Boolean = true
 
-        override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
-            if (this.areaType !== areaType) return null
+        override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+            if (this.areaType !== otherAreaType) return null
 
-            return if (prefixFree.equals(prefixFreeBasePath, ignoreCase)) Marker.Match(setOf(pkgId)) else null
+            return if (otherSegments.matches(this.segments, ignoreCase)) Marker.Match(setOf(pkgId)) else null
         }
     }
 }

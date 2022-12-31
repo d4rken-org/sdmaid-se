@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class VideoCacheMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "VideoCache",
+    listOf("VideoCache"),
     emptySet()
 ) {
     override fun toString(): String = "VideoCacheMarkerMatcher"

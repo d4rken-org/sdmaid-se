@@ -4,7 +4,6 @@ import dagger.Reusable
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
-import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
@@ -14,7 +13,7 @@ class DirNameCheck @Inject constructor(
 ) : DalvikCheck {
 
     suspend fun process(areaInfo: AreaInfo): DalvikCheck.Result {
-        val potPkg = areaInfo.prefixFreePath.getFirstDirElement().toPkgId()
+        val potPkg = areaInfo.prefixFreePath.first().toPkgId()
         return if (pkgRepo.isInstalled(potPkg)) {
             DalvikCheck.Result(setOf(Owner(potPkg)))
         } else {

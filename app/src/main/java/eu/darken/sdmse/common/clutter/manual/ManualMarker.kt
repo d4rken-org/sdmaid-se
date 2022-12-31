@@ -4,6 +4,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.files.core.matches
+import eu.darken.sdmse.common.files.core.startsWith
 import eu.darken.sdmse.common.hashCode
 import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.regex.Pattern
@@ -11,7 +13,7 @@ import java.util.regex.Pattern
 data class ManualMarker(
     private val pkgs: Set<Pkg.Id>,
     override val areaType: DataArea.Type,
-    private val path: String?,
+    private val path: List<String>?,
     private val contains: String?,
     private val regex: String?,
     override val flags: Set<Marker.Flag> = emptySet()
@@ -30,28 +32,28 @@ data class ManualMarker(
         if (Bugs.isDebug && this.regex != null) pattern
     }
 
-    override val prefixFreeBasePath: String
-        get() = path ?: ""
+    override val segments: List<String>
+        get() = path ?: emptyList()
 
-    override val isPrefixFreeBasePathDirect: Boolean
+    override val isDirectMatch: Boolean
         get() = regex == null
 
-    override fun match(areaType: DataArea.Type, prefixFree: String): Marker.Match? {
-        if (this.areaType !== areaType) return null
-        if (prefixFree.isEmpty()) return null
-        require(prefixFree[0] != '/') { "Not prefixFree: $prefixFree" }
+    override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+        if (this.areaType !== otherAreaType) return null
+        if (otherSegments.isEmpty()) return null
+        require(otherSegments[0] != "") { "Not prefixFree: $otherSegments" }
 
         val match = when {
             path != null && regex == null -> {
-                prefixFree.equals(path, ignoreCase)
+                otherSegments.matches(path, ignoreCase)
             }
             regex != null -> {
-                if (path != null && !prefixFree.startsWith(path, ignoreCase)) {
+                if (path != null && !otherSegments.startsWith(path, ignoreCase)) {
                     false
-                } else if (contains != null && !prefixFree.contains(contains, ignoreCase)) {
+                } else if (contains != null && !otherSegments.joinToString("/").contains(contains, ignoreCase)) {
                     false
                 } else {
-                    pattern!!.matcher(prefixFree).matches()
+                    pattern!!.matcher(otherSegments.joinToString("/")).matches()
                 }
             }
             else -> false
@@ -65,7 +67,7 @@ data class ManualMarker(
         if (other == null || javaClass != other.javaClass) return false
         val that = other as ManualMarker
         if (pkgs != that.pkgs) return false
-        if (!path.equals(that.path, ignoreCase)) return false
+        if (!path.matches(that.path, ignoreCase)) return false
         if (!contains.equals(that.contains, ignoreCase)) return false
         if (!regex.equals(that.regex, ignoreCase)) return false
         return if (flags != that.flags) false else areaType === that.areaType

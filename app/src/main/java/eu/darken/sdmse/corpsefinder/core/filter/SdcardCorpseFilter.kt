@@ -164,7 +164,7 @@ class SdcardCorpseFilter @Inject constructor(
         val uncleaned = clutterMarkerList
             .asFlow()
             .onEach { increaseProgress() }
-            .filter { it.isPrefixFreeBasePathDirect } // Can't reverse-match regex
+            .filter { it.isDirectMatch } // Can't reverse-match regex
             .mapNotNull { marker ->
                 // Get files for this marker, based on it's basepath.
                 val existing = getMarkersThatExist(areas, marker)
@@ -207,13 +207,13 @@ class SdcardCorpseFilter @Inject constructor(
 
     private suspend fun getMarkersThatExist(areas: Collection<DataArea>, marker: Marker): Collection<AreaInfo> {
         // If we have the same prefixFreeBasePath for two items one could be direct and one not.
-        val cacheKey = CacheKey(marker.prefixFreeBasePath, marker.isPrefixFreeBasePathDirect)
+        val cacheKey = CacheKey(marker.segments, marker.isDirectMatch)
         val cachedData = fileCache[cacheKey]
         if (cachedData != null) return cachedData
 
         val candidatesThatExist = mutableSetOf<APath>()
         areas
-            .map { it to it.path.child(marker.prefixFreeBasePath) }
+            .map { it to it.path.child(*marker.segments.toTypedArray()) }
             .filter { it.second.exists(gatewaySwitch) }
             .map { (area, candidate) ->
                 // Sdcard names are case-insensitive, the marker name is fixed though..
@@ -230,10 +230,10 @@ class SdcardCorpseFilter @Inject constructor(
             }
             .forEach { (area, candidate) ->
                 // We don't add the sdcard root as candidate.
-                if (marker.prefixFreeBasePath.isNotEmpty() && candidate.canRead(gatewaySwitch)) {
+                if (marker.segments.isNotEmpty() && candidate.canRead(gatewaySwitch)) {
                     candidatesThatExist.add(candidate)
                 }
-                if (!marker.isPrefixFreeBasePathDirect) {
+                if (!marker.isDirectMatch) {
                     // <sdcard(level0|1)>/(level1|2)/(level2|3)/(level3|4)/corpse
                     val files = candidate.walk(
                         gatewaySwitch,
@@ -251,7 +251,7 @@ class SdcardCorpseFilter @Inject constructor(
             .also { fileCache[cacheKey] = it }
     }
 
-    data class CacheKey(val path: String, val direct: Boolean)
+    data class CacheKey(val path: List<String>, val direct: Boolean)
 
     @Reusable
     class Factory @Inject constructor(

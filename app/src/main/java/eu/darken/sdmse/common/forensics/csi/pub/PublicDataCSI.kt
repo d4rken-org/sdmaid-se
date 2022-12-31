@@ -21,9 +21,7 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.pub.SdcardCSI.Companion.LEGACY_PATH
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.io.File
 import javax.inject.Inject
 
 @Reusable
@@ -45,7 +43,7 @@ class PublicDataCSI @Inject constructor(
                 return AreaInfo(
                     dataArea = area,
                     file = target,
-                    prefix = "${area.path.path}${File.separator}",
+                    prefix = area.path,
                     isBlackListLocation = true
                 )
             }
@@ -55,7 +53,7 @@ class PublicDataCSI @Inject constructor(
             return AreaInfo(
                 dataArea = primary,
                 file = target,
-                prefix = LEGACY_PATH.child(*BASE_SEGMENTS).path,
+                prefix = LEGACY_PATH.child(*BASE_SEGMENTS),
                 isBlackListLocation = true,
             )
         }
@@ -68,7 +66,7 @@ class PublicDataCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        val dirNameAsPkg = areaInfo.prefixFreePath.getFirstDirElement()
+        val dirNameAsPkg = areaInfo.prefixFreePath.first()
         var hiddenDirAsPkg: String? = null
 
         if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId())) {
@@ -81,7 +79,7 @@ class PublicDataCSI @Inject constructor(
         }
 
         if (owners.isEmpty()) {
-            clutterRepo.match(areaInfo.type, dirNameAsPkg)
+            clutterRepo.match(areaInfo.type, listOf(dirNameAsPkg))
                 .map { it.toOwners() }
                 .flatten()
                 .run { owners.addAll(this) }

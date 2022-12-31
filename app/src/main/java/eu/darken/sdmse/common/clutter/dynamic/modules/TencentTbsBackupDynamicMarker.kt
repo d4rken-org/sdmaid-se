@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class TencentTbsBackupDynamicMarker @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "tencent/tbs/backup",
+    listOf("tencent", "tbs", "backup"),
     setOf(".nomedia")
 ) {
     override fun toString(): String = "TencentTbsBackupDynamicMarker"

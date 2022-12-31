@@ -14,7 +14,7 @@ import javax.inject.Inject
 @Reusable
 class IQQIMarkerMatcher @Inject constructor() : NestedPackageMatcher(
     DataArea.Type.SDCARD,
-    "IQQI",
+    listOf("IQQI"),
     setOf(".nomedia")
 ) {
     override fun toString(): String = "IQQIMarkerSource"

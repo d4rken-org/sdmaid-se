@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.source.tools.SimilarityFilter
-import java.io.File
 import javax.inject.Inject
 
 @Reusable
@@ -37,7 +36,7 @@ class AppSourceMainCSI @Inject constructor(
             AreaInfo(
                 dataArea = area,
                 file = target,
-                prefix = "${area.path.path}${File.separator}",
+                prefix = area.path,
                 isBlackListLocation = true
             )
         }

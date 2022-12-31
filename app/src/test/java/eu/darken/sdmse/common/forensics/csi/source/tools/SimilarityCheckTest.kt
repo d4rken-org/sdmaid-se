@@ -18,8 +18,8 @@ class SimilarityCheckTest : BaseTest() {
     private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk<eu.darken.sdmse.common.pkgs.PkgRepo>()
 
     private val areaInfo = mockk<AreaInfo>().apply {
-        every { prefix } returns "/abc"
-        every { prefixFreePath } returns "testdir-1"
+        every { prefix } returns LocalPath.build("/abc")
+        every { prefixFreePath } returns listOf("testdir-1")
     }
 
     private fun create() = SimilarityFilter(

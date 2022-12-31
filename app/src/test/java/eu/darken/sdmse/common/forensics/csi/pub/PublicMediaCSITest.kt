@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.pub
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.randomString
@@ -102,11 +103,11 @@ class PublicMediaCSITest : BaseCSITest() {
     @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in mediaPaths) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_MEDIA
-                prefixFreePath shouldBe testFile1.name
-                prefix shouldBe "${base.path}/"
+                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefix shouldBe base
                 isBlackListLocation shouldBe true
             }
         }
@@ -138,7 +139,7 @@ class PublicMediaCSITest : BaseCSITest() {
         for (base in mediaPaths) {
             val toHit = LocalPath.build(base, "eu.thedarken.sdm.test/abc/def")
             val locationInfo = getProcessor().identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             getProcessor().findOwners(locationInfo).apply {
@@ -160,7 +161,7 @@ class PublicMediaCSITest : BaseCSITest() {
             val toHit = LocalPath.build(base, prefixFree)
 
             val areaInfo = processor.identifyArea(toHit)!!.apply {
-                prefix shouldBe "${base.path}/"
+                prefix shouldBe base
             }
 
             processor.findOwners(areaInfo).apply {

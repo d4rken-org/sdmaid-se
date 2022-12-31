@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DirNameCheck
-import java.io.File
 import javax.inject.Inject
 
 @Reusable
@@ -32,13 +31,12 @@ class DalvikProfileCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
         .filter { it.type == DataArea.Type.DALVIK_PROFILE }
         .mapNotNull { area ->
-            val base = "${area.path.path}${File.separator}"
             if (!area.path.isAncestorOf(target)) return@mapNotNull null
 
             AreaInfo(
                 dataArea = area,
                 file = target,
-                prefix = base,
+                prefix = area.path,
                 isBlackListLocation = true
             )
         }

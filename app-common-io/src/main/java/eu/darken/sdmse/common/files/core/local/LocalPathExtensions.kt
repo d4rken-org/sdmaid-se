@@ -120,3 +120,8 @@ fun LocalPath.startsWith(prefix: LocalPath): Boolean {
         }
     }
 }
+
+fun LocalPath.removePrefix(prefix: LocalPath): List<String> {
+    if (!startsWith(prefix)) throw IllegalArgumentException("$prefix is not a prefix of $this")
+    return segments.drop(prefix.segments.size)
+}

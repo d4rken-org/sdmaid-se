@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.misc
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.randomString
 import io.kotest.matchers.shouldBe
@@ -53,7 +54,7 @@ class DataSDExt2CSITest : BaseCSITest() {
 
     val sdexts = setOf(
         storageDataSdExt1.path
-    ).map { it as LocalPath }
+    )
 
     @Before override fun setup() {
         super.setup()
@@ -83,11 +84,11 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SDEXT2
-                prefix shouldBe "${base.path}/"
-                prefixFreePath shouldBe testFile1.name
+                prefix shouldBe base
+                prefixFreePath shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe false
             }
         }
@@ -113,7 +114,7 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = LocalPath.build(base, randomString())
+            val testFile1 = base.child(randomString())
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

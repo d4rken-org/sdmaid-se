@@ -19,12 +19,10 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
-import eu.darken.sdmse.common.getFirstDirElement
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
-import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
 
@@ -51,7 +49,7 @@ class PrivateDataCSI @Inject constructor(
                 return AreaInfo(
                     dataArea = area,
                     file = target,
-                    prefix = "${area.path.path}${File.separator}",
+                    prefix = area.path,
                     isBlackListLocation = true,
                 )
             }
@@ -63,7 +61,7 @@ class PrivateDataCSI @Inject constructor(
                 return AreaInfo(
                     userPrimary,
                     target,
-                    "${defaultPrivateDataDir.path}${File.separator}",
+                    defaultPrivateDataDir,
                     true,
                 )
             }
@@ -76,7 +74,7 @@ class PrivateDataCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        val dirName = areaInfo.prefixFreePath.getFirstDirElement()
+        val dirName = areaInfo.prefixFreePath.first()
 
         if (pkgRepo.isInstalled(dirName.toPkgId())) {
             owners.add(Owner(dirName.toPkgId()))
@@ -91,7 +89,7 @@ class PrivateDataCSI @Inject constructor(
 
         if (owners.isEmpty()) {
             // Once it's no longer a default folder name and match, we need to find all possible owners to protect against false positive corpses
-            val matches = clutterRepo.match(areaInfo.type, dirName)
+            val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
             owners.addAll(matches.map { it.toOwners() }.flatten())
         }
 

@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
-import java.io.File
 import javax.inject.Inject
 
 @Reusable
@@ -28,13 +27,12 @@ class DataSystemCeCSI @Inject constructor(
     override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
         .filter { it.type == DataArea.Type.DATA_SYSTEM_CE }
         .mapNotNull { area ->
-            val base = "${area.path.path}${File.separator}"
             if (!area.path.isAncestorOf(target)) return@mapNotNull null
 
             AreaInfo(
                 dataArea = area,
                 file = target,
-                prefix = base,
+                prefix = area.path,
                 isBlackListLocation = false
             )
         }

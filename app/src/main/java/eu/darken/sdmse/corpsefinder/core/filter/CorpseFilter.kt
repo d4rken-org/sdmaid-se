@@ -1,5 +1,6 @@
 package eu.darken.sdmse.corpsefinder.core.filter
 
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -22,7 +23,10 @@ abstract class CorpseFilter(
         doScan()
     } finally {
         progressPub.value = defaultProgress
+        log(tag) { "Scan finished" }
     }
+
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     internal abstract suspend fun doScan(): Collection<Corpse>
 

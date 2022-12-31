@@ -46,7 +46,7 @@ class PublicObbCorpseFilter @Inject constructor(
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
         if (hasApiLevel(33) && !gateway.hasRoot()) {
-            log(TAG, INFO) { "LocalGateway has no root, skipping public data on Android 13" }
+            log(TAG) { "LocalGateway has no root, skipping public data on Android 13" }
             return emptySet()
         }
 

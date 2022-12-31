@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files.core.local
 
 import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.isAncestorOf
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -9,9 +10,7 @@ import java.time.Instant
 
 class LocalPathExtensionsTest : BaseTest() {
 
-
-    @Test
-    fun `test chunking`() {
+    @Test fun `test chunking`() {
         val parent = LocalPath.build("/the/parent")
         val child = LocalPath.build("/the/parent/has/a/child")
 
@@ -20,8 +19,7 @@ class LocalPathExtensionsTest : BaseTest() {
         crumbs shouldBe arrayOf("has", "a", "child")
     }
 
-    @Test
-    fun `path isAncestorOf check`() {
+    @Test fun `path isAncestorOf check`() {
         LocalPath.build("parent").isAncestorOf(LocalPath.build()) shouldBe false
         LocalPath.build().isAncestorOf(LocalPath.build("parent")) shouldBe true
         LocalPath.build().isAncestorOf(LocalPath.build()) shouldBe false
@@ -36,8 +34,7 @@ class LocalPathExtensionsTest : BaseTest() {
         LocalPath.build("parent1", "child").isAncestorOf(LocalPath.build("parent", "child")) shouldBe false
     }
 
-    @Test
-    fun `path isDescendant check`() {
+    @Test fun `path isDescendant check`() {
         LocalPath.build().isDescendantOf(LocalPath.build()) shouldBe false
         LocalPath.build().isDescendantOf(LocalPath.build("parent")) shouldBe false
         LocalPath.build("child").isDescendantOf(LocalPath.build()) shouldBe true
@@ -46,8 +43,7 @@ class LocalPathExtensionsTest : BaseTest() {
         LocalPath.build("child1").isDescendantOf(LocalPath.build("child2")) shouldBe false
     }
 
-    @Test
-    fun `path isParent check`() {
+    @Test fun `path isParent check`() {
         LocalPath.build().isParentOf(LocalPath.build()) shouldBe false
         LocalPath.build().isParentOf(LocalPath.build("parent")) shouldBe true
         LocalPath.build("parent").isParentOf(LocalPath.build("parent", "child")) shouldBe true
@@ -57,8 +53,7 @@ class LocalPathExtensionsTest : BaseTest() {
         LocalPath.build("").isParentOf(LocalPath.build("child")) shouldBe true
     }
 
-    @Test
-    fun `path isChild check`() {
+    @Test fun `path isChild check`() {
         LocalPath.build().isChildOf(LocalPath.build()) shouldBe false
         LocalPath.build("child").isChildOf(LocalPath.build()) shouldBe true
         LocalPath.build("child").isChildOf(LocalPath.build("parent")) shouldBe false
@@ -70,8 +65,7 @@ class LocalPathExtensionsTest : BaseTest() {
         LocalPath.build("parent", "child1", "child2").isChildOf(LocalPath.build("parent")) shouldBe false
     }
 
-    @Test
-    fun `match operator`() {
+    @Test fun `match operator`() {
         val file1 = LocalPath.build("test", "file1")
         val file2 = LocalPath.build("test", "file2")
 
@@ -105,8 +99,7 @@ class LocalPathExtensionsTest : BaseTest() {
     }
 
 
-    @Test
-    fun `isAncestorOf operator`() {
+    @Test fun `isAncestorOf operator`() {
         val file1 = LocalPath.build("parent")
         val file2 = LocalPath.build("parent", "child", "niece")
 
@@ -150,8 +143,7 @@ class LocalPathExtensionsTest : BaseTest() {
         lookup2.isAncestorOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isDescendantOf operator`() {
+    @Test fun `isDescendantOf operator`() {
         val file1 = LocalPath.build("parent")
         val file2 = LocalPath.build("parent", "child", "niece")
 
@@ -196,8 +188,7 @@ class LocalPathExtensionsTest : BaseTest() {
     }
 
 
-    @Test
-    fun `isParentOf operator`() {
+    @Test fun `isParentOf operator`() {
         val file1 = LocalPath.build("parent")
         val file2 = LocalPath.build("parent", "child")
 
@@ -241,8 +232,7 @@ class LocalPathExtensionsTest : BaseTest() {
         lookup2.isParentOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isChildOf operator`() {
+    @Test fun `isChildOf operator`() {
         val file1 = LocalPath.build("parent")
         val file2 = LocalPath.build("parent", "child")
 
@@ -286,9 +276,7 @@ class LocalPathExtensionsTest : BaseTest() {
         lookup2.isChildOf(lookup2) shouldBe false
     }
 
-
-    @org.junit.Test
-    fun `startsWith operator`() {
+    @Test fun `startsWith operator`() {
         val file1 = LocalPath.build("chi")
         val file2 = LocalPath.build("child")
 
@@ -335,5 +323,45 @@ class LocalPathExtensionsTest : BaseTest() {
         val file3 = LocalPath.build("/data/app/eu.thedarken.sdm.test-")
         val file4 = LocalPath.build("/data/app/eu.thedarken.sdm.test-2/base.apk")
         file4.startsWith(file3) shouldBe true
+    }
+
+    @Test fun `remove prefix`() {
+        val prefix = LocalPath.build("pre", "fix")
+        val pre = LocalPath.build("pre")
+
+        val prefixLookup = LocalPathLookup(
+            lookedUp = LocalPath.build("pre", "fix"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val preLookup = LocalPathLookup(
+            lookedUp = LocalPath.build("pre"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        prefix.removePrefix(prefix) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix)
+        }
+        prefix.removePrefix(pre) shouldBe listOf("fix")
+        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+
+        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup)
+        }
+        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
+        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
     }
 }
