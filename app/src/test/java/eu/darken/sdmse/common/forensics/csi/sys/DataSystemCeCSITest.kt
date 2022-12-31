@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.every
@@ -18,7 +18,7 @@ import org.junit.Test
 class DataSystemCeCSITest : BaseCSITest() {
 
     private val baseDataPath1 = LocalPath.build("/data")
-    private val baseDataPath2 = LocalPath.build("/mnt/expand", randomString())
+    private val baseDataPath2 = LocalPath.build("/mnt/expand", rngString)
 
     private val storageData1 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
@@ -160,7 +160,7 @@ class DataSystemCeCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SYSTEM_CE
                 prefix shouldBe base
@@ -174,14 +174,14 @@ class DataSystemCeCSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in setOf(storageData1, storageData2).map { it.path as LocalPath }) {
 
-            processor.identifyArea(base.child("app", randomString())) shouldBe null
-            processor.identifyArea(base.child("app-asec", randomString())) shouldBe null
-            processor.identifyArea(base.child("app-private", randomString())) shouldBe null
-            processor.identifyArea(base.child("app-lib", randomString())) shouldBe null
-            processor.identifyArea(base.child("system", randomString())) shouldBe null
-            processor.identifyArea(base.child("", randomString())) shouldBe null
-            processor.identifyArea(base.child("system_de", randomString())) shouldBe null
-            processor.identifyArea(base.child("system_ce", randomString())) shouldNotBe null
+            processor.identifyArea(base.child("app", rngString)) shouldBe null
+            processor.identifyArea(base.child("app-asec", rngString)) shouldBe null
+            processor.identifyArea(base.child("app-private", rngString)) shouldBe null
+            processor.identifyArea(base.child("app-lib", rngString)) shouldBe null
+            processor.identifyArea(base.child("system", rngString)) shouldBe null
+            processor.identifyArea(base.child("", rngString)) shouldBe null
+            processor.identifyArea(base.child("system_de", rngString)) shouldBe null
+            processor.identifyArea(base.child("system_ce", rngString)) shouldNotBe null
         }
     }
 
@@ -189,7 +189,7 @@ class DataSystemCeCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

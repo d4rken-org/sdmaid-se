@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -19,7 +19,7 @@ class DataAreaManager @Inject constructor(
     private val areaFactory: DataAreaFactory,
 ) {
 
-    private val refreshTrigger = MutableStateFlow(randomString())
+    private val refreshTrigger = MutableStateFlow(rngString)
     private val _internalStateCache = MutableStateFlow<State?>(null)
     val latestState: Flow<State?> = _internalStateCache
 
@@ -35,7 +35,7 @@ class DataAreaManager @Inject constructor(
 
     suspend fun reload() {
         log(TAG, WARN) { "reload()" }
-        refreshTrigger.value = randomString()
+        refreshTrigger.value = rngString
     }
 
     data class State(

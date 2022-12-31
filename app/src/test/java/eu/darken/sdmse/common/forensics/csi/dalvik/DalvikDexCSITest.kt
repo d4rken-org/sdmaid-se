@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -134,7 +134,7 @@ class CSIDalvikDexTest : BaseCSITest() {
         val processor = getProcessor()
 
         for (path in dalviks) {
-            val testFile1 = LocalPath.build(path, randomString())
+            val testFile1 = LocalPath.build(path, rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_DEX
                 prefix shouldBe path
@@ -147,8 +147,8 @@ class CSIDalvikDexTest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data/dalvik-cache", randomString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/dalvik-cache/arm", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/dalvik-cache", rngString)) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/dalvik-cache/arm", rngString)) shouldBe null
 
         processor.identifyArea(LocalPath.build("/cache/dalvik-cache/profiles/random")) shouldBe null
         processor.identifyArea(LocalPath.build("/data/dalvik-cache/profiles/random")) shouldBe null
@@ -161,9 +161,9 @@ class CSIDalvikDexTest : BaseCSITest() {
     @Test fun testDetermineLocation_unknown() = runTest {
         val processor = getProcessor()
         for (base in dalvikCachesBases) {
-            processor.identifyArea(LocalPath.build(base, randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "/profiles", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "/something64", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "/profiles", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "/something64", rngString)) shouldBe null
         }
     }
 
@@ -387,7 +387,7 @@ class CSIDalvikDexTest : BaseCSITest() {
         val packageName = "com.test.pkg".toPkgId()
         mockPkg(packageName)
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(packageName, DataArea.Type.DALVIK_DEX, prefixFree)
 
         val processor = getProcessor()
@@ -405,7 +405,7 @@ class CSIDalvikDexTest : BaseCSITest() {
     @Test fun testProcess_nothing() = runTest {
         val processor = getProcessor()
         for (base in dalviks) {
-            val testFile = LocalPath.build(base, randomString())
+            val testFile = LocalPath.build(base, rngString)
             val areaInfo = processor.identifyArea(testFile)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_DEX
             }

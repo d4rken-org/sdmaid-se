@@ -149,7 +149,7 @@ class AccessChecker @Inject constructor() {
 //            father = father.parentFile
 //            if (father == null) return false
 //        }
-//        val testName = "sdm_write_test-" + randomString()
+//        val testName = "sdm_write_test-" + randomString
 //        val testFile = File(father.javaFile, testName)
 //        val writable: Boolean = try {
 //            // Moto G3 usb otg allowed mkdir but not file creation

@@ -2,7 +2,7 @@ package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -37,9 +37,9 @@ class WindowsFilesFilterTest : SystemCleanerFilterTest() {
             .forEach {
                 val loc = it.type
                 mockPositive(loc, "desktop.ini", Flags.FILE)
-                mockPositive(loc, "${randomString()}/desktop.ini", Flags.FILE)
+                mockPositive(loc, "$rngString/desktop.ini", Flags.FILE)
                 mockPositive(loc, "thumbs.db", Flags.FILE)
-                mockPositive(loc, "${randomString()}/thumbs.db", Flags.FILE)
+                mockPositive(loc, "$rngString/thumbs.db", Flags.FILE)
             }
         mockNegative(DataArea.Type.DATA, "._rollkuchen#,'Ä", Flags.FILE)
         confirm(create())

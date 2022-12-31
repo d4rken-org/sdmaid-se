@@ -55,6 +55,13 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
+                if (basePaths.none { it.isAncestorOf(subject) }) return false
+            }
+
+        config.pathStartsWith
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { basePaths ->
+                // Check path starts with
                 if (basePaths.none { subject.startsWith(it) }) return false
             }
 
@@ -110,6 +117,7 @@ class BaseSieve @AssistedInject constructor(
         val isEmpty: Boolean? = null,
         val areaTypes: Set<DataArea.Type>? = null,
         val basePaths: Set<APath>? = null,
+        val pathStartsWith: Set<APath>? = null,
         val pathContains: Set<String>? = null,
         val namePrefixes: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,

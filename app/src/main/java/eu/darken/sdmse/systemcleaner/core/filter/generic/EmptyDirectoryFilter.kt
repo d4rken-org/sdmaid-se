@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.fixSlass
+import eu.darken.sdmse.common.files.core.local.fixSlashes
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -57,12 +57,12 @@ class EmptyDirectoryFilter @Inject constructor(
             targetType = BaseSieve.TargetType.DIRECTORY,
             areaTypes = targetAreas(),
             exclusions = setOf(
-                "/mnt/asec".fixSlass(),
-                "/mnt/obb".fixSlass(),
-                "/mnt/secure".fixSlass(),
-                "/mnt/shell".fixSlass(),
-                "/Android/obb".fixSlass(),
-                "/.stfolder".fixSlass(),
+                "/mnt/asec".fixSlashes(),
+                "/mnt/obb".fixSlashes(),
+                "/mnt/secure".fixSlashes(),
+                "/mnt/shell".fixSlashes(),
+                "/Android/obb".fixSlashes(),
+                "/.stfolder".fixSlashes(),
             ),
         )
         sieve = baseSieveFactory.create(config)

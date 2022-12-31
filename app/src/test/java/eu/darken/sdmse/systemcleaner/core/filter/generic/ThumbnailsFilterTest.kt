@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import eu.darken.sdmse.common.areas.DataArea.Type
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -30,7 +30,7 @@ class ThumbnailsFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        val rndParent = randomString()
+        val rndParent = rngString
         mockNegative(Type.SDCARD, ".thumbnails", Flags.DIR)
         mockNegative(Type.SDCARD, ".thumbnails", Flags.FILE)
         mockNegative(Type.SDCARD, "DCIM", Flags.FILE)
@@ -43,14 +43,14 @@ class ThumbnailsFilterTest : SystemCleanerFilterTest() {
         mockNegative(Type.SDCARD, "DCIM/.thumbnails", Flags.DIR)
         mockNegative(Type.SDCARD, "DCIM/Camera/.thumbnails", Flags.DIR)
         mockNegative(Type.SDCARD, "DCIM/Camera/thumbnails", Flags.DIR)
-        mockPositive(Type.SDCARD, "DCIM/.thumbnails/${randomString()}", Flags.FILE)
+        mockPositive(Type.SDCARD, "DCIM/.thumbnails/$rngString", Flags.FILE)
         mockPositive(Type.SDCARD, "DCIM/.thumbnails/.database_uuid", Flags.FILE)
-        mockPositive(Type.SDCARD, "$rndParent/.thumbnails/${randomString()}", Flags.FILE)
+        mockPositive(Type.SDCARD, "$rndParent/.thumbnails/$rngString", Flags.FILE)
         mockPositive(Type.SDCARD, ".thumbnails/G900FXXU1POEA_5.0/movie_22170", Flags.DIR)
         mockPositive(Type.SDCARD, ".thumbnails/movie_22170", Flags.DIR)
         mockPositive(Type.SDCARD, ".thumbnails/.database_uuid", Flags.FILE)
-        mockPositive(Type.SDCARD, "DCIM/.thumbnails/${randomString()}", Flags.FILE)
-        mockPositive(Type.SDCARD, "DCIM/.thumbnails/.thumbdata${randomString()}", Flags.FILE)
+        mockPositive(Type.SDCARD, "DCIM/.thumbnails/$rngString", Flags.FILE)
+        mockPositive(Type.SDCARD, "DCIM/.thumbnails/.thumbdata$rngString", Flags.FILE)
         mockPositive(Type.SDCARD, "DCIM/.thumbnails/asdkasdk123123kasd.jpg", Flags.FILE)
         mockPositive(Type.SDCARD, "DCIM/.thumbnails/asdkasdk123123kasd.jpeg", Flags.FILE)
         mockPositive(Type.SDCARD, "DCIM/Camera/.thumbnails/fileasdkasdk123123kasd!%)(&.jpeg", Flags.FILE)

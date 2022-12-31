@@ -15,7 +15,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class DownloadCacheFiltertest : SystemCleanerFilterTest() {
+class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -27,7 +27,7 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = DownloadCacheFilter(
+    private fun create() = DataLocalTmpFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -36,24 +36,17 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "dalvik-cache", Flags.DIR)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "lost+found", Flags.DIR)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_log", Flags.DIR)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flags.FILE)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flags.FILE)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flags.FILE)
-        mockNegative(DataArea.Type.DOWNLOAD_CACHE, rngString, Flags.DIR)
-        mockPositive(DataArea.Type.DOWNLOAD_CACHE, rngString, Flags.FILE)
-        mockPositive(DataArea.Type.DOWNLOAD_CACHE, "recovery/$rngString", Flags.FILE)
-        mockPositive(DataArea.Type.DOWNLOAD_CACHE, "magisk.log", Flags.FILE)
-        mockPositive(DataArea.Type.DOWNLOAD_CACHE, "magisk.log.bak", Flags.FILE)
+        mockNegative(DataArea.Type.DATA, "local", Flags.DIR)
+        mockNegative(DataArea.Type.DATA, "local/tmp", Flags.DIR)
+        mockPositive(DataArea.Type.DATA, "local/tmp/$rngString", Flags.DIR)
+        mockPositive(DataArea.Type.DATA, "local/tmp/$rngString", Flags.FILE)
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        DownloadCacheFilter.Factory(
+        DataLocalTmpFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
+                coEvery { filterLocalTmpEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -61,9 +54,9 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        DownloadCacheFilter.Factory(
+        DataLocalTmpFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
+                coEvery { filterLocalTmpEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

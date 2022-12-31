@@ -3,7 +3,7 @@ package eu.darken.sdmse.systemcleaner.core.filter.generic
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import io.mockk.every
@@ -35,7 +35,7 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        val randomFolder = randomString()
+        val randomFolder = rngString
         areaManager.currentAreas().map { area ->
             val areaPath = area.path
 

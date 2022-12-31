@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -103,7 +103,7 @@ class PublicDataCSITest : BaseCSITest() {
     @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in dataPaths) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_DATA
                 prefixFreePath shouldBe testFile1.removePrefix(base)
@@ -116,9 +116,9 @@ class PublicDataCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in sdcardPaths) {
-            processor.identifyArea(base.child("Android/obb", randomString())) shouldBe null
-            processor.identifyArea(base.child("Android/media", randomString())) shouldBe null
-            processor.identifyArea(base.child("Android", randomString())) shouldBe null
+            processor.identifyArea(base.child("Android/obb", rngString)) shouldBe null
+            processor.identifyArea(base.child("Android/media", rngString)) shouldBe null
+            processor.identifyArea(base.child("Android", rngString)) shouldBe null
         }
     }
 
@@ -154,7 +154,7 @@ class PublicDataCSITest : BaseCSITest() {
         val pkgId = "com.test.pkg".toPkgId()
         mockPkg(pkgId, null)
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(pkgId, DataArea.Type.PUBLIC_DATA, prefixFree)
 
         for (base in dataPaths) {
@@ -174,7 +174,7 @@ class PublicDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in dataPaths) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

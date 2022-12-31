@@ -71,7 +71,26 @@ class BaseSieveTest : BaseTest() {
         ) shouldBe true
         create(config).match(
             baseLookup.copy(lookedUp = LocalPath.build("/abc"))
+        ) shouldBe false
+        create(config).match(
+            baseLookup.copy(lookedUp = LocalPath.build("/def"))
+        ) shouldBe false
+    }
+
+    @Test
+    fun `just pathStartsWith`() = runTest {
+        val config = BaseSieve.Config(
+            pathStartsWith = setOf(LocalPath.build("abc", "12"))
+        )
+        create(config).match(
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
         ) shouldBe true
+        create(config).match(
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123/456"))
+        ) shouldBe true
+        create(config).match(
+            baseLookup.copy(lookedUp = LocalPath.build("/abc"))
+        ) shouldBe false
         create(config).match(
             baseLookup.copy(lookedUp = LocalPath.build("/def"))
         ) shouldBe false

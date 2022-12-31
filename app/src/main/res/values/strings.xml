@@ -143,4 +143,6 @@
     <string name="systemcleaner_filter_downloadcache_summary">System cache folder used for various things (e.g. OTA updates).</string>
     <string name="settings_category_filter_generic">Generic filter</string>
     <string name="settings_category_filter_specific">Specific filter</string>
+    <string name="systemcleaner_filter_localtmp_label">Local temporary files</string>
+    <string name="systemcleaner_filter_localtmp_summary">System related temporary files (e.g. from Android Studio).</string>
 </resources>

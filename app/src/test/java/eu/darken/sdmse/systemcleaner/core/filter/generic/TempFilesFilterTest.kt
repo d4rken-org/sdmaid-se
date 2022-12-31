@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -42,12 +42,12 @@ class TempFilesFilterTest : SystemCleanerFilterTest() {
                 mockNegative(it.type, "com.drweb.pro.market/files/pro_settings/bad.temp", Flags.DIR)
                 mockNegative(it.type, ".tmp", Flags.DIR)
                 mockNegative(it.type, ".temp", Flags.DIR)
-                mockPositive(it.type, "${randomString()}.tmp", Flags.FILE)
-                mockPositive(it.type, "${randomString()}.temp", Flags.FILE)
+                mockPositive(it.type, "$rngString.tmp", Flags.FILE)
+                mockPositive(it.type, "$rngString.temp", Flags.FILE)
                 mockPositive(it.type, ".escheck.tmp", Flags.FILE)
                 mockPositive(it.type, ".escheck.temp", Flags.FILE)
-                mockPositive(it.type, "nested/${randomString()}.tmp", Flags.FILE)
-                mockPositive(it.type, "nested/${randomString()}.temp", Flags.FILE)
+                mockPositive(it.type, "nested/$rngString.tmp", Flags.FILE)
+                mockPositive(it.type, "nested/$rngString.temp", Flags.FILE)
                 mockPositive(it.type, ".mmsyscache", Flags.FILE)
                 mockPositive(it.type, "sdm_write_test-9d2542dc-a7fa-4c31-b5be-ad16c6a2d45c", Flags.FILE)
             }

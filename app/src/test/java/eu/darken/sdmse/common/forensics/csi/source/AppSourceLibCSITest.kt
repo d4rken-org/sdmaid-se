@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -61,7 +61,7 @@ class AppSourceLibCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_LIB
                 prefix shouldBe base
@@ -74,9 +74,9 @@ class AppSourceLibCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/app", randomString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/data", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", rngString)) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/app", rngString)) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/data", rngString)) shouldBe null
     }
 
     @Test fun testProcess_hit() = runTest {
@@ -129,7 +129,7 @@ class AppSourceLibCSITest : BaseCSITest() {
 
         val packageName = "some.pkg".toPkgId()
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(packageName, DataArea.Type.APP_LIB, prefixFree)
 
         for (base in bases) {
@@ -145,7 +145,7 @@ class AppSourceLibCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val suffix = randomString()
+            val suffix = rngString
             val toHit = base.child(suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
                 prefix shouldBe base

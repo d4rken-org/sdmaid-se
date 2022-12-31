@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -49,7 +49,7 @@ class DownloadCacheCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in basePaths) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DOWNLOAD_CACHE
                 prefix shouldBe base
@@ -62,7 +62,7 @@ class DownloadCacheCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", rngString)) shouldBe null
         processor.identifyArea(LocalPath.build("/")) shouldBe null
     }
 
@@ -70,7 +70,7 @@ class DownloadCacheCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in basePaths) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val areaInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(areaInfo).apply {

@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -46,7 +46,7 @@ class DashboardFragmentVM @Inject constructor(
     private val debugCardProvider: DebugCardProvider,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val refreshTrigger = MutableStateFlow(randomString())
+    private val refreshTrigger = MutableStateFlow(rngString)
     private var isSetupDismissed = false
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
 
@@ -163,7 +163,7 @@ class DashboardFragmentVM @Inject constructor(
                 setupState = setupState,
                 onDismiss = {
                     isSetupDismissed = true
-                    refreshTrigger.value = randomString()
+                    refreshTrigger.value = rngString
                 },
                 onContinue = {
                     DashboardFragmentDirections.actionDashboardFragmentToSetupFragment().navigate()

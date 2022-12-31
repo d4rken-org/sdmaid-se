@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
@@ -54,7 +54,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     val storageData2 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns Type.DATA
-        every { path } returns LocalPath.build("/mnt/expand", randomString())
+        every { path } returns LocalPath.build("/mnt/expand", rngString)
     }
 
     val storageDataApp1 = mockk<DataArea>().apply {

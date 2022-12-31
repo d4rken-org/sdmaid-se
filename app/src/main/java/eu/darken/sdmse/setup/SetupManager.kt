@@ -2,7 +2,7 @@ package eu.darken.sdmse.setup
 
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
@@ -20,7 +20,7 @@ class SetupManager @Inject constructor(
         val isComplete: Boolean = moduleStates.all { it.isComplete }
     }
 
-    private val refreshTrigger = MutableStateFlow(randomString())
+    private val refreshTrigger = MutableStateFlow(rngString)
     val state: Flow<SetupState> = refreshTrigger
         .map { _ ->
             setupModules.map { it.determineState() }
@@ -30,7 +30,7 @@ class SetupManager @Inject constructor(
 
     fun refresh() {
         log(TAG) { "refresh()" }
-        refreshTrigger.value = randomString()
+        refreshTrigger.value = rngString
     }
 
     companion object {

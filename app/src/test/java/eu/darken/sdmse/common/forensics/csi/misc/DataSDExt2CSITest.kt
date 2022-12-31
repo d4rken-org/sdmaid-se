@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.every
@@ -84,7 +84,7 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SDEXT2
                 prefix shouldBe base
@@ -98,15 +98,15 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in dataPaths) {
 
-            processor.identifyArea(LocalPath.build(base, "app", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-asec", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-private", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "app-lib", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system_de", randomString())) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "system_ce", randomString())) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-asec", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-private", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "app-lib", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "system_de", rngString)) shouldBe null
+            processor.identifyArea(LocalPath.build(base, "system_ce", rngString)) shouldBe null
             processor.identifyArea(LocalPath.build(base, "sdext2")) shouldBe null
-            processor.identifyArea(LocalPath.build(base, "sdext2", randomString())) shouldNotBe null
+            processor.identifyArea(LocalPath.build(base, "sdext2", rngString)) shouldNotBe null
         }
     }
 
@@ -114,7 +114,7 @@ class DataSDExt2CSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in sdexts) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

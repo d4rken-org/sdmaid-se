@@ -26,7 +26,6 @@ class SystemCleanerSettings @Inject constructor(
     // TODO change defaults
     val filterLogFilesEnabled = dataStore.createValue("filter.logfiles.enabled", true)
     val filterAdvertisementsEnabled = dataStore.createValue("filter.advertisements.enabled", true)
-    val filterAnrEnabled = dataStore.createValue("filter.anr.enabled", true)
     val filterEmptyDirectoriesEnabled = dataStore.createValue("filter.emptydirectories.enabled", true)
     val filterSuperfluosApksEnabled = dataStore.createValue("filter.superfluosapks.enabled", true)
     val filterLostDirEnabled = dataStore.createValue("filter.lostdir.enabled", true)
@@ -35,13 +34,15 @@ class SystemCleanerSettings @Inject constructor(
     val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", true)
     val filterTempFilesEnabled = dataStore.createValue("filter.tempfiles.enabled", true)
     val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
-    val filterDownloadCacheEnabled = dataStore.createValue("filter.downloadcache.enabled", true)
     val filterWindowsFilesEnabled = dataStore.createValue("filter.windowsfiles.enabled", true)
+
+    val filterAnrEnabled = dataStore.createValue("filter.anr.enabled", true)
+    val filterLocalTmpEnabled = dataStore.createValue("filter.localtmp.enabled", true)
+    val filterDownloadCacheEnabled = dataStore.createValue("filter.downloadcache.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,
         filterAdvertisementsEnabled,
-        filterAnrEnabled,
         filterEmptyDirectoriesEnabled,
         filterSuperfluosApksEnabled,
         filterLostDirEnabled,
@@ -50,8 +51,10 @@ class SystemCleanerSettings @Inject constructor(
         filterThumbnailsEnabled,
         filterTempFilesEnabled,
         filterAnalyticsEnabled,
-        filterDownloadCacheEnabled,
         filterWindowsFilesEnabled,
+        filterAnrEnabled,
+        filterLocalTmpEnabled,
+        filterDownloadCacheEnabled,
     )
 
     companion object {

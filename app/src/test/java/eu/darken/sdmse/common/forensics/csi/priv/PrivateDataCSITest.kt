@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -109,7 +109,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PRIVATE_DATA
                 prefix shouldBe base
@@ -122,8 +122,8 @@ class PrivateDataCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data", randomString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/mnt/expand", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data", rngString)) shouldBe null
+        processor.identifyArea(LocalPath.build("/mnt/expand", rngString)) shouldBe null
     }
 
     @Test fun `find default owner`() = runTest {
@@ -158,7 +158,7 @@ class PrivateDataCSITest : BaseCSITest() {
         val packageName = "com.test.pkg".toPkgId()
         mockPkg(packageName)
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(packageName, DataArea.Type.PRIVATE_DATA, prefixFree)
 
         for (base in bases) {
@@ -185,7 +185,7 @@ class PrivateDataCSITest : BaseCSITest() {
         }
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val locationInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo).apply {

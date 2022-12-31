@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import eu.darken.sdmse.common.areas.DataArea.Type
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -30,11 +30,11 @@ class LogFilesFilterFactoryTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(Type.SDCARD, "${randomString()}.log", Flags.DIR)
+        mockNegative(Type.SDCARD, "$rngString.log", Flags.DIR)
         mockNegative(Type.SDCARD, ".log", Flags.DIR)
         mockNegative(Type.DATA, "/media/0/something.log", Flags.FILE)
         mockNegative(Type.DATA, "/media/1/something.log", Flags.FILE)
-        mockPositive(Type.SDCARD, "${randomString()}.log", Flags.FILE)
+        mockPositive(Type.SDCARD, "$rngString.log", Flags.FILE)
         mockNegative(Type.SDCARD, "something.indexeddb.leveldb/something.log", Flags.FILE)
         mockNegative(Type.SDCARD, "/t/Paths/000003.log", Flags.FILE)
         mockNegative(Type.SDCARD, "/app_chrome/Default/previews_hint_cache_store/000003.log", Flags.FILE)

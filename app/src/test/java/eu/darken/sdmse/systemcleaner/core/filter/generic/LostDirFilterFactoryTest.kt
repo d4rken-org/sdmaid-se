@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -32,8 +32,8 @@ class LostDirFilterFactoryTest : SystemCleanerFilterTest() {
         mockDefaults()
         mockNegative(DataArea.Type.SDCARD, "LOST.DIR", Flags.DIR)
         mockNegative(DataArea.Type.SDCARD, "somedir/LOST.DIR", Flags.DIR)
-        mockNegative(DataArea.Type.SDCARD, "LOST.DIR/${randomString()}", Flags.DIR)
-        mockPositive(DataArea.Type.SDCARD, "LOST.DIR/${randomString()}", Flags.FILE)
+        mockNegative(DataArea.Type.SDCARD, "LOST.DIR/$rngString", Flags.DIR)
+        mockPositive(DataArea.Type.SDCARD, "LOST.DIR/$rngString", Flags.FILE)
         confirm(create())
     }
 }

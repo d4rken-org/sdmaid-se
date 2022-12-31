@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -18,7 +18,7 @@ import org.junit.Test
 class DataCSITest : BaseCSITest() {
 
     private val baseDataPath1 = LocalPath.build("/data")
-    private val baseDataPath2 = LocalPath.build("/mnt/expand", randomString())
+    private val baseDataPath2 = LocalPath.build("/mnt/expand", rngString)
 
     private val storageData1 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
@@ -189,7 +189,7 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA
                 prefix shouldBe base
@@ -203,15 +203,15 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
         for (base in bases) {
 
-//            processor.identifyArea(base.child( "app", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "app-asec", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "app-private", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "app-lib", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "system", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "system_ce", randomString())) shouldBe null
-//            processor.identifyArea(base.child( "system_de", randomString())) shouldBe null
-            processor.identifyArea(base.child("dalvik-cache/arm64", randomString())) shouldBe null
-            processor.identifyArea(base.child("dalvik-cache/profiles/", randomString())) shouldBe null
+//            processor.identifyArea(base.child( "app", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "app-asec", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "app-private", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "app-lib", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "system", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "system_ce", randomString)) shouldBe null
+//            processor.identifyArea(base.child( "system_de", randomString)) shouldBe null
+            processor.identifyArea(base.child("dalvik-cache/arm64", rngString)) shouldBe null
+            processor.identifyArea(base.child("dalvik-cache/profiles/", rngString)) shouldBe null
         }
     }
 
@@ -221,7 +221,7 @@ class DataCSITest : BaseCSITest() {
         val packageName = "com.test.pkg".toPkgId()
         mockPkg(packageName)
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(packageName, DataArea.Type.DATA, prefixFree)
 
         for (base in bases) {
@@ -240,7 +240,7 @@ class DataCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (base in bases) {
-            val testFile1 = base.child(randomString())
+            val testFile1 = base.child(rngString)
             val locationInfo1 = processor.identifyArea(testFile1)!!
 
             processor.findOwners(locationInfo1).apply {

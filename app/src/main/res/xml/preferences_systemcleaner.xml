@@ -67,7 +67,12 @@
             app:summary="@string/systemcleaner_filter_anr_summary"
             app:title="@string/systemcleaner_filter_anr_label" />
         <CheckBoxPreference
-            app:icon="@drawable/ic_baseline_downloading_24"
+            app:icon="@drawable/ic_android_studio_24"
+            app:key="filter.localtmp.enabled"
+            app:summary="@string/systemcleaner_filter_localtmp_summary"
+            app:title="@string/systemcleaner_filter_localtmp_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_android_studio_24"
             app:key="filter.downloadcache.enabled"
             app:summary="@string/systemcleaner_filter_downloadcache_summary"
             app:title="@string/systemcleaner_filter_downloadcache_label" />

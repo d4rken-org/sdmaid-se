@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DirNameCheck
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.randomString
+import eu.darken.sdmse.common.rngString
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -67,7 +67,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (profilePath in profilePaths) {
-            val testFile1 = profilePath.child(randomString())
+            val testFile1 = profilePath.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_PROFILE
                 prefix shouldBe profilePath
@@ -80,8 +80,8 @@ class DalvikProfileCSITest : BaseCSITest() {
     @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
 
-        processor.identifyArea(LocalPath.build("/data/dalvik-cache", randomString())) shouldBe null
-        processor.identifyArea(LocalPath.build("/data/dalvik-cache/arm", randomString())) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/dalvik-cache", rngString)) shouldBe null
+        processor.identifyArea(LocalPath.build("/data/dalvik-cache/arm", rngString)) shouldBe null
         processor.identifyArea(LocalPath.build("/cache/dalvik-cache")) shouldBe null
         processor.identifyArea(LocalPath.build("/cache/dalvik-cache/arm64")) shouldBe null
     }
@@ -117,7 +117,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         val processor = getProcessor()
         val pkgId = "com.test.pkg".toPkgId()
 
-        val prefixFree = randomString()
+        val prefixFree = rngString
         mockMarker(pkgId, DataArea.Type.DALVIK_PROFILE, prefixFree)
 
         for (base in profilePaths) {
@@ -135,7 +135,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         val processor = getProcessor()
 
         for (profile in profilePaths) {
-            val testFile1 = profile.child(randomString())
+            val testFile1 = profile.child(rngString)
             val areaInfo = processor.identifyArea(testFile1)!!
 
             processor.findOwners(areaInfo).apply {
