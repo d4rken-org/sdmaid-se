@@ -9,12 +9,10 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.isAncestorOf
-import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
@@ -22,6 +20,7 @@ import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import java.io.File
 import java.util.regex.Pattern
 import javax.inject.Inject
+
 
 @Reusable
 class SdcardCSI @Inject constructor(
@@ -31,53 +30,29 @@ class SdcardCSI @Inject constructor(
 
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.SDCARD
 
+    @Suppress("SimplifiableCallChain")
     override suspend fun identifyArea(target: APath): AreaInfo? {
-        val dataAreas = areaManager.currentAreas()
+        return areaManager.currentAreas()
             .filter { it.type == DataArea.Type.SDCARD }
             .sortedWith(DEEPEST_NEST_FIRST)
-
-        var primary: DataArea? = null
-        for (area in dataAreas) {
-            if (area.hasFlags(DataArea.Flag.PRIMARY)) primary = area
-
-            if (area.path.isAncestorOf(target)) {
+            .filter { it.path.isAncestorOf(target) }
+            .filter { area ->
                 val overlaps = setOf(
                     area.path.child(*PublicObbCSI.BASE_SEGMENTS),
                     area.path.child(*PublicDataCSI.BASE_SEGMENTS),
                     area.path.child(*PublicMediaCSI.BASE_SEGMENTS),
                 )
-                // This sdcard fits and it should be the most specific due to sorting.
-                return if (overlaps.none { it.isAncestorOf(target) }) {
-                    AreaInfo(
-                        dataArea = area,
-                        file = target,
-                        prefix = area.path,
-                        isBlackListLocation = false,
-                    )
-                } else {
-                    // The sdcard fit but it wasn't an sdcard location
-                    // i.e. /mnt/sdcard/external_sd/Android/data/<pkg>
-                    null
-                }
+                overlaps.none { it.isAncestorOf(target) }
             }
-        }
-        // If we can't find a primary sdcard, the legacy pathes etc. are no good.
-        if (primary == null) return null
-
-        val legacyOverlaps = setOf(
-            LEGACY_PATH.child(*PublicObbCSI.BASE_SEGMENTS),
-            LEGACY_PATH.child(*PublicDataCSI.BASE_SEGMENTS),
-            LEGACY_PATH.child(*PublicMediaCSI.BASE_SEGMENTS),
-        )
-
-        return if (LEGACY_PATH.isAncestorOf(target) && legacyOverlaps.none { it.isAncestorOf(target) }) {
-            AreaInfo(
-                dataArea = primary,
-                file = target,
-                prefix = LEGACY_PATH,
-                isBlackListLocation = false
-            )
-        } else null
+            .singleOrNull()
+            ?.let {
+                AreaInfo(
+                    dataArea = it,
+                    file = target,
+                    prefix = it.path,
+                    isBlackListLocation = false,
+                )
+            }
     }
 
     override suspend fun findOwners(areaInfo: AreaInfo): CSIProcessor.Result {
@@ -112,7 +87,6 @@ class SdcardCSI @Inject constructor(
 
     companion object {
         val TAG: String = logTag("CSI", "Sdcard")
-        val LEGACY_PATH = LocalPath.build("storage", "emulated", "legacy")
 
         val DEEPEST_NEST_FIRST: Comparator<DataArea> = Comparator<DataArea> { object1: DataArea, object2: DataArea ->
             val nestLevel1: Int = object1.path.path.split(Pattern.quote(File.separator)).size

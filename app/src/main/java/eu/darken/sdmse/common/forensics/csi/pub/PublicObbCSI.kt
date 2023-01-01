@@ -10,7 +10,6 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -22,7 +21,6 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
-import eu.darken.sdmse.common.forensics.csi.pub.SdcardCSI.Companion.LEGACY_PATH
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -38,33 +36,19 @@ class PublicObbCSI @Inject constructor(
 
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.PUBLIC_OBB
 
-    override suspend fun identifyArea(target: APath): AreaInfo? {
-        var primary: DataArea? = null
-
-        for (area in areaManager.currentAreas().filter { it.type == DataArea.Type.PUBLIC_OBB }) {
-            if (area.hasFlags(DataArea.Flag.PRIMARY)) primary = area
-
-            if (area.path.isAncestorOf(target)) {
-                return AreaInfo(
-                    dataArea = area,
-                    file = target,
-                    prefix = area.path,
-                    isBlackListLocation = true
-                )
-            }
-        }
-
-        if (target.containsSegments(*BASE_SEGMENTS) && primary != null && LEGACY_PATH.isAncestorOf(target)) {
-            return AreaInfo(
-                dataArea = primary,
+    @Suppress("SimplifiableCallChain")
+    override suspend fun identifyArea(target: APath): AreaInfo? = areaManager.currentAreas()
+        .filter { it.type == DataArea.Type.PUBLIC_OBB }
+        .filter { it.path.isAncestorOf(target) }
+        .singleOrNull()
+        ?.let {
+            AreaInfo(
+                dataArea = it,
                 file = target,
-                prefix = LEGACY_PATH.child(*BASE_SEGMENTS),
-                isBlackListLocation = true,
+                prefix = it.path,
+                isBlackListLocation = true
             )
         }
-
-        return null
-    }
 
     override suspend fun findOwners(areaInfo: AreaInfo): CSIProcessor.Result {
         require(hasJurisdiction(areaInfo.type)) { "Wrong jurisdiction: ${areaInfo.type}" }
