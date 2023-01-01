@@ -69,7 +69,7 @@ class SAFGateway @Inject constructor(
             else throw WriteException(path, message = "Path exists, but is not a file.")
         }
         return@runIO try {
-            createDocumentFile(FILE_TYPE_DEFAULT, path.treeRoot, path.segments)
+            createDocumentFile(FILE_TYPE_DEFAULT, path)
             true
         } catch (e: Exception) {
             Timber.tag(TAG).w(e, "createFile(path=%s) failed", path)
@@ -85,7 +85,7 @@ class SAFGateway @Inject constructor(
             else throw WriteException(path, message = "Path exists, but is not a directory.")
         }
         return@runIO try {
-            createDocumentFile(DIR_TYPE, path.treeRoot, path.segments)
+            createDocumentFile(DIR_TYPE, path)
             true
         } catch (e: Exception) {
             Timber.tag(TAG).w(e, "createDir(path=%s) failed", path)
@@ -93,35 +93,42 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    private fun createDocumentFile(mimeType: String, treeUri: Uri, segments: List<String>): SAFDocFile {
-        val root = SAFDocFile.fromTreeUri(context, contentResolver, treeUri)
-
-        var currentRoot: SAFDocFile = root
-        for ((index, segName) in segments.withIndex()) {
-            if (index < segments.size - 1) {
-                val curFile = currentRoot.findFile(segName)
-                currentRoot = if (curFile == null) {
-                    Timber.tag(TAG).d("$segName doesn't exist in ${currentRoot.uri}, creating.")
-                    currentRoot.createDirectory(segName)
-                } else {
-                    Timber.tag(TAG).d("$segName exists in ${currentRoot.uri}.")
-                    curFile
-                }
-            } else {
-                val existing = currentRoot.findFile(segName)
-                check(existing == null) { "File already exists: ${existing?.uri}" }
-
-                currentRoot = if (mimeType == DocumentsContract.Document.MIME_TYPE_DIR) {
-                    currentRoot.createDirectory(segName)
-                } else {
-                    currentRoot.createFile(mimeType, segName)
-                }
-                require(segName == currentRoot.name) { "Unexpected name change: Wanted $segName, but got ${currentRoot.name}" }
-            }
+    private fun createDocumentFile(mimeType: String, targetSafPath: SAFPath): SAFDocFile {
+        if (targetSafPath.segments.isEmpty()) {
+            throw IllegalArgumentException("Can't create file/dir on treeRoot without segments!")
         }
-        Timber.tag(TAG)
-            .v("createDocumentFile(mimeType=$mimeType, treeUri=$treeUri, crumbs=${segments.toList()}): ${currentRoot.uri}")
-        return currentRoot
+        val targetName = targetSafPath.segments.last()
+
+        val targetParentDocFile: SAFDocFile = targetSafPath.segments
+            .mapIndexed { index, segment ->
+                val segmentSafPath = targetSafPath.copy(
+                    segments = targetSafPath.segments.drop(targetSafPath.segments.size - index)
+                )
+                val segmentDocFile = findDocFile(segmentSafPath)
+                if (!segmentDocFile.exists) {
+                    log(TAG) { "Create parent folder $segmentSafPath" }
+                    segmentDocFile.createDirectory(segment)
+                }
+
+                segmentDocFile
+            }
+            .last()
+
+        val existing = targetParentDocFile.findFile(targetName)
+
+        check(existing == null) { "File already exists: ${existing?.uri}" }
+
+        val targetDocFile = if (mimeType == DocumentsContract.Document.MIME_TYPE_DIR) {
+            targetParentDocFile.createDirectory(targetName)
+        } else {
+            targetParentDocFile.createFile(mimeType, targetName)
+        }
+        require(targetName == targetDocFile.name) {
+            "Unexpected name change: Wanted $targetName, but got ${targetDocFile.name}"
+        }
+
+        log(TAG) { "createDocumentFile(mimeType=$mimeType, targetSafPath=$targetSafPath" }
+        return targetDocFile
     }
 
     @Throws(IOException::class)
