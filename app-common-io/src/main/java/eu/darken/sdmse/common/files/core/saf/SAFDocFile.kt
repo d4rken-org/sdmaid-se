@@ -225,8 +225,6 @@ internal data class SAFDocFile(
         } catch (e: Exception) {
             if (Bugs.isTrace) {
                 log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column): ${e.asLog()}" }
-            } else {
-                log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column) failed" }
             }
             null
         }
