@@ -13,6 +13,7 @@ import android.system.Os
 import android.system.StructStat
 import android.text.TextUtils
 import eu.darken.sdmse.common.asSequence
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -222,7 +223,11 @@ internal data class SAFDocFile(
                 }
             }
         } catch (e: Exception) {
-            log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column): ${e.asLog()}" }
+            if (Bugs.isTrace) {
+                log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column): ${e.asLog()}" }
+            } else {
+                log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForString(column=$column) failed" }
+            }
             null
         }
     }
@@ -255,7 +260,7 @@ internal data class SAFDocFile(
                 append("/document/")
                 append(Uri.encode(DocumentsContract.getTreeDocumentId(baseUri)))
                 crumbs.forEach {
-                    append(Uri.encode(File.separator))
+                    if (it != crumbs.first()) append(Uri.encode(File.separator))
                     append(Uri.encode(it))
                 }
             }
