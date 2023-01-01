@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -35,7 +36,11 @@ class DataAreaManager @Inject constructor(
 
     suspend fun reload() {
         log(TAG, WARN) { "reload()" }
-        refreshTrigger.value = rngString
+        if (_internalStateCache.value == null) {
+            appScope.launch { state.first() }
+        } else {
+            refreshTrigger.value = rngString
+        }
     }
 
     data class State(

@@ -8,12 +8,12 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
@@ -34,14 +34,9 @@ class SuperfluousApksFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
             nameSuffixes = setOf(".apk"),
             exclusions = EXCLUSIONS
         )
@@ -51,7 +46,8 @@ class SuperfluousApksFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
+        val sieveResult = sieve.match(item)
+        if (!sieveResult.matches) return false
         log(TAG, VERBOSE) { "Passed sieve, checking $item" }
 
         val apkInfo = pkgOps.viewArchive(item) ?: return false
@@ -80,11 +76,11 @@ class SuperfluousApksFilter @Inject constructor(
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "SuperfluousApks")
         val EXCLUSIONS = setOf(
-            "Backup",
-            "Backups",
-            "Recover",
-            "Recovery",
-            "TWRP",
+            BaseSieve.Exclusion(segs("Backup")),
+            BaseSieve.Exclusion(segs("Backups")),
+            BaseSieve.Exclusion(segs("Recover")),
+            BaseSieve.Exclusion(segs("Recovery")),
+            BaseSieve.Exclusion(segs("TWRP")),
         )
     }
 }

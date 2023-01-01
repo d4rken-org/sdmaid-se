@@ -8,12 +8,10 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.fixSlashes
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -34,66 +32,64 @@ class EmptyDirectoryFilter @Inject constructor(
     )
 
     private lateinit var sieve: BaseSieve
-    private lateinit var protectedAreaPaths: Set<APath>
-    private lateinit var protectedDefaults: Set<APath>
+    private val protected = setOf(
+        segs("Camera"),
+        segs("Photos"),
+        segs("Music"),
+        segs("DCIM"),
+        segs("Pictures"),
+        segs("Android", "data"),
+        segs("Android", "media"),
+        segs("Android", "obb"),
+    )
+
+    private val pkgAreas = setOf(
+        DataArea.Type.PUBLIC_DATA,
+        DataArea.Type.PUBLIC_MEDIA,
+        DataArea.Type.PUBLIC_OBB,
+    )
+
+    private val protectedDirs = setOf(
+        "files",
+        "cache"
+    )
 
     override suspend fun initialize() {
-        val areas = areaManager.currentAreas()
-
-        protectedDefaults = areas
-            .map {
-                setOf(
-                    it.path.child("Camera"),
-                    it.path.child("Photos"),
-                    it.path.child("Music"),
-                    it.path.child("DCIM"),
-                    it.path.child("Pictures"),
-                )
-            }
-            .flatten()
-            .toSet()
-
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.DIRECTORY,
             areaTypes = targetAreas(),
             exclusions = setOf(
-                "/mnt/asec".fixSlashes(),
-                "/mnt/obb".fixSlashes(),
-                "/mnt/secure".fixSlashes(),
-                "/mnt/shell".fixSlashes(),
-                "/Android/obb".fixSlashes(),
-                "/.stfolder".fixSlashes(),
+                BaseSieve.Exclusion(segs("mnt", "asec")),
+                BaseSieve.Exclusion(segs("mnt", "obb")),
+                BaseSieve.Exclusion(segs("mnt", "secure")),
+                BaseSieve.Exclusion(segs("mnt", "shell")),
+                BaseSieve.Exclusion(segs("Android", "obb")),
+                BaseSieve.Exclusion(segs(".stfolder")),
             ),
         )
         sieve = baseSieveFactory.create(config)
-
-        protectedAreaPaths = areas
-            .filter {
-                setOf(
-                    DataArea.Type.PUBLIC_MEDIA,
-                    DataArea.Type.PUBLIC_DATA,
-                ).contains(it.type)
-            }
-            .map { it.path }
-            .toSet()
-
 
         log(TAG) { "initialized()" }
     }
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
-        log(TAG) { "Sieve match: ${item.path}" }
-        if (protectedAreaPaths.any { it.matches(item) }) return false
+        val sieveResult = sieve.match(item)
+        if (!sieveResult.matches) return false
 
-        if (protectedDefaults.any { it.matches(item) }) return false
+        log(TAG) { "Sieve match: ${item.path}" }
+
+        val areaInfo = sieveResult.areaInfo!!
+        val prefixFreePath = areaInfo.prefixFreePath
+        if (prefixFreePath.isEmpty()) return false
+
+        if (protected.any { it.matches(prefixFreePath) }) return false
 
         // Exclude toplvl package folders in Android/data
-        if (protectedAreaPaths.any { it.matches(item) || it.isParentOf(item) }) return false
+        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 1) return false
 
-        // Exclude Android/data/<pkg>/files
-        if (item.name == "cache" || item.name == "files") {
-            if (protectedAreaPaths.any { it.segments == item.segments.dropLast(2) }) return false
+        // Exclude Android/.../<pkg>/files
+        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 2 && protectedDirs.contains(prefixFreePath[1])) {
+            return false
         }
 
         if (item.size > 4096) return false

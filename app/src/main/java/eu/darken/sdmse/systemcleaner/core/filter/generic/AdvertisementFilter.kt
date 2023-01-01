@@ -12,9 +12,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.isDirectory
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -35,7 +33,7 @@ class AdvertisementFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = mutableSetOf<APath>()
+        val startsWith = mutableSetOf<Segments>()
         val rawRegexes = mutableSetOf<String>()
 
         // TODO this doesn't work on SAFPath files
@@ -44,56 +42,56 @@ class AdvertisementFilter @Inject constructor(
             .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .forEach { toCheck ->
-                basePaths.add(toCheck.child("ppy_cross"))
+                startsWith.add(segs("ppy_cross"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/ppy_cross)$".replace("/", "\\${File.separator}"),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/.mologiq"))
+                startsWith.add(segs(".mologiq"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mologiq|\\.mologiq/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/.Adcenix"))
+                startsWith.add(segs(".Adcenix"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.Adcenix|\\.Adcenix/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/ApplifierVideoCache"))
+                startsWith.add(segs("ApplifierVideoCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierVideoCache|ApplifierVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/burstlyVideoCache"))
+                startsWith.add(segs("burstlyVideoCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyVideoCache|burstlyVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/UnityAdsVideoCache"))
+                startsWith.add(segs("UnityAdsVideoCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsVideoCache|UnityAdsVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/ApplifierImageCache"))
+                startsWith.add(segs("ApplifierImageCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierImageCache|ApplifierImageCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/burstlyImageCache"))
+                startsWith.add(segs("burstlyImageCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyImageCache|burstlyImageCache/.+)".replace("/", "\\" + File.separator),
@@ -101,7 +99,7 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                basePaths.add(toCheck.child("/UnityAdsImageCache"))
+                startsWith.add(segs("UnityAdsImageCache"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsImageCache|UnityAdsImageCache/.+)".replace("/", "\\" + File.separator),
@@ -109,7 +107,7 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                basePaths.add(toCheck.child("/__chartboost"))
+                startsWith.add(segs("__chartboost"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:__chartboost|__chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -117,7 +115,7 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                basePaths.add(toCheck.child("/.chartboost"))
+                startsWith.add(segs(".chartboost"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.chartboost|\\.chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -125,14 +123,14 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                basePaths.add(toCheck.child("/adhub"))
+                startsWith.add(segs("adhub"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:adhub|adhub/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                basePaths.add(toCheck.child("/.mobvista"))
+                startsWith.add(segs(".mobvista"))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mobvista\\d+|\\.mobvista\\d+/.+)$".replace("/", "\\" + File.separator),
@@ -143,7 +141,7 @@ class AdvertisementFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            basePaths = basePaths,
+            pathPrefixes = startsWith,
             regexes = rawRegexes.map { Regex(it) }.toSet()
         )
         sieve = baseSieveFactory.create(config)
@@ -151,7 +149,8 @@ class AdvertisementFilter @Inject constructor(
     }
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
+        val sieveResult = sieve.match(item)
+        if (!sieveResult.matches) return false
         return !item.name.endsWith("chartboost") || item.isDirectory
     }
 

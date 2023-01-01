@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.FileType
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.LocalPathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import io.kotest.matchers.shouldBe
@@ -64,7 +65,7 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just basepaths`() = runTest {
         val config = BaseSieve.Config(
-            basePaths = setOf(LocalPath.build("abc"))
+            pathAncestors = setOf(segs("abc"))
         )
         create(config).match(
             baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
@@ -80,7 +81,7 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just pathStartsWith`() = runTest {
         val config = BaseSieve.Config(
-            pathStartsWith = setOf(LocalPath.build("abc", "12"))
+            pathPrefixes = setOf(segs("abc", "12"))
         )
         create(config).match(
             baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
@@ -98,15 +99,28 @@ class BaseSieveTest : BaseTest() {
 
     @Test
     fun `just exclusions`() = runTest {
-        val config = BaseSieve.Config(
-            exclusions = setOf("bc")
-        )
-        create(config).match(
+
+        create(
+            BaseSieve.Config(
+                exclusions = setOf(BaseSieve.Exclusion(segs("bc")))
+            )
+        ).match(
             baseLookup.copy(lookedUp = LocalPath.build("/def"))
         ) shouldBe true
-        create(config).match(
+        create(
+            BaseSieve.Config(
+                exclusions = setOf(BaseSieve.Exclusion(segs("bc")))
+            )
+        ).match(
             baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
         ) shouldBe false
+        create(
+            BaseSieve.Config(
+                exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = true))
+            )
+        ).match(
+            baseLookup.copy(lookedUp = LocalPath.build("/abc/123"))
+        ) shouldBe true
     }
 
     @Test

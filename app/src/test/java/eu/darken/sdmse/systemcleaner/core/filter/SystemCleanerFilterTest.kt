@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.LocalPathLookup
+import eu.darken.sdmse.common.files.core.saf.SAFPath
+import eu.darken.sdmse.common.files.core.saf.SAFPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -353,29 +355,51 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 require(!(flagsCollection.contains(Flags.DIR) && flagsCollection.contains(Flags.FILE))) { "Can't be both file and dir." }
 
                 val mockPath = area.path.child(targetPath)
-                LocalPathLookup(
-                    lookedUp = mockPath as LocalPath,
-                    fileType = if (flagsCollection.contains(Flags.DIR)) {
-                        FileType.DIRECTORY
-                    } else if (flagsCollection.contains(Flags.FILE)) {
-                        FileType.FILE
-                    } else {
-                        throw IllegalArgumentException("Unknown file type")
-                    },
-                    size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
-                    modifiedAt = Instant.EPOCH,
-                    ownership = null,
-                    permissions = null,
-                    target = null,
-                ).also {
-                    coEvery { fileForensics.identifyArea(it) } returns mockk<AreaInfo>().apply {
-                        every { type } returns areaType
-                    }
-                    coEvery { gatewaySwitch.canRead(it) } returns true
-                    if (flagsCollection.contains(Flags.DIR)) {
-                        coEvery { gatewaySwitch.lookupFiles(any()) } returns emptyList()
-                    }
+                val mockLookup = when (area.path.pathType) {
+                    APath.PathType.LOCAL -> LocalPathLookup(
+                        lookedUp = mockPath as LocalPath,
+                        fileType = if (flagsCollection.contains(Flags.DIR)) {
+                            FileType.DIRECTORY
+                        } else if (flagsCollection.contains(Flags.FILE)) {
+                            FileType.FILE
+                        } else {
+                            throw IllegalArgumentException("Unknown file type")
+                        },
+                        size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
+                        modifiedAt = Instant.EPOCH,
+                        ownership = null,
+                        permissions = null,
+                        target = null,
+                    )
+                    APath.PathType.SAF -> SAFPathLookup(
+                        lookedUp = mockPath as SAFPath,
+                        fileType = if (flagsCollection.contains(Flags.DIR)) {
+                            FileType.DIRECTORY
+                        } else if (flagsCollection.contains(Flags.FILE)) {
+                            FileType.FILE
+                        } else {
+                            throw IllegalArgumentException("Unknown file type")
+                        },
+                        size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
+                        modifiedAt = Instant.EPOCH,
+                        ownership = null,
+                        permissions = null,
+                        target = null,
+                    )
+                    APath.PathType.RAW -> throw NotImplementedError()
                 }
+
+                coEvery { fileForensics.identifyArea(mockLookup) } returns mockk<AreaInfo>().apply {
+                    every { type } returns areaType
+                    every { prefix } returns area.path
+                    every { prefixFreePath } returns mockPath.segments.drop(prefix.segments.size)
+                }
+                coEvery { gatewaySwitch.canRead(mockLookup) } returns true
+                if (flagsCollection.contains(Flags.DIR)) {
+                    coEvery { gatewaySwitch.lookupFiles(any()) } returns emptyList()
+                }
+
+                mockLookup
             }
     }
 

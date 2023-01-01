@@ -19,7 +19,7 @@ interface APath : Parcelable {
     val userReadableName: CaString
         get() = name.toCaString()
 
-    val segments: List<String>
+    val segments: Segments
     fun child(vararg segments: String): APath
 
     @Keep

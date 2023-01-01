@@ -12,11 +12,13 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.canRead
+import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
+import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
@@ -27,25 +29,13 @@ class SdcardsModule @Inject constructor(
     private val safMapper: SAFMapper,
 ) : DataAreaModule {
 
+    @Suppress("ComplexRedundantLet")
     override suspend fun firstPass(): Collection<DataArea> {
         val sdcards = mutableSetOf<DataArea>()
 
         // TODO we are not getting multiuser sdcards
         storageEnvironment.getPublicPrimaryStorage(userManager2.currentUser)
-            .let { origPath ->
-                if (origPath.canRead(gatewaySwitch)) {
-                    origPath
-                } else {
-                    log(TAG, INFO) { "Can't read $origPath" }
-                    val safPath = safMapper.toSAFPath(origPath)
-                    if (safPath?.canRead(gatewaySwitch) == true) {
-                        log(TAG, WARN) { "Switched from $origPath to $safPath" }
-                        safPath
-                    } else {
-                        null
-                    }
-                }
-            }
+            .let { determineAreaAccessPath(it) }
             ?.let {
                 DataArea(
                     path = it,
@@ -57,20 +47,7 @@ class SdcardsModule @Inject constructor(
             ?.run { sdcards.add(this) }
 
         storageEnvironment.getPublicSecondaryStorage(userManager2.currentUser)
-            .mapNotNull { origPath ->
-                if (origPath.canRead(gatewaySwitch)) {
-                    origPath
-                } else {
-                    log(TAG, INFO) { "Can't read $origPath" }
-                    val safPath = safMapper.toSAFPath(origPath)
-                    if (safPath?.canRead(gatewaySwitch) == true) {
-                        log(TAG, WARN) { "Switched from $origPath to $safPath" }
-                        safPath
-                    } else {
-                        null
-                    }
-                }
-            }
+            .mapNotNull { determineAreaAccessPath(it) }
             .map {
                 DataArea(
                     path = it,
@@ -86,6 +63,54 @@ class SdcardsModule @Inject constructor(
         log(TAG, VERBOSE) { "firstPass():$sdcards" }
 
         return sdcards
+    }
+
+    private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
+        targetPath.let { localPath ->
+            val testFileLocal = localPath.child("eu.darken.sdmse-area-local-access-test-$rngString")
+            try {
+                require(!testFileLocal.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileLocal)" }
+
+                testFileLocal.createFileIfNecessary(gatewaySwitch)
+                if (testFileLocal.exists(gatewaySwitch)) {
+                    log(TAG) { "Original targetPath is accessible $targetPath" }
+                    return localPath
+                }
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Couldn't create $testFileLocal: $e" }
+            } finally {
+                try {
+                    if (testFileLocal.exists(gatewaySwitch)) testFileLocal.delete(gatewaySwitch)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Clean up of $testFileLocal failed: $e" }
+                }
+            }
+        }
+
+        log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
+
+        safMapper.toSAFPath(targetPath)?.let { safPath ->
+            val testFileSaf = safPath.child("eu.darken.sdmse-area-saf-access-test-$rngString")
+            try {
+                require(!testFileSaf.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileSaf)" }
+
+                testFileSaf.createFileIfNecessary(gatewaySwitch)
+                if (testFileSaf.exists(gatewaySwitch)) {
+                    log(TAG) { "Switching from $targetPath to $safPath" }
+                    return safPath
+                }
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Couldn't create $testFileSaf: $e" }
+            } finally {
+                try {
+                    if (testFileSaf.exists(gatewaySwitch)) testFileSaf.delete(gatewaySwitch)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Clean up of $testFileSaf failed: $e" }
+                }
+            }
+        }
+
+        return null
     }
 
     @InstallIn(SingletonComponent::class)

@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -33,19 +32,12 @@ class LostDirFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-
-        val basePaths = areaManager.currentAreas()
-            .filter { it.type == DataArea.Type.SDCARD }
-            .map { it.path }
-            .toSet()
-
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/LOST\\.DIR/[\\W\\w]+)$".replace("/", "\\" + File.separator))
         )
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
             regexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
@@ -54,7 +46,7 @@ class LostDirFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

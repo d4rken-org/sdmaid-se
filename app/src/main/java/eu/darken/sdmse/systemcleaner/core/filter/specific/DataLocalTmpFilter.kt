@@ -8,12 +8,12 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -33,15 +33,9 @@ class DataLocalTmpFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val paths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path.child("local", "tmp") }
-
-        require(paths.isNotEmpty()) { "Filter underdefined" }
-
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            basePaths = paths.toSet(),
+            pathAncestors = setOf(segs("local", "tmp")),
         )
 
         sieve = baseSieveFactory.create(config)
@@ -50,10 +44,10 @@ class DataLocalTmpFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
-    override fun toString(): kotlin.String = "${this::class.simpleName}(${hashCode()})"
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(

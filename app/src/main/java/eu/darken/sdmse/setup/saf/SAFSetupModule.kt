@@ -107,8 +107,8 @@ class SAFSetupModule @Inject constructor(
                 .map {
                     listOf(
                         it.child("Android", "data"),
-                        // TODO Should we also get access to Android/obb?
-                        it.child("Android", "obb")
+                        it.child("Android", "obb"),
+//                        it.child("Android", "media"),
                     )
                 }
                 .flatten()

@@ -8,17 +8,16 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -34,23 +33,17 @@ class DownloadCacheFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
-
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
             exclusions = setOf(
-                "dalvik-cache",
-                "lost+found",
+                BaseSieve.Exclusion(segs("dalvik-cache")),
+                BaseSieve.Exclusion(segs("lost+found")),
                 // Some apps use these logs to determine the type of recovery
-                "recovery/last_log".replace("/", File.separator),
-                "last_postrecovery",
-                "last_data_partition_info",
-                "last_dataresizing",
+                BaseSieve.Exclusion(segs("recovery", "last_log")),
+                BaseSieve.Exclusion(segs("last_postrecovery")),
+                BaseSieve.Exclusion(segs("last_data_partition_info")),
+                BaseSieve.Exclusion(segs("last_dataresizing")),
             )
         )
         sieve = baseSieveFactory.create(config)
@@ -59,7 +52,7 @@ class DownloadCacheFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

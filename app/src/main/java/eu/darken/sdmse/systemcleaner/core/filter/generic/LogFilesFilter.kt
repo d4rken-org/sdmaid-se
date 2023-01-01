@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.isAncestorOf
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -47,20 +48,16 @@ class LogFilesFilter @Inject constructor(
         mediaLocations = areaManager.currentAreas()
             .map { it.path.child("media") }
             .toSet()
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
+
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetType = BaseSieve.TargetType.FILE,
             nameSuffixes = setOf(".log"),
-            basePaths = basePaths,
             exclusions = setOf(
-                ".indexeddb.leveldb/",
-                "/t/Paths/",
-                "/app_chrome/",
-                "/app_webview/"
+                BaseSieve.Exclusion(segs(".indexeddb.leveldb"), allowPartial = true),
+                BaseSieve.Exclusion(segs("t", "Paths")),
+                BaseSieve.Exclusion(segs("app_chrome")),
+                BaseSieve.Exclusion(segs("app_webview"))
             )
         )
         sieve = baseSieveFactory.create(config)
@@ -69,7 +66,8 @@ class LogFilesFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
+        val sieveResult = sieve.match(item)
+        if (!sieveResult.matches) return false
 
         // TODO Support SAF path matching?
         // https://github.com/d4rken/sdmaid-public/issues/2147

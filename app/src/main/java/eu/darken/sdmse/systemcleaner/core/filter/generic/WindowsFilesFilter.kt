@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -35,11 +34,6 @@ class WindowsFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
         val regexes = setOf(
             Regex("^[\\W\\w]+/desktop\\.ini$", RegexOption.IGNORE_CASE),
             Regex("^[\\W\\w]+/thumbs\\.db$", RegexOption.IGNORE_CASE)
@@ -47,7 +41,6 @@ class WindowsFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
             regexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
@@ -56,7 +49,7 @@ class WindowsFilesFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

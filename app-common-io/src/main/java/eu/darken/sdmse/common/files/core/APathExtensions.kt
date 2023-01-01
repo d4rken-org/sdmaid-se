@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.files.core
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.crumbsTo
@@ -87,13 +86,10 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
             throw IllegalStateException("Exists, but is not a file: $this")
         }
     }
-    try {
-        gateway.createFile(downCast())
-        log(VERBOSE) { "File created: $this" }
-        return this
-    } catch (e: Exception) {
-        throw IllegalStateException("Couldn't create file: $this", e)
-    }
+
+    gateway.createFile(downCast())
+    log(VERBOSE) { "File created: $this" }
+    return this
 }
 
 suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
@@ -105,12 +101,21 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
             throw IllegalStateException("Exists, but is not a directory: $this")
         }
     }
-    try {
-        gateway.createDir(downCast())
-        log(VERBOSE) { "Directory created: $this" }
-        return this
-    } catch (e: Exception) {
-        throw IllegalStateException("Couldn't create Directory: $this", e)
+
+    gateway.createDir(downCast())
+    log(VERBOSE) { "Directory created: $this" }
+    return this
+}
+
+suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+    return if (gateway.delete(this)) {
+        log(VERBOSE) { "APath.delete(): Deleted $this" }
+        true
+    } else if (!exists(gateway)) {
+        log(WARN) { "APath.delete(): File didn't exist: $this" }
+        true
+    } else {
+        throw FileNotFoundException("Failed to delete file: $this")
     }
 }
 
@@ -119,9 +124,9 @@ suspend fun <T : APath> T.deleteAll(gateway: APathGateway<T, out APathLookup<T>>
         gateway.listFiles(downCast()).forEach { it.deleteAll(gateway) }
     }
     if (gateway.delete(this)) {
-        log(VERBOSE) { "File.release(): Deleted $this" }
+        log(VERBOSE) { "APath.deleteAll(): Deleted $this" }
     } else if (!exists(gateway)) {
-        log(WARN) { "File.release(): File didn't exist: $this" }
+        log(WARN) { "APath.deleteAll(): File didn't exist: $this" }
     } else {
         throw FileNotFoundException("Failed to delete file: $this")
     }
@@ -192,28 +197,6 @@ suspend fun <T : APath> T.isDirectory(gateway: APathGateway<T, out APathLookup<T
 
 suspend fun <T : APath> T.mkdirs(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
     return gateway.createDir(downCast())
-}
-
-suspend fun <T : APath> T.tryMkDirs(gateway: APathGateway<T, out APathLookup<T>>): APath {
-    if (exists(gateway)) {
-        if (isDirectory(gateway)) {
-            log(VERBOSE) { "Directory already exists, not creating: $this" }
-            return this
-        } else {
-            throw IllegalStateException("Directory exists, but is not a directory: $this").also {
-                log(VERBOSE) { "Directory exists, but is not a directory: $this:\n${it.asLog()}" }
-            }
-        }
-    }
-
-    if (mkdirs(gateway)) {
-        log(VERBOSE) { "Directory created: $this" }
-        return this
-    } else {
-        throw IllegalStateException("Couldn't create Directory: $this").also {
-            log(VERBOSE) { "Couldn't create Directory: ${it.asLog()}" }
-        }
-    }
 }
 
 //
@@ -309,53 +292,5 @@ fun APath.removePrefix(prefix: APath): List<String> {
         APath.PathType.LOCAL -> (this.downCast() as LocalPath).removePrefix(prefix.downCast() as LocalPath)
         APath.PathType.SAF -> (this.downCast() as SAFPath).removePrefix(prefix.downCast() as SAFPath)
         APath.PathType.RAW -> this.downCast().segments.drop(prefix.downCast().segments.size)
-    }
-}
-
-fun List<String>?.matches(other: List<String>?, ignoreCase: Boolean = false): Boolean {
-    if (this == null) return other == null
-    if (this.size != other?.size) return false
-    return indices.all { this[it].equals(other[it], ignoreCase) }
-}
-
-fun List<String>?.isAncestorOf(other: List<String>?, ignoreCase: Boolean = false): Boolean {
-    if (this == null || other == null) return false
-    if (this.size >= other.size) return false
-
-    return indices.all { this[it].equals(other[it], ignoreCase) }
-}
-
-fun List<String>?.contains(other: List<String>?, ignoreCase: Boolean = false): Boolean {
-    if (this == null || other == null) return false
-    if (this.size < other.size) return false
-    return if (ignoreCase) {
-        Collections.indexOfSubList(this.map { it.lowercase() }, other.map { it.lowercase() }) != -1
-    } else {
-        Collections.indexOfSubList(this, other) != -1
-    }
-}
-
-fun List<String>?.startsWith(other: List<String>?, ignoreCase: Boolean = false): Boolean {
-    if (this == null || other == null) return false
-    if (this.size < other.size) return false
-
-    val thisCase = if (ignoreCase) this.map { it.lowercase() } else this
-    val otherCase = if (ignoreCase) other.map { it.lowercase() } else other
-
-    return when {
-        thisCase.isEmpty() -> {
-            otherCase.isEmpty()
-        }
-        otherCase.size == 1 -> {
-            thisCase.first().startsWith(otherCase.first())
-        }
-        thisCase.size == otherCase.size -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(1)
-            match && thisCase.last().startsWith(otherCase.last())
-        }
-        else -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(thisCase.size - otherCase.size + 1)
-            match && thisCase[otherCase.size - 1].startsWith(otherCase.last())
-        }
     }
 }

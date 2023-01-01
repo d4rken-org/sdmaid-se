@@ -170,4 +170,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
     androidTestImplementation("androidx.navigation:navigation-testing:2.5.0")
 
+
+    testImplementation("org.robolectric:robolectric:4.9.1")
+    testImplementation("androidx.test.ext:junit:1.1.4")
 }

@@ -55,12 +55,11 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
             }
 
             "packageName2".toPkgId().let { pkg ->
-
                 mockArchive(pkg, areaPath.child(randomFolder, "blabla.apk")).apply {
                     every { versionCode } returns 2L
                 }
                 SuperfluousApksFilter.EXCLUSIONS.forEach { exclusionFolder ->
-                    mockArchive(pkg, areaPath.child(exclusionFolder, "blabla.apk")).apply {
+                    mockArchive(pkg, areaPath.child(*exclusionFolder.segments.toTypedArray(), "blabla.apk")).apply {
                         every { versionCode } returns 2L
                     }
                 }

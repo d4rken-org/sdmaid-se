@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -32,10 +31,6 @@ class LinuxFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/\\.Trash)$".replace("/", "\\" + File.separator)),
             Regex("^(?:[\\W\\w]+/\\.Trash-[0-9]{1,4})$".replace("/", "\\" + File.separator)),
@@ -43,7 +38,6 @@ class LinuxFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.DIRECTORY,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
             regexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
@@ -52,7 +46,7 @@ class LinuxFilesFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

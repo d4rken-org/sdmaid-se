@@ -29,7 +29,9 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
+        mockNegative(DataArea.Type.PUBLIC_DATA, "/.Trash", Flags.DIR)
         mockPositive(DataArea.Type.SDCARD, "/.Trash", Flags.DIR)
+        mockPositive(DataArea.Type.SDCARD, "/somedir/.Trash", Flags.DIR)
         mockPositive(DataArea.Type.SDCARD, "/.Trash-0", Flags.DIR)
         mockPositive(DataArea.Type.SDCARD, "/.Trash-11", Flags.DIR)
         mockPositive(DataArea.Type.SDCARD, "/.Trash-222", Flags.DIR)

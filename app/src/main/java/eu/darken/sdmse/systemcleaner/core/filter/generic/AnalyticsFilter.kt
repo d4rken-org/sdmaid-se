@@ -8,11 +8,11 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -34,22 +34,18 @@ class AnalyticsFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
-
-        val pathContains = setOf(".bugsense")
+        val pathContains = setOf(
+            segs(".bugsense")
+        )
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))
         )
 
         val config = BaseSieve.Config(
+            areaTypes = targetAreas(),
             targetType = BaseSieve.TargetType.FILE,
-            basePaths = basePaths,
             pathContains = pathContains,
             regexes = regexes,
-            areaTypes = targetAreas(),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -57,7 +53,7 @@ class AnalyticsFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

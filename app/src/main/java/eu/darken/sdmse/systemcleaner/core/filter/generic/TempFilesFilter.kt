@@ -8,11 +8,11 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -38,25 +38,19 @@ class TempFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val basePaths = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .map { it.path }
-            .toSet()
-
-        val pathContains = tempSuffixes + setOf(
-            ".mmsyscache",
-            "sdm_write_test-"
-        )
-
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = basePaths,
-            pathContains = pathContains,
             exclusions = setOf(
-                "/backup/pending/",
-                "/cache/recovery/",
-                "com.drweb.pro.market/files/pro_settings", // TODO move to exclusion manager?
+                BaseSieve.Exclusion(segs("backup", "pending")),
+                BaseSieve.Exclusion(segs("cache", "recovery")),
+                BaseSieve.Exclusion(
+                    segs(
+                        "com.drweb.pro.market",
+                        "files",
+                        "pro_settings"
+                    )
+                ), // TODO move to exclusion manager?
             )
         )
 
@@ -74,12 +68,13 @@ class TempFilesFilter @Inject constructor(
     )
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        if (!sieve.match(item)) return false
+        val sieveResult = sieve.match(item)
+        if (!sieveResult.matches) return false
 
         return when {
             tempSuffixes.any { item.name.endsWith(it) } -> true
             item.name == ".mmsyscache" -> true
-            sdmTempFileRegex.matchEntire(item.name) != null -> true
+            item.name.startsWith("sdm_write_test-") && sdmTempFileRegex.matchEntire(item.name) != null -> true
             else -> false
         }
     }

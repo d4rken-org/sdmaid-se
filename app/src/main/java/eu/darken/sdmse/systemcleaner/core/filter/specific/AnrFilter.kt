@@ -53,7 +53,6 @@ class AnrFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetType = BaseSieve.TargetType.FILE,
             areaTypes = targetAreas(),
-            basePaths = regexPairs.map { it.first }.toSet(),
             regexes = regexPairs.map { Regex(it.second) }.toSet(),
         )
 
@@ -63,7 +62,7 @@ class AnrFilter @Inject constructor(
 
 
     override suspend fun sieve(item: APathLookup<*>): Boolean {
-        return sieve.match(item)
+        return sieve.match(item).matches
     }
 
     override fun toString(): kotlin.String = "${this::class.simpleName}(${hashCode()})"

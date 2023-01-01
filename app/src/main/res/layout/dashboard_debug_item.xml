@@ -48,7 +48,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reload pkgs" />
+                android:text="Reload apps" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"

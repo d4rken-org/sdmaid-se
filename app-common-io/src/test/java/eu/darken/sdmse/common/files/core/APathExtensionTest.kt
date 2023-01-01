@@ -19,8 +19,7 @@ import java.time.Instant
 class APathExtensionTest : BaseTest() {
     private val treeUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A")
 
-    @Test
-    fun `match operator - LocalPath`() {
+    @Test fun `match operator - LocalPath`() {
         val file1: APath = LocalPath.build("test", "file1")
         val file2: APath = LocalPath.build("test", "file2")
 
@@ -54,8 +53,7 @@ class APathExtensionTest : BaseTest() {
     }
 
 
-    @Test
-    fun `match operator - SAFPath`() {
+    @Test fun `match operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "test", "file1")
         val file2: APath = SAFPath.build(treeUri, "test", "file2")
 
@@ -88,8 +86,7 @@ class APathExtensionTest : BaseTest() {
         file2.matches(lookup2) shouldBe true
     }
 
-    @Test
-    fun `match operator - mixes types`() {
+    @Test fun `match operator - mixes types`() {
         val file1: APath = LocalPath.build("test", "file1")
         val file2: APath = SAFPath.build(treeUri, "test", "file2")
 
@@ -125,8 +122,7 @@ class APathExtensionTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `isAncestorOf operator - LocalPath`() {
+    @Test fun `isAncestorOf operator - LocalPath`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = LocalPath.build("parent", "child", "niece")
 
@@ -170,8 +166,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isAncestorOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isAncestorOf operator - SAFPath`() {
+    @Test fun `isAncestorOf operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child", "niece")
 
@@ -215,8 +210,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isAncestorOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isAncestorOf operator - mixed types`() {
+    @Test fun `isAncestorOf operator - mixed types`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child", "niece")
 
@@ -252,8 +246,7 @@ class APathExtensionTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `isDescendantOf operator - LocalPath`() {
+    @Test fun `isDescendantOf operator - LocalPath`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = LocalPath.build("parent", "child", "niece")
 
@@ -297,8 +290,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isDescendantOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isDescendantOf operator - SAFPath`() {
+    @Test fun `isDescendantOf operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child", "niece")
 
@@ -342,8 +334,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isDescendantOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isDescendantOf operator - mixed types`() {
+    @Test fun `isDescendantOf operator - mixed types`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child", "niece")
 
@@ -379,8 +370,7 @@ class APathExtensionTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `isParentOf operator - LocalPath`() {
+    @Test fun `isParentOf operator - LocalPath`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = LocalPath.build("parent", "child")
 
@@ -424,8 +414,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isParentOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isParentOf operator - SAFPath`() {
+    @Test fun `isParentOf operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -469,8 +458,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isParentOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isParentOf operator - mixed types`() {
+    @Test fun `isParentOf operator - mixed types`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -506,8 +494,7 @@ class APathExtensionTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `isChildOf operator - LocalPath`() {
+    @Test fun `isChildOf operator - LocalPath`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = LocalPath.build("parent", "child")
 
@@ -551,8 +538,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isChildOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isChildOf operator - SAFPath`() {
+    @Test fun `isChildOf operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -596,8 +582,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.isChildOf(lookup2) shouldBe false
     }
 
-    @Test
-    fun `isChildOf operator - mixed types`() {
+    @Test fun `isChildOf operator - mixed types`() {
         val file1: APath = LocalPath.build("parent")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -634,8 +619,7 @@ class APathExtensionTest : BaseTest() {
     }
 
 
-    @Test
-    fun `startsWith operator - LocalPath`() {
+    @Test fun `startsWith operator - LocalPath`() {
         val file1: APath = LocalPath.build("parent", "chi")
         val file2: APath = LocalPath.build("parent", "child")
 
@@ -679,8 +663,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.startsWith(lookup2) shouldBe true
     }
 
-    @Test
-    fun `startsWith operator - SAFPath`() {
+    @Test fun `startsWith operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "parent", "chi")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -724,8 +707,7 @@ class APathExtensionTest : BaseTest() {
         lookup2.startsWith(lookup2) shouldBe true
     }
 
-    @Test
-    fun `startsWith operator - mixed types`() {
+    @Test fun `startsWith operator - mixed types`() {
         val file1: APath = LocalPath.build("parent", "chi")
         val file2: APath = SAFPath.build(treeUri, "parent", "child")
 
@@ -855,59 +837,5 @@ class APathExtensionTest : BaseTest() {
         shouldThrow<IllegalArgumentException> {
             prefix.removePrefix(pre) shouldBe listOf("pre", "fix")
         }
-    }
-
-    @Test
-    fun `test segment matches`() {
-        emptyList<String>().matches(emptyList()) shouldBe true
-        null.matches(listOf("abc", "def")) shouldBe false
-        listOf("abc", "def").matches(null) shouldBe false
-        listOf("abc", "def").matches(listOf("abc", "def")) shouldBe true
-        listOf("abc", "DEF").matches(listOf("abc", "def")) shouldBe false
-        listOf("abc", "DEF").matches(listOf("abc", "def"), ignoreCase = true) shouldBe true
-    }
-
-    @Test
-    fun `test segment isAncestorOf`() {
-        emptyList<String>().isAncestorOf(emptyList()) shouldBe false
-        null.isAncestorOf(listOf("abc", "def")) shouldBe false
-        listOf("abc", "def").isAncestorOf(null) shouldBe false
-        listOf("abc").isAncestorOf(listOf("abc", "def")) shouldBe true
-        listOf("ABC").isAncestorOf(listOf("abc", "def")) shouldBe false
-        listOf("ABC").isAncestorOf(listOf("abc", "def"), ignoreCase = true) shouldBe true
-    }
-
-    @Test
-    fun `test segment contains`() {
-        emptyList<String>().contains(emptyList()) shouldBe true
-        listOf("abc", "def", "ghi").contains(listOf("abc", "def", "ghi")) shouldBe true
-        listOf("abc", "def", "ghi").contains(listOf("abc", "def")) shouldBe true
-        listOf("abc", "def", "ghi").contains(listOf("def")) shouldBe true
-        listOf("abc", "DEF", "ghi").contains(listOf("def")) shouldBe false
-        listOf("abc", "DEF", "ghi").contains(listOf("def"), ignoreCase = true) shouldBe true
-    }
-
-    @Test
-    fun `test segment startsWith`() {
-        emptyList<String>().startsWith(emptyList()) shouldBe true
-        null.startsWith(listOf("abc", "def")) shouldBe false
-        listOf("abc", "def").startsWith(null) shouldBe false
-
-        listOf("abc", "def").startsWith(listOf("abc", "def")) shouldBe true
-        listOf("abc", "def").startsWith(listOf("abc", "de")) shouldBe true
-        listOf("abc", "def").startsWith(listOf("abc")) shouldBe true
-        listOf("abc", "def").startsWith(listOf("ab")) shouldBe true
-
-        listOf("ABc", "def").startsWith(listOf("abc", "def")) shouldBe false
-        listOf("ABc", "def").startsWith(listOf("abc", "def"), ignoreCase = true) shouldBe true
-
-        listOf("ABc", "def").startsWith(listOf("abc", "de")) shouldBe false
-        listOf("ABc", "def").startsWith(listOf("abc", "de"), ignoreCase = true) shouldBe true
-
-        listOf("ABc", "def").startsWith(listOf("abc")) shouldBe false
-        listOf("ABc", "def").startsWith(listOf("abc"), ignoreCase = true) shouldBe true
-
-        listOf("ABc", "def").startsWith(listOf("ab")) shouldBe false
-        listOf("ABc", "def").startsWith(listOf("ab"), ignoreCase = true) shouldBe true
     }
 }
