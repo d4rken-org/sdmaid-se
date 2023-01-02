@@ -199,29 +199,8 @@ suspend fun <T : APath> T.mkdirs(gateway: APathGateway<T, out APathLookup<T>>): 
     return gateway.createDir(downCast())
 }
 
-//
-//    fun isChildOf(parent: SDMFile, children: Collection<SDMFile?>): Collection<SDMFile> {
-//        val filteredChildren: MutableCollection<SDMFile> = HashSet<SDMFile>()
-//        for (child in children) {
-//            if (isChildOf(parent, child)) filteredChildren.add(child)
-//        }
-//        return filteredChildren
-//    }
-//
-//    fun <T : SDMFile?> isChildOf(parents: Collection<T>, children: Collection<T>): Collection<T> {
-//        val filteredChildren: MutableCollection<T> = HashSet()
-//        for (parent in parents) {
-//            for (child in children) {
-//                if (isChildOf(parent, child)) filteredChildren.add(child)
-//            }
-//        }
-//        return filteredChildren
-//    }
-
 fun APath.isAncestorOf(descendant: APath): Boolean {
-    if (this.pathType != descendant.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $descendant)")
-    }
+    if (this.pathType != descendant.pathType) return false
     return when (pathType) {
         APath.PathType.LOCAL -> (this.downCast() as LocalPath).isAncestorOf(descendant.downCast() as LocalPath)
         APath.PathType.SAF -> (this.downCast() as SAFPath).isAncestorOf(descendant.downCast() as SAFPath)
@@ -230,9 +209,7 @@ fun APath.isAncestorOf(descendant: APath): Boolean {
 }
 
 fun APath.isDescendantOf(ancestor: APath): Boolean {
-    if (this.pathType != ancestor.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $ancestor)")
-    }
+    if (this.pathType != ancestor.pathType) return false
     return ancestor.isAncestorOf(this)
 }
 
@@ -241,9 +218,7 @@ fun APath.isDescendantOf(ancestor: APath): Boolean {
  * See [isAncestorOf]
  */
 fun APath.isParentOf(child: APath): Boolean {
-    if (this.pathType != child.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $child)")
-    }
+    if (this.pathType != child.pathType) return false
     return when (pathType) {
         APath.PathType.LOCAL -> (this.downCast() as LocalPath).isParentOf(child.downCast() as LocalPath)
         APath.PathType.SAF -> (this.downCast() as SAFPath).isParentOf(child.downCast() as SAFPath)
@@ -252,16 +227,12 @@ fun APath.isParentOf(child: APath): Boolean {
 }
 
 fun APath.isChildOf(parent: APath): Boolean {
-    if (this.pathType != parent.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $parent)")
-    }
+    if (this.pathType != parent.pathType) return false
     return parent.isParentOf(this)
 }
 
 fun APath.matches(other: APath): Boolean {
-    if (this.pathType != other.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $other)")
-    }
+    if (this.pathType != other.pathType) return false
     return when (pathType) {
         APath.PathType.LOCAL -> (this.downCast() as LocalPath).path == (other.downCast() as LocalPath).path
         APath.PathType.SAF -> (this.downCast() as SAFPath).path == (other.downCast() as SAFPath).path
@@ -274,9 +245,7 @@ fun APath.containsSegments(vararg target: String): Boolean {
 }
 
 fun APath.startsWith(prefix: APath): Boolean {
-    if (this.pathType != prefix.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $prefix)")
-    }
+    if (this.pathType != prefix.pathType) return false
     return when (pathType) {
         APath.PathType.LOCAL -> (this.downCast() as LocalPath).startsWith(prefix.downCast() as LocalPath)
         APath.PathType.SAF -> (this.downCast() as SAFPath).startsWith(prefix.downCast() as SAFPath)
