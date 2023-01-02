@@ -181,8 +181,8 @@ class DashboardFragmentVM @Inject constructor(
 
         items
     }
-        .setupCommonEventHandlers(TAG) { "listItems" }
         .throttleLatest(500)
+        .setupCommonEventHandlers(TAG) { "listItems" }
         .asLiveData2()
 
 
