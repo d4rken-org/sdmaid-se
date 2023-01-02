@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.root.RootUnavailableException
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.root.javaroot.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -32,8 +32,6 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.*
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -45,6 +43,7 @@ class PkgOps @Inject constructor(
     private val javaRootClient: JavaRootClient,
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,
+    private val rootManager: RootManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -53,23 +52,7 @@ class PkgOps @Inject constructor(
         return javaRootClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
-    private var rootCheckValue = 0
-    private val rootCheckLock = Mutex()
-
-    suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
-        if (rootCheckValue != 0) return@withLock rootCheckValue == 1
-
-        rootCheckValue = try {
-            javaRootClient.runSessionAction { it.ipc.checkBase() }
-            log(TAG, INFO) { "Root is available." }
-            1
-        } catch (e: RootUnavailableException) {
-            log(TAG, INFO) { "Root is NOT available." }
-            -1
-        }
-
-        return@withLock rootCheckValue == 1
-    }
+    suspend fun hasRoot(): Boolean = rootManager.hasRoot()
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
         client.getUserNameForUID(uid)

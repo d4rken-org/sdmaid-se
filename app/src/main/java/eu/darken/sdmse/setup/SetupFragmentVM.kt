@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.setup.root.RootSetupCardVH
+import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardVH
@@ -29,6 +31,7 @@ class SetupFragmentVM @Inject constructor(
     private val safSetupModule: SAFSetupModule,
     private val storageSetupModule: StorageSetupModule,
     private val webpageTool: WebpageTool,
+    private val rootSetupModule: RootSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val navArgs by handle.navArgs<SetupFragmentArgs>()
@@ -65,6 +68,18 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#manage-storage")
                             },
                         )
+                        is RootSetupModule.State -> RootSetupCardVH.Item(
+                            setupState = state,
+                            onToggleUseRoot = {
+                                launch {
+                                    rootSetupModule.toggleUseRoot(it)
+                                    rootSetupModule.refresh()
+                                }
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#root-access")
+                            },
+                        )
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
@@ -97,6 +112,7 @@ class SetupFragmentVM @Inject constructor(
         private val DISPLAY_ORDER = listOf(
             StorageSetupCardVH.Item::class,
             SAFSetupCardVH.Item::class,
+            RootSetupCardVH.Item::class,
         )
         private val TAG = logTag("Setup", "Fragment", "VM")
     }

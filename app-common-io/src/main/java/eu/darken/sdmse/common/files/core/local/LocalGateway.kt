@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.root.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.root.RootUnavailableException
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.root.javaroot.runModuleAction
 import eu.darken.sdmse.common.sharedresource.Resource
@@ -21,8 +21,6 @@ import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import okio.*
 import timber.log.Timber
@@ -42,6 +40,7 @@ class LocalGateway @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val storageEnvironment: StorageEnvironment,
+    private val rootManager: RootManager,
 ) : APathGateway<LocalPath, LocalPathLookup> {
 
     // Represents the resource that keeps the gateway resources alive
@@ -52,23 +51,7 @@ class LocalGateway @Inject constructor(
         return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
-    private var rootCheckValue = 0
-    private val rootCheckLock = Mutex()
-
-    suspend fun hasRoot(): Boolean = rootCheckLock.withLock {
-        if (rootCheckValue != 0) return@withLock rootCheckValue == 1
-
-        rootCheckValue = try {
-            javaRootClient.runSessionAction { it.ipc.checkBase() }
-            log(TAG, INFO) { "Root is available." }
-            1
-        } catch (e: RootUnavailableException) {
-            log(TAG, INFO) { "Root is NOT available." }
-            -1
-        }
-
-        return@withLock rootCheckValue == 1
-    }
+    suspend fun hasRoot(): Boolean = rootManager.hasRoot()
 
     private val sharedUserShell = SharedShell(TAG, appScope + dispatcherProvider.IO)
     private suspend fun getShellSession(): Resource<RxCmdShell.Session> {

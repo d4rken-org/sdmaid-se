@@ -155,4 +155,8 @@
     <string name="settings_category_filter_specific">Specific filter</string>
     <string name="systemcleaner_filter_localtmp_label">Local temporary files</string>
     <string name="systemcleaner_filter_localtmp_summary">System related temporary files (e.g. from Android Studio).</string>
+    <string name="setup_root_card_title">Root access</string>
+    <string name="setup_root_card_body">Root access allows SD Maid to check additional system folders and private application data.</string>
+    <string name="setup_root_toggle_label">Use root if available</string>
+    <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted.</string>
 </resources>

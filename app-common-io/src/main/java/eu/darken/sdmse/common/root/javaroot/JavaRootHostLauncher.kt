@@ -18,14 +18,14 @@ class JavaRootHostLauncher @Inject constructor(
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
 ) {
 
-    /**
-     * TODO Keep this false, but evaluate more types of rooted devices
-     * Not needed unless [DataAreaManager] fails to get the altered paths or the rest of IO can't cope.
-     * Being able to work without mount-master is more reliable.
-     */
-    var useMountMaster: Boolean = false
-
-    fun create(): Flow<JavaRootClient.Connection> = rootHostLauncher
+    fun create(
+        /**
+         * TODO Keep this false, but evaluate more types of rooted devices
+         * Not needed unless [DataAreaManager] fails to get the altered paths or the rest of IO can't cope.
+         * Being able to work without mount-master is more reliable.
+         */
+        useMountMaster: Boolean = false
+    ): Flow<JavaRootClient.Connection> = rootHostLauncher
         .createConnection(
             binderClass = JavaRootConnection::class,
             rootHostClass = JavaRootHost::class,
