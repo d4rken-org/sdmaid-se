@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupModule
@@ -44,7 +45,11 @@ class SetupFragmentVM @Inject constructor(
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
                             setupState = state,
-                            onPathClicked = { events.postValue(SetupEvents.SafRequestAccess(it)) },
+                            onPathClicked = {
+                                if (!it.hasAccess) {
+                                    events.postValue(SetupEvents.SafRequestAccess(it))
+                                }
+                            },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#storage-access-framework")
                             },
@@ -52,7 +57,9 @@ class SetupFragmentVM @Inject constructor(
                         is StorageSetupModule.State -> StorageSetupCardVH.Item(
                             setupState = state,
                             onPathClicked = {
-                                events.postValue(SetupEvents.RuntimePermissionRequests(state.missingPermission))
+                                state.missingPermission.firstOrNull()?.let {
+                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                }
                             },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#manage-storage")
@@ -61,6 +68,7 @@ class SetupFragmentVM @Inject constructor(
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
+                .sortedBy { item -> DISPLAY_ORDER.indexOfFirst { it.isInstance(item) } }
                 .run { items.addAll(this) }
 
 
@@ -80,12 +88,16 @@ class SetupFragmentVM @Inject constructor(
         }
     }
 
-    fun onRuntimePermissionGranted(granted: Boolean) = launch {
-        log(TAG) { "onRuntimePermissionGranted(granted=$granted)" }
+    fun onRuntimePermissionsGranted(result: Permission?, granted: Boolean) = launch {
+        log(TAG) { "onRuntimePermissionGranted(result=$result,granted=$granted)" }
         if (granted) storageSetupModule.refresh()
     }
 
     companion object {
+        private val DISPLAY_ORDER = listOf(
+            StorageSetupCardVH.Item::class,
+            SAFSetupCardVH.Item::class,
+        )
         private val TAG = logTag("Setup", "Fragment", "VM")
     }
 }

@@ -61,15 +61,8 @@ class LocalPathCardAdapter @Inject constructor() :
             primary.text = item.pathAccess.label.get(context)
             secondary.text = item.pathAccess.localPath.userReadablePath.get(context)
 
-            itemView.apply {
-                if (item.pathAccess.hasAccess) {
-                    setOnClickListener(null)
-                } else {
-                    setOnClickListener { item.onClicked(item.pathAccess) }
-                }
-            }
+            itemView.setOnClickListener { item.onClicked(item.pathAccess) }
         }
-
 
     }
 }

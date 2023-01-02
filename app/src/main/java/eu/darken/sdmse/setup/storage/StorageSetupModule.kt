@@ -31,11 +31,6 @@ class StorageSetupModule @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(rngString)
     override val state = refreshTrigger.mapLatest {
-        if (!hasApiLevel(30)) {
-            log(TAG) { "<API30, MANAGE_EXTERNAL_STORAGE is not required." }
-            return@mapLatest null
-        }
-
         val requiredPermission = getRequiredPermission()
         val missingPermission = requiredPermission.filter {
             val isGranted = it.isGranted(context)

@@ -13,6 +13,6 @@ sealed interface SetupEvents {
     ) : SetupEvents
 
     data class RuntimePermissionRequests(
-        val item: Set<Permission>,
+        val item: Permission,
     ) : SetupEvents
 }

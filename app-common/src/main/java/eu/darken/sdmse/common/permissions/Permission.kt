@@ -1,34 +1,74 @@
 package eu.darken.sdmse.common.permissions
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import android.os.Environment
 import android.os.PowerManager
+import android.provider.Settings
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.BuildConfigWrap
 
-enum class Permission(
-    val permissionId: String,
-    val isGranted: (Context) -> Boolean = {
-        ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
-    },
+@Suppress("ClassName")
+sealed class Permission(
+    val permissionId: String
 ) {
-    POST_NOTIFICATIONS(
-        permissionId = "android.permission.POST_NOTIFICATIONS",
-    ),
-    IGNORE_BATTERY_OPTIMIZATION(
-        permissionId = "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
-        isGranted = {
-            val pwm = it.getSystemService(Context.POWER_SERVICE) as PowerManager
-            pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
-        },
-    ),
-    MANAGE_EXTERNAL_STORAGE(
-        permissionId = "android.permission.MANAGE_EXTERNAL_STORAGE",
-    ),
-    WRITE_EXTERNAL_STORAGE(
-        permissionId = "android.permission.WRITE_EXTERNAL_STORAGE",
-    ),
-    READ_EXTERNAL_STORAGE(
-        permissionId = "android.permission.READ_EXTERNAL_STORAGE",
-    ),
+    open fun isGranted(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(context, permissionId) == PackageManager.PERMISSION_GRANTED
+    }
+
+    object POST_NOTIFICATIONS
+        : Permission("android.permission.POST_NOTIFICATIONS"), RuntimePermission
+
+    @SuppressLint("BatteryLife")
+    object IGNORE_BATTERY_OPTIMIZATION
+        : Permission("android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"), Specialpermission {
+        override fun isGranted(context: Context): Boolean {
+            val pwm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+            return pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
+        }
+
+        override fun createIntent(context: Context): Intent = Intent().apply {
+            action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+            data = Uri.fromParts("package", context.packageName, null)
+        }
+
+        override fun createIntentFallback(context: Context): Intent = Intent().apply {
+            Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    object MANAGE_EXTERNAL_STORAGE
+        : Permission("android.permission.MANAGE_EXTERNAL_STORAGE"), Specialpermission {
+        override fun isGranted(context: Context): Boolean {
+            return Environment.isExternalStorageManager()
+        }
+
+        override fun createIntent(context: Context): Intent = Intent().apply {
+            action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
+            data = Uri.fromParts("package", context.packageName, null)
+        }
+
+        override fun createIntentFallback(context: Context): Intent = Intent().apply {
+            action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
+        }
+    }
+
+    object WRITE_EXTERNAL_STORAGE
+        : Permission("android.permission.WRITE_EXTERNAL_STORAGE"), RuntimePermission
+
+    object READ_EXTERNAL_STORAGE
+        : Permission("android.permission.READ_EXTERNAL_STORAGE"), RuntimePermission
+}
+
+interface RuntimePermission
+
+interface Specialpermission {
+    fun createIntent(context: Context): Intent
+    fun createIntentFallback(context: Context): Intent? = null
 }
