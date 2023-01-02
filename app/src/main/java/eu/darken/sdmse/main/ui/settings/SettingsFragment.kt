@@ -55,10 +55,13 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
         }
 
         if (savedInstanceState == null) {
-            childFragmentManager
-                .beginTransaction()
-                .replace(R.id.content_frame, SettingsIndexFragment())
-                .commit()
+            val currentFragment = childFragmentManager.findFragmentById(R.id.content_frame)
+            if (currentFragment == null) {
+                childFragmentManager
+                    .beginTransaction()
+                    .add(R.id.content_frame, SettingsIndexFragment())
+                    .commit()
+            }
         } else {
             savedInstanceState.getParcelableArrayList<Screen>(BKEY_SCREEN_INFOS)?.let {
                 screens.addAll(it)
@@ -70,7 +73,6 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
 
         super.onViewCreated(view, savedInstanceState)
     }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

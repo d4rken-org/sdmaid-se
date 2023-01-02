@@ -27,14 +27,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/settingsContainerFragment"
-        android:name="eu.darken.sdmse.main.ui.settings.SettingsFragment"
-        tools:layout="@layout/settings_fragment" />
-
-    <fragment
         android:id="@+id/setupFragment"
         android:name="eu.darken.sdmse.setup.SetupFragment"
-        tools:layout="@layout/setup_fragment" />
+        tools:layout="@layout/setup_fragment">
+        <argument
+            android:name="showCompleted"
+            app:argType="boolean" />
+    </fragment>
+
     <fragment
         android:id="@+id/corpseFinderDetailsFragment"
         android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
@@ -47,4 +47,14 @@
         android:id="@+id/appCleanerDetailsFragment"
         android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
         tools:layout="@layout/appcleaner_details_fragment" />
+
+    <fragment
+        android:id="@+id/settingsContainerFragment"
+        android:name="eu.darken.sdmse.main.ui.settings.SettingsFragment"
+        tools:layout="@layout/settings_fragment">
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
+    </fragment>
+
 </navigation>
