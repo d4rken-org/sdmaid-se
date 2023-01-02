@@ -166,9 +166,9 @@ dependencies {
 
     implementation("androidx.core:core-splashscreen:1.0.0")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.5.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
+    androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
 
 
     testImplementation("org.robolectric:robolectric:4.9.1")

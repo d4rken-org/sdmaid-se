@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
+import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import javax.inject.Inject
 
 
@@ -25,6 +26,7 @@ class SetupAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
+        modules.add(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
     }
 

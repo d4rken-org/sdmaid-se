@@ -166,7 +166,9 @@ class DashboardFragmentVM @Inject constructor(
                     refreshTrigger.value = rngString
                 },
                 onContinue = {
-                    DashboardFragmentDirections.actionDashboardFragmentToSetupFragment().navigate()
+                    DashboardFragmentDirections.actionDashboardFragmentToSetupFragment(
+                        showCompleted = false
+                    ).navigate()
                 }
             ).run { items.add(this) }
         }

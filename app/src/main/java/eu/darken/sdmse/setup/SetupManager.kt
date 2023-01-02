@@ -1,16 +1,19 @@
 package eu.darken.sdmse.setup
 
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.flow.replayingShare
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class SetupManager @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     private val setupModules: Set<@JvmSuppressWildcards SetupModule>
 ) {
     data class SetupState(
@@ -20,17 +23,16 @@ class SetupManager @Inject constructor(
         val isComplete: Boolean = moduleStates.all { it.isComplete }
     }
 
-    private val refreshTrigger = MutableStateFlow(rngString)
-    val state: Flow<SetupState> = refreshTrigger
-        .map { _ ->
-            setupModules.map { it.determineState() }
-        }
-        .map { SetupState(moduleStates = it) }
+    val state: Flow<SetupState> = combine(setupModules.map { it.state }) { moduleStates ->
+        SetupState(moduleStates = moduleStates.filterNotNull().toList())
+    }
+        .onEach { log(TAG) { "Setup state: $it" } }
+        .replayingShare(appScope)
 
 
-    fun refresh() {
+    suspend fun refresh() {
         log(TAG) { "refresh()" }
-        refreshTrigger.value = rngString
+        setupModules.forEach { it.refresh() }
     }
 
     companion object {

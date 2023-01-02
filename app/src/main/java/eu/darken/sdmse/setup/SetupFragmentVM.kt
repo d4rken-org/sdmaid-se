@@ -5,13 +5,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.storage.StorageSetupCardVH
+import eu.darken.sdmse.setup.storage.StorageSetupModule
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -22,7 +26,11 @@ class SetupFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val setupManager: SetupManager,
     private val safSetupModule: SAFSetupModule,
+    private val storageSetupModule: StorageSetupModule,
+    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    private val navArgs by handle.navArgs<SetupFragmentArgs>()
 
     val events = SingleLiveEvent<SetupEvents>()
 
@@ -31,14 +39,23 @@ class SetupFragmentVM @Inject constructor(
             val items = mutableListOf<SetupAdapter.Item>()
 
             setupState.moduleStates
-                .filter { !it.isComplete }
+                .filter { !it.isComplete || navArgs.showCompleted }
                 .map { state ->
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
                             setupState = state,
                             onPathClicked = { events.postValue(SetupEvents.SafRequestAccess(it)) },
                             onHelp = {
-                                TODO()
+                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#storage-access-framework")
+                            },
+                        )
+                        is StorageSetupModule.State -> StorageSetupCardVH.Item(
+                            setupState = state,
+                            onPathClicked = {
+                                events.postValue(SetupEvents.RuntimePermissionRequests(state.missingPermission))
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#manage-storage")
                             },
                         )
                         else -> throw IllegalArgumentException("Unknown state: $state")
@@ -58,10 +75,14 @@ class SetupFragmentVM @Inject constructor(
         if (uri == null) return@launch
         try {
             safSetupModule.takePermission(uri)
-            setupManager.refresh()
         } catch (e: IllegalArgumentException) {
             events.postValue(SetupEvents.SafWrongPathError(e))
         }
+    }
+
+    fun onRuntimePermissionGranted(granted: Boolean) = launch {
+        log(TAG) { "onRuntimePermissionGranted(granted=$granted)" }
+        if (granted) storageSetupModule.refresh()
     }
 
     companion object {

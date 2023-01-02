@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,7 +15,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_saf"
+            android:src="@drawable/ic_sd_storage"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/title" />
@@ -29,7 +28,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/setup_saf_card_title"
+            android:text="@string/setup_manage_storage_card_title"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -41,14 +40,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:text="@string/setup_saf_card_body"
-            app:layout_constraintBottom_toTopOf="@id/saf_item_list"
+            android:text="@string/setup_manage_storage_card_body"
+            app:layout_constraintBottom_toTopOf="@id/path_item_list"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/saf_item_list"
+            android:id="@+id/path_item_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
@@ -57,8 +56,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body"
-            tools:itemCount="4"
-            tools:listitem="@layout/setup_saf_item_path" />
+            tools:itemCount="2"
+            tools:listitem="@layout/setup_storage_path_item" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/grant_action"
@@ -68,7 +67,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
             android:text="@string/general_grant_access_action"
-            app:layout_constraintTop_toBottomOf="@id/saf_item_list" />
+            app:layout_constraintTop_toBottomOf="@id/path_item_list" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
@@ -77,9 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="@string/setup_saf_card_body2"
+            android:layout_marginBottom="16dp"
+            android:text="@string/setup_manage_storage_card_body2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
@@ -95,4 +94,5 @@
         app:icon="@drawable/ic_help_outline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </com.google.android.material.card.MaterialCardView>

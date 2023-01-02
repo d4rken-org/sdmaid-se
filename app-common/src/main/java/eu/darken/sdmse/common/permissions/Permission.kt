@@ -12,11 +12,8 @@ enum class Permission(
         ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
     },
 ) {
-    ACCESS_COARSE_LOCATION(
-        permissionId = "android.permission.ACCESS_COARSE_LOCATION",
-    ),
-    ACCESS_FINE_LOCATION(
-        permissionId = "android.permission.ACCESS_FINE_LOCATION",
+    POST_NOTIFICATIONS(
+        permissionId = "android.permission.POST_NOTIFICATIONS",
     ),
     IGNORE_BATTERY_OPTIMIZATION(
         permissionId = "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
@@ -25,7 +22,13 @@ enum class Permission(
             pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
         },
     ),
-    POST_NOTIFICATIONS(
-        permissionId = "android.permission.POST_NOTIFICATIONS",
+    MANAGE_EXTERNAL_STORAGE(
+        permissionId = "android.permission.MANAGE_EXTERNAL_STORAGE",
+    ),
+    WRITE_EXTERNAL_STORAGE(
+        permissionId = "android.permission.WRITE_EXTERNAL_STORAGE",
+    ),
+    READ_EXTERNAL_STORAGE(
+        permissionId = "android.permission.READ_EXTERNAL_STORAGE",
     ),
 }

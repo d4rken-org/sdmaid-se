@@ -71,7 +71,7 @@ class StorageVolumeX constructor(
             methodGetPath?.invoke(volumeObj) as? String
         } catch (e: ReflectiveOperationException) {
             Timber.tag(TAG).d("StorageVolume.path reflection failed.")
-            null
+            directory?.path
         }
 
     private val methodGetPathFile: Method? by lazy {

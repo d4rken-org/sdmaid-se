@@ -24,10 +24,13 @@ import eu.darken.sdmse.common.files.core.local.toLocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import eu.darken.sdmse.common.files.core.saf.matchPermission
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.mapLatest
 import javax.inject.Inject
 
 @Reusable
@@ -38,8 +41,9 @@ class SAFSetupModule @Inject constructor(
     private val safMapper: SAFMapper,
 ) : SetupModule {
 
-    override suspend fun determineState(): SetupModule.State {
-        return State(
+    private val refreshTrigger = MutableStateFlow(rngString)
+    override val state = refreshTrigger.mapLatest {
+        State(
             paths = getAccessObjects(),
         )
     }
@@ -159,6 +163,12 @@ class SAFSetupModule @Inject constructor(
         }
 
         safMapper.takePermission(uri)
+        refresh()
+    }
+
+    override suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        refreshTrigger.value = rngString
     }
 
     data class State(

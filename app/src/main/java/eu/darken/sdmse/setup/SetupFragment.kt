@@ -3,6 +3,7 @@ package eu.darken.sdmse.setup
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -29,11 +30,15 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     @Inject lateinit var webpageTool: WebpageTool
 
     private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.State.PathAccess>
+    private lateinit var runtimePermissionLauncher: ActivityResultLauncher<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         safRequestLauncher = registerForActivityResult(SafGrantPrimaryContract()) {
             vm.onSafAccessGranted(it)
+        }
+        runtimePermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            vm.onRuntimePermissionGranted(it)
         }
     }
 
@@ -66,6 +71,9 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                             webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                         }
                         .show()
+                }
+                is SetupEvents.RuntimePermissionRequests -> {
+
                 }
             }
         }
