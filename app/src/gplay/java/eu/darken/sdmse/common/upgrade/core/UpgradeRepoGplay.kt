@@ -18,6 +18,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
@@ -35,9 +36,11 @@ class UpgradeRepoGplay @Inject constructor(
     override val mainWebsite: String = SITE
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = billingDataRepo.billingData
-        .map { data -> // Only relinquish pro state if we haven't had it for a while
+        .map<BillingData, BillingData?> { it }
+        .onStart { emit(null) }
+        .map { data: BillingData? -> // Only relinquish pro state if we haven't had it for a while
             val now = System.currentTimeMillis()
-            val proSku = data.getProSku()
+            val proSku = data?.getProSku()
             val lastProStateAt = billingCache.lastProStateAt.value()
             log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, data=${data}" }
             when {
