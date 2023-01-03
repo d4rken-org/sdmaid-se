@@ -18,4 +18,6 @@
 
     <include layout="@layout/appcleaner_dashboard_item" />
 
+    <include layout="@layout/dashboard_upgrade_item" />
+
 </LinearLayout>
