@@ -45,6 +45,9 @@ class SegmentsExtensionTest : BaseTest() {
             ignoreCase = true,
             allowPartial = true
         ) shouldBe true
+
+        listOf("abc", "def", "ghi").containsSegments(listOf("ef"), allowPartial = false) shouldBe false
+        listOf("abc", "def", "ghi").containsSegments(listOf("ef"), allowPartial = true) shouldBe true
     }
 
     @Test fun `test segment startsWith`() {

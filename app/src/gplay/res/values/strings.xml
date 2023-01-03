@@ -15,7 +15,7 @@
     <string name="upgrade_screen_how_title">How to upgrade</string>
     <string name="upgrade_screen_how_body">You can chose between an one-time purchase and a yearly subscription. The in-app purchase breaks even after %1$s years. The subscription starts with a free trial.</string>
     <string name="upgrade_screen_subscription_action">Start free trial</string>
-    <string name="upgrade_screen_subscription_action_hint">The subscription is costs around %s per year.</string>
+    <string name="upgrade_screen_subscription_action_hint">The subscription costs around %s per year.</string>
     <string name="upgrade_screen_iap_action">Buy in-app purchase</string>
     <string name="upgrade_screen_iap_action_hint">The in-app purchase costs around %s.</string>
     <string name="upgrade_screen_thanks_toast">You are the best! ❤️</string>
