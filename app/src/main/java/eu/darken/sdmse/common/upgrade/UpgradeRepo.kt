@@ -1,13 +1,12 @@
 package eu.darken.sdmse.common.upgrade
 
-import android.app.Activity
 import kotlinx.coroutines.flow.Flow
 import java.time.Instant
 
 interface UpgradeRepo {
-    val upgradeInfo: Flow<Info>
+    val mainWebsite: String
 
-    fun launchBillingFlow(activity: Activity)
+    val upgradeInfo: Flow<Info>
 
     interface Info {
         val type: Type

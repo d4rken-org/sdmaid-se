@@ -3,6 +3,9 @@
     <string name="label_help">Help</string>
 
     <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
+    <string name="slogan_message_0">At your service.</string>
+    <string name="slogan_message_1">Clean &amp; tidy.</string>
+    <string name="slogan_message_2">Preventing chaos.</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -159,4 +162,7 @@
     <string name="setup_root_card_body">Root access allows SD Maid to check additional system folders and private application data.</string>
     <string name="setup_root_toggle_label">Use root if available</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted.</string>
+    <string name="settings_sponsor_development_title">Sponsor development</string>
+    <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
+
 </resources>

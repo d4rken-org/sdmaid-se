@@ -48,6 +48,9 @@
     <string name="general_root_required_label">Requires root</string>
     <string name="general_root_required_message">Requires a rooted device</string>
 
+    <string name="general_search_action">Search</string>
+    <string name="general_scan_device_action">Scan device</string>
+
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s items</item>

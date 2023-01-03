@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.StatsRepo
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import javax.inject.Inject
@@ -29,6 +30,17 @@ class TaskManager @Inject constructor(
 
     private val concurrencyLock = Semaphore(2)
     private var queuedTasks = 0
+
+    data class State(
+        val activeTasks: Collection<ActiveTask> = emptySet()
+    )
+
+    data class ActiveTask(
+        val task: SDMTool.Task
+    )
+
+    val state = MutableStateFlow(State())
+
 
     suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         log(TAG) { "submit(task=$task)..." }

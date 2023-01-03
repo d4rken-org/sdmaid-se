@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgraded">SD Maid SE (FOSS)</string>
-    <string name="foss_upgrade_donate_label">Donate</string>
-    <string name="foss_upgrade_alreadydonated_label">I already donated</string>
-    <string name="foss_upgrade_no_money_label">I\'m not generous</string>
-    <string name="upgrades_upgrade_sdmse_title">Support SD Maid</string>
-    <string name="upgrades_upgrade_sdmse_body">Do you like that this app has no ads and doesn\'t sell your data? Show your support and get more features!</string>
+
+    <string name="upgrades_dashcard_title">Upgrade SD Maid</string>
+    <string name="upgrades_dashcard_body">Unlock additional features and become a patron to support continued development!</string>
+    <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
+
+    <string name="upgrade_screen_title">Improve SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid has no ads and doesn\'t sell user data. Continued development is only made possible by you.</string>
+    <string name="upgrade_screen_how_title">What to do</string>
+    <string name="upgrade_screen_how_body">Become a patron and sponsor development! Clicking the button below will activate all extra features and open my Github Sponsors profile.</string>
+    <string name="upgrade_screen_why_title">This conjures 🪄</string>
+    <string name="upgrade_screen_why_body">• A motivated developer 🧙\n• Improved results 💯\n• Scheduled operations ⏰\n• Extra options for all tools ⚙️\n• Your own deletion rules ✍️\nand more…</string>
+    <string name="upgrade_screen_sponsor_action">Sponsor development</string>
+    <string name="upgrade_screen_sponsor_action_hint">The alternative are ads, analytics and Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>
 </resources>

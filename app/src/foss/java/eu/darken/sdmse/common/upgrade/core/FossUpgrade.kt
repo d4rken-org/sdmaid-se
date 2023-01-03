@@ -6,13 +6,12 @@ import java.time.Instant
 
 @JsonClass(generateAdapter = true)
 data class FossUpgrade(
-    val upgradedAt: Instant,
-    val reason: Reason
+    @Json(name = "upgradedAt") val upgradedAt: Instant,
+    @Json(name = "upgradeType") val upgradeType: Type,
 ) {
     @JsonClass(generateAdapter = false)
-    enum class Reason {
-        @Json(name = "foss.upgrade.reason.donated") DONATED,
-        @Json(name = "foss.upgrade.reason.alreadydonated") ALREADY_DONATED,
-        @Json(name = "foss.upgrade.reason.nomoney") NO_MONEY;
+    enum class Type {
+        @Json(name = "foss.upgrade.type.github.sponsors") GITHUB_SPONSORS,
+        ;
     }
 }

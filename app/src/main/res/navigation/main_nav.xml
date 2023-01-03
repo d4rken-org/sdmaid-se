@@ -24,12 +24,15 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appCleanerDetailsFragment"
             app:destination="@id/appCleanerDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_upgradeFragment"
+            app:destination="@id/upgradeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/setupFragment"
         android:name="eu.darken.sdmse.setup.SetupFragment"
-        tools:layout="@layout/setup_fragment">
+        tools:layout="@layout/upgrade_fragment">
         <argument
             android:name="showCompleted"
             app:argType="boolean" />
@@ -56,5 +59,10 @@
             android:id="@+id/action_settingsContainerFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/upgradeFragment"
+        android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
+        tools:layout="@layout/upgrade_fragment" />
 
 </navigation>

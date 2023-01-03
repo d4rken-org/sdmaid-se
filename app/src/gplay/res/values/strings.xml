@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgraded">SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Upgrade SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro offers better results, more features and options for power users.</string>
+    <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
+
     <string name="upgrades_gplay_unavailable_error">Google Play services are unavailable.</string>
     <string name="upgrades_no_purchases_found_check_account">No purchases found. Are you using the right account?</string>
-    <string name="upgrades_upgrade_sdmse_title">Upgrade SD Maid</string>
-    <string name="upgrades_upgrade_sdmse_body">Do you like that this app has no ads and doesn\'t sell your data? Upgrade to SD Maid SE Pro, get more features and show your support!</string>
+    <string name="upgrade_screen_title">Get SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid has no ads and doesn\'t sell user data. My work is financed by you.</string>
+    <string name="upgrade_screen_benefits_title">What you get</string>
+    <string name="upgrade_screen_benefits_body">• A motivated developer 🧙\n• Improved results 💯\n• Scheduled operations ⏰\n• Extra options for all tools ⚙️\n• Your own deletion rules ✍️\nand more…</string>
+    <string name="upgrade_screen_how_title">How to upgrade</string>
+    <string name="upgrade_screen_how_body">You can chose between an one-time purchase and a yearly subscription. The in-app purchase breaks even after %1$s years. The subscription starts with a free trial.</string>
+    <string name="upgrade_screen_subscription_action">Start free trial</string>
+    <string name="upgrade_screen_subscription_action_hint">The subscription is costs around %s per year.</string>
+    <string name="upgrade_screen_iap_action">Buy in-app purchase</string>
+    <string name="upgrade_screen_iap_action_hint">The in-app purchase costs around %s.</string>
+    <string name="upgrade_screen_thanks_toast">You are the best! ❤️</string>
 </resources>

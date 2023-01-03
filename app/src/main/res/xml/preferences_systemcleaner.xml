@@ -54,7 +54,7 @@
             app:summary="@string/systemcleaner_filter_tempfiles_summary"
             app:title="@string/systemcleaner_filter_tempfiles_label" />
         <CheckBoxPreference
-            app:icon="@drawable/ic_eye"
+            app:icon="@drawable/ic_analytics_onsurface"
             app:key="filter.analytics.enabled"
             app:summary="@string/systemcleaner_filter_analytics_summary"
             app:title="@string/systemcleaner_filter_analytics_label" />

@@ -29,7 +29,7 @@ import eu.darken.sdmse.setup.saf.SafGrantPrimaryContract
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SetupFragment : Fragment3(R.layout.setup_fragment) {
+class SetupFragment : Fragment3(R.layout.upgrade_fragment) {
 
     override val vm: SetupFragmentVM by viewModels()
     override val ui: SetupFragmentBinding by viewBinding()

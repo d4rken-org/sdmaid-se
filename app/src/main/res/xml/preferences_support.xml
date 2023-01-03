@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
-        android:icon="@drawable/ic_card_text_onsurface"
+        android:icon="@drawable/ic_book_onsurface"
         android:title="@string/documentation_label">
         <intent
             android:action="android.intent.action.VIEW"

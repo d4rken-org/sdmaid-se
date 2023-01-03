@@ -1,9 +1,6 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
-import android.widget.Toast
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -35,6 +32,7 @@ class UpgradeRepoGplay @Inject constructor(
     private val billingCache: BillingCache,
 ) : UpgradeRepo {
 
+    override val mainWebsite: String = SITE
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = billingDataRepo.billingData
         .map { data -> // Only relinquish pro state if we haven't had it for a while
@@ -71,47 +69,30 @@ class UpgradeRepoGplay @Inject constructor(
         }
         .replayingShare(scope)
 
-    override fun launchBillingFlow(activity: Activity) {
-        MaterialAlertDialogBuilder(activity).apply {
-            setIcon(R.drawable.ic_heart)
-            setTitle(R.string.upgrades_upgrade_sdmse_title)
-            setMessage(R.string.upgrades_upgrade_sdmse_body)
-            setPositiveButton(R.string.general_upgrade_action) { _, _ ->
-                scope.launch {
-                    try {
-                        billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
-                    } catch (e: Exception) {
-                        log(TAG) { "startIapFlow failed:${e.asLog()}" }
-                        withContext(dispatcherProvider.Main) {
-                            e.asErrorDialogBuilder(activity).show()
-                        }
-                    }
+    fun launchBillingFlowSubscription(activity: Activity) {
+        scope.launch {
+            try {
+                billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
+            } catch (e: Exception) {
+                log(TAG) { "startIapFlow failed:${e.asLog()}" }
+                withContext(dispatcherProvider.Main) {
+                    e.asErrorDialogBuilder(activity).show()
                 }
             }
-            setNeutralButton(R.string.general_check_action) { dialog, _ ->
-                log(TAG) { "recheck()" }
-                scope.launch {
-                    try {
-                        val data = billingDataRepo.getIapData()
-                        log(TAG) { "Recheck successful: $data" }
-                        withContext(dispatcherProvider.Main) {
-                            if (data.purchases.isEmpty()) {
-                                Toast.makeText(
-                                    activity,
-                                    R.string.upgrades_no_purchases_found_check_account,
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    } catch (e: Exception) {
-                        log(TAG) { "Recheck failed:${e.asLog()}" }
-                        withContext(dispatcherProvider.Main) {
-                            e.asErrorDialogBuilder(activity).show()
-                        }
-                    }
+        }
+    }
+
+    fun launchBillingFlowIap(activity: Activity) {
+        scope.launch {
+            try {
+                billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
+            } catch (e: Exception) {
+                log(TAG) { "startIapFlow failed:${e.asLog()}" }
+                withContext(dispatcherProvider.Main) {
+                    e.asErrorDialogBuilder(activity).show()
                 }
             }
-        }.show()
+        }
     }
 
     data class Info(
@@ -136,6 +117,7 @@ class UpgradeRepoGplay @Inject constructor(
         private fun BillingData.getProSku(): PurchasedSku? = purchasedSkus
             .firstOrNull { it.sku == SDMaidSESKU.PRO_UPGRADE.sku }
 
+        private const val SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }
 }

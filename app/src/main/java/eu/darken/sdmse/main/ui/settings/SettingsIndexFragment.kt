@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.PrivacyPolicy
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.uix.PreferenceFragment2
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
@@ -22,6 +23,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
     override val preferenceFile: Int = R.xml.preferences_index
 
     @Inject lateinit var webpageTool: WebpageTool
+    @Inject lateinit var upgradeRepo: UpgradeRepo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupMenu(R.menu.menu_settings_index) { item ->
@@ -39,6 +41,13 @@ class SettingsIndexFragment : PreferenceFragment2() {
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {
             webpageTool.open(PrivacyPolicy.URL)
             true
+        }
+        findPreference<Preference>("core.sponsor.development")?.apply {
+            isVisible = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS
+            setOnPreferenceClickListener {
+                webpageTool.open(upgradeRepo.mainWebsite)
+                true
+            }
         }
         super.onPreferencesCreated()
     }

@@ -9,22 +9,23 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerCardVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.DebugCardProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
@@ -44,6 +45,7 @@ class DashboardFragmentVM @Inject constructor(
     private val systemCleaner: SystemCleaner,
     private val appCleaner: AppCleaner,
     private val debugCardProvider: DebugCardProvider,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -125,7 +127,7 @@ class DashboardFragmentVM @Inject constructor(
             }
         )
     }
-    private val dataAreaInfo = areaManager.latestState
+    private val dataAreaItem: Flow<DataAreaCardVH.Item?> = areaManager.latestState
         .map {
             if (it == null) return@map null
             if (it.areas.isNotEmpty()) return@map null
@@ -139,13 +141,23 @@ class DashboardFragmentVM @Inject constructor(
             )
         }
 
+    private val upgradeItem: Flow<UpgradeCardVH.Item?> = upgradeRepo.upgradeInfo
+        .map {
+            if (it.isPro) return@map null
+            UpgradeCardVH.Item(
+                onUpgrade = { DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate() }
+            )
+        }
+        .onStart { emit(null) }
+
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
         setupManager.state,
-        dataAreaInfo,
+        dataAreaItem,
         corpseFinderItem,
         systemCleanerItem,
         appCleanerItem,
+        upgradeItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
         setupState: SetupManager.SetupState,
@@ -153,8 +165,11 @@ class DashboardFragmentVM @Inject constructor(
         corpseFinderItem: CorpseFinderCardVH.Item?,
         systemCleanerItem: SystemCleanerCardVH.Item?,
         appCleanerItem: AppCleanerCardVH.Item?,
+        upgradeItem: UpgradeCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
+
+        TitleCardVH.Item.run { items.add(this) }
 
         debugItem?.let { items.add(it) }
 
@@ -179,12 +194,46 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
 
+        upgradeItem?.let { items.add(it) }
+
         items
     }
         .throttleLatest(500)
         .setupCommonEventHandlers(TAG) { "listItems" }
         .asLiveData2()
 
+
+    data class BottomBarState(
+        val actionState: Action,
+        val leftInfo: CaString?,
+        val rightInfo: CaString?,
+    ) {
+        enum class Action {
+            SCAN,
+            DELETE,
+            WORKING,
+            WORKING_CANCELABLE
+        }
+    }
+
+    val bottomBarState = combine(
+        taskManager.state,
+        corpseFinder.data,
+        systemCleaner.data,
+        appCleaner.data,
+    ) { taskState, corpseFinderData, systemCleanerData, appCleanerData ->
+
+        BottomBarState(
+            actionState = BottomBarState.Action.SCAN,
+            leftInfo = null,
+            rightInfo = null,
+        )
+    }
+        .asLiveData2()
+
+    fun triggerMainAction() {
+        log(TAG) { "triggerMainAction()" }
+    }
 
     companion object {
         private val TAG = logTag("Dashboard", "Fragment", "VM")

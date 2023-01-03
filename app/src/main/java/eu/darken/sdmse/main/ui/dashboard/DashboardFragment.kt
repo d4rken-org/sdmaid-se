@@ -1,11 +1,14 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.doNavigate
@@ -23,9 +26,23 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.toolbar.apply {
+        ui.list.setupDefaults(dashAdapter, dividers = false)
+
+        vm.listItems.observe2(ui) {
+            dashAdapter.update(it)
+        }
+
+        ui.mainAction.setOnClickListener {
+            vm.triggerMainAction()
+        }
+
+        ui.bottomAppBar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_upgrade -> {
+                        doNavigate(DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment())
+                        true
+                    }
                     R.id.action_settings -> {
                         doNavigate(DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment())
                         true
@@ -33,17 +50,42 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     else -> super.onOptionsItemSelected(it)
                 }
             }
-            subtitle = when (BuildConfigWrap.BUILD_TYPE) {
-                BuildConfigWrap.BuildType.DEV,
-                BuildConfigWrap.BuildType.BETA -> BuildConfigWrap.VERSION_DESCRIPTION
-                BuildConfigWrap.BuildType.RELEASE -> null
-            }
         }
+        vm.bottomBarState.observe2(ui) {
+            bottomBarText.text = it.leftInfo?.get(requireContext())
 
-        ui.list.setupDefaults(dashAdapter, dividers = false)
+            mainAction.isEnabled = it.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
 
-        vm.listItems.observe2(ui) {
-            dashAdapter.update(it)
+            when (it.actionState) {
+                DashboardFragmentVM.BottomBarState.Action.SCAN -> {
+                    mainAction.setImageResource(R.drawable.ic_layer_search_24)
+                    mainAction.imageTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnPrimaryContainer))
+                    mainAction.backgroundTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorPrimaryContainer))
+                }
+                DashboardFragmentVM.BottomBarState.Action.DELETE -> {
+                    mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
+                    mainAction.imageTintList = ColorStateList.valueOf(Color.WHITE)
+                    mainAction.backgroundTintList = ColorStateList.valueOf(
+                        ContextCompat.getColor(requireContext(), R.color.red)
+                    )
+                }
+                DashboardFragmentVM.BottomBarState.Action.WORKING -> {
+                    mainAction.setImageDrawable(null)
+                    mainAction.imageTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnSecondaryContainer))
+                    mainAction.backgroundTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorSecondaryContainer))
+                }
+                DashboardFragmentVM.BottomBarState.Action.WORKING_CANCELABLE -> {
+                    mainAction.setImageResource(R.drawable.ic_cancel)
+                    mainAction.imageTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnTertiaryContainer))
+                    mainAction.backgroundTintList =
+                        ColorStateList.valueOf(getColorForAttr(R.attr.colorTertiaryContainer))
+                }
+            }
         }
 
         vm.dashboardevents.observe2(ui) {
@@ -54,4 +96,5 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
         super.onViewCreated(view, savedInstanceState)
     }
+
 }
