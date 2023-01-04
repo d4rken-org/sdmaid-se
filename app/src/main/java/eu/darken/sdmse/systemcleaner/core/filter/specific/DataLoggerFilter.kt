@@ -33,29 +33,6 @@ class DataLoggerFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-//        val builder: StockFilter.Builder = StockFilter.id("systemcleaner.filter.data_logger")
-//            .defaultActive(true)
-//            .color(getColorString(R.color.green))
-//            .label("/data/logger/")
-//            .description(getString(R.string.systemcleaner_filter_hint_systemlog))
-//            .rootOnly(true)
-//            .targetType(Filter.TargetType.FILE)
-//            .locations(Location.DATA)
-//        var empty = true
-//        for (storage in getSDMContext().getStorageManager().getStorages(Location.DATA)) {
-//            if (!storage.hasFlags(Storage.Flag.PRIMARY)) continue
-//            builder.basePaths(storage.getFile().getPath() + "/logger/".replace("/", File.separator))
-//            builder.regex(
-//                Pattern.compile(
-//                    String.format(
-//                        "^(?:%s/)(?:logger)(?:/[\\W\\w]+)$".replace("/", "\\" + File.separator),
-//                        storage.getFile().getPath().replace("\\", "\\\\")
-//                    )
-//                )
-//            )
-//            empty = false
-//        }
-
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetType = BaseSieve.TargetType.FILE,
