@@ -1,0 +1,105 @@
+package eu.darken.sdmse.systemcleaner.core.filter.specific
+
+import dagger.Binds
+import dagger.Module
+import dagger.Reusable
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.segs
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import javax.inject.Inject
+import javax.inject.Provider
+
+class DataLoggerFilter @Inject constructor(
+    private val baseSieveFactory: BaseSieve.Factory,
+    private val areaManager: DataAreaManager,
+) : SystemCleanerFilter {
+
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
+        DataArea.Type.DATA,
+    )
+
+    private lateinit var sieve: BaseSieve
+
+    override suspend fun initialize() {
+//        val builder: StockFilter.Builder = StockFilter.id("systemcleaner.filter.data_logger")
+//            .defaultActive(true)
+//            .color(getColorString(R.color.green))
+//            .label("/data/logger/")
+//            .description(getString(R.string.systemcleaner_filter_hint_systemlog))
+//            .rootOnly(true)
+//            .targetType(Filter.TargetType.FILE)
+//            .locations(Location.DATA)
+//        var empty = true
+//        for (storage in getSDMContext().getStorageManager().getStorages(Location.DATA)) {
+//            if (!storage.hasFlags(Storage.Flag.PRIMARY)) continue
+//            builder.basePaths(storage.getFile().getPath() + "/logger/".replace("/", File.separator))
+//            builder.regex(
+//                Pattern.compile(
+//                    String.format(
+//                        "^(?:%s/)(?:logger)(?:/[\\W\\w]+)$".replace("/", "\\" + File.separator),
+//                        storage.getFile().getPath().replace("\\", "\\\\")
+//                    )
+//                )
+//            )
+//            empty = false
+//        }
+
+        val config = BaseSieve.Config(
+            areaTypes = targetAreas(),
+            targetType = BaseSieve.TargetType.FILE,
+            pathAncestors = setOf(
+                segs("logger"),
+                segs("log"),
+            ),
+        )
+
+        sieve = baseSieveFactory.create(config)
+        log(TAG) { "initialized()" }
+    }
+
+
+    override suspend fun sieve(item: APathLookup<*>): Boolean {
+        return sieve.match(item).matches
+    }
+
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
+
+    @Reusable
+    class Factory @Inject constructor(
+        private val settings: SystemCleanerSettings,
+        private val filterProvider: Provider<DataLoggerFilter>,
+        private val rootManager: RootManager,
+    ) : SystemCleanerFilter.Factory {
+
+        override suspend fun isEnabled(): Boolean {
+            val enabled = settings.filterDataLoggerEnabled.value()
+            val isRooted = rootManager.isRooted()
+            if (enabled && !isRooted) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
+            return enabled && isRooted
+        }
+
+        override suspend fun create(): SystemCleanerFilter = filterProvider.get()
+    }
+
+    @InstallIn(SingletonComponent::class)
+    @Module
+    abstract class DIM {
+        @Binds @IntoSet abstract fun mod(mod: Factory): SystemCleanerFilter.Factory
+    }
+
+    companion object {
+        private val TAG = logTag("SystemCleaner", "Filter", "DataLogger")
+    }
+}

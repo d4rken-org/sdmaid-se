@@ -76,6 +76,11 @@
             app:key="filter.downloadcache.enabled"
             app:summary="@string/systemcleaner_filter_downloadcache_summary"
             app:title="@string/systemcleaner_filter_downloadcache_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:key="filter.datalogger.enabled"
+            app:summary="@string/systemcleaner_filter_datalogger_summary"
+            app:title="@string/systemcleaner_filter_datalogger_label" />
 
     </PreferenceCategory>
 

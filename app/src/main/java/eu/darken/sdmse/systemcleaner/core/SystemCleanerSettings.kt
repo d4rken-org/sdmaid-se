@@ -39,6 +39,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterAnrEnabled = dataStore.createValue("filter.anr.enabled", true)
     val filterLocalTmpEnabled = dataStore.createValue("filter.localtmp.enabled", true)
     val filterDownloadCacheEnabled = dataStore.createValue("filter.downloadcache.enabled", true)
+    val filterDataLoggerEnabled = dataStore.createValue("filter.datalogger.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,
@@ -55,6 +56,7 @@ class SystemCleanerSettings @Inject constructor(
         filterAnrEnabled,
         filterLocalTmpEnabled,
         filterDownloadCacheEnabled,
+        filterDataLoggerEnabled,
     )
 
     companion object {

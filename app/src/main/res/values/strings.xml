@@ -168,5 +168,7 @@
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted.</string>
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
+    <string name="systemcleaner_filter_datalogger_label">System log files</string>
+    <string name="systemcleaner_filter_datalogger_summary">System service specific log files.</string>
 
 </resources>
