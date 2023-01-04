@@ -7,7 +7,7 @@
         android:title="@string/documentation_label">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/d4rken-org/sdmaid-se/wiki" />
+            android:data="https://github.com/d4rken/sdmaid-se/wiki" />
     </Preference>
     <Preference
         android:icon="@drawable/ic_github_onsurface"
@@ -15,7 +15,7 @@
         android:title="@string/issue_tracker_label">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/d4rken-org/sdmaid-se/issues" />
+            android:data="https://github.com/d4rken/sdmaid-se/issues" />
     </Preference>
     <Preference
         android:icon="@drawable/ic_discord_onsurface"
