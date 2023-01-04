@@ -52,7 +52,6 @@ class APathExtensionTest : BaseTest() {
         file2.matches(lookup2) shouldBe true
     }
 
-
     @Test fun `match operator - SAFPath`() {
         val file1: APath = SAFPath.build(treeUri, "test", "file1")
         val file2: APath = SAFPath.build(treeUri, "test", "file2")
@@ -108,18 +107,12 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.matches(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            file2.matches(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.matches(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup2.matches(lookup1)
-        }
+
+        file1.matches(file2) shouldBe false
+        file2.matches(file1) shouldBe false
+
+        lookup1.matches(lookup2) shouldBe false
+        lookup2.matches(lookup1) shouldBe false
     }
 
     @Test fun `isAncestorOf operator - LocalPath`() {
@@ -232,18 +225,12 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.matches(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            file2.matches(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.matches(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup2.matches(lookup1)
-        }
+
+        file1.matches(file2) shouldBe false
+        file2.matches(file1) shouldBe false
+
+        lookup1.matches(lookup2) shouldBe false
+        lookup2.matches(lookup1) shouldBe false
     }
 
     @Test fun `isDescendantOf operator - LocalPath`() {
@@ -356,18 +343,14 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.matches(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            file2.matches(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.matches(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup2.matches(lookup1)
-        }
+
+        file1.matches(file2) shouldBe false
+
+        file2.matches(file1) shouldBe false
+
+        lookup1.matches(lookup2) shouldBe false
+
+        lookup2.matches(lookup1) shouldBe false
     }
 
     @Test fun `isParentOf operator - LocalPath`() {
@@ -480,18 +463,12 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.matches(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        file1.matches(file2)
             file2.matches(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.matches(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        lookup1.matches(lookup2)
             lookup2.matches(lookup1)
-        }
     }
 
     @Test fun `isChildOf operator - LocalPath`() {
@@ -604,18 +581,12 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.isChildOf(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        file1.isChildOf(file2)
             file2.isChildOf(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.isChildOf(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        lookup1.isChildOf(lookup2)
             lookup2.isChildOf(lookup1)
-        }
     }
 
 
@@ -729,18 +700,12 @@ class APathExtensionTest : BaseTest() {
             permissions = null,
             target = null,
         )
-        shouldThrow<IllegalArgumentException> {
-            file1.startsWith(file2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        file1.startsWith(file2)
             file2.startsWith(file1)
-        }
-        shouldThrow<IllegalArgumentException> {
-            lookup1.startsWith(lookup2)
-        }
-        shouldThrow<IllegalArgumentException> {
+
+        lookup1.startsWith(lookup2)
             lookup2.startsWith(lookup1)
-        }
     }
 
     @Test fun `remove prefix - LocalPath`() {
