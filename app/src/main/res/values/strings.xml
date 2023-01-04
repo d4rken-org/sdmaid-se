@@ -13,6 +13,10 @@
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
 
+    <string name="onboarding_page1_title">SD Maid SE</string>
+    <string name="onboarding_page1_body1">Hi! This is a file management app. It can free up space by deleting caches and removing files that belong to already removed apps.</string>
+    <string name="onboarding_page1_body2">SD Maid has no ads and doesn\'t collect data on you.</string>
+
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
     <string name="settings_licenses_label">Licenses</string>

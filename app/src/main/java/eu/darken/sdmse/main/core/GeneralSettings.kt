@@ -32,6 +32,8 @@ class GeneralSettings @Inject constructor(
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
     )
 
+    val isOnboardingCompleted = dataStore.createValue("core.onboarding.completed", false)
+
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
         themeType,

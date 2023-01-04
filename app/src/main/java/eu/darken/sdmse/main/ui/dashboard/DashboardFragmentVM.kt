@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -23,6 +25,7 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
+import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
@@ -46,11 +49,18 @@ class DashboardFragmentVM @Inject constructor(
     private val appCleaner: AppCleaner,
     private val debugCardProvider: DebugCardProvider,
     private val upgradeRepo: UpgradeRepo,
+    private val generalSettings: GeneralSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(rngString)
     private var isSetupDismissed = false
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
+
+    init {
+        if (!generalSettings.isOnboardingCompleted.valueBlocking) {
+            DashboardFragmentDirections.actionDashboardFragmentToOnboardingFragment().navigate()
+        }
+    }
 
     private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
         corpseFinder.data,

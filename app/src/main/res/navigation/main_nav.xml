@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_upgradeFragment"
             app:destination="@id/upgradeFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
     </fragment>
 
     <fragment
@@ -64,5 +67,9 @@
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
         tools:layout="@layout/upgrade_fragment" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.OnboardingFragment"
+        tools:layout="@layout/onboarding_fragment" />
 
 </navigation>
