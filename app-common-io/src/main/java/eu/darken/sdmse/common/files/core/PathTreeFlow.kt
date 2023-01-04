@@ -1,11 +1,14 @@
 package eu.darken.sdmse.common.files.core
 
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
+import java.io.IOException
 import java.util.*
 
 // TODO support symlinks?
@@ -33,7 +36,14 @@ class PathTreeFlow<
 
             val lookUp = queue.removeFirst()
 
-            lookUp.lookedUp.lookupFiles(gateway)
+            val newBatch = try {
+                lookUp.lookedUp.lookupFiles(gateway)
+            } catch (e: IOException) {
+                log(TAG, ERROR) { "failed to read $lookUp: ${e.asLog()}" }
+                emptyList()
+            }
+
+            newBatch
                 .onEach { if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $it" } }
                 .filter { filter(it) }
                 .forEach { child ->
