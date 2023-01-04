@@ -31,7 +31,6 @@ class LogFilesFilter @Inject constructor(
 ) : SystemCleanerFilter {
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.DATA,
         DataArea.Type.PRIVATE_DATA,
         DataArea.Type.DATA_SYSTEM,
         DataArea.Type.DATA_SYSTEM_CE,
@@ -57,7 +56,8 @@ class LogFilesFilter @Inject constructor(
                 BaseSieve.Exclusion(segs(".indexeddb.leveldb"), allowPartial = true),
                 BaseSieve.Exclusion(segs("t", "Paths")),
                 BaseSieve.Exclusion(segs("app_chrome")),
-                BaseSieve.Exclusion(segs("app_webview"))
+                BaseSieve.Exclusion(segs("app_webview")),
+                BaseSieve.Exclusion(segs("leveldb")),
             )
         )
         sieve = baseSieveFactory.create(config)

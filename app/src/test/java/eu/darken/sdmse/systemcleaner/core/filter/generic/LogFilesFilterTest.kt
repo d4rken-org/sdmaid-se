@@ -35,6 +35,7 @@ class LogFilesFilterTest : SystemCleanerFilterTest() {
         mockNegative(Type.DATA, "/media/0/something.log", Flags.FILE)
         mockNegative(Type.DATA, "/media/1/something.log", Flags.FILE)
         mockPositive(Type.SDCARD, "$rngString.log", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb/snet_sb_list_15/000008.log", Flags.FILE)
         mockNegative(Type.SDCARD, "something.indexeddb.leveldb/something.log", Flags.FILE)
         mockNegative(Type.SDCARD, "/t/Paths/000003.log", Flags.FILE)
         mockNegative(Type.SDCARD, "/app_chrome/Default/previews_hint_cache_store/000003.log", Flags.FILE)
