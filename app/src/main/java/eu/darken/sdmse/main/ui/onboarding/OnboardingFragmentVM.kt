@@ -25,7 +25,7 @@ class OnboardingFragmentVM @Inject constructor(
     fun finishOnboarding() {
         log(TAG) { "finishOnboarding()" }
         generalSettings.isOnboardingCompleted.valueBlocking = true
-        popNavStack()
+        OnboardingFragmentDirections.actionOnboardingFragmentToSetupFragment(showCompleted = false).navigate()
     }
 
     fun goPrivacyPolicy() {

@@ -70,6 +70,10 @@
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="eu.darken.sdmse.main.ui.onboarding.OnboardingFragment"
-        tools:layout="@layout/onboarding_fragment" />
+        tools:layout="@layout/onboarding_fragment">
+        <action
+            android:id="@+id/action_onboardingFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
+    </fragment>
 
 </navigation>

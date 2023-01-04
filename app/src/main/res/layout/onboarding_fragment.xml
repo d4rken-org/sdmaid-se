@@ -51,12 +51,19 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/privacy_policy"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="@string/settings_privacy_policy_label" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/onboarding_page1_body3" />
         </LinearLayout>
     </ScrollView>
 
@@ -78,7 +85,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Let's go" />
+            android:text="@string/onboarding_setup_action" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

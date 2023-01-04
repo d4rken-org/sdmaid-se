@@ -16,6 +16,8 @@
     <string name="onboarding_page1_title">SD Maid SE</string>
     <string name="onboarding_page1_body1">Hi! This is a file management app. It can free up space by deleting caches and removing files that belong to already removed apps.</string>
     <string name="onboarding_page1_body2">SD Maid has no ads and doesn\'t collect data on you.</string>
+    <string name="onboarding_page1_body3">Start using SD Maid by granting access to areas that should be searched.</string>
+    <string name="onboarding_setup_action">Set up SD Maid SE</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
