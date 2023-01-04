@@ -61,15 +61,13 @@ open class SharedResource<T : Any> constructor(
                 }
                 children.clear()
 
-                leases.toList().let {
-                    if (it.isEmpty()) return@let
-
+                if (leases.isNotEmpty()) {
                     if (Bugs.isDebug) {
                         val _leases = this
                         log(iTag, VERBOSE) { "Cleaning up remaining leases: $_leases" }
                     }
 
-                    it.closeAll()
+                    leases.closeAll()
                     leases.map { l -> l.job }.joinAll()
                     leases.clear()
                 }
@@ -151,23 +149,27 @@ open class SharedResource<T : Any> constructor(
             if (Bugs.isTrace) {
                 log(iTag, VERBOSE) { "Closing keep alive ($job)${traceTag?.let { "\n$it" } ?: ""}" }
             }
+            leaseScope.launch {
+                val removed = lock.withLock {
+                    leases.remove(this@ActiveLease).also {
+                        if (job.isActive) {
+                            job.cancel()
+                        } else {
+                            if (Bugs.isTrace) log(iTag, WARN) { "Already closed! ($job)" }
+                        }
+                    }
+                }
 
-            val removed = leases.remove(this)
-
-            if (job.isActive) {
-                job.cancel()
-            } else {
-                if (Bugs.isTrace) log(iTag, WARN) { "Already closed! ($job)" }
-            }
-
-            if (Bugs.isTrace) {
-                val leaseSize = leases.size
-                if (removed) {
-                    log(iTag, VERBOSE) { "Active lease removed (now $leaseSize) ($job)" }
-                } else {
-                    log(iTag, WARN) { "Lease was already removed? (now $leaseSize) ($job)" }
+                if (Bugs.isTrace) {
+                    val leaseSize = leases.size
+                    if (removed) {
+                        log(iTag, VERBOSE) { "Active lease removed (now $leaseSize) ($job)" }
+                    } else {
+                        log(iTag, WARN) { "Lease was already removed? (now $leaseSize) ($job)" }
+                    }
                 }
             }
+
         }
 
         override fun toString(): String = "ActiveLease(job=$job)${traceTag?.let { "\n$it" } ?: ""}"
