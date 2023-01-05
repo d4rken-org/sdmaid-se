@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/setupFragment"
         android:name="eu.darken.sdmse.setup.SetupFragment"
-        tools:layout="@layout/upgrade_fragment">
+        tools:layout="@layout/setup_fragment">
         <argument
             android:name="showCompleted"
             app:argType="boolean" />
@@ -73,6 +73,7 @@
         tools:layout="@layout/onboarding_fragment">
         <action
             android:id="@+id/action_onboardingFragment_to_setupFragment"
+            app:popUpTo="@id/dashboardFragment"
             app:destination="@id/setupFragment" />
     </fragment>
 
