@@ -25,12 +25,9 @@ import javax.inject.Inject
  * package, but not instances - this is a separate process from the UI.
  */
 @SuppressLint("UnsafeDynamicallyLoadedCode")
-class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost(TAG, _args) {
+class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost("$TAG#${hashCode()}", _args) {
 
-    override val sharedResource = SharedResource.createKeepAlive(
-        TAG,
-        rootHostScope
-    )
+    override val sharedResource = SharedResource.createKeepAlive(iTag, rootHostScope)
 
     lateinit var component: RootComponent
 
@@ -47,28 +44,28 @@ class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, Ro
             it.inject(this)
         }
 
-        log(TAG) { "Running on threadId=${Thread.currentThread().id}" }
+        log(iTag) { "Running on threadId=${Thread.currentThread().id}" }
     }
 
     override suspend fun onExecute() {
-        log(TAG) { "Starting IPC connection via $rootIpcFactory" }
+        log(iTag) { "Starting IPC connection via $rootIpcFactory" }
         val ipc = rootIpcFactory.create(
             packageName = BuildConfigWrap.APPLICATION_ID,
             userProvidedBinder = connection.get(),
             pairingCode = pairingCode,
         )
-        log(TAG) { "IPC created: $ipc" }
+        log(iTag) { "IPC created: $ipc" }
 
         val keepAliveToken: Resource<*> = sharedResource.get()
 
-        log(TAG) { "Launching SharedShell with root" }
+        log(iTag) { "Launching SharedShell with root" }
         adoptChildResource(sharedShell)
 
         try {
-            log(TAG) { "Ready, now broadcasting..." }
+            log(iTag) { "Ready, now broadcasting..." }
             ipc.broadcastAndWait()
         } catch (e: TimeoutException) {
-            log(TAG, ERROR) { "Non-root process did not connect in a timely fashion" }
+            log(iTag, ERROR) { "Non-root process did not connect in a timely fashion" }
         }
 
         keepAliveToken.close()

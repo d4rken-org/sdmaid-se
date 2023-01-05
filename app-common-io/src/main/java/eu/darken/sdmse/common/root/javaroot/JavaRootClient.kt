@@ -25,6 +25,7 @@ class JavaRootClient @Inject constructor(
     TAG,
     coroutineScope,
     flow {
+        log(TAG) { "Instantiating RootHost launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
         emit(javaRootHostLauncher.create())
     }.flattenConcat()
