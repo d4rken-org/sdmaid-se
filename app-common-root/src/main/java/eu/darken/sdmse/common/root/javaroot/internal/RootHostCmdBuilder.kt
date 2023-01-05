@@ -183,11 +183,35 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
         return script.toString() to relocated
     }
 
-    fun build(options: RootHostOptions): Cmd.Builder {
-        log { "build(${options})" }
-        val packageCodePath = context.packageCodePath
+    fun build(
+        withRelocation: Boolean,
+        hostOptions: RootHostOptions,
+    ): Cmd.Builder {
+        log { "build(relocate=$withRelocation, ${hostOptions})" }
+        val cmds = mutableListOf<String>()
 
-        val (relocScript, relocPath) = relocateScript()
+        val processPath: String = if (withRelocation) {
+            val (relocScript, relocPath) = relocateScript()
+            log(TAG) { "Relocation script: $relocScript" }
+            log(TAG) { "Relocation path: $relocPath" }
+            cmds.add(relocScript)
+            relocPath
+        } else {
+            myExe
+        }
+
+        var launchCmd = buildLaunchCmd(processPath)
+        log(TAG) { "Launch command: $launchCmd" }
+        launchCmd += " ${RootHost.OPTIONS_KEY}=${hostOptions.toLaunchCmdFormat()}"
+        log(TAG) { "Launch command with options: $launchCmd" }
+
+        cmds.add(launchCmd)
+
+        return Cmd.builder(cmds)
+    }
+
+    private fun buildLaunchCmd(processPath: String): String {
+        val packageCodePath = context.packageCodePath
 
         var debugParams = ""
         if (Debug.isDebuggerConnected()) {
@@ -203,23 +227,18 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
 
         val hostClass = rootHost.qualifiedName ?: rootHost.java.name
 
-        var launchCmd = "CLASSPATH=$packageCodePath exec $relocPath $debugParams /system/bin$extraParams $hostClass"
+        return "CLASSPATH=$packageCodePath exec $processPath $debugParams /system/bin$extraParams $hostClass"
+    }
 
+    private fun RootHostOptions.toLaunchCmdFormat(): String {
         try {
-            options.forceParcel()
+            this.forceParcel()
         } catch (e: Throwable) {
             log(TAG, ERROR) { "forceParcel() check failed: ${e.asLog()}" }
             throw RuntimeException("RootHostOptions parcelation failed", e)
         }
 
-        val optionsBase64 = Base64.encodeToString(options.marshall(), Base64.NO_WRAP)
-
-        launchCmd += " ${RootHost.OPTIONS_KEY}=$optionsBase64"
-
-        log(TAG) { "Relocation script: $relocScript" }
-        log(TAG) { "Launch command: $launchCmd" }
-
-        return Cmd.builder(relocScript, launchCmd)
+        return Base64.encodeToString(this.marshall(), Base64.NO_WRAP)
     }
 
     companion object {
