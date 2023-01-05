@@ -6,6 +6,33 @@
         android:title="@string/settings_licenses_label"
         app:iconSpaceReserved="false">
         <Preference
+            android:key="license.librootjava"
+            android:summary="Run Java (and Kotlin) code as root! (APACHE 2.0)"
+            android:title="libRootJava"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Chainfire/librootjava" />
+        </Preference>
+        <Preference
+            android:key="license.librootkotlinx"
+            android:summary="Run rooted Kotlin JVM code made easy with coroutines. (APACHE 2.0)"
+            android:title="librootkotlinx"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Mygod/librootkotlinx" />
+        </Preference>
+        <Preference
+            android:key="license.shizuku"
+            android:summary="Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process.. (APACHE 2.0)"
+            android:title="Shizuku"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/RikkaApps/Shizuku" />
+        </Preference>
+        <Preference
             android:key="license.bugsnag"
             android:summary="Client side library for crash monitoring via bugsnag.com. (MIT)"
             android:title="Bugsnag"

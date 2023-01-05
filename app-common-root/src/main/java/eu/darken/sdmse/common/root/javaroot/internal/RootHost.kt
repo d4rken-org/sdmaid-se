@@ -8,8 +8,7 @@ import android.util.Base64
 import android.util.Log
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
 import eu.darken.sdmse.common.debug.logging.Logging
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.parcel.unmarshall
@@ -19,7 +18,7 @@ import kotlin.system.exitProcess
 
 @SuppressLint("PrivateApi")
 abstract class RootHost(
-    private val tag: String,
+    val iTag: String,
     private val _args: List<String>
 ) {
 
@@ -36,34 +35,43 @@ abstract class RootHost(
 
     @SuppressLint("LogNotTimber")
     fun start() = try {
-        Log.d(tag, "start(): RootHost args=${_args}")
+        Log.d(iTag, "start(): RootHost args=${_args}")
 
         val optionsBase64 = _args.single().let {
             require(it.startsWith("$OPTIONS_KEY=")) { "Unexpected options format: $_args" }
             it.removePrefix("$OPTIONS_KEY=")
         }
 
-        Log.d(tag, "start(): unmarshalling $optionsBase64")
+        Log.d(iTag, "start(): unmarshalling $optionsBase64")
         options = Base64.decode(optionsBase64, 0).unmarshall()
-        Log.d(tag, "start(): options=$options")
+        Log.d(iTag, "start(): options=$options")
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            log(tag, ERROR) { "Uncaught exception within JavaRootHost: ${throwable.asLog()}" }
+            log(iTag, ERROR) { "Uncaught exception within JavaRootHost: ${throwable.asLog()}" }
             if (oldHandler != null) oldHandler.uncaughtException(thread, throwable)
             else exitProcess(1)
         }
 
         if (options.isDebug) {
             Logging.install(LogCatLogger())
-            Log.i(tag, "Debug logger installed")
-            log(tag, INFO) { "Debug logger installed" }
+            Log.i(iTag, "Debug logger installed")
+            log(iTag, INFO) { "Debug logger installed" }
 
             setAppName("$ourPkgName:rootHost")
 
+            val waitStart = System.currentTimeMillis()
             while (options.waitForDebugger && !Debug.isDebuggerConnected()) {
+                val elapsed = System.currentTimeMillis() - waitStart
+                log(iTag, VERBOSE) { "Waiting for debugger (${elapsed / 1000}s)" }
+
+                if (elapsed > 60 * 1000) {
+                    log(iTag, WARN) { "Timeout while waiting for debugger!" }
+                    break
+                }
+
                 try {
-                    Thread.sleep(200)
+                    Thread.sleep(1000)
                 } catch (ignored: InterruptedException) {
                 }
             }
@@ -74,11 +82,11 @@ abstract class RootHost(
             onExecute()
         }
     } catch (e: Throwable) {
-        Log.e(tag, "Failed to run RootHost.", e)
+        Log.e(iTag, "Failed to run RootHost.", e)
         throw e
     } finally {
         rootHostScope.cancel()
-        Log.v(tag, "start() RootHost finished")
+        Log.v(iTag, "start() RootHost finished")
     }
 
     abstract suspend fun onInit()
@@ -87,7 +95,7 @@ abstract class RootHost(
 
     @SuppressLint("PrivateApi,DiscouragedPrivateApi")
     private fun setAppName(name: String?) = try {
-        log(tag) { "Setting appName=$name" }
+        log(iTag) { "Setting appName=$name" }
         val ddm = Class.forName("android.ddm.DdmHandleAppName")
         val m: Method = ddm.getDeclaredMethod("setAppName", String::class.java, Int::class.javaPrimitiveType)
         m.invoke(null, name, 0)
