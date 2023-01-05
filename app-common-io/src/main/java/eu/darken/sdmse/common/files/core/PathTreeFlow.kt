@@ -39,7 +39,7 @@ class PathTreeFlow<
             val newBatch = try {
                 lookUp.lookedUp.lookupFiles(gateway)
             } catch (e: IOException) {
-                log(TAG, ERROR) { "failed to read $lookUp: ${e.asLog()}" }
+                log(TAG, ERROR) { "Failed to read $lookUp: ${e.asLog()}" }
                 emptyList()
             }
 
