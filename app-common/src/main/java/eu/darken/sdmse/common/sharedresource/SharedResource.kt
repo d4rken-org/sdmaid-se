@@ -63,28 +63,41 @@ open class SharedResource<T : Any> constructor(
 
                 if (leases.isNotEmpty()) {
                     if (Bugs.isDebug) {
-                        val _leases = this
-                        log(iTag, VERBOSE) { "Cleaning up remaining leases: $_leases" }
+                        val remainingLeases = leases.joinToString()
+                        log(iTag, VERBOSE) { "Cleaning up $remainingLeases remaining leases" }
                     }
 
-                    leases.closeAll()
-                    leases.map { l -> l.job }.joinAll()
+                    leases
+                        .filter { it.job.isActive }
+                        .forEachIndexed { index, activeLease ->
+                            if (Bugs.isTrace) log(iTag, VERBOSE) { "Canceling #$index: $activeLease..." }
+                            activeLease.job.cancelAndJoin()
+                        }
+
+                    if (Bugs.isDebug) log(iTag, VERBOSE) { "Remaining leases have been cleaned up." }
+
                     leases.clear()
                 }
 
-                // This cancels all active leases, at the latest.
-                leaseScope.coroutineContext.cancelChildren()
+                val orphanedLeases = leaseScope.coroutineContext.job.children.toList()
+                if (orphanedLeases.isNotEmpty()) {
+                    log(iTag, WARN) { "Orphaned leases: $orphanedLeases" }
+                    // This cancels all active leases, at the latest.
+                    leaseScope.coroutineContext.cancelChildren()
+                }
+
+                log(iTag, VERBOSE) { "Shared resource flow completed." }
             }
         }
         .map {
             @Suppress("USELESS_CAST")
             Event.Resource(it) as Event<T>
         }
+        .onEach { log(iTag, VERBOSE) { "Resource ready: $it" } }
         .catch {
             log(iTag, WARN) { "Failed to provide resource: ${it.asLog()}" }
             emit(Event.Error(it))
         }
-        .onEach { log(iTag, VERBOSE) { "Resource ready: $it" } }
         .shareIn(parentScope, SharingStarted.WhileSubscribed(replayExpirationMillis = 0), replay = 1)
 
     suspend fun get(): Resource<T> {
@@ -128,7 +141,7 @@ open class SharedResource<T : Any> constructor(
                 is Event.Resource -> event.resource
             }
         } catch (e: Exception) {
-            log(iTag, VERBOSE) { "get(): Failed to retrieve resource: ${e.asLog()}" }
+            log(iTag, WARN) { "get(): Failed to retrieve resource: ${e.asLog()}" }
             activeLease.close()
             throw e.tryUnwrap()
         }
@@ -150,8 +163,13 @@ open class SharedResource<T : Any> constructor(
                 log(iTag, VERBOSE) { "Closing keep alive ($job)${traceTag?.let { "\n$it" } ?: ""}" }
             }
             leaseScope.launch {
+                if (Bugs.isTrace) log(iTag, VERBOSE) { "Close code running, waiting for lock! ($job)" }
                 val removed = lock.withLock {
+                    if (Bugs.isTrace) log(iTag, VERBOSE) { "Close code running, WITH lock! ($job)" }
+
                     leases.remove(this@ActiveLease).also {
+                        if (Bugs.isTrace) log(iTag, VERBOSE) { "Lease removed, will cancel! ($job)" }
+
                         if (job.isActive) {
                             job.cancel()
                         } else {
