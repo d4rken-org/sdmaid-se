@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.root.javaroot.internal
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
-import android.os.Debug
 import android.os.Process
 import android.util.Base64
 import androidx.annotation.RequiresApi
@@ -200,7 +199,10 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
             myExe
         }
 
-        var launchCmd = buildLaunchCmd(processPath)
+        var launchCmd = buildLaunchCmd(
+            isDebug = hostOptions.isDebug,
+            processPath = processPath
+        )
         log(TAG) { "Launch command: $launchCmd" }
         launchCmd += " ${RootHost.OPTIONS_KEY}=${hostOptions.toLaunchCmdFormat()}"
         log(TAG) { "Launch command with options: $launchCmd" }
@@ -210,11 +212,12 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
         return Cmd.builder(cmds)
     }
 
-    private fun buildLaunchCmd(processPath: String): String {
+    private fun buildLaunchCmd(isDebug: Boolean, processPath: String): String {
         val packageCodePath = context.packageCodePath
 
         var debugParams = ""
-        if (Debug.isDebuggerConnected()) {
+        if (isDebug) {
+            // https://developer.android.com/ndk/guides/wrap-script#debugging_when_using_wrapsh
             debugParams += when (Build.VERSION.SDK_INT) {
                 in 29..Int.MAX_VALUE -> "-XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y"
                 28 -> "-XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y -Xcompiler-option --debuggable"

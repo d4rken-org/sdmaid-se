@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.root.javaroot.internal
 
 import android.content.Context
+import android.os.Debug
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
@@ -75,7 +76,7 @@ class RootHostLauncher @Inject constructor(
                 pairingCode = pairingCode,
                 packageName = context.packageName,
                 isDebug = enableDebug,
-                waitForDebugger = true
+                waitForDebugger = enableDebug && Debug.isDebuggerConnected()
             )
 
             if (useMountMaster) {
