@@ -39,6 +39,7 @@ class DataLoggerFilter @Inject constructor(
             pathAncestors = setOf(
                 segs("logger"),
                 segs("log"),
+                segs("log_other_mode"),
             ),
         )
 

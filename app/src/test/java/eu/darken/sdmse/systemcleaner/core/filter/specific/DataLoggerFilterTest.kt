@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.specific
 
 import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -63,6 +64,14 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
         mockPositive(Type.DATA, "log/0_com.samsung.android.bixby.service_bixbysearch_index.log", Flags.FILE)
         mockPositive(Type.DATA, "log/dark_mode_log0.txt", Flags.FILE)
         mockPositive(Type.DATA, "log/power_off_reset_reason.txt", Flags.FILE)
+
+        mockNegative(Type.DATA, "log", Flags.DIR)
+        mockPositive(Type.DATA, "log/$rngString", Flags.FILE)
+
+        mockNegative(Type.DATA, "log_other_mode", Flags.DIR)
+        mockNegative(Type.DATA, "log_other_mode/$rngString", Flags.DIR)
+        mockPositive(Type.DATA, "log_other_mode/$rngString", Flags.FILE)
+        mockPositive(Type.DATA, "log_other_mode/subfolder/$rngString", Flags.FILE)
 
         confirm(create())
     }
