@@ -36,7 +36,7 @@
                 android:layout_height="64dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="32dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/sdm_happy" />
 
             <com.google.android.material.card.MaterialCardView
                 style="@style/Widget.Material3.CardView.Elevated"

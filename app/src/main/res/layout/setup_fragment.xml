@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -14,10 +14,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_setup"
-        app:titleCentered="true"
-        app:title="@string/setup_title"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:navigationIconTint="?colorOnSurface" />
+        app:navigationIconTint="?colorOnSurface">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/setup_title" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/sdm_not_happy"
+            tools:ignore="ContentDescription" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -25,10 +39,10 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingVertical="4dp"
-        tools:listitem="@layout/setup_saf_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:listitem="@layout/setup_saf_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

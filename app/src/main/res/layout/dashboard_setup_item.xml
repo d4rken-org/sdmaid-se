@@ -3,22 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
-    android:backgroundTint="?colorSecondaryContainer"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:backgroundTint="?colorSecondaryContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
+        <ImageView
+            android:id="@+id/setup_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/sdm_not_happy"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@string/setup_incomplete_card_title"
             android:textColor="?colorOnSecondaryContainer"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/setup_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
@@ -28,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="?colorOnSecondaryContainer"
             android:text="@string/setup_incomplete_card_body"
+            android:textColor="?colorOnSecondaryContainer"
             app:layout_constraintBottom_toTopOf="@id/continue_setup_action"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
@@ -40,9 +50,9 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?colorOnSecondaryContainer"
             android:layout_marginTop="8dp"
             android:text="@string/setup_incomplete_card_dismiss_action"
+            android:textColor="?colorOnSecondaryContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
 

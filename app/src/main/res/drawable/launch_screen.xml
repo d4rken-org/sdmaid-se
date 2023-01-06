@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
-    <item android:drawable="?attr/colorPrimary" />
-    <item android:bottom="48dp">
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/ic_launcher" />
-    </item>
+    <item
+        android:bottom="16dp"
+        android:drawable="@drawable/splash_mascot"
+        android:left="16dp"
+        android:right="16dp"
+        android:top="16dp" />
+
 </layer-list>
