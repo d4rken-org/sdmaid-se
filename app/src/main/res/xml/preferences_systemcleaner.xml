@@ -96,6 +96,11 @@
             app:key="filter.tombstones.enabled"
             app:summary="@string/systemcleaner_filter_tombstones_summary"
             app:title="@string/systemcleaner_filter_tombstones_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_chart_bar_stacked_24"
+            app:key="filter.usagestats.enabled"
+            app:summary="@string/systemcleaner_filter_usagestats_summary"
+            app:title="@string/systemcleaner_filter_usagestats_label" />
 
     </PreferenceCategory>
 
