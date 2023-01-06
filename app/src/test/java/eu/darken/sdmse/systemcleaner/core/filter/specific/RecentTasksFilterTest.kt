@@ -1,7 +1,6 @@
 package eu.darken.sdmse.systemcleaner.core.filter.specific
 
 import eu.darken.sdmse.common.areas.DataArea.Type
-import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -15,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class LogDropboxFilterTest : SystemCleanerFilterTest() {
+class RecentTasksFilterTest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -27,7 +26,7 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = LogDropboxFilter(
+    private fun create() = RecentTasksFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -37,27 +36,21 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        mockNegative(Type.DATA, "system", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA, "system/dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA, "dropbox/event_data@1483828487660.txt", Flags.FILE)
-        mockNegative(Type.DATA_SYSTEM_CE, "dropbox/$rngString", Flags.FILE)
-        mockNegative(Type.DATA_SYSTEM_DE, "dropbox/$rngString", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/$rngString/something", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/event_data@1483828487660.txt", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/platform_stats_bookmark@1483690326366.txt", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM_CE, "test", Flags.DIR)
+        mockNegative(Type.DATA_SYSTEM_CE, "test", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM_CE, "recent_tasks", Flags.DIR)
+        mockNegative(Type.DATA_SYSTEM_CE, "recent_images", Flags.DIR)
+        mockPositive(Type.DATA_SYSTEM_CE, "recent_tasks/test", Flags.FILE)
+        mockPositive(Type.DATA_SYSTEM_CE, "recent_images/test", Flags.FILE)
+        mockPositive(Type.DATA_SYSTEM_CE, "recent_images/test", Flags.FILE)
 
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        LogDropboxFilter.Factory(
+        RecentTasksFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterLogDropboxEnabled } returns mockDataStoreValue(true)
+                coEvery { filterRecentTasksEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -65,9 +58,9 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        LogDropboxFilter.Factory(
+        RecentTasksFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterLogDropboxEnabled } returns mockDataStoreValue(true)
+                coEvery { filterRecentTasksEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
