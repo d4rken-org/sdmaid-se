@@ -174,5 +174,7 @@
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
     <string name="systemcleaner_filter_datalogger_label">System log files</string>
     <string name="systemcleaner_filter_datalogger_summary">System service specific log files.</string>
+    <string name="systemcleaner_filter_logdropbox_label">Log drop box</string>
+    <string name="systemcleaner_filter_logdropbox_summary">An area for the system to drop log files into.</string>
 
 </resources>
