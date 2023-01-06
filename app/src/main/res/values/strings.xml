@@ -12,8 +12,8 @@
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
-    <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. details about your files and installed applications). Only share it with trusted parties.</string>
-    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. details about your files and installed applications). Only share it with trusted parties (e.g. the app developer if you are troubleshooting an issue together).</string>
+    <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
+    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. the app developer if you are troubleshooting an issue together).</string>
 
     <string name="onboarding_page1_title">SD Maid SE</string>
     <string name="onboarding_page1_body1">Hi! This is a file management app. It can free up space by deleting caches and removing files that belong to already removed apps.</string>
@@ -169,7 +169,7 @@
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Root access allows SD Maid to check additional system folders and private application data.</string>
     <string name="setup_root_toggle_label">Use root if available</string>
-    <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted.</string>
+    <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
     <string name="systemcleaner_filter_datalogger_label">System log files</string>

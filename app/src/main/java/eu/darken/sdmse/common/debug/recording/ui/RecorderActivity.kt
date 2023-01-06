@@ -3,7 +3,11 @@ package eu.darken.sdmse.common.debug.recording.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.format.Formatter
+import android.text.style.URLSpan
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.view.isInvisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +30,7 @@ class RecorderActivity : Activity2() {
 
         vm.state.observe2 { state ->
             ui.loadingIndicator.isInvisible = !state.loading
-            ui.share.isInvisible = state.loading
+            ui.shareAction.isInvisible = state.loading
 
             ui.recordingPath.text = state.normalPath
 
@@ -42,8 +46,18 @@ class RecorderActivity : Activity2() {
             it.asErrorDialogBuilder(this).show()
         }
 
-        ui.share.setOnClickListener { vm.share() }
+        ui.shareAction.setOnClickListener { vm.share() }
         vm.shareEvent.observe2 { startActivity(it) }
+
+        ui.privacyPolicyAction.apply {
+            setOnClickListener { vm.goPrivacyPolicy() }
+            val sp = SpannableString(text).apply {
+                setSpan(URLSpan(""), 0, length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
+            setText(sp, TextView.BufferType.SPANNABLE)
+        }
+
+        ui.cancelAction.setOnClickListener { finish() }
     }
 
     companion object {

@@ -44,6 +44,7 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator is initiating</string>
     <string name="general_progress_loading_egg_6">Passing the butter</string>
     <string name="general_help_action">Help</string>
+    <string name="general_continue">Continue</string>
 
     <string name="general_root_required_label">Requires root</string>
     <string name="general_root_required_message">Requires a rooted device</string>
