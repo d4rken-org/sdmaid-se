@@ -178,5 +178,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">An area for the system to drop log files into.</string>
     <string name="systemcleaner_filter_recenttasks_label">Recent tasks</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data related to the tasks history in the system\'s task switcher.</string>
+    <string name="systemcleaner_filter_tombstones_label">System crash remains</string>
+    <string name="systemcleaner_filter_tombstones_summary">If native processes crash (e.g. games), then files are created here.</string>
 
 </resources>

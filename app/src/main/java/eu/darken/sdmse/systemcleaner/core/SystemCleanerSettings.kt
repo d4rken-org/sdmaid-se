@@ -42,6 +42,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterDataLoggerEnabled = dataStore.createValue("filter.datalogger.enabled", true)
     val filterLogDropboxEnabled = dataStore.createValue("filter.logdropbox.enabled", true)
     val filterRecentTasksEnabled = dataStore.createValue("filter.recenttasks.enabled", true)
+    val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,
@@ -61,6 +62,7 @@ class SystemCleanerSettings @Inject constructor(
         filterDataLoggerEnabled,
         filterLogDropboxEnabled,
         filterRecentTasksEnabled,
+        filterTombstonesEnabled,
     )
 
     companion object {

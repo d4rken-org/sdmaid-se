@@ -91,6 +91,11 @@
             app:key="filter.recenttasks.enabled"
             app:summary="@string/systemcleaner_filter_recenttasks_summary"
             app:title="@string/systemcleaner_filter_recenttasks_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_tombstone"
+            app:key="filter.tombstones.enabled"
+            app:summary="@string/systemcleaner_filter_tombstones_summary"
+            app:title="@string/systemcleaner_filter_tombstones_label" />
 
     </PreferenceCategory>
 
