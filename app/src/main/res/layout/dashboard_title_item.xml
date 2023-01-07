@@ -10,10 +10,9 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/sdm_normal"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/vector_mascot_nobroom"
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toStartOf="@id/title_container"
         app:layout_constraintHorizontal_chainStyle="packed"

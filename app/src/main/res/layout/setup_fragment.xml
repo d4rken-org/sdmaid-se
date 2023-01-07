@@ -17,19 +17,19 @@
         app:navigationIcon="@drawable/ic_arrow_back"
         app:navigationIconTint="?colorOnSurface">
 
-        <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.Material3.TitleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/setup_title" />
-
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:src="@drawable/sdm_not_happy"
             tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/setup_title" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

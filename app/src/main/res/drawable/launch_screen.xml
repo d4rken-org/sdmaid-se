@@ -2,10 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
     <item
-        android:bottom="16dp"
-        android:drawable="@drawable/splash_mascot"
-        android:left="16dp"
-        android:right="16dp"
-        android:top="16dp" />
+        android:bottom="24dp"
+        android:drawable="@drawable/vector_mascot_nobroom"
+        android:left="24dp"
+        android:right="24dp"
+        android:top="24dp" />
 
 </layer-list>
