@@ -4,16 +4,17 @@
 [![Code tests & eval](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken/sdmaid-se/total.svg)]()
 
-[SD Maid SE](https://github.com/d4rken/sdmaid-se) is a file management tool for Android. Its core purpose is freeing up
+[SD Maid SE](https://github.com/d4rken/sdmaid-se) is a file management tool for Android that specialises in maintenance. Its core purpose is freeing up
 space and removing unwanted data.
 
 Features include:
 
 * Removing data that belongs to app that are no longer installed (CorpseFinder)
 * Deleting expendable files, e.g. caches (AppCleaner)
-* User configurable filters for random files that can be deleted (SystemCleaner)
+* User configurable filters for random files (SystemCleaner)
 * Scheduling actions (Scheduler)
-* Storage overview (StorageAnalyzer)
+* Storage overview (StorageAnalyzer) (tbd)
+* Controling/disabling apps (AppControl) (tbd)
 
 [SD Maid SE](https://github.com/d4rken/sdmaid-se) is the successor
 to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). A complete rewrite, optimized for newer
@@ -32,7 +33,11 @@ the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
 
 ## Support the project
 
-* Upgrade **SD Maid SE Pro** on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse)
+SD Maid has no ads and doesn't sell your data.
+
+Development is financed by individual user contributions, i.e. you buying the app or becoming a sponsor.
+
+* Upgrade to **SD Maid SE Pro** on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse)
 * [Become a sponsor](https://github.com/sponsors/d4rken) on GitHub
 
 ## Get help
