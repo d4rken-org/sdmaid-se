@@ -24,20 +24,28 @@ class FileOpsHost @Inject constructor(
 ) : FileOpsConnection.Stub() {
 
     override fun lookUp(path: LocalPath): LocalPathLookup = try {
-        path.performLookup(ipcFunnel, libcoreTool)
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path)..." }
+        path.performLookup(ipcFunnel, libcoreTool).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path): $it" }
+        }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 
     override fun listFiles(path: LocalPath): List<LocalPath> = try {
-        path.asFile().listFiles2().map { LocalPath.build(it) }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path)..." }
+        path.asFile().listFiles2()
+            .map { LocalPath.build(it) }
+            .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "$it" } }
+            .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path) done: ${it.size} items" } }
     } catch (e: Exception) {
         log(TAG, ERROR) { "listFiles(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 
     override fun listFilesStream(path: LocalPath): RemoteInputStream = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path)..." }
         val result = path.asFile().listFiles2().map { LocalPath.build(it) }
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path) ${result.size} items read, now streaming" }
         result.toRemoteInputStream()
@@ -47,17 +55,24 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun lookupFiles(path: LocalPath): List<LocalPathLookup> = try {
-        listFiles(path).map { lookUp(it) }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path)..." }
+        listFiles(path)
+            .mapIndexed { index, item ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
+                item.performLookup(ipcFunnel, libcoreTool)
+            }
+            .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) done: ${it.size} items" } }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 
     override fun lookupFilesStream(path: LocalPath): RemoteInputStream = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path)..." }
         val paths = listFiles(path)
         val lookups = paths.mapIndexed { index, item ->
             if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
-            lookUp(item)
+            item.performLookup(ipcFunnel, libcoreTool)
         }
         lookups.toRemoteInputStream()
     } catch (e: Exception) {
@@ -66,6 +81,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun readFile(path: LocalPath): RemoteInputStream = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "readFile($path)..." }
         FileInputStream(path.asFile()).remoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "readFile(path=$path) failed\n${e.asLog()}" }
@@ -73,6 +89,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun writeFile(path: LocalPath): RemoteOutputStream = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "writeFile($path)..." }
         FileOutputStream(path.asFile()).toRemoteOutputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "writeFile(path=$path) failed\n${e.asLog()}" }
@@ -80,6 +97,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun mkdirs(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "mkdirs($path)..." }
         path.asFile().mkdirs()
     } catch (e: Exception) {
         log(TAG, ERROR) { "mkdirs(path=$path) failed\n${e.asLog()}" }
@@ -87,6 +105,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun createNewFile(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "createNewFile($path)..." }
         val file = path.asFile()
 
         if (file.exists() && file.isDirectory) {
@@ -108,6 +127,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun canRead(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "canRead($path)..." }
         path.asFile().canRead()
     } catch (e: Exception) {
         log(TAG, ERROR) { "path(path=$path) failed\n${e.asLog()}" }
@@ -115,6 +135,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun canWrite(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "canWrite($path)..." }
         path.asFile().canWrite()
     } catch (e: Exception) {
         log(TAG, ERROR) { "canWrite(path=$path) failed\n${e.asLog()}" }
@@ -122,6 +143,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun exists(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "exists($path)..." }
         path.asFile().exists()
     } catch (e: Exception) {
         log(TAG, ERROR) { "exists(path=$path) failed\n${e.asLog()}" }
@@ -129,6 +151,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun delete(path: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "exists($path)..." }
         path.asFile().delete()
     } catch (e: Exception) {
         log(TAG, ERROR) { "delete(path=$path) failed\n${e.asLog()}" }
@@ -136,6 +159,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun createSymlink(linkPath: LocalPath, targetPath: LocalPath): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "createSymlink($linkPath,$targetPath)..." }
         linkPath.asFile().createSymlink(targetPath.asFile())
     } catch (e: Exception) {
         log(TAG, ERROR) { "createSymlink(linkPath=$linkPath, targetPath=$targetPath) failed\n${e.asLog()}" }
@@ -143,6 +167,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun setModifiedAt(path: LocalPath, modifiedAt: Long): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "setModifiedAt($path,$modifiedAt)..." }
         path.asFile().setLastModified(modifiedAt)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, modifiedAt=$modifiedAt) failed\n${e.asLog()}" }
@@ -150,6 +175,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun setPermissions(path: LocalPath, permissions: Permissions): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "setPermissions($path,$permissions)..." }
         path.asFile().setPermissions(permissions)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, permissions=$permissions) failed\n${e.asLog()}" }
@@ -157,6 +183,7 @@ class FileOpsHost @Inject constructor(
     }
 
     override fun setOwnership(path: LocalPath, ownership: Ownership): Boolean = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "setPermissions($path,$ownership)..." }
         path.asFile().setOwnership(ownership)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, ownership=$ownership) failed\n${e.asLog()}" }
