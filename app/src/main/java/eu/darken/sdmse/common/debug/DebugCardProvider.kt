@@ -23,12 +23,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DebugCardProvider @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     private val debugSettings: DebugSettings,
     private val pkgRepo: PkgRepo,
     private val pkgOps: PkgOps,
     private val dataAreaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
+    private val javaRootClient: JavaRootClient,
 ) {
 
     fun create(vm: ViewModel3) = combine(
@@ -48,25 +50,20 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             onRunTest = {
-                vm.launch {
-                    LocalPath.build("/sdcard/Download").lookupFiles(gatewaySwitch)
-                    fileForensics.findOwners(LocalPath.build("/data/dalvik-cache/arm64/apex@com.android.permission@priv-app@GooglePermissionController@M_2022_06@GooglePermissionController.apk@classes.dex"))
-//                    pkgOps.queryPkg("com.google.android.permissioncontroller".toPkgId()).let {
-//                        log { " Queried PKGS: $it" }
-//                    }
-//                    pkgOps.viewArchive(
-//                        LocalPath.build("/data/app/com.google.android.trichromelibrary_524907933--Y3-0N2FPgdz_idXlQjVYQ==/base.apk")
-//                    ).let {
-//                        log { "trichrome pkg: $it" }
-//                    }
-//                    val path = LocalPath.build("/storage/emulated/0/")
-//                    path.walk(
-//                        gatewaySwitch,
-//                        filter = { item -> item.segments.size <= 4 + path.segments.size }
-//                    )
-//                        .collectLatest {
-//                            log { "# PATH: $it" }
-//                        }
+                appScope.launch {
+                    try {
+                        gatewaySwitch.useRes {
+                            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+                            log("####") { "Starting read:" }
+                            val result = localGateway.lookupFiles(
+                                LocalPath.build("/data_mirror/data_ce/null/0/com.google.android.setupwizard/files/metrics/SESSION_TYPE_DEFERRED_SETUP"),
+                                mode = LocalGateway.Mode.ROOT
+                            )
+                            log("####") { "Read ${result.size} items" }
+                        }
+                    } catch (e: Exception) {
+                        log(Logging.Priority.ERROR) { "Failed to run test action: ${e.asLog()}" }
+                    }
                 }
             }
         )
