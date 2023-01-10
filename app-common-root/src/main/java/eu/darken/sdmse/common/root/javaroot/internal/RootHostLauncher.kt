@@ -34,6 +34,7 @@ class RootHostLauncher @Inject constructor(
         binderClass: KClass<Binder>,
         rootHostClass: KClass<Host>,
         enableDebug: Boolean = false,
+        enableTrace: Boolean = false,
         useMountMaster: Boolean = false,
     ): Flow<Binder> = callbackFlow {
         log(TAG) { "createConnection($binderClass,$rootHostClass,$enableDebug,$useMountMaster)" }
@@ -76,6 +77,7 @@ class RootHostLauncher @Inject constructor(
                 pairingCode = pairingCode,
                 packageName = context.packageName,
                 isDebug = enableDebug,
+                isTrace = enableTrace,
                 waitForDebugger = enableDebug && Debug.isDebuggerConnected()
             )
 

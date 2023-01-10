@@ -3,7 +3,9 @@ package eu.darken.sdmse.common.files.core.local.root
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -21,23 +23,47 @@ class FileOpsClient @AssistedInject constructor(
     @Assisted private val fileOpsConnection: FileOpsConnection
 ) : ClientModule {
     fun lookUp(path: LocalPath): LocalPathLookup = try {
-        fileOpsConnection.lookUp(path)
+        fileOpsConnection.lookUp(path).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookup($path): $it" }
+        }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUp(path=$path) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
-    fun listFiles(path: LocalPath): List<LocalPath> = try {
-        fileOpsConnection.listFiles(path)
+    fun listFiles(path: LocalPath): Collection<LocalPath> = try {
+        fileOpsConnection.listFiles(path).also {
+            if (Bugs.isTrace) log(TAG) { "listFiles($path): $it" }
+        }
     } catch (e: Exception) {
         log(TAG, ERROR) { "listFiles(path=$path) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
-    fun lookupFiles(path: LocalPath): List<LocalPathLookup> = try {
-        fileOpsConnection.lookupFiles(path)
+    fun listFilesStream(path: LocalPath): Collection<LocalPath> = try {
+        fileOpsConnection.listFilesStream(path).toLocalPaths().also {
+            if (Bugs.isTrace) log(TAG) { "listFilesStream($path) finished streaming, ${it.size} items" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "listFilesStream(path=$path) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
+        fileOpsConnection.lookupFiles(path).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path): $it" }
+        }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun lookupFilesStream(path: LocalPath): Collection<LocalPathLookup> = try {
+        fileOpsConnection.lookupFilesStream(path).toLocalPathLookups().also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path) finished streaming, ${it.size} items" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookupFilesStream(path=$path) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 

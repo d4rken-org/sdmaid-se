@@ -67,7 +67,7 @@ class PrivateDataCorpseFilter @Inject constructor(
             .flatten()
     }
 
-    @Throws(IOException::class) private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
+    @Throws(IOException::class) private suspend fun doFilter(candidates: Collection<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Percent(0, candidates.size))
 
         val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()

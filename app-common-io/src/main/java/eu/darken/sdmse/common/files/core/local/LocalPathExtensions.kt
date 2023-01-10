@@ -2,9 +2,6 @@ package eu.darken.sdmse.common.files.core.local
 
 import android.system.Os
 import android.system.StructStat
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
-import eu.darken.rxshell.extra.CmdHelper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -38,9 +35,8 @@ fun LocalPath.toCrumbs(): List<LocalPath> {
 }
 
 fun LocalPath.performLookup(
-    ipcFunnel: IPCFunnel? = null,
-    libcoreTool: LibcoreTool? = null,
-    shellSession: RxCmdShell.Session? = null
+    ipcFunnel: IPCFunnel,
+    libcoreTool: LibcoreTool,
 ): LocalPathLookup {
     val fstat: StructStat? = try {
         Os.lstat(file.path)
@@ -53,25 +49,10 @@ fun LocalPath.performLookup(
         val uid = it.st_uid
         val gid = it.st_gid
 
-        var userName: String? = null
-        var groupName: String? = null
-        if (shellSession != null) {
-            val result = Cmd.builder("stat -c \"%U:%G\" ${CmdHelper.san(file.path)}").execute(shellSession)
-            if (result.exitCode == Cmd.ExitCode.OK) {
-                val split = result.output.first().split(":")
-                userName = split[0]
-                groupName = split[1]
-            }
-        }
+        val userName: String? = libcoreTool.getNameForUid(uid)
+        val groupName: String? = libcoreTool.getNameForGid(gid)
 
-        if (libcoreTool != null) {
-            if (userName == null) userName = libcoreTool.getNameForUid(uid)
-            if (groupName == null) groupName = libcoreTool.getNameForGid(gid)
-        }
-
-        if (ipcFunnel != null) {
-
-        }
+        // TODO use Files.readAttributes as fallback?
 
         Ownership(uid, gid, userName, groupName)
     }

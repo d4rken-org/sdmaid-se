@@ -109,7 +109,7 @@ class DalvikCorpseFilter @Inject constructor(
     }
 
     private suspend fun doFilterDalvikProfiles(
-        profileItems: List<APath>,
+        profileItems: Collection<APath>,
         includeRiskKeeper: Boolean,
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
@@ -148,7 +148,7 @@ class DalvikCorpseFilter @Inject constructor(
     }
 
     private suspend fun doFilterOdex(
-        dalvikItems: List<APath>,
+        dalvikItems: Collection<APath>,
         includeRiskKeeper: Boolean,
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {

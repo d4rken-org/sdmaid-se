@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.files.core.local.root
 
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
-import kotlinx.coroutines.runBlocking
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import javax.inject.Inject
@@ -25,12 +24,7 @@ class FileOpsHost @Inject constructor(
 ) : FileOpsConnection.Stub() {
 
     override fun lookUp(path: LocalPath): LocalPathLookup = try {
-        // TODO why use root shell here?
-        runBlocking {
-            sharedShell.session.get().use { sessionResource ->
-                path.performLookup(ipcFunnel, libcoreTool, sessionResource.item)
-            }
-        }
+        path.performLookup(ipcFunnel, libcoreTool)
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
@@ -43,8 +37,29 @@ class FileOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun listFilesStream(path: LocalPath): RemoteInputStream = try {
+        val result = path.asFile().listFiles2().map { LocalPath.build(it) }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path) ${result.size} items read, now streaming" }
+        result.toRemoteInputStream()
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
     override fun lookupFiles(path: LocalPath): List<LocalPathLookup> = try {
         listFiles(path).map { lookUp(it) }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
+    override fun lookupFilesStream(path: LocalPath): RemoteInputStream = try {
+        val paths = listFiles(path)
+        val lookups = paths.mapIndexed { index, item ->
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
+            lookUp(item)
+        }
+        lookups.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)

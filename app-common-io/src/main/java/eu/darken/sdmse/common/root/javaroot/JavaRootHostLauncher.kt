@@ -30,6 +30,7 @@ class JavaRootHostLauncher @Inject constructor(
             binderClass = JavaRootConnection::class,
             rootHostClass = JavaRootHost::class,
             enableDebug = Bugs.isDebug,
+            enableTrace = Bugs.isTrace,
             useMountMaster = useMountMaster,
         )
         .onStart { log(TAG) { "Initiating connection to host." } }

@@ -6,6 +6,7 @@ import android.os.Debug
 import android.os.Looper
 import android.util.Base64
 import android.util.Log
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -53,11 +54,16 @@ abstract class RootHost(
             else exitProcess(1)
         }
 
-        if (options.isDebug) {
+        Bugs.isDebug = options.isDebug
+        Bugs.isTrace = options.isTrace
+
+        if (isDebug) {
             Logging.install(LogCatLogger())
             Log.i(iTag, "Debug logger installed")
             log(iTag, INFO) { "Debug logger installed" }
+        }
 
+        if (options.isDebug) {
             setAppName("$ourPkgName:rootHost")
 
             val waitStart = System.currentTimeMillis()

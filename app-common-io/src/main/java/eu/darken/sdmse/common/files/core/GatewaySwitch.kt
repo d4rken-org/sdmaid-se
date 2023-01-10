@@ -64,11 +64,11 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { lookup(path) }
     }
 
-    override suspend fun lookupFiles(path: APath): List<APathLookup<APath>> {
+    override suspend fun lookupFiles(path: APath): Collection<APathLookup<APath>> {
         return useGateway(path) { lookupFiles(path) }
     }
 
-    override suspend fun listFiles(path: APath): List<APath> {
+    override suspend fun listFiles(path: APath): Collection<APath> {
         return useGateway(path) { listFiles(path) }
     }
 

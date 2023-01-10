@@ -163,19 +163,19 @@ suspend fun <P : APath, PLU : APathLookup<P>> P.lookup(gateway: APathGateway<P, 
     return gateway.lookup(downCast())
 }
 
-suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFiles(gateway: APathGateway<P, PLU>): List<PLU> {
+suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFiles(gateway: APathGateway<P, PLU>): Collection<PLU> {
     return gateway.lookupFiles(downCast())
 }
 
-suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PLU>): List<PLU>? {
+suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PLU>): Collection<PLU>? {
     return if (exists(gateway)) gateway.lookupFiles(downCast()) else null
 }
 
-suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>>): List<T> {
+suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>>): Collection<T> {
     return gateway.listFiles(downCast())
 }
 
-suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>>): List<T>? {
+suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>>): Collection<T>? {
     return if (exists(gateway)) gateway.listFiles(downCast()) else null
 }
 

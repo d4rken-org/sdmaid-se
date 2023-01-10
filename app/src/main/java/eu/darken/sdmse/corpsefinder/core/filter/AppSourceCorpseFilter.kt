@@ -66,7 +66,7 @@ class AppSourceCorpseFilter @Inject constructor(
             .flatten()
     }
 
-    private suspend fun doFilter(candidates: List<APath>): Collection<Corpse> {
+    private suspend fun doFilter(candidates: Collection<APath>): Collection<Corpse> {
         updateProgressCount(Progress.Count.Percent(0, candidates.size))
 
         val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()

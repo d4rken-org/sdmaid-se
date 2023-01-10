@@ -134,9 +134,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     if (!canRead) throw ReadException(path)
-                    getShellSession().use { sessionResource ->
-                        path.performLookup(ipcFunnel, libcoreTool, sessionResource.item)
-                    }
+                    path.performLookup(ipcFunnel, libcoreTool)
                 }
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     rootOps { it.lookUp(path) }
@@ -150,9 +148,9 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun listFiles(path: LocalPath): List<LocalPath> = listFiles(path, Mode.AUTO)
+    override suspend fun listFiles(path: LocalPath): Collection<LocalPath> = listFiles(path, Mode.AUTO)
 
-    suspend fun listFiles(path: LocalPath, mode: Mode = Mode.AUTO): List<LocalPath> = runIO {
+    suspend fun listFiles(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPath> = runIO {
         try {
             val javaFile = path.asFile()
             val nonRootList: List<File>? = try {
@@ -170,7 +168,7 @@ class LocalGateway @Inject constructor(
                     nonRootList.map { LocalPath.build(it) }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                    rootOps { it.listFiles(path) }
+                    rootOps { it.listFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
             }
@@ -181,9 +179,9 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun lookupFiles(path: LocalPath): List<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
+    override suspend fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
 
-    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): List<LocalPathLookup> = withContext(
+    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookup> = withContext(
         dispatcherProvider.IO
     ) {
         try {
@@ -200,15 +198,13 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     if (nonRootList == null) throw ReadException(path)
-                    getShellSession().use { sessionResource ->
-                        nonRootList
-                            .filter { it.canRead() }
-                            .map { it.toLocalPath() }
-                            .map { it.performLookup(ipcFunnel, libcoreTool, sessionResource.item) }
-                    }
+                    nonRootList
+                        .filter { it.canRead() }
+                        .map { it.toLocalPath() }
+                        .map { it.performLookup(ipcFunnel, libcoreTool) }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                    rootOps { it.lookupFiles(path) }
+                    rootOps { it.lookupFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
             }

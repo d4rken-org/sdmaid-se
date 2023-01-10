@@ -1,17 +1,25 @@
 package eu.darken.sdmse.common.debug
 
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.lookupFiles
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.root.javaroot.JavaRootClient
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DebugCardProvider @Inject constructor(

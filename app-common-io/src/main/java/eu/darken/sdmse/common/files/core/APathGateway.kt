@@ -13,9 +13,9 @@ interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any>
 
     suspend fun lookup(path: P): PLU
 
-    suspend fun listFiles(path: P): List<P>
+    suspend fun listFiles(path: P): Collection<P>
 
-    suspend fun lookupFiles(path: P): List<PLU>
+    suspend fun lookupFiles(path: P): Collection<PLU>
 
     suspend fun exists(path: P): Boolean
 
