@@ -78,7 +78,7 @@ class RootHostLauncher @Inject constructor(
                 packageName = context.packageName,
                 isDebug = enableDebug,
                 isTrace = enableTrace,
-                waitForDebugger = enableDebug && Debug.isDebuggerConnected()
+                waitForDebugger = enableTrace && Debug.isDebuggerConnected()
             )
 
             if (useMountMaster) {
