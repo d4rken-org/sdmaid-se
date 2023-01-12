@@ -44,8 +44,14 @@ class PathTreeFlow<
             }
 
             newBatch
-                .onEach { if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $it" } }
-                .filter { filter(it) }
+                .filter {
+                    val allowed = filter(it)
+                    if (Bugs.isTrace) {
+                        if (allowed) log(tag, VERBOSE) { "Walking: $it" }
+                        else log(tag, VERBOSE) { "Not walking (filter): $it" }
+                    }
+                    allowed
+                }
                 .forEach { child ->
                     if (child.isDirectory) queue.addFirst(child)
                     collector.emit(child)

@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -209,7 +210,9 @@ class DashboardFragmentVM @Inject constructor(
         items
     }
         .throttleLatest(500)
-        .setupCommonEventHandlers(TAG) { "listItems" }
+        .let {
+            if (Bugs.isTrace) it.setupCommonEventHandlers(TAG) { "listItems" } else it
+        }
         .asLiveData2()
 
 

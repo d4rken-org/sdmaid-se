@@ -6,15 +6,12 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.isAncestorOf
-import eu.darken.sdmse.common.files.core.walk
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -74,27 +71,40 @@ class SystemCrawler @Inject constructor(
             .filter { sdcardChildOverLaps.contains(it.type) }
             .map { it.path }
 
+        val skipSegments = mutableSetOf<Segments>()
+        if (targetAreas.all { it.path.segments != segs("", "data", "data") }) {
+            skipSegments.add(segs("", "data", "data"))
+            skipSegments.add(segs("", "data", "user", "0"))
+        }
+        skipSegments.add(segs("", "data", "media", "0"))
+        log(TAG) { "Skip segments: $skipSegments" }
+
         val sieveContents = mutableMapOf<SystemCleanerFilter, Set<APathLookup<*>>>()
 
         gatewaySwitch.useRes {
             targetAreas
                 .asFlow()
                 .flowOn(dispatcherProvider.IO)
-                .flatMapMerge(4) { area ->
-                    // TODO prevent overlap between /storage/emulated/0 and /data/media/0?
-
-                    if (area.type == DataArea.Type.SDCARD) {
-                        area.path.walk(
-                            gatewaySwitch,
-                            // Prevent overlap between SDCARD and PUBLIC_DATA/MEDIA/OBB
-                            filter = { toCheck -> sdcardOverlaps.none { it.isAncestorOf(toCheck) } }
-                        )
+                .flatMapMerge(6) { area ->
+                    val filter = if (area.type == DataArea.Type.SDCARD) {
+                        filter@{ toCheck: APathLookup<*> ->
+                            if (sdcardOverlaps.any { it.isAncestorOf(toCheck) }) return@filter false
+                            true
+                        }
                     } else {
-                        area.path.walk(gatewaySwitch)
+                        filter@{ toCheck: APathLookup<*> ->
+                            if (skipSegments.any { toCheck.segments.startsWith(it) }) {
+                                log(TAG, WARN) { "Skipping: $toCheck" }
+                                return@filter false
+                            }
+                            true
+                        }
                     }
+                    area.path.walk(gatewaySwitch, filter)
                 }
                 .buffer(1024)
                 .collect { item ->
+                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
                     updateProgressSecondary(item.path)
                     val matched = filters.firstOrNull {
                         try {
