@@ -58,6 +58,7 @@ class LogFilesFilter @Inject constructor(
                 BaseSieve.Exclusion(segs("app_chrome")),
                 BaseSieve.Exclusion(segs("app_webview")),
                 BaseSieve.Exclusion(segs("leveldb")),
+                BaseSieve.Exclusion(segs("shared_proto_db")),
             )
         )
         sieve = baseSieveFactory.create(config)
