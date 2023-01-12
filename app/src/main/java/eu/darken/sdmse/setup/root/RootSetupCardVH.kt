@@ -17,16 +17,27 @@ class RootSetupCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        allowRootToggle.apply {
-            isChecked = item.setupState.useRoot ?: false
-            setOnCheckedChangeListener { _, isChecked -> item.onToggleUseRoot(isChecked) }
+        allowRootOptions.apply {
+            when (item.setupState.useRoot) {
+                true -> check(R.id.allow_root_options_enable)
+                false -> check(R.id.allow_root_options_disable)
+                null -> check(-1)
+            }
+            setOnCheckedChangeListener { _, checkedId ->
+                val selection = when (checkedId) {
+                    R.id.allow_root_options_enable -> true
+                    R.id.allow_root_options_disable -> false
+                    else -> null
+                }
+                item.onToggleUseRoot(selection)
+            }
         }
         helpAction.setOnClickListener { item.onHelp() }
     }
 
     data class Item(
         val setupState: RootSetupModule.State,
-        val onToggleUseRoot: (Boolean) -> Unit,
+        val onToggleUseRoot: (Boolean?) -> Unit,
         val onHelp: () -> Unit,
     ) : SetupAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

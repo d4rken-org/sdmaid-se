@@ -41,21 +41,32 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/setup_root_card_body"
-            app:layout_constraintBottom_toTopOf="@id/allow_root_toggle"
+            app:layout_constraintBottom_toTopOf="@id/allow_root_options"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/allow_root_toggle"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        <RadioGroup
+            android:id="@+id/allow_root_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
-            android:text="@string/setup_root_toggle_label"
-            app:layout_constraintTop_toBottomOf="@id/body" />
+            app:layout_constraintTop_toBottomOf="@id/body">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/allow_root_options_enable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_root_enable_root_use_label" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/allow_root_options_disable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_root_disable_root_use_label" />
+        </RadioGroup>
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
@@ -70,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/allow_root_toggle" />
+            app:layout_constraintTop_toBottomOf="@id/allow_root_options" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -168,7 +168,8 @@
     <string name="systemcleaner_filter_localtmp_summary">System related temporary files (e.g. from Android Studio).</string>
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Should SD Maid use root access if it is available to check additional system folders and private application data.</string>
-    <string name="setup_root_toggle_label">Use root if available</string>
+    <string name="setup_root_enable_root_use_label">Use root access if available</string>
+    <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>

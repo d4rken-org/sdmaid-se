@@ -38,7 +38,7 @@ class RootSetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    suspend fun toggleUseRoot(useRoot: Boolean) {
+    suspend fun toggleUseRoot(useRoot: Boolean?) {
         log(TAG) { "toggleUseRoot(useRoot=$useRoot)" }
         rootSettings.useRoot.value(useRoot)
     }
