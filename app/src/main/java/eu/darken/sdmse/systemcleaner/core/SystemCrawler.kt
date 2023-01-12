@@ -85,7 +85,7 @@ class SystemCrawler @Inject constructor(
             targetAreas
                 .asFlow()
                 .flowOn(dispatcherProvider.IO)
-                .flatMapMerge(6) { area ->
+                .flatMapMerge(3) { area ->
                     val filter = if (area.type == DataArea.Type.SDCARD) {
                         filter@{ toCheck: APathLookup<*> ->
                             if (sdcardOverlaps.any { it.isAncestorOf(toCheck) }) return@filter false
