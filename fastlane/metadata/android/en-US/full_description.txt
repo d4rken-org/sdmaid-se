@@ -1,20 +1,21 @@
 <i>SD Maid SE</i> is trusty maid for your Android, to keep it clean & tidy.
 
 Nobody is perfect and neither is Android.
-Apps you have already removed leave something behind.
-Logs, crash reports and other files you don't really want are constantly being created.
-Your storage is collecting files and directories you don't recognize.
-Let’s not go on here... Let SD Maid SE help you!
+* Apps you have already removed leave something behind.
+* Logs, crash reports and other files you don't really want are constantly being created.
+* Your storage is collecting files and directories you don't recognize.
+
+Let’s not go on here... Let SD Maid SE help you:
 
 * Clean up data from already uninstalled apps
 * Find hidden app caches
 * Remove superfluous system files
 
-Some features require an in-app purchase.
+Some features required a paid upgrade.
+
+SD Maid SE is the successor to SD Maid.
+Optimized for newer Android versions and focused on a cleaning up.
 
 SD Maid SE has optional features that utilize the AccessibilityService API to automate tedious actions.
 Using the AccessibilityService API, SD Maid SE can click buttons for you to perform operations on multible apps, e.g. deleting caches.
 SD Maid SE does not use the AccessibilityService API to collect information.
-
-SD Maid SE is the successor to SD Maid.
-Optimized for newer Android versions and focused on a cleaning up.
