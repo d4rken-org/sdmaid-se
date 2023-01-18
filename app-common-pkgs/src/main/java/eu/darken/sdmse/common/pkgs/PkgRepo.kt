@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import kotlinx.coroutines.CoroutineScope
@@ -25,26 +26,49 @@ class PkgRepo @Inject constructor(
     private val pkgOps: PkgOps,
 ) {
 
+    data class CacheContainer(
+        val isInitialized: Boolean = false,
+        val pkgData: Map<Pkg.Id, CachedInfo> = emptyMap(),
+    )
+
     private val cacheLock = Mutex()
-    private val pkgCache = MutableStateFlow(mapOf<Pkg.Id, CachedInfo>())
-    val pkgs: Flow<Collection<Installed>> = pkgCache.map { cachedInfo ->
-        cachedInfo.values.mapNotNull { it.data }
-    }
+    private val pkgCache = MutableStateFlow(CacheContainer())
+
+    val pkgs: Flow<Collection<Installed>> = pkgCache
+        .filter { it.isInitialized }
+        .map { it.pkgData }
+        .map { cachedInfo -> cachedInfo.values.mapNotNull { it.data } }
+        .onStart {
+            cacheLock.withLock {
+                if (!pkgCache.value.isInitialized) {
+                    log(TAG) { "Init due to pkgs subscription" }
+                    load()
+                }
+            }
+        }
+        .replayingShare(appScope)
 
     init {
         pkgEventListener.events
             .onEach {
                 log(TAG) { "Refreshing package cache due to event: $it" }
-                cacheLock.withLock {
-                    reload()
-                }
+                reload()
             }
             .launchIn(appScope)
     }
 
+
     suspend fun reload() = cacheLock.withLock {
         log(TAG) { "reload()" }
-        pkgCache.value = generatePkgcache()
+        load()
+    }
+
+    private suspend fun load() {
+        log(TAG) { "load()" }
+        pkgCache.value = CacheContainer(
+            isInitialized = true,
+            pkgData = generatePkgcache()
+        )
     }
 
     private suspend fun generatePkgcache(): Map<Pkg.Id, CachedInfo> {
@@ -70,12 +94,12 @@ class PkgRepo @Inject constructor(
     }
 
     private suspend fun queryCache(pkgId: Pkg.Id): CachedInfo = cacheLock.withLock {
-        if (pkgCache.value.isEmpty()) {
+        if (!pkgCache.value.isInitialized) {
             log(TAG) { "Package cache doesn't exist yet..." }
-            pkgCache.value = generatePkgcache()
+            load()
         }
 
-        pkgCache.value[pkgId]?.let { return@withLock it }
+        pkgCache.value.pkgData[pkgId]?.let { return@withLock it }
 
         log(TAG, VERBOSE) { "Cache miss for $pkgId" }
 
@@ -83,9 +107,11 @@ class PkgRepo @Inject constructor(
             id = pkgId,
             data = null,
         ).also {
-            pkgCache.value = pkgCache.value.mutate {
-                this[pkgId] = it
-            }
+            pkgCache.value = pkgCache.value.copy(
+                pkgData = pkgCache.value.pkgData.mutate {
+                    this[pkgId] = it
+                }
+            )
         }
     }
 
