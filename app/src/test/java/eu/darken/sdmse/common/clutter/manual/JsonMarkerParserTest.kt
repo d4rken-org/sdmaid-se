@@ -171,7 +171,7 @@ class JsonMarkerParserTest : BaseTest() {
     }
 
     @Test fun `parse debug set`() {
-        JsonMarkerParser(context, moshi).fromAssets("./src/main/assets/clutter/db_debug_markers.json").apply {
+        JsonMarkerParser(context, moshi).fromAssets("./src/test/assets/clutter/db_debug_markers.json").apply {
             isEmpty() shouldBe false
         }
     }

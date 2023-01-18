@@ -13,7 +13,7 @@ import testhelpers.BaseTest
 
 class ManualMarkerSourceTest : BaseTest() {
 
-    private var markerTestTool = MarkerSourceTestTool("./src/main/assets/clutter/db_debug_markers.json")
+    private var markerTestTool = MarkerSourceTestTool("./src/test/assets/clutter/db_debug_markers.json")
 
     @BeforeEach
     fun setup() = testEnv {

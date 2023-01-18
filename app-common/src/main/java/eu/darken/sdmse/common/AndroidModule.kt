@@ -2,6 +2,7 @@ package eu.darken.sdmse.common
 
 import android.app.Application
 import android.app.NotificationManager
+import android.app.usage.StorageStatsManager
 import android.content.ContentResolver
 import android.content.Context
 import android.content.pm.PackageManager
@@ -64,6 +65,11 @@ class AndroidModule {
     @Singleton
     fun storageManager(@ApplicationContext context: Context): StorageManager =
         context.getSystemService(Context.STORAGE_SERVICE) as StorageManager
+
+    @Provides
+    @Singleton
+    fun storageStatsManager(@ApplicationContext context: Context): StorageStatsManager =
+        context.getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
 
     @Provides
     @Singleton

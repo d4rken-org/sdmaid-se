@@ -1,9 +1,8 @@
 package eu.darken.sdmse.common.pkgs.container
 
-import android.content.Context
 import android.content.pm.PackageInfo
-import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
+import eu.darken.sdmse.common.ca.*
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -17,18 +16,14 @@ data class HiddenPkg(
 
     override val id: Pkg.Id = packageInfo.packageName.toPkgId()
 
-    private var _label: String? = null
-    override fun getLabel(context: Context): String {
-        _label?.let { return it }
-        val newLabel = context.packageManager.getLabel2(id)
-            ?: id.name
-        _label = newLabel
-        return newLabel
-    }
+    override val label: CaString = caString { context ->
+        context.packageManager.getLabel2(id) ?: id.name
+    }.cache()
 
-    override fun getIcon(context: Context): Drawable =
+    override val icon: CaDrawable = caDrawable { context ->
         context.packageManager.getIcon2(id)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }.cache()
 
     override fun toString(): String = "BasicPkg(packageName=$packageName"
 }

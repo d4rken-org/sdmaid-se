@@ -3,13 +3,11 @@ package eu.darken.sdmse.common.funnel
 import android.content.Context
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
-import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.Semaphore
-import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -22,7 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class IPCFunnel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider,
 ) {
 
     private val execLock = Semaphore(
@@ -35,9 +33,10 @@ class IPCFunnel @Inject constructor(
 
     private val funnelEnv by lazy {
         object : FunnelEnvironment {
-            override val packageManager: PackageManager =  context.packageManager
+            override val packageManager: PackageManager = context.packageManager
         }
     }
+
     init {
         log(TAG) { "IPCFunnel initialized." }
     }

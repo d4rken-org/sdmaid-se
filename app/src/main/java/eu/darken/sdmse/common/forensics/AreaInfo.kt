@@ -8,9 +8,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AreaInfo(
-    val dataArea: DataArea,
     val file: APath,
     val prefix: APath,
+    val dataArea: DataArea,
     val isBlackListLocation: Boolean,
 ) : Parcelable {
 

@@ -1,9 +1,8 @@
 package eu.darken.sdmse.common.pkgs.container
 
-import android.content.Context
 import android.content.pm.PackageInfo
-import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
+import eu.darken.sdmse.common.ca.*
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -19,18 +18,15 @@ data class NormalPkg(
     override val userHandles: Set<UserHandle2>,
 ) : Installed, ReadableApk, ExtendedInstallData {
 
-    private var _label: String? = null
-    override fun getLabel(context: Context): String {
-        _label?.let { return it }
-        val newLabel = context.packageManager.getLabel2(id)
+    override val label: CaString = caString { context ->
+        context.packageManager.getLabel2(id)
             ?: id.name
-        _label = newLabel
-        return newLabel
-    }
+    }.cache()
 
-    override fun getIcon(context: Context): Drawable =
+    override val icon: CaDrawable = caDrawable { context ->
         context.packageManager.getIcon2(id)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }.cache()
 
     override fun toString(): String = "NormalPkg(packageName=$packageName, userHandles=$userHandles)"
 }

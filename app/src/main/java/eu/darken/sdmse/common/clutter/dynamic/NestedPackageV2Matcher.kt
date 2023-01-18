@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.files.core.isAncestorOf
+import eu.darken.sdmse.common.files.core.joinSegments
 import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -57,7 +58,7 @@ open class NestedPackageV2Matcher(
                 if (!this.segments.isAncestorOf(otherSegments, ignoreCase)) {
                     return null
                 }
-                val joinedSegments = otherSegments.joinToString("/")
+                val joinedSegments = otherSegments.joinSegments()
                 var goodMatcher: Matcher? = null
                 for (p in goodMatches) {
                     val matcher = p.matcher(joinedSegments)

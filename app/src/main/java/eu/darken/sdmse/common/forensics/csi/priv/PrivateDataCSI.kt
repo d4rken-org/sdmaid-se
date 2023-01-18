@@ -59,10 +59,10 @@ class PrivateDataCSI @Inject constructor(
             val defaultPrivateDataDir = storageEnvironment.dataDir.child(DEFAULT_DIR)
             if (defaultPrivateDataDir.isAncestorOf(target)) {
                 return AreaInfo(
-                    userPrimary,
-                    target,
-                    defaultPrivateDataDir,
-                    true,
+                    file = target,
+                    prefix = defaultPrivateDataDir,
+                    dataArea = userPrimary,
+                    isBlackListLocation = true,
                 )
             }
         }

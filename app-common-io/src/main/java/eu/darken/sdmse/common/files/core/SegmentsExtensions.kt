@@ -6,6 +6,10 @@ typealias Segments = List<String>
 
 fun segs(vararg segment: String): Segments = segment.toList()
 
+fun String.toSegs(seperator: String = "/"): Segments = splitToSequence(seperator).toList()
+
+fun Segments.joinSegments(seperator: String = "/"): String = joinToString(seperator)
+
 fun Segments?.matches(other: Segments?, ignoreCase: Boolean = false): Boolean {
     if (this == null) return other == null
     if (this.size != other?.size) return false
@@ -35,9 +39,9 @@ fun Segments?.containsSegments(
     if (this.size < other.size) return false
     return if (allowPartial) {
         if (ignoreCase) {
-            this.joinToString("/").lowercase().contains(other.joinToString("/").lowercase())
+            this.joinSegments().lowercase().contains(other.joinSegments().lowercase())
         } else {
-            this.joinToString("/").contains(other.joinToString("/"))
+            this.joinSegments().contains(other.joinSegments())
         }
     } else {
         if (ignoreCase) {

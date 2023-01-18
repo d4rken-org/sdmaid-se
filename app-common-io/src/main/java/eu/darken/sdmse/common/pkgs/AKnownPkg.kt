@@ -1,11 +1,13 @@
 package eu.darken.sdmse.common.pkgs
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caDrawable
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.features.AppStore
 import kotlin.reflect.full.isSubclassOf
@@ -17,24 +19,25 @@ sealed class AKnownPkg constructor(override val id: Pkg.Id) : Pkg {
     @get:StringRes open val labelRes: Int? = null
     @get:DrawableRes open val iconRes: Int? = R.drawable.ic_default_app_icon_24
 
-    override fun getLabel(context: Context): String? {
-        context.packageManager.getLabel2(id)?.let { return it }
+    override val label: CaString?
+        get() = caString { context ->
+            context.packageManager.getLabel2(id)?.let { return@caString it }
 
-        labelRes
-            ?.let { return context.getString(it) }
+            labelRes?.let { return@caString context.getString(it) }
 
-        return null
-    }
+            id.name
+        }
 
-    override fun getIcon(context: Context): Drawable? {
-        context.packageManager.getIcon2(id)?.let { return it }
+    override val icon: CaDrawable?
+        get() = caDrawable { context ->
+            context.packageManager.getIcon2(id)?.let { return@caDrawable it }
 
-        iconRes
-            ?.let { ContextCompat.getDrawable(context, it) }
-            ?.let { return it }
+            iconRes
+                ?.let { ContextCompat.getDrawable(context, it) }
+                ?.let { return@caDrawable it }
 
-        return null
-    }
+            ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+        }
 
     object AndroidSystem : AKnownPkg("android") {
         override val labelRes: Int = R.string.apps_known_android_system_label

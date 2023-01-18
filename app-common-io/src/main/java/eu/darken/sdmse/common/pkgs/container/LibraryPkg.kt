@@ -1,11 +1,10 @@
 package eu.darken.sdmse.common.pkgs.container
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.SharedLibraryInfo
-import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
+import eu.darken.sdmse.common.ca.*
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.io.R
@@ -42,15 +41,12 @@ data class LibraryPkg(
     override val sourceDir: APath
         get() = apkPath
 
-    private var _label: String? = null
-    override fun getLabel(context: Context): String {
-        _label?.let { return it }
-        val newLabel = context.packageManager.getLabel2(id)
+    override val label: CaString = caString { context ->
+        context.packageManager.getLabel2(id)
             ?: sharedLibraryInfo.name
             ?: id.name
-        _label = newLabel
-        return newLabel
-    }
+    }.cache()
+
 
     override fun <T> tryField(fieldName: String): T? {
         val field = SharedLibraryInfo::class.java.getDeclaredField(fieldName).apply {
@@ -60,9 +56,11 @@ data class LibraryPkg(
         return field.get(sharedLibraryInfo) as? T
     }
 
-    override fun getIcon(context: Context): Drawable =
+    override val icon: CaDrawable = caDrawable { context ->
         context.packageManager.getIcon2(id)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_baseline_local_library_24)!!
+    }.cache()
+
 
     override fun toString(): String = "LibraryPkg(packageName=$packageName, path=$apkPath)"
 }

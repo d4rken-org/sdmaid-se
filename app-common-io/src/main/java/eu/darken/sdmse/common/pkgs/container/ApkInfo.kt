@@ -1,9 +1,9 @@
 package eu.darken.sdmse.common.pkgs.container
 
-import android.content.Context
 import android.content.pm.PackageInfo
-import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
+import eu.darken.sdmse.common.ca.*
+import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.AKnownPkg
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ReadableApk
@@ -14,26 +14,27 @@ data class ApkInfo(
     override val id: Pkg.Id,
     override val packageInfo: PackageInfo
 ) : Pkg, ReadableApk {
-    override fun getLabel(context: Context): String? {
-        context.packageManager.getLabel2(id)?.let { return it }
+
+    override val label: CaString = caString { context ->
+        context.packageManager.getLabel2(id)?.let { return@caString it }
 
         AKnownPkg.values
             .singleOrNull { it.id == id }
             ?.labelRes
-            ?.let { return context.getString(it) }
+            ?.let { return@caString context.getString(it) }
 
-        return null
-    }
+        id.name
+    }.cache()
 
-    override fun getIcon(context: Context): Drawable? {
-        context.packageManager.getIcon2(id)?.let { return it }
+    override val icon: CaDrawable = caDrawable { context ->
+        context.packageManager.getIcon2(id)?.let { return@caDrawable it }
 
         AKnownPkg.values
             .singleOrNull { it.id == id }
             ?.iconRes
             ?.let { ContextCompat.getDrawable(context, it) }
-            ?.let { return it }
+            ?.let { return@caDrawable it }
 
-        return null
-    }
+        ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }.cache()
 }

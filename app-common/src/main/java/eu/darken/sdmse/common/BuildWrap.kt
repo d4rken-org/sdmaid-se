@@ -8,6 +8,9 @@ object BuildWrap {
     val FINGERPRINT: String
         get() = Build.FINGERPRINT
 
+    val MANUFACTOR: String
+        get() = Build.MANUFACTURER
+
     val VERSION = VersionWrap
 
     object VersionWrap {

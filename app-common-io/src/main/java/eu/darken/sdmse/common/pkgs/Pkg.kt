@@ -1,8 +1,8 @@
 package eu.darken.sdmse.common.pkgs
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import android.os.Parcelable
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
 import kotlinx.parcelize.Parcelize
 
 interface Pkg {
@@ -12,9 +12,9 @@ interface Pkg {
     val packageName: String
         get() = id.name
 
-    fun getLabel(context: Context): String? = null
+    val label: CaString?
 
-    fun getIcon(context: Context): Drawable? = null
+    val icon: CaDrawable?
 
     @Parcelize
     data class Id(

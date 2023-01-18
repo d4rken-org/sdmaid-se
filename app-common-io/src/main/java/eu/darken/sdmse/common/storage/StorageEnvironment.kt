@@ -19,6 +19,15 @@ class StorageEnvironment @Inject constructor(
 
     fun getVariable(variableName: String): String? = System.getenv(variableName)
 
+    val ourCodeCacheDirs: Collection<LocalPath>
+        get() = listOf(context.codeCacheDir.toLocalPath())
+
+    val ourCacheDirs: Collection<LocalPath>
+        get() = listOf(context.cacheDir.toLocalPath())
+
+    val ourExternalCacheDirs: Collection<LocalPath>
+        get() = context.externalCacheDirs.map { it.toLocalPath() }
+
     val downloadCacheDirs: Collection<LocalPath>
         get() = setOf(
             Environment.getDownloadCacheDirectory().toLocalPath(),

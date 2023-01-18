@@ -1,0 +1,157 @@
+[
+  {
+	"pkgs": ["eu.thedarken.sdm.test.corpse"],
+	"mrks": [
+	  {"loc": "SDCARD", "path": "sdm_test_path_default_file_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_path_default_dir_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_path_default_file"},
+	  {"loc": "SDCARD", "path": "sdm_test_path_default_dir"},
+	  {"loc": "SDCARD", "regex": "(?:sdm_test_regex_default_\\w{3,4}_corpse)"},
+	  {"loc": "SDCARD", "regex": "(?:sdm_test_regex_default_\\w{3,4})"},
+	  {"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_file_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_dir_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_file"},
+	  {"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_dir"},
+	  {"loc": "SDCARD", "regex": "(?:sdm_test_nested_regex_.../sdm_test_regex_nested_\\w{3,4}_corpse)"},
+	  {"loc": "SDCARD", "regex": "(?:sdm_test_nested_regex_.../sdm_test_regex_nested_\\w{3,4})"},
+	  {
+		"loc": "SDCARD", "path": "sdm_test_nested_mixed",
+		"regex": "^(?:sdm_test_nested_mixed/sdm_test_mixed_nested_\\w{3,4}_corpse)$"
+	  },
+	  {
+		"loc": "SDCARD", "path": "sdm_test_nested_mixed",
+		"regex": "^(?:sdm_test_nested_mixed/sdm_test_mixed_nested_\\w{3,4})$"
+	  },
+	  {
+		"loc": "SDCARD", "contains": "sdm_test_regex_contains_parent_corpse",
+		"regex": "^(?:.+?\\/sdm_test_regex_contains_corpse)$"
+	  },
+	  {
+		"loc": "SDCARD", "path": "sdm_test_path", "contains": "sdm_test_contains",
+		"regex": "^(?:.+?\\/sdm_test_regex_contains_corpse)$"
+	  },
+	  {"loc": "SDCARD", "path": "sdm_test_blocked_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_blocked_corpse/sdm_test_nested_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_blocked_corpse/sdm_test_blocking_child/sdm_test_cascaded_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_blocked_mixed_corpse"},
+	  {
+		"loc": "SDCARD", "path": "sdm_test_blocked_mixed_corpse",
+		"regex": "^(?:sdm_test_blocked_mixed_corpse/sdm_test_mixed_nested_corpse)$"
+	  },
+	  {
+		"loc": "SDCARD", "path": "sdm_test_blocked_mixed_corpse/sdm_test_mixed_blocking_child",
+		"regex": "^(?:sdm_test_blocked_mixed_corpse/sdm_test_mixed_blocking_child/sdm_test_mixed_cascaded_corpse)$"
+	  },
+	  {"loc": "SDCARD", "path": "sdm_test_double_nested/sdm_test_nest1_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_double_nested/sdm_test_nest1_corpse/sdm_test_nest2_corpse"},
+	  {"loc": "SDCARD", "path": "sdm_test_custodian"},
+	  {"loc": "SDCARD", "path": "sdm_test_custodian_corpse"},
+	  {"loc": "SDCARD", "regex": "(?:[\\W\\w]*)(?:sdm_test_nesting_level_corpse)"},
+	  {"loc": "SDCARD", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "SDCARD", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "APP_APP", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "APP_APP", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "APP_APP_PRIVATE", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "APP_APP_PRIVATE", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "PUBLIC_DATA", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "PUBLIC_DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "PRIVATE_DATA", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "PRIVATE_DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "DATA", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "APP_ASEC", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "APP_ASEC", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "PUBLIC_OBB", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "PUBLIC_OBB", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "APP_LIB", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "APP_LIB", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "DALVIK_DEX", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "DALVIK_DEX", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "DALVIK_PROFILE", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "DALVIK_PROFILE", "path": "sdm_test_keeper", "flags": ["keeper"]},
+	  {"loc": "PUBLIC_MEDIA", "path": "sdm_test_common", "flags": ["common"]},
+	  {"loc": "PUBLIC_MEDIA", "path": "sdm_test_keeper", "flags": ["keeper"]}
+	]
+  }, {
+  "pkgs": ["eu.thedarken.sdm.test.corpse2"],
+  "mrks": [
+	{"loc": "SDCARD", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "APP_APP", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "APP_APP_PRIVATE", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "PUBLIC_DATA", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "PRIVATE_DATA", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "APP_ASEC", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "PUBLIC_OBB", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "APP_LIB", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "DALVIK_DEX", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "DALVIK_PROFILE", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]},
+	{"loc": "PUBLIC_MEDIA", "path": "sdm_test_custodian_corpse", "flags": ["custodian"]}
+  ]
+}, {
+  "pkgs": ["eu.thedarken.sdm.test"],
+  "mrks": [
+	{"loc": "SDCARD", "regex": "^(?\u003esdm_test_file_cache_v2)$"},
+	{"loc": "SDCARD", "path": "sdm_test_path_default_file"},
+	{"loc": "SDCARD", "path": "sdm_test_path_default_dir"},
+	{"loc": "SDCARD", "path": "sdm_test_path_default_dir_keeper", "flags": ["keeper"]},
+	{"loc": "SDCARD", "regex": "(?:sdm_test_regex_default_\\w{3,4})"},
+	{"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_file"},
+	{"loc": "SDCARD", "path": "sdm_test_nested/sdm_test_path_nested_dir"},
+	{"loc": "SDCARD", "regex": "(?:sdm_test_nested_regex_.../sdm_test_regex_nested_\\w{3,4})"},
+	{
+	  "loc": "SDCARD", "path": "sdm_test_nested_mixed",
+	  "regex": "(?:sdm_test_nested_mixed/sdm_test_mixed_nested_\\w{3,4})"
+	},
+	{"loc": "SDCARD", "path": "sdm_test_blocked_corpse/sdm_test_blocking_child"},
+	{
+	  "loc": "SDCARD", "path": "sdm_test_blocked_mixed_corpse",
+	  "regex": "(?:sdm_test_blocked_mixed_corpse/sdm_test_mixed_blocking_child)"
+	},
+	{
+	  "loc": "SDCARD", "path": "sdm_test_starts_with_",
+	  "regex": "(?:sdm_test_starts_with_.*?/sdm_starts_with_test_file)"
+	},
+	{"loc": "PUBLIC_MEDIA", "path": "sdm_test_public_media_path_clutter"},
+	{"loc": "PUBLIC_DATA", "path": "sdm_test_public_data_path_clutter"},
+	{"loc": "PUBLIC_DATA", "regex": "(?:sdm_test_public_data_regex_clutter)"},
+	{"loc": "SDCARD", "path": "sdm_test_sdcard_path_clutter"},
+	{"loc": "SDCARD", "regex": "(?:sdm_test_sdcard_regex_clutter)"},
+	{"loc": "SDCARD", "regex": "(?:sdm_test_file_cache.)"},
+	{"loc": "PUBLIC_DATA", "regex": "(?:sdm_test_file_cache.)"},
+	{"loc": "PUBLIC_MEDIA", "regex": "(?:sdm_test_file_cache.)"},
+	{"loc": "PRIVATE_DATA", "regex": "(?:sdm_test_file_cache.)"},
+	{"loc": "PRIVATE_DATA", "path": "sdm_test_private_data_path_clutter"},
+	{"loc": "PUBLIC_OBB", "path": "sdm_test_public_obb_path_clutter"},
+	{"loc": "SDCARD", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "APP_APP", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "APP_APP_PRIVATE", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "PUBLIC_DATA", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "PRIVATE_DATA", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "APP_ASEC", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "PUBLIC_OBB", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "APP_LIB", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "DALVIK_DEX", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "DALVIK_PROFILE", "path": "sdm_test_custodian", "flags": ["custodian"]},
+	{"loc": "PUBLIC_MEDIA", "path": "sdm_test_custodian", "flags": ["custodian"]}
+  ]
+}, {
+  "pkgs": ["unique1", "shared1"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder1", "flags": ["custodian"]}]
+}, {
+  "pkgs": ["unique2", "shared1", "shared2"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder2", "flags": ["common"]}]
+}, {
+  "pkgs": ["unique3", "shared2"],
+  "mrks": [{"loc": "SDCARD", "path": "Folder3", "flags": ["keeper"]}]
+}, {
+  "regexPkgs": ["^(?:regex\\.package\\..+?)$"],
+  "mrks": [{"loc": "SDCARD", "path": "RegexPackageTest", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["case.sensitivity.pkg"],
+  "mrks": [
+	{"loc": "SDCARD", "path": "INSENSITIVE"},
+	{"loc": "SDCARD", "path": "insensitive"},
+	{"loc": "PRIVATE_DATA", "path": "SENSITIVE"},
+	{"loc": "PRIVATE_DATA", "path": "sensitive"}
+  ]
+}
+]

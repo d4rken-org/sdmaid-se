@@ -36,13 +36,13 @@ data class InstallerInfo(
             return context.getString(R.string.general_na_label)
         }
 
-        return installingPkg?.getLabel(context) ?: installer!!.id.name
+        return installingPkg?.label?.get(context) ?: installer!!.id.name
     }
 
     fun getIcon(context: Context): Drawable {
         if (installer == null) return ContextCompat.getDrawable(context, R.drawable.ic_baseline_user_24)!!
 
-        installer!!.getIcon(context)?.let { return it }
+        installer!!.icon?.get(context)?.let { return it }
 
         return ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
     }

@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.files.core.joinSegments
 import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.files.core.startsWith
 import eu.darken.sdmse.common.hashCode
@@ -50,10 +51,10 @@ data class ManualMarker(
             regex != null -> {
                 if (path != null && !otherSegments.startsWith(path, ignoreCase)) {
                     false
-                } else if (contains != null && !otherSegments.joinToString("/").contains(contains, ignoreCase)) {
+                } else if (contains != null && !otherSegments.joinSegments().contains(contains, ignoreCase)) {
                     false
                 } else {
-                    pattern!!.matcher(otherSegments.joinToString("/")).matches()
+                    pattern!!.matcher(otherSegments.joinSegments()).matches()
                 }
             }
             else -> false

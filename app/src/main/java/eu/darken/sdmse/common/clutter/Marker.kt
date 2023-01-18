@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.clutter
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.core.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 
 @Keep
@@ -25,7 +26,7 @@ interface Marker {
      * ->
      * Type.SDCARD [Some,Folder]
      */
-    fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Match?
+    fun match(otherAreaType: DataArea.Type, otherSegments: Segments): Match?
 
     @Keep
     enum class Flag(val raw: String) {
