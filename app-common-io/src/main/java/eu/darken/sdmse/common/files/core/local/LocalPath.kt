@@ -4,6 +4,7 @@ import androidx.annotation.Keep
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.Segments
 import eu.darken.sdmse.common.serialization.FileParcelizer
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
@@ -31,16 +32,20 @@ data class LocalPath(
     @IgnoredOnParcel override val name: String
         get() = file.name
 
+    @IgnoredOnParcel internal var segmentsCache: Segments? = null
+
     @IgnoredOnParcel
-    override val segments: List<String>
-        get() = when (path) {
-            File.separator -> listOf("")
-            else -> path.split(File.separatorChar)
+    override val segments: Segments
+        get() = segmentsCache ?: run {
+            when (path) {
+                File.separator -> listOf("")
+                else -> path.split(File.separatorChar)
+            }.also { segmentsCache = it }
         }
 
     override fun child(vararg segments: String): LocalPath = build(this.file, *segments)
 
-    override fun toString(): String = "LocalPath(file=$file)"
+    override fun toString(): String = "LocalPath($path)"
 
     override fun describeContents(): Int = 0
 

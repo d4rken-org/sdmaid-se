@@ -5,8 +5,17 @@ import eu.darken.sdmse.common.pkgs.Pkg
 
 interface Exclusion {
 
+    val tags: Collection<Tag>
+
+    enum class Tag {
+        GENERAL,
+        CORPSEFINDER,
+        SYSTEMCLEANER,
+        APPCLEANER
+    }
+
     interface Package : Exclusion {
-        suspend fun match(id: Pkg.Id)
+        suspend fun match(id: Pkg.Id): Boolean
     }
 
     interface Path : Exclusion {

@@ -36,6 +36,8 @@ data class Ownership(
 
     override fun describeContents(): Int = 0
 
+    override fun toString(): String = "Ownership($userName/$userId|$groupName/$groupId)"
+
     companion object CREATOR : Parcelable.Creator<Ownership> {
         override fun createFromParcel(parcel: Parcel): Ownership {
             return Ownership(parcel)

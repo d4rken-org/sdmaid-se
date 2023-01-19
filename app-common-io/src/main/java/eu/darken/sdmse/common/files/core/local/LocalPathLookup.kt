@@ -27,4 +27,7 @@ data class LocalPathLookup(
     @IgnoredOnParcel override val pathType: APath.PathType
         get() = lookedUp.pathType
 
+    override fun toString(): String =
+        "LocalPathLookup(path=$path, type=$fileType, size=$size, modified=$modifiedAt, owner=$ownership, perm=$permissions, target=$target)"
+
 }

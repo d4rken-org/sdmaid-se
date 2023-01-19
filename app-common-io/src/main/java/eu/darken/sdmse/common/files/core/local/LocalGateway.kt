@@ -123,6 +123,7 @@ class LocalGateway @Inject constructor(
     override suspend fun lookup(path: LocalPath): LocalPathLookup = lookup(path, Mode.AUTO)
 
     suspend fun lookup(path: LocalPath, mode: Mode = Mode.AUTO): LocalPathLookup = runIO {
+        log(TAG, VERBOSE) { "lookup($path,$mode)" }
         try {
             val javaFile = path.asFile()
             val canRead = if (mode == Mode.ROOT) {
@@ -134,13 +135,15 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     if (!canRead) throw ReadException(path)
+                    log(TAG, VERBOSE) { "Looking up path in normal mode: $path" }
                     path.performLookup(ipcFunnel, libcoreTool)
                 }
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "Looking up path in root mode: $path" }
                     rootOps { it.lookUp(path) }
                 }
                 else -> throw IOException("No matching mode available.")
-            }
+            }.also { log(TAG, VERBOSE) { "Looked up: $it" } }
         } catch (e: Exception) {
             throw ReadException(path, cause = e).also {
                 log(TAG, WARN) { "lookup(path=$path, mode=$mode) failed:\n${it.asLog()}" }
@@ -184,6 +187,7 @@ class LocalGateway @Inject constructor(
     suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookup> = withContext(
         dispatcherProvider.IO
     ) {
+        log(TAG, VERBOSE) { "lookupFiles($path,$mode)" }
         try {
             val javaFile = path.asFile()
             val nonRootList = try {
@@ -198,16 +202,18 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     if (nonRootList == null) throw ReadException(path)
+                    log(TAG, VERBOSE) { "Looking up files in normal mode: $path" }
                     nonRootList
                         .filter { it.canRead() }
                         .map { it.toLocalPath() }
                         .map { it.performLookup(ipcFunnel, libcoreTool) }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "Looking up files in root mode: $path" }
                     rootOps { it.lookupFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
-            }
+            }.also { log(TAG, VERBOSE) { "Looked up:\n${it.joinToString("\n")}" } }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
             throw ReadException(path, cause = e)

@@ -25,8 +25,16 @@ class ProgressBarView @JvmOverloads constructor(
             setImageDrawable(data.icon?.get(context))
             isGone = data.icon == null
         }
-        ui.primary.text = data.primary.get(context)
-        ui.secondary.text = data.secondary.get(context)
+        ui.primary.apply {
+            val newText = data.primary.get(context)
+            text = newText
+            isInvisible = newText.isEmpty()
+        }
+        ui.secondary.apply {
+            val newText = data.secondary.get(context)
+            text = newText
+            isInvisible = newText.isEmpty()
+        }
 
         ui.progress.apply {
             isGone = data.count is Count.None

@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.files.core.Segments
 import eu.darken.sdmse.common.files.core.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -68,19 +69,17 @@ open class NestedPackageMatcher(
 
     private class PackageMarker constructor(
         override val areaType: DataArea.Type,
-        override val segments: List<String>,
+        override val segments: Segments,
         val pkgId: Pkg.Id,
     ) : Marker {
         private val ignoreCase: Boolean = areaType.restrictedCharset
 
         override val flags: Set<Marker.Flag> = emptySet()
 
-        override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+        override fun match(otherAreaType: DataArea.Type, otherSegments: Segments): Marker.Match? {
             if (this.areaType !== otherAreaType) return null
 
-            return if (otherSegments.matches(this.segments, ignoreCase)) {
-                Marker.Match(setOf(pkgId))
-            } else null
+            return if (otherSegments.matches(this.segments, ignoreCase)) Marker.Match(setOf(pkgId)) else null
         }
 
         override val isDirectMatch: Boolean = true

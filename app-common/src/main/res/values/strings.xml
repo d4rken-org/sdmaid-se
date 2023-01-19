@@ -34,8 +34,11 @@
     <string name="general_progress_searching">Searching</string>
     <string name="general_progress_generating_searchpaths">Generating search paths</string>
     <string name="general_progress_filtering">Filtering</string>
+    <string name="general_progress_preparing">Preparing</string>
     <string name="general_progress_processing_x">Processing %s</string>
     <string name="general_progress_loading">Loading</string>
+    <string name="general_progress_loading_app_data">Loading app data</string>
+    <string name="general_progress_loading_data_areas">Loading data areas</string>
     <string name="general_progress_loading_egg_0">Still faster than an iPhone</string>
     <string name="general_progress_loading_egg_1">Downloading more RAM</string>
     <string name="general_progress_loading_egg_2">Soon™</string>
@@ -43,6 +46,7 @@
     <string name="general_progress_loading_egg_4">Awaiting data from Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">Turbo encabulator is initiating</string>
     <string name="general_progress_loading_egg_6">Passing the butter</string>
+    <string name="general_progress_loading_egg_7">So. How are you holding up?</string>
     <string name="general_help_action">Help</string>
     <string name="general_continue">Continue</string>
 

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.Ownership
 import eu.darken.sdmse.common.files.core.Permissions
+import eu.darken.sdmse.common.files.core.ReadException
 import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
@@ -38,6 +39,8 @@ fun LocalPath.performLookup(
     ipcFunnel: IPCFunnel,
     libcoreTool: LibcoreTool,
 ): LocalPathLookup {
+    if (!file.exists()) throw ReadException(this, "Does not exist")
+
     val fstat: StructStat? = try {
         Os.lstat(file.path)
     } catch (e: Exception) {

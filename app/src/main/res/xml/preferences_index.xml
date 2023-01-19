@@ -19,6 +19,11 @@
             app:fragment="eu.darken.sdmse.systemcleaner.ui.settings.SystemCleanerSettingsFragment"
             app:summary="@string/systemcleaner_explanation_short"
             app:title="@string/systemcleaner_tool_name" />
+        <Preference
+            android:icon="@drawable/ic_recycle"
+            app:fragment="eu.darken.sdmse.appcleaner.ui.settings.AppCleanerSettingsFragment"
+            app:summary="@string/appcleaner_explanation_short"
+            app:title="@string/appcleaner_tool_name" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

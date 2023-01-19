@@ -29,7 +29,7 @@ class SystemCrawler @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : Progress.Host, Progress.Client {
 
-    private val progressPub = MutableStateFlow<Progress.Data?>(null)
+    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
     init {

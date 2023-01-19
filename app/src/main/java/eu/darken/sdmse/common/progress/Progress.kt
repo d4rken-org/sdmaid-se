@@ -2,12 +2,16 @@ package eu.darken.sdmse.common.progress
 
 import android.content.Context
 import android.text.format.Formatter
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.easterEggProgressMsg
 import kotlinx.coroutines.flow.Flow
 import kotlin.math.ceil
 
 interface Progress {
+
     data class Data(
         val icon: CaDrawable? = null,
         val primary: CaString = CaString.EMPTY,
@@ -15,7 +19,6 @@ interface Progress {
         val count: Count = Count.None(),
         val extra: Any? = null
     )
-
     interface Host {
         val progress: Flow<Data?>
     }
@@ -71,4 +74,13 @@ interface Progress {
             override fun displayValue(context: Context): String? = null
         }
     }
+
+    companion object {
+        val DEFAULT_STATE = Data(
+            primary = R.string.general_progress_loading.toCaString(),
+            secondary = easterEggProgressMsg.toCaString(),
+            count = Count.Indeterminate()
+        )
+    }
+
 }

@@ -24,11 +24,29 @@ class AppCleanerSettings @Inject constructor(
         get() = context.dataStore
 
     // TODO change defaults
-    val includeSystemApps = dataStore.createValue("include.systemapps.enabled", true)
+    val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
+    val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", true)
+    val includeRunningAppsEnabled = dataStore.createValue("include.runningapps.enabled", true)
+
+    val useAccessibilityService = dataStore.createValue("acs.enabled", false)
+    val useShizuku = dataStore.createValue("shizuku.enabled", false)
+
+    val filterDefaultCachesPublicEnabled = dataStore.createValue("filter.defaultcachespublic.enabled", true)
+    val filterDefaultCachesPrivateEnabled = dataStore.createValue("filter.defaultcachesprivate.enabled", true)
+    val filterCodeCacheEnabled = dataStore.createValue("filter.codecache.enabled", true)
+    val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", true)
+
+    val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
+    val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
 
 
     override val mapper = PreferenceStoreMapper(
-        includeSystemApps,
+        includeSystemAppsEnabled,
+        includeRunningAppsEnabled,
+        filterDefaultCachesPublicEnabled,
+        filterDefaultCachesPrivateEnabled,
+        filterCodeCacheEnabled,
+        filterAdvertisementEnabled,
     )
 
     companion object {

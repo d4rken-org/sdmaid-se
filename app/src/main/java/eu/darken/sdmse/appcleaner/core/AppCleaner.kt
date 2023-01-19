@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -29,6 +28,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Duration
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -38,6 +38,7 @@ class AppCleaner @Inject constructor(
     fileForensics: FileForensics,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
+    private val appScannerProvider: Provider<AppScanner>,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -59,9 +60,7 @@ class AppCleaner @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
         task as AppCleanerTask
         log(TAG) { "submit($task) starting..." }
-        updateProgressPrimary(R.string.general_progress_loading)
-        updateProgressSecondary(easterEggProgressMsg)
-        updateProgressCount(Progress.Count.Indeterminate())
+        updateProgress { Progress.DEFAULT_STATE }
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
@@ -81,17 +80,18 @@ class AppCleaner @Inject constructor(
 
         val scanStart = System.currentTimeMillis()
         internalData.value = null
-//        val result = filters
-//            .map { filter ->
-//                filter.withProgress(this@AppCleaner) {
-//                    scan()
-//                }
-//            }
-//            .flatten()
-//
-//        internalData.value = Data(
-//            corpses = result
-//        )
+
+        val scanner = appScannerProvider.get()
+
+        scanner.initialize()
+
+        val results = scanner.withProgress(this) {
+            scan()
+        }
+
+        internalData.value = Data(
+            junks = results,
+        )
 
         val scanStop = System.currentTimeMillis()
         val time = Duration.ofMillis(scanStop - scanStart)

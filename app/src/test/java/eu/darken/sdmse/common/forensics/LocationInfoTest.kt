@@ -18,9 +18,9 @@ class LocationInfoTest : BaseTest() {
             label = "Public data",
             userHandle = UserHandle2(1),
         )
-        val a = AreaInfo(area, LocalPath.build("/area/test"), LocalPath.build(), false)
-        val b = AreaInfo(area, LocalPath.build("/area/test"), LocalPath.build(), false)
-        val c = AreaInfo(area, LocalPath.build("/area/test2"), LocalPath.build(), false)
+        val a = AreaInfo(LocalPath.build("/area/test"), LocalPath.build(), area, false)
+        val b = AreaInfo(LocalPath.build("/area/test"), LocalPath.build(), area, false)
+        val c = AreaInfo(LocalPath.build("/area/test2"), LocalPath.build(), area, false)
         a shouldBe b
         a shouldNotBe c
     }

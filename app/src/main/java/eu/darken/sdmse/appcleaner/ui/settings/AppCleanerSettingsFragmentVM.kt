@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.ui.settings
+package eu.darken.sdmse.appcleaner.ui.settings
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @HiltViewModel
-class SystemCleanerSettingsFragmentVM @Inject constructor(
+class AppCleanerSettingsFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     private val rootManager: RootManager,
@@ -30,6 +30,6 @@ class SystemCleanerSettingsFragmentVM @Inject constructor(
     )
 
     companion object {
-        private val TAG = logTag("Settings", "SystemCleaner", "VM")
+        private val TAG = logTag("Settings", "AppCleaner", "VM")
     }
 }

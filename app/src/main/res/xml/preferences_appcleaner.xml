@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        app:icon="@drawable/ic_apps"
+        app:key="include.systemapps.enabled"
+        app:summary="@string/appcleaner_include_systemapps_summary"
+        app:title="@string/appcleaner_include_systemapps_label" />
+
+    <CheckBoxPreference
+        app:icon="@drawable/ic_skip_over_24"
+        app:key="include.runningapps.enabled"
+        app:summary="@string/appcleaner_include_runningapps_summary"
+        app:title="@string/appcleaner_include_runningapps_label" />
+
+    <PreferenceCategory android:title="@string/settings_category_filter_generic">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:key="filter.defaultcachespublic.enabled"
+            app:summary="@string/appcleaner_filter_defaultcachespublic_summary"
+            app:title="@string/appcleaner_filter_defaultcachespublic_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:key="filter.defaultcachesprivate.enabled"
+            app:summary="@string/appcleaner_filter_defaultcachesprivate_summary"
+            app:title="@string/appcleaner_filter_defaultcachesprivate_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:key="filter.codecache.enabled"
+            app:summary="@string/appcleaner_filter_codecache_summary"
+            app:title="@string/appcleaner_filter_codecache_label" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_filter_specific">
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

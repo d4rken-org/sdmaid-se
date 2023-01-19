@@ -20,6 +20,8 @@ data class Permissions(
 
     override fun describeContents(): Int = 0
 
+    override fun toString(): String = "Permission($mode)"
+
     companion object CREATOR : Parcelable.Creator<Permissions> {
         override fun createFromParcel(parcel: Parcel): Permissions {
             return Permissions(parcel)
