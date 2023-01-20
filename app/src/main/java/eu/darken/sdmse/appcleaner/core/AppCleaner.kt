@@ -71,7 +71,7 @@ class AppCleaner @Inject constructor(
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } finally {
-
+            updateProgress { null }
         }
     }
 

@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.forensics
 
 import android.content.Context
 import android.content.res.AssetManager
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -14,8 +15,8 @@ import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.serialization.SerializationModule
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
@@ -30,7 +31,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
 
-abstract class BaseExpandablesFilterTestHelper : BaseTest() {
+abstract class BaseFilterTest : BaseTest() {
 
     @MockK lateinit var pkgOps: PkgOps
     @MockK lateinit var pkgRepo: PkgRepo
@@ -226,7 +227,7 @@ abstract class BaseExpandablesFilterTestHelper : BaseTest() {
 
         every { context.assets } returns assetManager
         every { assetManager.open(any()) } answers {
-            this.javaClass.classLoader.getResourceAsStream(arg(0))
+            BaseFilterTest::class.java.classLoader.getResourceAsStream(arg(0))
         }
 
         every { areaManager.state } returns flowOf(
@@ -296,24 +297,6 @@ abstract class BaseExpandablesFilterTestHelper : BaseTest() {
     }
 
     val testPkg: String = "test.pkg.name"
-
-    fun pos(pkg: String, areaType: DataArea.Type, vararg segments: String) {
-        Candidate(
-            matchType = Candidate.Type.POSITIVE,
-            pkgs = setOf(pkg.toPkgId()),
-            areaTypes = setOf(areaType),
-            prefixFreePaths = setOf(segments.toList())
-        ).let { candidates.add(it) }
-    }
-
-    fun neg(pkg: String, areaType: Type, vararg segments: String) {
-        Candidate(
-            matchType = Candidate.Type.NEGATIVE,
-            pkgs = setOf(pkg.toPkgId()),
-            areaTypes = setOf(areaType),
-            prefixFreePaths = setOf(segments.toList())
-        ).let { candidates.add(it) }
-    }
 
     fun addDefaultNegatives() {
         neg(testPkg, Type.SDCARD, "sdcard")
@@ -385,5 +368,15 @@ abstract class BaseExpandablesFilterTestHelper : BaseTest() {
             POSITIVE, NEGATIVE
         }
 
+    }
+
+    fun createSieveFactory() = object : JsonBasedSieve.Factory {
+        override fun create(assetPath: String): JsonBasedSieve {
+            return JsonBasedSieve(
+                context = context,
+                assetPath = assetPath,
+                baseMoshi = SerializationModule().moshi(),
+            )
+        }
     }
 }

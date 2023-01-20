@@ -40,6 +40,9 @@ class FileOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    /**
+     * Doesn't run into IPC buffer overflows on large directories
+     */
     fun listFilesStream(path: LocalPath): Collection<LocalPath> = try {
         fileOpsConnection.listFilesStream(path).toLocalPaths().also {
             if (Bugs.isTrace) log(TAG) { "listFilesStream($path) finished streaming, ${it.size} items" }
@@ -58,6 +61,9 @@ class FileOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    /**
+     * Doesn't run into IPC buffer overflows on large directories
+     */
     fun lookupFilesStream(path: LocalPath): Collection<LocalPathLookup> = try {
         fileOpsConnection.lookupFilesStream(path).toLocalPathLookups().also {
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path) finished streaming, ${it.size} items" }

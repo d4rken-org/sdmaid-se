@@ -20,7 +20,7 @@ import javax.inject.Provider
 
 @Reusable
 class DefaultCachesPublicFilter @Inject constructor(
-    private val environment: StorageEnvironment,
+    environment: StorageEnvironment,
 ) : ExpendablesFilter {
 
     private val cacheFolderPrefixes = environment.ourExternalCacheDirs.map { it.name }
@@ -51,7 +51,7 @@ class DefaultCachesPublicFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("AppCleaner", "Filter", "DefaultCaches", "Public")
+        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "DefaultCaches", "Public")
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia"
         )

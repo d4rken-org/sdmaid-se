@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["mologiq"],
+		  "patterns": [
+			"^(?:[\\w_\\-\\.]+?)(?>/files/\\.[a-f0-9\\-]+?\\.mologiq)$", "^(?:[\\w_\\-\\.]+?)(?>/databases/mologiq)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/files/.vungle"],
+		  "patterns": ["^(?:.+?)(?>/files/\\.vungle)(?:/.+?)*$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/files/vungle_cache"],
+		  "patterns": ["^(?:.+?)(?>/files/vungle_cache)(?:/.+?)*$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/no_backup/vungle_cache"],
+		  "patterns": ["^(?:.+?)(?>/no_backup/vungle_cache)(?:/.+?)*$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.tencent.mm"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tencent/MicroMsg/"],
+		  "patterns": [
+			"^(?>tencent\\/MicroMsg\\/sns_ad_landingpages\\/)([\\W\\w]+?)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MidasOversea/"],
+		  "patterns": [
+			"^(?>MidasOversea\\/)([\\W\\w]+?)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".bmob/"],
+		  "patterns": [
+			"^(?>\\.bmob\\/)([\\W\\w]+?)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/MzAdLog/"],
+		  "patterns": ["^(?:.+?)(?>/MzAdLog/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_OBB"],
+		  "contains": ["com.jb.zcamera/GoAdSdk/advert/"],
+		  "patterns": ["^(?:com\\.jb\\.zcamera/GoAdSdk/advert/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.scoompa.faceeditor/files/ads/"],
+		  "patterns": ["^(?:com\\.scoompa\\.faceeditor/files/ads/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["TouchPal2015/plugin_cache"],
+		  "patterns": ["^(?:TouchPal2015/plugin_cache/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["TouchPal2015/plugin_cache"],
+		  "patterns": ["^(?:TouchPal2015/plugin_cache/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.filemanager"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.meizu.filemanager/update_component_log"],
+		  "patterns": ["^(?:com\\.meizu\\.filemanager/update_component_log(.+?)?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["video.like"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["._sdk_ruuid"],
+		  "patterns": ["^(?:\\._sdk_ruuid)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".appodeal"],
+		  "patterns": ["^(?:\\.appodeal)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [
+			"data/.push_deviceid",
+			"data/.push_udid"
+		  ],
+		  "patterns": [
+			"^(?:data/\\.push_deviceid)$",
+			"^(?:data/\\.push_udid)$"
+		  ]
+		}
+	  ]
+	}
+  ]
+}

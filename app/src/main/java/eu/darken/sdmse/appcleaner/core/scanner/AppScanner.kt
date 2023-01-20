@@ -76,6 +76,7 @@ class AppScanner @Inject constructor(
         enabledFilters = filterFactories
             .filter { it.isEnabled() }
             .map { it.create() }
+            .onEach { it.initialize() }
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
 
         isRooted = rootManager.isRooted()

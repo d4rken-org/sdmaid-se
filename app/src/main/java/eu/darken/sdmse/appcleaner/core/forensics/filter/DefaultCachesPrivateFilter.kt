@@ -20,7 +20,7 @@ import javax.inject.Provider
 
 @Reusable
 class DefaultCachesPrivateFilter @Inject constructor(
-    private val environment: StorageEnvironment,
+    environment: StorageEnvironment,
 ) : ExpendablesFilter {
 
     private val cacheFolderPrefixes = environment.ourCacheDirs.map { it.name }
@@ -51,7 +51,7 @@ class DefaultCachesPrivateFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("AppCleaner", "Filter", "DefaultCaches", "Private")
+        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "DefaultCaches", "Private")
         private val IGNORED_FILES: Collection<String> = listOf(
 
         )
