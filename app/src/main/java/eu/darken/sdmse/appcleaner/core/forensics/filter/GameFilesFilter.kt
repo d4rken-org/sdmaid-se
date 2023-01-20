@@ -59,7 +59,7 @@ class GameFilesFilter @Inject constructor(
         private val settings: AppCleanerSettings,
         private val filterProvider: Provider<GameFilesFilter>
     ) : ExpendablesFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterAnalyticsEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterGameFilesEnabled.value()
         override suspend fun create(): ExpendablesFilter = filterProvider.get()
     }
 
