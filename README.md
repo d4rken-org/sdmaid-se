@@ -13,8 +13,8 @@ Features include:
 * Deleting expendable files, e.g. caches (AppCleaner)
 * User configurable filters for random files (SystemCleaner)
 * Scheduling actions (Scheduler)
+* Controling/disabling apps (AppControl)
 * Storage overview (StorageAnalyzer) (tbd)
-* Controling/disabling apps (AppControl) (tbd)
 
 [SD Maid SE](https://github.com/d4rken/sdmaid-se) is the successor
 to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). A complete rewrite, optimized for newer
@@ -35,7 +35,7 @@ the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
 
 SD Maid has no ads and doesn't sell your data.
 
-Development is financed by individual user contributions, i.e. you buying the app or becoming a sponsor.
+Development is financed by individual user contributions, i.e. you buying the app or becoming a sponsor ❤️.
 
 * Upgrade to **SD Maid SE Pro** on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse)
 * [Become a sponsor](https://github.com/sponsors/d4rken) on GitHub
@@ -56,5 +56,9 @@ Development is financed by individual user contributions, i.e. you buying the ap
 
 SD Maid SE's code is available under a GPL v3 license, this excludes:
 
-* SD Maid SE icons, logos, mascots and marketing materials/assets.
+* SD Maid SE icons, logos, mascots, marketing materials and assets.
+* SD Maid SE animations and videos.
 * SD Maid SE documentation.
+* Google Play screenshots.
+* Google Play texts & descriptions.
+* Translations.
