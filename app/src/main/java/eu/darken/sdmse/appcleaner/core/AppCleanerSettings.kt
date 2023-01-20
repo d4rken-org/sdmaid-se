@@ -41,6 +41,7 @@ class AppCleanerSettings @Inject constructor(
     val filterHiddenCachesEnabled = dataStore.createValue("filter.hiddencaches.enabled", true)
     val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", true)
     val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", true)
+    val filterWebviewEnabled = dataStore.createValue("filter.webview.enabled", true)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
     val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
@@ -59,6 +60,7 @@ class AppCleanerSettings @Inject constructor(
         filterHiddenCachesEnabled,
         filterOfflineCachesEnabled,
         filterRecycleBinsEnabled,
+        filterWebviewEnabled,
     )
 
     companion object {

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "packages": ["com.amazon.mShop.android.shopping"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "PRIVATE_DATA"],
+		  "startsWith": ["com.amazon.mShop.android.shopping/app_mashWebViewState/"],
+		  "patterns": ["^(com\\.amazon\\.mShop\\.android\\.shopping/app_mashWebViewState\/.+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.cloudmosa.puffin"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "PRIVATE_DATA"],
+		  "startsWith": ["com.cloudmosa.puffin/app_favicon_cache/"],
+		  "patterns": ["^(com\\.cloudmosa\\.puffin/app_favicon_cache/.+)$"]
+		}
+	  ]
+	}
+  ]
+}

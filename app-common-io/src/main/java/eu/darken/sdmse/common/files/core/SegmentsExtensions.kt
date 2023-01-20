@@ -12,6 +12,8 @@ fun Segments.joinSegments(seperator: String = "/"): String = joinToString(sepera
 
 fun Segments.lowercase(): Segments = this.map { it.lowercase() }
 
+fun Segments.prepend(vararg items: String): Segments = items.toList().plus(this)
+
 fun Segments?.matches(other: Segments?, ignoreCase: Boolean = false): Boolean {
     if (this == null) return other == null
     if (this.size != other?.size) return false
