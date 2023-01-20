@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "packages": ["com.oneplus.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.oneplus.gallery/files/recyclebin/"],
+		  "patterns": ["^(?:com\\.oneplus\\.gallery/files/recyclebin/)(.+?)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["com.oneplus.gallery/databases/recyclebin.db"],
+		  "patterns": ["^(?:com\\.oneplus\\.gallery/databases/recyclebin.db)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.media.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [".MeizuGalleryTrashBin/"],
+		  "patterns": ["^(?:\\.MeizuGalleryTrashBin\\/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.vietbm.computerlauncher"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["RecycleBin/"],
+		  "patterns": ["^(?:RecycleBin\\/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": [
+		"com.cxinventor.file.explorer",
+		"com.alphainventor.filemanager"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".$recycle_bin$"],
+		  "patterns": ["^(?:\\.\\$recycle_bin\\$\\/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.filemanager"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".recycle/"],
+		  "patterns": ["^(?:\\.recycle/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.cvinfo.filemanager"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".SFM_trash/"],
+		  "patterns": ["^(?:\\.SFM_trash/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/Gallery/cloud/.trashBin"],
+		  "patterns": ["^(?:MIUI/Gallery/cloud/\\.trashBin/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.visky.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".Android/.data/com.visky.gallery.data/.data/.secure/.recyclebin"],
+		  "patterns": ["^(?:\\.Android/\\.data/com\\.visky\\.gallery\\.data/\\.data/\\.secure/\\.recyclebin/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.coloros.filemanager"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".FileManagerRecycler"],
+		  "patterns": ["^(?:\\.FileManagerRecycler/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["pl.solidexplorer2"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".$Trash$"],
+		  "patterns": ["^(?:\\.\\$Trash\\$/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.google.android.apps.nbu.files"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".FilesByGoogleTrash"],
+		  "patterns": ["^(?:\\.FilesByGoogleTrash/)(.+?)$"]
+		}
+	  ]
+	}
+  ]
+}
