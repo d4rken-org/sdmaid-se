@@ -2,11 +2,11 @@ package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.*
 import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.util.*
 
 class AdvertisementFilterTest : BaseFilterTest() {
 
@@ -83,7 +83,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
         addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("eu.thedarken.sdm.test/files/.vungle"))
         addCandidate(
             pos().pkgs(testPkg).locs(PUBLIC_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.vungle/" + UUID.randomUUID().toString())
+                .prefixFree("eu.thedarken.sdm.test/files/.vungle/" + rngString)
         )
         confirm(create())
     }
@@ -98,8 +98,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
 
         )
         addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/sns_ad_landingpages/" + UUID.randomUUID().toString())
+            pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/sns_ad_landingpages/" + rngString)
         )
         confirm(create())
     }
@@ -111,8 +110,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
             neg().pkgs("com.vng.pubgmobile", "com.tencent.mm").locs(SDCARD).prefixFree("MidasOversea/.nomedia")
         )
         addCandidate(
-            pos().pkgs("com.vng.pubgmobile", "com.tencent.mm").locs(SDCARD)
-                .prefixFree("MidasOversea/" + UUID.randomUUID().toString())
+            pos().pkgs("com.vng.pubgmobile", "com.tencent.mm").locs(SDCARD).prefixFree("MidasOversea/" + rngString)
         )
         confirm(create())
     }
@@ -134,7 +132,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.sega.sonicboomandroid").locs(PUBLIC_DATA)
-                .prefixFree("com.sega.sonicboomandroid/files/vungle_cache/" + UUID.randomUUID().toString())
+                .prefixFree("com.sega.sonicboomandroid/files/vungle_cache/" + rngString)
         )
 
         // https://github.com/d4rken/sdmaid-public/issues/5485
@@ -144,7 +142,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.sega.sonicboomandroid").locs(PUBLIC_DATA)
-                .prefixFree("com.sega.sonicboomandroid/no_backup/vungle_cache/" + UUID.randomUUID().toString())
+                .prefixFree("com.sega.sonicboomandroid/no_backup/vungle_cache/" + rngString)
         )
         confirm(create())
     }

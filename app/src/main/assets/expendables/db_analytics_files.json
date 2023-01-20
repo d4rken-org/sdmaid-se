@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.yflurryreport."],
+		  "patterns": ["^(?:.+?/files/)(?:\\.yflurryreport\\..*?)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.YFlurrySenderIndex."],
+		  "patterns": ["^(?:.+?/files/)(?:\\.YFlurrySenderIndex\\..*?)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.yflurrydatasenderblock."],
+		  "patterns": ["^(?:.+?/files/)(?:\\.yflurrydatasenderblock\\..*?)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.flurryagent."],
+		  "patterns": ["^(?:.+?/files/)(?:\\.flurryagent\\..*?)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.flurrydatasenderblock."],
+		  "patterns": ["^(?:.+?/files/)(?:\\.flurrydatasenderblock\\..*?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.Fabric/com.crashlytics.sdk.android:answers"],
+		  "patterns": ["^(?:.+?)(?>/files/\\.Fabric/com\\.crashlytics\\.sdk\\.android:answers)(?:.*?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/shared_prefs/APP_MEASUREMENT_CACHE.xml"],
+		  "patterns": ["^(?:.+?)(?>/shared_prefs/APP_MEASUREMENT_CACHE\\.xml)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.amazon.mShop.android"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.amazon.mShop.android/app_engagement",
+			"com.amazon.mShop.android/app_gamelab",
+			"com.amazon.mShop.android/app_venezia-metrics",
+			"com.amazon.mShop.android/app_ad3-meta"
+		  ],
+		  "patterns": ["^(com\\.amazon\\.mShop\\.android\/app_[\\w_\\-]+\/\\w+_measurements_\\d+\\.measure)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.microsoft.emmx"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "PRIVATE_DATA"],
+		  "startsWith": ["com.microsoft.emmx/files/"],
+		  "patterns": ["^(com\\.microsoft\\.emmx/files/.+?\\.cllevent)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.microsoft.cortana"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "PRIVATE_DATA"],
+		  "startsWith": ["com.microsoft.cortana/files/"],
+		  "patterns": ["^(com\\.microsoft\\.cortana/files/.+?\\.cllevent)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tencent/beacon/"],
+		  "patterns": [
+			"^(?>tencent\\/beacon\\/)([\\W\\w]+?)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/Analytics/"],
+		  "patterns": [
+			"^.+?\\/files\\/Unity\\/[0-9a-f-]+?\\/Analytics\\/.+?$"
+		  ]
+		}
+	  ]
+	}
+  ]
+}
