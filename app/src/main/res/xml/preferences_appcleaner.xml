@@ -26,6 +26,11 @@
             app:summary="@string/appcleaner_filter_defaultcachesprivate_summary"
             app:title="@string/appcleaner_filter_defaultcachesprivate_label" />
         <CheckBoxPreference
+            app:icon="@drawable/ic_hidden_file_24"
+            app:key="filter.hiddencaches.enabled"
+            app:summary="@string/appcleaner_filter_hiddencaches_summary"
+            app:title="@string/appcleaner_filter_hiddencaches_label" />
+        <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.codecache.enabled"
             app:summary="@string/appcleaner_filter_codecache_summary"
@@ -40,10 +45,64 @@
             app:key="filter.bugreporting.enabled"
             app:summary="@string/appcleaner_filter_bugreporting_summary"
             app:title="@string/appcleaner_filter_bugreporting_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_analytics_onsurface"
+            app:key="filter.analytics.enabled"
+            app:summary="@string/appcleaner_filter_analytics_summary"
+            app:title="@string/appcleaner_filter_analytics_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_game_controller_24"
+            app:key="filter.gamefiles.enabled"
+            app:summary="@string/appcleaner_filter_gamefiles_summary"
+            app:title="@string/appcleaner_filter_gamefiles_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_signal_off_24"
+            app:key="filter.offlinecache.enabled"
+            app:summary="@string/appcleaner_filter_offlinecache_summary"
+            app:title="@string/appcleaner_filter_offlinecache_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_recycle_bin_24"
+            app:key="filter.recyclebins.enabled"
+            app:summary="@string/appcleaner_filter_recyclebins_summary"
+            app:title="@string/appcleaner_filter_recyclebins_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_chrome_24"
+            app:key="filter.webview.enabled"
+            app:summary="@string/appcleaner_filter_webview_summary"
+            app:title="@string/appcleaner_filter_webview_label" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_filter_specific">
-
+        <CheckBoxPreference
+            app:icon="@drawable/ic_whatsapp_24"
+            app:key="filter.whatsapp.backups.enabled"
+            app:summary="@string/appcleaner_filter_whatsapp_backups_summary"
+            app:title="@string/appcleaner_filter_whatsapp_backups_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_whatsapp_24"
+            app:key="filter.whatsapp.received.enabled"
+            app:summary="@string/appcleaner_filter_whatsapp_received_summary"
+            app:title="@string/appcleaner_filter_whatsapp_received_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_whatsapp_24"
+            app:key="filter.whatsapp.sent.enabled"
+            app:summary="@string/appcleaner_filter_whatsapp_sent_summary"
+            app:title="@string/appcleaner_filter_whatsapp_sent_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_chat_24"
+            app:key="filter.telegram.enabled"
+            app:summary="@string/appcleaner_filter_telegram_summary"
+            app:title="@string/appcleaner_filter_telegram_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_chat_24"
+            app:key="filter.threema.enabled"
+            app:summary="@string/appcleaner_filter_threema_summary"
+            app:title="@string/appcleaner_filter_threema_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_wechat_24"
+            app:key="filter.wechat.enabled"
+            app:summary="@string/appcleaner_filter_wechat_summary"
+            app:title="@string/appcleaner_filter_wechat_label" />
     </PreferenceCategory>
 
 </PreferenceScreen>

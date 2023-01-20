@@ -198,5 +198,29 @@
     <string name="appcleaner_filter_advertisement_summary">Files related to advertisements, e.g. cached media.</string>
     <string name="appcleaner_filter_bugreporting_label">Bug reporting</string>
     <string name="appcleaner_filter_bugreporting_summary">Bug reporting related data, e.g. error logs or crash dumps.</string>
+    <string name="appcleaner_filter_analytics_label">Analytics</string>
+    <string name="appcleaner_filter_analytics_summary">Analytics related data, e.g. cached stats for what you click in an app.</string>
+    <string name="appcleaner_filter_hiddencaches_label">Hidden caches</string>
+    <string name="appcleaner_filter_hiddencaches_summary">General purpose caches stored outside of the systems reach.</string>
+    <string name="appcleaner_filter_gamefiles_label">Game files</string>
+    <string name="appcleaner_filter_gamefiles_summary">Game related resources that the game would reload on next launch if necessary.</string>
+    <string name="appcleaner_filter_offlinecache_label">Offline cache</string>
+    <string name="appcleaner_filter_offlinecache_summary">Files stored for use when offline, e.g. map tiles.</string>
+    <string name="appcleaner_filter_recyclebins_label">Recycle bins</string>
+    <string name="appcleaner_filter_recyclebins_summary">Files that have been deleted but put into a special folder to allow to restore them.</string>
+    <string name="appcleaner_filter_webview_label">Webview files</string>
+    <string name="appcleaner_filter_webview_summary">Files cached by webview instances used within apps.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp backups</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">Delete extra copies of WhatsApp backups and only keep the latest.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp received files</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Files you received from either people via WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sent files</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Files send from WhatsApp to others.</string>
+    <string name="appcleaner_filter_telegram_label">Telegram media files</string>
+    <string name="appcleaner_filter_telegram_summary">Files received or send through Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">Files received through Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
+    <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
 
 </resources>
