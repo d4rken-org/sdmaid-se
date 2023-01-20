@@ -194,5 +194,9 @@
     <string name="appcleaner_include_runningapps_summary">Include apps that are currently running which make cause interference.</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Blocks of bytecode compiled into native code.</string>
+    <string name="appcleaner_filter_advertisement_label">Advertisement data</string>
+    <string name="appcleaner_filter_advertisement_summary">Files related to advertisements, e.g. cached media.</string>
+    <string name="appcleaner_filter_bugreporting_label">Bug reporting</string>
+    <string name="appcleaner_filter_bugreporting_summary">Bug reporting related data, e.g. error logs or crash dumps.</string>
 
 </resources>

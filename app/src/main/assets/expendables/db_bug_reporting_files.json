@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/.Fabric/com.crashlytics.sdk.android.crashlytics"],
+		  "patterns": ["^(?:.+?)(?>/files/\\.Fabric/com\\.crashlytics\\.sdk\\.android\\.crashlytics)(?:.*?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/com.crashlytics.sdk.android/"],
+		  "patterns": ["^(?:.+?)(?>/files/\\.TwitterSdk/[\\w]+?/com\\.crashlytics\\.sdk\\.android)(?:.*?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "contains": ["/files/mozilla/"],
+		  "patterns": [
+			"^(?:.+?/files/mozilla/Crash Reports/)(.+?)$",
+			"^(?:.+?/files/mozilla/[\\w]+\\.default\\/minidumps/)(.+?)$",
+			"^(?:.+?/files/mozilla/[\\w]+\\.default\\/crashes/)(.+?)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.android.shell"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["com.android.shell/files/bugreports/"],
+		  "patterns": ["^(?:com\\.android\\.shell/files/bugreports/)(bugreport-[\\w\\W]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.splashtop.remote.pad.v2"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "contains": ["Splashtop.log."],
+		  "patterns": ["^(?:Splashtop\\.log\\.[0-9]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.cleanmaster.mguard"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.cleanmaster.mguard/files/logs/"],
+		  "patterns": ["^(?:com\\.cleanmaster\\.mguard\\/files\\/logs\\/)([\\W\\w]+)$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.cleanmaster.mguard/files/minidump/"],
+		  "patterns": ["^(?:com\\.cleanmaster\\.mguard\\/files\\/minidump\\/)([\\W\\w]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": [
+		"com.yahoo.mobile.client.android.atom",
+		"com.yahoo.mobile.client.android.mail",
+		"com.yahoo.mobile.client.android.weather",
+		"com.yahoo.mobile.client.android.yeti",
+		"com.yahoo.mobile.client.android.ecauction",
+		"com.yahoo.mobile.client.android.fantasyfootball",
+		"com.yahoo.mobile.client.android.search",
+		"com.yahoo.mobile.client.android.finance",
+		"com.yahoo.mobile.client.android.yahoo",
+		"com.yahoo.mobile.client.android.im",
+		"com.yahoo.mobile.client.android.flickr",
+		"com.yahoo.mobile.client.android.cricket"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [
+			"yahoo/atom/Debug/",
+			"yahoo/mail/Debug/",
+			"yahoo/weather/Debug/",
+			"yahoo/yeti/Debug/",
+			"yahoo/ecauction/Debug/",
+			"yahoo/fantasyfootball/Debug/",
+			"yahoo/search/Debug/",
+			"yahoo/finance/Debug/",
+			"yahoo/im/Debug/",
+			"yahoo/flickr/Debug/",
+			"yahoo/cricket/Debug/",
+			"yahoo/com.yahoo.mobile.client.android"
+		  ],
+		  "patterns": ["^(?:yahoo\\/[\\w.]+\\/Debug\\/)([\\W\\w]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.quoord.tapatalkpro.activity"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tapatalkLog/"],
+		  "patterns": ["^(?:tapatalkLog\\/)([0-9\\-]+?Log.txt)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.amazon.mp3", "com.amazon.bueller.music"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["amazonmp3/temp/"],
+		  "patterns": [
+			"^(?:amazonmp3\\/temp\\/)(log.txt)$",
+			"^(?:amazonmp3\\/temp\\/)(AMPmetrics_v2.txt)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.kanjian.music"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["com.kanjian.radio_"],
+		  "patterns": [
+			"^(?>com\\.kanjian\\.radio_[0-9]+?\\.log)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.iobit.mobilecare"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["mobilecare/"],
+		  "patterns": [
+			"^(?:mobilecare\\/)(update.log)$",
+			"^(?:mobilecare\\/)(screen_shot.log)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.frostwire.android"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["FrostWire/.azureus/logs/"],
+		  "patterns": [
+			"^(?:FrostWire\\/\\.azureus\\/logs\\/)(debug_.\\.log)$",
+			"^(?:FrostWire\\/\\.azureus\\/logs\\/)(UPnP_.\\.log)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.skype.rover", "com.skype.raider"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["com.skype.rover/files/", "com.skype.raider/files/"],
+		  "patterns": ["^(?:com\\.skype\\.(?:rover|raider)\\/files\\/[\\w,._-]+?\\/logs\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.android.bluetooth"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD", "PUBLIC_DATA"],
+		  "contains": ["btsnoop_hci.log"],
+		  "patterns": ["^(?:btsnoop_hci.log(?:\\.last)?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["in.co.pricealert.apps2sd"],
+	  "fileFilter": [
+		{
+		  "locations": ["DATA"],
+		  "startsWith": ["apps2sd-log/apps2sd-mount-script.log"],
+		  "patterns": ["^(apps2sd-log\\/apps2sd-mount-script\\.log)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["homeworkout.homeworkouts.noequipment"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MaleWorkout/crash/"],
+		  "patterns": ["^(?:MaleWorkout\\/crash\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": [
+		"cn.wps.moffice_i18n",
+		"cn.wps.moffice_i18n_hd",
+		"cn.wps.moffice",
+		"cn.wps.moffice_eng"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/.cache/KingsoftOffice/log/"],
+		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*\\/\\.cache\\/KingsoftOffice\\/log\\/)([\\W\\w]+?)$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/.cache/KingsoftOffice/.temp/"],
+		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*\/\\.cache\/KingsoftOffice\/\\.temp\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": [
+		"com.archos.mediacenter.videofree",
+		"com.archos.mediacenter.video"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["archos_debug/"],
+		  "patterns": ["^(?:archos_debug\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.tencent.mm"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tencent/MicroMsg/"],
+		  "patterns": [
+			"^(?>tencent\\/MicroMsg\\/crash\\/)([\\W\\w]+?)$",
+			"^(?>tencent\\/MicroMsg\\/xlog\\/)([\\W\\w]+?)$",
+			"^(?>tencent\\/MicroMsg\\/locallog\\/)([\\W\\w]+?)$",
+			"^(?>tencent\\/MicroMsg\\/watchdog\\/)([\\W\\w]+?)$",
+			"^(?>tencent\\/MicroMsg\\/failmsgfilecache\\/)([\\W\\w]+?)$",
+			"^(?>tencent\\/MicroMsg\\/)(FTS5IndexMicroMsgInfo.txt)$",
+			"^(?>tencent\/MicroMsg\/[0-9a-z-]{32}\/logcat\/)(?>.+)"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.sand.airdroid"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["AirDroid"],
+		  "patterns": ["^(?>AirDroid\\/exception\\.log)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tencent/wns/EncryptLogs/"],
+		  "patterns": ["^(?>tencent\/wns\/EncryptLogs\/[\\w\\.]+\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["tencent/msflogs/"],
+		  "patterns": ["^(?>tencent\/msflogs\/(?>\\w+\/){3})([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["log/GearLog/"],
+		  "patterns": ["^(?:log/GearLog/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["org.mozilla.fenix"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["org.mozilla.fenix/"],
+		  "patterns": ["^(?:org\\.mozilla\\.fenix\\/)(gv_measurements(?:-\\d+)*.json)$"]
+		}, {
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["org.mozilla.fenix/glean_data/"],
+		  "patterns": ["^(?:org\\.mozilla\\.fenix\\/glean_data\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.samsung.android.bixby.service"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["log/0_com.samsung.android.bixby.service"],
+		  "patterns": ["^(?:log/)(0_com\\.samsung\\.android\\.bixby\\.service.+?)$"]
+		}
+	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["wifi_config.log"],
+		  "patterns": ["^(?:wifi_config\\.log)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.icbc"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["ICBCWAPLog/"],
+		  "patterns": ["^(?:ICBCWAPLog/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.vmos.glb"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["vmlog/"],
+		  "patterns": ["^(?:vmlog/)([\\W\\w]+?)$"]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": ["log.txt"],
+		  "patterns": ["^(?:log\\.txt)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.microsoft.emmx"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Pictures/Microsoft Edge feedback"],
+		  "patterns": ["^(?:Pictures\\/Microsoft Edge feedback(?: \\(\\d+\\))?.jpg)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.mzsyncservice"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Android/flyme_sync_sdk_log"],
+		  "patterns": ["^(?:Android/flyme_sync_sdk_log.txt(/[\\W\\w]+?)?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.kaerosduplicatescleaner"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["KaerosLogs"],
+		  "patterns": ["^(?:KaerosLogs/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.flyme.weather"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.meizu.flyme.weather"],
+		  "patterns": ["^(?:com\\.meizu\\.flyme\\.weather/)(weather_log\\.txt)$"]
+		}
+	  ]
+	}, {
+	  "packages": [
+		"com.meizu.flyme.input",
+		"com.sohu.inputmethod.sogou",
+		"com.sohu.inputmethod.sogou.xiaomi"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["sogou"],
+		  "patterns": ["^(?:sogou/corelog/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.videoeditorpro.android"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["logger/logs_"],
+		  "patterns": ["^(?:logger/logs_\\d+.csv)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.xiaomi.xmsf"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.xiaomi.xmsf/files/dump"],
+		  "patterns": ["^(?:com\\.xiaomi\\.xmsf/files/dump/)(.+?\\.log.*?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.bugreport"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/debug_log/bugreport-"],
+		  "patterns": ["^(?:MIUI/debug_log/bugreport-)(?:.+?\\.zip)$"]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/debug_log/com.miui.bugreport/cache/"],
+		  "patterns": ["^(?:MIUI/debug_log/com.miui.bugreport/cache/)(?:.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.miui.gallery/files/vlog"],
+		  "patterns": ["^(?:com.miui.gallery/files/vlog/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.debug.loggerui"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["debuglogger"],
+		  "patterns": ["^(?:debuglogger/)(.+?)$"]
+		}
+	  ]
+	}
+  ]
+}

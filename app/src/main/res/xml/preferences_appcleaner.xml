@@ -30,6 +30,16 @@
             app:key="filter.codecache.enabled"
             app:summary="@string/appcleaner_filter_codecache_summary"
             app:title="@string/appcleaner_filter_codecache_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_baseline_ads_click_24"
+            app:key="filter.advertisement.enabled"
+            app:summary="@string/appcleaner_filter_advertisement_summary"
+            app:title="@string/appcleaner_filter_advertisement_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_bug_report"
+            app:key="filter.bugreporting.enabled"
+            app:summary="@string/appcleaner_filter_bugreporting_summary"
+            app:title="@string/appcleaner_filter_bugreporting_label" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_filter_specific">
