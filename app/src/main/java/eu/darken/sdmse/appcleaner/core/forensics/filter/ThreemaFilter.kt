@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.Segments
-import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -32,13 +31,13 @@ class ThreemaFilter @Inject constructor(
         val config = DynamicSieve.MatchConfig(
             pkgNames = setOf("ch.threema.app".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            contains = setOf(segs("Threema", "Threema ")),
-            startsWith = setOf(
-                segs("Threema", "Threema Audio"),
-                segs("Threema", "Threema Pictures"),
-                segs("Threema", "Threema Videos"),
+            contains = setOf("Threema/Threema "),
+            ancestors = setOf(
+                "Threema/Threema MediaStore.Audio",
+                "Threema/Threema Pictures",
+                "Threema/Threema Videos",
             ),
-            exclusions = setOf(segs(".nomedia")),
+            exclusions = setOf(".nomedia"),
         )
         sieve = dynamicSieveFactory.create(setOf(config))
     }

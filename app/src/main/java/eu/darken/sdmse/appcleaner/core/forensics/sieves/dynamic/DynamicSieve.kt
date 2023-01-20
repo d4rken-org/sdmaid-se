@@ -5,10 +5,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
-import eu.darken.sdmse.common.files.core.Segments
-import eu.darken.sdmse.common.files.core.containsSegments
-import eu.darken.sdmse.common.files.core.joinSegments
-import eu.darken.sdmse.common.files.core.startsWith
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.pkgs.Pkg
 
 
@@ -23,13 +20,13 @@ class DynamicSieve @AssistedInject constructor(
     data class MatchConfig(
         val pkgNames: Set<Pkg.Id>? = null,
         val areaTypes: Set<DataArea.Type>? = null,
-        val contains: Set<Segments>? = null,
-        val startsWith: Set<Segments>? = null,
+        val contains: Set<String>? = null,
+        val ancestors: Set<String>? = null,
         val patterns: Set<String>? = null,
-        val exclusions: Set<Segments>? = null,
+        val exclusions: Set<String>? = null,
     ) {
         init {
-            if (contains.isNullOrEmpty() && startsWith.isNullOrEmpty() && patterns.isNullOrEmpty()) {
+            if (contains.isNullOrEmpty() && ancestors.isNullOrEmpty() && patterns.isNullOrEmpty()) {
                 throw IllegalStateException("Underdefined match config")
             }
         }
@@ -59,15 +56,15 @@ class DynamicSieve @AssistedInject constructor(
 
         exclusions?.takeIf { it.isNotEmpty() }?.let { excls ->
             val excluded = excls.any {
-                target.containsSegments(it, ignoreCase = ignoreCase, allowPartial = true)
+                target.containsSegments(it.toSegs(), ignoreCase = ignoreCase, allowPartial = true)
             }
             if (excluded) return@match false
         }
 
-        val startsWithCondition = startsWith
+        val ancestorsCondition = ancestors
             ?.takeIf { it.isNotEmpty() }
             ?.let { starters ->
-                starters.any { target.startsWith(it, ignoreCase = ignoreCase) }
+                starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase) }
             }
             ?: true
 
@@ -76,7 +73,7 @@ class DynamicSieve @AssistedInject constructor(
             ?.let { contains ->
                 contains.any {
                     target.containsSegments(
-                        it,
+                        it.toSegs(),
                         ignoreCase = ignoreCase,
                         allowPartial = true
                     )
@@ -96,7 +93,7 @@ class DynamicSieve @AssistedInject constructor(
             }
             ?: true
 
-        return startsWithCondition && containsCondition && regexCondition
+        return ancestorsCondition && containsCondition && regexCondition
     }
 
     @AssistedFactory

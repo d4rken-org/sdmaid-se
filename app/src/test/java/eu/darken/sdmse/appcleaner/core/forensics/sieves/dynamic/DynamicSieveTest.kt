@@ -35,7 +35,7 @@ class DynamicSieveTest : BaseTest() {
     @Test fun `location condition`() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
-            contains = setOf(segs("a", "test", "path"))
+            contains = setOf("a/test/path")
         )
 
         create(setOf(config)).apply {
@@ -56,7 +56,7 @@ class DynamicSieveTest : BaseTest() {
     @Test fun testBadMatch() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
-            contains = setOf(segs("a", "test", "path"))
+            contains = setOf("a/test/path")
         )
 
         create(setOf(config)).apply {
@@ -77,7 +77,7 @@ class DynamicSieveTest : BaseTest() {
     @Test fun testCaseSensitivity() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA),
-            contains = setOf(segs("a", "test", "path"))
+            contains = setOf("a/test/path")
         )
         create(setOf(config)).apply {
             matches(
@@ -103,7 +103,7 @@ class DynamicSieveTest : BaseTest() {
     @Test fun testStartsWith() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
-            startsWith = setOf(segs("a", "test", "path"))
+            ancestors = setOf("a/test/path")
         )
 
         create(setOf(config)).apply {
@@ -130,7 +130,7 @@ class DynamicSieveTest : BaseTest() {
     @Test fun testContains() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA, DataArea.Type.SYSTEM),
-            contains = setOf(segs("a", "test", "path"))
+            contains = setOf("a/test/path")
         )
 
         create(setOf(config)).apply {
