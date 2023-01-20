@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "packages": ["com.spotify.music"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.spotify.music/files/spotifycache/"],
+		  "patterns": ["^(?>com\\.spotify\\.music\\/files\\/spotifycache\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.kingwaytek.naviking"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["LocalKingMapN5/"],
+		  "patterns": ["^(?>LocalKingMapN5\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.xda.labs"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.xda.labs/files/"],
+		  "contains": [".apk"],
+		  "patterns": ["^(?>com\\.xda\\.labs/files/)(.+?\\.apk)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.camerasideas.instashot"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["inshot/.sound/"],
+		  "patterns": ["^(?>inshot/\\.sound/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["org.videolan.vlc"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["org.videolan.vlc/files/subtitles"],
+		  "patterns": ["^(?>org\\.videolan\\.vlc/files/subtitles/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.android.vending"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.android.vending/files/dna_data"],
+		  "patterns": ["^(?>com\\.android\\.vending/files/dna_data/)(FullArchive[\\W\\w]+?)$"]
+		}
+	  ]
+	}
+  ]
+}

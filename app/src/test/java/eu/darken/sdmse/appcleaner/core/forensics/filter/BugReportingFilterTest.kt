@@ -77,14 +77,14 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox_beta/files/mozilla/Crash Reports/" + rngString)
+                .prefixFree("org.mozilla.firefox_beta/files/mozilla/Crash Reports/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.firefox/files/mozilla/Crash Reports")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox/files/mozilla/Crash Reports/" + rngString)
+                .prefixFree("org.mozilla.firefox/files/mozilla/Crash Reports/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA)
@@ -92,7 +92,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps/" + rngString
+                "org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
             )
         )
 
@@ -108,7 +108,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/Crash Reports/" + rngString)
+                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/Crash Reports/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA)
@@ -116,7 +116,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps/" + rngString
+                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
             )
         )
         addCandidate(
@@ -125,7 +125,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes/" + rngString
+                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes/$rngString"
             )
         )
 
@@ -140,7 +140,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/Crash Reports/" + rngString)
+                .prefixFree("org.mozilla.focus/files/mozilla/Crash Reports/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA)
@@ -148,7 +148,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps/" + rngString
+                "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
             )
         )
         addCandidate(
@@ -157,7 +157,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes/" + rngString)
+                .prefixFree("org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes/$rngString")
         )
 
         confirm(create())
@@ -171,7 +171,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/Crash Reports/" + rngString)
+                .prefixFree("strawberry/files/mozilla/Crash Reports/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA)
@@ -179,7 +179,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/minidumps/" + rngString)
+                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PRIVATE_DATA)
@@ -187,7 +187,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/crashes/" + rngString)
+                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/crashes/$rngString")
         )
 
         confirm(create())
@@ -224,7 +224,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.gowiper.android").locs(PUBLIC_DATA)
-                .prefixFree("com.gowiper.android/files/logs/" + rngString)
+                .prefixFree("com.gowiper.android/files/logs/$rngString")
         )
 
         confirm(create())
@@ -238,7 +238,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("ir.tgbs.android.iranapp").locs(PUBLIC_DATA)
-                .prefixFree("ir.tgbs.android.iranapp/files/log/" + rngString)
+                .prefixFree("ir.tgbs.android.iranapp/files/log/$rngString")
         )
 
         confirm(create())
@@ -250,10 +250,10 @@ class BugReportingFilterTest : BaseFilterTest() {
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEX/log"))
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEXOS/log"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEX/log/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEX/log/$rngString")
         )
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEXOS/log/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEXOS/log/$rngString")
         )
 
         confirm(create())
@@ -271,11 +271,11 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/logs/" + rngString)
+                .prefixFree("com.cleanmaster.mguard/files/logs/$rngString")
         )
         addCandidate(
             pos().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/minidump/" + rngString)
+                .prefixFree("com.cleanmaster.mguard/files/minidump/$rngString")
         )
 
         confirm(create())
@@ -298,76 +298,76 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/atom/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/atom/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/atom/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/mail/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/mail/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/mail/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/yeti/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/yeti/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/yeti/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/ecauction/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/ecauction/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/ecauction/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/fantasyfootball/Debug"))
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/fantasyfootball/Debug/" + rngString)
+                .prefixFree("yahoo/fantasyfootball/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/search/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/search/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/search/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/finance/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/finance/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/finance/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/im/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/im/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/im/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/flickr/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/flickr/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/flickr/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/weather/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/weather/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/weather/Debug/$rngString")
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/cricket/Debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/cricket/Debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/cricket/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.atom/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.atom/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.atom/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.mail/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.mail/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.mail/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.yeti/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.yeti/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.yeti/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.ecauction/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.ecauction/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.ecauction/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD)
@@ -375,7 +375,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD).prefixFree(
-                "yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug/" + rngString
+                "yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug/$rngString"
             )
         )
         addCandidate(
@@ -383,42 +383,42 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.search/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.search/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.finance/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.finance/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.finance/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.im/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.im/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.im/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.flickr/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.flickr/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.flickr/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.weather/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.weather/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.weather/Debug/$rngString")
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.cricket/Debug")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.cricket/Debug/" + rngString)
+                .prefixFree("yahoo/com.yahoo.mobile.client.android.cricket/Debug/$rngString")
         )
 
         confirm(create())
@@ -428,7 +428,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         val pkgs = arrayOf("com.audials", "com.audials.paid")
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("Audials/log"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("Audials/log/" + rngString))
+        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("Audials/log/$rngString"))
 
         confirm(create())
     }
@@ -479,19 +479,19 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.rover/files/something/logs/" + rngString)
+                .prefixFree("com.skype.rover/files/something/logs/$rngString")
         )
         addCandidate(
             pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.rover/files/something/logs/" + rngString)
+                .prefixFree("com.skype.rover/files/something/logs/$rngString")
         )
         addCandidate(
             pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.raider/files/something/logs/" + rngString)
+                .prefixFree("com.skype.raider/files/something/logs/$rngString")
         )
         addCandidate(
             pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.raider/files/something/logs/" + rngString)
+                .prefixFree("com.skype.raider/files/something/logs/$rngString")
         )
 
         confirm(create())
@@ -511,7 +511,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         addCandidate(
             neg().pkgs("in.co.pricealert.apps2sd").locs(DATA)
-                .prefixFree("apps2sd-log/" + rngString)
+                .prefixFree("apps2sd-log/$rngString")
         )
         addCandidate(neg().pkgs("in.co.pricealert.apps2sd").locs(DATA).prefixFree("apps2sd-mount-script.log"))
         addCandidate(
@@ -523,37 +523,37 @@ class BugReportingFilterTest : BaseFilterTest() {
     }
 
     @Test fun testLogsFilter() = runTest {
-//        addDefaultNegatives()
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logs"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log"))
-//        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logs/file"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logs/file"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logfiles/file"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logfiles/file"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Log/file"))
-//        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/log/file"))
+        addDefaultNegatives()
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logs"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log"))
+        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logs/file"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logs/file"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logfiles/file"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logfiles/file"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Log/file"))
+        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/log/file"))
         addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logs/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log/$rngString"))
-//        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log/$rngString"))
+        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log/$rngString"))
 
         confirm(create())
     }
@@ -564,7 +564,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("homeworkout.homeworkouts.noequipment").locs(SDCARD)
-                .prefixFree("MaleWorkout/crash/" + rngString)
+                .prefixFree("MaleWorkout/crash/$rngString")
         )
 
         confirm(create())
@@ -582,23 +582,23 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             neg().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/" + rngString)
+                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/$rngString")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/log/" + rngString)
+                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/log/$rngString")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/.temp/" + rngString)
+                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/.temp/$rngString")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/log/" + rngString)
+                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/log/$rngString")
         )
         addCandidate(
             pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/.temp/" + rngString)
+                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/.temp/$rngString")
         )
 
         confirm(create())
@@ -611,7 +611,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("archos_debug"))
         addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("archos_debug/" + rngString)
+            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("archos_debug/$rngString")
         )
 
         confirm(create())
@@ -621,50 +621,50 @@ class BugReportingFilterTest : BaseFilterTest() {
         addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg"))
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
         )
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
         )
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
         )
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
         )
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
         )
         addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/crash"))
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/crash/" + rngString)
+                .prefixFree("tencent/MicroMsg/crash/$rngString")
         )
         addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/xlog"))
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/xlog/" + rngString)
+                .prefixFree("tencent/MicroMsg/xlog/$rngString")
         )
         addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/locallog"))
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/locallog/" + rngString)
+                .prefixFree("tencent/MicroMsg/locallog/$rngString")
         )
         addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/watchdog"))
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/watchdog/" + rngString)
+                .prefixFree("tencent/MicroMsg/watchdog/$rngString")
         )
         addCandidate(
             neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/failmsgfilecache")
         )
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/failmsgfilecache/" + rngString)
+                .prefixFree("tencent/MicroMsg/failmsgfilecache/$rngString")
         )
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/FTS5IndexMicroMsgInfo.txt")
@@ -675,7 +675,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         )
         addCandidate(
             pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat/" + rngString)
+                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat/$rngString")
         )
 
         confirm(create())
