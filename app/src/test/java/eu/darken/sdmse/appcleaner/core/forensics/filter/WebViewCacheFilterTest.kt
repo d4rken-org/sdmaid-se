@@ -20,7 +20,7 @@ class WebViewCacheFilterTest : BaseFilterTest() {
     }
 
     private fun create() = WebViewCacheFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testGeneral() = runTest {

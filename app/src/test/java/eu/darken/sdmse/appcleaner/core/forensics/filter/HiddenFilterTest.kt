@@ -22,7 +22,7 @@ class HiddenFilterTest : BaseFilterTest() {
     }
 
     private fun create() = HiddenFilter(
-        jsonBasedSieveFactory = createSieveFactory(),
+        jsonBasedSieveFactory = createJsonSieveFactory(),
         environment = storageEnvironment,
     )
 

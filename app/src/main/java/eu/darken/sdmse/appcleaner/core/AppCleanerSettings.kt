@@ -42,6 +42,12 @@ class AppCleanerSettings @Inject constructor(
     val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", true)
     val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", true)
     val filterWebviewEnabled = dataStore.createValue("filter.webview.enabled", true)
+    val filterThreemaEnabled = dataStore.createValue("filter.threema.enabled", true)
+    val filterTelegramEnabled = dataStore.createValue("filter.telegram.enabled", true)
+    val filterWhatsAppBackupsEnabled = dataStore.createValue("filter.whatsapp.backups.enabled", true)
+    val filterWhatsAppReceivedEnabled = dataStore.createValue("filter.whatsapp.received.enabled", true)
+    val filterWhatsAppSentEnabled = dataStore.createValue("filter.whatsapp.sent.enabled", true)
+    val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", true)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
     val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
@@ -61,6 +67,12 @@ class AppCleanerSettings @Inject constructor(
         filterOfflineCachesEnabled,
         filterRecycleBinsEnabled,
         filterWebviewEnabled,
+        filterThreemaEnabled,
+        filterTelegramEnabled,
+        filterWhatsAppBackupsEnabled,
+        filterWhatsAppReceivedEnabled,
+        filterWhatsAppSentEnabled,
+        filterWeChatEnabled,
     )
 
     companion object {

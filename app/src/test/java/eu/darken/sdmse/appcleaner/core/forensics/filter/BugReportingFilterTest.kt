@@ -21,7 +21,7 @@ class BugReportingFilterTest : BaseFilterTest() {
     }
 
     private fun create() = BugReportingFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testFilterFabric() = runTest {

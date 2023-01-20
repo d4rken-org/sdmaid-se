@@ -21,7 +21,7 @@ class OfflineCacheFilterTest : BaseFilterTest() {
     }
 
     private fun create() = OfflineCacheFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testDefaults() = runTest {

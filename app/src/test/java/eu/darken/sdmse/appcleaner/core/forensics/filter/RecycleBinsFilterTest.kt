@@ -22,7 +22,7 @@ class RecycleBinsFilterTest : BaseFilterTest() {
     }
 
     private fun create() = RecycleBinsFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testDefaults() = runTest {

@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.forensics
 
 import android.content.Context
 import android.content.res.AssetManager
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic.DynamicSieve
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
@@ -370,12 +371,20 @@ abstract class BaseFilterTest : BaseTest() {
 
     }
 
-    fun createSieveFactory() = object : JsonBasedSieve.Factory {
+    fun createJsonSieveFactory() = object : JsonBasedSieve.Factory {
         override fun create(assetPath: String): JsonBasedSieve {
             return JsonBasedSieve(
                 context = context,
                 assetPath = assetPath,
                 baseMoshi = SerializationModule().moshi(),
+            )
+        }
+    }
+
+    fun createDynamicSieveFactory() = object : DynamicSieve.Factory {
+        override fun create(configs: Set<DynamicSieve.MatchConfig>): DynamicSieve {
+            return DynamicSieve(
+                configs = configs,
             )
         }
     }

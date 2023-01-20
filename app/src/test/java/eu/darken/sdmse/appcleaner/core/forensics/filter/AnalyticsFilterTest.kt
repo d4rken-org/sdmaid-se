@@ -22,7 +22,7 @@ class AnalyticsFilterTest : BaseFilterTest() {
     }
 
     private fun create() = AnalyticsFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testAnalyticsFilterFabric() = runTest {

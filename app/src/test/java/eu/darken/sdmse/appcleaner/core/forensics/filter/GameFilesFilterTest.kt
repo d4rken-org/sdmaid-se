@@ -7,7 +7,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.util.*
 
 class GameFilesFilterTest : BaseFilterTest() {
 
@@ -22,7 +21,7 @@ class GameFilesFilterTest : BaseFilterTest() {
     }
 
     private fun create() = GameFilesFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     /**

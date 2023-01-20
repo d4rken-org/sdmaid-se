@@ -21,7 +21,7 @@ class AdvertisementFilterTest : BaseFilterTest() {
     }
 
     private fun create() = AdvertisementFilter(
-        jsonBasedSieveFactory = createSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory()
     )
 
     @Test fun testAnalyticsFilterMologiq() = runTest {
