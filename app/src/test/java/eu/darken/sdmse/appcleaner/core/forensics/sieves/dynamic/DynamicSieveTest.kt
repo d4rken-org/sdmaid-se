@@ -159,4 +159,38 @@ class DynamicSieveTest : BaseTest() {
             ) shouldBe false
         }
     }
+
+    @Test fun testRegex() {
+        val config = DynamicSieve.MatchConfig(
+            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA, DataArea.Type.SYSTEM),
+            contains = setOf("a/test/path"),
+            patterns = setOf("^(?>a*\\/[0-9a-z-]+\\/pa.+)$")
+        )
+
+        create(setOf(config)).apply {
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SDCARD,
+                target = segs("a", "test", "path")
+            ) shouldBe true
+
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.PRIVATE_DATA,
+                target = segs("a", "test", "path", "file")
+            ) shouldBe true
+
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SYSTEM,
+                target = segs("aaa", "test", "pathhhh")
+            ) shouldBe true
+
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SYSTEM,
+                target = segs("123")
+            ) shouldBe false
+        }
+    }
 }
