@@ -37,6 +37,7 @@ class AppCleanerSettings @Inject constructor(
     val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", true)
     val filterBugreportingEnabled = dataStore.createValue("filter.bugreporting.enabled", true)
     val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
+    val filterGameFilesEnabled = dataStore.createValue("filter.gamefiles.enabled", true)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
     val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
@@ -51,6 +52,7 @@ class AppCleanerSettings @Inject constructor(
         filterAdvertisementEnabled,
         filterBugreportingEnabled,
         filterAnalyticsEnabled,
+        filterGameFilesEnabled,
     )
 
     companion object {

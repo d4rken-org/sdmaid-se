@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["files/Cache/"],
+		  "patterns": ["^(?>[\\w\\._]+\\/files\\/Cache\\/)(.+?\\.unity3d(?:&.+?)*)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.unigine.oilrush", "com.unigine.oilrush_full"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["unigine_oilrush/"],
+		  "patterns": [
+			"^(?:unigine_oilrush\/game\\.cache)$",
+			"^(?:unigine_oilrush\/menu\\.cache)$",
+			"^(?:unigine_oilrush\/log\\.html)$"
+		  ]
+		}
+	  ]
+	}
+  ]
+}
