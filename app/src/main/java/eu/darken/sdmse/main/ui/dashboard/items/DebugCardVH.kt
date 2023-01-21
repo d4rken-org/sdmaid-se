@@ -1,7 +1,9 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DashboardDebugItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -23,6 +25,7 @@ class DebugCardVH(parent: ViewGroup) :
         pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }
         areasReloadAction.setOnClickListener { item.onReloadAreas() }
         testAction.setOnClickListener { item.onRunTest() }
+        testAction.isVisible = BuildConfigWrap.DEBUG
     }
 
     data class Item(
