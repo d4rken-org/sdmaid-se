@@ -1,9 +1,12 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
+import android.text.SpannableStringBuilder
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.toColored
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.databinding.DashboardTitleItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 
@@ -19,10 +22,23 @@ class TitleCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        if (item.upgradeInfo?.isPro == true) {
+            val builder = SpannableStringBuilder(getString(R.string.app_name))
+
+            val postFix = getString(R.string.app_name_upgrade_postfix).toColored(context, R.color.colorUpgraded)
+            builder.append(" ").append(postFix)
+
+            title.text = builder
+        } else {
+            title.text = getString(R.string.app_name)
+        }
+
         subtitle.text = getString(slogan)
     }
 
-    object Item : DashboardAdapter.Item {
+    data class Item(
+        val upgradeInfo: UpgradeRepo.Info?
+    ) : DashboardAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

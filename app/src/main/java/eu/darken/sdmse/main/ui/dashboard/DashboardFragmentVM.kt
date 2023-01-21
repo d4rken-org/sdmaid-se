@@ -152,35 +152,28 @@ class DashboardFragmentVM @Inject constructor(
             )
         }
 
-    private val upgradeItem: Flow<UpgradeCardVH.Item?> = upgradeRepo.upgradeInfo
-        .map {
-            if (it.isPro) return@map null
-            UpgradeCardVH.Item(
-                onUpgrade = { DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate() }
-            )
-        }
-        .onStart { emit(null) }
-
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
+        upgradeRepo.upgradeInfo.map { it }.onStart { emit(null) },
         setupManager.state,
         dataAreaItem,
         corpseFinderItem,
         systemCleanerItem,
         appCleanerItem,
-        upgradeItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
+        upgradeInfo: UpgradeRepo.Info?,
         setupState: SetupManager.SetupState,
         dataAreaInfo: DataAreaCardVH.Item?,
         corpseFinderItem: CorpseFinderCardVH.Item?,
         systemCleanerItem: SystemCleanerCardVH.Item?,
         appCleanerItem: AppCleanerCardVH.Item?,
-        upgradeItem: UpgradeCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
 
-        TitleCardVH.Item.run { items.add(this) }
+        TitleCardVH.Item(
+            upgradeInfo = upgradeInfo
+        ).run { items.add(this) }
 
         debugItem?.let { items.add(it) }
 
@@ -205,7 +198,14 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
 
-        upgradeItem?.let { items.add(it) }
+        upgradeInfo
+            ?.takeIf { !it.isPro }
+            ?.let {
+                UpgradeCardVH.Item(
+                    onUpgrade = { DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate() }
+                )
+            }
+            ?.run { items.add(this) }
 
         items
     }
