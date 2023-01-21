@@ -78,7 +78,7 @@ class AppScanner @Inject constructor(
             .map { it.create() }
             .onEach { it.initialize() }
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
-
+        log(TAG) { "${enabledFilters.size} filter are enabled" }
         isRooted = rootManager.isRooted()
     }
 
@@ -88,6 +88,11 @@ class AppScanner @Inject constructor(
         log(TAG, INFO) { "scan(pkgFilter=$pkgFilter)" }
         updateProgressPrimary(R.string.general_progress_preparing)
         updateProgressCount(Progress.Count.Indeterminate())
+
+        if (enabledFilters.isEmpty()) {
+            log(TAG, WARN) { "0 enabled filter !?" }
+            return emptySet()
+        }
 
         val includeSystemApps = settings.includeSystemAppsEnabled.value()
         val includeRunningApps = settings.includeRunningAppsEnabled.value()

@@ -34,7 +34,6 @@ import javax.inject.Singleton
 @Singleton
 class AppCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-//    private val filters: Set<@JvmSuppressWildcards CorpseFilter>,
     fileForensics: FileForensics,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
