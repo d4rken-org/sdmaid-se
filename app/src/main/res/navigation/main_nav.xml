@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/corpseFinderDetailsFragment"
-        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.details.CorpseFinderDetailsFragment"
         tools:layout="@layout/corpsefinder_details_fragment" />
     <fragment
         android:id="@+id/systemCleanerDetailsFragment"
