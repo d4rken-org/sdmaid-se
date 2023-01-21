@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.local.toLocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFGateway
 import eu.darken.sdmse.common.files.core.saf.SAFPath
 import timber.log.Timber
@@ -51,8 +52,15 @@ class SAFMapper @Inject constructor(
         }
     }
 
-    suspend fun toLocalPath(safPath: SAFPath): LocalPath {
-        return TODO()
+    suspend fun toLocalPath(safPath: SAFPath): LocalPath? {
+        val osStorage = storageManager2.storageVolumes
+            .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $safPath" } }
+            .filter { it.directory != null }
+            .firstOrNull { safPath.treeRoot == it.treeUri }
+            ?.also { log(TAG) { "Target storageVolumes for $safPath is $it" } }
+            ?: return null
+
+        return osStorage.directory?.toLocalPath()?.child(*safPath.segments.toTypedArray())
     }
 
     fun takePermission(uri: Uri) {

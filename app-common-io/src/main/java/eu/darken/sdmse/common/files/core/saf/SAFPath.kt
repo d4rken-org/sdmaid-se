@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.files.core.saf
 
 import android.net.Uri
 import androidx.annotation.Keep
-import androidx.documentfile.provider.DocumentFile
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import eu.darken.sdmse.common.ca.CaString
@@ -64,10 +63,6 @@ data class SAFPath(
     override fun toString(): String = "SAFFile(treeRoot=$treeRoot, segments=$segments)"
 
     companion object {
-        fun build(documentFile: DocumentFile): SAFPath {
-            return build(documentFile.uri)
-        }
-
         fun build(base: Uri, vararg segs: String): SAFPath {
             return SAFPath(base, segs.toList())
         }
