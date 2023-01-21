@@ -6,6 +6,9 @@
     <string name="slogan_message_0">At your service.</string>
     <string name="slogan_message_1">Clean &amp; tidy.</string>
     <string name="slogan_message_2">Preventing chaos.</string>
+    <string name="slogan_message_3">Doing what is necessary.</string>
+    <string name="slogan_message_4">All your ducks in a row.</string>
+    <string name="slogan_message_5">Spotless.</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -67,7 +70,6 @@
     <string name="setup_title">Setup</string>
     <string name="setup_forcedshow_title">Show setup</string>
     <string name="setup_forcedshow_summary">Show setup screen again, including already completed items.</string>
-
 
     <string name="setup_saf_card_title">Storage access framework</string>
     <string name="setup_saf_card_body">Improve results by granting SD Maid access to additional areas.</string>

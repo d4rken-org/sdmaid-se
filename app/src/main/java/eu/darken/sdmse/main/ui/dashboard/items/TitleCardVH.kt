@@ -45,10 +45,13 @@ class TitleCardVH(parent: ViewGroup) :
 
     companion object {
         @StringRes
-        fun getRngSlogan() = when ((0..2).random()) {
+        fun getRngSlogan() = when ((0..5).random()) {
             0 -> R.string.slogan_message_0
             1 -> R.string.slogan_message_1
             2 -> R.string.slogan_message_2
+            3 -> R.string.slogan_message_3
+            4 -> R.string.slogan_message_4
+            5 -> R.string.slogan_message_5
             else -> throw IllegalArgumentException()
         }
     }

@@ -152,9 +152,16 @@ class DashboardFragmentVM @Inject constructor(
             )
         }
 
+    private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
+        .map {
+            @Suppress("USELESS_CAST")
+            it as UpgradeRepo.Info?
+        }
+        .onStart { emit(null) }
+
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
-        upgradeRepo.upgradeInfo.map { it }.onStart { emit(null) },
+        upgradeInfo,
         setupManager.state,
         dataAreaItem,
         corpseFinderItem,
