@@ -3,13 +3,15 @@ package eu.darken.sdmse.appcleaner.core.forensics
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import java.time.Instant
 
 
 data class LegacyCandidate(
     val type: Type,
     val pkgs: Collection<Pkg.Id>? = null,
     val areaTypes: Collection<DataArea.Type>? = null,
-    val prefixFreePath: String? = null
+    val prefixFreePath: String? = null,
+    val lastModified: Long? = null,
 ) {
     enum class Type {
         POSITIVE,
@@ -27,6 +29,7 @@ fun BaseFilterTest.addCandidate(legcan: LegacyCandidate) {
         pkgs = legcan.pkgs ?: emptySet(),
         areaTypes = legcan.areaTypes ?: emptySet(),
         prefixFreePaths = setOf(legcan.prefixFreePath!!.split("/")),
+        lastModified = legcan.lastModified?.let { Instant.ofEpochMilli(it) }
     )
     addCandidate(newCan)
 }
@@ -53,6 +56,10 @@ fun LegacyCandidate.locs(vararg areaTypes: DataArea.Type) = this.copy(
 
 fun LegacyCandidate.prefixFree(prefixFree: String) = this.copy(
     prefixFreePath = prefixFree,
+)
+
+fun LegacyCandidate.lastModified(lastModified: Long) = this.copy(
+    lastModified = lastModified,
 )
 
 fun LegacyCandidate.build() = this

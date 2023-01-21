@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -33,7 +35,7 @@ class ThreemaFilter @Inject constructor(
             areaTypes = setOf(DataArea.Type.SDCARD),
             contains = setOf("Threema/Threema "),
             ancestors = setOf(
-                "Threema/Threema MediaStore.Audio",
+                "Threema/Threema Audio",
                 "Threema/Threema Pictures",
                 "Threema/Threema Videos",
             ),
@@ -42,7 +44,12 @@ class ThreemaFilter @Inject constructor(
         sieve = dynamicSieveFactory.create(setOf(config))
     }
 
-    override suspend fun isExpendable(pkgId: Pkg.Id, areaType: DataArea.Type, segments: Segments): Boolean {
+    override suspend fun isExpendable(
+        pkgId: Pkg.Id,
+        target: APathLookup<APath>,
+        areaType: DataArea.Type,
+        segments: Segments
+    ): Boolean {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
 
         return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)

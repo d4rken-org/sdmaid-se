@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import javax.inject.Inject
@@ -30,7 +32,12 @@ class AnalyticsFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_analytics_files.json")
     }
 
-    override suspend fun isExpendable(pkgId: Pkg.Id, areaType: DataArea.Type, segments: Segments): Boolean {
+    override suspend fun isExpendable(
+        pkgId: Pkg.Id,
+        target: APathLookup<APath>,
+        areaType: DataArea.Type,
+        segments: Segments
+    ): Boolean {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
 
         return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)

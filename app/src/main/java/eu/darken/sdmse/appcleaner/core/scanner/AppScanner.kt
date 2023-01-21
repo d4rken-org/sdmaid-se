@@ -369,6 +369,7 @@ class AppScanner @Inject constructor(
                 .filter { minCacheSizeBytes == 0L || it.size > minCacheSizeBytes }
                 .filter { it.segments.startsWith(spoi.file.segments) }
                 .forEach { foi ->
+                    // TODO do we need this extra lookup or can we construct the prefix free segments without it?
                     val foiAreaInfo = fileForensics.identifyArea(foi)
                     if (foiAreaInfo == null) {
                         log(TAG, WARN) { "Failed to identify $foi" }
@@ -376,7 +377,7 @@ class AppScanner @Inject constructor(
                     }
                     for (pkgId in possibleOwners) {
                         val type: KClass<out ExpendablesFilter> = enabledFilters
-                            .firstOrNull { it.isExpendable(pkgId, spoi.type, foiAreaInfo.prefixFreePath) }
+                            .firstOrNull { it.isExpendable(pkgId, foi, spoi.type, foiAreaInfo.prefixFreePath) }
                             ?.javaClass?.kotlin
                             ?: continue
 

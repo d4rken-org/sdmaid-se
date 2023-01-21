@@ -32,7 +32,12 @@ class WebViewCacheFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_webcaches.json")
     }
 
-    override suspend fun isExpendable(pkgId: Pkg.Id, areaType: DataArea.Type, segments: Segments): Boolean {
+    override suspend fun isExpendable(
+        pkgId: Pkg.Id,
+        target: APathLookup<APath>,
+        areaType: DataArea.Type,
+        segments: Segments
+    ): Boolean {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
             return false
         }

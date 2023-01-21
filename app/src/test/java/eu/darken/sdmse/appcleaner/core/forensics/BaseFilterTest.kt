@@ -7,10 +7,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.ReadException
-import eu.darken.sdmse.common.files.core.Segments
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -31,6 +28,7 @@ import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
+import java.time.Instant
 
 abstract class BaseFilterTest : BaseTest() {
 
@@ -332,13 +330,19 @@ abstract class BaseFilterTest : BaseTest() {
         filter.initialize()
 
         for (c in candidates) {
+            val target: APathLookup<APath> = mockk<APathLookup<APath>>().apply {
+                c.lastModified?.let {
+                    every { modifiedAt } returns it
+                }
+            }
+
             when (c.matchType) {
                 Candidate.Type.POSITIVE -> {
                     c.areaTypes.forEach { loc ->
                         c.pkgs.forEach { pkg ->
                             c.prefixFreePaths.forEach { segs ->
                                 withClue("Should match $pkg, $loc $segs") {
-                                    filter.isExpendable(pkg, loc, segs) shouldBe true
+                                    filter.isExpendable(pkg, target, loc, segs) shouldBe true
                                 }
                             }
                         }
@@ -349,7 +353,7 @@ abstract class BaseFilterTest : BaseTest() {
                         c.pkgs.forEach { pkg ->
                             c.prefixFreePaths.forEach { segs ->
                                 withClue("Should NOT match $pkg, $loc $segs") {
-                                    filter.isExpendable(pkg, loc, segs) shouldBe false
+                                    filter.isExpendable(pkg, target, loc, segs) shouldBe false
                                 }
                             }
                         }
@@ -364,6 +368,7 @@ abstract class BaseFilterTest : BaseTest() {
         val areaTypes: Collection<DataArea.Type>,
         val pkgs: Collection<Pkg.Id>,
         val prefixFreePaths: Collection<Segments>,
+        val lastModified: Instant? = null
     ) {
         enum class Type {
             POSITIVE, NEGATIVE

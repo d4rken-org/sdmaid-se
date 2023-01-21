@@ -23,6 +23,7 @@ class ThreemaFilterTest : BaseFilterTest() {
         dynamicSieveFactory = createDynamicSieveFactory()
     )
 
+    // TODO refactor to non-legacy test methods
     @Test fun testFilter() = runTest {
         addDefaultNegatives()
         addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema"))
