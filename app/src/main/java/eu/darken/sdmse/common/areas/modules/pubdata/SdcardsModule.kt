@@ -13,8 +13,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.files.core.local.LocalGateway
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
@@ -27,6 +29,7 @@ class SdcardsModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
     private val safMapper: SAFMapper,
+    private val rootManager: RootManager,
 ) : DataAreaModule {
 
     @Suppress("ComplexRedundantLet")
@@ -66,6 +69,7 @@ class SdcardsModule @Inject constructor(
     }
 
     private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
+        // Normal
         targetPath.let { localPath ->
             val testFileLocal = localPath.child("eu.darken.sdmse-area-local-access-test-$rngString")
             try {
@@ -87,8 +91,40 @@ class SdcardsModule @Inject constructor(
             }
         }
 
-        log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
+        // Root
+        targetPath.let { localPath ->
+            if (!rootManager.isRooted()) return@let
 
+            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+
+            val testFileLocal = localPath.child("eu.darken.sdmse-area-local-access-test-$rngString")
+            try {
+                require(!localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
+                    "Our 'random' testfile already exists? ($testFileLocal)"
+                }
+
+                localGateway.createFile(testFileLocal, mode = LocalGateway.Mode.ROOT)
+                if (localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
+                    log(TAG) { "Original targetPath is accessible via ROOT $targetPath" }
+                    return localPath
+                }
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Couldn't create with ROOT $testFileLocal: $e" }
+            } finally {
+                try {
+                    if (localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
+                        localGateway.delete(testFileLocal, mode = LocalGateway.Mode.ROOT)
+                    }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Clean up of $testFileLocal with ROOT failed: $e" }
+                }
+            }
+        }
+
+
+
+        log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
+        // Saf
         safMapper.toSAFPath(targetPath)?.let { safPath ->
             val testFileSaf = safPath.child("eu.darken.sdmse-area-saf-access-test-$rngString")
             try {
