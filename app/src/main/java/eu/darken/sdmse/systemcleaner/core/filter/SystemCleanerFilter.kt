@@ -5,14 +5,19 @@ import eu.darken.sdmse.common.files.core.APathLookup
 
 interface SystemCleanerFilter {
 
+    val filterIdentifier: FilterIdentifier
+        get() = this::class.qualifiedName!!
+
     suspend fun targetAreas(): Set<DataArea.Type>
 
     suspend fun initialize()
 
-    suspend fun sieve(item: APathLookup<*>): Boolean
+    suspend fun matches(item: APathLookup<*>): Boolean
 
     interface Factory {
         suspend fun isEnabled(): Boolean
         suspend fun create(): SystemCleanerFilter
     }
 }
+
+typealias FilterIdentifier = String

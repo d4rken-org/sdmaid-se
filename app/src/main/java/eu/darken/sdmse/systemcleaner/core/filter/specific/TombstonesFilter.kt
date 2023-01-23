@@ -45,7 +45,7 @@ class TombstonesFilter @Inject constructor(
     }
 
 
-    override suspend fun sieve(item: APathLookup<*>): Boolean {
+    override suspend fun matches(item: APathLookup<*>): Boolean {
         return sieve.match(item).matches
     }
 

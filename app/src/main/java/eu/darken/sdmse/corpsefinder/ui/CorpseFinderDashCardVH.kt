@@ -7,6 +7,7 @@ import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.databinding.CorpsefinderDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -60,11 +61,11 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
         }
         deleteAction.apply {
             isGone = item.progress != null || item.data == null
-            setOnClickListener { item.onDelete }
+            setOnClickListener { item.onDelete(item.data?.corpses!!) }
         }
         cancelAction.apply {
             isGone = item.progress == null
-            setOnClickListener { item.onCancel }
+            setOnClickListener { item.onCancel() }
         }
     }
 
@@ -72,7 +73,7 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
         val data: CorpseFinder.Data?,
         val progress: Progress.Data?,
         val onScan: () -> Unit,
-        val onDelete: () -> Unit,
+        val onDelete: (Collection<Corpse>) -> Unit,
         val onViewDetails: () -> Unit,
         val onCancel: () -> Unit,
     ) : DashboardAdapter.Item {

@@ -67,7 +67,7 @@ class TempFilesFilter @Inject constructor(
         "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
     )
 
-    override suspend fun sieve(item: APathLookup<*>): Boolean {
+    override suspend fun matches(item: APathLookup<*>): Boolean {
         val sieveResult = sieve.match(item)
         if (!sieveResult.matches) return false
 

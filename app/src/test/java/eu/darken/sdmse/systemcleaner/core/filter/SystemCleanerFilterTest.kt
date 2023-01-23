@@ -306,13 +306,13 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         positives.forEach { canidate ->
             withClue("Should match ${canidate.path} (${canidate.fileType})") {
-                filter.sieve(canidate) shouldBe true
+                filter.matches(canidate) shouldBe true
             }
             log { "Matched: ${canidate.path}" }
         }
         negatives.forEach { canidate ->
             withClue("Should NOT match ${canidate.path} (${canidate.fileType})") {
-                filter.sieve(canidate) shouldBe false
+                filter.matches(canidate) shouldBe false
             }
             log { "Didn't match: ${canidate.path}" }
         }

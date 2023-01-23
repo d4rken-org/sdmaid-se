@@ -108,7 +108,7 @@ class SystemCrawler @Inject constructor(
                     updateProgressSecondary(item.path)
                     val matched = filters.firstOrNull {
                         try {
-                            it.sieve(item)
+                            it.matches(item)
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
                             false
@@ -124,7 +124,8 @@ class SystemCrawler @Inject constructor(
         return sieveContents.map { entry ->
             log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches." }
             SieveContent(
-                items = entry.value
+                filterIdentifier = entry.key.filterIdentifier,
+                items = entry.value,
             )
         }
     }

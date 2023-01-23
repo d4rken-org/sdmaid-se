@@ -1,11 +1,11 @@
 package eu.darken.sdmse.systemcleaner.core.tasks
 
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SystemCleanerDeleteTask(
-    val toDelete: Set<APath> = emptySet(),
+    val toDelete: Set<FilterIdentifier> = emptySet(),
     val isWatcherTask: Boolean = false,
 ) : SystemCleanerTask() {
 

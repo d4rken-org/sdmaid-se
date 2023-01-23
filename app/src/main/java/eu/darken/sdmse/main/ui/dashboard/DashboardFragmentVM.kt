@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugCardProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -22,6 +24,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
@@ -31,6 +34,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.setup.SetupManager
+import eu.darken.sdmse.systemcleaner.core.SieveContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
@@ -78,14 +82,12 @@ class DashboardFragmentVM @Inject constructor(
                 }
             },
             onDelete = {
-                launch { taskManager.submit(CorpseFinderDeleteTask()) }
+                launch { dashboardevents.postValue(DashboardEvents.CorpseFinderDeleteAllConfirmation(it)) }
             },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
             },
-            onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
-            }
+            onViewDetails = { showCorpseFinderDetails() }
         )
     }
     private val systemCleanerItem: Flow<SystemCleanerDashCardVH.Item> = combine(
@@ -253,6 +255,45 @@ class DashboardFragmentVM @Inject constructor(
 
     fun triggerMainAction() {
         log(TAG) { "triggerMainAction()" }
+    }
+
+    fun confirmCorpseDeletion(toDelete: Collection<Corpse>) = launch {
+        log(TAG, INFO) { "confirmCorpseDeletion(${toDelete.size} items)" }
+        val deleteTask = CorpseFinderDeleteTask(
+            toDelete = toDelete.map { it.path }.toSet()
+        )
+        taskManager.submit(deleteTask)
+    }
+
+    fun showCorpseFinderDetails() {
+        log(TAG, INFO) { "showCorpseFinderDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
+    }
+
+    fun confirmSieveDeletion(sieves: Collection<SieveContent>) = launch {
+        log(TAG, INFO) { "confirmSieveDeletion(${sieves.size} sieves)" }
+        val deleteTask = SystemCleanerDeleteTask(
+            toDelete = sieves.map { it.filterIdentifier }.toSet()
+        )
+        taskManager.submit(deleteTask)
+    }
+
+    fun showSystemCleanerDetails() {
+        log(TAG, INFO) { "showSystemCleanerDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerDetailsFragment().navigate()
+    }
+
+    fun confirmAppJunkDeletion(appJunks: Collection<AppJunk>) = launch {
+        log(TAG, INFO) { "confirmAppJunkDeletion(${appJunks.size} items)" }
+        val deleteTask = AppCleanerDeleteTask(
+            pkgids = appJunks.map { it.pkg.id }.toSet()
+        )
+        taskManager.submit(deleteTask)
+    }
+
+    fun showAppCleanerDetails() {
+        log(TAG, INFO) { "showAppCleanerDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToAppCleanerDetailsFragment().navigate()
     }
 
     companion object {

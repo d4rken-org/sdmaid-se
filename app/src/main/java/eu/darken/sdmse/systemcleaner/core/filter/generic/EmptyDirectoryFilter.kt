@@ -72,7 +72,7 @@ class EmptyDirectoryFilter @Inject constructor(
         log(TAG) { "initialized()" }
     }
 
-    override suspend fun sieve(item: APathLookup<*>): Boolean {
+    override suspend fun matches(item: APathLookup<*>): Boolean {
         val sieveResult = sieve.match(item)
         if (!sieveResult.matches) return false
 
@@ -98,7 +98,7 @@ class EmptyDirectoryFilter @Inject constructor(
         val content = item.lookupFiles(gatewaySwitch)
         if (content.size > 2) return false
         if (content.any {
-                val match = sieve(it)
+                val match = filter(it)
                 if (!match) log(TAG) { "Failed sub sieve match: $it" }
                 !match
             }) return false
