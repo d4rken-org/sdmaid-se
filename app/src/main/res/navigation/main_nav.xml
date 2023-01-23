@@ -16,9 +16,6 @@
             android:id="@+id/action_dashboardFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_corpseFinderDetailsFragment"
-            app:destination="@id/corpseFinderDetailsFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
             app:destination="@id/systemCleanerDetailsFragment" />
         <action
@@ -30,6 +27,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_onboardingFragment"
             app:destination="@id/onboardingFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_corpseFinderListFragment"
+            app:destination="@id/corpseFinderListFragment" />
     </fragment>
 
     <fragment
@@ -43,8 +43,13 @@
 
     <fragment
         android:id="@+id/corpseFinderDetailsFragment"
-        android:name="eu.darken.sdmse.corpsefinder.ui.details.CorpseFinderDetailsFragment"
-        tools:layout="@layout/corpsefinder_details_fragment" />
+        android:name="eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment"
+        tools:layout="@layout/corpsefinder_details_fragment">
+        <argument
+            android:name="corpsePath"
+            app:argType="eu.darken.sdmse.common.files.core.APath"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/systemCleanerDetailsFragment"
         android:name="eu.darken.sdmse.systemcleaner.ui.details.SystemCleanerDetailsFragment"
@@ -73,8 +78,24 @@
         tools:layout="@layout/onboarding_fragment">
         <action
             android:id="@+id/action_onboardingFragment_to_setupFragment"
-            app:popUpTo="@id/dashboardFragment"
-            app:destination="@id/setupFragment" />
+            app:destination="@id/setupFragment"
+            app:popUpTo="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/corpseFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.details.item.CorpseFragment"
+        tools:layout="@layout/corpsefinder_corpse_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.common.files.core.APath" />
+    </fragment>
+    <fragment
+        android:id="@+id/corpseFinderListFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.list.CorpseListFragment"
+        tools:layout="@layout/corpsefinder_list_fragment">
+        <action
+            android:id="@+id/action_corpseFinderListFragment_to_corpseFinderDetailsFragment"
+            app:destination="@id/corpseFinderDetailsFragment" />
     </fragment>
 
 </navigation>

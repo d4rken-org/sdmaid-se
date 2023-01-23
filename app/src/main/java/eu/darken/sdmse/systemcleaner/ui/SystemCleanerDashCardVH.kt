@@ -12,8 +12,8 @@ import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 
 
-class SystemCleanerCardVH(parent: ViewGroup) :
-    DashboardAdapter.BaseVH<SystemCleanerCardVH.Item, SystemcleanerDashboardItemBinding>(
+class SystemCleanerDashCardVH(parent: ViewGroup) :
+    DashboardAdapter.BaseVH<SystemCleanerDashCardVH.Item, SystemcleanerDashboardItemBinding>(
         R.layout.systemcleaner_dashboard_item,
         parent
     ) {
@@ -48,6 +48,12 @@ class SystemCleanerCardVH(parent: ViewGroup) :
             isGone = item.progress != null || item.data == null
             setOnClickListener { item.onViewDetails() }
         }
+        if (item.progress == null || item.data != null) {
+            activityContainer.setOnClickListener { item.onViewDetails() }
+        } else {
+            activityContainer.setOnClickListener(null)
+        }
+
         scanAction.apply {
             isGone = item.progress != null
             setOnClickListener { item.onScan() }

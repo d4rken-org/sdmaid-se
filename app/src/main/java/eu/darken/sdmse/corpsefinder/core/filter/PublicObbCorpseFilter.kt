@@ -92,6 +92,7 @@ class PublicObbCorpseFilter @Inject constructor(
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,

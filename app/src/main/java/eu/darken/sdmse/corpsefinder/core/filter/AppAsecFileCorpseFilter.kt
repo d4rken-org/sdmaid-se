@@ -90,6 +90,7 @@ class AppAsecFileCorpseFilter @Inject constructor(
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
                 Corpse(
+                    filterType = this@AppAsecFileCorpseFilter::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,

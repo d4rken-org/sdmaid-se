@@ -136,6 +136,7 @@ class SdcardCorpseFilter @Inject constructor(
         updateProgressCount(Progress.Count.Percent(0, deadItems.size))
         return deadItems.map { ownerInfo ->
             val corpse = Corpse(
+                filterType = this::class,
                 ownerInfo = ownerInfo,
                 content = ownerInfo.item.walk(gatewaySwitch).toList(),
                 isWriteProtected = ownerInfo.item.canWrite(gatewaySwitch),

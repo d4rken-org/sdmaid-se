@@ -91,6 +91,7 @@ class AppLibCorpseFilter @Inject constructor(
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
                 Corpse(
+                    filterType = this@AppLibCorpseFilter::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,

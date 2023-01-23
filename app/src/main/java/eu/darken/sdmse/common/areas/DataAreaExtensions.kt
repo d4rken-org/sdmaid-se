@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.areas
 
+import android.content.Context
 import kotlinx.coroutines.flow.first
 
 
@@ -19,3 +20,8 @@ val DataArea.Type.isCaseInsensitive: Boolean
 fun DataArea.hasFlags(vararg lookup: DataArea.Flag): Boolean = flags.containsAll(lookup.toList())
 
 suspend fun DataAreaManager.currentAreas(): Collection<DataArea> = state.first().areas
+
+fun DataArea.Type.getShortLabel(context: Context): String = when (this) {
+    // TODO nicer names
+    else -> this.raw
+}

@@ -114,6 +114,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
@@ -163,6 +164,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
@@ -236,6 +238,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
@@ -275,6 +278,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
@@ -327,6 +331,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,
@@ -373,6 +378,7 @@ class ToSDCorpseFilter @Inject constructor(
                 val content = ownerInfo.item.walk(gatewaySwitch).toSet()
 
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,

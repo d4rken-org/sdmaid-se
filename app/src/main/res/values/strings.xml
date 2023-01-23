@@ -224,5 +224,6 @@
     <string name="appcleaner_filter_threema_summary">Files received through Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
+    <string name="corpsefinder_details_title">Details</string>
 
 </resources>

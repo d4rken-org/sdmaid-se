@@ -83,6 +83,7 @@ class PublicMediaCorpseFilter @Inject constructor(
             .map { ownerInfo ->
                 val content = ownerInfo.item.walk(gatewaySwitch).toList()
                 Corpse(
+                    filterType = this::class,
                     ownerInfo = ownerInfo,
                     content = content,
                     isWriteProtected = false,

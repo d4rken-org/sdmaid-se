@@ -59,7 +59,7 @@ class CorpseFinder @Inject constructor(
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
         task as CorpseFinderTask
-        log(TAG) { "submit($task) starting..." }
+        log(TAG, INFO) { "submit($task) starting..." }
         updateProgressPrimary(R.string.general_progress_loading)
         updateProgressSecondary(easterEggProgressMsg)
         updateProgressCount(Progress.Count.Indeterminate())
@@ -68,18 +68,18 @@ class CorpseFinder @Inject constructor(
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
                     is CorpseFinderScanTask -> performScan(task)
-                    is CorpseFinderDeleteTask -> deleteCorspes(task)
+                    is CorpseFinderDeleteTask -> deleteCorpses(task)
                 }
             }
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } finally {
-
+            updateProgress { null }
         }
     }
 
     private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result = try {
-        log(TAG, VERBOSE) { "performScan($task)" }
+        log(TAG) { "performScan($task)" }
 
         val scanStart = System.currentTimeMillis()
         internalData.value = null
@@ -91,13 +91,13 @@ class CorpseFinder @Inject constructor(
 
         val results = filters
             .map { filter ->
-                val corpses = filter.withProgress(this@CorpseFinder) {
-                    scan()
-                }
-                log(TAG, INFO) { "$filter found ${corpses.size} corpses" }
-                corpses
+                filter
+                    .withProgress(this@CorpseFinder) { scan() }
+                    .also { log(TAG) { "$filter found ${it.size} corpses" } }
             }
             .flatten()
+
+        results.forEach { log(TAG, INFO) { "Result: $it" } }
 
         internalData.value = Data(
             corpses = results
@@ -113,8 +113,8 @@ class CorpseFinder @Inject constructor(
         CorpseFinderScanTask.Error(e)
     }
 
-    private suspend fun deleteCorspes(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
-        log(TAG, VERBOSE) { "deleteCorspes($task)" }
+    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
+        log(TAG) { "deleteCorpses($task)" }
 
         CorpseFinderDeleteTask.Success(TODO())
     } catch (e: Exception) {

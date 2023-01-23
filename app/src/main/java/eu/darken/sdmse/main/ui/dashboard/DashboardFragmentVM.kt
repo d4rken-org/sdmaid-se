@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
-import eu.darken.sdmse.appcleaner.ui.AppCleanerCardVH
+import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
-import eu.darken.sdmse.corpsefinder.ui.CorpseFinderCardVH
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -34,7 +34,7 @@ import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
-import eu.darken.sdmse.systemcleaner.ui.SystemCleanerCardVH
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -63,11 +63,11 @@ class DashboardFragmentVM @Inject constructor(
         }
     }
 
-    private val corpseFinderItem: Flow<CorpseFinderCardVH.Item> = combine(
+    private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = combine(
         corpseFinder.data,
         corpseFinder.progress,
     ) { data, progress ->
-        CorpseFinderCardVH.Item(
+        CorpseFinderDashCardVH.Item(
             data = data,
             progress = progress,
             onScan = {
@@ -84,15 +84,15 @@ class DashboardFragmentVM @Inject constructor(
                 launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
             },
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderDetailsFragment().navigate()
+                DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
             }
         )
     }
-    private val systemCleanerItem: Flow<SystemCleanerCardVH.Item> = combine(
+    private val systemCleanerItem: Flow<SystemCleanerDashCardVH.Item> = combine(
         systemCleaner.data,
         systemCleaner.progress,
     ) { data, progress ->
-        SystemCleanerCardVH.Item(
+        SystemCleanerDashCardVH.Item(
             data = data,
             progress = progress,
             onScan = {
@@ -113,11 +113,11 @@ class DashboardFragmentVM @Inject constructor(
             }
         )
     }
-    private val appCleanerItem: Flow<AppCleanerCardVH.Item> = combine(
+    private val appCleanerItem: Flow<AppCleanerDashCardVH.Item> = combine(
         appCleaner.data,
         appCleaner.progress,
     ) { data, progress ->
-        AppCleanerCardVH.Item(
+        AppCleanerDashCardVH.Item(
             data = data,
             progress = progress,
             onScan = {
@@ -172,17 +172,15 @@ class DashboardFragmentVM @Inject constructor(
         upgradeInfo: UpgradeRepo.Info?,
         setupState: SetupManager.SetupState,
         dataAreaInfo: DataAreaCardVH.Item?,
-        corpseFinderItem: CorpseFinderCardVH.Item?,
-        systemCleanerItem: SystemCleanerCardVH.Item?,
-        appCleanerItem: AppCleanerCardVH.Item?,
+        corpseFinderItem: CorpseFinderDashCardVH.Item?,
+        systemCleanerItem: SystemCleanerDashCardVH.Item?,
+        appCleanerItem: AppCleanerDashCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
 
         TitleCardVH.Item(
             upgradeInfo = upgradeInfo
         ).run { items.add(this) }
-
-        debugItem?.let { items.add(it) }
 
         if (!setupState.isComplete && !isSetupDismissed) {
             SetupCardVH.Item(
@@ -213,6 +211,8 @@ class DashboardFragmentVM @Inject constructor(
                 )
             }
             ?.run { items.add(this) }
+
+        debugItem?.let { items.add(it) }
 
         items
     }
