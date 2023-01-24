@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
+import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
@@ -28,7 +29,7 @@ class FilterRowVH(parent: ViewGroup) :
         secondary.text = content.filterIdentifier.getDescription(context)
 
         items.text = getQuantityString(R.plurals.result_x_items, content.items.size)
-        size.text = getQuantityString(R.plurals.result_x_items, content.items.size)
+        size.text = Formatter.formatShortFileSize(context, content.size)
 
         root.setOnClickListener { item.onItemClicked(content) }
         detailsAction.setOnClickListener { item.onDetailsClicked(content) }
