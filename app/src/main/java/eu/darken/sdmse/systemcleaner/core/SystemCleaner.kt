@@ -91,7 +91,7 @@ class SystemCleaner @Inject constructor(
         }
 
         internalData.value = Data(
-            sieveContents = results
+            filterContents = results
         )
 
         val scanStop = System.currentTimeMillis()
@@ -114,10 +114,10 @@ class SystemCleaner @Inject constructor(
     }
 
     data class Data(
-        val sieveContents: Collection<SieveContent>
+        val filterContents: Collection<FilterContent>
     ) {
         val totalSize: Long
-            get() = sieveContents.sumOf { it.size }
+            get() = filterContents.sumOf { it.size }
     }
 
     @InstallIn(SingletonComponent::class)

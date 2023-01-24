@@ -2,7 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.corpsefinder.core.Corpse
-import eu.darken.sdmse.systemcleaner.core.SieveContent
+import eu.darken.sdmse.systemcleaner.core.FilterContent
 
 sealed interface DashboardEvents {
     data class CorpseFinderDeleteAllConfirmation(
@@ -10,7 +10,7 @@ sealed interface DashboardEvents {
     ) : DashboardEvents
 
     data class SystemCleanerDeleteAllConfirmation(
-        val sieves: Collection<SieveContent>,
+        val sieves: Collection<FilterContent>,
     ) : DashboardEvents
 
     data class AppCleanerDeleteAllConfirmation(

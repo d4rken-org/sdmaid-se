@@ -98,7 +98,7 @@ class EmptyDirectoryFilter @Inject constructor(
         val content = item.lookupFiles(gatewaySwitch)
         if (content.size > 2) return false
         if (content.any {
-                val match = filter(it)
+                val match = matches(it)
                 if (!match) log(TAG) { "Failed sub sieve match: $it" }
                 !match
             }) return false

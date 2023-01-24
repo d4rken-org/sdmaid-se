@@ -16,9 +16,6 @@
             android:id="@+id/action_dashboardFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
-            app:destination="@id/systemCleanerDetailsFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_appCleanerDetailsFragment"
             app:destination="@id/appCleanerDetailsFragment" />
         <action
@@ -30,6 +27,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_corpseFinderListFragment"
             app:destination="@id/corpseFinderListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_systemCleanerListFragment"
+            app:destination="@id/systemCleanerListFragment" />
     </fragment>
 
     <fragment
@@ -40,24 +40,6 @@
             android:name="showCompleted"
             app:argType="boolean" />
     </fragment>
-
-    <fragment
-        android:id="@+id/corpseFinderDetailsFragment"
-        android:name="eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment"
-        tools:layout="@layout/corpsefinder_details_fragment">
-        <argument
-            android:name="corpsePath"
-            app:argType="eu.darken.sdmse.common.files.core.APath"
-            app:nullable="true" />
-    </fragment>
-    <fragment
-        android:id="@+id/systemCleanerDetailsFragment"
-        android:name="eu.darken.sdmse.systemcleaner.ui.details.SystemCleanerDetailsFragment"
-        tools:layout="@layout/systemcleaner_details_fragment" />
-    <fragment
-        android:id="@+id/appCleanerDetailsFragment"
-        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
-        tools:layout="@layout/appcleaner_details_fragment" />
 
     <fragment
         android:id="@+id/settingsContainerFragment"
@@ -97,5 +79,37 @@
             android:id="@+id/action_corpseFinderListFragment_to_corpseFinderDetailsFragment"
             app:destination="@id/corpseFinderDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/corpseFinderDetailsFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment"
+        tools:layout="@layout/corpsefinder_details_fragment">
+        <argument
+            android:name="corpsePath"
+            app:argType="eu.darken.sdmse.common.files.core.APath"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/systemCleanerListFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.list.FilterListFragment"
+        tools:layout="@layout/systemcleaner_list_fragment">
+        <action
+            android:id="@+id/action_systemCleanerListFragment_to_systemCleanerDetailsFragment"
+            app:destination="@id/systemCleanerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/systemCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.details.SystemCleanerDetailsFragment"
+        tools:layout="@layout/systemcleaner_details_fragment">
+        <argument
+            android:name="filterIdentifier"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
+        tools:layout="@layout/appcleaner_details_fragment" />
 
 </navigation>

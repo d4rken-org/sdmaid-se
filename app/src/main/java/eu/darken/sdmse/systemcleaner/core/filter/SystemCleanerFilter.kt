@@ -19,5 +19,3 @@ interface SystemCleanerFilter {
         suspend fun create(): SystemCleanerFilter
     }
 }
-
-typealias FilterIdentifier = String

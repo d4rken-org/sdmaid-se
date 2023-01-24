@@ -40,7 +40,7 @@ class SystemCrawler @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun crawl(): Collection<SieveContent> {
+    suspend fun crawl(): Collection<FilterContent> {
         log(TAG) { "crawl()" }
         updateProgressPrimary(R.string.general_progress_searching)
         updateProgressSecondary(R.string.general_progress_generating_searchpaths)
@@ -123,7 +123,7 @@ class SystemCrawler @Inject constructor(
 
         return sieveContents.map { entry ->
             log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches." }
-            SieveContent(
+            FilterContent(
                 filterIdentifier = entry.key.filterIdentifier,
                 items = entry.value,
             )

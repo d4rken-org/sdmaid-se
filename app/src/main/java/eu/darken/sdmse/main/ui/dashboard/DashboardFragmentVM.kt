@@ -34,7 +34,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.setup.SetupManager
-import eu.darken.sdmse.systemcleaner.core.SieveContent
+import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
@@ -110,9 +110,7 @@ class DashboardFragmentVM @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.SYSTEMCLEANER) }
             },
-            onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerDetailsFragment().navigate()
-            }
+            onViewDetails = { showSystemCleanerDetails() }
         )
     }
     private val appCleanerItem: Flow<AppCleanerDashCardVH.Item> = combine(
@@ -135,9 +133,7 @@ class DashboardFragmentVM @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.APPCLEANER) }
             },
-            onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToAppCleanerDetailsFragment().navigate()
-            }
+            onViewDetails = { showAppCleanerDetails() }
         )
     }
     private val dataAreaItem: Flow<DataAreaCardVH.Item?> = areaManager.latestState
@@ -270,7 +266,7 @@ class DashboardFragmentVM @Inject constructor(
         DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
     }
 
-    fun confirmSieveDeletion(sieves: Collection<SieveContent>) = launch {
+    fun confirmSieveDeletion(sieves: Collection<FilterContent>) = launch {
         log(TAG, INFO) { "confirmSieveDeletion(${sieves.size} sieves)" }
         val deleteTask = SystemCleanerDeleteTask(
             toDelete = sieves.map { it.filterIdentifier }.toSet()
@@ -280,7 +276,7 @@ class DashboardFragmentVM @Inject constructor(
 
     fun showSystemCleanerDetails() {
         log(TAG, INFO) { "showSystemCleanerDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerDetailsFragment().navigate()
+        DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerListFragment().navigate()
     }
 
     fun confirmAppJunkDeletion(appJunks: Collection<AppJunk>) = launch {
