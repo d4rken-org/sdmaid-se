@@ -100,20 +100,23 @@ class SystemCrawler @Inject constructor(
                             true
                         }
                     }
-                    area.path.walk(gatewaySwitch, filter)
+                    area.path.walk(gatewaySwitch, filter).map { area to it }
                 }
                 .buffer(1024)
-                .collect { item ->
+                .collect { (area, item) ->
                     if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
                     updateProgressSecondary(item.path)
-                    val matched = filters.firstOrNull {
-                        try {
-                            it.matches(item)
-                        } catch (e: Exception) {
-                            log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
-                            false
+                    val matched = filters
+                        .filter { it.targetAreas().contains(area.type) }
+                        .firstOrNull {
+                            try {
+                                it.matches(item)
+                            } catch (e: Exception) {
+                                log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
+                                false
+                            }
                         }
-                    }
+
                     if (matched != null) {
                         log(TAG, INFO) { "$matched matched $item" }
                         sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)
