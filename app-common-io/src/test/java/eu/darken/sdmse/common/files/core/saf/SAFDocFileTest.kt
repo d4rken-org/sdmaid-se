@@ -58,9 +58,10 @@ class SAFDocFileTest : BaseTest() {
     @Test
     fun `test tree seperator addition`() {
         SAFDocFile.buildTreeUri(
-            Uri.parse("content://auth.ority/tree/primary%3A"),
-            listOf("")
-        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A"
+            Uri.parse("content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata"),
+            listOf("com.samsung.android.smartmirroring")
+        )
+            .toString() shouldBe "content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata/document/primary%3AAndroid%2Fdata%2Fcom.samsung.android.smartmirroring"
     }
 
 //    @Test

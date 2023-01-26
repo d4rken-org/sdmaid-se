@@ -257,7 +257,7 @@ internal data class SAFDocFile(
                 append(baseUri)
                 append("/document/")
                 append(Uri.encode(DocumentsContract.getTreeDocumentId(baseUri)))
-                if (crumbs.isNotEmpty() && this.endsWith(Uri.encode(File.separator))) {
+                if (crumbs.isNotEmpty() && !this.endsWith(Uri.encode(File.separator))) {
                     append(Uri.encode(File.separator))
                 }
                 crumbs.forEach {
