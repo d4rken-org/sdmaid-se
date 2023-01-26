@@ -289,7 +289,7 @@ class DashboardFragmentVM @Inject constructor(
 
     fun showAppCleanerDetails() {
         log(TAG, INFO) { "showAppCleanerDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToAppCleanerDetailsFragment().navigate()
+        DashboardFragmentDirections.actionDashboardFragmentToAppCleanerListFragment().navigate()
     }
 
     companion object {

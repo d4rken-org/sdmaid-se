@@ -2,8 +2,8 @@ package eu.darken.sdmse.systemcleaner.ui.list
 
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 
-sealed class FilterListEvents {
+sealed class SystemCleanerListEvents {
     data class ConfirmDeletion(
         val filterContent: FilterContent
-    ) : FilterListEvents()
+    ) : SystemCleanerListEvents()
 }

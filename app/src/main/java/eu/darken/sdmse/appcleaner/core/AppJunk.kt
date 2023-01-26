@@ -2,7 +2,10 @@ package eu.darken.sdmse.appcleaner.core
 
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import kotlin.reflect.KClass
 
@@ -11,6 +14,17 @@ data class AppJunk(
     val expendables: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>?,
     val inaccessibleCache: InaccessibleCache?,
 ) {
+
+    val identifier: Pkg.Id
+        get() = pkg.id
+
+    val itemCount by lazy {
+        var count = 0
+        expendables?.let { count += it.size }
+        inaccessibleCache?.let { count += it.itemCount }
+        count
+    }
+
     val size by lazy {
         val knownFiles = expendables?.values?.flatten()?.sumOf { it.size } ?: 0L
         val inaccessible = inaccessibleCache?.cacheBytes ?: 0L
@@ -19,4 +33,7 @@ data class AppJunk(
     }
 
     fun isEmpty() = expendables.isNullOrEmpty() && inaccessibleCache == null
+
+    val label: CaString
+        get() = pkg.label ?: pkg.packageName.toCaString()
 }

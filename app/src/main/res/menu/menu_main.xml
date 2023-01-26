@@ -4,14 +4,14 @@
     tools:context="eu.darken.sdmse.main.ui.MainActivity">
 
     <item
-        android:id="@+id/action_upgrade"
+        android:id="@+id/menu_action_upgrade"
         android:icon="@drawable/ic_baseline_stars_24"
         android:orderInCategory="90"
         android:title="@string/general_upgrade_action"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menu_action_settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="100"
         android:title="@string/label_settings"

@@ -11,8 +11,8 @@ import eu.darken.sdmse.systemcleaner.core.filter.getIcon
 import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 
 
-class FilterRowVH(parent: ViewGroup) :
-    FilterListAdapter.BaseVH<FilterRowVH.Item, SystemcleanerListItemBinding>(
+class SystemCleanerListRowVH(parent: ViewGroup) :
+    SystemCleanerListAdapter.BaseVH<SystemCleanerListRowVH.Item, SystemcleanerListItemBinding>(
         R.layout.systemcleaner_list_item,
         parent
     ) {
@@ -39,7 +39,7 @@ class FilterRowVH(parent: ViewGroup) :
         val content: FilterContent,
         val onItemClicked: (FilterContent) -> Unit,
         val onDetailsClicked: (FilterContent) -> Unit,
-    ) : FilterListAdapter.Item {
+    ) : SystemCleanerListAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

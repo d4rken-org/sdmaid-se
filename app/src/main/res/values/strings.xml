@@ -86,11 +86,6 @@
     <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
 
-    <string name="general_scan_action">Scan</string>
-    <string name="general_delete_action">Delete</string>
-    <string name="general_delete_all_action">Delete all</string>
-    <string name="general_show_details_action">Show details</string>
-
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
     <string name="dataarea_warningcard_label">Data areas</string>
     <string name="dataarea_warningcard_reload_action">Reload data areas</string>

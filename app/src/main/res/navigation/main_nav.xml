@@ -16,9 +16,6 @@
             android:id="@+id/action_dashboardFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_appCleanerDetailsFragment"
-            app:destination="@id/appCleanerDetailsFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_upgradeFragment"
             app:destination="@id/upgradeFragment" />
         <action
@@ -30,6 +27,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerListFragment"
             app:destination="@id/systemCleanerListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appCleanerListFragment"
+            app:destination="@id/appCleanerListFragment" />
     </fragment>
 
     <fragment
@@ -110,6 +110,19 @@
     <fragment
         android:id="@+id/appCleanerDetailsFragment"
         android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
-        tools:layout="@layout/appcleaner_details_fragment" />
+        tools:layout="@layout/appcleaner_details_fragment">
+        <argument
+            android:name="pkgId"
+            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/appCleanerListFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment"
+        tools:layout="@layout/appcleaner_list_fragment">
+        <action
+            android:id="@+id/action_appCleanerListFragment_to_appCleanerDetailsFragment2"
+            app:destination="@id/appCleanerDetailsFragment" />
+    </fragment>
 
 </navigation>

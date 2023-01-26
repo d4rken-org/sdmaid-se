@@ -14,9 +14,9 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import javax.inject.Inject
 
 
-class FilterListAdapter @Inject constructor() :
-    ModularAdapter<FilterListAdapter.BaseVH<FilterListAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<FilterListAdapter.Item> {
+class SystemCleanerListAdapter @Inject constructor() :
+    ModularAdapter<SystemCleanerListAdapter.BaseVH<SystemCleanerListAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<SystemCleanerListAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -24,7 +24,7 @@ class FilterListAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is FilterRowVH.Item }) { FilterRowVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SystemCleanerListRowVH.Item }) { SystemCleanerListRowVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

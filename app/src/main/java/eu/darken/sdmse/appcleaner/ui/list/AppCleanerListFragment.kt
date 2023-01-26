@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.ui.list
+package eu.darken.sdmse.appcleaner.ui.list
 
 import android.os.Bundle
 import android.view.View
@@ -13,14 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.SystemcleanerListFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
+import eu.darken.sdmse.databinding.AppcleanerListFragmentBinding
 
 @AndroidEntryPoint
-class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment) {
+class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
 
-    override val vm: SystemCleanerListFragmentVM by viewModels()
-    override val ui: SystemcleanerListFragmentBinding by viewBinding()
+    override val vm: AppCleanerListFragmentVM by viewModels()
+    override val ui: AppcleanerListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -32,7 +31,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
             }
         }
 
-        val adapter = SystemCleanerListAdapter()
+        val adapter = AppCleanerListAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.items.observe2(ui) {
@@ -42,20 +41,20 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
 
         vm.events.observe2(ui) {
             when (it) {
-                is SystemCleanerListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                is AppCleanerListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.general_clean_confirmation_title)
                     setMessage(
                         getString(
-                            R.string.general_delete_confirmation_message_x,
-                            it.filterContent.filterIdentifier.getLabel(context)
+                            R.string.general_clean_confirmation_message_x,
+                            it.appJunk.label.get(context)
                         )
                     )
                     setPositiveButton(R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(it.filterContent)
+                        vm.doDelete(it.appJunk)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ ->
-                        vm.showDetails(it.filterContent)
+                        vm.showDetails(it.appJunk)
                     }
                 }.show()
             }
