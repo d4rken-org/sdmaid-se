@@ -225,6 +225,7 @@ class DashboardFragmentVM @Inject constructor(
         val actionState: Action,
         val leftInfo: CaString?,
         val rightInfo: CaString?,
+        val upgradeInfo: UpgradeRepo.Info?,
     ) {
         enum class Action {
             SCAN,
@@ -235,16 +236,22 @@ class DashboardFragmentVM @Inject constructor(
     }
 
     val bottomBarState = combine(
+        upgradeInfo,
         taskManager.state,
         corpseFinder.data,
         systemCleaner.data,
         appCleaner.data,
-    ) { taskState, corpseFinderData, systemCleanerData, appCleanerData ->
+    ) { upgradeInfo,
+        taskState,
+        corpseFinderData,
+        systemCleanerData,
+        appCleanerData ->
 
         BottomBarState(
             actionState = BottomBarState.Action.SCAN,
             leftInfo = null,
             rightInfo = null,
+            upgradeInfo = upgradeInfo,
         )
     }
         .asLiveData2()

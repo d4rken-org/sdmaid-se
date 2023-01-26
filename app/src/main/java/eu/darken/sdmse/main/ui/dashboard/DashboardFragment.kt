@@ -41,11 +41,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         ui.bottomAppBar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.action_upgrade -> {
+                    R.id.menu_action_upgrade -> {
                         doNavigate(DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment())
                         true
                     }
-                    R.id.action_settings -> {
+                    R.id.menu_action_settings -> {
                         doNavigate(DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment())
                         true
                     }
@@ -53,12 +53,15 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
             }
         }
-        vm.bottomBarState.observe2(ui) {
-            bottomBarText.text = it.leftInfo?.get(requireContext())
+        vm.bottomBarState.observe2(ui) { state ->
+            bottomBarText.text = state.leftInfo?.get(requireContext())
+            bottomAppBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
+                it.isVisible = state.upgradeInfo?.isPro != true
+            }
 
-            mainAction.isEnabled = it.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
+            mainAction.isEnabled = state.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
 
-            when (it.actionState) {
+            when (state.actionState) {
                 DashboardFragmentVM.BottomBarState.Action.SCAN -> {
                     mainAction.setImageResource(R.drawable.ic_layer_search_24)
                     mainAction.imageTintList =
