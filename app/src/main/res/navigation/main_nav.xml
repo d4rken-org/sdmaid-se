@@ -91,7 +91,7 @@
 
     <fragment
         android:id="@+id/systemCleanerListFragment"
-        android:name="eu.darken.sdmse.systemcleaner.ui.list.FilterListFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.list.SystemCleanerListFragment"
         tools:layout="@layout/systemcleaner_list_fragment">
         <action
             android:id="@+id/action_systemCleanerListFragment_to_systemCleanerDetailsFragment"

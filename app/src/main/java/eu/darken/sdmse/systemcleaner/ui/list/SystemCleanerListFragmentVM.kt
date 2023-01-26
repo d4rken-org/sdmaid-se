@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class FilterListFragmentVM @Inject constructor(
+class SystemCleanerListFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
