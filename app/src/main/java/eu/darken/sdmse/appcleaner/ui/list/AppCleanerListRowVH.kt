@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerListItemBinding
 
@@ -21,7 +22,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val junk = item.junk
-//        icon.setImageDrawable(junk.icon.filterIdentifier.getIcon(context))
+        icon.loadAppIcon(junk.pkg)
         primary.text = junk.label.get(context)
         secondary.text = junk.pkg.packageName
 
