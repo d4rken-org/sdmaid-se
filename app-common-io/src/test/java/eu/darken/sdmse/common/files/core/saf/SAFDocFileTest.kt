@@ -55,6 +55,14 @@ class SAFDocFileTest : BaseTest() {
         ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A"
     }
 
+    @Test
+    fun `test tree seperator addition`() {
+        SAFDocFile.buildTreeUri(
+            Uri.parse("content://auth.ority/tree/primary%3A"),
+            listOf("")
+        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A"
+    }
+
 //    @Test
 //    fun `docfile instantiation`() {
 //        val fileUri = Uri.parse("content://auth.ority/tree/primary%3A/document/primary%3Asegment1")

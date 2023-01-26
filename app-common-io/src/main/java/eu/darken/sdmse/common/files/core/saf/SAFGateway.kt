@@ -190,6 +190,7 @@ class SAFGateway @Inject constructor(
     override suspend fun lookup(path: SAFPath): SAFPathLookup = runIO {
         try {
             val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "lookup($path) -> $docFile" }
             if (!docFile.readable) throw IllegalStateException("readable=false")
 
             val fileType: FileType = when {
