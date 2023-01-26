@@ -271,15 +271,21 @@ class AppScanner @Inject constructor(
             currentAreas
                 .filter { it.type == DataArea.Type.PRIVATE_DATA }
                 .forEach { area ->
-                    val areaInfos = area.path.lookupFiles(gatewaySwitch)
+                    val areaLookups = try {
+                        area.path.lookupFiles(gatewaySwitch)
+                    } catch (e: IOException) {
+                        log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                        return@forEach
+                    }
+                    val areaInfos = areaLookups
                         .filter { it.fileType == FileType.DIRECTORY }
                         .filter { appDir ->
                             pathExclusions.none { it.match(appDir) }.also {
                                 if (!it) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $appDir" }
                             }
                         }
-                        .mapNotNull {
-                            fileForensics.identifyArea(it).also {
+                        .mapNotNull { lookup ->
+                            fileForensics.identifyArea(lookup).also {
                                 if (it == null) log(TAG, WARN) { "Failed to identify $it" }
                             }
                         }
@@ -300,10 +306,17 @@ class AppScanner @Inject constructor(
                 ).contains(it.type)
             }
             .forEach { area ->
-                val areaInfos = area.path.lookupFiles(gatewaySwitch)
+                val areaLookups = try {
+                    area.path.lookupFiles(gatewaySwitch)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    return@forEach
+                }
+
+                val areaInfos = areaLookups
                     .filter { it.fileType == FileType.DIRECTORY }
-                    .mapNotNull { areaPath ->
-                        fileForensics.identifyArea(areaPath).also {
+                    .mapNotNull { lookup ->
+                        fileForensics.identifyArea(lookup).also {
                             if (it == null) log(TAG, WARN) { "Failed to identify $it" }
                         }
                     }
