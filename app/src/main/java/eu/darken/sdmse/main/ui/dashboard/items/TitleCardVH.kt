@@ -3,7 +3,9 @@ package eu.darken.sdmse.main.ui.dashboard.items
 import android.text.SpannableStringBuilder
 import android.view.ViewGroup
 import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.toColored
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -34,6 +36,13 @@ class TitleCardVH(parent: ViewGroup) :
         }
 
         subtitle.text = getString(slogan)
+
+        betaRibbon.isVisible = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE
+        betaRibbon.text = when (BuildConfigWrap.BUILD_TYPE) {
+            BuildConfigWrap.BuildType.DEV -> "              Dev              "
+            BuildConfigWrap.BuildType.BETA -> "              Beta              "
+            BuildConfigWrap.BuildType.RELEASE -> ""
+        }
     }
 
     data class Item(
