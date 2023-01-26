@@ -53,7 +53,13 @@ class SuperfluousApksFilter @Inject constructor(
         val apkInfo = pkgOps.viewArchive(item) ?: return false
         val installed = pkgRepo.getPkg(apkInfo.id) ?: return false
 
-        return installed.versionCode >= apkInfo.versionCode
+        val superfluos = installed.versionCode >= apkInfo.versionCode
+        if (superfluos) {
+            log(TAG, VERBOSE) {
+                "Superfluos: ${installed.packageName} installed=${installed.versionCode}, archive=${apkInfo.versionCode}"
+            }
+        }
+        return superfluos
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
