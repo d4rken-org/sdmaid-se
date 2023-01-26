@@ -321,7 +321,7 @@ class AppScanner @Inject constructor(
                         }
                     }
                     .filter { areaInfo ->
-                        val excluded = pathExclusions.none { it.match(areaInfo.file) }
+                        val excluded = pathExclusions.any { it.match(areaInfo.file) }
                         val edgeCase = !isRooted && area.type == DataArea.Type.PUBLIC_DATA
                                 && areaInfo.prefixFreePath.size >= 2
                                 && areaInfo.prefixFreePath[1] == "cache"
