@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appCleanerListFragment"
             app:destination="@id/appCleanerListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appControlListFragment"
+            app:destination="@id/appControlListFragment" />
     </fragment>
 
     <fragment
@@ -124,5 +127,9 @@
             android:id="@+id/action_appCleanerListFragment_to_appCleanerDetailsFragment2"
             app:destination="@id/appCleanerDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/appControlListFragment"
+        android:name="eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment"
+        tools:layout="@layout/appcontrol_list_fragment" />
 
 </navigation>

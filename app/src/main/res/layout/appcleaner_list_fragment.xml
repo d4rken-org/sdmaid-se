@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitle="@string/corpsefinder_details_title"
-        app:title="@string/appcleaner_tool_name" />
+        app:title="@string/appcontrol_tool_name" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -26,6 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:listitem="@layout/appcleaner_list_item" />
+        tools:listitem="@layout/appcontrol_list_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@ interface SDMTool : Progress.Host, HasSharedResource<Any> {
     enum class Type {
         CORPSEFINDER,
         SYSTEMCLEANER,
-        APPCLEANER
+        APPCLEANER,
+        APPCONTROL,
     }
 }

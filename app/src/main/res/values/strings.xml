@@ -224,5 +224,11 @@
     <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
     <string name="appcleaner_delete_all_confirmation_message">Clean all apps (%s)?</string>
 
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Apps installed on your device.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d app detected</item>
+        <item quantity="other">%d apps detected</item>
+    </plurals>
 
 </resources>

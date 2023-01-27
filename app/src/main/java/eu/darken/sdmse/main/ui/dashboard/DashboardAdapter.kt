@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
+import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -36,6 +37,7 @@ class DashboardAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is CorpseFinderDashCardVH.Item }) { CorpseFinderDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SystemCleanerDashCardVH.Item }) { SystemCleanerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppCleanerDashCardVH.Item }) { AppCleanerDashCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

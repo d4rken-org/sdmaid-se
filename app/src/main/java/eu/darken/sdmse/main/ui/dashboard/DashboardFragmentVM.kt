@@ -8,6 +8,8 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
+import eu.darken.sdmse.appcontrol.core.AppControl
+import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
@@ -52,6 +54,7 @@ class DashboardFragmentVM @Inject constructor(
     private val corpseFinder: CorpseFinder,
     private val systemCleaner: SystemCleaner,
     private val appCleaner: AppCleaner,
+    private val appControl: AppControl,
     private val debugCardProvider: DebugCardProvider,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
@@ -136,6 +139,20 @@ class DashboardFragmentVM @Inject constructor(
             onViewDetails = { showAppCleanerDetails() }
         )
     }
+
+    private val appControlItem: Flow<AppControlDashCardVH.Item?> = combine(
+        appControl.data,
+        appControl.progress,
+    ) { data, progress ->
+        AppControlDashCardVH.Item(
+            data = data,
+            progress = progress,
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToAppControlListFragment().navigate()
+            }
+        )
+    }
+
     private val dataAreaItem: Flow<DataAreaCardVH.Item?> = areaManager.latestState
         .map {
             if (it == null) return@map null
@@ -165,6 +182,7 @@ class DashboardFragmentVM @Inject constructor(
         corpseFinderItem,
         systemCleanerItem,
         appCleanerItem,
+        appControlItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
         upgradeInfo: UpgradeRepo.Info?,
@@ -173,6 +191,7 @@ class DashboardFragmentVM @Inject constructor(
         corpseFinderItem: CorpseFinderDashCardVH.Item?,
         systemCleanerItem: SystemCleanerDashCardVH.Item?,
         appCleanerItem: AppCleanerDashCardVH.Item?,
+        appControlItem: AppControlDashCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
 
@@ -200,6 +219,7 @@ class DashboardFragmentVM @Inject constructor(
         corpseFinderItem?.let { items.add(it) }
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
+        appControlItem?.let { items.add(it) }
 
         upgradeInfo
             ?.takeIf { !it.isPro }
