@@ -41,7 +41,7 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
         val onDetailsClicked: (FilterContent) -> Unit,
     ) : SystemCleanerListAdapter.Item {
 
-        override val stableId: Long = this.javaClass.hashCode().toLong()
+        override val stableId: Long = content.filterIdentifier.hashCode().toLong()
     }
 
 }

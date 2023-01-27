@@ -56,7 +56,7 @@ class CorpseRowVH(parent: ViewGroup) :
         val onDetailsClicked: (Corpse) -> Unit,
     ) : CorpseListAdapter.Item {
 
-        override val stableId: Long = this.javaClass.hashCode().toLong()
+        override val stableId: Long = corpse.path.hashCode().toLong()
     }
 
 }

@@ -39,7 +39,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         val onDetailsClicked: (AppJunk) -> Unit,
     ) : AppCleanerListAdapter.Item {
 
-        override val stableId: Long = this.javaClass.hashCode().toLong()
+        override val stableId: Long = junk.pkg.id.hashCode().toLong()
     }
 
 }
