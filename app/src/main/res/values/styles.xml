@@ -44,15 +44,6 @@
         <item name="android:minHeight">88dp</item>
     </style>
 
-    <style name="ListItemTextTitle" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
-    <style name="ListItemTextPrimary" parent="TextAppearance.MaterialComponents.Body2">
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
-    </style>
-
     <style name="ListItemIconPrimary">
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_width">40dp</item>
@@ -92,19 +83,6 @@
         <item name="android:colorPrimary">?colorOnSurface</item>
         <item name="android:textColorPrimary">?colorOnSurface</item>
         <item name="android:textCursorDrawable">@null</item>
-    </style>
-
-    <style name="ProgressStyleSpinner" parent="Widget.AppCompat.ProgressBar">
-        <item name="android:layout_height">40dp</item>
-        <item name="android:layout_width">40dp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:indeterminate">true</item>
-        <item name="android:indeterminateTint">?colorSecondary</item>
-    </style>
-
-    <style name="ProgressStyleSpinnerSmall" parent="ProgressStyleSpinner">
-        <item name="android:layout_height">24dp</item>
-        <item name="android:layout_width">24dp</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.Highlight" parent="Widget.MaterialComponents.Button">

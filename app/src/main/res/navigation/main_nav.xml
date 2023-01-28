@@ -130,6 +130,18 @@
     <fragment
         android:id="@+id/appControlListFragment"
         android:name="eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment"
-        tools:layout="@layout/appcontrol_list_fragment" />
+        tools:layout="@layout/appcontrol_list_fragment">
+        <action
+            android:id="@+id/action_appControlListFragment_to_appActionDialog"
+            app:destination="@id/appActionDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/appActionDialog"
+        android:name="eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog"
+        tools:layout="@layout/appcontrol_action_dialog">
+        <argument
+            android:name="pkgId"
+            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+    </dialog>
 
 </navigation>

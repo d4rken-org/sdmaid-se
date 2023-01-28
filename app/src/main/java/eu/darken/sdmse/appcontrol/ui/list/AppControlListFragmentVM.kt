@@ -35,7 +35,9 @@ class AppControlListFragmentVM @Inject constructor(
                 AppControlListRowVH.Item(
                     appInfo = content,
                     onItemClicked = {
-
+                        AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
+                            content.pkg.id
+                        ).navigate()
                     },
                 )
             }

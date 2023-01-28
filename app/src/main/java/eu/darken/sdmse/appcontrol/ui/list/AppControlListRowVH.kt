@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
@@ -21,23 +20,22 @@ class AppControlListRowVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val app = item.appInfo
-        icon.loadAppIcon(app.pkg)
-        primary.text = app.label.get(context)
-        secondary.text = app.pkg.packageName
+        val appInfo = item.appInfo
+        icon.loadAppIcon(appInfo.pkg)
+        primary.text = appInfo.label.get(context)
+        secondary.text = appInfo.pkg.packageName
 
-        primary.append(" (${app.pkg.versionName ?: app.pkg.versionCode})")
+        primary.append(" (${appInfo.pkg.versionName ?: appInfo.pkg.versionCode})")
 //
 //        items.text = getQuantityString(R.plurals.result_x_items, junk.itemCount)
 //        size.text = Formatter.formatShortFileSize(context, junk.size)
 //
-//        root.setOnClickListener { item.onItemClicked(junk) }
-//        detailsAction.setOnClickListener { item.onDetailsClicked(junk) }
+        root.setOnClickListener { item.onItemClicked(appInfo) }
     }
 
     data class Item(
         val appInfo: AppInfo,
-        val onItemClicked: (AppJunk) -> Unit,
+        val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()

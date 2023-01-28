@@ -230,5 +230,9 @@
         <item quantity="one">%d app detected</item>
         <item quantity="other">%d apps detected</item>
     </plurals>
+    <string name="appcontrol_toggle_app_enable_action">Enable app</string>
+    <string name="appcontrol_toggle_app_disable_action">Disable app</string>
+    <string name="appcontrol_toggle_app_enable_description">Enabling an app allows it to run and may make it visible in your launcher if it has an activity.</string>
+    <string name="appcontrol_toggle_app_disable_description">Disabling an app prevents it from running and hides it from menus. There is no data loss.</string>
 
 </resources>
