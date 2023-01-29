@@ -238,5 +238,7 @@
     <string name="appcontrol_appstore_open_description">Open this app in the app store it was installed from.</string>
     <string name="appcontrol_systemsettings_open_title">System settings</string>
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
+    <string name="appcontrol_tag_disabled">Disabled</string>
+    <string name="appcontrol_tag_system">System</string>
 
 </resources>

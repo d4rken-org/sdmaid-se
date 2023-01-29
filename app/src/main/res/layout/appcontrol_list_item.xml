@@ -10,11 +10,10 @@
         android:id="@+id/icon"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginVertical="16dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tertiary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/primary"
         tools:src="@mipmap/ic_launcher" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -46,20 +45,41 @@
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_goneMarginBottom="8dp"
         tools:text="eu.darken.sdmse" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tertiary"
-        style="@style/TextAppearance.Material3.BodyMedium"
+        style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tag_container"
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/secondary"
         tools:text="v0.0.0 (0000000000)" />
+
+    <LinearLayout
+        android:id="@+id/tag_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tertiary"
+        app:layout_goneMarginBottom="8dp">
+
+        <include
+            android:id="@+id/tag_system"
+            layout="@layout/appcontrol_tag_system_view" />
+
+        <include
+            android:id="@+id/tag_disabled"
+            layout="@layout/appcontrol_tag_disabled_view" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
