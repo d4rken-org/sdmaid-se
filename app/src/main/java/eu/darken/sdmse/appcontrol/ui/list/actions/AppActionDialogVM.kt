@@ -1,9 +1,15 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
+import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
+import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -17,6 +23,7 @@ import javax.inject.Inject
 class AppActionDialogVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
     private val appControl: AppControl,
 ) : ViewModel3(dispatcherProvider) {
     //
@@ -26,6 +33,20 @@ class AppActionDialogVM @Inject constructor(
     val state = appControl.data
         .mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } }
         .map { appInfo ->
+            val systemSettingsAction = SystemSettingsActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = {
+                    val intent = it.createSystemSettingsIntent(context)
+                    context.startActivity(intent)
+                }
+            )
+            val appStoreAction = AppStoreActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = { info ->
+                    val intent = info.createGooglePlayIntent(context)
+                    context.startActivity(intent)
+                }
+            )
             val disableAction = ToggleActionVH.Item(
                 appInfo = appInfo,
                 onItemClicked = {
@@ -36,7 +57,9 @@ class AppActionDialogVM @Inject constructor(
                 isWorking = false,
                 appInfo = appInfo,
                 actions = listOf(
-                    disableAction
+                    systemSettingsAction,
+                    appStoreAction,
+                    disableAction,
                 ).filterNotNull()
             )
         }

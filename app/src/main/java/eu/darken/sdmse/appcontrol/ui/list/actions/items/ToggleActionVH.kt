@@ -41,7 +41,7 @@ class ToggleActionVH(parent: ViewGroup) :
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppActionAdapter.Item {
 
-        override val stableId: Long = appInfo.pkg.id.hashCode().toLong()
+        override val stableId: Long = this::class.java.hashCode().toLong()
     }
 
 }

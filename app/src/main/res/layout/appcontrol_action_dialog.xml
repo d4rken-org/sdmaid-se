@@ -27,10 +27,12 @@
 
         <TextView
             android:id="@+id/primary"
-            style="@style/TextAppearance.Material3.BodyLarge"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@id/secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/icon"
@@ -53,7 +55,7 @@
 
         <TextView
             android:id="@+id/tertiary"
-            style="@style/TextAppearance.Material3.BodyMedium"
+            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"

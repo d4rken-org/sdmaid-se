@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText"
-        android:src="@drawable/ic_snowflake_24" />
+        android:src="@drawable/ic_application_cog_outline_24" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
@@ -26,14 +26,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/secondary"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginBottom="8dp"
-        tools:text="@string/appcontrol_toggle_app_disable_action" />
+        android:text="@string/appcontrol_systemsettings_open_title" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/appcontrol_toggle_app_enable_description"
+        android:text="@string/appcontrol_systemsettings_open_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon"
