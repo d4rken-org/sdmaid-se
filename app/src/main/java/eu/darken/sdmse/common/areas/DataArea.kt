@@ -3,15 +3,16 @@ package eu.darken.sdmse.common.areas
 import android.os.Parcelable
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class DataArea(
     val path: APath,
     val type: Type,
-    val label: String = path.path,
+    val label: CaString = path.path.toCaString(),
     val flags: Set<Flag> = emptySet(),
     /**
      * -1 location has no user seperation
@@ -19,7 +20,7 @@ data class DataArea(
      * X other users
      */
     val userHandle: UserHandle2,
-) : Parcelable {
+) {
 
     enum class Flag {
         PRIMARY,

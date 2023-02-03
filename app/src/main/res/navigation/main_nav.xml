@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appControlListFragment"
             app:destination="@id/appControlListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_dataAreasFragment"
+            app:destination="@id/dataAreasFragment" />
     </fragment>
 
     <fragment
@@ -143,5 +146,9 @@
             android:name="pkgId"
             app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
     </dialog>
+    <fragment
+        android:id="@+id/dataAreasFragment"
+        android:name="eu.darken.sdmse.main.ui.areas.DataAreasFragment"
+        tools:layout="@layout/data_areas_fragment" />
 
 </navigation>

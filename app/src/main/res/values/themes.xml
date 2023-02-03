@@ -27,7 +27,6 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-        <item name="materialAlertDialogTheme">@style/AlertDialog</item>
     </style>
 
     <style name="AppThemeNoActionBar" parent="AppTheme">
@@ -56,18 +55,4 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <style name="AlertDialog" parent="MaterialAlertDialog.Material3">
-        <!--        <item name="colorPrimary">@color/colorSecondary</item>-->
-        <!--        <item name="colorPrimaryDark">@color/colorSecondary</item>-->
-        <!--        <item name="colorPrimaryVariant">@color/colorSecondary</item>-->
-        <!--        <item name="colorOnPrimary">@color/colorOnPrimary</item>-->
-
-        <!--        <item name="colorSecondary">@color/colorSecondary</item>-->
-        <!--        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>-->
-        <!--        <item name="colorOnSecondary">@color/colorOnSecondary</item>-->
-
-        <!--        <item name="colorAccent">@color/colorSecondary</item>-->
-
-        <!--        <item name="colorOnError">@color/colorOnError</item>-->
-    </style>
 </resources>

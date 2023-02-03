@@ -73,4 +73,6 @@
         <item quantity="other">%s items</item>
     </plurals>
     <string name="x_space_can_be_freed">%s can be freed</string>
+    <string name="general_info_label">Info</string>
+    <string name="general_more_infos_action">More infos</string>
 </resources>

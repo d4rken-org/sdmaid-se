@@ -135,7 +135,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }.show()
             }
         }
-
+        DashboardFragmentDirections.actionDashboardFragmentToDataAreasFragment().navigate()
         super.onViewCreated(view, savedInstanceState)
     }
 

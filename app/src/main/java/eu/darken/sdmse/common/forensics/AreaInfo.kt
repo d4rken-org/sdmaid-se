@@ -1,19 +1,16 @@
 package eu.darken.sdmse.common.forensics
 
-import android.os.Parcelable
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.Segments
 import kotlinx.parcelize.IgnoredOnParcel
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class AreaInfo(
     val file: APath,
     val prefix: APath,
     val dataArea: DataArea,
     val isBlackListLocation: Boolean,
-) : Parcelable {
+) {
 
     val type: DataArea.Type
         get() = dataArea.type
