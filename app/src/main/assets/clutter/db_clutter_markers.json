@@ -7988,7 +7988,8 @@
   "mrks": [
 	{"loc": "SDCARD", "path": "TruePhone"},
 	{"loc": "SDCARD", "path": "data/com.hb.dialer.free", "flags": ["keeper"]},
-	{"loc": "SDCARD", "path": "CallRecords-TP", "flags": ["keeper"]}
+	{"loc": "SDCARD", "path": "CallRecords-TP", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "data/CallRecords-TP", "flags": ["keeper"]}
   ]
 }, {
   "pkgs": ["com.sonymobile.podcast"],
@@ -9041,7 +9042,8 @@
   "pkgs": ["com.sec.android.app.voicenote"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Voice Recorder", "flags": ["keeper", "common"]},
-	{"loc": "SDCARD", "path": "Sounds", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": "Sounds", "flags": ["keeper", "common"]},
+	{"loc": "SDCARD", "path": "Recordings", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": ["com.qq.ac.android"],
@@ -10640,6 +10642,7 @@
   "pkgs": ["com.pinterest"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Pinterest", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": ".sysdv"},
 	{"loc": "SDCARD", "path": "DCIM/100PINT", "flags": ["keeper"]}
   ]
 }, {
@@ -11308,7 +11311,8 @@
 	{"loc": "SDCARD", "path": "DCIM/Giphy", "flags": ["keeper", "common"]},
 	{"loc": "SDCARD", "path": ".UTSystemConfig"},
 	{"loc": "SDCARD", "path": ".DataStorage"},
-	{"loc": "SDCARD", "path": "data/.push_deviceid"}
+	{"loc": "SDCARD", "path": "data/.push_deviceid"},
+	{"loc": "SDCARD", "path": "data/.push_udid"}
   ]
 }, {
   "pkgs": ["com.meizu.media.camera"],
@@ -11462,7 +11466,7 @@
 }, {
   "pkgs": ["com.ludashi.dualspace"],
   "mrks": [
-	{"loc": "SDCARD", "path": "dualspace", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "dualspace"},
 	{"loc": "SDCARD", "path": ".appodeal"}
   ]
 }, {
@@ -11882,7 +11886,10 @@
   "mrks": [{"loc": "SDCARD", "path": "app_gifs", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.ioapps.fsexplorer"],
-  "mrks": [{"loc": "SDCARD", "path": ".file-selector"}]
+  "mrks": [
+	{"loc": "SDCARD", "path": ".file-selector"},
+	{"loc": "SDCARD", "path": ".fs-explorer"}
+  ]
 }, {
   "pkgs": ["com.cvinfo.filemanager"],
   "mrks": [
@@ -12511,5 +12518,26 @@
 }, {
   "pkgs": ["com.hiroshi.cimoc"],
   "mrks": [{"loc": "SDCARD", "path": "Cimoc", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.samsung.android.sdrawing"],
+  "mrks": [{"loc": "SDCARD", "path": "Artecture", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["periodtracker.pregnancy.ovulationtracker"],
+  "mrks": [{"loc": "SDCARD", "path": "OvulationTracker"}]
+}, {
+  "pkgs": ["color.dev.com.whatsremoved"],
+  "mrks": [{"loc": "SDCARD", "path": "WhatsRemoved"}]
+}, {
+  "pkgs": ["com.telltalegames.batman200"],
+  "mrks": [{"loc": "SDCARD", "path": "Telltale/Batman2"}]
+}, {
+  "pkgs": ["me.pkhope.longscreenshot"],
+  "mrks": [{"loc": "SDCARD", "path": "LongScreenshot", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.google.android.apps.recorder"],
+  "mrks": [{"loc": "SDCARD", "path": "Recordings", "flags": ["keeper","common"]}]
+}, {
+  "pkgs": ["com.nunti"],
+  "mrks": [{"loc": "SDCARD", "path": "Nunti", "flags": ["keeper"]}]
 }
 ]
