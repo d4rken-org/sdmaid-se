@@ -33,9 +33,6 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appControlListFragment"
             app:destination="@id/appControlListFragment" />
-        <action
-            android:id="@+id/action_dashboardFragment_to_dataAreasFragment"
-            app:destination="@id/dataAreasFragment" />
     </fragment>
 
     <fragment
@@ -59,6 +56,9 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_dataAreasFragment"
+            app:destination="@id/dataAreasFragment" />
     </fragment>
 
     <fragment

@@ -26,6 +26,19 @@
             app:title="@string/appcleaner_tool_name" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/setup_label">
+        <Preference
+            android:key="setup.show.forced"
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:summary="@string/setup_forcedshow_summary"
+            app:title="@string/setup_forcedshow_title" />
+        <Preference
+            android:key="areas.current.show"
+            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:summary="@string/data_areas_short_summary"
+            app:title="@string/data_areas_label" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_category_other_label">
         <Preference
             android:icon="@drawable/ic_changelog_onsurface"

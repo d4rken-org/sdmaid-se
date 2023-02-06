@@ -38,15 +38,6 @@ class GeneralSettingsFragment : PreferenceFragment2() {
         findPreference<Preference>(
             "core.bugreporter.enabled"
         )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
-
-        findPreference<Preference>(
-            "setup.show.forced"
-        )?.setOnPreferenceClickListener {
-            findNavController().navigate(
-                SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true)
-            )
-            true
-        }
         super.onPreferencesCreated()
     }
 

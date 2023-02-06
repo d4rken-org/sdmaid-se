@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.settings
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -37,6 +38,19 @@ class SettingsIndexFragment : PreferenceFragment2() {
     }
 
     override fun onPreferencesCreated() {
+        findPreference<Preference>("setup.show.forced")!!.setOnPreferenceClickListener {
+            findNavController().navigate(
+                SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true)
+            )
+            true
+        }
+        findPreference<Preference>("areas.current.show")!!.setOnPreferenceClickListener {
+            findNavController().navigate(
+                SettingsFragmentDirections.actionSettingsContainerFragmentToDataAreasFragment()
+            )
+            true
+        }
+
         findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {
             webpageTool.open(PrivacyPolicy.URL)
