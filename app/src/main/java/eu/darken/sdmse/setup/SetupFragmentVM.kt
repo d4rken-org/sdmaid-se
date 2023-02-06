@@ -36,6 +36,8 @@ class SetupFragmentVM @Inject constructor(
 
     private val navArgs by handle.navArgs<SetupFragmentArgs>()
 
+    val isOnboarding = navArgs.isOnboarding
+
     val events = SingleLiveEvent<SetupEvents>()
 
     val listItems: LiveData<List<SetupAdapter.Item>> = setupManager.state

@@ -44,7 +44,12 @@
         tools:layout="@layout/setup_fragment">
         <argument
             android:name="showCompleted"
-            app:argType="boolean" />
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="isOnboarding"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
 
     <fragment

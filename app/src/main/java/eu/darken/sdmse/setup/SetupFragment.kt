@@ -63,6 +63,9 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            if(vm.isOnboarding) {
+                setNavigationIcon(R.drawable.ic_baseline_close_24)
+            }
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_help -> {
