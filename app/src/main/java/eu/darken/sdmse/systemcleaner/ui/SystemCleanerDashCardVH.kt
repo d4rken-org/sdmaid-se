@@ -44,10 +44,13 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
+        val hasAnyData = item.data?.filterContents?.isNotEmpty() ?: false
+
         detailsAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
+
         if (item.progress == null || item.data != null) {
             activityContainer.setOnClickListener { item.onViewDetails() }
         } else {
@@ -59,7 +62,7 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onScan() }
         }
         deleteAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onDelete }
         }
         cancelAction.apply {

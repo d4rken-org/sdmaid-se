@@ -44,8 +44,10 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
+        val hasAnyData = item.data?.junks?.isNotEmpty() ?: false
+
         detailsAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
         if (item.progress == null || item.data != null) {
@@ -59,7 +61,7 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onScan() }
         }
         deleteAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onDelete() }
         }
         cancelAction.apply {

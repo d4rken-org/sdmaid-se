@@ -45,10 +45,13 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
+        val hasAnyData = item.data?.corpses?.isNotEmpty() ?: false
+
         detailsAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
+
         if (item.progress == null || item.data != null) {
             activityContainer.setOnClickListener { item.onViewDetails() }
         } else {
@@ -60,7 +63,7 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onScan() }
         }
         deleteAction.apply {
-            isGone = item.progress != null || item.data == null
+            isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onDelete(item.data?.corpses!!) }
         }
         cancelAction.apply {
