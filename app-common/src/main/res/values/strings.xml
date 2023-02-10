@@ -75,4 +75,6 @@
     <string name="x_space_can_be_freed">%s can be freed</string>
     <string name="general_info_label">Info</string>
     <string name="general_more_infos_action">More infos</string>
+    <string name="general_grant_access_action">Grant access</string>
+    <string name="general_undo_action">Undo</string>
 </resources>

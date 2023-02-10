@@ -27,12 +27,14 @@ class GeneralSettings @Inject constructor(
 
     val themeType = dataStore.createValue("core.ui.theme.type", ThemeType.SYSTEM.identifier)
 
+    val isOnboardingCompleted = dataStore.createValue("core.onboarding.completed", false)
+
+    val isSetupDismissed = dataStore.createValue("core.setup.dismissed", false)
+
     val isBugReporterEnabled = dataStore.createValue(
         "core.bugreporter.enabled",
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
     )
-
-    val isOnboardingCompleted = dataStore.createValue("core.onboarding.completed", false)
 
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,

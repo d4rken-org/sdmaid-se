@@ -75,12 +75,12 @@
     <string name="setup_manage_storage_card_title">Manage storage</string>
     <string name="setup_manage_storage_card_body">Allow SD Maid to manage your storage.</string>
     <string name="setup_manage_storage_card_body2">Basic access to public storage, e.g. "Download/" and "DCIM/", but not always "Android/data".</string>
-    <string name="general_grant_access_action">Grant access</string>
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Should SD Maid use root access if it is available to check additional system folders and private application data.</string>
     <string name="setup_root_enable_root_use_label">Use root access if available</string>
     <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
+    <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>
 
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
     <string name="dataarea_warningcard_label">Data areas</string>

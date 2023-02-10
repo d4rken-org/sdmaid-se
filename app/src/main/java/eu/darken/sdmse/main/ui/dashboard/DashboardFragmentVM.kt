@@ -61,7 +61,7 @@ class DashboardFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    private var isSetupDismissed = false
+
     val dashboardevents = SingleLiveEvent<DashboardEvents>()
 
     init {
@@ -199,12 +199,12 @@ class DashboardFragmentVM @Inject constructor(
             upgradeInfo = upgradeInfo
         ).run { items.add(this) }
 
-        if (!setupState.isComplete && !isSetupDismissed) {
+        if (!setupState.isComplete && !setupState.isDismissed) {
             SetupCardVH.Item(
                 setupState = setupState,
                 onDismiss = {
-                    isSetupDismissed = true
-                    refreshTrigger.value = rngString
+                    setupManager.setDismissed(true)
+                    dashboardevents.postValue(DashboardEvents.SetupDismissHint)
                 },
                 onContinue = {
                     DashboardFragmentDirections.actionDashboardFragmentToSetupFragment(
@@ -317,6 +317,11 @@ class DashboardFragmentVM @Inject constructor(
     fun showAppCleanerDetails() {
         log(TAG, INFO) { "showAppCleanerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToAppCleanerListFragment().navigate()
+    }
+
+    fun undoSetupHide() = launch {
+        log(TAG) { "undoSetupHide()" }
+        setupManager.setDismissed(false)
     }
 
     companion object {

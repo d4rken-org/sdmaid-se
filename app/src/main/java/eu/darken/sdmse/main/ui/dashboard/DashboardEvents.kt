@@ -5,6 +5,9 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 
 sealed interface DashboardEvents {
+
+    object SetupDismissHint : DashboardEvents
+
     data class CorpseFinderDeleteAllConfirmation(
         val corpses: Collection<Corpse>,
     ) : DashboardEvents

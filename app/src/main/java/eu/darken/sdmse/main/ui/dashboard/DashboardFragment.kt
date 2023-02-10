@@ -7,6 +7,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
@@ -133,6 +134,16 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
+                DashboardEvents.SetupDismissHint -> {
+                    Snackbar
+                        .make(
+                            requireView(),
+                            R.string.setup_dismiss_hint,
+                            Snackbar.LENGTH_LONG
+                        )
+                        .setAction(R.string.general_undo_action) { _ -> vm.undoSetupHide() }
+                        .show()
+                }
             }
         }
 
