@@ -1,11 +1,10 @@
-# SD Maid SE
+# SD Maid 2/SE
 
 [![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
 [![Code tests & eval](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken/sdmaid-se/total.svg)]()
 
-[SD Maid SE](https://github.com/d4rken/sdmaid-se) is a file management tool for Android that specialises in maintenance. Its core purpose is freeing up
-space and removing unwanted data.
+[SD Maid SE](https://github.com/d4rken/sdmaid-se) (aka SD Maid 2) is a file management tool for Android that specialises in maintenance. Its core purpose is freeing up space and removing unwanted data.
 
 Features include:
 
