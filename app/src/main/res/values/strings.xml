@@ -244,5 +244,8 @@
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
     <string name="data_areas_short_summary">Accessible data areas based on current permissions.</string>
     <string name="setup_label">Setup</string>
+    <string name="exclusion_manager_title">Exclusion manager</string>
+    <string name="exclusion_manager_desc">Manage file and app exclusions.</string>
+    <string name="exclusions_description">Exclude files and apps from SD Maids operations.</string>
 
 </resources>

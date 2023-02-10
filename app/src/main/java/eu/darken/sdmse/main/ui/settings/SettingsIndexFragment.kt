@@ -38,6 +38,13 @@ class SettingsIndexFragment : PreferenceFragment2() {
     }
 
     override fun onPreferencesCreated() {
+        findPreference<Preference>("exclusions.list.show")!!.setOnPreferenceClickListener {
+            findNavController().navigate(
+                SettingsFragmentDirections.actionSettingsContainerFragmentToExclusionsListFragment()
+            )
+            true
+        }
+
         findPreference<Preference>("setup.show.forced")!!.setOnPreferenceClickListener {
             findNavController().navigate(
                 SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true)

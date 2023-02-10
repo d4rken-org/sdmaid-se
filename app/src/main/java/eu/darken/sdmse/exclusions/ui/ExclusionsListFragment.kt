@@ -1,8 +1,7 @@
-package eu.darken.sdmse.main.ui.areas
+package eu.darken.sdmse.exclusions.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -10,18 +9,16 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
-import eu.darken.sdmse.common.lists.differ.update
-import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.DataAreasFragmentBinding
+import eu.darken.sdmse.databinding.ExclusionsListFragmentBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
+class ExclusionsListFragment : Fragment3(R.layout.exclusions_list_fragment) {
 
-    override val vm: DataAreasFragmentVM by viewModels()
-    override val ui: DataAreasFragmentBinding by viewBinding()
+    override val vm: ExclusionsListFragmentVM by viewModels()
+    override val ui: ExclusionsListFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,13 +26,9 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.menu_action_refresh -> {
-                        vm.reloadDataAreas()
-                        true
-                    }
                     R.id.menu_action_info -> {
                         MaterialAlertDialogBuilder(requireContext()).apply {
-                            setMessage(R.string.data_areas_description)
+                            setMessage(R.string.exclusions_description)
                             setNeutralButton(R.string.general_more_infos_action) { _, _ ->
                                 // TODO more direct link
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki")
@@ -47,17 +40,17 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
                 }
             }
         }
-
-        val adapter = DataAreasAdapter()
-        ui.list.setupDefaults(adapter)
-
-        vm.items.observe2(ui) {
-            adapter.update(it.areas)
-            loadingOverlay.isGone = it.areas != null
-            list.isGone = it.areas == null
-
-            toolbar.menu?.findItem(R.id.menu_action_refresh)?.isVisible = it.allowReload
-        }
+//
+//        val adapter = DataAreasAdapter()
+//        ui.list.setupDefaults(adapter)
+//
+//        vm.items.observe2(ui) {
+//            adapter.update(it.areas)
+//            loadingOverlay.isGone = it.areas != null
+//            list.isGone = it.areas == null
+//
+//            toolbar.menu?.findItem(R.id.menu_action_refresh)?.isVisible = it.allowReload
+//        }
 
         super.onViewCreated(view, savedInstanceState)
     }

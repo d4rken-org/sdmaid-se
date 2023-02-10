@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_dataAreasFragment"
             app:destination="@id/dataAreasFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
+            app:destination="@id/exclusionsListFragment" />
     </fragment>
 
     <fragment
@@ -155,5 +158,9 @@
         android:id="@+id/dataAreasFragment"
         android:name="eu.darken.sdmse.main.ui.areas.DataAreasFragment"
         tools:layout="@layout/data_areas_fragment" />
+    <fragment
+        android:id="@+id/exclusionsListFragment"
+        android:name="eu.darken.sdmse.exclusions.ui.ExclusionsListFragment"
+        tools:layout="@layout/exclusions_list_fragment" />
 
 </navigation>

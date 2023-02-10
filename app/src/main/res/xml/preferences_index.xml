@@ -8,6 +8,12 @@
         app:summary="@string/general_settings_desc"
         app:title="@string/general_settings_label" />
 
+    <Preference
+        android:icon="@drawable/ic_shield_24"
+        android:key="exclusions.list.show"
+        app:summary="@string/exclusion_manager_desc"
+        app:title="@string/exclusion_manager_title" />
+
     <PreferenceCategory android:title="@string/settings_category_tools_label">
         <Preference
             android:icon="@drawable/ghost"
