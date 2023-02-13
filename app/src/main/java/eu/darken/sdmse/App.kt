@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.*
 import eu.darken.sdmse.common.debug.recording.core.RecorderModule
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.ThemeType
 import kotlinx.coroutines.CoroutineScope
@@ -38,6 +39,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var recorderModule: RecorderModule
     @Inject lateinit var imageLoaderFactory: ImageLoaderFactory
     @Inject lateinit var debugSettings: DebugSettings
+    @Inject lateinit var curriculumVitae: CurriculumVitae
 
     override fun onCreate() {
         super.onCreate()
@@ -78,6 +80,8 @@ open class App : Application(), Configuration.Provider {
             .launchIn(appScope)
 
         Coil.setImageLoader(imageLoaderFactory)
+
+        curriculumVitae.updateAppLaunch()
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
     }
