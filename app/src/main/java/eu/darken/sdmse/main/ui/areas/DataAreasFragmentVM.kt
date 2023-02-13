@@ -31,7 +31,7 @@ class DataAreasFragmentVM @Inject constructor(
         }
         State(
             areas = items,
-            allowReload = taskState.activeTasks.isEmpty()
+            allowReload = taskState.isIdle
         )
     }
         .onStart { emit(State()) }

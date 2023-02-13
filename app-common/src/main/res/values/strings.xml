@@ -49,6 +49,7 @@
     <string name="general_progress_loading_egg_7">So. How are you holding up?</string>
     <string name="general_help_action">Help</string>
     <string name="general_continue">Continue</string>
+    <string name="general_progress_queued">In queue</string>
 
     <string name="general_view_action">View</string>
     <string name="general_scan_action">Scan</string>

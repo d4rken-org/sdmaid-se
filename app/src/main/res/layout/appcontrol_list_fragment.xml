@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitle="@string/corpsefinder_details_title"
-        app:title="@string/appcleaner_tool_name" />
+        app:title="@string/appcontrol_tool_name" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loading_overlay"
