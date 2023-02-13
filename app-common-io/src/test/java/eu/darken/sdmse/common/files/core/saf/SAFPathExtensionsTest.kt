@@ -297,6 +297,20 @@ class SAFPathExtensionsTest : BaseTest() {
 
     @Test
     fun `startsWith operator`() {
+        val baseUri = Uri.parse("content://com.android.externalstorage.documents/tree/4BBD-D3E7")
+        val file1 = SAFPath.build(baseUri, "Android", "data", "eu.darken.octi")
+        val file2 = SAFPath.build(baseUri, "Android", "data", "eu.darken.octi", "files")
+
+        file1.startsWith(file1) shouldBe true
+        file1.startsWith(file2) shouldBe false
+
+
+        file2.startsWith(file1) shouldBe true
+        file2.startsWith(file2) shouldBe true
+    }
+
+    @Test
+    fun `startsWith regression test1`() {
         val file1 = SAFPath.build(baseTreeUri, "chi")
         val file2 = SAFPath.build(baseTreeUri, "child")
 

@@ -81,7 +81,7 @@ fun SAFPath.startsWith(prefix: SAFPath): Boolean {
             match && segments.last().startsWith(prefix.segments.last())
         }
         else -> {
-            val match = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size - 1)
+            val match = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size + 1)
             match && segments[prefix.segments.size - 1].startsWith(prefix.segments.last())
         }
     }
