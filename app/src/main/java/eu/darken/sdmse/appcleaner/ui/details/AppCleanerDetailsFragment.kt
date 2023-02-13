@@ -32,7 +32,6 @@ class AppCleanerDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment
 
         }
 
-
         super.onViewCreated(view, savedInstanceState)
     }
 }

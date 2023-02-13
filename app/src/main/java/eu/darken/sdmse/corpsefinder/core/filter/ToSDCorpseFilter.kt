@@ -111,15 +111,16 @@ class ToSDCorpseFilter @Inject constructor(
             }
             .filter { it.isCorpse }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -161,15 +162,16 @@ class ToSDCorpseFilter @Inject constructor(
             }
             .filter { it.isCorpse }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -235,15 +237,16 @@ class ToSDCorpseFilter @Inject constructor(
                 exists
             }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -275,15 +278,16 @@ class ToSDCorpseFilter @Inject constructor(
             }
             .filter { it.isCorpse }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -328,15 +332,16 @@ class ToSDCorpseFilter @Inject constructor(
             }
             .filter { it.isCorpse }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -375,15 +380,16 @@ class ToSDCorpseFilter @Inject constructor(
             }
             .filter { it.isCorpse }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
-
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }

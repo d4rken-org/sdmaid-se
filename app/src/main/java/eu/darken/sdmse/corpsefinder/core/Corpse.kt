@@ -10,17 +10,20 @@ import kotlin.reflect.KClass
 data class Corpse(
     val filterType: KClass<out CorpseFilter>,
     val ownerInfo: OwnerInfo,
+    val lookup: APathLookup<*>,
     val content: Collection<APathLookup<*>>,
     val isWriteProtected: Boolean = false,
     val riskLevel: RiskLevel = RiskLevel.NORMAL,
 ) {
     val path: APath
-        get() = ownerInfo.item
+        get() = lookup
+
     val areaInfo: AreaInfo
         get() = ownerInfo.areaInfo
 
     val size: Long
-        get() = content.sumOf { it.size }
+        get() = lookup.size + content.sumOf { it.size }
 
-    override fun toString(): String = "Corpse(path=$path, type=${areaInfo.type}, owners=${ownerInfo.owners})"
+    override fun toString(): String =
+        "Corpse(path=$path, type=${areaInfo.type}, owners=${ownerInfo.owners}, size=$size)"
 }

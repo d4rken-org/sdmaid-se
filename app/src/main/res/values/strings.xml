@@ -131,6 +131,11 @@
     </plurals>
     <string name="corpsefinder_details_title">Details</string>
     <string name="corpsefinder_delete_all_confirmation_message">Delete all app remains (%s)?</string>
+    <string name="corpsefinder_owners_label">Owners</string>
+    <string name="corpsefinder_corpse_hints_label">Notice</string>
+    <string name="corpsefinder_owner_unknown">Unknown owner</string>
+    <string name="corpsefinder_corpse_hint_keeper">This item may contain data you want to keep despite it\'s owner being uninstalled, e.g. photos or backups.</string>
+    <string name="corpsefinder_corpse_hint_common">This item has a very common name and could belong to still installed apps that SD Maid doesn\'t know.</string>
 
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Superfluos data that doesn\'t belong any specific app.</string>

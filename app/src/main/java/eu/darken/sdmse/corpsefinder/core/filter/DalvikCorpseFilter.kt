@@ -18,11 +18,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.listFiles
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.local.LocalGateway
-import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.progress.*
@@ -132,14 +129,16 @@ class DalvikCorpseFilter @Inject constructor(
             .filter { !it.isKeeper || includeRiskKeeper }
             .filter { !it.isCommon || includeRiskCommon }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }
@@ -172,14 +171,16 @@ class DalvikCorpseFilter @Inject constructor(
             .filter { !it.isKeeper || includeRiskKeeper }
             .filter { !it.isCommon || includeRiskCommon }
             .map { ownerInfo ->
-                val content = ownerInfo.item.walk(gatewaySwitch).toSet()
+                val lookup = ownerInfo.item.lookup(gatewaySwitch)
+                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
                 Corpse(
                     filterType = this::class,
                     ownerInfo = ownerInfo,
+                    lookup = lookup,
                     content = content,
                     isWriteProtected = false,
                     riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                        ownerInfo.isKeeper -> RiskLevel.KEEPER
                         ownerInfo.isCommon -> RiskLevel.COMMON
                         else -> RiskLevel.NORMAL
                     }

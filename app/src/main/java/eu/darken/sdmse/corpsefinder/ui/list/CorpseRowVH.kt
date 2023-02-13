@@ -31,7 +31,7 @@ class CorpseRowVH(parent: ViewGroup) :
             RiskLevel.NORMAL -> {
                 tertiary.isVisible = false
             }
-            RiskLevel.USER_GENERATED -> {
+            RiskLevel.KEEPER -> {
                 tertiary.isVisible = true
             }
             RiskLevel.COMMON -> {

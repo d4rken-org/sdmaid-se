@@ -30,9 +30,12 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
         ui.viewpager.adapter = adapter
         ui.tablayout.setupWithViewPager(ui.viewpager, true)
 
-        vm.items.observe2 {
-            adapter.setData(it)
+        vm.state.observe2(ui) { state ->
+            adapter.setData(state.items)
             adapter.notifyDataSetChanged()
+            state.items.indexOfFirst { it.path == state.target }
+                .takeIf { it != -1 }
+                ?.let { viewpager.currentItem = it }
         }
 
 

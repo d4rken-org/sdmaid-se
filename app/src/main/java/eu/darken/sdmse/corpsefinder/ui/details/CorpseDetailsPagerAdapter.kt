@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 import eu.darken.sdmse.corpsefinder.core.Corpse
-import eu.darken.sdmse.corpsefinder.ui.details.item.CorpseFragment
-import eu.darken.sdmse.corpsefinder.ui.details.item.CorpseFragmentArgs
+import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment
+import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragmentArgs
 
 class CorpseDetailsPagerAdapter(
     activity: FragmentActivity,

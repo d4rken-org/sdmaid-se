@@ -135,13 +135,16 @@ class SdcardCorpseFilter @Inject constructor(
 
         updateProgressCount(Progress.Count.Percent(0, deadItems.size))
         return deadItems.map { ownerInfo ->
+            val lookup = ownerInfo.item.lookup(gatewaySwitch)
+            val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
             val corpse = Corpse(
                 filterType = this::class,
                 ownerInfo = ownerInfo,
-                content = ownerInfo.item.walk(gatewaySwitch).toList(),
+                lookup = lookup,
+                content = content,
                 isWriteProtected = ownerInfo.item.canWrite(gatewaySwitch),
                 riskLevel = when {
-                    ownerInfo.isKeeper -> RiskLevel.USER_GENERATED
+                    ownerInfo.isKeeper -> RiskLevel.KEEPER
                     ownerInfo.isCommon -> RiskLevel.COMMON
                     else -> RiskLevel.NORMAL
                 }

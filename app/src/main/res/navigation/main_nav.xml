@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/corpseFragment"
-        android:name="eu.darken.sdmse.corpsefinder.ui.details.item.CorpseFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment"
         tools:layout="@layout/corpsefinder_corpse_fragment">
         <argument
             android:name="identifier"
