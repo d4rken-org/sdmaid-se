@@ -18,6 +18,7 @@ class RootSetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
 
         allowRootOptions.apply {
+            setOnCheckedChangeListener(null)
             when (item.setupState.useRoot) {
                 true -> check(R.id.allow_root_options_enable)
                 false -> check(R.id.allow_root_options_disable)
