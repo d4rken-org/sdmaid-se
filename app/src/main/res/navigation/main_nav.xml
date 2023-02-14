@@ -113,12 +113,20 @@
     </fragment>
     <fragment
         android:id="@+id/systemCleanerDetailsFragment"
-        android:name="eu.darken.sdmse.systemcleaner.ui.details.SystemCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment"
         tools:layout="@layout/systemcleaner_details_fragment">
         <argument
             android:name="filterIdentifier"
             app:argType="string"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterContentFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment"
+        tools:layout="@layout/systemcleaner_filtercontent_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -129,6 +137,7 @@
             android:id="@+id/action_appCleanerListFragment_to_appCleanerDetailsFragment2"
             app:destination="@id/appCleanerDetailsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/appCleanerDetailsFragment"
         android:name="eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment"
@@ -146,7 +155,6 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
     </fragment>
-
     <fragment
         android:id="@+id/appControlListFragment"
         android:name="eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment"

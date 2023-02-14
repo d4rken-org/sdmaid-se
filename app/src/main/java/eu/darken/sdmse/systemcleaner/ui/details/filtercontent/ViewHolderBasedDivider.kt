@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.ui.details.appjunk
+package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,24 +6,12 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.core.view.ViewCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
-import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
-import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
 import kotlin.math.roundToInt
 
-/**
- * Like DividerItemDecoration but no divider for the last element
- * Creates a divider [RecyclerView.ItemDecoration] that can be used with a
- * [LinearLayoutManager].
- *
- * @param context Current context, it will be used to access resources.
- * @param orientation Divider orientation. Should be [.HORIZONTAL] or [.VERTICAL].
- */
-class AppJunkElementDivider constructor(
+class ViewHolderBasedDivider constructor(
     context: Context,
-    private val drawAfterLastItem: Boolean = false,
+    private val filter: (RecyclerView.ViewHolder?, RecyclerView.ViewHolder, RecyclerView.ViewHolder?) -> Boolean,
 ) : RecyclerView.ItemDecoration() {
 
     private var divider: Drawable
@@ -56,24 +44,17 @@ class AppJunkElementDivider constructor(
             left = 0
             right = parent.width
         }
-        val childCount = if (drawAfterLastItem) {
-            parent.childCount
-        } else {
-            parent.childCount - 1
-        }
+        val childCount = parent.childCount - 1
         for (i in 0 until childCount) {
+            val previousChild: View? = parent.getChildAt(i - 1)
             val thisChild: View = parent.getChildAt(i)
             val nextChild: View? = parent.getChildAt(i + 1)
 
-            val thisVH = parent.findContainingViewHolder(thisChild)
+            val previousVH = previousChild?.let { parent.findContainingViewHolder(it) }
+            val thisVH = parent.findContainingViewHolder(thisChild)!!
             val nextVH = nextChild?.let { parent.findContainingViewHolder(it) }
 
-            when {
-                thisVH is AppJunkElementHeaderVH -> continue
-                thisVH is AppJunkElementFileCategoryVH -> continue
-                thisVH is AppJunkElementFileVH && nextVH !is AppJunkElementFileVH -> continue
-                else -> {} // NOOP
-            }
+            if (!filter(previousVH, thisVH, nextVH)) continue
 
             parent.getDecoratedBoundsWithMargins(thisChild, bounds)
             val bottom: Int = bounds.bottom + ViewCompat.getTranslationY(thisChild).roundToInt()

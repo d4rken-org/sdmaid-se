@@ -1,4 +1,4 @@
-package eu.darken.sdmse.corpsefinder.ui.details.corpse
+package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
 import android.os.Bundle
 import android.view.View
@@ -9,22 +9,21 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
-import eu.darken.sdmse.databinding.CorpsefinderCorpseFragmentBinding
-import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.ViewHolderBasedDivider
+import eu.darken.sdmse.databinding.SystemcleanerFiltercontentFragmentBinding
+import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 
 @AndroidEntryPoint
-class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
+class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fragment) {
 
-    override val vm: CorpseFragmentVM by viewModels()
-    override val ui: CorpsefinderCorpseFragmentBinding by viewBinding()
+    override val vm: FilterContentFragmentVM by viewModels()
+    override val ui: SystemcleanerFiltercontentFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = CorpseElementsAdapter()
+        val adapter = FilterContentElementsAdapter()
         ui.list.apply {
             setupDefaults(adapter, dividers = false)
             val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, _ ->
-                cur !is CorpseElementHeaderVH
+                cur !is FilterContentElementHeaderVH
             }
             addItemDecoration(divDec)
         }
