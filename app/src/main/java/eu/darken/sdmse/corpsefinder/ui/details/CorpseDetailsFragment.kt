@@ -38,7 +38,6 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
                 ?.let { viewpager.currentItem = it }
         }
 
-
         super.onViewCreated(view, savedInstanceState)
     }
 }

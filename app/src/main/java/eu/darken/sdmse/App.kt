@@ -7,6 +7,8 @@ import androidx.work.Configuration
 import coil.Coil
 import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
+import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -84,6 +86,8 @@ open class App : Application(), Configuration.Provider {
         curriculumVitae.updateAppLaunch()
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
+
+        log { getString(DefaultCachesPublicFilter::class.labelRes) }
     }
 
 

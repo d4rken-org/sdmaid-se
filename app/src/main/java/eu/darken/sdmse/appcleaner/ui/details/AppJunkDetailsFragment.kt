@@ -14,9 +14,9 @@ import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class AppCleanerDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
+class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
 
-    override val vm: AppCleanerDetailsFragmentVM by viewModels()
+    override val vm: AppJunkDetailsFragmentVM by viewModels()
     override val ui: AppcleanerDetailsFragmentBinding by viewBinding()
 
     @Inject lateinit var dashAdapter: DashboardAdapter
@@ -32,6 +32,17 @@ class AppCleanerDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment
 
         }
 
+        val adapter = AppJunkDetailsPagerAdapter(requireActivity(), childFragmentManager)
+        ui.viewpager.adapter = adapter
+        ui.tablayout.setupWithViewPager(ui.viewpager, true)
+
+        vm.state.observe2(ui) { state ->
+            adapter.setData(state.items)
+            adapter.notifyDataSetChanged()
+            state.items.indexOfFirst { it.identifier == state.target }
+                .takeIf { it != -1 }
+                ?.let { viewpager.currentItem = it }
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 }

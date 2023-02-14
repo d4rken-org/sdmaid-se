@@ -18,9 +18,12 @@ data class AppJunk(
     val identifier: Pkg.Id
         get() = pkg.id
 
+    val label: CaString
+        get() = pkg.label ?: pkg.packageName.toCaString()
+
     val itemCount by lazy {
         var count = 0
-        expendables?.let { count += it.size }
+        count += expendables?.values?.sumOf { it.size } ?: 0
         inaccessibleCache?.let { count += it.itemCount }
         count
     }
@@ -34,6 +37,6 @@ data class AppJunk(
 
     fun isEmpty() = expendables.isNullOrEmpty() && inaccessibleCache == null
 
-    val label: CaString
-        get() = pkg.label ?: pkg.packageName.toCaString()
+    override fun toString(): String =
+        "AppJunk(${pkg.packageName}, categories=${expendables?.size}, inaccessible=$inaccessibleCache)"
 }

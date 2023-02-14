@@ -18,7 +18,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
-        style="@style/TextAppearance.Material3.BodySmall"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,18 +35,30 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.LabelSmall"
+        style="@style/TextAppearance.Material3.LabelMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="999.99 KB" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/description"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintStart_toStartOf="@id/primary"
+        app:layout_constraintTop_toBottomOf="@id/secondary"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/appcleaner_filter_defaultcachespublic_summary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

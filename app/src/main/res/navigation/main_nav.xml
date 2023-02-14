@@ -41,12 +41,12 @@
         tools:layout="@layout/setup_fragment">
         <argument
             android:name="showCompleted"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
         <argument
             android:name="isOnboarding"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
 
     <fragment
@@ -122,15 +122,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/appCleanerDetailsFragment"
-        android:name="eu.darken.sdmse.appcleaner.ui.details.AppCleanerDetailsFragment"
-        tools:layout="@layout/appcleaner_details_fragment">
-        <argument
-            android:name="pkgId"
-            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id"
-            app:nullable="true" />
-    </fragment>
-    <fragment
         android:id="@+id/appCleanerListFragment"
         android:name="eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment"
         tools:layout="@layout/appcleaner_list_fragment">
@@ -138,6 +129,24 @@
             android:id="@+id/action_appCleanerListFragment_to_appCleanerDetailsFragment2"
             app:destination="@id/appCleanerDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/appCleanerDetailsFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment"
+        tools:layout="@layout/appcleaner_details_fragment">
+        <argument
+            android:name="pkgId"
+            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/appJunkFragment"
+        android:name="eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment"
+        tools:layout="@layout/appcleaner_appjunk_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+    </fragment>
+
     <fragment
         android:id="@+id/appControlListFragment"
         android:name="eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment"
