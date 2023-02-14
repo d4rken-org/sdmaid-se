@@ -4,10 +4,11 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.areas.getShortLabel
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import eu.darken.sdmse.corpsefinder.ui.iconRes
+import eu.darken.sdmse.corpsefinder.ui.labelRes
 import eu.darken.sdmse.databinding.CorpsefinderListItemBinding
 
 
@@ -24,6 +25,8 @@ class CorpseRowVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val corpse = item.corpse
+
+        icon.setImageResource(corpse.filterType.iconRes)
         primary.text = corpse.path.userReadableName.get(context)
         secondary.text = corpse.path.userReadablePath.get(context)
 
@@ -39,7 +42,7 @@ class CorpseRowVH(parent: ViewGroup) :
             }
         }
 
-        areaInfo.text = corpse.areaInfo.type.getShortLabel(context)
+        areaInfo.text = getString(corpse.filterType.labelRes)
         size.text = StringBuilder().apply {
             append(getQuantityString(R.plurals.result_x_items, corpse.content.size))
             append(", ")

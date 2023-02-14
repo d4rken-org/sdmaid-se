@@ -8,7 +8,8 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseElementsAdapter
-import eu.darken.sdmse.corpsefinder.ui.getTypeLabel
+import eu.darken.sdmse.corpsefinder.ui.iconRes
+import eu.darken.sdmse.corpsefinder.ui.labelRes
 import eu.darken.sdmse.databinding.CorpsefinderCorpseElementHeaderBinding
 
 
@@ -26,7 +27,8 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val corpse = item.corpse
         pathValue.text = corpse.path.userReadablePath.get(context)
-        typeValue.text = corpse.getTypeLabel(context)
+        typeIcon.setImageResource(corpse.filterType.iconRes)
+        typeValue.text = getString(corpse.filterType.labelRes)
         sizeVaule.text = Formatter.formatFileSize(context, corpse.size)
         ownersValue.text = if (corpse.ownerInfo.owners.isNotEmpty()) {
             corpse.ownerInfo.owners.joinToString("\n") { it.pkgId.name }

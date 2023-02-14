@@ -31,7 +31,7 @@
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text=".../some/happy/little/file" />
+        tools:text="@string/appcleaner_filter_defaultcachespublic_label" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
@@ -45,18 +45,19 @@
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="999.99 KB" />
+        tools:text="999.99 KB (2 items)" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/description"
         style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/primary"
-        app:layout_constraintStart_toStartOf="@id/primary"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/secondary"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@string/appcleaner_filter_defaultcachespublic_summary" />

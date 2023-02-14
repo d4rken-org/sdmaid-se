@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
+package eu.darken.sdmse.common.lists
 
 import android.content.Context
 import android.graphics.Canvas

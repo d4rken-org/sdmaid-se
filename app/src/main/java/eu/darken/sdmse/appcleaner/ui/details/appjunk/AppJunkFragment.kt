@@ -8,12 +8,12 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
+import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkFragmentBinding
-import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.ViewHolderBasedDivider
 
 @AndroidEntryPoint
 class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {

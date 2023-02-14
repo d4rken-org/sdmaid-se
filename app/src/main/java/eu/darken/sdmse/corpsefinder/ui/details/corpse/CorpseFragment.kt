@@ -5,13 +5,13 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
 import eu.darken.sdmse.databinding.CorpsefinderCorpseFragmentBinding
-import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.ViewHolderBasedDivider
 
 @AndroidEntryPoint
 class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {

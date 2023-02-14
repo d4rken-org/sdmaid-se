@@ -6,6 +6,7 @@ import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
+import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementHeaderBinding
 
@@ -23,6 +24,8 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val junk = item.appJunk
+
+        icon.loadAppIcon(junk.pkg)
         appName.text = junk.label.get(context)
         appId.text = junk.pkg.packageName
 

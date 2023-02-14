@@ -29,14 +29,24 @@
             app:layout_constraintTop_toBottomOf="@id/path_label"
             tools:text="/storage/emulated/0/Strawberry/data" />
 
+        <ImageView
+            android:id="@+id/type_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ghost"
+            app:layout_constraintBottom_toBottomOf="@+id/type_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/type_label" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/type_label"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/general_type_label"
-            app:layout_constraintStart_toStartOf="@id/path_label"
+            app:layout_constraintStart_toEndOf="@id/type_icon"
             app:layout_constraintTop_toBottomOf="@id/path_value" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -44,7 +54,7 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="@id/path_label"
+            app:layout_constraintStart_toStartOf="@id/type_label"
             app:layout_constraintTop_toBottomOf="@id/type_label"
             tools:text="PUBLIC_DATA" />
 

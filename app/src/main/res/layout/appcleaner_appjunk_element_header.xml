@@ -11,13 +11,27 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/app_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/app_name"
+            tools:src="@drawable/ic_default_app_icon_24" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/app_name"
             style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
             android:text="@string/general_app_label"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/size_value"
+            app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="SD Maid 2/SE" />
 
@@ -27,6 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="8dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
             app:layout_constraintEnd_toStartOf="@id/size_value"
             app:layout_constraintStart_toStartOf="@id/app_name"
             app:layout_constraintTop_toBottomOf="@id/app_name"
