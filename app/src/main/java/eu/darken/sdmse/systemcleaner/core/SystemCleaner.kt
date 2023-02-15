@@ -22,6 +22,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
@@ -99,6 +100,8 @@ class SystemCleaner @Inject constructor(
         SystemCleanerScanTask.Success(
             duration = time
         )
+    } catch (e: CancellationException) {
+        throw e
     } catch (e: Exception) {
         log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
         SystemCleanerScanTask.Error(e)

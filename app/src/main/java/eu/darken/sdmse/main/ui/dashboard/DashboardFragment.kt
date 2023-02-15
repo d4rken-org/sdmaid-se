@@ -35,10 +35,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             dashAdapter.update(it)
         }
 
-        ui.mainAction.setOnClickListener {
-            vm.triggerMainAction()
-        }
-
         ui.bottomAppBar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -61,6 +57,8 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
 
             mainAction.isEnabled = state.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
+
+            mainAction.setOnClickListener { vm.mainAction(state.actionState) }
 
             when (state.actionState) {
                 DashboardFragmentVM.BottomBarState.Action.SCAN -> {

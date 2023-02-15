@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AppCleanerDeleteTask(
-    val pkgids: Set<Pkg.Id> = emptySet(),
+    val toDelete: Set<Pkg.Id> = emptySet(),
 ) : AppCleanerTask() {
 
     @Parcelize

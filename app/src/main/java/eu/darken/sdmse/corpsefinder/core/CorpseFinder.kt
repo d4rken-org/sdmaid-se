@@ -23,11 +23,13 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.main.core.SDMTool
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import okio.IOException
 import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -108,7 +110,9 @@ class CorpseFinder @Inject constructor(
         CorpseFinderScanTask.Success(
             duration = time
         )
-    } catch (e: Exception) {
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: IOException) {
         log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
         CorpseFinderScanTask.Error(e)
     }

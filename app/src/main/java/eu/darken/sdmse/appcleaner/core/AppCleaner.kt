@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.main.core.SDMTool
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -97,6 +98,8 @@ class AppCleaner @Inject constructor(
         AppCleanerScanTask.Success(
             duration = time
         )
+    } catch (e: CancellationException) {
+        throw e
     } catch (e: Exception) {
         log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
         AppCleanerScanTask.Error(e)

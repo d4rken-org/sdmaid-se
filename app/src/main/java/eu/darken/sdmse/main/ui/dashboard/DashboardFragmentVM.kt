@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
@@ -28,6 +29,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
@@ -38,6 +40,7 @@ import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
@@ -78,11 +81,7 @@ class DashboardFragmentVM @Inject constructor(
             data = data,
             progress = progress,
             onScan = {
-                launch {
-                    taskManager.useRes {
-                        taskManager.submit(CorpseFinderScanTask())
-                    }
-                }
+                launch { taskManager.submit(CorpseFinderScanTask()) }
             },
             onDelete = {
                 launch { dashboardevents.postValue(DashboardEvents.CorpseFinderDeleteAllConfirmation(it)) }
@@ -101,11 +100,7 @@ class DashboardFragmentVM @Inject constructor(
             data = data,
             progress = progress,
             onScan = {
-                launch {
-                    taskManager.useRes {
-                        taskManager.submit(SystemCleanerScanTask())
-                    }
-                }
+                launch { taskManager.submit(SystemCleanerScanTask()) }
             },
             onDelete = {
                 launch { taskManager.submit(SystemCleanerDeleteTask()) }
@@ -124,11 +119,7 @@ class DashboardFragmentVM @Inject constructor(
             data = data,
             progress = progress,
             onScan = {
-                launch {
-                    taskManager.useRes {
-                        taskManager.submit(AppCleanerScanTask())
-                    }
-                }
+                launch { taskManager.submit(AppCleanerScanTask()) }
             },
             onDelete = {
                 launch { taskManager.submit(AppCleanerDeleteTask()) }
@@ -263,12 +254,19 @@ class DashboardFragmentVM @Inject constructor(
         appCleaner.data,
     ) { upgradeInfo,
         taskState,
-        corpseFinderData,
-        systemCleanerData,
-        appCleanerData ->
+        corpseData,
+        filterData,
+        junkData ->
+
+        val actionState: BottomBarState.Action = when {
+            taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
+            !taskState.isIdle -> BottomBarState.Action.WORKING
+            corpseData.hasData || filterData.hasData || junkData.hasData -> BottomBarState.Action.DELETE
+            else -> BottomBarState.Action.SCAN
+        }
 
         BottomBarState(
-            actionState = BottomBarState.Action.SCAN,
+            actionState = actionState,
             leftInfo = null,
             rightInfo = null,
             upgradeInfo = upgradeInfo,
@@ -276,8 +274,47 @@ class DashboardFragmentVM @Inject constructor(
     }
         .asLiveData2()
 
-    fun triggerMainAction() {
-        log(TAG) { "triggerMainAction()" }
+    fun mainAction(actionState: BottomBarState.Action) {
+        log(TAG) { "mainAction(actionState=$actionState)" }
+        launch {
+            when (actionState) {
+                BottomBarState.Action.SCAN -> taskManager.submit(CorpseFinderScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> {
+                    corpseFinder.data.first()
+                        ?.corpses?.map { it.path }?.toSet()
+                        ?.let { CorpseFinderDeleteTask(toDelete = it) }
+                        ?.let { taskManager.submit(it) }
+                }
+            }
+        }
+        launch {
+            when (actionState) {
+                BottomBarState.Action.SCAN -> taskManager.submit(SystemCleanerScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> {
+                    systemCleaner.data.first()
+                        ?.filterContents?.map { it.filterIdentifier }?.toSet()
+                        ?.let { SystemCleanerDeleteTask(toDelete = it) }
+                        ?.let { taskManager.submit(it) }
+                }
+            }
+        }
+        launch {
+            when (actionState) {
+                BottomBarState.Action.SCAN -> taskManager.submit(AppCleanerScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> {
+                    appCleaner.data.first()
+                        ?.junks?.map { it.pkg.id }?.toSet()
+                        ?.let { AppCleanerDeleteTask(toDelete = it) }
+                        ?.let { taskManager.submit(it) }
+                }
+            }
+        }
     }
 
     fun confirmCorpseDeletion(toDelete: Collection<Corpse>) = launch {
@@ -309,7 +346,7 @@ class DashboardFragmentVM @Inject constructor(
     fun confirmAppJunkDeletion(appJunks: Collection<AppJunk>) = launch {
         log(TAG, INFO) { "confirmAppJunkDeletion(${appJunks.size} items)" }
         val deleteTask = AppCleanerDeleteTask(
-            pkgids = appJunks.map { it.pkg.id }.toSet()
+            toDelete = appJunks.map { it.pkg.id }.toSet()
         )
         taskManager.submit(deleteTask)
     }
