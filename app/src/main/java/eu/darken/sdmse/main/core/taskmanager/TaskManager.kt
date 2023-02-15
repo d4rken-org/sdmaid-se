@@ -11,7 +11,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
+import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.StatsRepo
 import kotlinx.coroutines.*
@@ -48,6 +50,7 @@ class TaskManager @Inject constructor(
         val cancelledAt: Instant? = null,
         val completedAt: Instant? = null,
         val job: Job? = null,
+        val resourceLock: KeepAlive? = null,
         val result: SDMTool.Task.Result? = null,
         val error: Throwable? = null,
     ) {
@@ -75,15 +78,8 @@ class TaskManager @Inject constructor(
     init {
         state
             .distinctUntilChanged()
-            .onEach { log(TAG) { "Task map changed:\n${managedTasks.value.values.joinToString("\n")}" } }
+            .onEach { log(TAG, VERBOSE) { "Task map changed:\n${managedTasks.value.values.joinToString("\n")}" } }
             .launchIn(appScope)
-//        state
-//            .map { it.isIdle }
-//            .distinctUntilChanged()
-//            .onEach {
-//                children.forEach { adoptChildResource(it) }
-//            }
-//            .launchIn(appScope)
         state
             .distinctUntilChanged()
             .onEach {
@@ -152,54 +148,65 @@ class TaskManager @Inject constructor(
     }
 
     suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
-        log(TAG) { "submit()... : $task" }
+        log(TAG, INFO) { "submit(): $task" }
         val taskId = rngString
 
         val job = appScope.launch(
             context = dispatcherProvider.IO,
             start = CoroutineStart.LAZY,
         ) {
-
+            var result: SDMTool.Task.Result? = null
+            var error: Throwable? = null
             try {
                 stage(taskId)
-                val result = execute(taskId)
-                log(TAG) { "Updating result for $taskId: $result" }
-                updateTasks {
-                    this[taskId] = this[taskId]!!.copy(
-                        completedAt = Instant.now(),
-                        result = result,
-                    )
-                }
+                result = execute(taskId)
+                log(TAG) { "Result for $taskId is $result" }
             } catch (e: Throwable) {
-                log(TAG, ERROR) { "execute(): Execution failed for $taskId: $task\n${e.asLog()}" }
+                if (e is CancellationException) {
+                    log(TAG, WARN) { "execute(): Task was cancelled ($taskId): $task" }
+                } else {
+                    log(TAG, ERROR) { "execute(): Execution failed ($taskId): $task\n${e.asLog()}" }
+                }
+                error = e
+            } finally {
                 withContext(NonCancellable) {
                     updateTasks {
                         this[taskId]!!.tool.updateProgress { null }
+                        this[taskId]!!.resourceLock?.close()
                         this[taskId] = this[taskId]!!.copy(
                             completedAt = Instant.now(),
-                            error = e
+                            error = error,
+                            result = result,
                         )
                     }
                 }
             }
         }
 
-        job.invokeOnCompletion { log(TAG) { "Task completion: ${managedTasks.value[taskId]}" } }
+        job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${managedTasks.value[taskId]}" } }
 
-        updateTasks {
-            val managedTask = ManagedTask(
-                id = taskId,
-                task = task,
-                tool = tools.single { it.type == task.type },
-                job = job,
-            )
+        withContext(NonCancellable) {
+            // Any task causes the taskmanager to stay "alive" and with it any depending resources
+            // Only release all resources once all tasks are finished.
+            val keepAlive = sharedResource.get()
+            children.forEach { adoptChildResource(it) }
 
-            this[managedTask.id] = managedTask
+            updateTasks {
+                val managedTask = ManagedTask(
+                    id = taskId,
+                    task = task,
+                    tool = tools.single { it.type == task.type },
+                    job = job,
+                    resourceLock = keepAlive,
+                )
 
-            log(TAG) { "submit(): Queued: $managedTask" }
+                this[managedTask.id] = managedTask
+
+                log(TAG) { "submit(): Queued: $managedTask" }
+            }
+
+            job.join()
         }
-
-        job.join()
 
         val endTask = managedTasks
             .mapNotNull { it[taskId] }
@@ -210,13 +217,13 @@ class TaskManager @Inject constructor(
     }
 
     fun cancel(type: SDMTool.Type) = appScope.launch {
-        log(TAG) { "cancel($type)" }
+        log(TAG, INFO) { "cancel($type)" }
 
         updateTasks {
             this
                 .filter { it.value.tool.type == type && it.value.cancelledAt == null }
                 .onEach { (key, value) ->
-                    log(TAG, INFO) { "Cancelling $value" }
+                    log(TAG) { "Cancelling $value" }
                     value.job?.cancel()
                     this[key] = this[key]!!.copy(cancelledAt = Instant.now())
                 }
