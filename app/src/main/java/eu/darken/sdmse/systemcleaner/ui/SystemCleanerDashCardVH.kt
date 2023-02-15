@@ -63,11 +63,11 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         }
         deleteAction.apply {
             isGone = item.progress != null || !hasAnyData
-            setOnClickListener { item.onDelete }
+            setOnClickListener { item.onDelete() }
         }
         cancelAction.apply {
             isGone = item.progress == null
-            setOnClickListener { item.onCancel }
+            setOnClickListener { item.onCancel() }
         }
     }
 
