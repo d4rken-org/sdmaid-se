@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -25,20 +26,26 @@ class CorpseListFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<CorpseListEvents>()
 
-    val items = corpseFinder.data
-        .filterNotNull()
-        .map { data ->
-            data.corpses.map { corpse ->
-                CorpseRowVH.Item(
-                    corpse = corpse,
-                    onItemClicked = {
-                        events.postValue(CorpseListEvents.ConfirmDeletion(it))
-                    },
-                    onDetailsClicked = { showDetails(it) }
-                )
-            }
+    val state = combine(
+        corpseFinder.data.filterNotNull(),
+        corpseFinder.progress
+    ) { data, progress ->
+        val rows = data.corpses.map { corpse ->
+            CorpseRowVH.Item(
+                corpse = corpse,
+                onItemClicked = {
+                    events.postValue(CorpseListEvents.ConfirmDeletion(it))
+                },
+                onDetailsClicked = { showDetails(it) }
+            )
         }
-        .asLiveData2()
+        State(rows, progress)
+    }.asLiveData2()
+
+    data class State(
+        val items: List<CorpseRowVH.Item>,
+        val progress: Progress.Data? = null,
+    )
 
     init {
         corpseFinder.data

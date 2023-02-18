@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -123,9 +124,11 @@ class CorpseFinder @Inject constructor(
 
         val deleted = mutableSetOf<Corpse>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
+        updateProgressPrimary(R.string.general_progress_deleting)
 
         task.toDelete.forEach { target ->
             val corpse = snapshot.corpses.single { it.path == target }
+            updateProgressSecondary(corpse.path.userReadableName)
 
             log(TAG) { "Deleting $target..." }
             corpse.path.deleteAll(gatewaySwitch)
@@ -133,6 +136,9 @@ class CorpseFinder @Inject constructor(
 
             deleted.add(corpse)
         }
+
+        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(
             corpses = snapshot.corpses.minus(deleted)

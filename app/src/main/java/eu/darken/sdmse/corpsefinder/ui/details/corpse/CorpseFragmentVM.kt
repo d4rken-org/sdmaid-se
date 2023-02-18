@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -30,39 +31,42 @@ class CorpseFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<CorpseEvents>()
 
-    val info = corpseFinder.data
-        .filterNotNull()
-        .map { data ->
-            data.corpses.singleOrNull { it.path == args.identifier }
-        }
-        .filterNotNull()
-        .map { corpse ->
-            val elements = mutableListOf<CorpseElementsAdapter.Item>()
+    val state = combine(
+        corpseFinder.data
+            .filterNotNull()
+            .map { data ->
+                data.corpses.singleOrNull { it.path == args.identifier }
+            }
+            .filterNotNull(),
+        corpseFinder.progress
+    ) { corpse, progress ->
+        val elements = mutableListOf<CorpseElementsAdapter.Item>()
 
-            CorpseElementHeaderVH.Item(
+        CorpseElementHeaderVH.Item(
+            corpse = corpse,
+            onDeleteAllClicked = {
+                events.postValue(CorpseEvents.ConfirmDeletion(it.corpse))
+            },
+            onExcludeClicked = {
+                TODO()
+            }
+        ).run { elements.add(this) }
+
+        corpse.content.map {
+            CorpseElementFileVH.Item(
                 corpse = corpse,
-                onDeleteAllClicked = {
-                    events.postValue(CorpseEvents.ConfirmDeletion(it.corpse))
-                },
-                onExcludeClicked = {
-                    TODO()
-                }
-            ).run { elements.add(this) }
+                lookup = it,
+            )
+        }.run { elements.addAll(this) }
 
-            corpse.content.map {
-                CorpseElementFileVH.Item(
-                    corpse = corpse,
-                    lookup = it,
-                )
-            }.run { elements.addAll(this) }
-
-            Info(elements = elements)
-        }
+        State(elements, progress)
+    }
         .setupCommonEventHandlers(TAG) { "info" }
         .asLiveData2()
 
-    data class Info(
+    data class State(
         val elements: List<CorpseElementsAdapter.Item>,
+        val progress: Progress.Data? = null,
     )
 
     fun doDelete(corpse: Corpse) = launch {
@@ -70,7 +74,6 @@ class CorpseFragmentVM @Inject constructor(
         val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
         taskManager.submit(task)
     }
-
 
     companion object {
         private val TAG = logTag("CorpseFinder", "Details", "Fragment", "VM")
