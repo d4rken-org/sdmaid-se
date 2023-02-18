@@ -119,11 +119,20 @@ suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>): 
     }
 }
 
-suspend fun <T : APath> T.deleteAll(gateway: APathGateway<T, out APathLookup<T>>) {
+suspend fun <T : APath> T.deleteAll(
+    gateway: APathGateway<T, out APathLookup<T>>,
+    filter: (T) -> Boolean = { true }
+) {
     val lookup = this as? APathLookup<*> ?: gateway.lookup(downCast())
     if (lookup.isDirectory) {
-        gateway.listFiles(downCast()).forEach { it.deleteAll(gateway) }
+        gateway.listFiles(downCast()).forEach { it.deleteAll(gateway, filter) }
     }
+
+    if (!filter(this)) {
+        log(VERBOSE) { "Skipped due to filter: $this" }
+        return
+    }
+
     if (gateway.delete(downCast())) {
         log(VERBOSE) { "APath.deleteAll(): Deleted $this" }
     } else if (!gateway.exists(downCast())) {

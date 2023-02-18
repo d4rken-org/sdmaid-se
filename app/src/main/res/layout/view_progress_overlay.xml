@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:padding="32dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress"
         style="@style/Widget.Material3.CircularProgressIndicator"
         android:layout_width="wrap_content"
-        app:layout_constraintVertical_chainStyle="packed"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:indeterminate="true"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@id/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/progress_text"
@@ -35,9 +35,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
-        style="@style/TextAppearance.Material3.BodyLarge"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="wrap_content"
+        android:gravity="center"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toTopOf="@id/secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +48,16 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.BodyMedium"
+        style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/primary"
-        tools:text="Detailed progress secondary" />
+        tools:text="tree/primary%3AAndroid%2Fdata/document/primary%3AAndroid%2Fdata%2FAddOnComposer_Removable%2Flib%2Farm64%2FlibSPenControl.so)" />
 
 </merge>
