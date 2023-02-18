@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.deleteAll
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
@@ -39,7 +40,7 @@ class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
     fileForensics: FileForensics,
-    gatewaySwitch: GatewaySwitch,
+    private val gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
@@ -118,19 +119,37 @@ class CorpseFinder @Inject constructor(
     }
 
     private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
-        log(TAG) { "deleteCorpses($task)" }
+        log(TAG) { "deleteCorpses(): $task" }
 
-        CorpseFinderDeleteTask.Success(TODO())
+        val deleted = mutableSetOf<Corpse>()
+        val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
+
+        task.toDelete.forEach { target ->
+            val corpse = snapshot.corpses.single { it.path == target }
+
+            log(TAG) { "Deleting $target..." }
+            corpse.path.deleteAll(gatewaySwitch)
+            log(TAG) { "Deleted $target!" }
+
+            deleted.add(corpse)
+        }
+
+        internalData.value = snapshot.copy(
+            corpses = snapshot.corpses.minus(deleted)
+        )
+
+        CorpseFinderDeleteTask.Success(
+            reclaimedSize = deleted.sumOf { it.size }
+        )
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "deleteCorpses($task) failed:\n${e.asLog()}" }
         CorpseFinderDeleteTask.Error(e)
     }
 
     data class Data(
         val corpses: Collection<Corpse>
     ) {
-        val totalSize: Long
-            get() = corpses.sumOf { it.size }
+        val totalSize: Long by lazy { corpses.sumOf { it.size } }
     }
 
     @InstallIn(SingletonComponent::class)

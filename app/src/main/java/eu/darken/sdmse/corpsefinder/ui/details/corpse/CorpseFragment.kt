@@ -3,6 +3,7 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
@@ -31,6 +32,22 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
 
         vm.info.observe2 {
             adapter.update(it.elements)
+        }
+
+        vm.events.observe2(ui) {
+            when (it) {
+                is CorpseEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.general_delete_confirmation_title)
+                    setMessage(
+                        getString(
+                            R.string.general_delete_confirmation_message_x,
+                            it.corpse.path.userReadableName.get(context)
+                        )
+                    )
+                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.doDelete(it.corpse) }
+                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                }.show()
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

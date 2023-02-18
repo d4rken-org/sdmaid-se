@@ -108,7 +108,7 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
 }
 
 suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return if (gateway.delete(this)) {
+    return if (gateway.delete(downCast())) {
         log(VERBOSE) { "APath.delete(): Deleted $this" }
         true
     } else if (!exists(gateway)) {
@@ -120,12 +120,13 @@ suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>): 
 }
 
 suspend fun <T : APath> T.deleteAll(gateway: APathGateway<T, out APathLookup<T>>) {
-    if (gateway.lookup(downCast()).isDirectory) {
+    val lookup = this as? APathLookup<*> ?: gateway.lookup(downCast())
+    if (lookup.isDirectory) {
         gateway.listFiles(downCast()).forEach { it.deleteAll(gateway) }
     }
-    if (gateway.delete(this)) {
+    if (gateway.delete(downCast())) {
         log(VERBOSE) { "APath.deleteAll(): Deleted $this" }
-    } else if (!exists(gateway)) {
+    } else if (!gateway.exists(downCast())) {
         log(WARN) { "APath.deleteAll(): File didn't exist: $this" }
     } else {
         throw FileNotFoundException("Failed to delete file: $this")

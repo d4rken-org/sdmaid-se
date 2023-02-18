@@ -2,13 +2,19 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementFileVH
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -17,9 +23,12 @@ class CorpseFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = CorpseFragmentArgs.fromSavedStateHandle(handle)
+
+    val events = SingleLiveEvent<CorpseEvents>()
 
     val info = corpseFinder.data
         .filterNotNull()
@@ -33,7 +42,7 @@ class CorpseFragmentVM @Inject constructor(
             CorpseElementHeaderVH.Item(
                 corpse = corpse,
                 onDeleteAllClicked = {
-                    TODO()
+                    events.postValue(CorpseEvents.ConfirmDeletion(it.corpse))
                 },
                 onExcludeClicked = {
                     TODO()
@@ -44,9 +53,6 @@ class CorpseFragmentVM @Inject constructor(
                 CorpseElementFileVH.Item(
                     corpse = corpse,
                     lookup = it,
-                    onItemClick = {
-                        TODO()
-                    }
                 )
             }.run { elements.addAll(this) }
 
@@ -58,6 +64,13 @@ class CorpseFragmentVM @Inject constructor(
     data class Info(
         val elements: List<CorpseElementsAdapter.Item>,
     )
+
+    fun doDelete(corpse: Corpse) = launch {
+        log(TAG, INFO) { "doDelete(corpse=$corpse)" }
+        val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
+        taskManager.submit(task)
+    }
+
 
     companion object {
         private val TAG = logTag("CorpseFinder", "Details", "Fragment", "VM")

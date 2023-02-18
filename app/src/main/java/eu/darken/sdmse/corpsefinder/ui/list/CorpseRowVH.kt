@@ -44,8 +44,10 @@ class CorpseRowVH(parent: ViewGroup) :
 
         areaInfo.text = getString(corpse.filterType.labelRes)
         size.text = StringBuilder().apply {
-            append(getQuantityString(R.plurals.result_x_items, corpse.content.size))
-            append(", ")
+            if (corpse.content.isNotEmpty()) {
+                append(getQuantityString(R.plurals.result_x_items, corpse.content.size))
+                append(", ")
+            }
             append(Formatter.formatShortFileSize(context, corpse.size))
         }
 

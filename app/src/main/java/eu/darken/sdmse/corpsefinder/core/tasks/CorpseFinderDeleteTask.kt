@@ -11,7 +11,7 @@ data class CorpseFinderDeleteTask(
 
     @Parcelize
     data class Success(
-        private val resultCount: Int,
+        private val reclaimedSize: Long,
     ) : Result()
 
     @Parcelize

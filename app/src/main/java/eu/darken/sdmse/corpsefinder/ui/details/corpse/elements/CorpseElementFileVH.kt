@@ -40,14 +40,11 @@ class CorpseElementFileVH(parent: ViewGroup) :
             FileType.SYMBOLIC_LINK -> getString(R.string.file_type_symbolic_link)
             FileType.FILE -> Formatter.formatFileSize(context, item.lookup.size)
         }
-
-        root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         val corpse: Corpse,
         val lookup: APathLookup<*>,
-        val onItemClick: (Item) -> Unit,
     ) : CorpseElementsAdapter.Item {
 
         override val stableId: Long = lookup.hashCode().toLong()
