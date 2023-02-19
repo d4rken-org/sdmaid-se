@@ -2,10 +2,18 @@ package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerFileDeleteTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 import kotlinx.coroutines.flow.*
@@ -16,9 +24,12 @@ class FilterContentFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = FilterContentFragmentArgs.fromSavedStateHandle(handle)
+
+    val events = SingleLiveEvent<FilterContentEvents>()
 
     val info = systemCleaner.data
         .filterNotNull()
@@ -32,19 +43,24 @@ class FilterContentFragmentVM @Inject constructor(
             FilterContentElementHeaderVH.Item(
                 filterContent = filterContent,
                 onDeleteAllClicked = {
-//                    TODO()
+                    events.postValue(FilterContentEvents.ConfirmDeletion(it.filterContent.filterIdentifier))
                 },
                 onExcludeClicked = {
-//                    TODO()
+
                 }
             ).run { elements.add(this) }
 
-            filterContent.items.map {
+            filterContent.items.map { item ->
                 FilterContentElementFileVH.Item(
                     filterContent = filterContent,
-                    lookup = it,
+                    lookup = item,
                     onItemClick = {
-//                        TODO()
+                        events.postValue(
+                            FilterContentEvents.ConfirmFileDeletion(
+                                it.filterContent.filterIdentifier,
+                                it.lookup
+                            )
+                        )
                     }
                 )
             }.run { elements.addAll(this) }
@@ -52,6 +68,19 @@ class FilterContentFragmentVM @Inject constructor(
             Info(elements = elements)
         }
         .asLiveData2()
+
+    fun doDelete(identifier: FilterIdentifier) = launch {
+        log(TAG, INFO) { "doDelete(): $identifier" }
+        val task = SystemCleanerDeleteTask(toDelete = setOf(identifier))
+        // Removing the filtercontent, removes the fragment and also this viewmodel, so we can't post our own result
+        events.postValue(FilterContentEvents.TaskForParent(task))
+    }
+
+    fun doDelete(identifier: FilterIdentifier, path: APath) = launch {
+        log(TAG, INFO) { "doDelete(): $path" }
+        val task = SystemCleanerFileDeleteTask(identifier, setOf(path))
+        events.postValue(FilterContentEvents.TaskForParent(task))
+    }
 
     data class Info(
         val elements: List<FilterContentElementsAdapter.Item>,

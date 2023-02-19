@@ -5,11 +5,13 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerDetailsFragmentBinding
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 
 @AndroidEntryPoint
 class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fragment) {
@@ -38,6 +40,20 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
                 ?.let { viewpager.currentItem = it }
         }
 
+        vm.events.observe2(ui) { event ->
+            when (event) {
+                is FilterContentDetailsEvents.TaskResult -> Snackbar.make(
+                    requireView(),
+                    event.result.primaryInfo.get(requireContext()),
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        }
+
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    fun forwardTask(task: SystemCleanerTask) {
+        vm.forwardTask(task)
     }
 }

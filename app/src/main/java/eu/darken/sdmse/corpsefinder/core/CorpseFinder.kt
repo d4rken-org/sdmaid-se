@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
@@ -85,7 +84,7 @@ class CorpseFinder @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result = try {
+    private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result {
         log(TAG) { "performScan(): $task" }
 
         internalData.value = null
@@ -109,24 +108,21 @@ class CorpseFinder @Inject constructor(
             corpses = results
         )
 
-        CorpseFinderScanTask.Success(
+        return CorpseFinderScanTask.Success(
             itemCount = results.size,
             recoverableSpace = results.sumOf { it.size },
         )
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan(): Failure:\n${e.asLog()}" }
-        CorpseFinderScanTask.Failure(e)
     }
 
-    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
+    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result {
         log(TAG) { "deleteCorpses(): $task" }
 
         val deleted = mutableSetOf<Corpse>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        task.toDelete.forEach { target ->
+        val targets = task.toDelete ?: snapshot.corpses.map { it.path }
+
+        targets.forEach { target ->
             val corpse = snapshot.corpses.single { it.path == target }
 
             updateProgressPrimary(caString {
@@ -150,15 +146,10 @@ class CorpseFinder @Inject constructor(
             corpses = snapshot.corpses.minus(deleted)
         )
 
-        CorpseFinderDeleteTask.Success(
+        return CorpseFinderDeleteTask.Success(
             deletedItems = deleted.size,
             recoveredSpace = deleted.sumOf { it.size }
         )
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "deleteCorpses(): Failure:\n${e.asLog()}" }
-        CorpseFinderDeleteTask.Failure(e)
     }
 
     data class Data(

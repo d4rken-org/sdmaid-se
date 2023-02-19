@@ -4,13 +4,12 @@ import android.text.format.Formatter
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SystemCleanerDeleteTask(
-    val toDelete: Set<FilterIdentifier> = emptySet(),
+    val toDelete: Set<FilterIdentifier>? = null,
     val isWatcherTask: Boolean = false,
 ) : SystemCleanerTask {
 
@@ -28,11 +27,5 @@ data class SystemCleanerDeleteTask(
                     Formatter.formatShortFileSize(it, recoveredSpace)
                 )
             }
-    }
-
-    @Parcelize
-    data class Failure(val error: Exception) : Result {
-        override val primaryInfo: CaString
-            get() = R.string.general_result_failure_message.toCaString()
     }
 }

@@ -56,12 +56,12 @@ class CorpseListFragmentVM @Inject constructor(
     }
 
     fun doDelete(corpse: Corpse) = launch {
-        log(TAG, INFO) { "doDelete(corpse=$corpse)" }
+        log(TAG, INFO) { "doDelete(): $corpse" }
         val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
         val result = taskManager.submit(task) as CorpseFinderDeleteTask.Result
+        log(TAG) { "doDelete(): Result was $result" }
         when (result) {
             is CorpseFinderDeleteTask.Success -> events.postValue(CorpseListEvents.TaskResult(result))
-            is CorpseFinderDeleteTask.Failure -> errorEvents.postValue(result.error)
         }
     }
 

@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -48,9 +49,13 @@ class SystemCleanerListFragmentVM @Inject constructor(
     }
 
     fun doDelete(filterContent: FilterContent) = launch {
-        log(TAG, INFO) { "doDelete(filterContent=$filterContent)" }
-//        val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
-//        taskManager.submit(task)
+        log(TAG, INFO) { "doDelete(): $filterContent" }
+        val task = SystemCleanerDeleteTask(toDelete = setOf(filterContent.filterIdentifier))
+        val result = taskManager.submit(task) as SystemCleanerDeleteTask.Result
+        log(TAG) { "doDelete(): Result was $result" }
+        when (result) {
+            is SystemCleanerDeleteTask.Success -> events.postValue(SystemCleanerListEvents.TaskResult(result))
+        }
     }
 
     fun showDetails(filterContent: FilterContent) = launch {

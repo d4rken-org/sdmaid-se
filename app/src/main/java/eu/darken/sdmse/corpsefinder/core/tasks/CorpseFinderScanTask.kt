@@ -22,10 +22,4 @@ data class CorpseFinderScanTask(
         override val primaryInfo: CaString
             get() = R.string.general_result_success_message.toCaString()
     }
-
-    @Parcelize
-    data class Failure(val error: Exception) : Result {
-        override val primaryInfo: CaString
-            get() = R.string.general_result_failure_message.toCaString()
-    }
 }
