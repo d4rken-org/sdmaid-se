@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getQuantityString2
@@ -43,24 +44,29 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
             toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.items.size)
         }
 
-        vm.events.observe2(ui) {
-            when (it) {
+        vm.events.observe2(ui) { event ->
+            when (event) {
                 is CorpseListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
                     setMessage(
                         getString(
                             R.string.general_delete_confirmation_message_x,
-                            it.corpse.path.userReadableName.get(context)
+                            event.corpse.path.userReadableName.get(context)
                         )
                     )
                     setPositiveButton(R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(it.corpse)
+                        vm.doDelete(event.corpse)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ ->
-                        vm.showDetails(it.corpse)
+                        vm.showDetails(event.corpse)
                     }
                 }.show()
+                is CorpseListEvents.TaskResult -> Snackbar.make(
+                    requireView(),
+                    event.result.primaryInfo.get(requireContext()),
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
         }
 

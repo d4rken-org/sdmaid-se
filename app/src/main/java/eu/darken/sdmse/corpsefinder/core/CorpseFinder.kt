@@ -32,8 +32,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import okio.IOException
-import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -46,8 +44,9 @@ class CorpseFinder @Inject constructor(
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
-    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
+    override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
 
+    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -58,8 +57,6 @@ class CorpseFinder @Inject constructor(
 
     private val internalData = MutableStateFlow(null as Data?)
     val data: Flow<Data?> = internalData
-
-    override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
 
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
@@ -76,17 +73,21 @@ class CorpseFinder @Inject constructor(
                     is CorpseFinderDeleteTask -> deleteCorpses(task)
                 }
             }
+            internalData.value = internalData.value?.copy(
+                lastResult = result,
+            )
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
+        } catch (e: CancellationException) {
+            throw e
         } finally {
             updateProgress { null }
         }
     }
 
     private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result = try {
-        log(TAG) { "performScan($task)" }
+        log(TAG) { "performScan(): $task" }
 
-        val scanStart = System.currentTimeMillis()
         internalData.value = null
 
         val filters = filterFactories
@@ -108,16 +109,15 @@ class CorpseFinder @Inject constructor(
             corpses = results
         )
 
-        val scanStop = System.currentTimeMillis()
-        val time = Duration.ofMillis(scanStop - scanStart)
         CorpseFinderScanTask.Success(
-            duration = time
+            itemCount = results.size,
+            recoverableSpace = results.sumOf { it.size },
         )
     } catch (e: CancellationException) {
         throw e
-    } catch (e: IOException) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        CorpseFinderScanTask.Error(e)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "performScan(): Failure:\n${e.asLog()}" }
+        CorpseFinderScanTask.Failure(e)
     }
 
     private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result = try {
@@ -125,7 +125,6 @@ class CorpseFinder @Inject constructor(
 
         val deleted = mutableSetOf<Corpse>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
-
 
         task.toDelete.forEach { target ->
             val corpse = snapshot.corpses.single { it.path == target }
@@ -152,15 +151,19 @@ class CorpseFinder @Inject constructor(
         )
 
         CorpseFinderDeleteTask.Success(
-            reclaimedSize = deleted.sumOf { it.size }
+            deletedItems = deleted.size,
+            recoveredSpace = deleted.sumOf { it.size }
         )
+    } catch (e: CancellationException) {
+        throw e
     } catch (e: Exception) {
-        log(TAG, ERROR) { "deleteCorpses($task) failed:\n${e.asLog()}" }
-        CorpseFinderDeleteTask.Error(e)
+        log(TAG, ERROR) { "deleteCorpses(): Failure:\n${e.asLog()}" }
+        CorpseFinderDeleteTask.Failure(e)
     }
 
     data class Data(
-        val corpses: Collection<Corpse>
+        val corpses: Collection<Corpse>,
+        val lastResult: CorpseFinderTask.Result? = null,
     ) {
         val totalSize: Long
             get() = corpses.sumOf { it.size }

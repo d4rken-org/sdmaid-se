@@ -69,7 +69,8 @@ class CorpseFragmentVM @Inject constructor(
     fun doDelete(corpse: Corpse) = launch {
         log(TAG, INFO) { "doDelete(corpse=$corpse)" }
         val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
-        taskManager.submit(task)
+        // Removnig the corpse, removes the fragment and also this viewmodel, so we can't post our own result
+        events.postValue(CorpseEvents.TaskForParent(task))
     }
 
     companion object {

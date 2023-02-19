@@ -27,7 +27,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -75,10 +74,9 @@ class AppCleaner @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: AppCleanerScanTask): AppCleanerTask.Result = try {
-        log(TAG, VERBOSE) { "performScan($task)" }
+    private suspend fun performScan(task: AppCleanerScanTask): AppCleanerScanTask.Result = try {
+        log(TAG, VERBOSE) { "performScan(): $task" }
 
-        val scanStart = System.currentTimeMillis()
         internalData.value = null
 
         val scanner = appScannerProvider.get()
@@ -93,25 +91,26 @@ class AppCleaner @Inject constructor(
             junks = results,
         )
 
-        val scanStop = System.currentTimeMillis()
-        val time = Duration.ofMillis(scanStop - scanStart)
         AppCleanerScanTask.Success(
-            duration = time
+            itemCount = results.size,
+            recoverableSpace = results.sumOf { it.size },
         )
     } catch (e: CancellationException) {
         throw e
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        AppCleanerScanTask.Error(e)
+        log(TAG, ERROR) { "performScan(): Failed: ${e.asLog()}" }
+        AppCleanerScanTask.Failure(e)
     }
 
-    private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerTask.Result = try {
-        log(TAG, VERBOSE) { "performDelete($task)" }
+    private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result = try {
+        log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        AppCleanerDeleteTask.Success(TODO())
+        AppCleanerDeleteTask.Success(TODO(), TODO())
+    } catch (e: CancellationException) {
+        throw e
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        AppCleanerDeleteTask.Error(e)
+        log(TAG, ERROR) { "performScan() Failed: ${e.asLog()}" }
+        AppCleanerDeleteTask.Failure(e)
     }
 
     data class Data(

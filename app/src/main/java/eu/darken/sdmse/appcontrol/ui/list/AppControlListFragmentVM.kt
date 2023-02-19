@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcontrol.core.AppControl
-import eu.darken.sdmse.appcontrol.core.AppControlScanTask
+import eu.darken.sdmse.appcontrol.core.tasks.AppControlScanTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag

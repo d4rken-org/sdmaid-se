@@ -27,7 +27,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -78,11 +77,10 @@ class SystemCleaner @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: SystemCleanerScanTask): SystemCleanerTask.Result = try {
-        log(TAG, VERBOSE) { "performScan($task)" }
+    private suspend fun performScan(task: SystemCleanerScanTask): SystemCleanerScanTask.Result = try {
+        log(TAG, VERBOSE) { "performScan(): $task" }
         updateProgressPrimary(R.string.general_progress_searching)
 
-        val scanStart = System.currentTimeMillis()
         internalData.value = null
 
         val crawler = crawlerProvider.get()
@@ -95,25 +93,24 @@ class SystemCleaner @Inject constructor(
             filterContents = results
         )
 
-        val scanStop = System.currentTimeMillis()
-        val time = Duration.ofMillis(scanStop - scanStart)
         SystemCleanerScanTask.Success(
-            duration = time
+            itemCount = results.size,
+            recoverableSpace = results.sumOf { it.size },
         )
     } catch (e: CancellationException) {
         throw e
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        SystemCleanerScanTask.Error(e)
+        log(TAG, ERROR) { "performScan() failed: ${e.asLog()}" }
+        SystemCleanerScanTask.Failure(e)
     }
 
-    private suspend fun performDelete(task: SystemCleanerDeleteTask): SystemCleanerTask.Result = try {
-        log(TAG, VERBOSE) { "performDelete($task)" }
+    private suspend fun performDelete(task: SystemCleanerDeleteTask): SystemCleanerDeleteTask.Result = try {
+        log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        SystemCleanerDeleteTask.Success(TODO())
+        SystemCleanerDeleteTask.Success(TODO(), TODO())
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        SystemCleanerDeleteTask.Error(e)
+        log(TAG, ERROR) { "performScan() failed: ${e.asLog()}" }
+        SystemCleanerDeleteTask.Failure(e)
     }
 
     data class Data(

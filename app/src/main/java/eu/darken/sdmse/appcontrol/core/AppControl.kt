@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.appcontrol.core.tasks.AppControlScanTask
+import eu.darken.sdmse.appcontrol.core.tasks.AppControlTask
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -22,7 +24,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -66,10 +67,9 @@ class AppControl @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: AppControlScanTask): AppControlTask.Result = try {
-        log(TAG, VERBOSE) { "performScan($task)" }
+    private suspend fun performScan(task: AppControlScanTask): AppControlScanTask.Result = try {
+        log(TAG, VERBOSE) { "performScan(): $task" }
 
-        val scanStart = System.currentTimeMillis()
         internalData.value = null
 
         val appInfos = pkgRepo.currentPkgs()
@@ -83,14 +83,12 @@ class AppControl @Inject constructor(
             apps = appInfos,
         )
 
-        val scanStop = System.currentTimeMillis()
-        val time = Duration.ofMillis(scanStop - scanStart)
         AppControlScanTask.Success(
-            duration = time
+            itemCount = appInfos.size
         )
     } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan($task) failed: ${e.asLog()}" }
-        AppControlScanTask.Error(e)
+        log(TAG, ERROR) { "performScan(): Failed: ${e.asLog()}" }
+        AppControlScanTask.Failure(e)
     }
 
 

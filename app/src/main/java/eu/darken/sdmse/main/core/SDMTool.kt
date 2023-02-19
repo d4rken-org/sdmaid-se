@@ -1,9 +1,9 @@
 package eu.darken.sdmse.main.core
 
 import android.os.Parcelable
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
-import okhttp3.internal.concurrent.Task
 
 interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
 
@@ -14,7 +14,10 @@ interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
     interface Task : Parcelable {
         val type: Type
 
-        interface Result : Parcelable
+        interface Result : Parcelable {
+            val primaryInfo: CaString
+            val secondaryInfo: CaString? get() = null
+        }
     }
 
     enum class Type {

@@ -52,6 +52,10 @@
     <string name="general_progress_queued">In queue</string>
     <string name="general_progress_deleting">Deleting %s</string>
 
+    <string name="general_result_success_message">Operation successful</string>
+    <string name="general_result_failure_message">Operation failed</string>
+    <string name="general_result_x_space_freed">%s freed</string>
+
     <string name="general_view_action">View</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>

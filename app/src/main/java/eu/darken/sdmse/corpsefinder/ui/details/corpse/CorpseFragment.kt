@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
+import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
 import eu.darken.sdmse.databinding.CorpsefinderCorpseFragmentBinding
 
@@ -38,19 +39,20 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
             loadingOverlay.setProgress(state.progress)
         }
 
-        vm.events.observe2(ui) {
-            when (it) {
+        vm.events.observe2(ui) { event ->
+            when (event) {
                 is CorpseEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
                     setMessage(
                         getString(
                             R.string.general_delete_confirmation_message_x,
-                            it.corpse.path.userReadableName.get(context)
+                            event.corpse.path.userReadableName.get(context)
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.doDelete(it.corpse) }
+                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.doDelete(event.corpse) }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                 }.show()
+                is CorpseEvents.TaskForParent -> (parentFragment as CorpseDetailsFragment).forwardTask(event.task)
             }
         }
 
