@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.text.SpannableStringBuilder
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
@@ -20,10 +21,21 @@ class TitleCardVH(parent: ViewGroup) :
 
     private val slogan by lazy { getRngSlogan() }
 
+    private val wiggleAnim = AnimationUtils.loadAnimation(context, R.anim.anim_wiggle)
+
     override val onBindData: DashboardTitleItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+
+        icon.apply {
+            var clickCount = 0
+            setOnClickListener {
+                clickCount++
+                if (clickCount % 5 == 0) startAnimation(wiggleAnim)
+            }
+        }
+
         if (item.upgradeInfo?.isPro == true) {
             val builder = SpannableStringBuilder(getString(R.string.app_name))
 
