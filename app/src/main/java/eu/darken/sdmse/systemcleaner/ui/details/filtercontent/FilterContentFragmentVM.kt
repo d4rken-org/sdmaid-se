@@ -13,7 +13,6 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerFileDeleteTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 import kotlinx.coroutines.flow.*
@@ -71,14 +70,14 @@ class FilterContentFragmentVM @Inject constructor(
 
     fun doDelete(identifier: FilterIdentifier) = launch {
         log(TAG, INFO) { "doDelete(): $identifier" }
-        val task = SystemCleanerDeleteTask(toDelete = setOf(identifier))
+        val task = SystemCleanerDeleteTask(targetFilters = setOf(identifier))
         // Removing the filtercontent, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(FilterContentEvents.TaskForParent(task))
     }
 
     fun doDelete(identifier: FilterIdentifier, path: APath) = launch {
         log(TAG, INFO) { "doDelete(): $path" }
-        val task = SystemCleanerFileDeleteTask(identifier, setOf(path))
+        val task = SystemCleanerDeleteTask(setOf(identifier), setOf(path))
         events.postValue(FilterContentEvents.TaskForParent(task))
     }
 

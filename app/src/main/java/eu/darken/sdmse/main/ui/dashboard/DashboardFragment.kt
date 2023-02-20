@@ -116,7 +116,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                                 event.sieves.sumOf { it.items.size })
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmSieveDeletion(event.sieves) }
+                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
                 }.show()

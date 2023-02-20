@@ -13,18 +13,14 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.deleteAll
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerFileDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.CoroutineScope
@@ -72,7 +68,6 @@ class SystemCleaner @Inject constructor(
                 when (task) {
                     is SystemCleanerScanTask -> performScan(task)
                     is SystemCleanerDeleteTask -> performDelete(task)
-                    is SystemCleanerFileDeleteTask -> performFileDelete(task)
                 }
             }
             log(TAG, INFO) { "submit($task) finished: $result" }
@@ -107,87 +102,53 @@ class SystemCleaner @Inject constructor(
     private suspend fun performDelete(task: SystemCleanerDeleteTask): SystemCleanerTask.Result {
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        val deleted = mutableSetOf<FilterContent>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val targets = task.toDelete ?: snapshot.filterContents.map { it.filterIdentifier }
+        val deletedContents = mutableMapOf<FilterContent, Set<APathLookup<*>>>()
 
-        targets.forEach { target ->
-            val filterContent = snapshot.filterContents.single { it.filterIdentifier == target }
+        val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.filterIdentifier }
+        targetFilters.forEach { targetIdentifier ->
+            val filterContent = snapshot.filterContents.single { it.filterIdentifier == targetIdentifier }
 
-            updateProgressPrimary(caString {
-                it.getString(R.string.general_progress_deleting, filterContent.filterIdentifier.getLabel(it))
-            })
+            val deleted = mutableSetOf<APathLookup<*>>()
 
-            log(TAG) { "Deleting $target..." }
-            filterContent.items.forEach { contentPath ->
-                contentPath.deleteAll(gatewaySwitch) {
+            val targetContents = task.targetContent ?: filterContent.items
+            targetContents.forEach { targetContent ->
+                updateProgressPrimary(caString {
+                    it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
+                })
+                log(TAG) { "Deleting $targetContent..." }
+                targetContent.deleteAll(gatewaySwitch) {
                     updateProgressSecondary(it.userReadablePath)
                     true
                 }
-            }
-            log(TAG) { "Deleted $target!" }
+                log(TAG) { "Deleted $targetContent!" }
 
-            deleted.add(filterContent)
+                deleted.addAll(
+                    filterContent.items.filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
+                )
+            }
+
+            deletedContents[filterContent] = deleted
         }
 
         updateProgressPrimary(R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(
-            filterContents = snapshot.filterContents.minus(deleted)
+            filterContents = snapshot.filterContents.map { filterContent ->
+                when {
+                    deletedContents.containsKey(filterContent) -> filterContent.copy(
+                        items = filterContent.items.filter { c -> deletedContents[filterContent]!!.none { it.matches(c) } }
+                    )
+                    else -> filterContent
+                }
+            }.filter { it.items.isNotEmpty() }
         )
 
         return SystemCleanerDeleteTask.Success(
-            deletedItems = deleted.size,
-            recoveredSpace = deleted.sumOf { it.size }
-        )
-    }
-
-    private suspend fun performFileDelete(task: SystemCleanerFileDeleteTask): SystemCleanerTask.Result {
-        log(TAG, VERBOSE) { "performDelete(): $task" }
-
-        val deleted = mutableSetOf<APathLookup<*>>()
-        val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
-
-        val filter = snapshot.filterContents.single { it.filterIdentifier == task.identifier }
-
-        updateProgressPrimary(caString {
-            it.getString(R.string.general_progress_deleting, filter.filterIdentifier.getLabel(it))
-        })
-
-        task.toDelete.forEach { target ->
-            log(TAG) { "Deleting $target..." }
-            val filterItem = filter.items.single { it.path == target.path }
-            filterItem.deleteAll(gatewaySwitch) {
-                updateProgressSecondary(it.userReadablePath)
-                true
-            }
-            log(TAG) { "Deleted $target!" }
-
-            deleted.add(filterItem)
-        }
-
-        updateProgressPrimary(R.string.general_progress_loading)
-        updateProgressSecondary(CaString.EMPTY)
-
-        val updatedContent = filter.copy(
-            items = filter.items.minus(deleted)
-        )
-
-        internalData.value = if (updatedContent.items.isEmpty()) {
-            snapshot.copy(
-                filterContents = snapshot.filterContents.minus(filter)
-            )
-        } else {
-            snapshot.copy(
-                filterContents = snapshot.filterContents.minus(filter).plus(updatedContent)
-            )
-        }
-
-        return SystemCleanerDeleteTask.Success(
-            deletedItems = deleted.size,
-            recoveredSpace = deleted.sumOf { it.size }
+            deletedItems = deletedContents.values.sumOf { it.size },
+            recoveredSpace = deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
         )
     }
 

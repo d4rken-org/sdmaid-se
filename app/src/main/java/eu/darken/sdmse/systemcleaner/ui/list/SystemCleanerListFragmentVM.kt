@@ -50,7 +50,7 @@ class SystemCleanerListFragmentVM @Inject constructor(
 
     fun doDelete(filterContent: FilterContent) = launch {
         log(TAG, INFO) { "doDelete(): $filterContent" }
-        val task = SystemCleanerDeleteTask(toDelete = setOf(filterContent.filterIdentifier))
+        val task = SystemCleanerDeleteTask(targetFilters = setOf(filterContent.filterIdentifier))
         val result = taskManager.submit(task) as SystemCleanerDeleteTask.Result
         log(TAG) { "doDelete(): Result was $result" }
         when (result) {

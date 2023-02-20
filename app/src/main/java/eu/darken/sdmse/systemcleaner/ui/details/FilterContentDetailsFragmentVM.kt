@@ -13,7 +13,6 @@ import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerFileDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.flow.*
@@ -64,7 +63,6 @@ class FilterContentDetailsFragmentVM @Inject constructor(
         log(TAG) { "forwardTask(): Result $result" }
         when (result) {
             is SystemCleanerDeleteTask.Success -> events.postValue(FilterContentDetailsEvents.TaskResult(result))
-            is SystemCleanerFileDeleteTask.Success -> events.postValue(FilterContentDetailsEvents.TaskResult(result))
             is SystemCleanerScanTask.Success -> {}
         }
     }
