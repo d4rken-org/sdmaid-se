@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
-import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
@@ -27,7 +26,6 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -38,7 +36,6 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.setup.SetupManager
-import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask

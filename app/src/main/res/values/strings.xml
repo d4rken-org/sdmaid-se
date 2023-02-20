@@ -2,13 +2,14 @@
     <string name="label_settings">Settings</string>
     <string name="label_help">Help</string>
 
-    <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
     <string name="slogan_message_0">At your service.</string>
     <string name="slogan_message_1">Clean &amp; tidy.</string>
     <string name="slogan_message_2">Preventing chaos.</string>
     <string name="slogan_message_3">Doing what is necessary.</string>
     <string name="slogan_message_4">All your ducks in a row.</string>
     <string name="slogan_message_5">Spotless.</string>
+    <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
+    <string name="dashboard_delete_all_message">Delete results in all tools?</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -130,7 +131,7 @@
         <item quantity="other">%d remains found</item>
     </plurals>
     <string name="corpsefinder_details_title">Details</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Delete all app remains (%s)?</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Delete all app remains?</string>
     <string name="corpsefinder_owners_label">Owners</string>
     <string name="corpsefinder_corpse_hints_label">Notice</string>
     <string name="corpsefinder_owner_unknown">Unknown owner</string>
@@ -181,7 +182,7 @@
     <string name="systemcleaner_filter_tombstones_summary">If native processes crash (e.g. games), then files are created here.</string>
     <string name="systemcleaner_filter_usagestats_label">Usage stats</string>
     <string name="systemcleaner_filter_usagestats_summary">Files related to application usage stats.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Delete all sieve contents (%s)?</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Delete all filter contents?</string>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
@@ -223,7 +224,7 @@
     <string name="appcleaner_filter_threema_summary">Files received through Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Clean all apps (%s)?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Clean all apps?</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>

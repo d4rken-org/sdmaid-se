@@ -1,22 +1,23 @@
 package eu.darken.sdmse.main.ui.dashboard
 
-import eu.darken.sdmse.appcleaner.core.AppJunk
-import eu.darken.sdmse.corpsefinder.core.Corpse
-import eu.darken.sdmse.systemcleaner.core.FilterContent
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 
 sealed interface DashboardEvents {
 
     object SetupDismissHint : DashboardEvents
 
-    data class CorpseFinderDeleteAllConfirmation(
-        val corpses: Collection<Corpse>,
+    data class CorpseFinderDeleteConfirmation(
+        val task: CorpseFinderDeleteTask,
     ) : DashboardEvents
 
-    data class SystemCleanerDeleteAllConfirmation(
-        val sieves: Collection<FilterContent>,
+    data class SystemCleanerDeleteConfirmation(
+        val task: SystemCleanerDeleteTask,
     ) : DashboardEvents
 
-    data class AppCleanerDeleteAllConfirmation(
-        val appJunks: Collection<AppJunk>,
+    data class AppCleanerDeleteConfirmation(
+        val task: AppCleanerDeleteTask,
     ) : DashboardEvents
 }

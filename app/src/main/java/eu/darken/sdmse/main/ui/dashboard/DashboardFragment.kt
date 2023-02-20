@@ -11,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.doNavigate
@@ -58,7 +57,18 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
             mainAction.isEnabled = state.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
 
-            mainAction.setOnClickListener { vm.mainAction(state.actionState) }
+            mainAction.setOnClickListener {
+                if (state.actionState == DashboardFragmentVM.BottomBarState.Action.DELETE) {
+                    MaterialAlertDialogBuilder(requireContext()).apply {
+                        setTitle(R.string.general_delete_confirmation_title)
+                        setMessage(R.string.dashboard_delete_all_message)
+                        setPositiveButton(R.string.general_delete_all_action) { _, _ -> vm.mainAction(state.actionState) }
+                        setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    }.show()
+                } else {
+                    vm.mainAction(state.actionState)
+                }
+            }
 
             when (state.actionState) {
                 DashboardFragmentVM.BottomBarState.Action.SCAN -> {
@@ -94,41 +104,24 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
         vm.dashboardevents.observe2(ui) { event ->
             when (event) {
-                is DashboardEvents.CorpseFinderDeleteAllConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is DashboardEvents.CorpseFinderDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
-                    setMessage(
-                        getString(
-                            R.string.corpsefinder_delete_all_confirmation_message,
-                            requireContext().getQuantityString2(R.plurals.result_x_items, event.corpses.size)
-                        )
-                    )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion(event.corpses) }
+                    setMessage(R.string.corpsefinder_delete_all_confirmation_message)
+                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showCorpseFinderDetails() }
                 }.show()
-                is DashboardEvents.SystemCleanerDeleteAllConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is DashboardEvents.SystemCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
-                    setMessage(
-                        getString(
-                            R.string.systemcleaner_delete_all_confirmation_message,
-                            requireContext().getQuantityString2(
-                                R.plurals.result_x_items,
-                                event.sieves.sumOf { it.items.size })
-                        )
-                    )
+                    setMessage(R.string.systemcleaner_delete_all_confirmation_message)
                     setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
                 }.show()
-                is DashboardEvents.AppCleanerDeleteAllConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is DashboardEvents.AppCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
-                    setMessage(
-                        getString(
-                            R.string.appcleaner_delete_all_confirmation_message,
-                            requireContext().getQuantityString2(R.plurals.result_x_items, event.appJunks.size)
-                        )
-                    )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion(event.appJunks) }
+                    setMessage(R.string.appcleaner_delete_all_confirmation_message)
+                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion() }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
