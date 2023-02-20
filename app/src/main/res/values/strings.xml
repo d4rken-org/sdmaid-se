@@ -127,8 +127,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Data moved to external storage by App2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d remain found</item>
-        <item quantity="other">%d remains found</item>
+        <item quantity="one">%d app remain discovered</item>
+        <item quantity="other">%d app remains discovered</item>
     </plurals>
     <string name="corpsefinder_details_title">Details</string>
     <string name="corpsefinder_delete_all_confirmation_message">Delete all app remains?</string>
@@ -225,6 +225,10 @@
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
     <string name="appcleaner_delete_all_confirmation_message">Clean all apps?</string>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d expendable item found</item>
+        <item quantity="other">%d expendable items found</item>
+    </plurals>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>

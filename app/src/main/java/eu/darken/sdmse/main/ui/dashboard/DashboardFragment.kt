@@ -102,7 +102,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
         }
 
-        vm.dashboardevents.observe2(ui) { event ->
+        vm.events.observe2(ui) { event ->
             when (event) {
                 is DashboardEvents.CorpseFinderDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
@@ -135,6 +135,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         .setAction(R.string.general_undo_action) { _ -> vm.undoSetupHide() }
                         .show()
                 }
+                is DashboardEvents.TaskResult -> Snackbar.make(
+                    requireView(),
+                    event.result.primaryInfo.get(requireContext()),
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
         }
 

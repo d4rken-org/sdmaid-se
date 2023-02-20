@@ -20,4 +20,8 @@ sealed interface DashboardEvents {
     data class AppCleanerDeleteConfirmation(
         val task: AppCleanerDeleteTask,
     ) : DashboardEvents
+
+    data class TaskResult(
+        val result: SDMTool.Task.Result
+    ) : DashboardEvents
 }
