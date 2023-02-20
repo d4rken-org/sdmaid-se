@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.core.Permissions
 import eu.darken.sdmse.common.files.core.useQuietly
 import timber.log.Timber
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.time.Instant
 import java.util.*
@@ -162,8 +163,10 @@ internal data class SAFDocFile(
         return foundUris.map { SAFDocFile(context, resolver, it) }
     }
 
-    fun delete(): Boolean {
-        return DocumentsContract.deleteDocument(resolver, uri)
+    fun delete(): Boolean = try {
+        DocumentsContract.deleteDocument(resolver, uri)
+    } catch (e: IllegalArgumentException) {
+        if (e.message?.contains(FileNotFoundException::class.simpleName!!) == true) false else throw e
     }
 
     fun setLastModified(lastModified: Instant): Boolean = try {
