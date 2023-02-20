@@ -5,23 +5,25 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.main.core.SDMTool
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +37,7 @@ import javax.inject.Singleton
 class AppCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     fileForensics: FileForensics,
-    gatewaySwitch: GatewaySwitch,
+    private val gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
     private val appScannerProvider: Provider<AppScanner>,
 ) : SDMTool, Progress.Client {
@@ -74,7 +76,7 @@ class AppCleaner @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: AppCleanerScanTask): AppCleanerScanTask.Result = try {
+    private suspend fun performScan(task: AppCleanerScanTask): AppCleanerScanTask.Result {
         log(TAG, VERBOSE) { "performScan(): $task" }
 
         internalData.value = null
@@ -91,26 +93,77 @@ class AppCleaner @Inject constructor(
             junks = results,
         )
 
-        AppCleanerScanTask.Success(
+        return AppCleanerScanTask.Success(
             itemCount = results.size,
             recoverableSpace = results.sumOf { it.size },
         )
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan(): Failed: ${e.asLog()}" }
-        AppCleanerScanTask.Failure(e)
     }
 
-    private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result = try {
+    private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result {
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        AppCleanerDeleteTask.Success(TODO(), TODO())
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "performScan() Failed: ${e.asLog()}" }
-        AppCleanerDeleteTask.Failure(e)
+        val deletionMap = mutableMapOf<Pkg.Id, Set<APathLookup<*>>>()
+        val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
+
+        val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.pkg.id }
+        targetPkgs.forEach { targetPkg ->
+            val appJunk = snapshot.junks.single { it.pkg.id == targetPkg }
+            val targetFilters = task.targetFilters
+                ?: appJunk.expendables?.keys
+                ?: emptySet()
+            val targetFiles: Collection<APathLookup<*>> = task.targetContents
+                ?.map { tc ->
+                    val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
+                    allFiles.single { tc.matches(it) }
+                }
+                ?: appJunk.expendables?.filterKeys { targetFilters.contains(it) }?.values?.flatten()
+                ?: emptySet()
+
+            val deleted = mutableSetOf<APathLookup<*>>()
+
+            targetFiles.forEach { targetFile ->
+                updateProgressPrimary(caString {
+                    it.getString(R.string.general_progress_deleting, targetFile.userReadableName.get(it))
+                })
+                log(TAG) { "Deleting $targetFile..." }
+                targetFile.deleteAll(gatewaySwitch) {
+                    updateProgressSecondary(it.userReadablePath)
+                    true
+                }
+                log(TAG) { "Deleted $targetFile!" }
+                deleted.add(targetFile)
+            }
+
+            deletionMap[appJunk.identifier] = deleted
+
+        }
+
+        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressSecondary(CaString.EMPTY)
+
+        internalData.value = snapshot.copy(
+            junks = snapshot.junks
+                .map { appJunk ->
+                    if (!deletionMap.containsKey(appJunk.identifier)) return@map appJunk
+
+                    // Remove all files we deleted or children of deleted files
+                    appJunk.copy(
+                        expendables = appJunk.expendables
+                            ?.mapValues { (type, typeFiles) ->
+                                typeFiles.filter { file ->
+                                    deletionMap[appJunk.identifier]!!.none { it.matches(file) || it.isAncestorOf(file) }
+                                }
+                            }
+                            ?.filterValues { it.isNotEmpty() }
+                    )
+                }
+                .filter { !it.isEmpty() }
+        )
+
+        return AppCleanerDeleteTask.Success(
+            deletedCount = deletionMap.values.sumOf { it.size },
+            recoveredSpace = deletionMap.values.sumOf { contents -> contents.sumOf { it.size } }
+        )
     }
 
     data class Data(

@@ -161,15 +161,16 @@ class CorpseFinder @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(
-            corpses = snapshot.corpses.mapNotNull { corpse ->
-                when {
-                    deletedCorpses.contains(corpse) -> null
-                    deletedContents.containsKey(corpse) -> corpse.copy(
-                        content = corpse.content.filter { c -> deletedContents[corpse]!!.none { it.matches(c) } }
-                    )
-                    else -> corpse
+            corpses = snapshot.corpses
+                .mapNotNull { corpse ->
+                    when {
+                        deletedCorpses.contains(corpse) -> null
+                        deletedContents.containsKey(corpse) -> corpse.copy(
+                            content = corpse.content.filter { c -> deletedContents[corpse]!!.none { it.matches(c) } }
+                        )
+                        else -> corpse
+                    }
                 }
-            }
         )
 
         return CorpseFinderDeleteTask.Success(

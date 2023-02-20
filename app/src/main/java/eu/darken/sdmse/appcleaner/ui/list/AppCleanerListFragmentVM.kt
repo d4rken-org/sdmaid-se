@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -49,8 +50,12 @@ class AppCleanerListFragmentVM @Inject constructor(
 
     fun doDelete(appJunk: AppJunk) = launch {
         log(TAG, INFO) { "doDelete(appJunk=$appJunk)" }
-//        val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
-//        taskManager.submit(task)
+        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id))
+        val result = taskManager.submit(task) as AppCleanerDeleteTask.Result
+        log(TAG) { "doDelete(): Result was $result" }
+        when (result) {
+            is AppCleanerDeleteTask.Success -> events.postValue(AppCleanerListEvents.TaskResult(result))
+        }
     }
 
     fun showDetails(appJunk: AppJunk) = launch {

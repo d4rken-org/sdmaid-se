@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AppCleanerScanTask(
     val pkgIdFilter: Set<Pkg.Id> = emptySet(),
-) : AppCleanerTask() {
+) : AppCleanerTask {
 
     sealed interface Result : AppCleanerTask.Result
 
@@ -20,11 +20,5 @@ data class AppCleanerScanTask(
     ) : Result {
         override val primaryInfo: CaString
             get() = R.string.general_result_success_message.toCaString()
-    }
-
-    @Parcelize
-    data class Failure(val error: Exception) : Result {
-        override val primaryInfo: CaString
-            get() = R.string.general_result_failure_message.toCaString()
     }
 }

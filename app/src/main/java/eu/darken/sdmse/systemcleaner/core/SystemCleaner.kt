@@ -111,7 +111,6 @@ class SystemCleaner @Inject constructor(
             val filterContent = snapshot.filterContents.single { it.filterIdentifier == targetIdentifier }
 
             val deleted = mutableSetOf<APathLookup<*>>()
-
             val targetContents = task.targetContent ?: filterContent.items
             targetContents.forEach { targetContent ->
                 updateProgressPrimary(caString {
@@ -136,14 +135,18 @@ class SystemCleaner @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(
-            filterContents = snapshot.filterContents.map { filterContent ->
-                when {
-                    deletedContents.containsKey(filterContent) -> filterContent.copy(
-                        items = filterContent.items.filter { c -> deletedContents[filterContent]!!.none { it.matches(c) } }
-                    )
-                    else -> filterContent
+            filterContents = snapshot.filterContents
+                .map { filterContent ->
+                    when {
+                        deletedContents.containsKey(filterContent) -> filterContent.copy(
+                            items = filterContent.items.filter { c ->
+                                deletedContents[filterContent]!!.none { it.matches(c) }
+                            }
+                        )
+                        else -> filterContent
+                    }
                 }
-            }.filter { it.items.isNotEmpty() }
+                .filter { it.items.isNotEmpty() }
         )
 
         return SystemCleanerDeleteTask.Success(

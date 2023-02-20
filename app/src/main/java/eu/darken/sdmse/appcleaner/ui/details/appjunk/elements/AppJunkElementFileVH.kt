@@ -4,11 +4,13 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.FileType
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileBinding
+import kotlin.reflect.KClass
 
 
 class AppJunkElementFileVH(parent: ViewGroup) :
@@ -43,6 +45,7 @@ class AppJunkElementFileVH(parent: ViewGroup) :
 
     data class Item(
         val appJunk: AppJunk,
+        val category: KClass<out ExpendablesFilter>,
         val lookup: APathLookup<*>,
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {

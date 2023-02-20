@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcleanerDetailsFragmentBinding
@@ -44,5 +45,9 @@ class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
                 ?.let { viewpager.currentItem = it }
         }
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    fun forwardTask(task: AppCleanerTask) {
+        vm.forwardTask(task)
     }
 }
