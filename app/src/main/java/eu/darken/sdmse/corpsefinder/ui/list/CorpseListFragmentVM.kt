@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
@@ -23,6 +24,14 @@ class CorpseListFragmentVM @Inject constructor(
     private val corpseFinder: CorpseFinder,
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
+
+    init {
+        corpseFinder.data
+            .filter { !it.hasData }
+            .take(1)
+            .onEach { popNavStack() }
+            .launchInViewModel()
+    }
 
     val events = SingleLiveEvent<CorpseListEvents>()
 
@@ -46,14 +55,6 @@ class CorpseListFragmentVM @Inject constructor(
         val items: List<CorpseRowVH.Item>,
         val progress: Progress.Data? = null,
     )
-
-    init {
-        corpseFinder.data
-            .filter { it == null }
-            .take(1)
-            .onEach { popNavStack() }
-            .launchInViewModel()
-    }
 
     fun doDelete(corpse: Corpse) = launch {
         log(TAG, INFO) { "doDelete(): $corpse" }

@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
@@ -27,23 +28,19 @@ class CorpseDetailsFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<CorpseDetailsFragmentArgs>()
 
-    val events = SingleLiveEvent<CorpseDetailsEvents>()
-
     init {
         corpseFinder.data
-            .filter { it == null }
+            .filter { !it.hasData }
             .take(1)
-            .onEach {
-                popNavStack()
-            }
+            .onEach { popNavStack() }
             .launchInViewModel()
     }
 
+    val events = SingleLiveEvent<CorpseDetailsEvents>()
+
     val state = corpseFinder.data
         .filterNotNull()
-        .distinctUntilChangedBy { data ->
-            data.corpses.map { it.path }.toSet()
-        }
+        .distinctUntilChangedBy { data -> data.corpses.map { it.path }.toSet() }
         .map {
             State(
                 items = it.corpses.toList(),

@@ -56,10 +56,7 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                         }
                     )
                     setPositiveButton(R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(
-                            event.corpse,
-                            event.content
-                        )
+                        vm.doDelete(event.corpse, event.content)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                 }.show()

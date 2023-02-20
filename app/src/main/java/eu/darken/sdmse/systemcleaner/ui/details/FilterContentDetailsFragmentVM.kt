@@ -12,6 +12,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
@@ -27,17 +28,17 @@ class FilterContentDetailsFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<FilterContentDetailsFragmentArgs>()
 
-    val events = SingleLiveEvent<FilterContentDetailsEvents>()
-
     init {
         systemCleaner.data
-            .filter { it == null }
+            .filter { !it.hasData }
             .take(1)
             .onEach {
                 popNavStack()
             }
             .launchInViewModel()
     }
+
+    val events = SingleLiveEvent<FilterContentDetailsEvents>()
 
     val state = systemCleaner.data
         .filterNotNull()

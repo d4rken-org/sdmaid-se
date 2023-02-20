@@ -7,10 +7,12 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -23,30 +25,34 @@ class SystemCleanerListFragmentVM @Inject constructor(
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    val events = SingleLiveEvent<SystemCleanerListEvents>()
-
-    val items = systemCleaner.data
-        .filterNotNull()
-        .map { data ->
-            data.filterContents.map { content ->
-                SystemCleanerListRowVH.Item(
-                    content = content,
-                    onItemClicked = {
-                        events.postValue(SystemCleanerListEvents.ConfirmDeletion(it))
-                    },
-                    onDetailsClicked = { showDetails(it) }
-                )
-            }
-        }
-        .asLiveData2()
-
     init {
         systemCleaner.data
-            .filter { it == null }
+            .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
             .launchInViewModel()
     }
+
+    val events = SingleLiveEvent<SystemCleanerListEvents>()
+
+    val state = combine(
+        systemCleaner.data.filterNotNull(),
+        systemCleaner.progress,
+    ) { data, progress ->
+        val items = data.filterContents.map { content ->
+            SystemCleanerListRowVH.Item(
+                content = content,
+                onItemClicked = {
+                    events.postValue(SystemCleanerListEvents.ConfirmDeletion(it))
+                },
+                onDetailsClicked = { showDetails(it) }
+            )
+        }
+        State(
+            items = items,
+            progress = progress,
+        )
+    }.asLiveData2()
 
     fun doDelete(filterContent: FilterContent) = launch {
         log(TAG, INFO) { "doDelete(): $filterContent" }
@@ -64,6 +70,11 @@ class SystemCleanerListFragmentVM @Inject constructor(
             filterIdentifier = filterContent.filterIdentifier
         ).navigate()
     }
+
+    data class State(
+        val items: List<SystemCleanerListAdapter.Item>,
+        val progress: Progress.Data?,
+    )
 
     companion object {
         private val TAG = logTag("SystemCleaner", "List", "VM")

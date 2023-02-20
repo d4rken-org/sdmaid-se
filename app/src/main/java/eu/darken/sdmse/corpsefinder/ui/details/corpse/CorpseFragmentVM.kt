@@ -34,9 +34,7 @@ class CorpseFragmentVM @Inject constructor(
     val state = combine(
         corpseFinder.data
             .filterNotNull()
-            .map { data ->
-                data.corpses.singleOrNull { it.path == args.identifier }
-            }
+            .map { data -> data.corpses.singleOrNull { it.path == args.identifier } }
             .filterNotNull(),
         corpseFinder.progress
     ) { corpse, progress ->

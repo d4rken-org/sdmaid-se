@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,8 +33,11 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
             addItemDecoration(divDec)
         }
 
-        vm.info.observe2 {
-            adapter.update(it.elements)
+        vm.state.observe2(ui) { state ->
+            adapter.update(state.items)
+
+            list.isInvisible = state.progress != null
+            loadingOverlay.setProgress(state.progress)
         }
 
         vm.events.observe2(ui) { event ->

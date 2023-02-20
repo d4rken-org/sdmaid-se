@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
@@ -30,43 +31,47 @@ class FilterContentFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<FilterContentEvents>()
 
-    val info = systemCleaner.data
-        .filterNotNull()
-        .map { data ->
-            data.filterContents.singleOrNull { it.filterIdentifier == args.identifier }
-        }
-        .filterNotNull()
-        .map { filterContent ->
-            val elements = mutableListOf<FilterContentElementsAdapter.Item>()
+    val state = combine(
+        systemCleaner.data
+            .filterNotNull()
+            .map { data ->
+                data.filterContents.singleOrNull { it.filterIdentifier == args.identifier }
+            }
+            .filterNotNull(),
+        systemCleaner.progress,
+    ) { filterContent, progress ->
+        val elements = mutableListOf<FilterContentElementsAdapter.Item>()
 
-            FilterContentElementHeaderVH.Item(
+        FilterContentElementHeaderVH.Item(
+            filterContent = filterContent,
+            onDeleteAllClicked = {
+                events.postValue(FilterContentEvents.ConfirmDeletion(it.filterContent.filterIdentifier))
+            },
+            onExcludeClicked = {
+
+            }
+        ).run { elements.add(this) }
+
+        filterContent.items.map { item ->
+            FilterContentElementFileVH.Item(
                 filterContent = filterContent,
-                onDeleteAllClicked = {
-                    events.postValue(FilterContentEvents.ConfirmDeletion(it.filterContent.filterIdentifier))
-                },
-                onExcludeClicked = {
-
-                }
-            ).run { elements.add(this) }
-
-            filterContent.items.map { item ->
-                FilterContentElementFileVH.Item(
-                    filterContent = filterContent,
-                    lookup = item,
-                    onItemClick = {
-                        events.postValue(
-                            FilterContentEvents.ConfirmFileDeletion(
-                                it.filterContent.filterIdentifier,
-                                it.lookup
-                            )
+                lookup = item,
+                onItemClick = {
+                    events.postValue(
+                        FilterContentEvents.ConfirmFileDeletion(
+                            it.filterContent.filterIdentifier,
+                            it.lookup
                         )
-                    }
-                )
-            }.run { elements.addAll(this) }
+                    )
+                }
+            )
+        }.run { elements.addAll(this) }
 
-            Info(elements = elements)
-        }
-        .asLiveData2()
+        State(
+            items = elements,
+            progress = progress
+        )
+    }.asLiveData2()
 
     fun doDelete(identifier: FilterIdentifier) = launch {
         log(TAG, INFO) { "doDelete(): $identifier" }
@@ -81,8 +86,9 @@ class FilterContentFragmentVM @Inject constructor(
         events.postValue(FilterContentEvents.TaskForParent(task))
     }
 
-    data class Info(
-        val elements: List<FilterContentElementsAdapter.Item>,
+    data class State(
+        val items: List<FilterContentElementsAdapter.Item>,
+        val progress: Progress.Data?,
     )
 
     companion object {

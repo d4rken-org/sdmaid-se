@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
@@ -27,23 +28,19 @@ class AppJunkDetailsFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<AppJunkDetailsFragmentArgs>()
 
-    val events = SingleLiveEvent<AppJunkDetailsEvents>()
-
     init {
         appCleaner.data
-            .filter { it == null }
+            .filter { !it.hasData }
             .take(1)
-            .onEach {
-                popNavStack()
-            }
+            .onEach { popNavStack() }
             .launchInViewModel()
     }
 
+    val events = SingleLiveEvent<AppJunkDetailsEvents>()
+
     val state = appCleaner.data
         .filterNotNull()
-        .distinctUntilChangedBy { junks ->
-            junks.junks.map { it.identifier }.toSet()
-        }
+        .distinctUntilChangedBy { junks -> junks.junks.map { it.identifier }.toSet() }
         .map {
             State(
                 items = it.junks.toList(),

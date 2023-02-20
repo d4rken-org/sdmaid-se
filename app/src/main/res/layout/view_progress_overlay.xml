@@ -37,21 +37,22 @@
         android:id="@+id/primary"
         style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="wrap_content"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:paddingHorizontal="32dp"
+        android:text="@string/general_progress_loading"
         app:layout_constraintBottom_toTopOf="@id/secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progress"
-        tools:text="Loading primary" />
+        app:layout_constraintTop_toBottomOf="@id/progress" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
         style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center|top"
+        android:minLines="5"
         android:paddingHorizontal="32dp"
         android:paddingBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -38,6 +38,7 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
 
         vm.state.observe2(ui) { state ->
             adapter.update(state.items)
+
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
 

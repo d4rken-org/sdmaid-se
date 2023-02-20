@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -36,9 +37,12 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
         val adapter = SystemCleanerListAdapter()
         ui.list.setupDefaults(adapter)
 
-        vm.items.observe2(ui) {
-            adapter.update(it)
-            toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, it.size)
+        vm.state.observe2(ui) { state ->
+            adapter.update(state.items)
+            toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.items.size)
+
+            list.isInvisible = state.progress != null
+            loadingOverlay.setProgress(state.progress)
         }
 
         vm.events.observe2(ui) { event ->

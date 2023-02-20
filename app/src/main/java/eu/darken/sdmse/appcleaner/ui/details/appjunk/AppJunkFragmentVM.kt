@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -31,61 +32,64 @@ class AppJunkFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<AppJunkEvents>()
 
-    val info = appCleaner.data
-        .filterNotNull()
-        .map { data ->
-            data.junks.singleOrNull { it.identifier == args.identifier }
-        }
-        .filterNotNull()
-        .map { junk ->
-            val elements = mutableListOf<AppJunkElementsAdapter.Item>()
+    val state = combine(
+        appCleaner.data
+            .filterNotNull()
+            .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
+            .filterNotNull(),
+        appCleaner.progress,
+    ) { data, progress ->
+        val items = mutableListOf<AppJunkElementsAdapter.Item>()
 
-            AppJunkElementHeaderVH.Item(
-                appJunk = junk,
-                onDeleteAllClicked = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk)) },
-                onExcludeClicked = {
+        AppJunkElementHeaderVH.Item(
+            appJunk = data,
+            onDeleteAllClicked = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk)) },
+            onExcludeClicked = {
 //                    TODO()
-                }
-            ).run { elements.add(this) }
+            }
+        ).run { items.add(this) }
 
-            junk.expendables
-                ?.filter { it.value.isNotEmpty() }
-                ?.map { (category, paths) ->
-                    val categoryGroup = mutableListOf<AppJunkElementsAdapter.Item>()
+        data.expendables
+            ?.filter { it.value.isNotEmpty() }
+            ?.map { (category, paths) ->
+                val categoryGroup = mutableListOf<AppJunkElementsAdapter.Item>()
 
-                    AppJunkElementFileCategoryVH.Item(
-                        appJunk = junk,
-                        category = category,
-                        paths = paths,
-                        onItemClick = {
-                            events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category))
-                        }
-                    ).run { categoryGroup.add(this) }
+                AppJunkElementFileCategoryVH.Item(
+                    appJunk = data,
+                    category = category,
+                    paths = paths,
+                    onItemClick = {
+                        events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category))
+                    }
+                ).run { categoryGroup.add(this) }
 
-                    paths
-                        .map { lookup ->
-                            AppJunkElementFileVH.Item(
-                                appJunk = junk,
-                                category = category,
-                                lookup = lookup,
-                                onItemClick = {
-                                    events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category, it.lookup))
-                                }
-                            )
-                        }
-                        .run { categoryGroup.addAll(this) }
+                paths
+                    .map { lookup ->
+                        AppJunkElementFileVH.Item(
+                            appJunk = data,
+                            category = category,
+                            lookup = lookup,
+                            onItemClick = {
+                                events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category, it.lookup))
+                            }
+                        )
+                    }
+                    .run { categoryGroup.addAll(this) }
 
-                    categoryGroup
-                }
-                ?.flatten()
-                ?.run { elements.addAll(this) }
+                categoryGroup
+            }
+            ?.flatten()
+            ?.run { items.addAll(this) }
 
-            Info(elements = elements)
-        }
-        .asLiveData2()
+        State(
+            items = items,
+            progress = progress,
+        )
+    }.asLiveData2()
 
-    data class Info(
-        val elements: List<AppJunkElementsAdapter.Item>,
+    data class State(
+        val items: List<AppJunkElementsAdapter.Item>,
+        val progress: Progress.Data?,
     )
 
     fun doDelete(
