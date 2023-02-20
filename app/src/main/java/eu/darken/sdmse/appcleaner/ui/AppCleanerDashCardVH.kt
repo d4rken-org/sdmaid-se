@@ -6,6 +6,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.AppcleanerDashboardItemBinding
@@ -30,6 +31,7 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         statusPrimary.isInvisible = item.progress != null
         statusSecondary.isInvisible = item.progress != null
 
+
         if (item.progress != null) {
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
@@ -44,13 +46,13 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
-        val hasAnyData = item.data?.junks?.isNotEmpty() ?: false
+        val hasAnyData = item.data.hasData
 
         detailsAction.apply {
             isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
-        if (item.progress == null || item.data != null) {
+        if (item.progress == null && hasAnyData) {
             activityContainer.setOnClickListener { item.onViewDetails() }
         } else {
             activityContainer.setOnClickListener(null)

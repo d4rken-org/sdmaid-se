@@ -8,6 +8,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.databinding.CorpsefinderDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 
@@ -30,6 +31,7 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
         statusPrimary.isInvisible = item.progress != null
         statusSecondary.isInvisible = item.progress != null
 
+
         if (item.progress != null) {
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
@@ -44,14 +46,14 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
-        val hasAnyData = item.data?.corpses?.isNotEmpty() ?: false
+        val hasAnyData = item.data.hasData
 
         detailsAction.apply {
             isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
 
-        if (item.progress == null || item.data != null) {
+        if (item.progress == null && hasAnyData) {
             activityContainer.setOnClickListener { item.onViewDetails() }
         } else {
             activityContainer.setOnClickListener(null)

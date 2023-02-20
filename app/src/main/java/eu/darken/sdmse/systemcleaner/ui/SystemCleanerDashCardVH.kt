@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.SystemcleanerDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.hasData
 
 
 class SystemCleanerDashCardVH(parent: ViewGroup) :
@@ -30,6 +31,7 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         statusPrimary.isInvisible = item.progress != null
         statusSecondary.isInvisible = item.progress != null
 
+
         if (item.progress != null) {
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
@@ -44,14 +46,14 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
             statusSecondary.text = null
         }
 
-        val hasAnyData = item.data?.filterContents?.isNotEmpty() ?: false
+        val hasAnyData = item.data.hasData
 
         detailsAction.apply {
             isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onViewDetails() }
         }
 
-        if (item.progress == null || item.data != null) {
+        if (item.progress == null && hasAnyData) {
             activityContainer.setOnClickListener { item.onViewDetails() }
         } else {
             activityContainer.setOnClickListener(null)
