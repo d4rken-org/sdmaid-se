@@ -59,7 +59,7 @@ class AppJunkDetailsFragmentVM @Inject constructor(
         val result = taskManager.submit(task) as AppCleanerTask.Result
         log(TAG) { "forwardTask(): Result $result" }
         when (result) {
-            is AppCleanerScanTask.Success -> TODO()
+            is AppCleanerScanTask.Success -> {}
             is AppCleanerDeleteTask.Success -> events.postValue(AppJunkDetailsEvents.TaskResult(result))
         }
     }

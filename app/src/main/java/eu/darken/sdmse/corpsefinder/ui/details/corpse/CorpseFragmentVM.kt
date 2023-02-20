@@ -44,7 +44,7 @@ class CorpseFragmentVM @Inject constructor(
             corpse = corpse,
             onDeleteAllClicked = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse)) },
             onExcludeClicked = {
-                TODO()
+                // TODO
             }
         ).run { elements.add(this) }
 
