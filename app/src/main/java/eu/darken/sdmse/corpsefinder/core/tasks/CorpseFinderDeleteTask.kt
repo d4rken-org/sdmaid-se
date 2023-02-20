@@ -9,7 +9,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CorpseFinderDeleteTask(
-    val toDelete: Set<APath>? = null,
+    val targetCorpses: Set<APath>? = null,
+    val targetContent: Set<APath>? = null,
     val isWatcherTask: Boolean = false,
 ) : CorpseFinderTask {
 

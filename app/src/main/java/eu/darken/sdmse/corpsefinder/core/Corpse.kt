@@ -16,7 +16,7 @@ data class Corpse(
     val riskLevel: RiskLevel = RiskLevel.NORMAL,
 ) {
     val path: APath
-        get() = lookup
+        get() = lookup.lookedUp as APath
 
     val areaInfo: AreaInfo
         get() = ownerInfo.areaInfo

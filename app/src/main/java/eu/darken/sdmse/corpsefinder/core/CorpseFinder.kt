@@ -13,8 +13,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.deleteAll
+import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
@@ -117,38 +116,65 @@ class CorpseFinder @Inject constructor(
     private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result {
         log(TAG) { "deleteCorpses(): $task" }
 
-        val deleted = mutableSetOf<Corpse>()
+        val deletedCorpses = mutableSetOf<Corpse>()
+        val deletedContents = mutableMapOf<Corpse, Set<APathLookup<*>>>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val targets = task.toDelete ?: snapshot.corpses.map { it.path }
+        val targetCorpses = task.targetCorpses ?: snapshot.corpses.map { it.path }
+        targetCorpses.forEach { targetCorpse ->
+            val corpse = snapshot.corpses.single { it.path.matches(targetCorpse) }
 
-        targets.forEach { target ->
-            val corpse = snapshot.corpses.single { it.path == target }
+            if (!task.targetContent.isNullOrEmpty()) {
+                val deleted = mutableSetOf<APathLookup<*>>()
 
-            updateProgressPrimary(caString {
-                it.getString(R.string.general_progress_deleting, corpse.path.userReadableName.get(it))
-            })
+                task.targetContent.forEach { targetContent ->
+                    updateProgressPrimary(caString {
+                        it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
+                    })
+                    log(TAG) { "Deleting $targetContent..." }
+                    targetContent.deleteAll(gatewaySwitch) {
+                        updateProgressSecondary(it.userReadablePath)
+                        true
+                    }
+                    log(TAG) { "Deleted $targetContent!" }
+                    deleted.addAll(
+                        corpse.content.filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
+                    )
+                }
 
-            log(TAG) { "Deleting $target..." }
-            corpse.path.deleteAll(gatewaySwitch) {
-                updateProgressSecondary(it.userReadablePath)
-                true
+                deletedContents[corpse] = deleted
+            } else {
+                updateProgressPrimary(caString {
+                    it.getString(R.string.general_progress_deleting, corpse.path.userReadableName.get(it))
+                })
+                log(TAG) { "Deleting $targetCorpse..." }
+                corpse.path.deleteAll(gatewaySwitch) {
+                    updateProgressSecondary(it.userReadablePath)
+                    true
+                }
+                log(TAG) { "Deleted $targetCorpse!" }
+                deletedCorpses.add(corpse)
             }
-            log(TAG) { "Deleted $target!" }
-
-            deleted.add(corpse)
         }
 
         updateProgressPrimary(R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(
-            corpses = snapshot.corpses.minus(deleted)
+            corpses = snapshot.corpses.mapNotNull { corpse ->
+                when {
+                    deletedCorpses.contains(corpse) -> null
+                    deletedContents.containsKey(corpse) -> corpse.copy(
+                        content = corpse.content.filter { c -> deletedContents[corpse]!!.none { it.matches(c) } }
+                    )
+                    else -> corpse
+                }
+            }
         )
 
         return CorpseFinderDeleteTask.Success(
-            deletedItems = deleted.size,
-            recoveredSpace = deleted.sumOf { it.size }
+            deletedItems = deletedCorpses.size + deletedContents.values.sumOf { it.size },
+            recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
         )
     }
 
@@ -156,8 +182,7 @@ class CorpseFinder @Inject constructor(
         val corpses: Collection<Corpse>,
         val lastResult: CorpseFinderTask.Result? = null,
     ) {
-        val totalSize: Long
-            get() = corpses.sumOf { it.size }
+        val totalSize: Long get() = corpses.sumOf { it.size }
     }
 
     @InstallIn(SingletonComponent::class)

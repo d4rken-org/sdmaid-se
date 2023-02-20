@@ -41,6 +41,9 @@ class CorpseDetailsFragmentVM @Inject constructor(
 
     val state = corpseFinder.data
         .filterNotNull()
+        .distinctUntilChangedBy { data ->
+            data.corpses.map { it.path }.toSet()
+        }
         .map {
             State(
                 items = it.corpses.toList(),

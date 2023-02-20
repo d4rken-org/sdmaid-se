@@ -44,12 +44,23 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                 is CorpseEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.general_delete_confirmation_title)
                     setMessage(
-                        getString(
-                            R.string.general_delete_confirmation_message_x,
-                            event.corpse.path.userReadableName.get(context)
-                        )
+                        when {
+                            event.content != null -> getString(
+                                R.string.general_delete_confirmation_message_x,
+                                event.content.userReadablePath.get(context),
+                            )
+                            else -> getString(
+                                R.string.general_delete_confirmation_message_x,
+                                event.corpse.path.userReadableName.get(context)
+                            )
+                        }
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.doDelete(event.corpse) }
+                    setPositiveButton(R.string.general_delete_action) { _, _ ->
+                        vm.doDelete(
+                            event.corpse,
+                            event.content
+                        )
+                    }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                 }.show()
                 is CorpseEvents.TaskForParent -> (parentFragment as CorpseDetailsFragment).forwardTask(event.task)

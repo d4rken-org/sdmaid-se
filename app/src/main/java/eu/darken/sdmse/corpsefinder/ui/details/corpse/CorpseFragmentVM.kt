@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -49,10 +50,11 @@ class CorpseFragmentVM @Inject constructor(
             }
         ).run { elements.add(this) }
 
-        corpse.content.map {
+        corpse.content.map { lookup ->
             CorpseElementFileVH.Item(
                 corpse = corpse,
-                lookup = it,
+                lookup = lookup,
+                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup)) }
             )
         }.run { elements.addAll(this) }
 
@@ -64,9 +66,12 @@ class CorpseFragmentVM @Inject constructor(
         val progress: Progress.Data? = null,
     )
 
-    fun doDelete(corpse: Corpse) = launch {
+    fun doDelete(corpse: Corpse, content: APath? = null) = launch {
         log(TAG, INFO) { "doDelete(corpse=$corpse)" }
-        val task = CorpseFinderDeleteTask(toDelete = setOf(corpse.path))
+        val task = CorpseFinderDeleteTask(
+            targetCorpses = setOf(corpse.path),
+            targetContent = content?.let { setOf(it) }
+        )
         // Removnig the corpse, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(CorpseEvents.TaskForParent(task))
     }
