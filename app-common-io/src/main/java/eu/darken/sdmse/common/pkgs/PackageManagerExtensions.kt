@@ -14,17 +14,17 @@ import kotlin.reflect.full.memberFunctions
 import kotlin.reflect.jvm.jvmErasure
 
 fun PackageManager.getPackageInfo2(
-    packageName: String,
+    pkgId: Pkg.Id,
     flags: Int = 0
 ): PackageInfo? = try {
-    getPackageInfo(packageName, flags)
+    getPackageInfo(pkgId.name, flags)
 } catch (_: PackageManager.NameNotFoundException) {
     null
 }
 
 fun PackageManager.getLabel2(
     pkgId: Pkg.Id,
-): String? = getPackageInfo2(pkgId.name)
+): String? = getPackageInfo2(pkgId)
     ?.applicationInfo
     ?.let {
         if (it.labelRes != 0) it.loadLabel(this).toString()
@@ -33,7 +33,7 @@ fun PackageManager.getLabel2(
 
 fun PackageManager.getIcon2(
     pkgId: Pkg.Id,
-): Drawable? = getPackageInfo2(pkgId.name)
+): Drawable? = getPackageInfo2(pkgId)
     ?.applicationInfo
     ?.let { if (it.icon != 0) it.loadIcon(this) else null }
 

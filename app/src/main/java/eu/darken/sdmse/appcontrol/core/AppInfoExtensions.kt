@@ -4,10 +4,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
 
-fun AppInfo.createSystemSettingsIntent(context: Context): Intent = Intent(Intent.ACTION_VIEW).apply {
-    action = android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-    data = Uri.parse("package:${pkg.packageName}")
+fun AppInfo.createSystemSettingsIntent(context: Context): Intent = pkg.getSettingsIntent(context).apply {
     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 }
 

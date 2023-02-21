@@ -1,14 +1,12 @@
 package eu.darken.sdmse.common.debug
 
+import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.debug.DebugTask
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.asLog
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -33,6 +31,7 @@ class DebugCardProvider @Inject constructor(
     private val javaRootClient: JavaRootClient,
     private val safMapper: SAFMapper,
     private val storageManager2: StorageManager2,
+    private val automationController: AutomationController,
 ) {
 
     fun create(vm: ViewModel3) = combine(
@@ -53,16 +52,7 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 appScope.launch {
-                    try {
-                        val local1 = LocalPath.build("/storage/emulated/0/Android/data/eu.thedarken.sdm")
-                        log { "Local1: $local1" }
-                        val saf1 = safMapper.toSAFPath(local1)!!
-                        log { "Saf1: $saf1" }
-                        val local2 = safMapper.toLocalPath(saf1)!!
-                        log { "Local2: $local2" }
-                    } catch (e: Exception) {
-                        log(ERROR) { "Failed to run test action: ${e.asLog()}" }
-                    }
+                    automationController.submit(DebugTask())
                 }
             }
         )
