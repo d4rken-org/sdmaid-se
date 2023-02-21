@@ -52,7 +52,7 @@ class AppControlListFragmentVM @Inject constructor(
         appControl.data
             .take(1)
             .filter { it == null }
-            .onEach { taskManager.submit(AppControlScanTask()) }
+            .onEach { appControl.submit(AppControlScanTask()) }
             .launchInViewModel()
     }
 

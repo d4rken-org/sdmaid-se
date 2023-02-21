@@ -77,8 +77,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/details_action"
-        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-
+        style="@style/Widget.Material3.Button.IconButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginVertical="8dp"
