@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -79,9 +78,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
                 DashboardFragmentVM.BottomBarState.Action.DELETE -> {
                     mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
-                    mainAction.imageTintList = ColorStateList.valueOf(Color.WHITE)
+                    mainAction.imageTintList = ColorStateList.valueOf(
+                        requireContext().getColorForAttr(R.attr.colorOnError)
+                    )
                     mainAction.backgroundTintList = ColorStateList.valueOf(
-                        requireContext().getColorForAttr(R.attr.colorErrorContainer)
+                        requireContext().getColorForAttr(R.attr.colorError)
                     )
                 }
                 DashboardFragmentVM.BottomBarState.Action.WORKING -> {
