@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_data_areas"
-        app:subtitle="@string/corpsefinder_details_title"
+        app:subtitle="@string/general_details_label"
         app:title="@string/data_areas_label" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

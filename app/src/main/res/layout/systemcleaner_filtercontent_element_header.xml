@@ -102,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/general_exclude_action"
+            app:icon="@drawable/ic_shield_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/action_barrier" />
@@ -113,7 +114,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/general_delete_all_action"
-            app:backgroundTint="?colorError"
+            android:textColor="?colorOnError"
+            android:backgroundTint="?colorError"
+            app:iconTint="?colorOnError"
+            app:icon="@drawable/ic_baseline_delete_sweep_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/action_barrier" />

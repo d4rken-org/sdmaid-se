@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:subtitle="@string/corpsefinder_details_title"
+        app:subtitle="@string/general_details_label"
         app:title="@string/corpsefinder_tool_name" />
 
     <androidx.recyclerview.widget.RecyclerView

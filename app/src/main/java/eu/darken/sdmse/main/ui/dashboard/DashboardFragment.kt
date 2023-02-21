@@ -4,7 +4,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -82,7 +81,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
                     mainAction.imageTintList = ColorStateList.valueOf(Color.WHITE)
                     mainAction.backgroundTintList = ColorStateList.valueOf(
-                        ContextCompat.getColor(requireContext(), R.color.red)
+                        requireContext().getColorForAttr(R.attr.colorErrorContainer)
                     )
                 }
                 DashboardFragmentVM.BottomBarState.Action.WORKING -> {

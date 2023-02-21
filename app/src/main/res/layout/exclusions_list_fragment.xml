@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_exclusions_list"
-        app:subtitle="@string/corpsefinder_details_title"
+        app:subtitle="@string/general_details_label"
         app:title="@string/exclusion_manager_title" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

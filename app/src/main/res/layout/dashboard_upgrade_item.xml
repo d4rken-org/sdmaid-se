@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/upgrades_dashcard_upgrade_action"
+            app:icon="@drawable/ic_baseline_stars_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />

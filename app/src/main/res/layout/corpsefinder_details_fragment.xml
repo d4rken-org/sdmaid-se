@@ -18,7 +18,7 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:subtitle="@string/corpsefinder_details_title"
+            app:subtitle="@string/general_details_label"
             app:title="@string/corpsefinder_tool_name" />
 
         <com.google.android.material.tabs.TabLayout

@@ -130,7 +130,6 @@
         <item quantity="one">%d app remain discovered</item>
         <item quantity="other">%d app remains discovered</item>
     </plurals>
-    <string name="corpsefinder_details_title">Details</string>
     <string name="corpsefinder_delete_all_confirmation_message">Delete all app remains?</string>
     <string name="corpsefinder_owners_label">Owners</string>
     <string name="corpsefinder_corpse_hints_label">Notice</string>

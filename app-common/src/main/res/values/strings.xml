@@ -56,6 +56,7 @@
     <string name="general_result_failure_message">Operation failed</string>
     <string name="general_result_x_space_freed">%s freed</string>
 
+    <string name="general_details_label">Details</string>
     <string name="general_view_action">View</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>
