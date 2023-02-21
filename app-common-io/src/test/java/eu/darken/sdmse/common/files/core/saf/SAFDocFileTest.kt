@@ -36,7 +36,7 @@ class SAFDocFileTest : BaseTest() {
         SAFDocFile.buildTreeUri(
             Uri.parse("content://auth.ority/tree/primary%3A"),
             listOf("segment1")
-        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3Asegment1"
+        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A%2Fsegment1"
     }
 
     @Test
@@ -44,7 +44,7 @@ class SAFDocFileTest : BaseTest() {
         SAFDocFile.buildTreeUri(
             Uri.parse("content://auth.ority/tree/primary%3A"),
             listOf("segment1", "segment2")
-        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3Asegment1%2Fsegment2"
+        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A%2Fsegment1%2Fsegment2"
     }
 
     @Test
@@ -52,7 +52,7 @@ class SAFDocFileTest : BaseTest() {
         SAFDocFile.buildTreeUri(
             Uri.parse("content://auth.ority/tree/primary%3A"),
             listOf("")
-        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A"
+        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A%2F"
     }
 
     @Test
