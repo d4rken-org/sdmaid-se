@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         flavor: [ Foss,Gplay ]
-        variant: [ Release ]
+        variant: [ Debug ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
