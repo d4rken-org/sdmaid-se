@@ -39,15 +39,17 @@ class AppCleanerListFragmentVM @Inject constructor(
         appCleaner.data.filterNotNull(),
         appCleaner.progress,
     ) { data, progress ->
-        val items = data.junks.map { content ->
-            AppCleanerListRowVH.Item(
-                junk = content,
-                onItemClicked = {
-                    events.postValue(AppCleanerListEvents.ConfirmDeletion(it))
-                },
-                onDetailsClicked = { showDetails(it) }
-            )
-        }
+        val items = data.junks
+            .sortedByDescending { it.size }
+            .map { content ->
+                AppCleanerListRowVH.Item(
+                    junk = content,
+                    onItemClicked = {
+                        events.postValue(AppCleanerListEvents.ConfirmDeletion(it))
+                    },
+                    onDetailsClicked = { showDetails(it) }
+                )
+            }
         State(
             items = items,
             progress = progress,
