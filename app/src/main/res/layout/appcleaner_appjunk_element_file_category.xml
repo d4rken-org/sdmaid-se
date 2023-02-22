@@ -35,7 +35,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.LabelMedium"
+        style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"

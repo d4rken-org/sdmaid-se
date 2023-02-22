@@ -10,9 +10,9 @@
         android:id="@+id/icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:src="@drawable/ic_hidden_file_24"
-        app:layout_constraintBottom_toBottomOf="@id/secondary"
+        app:layout_constraintBottom_toBottomOf="@id/size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/primary" />
 
@@ -21,40 +21,36 @@
         style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="16dp"
         android:text="@string/appcleaner_item_caches_inaccessible_title"
-        app:layout_constraintBottom_toTopOf="@id/secondary"
+        app:layout_constraintBottom_toBottomOf="@id/size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/appcleaner_item_caches_inaccessible_body"
-        app:layout_constraintBottom_toTopOf="@id/size"
-        app:layout_constraintEnd_toEndOf="@id/primary"
-        app:layout_constraintStart_toStartOf="@id/primary"
-        app:layout_constraintTop_toBottomOf="@id/primary"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/size"
-        style="@style/TextAppearance.Material3.BodyMedium"
+        style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/secondary"
+        app:layout_constraintBottom_toTopOf="@id/explanation"
+        app:layout_constraintStart_toStartOf="@id/primary"
+        app:layout_constraintTop_toBottomOf="@id/primary"
         tools:text="999,9 KB" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/explanation"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/appcleaner_item_caches_inaccessible_body"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/size"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
