@@ -1,9 +1,12 @@
 package eu.darken.sdmse.automation.core.crawler
 
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import timber.log.Timber
 import java.util.concurrent.LinkedBlockingDeque
 
@@ -134,3 +137,5 @@ fun AccessibilityNodeInfo.scrollNode(): Boolean {
 
     return children().any { it.scrollNode() }
 }
+
+val AccessibilityEvent.pkgId: Pkg.Id get() = packageName.toString().toPkgId()

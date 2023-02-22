@@ -32,8 +32,26 @@ class DeviceDetective @Inject constructor(
 
     suspend fun isSamsungDevice(): Boolean = checkManufactor("samsung")
 
-    suspend fun isLineageROM(): Boolean = Build.DISPLAY.lowercase(Locale.ROOT).contains("lineage")
-            || Build.PRODUCT.lowercase(Locale.ROOT).contains("lineage")
+    suspend fun isAlcatel(): Boolean = Build.BRAND?.lowercase() == "alcatel"
+
+    suspend fun isOppo(): Boolean = Build.MANUFACTURER.lowercase() == "oppo"
+
+    suspend fun isMeizu(): Boolean = Build.MANUFACTURER.lowercase() == "meizu"
+
+    suspend fun isHuawei(): Boolean = Build.MANUFACTURER.lowercase() == "huawei"
+
+    suspend fun isLGE(): Boolean = Build.MANUFACTURER.lowercase() == "lge"
+
+    suspend fun isXiaomi(): Boolean = Build.MANUFACTURER.lowercase() == "Xiaomi".lowercase()
+
+    suspend fun isNubia(): Boolean = Build.MANUFACTURER.lowercase() == "nubia"
+
+    suspend fun isOnePlus(): Boolean = Build.MANUFACTURER.lowercase() == "OnePlus".lowercase()
+
+    suspend fun isVivo(): Boolean = Build.MANUFACTURER.lowercase() == "vivo"
+
+    suspend fun isLineageROM(): Boolean = Build.DISPLAY.lowercase().contains("lineage")
+            || Build.PRODUCT.lowercase().contains("lineage")
 
     suspend fun isCustomROM() = isLineageROM()
 }

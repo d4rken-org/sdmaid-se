@@ -11,30 +11,31 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import timber.log.Timber
 import java.util.*
 
-interface SpecSource {
+interface AutomationStepGenerator {
     val label: String
 
     suspend fun isResponsible(pkg: Installed): Boolean
 
     @Throws(UnsupportedOperationException::class)
-    suspend fun getSpecs(pkg: Installed): List<ACCrawler.Step>
+    suspend fun getSpecs(pkg: Installed): List<AutomationCrawler.Step>
 
-    fun Context.get3rdPartyString(packageName: String, stringIdName: String): String? = try {
-        val appResources = packageManager.getResourcesForApplication(packageName)
-        val identifier = appResources.getIdentifier(stringIdName, "string", packageName).takeIf { it != 0 }
+    fun Context.get3rdPartyString(pkgId: Pkg.Id, stringIdName: String): String? = try {
+        val appResources = packageManager.getResourcesForApplication(pkgId.name)
+        val identifier = appResources.getIdentifier(stringIdName, "string", pkgId.name).takeIf { it != 0 }
         identifier?.let { appResources.getString(it) }.also {
             if (it != null) {
-                Timber.d("Read %s:%s from settings APK: %s", packageName, stringIdName, it)
+                Timber.d("Read %s:%s from settings APK: %s", pkgId.name, stringIdName, it)
             } else {
-                Timber.w("Failed to read %s:%s from settings APK.", packageName, stringIdName)
+                Timber.w("Failed to read %s:%s from settings APK.", pkgId.name, stringIdName)
             }
         }
     } catch (e: Exception) {
-        Timber.e(e, "get3rdPartyString(%s, %s) failed", packageName, stringIdName)
+        Timber.e(e, "get3rdPartyString(%s, %s) failed", pkgId.name, stringIdName)
         null
     }
 
@@ -50,12 +51,12 @@ interface SpecSource {
     ): (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->
         log(tag, VERBOSE) { "Clicking on ${node.toStringShort()} for $pkg:" }
 
-        if (!Bugs.isArmed) {
-            log(tag, WARN) { "DISARMED: Not clicking." }
+        if (Bugs.isDryRun) {
+            log(tag, WARN) { "DRYRUN: Not clicking ${node.toStringShort()}" }
             return@scope true
         }
 
-        val success = CrawlerCommon.defaultClick(isArmed = Bugs.isArmed).invoke(node, retryCount)
+        val success = CrawlerCommon.defaultClick(isDryRun = Bugs.isDryRun).invoke(node, retryCount)
         if (!success && !node.isEnabled) {
             Timber.tag(tag).d("Can't click on the clear cache button because it was disabled, but why...")
             try {

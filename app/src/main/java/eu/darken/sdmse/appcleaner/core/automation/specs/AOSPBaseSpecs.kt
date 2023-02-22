@@ -3,18 +3,21 @@ package eu.darken.sdmse.appcleaner.core.automation.specs
 import android.content.Context
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.automation.core.SpecSource
-import eu.darken.sdmse.automation.core.SpecSource.Companion.getSysLocale
+import eu.darken.sdmse.automation.core.AutomationStepGenerator
+import eu.darken.sdmse.automation.core.AutomationStepGenerator.Companion.getSysLocale
 import eu.darken.sdmse.automation.core.crawler.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.features.Installed
-import timber.log.Timber
+import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.*
 
 abstract class AOSPBaseSpecs constructor(
     private val ipcFunnel: IPCFunnel,
     @ApplicationContext private val context: Context
-) : SpecSource {
+) : AutomationStepGenerator {
 
     lateinit var logTag: String
 
@@ -31,12 +34,12 @@ abstract class AOSPBaseSpecs constructor(
             )
         }
 
-    override suspend fun getSpecs(pkg: Installed): List<ACCrawler.Step> {
+    override suspend fun getSpecs(pkg: Installed): List<AutomationCrawler.Step> {
         val locale = getSysLocale()
         val lang = locale.language
         val script = locale.script
 
-        Timber.tag(logTag).v("Getting specs for %s (lang=%s, script=%s)", pkg.packageName, lang, script)
+        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         return listOf(
             getStorageEntrySpec(pkg, locale, lang, script),
@@ -44,13 +47,16 @@ abstract class AOSPBaseSpecs constructor(
         )
     }
 
-    open suspend fun getStorageEntrySpec(pkg: Installed, locale: Locale, lang: String, script: String): ACCrawler.Step {
-        var isUnsupported = false
+    open suspend fun getStorageEntrySpec(
+        pkg: Installed,
+        locale: Locale,
+        lang: String,
+        script: String
+    ): AutomationCrawler.Step {
         val storageEntryLabels = try {
             getStorageEntryLabels(lang, script)
         } catch (e: UnsupportedOperationException) {
-            Timber.w("Constellation is unsupported, trying English then reporting issue.")
-            isUnsupported = true
+            log(WARN) { "Constellation is unsupported, trying English..." }
             getStorageEntryLabels("en", "")
         }
 
@@ -59,10 +65,9 @@ abstract class AOSPBaseSpecs constructor(
             return node.textMatchesAny(storageEntryLabels)
         }
 
-        return ACCrawler.Step(
+        return AutomationCrawler.Step(
             parentTag = logTag,
             pkgInfo = pkg,
-            isHailMary = isUnsupported,
             label = "Find & click 'Storage' (targets=$storageEntryLabels)",
             windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
             windowEventFilter = CrawlerCommon.defaultWindowFilter(AOSP_SETTINGS_PKG),
@@ -79,13 +84,11 @@ abstract class AOSPBaseSpecs constructor(
         locale: Locale,
         lang: String,
         script: String
-    ): ACCrawler.Step {
-        var isUnsupported = false
+    ): AutomationCrawler.Step {
         val clearCacheButtonLabels = try {
             getClearCacheButtonLabels(lang, script)
         } catch (e: UnsupportedOperationException) {
-            Timber.w("Constellation is unsupported, trying English then reporting issue.")
-            isUnsupported = true
+            log(WARN) { "Constellation is unsupported, trying English..." }
             getClearCacheButtonLabels("en", "")
         }
 
@@ -94,10 +97,9 @@ abstract class AOSPBaseSpecs constructor(
             return node.textMatchesAny(clearCacheButtonLabels)
         }
 
-        return ACCrawler.Step(
+        return AutomationCrawler.Step(
             parentTag = logTag,
             pkgInfo = pkg,
-            isHailMary = isUnsupported,
             label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
             windowNodeTest = sourceClearCacheWindowNodeTest(pkg, locale),
             nodeTest = buttonFilter,
@@ -106,6 +108,6 @@ abstract class AOSPBaseSpecs constructor(
     }
 
     companion object {
-        const val AOSP_SETTINGS_PKG = "com.android.settings"
+        val AOSP_SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

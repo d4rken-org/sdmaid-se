@@ -2,15 +2,11 @@ package eu.darken.sdmse.automation.core.crawler
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
-import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.automation.core.AutomationSupportException
-import eu.darken.sdmse.automation.core.SpecSource
-import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -26,7 +22,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
 
 
-class ACCrawler @AssistedInject constructor(
+class AutomationCrawler @AssistedInject constructor(
     @Assisted private val host: AutomationHost,
 ) {
 
@@ -150,24 +146,14 @@ class ACCrawler @AssistedInject constructor(
         val parentTag: String,
         val pkgInfo: Installed,
         val label: String,
-        val isHailMary: Boolean = false,
         val windowIntent: Intent? = null,
         val windowEventFilter: (suspend ((node: AccessibilityEvent) -> Boolean))? = null,
         val windowNodeTest: (suspend ((node: AccessibilityNodeInfo) -> Boolean))? = null,
-        val nodeTest: ((node: AccessibilityNodeInfo) -> Boolean)? = null,
+        val nodeTest: (suspend (node: AccessibilityNodeInfo) -> Boolean)? = null,
         val nodeRecovery: (suspend ((node: AccessibilityNodeInfo) -> Boolean))? = null,
         val nodeMapping: (suspend ((node: AccessibilityNodeInfo) -> AccessibilityNodeInfo))? = null,
         val action: (suspend ((node: AccessibilityNodeInfo, retryCount: Int) -> Boolean))? = null
     ) {
-        fun createHailMaryException(cause: Throwable): Throwable {
-            val locale = SpecSource.getSysLocale()
-            val apiLevel = BuildWrap.VERSION.SDK_INT
-            val rom = Build.MANUFACTURER
-            return AutomationSupportException(
-                message = "Spec(ROM=$rom, API=$apiLevel, LOCALE=$locale) failed: $label",
-                cause = cause
-            )
-        }
 
         override fun toString(): String = "Spec(parent=$parentTag, label=$label, pkg=${pkgInfo.packageName})"
 
@@ -181,6 +167,6 @@ class ACCrawler @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(host: AutomationHost): ACCrawler
+        fun create(host: AutomationHost): AutomationCrawler
     }
 }

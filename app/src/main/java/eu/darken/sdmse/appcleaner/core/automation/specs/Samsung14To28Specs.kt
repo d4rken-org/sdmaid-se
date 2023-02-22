@@ -1,8 +1,14 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs
 
 import android.content.Context
+import dagger.Binds
+import dagger.Module
 import dagger.Reusable
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoSet
+import eu.darken.sdmse.automation.core.AutomationStepGenerator
 import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -88,6 +94,11 @@ open class Samsung14To28Specs @Inject constructor(
             )
             else -> emptyList()
         }.tryAppend { super.getClearCacheButtonLabels(lang, script) }
+    }
+
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds @IntoSet abstract fun mod(mod: Samsung14To28Specs): AutomationStepGenerator
     }
 
     companion object {

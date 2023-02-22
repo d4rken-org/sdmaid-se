@@ -5,11 +5,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.pkgId
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
@@ -26,21 +28,21 @@ object CrawlerCommon {
                 Intent.FLAG_ACTIVITY_NO_ANIMATION
     }
 
-    fun defaultWindowFilter(pkg: String): (AccessibilityEvent) -> Boolean {
+    fun defaultWindowFilter(pkgId: Pkg.Id): (AccessibilityEvent) -> Boolean {
         return fun(event: AccessibilityEvent): Boolean {
-            return event.packageName == pkg
+            return event.pkgId == pkgId
         }
     }
 
     fun defaultClick(
-        isArmed: Boolean = true
+        isDryRun: Boolean = false
     ): (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
         log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
         if (!node.isEnabled) throw IllegalStateException("Clickable target is disabled.")
-        if (isArmed) {
-            node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
-        } else {
+        if (isDryRun) {
             node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
+        } else {
+            node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
         }
     }
 
@@ -56,14 +58,14 @@ object CrawlerCommon {
     }
 
     fun windowCriteria(
-        windowPkg: String,
+        windowPkgId: Pkg.Id,
         extraTest: (AccessibilityNodeInfo) -> Boolean = { true }
     ): suspend (AccessibilityNodeInfo) -> Boolean = { node: AccessibilityNodeInfo ->
-        node.packageName == windowPkg && extraTest(node)
+        node.pkgId == windowPkgId && extraTest(node)
     }
 
     suspend fun windowCriteriaAppIdentifier(
-        windowPkg: String,
+        windowPkgId: Pkg.Id,
         ipcFunnel: IPCFunnel,
         pkgInfo: Installed
     ): suspend (AccessibilityNodeInfo) -> Boolean {
@@ -96,7 +98,7 @@ object CrawlerCommon {
             ?.let { candidates.add(it) }
 
         log(TAG, VERBOSE) { "Looking for window identifiers: $candidates" }
-        return windowCriteria(windowPkg) { node ->
+        return windowCriteria(windowPkgId) { node ->
             node.crawl().map { it.node }.any { toTest ->
                 candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
             }

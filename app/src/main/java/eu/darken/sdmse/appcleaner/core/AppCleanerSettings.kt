@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.appcleaner.core.automation.specs.CustomSpecs
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
@@ -16,6 +18,7 @@ import javax.inject.Singleton
 @Singleton
 class AppCleanerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
+    moshi: Moshi,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_appcleaner")
@@ -52,6 +55,7 @@ class AppCleanerSettings @Inject constructor(
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
     val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
 
+    val automationCustomSteps = dataStore.createValue<CustomSpecs.Config?>("automation.custom.config", null, moshi)
 
     override val mapper = PreferenceStoreMapper(
         includeSystemAppsEnabled,
