@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
+import android.content.Intent
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
@@ -19,6 +20,7 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.crawler.AutomationCrawler
 import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.automation.core.crawler.CrawlerCommon
+import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -29,6 +31,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.TimeoutCancellationException
@@ -40,11 +43,14 @@ class ClearCacheModule @AssistedInject constructor(
     val ipcFunnel: IPCFunnel,
     private val pkgRepo: PkgRepo,
     private val automationCrawlerFactory: AutomationCrawler.Factory,
-    private val appSpecProviders: Provider<Set<@JvmSuppressWildcards AutomationStepGenerator>>
+    private val appSpecProviders: Provider<Set<@JvmSuppressWildcards AutomationStepGenerator>>,
+    private val deviceDetective: DeviceDetective,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AutomationStepGenerator> = appSpecProviders
         .get()
+        .also { log(TAG) { "${it.size} step generators are available" } }
+        .onEach { log(TAG, VERBOSE) { "Loaded: $it" } }
         .sortedByDescending {
             when (it) {
                 is CustomSpecs -> 1000
@@ -132,8 +138,15 @@ class ClearCacheModule @AssistedInject constructor(
 
         val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
         log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
-        val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-        log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
+        if (!deviceDetective.isXiaomi()) {
+            val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+            log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
+        }
+
+        val returnIntent = Intent(context, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        host.service.startActivity(returnIntent)
 
         return ClearCacheTask.Result(
             successful = successful,

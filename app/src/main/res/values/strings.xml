@@ -228,6 +228,7 @@
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>
     </plurals>
+    <string name="appcleaner_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcleaner_automation_title">AppCleaner automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
 

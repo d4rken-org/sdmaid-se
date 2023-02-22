@@ -106,6 +106,7 @@ class AppCleaner @Inject constructor(
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
         val deletionMap = mutableMapOf<Pkg.Id, Set<APathLookup<*>>>()
+        val deletedInAccessible = mutableSetOf<Pkg.Id>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
         val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.pkg.id }
@@ -133,7 +134,6 @@ class AppCleaner @Inject constructor(
                     updateProgressSecondary(it.userReadablePath)
                     true
                 }
-                automationController.submit(ClearCacheTask(listOf(targetPkg)))
                 log(TAG) { "Deleted $targetFile!" }
                 deleted.add(targetFile)
             }
@@ -141,8 +141,14 @@ class AppCleaner @Inject constructor(
             deletionMap[appJunk.identifier] = deleted
         }
 
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(R.string.appcleaner_automation_loading)
         updateProgressSecondary(CaString.EMPTY)
+
+        val automationTargets = targetPkgs
+            .filter { targetPkg -> snapshot.junks.single { it.pkg.id == targetPkg }.inaccessibleCache != null }
+        val automationTask = ClearCacheTask(automationTargets)
+        val automationResult = automationController.submit(automationTask) as ClearCacheTask.Result
+
 
         internalData.value = snapshot.copy(
             junks = snapshot.junks
@@ -157,7 +163,11 @@ class AppCleaner @Inject constructor(
                                     deletionMap[appJunk.identifier]!!.none { it.matches(file) || it.isAncestorOf(file) }
                                 }
                             }
-                            ?.filterValues { it.isNotEmpty() }
+                            ?.filterValues { it.isNotEmpty() },
+                        inaccessibleCache = when {
+                            automationResult.successful.contains(appJunk.identifier) -> null
+                            else -> appJunk.inaccessibleCache
+                        },
                     )
                 }
                 .filter { !it.isEmpty() }
