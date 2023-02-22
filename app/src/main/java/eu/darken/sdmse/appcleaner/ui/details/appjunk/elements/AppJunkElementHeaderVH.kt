@@ -8,6 +8,7 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementHeaderBinding
 
 
@@ -25,7 +26,14 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val junk = item.appJunk
 
-        icon.loadAppIcon(junk.pkg)
+        icon.apply {
+            loadAppIcon(junk.pkg)
+            setOnLongClickListener {
+                val intent = junk.pkg.getSettingsIntent(context)
+                context.startActivity(intent)
+                true
+            }
+        }
         appName.text = junk.label.get(context)
         appId.text = junk.pkg.packageName
 

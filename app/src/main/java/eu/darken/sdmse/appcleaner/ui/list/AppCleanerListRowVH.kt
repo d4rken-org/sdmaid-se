@@ -6,6 +6,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.databinding.AppcleanerListItemBinding
 
 
@@ -22,7 +23,14 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val junk = item.junk
-        icon.loadAppIcon(junk.pkg)
+        icon.apply {
+            loadAppIcon(junk.pkg)
+            setOnLongClickListener {
+                val intent = junk.pkg.getSettingsIntent(context)
+                context.startActivity(intent)
+                true
+            }
+        }
         primary.text = junk.label.get(context)
         secondary.text = junk.pkg.packageName
 
