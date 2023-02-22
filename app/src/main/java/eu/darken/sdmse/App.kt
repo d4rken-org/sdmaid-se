@@ -54,12 +54,13 @@ open class App : Application(), Configuration.Provider {
         combine(
             debugSettings.isDebugMode.flow,
             debugSettings.isTraceMode.flow,
-        ) { isDebug, isTrace ->
-            log(TAG) { "isDebug=$isDebug, isTrace=$isTrace" }
+            debugSettings.isDryRunMode.flow,
+        ) { isDebug, isTrace, isDryRun ->
+            log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
             Bugs.isDebug = isDebug
             Bugs.isTrace = isDebug && isTrace
+            Bugs.isArmed = !isDryRun
         }.launchIn(appScope)
-
 
         bugReporter.setup(this)
 

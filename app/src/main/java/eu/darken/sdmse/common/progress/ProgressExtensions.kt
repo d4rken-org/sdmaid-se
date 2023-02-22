@@ -21,7 +21,7 @@ fun <T : Progress.Client> T.updateProgressIcon(icon: Drawable) {
     updateProgress { (it ?: Progress.Data()).copy(icon = icon.toCaDrawable()) }
 }
 
-fun <T : Progress.Client> T.updateProgressIcon(icon: CaDrawable) {
+fun <T : Progress.Client> T.updateProgressIcon(icon: CaDrawable?) {
     updateProgress { (it ?: Progress.Data()).copy(icon = icon) }
 }
 

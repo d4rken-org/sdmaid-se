@@ -21,6 +21,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!--    Up to Android 12-->
+    <uses-permission
+        android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
+
     <!--    Android 11-->
     <uses-permission
         android:name="android.permission.MANAGE_EXTERNAL_STORAGE"

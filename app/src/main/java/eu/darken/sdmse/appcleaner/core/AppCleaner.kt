@@ -6,10 +6,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.automation.core.AutomationController
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -40,6 +42,7 @@ class AppCleaner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
     private val appScannerProvider: Provider<AppScanner>,
+    private val automationController: AutomationController,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -130,12 +133,12 @@ class AppCleaner @Inject constructor(
                     updateProgressSecondary(it.userReadablePath)
                     true
                 }
+                automationController.submit(ClearCacheTask(listOf(targetPkg)))
                 log(TAG) { "Deleted $targetFile!" }
                 deleted.add(targetFile)
             }
 
             deletionMap[appJunk.identifier] = deleted
-
         }
 
         updateProgressPrimary(R.string.general_progress_loading)

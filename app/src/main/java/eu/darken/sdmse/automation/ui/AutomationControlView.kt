@@ -2,12 +2,14 @@ package eu.darken.sdmse.automation.ui
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.animation.AnimationUtils
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.Progress.Count
@@ -22,6 +24,9 @@ class AutomationControlView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val ui = AutomationControlViewBinding.inflate(layoutInflator, this)
+    private val wiggleAnim = AnimationUtils.loadAnimation(context, R.anim.anim_wiggle)
+
+    private var clickCount = 0
 
     fun setProgress(data: Progress.Data?) {
         isVisible = data != null
@@ -72,9 +77,16 @@ class AutomationControlView @JvmOverloads constructor(
     fun showOverlay(show: Boolean) {
         ui.clickScreen.isVisible = show
         ui.clickScreenExplanation.isVisible = show
+        ui.clickScreenIcon.isVisible = show
     }
 
     fun setCancelListener(listener: OnClickListener?) {
         ui.cancelAction.setOnClickListener(listener)
+        ui.clickScreenIcon.apply {
+            setOnClickListener {
+                clickCount++
+                if (clickCount % 5 == 0) startAnimation(wiggleAnim)
+            }
+        }
     }
 }

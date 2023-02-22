@@ -7,6 +7,9 @@ import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.crawler.*
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import timber.log.Timber
@@ -15,10 +18,10 @@ import java.util.*
 interface SpecSource {
     val label: String
 
-    fun isResponsible(pkgInfo: Installed): Boolean
+    suspend fun isResponsible(pkg: Installed): Boolean
 
     @Throws(UnsupportedOperationException::class)
-    fun getSpecs(pkgInfo: Installed): List<ACCrawler.Spec>
+    suspend fun getSpecs(pkg: Installed): List<ACCrawler.Step>
 
     fun Context.get3rdPartyString(packageName: String, stringIdName: String): String? = try {
         val appResources = packageManager.getResourcesForApplication(packageName)
@@ -41,42 +44,45 @@ interface SpecSource {
 
     fun String.toScript(): String = this.toLoc().script
 
-    fun isLineageROM(): Boolean = Build.DISPLAY.lowercase(Locale.ROOT).contains("lineage")
-            || Build.PRODUCT.lowercase(Locale.ROOT).contains("lineage")
+    fun getDefaultClearCacheClick(
+        pkg: Installed,
+        tag: String
+    ): (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->
+        log(tag, VERBOSE) { "Clicking on ${node.toStringShort()} for $pkg:" }
 
-    fun isCustomROM() = isLineageROM()
-
-    fun getDefaultClearCacheClick(pkgInfo: Installed, tag: String): (AccessibilityNodeInfo, Int) -> Boolean =
-        { node, retryCount ->
-            Timber.tag(tag).v("Clicking on ${node.toStringShort()} for $pkgInfo:")
-            val success = CrawlerCommon.defaultClick(isArmed = Bugs.isArmed).invoke(node, retryCount)
-            if (!success && !node.isEnabled) {
-                Timber.tag(tag).d("Can't click on the clear cache button because it was disabled, but why...")
-                try {
-                    val allButtonsAreDisabled = node.getRoot(maxNesting = 4).crawl().map { it.node }.all {
-                        !it.isClickyButton() || !it.isEnabled
-                    }
-                    if (allButtonsAreDisabled) {
-                        // https://github.com/d4rken/sdmaid-public/issues/3121
-                        Timber.tag(tag)
-                            .w("Clear cache button was disabled, but so are others, assuming size calculation going on.")
-                        Timber.tag(tag).d("Sleeping for 1000ms to wait for calculation.")
-                        Thread.sleep((500 * retryCount).toLong())
-                        false
-                    } else {
-                        // https://github.com/d4rken/sdmaid-public/issues/2517
-                        Timber.tag(tag)
-                            .w("Only the clear cache button was disabled, assuming stale information, counting as success.")
-                        true
-                    }
-                } catch (e: Exception) {
-                    Timber.tag(tag).w("Error while trying to determine why the clear cache button is not enabled.")
-                    false
-                }
-            } else {
-                success
-            }
+        if (!Bugs.isArmed) {
+            log(tag, WARN) { "DISARMED: Not clicking." }
+            return@scope true
         }
+
+        val success = CrawlerCommon.defaultClick(isArmed = Bugs.isArmed).invoke(node, retryCount)
+        if (!success && !node.isEnabled) {
+            Timber.tag(tag).d("Can't click on the clear cache button because it was disabled, but why...")
+            try {
+                val allButtonsAreDisabled = node.getRoot(maxNesting = 4).crawl().map { it.node }.all {
+                    !it.isClickyButton() || !it.isEnabled
+                }
+                if (allButtonsAreDisabled) {
+                    // https://github.com/d4rken/sdmaid-public/issues/3121
+                    Timber.tag(tag)
+                        .w("Clear cache button was disabled, but so are others, assuming size calculation going on.")
+                    Timber.tag(tag).d("Sleeping for 1000ms to wait for calculation.")
+                    Thread.sleep((500 * retryCount).toLong())
+                    false
+                } else {
+                    // https://github.com/d4rken/sdmaid-public/issues/2517
+                    Timber.tag(tag)
+                        .w("Only the clear cache button was disabled, assuming stale information, counting as success.")
+                    true
+                }
+            } catch (e: Exception) {
+                Timber.tag(tag).w("Error while trying to determine why the clear cache button is not enabled.")
+                false
+            }
+        } else {
+            success
+        }
+    }
 
     fun tryCollection(source: () -> Collection<String>): Set<String> = try {
         source.invoke().toSet()

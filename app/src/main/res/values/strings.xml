@@ -228,7 +228,8 @@
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>
     </plurals>
-    <string name="appcleaner_automation_title">AppCleaner automation is active</string>
+    <string name="appcleaner_automation_title">AppCleaner automation</string>
+    <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>
@@ -260,7 +261,7 @@
     <string name="exclusions_description">Exclude files and apps from SD Maids operations.</string>
 
     <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nExample: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force Stop\' button and click it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nNo actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
-    <string name="automation_screenoverlay_explanation">SD Maid is working with your screen. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
     <string name="automation_active_title">SD Maid is working</string>
 
 </resources>

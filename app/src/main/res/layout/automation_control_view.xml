@@ -10,25 +10,38 @@
         android:id="@+id/click_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.6"
+        android:alpha="0.8"
         android:background="?colorBackgroundFloating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/click_screen_icon"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/splash_mascot"
+        app:layout_constraintBottom_toTopOf="@id/click_screen_explanation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusableInTouchMode="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/click_screen_explanation"
         style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="32dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp"
         android:text="@string/automation_screenoverlay_explanation"
         android:textColor="?colorOnBackground"
         app:layout_constraintBottom_toTopOf="@id/control_card"
         app:layout_constraintEnd_toEndOf="@id/click_screen"
         app:layout_constraintStart_toStartOf="@id/click_screen"
-        app:layout_constraintTop_toTopOf="@id/click_screen" />
+        app:layout_constraintTop_toBottomOf="@id/click_screen_icon" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/control_card"
@@ -59,7 +72,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/title"
-                style="@style/TextAppearance.Material3.TitleMedium"
+                style="@style/TextAppearance.Material3.TitleSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -71,21 +84,23 @@
                 app:layout_constraintEnd_toStartOf="@id/progress"
                 app:layout_constraintStart_toEndOf="@id/icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@string/appcleaner_automation_title" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/subtitle"
-                style="@style/TextAppearance.Material3.TitleSmall"
+                style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@string/appcleaner_automation_title"
+                android:text="@string/general_progress_loading"
                 app:layout_constraintEnd_toStartOf="@id/progress"
                 app:layout_constraintStart_toStartOf="@id/title"
                 app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@string/appcleaner_automation_subtitle_default_caches" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/progress"

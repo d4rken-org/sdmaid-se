@@ -19,8 +19,14 @@ class DebugCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         traceEnabled.apply {
+            setOnCheckedChangeListener(null)
             isChecked = item.isTraceEnabled
             setOnCheckedChangeListener { _, isChecked -> item.onTraceEnabled(isChecked) }
+        }
+        dryrunEnabled.apply {
+            setOnCheckedChangeListener(null)
+            isChecked = item.isDryRunEnabled
+            setOnCheckedChangeListener { _, isChecked -> item.onDryRunEnabled(isChecked) }
         }
         pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }
         areasReloadAction.setOnClickListener { item.onReloadAreas() }
@@ -29,6 +35,8 @@ class DebugCardVH(parent: ViewGroup) :
     }
 
     data class Item(
+        val isDryRunEnabled: Boolean,
+        val onDryRunEnabled: (Boolean) -> Unit,
         val isTraceEnabled: Boolean,
         val onTraceEnabled: (Boolean) -> Unit,
         val onReloadAreas: () -> Unit,

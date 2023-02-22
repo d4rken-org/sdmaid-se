@@ -51,8 +51,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private lateinit var windowManager: WindowManager
     private val mainThread = Handler(Looper.getMainLooper())
 
-    private val automationEvents = MutableSharedFlow<AutomationEvent>()
-    override val events: Flow<AutomationEvent> = automationEvents
+    private val automationEvents = MutableSharedFlow<AccessibilityEvent>()
+    override val events: Flow<AccessibilityEvent> = automationEvents
 
     private var controlView: AutomationControlView? = null
 
@@ -163,12 +163,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             event.source
                 ?.getRoot(maxNesting = Int.MAX_VALUE)
                 ?.let { fallbackRoot = it }
-                .also { log(TAG) { "Fallback root was $fallbackRoot, now is $it" } }
+                .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to get fallbackRoot from $event" }
         }
 
-        serviceScope.launch { automationEvents.emit(AutomationEvent(copy)) }
+        serviceScope.launch { automationEvents.emit(copy) }
     }
 
     private var fallbackRoot: AccessibilityNodeInfo? = null

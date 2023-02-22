@@ -3,9 +3,9 @@ package eu.darken.sdmse.automation.core.crawler
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.Gravity
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.R
-import eu.darken.sdmse.automation.core.AutomationEvent
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.progress.Progress
@@ -22,7 +22,7 @@ interface AutomationHost : Progress.Client {
 
     suspend fun changeOptions(action: (Options) -> Options)
 
-    val events: Flow<AutomationEvent>
+    val events: Flow<AccessibilityEvent>
 
     data class Options(
         val showOverlay: Boolean = true,

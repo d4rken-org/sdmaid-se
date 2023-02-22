@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -13,7 +14,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
-import timber.log.Timber
+import kotlinx.coroutines.delay
 
 object CrawlerCommon {
     val TAG: String = logTag("Automation", "Crawler", "Common")
@@ -34,7 +35,7 @@ object CrawlerCommon {
     fun defaultClick(
         isArmed: Boolean = true
     ): (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
-        Timber.tag(TAG).v("Clicking on %s", node.toStringShort())
+        log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
         if (!node.isEnabled) throw IllegalStateException("Clickable target is disabled.")
         if (isArmed) {
             node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
@@ -57,17 +58,15 @@ object CrawlerCommon {
     fun windowCriteria(
         windowPkg: String,
         extraTest: (AccessibilityNodeInfo) -> Boolean = { true }
-    ): (AccessibilityNodeInfo) -> Boolean {
-        return fun(node: AccessibilityNodeInfo): Boolean {
-            return node.packageName == windowPkg && extraTest(node)
-        }
+    ): suspend (AccessibilityNodeInfo) -> Boolean = { node: AccessibilityNodeInfo ->
+        node.packageName == windowPkg && extraTest(node)
     }
 
     suspend fun windowCriteriaAppIdentifier(
         windowPkg: String,
         ipcFunnel: IPCFunnel,
         pkgInfo: Installed
-    ): (AccessibilityNodeInfo) -> Boolean {
+    ): suspend (AccessibilityNodeInfo) -> Boolean {
         val candidates = mutableSetOf(pkgInfo.packageName)
 
         ipcFunnel
@@ -90,7 +89,7 @@ object CrawlerCommon {
                         ?.loadLabel(packageManager)
                         ?.toString()
                 } catch (e: Throwable) {
-                    Timber.tag(TAG).d(e)
+                    log(TAG) { "windowCriteriaAppIdentifier error for $pkgInfo: ${e.asLog()}" }
                     null
                 }
             }
@@ -112,11 +111,11 @@ object CrawlerCommon {
         }
     }
 
-    fun getDefaultNodeRecovery(pkg: Installed): (AccessibilityNodeInfo) -> Boolean = { root ->
+    fun getDefaultNodeRecovery(pkg: Installed): suspend (AccessibilityNodeInfo) -> Boolean = { root ->
         val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
         if (busyNode != null) {
-            Timber.tag(TAG).v("Found a busy-node, attempting recovery via delay: %s", busyNode)
-            Thread.sleep(1000)
+            log(TAG, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
+            delay(1000)
             root.refresh()
             true
         } else {

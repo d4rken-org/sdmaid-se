@@ -1,113 +1,164 @@
 package eu.darken.sdmse.automation.core.crawler
 
+import android.accessibilityservice.AccessibilityService
 import android.content.Intent
 import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationSupportException
 import eu.darken.sdmse.automation.core.SpecSource
 import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.withTimeout
 
-class ACCrawler(private val host: AutomationHost) {
 
-//    fun crawl(spec: Spec): Single<Result> {
-//        var retryCount = 0
-//        return Single
-//            .fromCallable {
-//                Timber.tag(TAG).d("Looking for window root (intent=%s).", spec.windowIntent)
-//                if (retryCount > 0 && !ApiHelper.hasAndroid12()) {
-//                    Timber.tag(TAG).d("Clearing system dialogs (retryCount=%d).", retryCount)
-//                    val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-//                    try {
-//                        host.getService().sendBroadcast(closeIntent)
-//                    } catch (e: Exception) {
-//                        Timber.tag(TAG).w(e, "Sending ACTION_CLOSE_SYSTEM_DIALOGS failed")
-//                    }
-//                }
-//                retryCount++
-//                if (spec.windowIntent != null) host.getService().startActivity(spec.windowIntent)
-//                true
-//            }
-//            .subscribeOn(AndroidSchedulers.mainThread()).observeOn(Schedulers.io())
-//            .delay(200, TimeUnit.MILLISECONDS) // avg delay between activity launch and acs event
-//            .flatMap {
-//                val rootLookup = if (spec.windowIntent == null) {
-//                    host.windowRoot()
-//                } else {
-//                    host.events()
-//                        .filter { spec.windowEventFilter == null || spec.windowEventFilter.invoke(it) }
-//                        .firstOrError()
-//                        .flatMap { host.windowRoot() }
-//                }
-//                return@flatMap rootLookup
-//                    .map { rootNode ->
-//                        if (spec.windowNodeTest == null || spec.windowNodeTest.invoke(rootNode)) {
-//                            return@map rootNode
-//                        } else {
-//                            throw CrawlerException("Not a viable root window: $rootNode (spec=$spec)")
-//                        }
-//                    }
-//                    .doOnError { Timber.tag(TAG).d("No valid root-node found: %s", it.toString()) }
-//                    .retryDelayed(5, 100, retryCondition = { !host.isCanceled() && it !is BranchException }) // 3400ms
-//            }
-//            .timeout(4000, TimeUnit.MILLISECONDS)
-//            .doOnSuccess { Timber.tag(TAG).d("Found root-node: $it") }
-//            .flatMap {
-//                return@flatMap host.windowRoot() // Get new root for retries
-//                    .doOnSuccess { Timber.tag(TAG).v("Current root: %s", it.toStringShort()) }
-//                    .map { root ->
-//                        if (spec.nodeTest == null) return@map root
-//                        var target = root.crawl().map { it.node }.find { spec.nodeTest.invoke(it) }
-//                        if (target == null && spec.nodeRecovery != null) {
-//                            // Should we care about whether the recovery thinks it was successful?
-//                            spec.nodeRecovery.invoke(root)
-//                            target = host.windowRoot().blockingGet().crawl().map { it.node }
-//                                .find { spec.nodeTest.invoke(it) }
-//                        }
-//                        return@map target ?: throw CrawlerException("No matching node found for $spec")
-//                    }
-//                    .retryDelayed(5, 100, retryCondition = { !host.isCanceled() && it !is BranchException })
-//            }
-//            .map { spec.nodeMapping?.invoke(it) ?: it }
-//            .map { node ->
-//                val success = spec.action?.invoke(node, retryCount) ?: true
-//                if (success) return@map node else throw CrawlerException("Action failed on $node (spec=$spec)")
-//            }
-//            .doOnError { Timber.tag(TAG).d("Failed $spec, retrying: %s", it.toString()) }
-//            .retryDelayed(10, 50) { !host.isCanceled() && it !is BranchException }
-//            .timeout(20, TimeUnit.SECONDS)
-//            .map { Result(true) }
-//            .doOnSuccess { Timber.tag(TAG).d("crawl($spec) - result: %s", it) }
-//            .doOnError { Timber.tag(TAG).e(it, "crawl($spec) - error") }
-//            .onErrorReturn {
-//                Result(
-//                    false,
-//                    CrawlerException("Error during $spec (isCanceled=${host.isCanceled()})", it)
-//                )
-//            }
-//    }
+class ACCrawler @AssistedInject constructor(
+    @Assisted private val host: AutomationHost,
+) {
 
-    companion object {
-        internal val TAG: String = logTag("Automation", "Crawler")
+    suspend fun crawl(step: Step): Unit = withTimeout(20 * 1000) {
+        log(TAG) { "crawl(): $step" }
+        var attempts = 0
+        while (currentCoroutineContext().isActive) {
+            try {
+                withTimeout(5 * 1000) {
+                    doCrawl(step, attempts++)
+                }
+                return@withTimeout
+            } catch (e: BranchException) {
+                log(TAG) { "Branching! ${e.asLog()}" }
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "crawl(): Attempt $attempts failed on $step:\n${e.asLog()}" }
+                delay(300)
+            }
+        }
     }
 
 
-    data class Spec(
+    private suspend fun doCrawl(step: Step, attempt: Int = 0) {
+        log(TAG, VERBOSE) { "doCrawl(): Attempt $attempt for $step" }
+
+        log(TAG, VERBOSE) { "Looking for window root (intent=${step.windowIntent})." }
+
+        when {
+            attempt > 1 -> when {
+                hasApiLevel(31) -> {
+                    log(TAG) { "To dismiss any notification shade" }
+                    @Suppress("NewApi")
+                    host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
+                }
+                !hasApiLevel(31) -> {
+                    log(TAG) { "Clearing system dialogs (retryCount=$attempt)." }
+                    val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+                    try {
+                        host.service.sendBroadcast(closeIntent)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Sending ACTION_CLOSE_SYSTEM_DIALOGS failed: ${e.asLog()}" }
+                    }
+                }
+            }
+        }
+
+        if (step.windowIntent != null) host.service.startActivity(step.windowIntent)
+
+        // avg delay between activity launch and acs event
+        delay(200)
+
+        // Wait for correct window
+        val rootNode: AccessibilityNodeInfo = withTimeout(4000) {
+            // Condition for the right window, e.g. check title
+            if (step.windowIntent != null) {
+                log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
+                host.events.filter { step.windowEventFilter == null || step.windowEventFilter.invoke(it) }.first()
+                log(TAG, VERBOSE) { "Waiting for window event filter passed!" }
+            }
+
+            var currentRoot: AccessibilityNodeInfo? = null
+            while (currentCoroutineContext().isActive) {
+                currentRoot = host.windowRoot()
+
+                log(TAG, VERBOSE) { "Current node hierarchy:" }
+                currentRoot.crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+
+                try {
+                    if (step.windowNodeTest != null && !step.windowNodeTest.invoke(currentRoot)) {
+                        log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
+                    } else {
+                        break
+                    }
+                } catch (e: BranchException) {
+                    log(TAG) { "Branching! ${e.asLog()}" }
+                    throw e
+                }
+                delay(200)
+            }
+
+            currentRoot ?: throw IllegalStateException("No valid root node found")
+        }
+        log(TAG, VERBOSE) { "Root node is ${rootNode.toStringShort()}" }
+
+        val targetNode: AccessibilityNodeInfo = when {
+            step.nodeTest != null -> {
+                var target: AccessibilityNodeInfo? = null
+                while (target == null) {
+                    target = rootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
+                    if (target == null && step.nodeRecovery != null) {
+                        // Should we care about whether the recovery thinks it was successful?
+                        step.nodeRecovery.invoke(rootNode)
+                        target = host.windowRoot().crawl().map { it.node }.find { step.nodeTest.invoke(it) }
+                        delay(200)
+                    }
+                    // Timeout will hit here and cancel if necessary
+                    delay(100)
+                }
+                target
+            }
+            else -> rootNode
+        }
+        log(TAG, VERBOSE) { "Target node is ${targetNode.toStringShort()}" }
+
+        // e.g. find a clickable parent based on the target node
+        val mappedNode = step.nodeMapping?.invoke(targetNode) ?: targetNode
+        log(TAG, VERBOSE) { "Mapped node is ${mappedNode.toStringShort()}" }
+
+        // Perform action, e.g. clicking a button
+        val success = step.action?.invoke(mappedNode, attempt) ?: true
+
+        if (success) {
+            log(TAG) { "Crawl was successful :)" }
+        } else {
+            throw CrawlerException("Action failed on $mappedNode (spec=$step)")
+        }
+    }
+
+    data class Step(
         val parentTag: String,
         val pkgInfo: Installed,
         val label: String,
         val isHailMary: Boolean = false,
         val windowIntent: Intent? = null,
-        val windowEventFilter: ((node: AccessibilityEvent) -> Boolean)? = null,
-        val windowNodeTest: ((node: AccessibilityNodeInfo) -> Boolean)? = null,
+        val windowEventFilter: (suspend ((node: AccessibilityEvent) -> Boolean))? = null,
+        val windowNodeTest: (suspend ((node: AccessibilityNodeInfo) -> Boolean))? = null,
         val nodeTest: ((node: AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeRecovery: ((node: AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeMapping: ((node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
-        val action: ((node: AccessibilityNodeInfo, retryCount: Int) -> Boolean)? = null
+        val nodeRecovery: (suspend ((node: AccessibilityNodeInfo) -> Boolean))? = null,
+        val nodeMapping: (suspend ((node: AccessibilityNodeInfo) -> AccessibilityNodeInfo))? = null,
+        val action: (suspend ((node: AccessibilityNodeInfo, retryCount: Int) -> Boolean))? = null
     ) {
-
         fun createHailMaryException(cause: Throwable): Throwable {
             val locale = SpecSource.getSysLocale()
             val apiLevel = BuildWrap.VERSION.SDK_INT
@@ -119,7 +170,17 @@ class ACCrawler(private val host: AutomationHost) {
         }
 
         override fun toString(): String = "Spec(parent=$parentTag, label=$label, pkg=${pkgInfo.packageName})"
+
     }
 
     data class Result(val success: Boolean, val exception: Exception? = null)
+
+    companion object {
+        internal val TAG: String = logTag("Automation", "Crawler")
+    }
+
+    @AssistedFactory
+    interface Factory {
+        fun create(host: AutomationHost): ACCrawler
+    }
 }

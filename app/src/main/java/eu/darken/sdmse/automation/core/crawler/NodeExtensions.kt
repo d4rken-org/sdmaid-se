@@ -1,7 +1,6 @@
 package eu.darken.sdmse.automation.core.crawler
 
 import android.view.accessibility.AccessibilityNodeInfo
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -101,7 +100,7 @@ fun AccessibilityNodeInfo.getRoot(maxNesting: Int = 15 /*AOSP*/): AccessibilityN
     return target
 }
 
-fun AccessibilityNodeInfo.crawl(debug: Boolean = Bugs.isDebug): Sequence<CrawledNode> = sequence {
+fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> = sequence {
     try {
         if (this@crawl.getChild(0) == null) {
             this@crawl.refresh().let { log(CrawlerCommon.TAG) { "Refresh success: $it" } }

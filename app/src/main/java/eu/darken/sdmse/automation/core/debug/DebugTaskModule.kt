@@ -34,6 +34,8 @@ class DebugTaskModule @AssistedInject constructor(
 
     override suspend fun process(task: AutomationTask): AutomationTask.Result {
         log(TAG) { "process(): $task" }
+        updateProgressPrimary("Debug: Accessibility service")
+        updateProgressSecondary("Setting host options...")
         host.changeOptions { old ->
             old
                 .copy(
@@ -52,21 +54,20 @@ class DebugTaskModule @AssistedInject constructor(
 
         log(TAG) { "process(): Host options adjusted" }
         val ccTask = task as DebugTask
-        updateProgressPrimary("Debug: Accessibility service")
-        updateProgressSecondary("Debug: Secondary progress...")
         val startTime = System.currentTimeMillis()
 
+        updateProgressSecondary("Listening to events...")
         val eventJob = host.events
             .onEach {
                 log(TAG) { "Event: $it" }
-                host.windowRoot().crawl(debug = true).toList().onEach {
-                    log { "Crawled: $it" }
-                }
+                val crawled = host.windowRoot().crawl(debug = true).toList()
+                updateProgressSecondary("Event: ${it.eventType} (depth: ${crawled.last().level})")
             }
             .launchIn(moduleScope)
 
         eventJob.join()
 
+        updateProgressSecondary("Finished!")
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK
         }
@@ -83,14 +84,9 @@ class DebugTaskModule @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory : AutomationModule.Factory {
-        override fun isResponsible(task: AutomationTask): Boolean {
-            return task is DebugTask
-        }
+        override fun isResponsible(task: AutomationTask): Boolean = task is DebugTask
 
-        override fun create(
-            host: AutomationHost,
-            moduleScope: CoroutineScope,
-        ): DebugTaskModule
+        override fun create(host: AutomationHost, moduleScope: CoroutineScope): DebugTaskModule
     }
 
     companion object {

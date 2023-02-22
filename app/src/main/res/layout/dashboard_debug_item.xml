@@ -46,6 +46,13 @@
                 android:layout_height="wrap_content"
                 android:text="Enable trace mode" />
 
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/dryrun_enabled"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable dry-run mode" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/areas_reload_action"
                 style="@style/Widget.Material3.Button.OutlinedButton"

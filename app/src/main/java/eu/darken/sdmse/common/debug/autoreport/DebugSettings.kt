@@ -21,5 +21,6 @@ class DebugSettings @Inject constructor(
 
     val isDebugMode = dataStore.createValue("debug.enabled", BuildConfigWrap.DEBUG)
     val isTraceMode = dataStore.createValue("debug.trace.enabled", false)
+    val isDryRunMode = dataStore.createValue("debug.dryrun.enabled", false)
 
 }
