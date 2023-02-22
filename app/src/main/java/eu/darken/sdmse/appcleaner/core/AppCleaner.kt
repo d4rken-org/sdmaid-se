@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
@@ -63,7 +64,7 @@ class AppCleaner @Inject constructor(
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
         task as AppCleanerTask
-        log(TAG) { "submit($task) starting..." }
+        log(TAG) { "submit()starting...$task" }
         updateProgress { Progress.DEFAULT_STATE }
         try {
             val result = keepResourceHoldersAlive(usedResources) {
@@ -72,7 +73,7 @@ class AppCleaner @Inject constructor(
                     is AppCleanerDeleteTask -> performDelete(task)
                 }
             }
-            log(TAG, INFO) { "submit($task) finished: $result" }
+            log(TAG, INFO) { "submit() finished: $result" }
             result
         } finally {
             updateProgress { null }
@@ -106,15 +107,19 @@ class AppCleaner @Inject constructor(
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
         val deletionMap = mutableMapOf<Pkg.Id, Set<APathLookup<*>>>()
-        val deletedInAccessible = mutableSetOf<Pkg.Id>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
         val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.pkg.id }
+
         targetPkgs.forEach { targetPkg ->
+            if (task.onlyInaccessible) return@forEach
+
             val appJunk = snapshot.junks.single { it.pkg.id == targetPkg }
+
             val targetFilters = task.targetFilters
                 ?: appJunk.expendables?.keys
                 ?: emptySet()
+
             val targetFiles: Collection<APathLookup<*>> = task.targetContents
                 ?.map { tc ->
                     val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
@@ -147,20 +152,23 @@ class AppCleaner @Inject constructor(
         val automationTargets = targetPkgs
             .filter { targetPkg -> snapshot.junks.single { it.pkg.id == targetPkg }.inaccessibleCache != null }
         val automationTask = ClearCacheTask(automationTargets)
-        val automationResult = automationController.submit(automationTask) as ClearCacheTask.Result
-
+        val automationResult = try {
+            automationController.submit(automationTask) as ClearCacheTask.Result
+        } catch (e: IllegalStateException) {
+            log(TAG, WARN) { "Accessibility service was not running: ${e.asLog()}" }
+            ClearCacheTask.Result(successful = emptySet(), failed = automationTargets)
+        }
 
         internalData.value = snapshot.copy(
             junks = snapshot.junks
                 .map { appJunk ->
-                    if (!deletionMap.containsKey(appJunk.identifier)) return@map appJunk
-
                     // Remove all files we deleted or children of deleted files
                     appJunk.copy(
                         expendables = appJunk.expendables
                             ?.mapValues { (type, typeFiles) ->
                                 typeFiles.filter { file ->
-                                    deletionMap[appJunk.identifier]!!.none { it.matches(file) || it.isAncestorOf(file) }
+                                    val mapContent = deletionMap[appJunk.identifier]
+                                    mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
                                 }
                             }
                             ?.filterValues { it.isNotEmpty() },

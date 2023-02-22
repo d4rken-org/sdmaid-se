@@ -11,6 +11,7 @@ sealed class AppJunkEvents {
         val appJunk: AppJunk,
         val filterType: KClass<out ExpendablesFilter>? = null,
         val path: APath? = null,
+        val onlyInaccessible: Boolean = false,
     ) : AppJunkEvents()
 
     data class TaskForParent(val task: AppCleanerTask) : AppJunkEvents()

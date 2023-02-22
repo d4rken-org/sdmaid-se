@@ -53,6 +53,11 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                     setTitle(R.string.general_delete_confirmation_title)
                     setMessage(
                         when {
+                            event.onlyInaccessible -> getString(
+                                R.string.general_delete_confirmation_message_x_for_x,
+                                getString(R.string.appcleaner_item_caches_inaccessible_title),
+                                event.appJunk.label.get(context),
+                            )
                             event.path != null -> getString(
                                 R.string.general_delete_confirmation_message_x,
                                 event.path.userReadablePath.get(context),
@@ -73,7 +78,9 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                         vm.doDelete(
                             event.appJunk,
                             event.filterType?.let { setOf(it) },
-                            event.path?.let { setOf(it) })
+                            event.path?.let { setOf(it) },
+                            event.onlyInaccessible,
+                        )
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                 }.show()

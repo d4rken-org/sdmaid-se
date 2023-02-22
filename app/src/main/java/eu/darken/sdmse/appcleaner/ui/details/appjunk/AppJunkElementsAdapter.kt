@@ -6,6 +6,7 @@ import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
+import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -29,11 +30,14 @@ class AppJunkElementsAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementHeaderVH.Item }) { AppJunkElementHeaderVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementFileCategoryVH.Item }) {
-            AppJunkElementFileCategoryVH(
+            AppJunkElementFileCategoryVH(it)
+        })
+        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementFileVH.Item }) { AppJunkElementFileVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementInaccessibleVH.Item }) {
+            AppJunkElementInaccessibleVH(
                 it
             )
         })
-        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementFileVH.Item }) { AppJunkElementFileVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

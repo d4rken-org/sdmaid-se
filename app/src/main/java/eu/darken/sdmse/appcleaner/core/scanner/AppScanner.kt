@@ -6,6 +6,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -114,17 +115,25 @@ class AppScanner @Inject constructor(
 
         val appJunks = allCurrentPkgs.mapNotNull { pkg ->
             val expendables = expendablesFromAppData[pkg.id]
-            val inaccessibleCache = inaccessibleCaches.firstOrNull { pkg.id == it.pkgId }
-            if (expendables.isNullOrEmpty() && inaccessibleCache == null) return@mapNotNull null
+            var inaccessible = inaccessibleCaches.firstOrNull { pkg.id == it.pkgId }
+            if (expendables.isNullOrEmpty() && inaccessible == null) return@mapNotNull null
 
             val byFilterType: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>? = expendables
                 ?.groupBy { it.type }
                 ?.mapValues { matches -> matches.value.map { it.file } }
 
+            // For <API31 we can improve accuracy manually
+            if (inaccessible != null && byFilterType != null && inaccessible.externalCacheBytes == null) {
+                inaccessible = inaccessible.copy(
+                    externalCacheBytes = byFilterType[DefaultCachesPublicFilter::class]?.sumOf { it.size }
+                )
+                log(TAG) { "Guesstimated external cache size as ${inaccessible.externalCacheBytes}" }
+            }
+
             AppJunk(
                 pkg = pkg,
                 expendables = byFilterType,
-                inaccessibleCache = inaccessibleCache,
+                inaccessibleCache = inaccessible,
             )
         }
 
@@ -428,9 +437,8 @@ class AppScanner @Inject constructor(
                 }
             }
             .filterIsInstance<NormalPkg>()
-            .mapNotNull {
-                inaccessibleCacheProvider.getCacheFile(it.id)
-            }
+            .mapNotNull { inaccessibleCacheProvider.determineCache(it.id) }
+            .filter { !it.isEmpty }
     }
 
     companion object {

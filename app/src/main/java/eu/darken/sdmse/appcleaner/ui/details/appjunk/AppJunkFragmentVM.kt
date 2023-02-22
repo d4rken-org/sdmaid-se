@@ -9,6 +9,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
+import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -48,6 +49,16 @@ class AppJunkFragmentVM @Inject constructor(
 //                    TODO()
             }
         ).run { items.add(this) }
+
+        data.inaccessibleCache?.let {
+            AppJunkElementInaccessibleVH.Item(
+                appJunk = data,
+                inaccessibleCache = data.inaccessibleCache,
+                onItemClick = {
+                    events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, onlyInaccessible = true))
+                }
+            ).run { items.add(this) }
+        }
 
         data.expendables
             ?.filter { it.value.isNotEmpty() }
@@ -95,10 +106,11 @@ class AppJunkFragmentVM @Inject constructor(
     fun doDelete(
         appJunk: AppJunk,
         filterTypes: Set<KClass<out ExpendablesFilter>>?,
-        paths: Set<APath>?
+        paths: Set<APath>?,
+        onlyInaccessible: Boolean,
     ) = launch {
         log(TAG, INFO) { "doDelete(appJunk=$appJunk, filterTypes=$filterTypes,paths=$paths)" }
-        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id), filterTypes, paths)
+        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id), filterTypes, paths, onlyInaccessible)
         // Removnig the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(AppJunkEvents.TaskForParent(task))
     }

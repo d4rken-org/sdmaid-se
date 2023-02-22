@@ -18,6 +18,7 @@ data class AppCleanerDeleteTask(
     val targetPkgs: Set<Pkg.Id>? = null,
     val targetFilters: Set<KClass<out ExpendablesFilter>>? = null,
     val targetContents: Set<APath>? = null,
+    val onlyInaccessible: Boolean = false,
 ) : AppCleanerTask {
 
     sealed interface Result : AppCleanerTask.Result
