@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.forensics
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
@@ -15,7 +16,7 @@ class LocationInfoTest : BaseTest() {
         val area = DataArea(
             path = LocalPath.build("/area"),
             type = DataArea.Type.PUBLIC_DATA,
-            label = "Public data",
+            label = "Public data".toCaString(),
             userHandle = UserHandle2(1),
         )
         val a = AreaInfo(LocalPath.build("/area/test"), LocalPath.build(), area, false)

@@ -407,6 +407,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     suspend fun mockPkg(pkgId: Pkg.Id): Installed {
         val installed = mockk<Installed>().apply {
             every { id } returns pkgId
+            every { packageName } returns id.name
         }
         pkgs[pkgId] = installed
         coEvery { pkgRepo.getPkg(pkgId) } answers {
