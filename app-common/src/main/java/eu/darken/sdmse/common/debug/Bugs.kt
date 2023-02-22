@@ -16,7 +16,7 @@ object Bugs {
         }
     }
 
-    var isArmed = false
+    var isDryRun = false
     var isTrace = false
     var isDebug = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV
 

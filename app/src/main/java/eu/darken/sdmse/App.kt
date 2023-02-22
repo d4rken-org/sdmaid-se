@@ -59,7 +59,7 @@ open class App : Application(), Configuration.Provider {
             log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
             Bugs.isDebug = isDebug
             Bugs.isTrace = isDebug && isTrace
-            Bugs.isArmed = !isDryRun
+            Bugs.isDryRun = isDryRun
         }.launchIn(appScope)
 
         bugReporter.setup(this)

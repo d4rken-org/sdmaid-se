@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.files.core.local
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -376,7 +377,12 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
                     if (!canNormalWrite) throw WriteException(path)
-                    javaFile.delete()
+                    if (Bugs.isDryRun) {
+                        log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
+                        true
+                    } else {
+                        javaFile.delete()
+                    }
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps { it.delete(path) }
