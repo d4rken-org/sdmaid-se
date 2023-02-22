@@ -45,10 +45,12 @@ class PostProcessorModule @Inject constructor(
 
     suspend fun postProcess(apps: Collection<AppJunk>): Collection<AppJunk> {
         log(TAG) { "postProcess(${apps.size})" }
+        val minCacheSize = settings.minCacheSizeBytes.value()
         val processed = apps
             .map { checkAliasedItems(it) }
             .map { checkExclusions(it) }
             .map { checkForHiddenModules(it) }
+            .filter { it.size >= minCacheSize }
             .filter { !it.isEmpty() }
         log(TAG) { "After post processing: ${apps.size} reduced to ${processed.size}" }
         return processed

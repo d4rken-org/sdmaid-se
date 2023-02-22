@@ -53,7 +53,9 @@ class AppCleanerSettings @Inject constructor(
     val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", true)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
-    val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 0L)
+
+    // Amounts to common folders created by default
+    val minCacheSizeBytes = dataStore.createValue("skip.mincachesize.bytes", 48 * 1024L)
 
     val automationCustomSteps = dataStore.createValue<CustomSpecs.Config?>("automation.custom.config", null, moshi)
 

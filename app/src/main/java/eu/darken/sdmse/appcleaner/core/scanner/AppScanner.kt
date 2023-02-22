@@ -393,7 +393,6 @@ class AppScanner @Inject constructor(
 
             pathContents
                 .filter { minCacheAgeMs == 0L || it.modifiedAt >= Instant.now().minusMillis(minCacheAgeMs) }
-                .filter { minCacheSizeBytes == 0L || it.size > minCacheSizeBytes }
                 .filter { it.segments.startsWith(spoi.file.segments) }
                 .forEach { foi ->
                     // TODO do we need this extra lookup or can we construct the prefix free segments without it?
