@@ -265,4 +265,10 @@
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
     <string name="automation_active_title">SD Maid is working</string>
 
+    <string name="setup_permission_granted_label">Permission granted</string>
+
+    <string name="setup_usagestats_title">Usage statistics</string>
+    <string name="setup_usagestats_body">The usage statistics permissions grants access to more app details. SD Maid uses it to determine additional cache sizes.</string>
+    <string name="setup_usagestats_hint">Required for accessibility service based cache deletion.</string>
+
 </resources>

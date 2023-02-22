@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -36,6 +37,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
     @Inject lateinit var setupAdapter: SetupAdapter
     @Inject lateinit var webpageTool: WebpageTool
+    @Inject lateinit var deviceDetective: DeviceDetective
 
     private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.State.PathAccess>
     private var awaitedPermission: Permission? = null
@@ -63,7 +65,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
-            if(vm.isOnboarding) {
+            if (vm.isOnboarding) {
                 setNavigationIcon(R.drawable.ic_baseline_close_24)
             }
             setOnMenuItemClickListener {
@@ -98,7 +100,9 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     when (event.item) {
                         is Specialpermission -> {
                             try {
-                                specialPermissionLauncher.launch(event.item.createIntent(requireContext()))
+                                specialPermissionLauncher.launch(
+                                    event.item.createIntent(requireContext(), deviceDetective)
+                                )
                             } catch (e: Exception) {
                                 log(TAG, ERROR) { "Failed to launch permission intent: ${e.asLog()}" }
                                 val fallbackIntent = event.item.createIntentFallback(requireContext())

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.permissions
 
 import android.annotation.SuppressLint
+import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,6 +13,7 @@ import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.DeviceDetective
 
 @Suppress("ClassName")
 sealed class Permission(
@@ -32,7 +34,7 @@ sealed class Permission(
             return pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
         }
 
-        override fun createIntent(context: Context): Intent = Intent().apply {
+        override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent = Intent().apply {
             action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
             data = Uri.fromParts("package", context.packageName, null)
         }
@@ -49,7 +51,7 @@ sealed class Permission(
             return Environment.isExternalStorageManager()
         }
 
-        override fun createIntent(context: Context): Intent = Intent().apply {
+        override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent = Intent().apply {
             action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
             data = Uri.fromParts("package", context.packageName, null)
         }
@@ -64,11 +66,33 @@ sealed class Permission(
 
     object READ_EXTERNAL_STORAGE
         : Permission("android.permission.READ_EXTERNAL_STORAGE"), RuntimePermission
+
+    object PACKAGE_USAGE_STATS
+        : Permission("android.permission.PACKAGE_USAGE_STATS"), Specialpermission {
+        override fun isGranted(context: Context): Boolean {
+            val applicationInfo = context.packageManager.getApplicationInfo(context.packageName, 0)
+            val appOpsManager = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+            val mode = appOpsManager.checkOpNoThrow(
+                AppOpsManager.OPSTR_GET_USAGE_STATS,
+                applicationInfo.uid,
+                applicationInfo.packageName
+            )
+            return mode == AppOpsManager.MODE_ALLOWED
+        }
+
+        override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent {
+            return if (deviceDetective.isAndroidTV()) {
+                Intent(Settings.ACTION_APPLICATION_SETTINGS)
+            } else {
+                Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+            }
+        }
+    }
 }
 
 interface RuntimePermission
 
 interface Specialpermission {
-    fun createIntent(context: Context): Intent
+    fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent
     fun createIntentFallback(context: Context): Intent? = null
 }

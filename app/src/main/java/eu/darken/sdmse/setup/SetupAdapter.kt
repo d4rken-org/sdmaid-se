@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupCardVH
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
 import javax.inject.Inject
 
 
@@ -28,6 +29,7 @@ class SetupAdapter @Inject constructor() :
     init {
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is UsageStatsSetupCardVH.Item }) { UsageStatsSetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
     }

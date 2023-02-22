@@ -19,6 +19,8 @@ import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupModule
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -85,6 +87,17 @@ class SetupFragmentVM @Inject constructor(
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#root-access")
                             },
+                        )
+                        is UsageStatsSetupModule.State -> UsageStatsSetupCardVH.Item(
+                            setupState = state,
+                            onGrantAction = {
+                                state.missingPermission.firstOrNull()?.let {
+                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                }
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#usage-statistics")
+                            }
                         )
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }

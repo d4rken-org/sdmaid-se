@@ -15,7 +15,7 @@ class DeviceDetective @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    suspend fun isAndroidTV(): Boolean {
+    fun isAndroidTV(): Boolean {
         val uiManager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
         if (uiManager.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION) return true
 
