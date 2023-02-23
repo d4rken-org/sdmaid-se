@@ -12,6 +12,16 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
+    <style name="BaseRecyclerList">
+        <item name="fastScrollEnabled">true</item>
+        <item name="fastScrollVerticalThumbDrawable">@drawable/fastscroll_thumb_sel</item>
+        <item name="fastScrollVerticalTrackDrawable">@drawable/fastscroll_track</item>
+        <item name="fastScrollHorizontalThumbDrawable">@drawable/fastscroll_thumb_sel</item>
+        <item name="fastScrollHorizontalTrackDrawable">@drawable/fastscroll_track</item>
+        <item name="android:requiresFadingEdge">none</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
     <style name="DefaultListItemContainer">
         <item name="android:layout_width">match_parent</item>
         <!--<item name="android:focusable">true</item>-->
