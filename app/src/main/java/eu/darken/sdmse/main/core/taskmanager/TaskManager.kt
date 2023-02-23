@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -31,6 +32,7 @@ class TaskManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
+    private val taskWorkerControl: TaskWorkerControl,
     private val statsRepo: StatsRepo,
 ) : HasSharedResource<Any> {
 
@@ -56,6 +58,8 @@ class TaskManager @Inject constructor(
     ) {
         val isComplete: Boolean = completedAt != null
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
+        val isActive: Boolean = !isComplete && startedAt != null
+        val isQueued: Boolean = !isComplete && startedAt == null
     }
 
     data class State(
@@ -95,6 +99,16 @@ class TaskManager @Inject constructor(
                             remove(it)
                         }
                         .toList()
+                }
+            }
+            .launchIn(appScope)
+        state
+            .map { it.isIdle }
+            .distinctUntilChanged()
+            .withPrevious()
+            .onEach { (isOldIdle, newIdle) ->
+                if (isOldIdle != false && !newIdle) {
+                    taskWorkerControl.startMonitor()
                 }
             }
             .launchIn(appScope)

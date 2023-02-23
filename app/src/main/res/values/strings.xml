@@ -19,6 +19,16 @@
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. the app developer if you are troubleshooting an issue together).</string>
 
+    <string name="tasks_activity_notification_channel_label">Active tasks</string>
+    <string name="tasks_activity_working_notification_title">SD Maid is working</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d active task</item>
+        <item quantity="other">%d active tasks</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d task in queue</item>
+        <item quantity="other">%d queued tasks</item>
+    </plurals>
     <string name="onboarding_page1_title">SD Maid SE</string>
     <string name="onboarding_page1_body1">Hi! This is a file management app. It can free up space by deleting caches and removing files that belong to already removed apps.</string>
     <string name="onboarding_page1_body2">SD Maid has no ads and doesn\'t collect data on you.</string>
