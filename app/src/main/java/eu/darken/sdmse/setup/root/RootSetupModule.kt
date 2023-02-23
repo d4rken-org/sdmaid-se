@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,6 +25,7 @@ import javax.inject.Inject
 class RootSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     private val rootSettings: RootSettings,
+    private val dataAreaManager: DataAreaManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -41,6 +43,7 @@ class RootSetupModule @Inject constructor(
     suspend fun toggleUseRoot(useRoot: Boolean?) {
         log(TAG) { "toggleUseRoot(useRoot=$useRoot)" }
         rootSettings.useRoot.value(useRoot)
+        dataAreaManager.reload()
     }
 
     data class State(

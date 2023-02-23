@@ -12,6 +12,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -39,6 +40,7 @@ class SAFSetupModule @Inject constructor(
     private val storageManager2: StorageManager2,
     private val storageEnvironment: StorageEnvironment,
     private val safMapper: SAFMapper,
+    private val dataAreaManager: DataAreaManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -163,6 +165,7 @@ class SAFSetupModule @Inject constructor(
         }
 
         safMapper.takePermission(uri)
+        dataAreaManager.reload()
         refresh()
     }
 

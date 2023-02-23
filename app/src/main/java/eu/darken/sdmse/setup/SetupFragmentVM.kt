@@ -32,6 +32,7 @@ class SetupFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val setupManager: SetupManager,
+    private val storageSetupModule: StorageSetupModule,
     private val safSetupModule: SAFSetupModule,
     private val accessibilitySetupModule: AccessibilitySetupModule,
     private val webpageTool: WebpageTool,
@@ -133,9 +134,22 @@ class SetupFragmentVM @Inject constructor(
         }
     }
 
-    fun onRuntimePermissionsGranted(result: Permission?, granted: Boolean) = launch {
-        log(TAG) { "onRuntimePermissionGranted(result=$result,granted=$granted)" }
-        if (granted) setupManager.refresh()
+    fun onRuntimePermissionsGranted(permission: Permission?, granted: Boolean) = launch {
+        log(TAG) { "onRuntimePermissionGranted(result=$permission,granted=$granted)" }
+        if (granted) {
+            when (permission) {
+                Permission.MANAGE_EXTERNAL_STORAGE,
+                Permission.READ_EXTERNAL_STORAGE,
+                Permission.WRITE_EXTERNAL_STORAGE -> {
+                    storageSetupModule.onPermissionChanged(permission, granted)
+                }
+                Permission.IGNORE_BATTERY_OPTIMIZATION -> {}
+                Permission.PACKAGE_USAGE_STATS -> {}
+                Permission.POST_NOTIFICATIONS -> {}
+                null -> {}
+            }
+            setupManager.refresh()
+        }
     }
 
     fun onAccessibilityReturn() = launch {

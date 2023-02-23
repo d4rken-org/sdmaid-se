@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.log
@@ -27,6 +28,7 @@ import javax.inject.Inject
 class StorageSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
+    private val dataAreaManager: DataAreaManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -70,6 +72,11 @@ class StorageSetupModule @Inject constructor(
     override suspend fun refresh() {
         log(TAG) { "refresh()" }
         refreshTrigger.value = rngString
+    }
+
+    suspend fun onPermissionChanged(permission: Permission, granted: Boolean) {
+        log(TAG) { "onPermissionChanged($permission, $granted)" }
+        dataAreaManager.reload()
     }
 
     data class State(
