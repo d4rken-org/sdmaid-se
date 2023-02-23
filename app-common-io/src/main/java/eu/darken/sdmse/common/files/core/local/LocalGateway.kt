@@ -385,7 +385,15 @@ class LocalGateway @Inject constructor(
                     }
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
-                    rootOps { it.delete(path) }
+                    rootOps {
+                        if (Bugs.isDryRun) {
+                            it.exists(path)
+                            log(TAG, WARN) { "DRYRUN: Not deleting (root) $javaFile" }
+                            true
+                        } else {
+                            it.delete(path)
+                        }
+                    }
                 }
                 else -> throw IOException("No matching mode available.")
             }
