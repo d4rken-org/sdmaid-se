@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText"
-        android:src="@drawable/ic_google_play_24" />
+        android:src="@drawable/ic_play_arrow" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginBottom="8dp"
-        android:text="@string/appcontrol_appstore_open_title" />
+        android:text="@string/appcontrol_app_launch_title" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/appcontrol_appstore_open_description"
+        android:text="@string/appcontrol_app_launch_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon"

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -9,6 +10,7 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -19,6 +21,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
+
 @HiltViewModel
 class AppActionDialogVM @Inject constructor(
     handle: SavedStateHandle,
@@ -26,13 +29,24 @@ class AppActionDialogVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
 ) : ViewModel3(dispatcherProvider) {
-    //
+
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
     private val pkgId: Pkg.Id = navArgs.pkgId
 
     val state = appControl.data
         .mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } }
         .map { appInfo ->
+
+            val launchAction = context.packageManager
+                .getLaunchIntentForPackage(appInfo.pkg.packageName)
+                ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+                ?.let { intent ->
+                    LaunchActionVH.Item(
+                        appInfo = appInfo,
+                        onItemClicked = { context.startActivity(intent) }
+                    )
+                }
+
             val systemSettingsAction = SystemSettingsActionVH.Item(
                 appInfo = appInfo,
                 onItemClicked = {
@@ -56,7 +70,8 @@ class AppActionDialogVM @Inject constructor(
             State(
                 isWorking = false,
                 appInfo = appInfo,
-                actions = listOf(
+                actions = listOfNotNull(
+                    launchAction,
                     systemSettingsAction,
                     appStoreAction,
                     disableAction,

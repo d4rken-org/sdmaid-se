@@ -7,11 +7,13 @@
     android:minHeight="56dp"
     android:orientation="vertical">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
+        android:backgroundTint="?colorSurfaceVariant"
         android:paddingVertical="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
