@@ -71,7 +71,7 @@ class SdcardsModule @Inject constructor(
     private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
         // Normal
         targetPath.let { localPath ->
-            val testFileLocal = localPath.child("eu.darken.sdmse-area-local-access-test-$rngString")
+            val testFileLocal = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
             try {
                 require(!testFileLocal.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileLocal)" }
 
@@ -97,7 +97,7 @@ class SdcardsModule @Inject constructor(
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-            val testFileLocal = localPath.child("eu.darken.sdmse-area-local-access-test-$rngString")
+            val testFileLocal = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
             try {
                 require(!localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
                     "Our 'random' testfile already exists? ($testFileLocal)"
@@ -126,7 +126,7 @@ class SdcardsModule @Inject constructor(
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
         // Saf
         safMapper.toSAFPath(targetPath)?.let { safPath ->
-            val testFileSaf = safPath.child("eu.darken.sdmse-area-saf-access-test-$rngString")
+            val testFileSaf = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
             try {
                 require(!testFileSaf.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileSaf)" }
 
@@ -156,6 +156,8 @@ class SdcardsModule @Inject constructor(
     }
 
     companion object {
+        val TEST_PREFIX = "eu.darken.sdmse-test"
+        val TEST_FILE_PREFIX = "$TEST_PREFIX-area-access"
         val TAG: String = logTag("DataArea", "Module", "Sdcard")
     }
 }

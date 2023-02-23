@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.modules.pubdata.SdcardsModule
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -75,6 +76,7 @@ class TempFilesFilter @Inject constructor(
             tempSuffixes.any { item.name.endsWith(it) } -> true
             item.name == ".mmsyscache" -> true
             item.name.startsWith("sdm_write_test-") && sdmTempFileRegex.matchEntire(item.name) != null -> true
+            item.name.startsWith(SdcardsModule.TEST_PREFIX) -> true
             else -> false
         }
     }
