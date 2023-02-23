@@ -190,8 +190,8 @@ class AppCleaner @Inject constructor(
     data class Data(
         val junks: Collection<AppJunk>
     ) {
-        val totalSize: Long
-            get() = junks.sumOf { it.size }
+        val totalSize: Long get() = junks.sumOf { it.size }
+        val totalCount: Int get() = junks.sumOf { it.itemCount }
     }
 
     @InstallIn(SingletonComponent::class)

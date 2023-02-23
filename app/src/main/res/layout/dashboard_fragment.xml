@@ -7,12 +7,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:fastScrollEnabled="false"
         android:clipToPadding="false"
-        style="@style/BaseRecyclerList"
         android:paddingBottom="100dp"
+        app:fastScrollEnabled="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="1"
         tools:listitem="@layout/dashboard_preview_layout" />
@@ -30,16 +30,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/bottom_bar_text"
                 style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="-8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="16dp"
                 android:maxLines="2"
-                android:text="987 MB can be freed\n98 items asd asd as das d "
-                android:textColor="?colorOnPrimary"
+                android:textColor="?colorOnPrimarySurface"
+                tools:text="987 MB can be freed\n98 items asd asd as das d "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

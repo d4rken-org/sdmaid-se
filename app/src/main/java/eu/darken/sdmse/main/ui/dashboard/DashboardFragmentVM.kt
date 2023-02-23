@@ -13,7 +13,6 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -238,8 +237,10 @@ class DashboardFragmentVM @Inject constructor(
 
     data class BottomBarState(
         val actionState: Action,
-        val leftInfo: CaString?,
-        val rightInfo: CaString?,
+        val activeTasks: Int,
+        val queuedTasks: Int,
+        val totalItems: Int,
+        val totalSize: Long,
         val upgradeInfo: UpgradeRepo.Info?,
     ) {
         enum class Action {
@@ -268,11 +269,16 @@ class DashboardFragmentVM @Inject constructor(
             corpseData.hasData || filterData.hasData || junkData.hasData -> BottomBarState.Action.DELETE
             else -> BottomBarState.Action.SCAN
         }
-
+        val activeTasks = taskState.tasks.filter { it.isActive }.size
+        val queuedTasks = taskState.tasks.filter { it.isQueued }.size
+        val totalItems = (corpseData?.totalCount ?: 0) + (filterData?.totalCount ?: 0) + (junkData?.totalCount ?: 0)
+        val totalSize = (corpseData?.totalSize ?: 0L) + (filterData?.totalSize ?: 0L) + (junkData?.totalSize ?: 0L)
         BottomBarState(
             actionState = actionState,
-            leftInfo = null,
-            rightInfo = null,
+            activeTasks = activeTasks,
+            queuedTasks = queuedTasks,
+            totalItems = totalItems,
+            totalSize = totalSize,
             upgradeInfo = upgradeInfo,
         )
     }

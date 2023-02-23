@@ -158,8 +158,8 @@ class SystemCleaner @Inject constructor(
     data class Data(
         val filterContents: Collection<FilterContent>
     ) {
-        val totalSize: Long
-            get() = filterContents.sumOf { it.size }
+        val totalSize: Long get() = filterContents.sumOf { it.size }
+        val totalCount: Int get() = filterContents.sumOf { it.items.size }
     }
 
     @InstallIn(SingletonComponent::class)

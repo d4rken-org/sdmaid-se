@@ -184,6 +184,7 @@ class CorpseFinder @Inject constructor(
         val lastResult: CorpseFinderTask.Result? = null,
     ) {
         val totalSize: Long get() = corpses.sumOf { it.size }
+        val totalCount: Int get() = corpses.size
     }
 
     @InstallIn(SingletonComponent::class)

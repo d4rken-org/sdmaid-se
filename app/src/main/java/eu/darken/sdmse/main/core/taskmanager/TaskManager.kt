@@ -59,7 +59,7 @@ class TaskManager @Inject constructor(
         val isComplete: Boolean = completedAt != null
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
         val isActive: Boolean = !isComplete && startedAt != null
-        val isQueued: Boolean = !isComplete && startedAt == null
+        val isQueued: Boolean = !isComplete && startedAt == null && cancelledAt == null
     }
 
     data class State(

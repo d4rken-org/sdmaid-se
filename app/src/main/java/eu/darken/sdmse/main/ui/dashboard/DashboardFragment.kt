@@ -2,13 +2,16 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.text.format.Formatter
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.doNavigate
@@ -48,7 +51,36 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
         }
         vm.bottomBarState.observe2(ui) { state ->
-            bottomBarText.text = state.leftInfo?.get(requireContext())
+            log { "BottombarState $state" }
+            if (state.activeTasks > 0 || state.queuedTasks > 0) {
+                bottomBarText.apply {
+                    text = requireContext().getQuantityString2(
+                        R.plurals.tasks_activity_active_notification_message,
+                        state.activeTasks
+                    )
+                    append("\n")
+                    append(
+                        requireContext().getQuantityString2(
+                            R.plurals.tasks_activity_queued_notification_message,
+                            state.queuedTasks
+                        )
+                    )
+                }
+            } else if (state.totalItems > 0 || state.totalSize > 0L) {
+                bottomBarText.apply {
+                    text = requireContext().getString(
+                        R.string.x_space_can_be_freed,
+                        Formatter.formatShortFileSize(requireContext(), state.totalSize)
+                    )
+                    append("\n")
+                    append(
+                        requireContext().getQuantityString2(R.plurals.result_x_items, state.totalItems)
+                    )
+                }
+            } else {
+                bottomBarText.text = ""
+            }
+
             bottomAppBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
