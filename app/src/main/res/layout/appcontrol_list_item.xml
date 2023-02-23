@@ -80,6 +80,14 @@
             android:id="@+id/tag_disabled"
             layout="@layout/appcontrol_tag_disabled_view" />
 
+        <include
+            android:visibility="invisible"
+            layout="@layout/appcontrol_tag_disabled_view" />
+
+        <include
+            android:visibility="invisible"
+            layout="@layout/appcontrol_tag_disabled_view" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
