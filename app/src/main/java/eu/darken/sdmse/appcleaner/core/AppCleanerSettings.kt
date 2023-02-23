@@ -63,6 +63,7 @@ class AppCleanerSettings @Inject constructor(
     override val mapper = PreferenceStoreMapper(
         includeSystemAppsEnabled,
         includeRunningAppsEnabled,
+        includeInaccessibleEnabled,
         filterDefaultCachesPublicEnabled,
         filterDefaultCachesPrivateEnabled,
         filterCodeCacheEnabled,
