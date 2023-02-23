@@ -31,19 +31,19 @@ class SystemCleanerSettings @Inject constructor(
     val filterLostDirEnabled = dataStore.createValue("filter.lostdir.enabled", true)
     val filterLinuxFilesEnabled = dataStore.createValue("filter.linuxfiles.enabled", true)
     val filterMacFilesEnabled = dataStore.createValue("filter.macfiles.enabled", true)
-    val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", true)
+    val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", false)
     val filterTempFilesEnabled = dataStore.createValue("filter.tempfiles.enabled", true)
     val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
     val filterWindowsFilesEnabled = dataStore.createValue("filter.windowsfiles.enabled", true)
 
     val filterAnrEnabled = dataStore.createValue("filter.anr.enabled", true)
-    val filterLocalTmpEnabled = dataStore.createValue("filter.localtmp.enabled", true)
+    val filterLocalTmpEnabled = dataStore.createValue("filter.localtmp.enabled", false)
     val filterDownloadCacheEnabled = dataStore.createValue("filter.downloadcache.enabled", true)
     val filterDataLoggerEnabled = dataStore.createValue("filter.datalogger.enabled", true)
     val filterLogDropboxEnabled = dataStore.createValue("filter.logdropbox.enabled", true)
-    val filterRecentTasksEnabled = dataStore.createValue("filter.recenttasks.enabled", true)
-    val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", true)
-    val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", true)
+    val filterRecentTasksEnabled = dataStore.createValue("filter.recenttasks.enabled", false)
+    val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", false)
+    val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", false)
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,

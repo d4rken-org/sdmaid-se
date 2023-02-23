@@ -24,19 +24,19 @@ class CorpseFinderSettings @Inject constructor(
         get() = context.dataStore
 
     // TODO change defaults
-    val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", true)
+    val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", false)
     val filterPublicMediaEnabled = dataStore.createValue("filter.publicmedia.enabled", true)
-    val filterPublicObbEnabled = dataStore.createValue("filter.publicobb.enabled", true)
+    val filterPublicObbEnabled = dataStore.createValue("filter.publicobb.enabled", false)
     val filterPublicDataEnabled = dataStore.createValue("filter.publicdata.enabled", true)
     val filterSdcardEnabled = dataStore.createValue("filter.sdcard.enabled", true)
     val filterPrivateDataEnabled = dataStore.createValue("filter.privatedata.enabled", true)
-    val filterDalvikCacheEnabled = dataStore.createValue("filter.dalvikcache.enabled", true)
-    val filterAppLibEnabled = dataStore.createValue("filter.applib.enabled", true)
-    val filterAppSourceEnabled = dataStore.createValue("filter.appsource.enabled", true)
-    val filterAppSourcePrivateEnabled = dataStore.createValue("filter.appsourceprivate.enabled", true)
+    val filterDalvikCacheEnabled = dataStore.createValue("filter.dalvikcache.enabled", false)
+    val filterAppLibEnabled = dataStore.createValue("filter.applib.enabled", false)
+    val filterAppSourceEnabled = dataStore.createValue("filter.appsource.enabled", false)
+    val filterAppSourcePrivateEnabled = dataStore.createValue("filter.appsourceprivate.enabled", false)
     val filterAppToSdEnabled = dataStore.createValue("filter.apptosd.enabled", false)
 
-    val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", true)
+    val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", false)
 
     val includeRiskKeeper = dataStore.createValue("risk.include.keeper", false)
     val includeRiskCommon = dataStore.createValue("risk.include.common", false)

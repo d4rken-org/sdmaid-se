@@ -28,7 +28,8 @@ class AppCleanerSettings @Inject constructor(
 
     // TODO change defaults
     val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
-    val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", true)
+
+    val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", false)
     val includeRunningAppsEnabled = dataStore.createValue("include.runningapps.enabled", true)
 
     val useAccessibilityService = dataStore.createValue("acs.enabled", false)
@@ -37,20 +38,20 @@ class AppCleanerSettings @Inject constructor(
     val filterDefaultCachesPublicEnabled = dataStore.createValue("filter.defaultcachespublic.enabled", true)
     val filterDefaultCachesPrivateEnabled = dataStore.createValue("filter.defaultcachesprivate.enabled", true)
     val filterCodeCacheEnabled = dataStore.createValue("filter.codecache.enabled", true)
-    val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", true)
-    val filterBugreportingEnabled = dataStore.createValue("filter.bugreporting.enabled", true)
-    val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
-    val filterGameFilesEnabled = dataStore.createValue("filter.gamefiles.enabled", true)
+    val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", false)
+    val filterBugreportingEnabled = dataStore.createValue("filter.bugreporting.enabled", false)
+    val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", false)
+    val filterGameFilesEnabled = dataStore.createValue("filter.gamefiles.enabled", false)
     val filterHiddenCachesEnabled = dataStore.createValue("filter.hiddencaches.enabled", true)
-    val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", true)
-    val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", true)
+    val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", false)
+    val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", false)
     val filterWebviewEnabled = dataStore.createValue("filter.webview.enabled", true)
-    val filterThreemaEnabled = dataStore.createValue("filter.threema.enabled", true)
-    val filterTelegramEnabled = dataStore.createValue("filter.telegram.enabled", true)
-    val filterWhatsAppBackupsEnabled = dataStore.createValue("filter.whatsapp.backups.enabled", true)
-    val filterWhatsAppReceivedEnabled = dataStore.createValue("filter.whatsapp.received.enabled", true)
-    val filterWhatsAppSentEnabled = dataStore.createValue("filter.whatsapp.sent.enabled", true)
-    val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", true)
+    val filterThreemaEnabled = dataStore.createValue("filter.threema.enabled", false)
+    val filterTelegramEnabled = dataStore.createValue("filter.telegram.enabled", false)
+    val filterWhatsAppBackupsEnabled = dataStore.createValue("filter.whatsapp.backups.enabled", false)
+    val filterWhatsAppReceivedEnabled = dataStore.createValue("filter.whatsapp.received.enabled", false)
+    val filterWhatsAppSentEnabled = dataStore.createValue("filter.whatsapp.sent.enabled", false)
+    val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", false)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
 
