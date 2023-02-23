@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.LiveData
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.navigation.doNavigate
@@ -26,12 +27,13 @@ abstract class Fragment3(@LayoutRes layoutRes: Int?) : Fragment2(layoutRes) {
         super.onViewCreated(view, savedInstanceState)
 
         vm.navEvents.observe2(ui) {
-            log { "navEvents: $it" }
+            log(tag, VERBOSE) { "Nav event: $it" }
 
             it?.run { doNavigate(this) } ?: onFinishEvent?.invoke() ?: popBackStack()
         }
 
         vm.errorEvents.observe2(ui) {
+            log(tag, VERBOSE) { "Error event: $it" }
             val showDialog = onErrorEvent?.invoke(it) ?: true
             if (showDialog) it.asErrorDialogBuilder(requireContext()).show()
         }

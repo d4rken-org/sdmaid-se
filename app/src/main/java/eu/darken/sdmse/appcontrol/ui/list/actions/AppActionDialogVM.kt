@@ -9,15 +9,20 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
+import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -28,71 +33,77 @@ class AppActionDialogVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
     private val pkgId: Pkg.Id = navArgs.pkgId
 
-    val state = appControl.data
-        .mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } }
-        .map { appInfo ->
-
-            val launchAction = context.packageManager
-                .getLaunchIntentForPackage(appInfo.pkg.packageName)
-                ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
-                ?.let { intent ->
-                    LaunchActionVH.Item(
-                        appInfo = appInfo,
-                        onItemClicked = { context.startActivity(intent) }
-                    )
-                }
-
-            val systemSettingsAction = SystemSettingsActionVH.Item(
-                appInfo = appInfo,
-                onItemClicked = {
-                    val intent = it.createSystemSettingsIntent(context)
-                    context.startActivity(intent)
-                }
-            )
-            val appStoreAction = AppStoreActionVH.Item(
-                appInfo = appInfo,
-                onItemClicked = { info ->
-                    val intent = info.createGooglePlayIntent(context)
-                    context.startActivity(intent)
-                }
-            )
-            val disableAction = ToggleActionVH.Item(
-                appInfo = appInfo,
-                onItemClicked = {
-                    // TODO
-                }
-            )
-            State(
-                isWorking = false,
-                appInfo = appInfo,
-                actions = listOfNotNull(
-                    launchAction,
-                    systemSettingsAction,
-                    appStoreAction,
-                    disableAction,
-                ).filterNotNull()
-            )
-        }
-        .asLiveData2()
-
     init {
         appControl.data
-            .map { data ->
-                data?.apps?.singleOrNull { it.pkg.id == pkgId }
-            }
+            .map { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } }
             .filter { it == null }
             .take(1)
-            .onEach { popNavStack() }
+            .onEach {
+                log(TAG) { "App data for $pkgId is no longer available" }
+                popNavStack()
+            }
             .launchInViewModel()
     }
 
+    val events = SingleLiveEvent<AppActionEvents>()
+
+    val state = combine(
+        appControl.data.mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } },
+        appControl.progress,
+    ) { appInfo, progress ->
+
+        val launchAction = context.packageManager
+            .getLaunchIntentForPackage(appInfo.pkg.packageName)
+            ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            ?.let { intent ->
+                LaunchActionVH.Item(
+                    appInfo = appInfo,
+                    onItemClicked = { context.startActivity(intent) }
+                )
+            }
+
+        val systemSettingsAction = SystemSettingsActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = {
+                val intent = it.createSystemSettingsIntent(context)
+                context.startActivity(intent)
+            }
+        )
+        val appStoreAction = AppStoreActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = { info ->
+                val intent = info.createGooglePlayIntent(context)
+                context.startActivity(intent)
+            }
+        )
+        val disableAction = ToggleActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = {
+                val task = AppControlToggleTask(setOf(appInfo.pkg.id))
+                launch { taskManager.submit(task) }
+            }
+        )
+        State(
+            progress = progress,
+            appInfo = appInfo,
+            actions = listOfNotNull(
+                launchAction,
+                systemSettingsAction,
+                appStoreAction,
+                disableAction,
+            ).filterNotNull()
+        )
+    }
+        .asLiveData2()
+
     data class State(
-        val isWorking: Boolean,
+        val progress: Progress.Data?,
         val appInfo: AppInfo,
         val actions: List<AppActionAdapter.Item>?,
     )

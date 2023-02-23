@@ -119,6 +119,13 @@ class PkgRepo @Inject constructor(
 
     suspend fun getPkg(pkgId: Pkg.Id): Installed? = queryCache(pkgId).data
 
+    suspend fun refresh(id: Pkg.Id): Installed? {
+        log(TAG) { "refresh(): $id" }
+        // TODO refreshing the whole cache is inefficient, implement single target refresh?
+        cacheLock.withLock { load() }
+        return queryCache(id).data
+    }
+
     data class CachedInfo(
         val id: Pkg.Id,
         val data: Installed?,

@@ -1,7 +1,10 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import android.view.ViewGroup
+import androidx.core.view.children
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.coil.loadAppIcon
@@ -32,7 +35,8 @@ class AppControlListRowVH(parent: ViewGroup) :
 
         tagSystem.tagSystem.isInvisible = !appInfo.pkg.isSystemApp
         tagDisabled.tagDisabled.isInvisible = appInfo.pkg.isEnabled
-//
+        tagContainer.isGone = tagContainer.children.none { it.isVisible }
+
         root.setOnClickListener { item.onItemClicked(appInfo) }
     }
 

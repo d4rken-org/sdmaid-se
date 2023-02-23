@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
-    android:paddingVertical="8dp">
+    android:paddingVertical="4dp">
 
     <ImageView
         android:id="@+id/icon"
@@ -22,7 +22,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
-        style="@style/TextAppearance.Material3.BodyLarge"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

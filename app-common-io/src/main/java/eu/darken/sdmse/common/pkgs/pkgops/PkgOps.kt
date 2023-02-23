@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.asFile
 import eu.darken.sdmse.common.files.core.downCast
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
@@ -203,6 +204,24 @@ class PkgOps @Inject constructor(
         flags: Int = 0
     ): List<SharedLibraryInfo> = ipcFunnel.use {
         packageManager.getSharedLibraries2(flags)
+    }
+
+    suspend fun changePackageState(id: Pkg.Id, enabled: Boolean) {
+        log(TAG, VERBOSE) { "changePackageState($id, enabled=$enabled)" }
+        val newState = when (enabled) {
+            true -> COMPONENT_ENABLED_STATE_ENABLED
+            false -> COMPONENT_ENABLED_STATE_DISABLED_USER
+        }
+        rootOps {
+            it.setApplicationEnabledSetting(
+                packageName = id.name,
+                newState = newState,
+                flags = kotlin.run {
+                    @Suppress("NewApi")
+                    if (hasApiLevel(30)) SYNCHRONOUS else 0
+                }
+            )
+        }
     }
 
     companion object {

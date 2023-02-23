@@ -12,4 +12,6 @@ interface PkgOpsConnection {
 
     List<PackageInfo> getInstalledPackagesAsUser(int flags, int userId);
 
+    void setApplicationEnabledSetting (String packageName, int newState, int flags);
+
 }

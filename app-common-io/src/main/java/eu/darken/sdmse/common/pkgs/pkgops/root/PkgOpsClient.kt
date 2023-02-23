@@ -45,6 +45,15 @@ class PkgOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int): Unit = try {
+        connection.setApplicationEnabledSetting(packageName, newState, flags)
+    } catch (e: Exception) {
+        log(TAG, ERROR) {
+            "setApplicationEnabledSetting(packageName=$packageName, newState=$newState, flags=$flags) failed: ${e.asLog()}"
+        }
+        throw fakeIOException(e.getRootCause())
+    }
+
     private fun fakeIOException(e: Throwable): IOException {
         val gulpExceptionPrefix = "java.io.IOException: "
         val message = when {

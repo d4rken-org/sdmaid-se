@@ -11,9 +11,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="?colorSurfaceVariant"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:backgroundTint="?colorSurfaceVariant"
         android:paddingVertical="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
@@ -23,9 +23,9 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:src="@drawable/ic_default_app_icon_24"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tertiary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/primary" />
 
         <TextView
             android:id="@+id/primary"
@@ -62,39 +62,68 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tag_container"
             app:layout_constraintEnd_toEndOf="@id/primary"
             app:layout_constraintStart_toStartOf="@id/primary"
             app:layout_constraintTop_toBottomOf="@id/secondary"
             tools:text="v0.0.0-beta99 (0123456789)" />
 
+        <LinearLayout
+            android:id="@+id/tag_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tertiary"
+            app:layout_goneMarginBottom="8dp">
+
+            <include
+                android:id="@+id/tag_system"
+                layout="@layout/appcontrol_tag_system_view" />
+
+            <include
+                android:id="@+id/tag_disabled"
+                layout="@layout/appcontrol_tag_disabled_view" />
+
+            <include
+                android:visibility="invisible"
+                layout="@layout/appcontrol_tag_disabled_view" />
+
+            <include
+                android:visibility="invisible"
+                layout="@layout/appcontrol_tag_disabled_view" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?colorSurfaceVariant" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16dp">
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress_circular"
-            style="@style/Widget.Material3.CircularProgressIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:visibility="visible"
-            tools:visibility="visible" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
+            style="@style/BaseRecyclerList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/BaseRecyclerList"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
+
+        <eu.darken.sdmse.common.progress.ProgressOverlayView
+            android:id="@+id/loading_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </FrameLayout>
 </LinearLayout>

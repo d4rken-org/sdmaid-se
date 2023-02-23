@@ -59,6 +59,16 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int) = try {
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags)..." }
+        val packageManager = context.packageManager
+        packageManager.setApplicationEnabledSetting(packageName, newState, flags)
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags) succesful" }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "setApplicationEnabledSetting($packageName, $newState, $flags) failed ($e)" }
+        throw wrapPropagating(e)
+    }
+
     private fun wrapPropagating(e: Exception): Exception {
         return if (e is UnsupportedOperationException) e
         else UnsupportedOperationException(e)
