@@ -9,7 +9,7 @@ interface ExtendedInstallData : PkgInfo {
     val userHandles: Set<UserHandle2>
 
     val isEnabled: Boolean
-        get() = packageInfo.applicationInfo?.enabled != false
+        get() = packageInfo.applicationInfo?.enabled ?: true
 
     val isSystemApp: Boolean
         get() = packageInfo.applicationInfo?.run { flags and ApplicationInfo.FLAG_SYSTEM != 0 } ?: true

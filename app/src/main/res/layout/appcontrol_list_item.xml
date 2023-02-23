@@ -56,6 +56,7 @@
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/secondary"
+        app:layout_goneMarginBottom="8dp"
         tools:text="v0.0.0 (0000000000)" />
 
     <LinearLayout
@@ -81,12 +82,12 @@
             layout="@layout/appcontrol_tag_disabled_view" />
 
         <include
-            android:visibility="invisible"
-            layout="@layout/appcontrol_tag_disabled_view" />
+            layout="@layout/appcontrol_tag_disabled_view"
+            android:visibility="invisible" />
 
         <include
-            android:visibility="invisible"
-            layout="@layout/appcontrol_tag_disabled_view" />
+            layout="@layout/appcontrol_tag_disabled_view"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

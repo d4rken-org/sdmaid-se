@@ -10,12 +10,14 @@ import eu.darken.sdmse.common.files.core.GatewaySwitch
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.sources.PackageManagerPkgSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.reflect.KClass
 
 @Singleton
 class PkgRepo @Inject constructor(
@@ -75,20 +77,35 @@ class PkgRepo @Inject constructor(
         log(TAG) { "Generating package cache" }
         return gatewaySwitch.useRes {
             pkgOps.useRes {
-                pkgSources
-                    .map { source ->
-                        source.getPkgs().also {
-                            log(TAG) { "${it.size} pkgs from $source" }
+                val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = pkgSources.associate { source ->
+                    val fromSource = source.getPkgs()
+                    log(TAG) { "${fromSource.size} pkgs from $source" }
+                    source::class to fromSource
+                }
+
+                val mergedData = mutableMapOf<Pkg.Id, CachedInfo>()
+                sourceMap[PackageManagerPkgSource::class]!!.forEach {
+                    mergedData[it.id] = CachedInfo(id = it.id, data = it)
+                }
+
+                sourceMap
+                    .filter { it.key != PackageManagerPkgSource::class }
+                    .onEach { (type, pkgs) ->
+                        val extraPkgs = pkgs
+                            .filter { !mergedData.containsKey(it.id) }
+                            .associate { it.id to CachedInfo(id = it.id, data = it) }
+                        log(TAG) { "${extraPkgs.size} extra pkgs from $type" }
+                        if (Bugs.isTrace) {
+                            extraPkgs.forEach { log(TAG, VERBOSE) { "Extra pkg from $type: ${it.value}" } }
                         }
+                        mergedData.putAll(extraPkgs)
                     }
-                    .flatten()
-                    .distinctBy { it.id }
-                    .map {
-                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Installed package: $it" }
-                        CachedInfo(id = it.id, data = it)
-                    }
-                    .associateBy { it.id }
-                    .also { log(TAG) { "Pkgs total: ${it.size}" } }
+
+                if (Bugs.isTrace) {
+                    mergedData.values.forEach { log(TAG, VERBOSE) { "Installed package: $it" } }
+                }
+                log(TAG) { "Pkgs total: ${mergedData.size}" }
+                mergedData
             }
         }
     }

@@ -44,8 +44,7 @@ class AppControlListFragmentVM @Inject constructor(
     ) { data, progress ->
         val appInfos = data?.apps
             ?.sortedWith(
-                compareByDescending<AppInfo> { it.pkg.isSystemApp }
-                    .thenBy { it.label.get(context) }
+                compareBy<AppInfo> { it.pkg.isSystemApp }.thenBy { it.label.get(context) }
             )
             ?.map { content ->
                 AppControlListRowVH.Item(
