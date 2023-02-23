@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.setup.accessibility.AccessibilitySetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupCardVH
@@ -31,6 +32,7 @@ class SetupAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is UsageStatsSetupCardVH.Item }) { UsageStatsSetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AccessibilitySetupCardVH.Item }) { AccessibilitySetupCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
     }
 

@@ -75,6 +75,7 @@
 
     <string name="general_search_action">Search</string>
     <string name="general_scan_device_action">Scan device</string>
+    <string name="general_open_system_settings_action">Open system settings</string>
 
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>

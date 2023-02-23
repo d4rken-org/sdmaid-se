@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.setup.accessibility.AccessibilitySetupCardVH
+import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
@@ -31,7 +33,7 @@ class SetupFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val setupManager: SetupManager,
     private val safSetupModule: SAFSetupModule,
-    private val storageSetupModule: StorageSetupModule,
+    private val accessibilitySetupModule: AccessibilitySetupModule,
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
@@ -99,6 +101,15 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#usage-statistics")
                             }
                         )
+                        is AccessibilitySetupModule.State -> AccessibilitySetupCardVH.Item(
+                            setupState = state,
+                            onGrantAction = {
+                                events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#accessibility-service")
+                            }
+                        )
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
@@ -124,13 +135,20 @@ class SetupFragmentVM @Inject constructor(
 
     fun onRuntimePermissionsGranted(result: Permission?, granted: Boolean) = launch {
         log(TAG) { "onRuntimePermissionGranted(result=$result,granted=$granted)" }
-        if (granted) storageSetupModule.refresh()
+        if (granted) setupManager.refresh()
+    }
+
+    fun onAccessibilityReturn() = launch {
+        log(TAG) { "onAccessibilityReturn" }
+        accessibilitySetupModule.refresh()
     }
 
     companion object {
         private val DISPLAY_ORDER = listOf(
             StorageSetupCardVH.Item::class,
             SAFSetupCardVH.Item::class,
+            UsageStatsSetupCardVH.Item::class,
+            AccessibilitySetupCardVH.Item::class,
             RootSetupCardVH.Item::class,
         )
         private val TAG = logTag("Setup", "Fragment", "VM")

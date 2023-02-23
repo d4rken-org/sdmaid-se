@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -41,6 +42,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
     private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.State.PathAccess>
     private var awaitedPermission: Permission? = null
+    private var waitingForAccessibility = false
     private lateinit var specialPermissionLauncher: ActivityResultLauncher<Intent>
     private lateinit var runtimePermissionLauncher: ActivityResultLauncher<String>
 
@@ -58,7 +60,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                 awaitedPermission,
                 awaitedPermission?.isGranted(requireContext()) ?: true
             )
-            awaitedPermission = null
+            vm.onAccessibilityReturn()
         }
     }
 
@@ -119,6 +121,15 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                             }
                         }
                         else -> runtimePermissionLauncher.launch(event.item.permissionId)
+                    }
+                }
+                is SetupEvents.ConfigureAccessibilityService -> {
+                    try {
+                        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                        specialPermissionLauncher.launch(intent)
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "Failed to open accessibility settings page: ${e.asLog()}" }
+                        e.asErrorDialogBuilder(requireContext()).show()
                     }
                 }
             }
