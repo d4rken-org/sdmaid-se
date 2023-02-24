@@ -8,7 +8,7 @@
 
 Features include:
 
-* Removing data that belongs to app that are no longer installed (CorpseFinder)
+* Removing data that belongs to apps that are no longer installed (CorpseFinder)
 * Deleting expendable files, e.g. caches (AppCleaner)
 * User configurable filters for random files (SystemCleaner)
 * Scheduling actions (Scheduler)
