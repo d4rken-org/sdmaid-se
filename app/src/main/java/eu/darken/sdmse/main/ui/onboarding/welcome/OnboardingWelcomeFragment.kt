@@ -2,9 +2,11 @@ package eu.darken.sdmse.main.ui.onboarding.welcome
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingWelcomeFragmentBinding
@@ -19,6 +21,8 @@ class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment
         ui.goAction.setOnClickListener {
             OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToOnboardingPrivacyFragment().navigate()
         }
+
+        ui.betaHint.isGone = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE
         super.onViewCreated(view, savedInstanceState)
     }
 

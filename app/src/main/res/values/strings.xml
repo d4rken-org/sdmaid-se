@@ -35,6 +35,7 @@
     <string name="onboarding_welcome_title">Welcome</string>
     <string name="onboarding_welcome_body1">SD Maid SE is a file management app.</string>
     <string name="onboarding_welcome_body2">It can free up space and clean your device by deleting expendable files and removing files from uninstalled apps.</string>
+    <string name="onboarding_welcome_body_beta">This is a beta (testing) build of SD Maid SE. Please report any issues you encounter.</string>
     <string name="onboarding_welcome_continue_action">Continue</string>
 
     <string name="onboarding_privacy_title">Privacy</string>

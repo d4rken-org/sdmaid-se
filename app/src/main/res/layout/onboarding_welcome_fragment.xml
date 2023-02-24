@@ -49,6 +49,15 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/onboarding_welcome_body2" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/beta_hint"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/onboarding_welcome_body_beta"
+                android:textColor="?colorError" />
+
         </LinearLayout>
     </ScrollView>
 
