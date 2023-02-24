@@ -29,6 +29,8 @@
         <item quantity="one">%d task in queue</item>
         <item quantity="other">%d queued tasks</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">Task results</string>
+    <string name="tasks_result_subtext">Task result</string>
 
     <string name="onboarding_welcome_title">Welcome</string>
     <string name="onboarding_welcome_body1">SD Maid SE is a file management app.</string>

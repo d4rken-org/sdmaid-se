@@ -15,6 +15,8 @@ interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
         val type: Type
 
         interface Result : Parcelable {
+            val type: Type
+
             val primaryInfo: CaString
             val secondaryInfo: CaString? get() = null
         }

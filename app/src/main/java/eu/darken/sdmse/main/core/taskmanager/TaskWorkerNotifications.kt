@@ -95,7 +95,7 @@ class TaskWorkerNotifications @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("TaskManager", "Worker", "Notifications")
+        val TAG = logTag("TaskManager", "Notifications", "Worker")
         private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.taskmanager.active"
         internal const val NOTIFICATION_ID = 1
     }
