@@ -49,16 +49,21 @@ class TitleCardVH(parent: ViewGroup) :
 
         subtitle.text = getString(slogan)
 
-        betaRibbon.isVisible = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE
-        betaRibbon.text = when (BuildConfigWrap.BUILD_TYPE) {
-            BuildConfigWrap.BuildType.DEV -> "              Dev              "
-            BuildConfigWrap.BuildType.BETA -> "              Beta              "
-            BuildConfigWrap.BuildType.RELEASE -> ""
+        betaRibbon.apply {
+
+            isVisible = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE
+            text = when (BuildConfigWrap.BUILD_TYPE) {
+                BuildConfigWrap.BuildType.DEV -> "              Dev              "
+                BuildConfigWrap.BuildType.BETA -> "              Beta              "
+                BuildConfigWrap.BuildType.RELEASE -> ""
+            }
+            setOnClickListener { item.onRibbonClicked() }
         }
     }
 
     data class Item(
-        val upgradeInfo: UpgradeRepo.Info?
+        val upgradeInfo: UpgradeRepo.Info?,
+        val onRibbonClicked: () -> Unit,
     ) : DashboardAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()

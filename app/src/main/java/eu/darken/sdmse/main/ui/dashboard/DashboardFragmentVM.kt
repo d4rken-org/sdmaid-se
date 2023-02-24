@@ -11,7 +11,9 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -61,6 +63,7 @@ class DashboardFragmentVM @Inject constructor(
     private val debugCardProvider: DebugCardProvider,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -190,7 +193,10 @@ class DashboardFragmentVM @Inject constructor(
         val items = mutableListOf<DashboardAdapter.Item>()
 
         TitleCardVH.Item(
-            upgradeInfo = upgradeInfo
+            upgradeInfo = upgradeInfo,
+            onRibbonClicked = {
+                webpageTool.open(SdmSeLinks.ISSUES)
+            }
         ).run { items.add(this) }
 
         if (!setupState.isComplete && !setupState.isDismissed) {
