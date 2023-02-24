@@ -34,7 +34,7 @@ the [FAQ](https://github.com/d4rken/sdmaid-se/wiki/FAQ).
 
 SD Maid has no ads and doesn't sell your data.
 
-Development is financed by individual user contributions, i.e. you buying the app or becoming a sponsor ❤️.
+Development is financed by individual user contributions, i.e. you buying the upgrade on Google Play or becoming a sponsor ❤️.
 
 * Upgrade to **SD Maid SE Pro** on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse)
 * [Become a sponsor](https://github.com/sponsors/d4rken) on GitHub
