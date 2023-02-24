@@ -6,6 +6,32 @@
     app:startDestination="@id/dashboardFragment">
 
     <fragment
+        android:id="@+id/onboardingWelcomeFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.welcome.OnboardingWelcomeFragment"
+        tools:layout="@layout/onboarding_welcome_fragment">
+        <action
+            android:id="@+id/action_onboardingWelcomeFragment_to_onboardingPrivacyFragment"
+            app:destination="@id/onboardingPrivacyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingPrivacyFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyFragment"
+        tools:layout="@layout/onboarding_privacy_fragment">
+        <action
+            android:id="@+id/action_onboardingPrivacyFragment_to_onboardingSetupFragment"
+            app:destination="@id/onboardingSetupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSetupFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupFragment"
+        tools:layout="@layout/setup_fragment">
+        <action
+            android:id="@+id/action_onboardingSetupFragment_to_setupFragment"
+            app:destination="@id/setupFragment"
+            app:popUpTo="@id/dashboardFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/dashboardFragment"
         android:name="eu.darken.sdmse.main.ui.dashboard.DashboardFragment"
         tools:layout="@layout/dashboard_fragment">
@@ -19,9 +45,6 @@
             android:id="@+id/action_dashboardFragment_to_upgradeFragment"
             app:destination="@id/upgradeFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_onboardingFragment"
-            app:destination="@id/onboardingFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_corpseFinderListFragment"
             app:destination="@id/corpseFinderListFragment" />
         <action
@@ -33,6 +56,11 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appControlListFragment"
             app:destination="@id/appControlListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_onboardingWelcomeFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/onboardingWelcomeFragment" />
     </fragment>
 
     <fragment
@@ -68,15 +96,6 @@
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
         tools:layout="@layout/upgrade_fragment" />
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="eu.darken.sdmse.main.ui.onboarding.OnboardingFragment"
-        tools:layout="@layout/onboarding_fragment">
-        <action
-            android:id="@+id/action_onboardingFragment_to_setupFragment"
-            app:destination="@id/setupFragment"
-            app:popUpTo="@id/dashboardFragment" />
-    </fragment>
     <fragment
         android:id="@+id/corpseFragment"
         android:name="eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment"
@@ -179,5 +198,6 @@
         android:id="@+id/exclusionsListFragment"
         android:name="eu.darken.sdmse.exclusions.ui.ExclusionsListFragment"
         tools:layout="@layout/exclusions_list_fragment" />
+
 
 </navigation>

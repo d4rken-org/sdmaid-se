@@ -1,8 +1,7 @@
-package eu.darken.sdmse.main.ui.onboarding
+package eu.darken.sdmse.main.ui.onboarding.setup
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.PrivacyPolicy
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -15,7 +14,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class OnboardingFragmentVM @Inject constructor(
+class OnboardingSetupFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
@@ -25,17 +24,12 @@ class OnboardingFragmentVM @Inject constructor(
     fun finishOnboarding() {
         log(TAG) { "finishOnboarding()" }
         generalSettings.isOnboardingCompleted.valueBlocking = true
-        OnboardingFragmentDirections.actionOnboardingFragmentToSetupFragment(
+        OnboardingSetupFragmentDirections.actionOnboardingSetupFragmentToSetupFragment(
             isOnboarding = true
         ).navigate()
     }
 
-    fun goPrivacyPolicy() {
-        log(TAG) { "goPrivacyPolicy()" }
-        webpageTool.open(PrivacyPolicy.URL)
-    }
-
     companion object {
-        private val TAG = logTag("Onboarding", "Fragment", "VM")
+        private val TAG = logTag("Onboarding", "Setup", "Fragment", "VM")
     }
 }

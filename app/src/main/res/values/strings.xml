@@ -29,11 +29,24 @@
         <item quantity="one">%d task in queue</item>
         <item quantity="other">%d queued tasks</item>
     </plurals>
-    <string name="onboarding_page1_title">Welcome</string>
-    <string name="onboarding_page1_body1">SD Maid SE is a file management app. It can free up space by deleting caches and removing files that belong to already removed apps.</string>
-    <string name="onboarding_page1_body2">This has no ads and doesn\'t collect data on you.</string>
-    <string name="onboarding_page1_body3">Start using SD Maid by granting access to areas that should be searched.</string>
-    <string name="onboarding_setup_action">Set up SD Maid SE</string>
+
+    <string name="onboarding_welcome_title">Welcome</string>
+    <string name="onboarding_welcome_body1">SD Maid SE is a file management app.</string>
+    <string name="onboarding_welcome_body2">It can free up space and clean your device by deleting expendable files and removing files from uninstalled apps.</string>
+    <string name="onboarding_welcome_continue_action">Continue</string>
+
+    <string name="onboarding_privacy_title">Privacy</string>
+    <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data. Development is financed by selling extra app features.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are send when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Automatic bug reports</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">These options can also be changed in SD Maids settings.</string>
+    <string name="onboarding_privacy_continue_action">Continue</string>
+
+    <string name="onboarding_setup_title">Setup</string>
+    <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
+    <string name="onboarding_setup_body2">What is accessible depends on your phone, Android version and granted permissions.</string>
+    <string name="onboarding_setup_body3">Start using SD Maid by setting up access to areas that should be searched.</string>
+    <string name="onboarding_setup_continue_action">Set up SD Maid SE</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
