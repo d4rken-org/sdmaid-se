@@ -22,7 +22,7 @@ import eu.darken.sdmse.main.ui.MainActivity
 import javax.inject.Inject
 
 
-class TaskNotifications @Inject constructor(
+class TaskWorkerNotifications @Inject constructor(
     @ApplicationContext private val context: Context,
     notificationManager: NotificationManager,
 ) {
@@ -48,7 +48,7 @@ class TaskNotifications @Inject constructor(
             setChannelId(CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.ic_vacuum_outline_24)
+            setSmallIcon(R.drawable.ic_notification_mascot_24)
             setOngoing(true)
             setContentTitle(context.getString(R.string.app_name))
             setContentText(context.getString(R.string.general_progress_loading))

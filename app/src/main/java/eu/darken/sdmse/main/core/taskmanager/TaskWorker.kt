@@ -26,7 +26,7 @@ class TaskWorker @AssistedInject constructor(
     @Assisted private val params: WorkerParameters,
     private val dispatcherProvider: DispatcherProvider,
     private val taskManager: TaskManager,
-    private val taskNotifications: TaskNotifications,
+    private val taskWorkerNotifications: TaskWorkerNotifications,
     private val notificationManager: NotificationManager,
 ) : CoroutineWorker(context, params) {
 
@@ -40,7 +40,7 @@ class TaskWorker @AssistedInject constructor(
     override suspend fun getForegroundInfo(): ForegroundInfo {
         val state = withTimeoutOrNull(3000) { taskManager.state.first() }
         if (state == null) log(TAG, WARN) { "TaskManager state was not available" }
-        return taskNotifications.getForegroundInfo(state)
+        return taskWorkerNotifications.getForegroundInfo(state)
     }
 
     override suspend fun doWork(): Result = try {
@@ -63,7 +63,7 @@ class TaskWorker @AssistedInject constructor(
             Result.success()
         }
     } finally {
-        notificationManager.cancel(TaskNotifications.NOTIFICATION_ID)
+        notificationManager.cancel(TaskWorkerNotifications.NOTIFICATION_ID)
         this.workerScope.cancel("Worker finished (withError?=$finishedWithError).")
     }
 
@@ -72,8 +72,8 @@ class TaskWorker @AssistedInject constructor(
 
         taskManager.state
             .onEach { state ->
-                val notification = taskNotifications.getNotification(state)
-                notificationManager.notify(TaskNotifications.NOTIFICATION_ID, notification)
+                val notification = taskWorkerNotifications.getNotification(state)
+                notificationManager.notify(TaskWorkerNotifications.NOTIFICATION_ID, notification)
             }
             .launchIn(workerScope)
 
