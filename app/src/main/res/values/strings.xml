@@ -115,7 +115,8 @@
     <string name="setup_usagestats_hint">Required for accessibility service based cache deletion.</string>
 
     <string name="setup_acs_card_title">Accessibility service</string>
-    <string name="setup_acs_card_body">Enabling SD Maid\'s accessibility service allows SD Maid to automate tedious manual actions for you, e.g. clicking \"Clear cache\" on multiple screens.</string>
+    <string name="setup_acs_card_body">Enabling SD Maid\'s accessibility service allows SD Maid to interact with your screen and automate tedious manual actions for you, e.g. clicking \"Clear cache\" on multiple screens.</string>
+    <string name="setup_acs_card_body2">The accessibility service does not start without consent, will display a prominent indicator while active and will not be used to collect information.</string>
     <string name="setup_acs_state_enabled">Accessibility service is enabled</string>
     <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
     <string name="setup_acs_state_running">Accessibility service is running</string>

@@ -14,7 +14,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
-            android:src="@drawable/ic_sd_storage"
+            android:src="@drawable/ic_baseline_accessibility_new_24"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/title" />
@@ -40,10 +40,23 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/setup_acs_card_body"
-            app:layout_constraintBottom_toTopOf="@id/enabled_state"
+            app:layout_constraintBottom_toTopOf="@id/body2"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body2"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/setup_acs_card_body2"
+            app:layout_constraintBottom_toTopOf="@id/enabled_state"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/body" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/enabled_state"
@@ -60,7 +73,7 @@
             app:layout_constraintBottom_toTopOf="@id/running_state"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/body" />
+            app:layout_constraintTop_toBottomOf="@id/body2" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/running_state"
