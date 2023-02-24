@@ -17,7 +17,7 @@
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
-    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. the app developer if you are troubleshooting an issue together).</string>
+    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer that is troubleshooting an issue).</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
@@ -70,6 +70,7 @@
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
+    <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid\'s setup to get better results.</string>
     <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
@@ -101,7 +102,7 @@
     <string name="setup_usagestats_hint">Required for accessibility service based cache deletion.</string>
 
     <string name="setup_acs_card_title">Accessibility service</string>
-    <string name="setup_acs_card_body">Enabling SD Maid\'s accessibility service allows SD Maid to automate tedious manual actions for you, e.g. clicking "Clear cache" on dozens of screens.</string>
+    <string name="setup_acs_card_body">Enabling SD Maid\'s accessibility service allows SD Maid to automate tedious manual actions for you, e.g. clicking \"Clear cache\" on multiple screens.</string>
     <string name="setup_acs_state_enabled">Accessibility service is enabled</string>
     <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
     <string name="setup_acs_state_running">Accessibility service is running</string>
@@ -289,8 +290,7 @@
     <string name="data_area_sdcard_label">SD-Card</string>
     <string name="data_areas_label">Data areas</string>
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
-    <string name="data_areas_short_summary">Accessible data areas based on current permissions.</string>
-    <string name="setup_label">Setup</string>
+    <string name="data_areas_short_summary">Areas that SD Maid can access based on the currently granted permissions.</string>
 
     <string name="exclusion_manager_title">Exclusion manager</string>
     <string name="exclusion_manager_desc">Manage file and app exclusions.</string>

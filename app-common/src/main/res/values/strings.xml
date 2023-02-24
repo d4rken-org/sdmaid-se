@@ -94,6 +94,8 @@
     <string name="general_size_label">Size</string>
     <string name="general_exclude_action">Exclude</string>
 
+    <string name="general_device_label">Device</string>
+
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_file">File</string>
     <string name="file_type_directory">Directory</string>

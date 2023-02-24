@@ -32,10 +32,10 @@
             app:title="@string/appcleaner_tool_name" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/setup_label">
+    <PreferenceCategory android:title="@string/general_device_label">
         <Preference
             android:key="setup.show.forced"
-            app:icon="@drawable/ic_baseline_format_list_bulleted_24"
+            app:icon="@drawable/ic_cellphone_cog_24"
             app:summary="@string/setup_forcedshow_summary"
             app:title="@string/setup_forcedshow_title" />
         <Preference
