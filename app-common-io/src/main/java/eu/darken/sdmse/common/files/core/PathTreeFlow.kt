@@ -20,7 +20,7 @@ class PathTreeFlow<
         > constructor(
     private val gateway: GT,
     private val start: P,
-    private val filter: (PL) -> Boolean = { true }
+    private val filter: suspend (PL) -> Boolean = { true }
 ) : AbstractFlow<PL>() {
     private val tag = "$TAG#${hashCode()}"
     override suspend fun collectSafely(collector: FlowCollector<PL>) {

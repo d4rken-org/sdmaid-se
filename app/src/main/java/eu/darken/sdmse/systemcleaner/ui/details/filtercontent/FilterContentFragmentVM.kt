@@ -48,7 +48,11 @@ class FilterContentFragmentVM @Inject constructor(
                 events.postValue(FilterContentEvents.ConfirmDeletion(it.filterContent.filterIdentifier))
             },
             onExcludeClicked = {
-
+                launch {
+                    filterContent.items.forEach {
+                        systemCleaner.exclude(it)
+                    }
+                }
             }
         ).run { elements.add(this) }
 

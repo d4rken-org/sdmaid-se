@@ -19,10 +19,10 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.exclusions.core.Exclusion
-import eu.darken.sdmse.exclusions.core.ExclusionManager
-import eu.darken.sdmse.exclusions.core.currentExclusions
-import eu.darken.sdmse.exclusions.core.excludeNested
+import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.currentExclusions
+import eu.darken.sdmse.exclusion.core.excludeNested
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject

@@ -19,6 +19,9 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
@@ -37,6 +40,7 @@ class SystemCleaner @Inject constructor(
     fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
     private val crawlerProvider: Provider<SystemCrawler>,
+    private val exclusionManager: ExclusionManager,
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
@@ -55,8 +59,8 @@ class SystemCleaner @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.SYSTEMCLEANER
 
-    private val jobLock = Mutex()
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
+    private val toolLock = Mutex()
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as SystemCleanerTask
         log(TAG) { "submit($task) starting..." }
         updateProgressPrimary(R.string.general_progress_loading)
@@ -152,6 +156,28 @@ class SystemCleaner @Inject constructor(
         return SystemCleanerDeleteTask.Success(
             deletedItems = deletedContents.values.sumOf { it.size },
             recoveredSpace = deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
+        )
+    }
+
+    suspend fun exclude(target: APath) = toolLock.withLock {
+        log(TAG) { "exclude(): $target" }
+        val exclusion = PathExclusion(
+            path = target,
+            tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
+        )
+        exclusionManager.add(exclusion)
+
+        val snapshot = internalData.value!!
+        internalData.value = snapshot.copy(
+            filterContents = snapshot.filterContents
+                .map { fc ->
+                    fc.copy(items = fc.items.filter {
+                        val hit = it.matches(target)
+                        if (hit) log(TAG) { "exclude(): Excluded $it" }
+                        !hit
+                    })
+                }
+                .filter { it.items.isNotEmpty() }
         )
     }
 

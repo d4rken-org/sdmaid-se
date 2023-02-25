@@ -23,6 +23,9 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
@@ -35,6 +38,7 @@ class AppAsecFileCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
+    private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     override suspend fun doScan(): Collection<Corpse> {
@@ -46,6 +50,8 @@ class AppAsecFileCorpseFilter @Inject constructor(
             return emptySet()
         }
 
+        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+
         return areaManager.currentAreas()
             .filter { it.type == DataArea.Type.APP_ASEC }
             .map { area ->
@@ -54,7 +60,15 @@ class AppAsecFileCorpseFilter @Inject constructor(
                 )
                 log(TAG) { "Reading $area" }
                 updateProgressSecondary(R.string.general_progress_searching)
-                val topLevelContents = area.path.listFiles(gatewaySwitch)
+                val topLevelContents = area.path
+                    .listFiles(gatewaySwitch)
+                    .filter { path ->
+                        pathExclusions.none { excl ->
+                            excl.match(path).also {
+                                if (it) log(TAG, INFO) { "Excluded due to $excl: $path" }
+                            }
+                        }
+                    }
 
                 log(TAG) { "Filtering $area" }
                 updateProgressSecondary(R.string.general_progress_filtering)

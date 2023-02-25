@@ -93,6 +93,7 @@
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Size</string>
     <string name="general_exclude_action">Exclude</string>
+    <string name="general_exclude_all_action">Exclude all</string>
 
     <string name="general_device_label">Device</string>
 

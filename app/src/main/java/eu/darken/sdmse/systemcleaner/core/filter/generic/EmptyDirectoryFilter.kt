@@ -32,12 +32,20 @@ class EmptyDirectoryFilter @Inject constructor(
     )
 
     private lateinit var sieve: BaseSieve
-    private val protected = setOf(
+    private val protectedBaseDirs = setOf(
         segs("Camera"),
         segs("Photos"),
         segs("Music"),
         segs("DCIM"),
         segs("Pictures"),
+        segs("Movies"),
+        segs("Recordings"),
+        segs("Video"),
+        segs("Downloads"),
+        segs("Alarms"),
+        segs("Ringtones"),
+        segs("Notifications"),
+        segs("Podcasts"),
         segs("Android", "data"),
         segs("Android", "media"),
         segs("Android", "obb"),
@@ -49,9 +57,9 @@ class EmptyDirectoryFilter @Inject constructor(
         DataArea.Type.PUBLIC_OBB,
     )
 
-    private val protectedDirs = setOf(
+    private val protectedSubDirs = setOf(
         "files",
-        "cache"
+        "cache",
     )
 
     override suspend fun initialize() {
@@ -82,13 +90,13 @@ class EmptyDirectoryFilter @Inject constructor(
         val prefixFreePath = areaInfo.prefixFreePath
         if (prefixFreePath.isEmpty()) return false
 
-        if (protected.any { it.matches(prefixFreePath) }) return false
+        if (protectedBaseDirs.any { it.matches(prefixFreePath) }) return false
 
         // Exclude toplvl package folders in Android/data
         if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 1) return false
 
         // Exclude Android/.../<pkg>/files
-        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 2 && protectedDirs.contains(prefixFreePath[1])) {
+        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 2 && protectedSubDirs.contains(prefixFreePath[1])) {
             return false
         }
 

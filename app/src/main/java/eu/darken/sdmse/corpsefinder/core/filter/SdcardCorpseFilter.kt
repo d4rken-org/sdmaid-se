@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -42,6 +43,7 @@ class SdcardCorpseFilter @Inject constructor(
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
+    private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()

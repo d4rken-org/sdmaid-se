@@ -23,6 +23,8 @@ import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.exclusion.core.*
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -39,6 +41,7 @@ class CorpseFinder @Inject constructor(
     private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
     fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
+    private val exclusionManager: ExclusionManager,
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
@@ -56,8 +59,8 @@ class CorpseFinder @Inject constructor(
     private val internalData = MutableStateFlow(null as Data?)
     val data: Flow<Data?> = internalData
 
-    private val jobLock = Mutex()
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
+    private val toolLock = Mutex()
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as CorpseFinderTask
         log(TAG, INFO) { "submit($task) starting..." }
         updateProgressPrimary(R.string.general_progress_loading)
@@ -93,6 +96,9 @@ class CorpseFinder @Inject constructor(
             .map { it.create() }
             .onEach { log(TAG) { "Created filter: $it" } }
 
+        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+        val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.CORPSEFINDER)
+
         val results = filters
             .map { filter ->
                 filter
@@ -100,6 +106,22 @@ class CorpseFinder @Inject constructor(
                     .also { log(TAG) { "$filter found ${it.size} corpses" } }
             }
             .flatten()
+            .filter { corpse ->
+                pkgExclusions.none { excl ->
+                    corpse.ownerInfo.owners.any { owner ->
+                        excl.match(owner.pkgId).also {
+                            if (it) log(TAG, INFO) { "Excluded due to $excl: $corpse" }
+                        }
+                    }
+                }
+            }
+            .filter { corpse ->
+                pathExclusions.none { excl ->
+                    excl.match(corpse.path).also {
+                        if (it) log(TAG, INFO) { "Excluded due to $excl: $corpse" }
+                    }
+                }
+            }
 
         results.forEach { log(TAG, INFO) { "Result: $it" } }
 
@@ -176,6 +198,20 @@ class CorpseFinder @Inject constructor(
         return CorpseFinderDeleteTask.Success(
             deletedItems = deletedCorpses.size + deletedContents.values.sumOf { it.size },
             recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
+        )
+    }
+
+    suspend fun exclude(corpse: Corpse) = toolLock.withLock {
+        log(TAG) { "exclude(): $corpse" }
+        val exclusion = PathExclusion(
+            path = corpse.path,
+            tags = setOf(Exclusion.Tag.CORPSEFINDER),
+        )
+        exclusionManager.add(exclusion)
+
+        val snapshot = internalData.value!!
+        internalData.value = snapshot.copy(
+            corpses = snapshot.corpses - corpse
         )
     }
 

@@ -1,9 +1,9 @@
-package eu.darken.sdmse.exclusions.core
+package eu.darken.sdmse.exclusion.core
 
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.pkgs.Pkg
 
-interface Exclusion {
+sealed interface Exclusion {
 
     val tags: Collection<Tag>
 
@@ -15,10 +15,12 @@ interface Exclusion {
     }
 
     interface Package : Exclusion {
-        suspend fun match(id: Pkg.Id): Boolean
+        val pkgId: Pkg.Id
+        suspend fun match(candidate: Pkg.Id): Boolean
     }
 
     interface Path : Exclusion {
-        suspend fun match(aPath: APath): Boolean
+        val path: APath
+        suspend fun match(candidate: APath): Boolean
     }
 }

@@ -6,7 +6,7 @@
     <item
         android:id="@+id/menu_action_upgrade"
         android:icon="@drawable/ic_baseline_stars_24"
-        android:orderInCategory="90"
+        android:orderInCategory="50"
         android:title="@string/general_upgrade_action"
         app:showAsAction="always" />
 

@@ -196,8 +196,8 @@
         tools:layout="@layout/data_areas_fragment" />
     <fragment
         android:id="@+id/exclusionsListFragment"
-        android:name="eu.darken.sdmse.exclusions.ui.ExclusionsListFragment"
-        tools:layout="@layout/exclusions_list_fragment" />
+        android:name="eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment"
+        tools:layout="@layout/exclusion_list_fragment" />
 
 
 </navigation>

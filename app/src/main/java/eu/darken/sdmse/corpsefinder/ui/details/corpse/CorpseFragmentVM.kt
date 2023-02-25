@@ -15,6 +15,7 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementFileVH
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
+import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -25,6 +26,7 @@ class CorpseFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskManager: TaskManager,
+    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = CorpseFragmentArgs.fromSavedStateHandle(handle)
@@ -44,7 +46,9 @@ class CorpseFragmentVM @Inject constructor(
             corpse = corpse,
             onDeleteAllClicked = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse)) },
             onExcludeClicked = {
-                // TODO
+                launch {
+                    corpseFinder.exclude(corpse)
+                }
             }
         ).run { elements.add(this) }
 

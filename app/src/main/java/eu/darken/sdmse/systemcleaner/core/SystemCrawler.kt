@@ -17,16 +17,20 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @Reusable
 class SystemCrawler @Inject constructor(
+    private val dispatcherProvider: DispatcherProvider,
+    private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
-    private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
-    private val dispatcherProvider: DispatcherProvider,
+    private val exclusionManager: ExclusionManager,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
@@ -45,6 +49,8 @@ class SystemCrawler @Inject constructor(
         updateProgressPrimary(R.string.general_progress_searching)
         updateProgressSecondary(R.string.general_progress_generating_searchpaths)
         updateProgressCount(Progress.Count.Indeterminate())
+
+        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
 
         val filters = filterFactories
             .asFlow()
@@ -86,18 +92,17 @@ class SystemCrawler @Inject constructor(
                 .asFlow()
                 .flowOn(dispatcherProvider.IO)
                 .flatMapMerge(3) { area ->
-                    val filter = if (area.type == DataArea.Type.SDCARD) {
-                        filter@{ toCheck: APathLookup<*> ->
+                    val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
+                        DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
                             if (sdcardOverlaps.any { it.isAncestorOf(toCheck) }) return@filter false
-                            true
+                            pathExclusions.none { it.match(toCheck) }
                         }
-                    } else {
-                        filter@{ toCheck: APathLookup<*> ->
+                        else -> filter@{ toCheck: APathLookup<*> ->
                             if (skipSegments.any { toCheck.segments.startsWith(it) }) {
                                 log(TAG, WARN) { "Skipping: $toCheck" }
                                 return@filter false
                             }
-                            true
+                            pathExclusions.none { it.match(toCheck) }
                         }
                     }
                     area.path.walk(gatewaySwitch, filter).map { area to it }

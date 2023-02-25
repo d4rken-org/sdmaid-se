@@ -46,7 +46,7 @@ class AppJunkFragmentVM @Inject constructor(
             appJunk = data,
             onDeleteAllClicked = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk)) },
             onExcludeClicked = {
-//                    TODO()
+                launch { appCleaner.exclude(data) }
             }
         ).run { items.add(this) }
 

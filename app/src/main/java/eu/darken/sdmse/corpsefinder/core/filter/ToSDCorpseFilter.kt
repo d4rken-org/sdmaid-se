@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.*
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -33,6 +34,7 @@ class ToSDCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val pkgRepo: PkgRepo,
+    private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
 

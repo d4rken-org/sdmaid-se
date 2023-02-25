@@ -26,6 +26,9 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -44,6 +47,7 @@ class AppCleaner @Inject constructor(
     pkgOps: PkgOps,
     private val appScannerProvider: Provider<AppScanner>,
     private val automationController: AutomationController,
+    private val exclusionManager: ExclusionManager,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -61,8 +65,8 @@ class AppCleaner @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.APPCLEANER
 
-    private val jobLock = Mutex()
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
+    private val toolLock = Mutex()
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as AppCleanerTask
         log(TAG) { "submit()starting...$task" }
         updateProgress { Progress.DEFAULT_STATE }
@@ -186,6 +190,21 @@ class AppCleaner @Inject constructor(
             recoveredSpace = deletionMap.values.sumOf { contents -> contents.sumOf { it.size } }
         )
     }
+
+    suspend fun exclude(junk: AppJunk) = toolLock.withLock {
+        log(TAG) { "exclude(): $junk" }
+        val exclusion = PackageExclusion(
+            pkgId = junk.identifier,
+            tags = setOf(Exclusion.Tag.APPCLEANER),
+        )
+        exclusionManager.add(exclusion)
+
+        val snapshot = internalData.value!!
+        internalData.value = snapshot.copy(
+            junks = snapshot.junks - junk
+        )
+    }
+
 
     data class Data(
         val junks: Collection<AppJunk>

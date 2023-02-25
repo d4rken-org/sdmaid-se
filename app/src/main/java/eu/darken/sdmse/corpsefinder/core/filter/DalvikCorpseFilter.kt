@@ -26,6 +26,9 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.*
 import java.util.*
 import javax.inject.Inject
@@ -38,6 +41,7 @@ class DalvikCorpseFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
+    private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
     override suspend fun doScan(): Collection<Corpse> {
@@ -55,6 +59,8 @@ class DalvikCorpseFilter @Inject constructor(
 
         val areas = areaManager.currentAreas()
 
+        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+
         val profileCorpses = areas
             .filter { it.type == DataArea.Type.DALVIK_PROFILE }
             .map { area ->
@@ -65,7 +71,15 @@ class DalvikCorpseFilter @Inject constructor(
                 updateProgressSecondary(R.string.general_progress_searching)
                 updateProgressCount(Progress.Count.Indeterminate())
 
-                area.path.listFiles(gatewaySwitch)
+                area.path
+                    .listFiles(gatewaySwitch)
+                    .filter { path ->
+                        pathExclusions.none { excl ->
+                            excl.match(path).also {
+                                if (it) log(TAG, INFO) { "Excluded due to $excl: $path" }
+                            }
+                        }
+                    }
             }
             .map { profilesToCheck ->
                 updateProgressSecondary(R.string.general_progress_filtering)
@@ -83,7 +97,15 @@ class DalvikCorpseFilter @Inject constructor(
                 updateProgressSecondary(R.string.general_progress_searching)
                 updateProgressCount(Progress.Count.Indeterminate())
 
-                area.path.listFiles(gatewaySwitch)
+                area.path
+                    .listFiles(gatewaySwitch)
+                    .filter { path ->
+                        pathExclusions.none { excl ->
+                            excl.match(path).also {
+                                if (it) log(TAG, INFO) { "Excluded due to $excl: $path" }
+                            }
+                        }
+                    }
             }
             .map { dalvikFilesToCheck ->
                 updateProgressSecondary(R.string.general_progress_filtering)

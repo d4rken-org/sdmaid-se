@@ -1,0 +1,37 @@
+package eu.darken.sdmse.exclusion.ui.list.types
+
+import android.view.ViewGroup
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.databinding.ExclusionListItemPathBinding
+import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
+
+
+class PathExclusionVH(parent: ViewGroup) :
+    ExclusionListAdapter.BaseVH<PathExclusionVH.Item, ExclusionListItemPathBinding>(
+        R.layout.exclusion_list_item_path,
+        parent
+    ) {
+
+    override val viewBinding = lazy { ExclusionListItemPathBinding.bind(itemView) }
+
+    override val onBindData: ExclusionListItemPathBinding.(
+        item: Item,
+        payloads: List<Any>
+    ) -> Unit = binding { item ->
+        primary.text = item.exclusion.path.userReadablePath.get(context)
+        secondary.text = getString(R.string.exclusion_type_path)
+
+        root.setOnClickListener { item.onItemClick(item) }
+    }
+
+    data class Item(
+        val exclusion: Exclusion.Path,
+        val onItemClick: (Item) -> Unit,
+    ) : ExclusionListAdapter.Item {
+
+        override val stableId: Long = exclusion.hashCode().toLong()
+    }
+
+}

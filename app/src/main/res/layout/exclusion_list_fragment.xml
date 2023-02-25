@@ -86,6 +86,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:listitem="@layout/data_areas_list_item" />
+        tools:listitem="@layout/exclusion_list_item_path" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
