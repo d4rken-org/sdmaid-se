@@ -1,86 +1,72 @@
 package eu.darken.sdmse.common.exclusion.core
 
-import com.squareup.moshi.JsonDataException
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.RawPath
+import android.content.Context
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.tryMkFile
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationAppModule
-import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.ExclusionStorage
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
-import io.kotest.assertions.throwables.shouldThrow
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
 
-class ExclusionStorageTest {
-    private val testFile = File("./testfile")
+class ExclusionStorageTest : BaseTest() {
+    private val testFolder = File("./testfolder")
     private val moshi = SerializationAppModule().moshi()
+    private val context: Context = mockk<Context>().apply {
+        every { filesDir } returns testFolder
+    }
 
     @AfterEach
     fun cleanup() {
-        testFile.delete()
+        testFolder.delete()
     }
 
+    fun create() = ExclusionStorage(context, moshi)
+
     @Test
-    fun `test direct serialization`() {
-        testFile.tryMkFile()
-        val original = PackageExclusion(
-            pkgId = "test.pkg".toPkgId()
+    fun `combined serialization`() = runTest {
+        val storage = create()
+
+        val original = setOf(
+            PackageExclusion(
+                pkgId = "test.pkg".toPkgId()
+            ),
+            PathExclusion(LocalPath.build("test", "path"))
         )
 
-        val adapter = moshi.adapter(Exclusion::class.java)
+        storage.save(original)
 
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
-            {
-                "file": "$testFile",
-                "pathType":"LOCAL"
-            }
+        val saveFile = File(testFolder, "exclusions/exclusions-v1.json")
+        saveFile.readText().toComparableJson() shouldBe """
+            [
+                {
+                    "pkgId": {
+                        "name": "test.pkg"
+                    },
+                    "tags": [
+                        "GENERAL"
+                    ]
+                },
+                {
+                    "path": {
+                        "file": "/test/path",
+                        "pathType": "LOCAL"
+                    },
+                    "tags": [
+                        "GENERAL"
+                    ]
+                }
+            ]
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
-    }
-
-    @Test
-    fun `test polymorph serialization`() {
-        testFile.tryMkFile()
-        val original = LocalPath.build(file = testFile)
-
-        val adapter = moshi.adapter(APath::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
-            {
-                "file":"$testFile",
-                "pathType":"LOCAL"
-            }
-        """.toComparableJson()
-
-        adapter.fromJson(json) shouldBe original
-    }
-
-    @Test
-    fun `test fixed type`() {
-        val file = LocalPath(testFile)
-        file.pathType shouldBe APath.PathType.LOCAL
-        shouldThrow<IllegalArgumentException> {
-            file.pathType = APath.PathType.RAW
-            Any()
-        }
-        file.pathType shouldBe APath.PathType.LOCAL
-    }
-
-    @Test
-    fun `force typing`() {
-        val original = RawPath.build("test", "file")
-
-        shouldThrow<JsonDataException> {
-            val json = moshi.adapter(RawPath::class.java).toJson(original)
-            moshi.adapter(LocalPath::class.java).fromJson(json)
-        }
+        storage.load() shouldBe original
     }
 }

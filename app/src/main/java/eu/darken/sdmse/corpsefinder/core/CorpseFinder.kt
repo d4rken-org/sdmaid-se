@@ -24,6 +24,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.exclusion.core.*
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException

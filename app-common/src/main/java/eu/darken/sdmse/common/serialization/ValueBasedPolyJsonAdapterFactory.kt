@@ -8,7 +8,7 @@ import java.io.IOException
 import java.lang.reflect.Type
 import java.util.*
 
-class MyPolymorphicJsonAdapterFactory<T> internal constructor(
+class ValueBasedPolyJsonAdapterFactory<T> internal constructor(
     val baseType: Class<T>,
     val labelKey: String,
     val labels: List<String>,
@@ -23,15 +23,13 @@ class MyPolymorphicJsonAdapterFactory<T> internal constructor(
      * during encoding an [IllegalArgumentException] will be thrown. When an unknown label
      * is found during decoding a [JsonDataException] will be thrown.
      */
-    fun withSubtype(subtype: Class<out T>?, label: String?): MyPolymorphicJsonAdapterFactory<T> {
-        if (subtype == null) throw NullPointerException("subtype == null")
-        if (label == null) throw NullPointerException("label == null")
+    fun withSubtype(subtype: Class<out T>, label: String): ValueBasedPolyJsonAdapterFactory<T> {
         require(!labels.contains(label)) { "Labels must be unique." }
         val newLabels = ArrayList(labels)
         newLabels.add(label)
         val newSubtypes = ArrayList(subtypes)
         newSubtypes.add(subtype)
-        return MyPolymorphicJsonAdapterFactory(
+        return ValueBasedPolyJsonAdapterFactory(
             baseType,
             labelKey,
             newLabels,
@@ -41,7 +39,7 @@ class MyPolymorphicJsonAdapterFactory<T> internal constructor(
         )
     }
 
-    fun skipLabelSerialization(): MyPolymorphicJsonAdapterFactory<T> = MyPolymorphicJsonAdapterFactory(
+    fun skipLabelSerialization(): ValueBasedPolyJsonAdapterFactory<T> = ValueBasedPolyJsonAdapterFactory(
         baseType,
         labelKey,
         labels,
@@ -55,7 +53,7 @@ class MyPolymorphicJsonAdapterFactory<T> internal constructor(
      * Returns a new factory that with default to `defaultValue` upon decoding of unrecognized
      * labels. The default value should be immutable.
      */
-    fun withDefaultValue(defaultValue: T?): MyPolymorphicJsonAdapterFactory<T> = MyPolymorphicJsonAdapterFactory(
+    fun withDefaultValue(defaultValue: T?): ValueBasedPolyJsonAdapterFactory<T> = ValueBasedPolyJsonAdapterFactory(
         baseType,
         labelKey,
         labels,
@@ -174,7 +172,7 @@ class MyPolymorphicJsonAdapterFactory<T> internal constructor(
             writer.endObject()
         }
 
-        override fun toString(): String = "PolymorphicJsonAdapter($labelKey)"
+        override fun toString(): String = "ValueBasedPolyJsonAdapterFactory($labelKey)"
     }
 
     companion object {
@@ -185,15 +183,13 @@ class MyPolymorphicJsonAdapterFactory<T> internal constructor(
          * JSON object.
          */
         @CheckReturnValue
-        fun <T> of(baseType: Class<T>?, labelKey: String?): MyPolymorphicJsonAdapterFactory<T> {
-            if (baseType == null) throw NullPointerException("baseType == null")
-            if (labelKey == null) throw NullPointerException("labelKey == null")
-            return MyPolymorphicJsonAdapterFactory(
+        fun <T> of(baseType: Class<T>, labelKey: String): ValueBasedPolyJsonAdapterFactory<T> {
+            return ValueBasedPolyJsonAdapterFactory(
                 baseType,
                 labelKey,
                 emptyList(),
                 emptyList(), null,
-                false
+                false,
             )
         }
     }

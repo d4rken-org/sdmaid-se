@@ -1,13 +1,17 @@
 package eu.darken.sdmse.exclusion.core.types
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.exclusion.core.Exclusion
 
+@JsonClass(generateAdapter = true)
 data class PackageExclusion(
-    override val pkgId: Pkg.Id,
-    override val tags: Collection<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
+    @Json(name = "pkgId") val pkgId: Pkg.Id,
+    @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Package {
+
     override suspend fun match(candidate: Pkg.Id): Boolean {
         return pkgId == candidate
     }
+
 }

@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.ExclusionListItemPathBinding
-import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
@@ -27,7 +27,7 @@ class PathExclusionVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val exclusion: Exclusion.Path,
+        val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

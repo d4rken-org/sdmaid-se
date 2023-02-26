@@ -5,7 +5,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.ExclusionListItemPackageBinding
-import eu.darken.sdmse.exclusion.core.Exclusion
+import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
@@ -33,8 +33,8 @@ class PackageExclusionVH(parent: ViewGroup) :
     }
 
     data class Item(
+        val exclusion: PackageExclusion,
         val appLabel: CaString?,
-        val exclusion: Exclusion.Package,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

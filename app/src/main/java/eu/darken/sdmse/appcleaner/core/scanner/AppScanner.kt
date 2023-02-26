@@ -31,9 +31,9 @@ import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.exclusion.core.Exclusion
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
