@@ -23,6 +23,7 @@ import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.exclusion.core.*
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -73,6 +74,7 @@ class CorpseFinder @Inject constructor(
                 when (task) {
                     is CorpseFinderScanTask -> performScan(task)
                     is CorpseFinderDeleteTask -> deleteCorpses(task)
+                    is UninstallWatcherTask -> checkUninstall(task)
                 }
             }
             internalData.value = internalData.value?.copy(
@@ -136,7 +138,7 @@ class CorpseFinder @Inject constructor(
         )
     }
 
-    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderTask.Result {
+    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderDeleteTask.Success {
         log(TAG) { "deleteCorpses(): $task" }
 
         val deletedCorpses = mutableSetOf<Corpse>()
@@ -199,6 +201,27 @@ class CorpseFinder @Inject constructor(
         return CorpseFinderDeleteTask.Success(
             deletedItems = deletedCorpses.size + deletedContents.values.sumOf { it.size },
             recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
+        )
+    }
+
+    private suspend fun checkUninstall(task: UninstallWatcherTask): CorpseFinderTask.Result {
+        log(TAG) { "checkUninstall(): $task" }
+
+        val scanResult = performScan(CorpseFinderScanTask(pkgIdFilter = setOf(task.target)))
+        log(TAG) { "checkUninstall(): Scan result was $scanResult" }
+
+        val targets = internalData.value!!.corpses
+            .filter { it.ownerInfo.getOwner(task.target) != null }
+            .map { it.path }
+            .toSet()
+        log(TAG) { "checkUninstall(): Found leftovers:\n${targets.joinToString("\n")}" }
+
+        val deleteResult = deleteCorpses(CorpseFinderDeleteTask(targets))
+        log(TAG) { "checkUninstall(): Deleted leftovers:\n${targets.joinToString("\n")}" }
+
+        return UninstallWatcherTask.Success(
+            deletedItems = deleteResult.deletedItems,
+            recoveredSpace = deleteResult.recoveredSpace
         )
     }
 

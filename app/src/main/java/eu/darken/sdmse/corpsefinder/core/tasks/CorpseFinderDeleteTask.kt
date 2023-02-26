@@ -18,8 +18,8 @@ data class CorpseFinderDeleteTask(
 
     @Parcelize
     data class Success(
-        private val deletedItems: Int,
-        private val recoveredSpace: Long
+        val deletedItems: Int,
+        val recoveredSpace: Long
     ) : Result {
         override val primaryInfo: CaString
             get() = caString {

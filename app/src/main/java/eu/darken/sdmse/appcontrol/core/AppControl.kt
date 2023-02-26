@@ -160,6 +160,7 @@ class AppControl @Inject constructor(
     }
 
     companion object {
+        var lastUninstalledPkg: Pkg.Id? = null
         private val TAG = logTag("AppControl")
     }
 }

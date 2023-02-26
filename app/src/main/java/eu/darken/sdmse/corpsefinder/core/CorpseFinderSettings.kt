@@ -42,6 +42,9 @@ class CorpseFinderSettings @Inject constructor(
     val includeRiskCommon = dataStore.createValue("risk.include.common", false)
 
     override val mapper = PreferenceStoreMapper(
+        isUninstallWatcherEnabled,
+        includeRiskCommon,
+        includeRiskKeeper,
         filterPublicMediaEnabled,
         filterPublicObbEnabled,
         filterPublicDataEnabled,
@@ -53,9 +56,6 @@ class CorpseFinderSettings @Inject constructor(
         filterAppSourceEnabled,
         filterAppSourcePrivateEnabled,
         filterAppToSdEnabled,
-        isUninstallWatcherEnabled,
-        includeRiskCommon,
-        includeRiskKeeper,
     )
 
     companion object {

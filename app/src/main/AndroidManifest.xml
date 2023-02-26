@@ -53,6 +53,17 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".corpsefinder.core.watcher.UninstallWatcherReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".automation.core.AutomationService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
