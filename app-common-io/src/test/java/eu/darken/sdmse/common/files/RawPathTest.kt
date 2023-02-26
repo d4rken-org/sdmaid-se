@@ -4,7 +4,7 @@ import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.APath
 import eu.darken.sdmse.common.files.core.RawPath
 import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
@@ -12,11 +12,13 @@ import testhelpers.json.toComparableJson
 import java.io.File
 
 class RawPathTest {
+    private val baseMoshi = SerializationIOModule().moshi()
+
     @Test
     fun `test polymorph serialization`() {
         val original = RawPath.build("test", "file")
 
-        val adapter = SerializationModule().moshi().adapter(APath::class.java)
+        val adapter = baseMoshi.adapter(APath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -33,7 +35,7 @@ class RawPathTest {
     fun `test direct serialization`() {
         val original = RawPath.build("test", "file")
 
-        val adapter = SerializationModule().moshi().adapter(RawPath::class.java)
+        val adapter = baseMoshi.adapter(RawPath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -61,7 +63,7 @@ class RawPathTest {
     fun `force typing`() {
         val original = LocalPath.build(file = File("./testfile"))
 
-        val moshi = SerializationModule().moshi()
+        val moshi = baseMoshi
 
         shouldThrow<JsonDataException> {
             val json = moshi.adapter(LocalPath::class.java).toJson(original)

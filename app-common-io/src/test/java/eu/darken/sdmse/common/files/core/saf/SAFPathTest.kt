@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.files.core.saf
 import android.net.Uri
 import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -21,11 +21,13 @@ class SAFPathTest : BaseTest() {
 
     val testUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
 
+    private val moshi = SerializationIOModule().moshi()
+
     @Test
     fun `test direct serialization`() {
         val original = SAFPath.build(testUri, "seg1", "seg2", "seg3")
 
-        val adapter = SerializationModule().moshi().adapter(SAFPath::class.java)
+        val adapter = moshi.adapter(SAFPath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -43,7 +45,7 @@ class SAFPathTest : BaseTest() {
     fun `test polymorph serialization`() {
         val original = SAFPath.build(testUri, "seg3", "seg2", "seg1")
 
-        val adapter = SerializationModule().moshi().adapter(APath::class.java)
+        val adapter = moshi.adapter(APath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -78,8 +80,6 @@ class SAFPathTest : BaseTest() {
     @Test
     fun `force typing`() {
         val original = RawPath.build("test", "file")
-
-        val moshi = SerializationModule().moshi()
 
         shouldThrow<JsonDataException> {
             val json = moshi.adapter(RawPath::class.java).toJson(original)

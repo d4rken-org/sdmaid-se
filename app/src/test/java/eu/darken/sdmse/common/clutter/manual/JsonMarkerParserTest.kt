@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
@@ -19,7 +19,7 @@ import java.io.File
 
 class JsonMarkerParserTest : BaseTest() {
 
-    private val moshi = SerializationModule().moshi()
+    private val moshi = SerializationAppModule().moshi()
 
     @MockK lateinit var context: Context
     @MockK lateinit var assetManager: AssetManager

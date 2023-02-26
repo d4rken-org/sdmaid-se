@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchTyp
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
@@ -25,7 +25,7 @@ import java.io.File
 
 class MarkerSourceTestTool(private val assetPath: String) {
 
-    private val moshi = SerializationModule().moshi()
+    private val moshi = SerializationAppModule().moshi()
 
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()

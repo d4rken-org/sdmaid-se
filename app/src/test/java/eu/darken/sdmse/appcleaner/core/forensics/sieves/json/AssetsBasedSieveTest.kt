@@ -5,7 +5,7 @@ import android.content.res.AssetManager
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.core.segs
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -19,7 +19,7 @@ class AssetsBasedSieveTest : BaseTest() {
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
     private var testData: ByteArray? = null
-    val baseMoshi = SerializationModule().moshi()
+    val baseMoshi = SerializationAppModule().moshi()
 
     @BeforeEach
     fun setup() {

@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.rngString
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
@@ -381,7 +381,7 @@ abstract class BaseFilterTest : BaseTest() {
             return JsonBasedSieve(
                 context = context,
                 assetPath = assetPath,
-                baseMoshi = SerializationModule().moshi(),
+                baseMoshi = SerializationAppModule().moshi(),
             )
         }
     }

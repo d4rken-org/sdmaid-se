@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.files.core.local
 
 import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.serialization.SerializationModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -16,6 +16,8 @@ import java.time.Instant
 class LocalPathTest : BaseTest() {
     private val testFile = File("./testfile")
 
+    private val moshi = SerializationIOModule().moshi()
+
     @AfterEach
     fun cleanup() {
         testFile.delete()
@@ -26,7 +28,7 @@ class LocalPathTest : BaseTest() {
         testFile.tryMkFile()
         val original = LocalPath.build(file = testFile)
 
-        val adapter = SerializationModule().moshi().adapter(LocalPath::class.java)
+        val adapter = moshi.adapter(LocalPath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -44,7 +46,7 @@ class LocalPathTest : BaseTest() {
         testFile.tryMkFile()
         val original = LocalPath.build(file = testFile)
 
-        val adapter = SerializationModule().moshi().adapter(APath::class.java)
+        val adapter = moshi.adapter(APath::class.java)
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
@@ -71,8 +73,6 @@ class LocalPathTest : BaseTest() {
     @Test
     fun `force typing`() {
         val original = RawPath.build("test", "file")
-
-        val moshi = SerializationModule().moshi()
 
         shouldThrow<JsonDataException> {
             val json = moshi.adapter(RawPath::class.java).toJson(original)

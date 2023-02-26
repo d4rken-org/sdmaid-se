@@ -26,8 +26,8 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
-import eu.darken.sdmse.exclusion.core.Exclusion
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
