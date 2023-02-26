@@ -172,6 +172,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG
                 ).show()
+                DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setMessage(R.string.general_todo_msg)
+                }.show()
             }
         }
 

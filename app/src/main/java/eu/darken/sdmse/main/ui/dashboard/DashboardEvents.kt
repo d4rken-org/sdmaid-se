@@ -7,6 +7,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 
 sealed interface DashboardEvents {
 
+    object TodoHint : DashboardEvents
     object SetupDismissHint : DashboardEvents
 
     data class CorpseFinderDeleteConfirmation(

@@ -2,6 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory android:title="@string/systemcleaner_filter_custom_label">
+        <Preference
+            app:icon="@drawable/filter_multiple"
+            app:key="filter.custom"
+            app:summary="@string/systemcleaner_filter_custom_manage_summary"
+            app:title="@string/systemcleaner_filter_custom_manage_label" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_category_filter_generic">
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"

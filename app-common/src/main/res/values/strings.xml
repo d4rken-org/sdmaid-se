@@ -5,7 +5,7 @@
     <string name="general_error_cant_access_msg">Can\'t access %s.</string>
     <string name="general_error_root_unavailable">Root access is unavailable.</string>
     <string name="general_error_empty_result_msg">The result was empty.</string>
-    <string name="general_todo_msg">TODO (Not implemented yet)</string>
+    <string name="general_todo_msg">This feature is still being worked on and currently not available.</string>
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
     <string name="general_copy_action">Copy</string>

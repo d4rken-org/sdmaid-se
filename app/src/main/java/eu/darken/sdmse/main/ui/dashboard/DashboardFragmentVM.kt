@@ -39,6 +39,8 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.scheduler.core.SchedulerManager
+import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -64,6 +66,7 @@ class DashboardFragmentVM @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
+    private val schedulerManager: SchedulerManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -150,6 +153,20 @@ class DashboardFragmentVM @Inject constructor(
         )
     }
 
+
+    private val schedulerItem: Flow<SchedulerDashCardVH.Item?> = combine(
+        schedulerManager.state,
+        taskManager.state,
+    ) { schedulerState, taskState ->
+        SchedulerDashCardVH.Item(
+            schedulerState = schedulerState,
+            taskState = taskState,
+            onManageClicked = {
+                events.postValue(DashboardEvents.TodoHint)
+            }
+        )
+    }
+
     private val dataAreaItem: Flow<DataAreaCardVH.Item?> = areaManager.latestState
         .map {
             if (it == null) return@map null
@@ -180,6 +197,7 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem,
         appCleanerItem,
         appControlItem,
+        schedulerItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
         upgradeInfo: UpgradeRepo.Info?,
@@ -189,6 +207,7 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem: SystemCleanerDashCardVH.Item?,
         appCleanerItem: AppCleanerDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
+        schedulerItem: SchedulerDashCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>()
 
@@ -220,6 +239,8 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
         appControlItem?.let { items.add(it) }
+
+        schedulerItem?.let { items.add(it) }
 
         upgradeInfo
             ?.takeIf { !it.isPro }

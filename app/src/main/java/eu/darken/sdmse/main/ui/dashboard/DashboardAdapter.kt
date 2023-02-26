@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import javax.inject.Inject
 
@@ -38,6 +39,7 @@ class DashboardAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is SystemCleanerDashCardVH.Item }) { SystemCleanerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppCleanerDashCardVH.Item }) { AppCleanerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
