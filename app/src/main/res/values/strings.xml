@@ -33,16 +33,22 @@
     <string name="tasks_result_subtext">Task result</string>
 
     <string name="onboarding_welcome_title">Welcome</string>
-    <string name="onboarding_welcome_body1">SD Maid SE is a file management app.</string>
-    <string name="onboarding_welcome_body2">It can free up space and clean your device by deleting expendable files and removing files from uninstalled apps.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE is a file and app manager.</string>
+    <string name="onboarding_welcome_body2">SD Maid SE can free up space and clean up behind other apps by deleting expendable files and removing leftover data.</string>
     <string name="onboarding_welcome_body_beta">This is a beta (testing) build of SD Maid SE. Please report any issues you encounter.</string>
     <string name="onboarding_welcome_continue_action">Continue</string>
 
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) is the successor to SD Maid. A new app, optimized for modern Android.</string>
+    <string name="onboarding_versus_body2">It\'s predecessor\'s architecture is 7+ years old and not designed for the latest Android versions, struggeling to clean up after modern apps. A complete redesign was necessary to continue development.</string>
+    <string name="onboarding_versus_body3">Consider switching to SD Maid SE (to the future 🍻).</string>
+    <string name="onboarding_versus_continue_action">Let\'s go</string>
+
     <string name="onboarding_privacy_title">Privacy</string>
-    <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data. Development is financed by selling extra app features.</string>
+    <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are send when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Automatic bug reports</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">These options can also be changed in SD Maids settings.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Allow automatic bug reports</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">These options can be changed in the settings.</string>
     <string name="onboarding_privacy_continue_action">Continue</string>
 
     <string name="onboarding_setup_title">Setup</string>

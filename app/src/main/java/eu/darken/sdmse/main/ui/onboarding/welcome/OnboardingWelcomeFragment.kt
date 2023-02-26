@@ -19,7 +19,14 @@ class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.goAction.setOnClickListener {
-            OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToOnboardingPrivacyFragment().navigate()
+            val legacySdm = requireContext().packageManager.getPackageInfo("eu.thedarken.sdm", 0)
+            if (legacySdm != null) {
+                OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToVersusSetupFragment()
+                    .navigate()
+            } else {
+                OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToOnboardingPrivacyFragment()
+                    .navigate()
+            }
         }
 
         ui.betaHint.isGone = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE

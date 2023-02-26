@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_onboardingWelcomeFragment_to_onboardingPrivacyFragment"
             app:destination="@id/onboardingPrivacyFragment" />
+        <action
+            android:id="@+id/action_onboardingWelcomeFragment_to_versusSetupFragment"
+            app:destination="@id/versusSetupFragment" />
     </fragment>
     <fragment
         android:id="@+id/onboardingPrivacyFragment"
@@ -210,6 +213,14 @@
             android:name="identifier"
             app:argType="string" />
     </dialog>
+    <fragment
+        android:id="@+id/versusSetupFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupFragment"
+        tools:layout="@layout/onboarding_versus_fragment">
+        <action
+            android:id="@+id/action_versusSetupFragment_to_onboardingPrivacyFragment"
+            app:destination="@id/onboardingPrivacyFragment" />
+    </fragment>
 
 
 </navigation>

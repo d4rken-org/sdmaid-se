@@ -47,26 +47,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/settings_privacy_policy_label" />
 
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/onboarding_privacy_bugreport_toggle_body" />
 
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/bugreporting_toggle"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:checked="true"
                 android:text="@string/onboarding_privacy_bugreport_toggle" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Material3.BodyMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/onboarding_privacy_bugreport_toggle_body" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/bugreporting_hint"

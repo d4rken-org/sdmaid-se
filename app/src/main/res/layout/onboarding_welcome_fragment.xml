@@ -24,7 +24,7 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="32dp"
                 android:src="@drawable/splash_mascot" />
 
             <com.google.android.material.textview.MaterialTextView
