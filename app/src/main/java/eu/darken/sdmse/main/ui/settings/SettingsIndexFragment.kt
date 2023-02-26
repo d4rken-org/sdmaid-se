@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -69,6 +70,19 @@ class SettingsIndexFragment : PreferenceFragment2() {
                 webpageTool.open(upgradeRepo.mainWebsite)
                 true
             }
+        }
+
+        findPreference<Preference>("scheduler.settings")!!.setOnPreferenceClickListener {
+            MaterialAlertDialogBuilder(requireContext()).apply {
+                setMessage(R.string.general_todo_msg)
+            }.show()
+            true
+        }
+        findPreference<Preference>("history")!!.setOnPreferenceClickListener {
+            MaterialAlertDialogBuilder(requireContext()).apply {
+                setMessage(R.string.general_todo_msg)
+            }.show()
+            true
         }
         super.onPreferencesCreated()
     }

@@ -14,6 +14,18 @@
         app:summary="@string/exclusion_manager_desc"
         app:title="@string/exclusion_manager_title" />
 
+    <Preference
+        android:icon="@drawable/ic_alarm_check_24"
+        android:key="scheduler.settings"
+        app:summary="@string/scheduler_settings_summary"
+        app:title="@string/scheduler_settings_label" />
+
+    <Preference
+        android:icon="@drawable/ic_list_box_outline_24"
+        android:key="history"
+        app:summary="@string/history_description"
+        app:title="@string/history_label" />
+
     <PreferenceCategory android:title="@string/settings_category_tools_label">
         <Preference
             android:icon="@drawable/ghost"
