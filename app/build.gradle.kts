@@ -151,7 +151,8 @@ dependencies {
     "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
     "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 
-    "gplayImplementation"("com.android.billingclient:billing:4.0.0")
+    "gplayImplementation"("com.android.billingclient:billing:5.1.0")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:5.1.0")
 
     addAndroidCore()
     addAndroidUI()
