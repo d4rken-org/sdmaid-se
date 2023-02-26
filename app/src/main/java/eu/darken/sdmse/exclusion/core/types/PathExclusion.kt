@@ -11,6 +11,10 @@ data class PathExclusion(
     @Json(name = "path") val path: APath,
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Path {
+
+    override val id: String
+        get() = "${this.javaClass}-${path.path}"
+
     override suspend fun match(candidate: APath): Boolean {
         return candidate.matches(path) || path.isAncestorOf(candidate)
     }

@@ -10,6 +10,9 @@ data class PackageExclusion(
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Package {
 
+    override val id: String
+        get() = "${this.javaClass}-${pkgId.name}"
+
     override suspend fun match(candidate: Pkg.Id): Boolean {
         return pkgId == candidate
     }

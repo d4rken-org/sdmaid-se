@@ -7,8 +7,8 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.serialization.NameBasedPolyJsonAdapterFactory
 
 sealed interface Exclusion {
-//
-//    @Json(name ="type") val type: String
+
+    val id: String
 
     val tags: Set<Tag>
 

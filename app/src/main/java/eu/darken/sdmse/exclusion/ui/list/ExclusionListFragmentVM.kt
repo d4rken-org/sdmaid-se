@@ -32,13 +32,17 @@ class ExclusionListFragmentVM @Inject constructor(
                         appLabel = pkgRepo.getPkg(exclusion.pkgId)?.label,
                         exclusion = exclusion,
                         onItemClick = {
-
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToExclusionActionDialog(
+                                exclusion.id
+                            ).navigate()
                         }
                     )
                     is PathExclusion -> PathExclusionVH.Item(
                         exclusion = exclusion,
                         onItemClick = {
-
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToExclusionActionDialog(
+                                exclusion.id
+                            ).navigate()
                         }
                     )
                     else -> throw NotImplementedError()

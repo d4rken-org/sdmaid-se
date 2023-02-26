@@ -58,9 +58,9 @@
             app:destination="@id/appControlListFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_onboardingWelcomeFragment"
+            app:destination="@id/onboardingWelcomeFragment"
             app:popUpTo="@id/dashboardFragment"
-            app:popUpToInclusive="true"
-            app:destination="@id/onboardingWelcomeFragment" />
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -197,7 +197,19 @@
     <fragment
         android:id="@+id/exclusionsListFragment"
         android:name="eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment"
-        tools:layout="@layout/exclusion_list_fragment" />
+        tools:layout="@layout/exclusion_list_fragment">
+        <action
+            android:id="@+id/action_exclusionsListFragment_to_exclusionActionDialog"
+            app:destination="@id/exclusionActionDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/exclusionActionDialog"
+        android:name="eu.darken.sdmse.exclusion.ui.list.actions.ExclusionActionDialog"
+        tools:layout="@layout/exclusion_action_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="string" />
+    </dialog>
 
 
 </navigation>

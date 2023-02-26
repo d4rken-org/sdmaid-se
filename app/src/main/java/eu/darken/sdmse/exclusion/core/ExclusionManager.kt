@@ -34,6 +34,12 @@ class ExclusionManager @Inject constructor(
         return true
     }
 
+    suspend fun remove(id: String): Boolean {
+        log(TAG) { "remove(): $id" }
+        val target = currentExclusions().single { it.id == id }
+        return remove(target)
+    }
+
     suspend fun remove(exclusion: Exclusion): Boolean {
         log(TAG) { "remove(): $exclusion" }
         _exclusions.updateAsync {
