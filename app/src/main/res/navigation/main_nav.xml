@@ -17,6 +17,14 @@
             app:destination="@id/versusSetupFragment" />
     </fragment>
     <fragment
+        android:id="@+id/versusSetupFragment"
+        android:name="eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupFragment"
+        tools:layout="@layout/onboarding_versus_fragment">
+        <action
+            android:id="@+id/action_versusSetupFragment_to_onboardingPrivacyFragment"
+            app:destination="@id/onboardingPrivacyFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/onboardingPrivacyFragment"
         android:name="eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyFragment"
         tools:layout="@layout/onboarding_privacy_fragment">
@@ -31,7 +39,7 @@
         <action
             android:id="@+id/action_onboardingSetupFragment_to_setupFragment"
             app:destination="@id/setupFragment"
-            app:popUpTo="@id/dashboardFragment" />
+            app:popUpTo="@id/main" />
     </fragment>
 
     <fragment
@@ -213,14 +221,6 @@
             android:name="identifier"
             app:argType="string" />
     </dialog>
-    <fragment
-        android:id="@+id/versusSetupFragment"
-        android:name="eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupFragment"
-        tools:layout="@layout/onboarding_versus_fragment">
-        <action
-            android:id="@+id/action_versusSetupFragment_to_onboardingPrivacyFragment"
-            app:destination="@id/onboardingPrivacyFragment" />
-    </fragment>
 
 
 </navigation>

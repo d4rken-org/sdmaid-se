@@ -7,6 +7,8 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.pkgs.getPackageInfo2
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingWelcomeFragmentBinding
@@ -19,7 +21,7 @@ class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.goAction.setOnClickListener {
-            val legacySdm = requireContext().packageManager.getPackageInfo("eu.thedarken.sdm", 0)
+            val legacySdm = requireContext().packageManager.getPackageInfo2("eu.thedarken.sdm".toPkgId(), 0)
             if (legacySdm != null) {
                 OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToVersusSetupFragment()
                     .navigate()

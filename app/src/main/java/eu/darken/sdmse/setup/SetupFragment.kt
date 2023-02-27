@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import androidx.activity.addCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +44,6 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
     private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.State.PathAccess>
     private var awaitedPermission: Permission? = null
-    private var waitingForAccessibility = false
     private lateinit var specialPermissionLauncher: ActivityResultLauncher<Intent>
     private lateinit var runtimePermissionLauncher: ActivityResultLauncher<String>
 
@@ -61,6 +62,9 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                 awaitedPermission?.isGranted(requireContext()) ?: true
             )
             vm.onAccessibilityReturn()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().navigateUp()
         }
     }
 
