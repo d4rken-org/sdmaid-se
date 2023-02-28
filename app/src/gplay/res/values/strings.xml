@@ -13,7 +13,7 @@
     <string name="upgrade_screen_preamble">SD Maid has no ads and doesn\'t sell user data. My work is financed by you.</string>
     <string name="upgrade_screen_benefits_title">Advantages</string>
     <string name="upgrade_screen_benefits_body">• A motivated developer 🧙\n• Improved results 💯\n• Scheduled operations ⏰\n• Extra options for all tools ⚙️\n• Your own deletion rules ✍️\nand more…</string>
-    <string name="upgrade_screen_how_title">How</string>
+    <string name="upgrade_screen_how_title">Options</string>
     <string name="upgrade_screen_how_body">You can chose between an one-time purchase and a yearly subscription. The one-time purchase breaks even after %1$s years. The subscription starts with a free trial.</string>
     <string name="upgrade_screen_subscription_action">Start free trial</string>
     <string name="upgrade_screen_subscription_action_hint">The subscription costs around %s per year.</string>

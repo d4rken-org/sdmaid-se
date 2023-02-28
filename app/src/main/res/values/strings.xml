@@ -34,14 +34,14 @@
 
     <string name="onboarding_welcome_title">Welcome</string>
     <string name="onboarding_welcome_body1">SD Maid SE manages files, apps and storage.</string>
-    <string name="onboarding_welcome_body2">Free up space by cleaning up behind other apps. Deleting expendable files and remove leftover data.</string>
+    <string name="onboarding_welcome_body2">Gain storage space by cleaning up behind other apps. Deleting expendable files and remove leftover data.</string>
     <string name="onboarding_welcome_body_beta">This is a beta (testing) build of SD Maid SE. Please report any issues you encounter.</string>
     <string name="onboarding_welcome_continue_action">Continue</string>
 
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) is the successor to SD Maid. A new app, optimized for modern Android.</string>
-    <string name="onboarding_versus_body2">It\'s predecessor\'s architecture is now over 7 years old and not designed for the latest Android versions. A complete redesign was necessary to continue development.</string>
-    <string name="onboarding_versus_body3">Consider switching to SD Maid SE</string>
+    <string name="onboarding_versus_body2">It\'s predecessor\'s architecture is over 7 years old and not designed for the challenges of newer Android versions. A complete redesign was necessary to continue development.</string>
+    <string name="onboarding_versus_body3">Consider switching to SD Maid SE for improved results.</string>
     <string name="onboarding_versus_continue_action">Continue</string>
 
     <string name="onboarding_privacy_title">Privacy</string>
