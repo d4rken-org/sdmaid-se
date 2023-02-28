@@ -12535,7 +12535,7 @@
   "mrks": [{"loc": "SDCARD", "path": "LongScreenshot", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.google.android.apps.recorder"],
-  "mrks": [{"loc": "SDCARD", "path": "Recordings", "flags": ["keeper","common"]}]
+  "mrks": [{"loc": "SDCARD", "path": "Recordings", "flags": ["keeper", "common"]}]
 }, {
   "pkgs": ["com.nunti"],
   "mrks": [{"loc": "SDCARD", "path": "Nunti", "flags": ["keeper"]}]
