@@ -40,8 +40,6 @@ class MIUI12Specs @Inject constructor(
     override suspend fun isResponsible(pkg: Installed): Boolean {
         if (deviceDetective.isCustomROM()) return false
         if (!hasApiLevel(28) || !deviceDetective.isXiaomi()) return false
-        // Xiaomi/raphael_eea/raphael:10/QKQ1.190825.002/V12.0.1.0.QFKEUXM:user/release-keys
-        // Xiaomi/venus_eea/venus:12/SKQ1.211006.001/V13.0.1.0.SKBEUXM:user/release-keys
         if (VERSION_STARTS.none { Build.VERSION.INCREMENTAL.startsWith(it) }) return false
         return pkgRepo.isInstalled(SETTINGS_PKG)
     }
@@ -176,7 +174,14 @@ class MIUI12Specs @Inject constructor(
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "MIUI12Specs")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
-        private val VERSION_STARTS = arrayOf("V12", "V13")
+        private val VERSION_STARTS = arrayOf(
+            // Xiaomi/raphael_eea/raphael:10/QKQ1.190825.002/V12.0.1.0.QFKEUXM:user/release-keys
+            "V12",
+            // Xiaomi/venus_eea/venus:12/SKQ1.211006.001/V13.0.1.0.SKBEUXM:user/release-keys
+            "V13",
+            // Xiaomi/plato_id/plato:13/TP1A.220624.014/V14.0.1.0.TLQIDXM:user/release-keys
+            "V14",
+        )
     }
 
 }
