@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
+import androidx.preference.CheckBoxPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
+import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
 
 @Keep
@@ -25,6 +28,26 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        vm.state.observe2(this) { state ->
+            findPreference<CheckBoxPreference>("watcher.uninstall.enabled")?.apply {
+                isPersistent = state.isPro
+                if (state.isPro) {
+                    setSummary(R.string.corpsefinder_watcher_summary)
+                } else {
+                    summary =
+                        "${getString(R.string.corpsefinder_watcher_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
+                }
+                setOnPreferenceClickListener {
+                    if (!state.isPro) isChecked = false
+                    SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment().navigate()
+                    true
+                }
+            }
+        }
+    }
+
+    override fun onPreferencesCreated() {
+        super.onPreferencesCreated()
         findPreference<Preference>(settings.filterPrivateDataEnabled.keyName)?.apply {
             summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
         }
@@ -46,30 +69,6 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
         findPreference<Preference>(settings.filterAppToSdEnabled.keyName)?.apply {
             summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
         }
-//
-//        vm.state.observe2(this) {
-//            findPreference<Preference>(settings.filterPrivateDataEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterAppSourceAsecEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterDalvikCacheEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterAppLibEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterAppSourceEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterAppSourcePrivateEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//            findPreference<Preference>(settings.filterAppToSdEnabled.keyName)?.apply {
-//                isEnabled = it.isRooted
-//            }
-//        }
     }
 
 }

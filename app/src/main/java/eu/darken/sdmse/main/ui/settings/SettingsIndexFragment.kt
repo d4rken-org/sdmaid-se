@@ -2,7 +2,6 @@ package eu.darken.sdmse.main.ui.settings
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,22 +39,16 @@ class SettingsIndexFragment : PreferenceFragment2() {
 
     override fun onPreferencesCreated() {
         findPreference<Preference>("exclusions.list.show")!!.setOnPreferenceClickListener {
-            findNavController().navigate(
-                SettingsFragmentDirections.actionSettingsContainerFragmentToExclusionsListFragment()
-            )
+            SettingsFragmentDirections.actionSettingsContainerFragmentToExclusionsListFragment().navigate()
             true
         }
 
         findPreference<Preference>("setup.show.forced")!!.setOnPreferenceClickListener {
-            findNavController().navigate(
-                SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true)
-            )
+            SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true).navigate()
             true
         }
         findPreference<Preference>("areas.current.show")!!.setOnPreferenceClickListener {
-            findNavController().navigate(
-                SettingsFragmentDirections.actionSettingsContainerFragmentToDataAreasFragment()
-            )
+            SettingsFragmentDirections.actionSettingsContainerFragmentToDataAreasFragment().navigate()
             true
         }
 

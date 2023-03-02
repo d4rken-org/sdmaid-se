@@ -2,7 +2,6 @@ package eu.darken.sdmse.main.ui.settings.general
 
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,9 +38,7 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             "core.bugreporter.enabled"
         )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
         findPreference<Preference>("upgrade")?.setOnPreferenceClickListener {
-            findNavController().navigate(
-                SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment(forced = true)
-            )
+            SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment(forced = true).navigate()
             true
         }
         super.onPreferencesCreated()
