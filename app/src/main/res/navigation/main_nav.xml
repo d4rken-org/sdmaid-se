@@ -101,12 +101,20 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_upgradeFragment"
+            app:destination="@id/upgradeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
-        tools:layout="@layout/upgrade_fragment" />
+        tools:layout="@layout/upgrade_fragment">
+        <argument
+            android:name="forced"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/corpseFragment"
         android:name="eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment"

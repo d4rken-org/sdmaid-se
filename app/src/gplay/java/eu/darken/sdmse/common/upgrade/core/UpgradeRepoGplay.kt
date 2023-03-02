@@ -4,6 +4,7 @@ import android.app.Activity
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -11,9 +12,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.core.data.BillingData
-import eu.darken.sdmse.common.upgrade.core.data.BillingDataRepo
-import eu.darken.sdmse.common.upgrade.core.data.PurchasedSku
+import eu.darken.sdmse.common.upgrade.core.billing.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -29,22 +28,22 @@ import javax.inject.Singleton
 class UpgradeRepoGplay @Inject constructor(
     @AppScope private val scope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val billingDataRepo: BillingDataRepo,
+    private val billingManager: BillingManager,
     private val billingCache: BillingCache,
 ) : UpgradeRepo {
 
     override val mainWebsite: String = SITE
 
-    override val upgradeInfo: Flow<UpgradeRepo.Info> = billingDataRepo.billingData
+    override val upgradeInfo: Flow<Info> = billingManager.billingData
         .map<BillingData, BillingData?> { it }
         .onStart { emit(null) }
         .map { data: BillingData? -> // Only relinquish pro state if we haven't had it for a while
             val now = System.currentTimeMillis()
-            val proSku = data?.getProSku()
+
             val lastProStateAt = billingCache.lastProStateAt.value()
             log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, data=${data}" }
             when {
-                proSku != null -> {
+                data?.purchases?.isNotEmpty() == true -> {
                     // If we are pro refresh timestamp
                     billingCache.lastProStateAt.value(now)
                     Info(billingData = data)
@@ -72,10 +71,11 @@ class UpgradeRepoGplay @Inject constructor(
         }
         .replayingShare(scope)
 
-    fun launchBillingFlowSubscription(activity: Activity) {
+    fun launchBillingFlow(activity: Activity, sku: Sku, plan: Sku.Subscription.Plan?) {
+        log(TAG) { "launchBillingFlow($activity,$sku)" }
         scope.launch {
             try {
-                billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
+                billingManager.startIapFlow(activity, sku, plan)
             } catch (e: Exception) {
                 log(TAG) { "startIapFlow failed:${e.asLog()}" }
                 withContext(dispatcherProvider.Main) {
@@ -85,41 +85,38 @@ class UpgradeRepoGplay @Inject constructor(
         }
     }
 
-    fun launchBillingFlowIap(activity: Activity) {
-        scope.launch {
-            try {
-                billingDataRepo.startIapFlow(activity, SDMaidSESKU.PRO_UPGRADE.sku)
-            } catch (e: Exception) {
-                log(TAG) { "startIapFlow failed:${e.asLog()}" }
-                withContext(dispatcherProvider.Main) {
-                    e.asErrorDialogBuilder(activity).show()
-                }
-            }
-        }
-    }
+    suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = billingManager.querySkus(*skus)
 
     data class Info(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
     ) : UpgradeRepo.Info {
 
-        override val type: UpgradeRepo.Type
-            get() = UpgradeRepo.Type.GPLAY
+        override val type: UpgradeRepo.Type = UpgradeRepo.Type.GPLAY
 
-        override val isPro: Boolean
-            get() = billingData?.getProSku() != null
+        val upgrades: Collection<PurchasedSku> = billingData?.purchases
+            ?.map { purchase ->
+                purchase.products.mapNotNull { productId ->
+                    val sku = OurSku.PRO_SKUS.singleOrNull { it.id == productId }
+                    if (sku == null) {
+                        log(ERROR) { "Unknown product: $productId" }
+                        return@mapNotNull null
+                    }
+                    PurchasedSku(sku, purchase)
+                }
+            }
+            ?.flatten()
+            ?: emptySet()
 
-        override val upgradedAt: Instant?
-            get() = billingData
-                ?.getProSku()
-                ?.purchase?.purchaseTime
-                ?.let { Instant.ofEpochMilli(it) }
+        override val isPro: Boolean = upgrades.isNotEmpty()
+
+        override val upgradedAt: Instant? = upgrades
+            .maxByOrNull { it.purchase.purchaseTime }
+            ?.let { Instant.ofEpochMilli(it.purchase.purchaseTime) }
     }
 
-    companion object {
-        private fun BillingData.getProSku(): PurchasedSku? = purchasedSkus
-            .firstOrNull { it.sku == SDMaidSESKU.PRO_UPGRADE.sku }
 
+    companion object {
         private const val SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -73,6 +74,7 @@
                 android:text="@string/upgrade_screen_how_title" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/break_even_info"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,30 +85,40 @@
                 style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
                 android:layout_marginTop="16dp"
                 android:text="@string/upgrade_screen_iap_action" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/upgrade_iap_hint"
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
                 android:gravity="center"
                 android:text="@string/upgrade_screen_iap_action_hint" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/upgrade_subscription_action"
+                android:id="@+id/upgrade_sub_action"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/upgrade_screen_subscription_action" />
+                android:text="@string/upgrade_screen_subscription_trial_action"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/upgrade_sub_hint"
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/upgrade_screen_subscription_action_hint" />
+                android:text="@string/upgrade_screen_subscription_action_hint"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>

@@ -20,4 +20,5 @@ class BillingCache @Inject constructor(
         get() = context.dataStore
 
     val lastProStateAt = dataStore.createValue("gplay.cache.lastProAt", 0L)
+    val lastProStateSku = dataStore.createValue("gplay.cache.lastProAt", "")
 }

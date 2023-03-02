@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.upgrade.core.data
+package eu.darken.sdmse.common.upgrade.core.billing
 
 import com.android.billingclient.api.Purchase
 
