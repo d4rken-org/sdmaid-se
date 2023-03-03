@@ -65,6 +65,9 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         deleteAction.apply {
             isGone = item.progress != null || !hasAnyData
             setOnClickListener { item.onDelete() }
+            if (!item.isPro) {
+                setIconResource(R.drawable.ic_baseline_stars_24)
+            }
         }
         cancelAction.apply {
             isGone = item.progress == null
@@ -75,6 +78,7 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
     data class Item(
         val data: AppCleaner.Data?,
         val progress: Progress.Data?,
+        val isPro: Boolean,
         val onScan: () -> Unit,
         val onDelete: () -> Unit,
         val onViewDetails: () -> Unit,

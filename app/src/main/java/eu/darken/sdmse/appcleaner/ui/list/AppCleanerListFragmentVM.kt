@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -23,6 +25,7 @@ class AppCleanerListFragmentVM @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val taskManager: TaskManager,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -58,6 +61,10 @@ class AppCleanerListFragmentVM @Inject constructor(
 
     fun doDelete(appJunk: AppJunk) = launch {
         log(TAG, INFO) { "doDelete(appJunk=$appJunk)" }
+        if (!upgradeRepo.isPro()) {
+            AppCleanerListFragmentDirections.actionAppCleanerListFragmentToUpgradeFragment().navigate()
+            return@launch
+        }
         val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id))
         val result = taskManager.submit(task) as AppCleanerDeleteTask.Result
         log(TAG) { "doDelete(): Result was $result" }

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -67,6 +68,10 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
 
     open fun onPreferencesChanged() {
 
+    }
+
+    fun Preference.appendSummary(text: String) {
+        summary = summary.toString() + text
     }
 
     fun NavDirections.navigate() = findNavController().navigate(this)

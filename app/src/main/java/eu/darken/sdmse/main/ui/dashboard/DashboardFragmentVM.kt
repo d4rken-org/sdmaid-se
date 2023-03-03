@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -69,15 +70,22 @@ class DashboardFragmentVM @Inject constructor(
     private val schedulerManager: SchedulerManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val refreshTrigger = MutableStateFlow(rngString)
-
-    val events = SingleLiveEvent<DashboardEvents>()
-
     init {
         if (!generalSettings.isOnboardingCompleted.valueBlocking) {
             DashboardFragmentDirections.actionDashboardFragmentToOnboardingWelcomeFragment().navigate()
         }
     }
+
+    private val refreshTrigger = MutableStateFlow(rngString)
+
+    val events = SingleLiveEvent<DashboardEvents>()
+
+    private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
+        .map {
+            @Suppress("USELESS_CAST")
+            it as UpgradeRepo.Info?
+        }
+        .onStart { emit(null) }
 
     private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = combine(
         corpseFinder.data,
@@ -122,10 +130,12 @@ class DashboardFragmentVM @Inject constructor(
     private val appCleanerItem: Flow<AppCleanerDashCardVH.Item> = combine(
         appCleaner.data,
         appCleaner.progress,
-    ) { data, progress ->
+        upgradeInfo.map { it?.isPro ?: false },
+    ) { data, progress, isPro ->
         AppCleanerDashCardVH.Item(
             data = data,
             progress = progress,
+            isPro = isPro,
             onScan = {
                 launch { submitTask(AppCleanerScanTask()) }
             },
@@ -180,13 +190,6 @@ class DashboardFragmentVM @Inject constructor(
                 }
             )
         }
-
-    private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
-        .map {
-            @Suppress("USELESS_CAST")
-            it as UpgradeRepo.Info?
-        }
-        .onStart { emit(null) }
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
@@ -318,7 +321,9 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(CorpseFinderScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> submitTask(CorpseFinderDeleteTask())
+                BottomBarState.Action.DELETE -> if (corpseFinder.data.first() != null) {
+                    submitTask(CorpseFinderDeleteTask())
+                }
             }
         }
         launch {
@@ -326,7 +331,9 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(SystemCleanerScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> submitTask(SystemCleanerDeleteTask())
+                BottomBarState.Action.DELETE -> if (systemCleaner.data.first() != null) {
+                    submitTask(SystemCleanerDeleteTask())
+                }
             }
         }
         launch {
@@ -334,7 +341,11 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(AppCleanerScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> submitTask(AppCleanerDeleteTask())
+                BottomBarState.Action.DELETE -> {
+                    if (appCleaner.data.first() != null && upgradeRepo.isPro()) {
+                        submitTask(AppCleanerDeleteTask())
+                    }
+                }
             }
         }
     }
@@ -362,6 +373,10 @@ class DashboardFragmentVM @Inject constructor(
     fun confirmAppJunkDeletion() = launch {
         log(TAG, INFO) { "confirmAppJunkDeletion()" }
 
+        if (!upgradeRepo.isPro()) {
+            DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
+            return@launch
+        }
         submitTask(AppCleanerDeleteTask())
     }
 

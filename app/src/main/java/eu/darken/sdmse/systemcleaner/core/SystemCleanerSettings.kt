@@ -27,7 +27,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterLogFilesEnabled = dataStore.createValue("filter.logfiles.enabled", true)
     val filterAdvertisementsEnabled = dataStore.createValue("filter.advertisements.enabled", true)
     val filterEmptyDirectoriesEnabled = dataStore.createValue("filter.emptydirectories.enabled", true)
-    val filterSuperfluosApksEnabled = dataStore.createValue("filter.superfluosapks.enabled", true)
+    val filterSuperfluosApksEnabled = dataStore.createValue("filter.superfluosapks.enabled", false)
     val filterLostDirEnabled = dataStore.createValue("filter.lostdir.enabled", true)
     val filterLinuxFilesEnabled = dataStore.createValue("filter.linuxfiles.enabled", true)
     val filterMacFilesEnabled = dataStore.createValue("filter.macfiles.enabled", true)

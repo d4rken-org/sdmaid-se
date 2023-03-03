@@ -20,7 +20,6 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
-
     val state = combine(
         flow { emit(rootManager.isRooted()) },
         upgradeRepo.upgradeInfo.map { it.isPro }
@@ -30,7 +29,6 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
             isPro = isPro,
         )
     }.asLiveData2()
-
 
     data class State(
         val isRooted: Boolean,
