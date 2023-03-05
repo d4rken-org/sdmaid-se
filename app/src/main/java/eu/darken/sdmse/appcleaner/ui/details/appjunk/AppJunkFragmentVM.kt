@@ -49,9 +49,7 @@ class AppJunkFragmentVM @Inject constructor(
         AppJunkElementHeaderVH.Item(
             appJunk = data,
             onDeleteAllClicked = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk)) },
-            onExcludeClicked = {
-                launch { appCleaner.exclude(data) }
-            }
+            onExcludeClicked = { launch { appCleaner.exclude(data.identifier) } },
         ).run { items.add(this) }
 
         data.inaccessibleCache?.let {
@@ -73,9 +71,7 @@ class AppJunkFragmentVM @Inject constructor(
                     appJunk = data,
                     category = category,
                     paths = paths,
-                    onItemClick = {
-                        events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category))
-                    }
+                    onItemClick = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category)) },
                 ).run { categoryGroup.add(this) }
 
                 paths
@@ -86,7 +82,7 @@ class AppJunkFragmentVM @Inject constructor(
                             lookup = lookup,
                             onItemClick = {
                                 events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category, it.lookup))
-                            }
+                            },
                         )
                     }
                     .run { categoryGroup.addAll(this) }
@@ -121,6 +117,11 @@ class AppJunkFragmentVM @Inject constructor(
         val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id), filterTypes, paths, onlyInaccessible)
         // Removnig the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(AppJunkEvents.TaskForParent(task))
+    }
+
+    fun doExclude(appJunk: AppJunk, path: APath) = launch {
+        log(TAG) { "exclude(): $appJunk, $path" }
+        appCleaner.exclude(appJunk.identifier, path)
     }
 
     companion object {

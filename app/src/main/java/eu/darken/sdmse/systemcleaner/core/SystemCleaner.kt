@@ -23,6 +23,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
@@ -159,10 +160,10 @@ class SystemCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(target: APath) = toolLock.withLock {
-        log(TAG) { "exclude(): $target" }
+    suspend fun exclude(identifier: FilterIdentifier, target: APath) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, $target" }
         val exclusion = PathExclusion(
-            path = target,
+            path = target.downCast(),
             tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
         )
         exclusionManager.add(exclusion)

@@ -49,9 +49,7 @@ class FilterContentFragmentVM @Inject constructor(
             },
             onExcludeClicked = {
                 launch {
-                    filterContent.items.forEach {
-                        systemCleaner.exclude(it)
-                    }
+                    filterContent.items.forEach { systemCleaner.exclude(filterContent.filterIdentifier, it) }
                 }
             }
         ).run { elements.add(this) }
@@ -62,12 +60,9 @@ class FilterContentFragmentVM @Inject constructor(
                 lookup = item,
                 onItemClick = {
                     events.postValue(
-                        FilterContentEvents.ConfirmFileDeletion(
-                            it.filterContent.filterIdentifier,
-                            it.lookup
-                        )
+                        FilterContentEvents.ConfirmFileDeletion(it.filterContent.filterIdentifier, it.lookup)
                     )
-                }
+                },
             )
         }.run { elements.addAll(this) }
 
@@ -88,6 +83,11 @@ class FilterContentFragmentVM @Inject constructor(
         log(TAG, INFO) { "doDelete(): $path" }
         val task = SystemCleanerDeleteTask(setOf(identifier), setOf(path))
         events.postValue(FilterContentEvents.TaskForParent(task))
+    }
+
+    fun doExclude(identifier: FilterIdentifier, path: APath) = launch {
+        log(TAG) { "doExclude(): $identifier, $path" }
+        systemCleaner.exclude(identifier, path)
     }
 
     data class State(

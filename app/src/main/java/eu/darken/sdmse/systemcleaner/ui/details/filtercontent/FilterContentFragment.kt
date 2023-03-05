@@ -65,6 +65,10 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
                         vm.doDelete(event.identifier, event.path)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+
+                    setNeutralButton(R.string.general_exclude_action) { _, _ ->
+                        vm.doExclude(event.identifier, event.path)
+                    }
                 }.show()
                 is FilterContentEvents.TaskForParent -> (parentFragment as FilterContentDetailsFragment).forwardTask(
                     event.task

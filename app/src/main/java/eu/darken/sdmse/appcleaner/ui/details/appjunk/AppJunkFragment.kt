@@ -83,6 +83,11 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                         )
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    if (event.path != null) {
+                        setNeutralButton(R.string.general_exclude_action) { _, _ ->
+                            vm.doExclude(event.appJunk, event.path)
+                        }
+                    }
                 }.show()
 
                 is AppJunkEvents.TaskForParent -> (parentFragment as AppJunkDetailsFragment).forwardTask(event.task)

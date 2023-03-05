@@ -225,10 +225,10 @@ class CorpseFinder @Inject constructor(
         )
     }
 
-    suspend fun exclude(corpse: Corpse) = toolLock.withLock {
-        log(TAG) { "exclude(): $corpse" }
+    suspend fun exclude(corpse: Corpse, path: APath? = null) = toolLock.withLock {
+        log(TAG) { "exclude(): $corpse, $path" }
         val exclusion = PathExclusion(
-            path = corpse.path,
+            path = corpse.path.downCast(),
             tags = setOf(Exclusion.Tag.CORPSEFINDER),
         )
         exclusionManager.add(exclusion)

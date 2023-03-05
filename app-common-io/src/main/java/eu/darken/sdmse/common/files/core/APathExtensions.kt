@@ -52,7 +52,7 @@ fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(
  * APathLookup is a super of APath, but LocalPathLookup is not a super of LocalPath
  * The compiler allows us to pass a LocalPathLookup to a function that only takesk LocalPath
  */
-internal fun <T : APath> T.downCast(): T = if (this is APathLookup<*>) {
+fun <T : APath> T.downCast(): T = if (this is APathLookup<*>) {
     @Suppress("UNCHECKED_CAST")
     this.lookedUp as T
 } else {

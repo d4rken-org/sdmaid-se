@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -191,20 +192,43 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(junk: AppJunk) = toolLock.withLock {
-        log(TAG) { "exclude(): $junk" }
-        val exclusion = PackageExclusion(
-            pkgId = junk.identifier,
-            tags = setOf(Exclusion.Tag.APPCLEANER),
-        )
-        exclusionManager.add(exclusion)
+    suspend fun exclude(pkgId: Pkg.Id, path: APath? = null) = toolLock.withLock {
+        log(TAG) { "exclude(): $pkgId, $path" }
+        if (path != null) {
+            val exclusion = PathExclusion(
+                path = path.downCast(),
+                tags = setOf(Exclusion.Tag.APPCLEANER),
+            )
+            exclusionManager.add(exclusion)
 
-        val snapshot = internalData.value!!
-        internalData.value = snapshot.copy(
-            junks = snapshot.junks - junk
-        )
+            val snapshot = internalData.value!!
+            internalData.value = snapshot.copy(
+                junks = snapshot.junks.map { junk ->
+                    if (junk.identifier == pkgId) {
+                        junk.copy(
+                            expendables = junk.expendables?.entries
+                                ?.map { entry -> entry.key to entry.value.filter { !it.matches(path) } }
+                                ?.filter { it.second.isNotEmpty() }
+                                ?.toMap()
+                        )
+                    } else {
+                        junk
+                    }
+                }
+            )
+        } else {
+            val exclusion = PackageExclusion(
+                pkgId = pkgId,
+                tags = setOf(Exclusion.Tag.APPCLEANER),
+            )
+            exclusionManager.add(exclusion)
+
+            val snapshot = internalData.value!!
+            internalData.value = snapshot.copy(
+                junks = snapshot.junks - snapshot.junks.single { it.identifier == pkgId }
+            )
+        }
     }
-
 
     data class Data(
         val junks: Collection<AppJunk>

@@ -46,9 +46,7 @@ class CorpseFragmentVM @Inject constructor(
             corpse = corpse,
             onDeleteAllClicked = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse)) },
             onExcludeClicked = {
-                launch {
-                    corpseFinder.exclude(corpse)
-                }
+                launch { corpseFinder.exclude(corpse) }
             }
         ).run { elements.add(this) }
 
@@ -56,7 +54,7 @@ class CorpseFragmentVM @Inject constructor(
             CorpseElementFileVH.Item(
                 corpse = corpse,
                 lookup = lookup,
-                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup)) }
+                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup)) },
             )
         }.run { elements.addAll(this) }
 
@@ -76,6 +74,11 @@ class CorpseFragmentVM @Inject constructor(
         )
         // Removnig the corpse, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(CorpseEvents.TaskForParent(task))
+    }
+
+    fun doExclude(corpse: Corpse, path: APath) = launch {
+        log(TAG, INFO) { "doExclude(): $path" }
+        corpseFinder.exclude(corpse, path)
     }
 
     companion object {

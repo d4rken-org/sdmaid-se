@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.fromFile
-import eu.darken.sdmse.common.files.core.local.toFile
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
@@ -42,7 +41,8 @@ class ExclusionStorage @Inject constructor(
                 saveCurrent.copyTo(saveBackup, overwrite = true)
             }
             try {
-                adapter.toFile(exclusions, saveCurrent)
+                val rawJson = adapter.toJson(exclusions)
+                saveCurrent.writeText(rawJson)
             } catch (e: IOException) {
                 log(TAG, ERROR) { "Saving exclusions failed: ${e.asLog()}" }
                 saveBackup.copyTo(saveCurrent, overwrite = true)
