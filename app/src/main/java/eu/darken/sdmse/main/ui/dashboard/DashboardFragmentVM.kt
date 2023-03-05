@@ -344,6 +344,8 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.data.first() != null && upgradeRepo.isPro()) {
                         submitTask(AppCleanerDeleteTask())
+                    } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
+                        DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
                     }
                 }
             }
