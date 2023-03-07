@@ -72,6 +72,9 @@
             app:destination="@id/onboardingWelcomeFragment"
             app:popUpTo="@id/dashboardFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_logViewFragment"
+            app:destination="@id/logViewFragment" />
     </fragment>
 
     <fragment
@@ -112,8 +115,8 @@
         tools:layout="@layout/upgrade_fragment">
         <argument
             android:name="forced"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/corpseFragment"
@@ -235,6 +238,9 @@
             android:name="identifier"
             app:argType="string" />
     </dialog>
-
+    <fragment
+        android:id="@+id/logViewFragment"
+        android:name="eu.darken.sdmse.common.debug.logviewer.ui.LogViewFragment"
+        tools:layout="@layout/debug_logview_fragment" />
 
 </navigation>

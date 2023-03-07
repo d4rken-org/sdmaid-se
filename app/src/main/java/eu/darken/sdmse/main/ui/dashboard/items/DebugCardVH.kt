@@ -32,6 +32,8 @@ class DebugCardVH(parent: ViewGroup) :
         areasReloadAction.setOnClickListener { item.onReloadAreas() }
         testAction.setOnClickListener { item.onRunTest() }
         testAction.isVisible = BuildConfigWrap.DEBUG
+        logviewAction.isVisible = BuildConfigWrap.DEBUG
+        logviewAction.setOnClickListener { item.onViewLog() }
     }
 
     data class Item(
@@ -42,6 +44,7 @@ class DebugCardVH(parent: ViewGroup) :
         val onReloadAreas: () -> Unit,
         val onReloadPkgs: () -> Unit,
         val onRunTest: () -> Unit,
+        val onViewLog: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

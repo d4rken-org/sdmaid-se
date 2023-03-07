@@ -69,10 +69,18 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"
-                style="@style/Widget.Material3.Button"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Run tests" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logview_action"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View log" />
 
         </LinearLayout>
 
