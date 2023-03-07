@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.darken.sdmse.main.ui.MainActivity">
+
+    <!--    <item-->
+    <!--        android:id="@+id/menu_action_refresh"-->
+    <!--        android:icon="@drawable/ic_baseline_refresh_24"-->
+    <!--        android:orderInCategory="90"-->
+    <!--        android:title="@string/general_refresh_action"-->
+    <!--        android:visible="false"-->
+    <!--        app:showAsAction="ifRoom"-->
+    <!--        tools:visible="true" />-->
+
+    <item
+        android:id="@+id/menu_action_info"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:orderInCategory="100"
+        android:title="@string/general_info_label"
+        app:showAsAction="ifRoom" />
+
+</menu>

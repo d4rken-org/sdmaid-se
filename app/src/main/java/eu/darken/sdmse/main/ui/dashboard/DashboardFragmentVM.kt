@@ -172,7 +172,7 @@ class DashboardFragmentVM @Inject constructor(
             schedulerState = schedulerState,
             taskState = taskState,
             onManageClicked = {
-                events.postValue(DashboardEvents.TodoHint)
+                DashboardFragmentDirections.actionDashboardFragmentToSchedulerManagerFragment().navigate()
             }
         )
     }

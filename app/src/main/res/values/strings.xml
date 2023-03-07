@@ -331,13 +331,15 @@
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
     <string name="automation_active_title">SD Maid is working</string>
 
+    <string name="history_label">History</string>
+    <string name="history_description">A chronological list of recent actions and affected data.</string>
+
     <string name="scheduler_label">Scheduler</string>
     <string name="scheduler_execution_label">Next execution</string>
     <string name="scheduler_execution_last_label">Last execution</string>
     <string name="scheduler_settings_label">Scheduler</string>
     <string name="scheduler_settings_summary">Adjust scheduler related settings.</string>
 
-
-    <string name="history_label">History</string>
-    <string name="history_description">A chronological list of recent actions and affected data.</string>
+    <string name="scheduler_new_schedule_action">Create schedule</string>
+    <string name="scheduler_schedule_name_label">Schedule name</string>
 </resources>

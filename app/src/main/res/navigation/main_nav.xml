@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_logViewFragment"
             app:destination="@id/logViewFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_schedulerManagerFragment"
+            app:destination="@id/schedulerManagerFragment" />
     </fragment>
 
     <fragment
@@ -242,5 +245,21 @@
         android:id="@+id/logViewFragment"
         android:name="eu.darken.sdmse.common.debug.logviewer.ui.LogViewFragment"
         tools:layout="@layout/debug_logview_fragment" />
+    <fragment
+        android:id="@+id/schedulerManagerFragment"
+        android:name="eu.darken.sdmse.scheduler.ui.manager.SchedulerManagerFragment"
+        tools:layout="@layout/scheduler_manager_fragment">
+        <action
+            android:id="@+id/action_schedulerManagerFragment_to_scheduleItemDialog"
+            app:destination="@id/scheduleItemDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/scheduleItemDialog"
+        android:name="eu.darken.sdmse.scheduler.ui.manager.item.ScheduleItemDialog"
+        tools:layout="@layout/scheduler_item_dialog">
+        <argument
+            android:name="scheduleId"
+            app:argType="string" />
+    </dialog>
 
 </navigation>
