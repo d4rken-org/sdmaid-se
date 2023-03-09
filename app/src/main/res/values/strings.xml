@@ -342,4 +342,11 @@
 
     <string name="scheduler_new_schedule_action">Create schedule</string>
     <string name="scheduler_schedule_name_label">Schedule name</string>
+    <string name="scheduler_schedule_toggle_enabled">Schedule is enabled</string>
+    <string name="scheduler_schedule_toggle_disabled">Schedule is disabled</string>
+    <string name="scheduler_edit_schedule_action">Edit schedule</string>
+    <string name="scheduler_schedule_time_label">Approximate time</string>
+    <string name="scheduler_schedule_repeat_label">Repeat interval in days</string>
+    <string name="scheduler_schedule_default_name">Default schedule</string>
+    <string name="scheduler_current_schedule_x_at_x">Every %1$s days at %2$s</string>
 </resources>

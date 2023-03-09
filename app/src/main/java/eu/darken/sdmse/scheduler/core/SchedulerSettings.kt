@@ -26,6 +26,8 @@ class SchedulerSettings @Inject constructor(
     // TODO change defaults
     val onlyWhenCharging = dataStore.createValue("requirement.charging.enabled", false)
 
+    val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
+
     override val mapper = PreferenceStoreMapper(
         onlyWhenCharging
     )

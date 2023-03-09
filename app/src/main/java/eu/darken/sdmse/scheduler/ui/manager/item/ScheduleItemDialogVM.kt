@@ -1,17 +1,17 @@
 package eu.darken.sdmse.scheduler.ui.manager.item
 
-import android.content.Context
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.SchedulerManager
-import kotlinx.coroutines.flow.flow
+import java.time.Duration
 import javax.inject.Inject
 
 
@@ -19,56 +19,82 @@ import javax.inject.Inject
 class ScheduleItemDialogVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
     private val schedulerManager: SchedulerManager,
 ) : ViewModel3(dispatcherProvider) {
     private val navArgs by handle.navArgs<ScheduleItemDialogArgs>()
 
     private val scheduleId: String = navArgs.scheduleId
 
-    val state = flow {
-        var schedule = schedulerManager.getSchedule(scheduleId)
-        var isNew = false
-        if (schedule == null) {
-            isNew = true
-            schedule = Schedule(id = scheduleId)
-        }
-        emit(
-            State(
-                schedule = schedule,
-                isNew = isNew
-            )
+    private val internalState = DynamicStateFlow<State>(parentScope = viewModelScope) {
+        val existing = schedulerManager.getSchedule(scheduleId)
+        State(
+            existing = existing,
+            label = existing?.label,
+            hour = existing?.hour,
+            minute = existing?.minute,
+            repeatMillis = existing?.repeatIntervalMs ?: Duration.ofDays(3).toMillis(),
         )
     }
-        .asLiveData2()
+    val state = internalState.flow.asLiveData2()
 
-    fun saveSchedule(
-        label: String,
-        corpseFinder: Boolean,
-        systemCleaner: Boolean,
-        appCleaner: Boolean
-    ) = launch {
+    fun saveSchedule() = launch {
         log(TAG) { "saveSchedule()" }
-        val newSchedule = state.value!!.schedule.copy(
-            label = label,
-            useCorpseFinder = corpseFinder,
-            useSystemCleaner = systemCleaner,
-            useAppCleaner = appCleaner
+
+        val state = internalState.value()
+        require(state.canSave)
+
+        val toEdit = state.existing ?: Schedule(id = scheduleId)
+
+        val updated = toEdit.copy(
+            label = state.label!!,
+            hour = state.hour!!,
+            minute = state.minute!!,
+            repeatIntervalMs = state.repeatMillis,
         )
-        schedulerManager.saveSchedule(newSchedule)
+        schedulerManager.saveSchedule(updated)
         popNavStack()
     }
 
-    fun deleteSchedule() = launch {
-        log(TAG) { "deleteSchedule()" }
-        schedulerManager.removeSchedule(scheduleId)
-        popNavStack()
+    fun updateTime(hour: Int, minute: Int) {
+        internalState.updateAsync {
+            copy(
+                hour = hour,
+                minute = minute,
+            )
+        }
+    }
+
+    fun updateLabel(label: String) {
+        internalState.updateAsync {
+            copy(label = label)
+        }
+    }
+
+    fun decreasedays() {
+        internalState.updateAsync {
+            val dur = Duration.ofMillis(repeatMillis).minusDays(1).coerceAtLeast(Duration.ofDays(1))
+            copy(repeatMillis = dur.toMillis())
+        }
+    }
+
+    fun increaseDays() {
+        internalState.updateAsync {
+            val dur = Duration.ofMillis(repeatMillis).plusDays(1).coerceAtMost(Duration.ofDays(21))
+            copy(repeatMillis = dur.toMillis())
+        }
     }
 
     data class State(
-        val schedule: Schedule,
-        var isNew: Boolean,
-    )
+        val existing: Schedule?,
+        val label: String?,
+        val hour: Int?,
+        val minute: Int?,
+        val repeatMillis: Long = Duration.ofDays(3).toMillis(),
+    ) {
+        val canSave: Boolean
+            get() = label != null && hour != null && minute != null
+
+    }
 
     companion object {
         private val TAG = logTag("Scheduler", "Schedule", "Dialog", "VM")

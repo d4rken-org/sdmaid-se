@@ -38,62 +38,90 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:id="@+id/options_contrainer"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_input_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/save_action"
+            android:layout_marginEnd="16dp"
+            android:clickable="false"
+            android:focusable="false"
+            app:layout_constraintEnd_toStartOf="@id/time_edit_action"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_input_layout">
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/tool_corpsefinder_toggle"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time_input"
+                style="@style/ThemeOverlay.Material3.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/corpsefinder_tool_name" />
+                android:cursorVisible="false"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/scheduler_schedule_time_label"
+                android:inputType="none|textNoSuggestions" />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/tool_systemcleaner_toggle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/systemcleaner_tool_name" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/tool_appcleaner_toggle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/appcleaner_tool_name" />
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/remove_action"
-            style="@style/Widget.Material3.Button"
+            android:id="@+id/time_edit_action"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="?colorErrorContainer"
-            android:text="@string/general_remove_action"
-            android:textColor="?colorOnErrorContainer"
-            app:icon="@drawable/ic_delete"
-            app:iconTint="?colorOnErrorContainer"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/general_edit_action"
+            app:icon="@drawable/ic_mode_edit"
+            app:layout_constraintBottom_toBottomOf="@id/time_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/time_input_layout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repeat_days_less_action"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@id/repeat_days_value"
+            app:layout_constraintEnd_toStartOf="@id/repeat_days_value"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/options_contrainer" />
+            app:layout_constraintTop_toTopOf="@id/repeat_days_value" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repeat_days_value"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toStartOf="@id/repeat_days_more_action"
+            app:layout_constraintStart_toEndOf="@id/repeat_days_less_action"
+            app:layout_constraintTop_toBottomOf="@id/time_input_layout"
+            tools:text="3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repeat_days_more_action"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@id/repeat_days_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/repeat_days_value"
+            app:layout_constraintTop_toTopOf="@id/repeat_days_value" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_action"
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:inputType="numberDecimal"
             android:text="@string/general_save_action"
             app:icon="@drawable/ic_baseline_save_24"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/options_contrainer" />
+            app:layout_constraintTop_toBottomOf="@id/repeat_days_value" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,5 +132,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

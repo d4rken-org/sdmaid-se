@@ -15,6 +15,7 @@
     <string name="general_save_action">Save</string>
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>
+    <string name="general_edit_action">Edit</string>
     <string name="general_create_account_action">Create account</string>
     <string name="general_link_existing_action">Link to existing account</string>
     <string name="general_na_label">N/A</string>

@@ -1,54 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DashboardCardItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?selectableItemBackground">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/secondary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/primary"
-        tools:src="@mipmap/ic_launcher" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/primary"
-        style="@style/TextAppearance.Material3.TitleSmall"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@id/secondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:text="Schedule name"
-        tools:text="SD Maid SE" />
+        android:layout_margin="16dp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/primary"
-        app:layout_constraintStart_toStartOf="@id/primary"
-        app:layout_constraintTop_toBottomOf="@id/primary"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:text="Schedule state"
-        tools:text="eu.darken.sdmse" />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_alarm_check_24"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Schedule name" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Next execution in 14 hours" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/enabled_toggle"
+            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checked="false"
+            android:text="@string/scheduler_schedule_toggle_disabled"
+            app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+        <LinearLayout
+            android:id="@+id/options_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/enabled_toggle">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/tool_corpsefinder_toggle"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/corpsefinder_tool_name" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/tool_systemcleaner_toggle"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/systemcleaner_tool_name" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/tool_appcleaner_toggle"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/appcleaner_tool_name" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/remove_action"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/general_remove_action"
+            android:textColor="?colorError"
+            app:icon="@drawable/ic_cancel"
+            app:iconTint="?colorError"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/options_container" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/edit_action"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/scheduler_edit_schedule_action"
+            app:icon="@drawable/ic_alarm_check_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/options_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

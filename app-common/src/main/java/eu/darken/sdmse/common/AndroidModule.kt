@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common
 
+import android.app.AlarmManager
 import android.app.Application
 import android.app.NotificationManager
 import android.app.usage.StorageStatsManager
@@ -70,6 +71,11 @@ class AndroidModule {
     @Singleton
     fun storageStatsManager(@ApplicationContext context: Context): StorageStatsManager =
         context.getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
+
+    @Provides
+    @Singleton
+    fun alarmManager(@ApplicationContext context: Context): AlarmManager =
+        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     @Provides
     @Singleton
