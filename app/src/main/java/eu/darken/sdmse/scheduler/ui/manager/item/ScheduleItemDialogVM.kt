@@ -32,7 +32,7 @@ class ScheduleItemDialogVM @Inject constructor(
             label = existing?.label,
             hour = existing?.hour,
             minute = existing?.minute,
-            repeatMillis = existing?.repeatIntervalMs ?: Duration.ofDays(3).toMillis(),
+            repeatInterval = existing?.repeatInterval ?: Duration.ofDays(3),
         )
     }
     val state = internalState.flow.asLiveData2()
@@ -49,7 +49,7 @@ class ScheduleItemDialogVM @Inject constructor(
             label = state.label!!,
             hour = state.hour!!,
             minute = state.minute!!,
-            repeatIntervalMs = state.repeatMillis,
+            repeatInterval = state.repeatInterval,
         )
         schedulerManager.saveSchedule(updated)
         popNavStack()
@@ -72,15 +72,15 @@ class ScheduleItemDialogVM @Inject constructor(
 
     fun decreasedays() {
         internalState.updateAsync {
-            val dur = Duration.ofMillis(repeatMillis).minusDays(1).coerceAtLeast(Duration.ofDays(1))
-            copy(repeatMillis = dur.toMillis())
+            val dur = repeatInterval.minusDays(1).coerceAtLeast(Duration.ofDays(1))
+            copy(repeatInterval = dur)
         }
     }
 
     fun increaseDays() {
         internalState.updateAsync {
-            val dur = Duration.ofMillis(repeatMillis).plusDays(1).coerceAtMost(Duration.ofDays(21))
-            copy(repeatMillis = dur.toMillis())
+            val dur = repeatInterval.plusDays(1).coerceAtMost(Duration.ofDays(21))
+            copy(repeatInterval = dur)
         }
     }
 
@@ -89,7 +89,7 @@ class ScheduleItemDialogVM @Inject constructor(
         val label: String?,
         val hour: Int?,
         val minute: Int?,
-        val repeatMillis: Long = Duration.ofDays(3).toMillis(),
+        val repeatInterval: Duration = Duration.ofDays(3),
     ) {
         val canSave: Boolean
             get() = label != null && hour != null && minute != null

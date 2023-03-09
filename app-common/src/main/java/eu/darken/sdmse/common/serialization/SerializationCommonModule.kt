@@ -18,6 +18,7 @@ class SerializationCommonModule {
     @SerializationCommon
     fun moshi(): Moshi = Moshi.Builder().apply {
         add(InstantAdapter())
+        add(DurationAdapter())
         add(UUIDAdapter())
         add(ByteStringAdapter())
         add(FileAdapter())

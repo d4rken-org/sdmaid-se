@@ -16,6 +16,7 @@ import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
 import kotlinx.coroutines.flow.*
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 
@@ -59,7 +60,12 @@ class SchedulerManagerFragmentVM @Inject constructor(
                     ).navigate()
                 },
                 onToggle = {
-                    launch { schedulerManager.saveSchedule(schedule.copy(isEnabled = !schedule.isEnabled)) }
+                    launch {
+                        val newState = !schedule.isEnabled
+                        schedulerManager.saveSchedule(
+                            schedule.copy(scheduledAt = if (newState) Instant.now() else null)
+                        )
+                    }
                 },
                 onRemove = {
                     launch { schedulerManager.removeSchedule(schedule.id) }

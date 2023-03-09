@@ -6,7 +6,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SchedulerManagerListItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
-import java.time.Duration
 
 
 class SchedulerRowVH(parent: ViewGroup) :
@@ -25,7 +24,7 @@ class SchedulerRowVH(parent: ViewGroup) :
 
         title.text = schedule.label
 
-        val days = Duration.ofMillis(schedule.repeatIntervalMs).toDays().toString()
+        val days = schedule.repeatInterval.toDays().toString()
 
         val hourTxt = schedule.hour.toString().padStart(2, '0')
         val minuteTxt = schedule.minute.toString().padStart(2, '0')

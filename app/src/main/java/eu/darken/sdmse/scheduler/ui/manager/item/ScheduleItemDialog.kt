@@ -13,7 +13,6 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
 import eu.darken.sdmse.databinding.SchedulerItemDialogBinding
-import java.time.Duration
 
 @AndroidEntryPoint
 class ScheduleItemDialog : BottomSheetDialogFragment2() {
@@ -67,7 +66,7 @@ class ScheduleItemDialog : BottomSheetDialogFragment2() {
                 picker.show(childFragmentManager, "asbd")
             }
 
-            repeatDaysValue.text = Duration.ofMillis(state.repeatMillis).toDays().toString()
+            repeatDaysValue.text = state.repeatInterval.toDays().toString()
             repeatDaysLessAction.setOnClickListener { vm.decreasedays() }
             repeatDaysMoreAction.setOnClickListener { vm.increaseDays() }
 

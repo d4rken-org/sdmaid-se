@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
@@ -21,6 +22,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
+import java.time.Duration
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -45,43 +50,61 @@ class SchedulerManager @Inject constructor(
         data = Uri.parse("custom://scheduler.alarm.$id")
     }
 
-    private fun Schedule.createPendingIntent(flags: Int = 0): PendingIntent? {
-        return PendingIntent.getBroadcast(
-            context,
-            REQUEST_CODE,
-            createIntent(),
-            PendingIntentCompat.FLAG_IMMUTABLE or flags
-        )
-    }
+    private fun Schedule.createPendingIntent(flags: Int = 0): PendingIntent? = PendingIntent.getBroadcast(
+        context,
+        REQUEST_CODE,
+        createIntent(),
+        PendingIntentCompat.FLAG_IMMUTABLE or flags
+    )
 
     private fun Schedule.isScheduled(): Boolean = createPendingIntent(PendingIntent.FLAG_NO_CREATE) != null
 
     private fun Schedule.cancel() {
-        alarmManager.cancel(createPendingIntent())
+        val pi = createPendingIntent()!!
+        alarmManager.cancel(pi)
+        pi.cancel()
+        if (isScheduled()) log(TAG, WARN) { "Failed to cancel $this" }
     }
 
     private fun Schedule.schedule() {
-        alarmManager.setWindow(
-            AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            System.currentTimeMillis() + 60 * 1000,
-            60 * 1000,
+        requireNotNull(scheduledAt)
+        val triggerTime = LocalDateTime.ofInstant(scheduledAt, ZoneOffset.systemDefault())
+            .withHour(hour)
+            .withMinute(minute)
+            .let {
+                if (it.isAfter(LocalDateTime.now())) {
+                    it.plus(repeatInterval.minus(Duration.ofDays(1)))
+                } else {
+                    it.plus(repeatInterval)
+                }
+            }
+            .atZone(ZoneId.systemDefault())
+            .toInstant()
+
+        log(TAG) { "Scheduling for $triggerTime : $this" }
+
+        alarmManager.setInexactRepeating(
+            AlarmManager.RTC_WAKEUP,
+            triggerTime.toEpochMilli(),
+            repeatInterval.toMillis(),
             createPendingIntent(PendingIntent.FLAG_UPDATE_CURRENT)
         )
+        if (!isScheduled()) log(TAG, WARN) { "Failed to schedule $this" }
     }
 
     init {
         internalState.flow
             .onEach { st ->
-                st.schedules.map {
-                    val isScheduled = it.isScheduled()
-                    log(TAG) { "isScheduled=$isScheduled : $it" }
+                st.schedules.map { schedule ->
+                    val isScheduled = schedule.isScheduled()
+                    log(TAG) { "Checking ($isScheduled): $schedule" }
 
-                    if (it.isEnabled && !isScheduled) {
-                        log(TAG) { "Enabled, but not scheduled, correcting $it" }
-                        it.schedule()
-                    } else if (!it.isEnabled && isScheduled) {
-                        log(TAG) { "Disabled, but scheduled, correcting $it" }
-                        it.cancel()
+                    if (schedule.isEnabled && !isScheduled) {
+                        log(TAG) { "Enabled, but not scheduled. Scheduling $schedule" }
+                        schedule.schedule()
+                    } else if (!schedule.isEnabled && isScheduled) {
+                        log(TAG) { "Disabled, but scheduled. Canceling $schedule" }
+                        schedule.cancel()
                     }
                 }
 
