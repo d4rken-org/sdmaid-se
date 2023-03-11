@@ -20,10 +20,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
-import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
+import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.exclusion.core.*
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -75,6 +72,10 @@ class CorpseFinder @Inject constructor(
                     is CorpseFinderScanTask -> performScan(task)
                     is CorpseFinderDeleteTask -> deleteCorpses(task)
                     is UninstallWatcherTask -> checkUninstall(task)
+                    is CorpseFinderSchedulerTask -> {
+                        performScan(CorpseFinderScanTask())
+                        deleteCorpses(CorpseFinderDeleteTask())
+                    }
                 }
             }
             internalData.value = internalData.value?.copy(

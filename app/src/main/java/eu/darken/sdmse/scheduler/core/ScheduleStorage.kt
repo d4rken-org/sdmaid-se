@@ -61,6 +61,6 @@ class ScheduleStorage @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Schedules", "Storage")
+        private val TAG = logTag("Scheduler", "Storage")
     }
 }

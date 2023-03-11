@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.automation.core.AutomationController
 import eu.darken.sdmse.common.ca.CaString
@@ -76,6 +77,10 @@ class AppCleaner @Inject constructor(
                 when (task) {
                     is AppCleanerScanTask -> performScan(task)
                     is AppCleanerDeleteTask -> performDelete(task)
+                    is AppCleanerSchedulerTask -> {
+                        performScan(AppCleanerScanTask())
+                        performDelete(AppCleanerDeleteTask())
+                    }
                 }
             }
             log(TAG, INFO) { "submit() finished: $result" }

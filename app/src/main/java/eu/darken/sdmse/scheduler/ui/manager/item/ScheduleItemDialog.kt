@@ -57,6 +57,8 @@ class ScheduleItemDialog : BottomSheetDialogFragment2() {
                 val picker = MaterialTimePicker.Builder().apply {
                     setInputMode(MaterialTimePicker.INPUT_MODE_CLOCK)
                     setTimeFormat(TimeFormat.CLOCK_24H)
+                    setHour(state.hour ?: 22)
+                    setMinute(state.minute ?: 0)
                 }.build()
 
                 picker.addOnPositiveButtonClickListener {

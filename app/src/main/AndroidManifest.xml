@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -42,8 +44,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="eu.darken.sdmse.main.ui.MainActivity"
-            android:theme="@style/AppThemeSplash"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,10 +64,25 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name="eu.darken.sdmse.scheduler.core.SchedulerRestoreReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="eu.darken.sdmse.scheduler.core.SchedulerReceiver"
+            android:exported="false" />
+
         <service
             android:name=".automation.core.AutomationService"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:exported="false">
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>

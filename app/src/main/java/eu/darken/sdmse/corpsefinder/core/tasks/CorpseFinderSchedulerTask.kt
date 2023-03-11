@@ -4,13 +4,11 @@ import android.text.format.Formatter
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.files.core.APath
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CorpseFinderDeleteTask(
-    val targetCorpses: Set<APath>? = null,
-    val targetContent: Set<APath>? = null,
+data class CorpseFinderSchedulerTask(
+    val scheduleId: String,
 ) : CorpseFinderTask {
 
     sealed interface Result : CorpseFinderTask.Result

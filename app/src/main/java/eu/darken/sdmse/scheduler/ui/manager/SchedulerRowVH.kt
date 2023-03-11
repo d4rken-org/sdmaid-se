@@ -48,6 +48,22 @@ class SchedulerRowVH(parent: ViewGroup) :
             isGone = schedule.isEnabled
             setOnClickListener { item.onRemove() }
         }
+
+        toolCorpsefinderToggle.apply {
+            setOnCheckedChangeListener(null)
+            isChecked = schedule.useCorpseFinder
+            setOnCheckedChangeListener { _, _ -> item.onToggleCorpseFinder() }
+        }
+        toolSystemcleanerToggle.apply {
+            setOnCheckedChangeListener(null)
+            isChecked = schedule.useSystemCleaner
+            setOnCheckedChangeListener { _, _ -> item.onToggleSystemCleaner() }
+        }
+        toolAppcleanerToggle.apply {
+            setOnCheckedChangeListener(null)
+            isChecked = schedule.useAppCleaner
+            setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
+        }
     }
 
     data class Item(
@@ -55,6 +71,9 @@ class SchedulerRowVH(parent: ViewGroup) :
         val onEdit: () -> Unit,
         val onToggle: () -> Unit,
         val onRemove: () -> Unit,
+        val onToggleCorpseFinder: () -> Unit,
+        val onToggleSystemCleaner: () -> Unit,
+        val onToggleAppCleaner: () -> Unit,
     ) : SchedulerAdapter.Item {
 
         override val stableId: Long = schedule.id.hashCode().toLong()

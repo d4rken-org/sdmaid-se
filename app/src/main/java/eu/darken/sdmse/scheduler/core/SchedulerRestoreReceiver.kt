@@ -5,12 +5,14 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.pkgs.toPkgId
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,35 +25,27 @@ class SchedulerRestoreReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
-        if (intent.action != Intent.ACTION_PACKAGE_FULLY_REMOVED) {
+        if (intent.action != Intent.ACTION_PACKAGE_FULLY_REMOVED && intent.action != Intent.ACTION_BOOT_COMPLETED) {
             log(TAG, ERROR) { "Unknown intent: $intent" }
             return
         }
 
-        val uri = intent.data
-        val pkg = uri?.schemeSpecificPart?.toPkgId()
-        if (pkg == null) {
-            log(TAG, ERROR) { "Package data was null" }
-            return
-        }
-
-        log(TAG, Logging.Priority.INFO) { "$pkg was uninstalled" }
+        log(TAG, INFO) { "Rechecking scheduler states (${intent.data}" }
 
 
         val asyncPi = goAsync()
 
         appScope.launch {
-//            val scanTask = UninstallWatcherTask(pkg)
-//            taskManager.submit(scanTask)
+            schedulerManager.state.take(1).first()
+            delay(3000)
 
-            log(TAG) { "Finished watcher trigger" }
+            log(TAG) { "Finished scheduler checks" }
             asyncPi.finish()
         }
-
-
     }
 
     companion object {
-        internal val TAG = logTag("Scheduler", "Receiver")
+        internal val TAG = logTag("Scheduler", "Receiver", "Restore")
+
     }
 }

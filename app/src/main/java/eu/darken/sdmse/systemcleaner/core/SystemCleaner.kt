@@ -26,6 +26,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
@@ -73,6 +74,10 @@ class SystemCleaner @Inject constructor(
                 when (task) {
                     is SystemCleanerScanTask -> performScan(task)
                     is SystemCleanerDeleteTask -> performDelete(task)
+                    is SystemCleanerSchedulerTask -> {
+                        performScan(SystemCleanerScanTask())
+                        performDelete(SystemCleanerDeleteTask())
+                    }
                 }
             }
             log(TAG, INFO) { "submit($task) finished: $result" }

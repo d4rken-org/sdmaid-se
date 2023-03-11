@@ -23,9 +23,8 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import java.time.Duration
-import java.time.LocalDateTime
+import java.time.Instant
 import java.time.ZoneId
-import java.time.ZoneOffset
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -47,7 +46,7 @@ class SchedulerManager @Inject constructor(
 
     private fun Schedule.createIntent(): Intent = Intent(context, SchedulerReceiver::class.java).apply {
         action = SCHEDULE_INTENT
-        data = Uri.parse("custom://scheduler.alarm.$id")
+        data = Uri.parse("scheduler://alarm.$id")
     }
 
     private fun Schedule.createPendingIntent(flags: Int = 0): PendingIntent? = PendingIntent.getBroadcast(
@@ -67,47 +66,51 @@ class SchedulerManager @Inject constructor(
     }
 
     private fun Schedule.schedule() {
-        requireNotNull(scheduledAt)
-        val triggerTime = LocalDateTime.ofInstant(scheduledAt, ZoneOffset.systemDefault())
+        requireNotNull(scheduledAt) { "Can't schedule 'unscheduled' Schedule..." }
+
+        val triggerTime = scheduledAt
+            .atZone(ZoneId.systemDefault())
             .withHour(hour)
             .withMinute(minute)
             .let {
-                if (it.isAfter(LocalDateTime.now())) {
+                if (it.isAfter(Instant.now().atZone(ZoneId.systemDefault()))) {
                     it.plus(repeatInterval.minus(Duration.ofDays(1)))
                 } else {
                     it.plus(repeatInterval)
                 }
             }
-            .atZone(ZoneId.systemDefault())
             .toInstant()
-
-        log(TAG) { "Scheduling for $triggerTime : $this" }
 
         alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             triggerTime.toEpochMilli(),
-            repeatInterval.toMillis(),
+            60,
             createPendingIntent(PendingIntent.FLAG_UPDATE_CURRENT)
         )
-        if (!isScheduled()) log(TAG, WARN) { "Failed to schedule $this" }
+
+        if (isScheduled()) log(TAG) { "Scheduled for $triggerTime : $this" }
+        else log(TAG, WARN) { "Failed to schedule $this" }
+    }
+
+    private fun Schedule.checkSchedulingState() {
+        val isScheduled = isScheduled()
+        log(TAG) { "Checking ($isScheduled): $this" }
+
+        if (isEnabled && !isScheduled) {
+            log(TAG) { "Enabled, but not scheduled. Scheduling $this" }
+            schedule()
+        } else if (!isEnabled && isScheduled) {
+            log(TAG) { "Disabled, but scheduled. Canceling $this" }
+            cancel()
+        }
     }
 
     init {
         internalState.flow
             .onEach { st ->
-                st.schedules.map { schedule ->
-                    val isScheduled = schedule.isScheduled()
-                    log(TAG) { "Checking ($isScheduled): $schedule" }
-
-                    if (schedule.isEnabled && !isScheduled) {
-                        log(TAG) { "Enabled, but not scheduled. Scheduling $schedule" }
-                        schedule.schedule()
-                    } else if (!schedule.isEnabled && isScheduled) {
-                        log(TAG) { "Disabled, but scheduled. Canceling $schedule" }
-                        schedule.cancel()
-                    }
+                st.schedules.forEach {
+                    it.checkSchedulingState()
                 }
-
             }
             .launchIn(appScope)
     }
@@ -152,7 +155,7 @@ class SchedulerManager @Inject constructor(
 
     companion object {
         private const val REQUEST_CODE = 1000
-        private const val SCHEDULE_INTENT = "scheduler.schedule.intent"
+        const val SCHEDULE_INTENT = "scheduler.schedule.intent"
         internal val TAG = logTag("Scheduler", "Manager")
     }
 }

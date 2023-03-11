@@ -61,14 +61,28 @@ class SchedulerManagerFragmentVM @Inject constructor(
                 },
                 onToggle = {
                     launch {
-                        val newState = !schedule.isEnabled
                         schedulerManager.saveSchedule(
-                            schedule.copy(scheduledAt = if (newState) Instant.now() else null)
+                            schedule.copy(scheduledAt = if (!schedule.isEnabled) Instant.now() else null)
                         )
                     }
                 },
                 onRemove = {
                     launch { schedulerManager.removeSchedule(schedule.id) }
+                },
+                onToggleCorpseFinder = {
+                    launch {
+                        schedulerManager.saveSchedule(schedule.copy(useCorpseFinder = !schedule.useCorpseFinder))
+                    }
+                },
+                onToggleSystemCleaner = {
+                    launch {
+                        schedulerManager.saveSchedule(schedule.copy(useSystemCleaner = !schedule.useSystemCleaner))
+                    }
+                },
+                onToggleAppCleaner = {
+                    launch {
+                        schedulerManager.saveSchedule(schedule.copy(useAppCleaner = !schedule.useAppCleaner))
+                    }
                 }
             )
         }
