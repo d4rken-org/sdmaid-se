@@ -10,8 +10,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
-import eu.darken.sdmse.common.upgrade.core.billing.client.BillingException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -74,10 +74,10 @@ class BillingManager @Inject constructor(
                     log(TAG, WARN) { "Unknown BillingClient exception type: $cause" }
                     return@retryWhen false
                 } else {
-                    log(TAG) { "BillingClient exception: $cause; ${cause.result}" }
+                    log(TAG) { "BillingClient exception: $cause" }
                 }
 
-                if (cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
+                if (cause is BillingClientException && cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
                     log(TAG) { "Got BILLING_UNAVAILABLE while trying to ACK purchase." }
                     return@retryWhen false
                 }
@@ -104,8 +104,13 @@ class BillingManager @Inject constructor(
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }
             val ignoredCodes = listOf(3, 6)
-            if (e !is BillingException || !e.result.responseCode.let { ignoredCodes.contains(it) }) {
-                Bugs.report(RuntimeException("IAP flow failed for $sku", e))
+            when {
+                e !is BillingException -> {
+                    Bugs.report(RuntimeException("State exception for $sku, U", e))
+                }
+                e is BillingClientException && !e.result.responseCode.let { ignoredCodes.contains(it) } -> {
+                    Bugs.report(RuntimeException("Client exception for $sku", e))
+                }
             }
 
             throw e.tryMapUserFriendly()
@@ -114,7 +119,7 @@ class BillingManager @Inject constructor(
 
     companion object {
         internal fun Throwable.tryMapUserFriendly(): Throwable {
-            if (this !is BillingException) return this
+            if (this !is BillingClientException) return this
 
             return when (result.responseCode) {
                 BillingResponseCode.BILLING_UNAVAILABLE,

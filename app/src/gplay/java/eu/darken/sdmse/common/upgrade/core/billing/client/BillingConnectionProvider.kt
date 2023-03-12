@@ -12,8 +12,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.upgrade.core.billing.BillingException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,8 +23,6 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.retryWhen
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 @Singleton
 class BillingConnectionProvider @Inject constructor(
@@ -48,31 +48,28 @@ class BillingConnectionProvider @Inject constructor(
             }
         }.build()
 
-        val connectionResult = suspendCoroutine<BillingResult> { continuation ->
-            log(TAG, VERBOSE) { "startConnection(...)" }
-            client.startConnection(object : BillingClientStateListener {
-                override fun onBillingSetupFinished(result: BillingResult) {
-                    log(TAG, VERBOSE) {
-                        "onBillingSetupFinished(code=${result.responseCode}, message=${result.debugMessage})"
-                    }
-                    continuation.resume(result)
+        log(TAG, VERBOSE) { "startConnection(...)" }
+        client.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(result: BillingResult) {
+                log(TAG, VERBOSE) {
+                    "onBillingSetupFinished(code=${result.responseCode}, message=${result.debugMessage})"
                 }
 
-                override fun onBillingServiceDisconnected() {
-                    log(TAG, VERBOSE) { "onBillingServiceDisconnected() " }
-                    close(CancellationException("Billing service disconnected"))
+                val billingConnection = when (result.responseCode) {
+                    BillingResponseCode.OK -> BillingConnection(client, purchaseEvents)
+                    else -> throw BillingClientException(result)
                 }
-            })
-        }
 
-        val billingConnection = when (connectionResult.responseCode) {
-            BillingResponseCode.OK -> BillingConnection(client, purchaseEvents)
-            else -> throw BillingException(connectionResult)
-        }
+                trySendBlocking(billingConnection)
+            }
 
-        send(billingConnection)
+            override fun onBillingServiceDisconnected() {
+                log(TAG, VERBOSE) { "onBillingServiceDisconnected() " }
+                throw BillingException("Billing service disconnected")
+            }
+        })
+
         log(TAG) { "Connection provided, awaiting close." }
-
         awaitClose {
             log(TAG) { "Stopping billing client connection" }
             client.endConnection()
@@ -94,10 +91,10 @@ class BillingConnectionProvider @Inject constructor(
                 log(TAG, WARN) { "Unknown BillingClient exception type: $cause" }
                 return@retryWhen false
             } else {
-                log(TAG) { "BillingClient exception: $cause; ${cause.result}" }
+                log(TAG) { "BillingClient exception: $cause" }
             }
 
-            if (cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
+            if (cause is BillingClientException && cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
                 log(TAG) { "Got BILLING_UNAVAILABLE while trying to connect client." }
                 return@retryWhen false
             }

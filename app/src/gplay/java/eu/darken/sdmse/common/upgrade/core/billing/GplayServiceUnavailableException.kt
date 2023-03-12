@@ -5,8 +5,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 
-class GplayServiceUnavailableException(cause: Throwable) : Exception("Google Play services are unavailable.", cause),
-    HasLocalizedError {
+class GplayServiceUnavailableException(cause: Throwable) :
+    BillingException("Google Play services are unavailable.", cause), HasLocalizedError {
 
     override fun getLocalizedError(context: Context): LocalizedError = LocalizedError(
         throwable = this,
