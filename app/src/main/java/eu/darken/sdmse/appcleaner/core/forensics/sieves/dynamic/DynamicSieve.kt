@@ -6,6 +6,7 @@ import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
 
 
@@ -30,6 +31,13 @@ class DynamicSieve @AssistedInject constructor(
                 throw IllegalStateException("Underdefined match config")
             }
         }
+
+        val patternCacheCaseInsensitive by lazy {
+            patterns?.map { Regex(it, RegexOption.IGNORE_CASE) }
+        }
+        val patternCacheCaseSensitive by lazy {
+            patterns?.map { Regex(it) }
+        }
     }
 
     fun matches(
@@ -38,7 +46,7 @@ class DynamicSieve @AssistedInject constructor(
         target: Segments,
     ): Boolean = configs.any { it.match(pkgId, areaType, target) }
 
-    private fun MatchConfig.match(
+    private fun DynamicSieve.MatchConfig.match(
         pkgId: Pkg.Id,
         areaType: DataArea.Type,
         target: Segments,
@@ -81,23 +89,21 @@ class DynamicSieve @AssistedInject constructor(
             }
             ?: true
 
-        val regexCondition = patterns
-            ?.takeIf { it.isNotEmpty() }
-            ?.let { rawPatterns ->
-                val segsAsPath = target.joinSegments()
-                rawPatterns.any { rawPattern ->
-                    val regex =
-                        if (ignoreCase) Regex(rawPattern, RegexOption.IGNORE_CASE) else Regex(rawPattern)
-                    regex.matches(segsAsPath)
-                }
+        val regexCondition = when {
+            ignoreCase && patternCacheCaseInsensitive.isNotNullOrEmpty() -> {
+                patternCacheCaseInsensitive!!.any { it.matches(target.joinSegments()) }
             }
-            ?: true
+            !ignoreCase && patternCacheCaseSensitive.isNotNullOrEmpty() -> {
+                patternCacheCaseInsensitive!!.any { it.matches(target.joinSegments()) }
+            }
+            else -> true
+        }
 
         return ancestorsCondition && containsCondition && regexCondition
     }
 
     @AssistedFactory
     interface Factory {
-        fun create(configs: Set<MatchConfig>): DynamicSieve
+        fun create(configs: Set<DynamicSieve.MatchConfig>): DynamicSieve
     }
 }
