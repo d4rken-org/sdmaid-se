@@ -15,6 +15,8 @@ import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
+import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
+import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
 import kotlinx.coroutines.flow.*
 import java.time.Instant
 import java.util.*
@@ -51,8 +53,14 @@ class SchedulerManagerFragmentVM @Inject constructor(
         schedulerManager.state,
         taskManager.state
     ) { schedulerState, taskState ->
-        val items = schedulerState.schedules.map { schedule ->
-            SchedulerRowVH.Item(
+        val items = mutableListOf<SchedulerAdapter.Item>()
+
+        if (schedulerState.schedules.any { it.isEnabled }) {
+            items.add(AlarmHintRowVH.Item(schedulerState))
+        }
+
+        schedulerState.schedules.map { schedule ->
+            ScheduleRowVH.Item(
                 schedule = schedule,
                 onEdit = {
                     SchedulerManagerFragmentDirections.actionSchedulerManagerFragmentToScheduleItemDialog(
@@ -85,7 +93,8 @@ class SchedulerManagerFragmentVM @Inject constructor(
                     }
                 }
             )
-        }
+        }.run { items.addAll(this) }
+
         State(
             listItems = items,
         )
@@ -101,7 +110,7 @@ class SchedulerManagerFragmentVM @Inject constructor(
     }
 
     data class State(
-        val listItems: List<SchedulerRowVH.Item>? = null,
+        val listItems: List<SchedulerAdapter.Item>? = null,
     )
 
     companion object {

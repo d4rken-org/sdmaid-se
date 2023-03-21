@@ -1,4 +1,4 @@
-package eu.darken.sdmse.scheduler.ui.manager.item
+package eu.darken.sdmse.scheduler.ui.manager.create
 
 import android.os.Bundle
 import android.text.Editable
@@ -13,15 +13,15 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
-import eu.darken.sdmse.databinding.SchedulerItemDialogBinding
+import eu.darken.sdmse.databinding.SchedulerManagerCreateDialogBinding
 
 @AndroidEntryPoint
 class ScheduleItemDialog : BottomSheetDialogFragment2() {
     override val vm: ScheduleItemDialogVM by viewModels()
-    override lateinit var ui: SchedulerItemDialogBinding
+    override lateinit var ui: SchedulerManagerCreateDialogBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        ui = SchedulerItemDialogBinding.inflate(inflater, container, false)
+        ui = SchedulerManagerCreateDialogBinding.inflate(inflater, container, false)
         return ui.root
     }
 

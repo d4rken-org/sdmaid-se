@@ -26,7 +26,7 @@ class SchedulerDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)
 
         val nextExecution = item.schedulerState.schedules
             .filter { it.isEnabled }

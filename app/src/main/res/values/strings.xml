@@ -119,7 +119,7 @@
     <string name="setup_permission_granted_label">Permission granted</string>
 
     <string name="setup_usagestats_title">Usage statistics</string>
-    <string name="setup_usagestats_body">The usage statistics permissions grants access to more app details. SD Maid uses it to determine additional cache sizes.</string>
+    <string name="setup_usagestats_body">The usage statistics permission grants access to more app details. SD Maid uses it to determine additional cache sizes.</string>
     <string name="setup_usagestats_hint">Required for accessibility service based cache deletion.</string>
 
     <string name="setup_acs_card_title">Accessibility service</string>
@@ -335,7 +335,7 @@
     <string name="history_description">A chronological list of recent actions and affected data.</string>
 
     <string name="scheduler_label">Scheduler</string>
-    <string name="scheduler_execution_label">Next execution</string>
+    <string name="scheduler_execution_label">Next execution (approximately)</string>
     <string name="scheduler_execution_last_label">Last execution</string>
     <string name="scheduler_settings_label">Scheduler</string>
     <string name="scheduler_settings_summary">Adjust scheduler related settings.</string>
@@ -349,11 +349,12 @@
     <string name="scheduler_schedule_repeat_label">Repeat interval in days</string>
     <string name="scheduler_schedule_default_name">Default schedule</string>
     <string name="scheduler_current_schedule_x_at_x">%s at %2$s</string>
-    <string name="scheduler_schedule_next_at_x">Next execution: %s</string>
-    <string name="scheduler_schedule_last_at_x">Last execution: %s</string>
+    <string name="scheduler_schedule_next_at_x">Planned for %s</string>
+    <string name="scheduler_schedule_last_at_x">Last executed at %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="one">Daily</item>
         <item quantity="other">Every %d days</item>
     </plurals>
     <string name="scheduler_schedule_repeat_interval">Repeat interval</string>
+    <string name="scheduler_inaccurate_execution_hint">Expected execution times are approximations. Schedules may be delayed or expedited if it conserve battery.</string>
 </resources>

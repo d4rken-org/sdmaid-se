@@ -1,4 +1,4 @@
-package eu.darken.sdmse.scheduler.ui.manager.item
+package eu.darken.sdmse.scheduler.ui.manager.create
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope

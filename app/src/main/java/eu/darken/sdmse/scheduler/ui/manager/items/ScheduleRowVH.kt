@@ -1,4 +1,4 @@
-package eu.darken.sdmse.scheduler.ui.manager
+package eu.darken.sdmse.scheduler.ui.manager.items
 
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -6,22 +6,23 @@ import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.toSystemTimezone
-import eu.darken.sdmse.databinding.SchedulerManagerListItemBinding
+import eu.darken.sdmse.databinding.SchedulerManagerListScheduleItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
+import eu.darken.sdmse.scheduler.ui.manager.SchedulerAdapter
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 
-class SchedulerRowVH(parent: ViewGroup) :
-    SchedulerAdapter.BaseVH<SchedulerRowVH.Item, SchedulerManagerListItemBinding>(
-        R.layout.scheduler_manager_list_item,
+class ScheduleRowVH(parent: ViewGroup) :
+    SchedulerAdapter.BaseVH<ScheduleRowVH.Item, SchedulerManagerListScheduleItemBinding>(
+        R.layout.scheduler_manager_list_schedule_item,
         parent
     ) {
 
-    override val viewBinding = lazy { SchedulerManagerListItemBinding.bind(itemView) }
+    override val viewBinding = lazy { SchedulerManagerListScheduleItemBinding.bind(itemView) }
 
-    override val onBindData: SchedulerManagerListItemBinding.(
+    override val onBindData: SchedulerManagerListScheduleItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->

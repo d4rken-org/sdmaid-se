@@ -255,8 +255,8 @@
     </fragment>
     <dialog
         android:id="@+id/scheduleItemDialog"
-        android:name="eu.darken.sdmse.scheduler.ui.manager.item.ScheduleItemDialog"
-        tools:layout="@layout/scheduler_item_dialog">
+        android:name="eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog"
+        tools:layout="@layout/scheduler_manager_create_dialog">
         <argument
             android:name="scheduleId"
             app:argType="string" />
