@@ -252,6 +252,9 @@
         <action
             android:id="@+id/action_schedulerManagerFragment_to_scheduleItemDialog"
             app:destination="@id/scheduleItemDialog" />
+        <action
+            android:id="@+id/action_schedulerManagerFragment_to_upgradeFragment"
+            app:destination="@id/upgradeFragment" />
     </fragment>
     <dialog
         android:id="@+id/scheduleItemDialog"

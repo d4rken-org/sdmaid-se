@@ -357,4 +357,5 @@
     </plurals>
     <string name="scheduler_schedule_repeat_interval">Repeat interval</string>
     <string name="scheduler_inaccurate_execution_hint">Expected execution times are approximations. Schedules may be delayed or expedited if it conserve battery.</string>
+    <string name="scheduler_no_active_schedules_subtitle">No active schedules</string>
 </resources>

@@ -65,7 +65,7 @@ class ScheduleRowVH(parent: ViewGroup) :
         enabledToggle.apply {
             setOnClickListener(null)
             isChecked = schedule.isEnabled
-            setOnCheckedChangeListener { _, _ -> item.onToggle() }
+            setOnClickListener { item.onToggle() }
             text = when (schedule.isEnabled) {
                 true -> getString(R.string.scheduler_schedule_toggle_enabled)
                 else -> getString(R.string.scheduler_schedule_toggle_disabled)

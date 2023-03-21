@@ -34,6 +34,18 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/scheduler_no_active_schedules_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/execution_next_label"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="0dp"
@@ -44,7 +56,7 @@
             app:layout_constraintBottom_toTopOf="@id/execution_next_value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/subtitle" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/execution_next_value"

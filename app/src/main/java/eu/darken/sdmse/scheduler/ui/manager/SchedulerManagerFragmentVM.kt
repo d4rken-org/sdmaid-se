@@ -1,5 +1,6 @@
 package eu.darken.sdmse.scheduler.ui.manager
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,6 +11,8 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.Schedule
@@ -22,6 +25,7 @@ import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 
+@SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class SchedulerManagerFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -30,6 +34,7 @@ class SchedulerManagerFragmentVM @Inject constructor(
     private val taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,
     private val schedulerSettings: SchedulerSettings,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -69,9 +74,14 @@ class SchedulerManagerFragmentVM @Inject constructor(
                 },
                 onToggle = {
                     launch {
-                        schedulerManager.saveSchedule(
-                            schedule.copy(scheduledAt = if (!schedule.isEnabled) Instant.now() else null)
-                        )
+                        if (upgradeRepo.isPro()) {
+                            schedulerManager.saveSchedule(
+                                schedule.copy(scheduledAt = if (!schedule.isEnabled) Instant.now() else null)
+                            )
+                        } else {
+                            SchedulerManagerFragmentDirections.actionSchedulerManagerFragmentToUpgradeFragment()
+                                .navigate()
+                        }
                     }
                 },
                 onRemove = {

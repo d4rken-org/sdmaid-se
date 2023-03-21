@@ -28,6 +28,8 @@ class SchedulerDashCardVH(parent: ViewGroup) :
 
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)
 
+        subtitle.isVisible = item.schedulerState.schedules.none { it.isEnabled }
+
         val nextExecution = item.schedulerState.schedules
             .filter { it.isEnabled }
             .maxOfOrNull { it.nextExecution!! }

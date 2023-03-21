@@ -12,6 +12,7 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
 import eu.darken.sdmse.databinding.SchedulerManagerCreateDialogBinding
 
@@ -70,7 +71,10 @@ class ScheduleItemDialog : BottomSheetDialogFragment2() {
             }
 
             val days = state.repeatInterval.toDays()
-            repeatDaysValue.text = resources.getQuantityString(R.plurals.scheduler_schedule_repeat_x_days, days.toInt())
+            repeatDaysValue.text = requireContext().getQuantityString2(
+                R.plurals.scheduler_schedule_repeat_x_days,
+                days.toInt()
+            )
             repeatDaysLessAction.setOnClickListener { vm.decreasedays() }
             repeatDaysMoreAction.setOnClickListener { vm.increaseDays() }
 
