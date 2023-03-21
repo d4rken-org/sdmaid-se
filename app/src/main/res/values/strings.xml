@@ -34,7 +34,7 @@
 
     <string name="onboarding_welcome_title">Welcome</string>
     <string name="onboarding_welcome_body1">SD Maid SE manages files, apps and storage.</string>
-    <string name="onboarding_welcome_body2">Gain storage space by cleaning up behind other apps. Deleting expendable files and remove leftover data.</string>
+    <string name="onboarding_welcome_body2">Gain storage space by cleaning up behind other apps. Delete expendable files and remove leftover data.</string>
     <string name="onboarding_welcome_body_beta">This is a beta (testing) build of SD Maid SE. Please report any issues you encounter.</string>
     <string name="onboarding_welcome_continue_action">Continue</string>
 
@@ -55,7 +55,7 @@
     <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
     <string name="onboarding_setup_body2">What is accessible depends on your phone, Android version and granted permissions.</string>
     <string name="onboarding_setup_body3">Start using SD Maid by setting up access to areas that should be searched.</string>
-    <string name="onboarding_setup_continue_action">Set up SD Maid SE</string>
+    <string name="onboarding_setup_continue_action">Set up access</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
