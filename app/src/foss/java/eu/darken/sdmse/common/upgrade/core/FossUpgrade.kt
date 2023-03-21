@@ -11,7 +11,7 @@ data class FossUpgrade(
 ) {
     @JsonClass(generateAdapter = false)
     enum class Type {
-        @Json(name = "foss.upgrade.type.github.sponsors") GITHUB_SPONSORS,
+        @Json(name = "GITHUB_SPONSORS") GITHUB_SPONSORS,
         ;
     }
 }
