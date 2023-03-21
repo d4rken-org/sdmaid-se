@@ -75,6 +75,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/time_input_layout" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repeat_days_label"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/scheduler_schedule_repeat_interval"
+            app:layout_constraintEnd_toEndOf="@id/repeat_days_more_action"
+            app:layout_constraintStart_toStartOf="@id/repeat_days_less_action"
+            app:layout_constraintTop_toBottomOf="@id/time_input_layout" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_less_action"
             style="@style/Widget.Material3.Button.TonalButton"
@@ -92,13 +103,13 @@
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:paddingHorizontal="24dp"
             android:paddingVertical="8dp"
             app:layout_constraintEnd_toStartOf="@id/repeat_days_more_action"
             app:layout_constraintStart_toEndOf="@id/repeat_days_less_action"
-            app:layout_constraintTop_toBottomOf="@id/time_input_layout"
-            tools:text="3" />
+            app:layout_constraintTop_toBottomOf="@id/repeat_days_label"
+            tools:text="3 days" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_more_action"
@@ -116,7 +127,7 @@
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:inputType="numberDecimal"
             android:text="@string/general_save_action"
             app:icon="@drawable/ic_baseline_save_24"

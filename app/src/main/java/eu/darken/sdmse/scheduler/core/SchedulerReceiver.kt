@@ -34,7 +34,7 @@ class SchedulerReceiver : BroadcastReceiver() {
 
         log(TAG, INFO) { "Schedule triggered for ${intent.data}" }
 
-        val scheduleId = intent.data
+        val scheduleId: ScheduleId = intent.data
             ?.encodedAuthority
             ?.removePrefix("alarm.")
             ?: return
@@ -63,9 +63,10 @@ class SchedulerReceiver : BroadcastReceiver() {
                     taskManager.submit(AppCleanerSchedulerTask(schedule.id))
                 }
             }
+            schedulerManager.updateExecutedNow(scheduleId)
         }
 
-        log(TAG) { "Finished schedule alarm processing" }
+        log(TAG) { "Finished processing schedule alarm" }
         asyncPi.finish()
     }
 

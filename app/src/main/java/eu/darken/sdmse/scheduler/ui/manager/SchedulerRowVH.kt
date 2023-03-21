@@ -2,10 +2,15 @@ package eu.darken.sdmse.scheduler.ui.manager
 
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.SchedulerManagerListItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
 class SchedulerRowVH(parent: ViewGroup) :
@@ -24,17 +29,46 @@ class SchedulerRowVH(parent: ViewGroup) :
 
         title.text = schedule.label
 
-        val days = schedule.repeatInterval.toDays().toString()
+        subtitle.apply {
+            val days = schedule.repeatInterval.toDays()
+            val daysText = getQuantityString(R.plurals.scheduler_schedule_repeat_x_days, days.toInt())
 
-        val hourTxt = schedule.hour.toString().padStart(2, '0')
-        val minuteTxt = schedule.minute.toString().padStart(2, '0')
-        val time = "$hourTxt:$minuteTxt"
-        subtitle.text = getString(R.string.scheduler_current_schedule_x_at_x, days, time)
+            val localTime = LocalTime.of(schedule.hour, schedule.minute)
+
+            val hourTxt = schedule.hour.toString().padStart(2, '0')
+            val minuteTxt = schedule.minute.toString().padStart(2, '0')
+            val time = "$hourTxt:$minuteTxt"
+
+            text = getString(R.string.scheduler_current_schedule_x_at_x, daysText, time)
+        }
+
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+
+        primary.apply {
+            isVisible = schedule.scheduledAt != null
+            text = schedule.nextExecution?.let { startedAt ->
+                val next = startedAt.toSystemTimezone()
+                val formatted = next.format(formatter)
+                getString(R.string.scheduler_schedule_next_at_x, formatted)
+            }
+        }
+
+        secondary.apply {
+            isVisible = schedule.executedAt != null
+            text = schedule.executedAt?.let {
+                val local = it.toSystemTimezone().format(formatter)
+                getString(R.string.scheduler_schedule_last_at_x, local)
+            }
+        }
 
         enabledToggle.apply {
             setOnClickListener(null)
             isChecked = schedule.isEnabled
             setOnCheckedChangeListener { _, _ -> item.onToggle() }
+            text = when (schedule.isEnabled) {
+                true -> getString(R.string.scheduler_schedule_toggle_enabled)
+                else -> getString(R.string.scheduler_schedule_toggle_disabled)
+            }
         }
 
         optionsContainer.isGone = schedule.isEnabled
@@ -66,6 +100,7 @@ class SchedulerRowVH(parent: ViewGroup) :
         }
     }
 
+
     data class Item(
         val schedule: Schedule,
         val onEdit: () -> Unit,
@@ -78,5 +113,4 @@ class SchedulerRowVH(parent: ViewGroup) :
 
         override val stableId: Long = schedule.id.hashCode().toLong()
     }
-
 }

@@ -1,12 +1,16 @@
 package eu.darken.sdmse.scheduler.ui
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.SchedulerDashboardItemBinding
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import eu.darken.sdmse.scheduler.core.SchedulerManager
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
 class SchedulerDashCardVH(parent: ViewGroup) :
@@ -22,10 +26,28 @@ class SchedulerDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        root.setOnClickListener { manageAction.performClick() }
-        manageAction.apply {
-            setOnClickListener { item.onManageClicked() }
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+
+        val nextExecution = item.schedulerState.schedules
+            .filter { it.isEnabled }
+            .maxOfOrNull { it.nextExecution!! }
+        executionNextLabel.isVisible = nextExecution != null
+        executionNextValue.apply {
+            isVisible = nextExecution != null
+            text = nextExecution?.toSystemTimezone()?.format(formatter)
         }
+
+        val lastExecution = item.schedulerState.schedules
+            .filter { it.executedAt != null }
+            .maxOfOrNull { it.executedAt!! }
+        executionLastLabel.isVisible = lastExecution != null
+        executionLastValue.apply {
+            isVisible = lastExecution != null
+            text = lastExecution?.toSystemTimezone()?.format(formatter)
+        }
+
+        root.setOnClickListener { manageAction.performClick() }
+        manageAction.apply { setOnClickListener { item.onManageClicked() } }
     }
 
     data class Item(

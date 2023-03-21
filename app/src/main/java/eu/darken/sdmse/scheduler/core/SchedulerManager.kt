@@ -8,23 +8,17 @@ import android.net.Uri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.NonCancellable
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.plus
-import kotlinx.coroutines.withContext
-import java.time.Duration
 import java.time.Instant
-import java.time.ZoneId
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -38,11 +32,31 @@ class SchedulerManager @Inject constructor(
     private val storage: ScheduleStorage,
     private val alarmManager: AlarmManager,
 ) {
+
     private val internalState = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
-        State(
-            schedules = storage.load()
-        )
+        State(schedules = storage.load())
     }
+    val state: Flow<State> = internalState.flow
+
+    init {
+        internalState.flow
+            .drop(1)
+            .onEach { storage.save(it.schedules) }
+            .catch { log(TAG, ERROR) { "Failed to save schedules: ${it.asLog()}" } }
+            .launchIn(appScope)
+
+        internalState.flow
+            .onEach { st ->
+                st.schedules.forEach {
+                    it.checkSchedulingState()
+                }
+            }
+            .launchIn(appScope)
+    }
+
+    data class State(
+        val schedules: Set<Schedule>,
+    )
 
     private fun Schedule.createIntent(): Intent = Intent(context, SchedulerReceiver::class.java).apply {
         action = SCHEDULE_INTENT
@@ -68,23 +82,12 @@ class SchedulerManager @Inject constructor(
     private fun Schedule.schedule() {
         requireNotNull(scheduledAt) { "Can't schedule 'unscheduled' Schedule..." }
 
-        val triggerTime = scheduledAt
-            .atZone(ZoneId.systemDefault())
-            .withHour(hour)
-            .withMinute(minute)
-            .let {
-                if (it.isAfter(Instant.now().atZone(ZoneId.systemDefault()))) {
-                    it.plus(repeatInterval.minus(Duration.ofDays(1)))
-                } else {
-                    it.plus(repeatInterval)
-                }
-            }
-            .toInstant()
+        val triggerTime = firstExecution!!
 
         alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             triggerTime.toEpochMilli(),
-            60,
+            repeatInterval.toMillis(),
             createPendingIntent(PendingIntent.FLAG_UPDATE_CURRENT)
         )
 
@@ -105,52 +108,41 @@ class SchedulerManager @Inject constructor(
         }
     }
 
-    init {
-        internalState.flow
-            .onEach { st ->
-                st.schedules.forEach {
-                    it.checkSchedulingState()
-                }
-            }
-            .launchIn(appScope)
-    }
-
-    data class State(
-        val schedules: Collection<Schedule>,
-    )
-
-    val state: Flow<State> = internalState.flow
-
-    suspend fun getSchedule(scheduleId: String): Schedule? {
+    suspend fun getSchedule(scheduleId: ScheduleId): Schedule? {
         return state.first().schedules.singleOrNull { it.id == scheduleId }
     }
 
-    suspend fun saveSchedule(schedule: Schedule) = withContext(NonCancellable) {
+    suspend fun saveSchedule(schedule: Schedule) = internalState.updateBlocking {
         log(TAG) { "saveSchedule(): $schedule" }
-        val newSchedules = storage.load().filter { it.id != schedule.id }.plus(schedule).toSet()
-        storage.save(newSchedules)
-        internalState.updateBlocking {
-            copy(schedules = newSchedules)
-        }
+        val newSchedules = this.schedules.filter { it.id != schedule.id }.plus(schedule).toSet()
+        copy(schedules = newSchedules)
     }
 
-    suspend fun removeSchedule(scheduleId: String) = withContext(NonCancellable) {
+    suspend fun removeSchedule(scheduleId: ScheduleId) = internalState.updateBlocking {
         log(TAG) { "removeSchedule(): $scheduleId" }
 
-        val current = storage.load()
-        val target = current.singleOrNull { it.id == scheduleId }
+        val target = this.schedules.singleOrNull { it.id == scheduleId }
         if (target == null) {
-            log(TAG, Logging.Priority.ERROR) { "Can't find $scheduleId" }
-            return@withContext
-        }
-
-        val newSchedules = current.minus(target).toSet()
-        storage.save(newSchedules)
-        internalState.updateBlocking {
-            copy(schedules = newSchedules)
+            log(TAG, ERROR) { "Can't find $scheduleId" }
+            return@updateBlocking this
         }
 
         target.cancel()
+
+        copy(schedules = this.schedules.minus(target).toSet())
+    }
+
+    suspend fun updateExecutedNow(id: ScheduleId) = internalState.updateBlocking {
+        log(TAG) { "updateExecutedNow(): $id" }
+        val target = this.schedules.singleOrNull { it.id == id }
+        if (target == null) {
+            log(TAG, ERROR) { "Can't find $id" }
+            return@updateBlocking this
+        }
+
+        val updatedTarget = target.copy(executedAt = Instant.now())
+
+        copy(schedules = this.schedules.minus(target).plus(updatedTarget).toSet())
     }
 
     companion object {

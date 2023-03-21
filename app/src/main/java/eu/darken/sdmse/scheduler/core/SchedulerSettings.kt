@@ -30,8 +30,6 @@ class SchedulerSettings @Inject constructor(
 
     val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
 
-    val lastExecution = dataStore.createValue<ScheduleResult?>("execution.last", null, moshi)
-
     override val mapper = PreferenceStoreMapper(
         onlyWhenCharging
     )
