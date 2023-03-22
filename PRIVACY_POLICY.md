@@ -1,6 +1,6 @@
 # Privacy policy
 
-This is the privacy policy for the Android app "SD Maid SE".
+This is the privacy policy for the Android app "SD Maid 2/SE".
 
 ## Preamble
 
@@ -14,22 +14,23 @@ Send a [quick mail](mailto:support@darken.eu) if you have questions.
 
 Details about senstive permissions can be found below.
 
+In general, SD Maid only processes data locally, on your device. Two edge cases exist:
+
+* If you record a [debug log](#debug-log), the resulting file will contain a detailed log of SD Maids actions.
+* If you enable [automatic error reports](#automatic-error-reports) and an error occurs, the resulting bug report may
+  contain information about what SD Maid did shortly before the error occured.
+
 ### Query installed apps
 
-SD Maid SE can show you which files belong to uninstalled applications.
-To do this SD Maid SE needs to know which applications are currently installed.
-Retrieving the information about all currently installed applications requires the `QUERY_ALL_PACKAGES` permission.
-This information is processed locally on your device.
-
-Two edge cases exist: Information about installed apps may be contained in manually generated [debug logs](#debug-log)
-and [automatic error reports](#automatic-error-reports).
+SD Maid can show you which files belong to uninstalled applications. To do this SD Maid needs to know which applications
+are currently installed. Retrieving the information about all currently installed applications requires
+the `QUERY_ALL_PACKAGES` permission. Information is processed locally on your device.
 
 ### Accessibility service
 
-SD Maid SE contains optional features that utilize Android's AccessibilityService API to automate tedious actions.
-Usage of the AccessibilityService API is optional, opt-in and can be disabled at any time.
-
-SD Maid SE does not use the AccessibilityService API to collect, send or transmit information.
+SD Maid contains optional features that utilize Android's AccessibilityService API to automate tedious actions. Usage of
+the AccessibilityService API is optional, opt-in and can be disabled at any time. SD Maid does not use the
+AccessibilityService API to collect or send or information.
 
 ## Automatic error reports
 
