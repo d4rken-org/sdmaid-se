@@ -9,6 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.isPublic
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -38,6 +39,8 @@ class DefaultCachesPublicFilter @Inject constructor(
         segments: Segments
     ): Boolean {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
+
+        if (!areaType.isPublic) return false
 
         return segments.size >= 3 && cacheFolderPrefixes.contains(segments[1])
     }

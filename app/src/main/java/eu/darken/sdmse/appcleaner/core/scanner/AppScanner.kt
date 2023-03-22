@@ -424,6 +424,9 @@ class AppScanner @Inject constructor(
         pkgs: Collection<Installed>,
     ): Collection<InaccessibleCache> {
         if (!settings.includeInaccessibleEnabled.value() || rootManager.isRooted()) return emptyList()
+        if (!settings.filterDefaultCachesPublicEnabled.value() || !settings.filterDefaultCachesPrivateEnabled.value()) {
+            return emptyList()
+        }
         val acsEnabled = settings.useAccessibilityService.value()
         val isSamsungRom = BuildWrap.MANUFACTOR == "Samsung"
         return pkgs

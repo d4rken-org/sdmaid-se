@@ -290,8 +290,8 @@
     <string name="appcleaner_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcleaner_automation_title">AppCleaner automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
-    <string name="appcleaner_item_caches_inaccessible_title">Private caches</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Not directly accessible, but can be deleted indirectly (e.g. accessibility service).</string>
+    <string name="appcleaner_item_caches_inaccessible_title">Default caches</string>
+    <string name="appcleaner_item_caches_inaccessible_body">Public and private default caches. Not directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>
