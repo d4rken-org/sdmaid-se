@@ -47,8 +47,15 @@ Development is financed by individual user contributions, i.e. you buying the up
 
 ## Screenshots
 
-<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/4.png" width="200">
-<img src="https://raw.githubusercontent.com/d4rken/sdmaid-se/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/1.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/2.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/3.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/4.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/5.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/6.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/7.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/8.png" width="100">
+<img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/9.png" width="100">
 
 
 ## License
