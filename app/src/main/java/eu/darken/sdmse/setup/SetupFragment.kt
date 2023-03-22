@@ -9,7 +9,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,16 +63,15 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
             vm.onAccessibilityReturn()
         }
         requireActivity().onBackPressedDispatcher.addCallback(this) {
-            findNavController().navigateUp()
+            vm.navback()
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
-            if (vm.isOnboarding) {
-                setNavigationIcon(R.drawable.ic_baseline_close_24)
-            }
+            if (vm.isOnboarding) setNavigationIcon(R.drawable.ic_baseline_close_24)
+            setNavigationOnClickListener { vm.navback() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_help -> {

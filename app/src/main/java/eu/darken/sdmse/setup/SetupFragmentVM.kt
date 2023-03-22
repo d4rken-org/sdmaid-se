@@ -117,10 +117,13 @@ class SetupFragmentVM @Inject constructor(
                 .sortedBy { item -> DISPLAY_ORDER.indexOfFirst { it.isInstance(item) } }
                 .run { items.addAll(this) }
 
-
             items
         }
-        .onEach { if (it.isEmpty()) popNavStack() }
+        .onEach {
+            if (it.isEmpty() && !navArgs.showCompleted) {
+                navback()
+            }
+        }
         .setupCommonEventHandlers(TAG) { "listItems" }
         .asLiveData2()
 
@@ -155,6 +158,14 @@ class SetupFragmentVM @Inject constructor(
     fun onAccessibilityReturn() = launch {
         log(TAG) { "onAccessibilityReturn" }
         accessibilitySetupModule.refresh()
+    }
+
+    fun navback() {
+        if (navArgs.isOnboarding) {
+            SetupFragmentDirections.actionSetupFragmentToDashboardFragment().navigate()
+        } else {
+            popNavStack()
+        }
     }
 
     companion object {

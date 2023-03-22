@@ -38,8 +38,7 @@
         tools:layout="@layout/setup_fragment">
         <action
             android:id="@+id/action_onboardingSetupFragment_to_setupFragment"
-            app:destination="@id/setupFragment"
-            app:popUpTo="@id/main" />
+            app:destination="@id/setupFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +91,11 @@
             android:name="isOnboarding"
             android:defaultValue="false"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_setupFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/main" />
     </fragment>
 
     <fragment
