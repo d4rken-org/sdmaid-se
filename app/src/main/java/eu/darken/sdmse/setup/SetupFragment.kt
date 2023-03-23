@@ -75,7 +75,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_help -> {
-                        webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup")
+                        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
                         true
                     }
                     else -> super.onOptionsItemSelected(it)
@@ -95,7 +95,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                 is SetupEvents.SafWrongPathError -> {
                     Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
                         .setAction(R.string.general_help_action) {
-                            webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#storage-access-framework")
+                            webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                         }
                         .show()
                 }

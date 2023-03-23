@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.PrivacyPolicy
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compression.Zipper
@@ -106,7 +106,7 @@ class RecorderActivityVM @Inject constructor(
     }
 
     fun goPrivacyPolicy() {
-        webpageTool.open(PrivacyPolicy.URL)
+        webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
     }
 
     data class State(

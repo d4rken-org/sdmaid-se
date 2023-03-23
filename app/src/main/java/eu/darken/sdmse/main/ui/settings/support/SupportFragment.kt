@@ -10,7 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
-import eu.darken.sdmse.common.PrivacyPolicy
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
@@ -45,7 +45,7 @@ class SupportFragment : PreferenceFragment2() {
                 setMessage(R.string.settings_debuglog_explanation)
                 setPositiveButton(R.string.general_continue) { _, _ -> vm.startDebugLog() }
                 setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(PrivacyPolicy.URL) }
+                setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(SdmSeLinks.PRIVACY_POLICY) }
             }.show()
             true
         }

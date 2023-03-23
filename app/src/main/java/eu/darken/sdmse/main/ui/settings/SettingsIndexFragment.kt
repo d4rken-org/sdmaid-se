@@ -7,7 +7,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.PrivacyPolicy
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.uix.PreferenceFragment2
@@ -54,7 +54,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
 
         findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {
-            webpageTool.open(PrivacyPolicy.URL)
+            webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
             true
         }
         findPreference<Preference>("core.sponsor.development")?.apply {

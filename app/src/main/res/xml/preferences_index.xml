@@ -65,7 +65,7 @@
             app:summary="v?.?.?">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken/sdmaid-se/releases" />
+                android:data="https://github.com/d4rken-org/sdmaid-se/releases" />
         </Preference>
 
         <Preference

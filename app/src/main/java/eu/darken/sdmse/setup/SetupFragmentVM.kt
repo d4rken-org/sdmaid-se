@@ -65,7 +65,7 @@ class SetupFragmentVM @Inject constructor(
                                 }
                             },
                             onHelp = {
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#storage-access-framework")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                             },
                         )
                         is StorageSetupModule.State -> StorageSetupCardVH.Item(
@@ -76,7 +76,7 @@ class SetupFragmentVM @Inject constructor(
                                 }
                             },
                             onHelp = {
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#manage-storage")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#manage-storage")
                             },
                         )
                         is RootSetupModule.State -> RootSetupCardVH.Item(
@@ -88,7 +88,7 @@ class SetupFragmentVM @Inject constructor(
                                 }
                             },
                             onHelp = {
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#root-access")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
                             },
                         )
                         is UsageStatsSetupModule.State -> UsageStatsSetupCardVH.Item(
@@ -99,7 +99,7 @@ class SetupFragmentVM @Inject constructor(
                                 }
                             },
                             onHelp = {
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#usage-statistics")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#usage-statistics")
                             }
                         )
                         is AccessibilitySetupModule.State -> AccessibilitySetupCardVH.Item(
@@ -108,7 +108,7 @@ class SetupFragmentVM @Inject constructor(
                                 events.postValue(SetupEvents.ConfigureAccessibilityService(state))
                             },
                             onHelp = {
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Setup#accessibility-service")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
                             }
                         )
                         else -> throw IllegalArgumentException("Unknown state: $state")

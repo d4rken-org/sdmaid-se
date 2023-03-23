@@ -38,7 +38,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
                             setMessage(R.string.data_areas_description)
                             setNeutralButton(R.string.general_more_infos_action) { _, _ ->
                                 // TODO more direct link
-                                webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki")
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki")
                             }
                         }.show()
                         true

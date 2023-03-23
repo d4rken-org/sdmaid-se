@@ -29,7 +29,7 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_action_info -> {
-                        webpageTool.open("https://github.com/d4rken/sdmaid-se/wiki/Scheduler")
+                        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Scheduler")
                         true
                     }
                     else -> super.onOptionsItemSelected(it)
