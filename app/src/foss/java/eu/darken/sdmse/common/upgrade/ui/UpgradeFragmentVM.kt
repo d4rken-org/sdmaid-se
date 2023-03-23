@@ -2,10 +2,10 @@ package eu.darken.sdmse.common.upgrade.ui
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
 import kotlinx.coroutines.flow.*
@@ -15,13 +15,24 @@ import javax.inject.Inject
 class UpgradeFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val upgradeRepoFoss: UpgradeRepoFoss,
-    private val webpageTool: WebpageTool,
+    private val upgradeRepo: UpgradeRepoFoss,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
+
+    init {
+        if (!navArgs.forced) {
+            upgradeRepo.upgradeInfo
+                .filter { it.isPro }
+                .take(1)
+                .onEach { popNavStack() }
+                .launchInViewModel()
+        }
+    }
 
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
-        upgradeRepoFoss.launchGithubSponsorsUpgrade()
+        upgradeRepo.launchGithubSponsorsUpgrade()
         popNavStack()
     }
 
