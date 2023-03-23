@@ -29,6 +29,8 @@ class GeneralSettings @Inject constructor(
 
     val isOnboardingCompleted = dataStore.createValue("core.onboarding.completed", false)
 
+    val hasAcsConsent = dataStore.createValue("core.acs.consent", null as Boolean?)
+
     val isSetupDismissed = dataStore.createValue("core.setup.dismissed", false)
 
     val isBugReporterEnabled = dataStore.createValue(

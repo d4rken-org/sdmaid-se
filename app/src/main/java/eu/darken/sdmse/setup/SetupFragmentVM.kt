@@ -105,7 +105,17 @@ class SetupFragmentVM @Inject constructor(
                         is AccessibilitySetupModule.State -> AccessibilitySetupCardVH.Item(
                             setupState = state,
                             onGrantAction = {
-                                events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                launch {
+                                    accessibilitySetupModule.setAllow(true)
+                                    accessibilitySetupModule.refresh()
+                                    events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                }
+                            },
+                            onDismiss = {
+                                launch {
+                                    accessibilitySetupModule.setAllow(false)
+                                    accessibilitySetupModule.refresh()
+                                }
                             },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")

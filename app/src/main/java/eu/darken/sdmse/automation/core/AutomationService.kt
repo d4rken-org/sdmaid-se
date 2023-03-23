@@ -18,12 +18,14 @@ import eu.darken.sdmse.automation.core.crawler.CrawlerException
 import eu.darken.sdmse.automation.core.crawler.getRoot
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
@@ -47,6 +49,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     @Inject lateinit var automationProcessorFactory: AutomationProcessor.Factory
     private lateinit var automationProcessor: AutomationProcessor
 
+    @Inject lateinit var generalSettings: GeneralSettings
+
     private var currentOptions = AutomationHost.Options()
     private lateinit var windowManager: WindowManager
     private val mainThread = Handler(Looper.getMainLooper())
@@ -59,6 +63,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override fun onCreate() {
         log(TAG) { "onCreate(application=$application)" }
         super.onCreate()
+
+        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+            log(TAG, WARN) { "Missing consent for accessibility service" }
+            disableSelf()
+            return
+        }
 
 //        var injected = false
 //

@@ -1,14 +1,14 @@
 package eu.darken.sdmse.setup.accessibility
 
-import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationService
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.rngString
@@ -20,7 +20,6 @@ import javax.inject.Inject
 
 @Reusable
 class AccessibilitySetupModule @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val automationController: AutomationController,
 ) : SetupModule {
@@ -34,9 +33,21 @@ class AccessibilitySetupModule @Inject constructor(
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
         return@mapLatest State(
+            hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
         )
+    }
+
+    suspend fun setAllow(allowed: Boolean) {
+        log(TAG) { "setAllow($allowed)" }
+        if (!allowed) {
+            AutomationService.instance?.let {
+                log(TAG) { "Disabling active accessibility service" }
+                it.disableSelf()
+            }
+        }
+        generalSettings.hasAcsConsent.value(allowed)
     }
 
     override suspend fun refresh() {
@@ -45,11 +56,12 @@ class AccessibilitySetupModule @Inject constructor(
     }
 
     data class State(
+        val hasConsent: Boolean?,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
     ) : SetupModule.State {
 
-        override val isComplete: Boolean = isServiceEnabled && isServiceRunning
+        override val isComplete: Boolean = (isServiceEnabled && isServiceRunning) || hasConsent != null
 
     }
 
