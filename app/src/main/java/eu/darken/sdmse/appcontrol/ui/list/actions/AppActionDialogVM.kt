@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
@@ -34,6 +35,7 @@ class AppActionDialogVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
     private val taskManager: TaskManager,
+    private val rootManager: RootManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
@@ -82,13 +84,17 @@ class AppActionDialogVM @Inject constructor(
                 context.startActivity(intent)
             }
         )
-        val disableAction = ToggleActionVH.Item(
-            appInfo = appInfo,
-            onItemClicked = {
-                val task = AppControlToggleTask(setOf(appInfo.pkg.id))
-                launch { taskManager.submit(task) }
-            }
-        )
+        val disableAction = if (rootManager.hasRoot()) {
+            ToggleActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = {
+                    val task = AppControlToggleTask(setOf(appInfo.pkg.id))
+                    launch { taskManager.submit(task) }
+                }
+            )
+        } else {
+            null
+        }
         State(
             progress = progress,
             appInfo = appInfo,
