@@ -16,10 +16,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherReceiver
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 
@@ -36,6 +33,7 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
 
     init {
         settings.isUninstallWatcherEnabled.flow
+            .drop(1)
             .onEach { enabled ->
                 packageManager.toggleSelfComponent(
                     ComponentName(context, UninstallWatcherReceiver::class.java),
