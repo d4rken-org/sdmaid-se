@@ -3,11 +3,12 @@ package eu.darken.sdmse.scheduler.core
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.PowerManager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
@@ -23,7 +24,9 @@ class SchedulerReceiver : BroadcastReceiver() {
 
     @Inject @AppScope lateinit var appScope: CoroutineScope
     @Inject lateinit var schedulerManager: SchedulerManager
+    @Inject lateinit var schedulerSettings: SchedulerSettings
     @Inject lateinit var taskManager: TaskManager
+    @Inject lateinit var powerManager: PowerManager
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
@@ -45,6 +48,11 @@ class SchedulerReceiver : BroadcastReceiver() {
             val schedule = schedulerManager.getSchedule(scheduleId)
             if (schedule == null) {
                 log(TAG, ERROR) { "Unknown schedule: $scheduleId" }
+                return@launch
+            }
+
+            if (schedulerSettings.skipWhenPowerSaving.value() && powerManager.isPowerSaveMode) {
+                log(TAG, WARN) { "Phone is in power-saving mode, skipping execution." }
                 return@launch
             }
 
