@@ -26,7 +26,6 @@ class AppCleanerSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    // TODO change defaults
     val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
 
     val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", false)
@@ -38,9 +37,9 @@ class AppCleanerSettings @Inject constructor(
     val filterDefaultCachesPublicEnabled = dataStore.createValue("filter.defaultcachespublic.enabled", true)
     val filterDefaultCachesPrivateEnabled = dataStore.createValue("filter.defaultcachesprivate.enabled", true)
     val filterCodeCacheEnabled = dataStore.createValue("filter.codecache.enabled", true)
-    val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", false)
+    val filterAdvertisementEnabled = dataStore.createValue("filter.advertisement.enabled", true)
     val filterBugreportingEnabled = dataStore.createValue("filter.bugreporting.enabled", false)
-    val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", false)
+    val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
     val filterGameFilesEnabled = dataStore.createValue("filter.gamefiles.enabled", false)
     val filterHiddenCachesEnabled = dataStore.createValue("filter.hiddencaches.enabled", true)
     val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", false)

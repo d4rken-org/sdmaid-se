@@ -23,7 +23,6 @@ class CorpseFinderSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    // TODO change defaults
     val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", false)
     val filterPublicMediaEnabled = dataStore.createValue("filter.publicmedia.enabled", true)
     val filterPublicObbEnabled = dataStore.createValue("filter.publicobb.enabled", false)
