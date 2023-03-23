@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
@@ -19,6 +20,18 @@ class UpgradeFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
+
+    init {
+        if (!navArgs.forced) {
+            upgradeRepo.upgradeInfo
+                .filter { it.isPro }
+                .take(1)
+                .onEach { popNavStack() }
+                .launchInViewModel()
+        }
+    }
 
     val state = combine(
         flow { emit(upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)) },
