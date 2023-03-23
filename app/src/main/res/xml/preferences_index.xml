@@ -18,6 +18,7 @@
     <Preference
         android:icon="@drawable/ic_list_box_outline_24"
         android:key="history"
+        app:isPreferenceVisible="false"
         app:summary="@string/history_description"
         app:title="@string/history_label" />
 
