@@ -1,8 +1,9 @@
 # SD Maid 2/SE
 
 [![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
-[![Code tests & eval](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken/sdmaid-se/total.svg)]()
+[![Crowdin](https://badges.crowdin.net/sdmaid-se/localized.svg)](https://crowdin.com/project/sdmaid-se)
+[![Code tests & eval](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/sdmaid-se/actions/workflows/code-checks.yml)
 
 [SD Maid SE](https://github.com/d4rken/sdmaid-se) (aka SD Maid 2) is a file management tool for Android that specialises in maintenance. Its core purpose is freeing up space and removing unwanted data.
 
@@ -48,6 +49,35 @@ Development is financed by individual user contributions, i.e. you buying the up
 ## Screenshots
 
 <img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/1.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/2.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/3.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/4.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/5.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/6.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/7.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/8.png" width="100"><img src="https://github.com/d4rken/sdmaid-se/raw/main/.assets/screenshots/9.png" width="100">
+
+## Contributions
+
+Contributions are welcome!
+There are a few ways you can contribute and a few things to consider.
+
+### Translations
+
+Do you speak multiple languages?
+Making SD Maid accessible to more people is absolutely awesome!
+
+Consider joining SD Maid SE's translation project on Crowdin:
+https://crowdin.com/project/sdmaid-se
+
+If your target language is not yet available, create an issue ticket about adding support.
+
+### Clutter definitions
+
+Parts of SD Maid rely on manually added definitions for clutter and filters for expendable files.
+Found something that SD Maid does not yet detect?
+
+You can either open an issue ticket (example here) an, or directly create a pull request if it's just a definition issue (example here).
+
+### Code
+
+You can code? 🙏🏻
+Even if your fingers are itching, don't just start coding and open a PR.
+First create an issue ticket about what you want to do and wait until it is approved.
+
 
 ## License
 
