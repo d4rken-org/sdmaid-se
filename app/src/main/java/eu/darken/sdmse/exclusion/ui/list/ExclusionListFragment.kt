@@ -2,6 +2,7 @@ package eu.darken.sdmse.exclusion.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -47,6 +48,8 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
         vm.state.observe2(ui) {
             adapter.update(it.items)
+            loadingOverlay.isVisible = false
+            emptyOverlay.isVisible = it.items.isEmpty()
         }
 
         super.onViewCreated(view, savedInstanceState)
