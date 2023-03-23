@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
@@ -17,7 +16,6 @@ import javax.inject.Singleton
 @Singleton
 class SchedulerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val moshi: Moshi,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_scheduler")
@@ -25,13 +23,12 @@ class SchedulerSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    // TODO change defaults
-    val onlyWhenCharging = dataStore.createValue("requirement.charging.enabled", false)
+    val skipWhenPowerSaving = dataStore.createValue("requirement.notpowersaving.enabled", true)
 
     val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
 
     override val mapper = PreferenceStoreMapper(
-        onlyWhenCharging
+        skipWhenPowerSaving
     )
 
     companion object {

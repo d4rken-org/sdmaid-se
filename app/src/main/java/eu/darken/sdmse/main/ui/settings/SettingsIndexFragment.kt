@@ -65,12 +65,6 @@ class SettingsIndexFragment : PreferenceFragment2() {
             }
         }
 
-        findPreference<Preference>("scheduler.settings")!!.setOnPreferenceClickListener {
-            MaterialAlertDialogBuilder(requireContext()).apply {
-                setMessage(R.string.general_todo_msg)
-            }.show()
-            true
-        }
         findPreference<Preference>("history")!!.setOnPreferenceClickListener {
             MaterialAlertDialogBuilder(requireContext()).apply {
                 setMessage(R.string.general_todo_msg)
