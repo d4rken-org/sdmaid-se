@@ -38,9 +38,13 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
                         "${getString(R.string.corpsefinder_watcher_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
                 }
                 setOnPreferenceClickListener {
-                    if (!state.isPro) isChecked = false
-                    SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment().navigate()
-                    true
+                    if (!state.isPro) {
+                        isChecked = false
+                        SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment().navigate()
+                        true
+                    } else {
+                        false
+                    }
                 }
             }
         }

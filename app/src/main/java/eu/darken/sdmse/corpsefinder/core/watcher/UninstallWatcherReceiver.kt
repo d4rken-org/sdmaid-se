@@ -6,11 +6,12 @@ import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.CoroutineScope
@@ -22,6 +23,7 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
 
     @Inject @AppScope lateinit var appScope: CoroutineScope
     @Inject lateinit var taskManager: TaskManager
+    @Inject lateinit var corpseFinderSettings: CorpseFinderSettings
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
@@ -48,6 +50,11 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
         val asyncPi = goAsync()
 
         appScope.launch {
+            if (!corpseFinderSettings.isUninstallWatcherEnabled.value()) {
+                log(TAG, WARN) { "Uninstall watcher is disabled in settings, skipping." }
+                return@launch
+            }
+
             val scanTask = UninstallWatcherTask(pkg)
             taskManager.submit(scanTask)
 

@@ -55,7 +55,7 @@
 
         <receiver
             android:name=".corpsefinder.core.watcher.UninstallWatcherReceiver"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />

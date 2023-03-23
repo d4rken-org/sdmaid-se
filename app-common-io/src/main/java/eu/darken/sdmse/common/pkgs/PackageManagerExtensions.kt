@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs
 
+import android.content.ComponentName
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.SharedLibraryInfo
@@ -61,4 +62,19 @@ fun PackageManager.getSharedLibraries2(flags: Int): List<SharedLibraryInfo> = tr
     log("PackageManager", ERROR) { "Failed getSharedLibraries($flags)" }
     // https://github.com/d4rken/sdmaid-public/issues/3100
     if (hasApiLevel(29)) throw e else emptyList()
+}
+
+fun PackageManager.toggleSelfComponent(
+    component: ComponentName,
+    enabled: Boolean,
+) {
+    log { "toggleSelfComponent($component,$enabled)" }
+    setComponentEnabledSetting(
+        component,
+        when {
+            enabled -> PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            else -> PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+        },
+        PackageManager.DONT_KILL_APP
+    )
 }

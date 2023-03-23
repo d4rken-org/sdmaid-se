@@ -47,7 +47,7 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
         super.onViewCreated(view, savedInstanceState)
         settings.dataStore.data
             .onEach {
-                log(VERBOSE) { "Preferences changed: it" }
+                log(VERBOSE) { "Preferences changed: $it" }
                 onPreferencesChanged()
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
