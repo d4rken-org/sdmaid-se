@@ -45,7 +45,7 @@ Development is financed by individual user contributions, i.e. you buying the up
 
 ## Get help
 
-* [Github Issues](https://github.com/d4rken-org/sdmaid-se/issues)
+* [Github Discussions](https://github.com/d4rken-org/sdmaid-se/discussions)
 * [Discord](https://discord.gg/8Fjy6PTfXu)
 * [Frequently Asked Question](https://github.com/d4rken-org/sdmaid-se/wiki/FAQ)
 
