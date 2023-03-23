@@ -33,7 +33,7 @@
             app:layout_constraintEnd_toStartOf="@id/size_value"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="SD Maid 2/SE" />
+            tools:text="SD Maid SE" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/app_id"
