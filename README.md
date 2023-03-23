@@ -1,3 +1,5 @@
+<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/banner.png" width="400">
+
 # SD Maid 2/SE
 
 [![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
@@ -78,7 +80,6 @@ You can either open an issue ticket (example here) an, or directly create a pull
 You can code? 🙏🏻
 Even if your fingers are itching, don't just start coding and open a PR.
 First create an issue ticket about what you want to do and wait until it is approved.
-
 
 ## License
 
