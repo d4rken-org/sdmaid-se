@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -70,10 +71,12 @@
             android:gravity="center_vertical"
             android:text="@string/setup_acs_state_enabled"
             android:textColor="?colorError"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/running_state"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/body2" />
+            app:layout_constraintTop_toBottomOf="@id/body2"
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/running_state"
@@ -87,10 +90,12 @@
             android:gravity="center_vertical"
             android:text="@string/setup_acs_state_stopped"
             android:textColor="?colorError"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/running_state_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enabled_state" />
+            app:layout_constraintTop_toBottomOf="@id/enabled_state"
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/running_state_hint"
@@ -100,35 +105,63 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="4dp"
             android:text="@string/setup_acs_state_stopped_hint"
-            app:layout_constraintBottom_toTopOf="@id/grant_action"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/allow_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/running_state" />
+            app:layout_constraintTop_toBottomOf="@id/running_state"
+            tools:visibility="visible" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/grant_action"
+            android:id="@+id/allow_action"
             style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/general_enable_service_action"
+            android:text="@string/setup_acs_consent_positive_action"
             app:layout_constraintTop_toBottomOf="@id/running_state_hint" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/explanation"
-            style="@style/TextAppearance.Material3.LabelMedium"
+            android:id="@+id/shortcut_hint"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/setup_acs_allow_hint"
+            app:layout_constraintEnd_toEndOf="@id/allow_action"
+            app:layout_constraintBottom_toTopOf="@id/disallow_action"
+            app:layout_constraintStart_toStartOf="@id/allow_action"
+            app:layout_constraintTop_toBottomOf="@id/allow_action"
+            app:layout_goneMarginBottom="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/disallow_action"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_acs_consent_negative_action"
+            app:layout_constraintBottom_toTopOf="@id/disallow_hint"
+            app:layout_constraintTop_toBottomOf="@id/shortcut_hint" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/disallow_hint"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="@string/setup_acs_hint"
+            android:text="@string/setup_acs_disallow_hint"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/grant_action" />
+            app:layout_constraintEnd_toEndOf="@id/disallow_action"
+            app:layout_constraintStart_toStartOf="@id/disallow_action"
+            app:layout_constraintTop_toBottomOf="@id/disallow_action" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton

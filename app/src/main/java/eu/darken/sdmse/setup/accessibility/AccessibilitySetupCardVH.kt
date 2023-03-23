@@ -3,7 +3,7 @@ package eu.darken.sdmse.setup.accessibility
 import android.content.res.ColorStateList
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
@@ -18,7 +18,6 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
         parent
     ) {
 
-
     override val viewBinding = lazy { SetupAccessibilityItemBinding.bind(itemView) }
 
     override val onBindData: SetupAccessibilityItemBinding.(
@@ -27,6 +26,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val state = item.setupState
         enabledState.apply {
+            isVisible = state.hasConsent == true
             setCompoundDrawablesRelativeWithIntrinsicBounds(
                 ContextCompat.getDrawable(
                     context, if (state.isServiceEnabled) R.drawable.ic_check_circle else R.drawable.ic_cancel
@@ -52,7 +52,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             )
         }
         runningState.apply {
-            isGone = !state.isServiceEnabled
+            isVisible = state.isServiceEnabled && state.hasConsent == true
             setCompoundDrawablesRelativeWithIntrinsicBounds(
                 ContextCompat.getDrawable(
                     context, if (state.isServiceRunning) R.drawable.ic_check_circle else R.drawable.ic_cancel
@@ -78,15 +78,27 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             )
         }
 
-        runningStateHint.isGone = state.isServiceRunning || !state.isServiceEnabled
+        runningStateHint.isVisible = !state.isServiceRunning && state.isServiceEnabled
 
-        grantAction.setOnClickListener { item.onGrantAction() }
+        allowAction.apply {
+            isVisible = state.hasConsent != true
+            setOnClickListener { item.onGrantAction() }
+
+        }
+        shortcutHint.isVisible = state.hasConsent != true
+        disallowAction.apply {
+            isVisible = state.hasConsent != false
+            setOnClickListener { item.onDismiss() }
+        }
+        disallowHint.isVisible = state.hasConsent != false
+
         helpAction.setOnClickListener { item.onHelp() }
     }
 
     data class Item(
         val setupState: AccessibilitySetupModule.State,
         val onGrantAction: () -> Unit,
+        val onDismiss: () -> Unit,
         val onHelp: () -> Unit,
     ) : SetupAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
