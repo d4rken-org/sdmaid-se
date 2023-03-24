@@ -364,7 +364,7 @@
     <string name="scheduler_schedule_time_label">Approximate time</string>
     <string name="scheduler_schedule_repeat_label">Repeat interval in days</string>
     <string name="scheduler_schedule_default_name">Default schedule</string>
-    <string name="scheduler_current_schedule_x_at_x">%s at %2$s</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s at %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planned for %s</string>
     <string name="scheduler_schedule_last_at_x">Last executed at %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
