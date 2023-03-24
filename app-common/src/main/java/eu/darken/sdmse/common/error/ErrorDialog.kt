@@ -9,8 +9,8 @@ fun Throwable.asErrorDialogBuilder(
     val error = this@asErrorDialogBuilder
     val localizedError = error.localized(context)
 
-    setTitle(localizedError.label)
-    setMessage(localizedError.description)
+    setTitle(localizedError.label.get(context))
+    setMessage(localizedError.description.get(context))
 
     setPositiveButton(android.R.string.ok) { _, _ ->
 

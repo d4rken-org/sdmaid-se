@@ -299,6 +299,8 @@
     <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Default caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Public and private default caches. Not directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
+    <string name="appcleaner_automation_unavailable_title">Accessibility service unavailable</string>
+    <string name="appcleaner_automation_unavailable_body">Deleting inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: Disable the option "Include inaccessible caches".</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>
@@ -338,6 +340,12 @@
     <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nExample: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force Stop\' button and click it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nNo actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
     <string name="automation_active_title">SD Maid is working</string>
+    <string name="automation_error_no_consent_title">Automation error</string>
+    <string name="automation_error_no_consent_body">Accessibility service is not setup. Complete the setup and give consent.</string>
+    <string name="automation_error_not_enabled_title">Service isn\'t enabled</string>
+    <string name="automation_error_not_enabled_body">Accessibility service is disabled. Turn it on again.</string>
+    <string name="automation_error_not_running_title">Service isn\'t runnning</string>
+    <string name="automation_error_not_running_body">Accessibility service is not running. Try rebooting the device.</string>
 
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>

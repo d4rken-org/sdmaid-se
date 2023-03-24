@@ -24,7 +24,7 @@ class StorageSetupCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        item.setupState.paths.map { pathAccess ->
+        item.state.paths.map { pathAccess ->
             LocalPathCardAdapter.Item(
                 pathAccess,
                 onClicked = { item.onPathClicked(pathAccess) }
@@ -32,7 +32,7 @@ class StorageSetupCardVH(parent: ViewGroup) :
         }.run { pathAdapter.update(this) }
 
         grantAction.setOnClickListener {
-            item.setupState.paths
+            item.state.paths
                 .firstOrNull { !it.hasAccess }
                 ?.let { item.onPathClicked(it) }
         }
@@ -41,7 +41,7 @@ class StorageSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val setupState: StorageSetupModule.State,
+        override val state: StorageSetupModule.State,
         val onPathClicked: (StorageSetupModule.State.PathAccess) -> Unit,
         val onHelp: () -> Unit,
     ) : SetupAdapter.Item {

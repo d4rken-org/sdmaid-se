@@ -13,11 +13,11 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
@@ -164,9 +164,8 @@ class AppCleaner @Inject constructor(
         val automationTask = ClearCacheTask(automationTargets)
         val automationResult = try {
             automationController.submit(automationTask) as ClearCacheTask.Result
-        } catch (e: IllegalStateException) {
-            log(TAG, WARN) { "Accessibility service was not running: ${e.asLog()}" }
-            ClearCacheTask.Result(successful = emptySet(), failed = automationTargets)
+        } catch (e: AutomationUnavailableException) {
+            throw InaccessibleDeletionException(e)
         }
 
         internalData.value = snapshot.copy(

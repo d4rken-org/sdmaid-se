@@ -2,30 +2,34 @@ package eu.darken.sdmse.common.error
 
 import android.content.Context
 import eu.darken.sdmse.common.R
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caString
 
 interface HasLocalizedError {
-    fun getLocalizedError(context: Context): LocalizedError
+    fun getLocalizedError(): LocalizedError
 }
 
 data class LocalizedError(
     val throwable: Throwable,
-    val label: String,
-    val description: String
+    val label: CaString,
+    val description: CaString,
+    val fixAction: ((Context) -> Unit)? = null,
+    val infoAction: ((Context) -> Unit)? = null,
 ) {
     fun asText() = "$label:\n$description"
 }
 
 fun Throwable.localized(c: Context): LocalizedError = when {
-    this is HasLocalizedError -> this.getLocalizedError(c)
+    this is HasLocalizedError -> this.getLocalizedError()
     localizedMessage != null -> LocalizedError(
         throwable = this,
-        label = "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}",
-        description = localizedMessage ?: getStackTracePeek()
+        label = caString { "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}" },
+        description = caString { localizedMessage ?: getStackTracePeek() }
     )
     else -> LocalizedError(
         throwable = this,
-        label = "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}",
-        description = getStackTracePeek()
+        label = caString { "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}" },
+        description = caString { getStackTracePeek() }
     )
 }
 
