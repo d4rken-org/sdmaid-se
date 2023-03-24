@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
@@ -85,7 +86,8 @@ class DashboardFragmentVM @Inject constructor(
             @Suppress("USELESS_CAST")
             it as UpgradeRepo.Info?
         }
-        .onStart { emit(null) }
+        .setupCommonEventHandlers(TAG) { "upgradeInfo" }
+        .replayingShare(vmScope)
 
     private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = combine(
         corpseFinder.data,
@@ -132,6 +134,7 @@ class DashboardFragmentVM @Inject constructor(
         appCleaner.progress,
         upgradeInfo.map { it?.isPro ?: false },
     ) { data, progress, isPro ->
+        log(TAG) { "$isPro | $data | $progress" }
         AppCleanerDashCardVH.Item(
             data = data,
             progress = progress,
