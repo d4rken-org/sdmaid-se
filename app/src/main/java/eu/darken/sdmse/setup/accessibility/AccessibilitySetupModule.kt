@@ -61,7 +61,7 @@ class AccessibilitySetupModule @Inject constructor(
         val isServiceRunning: Boolean,
     ) : SetupModule.State {
 
-        override val isComplete: Boolean = (isServiceEnabled && isServiceRunning) || hasConsent != null
+        override val isComplete: Boolean = (isServiceEnabled && isServiceRunning) || hasConsent == false
 
     }
 

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files.core
 
-import android.content.Context
+import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.io.R
@@ -21,10 +22,10 @@ open class ReadException(
 
     constructor(file: File) : this(RawPath.build(file))
 
-    override fun getLocalizedError(context: Context) = LocalizedError(
+    override fun getLocalizedError() = LocalizedError(
         throwable = this,
-        label = "ReadException",
-        description = context.getString(R.string.general_error_cant_access_msg, path)
+        label = "ReadException".toCaString(),
+        description = caString { it.getString(R.string.general_error_cant_access_msg, path) }
     )
 }
 
@@ -36,9 +37,9 @@ class WriteException(
 
     constructor(file: File) : this(RawPath.build(file))
 
-    override fun getLocalizedError(context: Context) = LocalizedError(
+    override fun getLocalizedError() = LocalizedError(
         throwable = this,
-        label = "WriteException",
-        description = context.getString(R.string.general_error_cant_access_msg, path)
+        label = "WriteException".toCaString(),
+        description = caString { it.getString(R.string.general_error_cant_access_msg, path) }
     )
 }

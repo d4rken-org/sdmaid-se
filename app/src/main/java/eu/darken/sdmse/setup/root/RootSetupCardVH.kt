@@ -19,7 +19,7 @@ class RootSetupCardVH(parent: ViewGroup) :
 
         allowRootOptions.apply {
             setOnCheckedChangeListener(null)
-            when (item.setupState.useRoot) {
+            when (item.state.useRoot) {
                 true -> check(R.id.allow_root_options_enable)
                 false -> check(R.id.allow_root_options_disable)
                 null -> check(-1)
@@ -37,7 +37,7 @@ class RootSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val setupState: RootSetupModule.State,
+        override val state: RootSetupModule.State,
         val onToggleUseRoot: (Boolean?) -> Unit,
         val onHelp: () -> Unit,
     ) : SetupAdapter.Item {
