@@ -1,0 +1,67 @@
+package eu.darken.sdmse.setup.notification
+
+import android.content.Context
+import dagger.Binds
+import dagger.Module
+import dagger.Reusable
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.mapLatest
+import javax.inject.Inject
+
+@Reusable
+class NotificationSetupModule @Inject constructor(
+    @ApplicationContext private val context: Context,
+) : SetupModule {
+
+    private val refreshTrigger = MutableStateFlow(rngString)
+    override val state = refreshTrigger.mapLatest {
+        val requiredPermission = getRequiredPermission()
+
+        val missingPermission = requiredPermission.filter {
+            val isGranted = it.isGranted(context)
+            log(TAG) { "${it.permissionId} isGranted=$isGranted" }
+            !isGranted
+        }.toSet()
+
+        return@mapLatest State(
+            missingPermission = missingPermission,
+        )
+    }
+
+    private fun getRequiredPermission(): Set<Permission> = when {
+        hasApiLevel(33) -> setOf(Permission.POST_NOTIFICATIONS)
+        else -> emptySet()
+    }
+
+    override suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        refreshTrigger.value = rngString
+    }
+
+    data class State(
+        val missingPermission: Set<Permission>,
+    ) : SetupModule.State {
+
+        override val isComplete: Boolean = missingPermission.isEmpty()
+
+    }
+
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds @IntoSet abstract fun mod(mod: NotificationSetupModule): SetupModule
+    }
+
+    companion object {
+        private val TAG = logTag("Setup", "Notification", "Module")
+    }
+}
