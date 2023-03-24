@@ -79,6 +79,10 @@
             app:destination="@id/schedulerManagerFragment" />
     </fragment>
 
+    <action
+        android:id="@+id/goToSetup"
+        app:destination="@id/setupFragment" />
+
     <fragment
         android:id="@+id/setupFragment"
         android:name="eu.darken.sdmse.setup.SetupFragment"
@@ -94,8 +98,8 @@
         <action
             android:id="@+id/action_setupFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/main" />
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

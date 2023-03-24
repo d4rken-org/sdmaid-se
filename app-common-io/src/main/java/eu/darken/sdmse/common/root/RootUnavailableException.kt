@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.root
 
-import android.content.Context
 import androidx.annotation.StringRes
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.io.R
@@ -13,9 +13,9 @@ class RootUnavailableException(
     @StringRes val errorMsgRes: Int = R.string.general_error_root_unavailable
 ) : RootException(message, cause), HasLocalizedError {
 
-    override fun getLocalizedError(context: Context) = LocalizedError(
+    override fun getLocalizedError() = LocalizedError(
         throwable = this,
-        label = "RootUnavailableException",
-        description = context.getString(errorMsgRes)
+        label = "RootUnavailableException".toCaString(),
+        description = errorMsgRes.toCaString()
     )
 }

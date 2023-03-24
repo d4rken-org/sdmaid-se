@@ -24,7 +24,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val state = item.setupState
+        val state = item.state
         enabledState.apply {
             isVisible = state.hasConsent == true
             setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -81,11 +81,17 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
         runningStateHint.isVisible = !state.isServiceRunning && state.isServiceEnabled
 
         allowAction.apply {
-            isVisible = state.hasConsent != true
+            isVisible = state.hasConsent != true || (state.hasConsent == true && !state.isServiceRunning)
+            text = when {
+                state.hasConsent != true -> getString(R.string.setup_acs_consent_positive_action)
+                state.hasConsent == true && !state.isServiceRunning -> getString(R.string.general_enable_service_action)
+                else -> getString(R.string.setup_acs_consent_positive_action)
+            }
             setOnClickListener { item.onGrantAction() }
 
         }
-        shortcutHint.isVisible = state.hasConsent != true
+        shortcutHint.isVisible = state.hasConsent != true || (state.hasConsent == true && !state.isServiceRunning)
+
         disallowAction.apply {
             isVisible = state.hasConsent != false
             setOnClickListener { item.onDismiss() }
@@ -96,7 +102,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val setupState: AccessibilitySetupModule.State,
+        override val state: AccessibilitySetupModule.State,
         val onGrantAction: () -> Unit,
         val onDismiss: () -> Unit,
         val onHelp: () -> Unit,

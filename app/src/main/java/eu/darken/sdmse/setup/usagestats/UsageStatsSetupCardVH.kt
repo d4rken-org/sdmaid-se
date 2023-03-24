@@ -21,14 +21,14 @@ class UsageStatsSetupCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        grantState.isGone = item.setupState.missingPermission.isNotEmpty()
+        grantState.isGone = item.state.missingPermission.isNotEmpty()
 
         grantAction.setOnClickListener { item.onGrantAction() }
         helpAction.setOnClickListener { item.onHelp() }
     }
 
     data class Item(
-        val setupState: UsageStatsSetupModule.State,
+        override val state: UsageStatsSetupModule.State,
         val onGrantAction: () -> Unit,
         val onHelp: () -> Unit,
     ) : SetupAdapter.Item {

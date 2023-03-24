@@ -60,7 +60,7 @@ class SetupFragmentVM @Inject constructor(
                 .map { state ->
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onPathClicked = {
                                 if (!it.hasAccess) {
                                     events.postValue(SetupEvents.SafRequestAccess(it))
@@ -71,7 +71,7 @@ class SetupFragmentVM @Inject constructor(
                             },
                         )
                         is StorageSetupModule.State -> StorageSetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onPathClicked = {
                                 state.missingPermission.firstOrNull()?.let {
                                     events.postValue(SetupEvents.RuntimePermissionRequests(it))
@@ -82,7 +82,7 @@ class SetupFragmentVM @Inject constructor(
                             },
                         )
                         is RootSetupModule.State -> RootSetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onToggleUseRoot = {
                                 launch {
                                     rootSetupModule.toggleUseRoot(it)
@@ -94,7 +94,7 @@ class SetupFragmentVM @Inject constructor(
                             },
                         )
                         is UsageStatsSetupModule.State -> UsageStatsSetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onGrantAction = {
                                 state.missingPermission.firstOrNull()?.let {
                                     events.postValue(SetupEvents.RuntimePermissionRequests(it))
@@ -105,7 +105,7 @@ class SetupFragmentVM @Inject constructor(
                             }
                         )
                         is AccessibilitySetupModule.State -> AccessibilitySetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onGrantAction = {
                                 launch {
                                     accessibilitySetupModule.setAllow(true)
@@ -124,7 +124,7 @@ class SetupFragmentVM @Inject constructor(
                             }
                         )
                         is NotificationSetupModule.State -> NotificationSetupCardVH.Item(
-                            setupState = state,
+                            state = state,
                             onGrantAction = {
                                 state.missingPermission.firstOrNull()?.let {
                                     events.postValue(SetupEvents.RuntimePermissionRequests(it))
@@ -137,7 +137,13 @@ class SetupFragmentVM @Inject constructor(
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
-                .sortedBy { item -> DISPLAY_ORDER.indexOfFirst { it.isInstance(item) } }
+                .sortedBy { item ->
+                    if (navArgs.showCompleted && !item.state.isComplete) {
+                        Int.MIN_VALUE
+                    } else {
+                        DISPLAY_ORDER.indexOfFirst { it.isInstance(item) }
+                    }
+                }
                 .run { items.addAll(this) }
 
             items

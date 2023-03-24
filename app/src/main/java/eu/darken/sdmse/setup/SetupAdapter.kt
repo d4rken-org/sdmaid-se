@@ -44,6 +44,9 @@ class SetupAdapter @Inject constructor() :
     ) : VH(layoutId, parent), BindableVH<D, B>
 
     interface Item : DifferItem {
+
+        val state: SetupModule.State
+
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null
