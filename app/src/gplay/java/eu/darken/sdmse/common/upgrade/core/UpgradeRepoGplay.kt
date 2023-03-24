@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.*
 import kotlinx.coroutines.CoroutineScope
@@ -69,6 +70,7 @@ class UpgradeRepoGplay @Inject constructor(
                 throw it
             }
         }
+        .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(scope)
 
     fun launchBillingFlow(activity: Activity, sku: Sku, plan: Sku.Subscription.Plan?) {

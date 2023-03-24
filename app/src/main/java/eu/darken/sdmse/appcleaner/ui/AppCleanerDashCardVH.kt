@@ -67,6 +67,8 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onDelete() }
             if (!item.isPro) {
                 setIconResource(R.drawable.ic_baseline_stars_24)
+            } else {
+                icon = null
             }
         }
         cancelAction.apply {
