@@ -20,6 +20,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.dropLastColon
+import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.exists
 import eu.darken.sdmse.common.files.core.local.LocalPath
 import eu.darken.sdmse.common.files.core.local.toLocalPath
 import eu.darken.sdmse.common.files.core.saf.SAFPath
@@ -41,6 +43,7 @@ class SAFSetupModule @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val safMapper: SAFMapper,
     private val dataAreaManager: DataAreaManager,
+    private val gatewaySwitch: GatewaySwitch,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -118,6 +121,7 @@ class SAFSetupModule @Inject constructor(
                     )
                 }
                 .flatten()
+                .filter { it.exists(gatewaySwitch) }
                 .mapNotNull { targetPath ->
                     val safPath = safMapper.toSAFPath(targetPath)
                     if (safPath == null) {
