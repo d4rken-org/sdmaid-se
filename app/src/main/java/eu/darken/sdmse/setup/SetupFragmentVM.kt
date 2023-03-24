@@ -15,6 +15,8 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.accessibility.AccessibilitySetupCardVH
 import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
+import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
+import eu.darken.sdmse.setup.notification.NotificationSetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
@@ -119,6 +121,17 @@ class SetupFragmentVM @Inject constructor(
                             },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
+                            }
+                        )
+                        is NotificationSetupModule.State -> NotificationSetupCardVH.Item(
+                            setupState = state,
+                            onGrantAction = {
+                                state.missingPermission.firstOrNull()?.let {
+                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                }
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#notifications")
                             }
                         )
                         else -> throw IllegalArgumentException("Unknown state: $state")

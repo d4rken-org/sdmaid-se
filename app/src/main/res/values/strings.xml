@@ -122,6 +122,10 @@
     <string name="setup_usagestats_body">The usage statistics permission grants access to more app details. SD Maid uses it to determine additional cache sizes.</string>
     <string name="setup_usagestats_hint">Required for accessibility service based cache deletion.</string>
 
+    <string name="setup_notification_title">Notifications</string>
+    <string name="setup_notification_body">Allow SD Maid to post notifications to inform you about on-going operations or important events.</string>
+    <string name="setup_notification_hint">Notifications are used sparingly 🤞.</string>
+
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. clicking \"Clear cache\" on multiple screens.</string>
     <string name="setup_acs_card_body2">SD Maid will not use the accessibility service without your consent, will always display a prominent (cancelable) indicator while active and will not use it to collect information.</string>
