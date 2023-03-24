@@ -110,7 +110,7 @@ class UpgradeRepoGplay @Inject constructor(
             ?.flatten()
             ?: emptySet()
 
-        override val isPro: Boolean = upgrades.isNotEmpty()
+        override val isPro: Boolean = upgrades.isNotEmpty() || gracePeriod
 
         override val upgradedAt: Instant? = upgrades
             .maxByOrNull { it.purchase.purchaseTime }
