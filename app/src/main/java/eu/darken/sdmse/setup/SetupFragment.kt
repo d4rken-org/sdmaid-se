@@ -1,5 +1,6 @@
 package eu.darken.sdmse.setup
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -91,7 +92,12 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is SetupEvents.SafRequestAccess -> safRequestLauncher.launch(event.item)
+                is SetupEvents.SafRequestAccess -> try {
+                    safRequestLauncher.launch(event.item)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
+                    e.asErrorDialogBuilder(requireContext()).show()
+                }
                 is SetupEvents.SafWrongPathError -> {
                     Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
                         .setAction(R.string.general_help_action) {
@@ -108,7 +114,8 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                                     event.item.createIntent(requireContext(), deviceDetective)
                                 )
                             } catch (e: Exception) {
-                                log(TAG, ERROR) { "Failed to launch permission intent: ${e.asLog()}" }
+                                log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
+
                                 val fallbackIntent = event.item.createIntentFallback(requireContext())
                                 if (fallbackIntent == null) {
                                     e.asErrorDialogBuilder(requireContext()).show()
@@ -122,7 +129,12 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                                 }
                             }
                         }
-                        else -> runtimePermissionLauncher.launch(event.item.permissionId)
+                        else -> try {
+                            runtimePermissionLauncher.launch(event.item.permissionId)
+                        } catch (e: ActivityNotFoundException) {
+                            log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
+                            e.asErrorDialogBuilder(requireContext()).show()
+                        }
                     }
                 }
                 is SetupEvents.ConfigureAccessibilityService -> {
