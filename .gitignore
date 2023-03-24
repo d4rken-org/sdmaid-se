@@ -9,6 +9,7 @@ build/
 .local/*
 *.jks
 /fastlane/report.xml
+/fastlane/Appfile
 /captures
 .externalNativeBuild
 .cxx
