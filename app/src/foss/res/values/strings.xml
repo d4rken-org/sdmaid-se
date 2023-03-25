@@ -14,7 +14,7 @@
     <string name="upgrade_screen_how_title">How to help</string>
     <string name="upgrade_screen_how_body">Become a patron and sponsor development! Click the button below to activate all extra features and open my Github Sponsors profile.</string>
     <string name="upgrade_screen_why_title">This conjures 🪄</string>
-    <string name="upgrade_screen_why_body">• Improved results 💯\n• Scheduled operations ⏰\n• Extra options for all tools ⚙️\n• Your own deletion rules ✍️\n• A motivated developer 🧙\nand more…</string>
+    <string name="upgrade_screen_why_body">• AppCleaner delete functionality 💯\n• Scheduled operations ⏰\n• Extra options for all tools ⚙️\n• Your own deletion rules ✍️\n• A motivated developer 🧙\nand more…</string>
     <string name="upgrade_screen_sponsor_action">Sponsor development</string>
     <string name="upgrade_screen_sponsor_action_hint">The alternative are ads, analytics and Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>

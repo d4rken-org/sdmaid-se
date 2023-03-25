@@ -197,7 +197,7 @@
     <string name="corpsefinder_corpse_hint_common">This item has a very common name and could belong to still installed apps that SD Maid doesn\'t know.</string>
 
     <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Superfluos data that doesn\'t belong any specific app.</string>
+    <string name="systemcleaner_explanation_short">Superfluous data that doesn\'t belong any specific app.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filter match</item>
         <item quantity="other">%d filter matches</item>
