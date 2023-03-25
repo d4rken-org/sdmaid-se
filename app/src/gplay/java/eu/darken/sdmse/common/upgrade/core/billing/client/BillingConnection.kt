@@ -150,6 +150,10 @@ data class BillingConnection(
 
     suspend fun launchBillingFlow(activity: Activity, sku: Sku, targetOffer: Sku.Subscription.Offer?): BillingResult {
         log(TAG) { "launchBillingFlow(activity=$activity, sku=$sku)" }
+        if (sku.type == Sku.Type.SUBSCRIPTION) {
+            requireNotNull(targetOffer) { "SUB skus require a target offer" }
+        }
+
         val data = querySkus(sku).single { it.sku == sku }
 
         val params = BillingFlowParams.newBuilder().apply {
