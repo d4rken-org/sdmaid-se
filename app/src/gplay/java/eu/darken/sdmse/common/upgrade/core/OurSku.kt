@@ -13,16 +13,18 @@ interface OurSku {
     interface Sub : Sku.Subscription {
         object PRO_UPGRADE : Sku.Subscription, Sub {
             override val id: String = "upgrade.pro"
-            override val plans: Collection<Sku.Subscription.Plan> = setOf(
-                BASE_PLAN, TRIAL_PLAN
+            override val offers: Collection<Sku.Subscription.Offer> = setOf(
+                BASE_OFFER, TRIAL_OFFER
             )
 
-            object BASE_PLAN : Sku.Subscription.Plan {
-                override val planId: String = "upgrade-pro-baseplan"
+            object BASE_OFFER : Sku.Subscription.Offer {
+                override val basePlanId: String = "upgrade-pro-baseplan"
+                override val offerId: String? = null
             }
 
-            object TRIAL_PLAN : Sku.Subscription.Plan {
-                override val planId: String = "upgrade-pro-baseplan-trial"
+            object TRIAL_OFFER : Sku.Subscription.Offer {
+                override val basePlanId: String = "upgrade-pro-baseplan"
+                override val offerId: String = "upgrade-pro-baseplan-trial"
             }
         }
     }

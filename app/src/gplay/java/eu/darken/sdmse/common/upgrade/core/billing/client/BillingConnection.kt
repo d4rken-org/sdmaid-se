@@ -148,16 +148,16 @@ data class BillingConnection(
             }
     }
 
-    suspend fun launchBillingFlow(activity: Activity, sku: Sku, plan: Sku.Subscription.Plan?): BillingResult {
+    suspend fun launchBillingFlow(activity: Activity, sku: Sku, targetOffer: Sku.Subscription.Offer?): BillingResult {
         log(TAG) { "launchBillingFlow(activity=$activity, sku=$sku)" }
         val data = querySkus(sku).single { it.sku == sku }
 
         val params = BillingFlowParams.newBuilder().apply {
             val productDetail = BillingFlowParams.ProductDetailsParams.newBuilder().apply {
                 setProductDetails(data.details)
-                if (sku is Sku.Subscription && plan != null) {
+                if (sku is Sku.Subscription && targetOffer != null) {
                     val offer = data.details.subscriptionOfferDetails!!.single {
-                        it.basePlanId == plan.planId
+                        targetOffer.matches(it)
                     }
                     setOfferToken(offer.offerToken)
                 }

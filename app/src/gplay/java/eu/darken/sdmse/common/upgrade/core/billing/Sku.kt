@@ -1,5 +1,7 @@
 package eu.darken.sdmse.common.upgrade.core.billing
 
+import com.android.billingclient.api.ProductDetails
+
 interface Sku {
     val id: String
     val type: Type
@@ -15,10 +17,15 @@ interface Sku {
         override val type: Type
             get() = Type.SUBSCRIPTION
 
-        val plans: Collection<Plan>
+        val offers: Collection<Offer>
 
-        interface Plan {
-            val planId: String
+        interface Offer {
+            val basePlanId: String
+            val offerId: String?
+
+            fun matches(target: ProductDetails.SubscriptionOfferDetails): Boolean {
+                return basePlanId == target.basePlanId && offerId == target.offerId
+            }
         }
     }
 
