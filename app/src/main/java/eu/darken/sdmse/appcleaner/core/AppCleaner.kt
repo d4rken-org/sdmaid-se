@@ -156,16 +156,22 @@ class AppCleaner @Inject constructor(
             deletionMap[appJunk.identifier] = deleted
         }
 
-        updateProgressPrimary(R.string.appcleaner_automation_loading)
-        updateProgressSecondary(CaString.EMPTY)
+        val automationTargets = targetPkgs.filter { targetPkg ->
+            snapshot.junks.single { it.pkg.id == targetPkg }.inaccessibleCache != null
+        }
 
-        val automationTargets = targetPkgs
-            .filter { targetPkg -> snapshot.junks.single { it.pkg.id == targetPkg }.inaccessibleCache != null }
-        val automationTask = ClearCacheTask(automationTargets)
-        val automationResult = try {
-            automationController.submit(automationTask) as ClearCacheTask.Result
-        } catch (e: AutomationUnavailableException) {
-            throw InaccessibleDeletionException(e)
+        val automationResult = if (automationTargets.isNotEmpty()) {
+            updateProgressPrimary(R.string.appcleaner_automation_loading)
+            updateProgressSecondary(CaString.EMPTY)
+
+            val automationTask = ClearCacheTask(automationTargets)
+            try {
+                automationController.submit(automationTask) as ClearCacheTask.Result
+            } catch (e: AutomationUnavailableException) {
+                throw InaccessibleDeletionException(e)
+            }
+        } else {
+            null
         }
 
         internalData.value = snapshot.copy(
@@ -181,9 +187,8 @@ class AppCleaner @Inject constructor(
                                 }
                             }
                             ?.filterValues { it.isNotEmpty() },
-                        inaccessibleCache = when {
-                            automationResult.successful.contains(appJunk.identifier) -> null
-                            else -> appJunk.inaccessibleCache
+                        inaccessibleCache = automationResult?.let {
+                            if (it.successful.contains(appJunk.identifier)) null else appJunk.inaccessibleCache
                         },
                     )
                 }
