@@ -26,7 +26,9 @@ class StorageEnvironment @Inject constructor(
         get() = listOf(context.cacheDir.toLocalPath())
 
     val ourExternalCacheDirs: Collection<LocalPath>
-        get() = context.externalCacheDirs.map { it.toLocalPath() }
+        get() = context.externalCacheDirs
+            .filterNotNull()  // Can be non-empty and contains a NULL values
+            .map { it.toLocalPath() }
 
     val downloadCacheDirs: Collection<LocalPath>
         get() = setOf(
