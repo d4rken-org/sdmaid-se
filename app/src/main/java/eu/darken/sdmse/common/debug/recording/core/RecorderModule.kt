@@ -5,9 +5,12 @@ import android.content.Intent
 import android.os.Environment
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recording.ui.RecorderActivity
@@ -25,6 +28,7 @@ class RecorderModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
+    private val dataAreaManager: DataAreaManager,
 ) {
 
     private val triggerFile = try {
@@ -52,6 +56,8 @@ class RecorderModule @Inject constructor(
                         val newRecorder = Recorder()
                         newRecorder.start(createRecordingFilePath())
                         triggerFile.createNewFile()
+
+                        logInfos()
 
                         context.startServiceCompat(Intent(context, RecorderService::class.java))
 
@@ -102,6 +108,18 @@ class RecorderModule @Inject constructor(
         }
         internalState.flow.filter { !it.isRecording }.first()
         return currentPath
+    }
+
+    private suspend fun logInfos() {
+        val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)!!
+        log(TAG, INFO) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
+        val versionInfo = "${pkgInfo.versionName} (${pkgInfo.versionCode})"
+        log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
+        log(TAG, INFO) { "Build: ${BuildConfigWrap.FLAVOR}-${BuildConfigWrap.BUILD_TYPE}" }
+
+        val state = dataAreaManager.latestState.firstOrNull()
+        log(TAG, INFO) { "Data areas: (${state?.areas?.size})" }
+        state?.areas?.forEachIndexed { index, dataArea -> log(TAG, INFO) { "#$index $dataArea" } }
     }
 
     data class State(
