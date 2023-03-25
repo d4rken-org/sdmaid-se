@@ -43,13 +43,16 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
 
+    val logCatLogger = LogCatLogger()
+
     override fun onCreate() {
         super.onCreate()
         if (BuildConfigWrap.DEBUG) {
-            Logging.install(LogCatLogger())
+            Logging.install(logCatLogger)
             log(TAG) { "BuildConfig.DEBUG=true" }
         }
         log(TAG) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
+
 
         combine(
             debugSettings.isDebugMode.flow,
@@ -57,6 +60,14 @@ open class App : Application(), Configuration.Provider {
             debugSettings.isDryRunMode.flow,
         ) { isDebug, isTrace, isDryRun ->
             log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
+            if (!BuildConfigWrap.DEBUG) {
+                if (isDebug) {
+                    Logging.install(logCatLogger)
+                } else {
+                    Logging.remove(logCatLogger)
+                }
+            }
+
             Bugs.isDebug = isDebug
             Bugs.isTrace = isDebug && isTrace
             Bugs.isDryRun = isDryRun
