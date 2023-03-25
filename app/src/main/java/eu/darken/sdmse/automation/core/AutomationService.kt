@@ -16,6 +16,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.automation.core.crawler.CrawlerException
 import eu.darken.sdmse.automation.core.crawler.getRoot
+import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -64,12 +65,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         log(TAG) { "onCreate(application=$application)" }
         super.onCreate()
 
-        if (generalSettings.hasAcsConsent.valueBlocking != true) {
-            log(TAG, WARN) { "Missing consent for accessibility service" }
-            disableSelf()
-            return
-        }
-
 //        var injected = false
 //
 //        if (!injected) {
@@ -86,6 +81,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 //            log(TAG, WARN) { "Injecting via fallback singleton access." }
 //            App.require().serviceInjector().inject(this)
 //        }
+
+        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+            log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
+            disableSelf()
+            return
+        }
 
         serviceScope = CoroutineScope(dispatcher.IO + SupervisorJob())
 
@@ -160,6 +161,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
+        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+            log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
+            return
+        }
+
         val copy = try {
             AccessibilityEvent.obtain(event)
         } catch (e: Exception) {
@@ -229,6 +235,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     suspend fun submit(task: AutomationTask): AutomationTask.Result = taskLock.withLock {
         log(TAG) { "submit(): $task" }
+
+        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+            log(TAG, WARN) { "Missing consent for accessibility service, skipping task." }
+            throw AutomationNoConsentException()
+        }
+
         updateProgress { Progress.DEFAULT_STATE }
         val deferred = serviceScope.async {
             try {
