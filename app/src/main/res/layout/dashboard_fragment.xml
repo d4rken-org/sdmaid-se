@@ -50,9 +50,10 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_action"
-        style="@style/Widget.Material3.ExtendedFloatingActionButton.Primary"
+        style="@style/Widget.Material3.FloatingActionButton.Primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:shapeAppearance="@style/Widget.Material3.FloatingActionButton.Primary"
         android:contentDescription="@string/general_scan_device_action"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_layer_search_24" />
