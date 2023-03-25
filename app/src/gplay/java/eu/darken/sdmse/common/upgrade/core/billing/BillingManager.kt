@@ -96,10 +96,10 @@ class BillingManager @Inject constructor(
         }
     }
 
-    suspend fun startIapFlow(activity: Activity, sku: Sku, plan: Sku.Subscription.Plan?) {
+    suspend fun startIapFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) {
         try {
             connectionProvider.use {
-                it.launchBillingFlow(activity, sku, plan)
+                it.launchBillingFlow(activity, sku, offer)
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }

@@ -73,11 +73,11 @@ class UpgradeRepoGplay @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(scope)
 
-    fun launchBillingFlow(activity: Activity, sku: Sku, plan: Sku.Subscription.Plan?) {
+    fun launchBillingFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) {
         log(TAG) { "launchBillingFlow($activity,$sku)" }
         scope.launch {
             try {
-                billingManager.startIapFlow(activity, sku, plan)
+                billingManager.startIapFlow(activity, sku, offer)
             } catch (e: Exception) {
                 log(TAG) { "startIapFlow failed:${e.asLog()}" }
                 withContext(dispatcherProvider.Main) {

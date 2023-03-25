@@ -29,10 +29,10 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
         vm.state.observe2(ui) { state ->
             val iapOffer = state.iap.details.oneTimePurchaseOfferDetails
             val subOffer = state.sub.details.subscriptionOfferDetails!!.singleOrNull { offer ->
-                offer.basePlanId == OurSku.Sub.PRO_UPGRADE.BASE_PLAN.planId
+               OurSku.Sub.PRO_UPGRADE.BASE_OFFER.matches(offer)
             }
             val subOfferTrial = state.sub.details.subscriptionOfferDetails!!.singleOrNull { offer ->
-                offer.basePlanId == OurSku.Sub.PRO_UPGRADE.TRIAL_PLAN.planId
+                OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER.matches(offer)
             }
 
             val breakEven: String = if (iapOffer != null && subOffer != null) {

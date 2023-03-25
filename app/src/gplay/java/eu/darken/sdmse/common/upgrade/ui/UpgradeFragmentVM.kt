@@ -60,12 +60,12 @@ class UpgradeFragmentVM @Inject constructor(
 
     fun onGoSubscription(activity: Activity) {
         log(TAG) { "onGoSubscription($activity)" }
-        upgradeRepo.launchBillingFlow(activity, OurSku.Sub.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE.BASE_PLAN)
+        upgradeRepo.launchBillingFlow(activity, OurSku.Sub.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE.BASE_OFFER)
     }
 
     fun onGoSubscriptionTrial(activity: Activity) {
         log(TAG) { "onGoSubscription($activity)" }
-        upgradeRepo.launchBillingFlow(activity, OurSku.Sub.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE.TRIAL_PLAN)
+        upgradeRepo.launchBillingFlow(activity, OurSku.Sub.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER)
     }
 
     companion object {
