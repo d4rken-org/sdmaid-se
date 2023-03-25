@@ -7,6 +7,8 @@
 [![Crowdin](https://badges.crowdin.net/sdmaid-se/localized.svg)](https://crowdin.com/project/sdmaid-se)
 [![Code tests & eval](https://github.com/d4rken-org/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken-org/sdmaid-se/actions/workflows/code-checks.yml)
 
+> _**SD Maid 2/SE in actively being worked on and not feature complete. Feature requests are welcome!**_
+
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) (aka SD Maid 2) is a file management tool for Android that
 specialises in maintenance. Its core purpose is freeing up space and removing unwanted data.
 
