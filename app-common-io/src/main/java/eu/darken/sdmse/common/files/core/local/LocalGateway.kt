@@ -364,9 +364,9 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun delete(path: LocalPath): Boolean = delete(path, Mode.AUTO)
+    override suspend fun delete(path: LocalPath) = delete(path, Mode.AUTO)
 
-    suspend fun delete(path: LocalPath, mode: Mode = Mode.AUTO): Boolean = runIO {
+    suspend fun delete(path: LocalPath, mode: Mode = Mode.AUTO): Unit = runIO {
         try {
             val javaFile = path.asFile()
             val canNormalWrite = when (mode) {
@@ -377,22 +377,23 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
                     if (!canNormalWrite) throw WriteException(path)
-                    if (Bugs.isDryRun) {
+                    val success = if (Bugs.isDryRun) {
                         log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
-                        true
+                        javaFile.exists()
                     } else {
                         javaFile.delete()
                     }
+                    if (!success) throw IOException("delete() call returned false")
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps {
-                        if (Bugs.isDryRun) {
-                            it.exists(path)
+                        val success = if (Bugs.isDryRun) {
                             log(TAG, WARN) { "DRYRUN: Not deleting (root) $javaFile" }
-                            true
+                            it.exists(path)
                         } else {
                             it.delete(path)
                         }
+                        if (!success) throw IOException("Root delete() call returned false")
                     }
                 }
                 else -> throw IOException("No matching mode available.")

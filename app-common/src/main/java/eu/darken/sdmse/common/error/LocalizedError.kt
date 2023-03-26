@@ -16,19 +16,19 @@ data class LocalizedError(
     val fixAction: ((Context) -> Unit)? = null,
     val infoAction: ((Context) -> Unit)? = null,
 ) {
-    fun asText() = "$label:\n$description"
+    fun asText() = caString { "${label.get(it)}:\n${description.get(it)}" }
 }
 
 fun Throwable.localized(c: Context): LocalizedError = when {
     this is HasLocalizedError -> this.getLocalizedError()
     localizedMessage != null -> LocalizedError(
         throwable = this,
-        label = caString { "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}" },
+        label = caString { "${c.getString(R.string.general_error_label)} - ${this::class.simpleName!!}" },
         description = caString { localizedMessage ?: getStackTracePeek() }
     )
     else -> LocalizedError(
         throwable = this,
-        label = caString { "${c.getString(R.string.general_error_label)}: ${this::class.simpleName!!}" },
+        label = caString { "${c.getString(R.string.general_error_label)} - ${this::class.simpleName!!}" },
         description = caString { getStackTracePeek() }
     )
 }

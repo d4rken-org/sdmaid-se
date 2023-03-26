@@ -27,7 +27,7 @@ interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any>
 
     suspend fun write(path: P): Sink
 
-    suspend fun delete(path: P): Boolean
+    suspend fun delete(path: P)
 
     suspend fun createSymlink(linkPath: P, targetPath: P): Boolean
 

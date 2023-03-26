@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.files.core.saf.startsWith
 import okio.Sink
 import okio.Source
 import java.io.File
-import java.io.FileNotFoundException
 import java.time.Instant
 import java.util.*
 
@@ -107,15 +106,16 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
     return this
 }
 
-suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return if (gateway.delete(downCast())) {
+suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>) {
+    try {
+        gateway.delete(downCast())
         log(VERBOSE) { "APath.delete(): Deleted $this" }
-        true
-    } else if (!exists(gateway)) {
-        log(WARN) { "APath.delete(): File didn't exist: $this" }
-        true
-    } else {
-        throw FileNotFoundException("Failed to delete file: $this")
+    } catch (e: PathException) {
+        if (gateway.exists(downCast())) {
+            throw e
+        } else {
+            log(WARN) { "APath.delete(): Item didn't exist: $this" }
+        }
     }
 }
 
@@ -124,6 +124,7 @@ suspend fun <T : APath> T.deleteAll(
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
     try {
+        // Recursion enter
         @Suppress("UNCHECKED_CAST")
         val lookup = this as? APathLookup<T> ?: gateway.lookup(downCast())
 
@@ -139,13 +140,8 @@ suspend fun <T : APath> T.deleteAll(
         if (!gateway.exists(downCast())) return else throw e
     }
 
-    if (gateway.delete(downCast())) {
-        log(VERBOSE) { "APath.deleteAll(): Deleted $this" }
-    } else if (!gateway.exists(downCast())) {
-        log(WARN) { "APath.deleteAll(): File didn't exist: $this" }
-    } else {
-        throw FileNotFoundException("Failed to delete file: $this")
-    }
+    // Recursion exit
+    this.delete(gateway)
 }
 
 suspend fun <T : APath> T.write(gateway: APathGateway<T, out APathLookup<T>>): Sink {

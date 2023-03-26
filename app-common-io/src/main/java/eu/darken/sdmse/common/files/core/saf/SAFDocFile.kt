@@ -166,7 +166,7 @@ internal data class SAFDocFile(
     fun delete(): Boolean = try {
         if (Bugs.isDryRun) {
             log(SAFGateway.TAG, WARN) { "DRYRUN: Not deleting $uri" }
-            true
+            exists
         } else {
             DocumentsContract.deleteDocument(resolver, uri)
         }
