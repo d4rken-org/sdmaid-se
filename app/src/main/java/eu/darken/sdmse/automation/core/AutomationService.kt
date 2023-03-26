@@ -82,13 +82,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 //            App.require().serviceInjector().inject(this)
 //        }
 
+        serviceScope = CoroutineScope(dispatcher.IO + SupervisorJob())
+
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
             disableSelf()
             return
         }
-
-        serviceScope = CoroutineScope(dispatcher.IO + SupervisorJob())
 
         automationProcessor = automationProcessorFactory.create(this)
 
