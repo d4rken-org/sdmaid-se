@@ -45,7 +45,7 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
     }
 
     val state = combine(
-        flow { emit(rootManager.isRooted()) },
+        flow { emit(rootManager.useRoot()) },
         upgradeRepo.upgradeInfo.map { it.isPro }
     ) { isRooted, isPro ->
         State(

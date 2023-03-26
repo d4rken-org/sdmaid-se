@@ -61,7 +61,7 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
-                coEvery { isRooted() } returns true
+                coEvery { useRoot() } returns true
             }
         ).isEnabled() shouldBe true
 
@@ -71,7 +71,7 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
-                coEvery { isRooted() } returns false
+                coEvery { useRoot() } returns false
             }
         ).isEnabled() shouldBe false
     }

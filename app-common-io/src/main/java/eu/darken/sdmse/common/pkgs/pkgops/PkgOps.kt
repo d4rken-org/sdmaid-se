@@ -53,7 +53,7 @@ class PkgOps @Inject constructor(
         return javaRootClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
-    suspend fun hasRoot(): Boolean = rootManager.hasRoot()
+    suspend fun hasRoot(): Boolean = rootManager.useRoot()
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
         client.getUserNameForUID(uid)

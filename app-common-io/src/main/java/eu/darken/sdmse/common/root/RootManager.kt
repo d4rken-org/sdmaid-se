@@ -31,6 +31,7 @@ class RootManager @Inject constructor(
     init {
         rootSettings.useRoot.flow
             .mapLatest {
+                log(TAG) { "Root access state: $it" }
                 cacheLock.withLock {
                     cachedState = null
                 }
@@ -38,12 +39,10 @@ class RootManager @Inject constructor(
             .launchIn(appScope)
     }
 
+    /**
+     * Is the device rooted and we have access?
+     */
     suspend fun isRooted(): Boolean = withContext(dispatcherProvider.IO) {
-        if (rootSettings.useRoot.value() != true) {
-            log(TAG) { "Root aceess is disabled." }
-            return@withContext false
-        }
-
         cacheLock.withLock {
             cachedState?.let { return@withContext it }
 
@@ -58,7 +57,10 @@ class RootManager @Inject constructor(
         }
     }
 
-    suspend fun hasRoot(): Boolean {
+    /**
+     * Did the user consent to SD Maid using root?
+     */
+    suspend fun useRoot(): Boolean {
         return (rootSettings.useRoot.value() ?: false) && isRooted()
     }
 

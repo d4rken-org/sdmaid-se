@@ -21,7 +21,7 @@ class SystemCleanerSettingsFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     val state = combine(
-        flow { emit(rootManager.isRooted()) },
+        flow { emit(rootManager.useRoot()) },
         upgradeRepo.upgradeInfo.map { it.isPro }
     ) { isRooted, isPro ->
         State(

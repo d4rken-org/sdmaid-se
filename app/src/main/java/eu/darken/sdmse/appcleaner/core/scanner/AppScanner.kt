@@ -70,7 +70,7 @@ class AppScanner @Inject constructor(
     }
 
     private lateinit var enabledFilters: Collection<ExpendablesFilter>
-    private var isRooted: Boolean = false
+    private var useRoot: Boolean = false
 
     suspend fun initialize() {
         log(TAG, VERBOSE) { "initialize()" }
@@ -80,7 +80,7 @@ class AppScanner @Inject constructor(
             .onEach { it.initialize() }
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
         log(TAG) { "${enabledFilters.size} filter are enabled" }
-        isRooted = rootManager.isRooted()
+        useRoot = rootManager.useRoot()
     }
 
     suspend fun scan(
@@ -191,7 +191,7 @@ class AppScanner @Inject constructor(
                 ?.dataDir
                 ?.takeIf { it.isNotEmpty() }
                 ?.let { dataDir ->
-                    if (isRooted) {
+                    if (useRoot) {
                         fileForensics.identifyArea(LocalPath.build(dataDir))?.let {
                             interestingPaths.add(it)
                         }
@@ -275,7 +275,7 @@ class AppScanner @Inject constructor(
         val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
 
         // TODO do we need this? without root, the data area isn't supplied by the DataAreaManager?
-        if (isRooted) {
+        if (useRoot) {
             areaDataMap[DataArea.Type.PRIVATE_DATA] = emptySet()
             currentAreas
                 .filter { it.type == DataArea.Type.PRIVATE_DATA }
@@ -331,7 +331,7 @@ class AppScanner @Inject constructor(
                     }
                     .filter { areaInfo ->
                         val excluded = pathExclusions.any { it.match(areaInfo.file) }
-                        val edgeCase = !isRooted && area.type == DataArea.Type.PUBLIC_DATA
+                        val edgeCase = !useRoot && area.type == DataArea.Type.PUBLIC_DATA
                                 && areaInfo.prefixFreePath.size >= 2
                                 && areaInfo.prefixFreePath[1] == "cache"
                         if (excluded && edgeCase) {
@@ -423,7 +423,7 @@ class AppScanner @Inject constructor(
     private suspend fun determineInaccessibleCaches(
         pkgs: Collection<Installed>,
     ): Collection<InaccessibleCache> {
-        if (!settings.includeInaccessibleEnabled.value() || rootManager.isRooted()) return emptyList()
+        if (!settings.includeInaccessibleEnabled.value() || rootManager.useRoot()) return emptyList()
         if (!settings.filterDefaultCachesPublicEnabled.value() || !settings.filterDefaultCachesPrivateEnabled.value()) {
             return emptyList()
         }

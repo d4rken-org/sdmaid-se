@@ -27,7 +27,7 @@ class MountMaster @Inject constructor(
     }
 
     private suspend fun determineStatus(): Boolean {
-        if (!rootManager.isRooted()) {
+        if (!rootManager.useRoot()) {
             log(TAG, INFO) { "We are not rooted, no need for mount-master." }
             return false
         }

@@ -66,9 +66,9 @@ class DownloadCacheFilter @Inject constructor(
 
         override suspend fun isEnabled(): Boolean {
             val enabled = settings.filterDownloadCacheEnabled.value()
-            val isRooted = rootManager.isRooted()
-            if (enabled && !isRooted) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
-            return enabled && isRooted
+            val useRoot = rootManager.useRoot()
+            if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
+            return enabled && useRoot
         }
 
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()

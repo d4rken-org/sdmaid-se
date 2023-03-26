@@ -95,7 +95,7 @@ class AppControl @Inject constructor(
     private suspend fun performToggle(task: AppControlToggleTask): AppControlToggleTask.Result {
         log(TAG) { "performToggle(): $task" }
 
-        if (!rootManager.hasRoot()) throw RootRequiredException("Toggeling apps requires root")
+        if (!rootManager.useRoot()) throw RootRequiredException("Toggeling apps requires root")
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 
