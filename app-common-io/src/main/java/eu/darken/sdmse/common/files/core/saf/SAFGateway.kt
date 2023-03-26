@@ -156,9 +156,10 @@ class SAFGateway @Inject constructor(
     }
 
     @Throws(IOException::class)
-    override suspend fun delete(path: SAFPath): Boolean = runIO {
+    override suspend fun delete(path: SAFPath) = runIO {
         try {
-            findDocFile(path).delete()
+            val success = findDocFile(path).delete()
+            if (!success) throw IOException("Document delete() call returned false")
         } catch (e: Exception) {
             throw WriteException(path, cause = e)
         }

@@ -92,7 +92,7 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { write(path) }
     }
 
-    override suspend fun delete(path: APath): Boolean {
+    override suspend fun delete(path: APath) {
         return useGateway(path) { delete(path) }
     }
 
