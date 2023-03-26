@@ -51,6 +51,14 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
                 )
             )
         }
+        enabledStateHint.apply {
+            isVisible = !state.isServiceEnabled && state.needsAutostart
+            when {
+                state.needsAutostart -> getString(R.string.setup_acs_state_stopped_hint_miui)
+                else -> ""
+            }
+        }
+
         runningState.apply {
             isVisible = state.isServiceEnabled && state.hasConsent == true
             setCompoundDrawablesRelativeWithIntrinsicBounds(

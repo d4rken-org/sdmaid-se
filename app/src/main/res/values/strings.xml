@@ -136,6 +136,7 @@
     <string name="setup_acs_state_running">Accessibility service is running</string>
     <string name="setup_acs_state_stopped">Accessibility service is stopped</string>
     <string name="setup_acs_state_stopped_hint">The service is enabled, but not running. Toggeling it off/on or reboot your device. Check that SD Maid is not being "optimized" by the system.</string>
+    <string name="setup_acs_state_stopped_hint_miui">If the service keeps getting disabled after a while, try enabling the "Autostart" option for SD Maid in the system settings.</string>
     <string name="setup_acs_consent_positive_action">Enable service and grant access</string>
     <string name="setup_acs_consent_negative_action">Don\'t use accessibility service</string>
     <string name="setup_acs_allow_hint">If you see a little icon on the screen edge, then you accidentally enabled the "shortcut" option.</string>

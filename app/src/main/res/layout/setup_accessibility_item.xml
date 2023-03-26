@@ -72,10 +72,25 @@
             android:text="@string/setup_acs_state_enabled"
             android:textColor="?colorError"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/running_state"
+            app:layout_constraintBottom_toTopOf="@id/enabled_state_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body2"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/enabled_state_hint"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/setup_acs_state_stopped_hint_miui"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/running_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enabled_state"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -94,7 +109,7 @@
             app:layout_constraintBottom_toTopOf="@id/running_state_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enabled_state"
+            app:layout_constraintTop_toBottomOf="@id/enabled_state_hint"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -143,7 +158,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/setup_acs_consent_negative_action"
             app:layout_constraintBottom_toTopOf="@id/disallow_hint"
             app:layout_constraintTop_toBottomOf="@id/shortcut_hint" />

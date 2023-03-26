@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationController
 import eu.darken.sdmse.automation.core.AutomationService
+import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -22,6 +23,7 @@ import javax.inject.Inject
 class AccessibilitySetupModule @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val automationController: AutomationController,
+    private val deviceDetective: DeviceDetective,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -36,6 +38,7 @@ class AccessibilitySetupModule @Inject constructor(
             hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
+            needsAutostart = deviceDetective.isXiaomi(),
         )
     }
 
@@ -59,6 +62,7 @@ class AccessibilitySetupModule @Inject constructor(
         val hasConsent: Boolean?,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
+        val needsAutostart: Boolean,
     ) : SetupModule.State {
 
         override val isComplete: Boolean = (isServiceEnabled && isServiceRunning) || hasConsent == false
