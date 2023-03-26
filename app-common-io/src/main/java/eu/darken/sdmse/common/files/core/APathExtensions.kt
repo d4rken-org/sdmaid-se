@@ -124,7 +124,7 @@ suspend fun <T : APath> T.deleteAll(
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
     try {
-        // Recursion start
+        // Recursion enter
         @Suppress("UNCHECKED_CAST")
         val lookup = this as? APathLookup<T> ?: gateway.lookup(downCast())
 
@@ -140,7 +140,7 @@ suspend fun <T : APath> T.deleteAll(
         if (!gateway.exists(downCast())) return else throw e
     }
 
-    // Recursion end
+    // Recursion exit
     this.delete(gateway)
 }
 
