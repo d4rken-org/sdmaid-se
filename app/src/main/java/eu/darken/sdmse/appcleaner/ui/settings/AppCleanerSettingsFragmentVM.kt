@@ -20,7 +20,7 @@ class AppCleanerSettingsFragmentVM @Inject constructor(
     val state = flow {
         emit(
             State(
-                isRooted = rootManager.isRooted()
+                isRooted = rootManager.useRoot()
             )
         )
     }.asLiveData2()

@@ -84,7 +84,7 @@ class AppActionDialogVM @Inject constructor(
                 context.startActivity(intent)
             }
         )
-        val disableAction = if (rootManager.hasRoot()) {
+        val disableAction = if (rootManager.useRoot()) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onItemClicked = {

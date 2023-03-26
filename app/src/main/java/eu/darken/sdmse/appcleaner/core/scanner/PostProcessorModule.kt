@@ -84,12 +84,12 @@ class PostProcessorModule @Inject constructor(
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
 
-        val isRooted = rootManager.isRooted()
+        val useRoot = rootManager.useRoot()
         val useShizuku = settings.useShizuku.value()
 
         val edgeCaseMap = mutableMapOf<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>()
 
-        if (!isRooted && useShizuku) {
+        if (!useRoot && useShizuku) {
             val edgeCaseSegs = segs(before.pkg.id.name, "cache")
             before.expendables.forEach { (type, paths) ->
                 val edgeCases = paths.filter { it.segments.containsSegments(edgeCaseSegs) }

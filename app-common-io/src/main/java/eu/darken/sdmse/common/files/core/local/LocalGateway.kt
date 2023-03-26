@@ -52,7 +52,7 @@ class LocalGateway @Inject constructor(
         return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
-    suspend fun hasRoot(): Boolean = rootManager.hasRoot()
+    suspend fun hasRoot(): Boolean = rootManager.useRoot()
 
     private val sharedUserShell = SharedShell(TAG, appScope + dispatcherProvider.IO)
     private suspend fun getShellSession(): Resource<RxCmdShell.Session> {

@@ -93,7 +93,7 @@ class SdcardsModule @Inject constructor(
 
         // Root
         targetPath.let { localPath ->
-            if (!rootManager.isRooted()) return@let
+            if (!rootManager.useRoot()) return@let
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
