@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.root.javaroot
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.annotation.Keep
 import dagger.Lazy
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.Bugs
@@ -24,6 +25,7 @@ import javax.inject.Inject
  * This class' main method will be launched as root. You can access any other class from your
  * package, but not instances - this is a separate process from the UI.
  */
+@Keep
 @SuppressLint("UnsafeDynamicallyLoadedCode")
 class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost("$TAG#${hashCode()}", _args) {
 
@@ -71,9 +73,11 @@ class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, Ro
         keepAliveToken.close()
     }
 
+    @Keep
     companion object {
         internal val TAG = logTag("Root", "Java", "Host")
 
+        @Keep
         @JvmStatic
         fun main(args: Array<String>) {
             Log.v(TAG, "main(args=$args)")

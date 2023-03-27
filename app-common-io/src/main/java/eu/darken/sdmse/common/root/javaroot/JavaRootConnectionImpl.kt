@@ -1,20 +1,22 @@
 package eu.darken.sdmse.common.root.javaroot
 
 import android.content.Context
+import androidx.annotation.Keep
 import dagger.Lazy
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.rxshell.cmd.Cmd
+import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.root.FileOpsConnection
 import eu.darken.sdmse.common.files.core.local.root.FileOpsHost
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
+@Keep
 class JavaRootConnectionImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val fileOpsHost: Lazy<FileOpsHost>,

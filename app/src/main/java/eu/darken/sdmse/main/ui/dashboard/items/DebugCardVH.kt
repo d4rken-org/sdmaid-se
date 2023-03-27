@@ -1,9 +1,11 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DashboardDebugItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -14,6 +16,7 @@ class DebugCardVH(parent: ViewGroup) :
 
     override val viewBinding = lazy { DashboardDebugItemBinding.bind(itemView) }
 
+    @SuppressLint("SetTextI18n")
     override val onBindData: DashboardDebugItemBinding.(
         item: Item,
         payloads: List<Any>
@@ -30,6 +33,18 @@ class DebugCardVH(parent: ViewGroup) :
         }
         pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }
         areasReloadAction.setOnClickListener { item.onReloadAreas() }
+
+        rootTestState.apply {
+            isVisible = item.rootTestResult != null
+            val result = item.rootTestResult
+            text = """
+                Consent=${result?.allowed}
+                MagiskGrant=${result?.magiskGranted}
+                RootService=${result?.serviceLaunched}
+            """.trimIndent()
+        }
+        rootTestAction.setOnClickListener { item.onTestRoot() }
+
         testAction.setOnClickListener { item.onRunTest() }
         testAction.isVisible = BuildConfigWrap.DEBUG
         logviewAction.isVisible = BuildConfigWrap.DEBUG
@@ -44,6 +59,8 @@ class DebugCardVH(parent: ViewGroup) :
         val onReloadAreas: () -> Unit,
         val onReloadPkgs: () -> Unit,
         val onRunTest: () -> Unit,
+        val rootTestResult: DebugCardProvider.RootTestResult?,
+        val onTestRoot: () -> Unit,
         val onViewLog: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

@@ -40,7 +40,7 @@ class JavaRootClient @Inject constructor(
 
     suspend fun <T> runSessionAction(action: suspend (Connection) -> T): T = get().use {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "runSessionAction(action=$action)" }
-        return action(it.item)
+        action(it.item)
     }
 
     companion object {

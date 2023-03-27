@@ -26,9 +26,9 @@
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="Debug mode is enabled"
             app:layout_constraintStart_toEndOf="@id/icon"
-            android:layout_marginStart="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
@@ -67,13 +67,27 @@
                 android:layout_height="wrap_content"
                 android:text="Reload apps" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/root_test_state"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                tools:text="Root test: Consent=true, Magisk=true, Service=LoremIpsum" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/root_test_action"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test root" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Run tests" />
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/logview_action"
