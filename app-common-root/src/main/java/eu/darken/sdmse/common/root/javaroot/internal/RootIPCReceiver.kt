@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.root.javaroot.internal
 import android.content.*
 import android.os.*
 import android.os.IBinder.DeathRecipient
+import androidx.annotation.Keep
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -21,6 +22,7 @@ import kotlin.reflect.KClass
  * @see RootIPC
 </T> */
 //@SuppressWarnings({"unused", "WeakerAccess", "Convert2Diamond", "TryWithIdenticalCatches"})
+@Keep
 abstract class RootIPCReceiver<T : Any> constructor(
     private val pairingCode: String,
     private val clazz: KClass<T>,
