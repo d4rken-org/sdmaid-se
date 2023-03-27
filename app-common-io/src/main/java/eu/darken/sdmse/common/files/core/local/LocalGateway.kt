@@ -144,7 +144,10 @@ class LocalGateway @Inject constructor(
                     rootOps { it.lookUp(path) }
                 }
                 else -> throw IOException("No matching mode available.")
-            }.also { log(TAG, VERBOSE) { "Looked up: $it" } }
+            }.also {
+                log(TAG, VERBOSE) { "Looked up: $it" }
+            }
+
         } catch (e: Exception) {
             throw ReadException(path, cause = e).also {
                 log(TAG, WARN) { "lookup(path=$path, mode=$mode) failed:\n${it.asLog()}" }
@@ -214,7 +217,10 @@ class LocalGateway @Inject constructor(
                     rootOps { it.lookupFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
-            }.also { log(TAG, VERBOSE) { "Looked up:\n${it.joinToString("\n")}" } }
+            }.also {
+                log(TAG, VERBOSE) { "Looked up ${it.size} items" }
+                if (Bugs.isTrace) it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+            }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
             throw ReadException(path, cause = e)

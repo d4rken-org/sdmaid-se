@@ -9,6 +9,7 @@ import android.provider.DocumentsContract
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -208,7 +209,9 @@ class SAFGateway @Inject constructor(
                 permissions = fstat?.let { Permissions(it.st_mode) },
                 size = docFile.length,
                 target = null
-            )
+            ).also {
+                log(TAG, VERBOSE) { "Looked up: $it" }
+            }
         } catch (e: Exception) {
             Timber.tag(TAG).w("lookup(%s) failed.", path)
             throw ReadException(path, cause = e)
@@ -224,6 +227,10 @@ class SAFGateway @Inject constructor(
                     path.child(name)
                 }
                 .map { lookup(it) }
+                .also {
+                    log(TAG, VERBOSE) { "Looked up ${it.size} items" }
+                    if (Bugs.isTrace) it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupFiles($path) failed." }
             throw ReadException(path, cause = e)
