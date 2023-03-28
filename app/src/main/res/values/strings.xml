@@ -323,6 +323,7 @@
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_progress_enabling_package">Enabling app</string>
     <string name="appcontrol_progress_disabling_package">Disabling app</string>
+    <string name="appcontrol_list_filteroptions_label">Filter options</string>
 
     <string name="data_area_public_app_data_official_label">Default Public App Data</string>
     <string name="data_area_public_storage_label">Public Storage</string>

@@ -31,6 +31,7 @@
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
+    <string name="general_filter_action">Filter</string>
     <string name="general_internal_not_available_msg">Internet connection unavailable</string>
     <string name="general_refresh_action">Refresh</string>
     <string name="general_progress_searching">Searching</string>

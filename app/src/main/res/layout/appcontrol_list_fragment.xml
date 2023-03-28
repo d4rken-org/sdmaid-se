@@ -7,37 +7,96 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        style="@style/Toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_appcontrol_list"
         app:subtitle="@string/general_details_label"
         app:title="@string/appcontrol_tool_name" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        style="@style/BaseRecyclerList"
-        android:paddingVertical="4dp"
-        android:visibility="invisible"
+        android:layoutDirection="inherit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:listitem="@layout/appcleaner_list_item"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-    <eu.darken.sdmse.common.progress.ProgressOverlayView
-        android:id="@+id/loading_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                style="@style/BaseRecyclerList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:paddingVertical="4dp"
+                android:visibility="invisible"
+                app:fastScrollEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/appcleaner_list_item"
+                tools:visibility="visible" />
+
+            <com.reddit.indicatorfastscroll.FastScrollerView
+                android:id="@+id/fastscroller"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                android:textColor="?colorPrimary"
+                app:fastScrollerIconColor="?colorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/list" />
+
+            <com.reddit.indicatorfastscroll.FastScrollerThumbView
+                android:id="@+id/fastscroller_thumb"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="@id/fastscroller"
+                app:layout_constraintEnd_toStartOf="@id/fastscroller"
+                app:layout_constraintTop_toTopOf="@id/fastscroller" />
+
+            <eu.darken.sdmse.common.progress.ProgressOverlayView
+                android:id="@+id/loading_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/filterpane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="?colorSurfaceVariant"
+            android:padding="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appcontrol_list_filteroptions_label"
+                android:textColor="?colorOnSurfaceVariant"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

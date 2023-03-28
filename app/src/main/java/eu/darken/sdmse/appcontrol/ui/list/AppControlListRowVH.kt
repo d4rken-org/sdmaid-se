@@ -41,7 +41,7 @@ class AppControlListRowVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val appInfo: AppInfo,
+        override val appInfo: AppInfo,
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item {
 
