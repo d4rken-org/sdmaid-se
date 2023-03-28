@@ -51,7 +51,7 @@ class AppControlListFragmentVM @Inject constructor(
                 it.pkg.packageName.contains(query)
             }
             ?.sortedWith(
-                compareBy<AppInfo> { it.pkg.isSystemApp }.thenBy { it.label.get(context) }
+                compareBy<AppInfo> { it.pkg.isSystemApp }.thenBy { it.label.get(context).uppercase() }
             )
             ?.map { content ->
                 AppControlListRowVH.Item(
@@ -67,6 +67,7 @@ class AppControlListFragmentVM @Inject constructor(
         State(
             appInfos = appInfos,
             progress = progress,
+            sortMode = State.SortMode.NAME,
             searchQuery = query,
         )
     }.asLiveData2()
@@ -79,8 +80,13 @@ class AppControlListFragmentVM @Inject constructor(
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progress: Progress.Data?,
+        val sortMode: SortMode,
         val searchQuery: String,
-    )
+    ) {
+        enum class SortMode {
+            NAME
+        }
+    }
 
     companion object {
         private val TAG = logTag("AppControl", "List", "VM")

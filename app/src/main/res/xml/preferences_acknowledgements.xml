@@ -25,7 +25,7 @@
         </Preference>
         <Preference
             android:key="license.shizuku"
-            android:summary="Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process.. (APACHE 2.0)"
+            android:summary="Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. (APACHE 2.0)"
             android:title="Shizuku"
             app:iconSpaceReserved="false">
             <intent
@@ -58,6 +58,15 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/airbnb/lottie-android" />
+        </Preference>
+        <Preference
+            android:key="license.indicatorfastscroll"
+            android:summary="Android library providing a simple UI control for scrolling through RecyclerViews. (APACHE 2.0)"
+            android:title="Indicator Fast Scroll"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/reddit/IndicatorFastScroll" />
         </Preference>
         <Preference
             android:key="license.kotlin"

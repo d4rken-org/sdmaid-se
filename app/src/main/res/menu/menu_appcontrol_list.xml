@@ -7,5 +7,10 @@
         android:title="@string/general_search_action"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/action_filterpane"
+        android:icon="@drawable/filter_multiple"
+        android:title="@string/general_filter_action"
+        app:showAsAction="ifRoom" />
 
 </menu>
