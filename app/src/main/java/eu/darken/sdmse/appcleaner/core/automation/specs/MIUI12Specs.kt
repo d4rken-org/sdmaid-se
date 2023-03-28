@@ -88,7 +88,10 @@ class MIUI12Specs @Inject constructor(
                     pkgInfo = pkg,
                     label = "Find & click MIUI 'Clear data' (targets=$clearDataLabels)",
                     windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
-                    windowEventFilter = CrawlerCommon.defaultWindowFilter(SETTINGS_PKG),
+                    windowEventFilter = { event ->
+                        // Some MIUI14 devices send the change event for the system settings app
+                        event.pkgId == SETTINGS_PKG || event.pkgId == "com.android.settings".toPkgId()
+                    },
                     windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                     nodeTest = clearDataFilter,
                     nodeRecovery = CrawlerCommon.getDefaultNodeRecovery(pkg),
