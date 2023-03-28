@@ -92,7 +92,7 @@
                 style="@style/TextAppearance.Material3.BodyLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/general_sorting_label"
+                android:text="@string/general_sort_options_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
