@@ -14,8 +14,6 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.UpgradeFragmentBinding
-import java.math.BigDecimal
-import java.math.RoundingMode
 
 @AndroidEntryPoint
 class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
@@ -35,15 +33,7 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
                 OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER.matches(offer)
             }
 
-            val breakEven: String = if (iapOffer != null && subOffer != null) {
-                val iapPrice = iapOffer.priceAmountMicros
-                val subPrice = subOffer.pricingPhases.pricingPhaseList.first().priceAmountMicros.toDouble()
-                val years = BigDecimal(iapPrice / subPrice).setScale(2, RoundingMode.HALF_EVEN)
-                "$years"
-            } else {
-                "~2"
-            }
-            breakEvenInfo.text = getString(R.string.upgrade_screen_how_body, breakEven)
+            breakEvenInfo.text = getString(R.string.upgrade_screen_how_body)
 
             upgradeIapAction.apply {
                 isEnabled = iapOffer != null && !state.hasIap
