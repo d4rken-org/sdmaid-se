@@ -49,8 +49,6 @@ class AutomationCrawler @AssistedInject constructor(
     private suspend fun doCrawl(step: Step, attempt: Int = 0) {
         log(TAG, VERBOSE) { "doCrawl(): Attempt $attempt for $step" }
 
-        log(TAG, VERBOSE) { "Looking for window root (intent=${step.windowIntent})." }
-
         when {
             attempt > 1 -> when {
                 hasApiLevel(31) -> {
@@ -75,6 +73,7 @@ class AutomationCrawler @AssistedInject constructor(
         // avg delay between activity launch and acs event
         delay(200)
 
+        log(TAG, VERBOSE) { "Looking for window root (intent=${step.windowIntent})." }
         // Wait for correct window
         val rootNode: AccessibilityNodeInfo = withTimeout(4000) {
             // Condition for the right window, e.g. check title

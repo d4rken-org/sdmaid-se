@@ -176,7 +176,7 @@ class ClearCacheModule @AssistedInject constructor(
                 crawler.crawl(spec)
                 log(TAG) { "Crawler (${pkg.id}) finished for $spec" }
             } catch (e: Exception) {
-                log(TAG) { "Crawler failed checking for branch exception for $spec" }
+                log(TAG) { "Crawler failed. Checking for branch exception for $spec" }
                 val branchException = CrawlerCommon.getBranchException(e)
                 if (branchException != null) {
                     var deletionSteps = branchException.invalidSteps

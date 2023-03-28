@@ -15,12 +15,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.automation.core.crawler.CrawlerException
+import eu.darken.sdmse.automation.core.crawler.crawl
 import eu.darken.sdmse.automation.core.crawler.getRoot
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -173,7 +173,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             return
         }
 
-        if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $copy" }
+        log(TAG, VERBOSE) { "New automation event: $copy" }
+
+        log(TAG, VERBOSE) { "TEST CRAWL:" }
+        runBlocking {
+            windowRoot().crawl(debug = true)
+        }
 
         try {
             event.source
