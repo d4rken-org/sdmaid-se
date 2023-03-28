@@ -55,6 +55,7 @@
     <string name="general_continue">Continue</string>
     <string name="general_progress_queued">In queue</string>
     <string name="general_progress_deleting">Deleting %s</string>
+    <string name="general_sorting_label">Sorting</string>
 
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operation failed</string>

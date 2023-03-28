@@ -50,7 +50,7 @@
 
             <com.reddit.indicatorfastscroll.FastScrollerView
                 android:id="@+id/fastscroller"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                 android:textColor="?colorPrimary"
@@ -84,16 +84,81 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:background="?colorSurfaceVariant"
-            android:padding="16dp">
+            android:padding="16dp"
+            tools:layout_gravity="">
 
             <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="wrap_content"
+                android:id="@+id/sortmode_label"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/appcontrol_list_filteroptions_label"
-                android:textColor="?colorOnSurfaceVariant"
+                android:text="@string/general_sorting_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/sortmode_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:checkedButton="@id/sortmode_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/sortmode_direction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sortmode_label"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_name"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_name_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_updated"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_updated_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_installed"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_installed_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_packagename"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_packagename_label" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sortmode_direction"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                app:icon="@drawable/ic_sort_ascending_24"
+                app:layout_constraintBottom_toBottomOf="@id/sortmode_group"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/sortmode_group"
+                app:layout_constraintTop_toTopOf="@id/sortmode_group" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

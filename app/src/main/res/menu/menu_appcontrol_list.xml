@@ -10,7 +10,7 @@
     <item
         android:id="@+id/action_filterpane"
         android:icon="@drawable/filter_multiple"
-        android:title="@string/general_filter_action"
+        android:title="@string/appcontrol_list_filteroptions_label"
         app:showAsAction="ifRoom" />
 
 </menu>
