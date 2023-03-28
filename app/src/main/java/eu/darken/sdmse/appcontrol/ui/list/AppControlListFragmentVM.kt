@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlScanTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
@@ -37,12 +38,18 @@ class AppControlListFragmentVM @Inject constructor(
     }
 
     val events = SingleLiveEvent<AppControlListEvents>()
+    private val searchQuery = MutableStateFlow<String>("")
 
     val items = combine(
         appControl.data,
         appControl.progress,
-    ) { data, progress ->
+        searchQuery,
+    ) { data, progress, query ->
         val appInfos = data?.apps
+            ?.filter {
+                if (query.isEmpty()) return@filter true
+                it.pkg.packageName.contains(query)
+            }
             ?.sortedWith(
                 compareBy<AppInfo> { it.pkg.isSystemApp }.thenBy { it.label.get(context) }
             )
@@ -60,12 +67,19 @@ class AppControlListFragmentVM @Inject constructor(
         State(
             appInfos = appInfos,
             progress = progress,
+            searchQuery = query,
         )
     }.asLiveData2()
+
+    fun updateSearchQuery(query: String) {
+        log(TAG) { "updateSearchQuery(): $query" }
+        searchQuery.value = query
+    }
 
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progress: Progress.Data?,
+        val searchQuery: String,
     )
 
     companion object {

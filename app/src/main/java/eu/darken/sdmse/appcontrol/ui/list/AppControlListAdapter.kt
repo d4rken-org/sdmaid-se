@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -33,6 +34,7 @@ class AppControlListAdapter @Inject constructor() :
     ) : VH(layoutId, parent), BindableVH<D, B>
 
     interface Item : DifferItem {
+        val appInfo: AppInfo
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

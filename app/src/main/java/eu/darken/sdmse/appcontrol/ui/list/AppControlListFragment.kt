@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
     override val vm: AppControlListFragmentVM by viewModels()
     override val ui: AppcontrolListFragmentBinding by viewBinding()
+    private var searchView: SearchView? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -29,6 +31,22 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)
                 }
+            }
+            menu.findItem(R.id.action_search)?.actionView?.apply {
+                this as SearchView
+                searchView = this
+
+                queryHint = getString(R.string.general_search_action)
+                setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String): Boolean {
+                        return false
+                    }
+
+                    override fun onQueryTextChange(query: String): Boolean {
+                        vm.updateSearchQuery(query)
+                        return false
+                    }
+                })
             }
         }
 
@@ -42,6 +60,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             if (state.appInfos != null) {
                 toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.appInfos.size)
                 adapter.update(state.appInfos)
+                searchView?.let {
+                    if (it.query != state.searchQuery) {
+                        it.setQuery(state.searchQuery, false)
+                    }
+                }
             } else {
                 toolbar.subtitle = null
             }
