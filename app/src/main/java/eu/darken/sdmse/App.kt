@@ -53,13 +53,13 @@ open class App : Application(), Configuration.Provider {
         }
         log(TAG) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
 
-
         combine(
             debugSettings.isDebugMode.flow,
             debugSettings.isTraceMode.flow,
             debugSettings.isDryRunMode.flow,
-        ) { isDebug, isTrace, isDryRun ->
-            log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
+            recorderModule.state,
+        ) { isDebug, isTrace, isDryRun, recorder ->
+            log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun, recorder=$recorder" }
             if (!BuildConfigWrap.DEBUG) {
                 if (isDebug) {
                     Logging.install(logCatLogger)
@@ -68,7 +68,7 @@ open class App : Application(), Configuration.Provider {
                 }
             }
 
-            Bugs.isDebug = isDebug
+            Bugs.isDebug = isDebug || recorder.isRecording
             Bugs.isTrace = isDebug && isTrace
             Bugs.isDryRun = isDryRun
         }.launchIn(appScope)

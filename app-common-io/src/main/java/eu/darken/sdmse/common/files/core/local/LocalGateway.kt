@@ -124,7 +124,6 @@ class LocalGateway @Inject constructor(
     override suspend fun lookup(path: LocalPath): LocalPathLookup = lookup(path, Mode.AUTO)
 
     suspend fun lookup(path: LocalPath, mode: Mode = Mode.AUTO): LocalPathLookup = runIO {
-        log(TAG, VERBOSE) { "lookup($path,$mode)" }
         try {
             val javaFile = path.asFile()
             val canRead = if (mode == Mode.ROOT) {
@@ -135,12 +134,12 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "lookup($mode->NORMAL): $path" }
                     if (!canRead) throw ReadException(path)
-                    log(TAG, VERBOSE) { "Looking up path in normal mode: $path" }
                     path.performLookup(ipcFunnel, libcoreTool)
                 }
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "Looking up path in root mode: $path" }
+                    log(TAG, VERBOSE) { "lookup($mode->ROOT): $path" }
                     rootOps { it.lookUp(path) }
                 }
                 else -> throw IOException("No matching mode available.")
@@ -171,10 +170,12 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "listFiles($mode->NORMAL): $path" }
                     if (nonRootList == null) throw ReadException(path)
                     nonRootList.map { LocalPath.build(it) }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "listFiles($mode->ROOT): $path" }
                     rootOps { it.listFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
@@ -188,10 +189,7 @@ class LocalGateway @Inject constructor(
 
     override suspend fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
 
-    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookup> = withContext(
-        dispatcherProvider.IO
-    ) {
-        log(TAG, VERBOSE) { "lookupFiles($path,$mode)" }
+    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookup> = runIO {
         try {
             val javaFile = path.asFile()
             val nonRootList = try {
@@ -205,21 +203,23 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "lookupFiles($mode->NORMAL): $path" }
                     if (nonRootList == null) throw ReadException(path)
-                    log(TAG, VERBOSE) { "Looking up files in normal mode: $path" }
                     nonRootList
                         .filter { it.canRead() }
                         .map { it.toLocalPath() }
                         .map { it.performLookup(ipcFunnel, libcoreTool) }
                 }
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "Looking up files in root mode: $path" }
+                    log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
                     rootOps { it.lookupFilesStream(path) }
                 }
                 else -> throw IOException("No matching mode available.")
             }.also {
-                log(TAG, VERBOSE) { "Looked up ${it.size} items" }
-                if (Bugs.isTrace) it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                if (Bugs.isTrace) {
+                    log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
+                    it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                }
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }

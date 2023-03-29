@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.debug
 
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -18,7 +17,7 @@ object Bugs {
 
     var isDryRun = false
     var isTrace = false
-    var isDebug = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV
+    var isDebug = false
 
     private val TAG = logTag("Debug", "Bugs")
 }

@@ -9,7 +9,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
@@ -51,7 +50,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
         }
         vm.bottomBarState.observe2(ui) { state ->
-            log { "BottombarState $state" }
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
                 bottomBarText.apply {
                     text = requireContext().getQuantityString2(
