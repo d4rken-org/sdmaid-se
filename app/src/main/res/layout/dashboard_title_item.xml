@@ -49,23 +49,45 @@
 
     </LinearLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/beta_ribbon"
-        style="@style/TextAppearance.Material3.LabelLarge"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="-44dp"
+        android:layout_marginEnd="-50dp"
         android:background="?colorError"
-        android:padding="8dp"
-        android:rotation="40"
-        android:text="              Beta              "
-        android:textColor="?colorOnError"
+        android:orientation="vertical"
+        android:id="@+id/ribbon"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:rotation="42"
         android:visibility="gone"
-        app:iconTint="?colorOnError"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText"
-        tools:visibility="visible" />
+        tools:visibility="visible">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ribbon_primary"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="52dp"
+            android:text="Beta"
+            android:textColor="?colorOnError"
+            app:iconTint="?colorOnError"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ribbon_secondary"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="v?.?.?-beta?"
+            android:textColor="?colorOnError"
+            android:textSize="10sp"
+            app:iconTint="?colorOnError"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

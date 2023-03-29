@@ -49,16 +49,16 @@ class TitleCardVH(parent: ViewGroup) :
 
         subtitle.text = getString(slogan)
 
-        betaRibbon.apply {
-
+        ribbon.apply {
             isVisible = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE
-            text = when (BuildConfigWrap.BUILD_TYPE) {
-                BuildConfigWrap.BuildType.DEV -> "              Dev              "
-                BuildConfigWrap.BuildType.BETA -> "              Beta              "
-                BuildConfigWrap.BuildType.RELEASE -> ""
-            }
             setOnClickListener { item.onRibbonClicked() }
         }
+        ribbonPrimary.text = when (BuildConfigWrap.BUILD_TYPE) {
+            BuildConfigWrap.BuildType.DEV -> "Dev"
+            BuildConfigWrap.BuildType.BETA -> "Beta"
+            BuildConfigWrap.BuildType.RELEASE -> ""
+        }
+        ribbonSecondary.text = BuildConfigWrap.VERSION_NAME
     }
 
     data class Item(
