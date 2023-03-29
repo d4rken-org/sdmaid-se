@@ -24,7 +24,6 @@ import okio.*
 import timber.log.Timber
 import java.io.IOException
 import java.time.Instant
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -62,9 +61,9 @@ class SAFGateway @Inject constructor(
         return SAFDocFile.fromTreeUri(context, contentResolver, targetTreeUri)
     }
 
-    @Throws(IOException::class)
     override suspend fun createFile(path: SAFPath): Boolean = runIO {
         val docFile = findDocFile(path)
+        log(TAG, VERBOSE) { "createFile(): $path -> $docFile" }
         if (docFile.exists) {
             if (docFile.isFile) return@runIO false
             else throw WriteException(path, message = "Path exists, but is not a file.")
@@ -78,9 +77,9 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun createDir(path: SAFPath): Boolean = runIO {
         val docFile = findDocFile(path)
+        log(TAG, VERBOSE) { "createDir(): $path -> $docFile" }
         if (docFile.exists) {
             if (docFile.isDirectory) return@runIO false
             else throw WriteException(path, message = "Path exists, but is not a directory.")
@@ -132,44 +131,46 @@ class SAFGateway @Inject constructor(
         return targetDocFile
     }
 
-    @Throws(IOException::class)
     override suspend fun listFiles(path: SAFPath): List<SAFPath> = runIO {
         try {
-            findDocFile(path)
-                .listFiles()
-                .map {
-                    val name = it.name ?: it.uri.pathSegments.last().split('/').last()
-                    path.child(name)
-                }
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "listFiles(): $path -> $docFile" }
+            docFile.listFiles().map {
+                val name = it.name ?: it.uri.pathSegments.last().split('/').last()
+                path.child(name)
+            }
         } catch (e: Exception) {
             Timber.tag(TAG).w("listFiles(%s) failed.", path)
             throw ReadException(path, cause = e)
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun exists(path: SAFPath): Boolean = runIO {
         try {
-            findDocFile(path).exists
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "exists(): $path -> $docFile" }
+            docFile.exists
         } catch (e: Exception) {
             throw ReadException(path, cause = e)
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun delete(path: SAFPath) = runIO {
         try {
-            val success = findDocFile(path).delete()
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "delete(): $path -> $docFile" }
+            val success = docFile.delete()
             if (!success) throw IOException("Document delete() call returned false")
         } catch (e: Exception) {
             throw WriteException(path, cause = e)
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun canWrite(path: SAFPath): Boolean = runIO {
         try {
-            findDocFile(path).writable
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "canWrite(): $path -> $docFile" }
+            docFile.writable
         } catch (e: MissingUriPermissionException) {
             false
         } catch (e: Exception) {
@@ -177,10 +178,11 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun canRead(path: SAFPath): Boolean = runIO {
         try {
-            findDocFile(path).readable
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "canRead(): $path -> $docFile" }
+            docFile.readable
         } catch (e: MissingUriPermissionException) {
             false
         } catch (e: Exception) {
@@ -188,11 +190,11 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun lookup(path: SAFPath): SAFPathLookup = runIO {
         try {
             val docFile = findDocFile(path)
             log(TAG, VERBOSE) { "lookup($path) -> $docFile" }
+
             if (!docFile.readable) throw IllegalStateException("readable=false")
 
             val fileType: FileType = when {
@@ -220,16 +222,20 @@ class SAFGateway @Inject constructor(
 
     override suspend fun lookupFiles(path: SAFPath): List<SAFPathLookup> = runIO {
         try {
-            findDocFile(path)
-                .listFiles()
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "lookupFiles($path) -> $docFile" }
+
+            docFile.listFiles()
                 .map {
                     val name = it.name ?: it.uri.pathSegments.last().split('/').last()
                     path.child(name)
                 }
                 .map { lookup(it) }
                 .also {
-                    log(TAG, VERBOSE) { "Looked up ${it.size} items" }
-                    if (Bugs.isTrace) it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                    if (Bugs.isTrace) {
+                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
+                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                    }
                 }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupFiles($path) failed." }
@@ -237,10 +243,11 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun read(path: SAFPath): Source = runIO {
         try {
             val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "read(): $path -> $docFile" }
+
             if (!docFile.readable) throw IllegalStateException("readable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.READ)
@@ -251,10 +258,11 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    @Throws(IOException::class)
     override suspend fun write(path: SAFPath): Sink = runIO {
         try {
             val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "write(): $path -> $docFile" }
+
             if (!docFile.writable) throw IllegalStateException("writable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.WRITE)
@@ -268,7 +276,7 @@ class SAFGateway @Inject constructor(
     override suspend fun setModifiedAt(path: SAFPath, modifiedAt: Instant): Boolean = runIO {
         try {
             val docFile = findDocFile(path)
-
+            log(TAG, VERBOSE) { "setModifiedAt(): $path -> $docFile" }
             docFile.setLastModified(modifiedAt)
         } catch (e: Exception) {
             throw WriteException(path, cause = e)
@@ -278,7 +286,7 @@ class SAFGateway @Inject constructor(
     override suspend fun setPermissions(path: SAFPath, permissions: Permissions): Boolean = runIO {
         try {
             val docFile = findDocFile(path)
-
+            log(TAG, VERBOSE) { "setPermissions(): $path -> $docFile" }
             docFile.setPermissions(permissions)
         } catch (e: Exception) {
             throw WriteException(path, cause = e)
@@ -288,7 +296,7 @@ class SAFGateway @Inject constructor(
     override suspend fun setOwnership(path: SAFPath, ownership: Ownership): Boolean = runIO {
         try {
             val docFile = findDocFile(path)
-
+            log(TAG, VERBOSE) { "setOwnership(): $path -> $docFile" }
             docFile.setOwnership(ownership)
         } catch (e: Exception) {
             throw WriteException(path, cause = e)
