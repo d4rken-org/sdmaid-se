@@ -247,9 +247,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canAccessParent -> {
+                    log(TAG, VERBOSE) { "exists($mode->NORMAL): $path" }
                     javaFile.exists()
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canAccessParent) -> {
+                    log(TAG, VERBOSE) { "exists($mode->ROOT): $path" }
                     rootOps { it.exists(path) }
                 }
                 else -> throw IOException("No matching mode available.")
@@ -272,9 +274,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "canWrite($mode->NORMAL): $path" }
                     canNormalWrite
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "canWrite($mode->ROOT): $path" }
                     rootOps { it.canWrite(path) }
                 }
                 else -> false
@@ -297,9 +301,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalOpen -> {
+                    log(TAG, VERBOSE) { "canRead($mode->NORMAL): $path" }
                     canNormalOpen
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
+                    log(TAG, VERBOSE) { "canRead($mode->ROOT): $path" }
                     rootOps { it.canRead(path) }
                 }
                 else -> false
@@ -323,9 +329,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalOpen -> {
+                    log(TAG, VERBOSE) { "read($mode->NORMAL): $path" }
                     javaFile.source()
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
+                    log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
                     val resource = javaRootClient.get()
                     rootOps {
@@ -353,9 +361,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canOpen -> {
+                    log(TAG, VERBOSE) { "write($mode->NORMAL): $path" }
                     file.sink()
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
+                    log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
                     val resource = javaRootClient.get()
                     rootOps {
@@ -382,6 +392,7 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
                     if (!canNormalWrite) throw WriteException(path)
                     val success = if (Bugs.isDryRun) {
                         log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
@@ -392,6 +403,7 @@ class LocalGateway @Inject constructor(
                     if (!success) throw IOException("delete() call returned false")
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
                         val success = if (Bugs.isDryRun) {
                             log(TAG, WARN) { "DRYRUN: Not deleting (root) $javaFile" }
@@ -424,9 +436,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "createSymlink($mode->NORMAL): $linkPath -> $targetPath" }
                     linkPathJava.createSymlink(targetPathJava)
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "createSymlink($mode->ROOT): $linkPath -> $targetPath" }
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
                 else -> throw IOException("No matching mode available.")
@@ -451,9 +465,11 @@ class LocalGateway @Inject constructor(
             }
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "setModifiedAt($mode->NORMAL): $path" }
                     path.file.setLastModified(modifiedAt.toEpochMilli())
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setModifiedAt($mode->ROOT): $path" }
                     rootOps {
                         it.setModifiedAt(path, modifiedAt)
                     }
@@ -478,9 +494,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "setPermissions($mode->NORMAL): $path" }
                     path.file.setPermissions(permissions)
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setPermissions($mode->ROOT): $path" }
                     rootOps { it.setPermissions(path, permissions) }
                 }
                 else -> throw IOException("No matching mode available.")
@@ -506,9 +524,11 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                    log(TAG, VERBOSE) { "setOwnership($mode->NORMAL): $path" }
                     path.file.setOwnership(ownership)
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setOwnership($mode->ROOT): $path" }
                     rootOps { it.setOwnership(path, ownership) }
                 }
                 else -> throw IOException("No matching mode available.")
