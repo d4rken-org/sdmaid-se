@@ -15,6 +15,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -74,8 +75,11 @@ class SchedulerReceiver : BroadcastReceiver() {
             schedulerManager.updateExecutedNow(scheduleId)
         }
 
-        log(TAG) { "Finished processing schedule alarm" }
-        asyncPi.finish()
+        appScope.launch {
+            delay(3000)
+            log(TAG) { "Finished processing schedule alarm" }
+            asyncPi.finish()
+        }
     }
 
     companion object {
