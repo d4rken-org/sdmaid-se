@@ -25,6 +25,11 @@ class RecorderActivity : Activity2() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (intent.getStringExtra(RECORD_PATH) == null) {
+            finish()
+            return
+        }
+
         ui = DebugRecordingActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
