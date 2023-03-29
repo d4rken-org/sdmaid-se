@@ -389,7 +389,14 @@ class LocalGateway @Inject constructor(
                     } else {
                         javaFile.delete()
                     }
-                    if (!success) throw IOException("delete() call returned false")
+                    if (!success) {
+                        if (mode == Mode.AUTO && hasRoot()) {
+                            delete(path, Mode.ROOT)
+                            return@runIO
+                        } else {
+                            throw IOException("delete() call returned false")
+                        }
+                    }
                 }
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     rootOps {
