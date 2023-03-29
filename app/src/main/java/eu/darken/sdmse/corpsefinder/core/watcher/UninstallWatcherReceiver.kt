@@ -15,6 +15,7 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -58,11 +59,13 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
             val scanTask = UninstallWatcherTask(pkg)
             taskManager.submit(scanTask)
 
+        }
+
+        appScope.launch {
+            delay(3000)
             log(TAG) { "Finished watcher trigger" }
             asyncPi.finish()
         }
-
-
     }
 
     companion object {
