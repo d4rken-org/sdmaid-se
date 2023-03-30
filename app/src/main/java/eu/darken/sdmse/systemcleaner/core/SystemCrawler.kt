@@ -21,6 +21,8 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -116,9 +118,11 @@ class SystemCrawler @Inject constructor(
                         .firstOrNull {
                             try {
                                 it.matches(item)
+                            } catch (e: CancellationException) {
+                                throw e
                             } catch (e: Exception) {
                                 log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
-                                false
+                                throw SystemCleanerFilterException(it, e)
                             }
                         }
 
