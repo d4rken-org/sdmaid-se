@@ -98,18 +98,27 @@ class AppScanner @Inject constructor(
         val includeSystemApps = settings.includeSystemAppsEnabled.value()
         val includeRunningApps = settings.includeRunningAppsEnabled.value()
 
+        val pkgExclusions = exclusionManager.currentExclusions()
+            .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
+            .filterIsInstance<Exclusion.Package>()
+
         updateProgressSecondary(R.string.general_progress_loading_app_data)
+
         val allCurrentPkgs = pkgRepo.currentPkgs()
             .filter { includeSystemApps || !it.isSystemApp }
             .filter { pkgFilter.isEmpty() || pkgFilter.contains(it.id) }
+            .filter { pkg ->
+                val isExcluded = pkgExclusions.any { it.match(pkg.id) }
+                if (isExcluded) log(TAG, INFO) { "Excluded package: ${pkg.id}" }
+                !isExcluded
+            }
             .filter { it.id.name != context.packageName }
 
         log(TAG) { "${allCurrentPkgs.size} apps to check :)" }
 
-        val searchPathMap = buildSearchMap(allCurrentPkgs)
-        searchPathMap.forEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
-
-        val expendablesFromAppData = readAppDirs(searchPathMap)
+        val expendablesFromAppData = buildSearchMap(allCurrentPkgs)
+            .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
+            .let { readAppDirs(it) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
 
@@ -164,11 +173,6 @@ class AppScanner @Inject constructor(
 
         val dataAreaMap = getDataAreaMap()
 
-        val pkgExclusions = exclusionManager.currentExclusions()
-            .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
-            .filterIsInstance<Exclusion.Package>()
-        val includeSystemApps = settings.includeSystemAppsEnabled.value()
-
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Pkg.Id>>()
 
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
@@ -176,14 +180,7 @@ class AppScanner @Inject constructor(
         for (pkg in pkgs) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
             updateProgressCount(Progress.Count.Percent(0, pkgs.size))
-
             log(TAG) { "Generating search paths for ${pkg.packageName}" }
-
-            if (!includeSystemApps && pkg.isSystemApp) continue
-            if (pkgExclusions.any { it.match(pkg.id) }) {
-                log(TAG, INFO) { "Excluded package: ${pkg.id}" }
-                continue
-            }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
