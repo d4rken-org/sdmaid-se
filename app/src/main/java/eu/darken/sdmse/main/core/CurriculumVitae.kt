@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.datastore.value
@@ -37,12 +38,16 @@ class CurriculumVitae @Inject constructor(
     private val _installedFirst = dataStore.createValue<Instant?>("stats.install.first", null, moshi)
     private val _launchedLast = dataStore.createValue<Instant?>("stats.launched.last", null, moshi)
     private val _launchedCount = dataStore.createValue("stats.launched.count", 0)
+    private val _launchedCountBeta = dataStore.createValue("stats.launched.beta.count", 0)
 
     fun updateAppLaunch() = appScope.launch {
         log(TAG, VERBOSE) { "updateAppLaunch()" }
         updateInstalledAt()
         updateLaunchTime()
         updateLaunchCount()
+        if (BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE) {
+            updateLaunchCountBeta()
+        }
         updateVersionHistory()
     }
 
@@ -67,6 +72,12 @@ class CurriculumVitae @Inject constructor(
         val newLaunchCount = _launchedCount.value() + 1
         log(TAG) { "Launch count is $newLaunchCount" }
         _launchedCount.value(newLaunchCount)
+    }
+
+    private suspend fun updateLaunchCountBeta() {
+        val newLaunchCount = _launchedCountBeta.value() + 1
+        log(TAG) { "Launch BETA count is $newLaunchCount" }
+        _launchedCountBeta.value(newLaunchCount)
     }
 
     private suspend fun updateVersionHistory() {
