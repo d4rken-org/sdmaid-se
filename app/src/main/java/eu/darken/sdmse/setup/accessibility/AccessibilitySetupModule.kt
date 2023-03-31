@@ -1,9 +1,13 @@
 package eu.darken.sdmse.setup.accessibility
 
+import android.content.Context
+import android.content.Intent
+import android.provider.Settings
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationController
@@ -21,6 +25,7 @@ import javax.inject.Inject
 
 @Reusable
 class AccessibilitySetupModule @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val automationController: AutomationController,
     private val deviceDetective: DeviceDetective,
@@ -34,11 +39,30 @@ class AccessibilitySetupModule @Inject constructor(
         val isServiceRunning = automationController.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
+        val mightBeRestricted = context.mightBeRestrictedDueToSideload()
+        log(TAG) { "mightBeRestricted=$mightBeRestricted" }
+
+        val hasPassedRestrictions = generalSettings.hasPassedAppOpsRestrictions.value()
+        log(TAG) { "hasPassedRestrictions=$hasPassedRestrictions" }
+
+        val hasTriggeredRestrictions = generalSettings.hasTriggeredRestrictions.value()
+        log(TAG) { "hasTriggeredRestrictions=$hasTriggeredRestrictions" }
+
+        // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java;l=520
+        val showAppOpsRestrictionHint = !hasPassedRestrictions && hasTriggeredRestrictions && mightBeRestricted
+
+        // Settings details screen needs to have the system UID, not ours, otherwise the appops setting is invisible
+        val liftRestrictionsIntent = Intent(Settings.ACTION_APPLICATION_SETTINGS).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+
         return@mapLatest State(
             hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
             needsAutostart = deviceDetective.isXiaomi(),
+            liftRestrictionsIntent = liftRestrictionsIntent,
+            showAppOpsRestrictionHint = showAppOpsRestrictionHint
         )
     }
 
@@ -51,6 +75,7 @@ class AccessibilitySetupModule @Inject constructor(
             }
         }
         generalSettings.hasAcsConsent.value(allowed)
+        generalSettings.hasTriggeredRestrictions.value(context.mightBeRestrictedDueToSideload())
     }
 
     override suspend fun refresh() {
@@ -63,6 +88,8 @@ class AccessibilitySetupModule @Inject constructor(
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
         val needsAutostart: Boolean,
+        val liftRestrictionsIntent: Intent,
+        val showAppOpsRestrictionHint: Boolean,
     ) : SetupModule.State {
 
         override val isComplete: Boolean = (isServiceEnabled && isServiceRunning) || hasConsent == false

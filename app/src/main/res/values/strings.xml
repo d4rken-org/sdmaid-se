@@ -141,6 +141,8 @@
     <string name="setup_acs_consent_negative_action">Don\'t use accessibility service</string>
     <string name="setup_acs_allow_hint">If you see a little icon on the screen edge, then you accidentally enabled the "shortcut" option.</string>
     <string name="setup_acs_disallow_hint">If you change you mind, you can alter this option again by going into settings and restarting the setup.</string>
+    <string name="setup_acs_appops_restriction_title">Restricted settings</string>
+    <string name="setup_acs_appops_restriction_body">Can\'t enable SD Maids accessibility service? Android 13+ may apply restrictions to apps not installed via Google Play. Lift these restrictions from the system\'s detail page for SD Maid. The option is in the context menu in the top right corner.</string>
 
 
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>

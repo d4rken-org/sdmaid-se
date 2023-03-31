@@ -87,11 +87,73 @@
             android:layout_marginTop="4dp"
             android:text="@string/setup_acs_state_stopped_hint_miui"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/running_state"
+            app:layout_constraintBottom_toTopOf="@id/restriction_appops_hint_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/enabled_state"
             tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/restriction_appops_hint_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?colorTertiaryContainer"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="8dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/running_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enabled_state_hint">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/restriction_appops_hint_title"
+                style="@style/TextAppearance.Material3.LabelLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_warning_24"
+                android:drawableTint="?colorSecondary"
+                android:gravity="center_vertical"
+                android:text="@string/setup_acs_appops_restriction_title"
+                android:textColor="?colorSecondary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/restriction_appops_hint_body"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/setup_acs_appops_restriction_body"
+                app:layout_constraintTop_toBottomOf="@id/restriction_appops_hint_title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/restriction_appops_hint_help_action"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/general_help_action"
+                app:layout_constraintEnd_toStartOf="@id/restriction_appops_hint_show_action"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/restriction_appops_hint_body" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/restriction_appops_hint_show_action"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/general_view_action"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/restriction_appops_hint_help_action"
+                app:layout_constraintTop_toBottomOf="@id/restriction_appops_hint_body" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/running_state"
@@ -109,7 +171,7 @@
             app:layout_constraintBottom_toTopOf="@id/running_state_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enabled_state_hint"
+            app:layout_constraintTop_toBottomOf="@id/restriction_appops_hint_container"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -146,8 +208,8 @@
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="@string/setup_acs_allow_hint"
-            app:layout_constraintEnd_toEndOf="@id/allow_action"
             app:layout_constraintBottom_toTopOf="@id/disallow_action"
+            app:layout_constraintEnd_toEndOf="@id/allow_action"
             app:layout_constraintStart_toStartOf="@id/allow_action"
             app:layout_constraintTop_toBottomOf="@id/allow_action"
             app:layout_goneMarginBottom="16dp" />

@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.setup.accessibility.mightBeRestrictedDueToSideload
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
@@ -81,6 +82,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 //            log(TAG, WARN) { "Injecting via fallback singleton access." }
 //            App.require().serviceInjector().inject(this)
 //        }
+
+        if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
+            log(TAG, INFO) { "We are not restricted by app ops." }
+            generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true
+        }
 
         serviceScope = CoroutineScope(dispatcher.IO + SupervisorJob())
 
