@@ -3,8 +3,8 @@ package eu.darken.sdmse.common.storage
 import android.content.ContentResolver
 import android.net.Uri
 import dagger.Reusable
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.local.LocalPath
@@ -25,42 +25,53 @@ class SAFMapper @Inject constructor(
 ) {
 
     suspend fun toSAFPath(localPath: LocalPath): SAFPath? {
-        val osStorage = storageManager2.storageVolumes
-            .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
-            .filter { it.directory != null }
-            .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
-            ?.also { log(TAG) { "Target storageVolumes for $localPath is $it" } }
-            ?: return null
+        return try {
+            val osStorage = storageManager2.storageVolumes
+                .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
+                .filter { it.directory != null }
+                .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
+                ?.also { log(TAG) { "Target storageVolumes for $localPath is $it" } }
+                ?: return null
 
-        val prefixFreeFile = if (osStorage.directory!!.path != localPath.path) {
-            localPath.path.replace("${osStorage.directory!!.path}${File.separatorChar}", "")
-        } else {
-            // Permission is equal to path
-            ""
-        }
+            val prefixFreeFile = if (osStorage.directory!!.path != localPath.path) {
+                localPath.path.replace("${osStorage.directory!!.path}${File.separatorChar}", "")
+            } else {
+                // Permission is equal to path
+                ""
+            }
 
-        val segments = if (prefixFreeFile.isEmpty()) {
-            emptyList()
-        } else {
-            prefixFreeFile.split(File.separator)
-        }
-        return SAFPath.build(
-            base = osStorage.treeUri,
-            segs = segments.toTypedArray(),
-        ).also {
-            log(TAG, VERBOSE) { "toSAFPath($localPath):$it" }
+            val segments = if (prefixFreeFile.isEmpty()) {
+                emptyList()
+            } else {
+                prefixFreeFile.split(File.separator)
+            }
+
+            SAFPath.build(
+                base = osStorage.treeUri,
+                segs = segments.toTypedArray(),
+            ).also {
+                log(TAG, VERBOSE) { "toSAFPath($localPath):$it" }
+            }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to map $localPath: ${e.asLog()}" }
+            null
         }
     }
 
     suspend fun toLocalPath(safPath: SAFPath): LocalPath? {
-        val osStorage = storageManager2.storageVolumes
-            .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $safPath" } }
-            .filter { it.directory != null }
-            .firstOrNull { safPath.treeRoot == it.treeUri }
-            ?.also { log(TAG) { "Target storageVolumes for $safPath is $it" } }
-            ?: return null
+        return try {
+            val osStorage = storageManager2.storageVolumes
+                .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $safPath" } }
+                .filter { it.directory != null }
+                .firstOrNull { safPath.treeRoot == it.treeUri }
+                ?.also { log(TAG) { "Target storageVolumes for $safPath is $it" } }
+                ?: return null
 
-        return osStorage.directory?.toLocalPath()?.child(*safPath.segments.toTypedArray())
+            osStorage.directory?.toLocalPath()?.child(*safPath.segments.toTypedArray())
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to map $safPath:${e.asLog()}" }
+            null
+        }
     }
 
     fun takePermission(uri: Uri) {
