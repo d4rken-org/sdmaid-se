@@ -41,7 +41,7 @@ open class SharedResource<T : Any> constructor(
         .onStart {
             lock.withLock {
                 isAlive = true
-                log(iTag, VERBOSE) { "Acquiring shared resource..." }
+                log(iTag, DEBUG) { "Acquiring shared resource..." }
 
                 if (children.isNotEmpty()) {
                     val _children = children.values.toList()
@@ -64,7 +64,7 @@ open class SharedResource<T : Any> constructor(
                 if (leases.isNotEmpty()) {
                     if (Bugs.isDebug) {
                         val remainingLeases = leases.joinToString()
-                        log(iTag, VERBOSE) { "Cleaning up $remainingLeases remaining leases" }
+                        log(iTag, VERBOSE) { "Cleaning up remaining leases: $remainingLeases" }
                     }
 
                     leases
@@ -79,14 +79,14 @@ open class SharedResource<T : Any> constructor(
                     leases.clear()
                 }
 
-                val orphanedLeases = leaseScope.coroutineContext.job.children.toList()
+                val orphanedLeases = leaseScope.coroutineContext.job.children.filter { it.isActive }.toList()
                 if (orphanedLeases.isNotEmpty()) {
                     log(iTag, WARN) { "Orphaned leases: $orphanedLeases" }
                     // This cancels all active leases, at the latest.
                     leaseScope.coroutineContext.cancelChildren()
                 }
 
-                log(iTag, VERBOSE) { "Shared resource flow completed." }
+                log(iTag, DEBUG) { "Shared resource flow completed." }
             }
         }
         .map {
@@ -101,12 +101,9 @@ open class SharedResource<T : Any> constructor(
         .shareIn(parentScope, SharingStarted.WhileSubscribed(replayExpirationMillis = 0), replay = 1)
 
     suspend fun get(): Resource<T> {
-        if (Bugs.isDebug && !isAlive) {
-            if (Bugs.isTrace) {
-                log(iTag, VERBOSE) { "get(): Reviving SharedResource\n${traceCall()}" }
-            } else {
-                log(iTag, VERBOSE) { "get(): Reviving SharedResource" }
-            }
+        if (Bugs.isTrace && !isAlive) {
+            log(iTag, DEBUG) { "get(): Reviving SharedResource" }
+            log(iTag, VERBOSE) { "get(): Revive call origin: ${traceCall()}" }
         }
 
         val activeLease = lock.withLock {
@@ -114,7 +111,7 @@ open class SharedResource<T : Any> constructor(
                 invokeOnCompletion {
                     if (Bugs.isTrace) {
                         val leaseSize = leases.size
-                        log(iTag, VERBOSE) { "get(): Lease completed (leases=$leaseSize, $job)" }
+                        log(iTag, VERBOSE) { "get(): Lease completed (now=$leaseSize, $job)." }
                     }
                 }
             }
@@ -126,7 +123,9 @@ open class SharedResource<T : Any> constructor(
                 if (Bugs.isTrace) {
                     log(iTag, VERBOSE) { "get(): Adding new lease ($job)" }
                 }
+
                 leases.add(it)
+
                 if (Bugs.isTrace) {
                     val leaseSize = leases.size
                     log(iTag, VERBOSE) { "get(): Now holding $leaseSize lease(s)" }
@@ -141,7 +140,7 @@ open class SharedResource<T : Any> constructor(
                 is Event.Resource -> event.resource
             }
         } catch (e: Exception) {
-            log(iTag, WARN) { "get(): Failed to retrieve resource: ${e.asLog()}" }
+            log(iTag, WARN) { "get(): Failed to retrieve resource (${e.asLog()}" }
             activeLease.close()
             throw e.tryUnwrap()
         }
@@ -149,9 +148,9 @@ open class SharedResource<T : Any> constructor(
         return Resource(resource, activeLease)
     }
 
-    private inner class ActiveLease(
-        val job: Job,
-        val traceTag: String? = null
+    inner class ActiveLease(
+        internal val job: Job,
+        private val traceTag: String? = null
     ) : KeepAlive {
         override val resourceId: String = this@SharedResource.resourceId
 
@@ -160,7 +159,7 @@ open class SharedResource<T : Any> constructor(
 
         override fun close() {
             if (Bugs.isTrace) {
-                log(iTag, VERBOSE) { "Closing keep alive ($job)${traceTag?.let { "\n$it" } ?: ""}" }
+                log(iTag, VERBOSE) { "Closing keep alive ($job)." }
             }
             leaseScope.launch {
                 if (Bugs.isTrace) log(iTag, VERBOSE) { "Close code running, waiting for lock! ($job)" }
@@ -185,12 +184,20 @@ open class SharedResource<T : Any> constructor(
                     } else {
                         log(iTag, WARN) { "Lease was already removed? (now $leaseSize) ($job)" }
                     }
+
+                    try {
+                        leases.toList().forEachIndexed { index, activeLease ->
+                            log(iTag, VERBOSE) { "Lease #$index - $activeLease" }
+                        }
+                    } catch (e: Exception) {
+                        log(iTag, VERBOSE) { "Lease logging concurrency error" }
+                    }
                 }
             }
 
         }
 
-        override fun toString(): String = "ActiveLease(job=$job)${traceTag?.let { "\n$it" } ?: ""}"
+        override fun toString(): String = "ActiveLease(job=$job)${traceTag?.let { "\nCreated at $it" } ?: ""}"
     }
 
     /**
