@@ -134,7 +134,12 @@ class PkgOps @Inject constructor(
         }
 
         log(TAG, VERBOSE) { "getInstalledPackages(flags=$flags): size=${result.size}" }
-        require(result.isEmpty() || result.any { it.packageName == BuildConfigWrap.APPLICATION_ID })
+        if (result.isEmpty()) {
+            throw IllegalPkgDataException("No installed packages")
+        }
+        if (result.any { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
+            throw IllegalPkgDataException("Returned package data didn't contain us")
+        }
 
         return result
     }
