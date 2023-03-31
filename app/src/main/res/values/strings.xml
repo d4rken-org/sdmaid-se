@@ -104,6 +104,7 @@
     <string name="setup_saf_card_body">Improve results by granting SD Maid access to additional areas.</string>
     <string name="setup_saf_card_body2">In most cases the window will open with the correct path preselected. Entries turn green when access was granted. </string>
     <string name="setup_saf_error_wrong_path">You selected the wrong path</string>
+    <string name="setup_saf_missing_app_error">The Documents UI app is unavailable. It\'s a built-in system app and should be available on all Android devices.</string>
 
     <string name="setup_manage_storage_card_title">Manage storage</string>
     <string name="setup_manage_storage_card_body">Allow SD Maid to manage your storage.</string>

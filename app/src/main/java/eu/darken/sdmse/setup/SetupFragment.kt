@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -96,7 +97,20 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     safRequestLauncher.launch(event.item)
                 } catch (e: ActivityNotFoundException) {
                     log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
-                    e.asErrorDialogBuilder(requireContext()).show()
+                    val errorDialog = if (e.message?.contains("OPEN_DOCUMENT_TREE") == true) {
+                        MaterialAlertDialogBuilder(requireContext()).apply {
+                            setTitle(R.string.general_error_label)
+                            setMessage(R.string.setup_saf_missing_app_error)
+
+                            setPositiveButton(android.R.string.ok) { _, _ -> }
+                            setNeutralButton(R.string.general_help_action) { _, _ ->
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#open_document_tree-activitynotfoundexception")
+                            }
+                        }
+                    } else {
+                        e.asErrorDialogBuilder(requireContext())
+                    }
+                    errorDialog.show()
                 }
                 is SetupEvents.SafWrongPathError -> {
                     Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
