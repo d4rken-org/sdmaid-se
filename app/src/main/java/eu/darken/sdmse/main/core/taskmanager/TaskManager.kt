@@ -11,10 +11,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.rngString
-import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.StatsRepo
 import kotlinx.coroutines.*
@@ -34,10 +32,9 @@ class TaskManager @Inject constructor(
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
     private val taskWorkerControl: TaskWorkerControl,
     private val statsRepo: StatsRepo,
-) : HasSharedResource<Any> {
+) {
 
-    override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
-    private val children = tools
+    private val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val managerLock = Mutex()
     private val concurrencyLock = Semaphore(2)
@@ -82,7 +79,12 @@ class TaskManager @Inject constructor(
     init {
         state
             .distinctUntilChanged()
-            .onEach { log(TAG, VERBOSE) { "Task map changed:\n${managedTasks.value.values.joinToString("\n")}" } }
+            .onEach {
+                log(TAG, VERBOSE) { "Task map changed:" }
+                managedTasks.value.values.forEachIndexed { index, managedTask ->
+                    log(TAG, VERBOSE) { "#$index - $managedTask" }
+                }
+            }
             .launchIn(appScope)
         state
             .distinctUntilChanged()
@@ -114,7 +116,7 @@ class TaskManager @Inject constructor(
             .launchIn(appScope)
     }
 
-    private suspend fun updateTasks(update: MutableMap<String, ManagedTask>.() -> Unit) {
+    private suspend fun updateTasks(update: MutableMap<String, ManagedTask>.() -> Unit) = withContext(NonCancellable) {
         managerLock.withLock {
             val modMap = managedTasks.value.toMutableMap()
             update(modMap)
@@ -183,16 +185,15 @@ class TaskManager @Inject constructor(
                 }
                 error = e
             } finally {
-                withContext(NonCancellable) {
-                    updateTasks {
-                        this[taskId]!!.tool.updateProgress { null }
-                        this[taskId]!!.resourceLock?.close()
-                        this[taskId] = this[taskId]!!.copy(
-                            completedAt = Instant.now(),
-                            error = error,
-                            result = result,
-                        )
-                    }
+                updateTasks {
+                    this[taskId]!!.tool.updateProgress { null }
+                    log(TAG) { "Releasing resource lock for $taskId" }
+                    this[taskId]!!.resourceLock!!.close()
+                    this[taskId] = this[taskId]!!.copy(
+                        completedAt = Instant.now(),
+                        error = error,
+                        result = result,
+                    )
                 }
             }
         }
@@ -203,13 +204,15 @@ class TaskManager @Inject constructor(
             // Any task causes the taskmanager to stay "alive" and with it any depending resources
             // Only release all resources once all tasks are finished.
             val keepAlive = sharedResource.get()
-            children.forEach { adoptChildResource(it) }
+
+            val tool = tools.single { it.type == task.type }
+            sharedResource.addChild(tool.sharedResource)
 
             updateTasks {
                 val managedTask = ManagedTask(
                     id = taskId,
                     task = task,
-                    tool = tools.single { it.type == task.type },
+                    tool = tool,
                     job = job,
                     resourceLock = keepAlive,
                 )
@@ -218,9 +221,9 @@ class TaskManager @Inject constructor(
 
                 log(TAG) { "submit(): Queued: $managedTask" }
             }
-
-            job.join()
         }
+
+        job.join()
 
         val endTask = managedTasks
             .mapNotNull { it[taskId] }
