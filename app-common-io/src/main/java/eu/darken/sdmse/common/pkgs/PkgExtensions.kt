@@ -18,4 +18,4 @@ val Pkg.isEnabled: Boolean
     get() = this is ExtendedInstallData && this.isEnabled
 
 val Pkg.isSystemApp: Boolean
-    get() = this is ExtendedInstallData && this.isSystemApp
+    get() = (this !is ExtendedInstallData) || this.isSystemApp
