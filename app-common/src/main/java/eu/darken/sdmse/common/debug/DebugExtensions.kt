@@ -4,4 +4,6 @@ import eu.darken.sdmse.common.error.getStackTraceString
 
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun traceCall() = Throwable().getStackTraceString()
+inline fun traceCall() = CallTrace().getStackTraceString()
+
+class CallTrace : Throwable()
