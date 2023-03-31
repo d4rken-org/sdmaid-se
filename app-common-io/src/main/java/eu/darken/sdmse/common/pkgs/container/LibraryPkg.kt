@@ -20,6 +20,7 @@ data class LibraryPkg(
     private val apkPath: APath,
     override val packageInfo: PackageInfo,
 ) : Installed, ReadableApk {
+
     override val id: Pkg.Id
         get() {
             val rawId = if (versionCode == -1L) {
