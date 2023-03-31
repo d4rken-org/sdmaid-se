@@ -83,10 +83,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
+            android:background="?colorSurfaceVariant"
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="?colorSurfaceVariant"
             android:padding="16dp"
             tools:layout_gravity="">
 
@@ -149,7 +149,6 @@
                     android:text="@string/appcontrol_list_sortmode_packagename_label" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sortmode_direction"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
@@ -162,6 +161,95 @@
                 app:layout_constraintStart_toEndOf="@id/sortmode_group"
                 app:layout_constraintTop_toTopOf="@id/sortmode_group" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tag_filters_label"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/general_tag_filter_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sortmode_group" />
+
+            <ImageView
+                android:id="@+id/tag_filter_user_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_app_extra_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_user_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_user_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_user_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filters_label" />
+
+            <ImageView
+                android:id="@+id/tag_filter_system_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_apps"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_system_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_system_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_system_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_system"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_user_switch" />
+
+            <ImageView
+                android:id="@+id/tag_filter_enabled_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_weather_sunny_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_enabled_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_enabled_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_enabled_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_enabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_system_switch" />
+
+            <ImageView
+                android:id="@+id/tag_filter_disabled_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_snowflake_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_disabled_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_disabled_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_disabled_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_disabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_enabled_switch" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

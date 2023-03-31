@@ -12,6 +12,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.FilterSettings
+import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
@@ -35,7 +37,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
     fun DrawerLayout.toggle() = if (isDrawerOpen) closeDrawer(GravityCompat.END) else openDrawer(GravityCompat.END)
 
-    private var currentSortMode: AppControlListFragmentVM.State.SortMode = AppControlListFragmentVM.State.SortMode.NAME
+    private var currentSortMode: SortSettings.Mode = SortSettings.Mode.NAME
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -75,27 +77,27 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         ui.apply {
             val itemLabler: (Int) -> FastScrollItemIndicator? = { pos ->
                 val lbl = when (currentSortMode) {
-                    AppControlListFragmentVM.State.SortMode.NAME -> adapter.data.getOrNull(pos)?.appInfo
+                    SortSettings.Mode.NAME -> adapter.data.getOrNull(pos)?.appInfo
                         ?.label?.get(requireContext())
                         ?.take(1)
                         ?.uppercase()
                         ?.takeIf { it.toDoubleOrNull() == null }
                         ?: "?"
-                    AppControlListFragmentVM.State.SortMode.PACKAGENAME -> adapter.data.getOrNull(pos)?.appInfo
+                    SortSettings.Mode.PACKAGENAME -> adapter.data.getOrNull(pos)?.appInfo
                         ?.pkg?.packageName
                         ?.take(3)
                         ?.uppercase()
                         ?.removeSuffix(".")
                         ?.takeIf { it.toDoubleOrNull() == null }
                         ?: "?"
-                    AppControlListFragmentVM.State.SortMode.LAST_UPDATE -> adapter.data.getOrNull(pos)?.appInfo
+                    SortSettings.Mode.LAST_UPDATE -> adapter.data.getOrNull(pos)?.appInfo
                         ?.pkg?.let { it as? ExtendedInstallData }?.updatedAt
                         ?.let {
                             val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
                             formatter.format(it.toSystemTimezone())
                         }
                         ?: "?"
-                    AppControlListFragmentVM.State.SortMode.INSTALLED_AT -> adapter.data.getOrNull(pos)?.appInfo
+                    SortSettings.Mode.INSTALLED_AT -> adapter.data.getOrNull(pos)?.appInfo
                         ?.pkg?.let { it as? ExtendedInstallData }?.installedAt
                         ?.let {
                             val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
@@ -115,31 +117,45 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         ui.sortmodeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
             if (!isChecked) return@addOnButtonCheckedListener
             val mode = when (checkedId) {
-                R.id.sortmode_name -> AppControlListFragmentVM.State.SortMode.NAME
-                R.id.sortmode_updated -> AppControlListFragmentVM.State.SortMode.LAST_UPDATE
-                R.id.sortmode_installed -> AppControlListFragmentVM.State.SortMode.INSTALLED_AT
-                R.id.sortmode_packagename -> AppControlListFragmentVM.State.SortMode.PACKAGENAME
+                R.id.sortmode_name -> SortSettings.Mode.NAME
+                R.id.sortmode_updated -> SortSettings.Mode.LAST_UPDATE
+                R.id.sortmode_installed -> SortSettings.Mode.INSTALLED_AT
+                R.id.sortmode_packagename -> SortSettings.Mode.PACKAGENAME
                 else -> throw IllegalArgumentException("Unknown sortmode $checkedId")
             }
             vm.updateSortMode(mode)
         }
         ui.sortmodeDirection.setOnClickListener { vm.toggleSortDirection() }
 
+        ui.apply {
+            tagFilterUserSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.USER) }
+            tagFilterSystemSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.SYSTEM) }
+            tagFilterEnabledSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.ENABLED) }
+            tagFilterDisabledSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.DISABLED) }
+        }
+
         vm.state.observe2(ui) { state ->
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
             fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()
-            val checkedSortMode = when (state.sortMode) {
-                AppControlListFragmentVM.State.SortMode.NAME -> R.id.sortmode_name
-                AppControlListFragmentVM.State.SortMode.LAST_UPDATE -> R.id.sortmode_updated
-                AppControlListFragmentVM.State.SortMode.INSTALLED_AT -> R.id.sortmode_installed
-                AppControlListFragmentVM.State.SortMode.PACKAGENAME -> R.id.sortmode_packagename
+
+            val checkedSortMode = when (state.listSort.mode) {
+                SortSettings.Mode.NAME -> R.id.sortmode_name
+                SortSettings.Mode.LAST_UPDATE -> R.id.sortmode_updated
+                SortSettings.Mode.INSTALLED_AT -> R.id.sortmode_installed
+                SortSettings.Mode.PACKAGENAME -> R.id.sortmode_packagename
             }
             sortmodeGroup.check(checkedSortMode)
             sortmodeDirection.setIconResource(
-                if (state.sortReversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
+                if (state.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
             )
-            currentSortMode = state.sortMode
+            currentSortMode = state.listSort.mode
+
+            val listFilter = state.listFilter
+            tagFilterUserSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.USER)
+            tagFilterSystemSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.SYSTEM)
+            tagFilterEnabledSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.ENABLED)
+            tagFilterDisabledSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.DISABLED)
 
             if (state.appInfos != null) {
                 toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.appInfos.size)
