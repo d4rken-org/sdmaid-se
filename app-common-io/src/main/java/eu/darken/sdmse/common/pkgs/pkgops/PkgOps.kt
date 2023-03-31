@@ -137,7 +137,7 @@ class PkgOps @Inject constructor(
         if (result.isEmpty()) {
             throw IllegalPkgDataException("No installed packages")
         }
-        if (result.any { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
+        if (result.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
             throw IllegalPkgDataException("Returned package data didn't contain us")
         }
 
