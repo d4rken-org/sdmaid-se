@@ -121,7 +121,13 @@ class SetupFragmentVM @Inject constructor(
                             },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
-                            }
+                            },
+                            onRestrictionsShow = {
+                                events.postValue(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
+                            },
+                            onRestrictionsHelp = {
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
+                            },
                         )
                         is NotificationSetupModule.State -> NotificationSetupCardVH.Item(
                             state = state,

@@ -5,10 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 
+fun Pkg.getSettingsIntent(context: Context) = id.getSettingsIntent(context)
 
-fun Pkg.getSettingsIntent(context: Context): Intent = Intent(Intent.ACTION_VIEW).apply {
+fun Pkg.Id.getSettingsIntent(context: Context): Intent = Intent(Intent.ACTION_VIEW).apply {
     action = android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-    data = Uri.parse("package:${packageName}")
+    data = Uri.parse("package:${this@getSettingsIntent.name}")
 }
 
 fun String.toPkgId() = Pkg.Id(this)

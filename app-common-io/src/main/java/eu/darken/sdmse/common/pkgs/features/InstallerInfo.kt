@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.pkgs.features
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.content.pm.PackageInstaller
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -23,6 +24,7 @@ data class InstallerInfo(
     val installingPkg: Pkg?,
     val initiatingPkg: Pkg? = null,
     val originatingPkg: Pkg? = null,
+    val sourceType: SourceType = SourceType.UNSPECIFIED,
 ) {
 
     val allInstallers: List<Pkg>
@@ -45,6 +47,14 @@ data class InstallerInfo(
         installer!!.icon?.get(context)?.let { return it }
 
         return ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }
+
+    enum class SourceType {
+        UNSPECIFIED,
+        STORE,
+        LOCAL_FILE,
+        DOWNLOADED_FILE,
+        OTHER,
     }
 }
 
@@ -81,10 +91,24 @@ private fun PackageInfo.getInstallerInfoApi30(packageManager: PackageManager): I
         ?.toPkgId()
         ?.let { it.toKnownPkg() ?: it.toStub() }
 
+    val sourceType = if (hasApiLevel(33)) {
+        @SuppressLint("NewApi")
+        when (sourceInfo?.packageSource) {
+            PackageInstaller.PACKAGE_SOURCE_OTHER -> InstallerInfo.SourceType.OTHER
+            PackageInstaller.PACKAGE_SOURCE_STORE -> InstallerInfo.SourceType.STORE
+            PackageInstaller.PACKAGE_SOURCE_LOCAL_FILE -> InstallerInfo.SourceType.LOCAL_FILE
+            PackageInstaller.PACKAGE_SOURCE_DOWNLOADED_FILE -> InstallerInfo.SourceType.DOWNLOADED_FILE
+            else -> InstallerInfo.SourceType.UNSPECIFIED
+        }
+    } else {
+        InstallerInfo.SourceType.UNSPECIFIED
+    }
+
     return InstallerInfo(
         initiatingPkg = initiatingPkg,
         installingPkg = installingPkg,
         originatingPkg = originatingPkg,
+        sourceType = sourceType
     )
 }
 

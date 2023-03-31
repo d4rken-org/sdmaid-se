@@ -51,6 +51,10 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
                 )
             )
         }
+        restrictionAppopsHintContainer.isVisible = state.showAppOpsRestrictionHint
+        restrictionAppopsHintHelpAction.setOnClickListener { item.onRestrictionsHelp() }
+        restrictionAppopsHintShowAction.setOnClickListener { item.onRestrictionsShow() }
+
         enabledStateHint.apply {
             isVisible = !state.isServiceEnabled && state.needsAutostart
             when {
@@ -114,6 +118,8 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
         val onGrantAction: () -> Unit,
         val onDismiss: () -> Unit,
         val onHelp: () -> Unit,
+        val onRestrictionsHelp: () -> Unit,
+        val onRestrictionsShow: () -> Unit,
     ) : SetupAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

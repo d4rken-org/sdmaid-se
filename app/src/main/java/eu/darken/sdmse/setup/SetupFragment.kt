@@ -160,6 +160,14 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         e.asErrorDialogBuilder(requireContext()).show()
                     }
                 }
+                is SetupEvents.ShowOurDetailsPage -> {
+                    try {
+                        startActivity(event.intent)
+                    } catch (e: ActivityNotFoundException) {
+                        log(TAG, ERROR) { "Failed to launch app settings for app ops restriction: ${e.asLog()}" }
+                        e.asErrorDialogBuilder(requireContext()).show()
+                    }
+                }
             }
         }
 

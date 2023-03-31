@@ -33,6 +33,9 @@ class GeneralSettings @Inject constructor(
 
     val isSetupDismissed = dataStore.createValue("core.setup.dismissed", false)
 
+    val hasPassedAppOpsRestrictions = dataStore.createValue("core.appops.restrictions.passed", false)
+    val hasTriggeredRestrictions = dataStore.createValue("core.appops.restrictions.triggered", false)
+
     val isBugReporterEnabled = dataStore.createValue(
         "core.bugreporter.enabled",
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
