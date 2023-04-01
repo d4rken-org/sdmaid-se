@@ -125,7 +125,7 @@
 
     <string name="setup_notification_title">Notifications</string>
     <string name="setup_notification_body">Allow SD Maid to post notifications to inform you about on-going operations or important events.</string>
-    <string name="setup_notification_hint">Notifications are used sparingly 🤞.</string>
+    <string name="setup_notification_hint">Notifications are used sparingly 🤞</string>
 
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. clicking \"Clear cache\" on multiple screens.</string>
