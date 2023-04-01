@@ -49,7 +49,9 @@ class VivoAPI29PlusSpecs @Inject constructor(
             "Internal storage",
             // https://github.com/d4rken/sdmaid-public/issues/5045
             // vivo/2037M/2037:11/RP1A.200720.012/compiler0720222823:user/release-keys
-            "Storage & cache"
+            "Storage & cache",
+            // vivo/1933/1933:11/RP1A.200720.012/compiler0201174227:user/release-keys
+            "Storage",
         )
         // https://github.com/d4rken/sdmaid-public/issues/4758
         "in".toLang() == lang -> setOf("Penyimpanan & cache")
