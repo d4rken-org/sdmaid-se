@@ -51,9 +51,12 @@
             <com.reddit.indicatorfastscroll.FastScrollerView
                 android:id="@+id/fastscroller"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_fastscroller"
+                android:padding="4dp"
                 android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                android:textColor="?colorPrimary"
+                android:textColor="?colorOnPrimaryContainer"
                 app:fastScrollerIconColor="?colorSecondary"
                 app:layout_constraintBottom_toBottomOf="@id/list"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,11 +64,13 @@
 
             <com.reddit.indicatorfastscroll.FastScrollerThumbView
                 android:id="@+id/fastscroller_thumb"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="@id/fastscroller"
+                android:layout_width="48dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="32dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/fastscroller"
-                app:layout_constraintTop_toTopOf="@id/fastscroller" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <eu.darken.sdmse.common.progress.ProgressOverlayView
                 android:id="@+id/loading_overlay"
@@ -87,8 +92,7 @@
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:padding="16dp"
-            tools:layout_gravity="">
+            android:padding="16dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sortmode_label"
