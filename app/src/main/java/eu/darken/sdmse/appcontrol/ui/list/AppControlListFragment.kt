@@ -2,10 +2,12 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.core.view.isInvisible
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -38,6 +40,16 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     fun DrawerLayout.toggle() = if (isDrawerOpen) closeDrawer(GravityCompat.END) else openDrawer(GravityCompat.END)
 
     private var currentSortMode: SortSettings.Mode = SortSettings.Mode.NAME
+    private val onBackPressedcallback = object : OnBackPressedCallback(false) {
+        override fun handleOnBackPressed() {
+            if (ui.drawer.isDrawerOpen) ui.drawer.toggle()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressedcallback)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -69,7 +81,27 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             }
         }
 
-        ui.drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        ui.drawer.apply {
+            setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            addDrawerListener(object : DrawerListener {
+                override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+
+                }
+
+                override fun onDrawerStateChanged(newState: Int) {
+                    onBackPressedcallback.isEnabled = newState == DrawerLayout.STATE_IDLE && isDrawerOpen
+                }
+
+                override fun onDrawerOpened(drawerView: View) {
+
+                }
+
+                override fun onDrawerClosed(drawerView: View) {
+
+                }
+
+            })
+        }
 
         val adapter = AppControlListAdapter()
         ui.list.setupDefaults(adapter)
