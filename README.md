@@ -3,9 +3,9 @@
 # SD Maid 2/SE
 
 [![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
-[![Github All Releases](https://img.shields.io/github/downloads/d4rken-org/sdmaid-se/total.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/d4rken-org/sdmaid-se/total.svg)](https://github.com/d4rken-org/sdmaid-se/edit/main/README.md#download)
 [![Crowdin](https://badges.crowdin.net/sdmaid-se/localized.svg)](https://crowdin.com/project/sdmaid-se)
-[![Code tests & eval](https://github.com/d4rken-org/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken-org/sdmaid-se/actions/workflows/code-checks.yml)
+[![Code tests & eval](https://github.com/d4rken-org/sdmaid-se/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken-org/sdmaid-se/actions)
 
 > _**SD Maid 2/SE in actively being worked on and not feature complete. Feature requests are welcome!**_
 
