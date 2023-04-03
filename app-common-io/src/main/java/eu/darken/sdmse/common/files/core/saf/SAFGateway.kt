@@ -195,7 +195,7 @@ class SAFGateway @Inject constructor(
             val docFile = findDocFile(path)
             log(TAG, VERBOSE) { "lookup($path) -> $docFile" }
 
-            if (!docFile.readable) throw IllegalStateException("readable=false")
+            if (!docFile.readable) throw IOException("readable=false")
 
             val fileType: FileType = when {
                 docFile.isDirectory -> FileType.DIRECTORY
@@ -248,7 +248,7 @@ class SAFGateway @Inject constructor(
             val docFile = findDocFile(path)
             log(TAG, VERBOSE) { "read(): $path -> $docFile" }
 
-            if (!docFile.readable) throw IllegalStateException("readable=false")
+            if (!docFile.readable) throw IOException("readable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.READ)
             ParcelFileDescriptor.AutoCloseInputStream(pfd).source().buffer()
@@ -263,7 +263,7 @@ class SAFGateway @Inject constructor(
             val docFile = findDocFile(path)
             log(TAG, VERBOSE) { "write(): $path -> $docFile" }
 
-            if (!docFile.writable) throw IllegalStateException("writable=false")
+            if (!docFile.writable) throw IOException("writable=false")
 
             val pfd = docFile.openPFD(contentResolver, FileMode.WRITE)
             ParcelFileDescriptor.AutoCloseOutputStream(pfd).sink().buffer()
