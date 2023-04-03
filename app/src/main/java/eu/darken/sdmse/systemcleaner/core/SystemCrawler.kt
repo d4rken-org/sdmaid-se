@@ -24,6 +24,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.*
+import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
@@ -120,6 +121,9 @@ class SystemCrawler @Inject constructor(
                                 it.matches(item)
                             } catch (e: CancellationException) {
                                 throw e
+                            } catch (e: IOException) {
+                                log(TAG, WARN) { "IO error while matching ($it): ${e.asLog()}" }
+                                false
                             } catch (e: Exception) {
                                 log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
                                 throw SystemCleanerFilterException(it, e)
