@@ -20,7 +20,8 @@ class PathTreeFlow<
         > constructor(
     private val gateway: GT,
     private val start: P,
-    private val filter: suspend (PL) -> Boolean = { true }
+    private val onFilter: suspend (PL) -> Boolean = { true },
+    private val onError: suspend (PL, Exception) -> Boolean = { _, _ -> true }
 ) : AbstractFlow<PL>() {
     private val tag = "$TAG#${hashCode()}"
     override suspend fun collectSafely(collector: FlowCollector<PL>) {
@@ -40,12 +41,16 @@ class PathTreeFlow<
                 lookUp.lookedUp.lookupFiles(gateway)
             } catch (e: IOException) {
                 log(TAG, ERROR) { "Failed to read $lookUp: ${e.asLog()}" }
-                emptyList()
+                if (onError(lookUp, e)) {
+                    emptyList()
+                } else {
+                    throw e
+                }
             }
 
             newBatch
                 .filter {
-                    val allowed = filter(it)
+                    val allowed = onFilter(it)
                     if (Bugs.isTrace) {
                         if (allowed) log(tag, VERBOSE) { "Walking: $it" }
                         else log(tag, VERBOSE) { "Not walking (filter): $it" }
