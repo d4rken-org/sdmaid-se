@@ -95,7 +95,7 @@ class LocalGateway @Inject constructor(
                 val file = path.asFile()
 
                 if (file.exists() && file.isDirectory) {
-                    throw IllegalStateException("Item exists already, but it's a directory.")
+                    throw IOException("Item exists already, but it's a directory.")
                 }
 
                 file.parentFile?.let {

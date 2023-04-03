@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.io.IOException
 import javax.inject.Inject
 
 class FileOpsHost @Inject constructor(
@@ -109,7 +110,7 @@ class FileOpsHost @Inject constructor(
         val file = path.asFile()
 
         if (file.exists() && file.isDirectory) {
-            throw IllegalStateException("Can't create file, path exists and is directory: $path")
+            throw IOException("Can't create file, path exists and is directory: $path")
         }
 
         file.parentFile?.let {

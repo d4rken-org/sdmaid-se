@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.files.core.saf.startsWith
 import okio.Sink
 import okio.Source
 import java.io.File
+import java.io.IOException
 import java.time.Instant
 import java.util.*
 
@@ -82,7 +83,7 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
             log(VERBOSE) { "File already exists, not creating: $this" }
             return this
         } else {
-            throw IllegalStateException("Exists, but is not a file: $this")
+            throw IOException("Exists, but is not a file: $this")
         }
     }
 
@@ -97,7 +98,7 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
             log(VERBOSE) { "Directory already exists, not creating: $this" }
             return this
         } else {
-            throw IllegalStateException("Exists, but is not a directory: $this")
+            throw IOException("Exists, but is not a directory: $this")
         }
     }
 
