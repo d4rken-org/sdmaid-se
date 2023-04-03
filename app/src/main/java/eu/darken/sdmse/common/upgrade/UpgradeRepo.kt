@@ -8,6 +8,8 @@ interface UpgradeRepo {
 
     val upgradeInfo: Flow<Info>
 
+    suspend fun refresh()
+
     interface Info {
         val type: Type
 

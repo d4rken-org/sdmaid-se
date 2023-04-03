@@ -81,7 +81,7 @@ class BillingConnectionProvider @Inject constructor(
     }
 
     val connection: Flow<BillingConnection> = provider
-        .setupCommonEventHandlers(TAG) { "connection" }
+        .setupCommonEventHandlers(TAG) { "provider" }
         .retryWhen { cause, attempt ->
             log(TAG) { "Billing client connection error: ${cause.asLog()}" }
 

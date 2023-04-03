@@ -17,6 +17,8 @@ class MainActivity : Activity2() {
 
     private val vm: MainActivityVM by viewModels()
     private lateinit var ui: MainActivityBinding
+
+    @Suppress("unused")
     private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     @Inject lateinit var curriculumVitae: CurriculumVitae
@@ -38,6 +40,11 @@ class MainActivity : Activity2() {
         curriculumVitae.updateAppOpened()
 
         vm.readyState.observe2 { showSplashScreen = false }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        vm.checkUpgrades()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
