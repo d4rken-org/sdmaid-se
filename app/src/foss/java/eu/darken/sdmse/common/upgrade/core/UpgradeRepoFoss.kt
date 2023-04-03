@@ -9,9 +9,11 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import java.time.Instant
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,18 +26,22 @@ class UpgradeRepoFoss @Inject constructor(
 
     override val mainWebsite: String = SITE
 
-    override val upgradeInfo: Flow<UpgradeRepo.Info> = fossCache.upgrade.flow
-        .map { data ->
-            if (data == null) {
-                Info()
-            } else {
-                Info(
-                    isPro = true,
-                    upgradedAt = data.upgradedAt,
-                    fossUpgradeType = data.upgradeType,
-                )
-            }
+    private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
+
+    override val upgradeInfo: Flow<UpgradeRepo.Info> = combine(
+        fossCache.upgrade.flow,
+        refreshTrigger
+    ) { data, _ ->
+        if (data == null) {
+            Info()
+        } else {
+            Info(
+                isPro = true,
+                upgradedAt = data.upgradedAt,
+                fossUpgradeType = data.upgradeType,
+            )
         }
+    }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
 
     fun launchGithubSponsorsUpgrade() = appScope.launch {
@@ -45,6 +51,11 @@ class UpgradeRepoFoss @Inject constructor(
             upgradeType = FossUpgrade.Type.GITHUB_SPONSORS
         )
         webpageTool.open(mainWebsite)
+    }
+
+    override suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        refreshTrigger.value = UUID.randomUUID()
     }
 
     data class Info(

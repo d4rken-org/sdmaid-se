@@ -10,15 +10,11 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.*
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
@@ -38,11 +34,12 @@ class UpgradeRepoGplay @Inject constructor(
     override val upgradeInfo: Flow<Info> = billingManager.billingData
         .map<BillingData, BillingData?> { it }
         .onStart { emit(null) }
+        .setupCommonEventHandlers(TAG) { "upgradeInfo1" }
         .map { data: BillingData? -> // Only relinquish pro state if we haven't had it for a while
             val now = System.currentTimeMillis()
-
             val lastProStateAt = billingCache.lastProStateAt.value()
-            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, data=${data}" }
+            log(TAG) { "Map: now=$now, lastProStateAt=$lastProStateAt, data=${data}" }
+
             when {
                 data?.purchases?.isNotEmpty() == true -> {
                     // If we are pro refresh timestamp
@@ -58,11 +55,12 @@ class UpgradeRepoGplay @Inject constructor(
                 }
             }
         }
+        .distinctUntilChanged()
         .catch {
             // Ignore Google Play errors if the last pro state was recent
             val now = System.currentTimeMillis()
             val lastProStateAt = billingCache.lastProStateAt.value()
-            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$it" }
+            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, error=$it" }
             if ((now - lastProStateAt) < 7 * 24 * 60 * 1000L) { // 7 days
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
@@ -70,8 +68,8 @@ class UpgradeRepoGplay @Inject constructor(
                 throw it
             }
         }
-        .setupCommonEventHandlers(TAG) { "upgradeInfo" }
-        .replayingShare(scope)
+        .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
+        .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
     fun launchBillingFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) {
         log(TAG) { "launchBillingFlow($activity,$sku)" }
@@ -88,6 +86,11 @@ class UpgradeRepoGplay @Inject constructor(
     }
 
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = billingManager.querySkus(*skus)
+
+    override suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        billingManager.refresh()
+    }
 
     data class Info(
         private val gracePeriod: Boolean = false,
@@ -120,6 +123,6 @@ class UpgradeRepoGplay @Inject constructor(
 
     companion object {
         private const val SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
-        val TAG: String = logTag("Upgrade", "Gplay", "Control")
+        val TAG: String = logTag("Upgrade", "Gplay", "Repo")
     }
 }

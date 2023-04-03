@@ -15,6 +15,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -23,13 +24,13 @@ data class BillingConnection(
     val purchaseEvents: Flow<Pair<BillingResult, Collection<Purchase>?>?>,
 ) {
 
-    private val queryCacheIaps = MutableStateFlow<Map<String, Purchase>>(emptyMap())
-    private val queryCacheSubs = MutableStateFlow<Map<String, Purchase>>(emptyMap())
+    private val queryCacheIaps = MutableStateFlow<Map<String, Purchase>?>(null)
+    private val queryCacheSubs = MutableStateFlow<Map<String, Purchase>?>(null)
 
     val purchases: Flow<Collection<Purchase>> = combine(
         purchaseEvents,
-        queryCacheIaps,
-        queryCacheSubs,
+        queryCacheIaps.filterNotNull(),
+        queryCacheSubs.filterNotNull(),
     ) { purchaseEvent, iapCache, subCache ->
         val combined = mutableMapOf<String, Purchase>()
 
@@ -58,8 +59,6 @@ data class BillingConnection(
         if (!billingResult.isSuccess) {
             log(TAG, WARN) { "queryPurchases() failed" }
             throw  BillingClientException(billingResult)
-        } else {
-            requireNotNull(purchaseData)
         }
 
         return purchaseData

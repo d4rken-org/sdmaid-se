@@ -8,39 +8,44 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
+import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class BillingManager @Inject constructor(
     @AppScope private val scope: CoroutineScope,
-    private val connectionProvider: BillingConnectionProvider,
+    connectionProvider: BillingConnectionProvider,
 ) {
 
     private val connection = connectionProvider.connection
         .onEach { it.refreshPurchases() }
         .catch { log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" } }
-        .replayingShare(scope)
+        .setupCommonEventHandlers(TAG) { "connection" }
+        .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
-    val billingData: Flow<BillingData> = connection
+    private val purchases = connection
         .flatMapLatest { it.purchases }
+        .distinctUntilChanged()
+        .setupCommonEventHandlers(TAG) { "purchases" }
+        .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
+
+    val billingData: Flow<BillingData> = purchases
         .map { BillingData(purchases = it) }
-        .setupCommonEventHandlers(TAG) { "iapData" }
+        .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
     init {
-        connection
-            .flatMapLatest { client ->
-                client.purchases.map { client to it }
-            }
-            .onEach { (client, purchases) ->
+        purchases
+            .onEach { purchases ->
                 purchases
                     .filter {
                         val needsAck = !it.isAcknowledged
@@ -54,7 +59,9 @@ class BillingManager @Inject constructor(
                         log(TAG, INFO) { "Acknowledging purchase: $it" }
 
                         try {
-                            client.acknowledgePurchase(it)
+                            useConnection {
+                                acknowledgePurchase(it)
+                            }
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "Failed to ancknowledge purchase: $it\n${e.asLog()}" }
                         }
@@ -89,17 +96,22 @@ class BillingManager @Inject constructor(
             .launchIn(scope)
     }
 
-    suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = connectionProvider.use {
+    private suspend fun <T> useConnection(action: suspend BillingConnection.() -> T): T = connection
+        .map { action(it) }
+        .take(1)
+        .single()
+
+    suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = useConnection {
         log(TAG) { "querySkus(): $skus..." }
-        it.querySkus(*skus).also {
+        querySkus(*skus).also {
             log(TAG) { "querySkus(): $it" }
         }
     }
 
     suspend fun startIapFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) {
         try {
-            connectionProvider.use {
-                it.launchBillingFlow(activity, sku, offer)
+            useConnection {
+                launchBillingFlow(activity, sku, offer)
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }
@@ -117,6 +129,13 @@ class BillingManager @Inject constructor(
         }
     }
 
+    suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        scope.launch {
+            useConnection { refreshPurchases() }
+        }.join()
+    }
+
     companion object {
         internal fun Throwable.tryMapUserFriendly(): Throwable {
             if (this !is BillingClientException) return this
@@ -130,6 +149,6 @@ class BillingManager @Inject constructor(
             }
         }
 
-        val TAG: String = logTag("Upgrade", "Gplay", "Billing", "DataRepo")
+        val TAG: String = logTag("Upgrade", "Gplay", "Billing", "Manager")
     }
 }
