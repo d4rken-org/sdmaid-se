@@ -277,9 +277,10 @@ data class SAFDocFile(
         }
 
         fun fromTreeUri(context: Context, contentResolver: ContentResolver, treeUri: Uri): SAFDocFile {
-            var documentId = DocumentsContract.getTreeDocumentId(treeUri)
-            if (DocumentsContract.isDocumentUri(context, treeUri)) {
-                documentId = DocumentsContract.getDocumentId(treeUri)
+            val documentId = if (DocumentsContract.isDocumentUri(context, treeUri)) {
+                DocumentsContract.getDocumentId(treeUri)
+            } else {
+                DocumentsContract.getTreeDocumentId(treeUri)
             }
             return SAFDocFile(
                 context,
