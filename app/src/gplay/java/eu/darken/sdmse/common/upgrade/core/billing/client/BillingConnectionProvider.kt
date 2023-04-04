@@ -75,8 +75,12 @@ class BillingConnectionProvider @Inject constructor(
 
         log(TAG) { "Awaiting close." }
         awaitClose {
-            log(TAG) { "Stopping billing client connection" }
-            client.endConnection()
+            try {
+                log(TAG) { "Stopping billing client connection" }
+                client.endConnection()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Couldn't end billing client connection: ${e.asLog()}" }
+            }
         }
     }
 
