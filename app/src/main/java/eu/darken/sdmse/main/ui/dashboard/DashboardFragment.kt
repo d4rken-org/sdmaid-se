@@ -115,6 +115,15 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         requireContext().getColorForAttr(R.attr.colorError)
                     )
                 }
+                DashboardFragmentVM.BottomBarState.Action.ONECLICK -> {
+                    mainAction.setImageResource(R.drawable.ic_delete_alert_24)
+                    mainAction.imageTintList = ColorStateList.valueOf(
+                        requireContext().getColorForAttr(R.attr.colorOnError)
+                    )
+                    mainAction.backgroundTintList = ColorStateList.valueOf(
+                        requireContext().getColorForAttr(R.attr.colorError)
+                    )
+                }
                 DashboardFragmentVM.BottomBarState.Action.WORKING -> {
                     mainAction.setImageDrawable(null)
                     mainAction.imageTintList =

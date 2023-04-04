@@ -8,8 +8,12 @@
     <string name="slogan_message_3">Doing what is necessary.</string>
     <string name="slogan_message_4">All your ducks in a row.</string>
     <string name="slogan_message_5">Spotless.</string>
+
     <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
     <string name="dashboard_delete_all_message">Delete results in all tools?</string>
+    <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_settings_oneclick_title">One-Click Mode</string>
+    <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a click on the dashboard\'s action button, no extra confirmations.</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
