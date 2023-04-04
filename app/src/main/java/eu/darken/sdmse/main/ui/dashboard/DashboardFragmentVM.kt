@@ -279,27 +279,31 @@ class DashboardFragmentVM @Inject constructor(
         enum class Action {
             SCAN,
             DELETE,
+            ONECLICK,
             WORKING,
             WORKING_CANCELABLE
         }
     }
 
-    val bottomBarState = combine(
+    val bottomBarState = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
         corpseFinder.data,
         systemCleaner.data,
         appCleaner.data,
+        generalSettings.enableDashboardOneClick.flow,
     ) { upgradeInfo,
         taskState,
         corpseData,
         filterData,
-        junkData ->
+        junkData,
+        oneClickMode ->
 
         val actionState: BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
             !taskState.isIdle -> BottomBarState.Action.WORKING
             corpseData.hasData || filterData.hasData || junkData.hasData -> BottomBarState.Action.DELETE
+            oneClickMode -> BottomBarState.Action.ONECLICK
             else -> BottomBarState.Action.SCAN
         }
         val activeTasks = taskState.tasks.filter { it.isActive }.size
@@ -327,6 +331,10 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.DELETE -> if (corpseFinder.data.first() != null) {
                     submitTask(CorpseFinderDeleteTask())
                 }
+                BottomBarState.Action.ONECLICK -> {
+                    submitTask(CorpseFinderScanTask())
+                    submitTask(CorpseFinderDeleteTask())
+                }
             }
         }
         launch {
@@ -335,6 +343,10 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (systemCleaner.data.first() != null) {
+                    submitTask(SystemCleanerDeleteTask())
+                }
+                BottomBarState.Action.ONECLICK -> {
+                    submitTask(SystemCleanerScanTask())
                     submitTask(SystemCleanerDeleteTask())
                 }
             }
@@ -346,6 +358,14 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.data.first() != null && upgradeRepo.isPro()) {
+                        submitTask(AppCleanerDeleteTask())
+                    } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
+                        DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
+                    }
+                }
+                BottomBarState.Action.ONECLICK -> {
+                    if (upgradeRepo.isPro()) {
+                        submitTask(AppCleanerScanTask())
                         submitTask(AppCleanerDeleteTask())
                     } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
                         DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()

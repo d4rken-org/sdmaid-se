@@ -36,6 +36,8 @@ class GeneralSettings @Inject constructor(
     val hasPassedAppOpsRestrictions = dataStore.createValue("core.appops.restrictions.passed", false)
     val hasTriggeredRestrictions = dataStore.createValue("core.appops.restrictions.triggered", false)
 
+    val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.enabled", false)
+
     val isBugReporterEnabled = dataStore.createValue(
         "core.bugreporter.enabled",
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
@@ -44,7 +46,8 @@ class GeneralSettings @Inject constructor(
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
         themeType,
-        isBugReporterEnabled
+        isBugReporterEnabled,
+        enableDashboardOneClick
     )
 
     companion object {

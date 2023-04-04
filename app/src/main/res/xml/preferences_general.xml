@@ -2,6 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory android:title="@string/dashboard_settings_category">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_delete_alert_24"
+            app:key="dashboard.oneclick.enabled"
+            app:summary="@string/dashboard_settings_oneclick_summary"
+            app:title="@string/dashboard_settings_oneclick_title" />
+
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_category_ui_label">
 
         <ListPreference
