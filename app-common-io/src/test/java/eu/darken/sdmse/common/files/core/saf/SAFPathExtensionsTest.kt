@@ -5,12 +5,12 @@ import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.files.core.isAncestorOf
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
-import java.time.Instant
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
@@ -87,21 +87,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(testUri1, "seg1", "seg2"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(testUri1, "seg1", "alt"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         file1.matches(file1) shouldBe true
         file1.matches(file2) shouldBe false
@@ -122,21 +112,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent", "child", "niece"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         file1.isAncestorOf(file1) shouldBe false
@@ -167,21 +147,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent", "child", "niece"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         file1.isDescendantOf(file1) shouldBe false
@@ -212,21 +182,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent", "child"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         file1.isParentOf(file1) shouldBe false
@@ -257,21 +217,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "parent", "child"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         file1.isChildOf(file1) shouldBe false
@@ -316,21 +266,11 @@ class SAFPathExtensionsTest : BaseTest() {
 
         val lookup1 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "chi"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val lookup2 = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "child"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         file1.startsWith(file1) shouldBe true
@@ -359,21 +299,11 @@ class SAFPathExtensionsTest : BaseTest() {
         val pre = SAFPath.build(baseTreeUri, "pre")
         val prefixLookup = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "pre", "fix"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
         val preLookup = SAFPathLookup(
             lookedUp = SAFPath.build(baseTreeUri, "pre"),
-            fileType = FileType.FILE,
-            size = 16,
-            modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
-            target = null,
+            docFile = mockk(),
         )
 
         prefix.removePrefix(prefix) shouldBe emptyList()
