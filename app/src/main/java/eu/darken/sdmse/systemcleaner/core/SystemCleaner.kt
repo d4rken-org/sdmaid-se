@@ -121,7 +121,7 @@ class SystemCleaner @Inject constructor(
             val filterContent = snapshot.filterContents.single { it.filterIdentifier == targetIdentifier }
 
             val deleted = mutableSetOf<APathLookup<*>>()
-            val targetContents = task.targetContent ?: filterContent.items
+            val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }
             targetContents.forEach { targetContent ->
                 updateProgressPrimary(caString {
                     it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))

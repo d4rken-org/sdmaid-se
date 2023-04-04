@@ -49,7 +49,9 @@ class FilterContentFragmentVM @Inject constructor(
             },
             onExcludeClicked = {
                 launch {
-                    filterContent.items.forEach { systemCleaner.exclude(filterContent.filterIdentifier, it) }
+                    filterContent.items.forEach {
+                        systemCleaner.exclude(filterContent.filterIdentifier, it.lookedUp)
+                    }
                 }
             }
         ).run { elements.add(this) }
@@ -60,7 +62,7 @@ class FilterContentFragmentVM @Inject constructor(
                 lookup = item,
                 onItemClick = {
                     events.postValue(
-                        FilterContentEvents.ConfirmFileDeletion(it.filterContent.filterIdentifier, it.lookup)
+                        FilterContentEvents.ConfirmFileDeletion(it.filterContent.filterIdentifier, it.lookup.lookedUp)
                     )
                 },
             )

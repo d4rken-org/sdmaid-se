@@ -28,7 +28,7 @@ import java.time.Instant
 import java.util.*
 
 
-internal data class SAFDocFile(
+data class SAFDocFile(
     private val context: Context,
     private val resolver: ContentResolver,
     val uri: Uri
@@ -216,7 +216,7 @@ internal data class SAFDocFile(
         }
     }
 
-    fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
+    internal fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
         return contentResolver.openFileDescriptor(uri, mode.value) ?: throw IOException("Couldn't open $uri")
     }
 

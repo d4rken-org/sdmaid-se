@@ -197,22 +197,11 @@ class SAFGateway @Inject constructor(
 
             if (!docFile.readable) throw IOException("readable=false")
 
-            val fileType: FileType = when {
-                docFile.isDirectory -> FileType.DIRECTORY
-                else -> FileType.FILE
-            }
-            val fstat = docFile.fstat()
-
             SAFPathLookup(
                 lookedUp = path,
-                fileType = fileType,
-                modifiedAt = docFile.lastModified,
-                ownership = fstat?.let { Ownership(it.st_uid.toLong(), it.st_gid.toLong()) },
-                permissions = fstat?.let { Permissions(it.st_mode) },
-                size = docFile.length,
-                target = null
+                docFile = docFile,
             ).also {
-                log(TAG, VERBOSE) { "Looked up: $it" }
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looked up: $it" }
             }
         } catch (e: Exception) {
             Timber.tag(TAG).w("lookup(%s) failed.", path)

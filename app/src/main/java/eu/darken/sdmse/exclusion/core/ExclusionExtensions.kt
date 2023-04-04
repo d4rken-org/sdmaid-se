@@ -1,6 +1,7 @@
 package eu.darken.sdmse.exclusion.core
 
 import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.core.APathLookup
 import eu.darken.sdmse.common.files.core.isAncestorOf
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.main.core.SDMTool
@@ -29,6 +30,24 @@ suspend fun ExclusionManager.pkgExclusions(tool: SDMTool.Type) = currentExclusio
             SDMTool.Type.APPCONTROL -> throw UnsupportedOperationException()
         }
     }
+
+suspend fun <P : APath, PL : APathLookup<P>> Exclusion.Path.excludeNestedLookups(paths: Collection<PL>): Collection<PL> {
+    if (paths.isEmpty()) return emptySet()
+
+    val excluded = mutableSetOf<PL>()
+
+    var temp = paths.filter { path ->
+        match(path.lookedUp).also {
+            if (it) excluded.add(path)
+        }
+    }
+
+    temp = temp.filter { path ->
+        excluded.none { path.isAncestorOf(it) }
+    }
+
+    return temp
+}
 
 suspend fun <T : APath> Exclusion.Path.excludeNested(paths: Collection<T>): Collection<T> {
     if (paths.isEmpty()) return emptySet()

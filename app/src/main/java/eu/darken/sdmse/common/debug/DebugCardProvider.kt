@@ -6,13 +6,18 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.GatewaySwitch
+import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.core.walk
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.javaroot.JavaRootClient
+import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
@@ -20,6 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.*
 import javax.inject.Inject
@@ -35,6 +41,7 @@ class DebugCardProvider @Inject constructor(
     private val pkgOps: PkgOps,
     private val automationController: AutomationController,
     private val gatewaySwitch: GatewaySwitch,
+    private val safMapper: SAFMapper,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
@@ -59,11 +66,6 @@ class DebugCardProvider @Inject constructor(
                     pkgRepo.reload()
                 }
             },
-            onRunTest = {
-                vm.launch {
-
-                }
-            },
             onViewLog = {
                 DashboardFragmentDirections.actionDashboardFragmentToLogViewFragment().navVia(vm)
             },
@@ -79,6 +81,21 @@ class DebugCardProvider @Inject constructor(
                         }
                     )
                 }
+            },
+            onRunTest = {
+                vm.launch {
+                    val local = LocalPath.build("/storage/emulated/0/Android/data")
+                    val saf = safMapper.toSAFPath(local)!!
+                    val start = System.currentTimeMillis()
+
+                    val paths = gatewaySwitch.useRes {
+                        saf.walk(gatewaySwitch).toList()
+                    }
+
+                    val duration = System.currentTimeMillis() - start
+                    val durationS = duration / 1000
+                    log(TAG) { "${paths.size} items in $duration ms (${paths.size / durationS} item/s)" }
+                }
             }
         )
     }
@@ -89,4 +106,8 @@ class DebugCardProvider @Inject constructor(
         val magiskGranted: Boolean,
         val serviceLaunched: String?,
     )
+
+    companion object {
+        private val TAG = logTag("Debug", "Card", "Provider")
+    }
 }

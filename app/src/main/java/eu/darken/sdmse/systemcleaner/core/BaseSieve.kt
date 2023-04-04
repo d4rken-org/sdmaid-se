@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.core.*
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.forensics.identifyArea
 
 class BaseSieve @AssistedInject constructor(
     @Assisted private val config: Config,
