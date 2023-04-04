@@ -144,7 +144,7 @@ class PrivateDataModule @Inject constructor(
             if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
-                    path = gateway.lookup(path, mode = LocalGateway.Mode.ROOT),
+                    path = path,
                     userHandle = userManager2.currentUser,
                 ).run { resultAreas.add(this) }
             }
@@ -158,7 +158,7 @@ class PrivateDataModule @Inject constructor(
             if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
-                    path = gateway.lookup(path, mode = LocalGateway.Mode.ROOT),
+                    path = path,
                     userHandle = userManager2.currentUser,
                 ).run { resultAreas.add(this) }
             }
