@@ -28,7 +28,13 @@ class BillingManager @Inject constructor(
 ) {
 
     private val connection = connectionProvider.connection
-        .onEach { it.refreshPurchases() }
+        .onEach {
+            try {
+                it.refreshPurchases()
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Initial purchase data refresh failed: ${e.asLog()}" }
+            }
+        }
         .catch { log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" } }
         .setupCommonEventHandlers(TAG) { "connection" }
         .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
@@ -132,7 +138,13 @@ class BillingManager @Inject constructor(
     suspend fun refresh() {
         log(TAG) { "refresh()" }
         scope.launch {
-            useConnection { refreshPurchases() }
+            useConnection {
+                try {
+                    refreshPurchases()
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Manual purchase data refresh failed: ${e.asLog()}" }
+                }
+            }
         }.join()
     }
 
