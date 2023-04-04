@@ -37,47 +37,38 @@ data class SAFDocFile(
     val name: String?
         get() = queryForString(DocumentsContract.Document.COLUMN_DISPLAY_NAME)
 
-    val mimeType: String?
-        get() = queryForString(DocumentsContract.Document.COLUMN_MIME_TYPE)
+    val exists: Boolean
+        get() = queryForString(DocumentsContract.Document.COLUMN_DOCUMENT_ID) != null
+
+    private val mimeType: String? by lazy { queryForString(DocumentsContract.Document.COLUMN_MIME_TYPE) }
 
     val isFile: Boolean
-        get() {
-            val mt = mimeType
-            return DocumentsContract.Document.MIME_TYPE_DIR != (mt) && mt?.isNotEmpty() == true
-        }
+        get() = DocumentsContract.Document.MIME_TYPE_DIR != (mimeType) && mimeType?.isNotEmpty() == true
 
     val isDirectory: Boolean
         get() = mimeType == DocumentsContract.Document.MIME_TYPE_DIR
 
-    val exists: Boolean
-        get() = queryForString(DocumentsContract.Document.COLUMN_DOCUMENT_ID) != null
-
     val writable: Boolean
         get() {
             // Ignore if grant doesn't allow write
-            if (context.checkCallingOrSelfUriPermission(
-                    uri,
-                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
+            if (!hasPermission(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)) {
                 return false
             }
 
-            val mimeTypeCached = mimeType
             val flags: Int = queryForLong(DocumentsContract.Document.COLUMN_FLAGS)?.toInt() ?: 0
 
             // Ignore documents without MIME
-            if (TextUtils.isEmpty(mimeTypeCached)) return false
+            if (TextUtils.isEmpty(mimeType)) return false
 
             // Deletable documents considered writable
             if (flags and DocumentsContract.Document.FLAG_SUPPORTS_DELETE != 0) {
                 return true
             }
 
-            if (DocumentsContract.Document.MIME_TYPE_DIR == mimeTypeCached && flags and DocumentsContract.Document.FLAG_DIR_SUPPORTS_CREATE != 0) {
+            if (DocumentsContract.Document.MIME_TYPE_DIR == mimeType && flags and DocumentsContract.Document.FLAG_DIR_SUPPORTS_CREATE != 0) {
                 // Directories that allow create considered writable
                 return true
-            } else if (!TextUtils.isEmpty(mimeTypeCached) && flags and DocumentsContract.Document.FLAG_SUPPORTS_WRITE != 0) {
+            } else if (!TextUtils.isEmpty(mimeType) && flags and DocumentsContract.Document.FLAG_SUPPORTS_WRITE != 0) {
                 // Writable normal files considered writable
                 return true
             }
@@ -88,18 +79,11 @@ data class SAFDocFile(
     val readable: Boolean
         get() {
             // Ignore if grant doesn't allow read
-            if (context.checkCallingOrSelfUriPermission(
-                    uri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return false
-            }
+            if (!hasPermission(Intent.FLAG_GRANT_READ_URI_PERMISSION)) return false
 
             // Ignore documents without MIME
-            if (TextUtils.isEmpty(mimeType)) {
-                return false
-            }
+            if (TextUtils.isEmpty(mimeType)) return false
+
             return true
         }
 
@@ -108,7 +92,6 @@ data class SAFDocFile(
 
     val length: Long
         get() = queryForLong(DocumentsContract.Document.COLUMN_SIZE) ?: 0
-
 
     fun createDirectory(name: String): SAFDocFile {
         return createFile(DocumentsContract.Document.MIME_TYPE_DIR, name)
@@ -219,6 +202,10 @@ data class SAFDocFile(
     internal fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
         return contentResolver.openFileDescriptor(uri, mode.value) ?: throw IOException("Couldn't open $uri")
     }
+
+    private fun hasPermission(
+        flag: Int
+    ): Boolean = context.checkCallingOrSelfUriPermission(uri, flag) == PackageManager.PERMISSION_GRANTED
 
     @SuppressLint("Recycle")
     private fun queryForString(column: String): String? {
