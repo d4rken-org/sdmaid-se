@@ -205,7 +205,7 @@ class AppCleaner @Inject constructor(
         log(TAG) { "exclude(): $pkgId, $path" }
         if (path != null) {
             val exclusion = PathExclusion(
-                path = path.downCast(),
+                path = path,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
             exclusionManager.add(exclusion)

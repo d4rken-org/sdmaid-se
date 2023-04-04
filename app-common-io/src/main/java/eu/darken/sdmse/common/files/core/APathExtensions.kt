@@ -44,23 +44,11 @@ fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(
     gateway: GT,
     filter: suspend (PL) -> Boolean = { true }
 ): PathTreeFlow<P, PL, GT> {
-    return PathTreeFlow(gateway, downCast(), filter)
-}
-
-/**
- * // FIXME not sure if this can be fixed?
- * APathLookup is a super of APath, but LocalPathLookup is not a super of LocalPath
- * The compiler allows us to pass a LocalPathLookup to a function that only takesk LocalPath
- */
-fun <T : APath> T.downCast(): T = if (this is APathLookup<*>) {
-    @Suppress("UNCHECKED_CAST")
-    this.lookedUp as T
-} else {
-    this
+    return PathTreeFlow(gateway, this, filter)
 }
 
 suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.exists(downCast())
+    return gateway.exists(this)
 }
 
 suspend fun <T : APath> T.requireExists(gateway: APathGateway<T, out APathLookup<T>>): T {
@@ -79,7 +67,7 @@ suspend fun <T : APath> T.requireNotExists(gateway: APathGateway<T, out APathLoo
 
 suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
     if (exists(gateway)) {
-        if (gateway.lookup(downCast()).fileType == FileType.FILE) {
+        if (gateway.lookup(this).fileType == FileType.FILE) {
             log(VERBOSE) { "File already exists, not creating: $this" }
             return this
         } else {
@@ -87,14 +75,14 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
         }
     }
 
-    gateway.createFile(downCast())
+    gateway.createFile(this)
     log(VERBOSE) { "File created: $this" }
     return this
 }
 
 suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
     if (exists(gateway)) {
-        if (gateway.lookup(downCast()).isDirectory) {
+        if (gateway.lookup(this).isDirectory) {
             log(VERBOSE) { "Directory already exists, not creating: $this" }
             return this
         } else {
@@ -102,17 +90,17 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
         }
     }
 
-    gateway.createDir(downCast())
+    gateway.createDir(this)
     log(VERBOSE) { "Directory created: $this" }
     return this
 }
 
 suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>) {
     try {
-        gateway.delete(downCast())
+        gateway.delete(this)
         log(VERBOSE) { "APath.delete(): Deleted $this" }
     } catch (e: PathException) {
-        if (gateway.exists(downCast())) {
+        if (gateway.exists(this)) {
             throw e
         } else {
             log(WARN) { "APath.delete(): Item didn't exist: $this" }
@@ -127,10 +115,10 @@ suspend fun <T : APath> T.deleteAll(
     try {
         // Recursion enter
         @Suppress("UNCHECKED_CAST")
-        val lookup = this as? APathLookup<T> ?: gateway.lookup(downCast())
+        val lookup = this as? APathLookup<T> ?: gateway.lookup(this)
 
         if (lookup.isDirectory) {
-            gateway.listFiles(downCast()).forEach { it.deleteAll(gateway, filter) }
+            gateway.listFiles(this).forEach { it.deleteAll(gateway, filter) }
         }
 
         if (!filter(lookup)) {
@@ -138,7 +126,7 @@ suspend fun <T : APath> T.deleteAll(
             return
         }
     } catch (e: ReadException) {
-        if (!gateway.exists(downCast())) return else throw e
+        if (!gateway.exists(this)) return else throw e
     }
 
     // Recursion exit
@@ -146,78 +134,78 @@ suspend fun <T : APath> T.deleteAll(
 }
 
 suspend fun <T : APath> T.write(gateway: APathGateway<T, out APathLookup<T>>): Sink {
-    return gateway.write(downCast())
+    return gateway.write(this)
 }
 
 suspend fun <T : APath> T.read(gateway: APathGateway<T, out APathLookup<T>>): Source {
-    return gateway.read(downCast())
+    return gateway.read(this)
 }
 
 suspend fun <T : APath> T.createSymlink(gateway: APathGateway<T, out APathLookup<T>>, target: T): Boolean {
-    return gateway.createSymlink(downCast(), target)
+    return gateway.createSymlink(this, target)
 }
 
 suspend fun <T : APath> T.setModifiedAt(gateway: APathGateway<T, out APathLookup<T>>, modifiedAt: Instant): Boolean {
-    return gateway.setModifiedAt(downCast(), modifiedAt)
+    return gateway.setModifiedAt(this, modifiedAt)
 }
 
 suspend fun <T : APath> T.setPermissions(
     gateway: APathGateway<T, out APathLookup<T>>,
     permissions: Permissions
 ): Boolean {
-    return gateway.setPermissions(downCast(), permissions)
+    return gateway.setPermissions(this, permissions)
 }
 
 suspend fun <T : APath> T.setOwnership(gateway: APathGateway<T, out APathLookup<T>>, ownership: Ownership): Boolean {
-    return gateway.setOwnership(downCast(), ownership)
+    return gateway.setOwnership(this, ownership)
 }
 
 suspend fun <P : APath, PLU : APathLookup<P>> P.lookup(gateway: APathGateway<P, PLU>): PLU {
-    return gateway.lookup(downCast())
+    return gateway.lookup(this)
 }
 
 suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFiles(gateway: APathGateway<P, PLU>): Collection<PLU> {
-    return gateway.lookupFiles(downCast())
+    return gateway.lookupFiles(this)
 }
 
 suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PLU>): Collection<PLU>? {
-    return if (exists(gateway)) gateway.lookupFiles(downCast()) else null
+    return if (exists(gateway)) gateway.lookupFiles(this) else null
 }
 
 suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>>): Collection<T> {
-    return gateway.listFiles(downCast())
+    return gateway.listFiles(this)
 }
 
 suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>>): Collection<T>? {
-    return if (exists(gateway)) gateway.listFiles(downCast()) else null
+    return if (exists(gateway)) gateway.listFiles(this) else null
 }
 
 suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.canRead(downCast())
+    return gateway.canRead(this)
 }
 
 suspend fun <T : APath> T.canWrite(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.canWrite(downCast())
+    return gateway.canWrite(this)
 }
 
 suspend fun <T : APath> T.isFile(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.lookup(downCast()).fileType == FileType.FILE
+    return gateway.lookup(this).fileType == FileType.FILE
 }
 
 suspend fun <T : APath> T.isDirectory(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.lookup(downCast()).fileType == FileType.DIRECTORY
+    return gateway.lookup(this).fileType == FileType.DIRECTORY
 }
 
 suspend fun <T : APath> T.mkdirs(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.createDir(downCast())
+    return gateway.createDir(this)
 }
 
 fun APath.isAncestorOf(descendant: APath): Boolean {
     if (this.pathType != descendant.pathType) return false
     return when (pathType) {
-        APath.PathType.LOCAL -> (this.downCast() as LocalPath).isAncestorOf(descendant.downCast() as LocalPath)
-        APath.PathType.SAF -> (this.downCast() as SAFPath).isAncestorOf(descendant.downCast() as SAFPath)
-        APath.PathType.RAW -> descendant.downCast().path.startsWith(this.downCast().path + "/")
+        APath.PathType.LOCAL -> (this as LocalPath).isAncestorOf(descendant as LocalPath)
+        APath.PathType.SAF -> (this as SAFPath).isAncestorOf(descendant as SAFPath)
+        APath.PathType.RAW -> descendant.path.startsWith(this.path + "/")
     }
 }
 
@@ -233,9 +221,9 @@ fun APath.isDescendantOf(ancestor: APath): Boolean {
 fun APath.isParentOf(child: APath): Boolean {
     if (this.pathType != child.pathType) return false
     return when (pathType) {
-        APath.PathType.LOCAL -> (this.downCast() as LocalPath).isParentOf(child.downCast() as LocalPath)
-        APath.PathType.SAF -> (this.downCast() as SAFPath).isParentOf(child.downCast() as SAFPath)
-        APath.PathType.RAW -> this.downCast().child(child.name) == child
+        APath.PathType.LOCAL -> (this as LocalPath).isParentOf(child as LocalPath)
+        APath.PathType.SAF -> (this as SAFPath).isParentOf(child as SAFPath)
+        APath.PathType.RAW -> this.child(child.name) == child
     }
 }
 
@@ -247,9 +235,9 @@ fun APath.isChildOf(parent: APath): Boolean {
 fun APath.matches(other: APath): Boolean {
     if (this.pathType != other.pathType) return false
     return when (pathType) {
-        APath.PathType.LOCAL -> (this.downCast() as LocalPath).path == (other.downCast() as LocalPath).path
-        APath.PathType.SAF -> (this.downCast() as SAFPath).path == (other.downCast() as SAFPath).path
-        APath.PathType.RAW -> other.downCast().path == this.downCast().path
+        APath.PathType.LOCAL -> (this as LocalPath).path == (other as LocalPath).path
+        APath.PathType.SAF -> (this as SAFPath).path == (other as SAFPath).path
+        APath.PathType.RAW -> other.path == this.path
     }
 }
 
@@ -260,9 +248,9 @@ fun APath.containsSegments(vararg target: String): Boolean {
 fun APath.startsWith(prefix: APath): Boolean {
     if (this.pathType != prefix.pathType) return false
     return when (pathType) {
-        APath.PathType.LOCAL -> (this.downCast() as LocalPath).startsWith(prefix.downCast() as LocalPath)
-        APath.PathType.SAF -> (this.downCast() as SAFPath).startsWith(prefix.downCast() as SAFPath)
-        APath.PathType.RAW -> this.downCast().path.startsWith(prefix.downCast().path)
+        APath.PathType.LOCAL -> (this as LocalPath).startsWith(prefix as LocalPath)
+        APath.PathType.SAF -> (this as SAFPath).startsWith(prefix as SAFPath)
+        APath.PathType.RAW -> this.path.startsWith(prefix.path)
     }
 }
 
@@ -271,8 +259,8 @@ fun APath.removePrefix(prefix: APath): List<String> {
         throw IllegalArgumentException("Can't compare different types ($this and $prefix)")
     }
     return when (pathType) {
-        APath.PathType.LOCAL -> (this.downCast() as LocalPath).removePrefix(prefix.downCast() as LocalPath)
-        APath.PathType.SAF -> (this.downCast() as SAFPath).removePrefix(prefix.downCast() as SAFPath)
-        APath.PathType.RAW -> this.downCast().segments.drop(prefix.downCast().segments.size)
+        APath.PathType.LOCAL -> (this as LocalPath).removePrefix(prefix as LocalPath)
+        APath.PathType.SAF -> (this as SAFPath).removePrefix(prefix as SAFPath)
+        APath.PathType.RAW -> this.segments.drop(prefix.segments.size)
     }
 }

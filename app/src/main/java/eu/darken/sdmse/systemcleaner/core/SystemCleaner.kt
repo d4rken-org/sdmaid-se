@@ -168,7 +168,7 @@ class SystemCleaner @Inject constructor(
     suspend fun exclude(identifier: FilterIdentifier, target: APath) = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, $target" }
         val exclusion = PathExclusion(
-            path = target.downCast(),
+            path = target,
             tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
         )
         exclusionManager.add(exclusion)
