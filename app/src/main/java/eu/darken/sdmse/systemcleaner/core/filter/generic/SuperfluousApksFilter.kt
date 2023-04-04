@@ -50,7 +50,7 @@ class SuperfluousApksFilter @Inject constructor(
         if (!sieveResult.matches) return false
         log(TAG, VERBOSE) { "Passed sieve, checking $item" }
 
-        val apkInfo = pkgOps.viewArchive(item) ?: return false
+        val apkInfo = pkgOps.viewArchive(item.lookedUp) ?: return false
         val installed = pkgRepo.getPkg(apkInfo.id) ?: return false
 
         val superfluos = installed.versionCode >= apkInfo.versionCode

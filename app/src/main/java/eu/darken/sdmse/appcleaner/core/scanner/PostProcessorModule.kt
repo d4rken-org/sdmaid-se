@@ -21,8 +21,9 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
-import eu.darken.sdmse.exclusion.core.excludeNested
+import eu.darken.sdmse.exclusion.core.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.match
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -112,7 +113,7 @@ class PostProcessorModule @Inject constructor(
         after = after.copy(
             expendables = after.expendables?.mapValues { (type, paths) ->
                 var temp = paths
-                exclusions.forEach { temp = it.excludeNested(temp) }
+                exclusions.forEach { temp = it.excludeNestedLookups(temp) }
                 temp
             }
         )

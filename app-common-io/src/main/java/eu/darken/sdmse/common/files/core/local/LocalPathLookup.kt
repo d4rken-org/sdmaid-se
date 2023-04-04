@@ -1,7 +1,10 @@
 package eu.darken.sdmse.common.files.core.local
 
-import eu.darken.sdmse.common.files.core.*
-import kotlinx.parcelize.IgnoredOnParcel
+import android.os.Parcelable
+import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.core.FileType
+import eu.darken.sdmse.common.files.core.Ownership
+import eu.darken.sdmse.common.files.core.Permissions
 import kotlinx.parcelize.Parcelize
 import java.time.Instant
 
@@ -14,20 +17,4 @@ data class LocalPathLookup(
     override val ownership: Ownership?,
     override val permissions: Permissions?,
     override val target: LocalPath?
-) : APathLookup<LocalPath> {
-
-    override fun child(vararg segments: String): APath = lookedUp.child(*segments)
-
-    @IgnoredOnParcel override val path: String
-        get() = lookedUp.path
-    @IgnoredOnParcel override val name: String
-        get() = lookedUp.name
-    @IgnoredOnParcel override val segments: List<String>
-        get() = lookedUp.segments
-    @IgnoredOnParcel override val pathType: APath.PathType
-        get() = lookedUp.pathType
-
-    override fun toString(): String =
-        "LocalPathLookup(path=$path, type=$fileType, size=$size, modified=$modifiedAt, owner=$ownership, perm=$permissions, target=$target)"
-
-}
+) : APathLookup<LocalPath>, Parcelable

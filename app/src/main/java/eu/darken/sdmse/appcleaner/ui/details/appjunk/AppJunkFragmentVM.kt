@@ -81,7 +81,9 @@ class AppJunkFragmentVM @Inject constructor(
                             category = category,
                             lookup = lookup,
                             onItemClick = {
-                                events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category, it.lookup))
+                                events.postValue(
+                                    AppJunkEvents.ConfirmDeletion(it.appJunk, it.category, it.lookup.lookedUp)
+                                )
                             },
                         )
                     }

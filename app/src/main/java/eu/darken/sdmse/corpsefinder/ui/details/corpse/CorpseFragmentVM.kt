@@ -54,7 +54,7 @@ class CorpseFragmentVM @Inject constructor(
             CorpseElementFileVH.Item(
                 corpse = corpse,
                 lookup = lookup,
-                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup)) },
+                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup.lookedUp)) },
             )
         }.run { elements.addAll(this) }
 

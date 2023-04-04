@@ -247,7 +247,7 @@ class SdcardCorpseFilter @Inject constructor(
                     )
                         .onEach { log(TAG, INFO) { "Walking: $it" } }
                         .toList()
-                    candidatesThatExist.addAll(files)
+                    candidatesThatExist.addAll(files.map { it.lookedUp })
                 }
             }
 

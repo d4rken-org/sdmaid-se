@@ -32,7 +32,7 @@ class CorpseElementFileVH(parent: ViewGroup) :
             FileType.FILE -> R.drawable.ic_file
         }.run { icon.setImageResource(this) }
 
-        val prefixFree = item.lookup.removePrefix(item.corpse.path)
+        val prefixFree = item.lookup.lookedUp.removePrefix(item.corpse.path)
         primary.text = prefixFree.joinSegments("/")
 
         secondary.text = when (item.lookup.fileType) {
