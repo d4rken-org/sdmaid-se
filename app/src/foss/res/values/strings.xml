@@ -18,4 +18,10 @@
     <string name="upgrade_screen_sponsor_action">Sponsor development</string>
     <string name="upgrade_screen_sponsor_action_hint">The alternative are ads, analytics and Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>
+
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Together, we made it to the first release! Thank you for helping me test! Development will of course continue, but you can now switch to non-beta builds. Do this download the latest stable release.</string>
+    <string name="nudge_betagoodbye_hint">Small note: Ratings given during testing are only visible to me, I\'d appreciate it if you could give SD Maid a public rating if you are happy.</string>
+    <string name="nudge_betagoodbye_positive_action">Opt-out</string>
+    <string name="nudge_betagoodbye_negative_action">Keep testing</string>
 </resources>
