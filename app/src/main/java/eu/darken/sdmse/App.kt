@@ -7,8 +7,6 @@ import androidx.work.Configuration
 import coil.Coil
 import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
-import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
-import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -19,6 +17,7 @@ import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.*
 import eu.darken.sdmse.common.debug.recording.core.RecorderModule
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.ThemeType
@@ -27,6 +26,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -42,6 +42,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var imageLoaderFactory: ImageLoaderFactory
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
+    @Inject lateinit var updateChecker: UpdateChecker
 
     val logCatLogger = LogCatLogger()
 
@@ -99,7 +100,10 @@ open class App : Application(), Configuration.Provider {
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
 
-        log { getString(DefaultCachesPublicFilter::class.labelRes) }
+        appScope.launch {
+            log { "${updateChecker.getLatest(UpdateChecker.Channel.BETA)}" }
+            log { "${updateChecker.getLatest(UpdateChecker.Channel.PROD)}" }
+        }
     }
 
 
