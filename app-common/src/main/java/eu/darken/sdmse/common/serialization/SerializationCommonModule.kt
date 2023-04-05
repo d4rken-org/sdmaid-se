@@ -23,6 +23,7 @@ class SerializationCommonModule {
         add(ByteStringAdapter())
         add(FileAdapter())
         add(UriAdapter())
+        add(OffsetDateTimeAdapter())
     }.build()
 }
 
