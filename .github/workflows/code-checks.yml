@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-modules:
-    name: Build modules
+    name: Build app
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
 
   test-modules:
-    name: Run unit tests
+    name: Unit tests
     strategy:
       fail-fast: false
       matrix:
