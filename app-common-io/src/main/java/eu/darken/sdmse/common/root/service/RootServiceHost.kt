@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -9,8 +9,8 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.root.javaroot.internal.RootHost
-import eu.darken.sdmse.common.root.javaroot.internal.RootIPC
+import eu.darken.sdmse.common.root.service.internal.RootHost
+import eu.darken.sdmse.common.root.service.internal.RootIPC
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -27,14 +27,14 @@ import javax.inject.Inject
  */
 @Keep
 @SuppressLint("UnsafeDynamicallyLoadedCode")
-class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost("$TAG#${hashCode()}", _args) {
+class RootServiceHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost("$TAG#${hashCode()}", _args) {
 
     override val sharedResource = SharedResource.createKeepAlive(iTag, rootHostScope)
 
     lateinit var component: RootComponent
 
     @RootProcessShell @Inject lateinit var sharedShell: SharedShell
-    @Inject lateinit var connection: Lazy<JavaRootConnectionImpl>
+    @Inject lateinit var connection: Lazy<RootServiceConnectionImpl>
     @Inject lateinit var rootIpcFactory: RootIPC.Factory
 
     override suspend fun onInit() {
@@ -81,7 +81,7 @@ class JavaRootHost constructor(_args: List<String>) : HasSharedResource<Any>, Ro
         @JvmStatic
         fun main(args: Array<String>) {
             Log.v(TAG, "main(args=$args)")
-            JavaRootHost(args.toList()).start()
+            RootServiceHost(args.toList()).start()
         }
     }
 }

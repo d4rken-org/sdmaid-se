@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.io.R
-import eu.darken.sdmse.common.root.javaroot.internal.RootException
+import eu.darken.sdmse.common.root.service.internal.RootException
 
 class RootUnavailableException(
     message: String,

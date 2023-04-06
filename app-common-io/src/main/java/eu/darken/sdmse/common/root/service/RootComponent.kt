@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import android.content.Context
 import dagger.BindsInstance
@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.coroutine.CoroutineModule
 import javax.inject.Singleton
 
 /**
- * Injected into java process run by root via su shell, see [JavaRootHost]
+ * Injected into java process run by root via su shell, see [RootServiceHost]
  */
 @Singleton
 @Component(
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 )
 interface RootComponent {
 
-    fun inject(main: JavaRootHost)
+    fun inject(main: RootServiceHost)
 
     @Component.Builder
     interface Builder {

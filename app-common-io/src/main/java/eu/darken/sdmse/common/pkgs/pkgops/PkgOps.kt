@@ -25,8 +25,8 @@ import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.javaroot.JavaRootClient
-import eu.darken.sdmse.common.root.javaroot.runModuleAction
+import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
@@ -40,7 +40,7 @@ import javax.inject.Singleton
 class PkgOps @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val javaRootClient: JavaRootClient,
+    private val rootServiceClient: RootServiceClient,
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
@@ -49,7 +49,7 @@ class PkgOps @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: (PkgOpsClient) -> T): T {
-        return javaRootClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        return rootServiceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.useRoot()
