@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.saf.SAFPath
+import eu.darken.sdmse.common.files.saf.SAFDocFile
 import eu.darken.sdmse.common.files.saf.SAFPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -373,28 +374,23 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     )
                     APath.PathType.SAF -> SAFPathLookup(
                         lookedUp = mockPath as SAFPath,
-                        fileType = if (flagsCollection.contains(Flags.DIR)) {
-                            FileType.DIRECTORY
-                        } else if (flagsCollection.contains(Flags.FILE)) {
-                            FileType.FILE
-                        } else {
-                            throw IllegalArgumentException("Unknown file type")
+                        docFile = mockk<SAFDocFile>().apply {
+                            every { isDirectory } returns flagsCollection.contains(Flags.DIR)
+                            every { isFile } returns flagsCollection.contains(Flags.FILE)
+
+                            every { length } returns if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L
+                            every { lastModified } returns Instant.EPOCH
                         },
-                        size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
-                        modifiedAt = Instant.EPOCH,
-                        ownership = null,
-                        permissions = null,
-                        target = null,
                     )
                     APath.PathType.RAW -> throw NotImplementedError()
                 }
 
-                coEvery { fileForensics.identifyArea(mockLookup) } returns mockk<AreaInfo>().apply {
+                coEvery { fileForensics.identifyArea(mockPath) } returns mockk<AreaInfo>().apply {
                     every { type } returns areaType
                     every { prefix } returns area.path
                     every { prefixFreePath } returns mockPath.segments.drop(prefix.segments.size)
                 }
-                coEvery { gatewaySwitch.canRead(mockLookup) } returns true
+                coEvery { gatewaySwitch.canRead(mockPath) } returns true
                 if (flagsCollection.contains(Flags.DIR)) {
                     coEvery { gatewaySwitch.lookupFiles(any()) } returns emptyList()
                 }
