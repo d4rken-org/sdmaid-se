@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.exclusion.core
 
 import android.content.Context
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.deleteAll
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.exclusion.core.ExclusionStorage
@@ -18,7 +19,7 @@ import testhelpers.json.toComparableJson
 import java.io.File
 
 class ExclusionStorageTest : BaseTest() {
-    private val testFolder = File("./testfolder")
+    private val testFolder = File(IO_TEST_BASEDIR, "exclusion-storage-test")
     private val moshi = SerializationAppModule().moshi()
     private val context: Context = mockk<Context>().apply {
         every { filesDir } returns testFolder
@@ -26,7 +27,7 @@ class ExclusionStorageTest : BaseTest() {
 
     @AfterEach
     fun cleanup() {
-        testFolder.delete()
+        testFolder.deleteAll()
     }
 
     fun create() = ExclusionStorage(context, moshi)
