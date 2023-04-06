@@ -30,11 +30,12 @@ jobs:
         run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
 
   test-all:
-    name: Run all tests
+    name: Run all unit tests
     strategy:
       fail-fast: false
       matrix:
         variant: [ Debug,Release ]
+        flavor: [ test,testFoss,testGplay ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -47,5 +48,5 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run tests (Variant ${{ matrix.variant }})
-        run: ./gradlew test${{ matrix.variant }}
+      - name: Run task ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+        run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
