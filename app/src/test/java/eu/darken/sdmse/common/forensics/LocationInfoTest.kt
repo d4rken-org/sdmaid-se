@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.forensics
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe

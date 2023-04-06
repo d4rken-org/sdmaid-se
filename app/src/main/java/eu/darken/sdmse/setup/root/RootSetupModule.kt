@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.setup.SetupModule

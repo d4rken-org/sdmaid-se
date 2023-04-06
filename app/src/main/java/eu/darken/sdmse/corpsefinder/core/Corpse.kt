@@ -1,7 +1,7 @@
 package eu.darken.sdmse.corpsefinder.core
 
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
@@ -16,7 +16,7 @@ data class Corpse(
     val riskLevel: RiskLevel = RiskLevel.NORMAL,
 ) {
     val path: APath
-        get() = lookup.lookedUp as APath
+        get() = lookup.lookedUp
 
     val areaInfo: AreaInfo
         get() = ownerInfo.areaInfo

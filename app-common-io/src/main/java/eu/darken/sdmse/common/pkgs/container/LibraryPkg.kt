@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.SharedLibraryInfo
 import androidx.appcompat.content.res.AppCompatResources
 import eu.darken.sdmse.common.ca.*
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg

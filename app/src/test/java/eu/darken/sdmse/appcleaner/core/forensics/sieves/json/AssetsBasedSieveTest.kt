@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcleaner.core.forensics.sieves.json
 import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.segs
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.assertions.throwables.shouldThrowAny

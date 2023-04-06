@@ -18,8 +18,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.LocalGateway
+import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.progress.*

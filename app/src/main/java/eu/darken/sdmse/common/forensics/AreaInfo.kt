@@ -1,8 +1,8 @@
 package eu.darken.sdmse.common.forensics
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.Segments
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.Segments
 import kotlinx.parcelize.IgnoredOnParcel
 
 data class AreaInfo(

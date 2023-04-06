@@ -1,9 +1,9 @@
 package eu.darken.sdmse.appcleaner.core.forensics
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.Segments
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 
 interface ExpendablesFilter {

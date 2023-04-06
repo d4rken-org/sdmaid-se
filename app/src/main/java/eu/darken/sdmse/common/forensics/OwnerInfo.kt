@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.forensics
 
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.Pkg
 
 data class OwnerInfo constructor(

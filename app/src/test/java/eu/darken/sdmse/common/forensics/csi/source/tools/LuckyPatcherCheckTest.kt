@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.forensics.csi.source.tools
 
 import eu.darken.sdmse.common.clutter.Marker
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.pkgs.toPkgId

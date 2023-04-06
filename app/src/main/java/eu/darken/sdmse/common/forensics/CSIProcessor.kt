@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.forensics
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 
 interface CSIProcessor {
 

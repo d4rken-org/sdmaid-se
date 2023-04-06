@@ -9,7 +9,7 @@ import eu.darken.sdmse.appcleaner.ui.descriptionRes
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.appcleaner.ui.iconsRes
 import eu.darken.sdmse.appcleaner.ui.labelRes
-import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileCategoryBinding

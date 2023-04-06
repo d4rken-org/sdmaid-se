@@ -12,11 +12,11 @@ import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.canRead
-import eu.darken.sdmse.common.files.core.local.LocalGateway
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.canRead
+import eu.darken.sdmse.common.files.local.LocalGateway
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 

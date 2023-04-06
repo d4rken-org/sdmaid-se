@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
-import eu.darken.sdmse.common.files.core.local.root.ClientModule
+import eu.darken.sdmse.common.files.local.root.ClientModule
 import eu.darken.sdmse.common.user.UserHandle2
 import java.io.IOException
 

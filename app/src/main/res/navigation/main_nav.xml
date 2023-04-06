@@ -135,7 +135,7 @@
         tools:layout="@layout/corpsefinder_corpse_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.common.files.core.APath" />
+            app:argType="eu.darken.sdmse.common.files.APath" />
     </fragment>
     <fragment
         android:id="@+id/corpseFinderListFragment"
@@ -151,7 +151,7 @@
         tools:layout="@layout/corpsefinder_details_fragment">
         <argument
             android:name="corpsePath"
-            app:argType="eu.darken.sdmse.common.files.core.APath"
+            app:argType="eu.darken.sdmse.common.files.APath"
             app:nullable="true" />
     </fragment>
 

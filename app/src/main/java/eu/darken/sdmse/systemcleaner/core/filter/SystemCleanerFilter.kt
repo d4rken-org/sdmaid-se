@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.APathLookup
+import eu.darken.sdmse.common.files.APathLookup
 
 interface SystemCleanerFilter {
 

@@ -5,7 +5,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.serialization.KClassParcelizer
 import kotlinx.parcelize.Parcelize

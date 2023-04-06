@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.dalvik.tools
 import eu.darken.sdmse.common.Architecture
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf

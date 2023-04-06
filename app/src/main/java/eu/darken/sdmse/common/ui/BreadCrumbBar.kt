@@ -11,8 +11,8 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.RawPath
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.RawPath
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.databinding.BrowsingbarBreadcrumbbarViewBinding
 import java.io.File
