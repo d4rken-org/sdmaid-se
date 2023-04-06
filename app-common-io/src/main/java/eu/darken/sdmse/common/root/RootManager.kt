@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.root.javaroot.JavaRootClient
+import eu.darken.sdmse.common.root.service.RootServiceClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
@@ -21,7 +21,7 @@ import javax.inject.Singleton
 class RootManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val javaRootClient: JavaRootClient,
+    private val rootServiceClient: RootServiceClient,
     private val rootSettings: RootSettings,
 ) {
 
@@ -47,7 +47,7 @@ class RootManager @Inject constructor(
             cachedState?.let { return@withContext it }
 
             val newState = try {
-                javaRootClient.get().item.ipc.checkBase() != null
+                rootServiceClient.get().item.ipc.checkBase() != null
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Error while checking for root: ${e.asLog()}" }
                 false

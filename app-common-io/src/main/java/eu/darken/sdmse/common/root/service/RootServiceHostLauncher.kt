@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -8,11 +8,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.root.FileOpsClient
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.root.RootUnavailableException
-import eu.darken.sdmse.common.root.javaroot.internal.RootHostLauncher
+import eu.darken.sdmse.common.root.service.internal.RootHostLauncher
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
-class JavaRootHostLauncher @Inject constructor(
+class RootServiceHostLauncher @Inject constructor(
     private val rootHostLauncher: RootHostLauncher,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
@@ -25,17 +25,17 @@ class JavaRootHostLauncher @Inject constructor(
          * Being able to work without mount-master is more reliable.
          */
         useMountMaster: Boolean = false
-    ): Flow<JavaRootClient.Connection> = rootHostLauncher
+    ): Flow<RootServiceClient.Connection> = rootHostLauncher
         .createConnection(
-            binderClass = JavaRootConnection::class,
-            rootHostClass = JavaRootHost::class,
+            binderClass = RootServiceConnection::class,
+            rootHostClass = RootServiceHost::class,
             enableDebug = Bugs.isDebug,
             enableTrace = Bugs.isTrace,
             useMountMaster = useMountMaster,
         )
         .onStart { log(TAG) { "Initiating connection to host." } }
         .map { ipc ->
-            JavaRootClient.Connection(
+            RootServiceClient.Connection(
                 ipc = ipc,
                 clientModules = listOf(
                     fileOpsClientFactory.create(ipc.fileOps),

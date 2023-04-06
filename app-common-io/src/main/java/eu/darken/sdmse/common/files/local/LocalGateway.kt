@@ -13,8 +13,8 @@ import eu.darken.sdmse.common.files.local.root.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.javaroot.JavaRootClient
-import eu.darken.sdmse.common.root.javaroot.runModuleAction
+import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
@@ -35,7 +35,7 @@ import javax.inject.Singleton
 @Suppress("BlockingMethodInNonBlockingContext")
 @Singleton
 class LocalGateway @Inject constructor(
-    private val javaRootClient: JavaRootClient,
+    private val rootServiceClient: RootServiceClient,
     private val ipcFunnel: IPCFunnel,
     private val libcoreTool: LibcoreTool,
     @AppScope private val appScope: CoroutineScope,
@@ -49,7 +49,7 @@ class LocalGateway @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
-        return javaRootClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        return rootServiceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.useRoot()
@@ -335,7 +335,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
                     log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
-                    val resource = javaRootClient.get()
+                    val resource = rootServiceClient.get()
                     rootOps {
                         it.readFile(path).callbacks { resource.close() }
                     }
@@ -367,7 +367,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
                     log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
-                    val resource = javaRootClient.get()
+                    val resource = rootServiceClient.get()
                     rootOps {
                         it.writeFile(path).callbacks { resource.close() }
                     }

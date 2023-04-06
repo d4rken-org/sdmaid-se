@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot.internal;
+package eu.darken.sdmse.common.root.service.internal;
 
 // This is the wrapper used internally by RootIPC(Receiver)
 

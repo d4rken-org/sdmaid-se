@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import android.content.Context
 import dagger.Module
@@ -23,7 +23,7 @@ class RootModule {
     @Singleton
     @RootProcessShell
     fun sharedShell(): SharedShell {
-        return SharedShell(JavaRootHost.TAG, GlobalScope + Dispatchers.IO)
+        return SharedShell(RootServiceHost.TAG, GlobalScope + Dispatchers.IO)
     }
 
     @Provides

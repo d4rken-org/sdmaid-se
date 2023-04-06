@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
@@ -17,22 +17,22 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class JavaRootClient @Inject constructor(
-    javaRootHostLauncher: JavaRootHostLauncher,
+class RootServiceClient @Inject constructor(
+    rootServiceHostLauncher: RootServiceHostLauncher,
     @AppScope coroutineScope: CoroutineScope,
     private val rootSettings: RootSettings,
-) : SharedResource<JavaRootClient.Connection>(
+) : SharedResource<RootServiceClient.Connection>(
     TAG,
     coroutineScope,
     flow {
         log(TAG) { "Instantiating RootHost launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
-        emit(javaRootHostLauncher.create())
+        emit(rootServiceHostLauncher.create())
     }.flattenConcat()
 ) {
 
     data class Connection(
-        val ipc: JavaRootConnection,
+        val ipc: RootServiceConnection,
         val clientModules: List<ClientModule>
     ) {
         inline fun <reified T> getModule(): T = clientModules.single { it is T } as T

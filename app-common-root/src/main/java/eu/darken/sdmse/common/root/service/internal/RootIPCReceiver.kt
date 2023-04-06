@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot.internal
+package eu.darken.sdmse.common.root.service.internal
 
 import android.content.*
 import android.os.*
@@ -349,8 +349,8 @@ abstract class RootIPCReceiver<T : Any> constructor(
     companion object {
         private val TAG = logTag("Root", "IPCReceiver")
 
-        const val BROADCAST_ACTION = "eu.darken.sdmse.common.root.javaroot.internal.RootIPCReceiver.BROADCAST"
-        const val BROADCAST_EXTRA = "eu.darken.sdmse.common.root.javaroot.internal.RootIPCReceiver.BROADCAST.EXTRA"
+        const val BROADCAST_ACTION = "eu.darken.sdmse.common.root.service.internal.RootIPCReceiver.BROADCAST"
+        const val BROADCAST_EXTRA = "eu.darken.sdmse.common.root.service.internal.RootIPCReceiver.BROADCAST.EXTRA"
         const val BROADCAST_BINDER = "binder"
         const val BROADCAST_CODE = "code"
     }

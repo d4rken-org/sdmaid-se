@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
-import eu.darken.sdmse.common.root.javaroot.JavaRootClient
+import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
@@ -35,7 +35,7 @@ class DebugCardProvider @Inject constructor(
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
-    private val rootClient: JavaRootClient,
+    private val rootClient: RootServiceClient,
     private val pkgRepo: PkgRepo,
     private val dataAreaManager: DataAreaManager,
     private val pkgOps: PkgOps,

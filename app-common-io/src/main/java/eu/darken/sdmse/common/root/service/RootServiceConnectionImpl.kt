@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot
+package eu.darken.sdmse.common.root.service
 
 import android.content.Context
 import androidx.annotation.Keep
@@ -17,11 +17,11 @@ import javax.inject.Singleton
 
 @Singleton
 @Keep
-class JavaRootConnectionImpl @Inject constructor(
+class RootServiceConnectionImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val fileOpsHost: Lazy<FileOpsHost>,
     private val pkgOpsHost: Lazy<PkgOpsHost>
-) : JavaRootConnection.Stub() {
+) : RootServiceConnection.Stub() {
 
     override fun checkBase(): String {
         val sb = StringBuilder()

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.javaroot.internal
+package eu.darken.sdmse.common.root.service.internal
 
 import android.annotation.SuppressLint
 import android.content.Intent
