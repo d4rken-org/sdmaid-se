@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build-all:
-    name: Assemble all variants
+  build-modules:
+    name: Build modules
     strategy:
       fail-fast: false
       matrix:
@@ -26,11 +26,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build (Flavor ${{ matrix.flavor }}, Variant ${{ matrix.variant }})
+      - name: Build module
         run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
 
-  test-all:
-    name: Run all unit tests
+  test-modules:
+    name: Run unit tests
     strategy:
       fail-fast: false
       matrix:
@@ -48,5 +48,5 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run task ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+      - name: Test module
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
