@@ -9,7 +9,7 @@ plugins {
 apply(plugin = "dagger.hilt.android.plugin")
 
 android {
-    namespace = "${ProjectConfig.packageName}.common.pkgs"
+    namespace = "${ProjectConfig.packageName}.common.shell"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -41,13 +41,13 @@ android {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
-    implementation(project(":app-common-shell"))
-    implementation(project(":app-common-io"))
-    implementation(project(":app-common-root"))
 
     addAndroidCore()
     addDI()
     addCoroutines()
+
+    api("com.github.d4rken.rxshell:core:v3.0.0")
+    api("com.github.d4rken.rxshell:root:v3.0.0")
 
     addTesting()
     testImplementation(project(":app-common-test"))
