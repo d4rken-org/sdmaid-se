@@ -7,8 +7,8 @@ import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo

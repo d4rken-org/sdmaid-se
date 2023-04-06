@@ -3,8 +3,8 @@ package eu.darken.sdmse.common.forensics.csi.dalvik
 import eu.darken.sdmse.common.Architecture
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.removePrefix
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo

@@ -1,9 +1,9 @@
 package eu.darken.sdmse.common.forensics.csi.dalvik.tools
 
 import dagger.Reusable
-import eu.darken.sdmse.common.files.core.GatewaySwitch
-import eu.darken.sdmse.common.files.core.exists
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.exists
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import javax.inject.Inject
 

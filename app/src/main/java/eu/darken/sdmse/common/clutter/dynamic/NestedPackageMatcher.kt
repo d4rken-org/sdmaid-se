@@ -4,8 +4,8 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
-import eu.darken.sdmse.common.files.core.Segments
-import eu.darken.sdmse.common.files.core.matches
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 

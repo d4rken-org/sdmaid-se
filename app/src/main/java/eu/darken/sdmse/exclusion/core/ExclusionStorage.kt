@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.fromFile
+import eu.darken.sdmse.common.files.local.fromFile
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex

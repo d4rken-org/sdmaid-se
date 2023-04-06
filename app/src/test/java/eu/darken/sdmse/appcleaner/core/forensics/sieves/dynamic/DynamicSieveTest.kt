@@ -1,7 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.segs
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.shouldBe

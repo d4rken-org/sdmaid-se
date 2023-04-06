@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.forensics.csi.source.tools
 
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps

@@ -7,10 +7,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.toLocalPath
-import eu.darken.sdmse.common.files.core.saf.SAFGateway
-import eu.darken.sdmse.common.files.core.saf.SAFPath
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.toLocalPath
+import eu.darken.sdmse.common.files.saf.SAFGateway
+import eu.darken.sdmse.common.files.saf.SAFPath
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

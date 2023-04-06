@@ -3,8 +3,8 @@ package eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.FileType
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentElementFileBinding
 import eu.darken.sdmse.systemcleaner.core.FilterContent

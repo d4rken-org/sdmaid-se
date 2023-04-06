@@ -4,9 +4,9 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
-import eu.darken.sdmse.common.files.core.isAncestorOf
-import eu.darken.sdmse.common.files.core.joinSegments
-import eu.darken.sdmse.common.files.core.matches
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File

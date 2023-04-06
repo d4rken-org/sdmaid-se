@@ -11,9 +11,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.containsSegments
-import eu.darken.sdmse.common.files.core.segs
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.toPkgId

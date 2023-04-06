@@ -1,6 +1,6 @@
 package eu.darken.sdmse.corpsefinder.ui.details.corpse
 
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 

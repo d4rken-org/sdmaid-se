@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcleaner.ui.details.appjunk
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import kotlin.reflect.KClass
 
 sealed class AppJunkEvents {

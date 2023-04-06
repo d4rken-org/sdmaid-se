@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.forensics.csi.dalvik.tools
 
 import dagger.Reusable
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.pkgs.currentPkgs

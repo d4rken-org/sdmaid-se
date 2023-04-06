@@ -3,10 +3,10 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.files.core.APathLookup
-import eu.darken.sdmse.common.files.core.FileType
-import eu.darken.sdmse.common.files.core.joinSegments
-import eu.darken.sdmse.common.files.core.removePrefix
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseElementsAdapter

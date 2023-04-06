@@ -5,7 +5,7 @@ import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.parcelize.Parcelize
 

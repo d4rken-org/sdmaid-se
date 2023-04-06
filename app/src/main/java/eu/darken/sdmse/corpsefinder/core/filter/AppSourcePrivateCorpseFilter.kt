@@ -16,8 +16,8 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.LocalGateway
+import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse

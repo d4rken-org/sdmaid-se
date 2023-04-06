@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.forensics.csi.source.tools
 import dagger.Reusable
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.startsWith
+import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import javax.inject.Inject

@@ -4,9 +4,9 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.files.core.joinSegments
-import eu.darken.sdmse.common.files.core.matches
-import eu.darken.sdmse.common.files.core.startsWith
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.hashCode
 import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.regex.Pattern

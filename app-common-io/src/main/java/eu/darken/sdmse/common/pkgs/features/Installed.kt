@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.pkgs.features
 
-import eu.darken.sdmse.common.files.core.APath
-import eu.darken.sdmse.common.files.core.local.LocalPath
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.local.LocalPath
 
 interface Installed : PkgInfo {
 

@@ -5,8 +5,8 @@ import android.os.Environment
 import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.toLocalPath
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.user.UserHandle2
 import javax.inject.Inject
 import javax.inject.Singleton

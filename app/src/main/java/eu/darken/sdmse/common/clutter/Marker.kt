@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.clutter
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.Segments
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 
 @Keep

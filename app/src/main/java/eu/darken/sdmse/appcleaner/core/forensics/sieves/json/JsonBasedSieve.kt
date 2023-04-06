@@ -9,7 +9,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
-import eu.darken.sdmse.common.files.core.*
+import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.openAsset
 import eu.darken.sdmse.common.pkgs.Pkg
 import okio.BufferedSource

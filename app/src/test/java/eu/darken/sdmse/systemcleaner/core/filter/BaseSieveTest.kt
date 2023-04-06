@@ -1,10 +1,10 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.files.core.FileType
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.LocalPathLookup
-import eu.darken.sdmse.common.files.core.segs
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve

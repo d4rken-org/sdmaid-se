@@ -4,7 +4,7 @@ import android.text.format.Formatter
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import kotlinx.parcelize.Parcelize
 

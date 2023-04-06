@@ -2,7 +2,7 @@ package eu.darken.sdmse.exclusion.core.types
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import eu.darken.sdmse.common.files.core.APath
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.serialization.NameBasedPolyJsonAdapterFactory
 

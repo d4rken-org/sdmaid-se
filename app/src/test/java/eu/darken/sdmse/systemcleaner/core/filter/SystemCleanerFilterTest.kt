@@ -6,11 +6,11 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.core.*
-import eu.darken.sdmse.common.files.core.local.LocalPath
-import eu.darken.sdmse.common.files.core.local.LocalPathLookup
-import eu.darken.sdmse.common.files.core.saf.SAFPath
-import eu.darken.sdmse.common.files.core.saf.SAFPathLookup
+import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.saf.SAFPath
+import eu.darken.sdmse.common.files.saf.SAFPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg

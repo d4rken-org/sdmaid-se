@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.core.local.root.ClientModule
+import eu.darken.sdmse.common.files.local.root.ClientModule
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.SharedResource
