@@ -14,6 +14,7 @@ jobs:
       matrix:
         flavor: [ Foss,Gplay ]
         variant: [ Debug ]
+        module: [ app ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,7 +28,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build module
-        run: ./gradlew assemble${{ matrix.flavor }}${{ matrix.variant }}
+        run: ./gradlew ${{ matrix.module }}:assemble${{ matrix.flavor }}${{ matrix.variant }}
 
   test-modules:
     name: Unit tests
