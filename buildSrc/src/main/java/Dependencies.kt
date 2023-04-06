@@ -69,9 +69,6 @@ fun DependencyHandlerScope.addSerialization() {
 
 fun DependencyHandlerScope.addIO() {
     implementation("com.squareup.okio:okio:3.1.0")
-
-    implementation("com.github.d4rken.rxshell:core:v3.0.0")
-    implementation("com.github.d4rken.rxshell:root:v3.0.0")
 }
 
 fun DependencyHandlerScope.addRetrofit() {
