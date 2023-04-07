@@ -11,15 +11,12 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.local.*
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.shell.RootProcessShell
-import eu.darken.sdmse.common.shell.SharedShell
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 import javax.inject.Inject
 
 class FileOpsHost @Inject constructor(
-    @RootProcessShell private val sharedShell: SharedShell,
     private val libcoreTool: LibcoreTool,
     private val ipcFunnel: IPCFunnel
 ) : FileOpsConnection.Stub() {
@@ -197,6 +194,6 @@ class FileOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Java", "FileOps", "Host")
+        val TAG = logTag("Root", "Service", "FileOps", "Host")
     }
 }

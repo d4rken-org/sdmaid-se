@@ -37,11 +37,11 @@ class DebugCardVH(parent: ViewGroup) :
         rootTestState.apply {
             isVisible = item.rootTestResult != null
             val result = item.rootTestResult
-            text = """
-                Consent=${result?.allowed}
-                MagiskGrant=${result?.magiskGranted}
-                RootService=${result?.serviceLaunched}
-            """.trimIndent()
+            val sb = StringBuilder()
+            sb.append("Consent=${result?.allowed}\n")
+            sb.append("MagiskGrant=${result?.magiskGranted}\n")
+            sb.append("${result?.serviceLaunched}")
+            text = sb.toString()
         }
         rootTestAction.setOnClickListener { item.onTestRoot() }
 

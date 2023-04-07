@@ -245,6 +245,6 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
     }
 
     companion object {
-        private val TAG = logTag("Root", "Java", "Host", "CmdBuilder")
+        private val TAG = logTag("Root", "Service", "Host", "CmdBuilder")
     }
 }

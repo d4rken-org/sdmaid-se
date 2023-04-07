@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.files.local
 
-import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
@@ -15,10 +14,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
-import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.adoptChildResource
-import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
@@ -53,11 +49,6 @@ class LocalGateway @Inject constructor(
     }
 
     suspend fun hasRoot(): Boolean = rootManager.useRoot()
-
-    private val sharedUserShell = SharedShell(TAG, appScope + dispatcherProvider.IO)
-    private suspend fun getShellSession(): Resource<RxCmdShell.Session> {
-        return sharedUserShell.session.also { adoptChildResource(it) }.get()
-    }
 
     private suspend fun <T> runIO(
         block: suspend CoroutineScope.() -> T

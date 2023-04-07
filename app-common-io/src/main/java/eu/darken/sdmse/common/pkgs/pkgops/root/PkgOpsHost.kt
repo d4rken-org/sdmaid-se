@@ -10,8 +10,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.shell.RootProcessShell
-import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.user.UserHandle2
 import java.lang.reflect.Method
 import javax.inject.Inject
@@ -19,7 +17,6 @@ import javax.inject.Inject
 
 class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
-    @RootProcessShell private val sharedShell: SharedShell,
     private val libcoreTool: LibcoreTool,
 ) : PkgOpsConnection.Stub() {
 
@@ -75,6 +72,6 @@ class PkgOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Java", "PkgOps", "Host")
+        val TAG = logTag("Root", "Service", "PkgOps", "Host")
     }
 }
