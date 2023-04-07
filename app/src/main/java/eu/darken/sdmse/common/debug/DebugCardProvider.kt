@@ -17,6 +17,8 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.root.ShellOpsCmd
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
@@ -42,6 +44,7 @@ class DebugCardProvider @Inject constructor(
     private val automationController: AutomationController,
     private val gatewaySwitch: GatewaySwitch,
     private val safMapper: SAFMapper,
+    private val shellOps: ShellOps,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
@@ -77,7 +80,22 @@ class DebugCardProvider @Inject constructor(
                         allowed = rootSettings.useRoot.value(),
                         magiskGranted = rootManager.isRooted(),
                         serviceLaunched = withTimeoutOrNull(10 * 1000) {
-                            rootClient.runSessionAction { it.ipc.checkBase() }
+                            val base = try {
+                                rootClient.runSessionAction { it.ipc.checkBase() }
+                            } catch (e: Exception) {
+                                e.message
+                            }
+                            var opsError: String? = null
+                            val opsResult = try {
+                                shellOps.execute(ShellOpsCmd("whoami"), ShellOps.Mode.ROOT)
+                            } catch (e: Exception) {
+                                opsError = e.message
+                                null
+                            }
+                            val sb = StringBuilder()
+                            sb.append("BaseCheck:\n$base")
+                            sb.append("ShellOps 'whoami':\n${opsResult ?: opsError}")
+                            sb.toString()
                         }
                     )
                 }

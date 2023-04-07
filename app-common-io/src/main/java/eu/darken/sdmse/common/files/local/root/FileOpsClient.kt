@@ -168,7 +168,7 @@ class FileOpsClient @AssistedInject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Java", "FileOps", "Client")
+        val TAG = logTag("Root", "Service", "FileOps", "Client")
     }
 
     @AssistedFactory

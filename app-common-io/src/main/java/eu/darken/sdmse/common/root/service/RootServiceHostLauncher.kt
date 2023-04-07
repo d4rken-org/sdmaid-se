@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.files.local.root.FileOpsClient
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
 import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.service.internal.RootHostLauncher
+import eu.darken.sdmse.common.shell.root.ShellOpsClient
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -16,6 +17,7 @@ class RootServiceHostLauncher @Inject constructor(
     private val rootHostLauncher: RootHostLauncher,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
+    private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) {
 
     fun create(
@@ -39,7 +41,8 @@ class RootServiceHostLauncher @Inject constructor(
                 ipc = ipc,
                 clientModules = listOf(
                     fileOpsClientFactory.create(ipc.fileOps),
-                    pkgOpsClientFactory.create(ipc.pkgOps)
+                    pkgOpsClientFactory.create(ipc.pkgOps),
+                    shellOpsClientFactory.create(ipc.shellOps),
                 )
             )
         }
@@ -51,6 +54,6 @@ class RootServiceHostLauncher @Inject constructor(
         .onCompletion { log(TAG) { "Connection unavailable." } }
 
     companion object {
-        private val TAG = logTag("Root", "Java", "Host", "Launcher")
+        private val TAG = logTag("Root", "Service", "Host", "Launcher")
     }
 }

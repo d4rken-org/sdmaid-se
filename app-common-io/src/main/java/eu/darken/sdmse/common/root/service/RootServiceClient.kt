@@ -44,6 +44,6 @@ class RootServiceClient @Inject constructor(
     }
 
     companion object {
-        internal val TAG = logTag("Root", "Java", "Client")
+        internal val TAG = logTag("Root", "Service", "Client")
     }
 }

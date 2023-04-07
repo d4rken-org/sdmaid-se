@@ -75,7 +75,7 @@ class RootServiceHost constructor(_args: List<String>) : HasSharedResource<Any>,
 
     @Keep
     companion object {
-        internal val TAG = logTag("Root", "Java", "Host")
+        internal val TAG = logTag("Root", "Service", "Host")
 
         @Keep
         @JvmStatic

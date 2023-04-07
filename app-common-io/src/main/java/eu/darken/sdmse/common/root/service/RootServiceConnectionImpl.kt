@@ -12,6 +12,8 @@ import eu.darken.sdmse.common.files.local.root.FileOpsConnection
 import eu.darken.sdmse.common.files.local.root.FileOpsHost
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
+import eu.darken.sdmse.common.shell.root.ShellOpsConnection
+import eu.darken.sdmse.common.shell.root.ShellOpsHost
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,7 +22,8 @@ import javax.inject.Singleton
 class RootServiceConnectionImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val fileOpsHost: Lazy<FileOpsHost>,
-    private val pkgOpsHost: Lazy<PkgOpsHost>
+    private val pkgOpsHost: Lazy<PkgOpsHost>,
+    private val shellOpsHost: Lazy<ShellOpsHost>,
 ) : RootServiceConnection.Stub() {
 
     override fun checkBase(): String {
@@ -37,7 +40,9 @@ class RootServiceConnectionImpl @Inject constructor(
 
     override fun getPkgOps(): PkgOpsConnection = pkgOpsHost.get()
 
+    override fun getShellOps(): ShellOpsConnection = shellOpsHost.get()
+
     companion object {
-        private val TAG = logTag("Root", "Java", "Connection")
+        private val TAG = logTag("Root", "Service", "Connection")
     }
 }
