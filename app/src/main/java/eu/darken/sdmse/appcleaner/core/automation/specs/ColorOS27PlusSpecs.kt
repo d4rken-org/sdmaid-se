@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.*
 import javax.inject.Inject
@@ -39,7 +40,6 @@ class ColorOS27PlusSpecs @Inject constructor(
     override suspend fun isResponsible(pkg: Installed): Boolean {
         if (deviceDetective.isCustomROM()) return false
         if (!deviceDetective.isOppo()) return false
-
         return hasApiLevel(26) && hasColorApps()
     }
 

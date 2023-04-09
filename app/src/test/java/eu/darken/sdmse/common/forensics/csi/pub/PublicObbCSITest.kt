@@ -7,10 +7,10 @@ import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -22,47 +22,48 @@ class PublicObbCSITest : BaseCSITest() {
     val sdcardPath1 = LocalPath.build("/card1")
     val sdcardPath2 = LocalPath.build("/card2")
 
-    val storageSdcard1 = mockk<DataArea>().apply {
-        every { path } returns sdcardPath1
-        every { type } returns DataArea.Type.SDCARD
-        every { flags } returns emptySet()
-    }
-    val storagePublicData1 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath1, "Android/data")
-        every { type } returns DataArea.Type.PUBLIC_DATA
-        every { flags } returns emptySet()
-    }
-    val storagePublicObb1 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath1, "Android/obb")
-        every { type } returns DataArea.Type.PUBLIC_OBB
-        every { flags } returns emptySet()
-    }
-    val storagePublicMedia1 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath1, "Android/media")
-        every { type } returns DataArea.Type.PUBLIC_MEDIA
-        every { flags } returns emptySet()
-    }
+    val storageSdcard1 = DataArea(
+        path = sdcardPath1,
+        type = DataArea.Type.SDCARD,
+        userHandle = UserHandle2(0),
+    )
+    val storagePublicData1 = DataArea(
+        path = LocalPath.build(sdcardPath1, "Android/data"),
+        type = DataArea.Type.PUBLIC_DATA,
+        userHandle = storageSdcard1.userHandle,
+    )
+    val storagePublicObb1 = DataArea(
+        path = LocalPath.build(sdcardPath1, "Android/obb"),
+        type = DataArea.Type.PUBLIC_OBB,
+        userHandle = storageSdcard1.userHandle,
+    )
+    val storagePublicMedia1 = DataArea(
+        path = LocalPath.build(sdcardPath1, "Android/media"),
+        type = DataArea.Type.PUBLIC_MEDIA,
+        userHandle = storageSdcard1.userHandle,
+    )
 
-    val storageSdcard2 = mockk<DataArea>().apply {
-        every { path } returns sdcardPath2
-        every { type } returns DataArea.Type.SDCARD
-        every { flags } returns emptySet()
-    }
-    val storagePublicData2 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath2, "Android/data")
-        every { type } returns DataArea.Type.PUBLIC_DATA
-        every { flags } returns emptySet()
-    }
-    val storagePublicObb2 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath2, "Android/obb")
-        every { type } returns DataArea.Type.PUBLIC_OBB
-        every { flags } returns emptySet()
-    }
-    val storagePublicMedia2 = mockk<DataArea>().apply {
-        every { path } returns LocalPath.build(sdcardPath2, "Android/media")
-        every { type } returns DataArea.Type.PUBLIC_MEDIA
-        every { flags } returns emptySet()
-    }
+    val storageSdcard2 = DataArea(
+        path = sdcardPath2,
+        type = DataArea.Type.SDCARD,
+        userHandle = UserHandle2(10),
+    )
+    val storagePublicData2 = DataArea(
+        path = LocalPath.build(sdcardPath2, "Android/data"),
+        type = DataArea.Type.PUBLIC_DATA,
+        userHandle = storageSdcard2.userHandle,
+    )
+    val storagePublicObb2 = DataArea(
+        path = LocalPath.build(sdcardPath2, "Android/obb"),
+        type = DataArea.Type.PUBLIC_OBB,
+        userHandle = storageSdcard2.userHandle,
+    )
+    val storagePublicMedia2 = DataArea(
+        path = LocalPath.build(sdcardPath2, "Android/media"),
+        type = DataArea.Type.PUBLIC_MEDIA,
+        userHandle = storageSdcard2.userHandle,
+    )
+
     val sdcardPaths = setOf(
         storageSdcard1.path,
         storageSdcard2.path,
@@ -128,7 +129,8 @@ class PublicObbCSITest : BaseCSITest() {
 
     @Test fun `find default owner`() = runTest {
         val packageName = "eu.thedarken.sdm.test".toPkgId()
-        mockPkg(packageName)
+        mockPkg(packageName, userHandle = storageSdcard1.userHandle)
+        mockPkg(packageName, userHandle = storageSdcard2.userHandle)
 
         for (base in obbPaths) {
             val toHit = base.child("eu.thedarken.sdm.test")

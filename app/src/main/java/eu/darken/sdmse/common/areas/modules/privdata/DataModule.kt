@@ -47,7 +47,7 @@ class DataModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DATA,
                     path = it,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                     flags = setOf(DataArea.Flag.PRIMARY)
                 )
             }
@@ -68,7 +68,7 @@ class DataModule @Inject constructor(
                     DataArea(
                         type = DataArea.Type.DATA,
                         path = path,
-                        userHandle = userManager2.currentUser,
+                        userHandle = userManager2.currentUser().handle,
                         flags = emptySet(),
                     )
                 }

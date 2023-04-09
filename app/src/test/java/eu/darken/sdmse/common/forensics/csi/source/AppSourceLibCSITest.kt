@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -25,6 +26,7 @@ class AppSourceLibCSITest : BaseCSITest() {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.APP_LIB
         every { path } returns LocalPath.build("/data/app-lib")
+        every { userHandle } returns UserHandle2(0)
     }
 
     private val bases = setOf(
@@ -179,10 +181,10 @@ class AppSourceLibCSITest : BaseCSITest() {
                         }
                     }
                 }
-                val locationInfo = processor.identifyArea(target)!!
+                val areaInfo = processor.identifyArea(target)!!
 
-                processor.findOwners(locationInfo).apply {
-                    owners shouldBe setOf(Owner(packageName))
+                processor.findOwners(areaInfo).apply {
+                    owners shouldBe setOf(Owner(packageName, areaInfo.userHandle))
                     hasKnownUnknownOwner shouldBe false
                 }
             }

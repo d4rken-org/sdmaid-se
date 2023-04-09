@@ -70,11 +70,11 @@ class PrivateDataModule @Inject constructor(
             .also { log(TAG, VERBOSE) { "Items in mirror: $it" } }
             .filter { pois.contains(it.name) }
             .map { folder ->
-                userManager2.allUsers.map { user ->
+                userManager2.allUsers().map { user ->
                     DataArea(
                         type = DataArea.Type.PRIVATE_DATA,
-                        path = LocalPath.build(mirrorStorage, folder.name, "null", "${user.handleId}"),
-                        userHandle = user,
+                        path = LocalPath.build(mirrorStorage, folder.name, "null", "${user.handle.handleId}"),
+                        userHandle = user.handle,
                         flags = setOf(DataArea.Flag.PRIMARY),
                     )
                 }
@@ -120,7 +120,7 @@ class PrivateDataModule @Inject constructor(
                         DataArea(
                             type = DataArea.Type.PRIVATE_DATA,
                             path = LocalPath.build(baseArea.path, "data"),
-                            userHandle = userManager2.currentUser,
+                            userHandle = userManager2.currentUser().handle,
                             flags = setOf(DataArea.Flag.PRIMARY),
                         ).let { setOf(it) }
                     }
@@ -145,7 +145,7 @@ class PrivateDataModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
                     path = path,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                 ).run { resultAreas.add(this) }
             }
         } catch (e: Exception) {
@@ -159,7 +159,7 @@ class PrivateDataModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.PRIVATE_DATA,
                     path = path,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                 ).run { resultAreas.add(this) }
             }
         } catch (e: Exception) {

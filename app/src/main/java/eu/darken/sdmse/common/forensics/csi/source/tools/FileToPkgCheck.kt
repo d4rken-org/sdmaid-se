@@ -9,6 +9,8 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -19,7 +21,7 @@ import javax.inject.Inject
  */
 @Reusable
 class FileToPkgCheck @Inject constructor(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
@@ -29,8 +31,9 @@ class FileToPkgCheck @Inject constructor(
             ?.toPkgId()
             ?: return AppSourceCheck.Result()
 
-        val owners = if (pkgRepo.isInstalled(pkgId)) {
-            setOf(Owner(pkgId))
+        val userHandle = areaInfo.userHandle
+        val owners = if (pkgRepo.isInstalled(pkgId, userHandle)) {
+            setOf(Owner(pkgId, userHandle))
         } else {
             emptySet()
         }

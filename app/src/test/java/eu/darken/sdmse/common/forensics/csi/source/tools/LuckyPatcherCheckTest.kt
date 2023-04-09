@@ -4,7 +4,9 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -18,11 +20,11 @@ import testhelpers.BaseTest
 
 class LuckyPatcherCheckTest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
-
+    @MockK lateinit var pkgRepo: PkgRepo
+    private val handle = UserHandle2(0)
     @Before fun setup() {
         MockKAnnotations.init(this)
-        coEvery { pkgRepo.isInstalled(any()) } returns false
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
     }
 
     private fun create() = LuckyPatcherCheck(pkgRepo)
@@ -30,9 +32,10 @@ class LuckyPatcherCheckTest : BaseTest() {
     @Test fun `pkg is installed`() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("some.pkg-123.dex")
+            every { userHandle } returns handle
         }
         val pkgId = "some.pkg".toPkgId()
-        coEvery { pkgRepo.isInstalled(pkgId) } returns true
+        coEvery { pkgRepo.query(pkgId, handle) } returns setOf(mockk())
 
         create().process(areaInfo).owners.single().pkgId shouldBe pkgId
     }
@@ -40,9 +43,10 @@ class LuckyPatcherCheckTest : BaseTest() {
     @Test fun `pkg is not installed`() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("some.pkg-123.dex")
+            every { userHandle } returns handle
         }
 
-        coEvery { pkgRepo.isInstalled(any()) } returns false
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
 
         create().process(areaInfo).owners.size shouldBe 0
 
@@ -51,32 +55,34 @@ class LuckyPatcherCheckTest : BaseTest() {
     @Test fun testBaseMatch_dex() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("some.pkg-123.dex")
+            every { userHandle } returns handle
         }
 
         val pkgId = "some.pkg".toPkgId()
-        coEvery { pkgRepo.isInstalled(pkgId) } returns true
+        coEvery { pkgRepo.query(pkgId, handle) } returns setOf(mockk())
         val pkgId2 = "com.chelpus.lackypatch".toPkgId()
-        coEvery { pkgRepo.isInstalled(pkgId2) } returns true
+        coEvery { pkgRepo.query(pkgId2, handle) } returns setOf(mockk())
 
         create().process(areaInfo).owners shouldBe setOf(
-            Owner(pkgId),
-            Owner(pkgId2, setOf(Marker.Flag.CUSTODIAN))
+            Owner(pkgId, handle),
+            Owner(pkgId2, handle, setOf(Marker.Flag.CUSTODIAN))
         )
     }
 
     @Test fun testBaseMatch_odex() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("some.pkg-123.odex")
+            every { userHandle } returns handle
         }
 
         val pkgId = "some.pkg".toPkgId()
-        coEvery { pkgRepo.isInstalled(pkgId) } returns true
+        coEvery { pkgRepo.query(pkgId, handle) } returns setOf(mockk())
         val pkgId2 = "com.forpda.lp".toPkgId()
-        coEvery { pkgRepo.isInstalled(pkgId2) } returns true
+        coEvery { pkgRepo.query(pkgId2, handle) } returns setOf(mockk())
 
         create().process(areaInfo).owners shouldBe setOf(
-            Owner(pkgId),
-            Owner(pkgId2, setOf(Marker.Flag.CUSTODIAN))
+            Owner(pkgId, handle),
+            Owner(pkgId2, handle, setOf(Marker.Flag.CUSTODIAN))
         )
     }
 }

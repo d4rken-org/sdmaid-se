@@ -52,7 +52,7 @@ class OemModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.OEM,
                     path = LocalPath.build(resolvedPath),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = emptySet(),
                 )
             )

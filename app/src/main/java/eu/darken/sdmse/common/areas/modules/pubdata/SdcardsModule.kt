@@ -37,25 +37,25 @@ class SdcardsModule @Inject constructor(
         val sdcards = mutableSetOf<DataArea>()
 
         // TODO we are not getting multiuser sdcards
-        storageEnvironment.getPublicPrimaryStorage(userManager2.currentUser)
+        storageEnvironment.getPublicPrimaryStorage(userManager2.currentUser().handle)
             .let { determineAreaAccessPath(it) }
             ?.let {
                 DataArea(
                     path = it,
                     type = DataArea.Type.SDCARD,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                     flags = setOf(DataArea.Flag.PRIMARY),
                 )
             }
             ?.run { sdcards.add(this) }
 
-        storageEnvironment.getPublicSecondaryStorage(userManager2.currentUser)
+        storageEnvironment.getPublicSecondaryStorage(userManager2.currentUser().handle)
             .mapNotNull { determineAreaAccessPath(it) }
             .map {
                 DataArea(
                     path = it,
                     type = DataArea.Type.SDCARD,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                     flags = emptySet(),
                 )
             }

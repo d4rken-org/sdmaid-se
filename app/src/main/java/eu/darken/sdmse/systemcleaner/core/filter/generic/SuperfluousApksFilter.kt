@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -51,7 +52,8 @@ class SuperfluousApksFilter @Inject constructor(
         log(TAG, VERBOSE) { "Passed sieve, checking $item" }
 
         val apkInfo = pkgOps.viewArchive(item.lookedUp) ?: return false
-        val installed = pkgRepo.getPkg(apkInfo.id) ?: return false
+        // TODO Multiple profiles can't have different versions of the same APK, right?
+        val installed = pkgRepo.getPkg(apkInfo.id).firstOrNull() ?: return false
 
         val superfluos = installed.versionCode >= apkInfo.versionCode
         if (superfluos) {

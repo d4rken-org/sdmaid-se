@@ -44,7 +44,7 @@ class SystemModule @Inject constructor(
             DataArea(
                 type = DataArea.Type.SYSTEM,
                 path = LocalPath.build(Environment.getRootDirectory()),
-                userHandle = userManager2.systemUser,
+                userHandle = userManager2.systemUser().handle,
                 flags = setOf(DataArea.Flag.PRIMARY),
             ).run { areas.add(this) }
         }
@@ -62,7 +62,7 @@ class SystemModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.SYSTEM,
                     path = LocalPath.build(resolvedPath),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = emptySet(),
                 ).run { areas.add(this) }
 

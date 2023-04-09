@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.pkgs.sources
 
-import android.content.pm.PackageManager
 import android.content.pm.SharedLibraryInfo
 import android.os.Parcel
 import dagger.Binds
@@ -18,6 +17,7 @@ import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.user.UserManager2
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,11 +25,14 @@ import javax.inject.Singleton
 @Singleton
 class SharedLibraryPkgSource @Inject constructor(
     private val pkgOps: PkgOps,
-    private val packageManager: PackageManager,
+    private val userManager2: UserManager2,
 ) : PkgDataSource {
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG, VERBOSE) { "getPkgs()" }
+
+        val allUsers = userManager2.allUsers().map { it.handle }
+
         val libraryPkgs = pkgOps.getSharedLibraries(0)
             .onEach { log(TAG, VERBOSE) { "Checking $it" } }
             .filter { it.type != 0 } // Built in types like .jars
@@ -44,12 +47,16 @@ class SharedLibraryPkgSource @Inject constructor(
                     }
                 } ?: return@mapNotNull null
 
-                LibraryPkg(
-                    sharedLibraryInfo = libraryInfo,
-                    apkPath = apkPath,
-                    packageInfo = apkInfo.packageInfo,
-                )
-            }
+                allUsers.map { handle ->
+                    LibraryPkg(
+                        sharedLibraryInfo = libraryInfo,
+                        apkPath = apkPath,
+                        packageInfo = apkInfo.packageInfo,
+                        userHandle = handle,
+                    )
+                }
+            }.flatten()
+
         log(TAG) { "Found ${libraryPkgs.size} library pkgs" }
         log(TAG, VERBOSE) { libraryPkgs.joinToString("\n") }
 

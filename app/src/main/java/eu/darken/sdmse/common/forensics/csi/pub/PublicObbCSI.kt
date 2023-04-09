@@ -22,13 +22,15 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
 class PublicObbCSI @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
     private val areaManager: DataAreaManager,
     private val storageManager: StorageManager,
     private val gatewaySwitch: GatewaySwitch,
@@ -56,13 +58,14 @@ class PublicObbCSI @Inject constructor(
         val owners = mutableSetOf<Owner>()
         var hasKnownUnknownOwner = false
 
+        val userHandle = areaInfo.userHandle
         val dirNameAsPkg = areaInfo.prefixFreePath.first()
 
-        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId())) {
-            owners.add(Owner(dirNameAsPkg.toPkgId()))
+        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId(), userHandle)) {
+            owners.add(Owner(dirNameAsPkg.toPkgId(), userHandle))
         } else {
             clutterRepo.match(areaInfo.type, listOf(dirNameAsPkg))
-                .map { it.toOwners() }
+                .map { it.toOwners(areaInfo) }
                 .flatten()
                 .run { owners.addAll(this) }
         }

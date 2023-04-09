@@ -9,11 +9,13 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.common.user.UserProfile2
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -28,7 +30,7 @@ import testhelpers.BaseTest
 
 abstract class BaseCSITest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
+    @MockK lateinit var pkgRepo: PkgRepo
     @MockK lateinit var areaManager: DataAreaManager
     @MockK lateinit var clutterRepo: ClutterRepo
     @MockK lateinit var storageManager: StorageManager
@@ -47,11 +49,10 @@ abstract class BaseCSITest : BaseTest() {
         coEvery { clutterRepo.match(any(), any()) } returns emptySet()
         coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
         coEvery { gatewaySwitch.exists(any()) } returns false
-        coEvery { userManager2.currentUser } returns UserHandle2(0)
+        coEvery { userManager2.currentUser() } returns UserProfile2(UserHandle2(0))
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 
-        coEvery { pkgRepo.isInstalled(any()) } returns false
-        coEvery { pkgRepo.getPkg(any()) } returns null
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
         every { pkgRepo.pkgs } returns flowOf(pkgs)
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
     }
@@ -71,14 +72,18 @@ abstract class BaseCSITest : BaseTest() {
         }
     }
 
-    open fun mockPkg(pkgId: Pkg.Id, source: LocalPath? = null): Installed {
+    open fun mockPkg(
+        pkgId: Pkg.Id,
+        source: LocalPath? = null,
+        userHandle: UserHandle2 = UserHandle2(0),
+    ): Installed {
         val mockPkg = mockk<Installed>().apply {
             every { id } returns pkgId
             every { sourceDir } returns source
             every { packageInfo } returns mockk()
         }
-        coEvery { pkgRepo.isInstalled(pkgId) } returns true
-        coEvery { pkgRepo.getPkg(pkgId) } returns mockPkg
+        coEvery { pkgRepo.query(pkgId, UserHandle2(-1)) } returns setOf(mockPkg)
+        coEvery { pkgRepo.query(pkgId, userHandle) } returns setOf(mockPkg)
 
         return mockPkg.also {
             pkgs.add(it)

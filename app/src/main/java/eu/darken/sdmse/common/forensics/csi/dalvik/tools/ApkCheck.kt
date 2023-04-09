@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -16,7 +17,8 @@ import javax.inject.Inject
 class ApkCheck @Inject constructor(
     private val pkgOps: PkgOps
 ) : DalvikCheck {
-    suspend fun check(candidates: Collection<LocalPath>): DalvikCheck.Result {
+    suspend fun check(areaInfo: AreaInfo, candidates: Collection<LocalPath>): DalvikCheck.Result {
+        val userHandle = areaInfo.userHandle
         val owners = candidates
             .asFlow()
             .filter { it.name.endsWith(".apk") }
@@ -33,9 +35,9 @@ class ApkCheck @Inject constructor(
                      * to
                      * /system/product/priv-app/PrebuiltGmsCore/m/independent/AndroidPlatformServices.apk
                      */
-                    setOf(Owner(it.id), Owner("com.google.android.gms".toPkgId()))
+                    setOf(Owner(it.id, userHandle), Owner("com.google.android.gms".toPkgId(), userHandle))
                 } else {
-                    setOf(Owner(it.id))
+                    setOf(Owner(it.id, userHandle))
                 }
             }
             .firstOrNull()

@@ -39,7 +39,7 @@ class DataAppPrivateModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.APP_APP_PRIVATE,
                     path = parentArea.path.child("app-private"),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
             }

@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -16,7 +17,7 @@ import kotlinx.coroutines.sync.withLock
 import java.util.regex.Pattern
 
 open class ManualMarkerSource(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
     private val clutterEntriesProvider: () -> Collection<JsonMarkerGroup>
 ) : MarkerSource {
 

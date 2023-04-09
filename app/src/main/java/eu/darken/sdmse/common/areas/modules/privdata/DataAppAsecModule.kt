@@ -39,7 +39,7 @@ class DataAppAsecModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.APP_ASEC,
                     path = parentArea.path.child("app-asec"),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
             }

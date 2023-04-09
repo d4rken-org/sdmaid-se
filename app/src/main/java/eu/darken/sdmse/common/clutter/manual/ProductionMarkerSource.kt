@@ -7,11 +7,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.clutter.MarkerSource
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import javax.inject.Inject
 
 @Reusable
 class ProductionMarkerSource @Inject constructor(
-    pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    pkgRepo: PkgRepo,
     jsonMarkerParser: JsonMarkerParser,
 ) : ManualMarkerSource(
     pkgRepo,

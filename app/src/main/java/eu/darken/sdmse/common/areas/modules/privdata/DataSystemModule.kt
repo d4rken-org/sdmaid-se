@@ -39,7 +39,7 @@ class DataSystemModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DATA_SYSTEM,
                     path = parentArea.path.child("system"),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
             }

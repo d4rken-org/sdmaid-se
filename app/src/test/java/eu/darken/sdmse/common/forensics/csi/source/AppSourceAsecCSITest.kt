@@ -8,9 +8,9 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -18,11 +18,11 @@ import org.junit.Test
 
 class AppSourceAsecCSITest : BaseCSITest() {
 
-    private val appSourcesArea = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_ASEC
-        every { path } returns LocalPath.build("/data/app-asec")
-    }
+    private val appSourcesArea = DataArea(
+        type = DataArea.Type.APP_ASEC,
+        path = LocalPath.build("/data/app-asec"),
+        userHandle = UserHandle2(-1),
+    )
 
     private val bases = setOf(
         appSourcesArea.path,
@@ -124,8 +124,8 @@ class AppSourceAsecCSITest : BaseCSITest() {
 
             processor.findOwners(locationInfo).apply {
                 owners shouldBe setOf(
-                    Owner(suffix.toPkgId()),
-                    Owner(suffix.replace(".asec", "").toPkgId()),
+                    Owner(suffix.toPkgId(), locationInfo.userHandle),
+                    Owner(suffix.replace(".asec", "").toPkgId(), locationInfo.userHandle),
                 )
                 hasKnownUnknownOwner shouldBe false
             }

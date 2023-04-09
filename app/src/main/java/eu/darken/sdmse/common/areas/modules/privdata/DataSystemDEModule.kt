@@ -37,11 +37,11 @@ class DataSystemDEModule @Inject constructor(
         return firstPass
             .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
             .map { parentArea ->
-                userManager2.allUsers.map { userHandle ->
+                userManager2.allUsers().map { profile ->
                     DataArea(
                         type = DataArea.Type.DATA_SYSTEM_DE,
-                        path = parentArea.path.child("system_de", userHandle.handleId.toString()),
-                        userHandle = userHandle,
+                        path = parentArea.path.child("system_de", profile.handle.handleId.toString()),
+                        userHandle = profile.handle,
                         flags = parentArea.flags,
                     )
                 }

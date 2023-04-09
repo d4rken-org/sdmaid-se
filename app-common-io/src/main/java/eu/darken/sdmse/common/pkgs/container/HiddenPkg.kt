@@ -9,9 +9,11 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 
 data class HiddenPkg(
     override val packageInfo: PackageInfo,
+    override val userHandle: UserHandle2
 ) : Installed {
 
     override val id: Pkg.Id = packageInfo.packageName.toPkgId()

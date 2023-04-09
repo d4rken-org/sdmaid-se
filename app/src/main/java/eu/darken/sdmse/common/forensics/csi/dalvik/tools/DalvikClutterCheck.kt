@@ -20,7 +20,7 @@ class DalvikClutterCheck @Inject constructor(
     suspend fun process(areaInfo: AreaInfo): DalvikCheck.Result {
         val dirName: String = areaInfo.prefixFreePath.first()
         val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
-        val owners = matches.map { it.toOwners() }.flatten().toSet()
+        val owners = matches.map { it.toOwners(areaInfo) }.flatten().toSet()
         return DalvikCheck.Result(owners)
     }
 

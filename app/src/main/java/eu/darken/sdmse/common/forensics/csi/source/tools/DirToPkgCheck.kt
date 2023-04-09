@@ -9,6 +9,8 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -22,21 +24,21 @@ import javax.inject.Inject
  */
 @Reusable
 class DirToPkgCheck @Inject constructor(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
         val potPkgNames = areaInfo.prefixFreePath
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
-
+        val userHandle = areaInfo.userHandle
         val owners = listOf(CODESOURCE_DIR, APPDIR_ANDROIDO)
             .asSequence()
             .map { it.matcher(potPkgNames[0]) }
             .firstOrNull { it.matches() }
             ?.group(1)
             ?.toPkgId()
-            ?.takeIf { pkgRepo.isInstalled(it) }
-            ?.let { setOf(Owner(it)) }
+            ?.takeIf { pkgRepo.isInstalled(it, userHandle) }
+            ?.let { setOf(Owner(it, userHandle)) }
             ?: emptySet()
         return AppSourceCheck.Result(owners)
     }

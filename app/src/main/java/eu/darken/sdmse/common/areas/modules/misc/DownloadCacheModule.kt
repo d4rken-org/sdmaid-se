@@ -40,7 +40,7 @@ class DownloadCacheModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DOWNLOAD_CACHE,
                     path = it,
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = if (it == environment.downloadCacheDirs.first()) setOf(DataArea.Flag.PRIMARY) else emptySet()
                 )
             }

@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.user.UserHandle2
 data class NormalPkg(
     override val packageInfo: PackageInfo,
     override val installerInfo: InstallerInfo,
-    override val userHandles: Set<UserHandle2>,
+    override val userHandle: UserHandle2,
 ) : Installed, ReadableApk, ExtendedInstallData {
 
     override val label: CaString = caString { context ->
@@ -28,5 +28,5 @@ data class NormalPkg(
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
     }.cache()
 
-    override fun toString(): String = "NormalPkg(packageName=$packageName, userHandles=$userHandles)"
+    override fun toString(): String = "NormalPkg(packageName=$packageName, userHandle=$userHandle)"
 }

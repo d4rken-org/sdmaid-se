@@ -20,7 +20,9 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.regex.Pattern
 import javax.inject.Inject
@@ -28,7 +30,7 @@ import javax.inject.Inject
 @Reusable
 class AppSourceLibCSI @Inject constructor(
     private val areaManager: DataAreaManager,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
     private val clutterRepo: ClutterRepo,
 ) : LocalCSIProcessor {
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.APP_LIB
@@ -51,14 +53,14 @@ class AppSourceLibCSI @Inject constructor(
         require(hasJurisdiction(areaInfo.type)) { "Wrong jurisdiction: ${areaInfo.type}" }
 
         val owners = mutableSetOf<Owner>()
-
+        val userHandle = areaInfo.userHandle
         val dirName = areaInfo.prefixFreePath.first()
         dirName
             .let { APPLIB_DIR.matcher(it) }
             .takeIf { it.matches() }
             ?.let { it.group(1)?.toPkgId() }
-            ?.takeIf { pkgRepo.isInstalled(it) }
-            ?.let { owners.add(Owner(it)) }
+            ?.takeIf { pkgRepo.isInstalled(it, userHandle) }
+            ?.let { owners.add(Owner(it, userHandle)) }
 
         if (owners.isEmpty()) {
             pkgRepo.currentPkgs()
@@ -67,13 +69,13 @@ class AppSourceLibCSI @Inject constructor(
                     val nativLibDir = LocalPath.build(it.packageInfo.applicationInfo.nativeLibraryDir)
                     areaInfo.file == nativLibDir || areaInfo.file.isDescendantOf(nativLibDir)
                 }
-                .map { Owner(it.id) }
+                .map { Owner(it.id, userHandle) }
                 .run { owners.addAll(this) }
         }
 
         if (owners.isEmpty()) {
             val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
-            owners.addAll(matches.map { it.toOwners() }.flatten())
+            owners.addAll(matches.map { it.toOwners(areaInfo) }.flatten())
         }
 
 
