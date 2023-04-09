@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +41,14 @@ class MainActivity : Activity2() {
         curriculumVitae.updateAppOpened()
 
         vm.readyState.observe2 { showSplashScreen = false }
+
+        vm.keepScreenOn.observe2 { keepOn ->
+            if (keepOn) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            }
+        }
     }
 
     override fun onResume() {

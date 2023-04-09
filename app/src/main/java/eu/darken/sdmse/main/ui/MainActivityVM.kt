@@ -8,7 +8,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel2
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -18,6 +20,7 @@ class MainActivityVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     private val upgradeRepo: UpgradeRepo,
+    private val taskManager: TaskManager,
 ) : ViewModel2(dispatcherProvider = dispatcherProvider) {
 
     private val stateFlow = MutableStateFlow(State())
@@ -27,6 +30,10 @@ class MainActivityVM @Inject constructor(
 
     private val readyStateInternal = MutableStateFlow(true)
     val readyState = readyStateInternal.asLiveData2()
+
+    val keepScreenOn = taskManager.state
+        .map { !it.isIdle }
+        .asLiveData2()
 
     fun onGo() {
         stateFlow.value = stateFlow.value.copy(ready = true)
