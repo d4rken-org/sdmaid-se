@@ -160,6 +160,8 @@ dependencies {
 
     addTesting()
 
+    implementation("io.github.z4kn4fein:semver:1.4.2")
+
     implementation("com.airbnb.android:lottie:3.5.0")
 
     implementation("io.coil-kt:coil:2.0.0-rc02")

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <CheckBoxPreference
-        app:icon="@drawable/ic_eye"
+        app:icon="@drawable/ic_eye_24"
         app:key="watcher.uninstall.enabled"
         app:summary="@string/corpsefinder_watcher_summary"
         app:title="@string/corpsefinder_watcher_title" />
