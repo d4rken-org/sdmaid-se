@@ -90,9 +90,8 @@ class RecorderModule @Inject constructor(
             }
             .launchIn(appScope)
     }
-
     private fun createRecordingFilePath() = File(
-        File(context.cacheDir, "debug/logs"),
+        File(context.externalCacheDir, "debug/logs"),
         "${BuildConfigWrap.APPLICATION_ID}_logfile_${System.currentTimeMillis()}.log"
     )
 
