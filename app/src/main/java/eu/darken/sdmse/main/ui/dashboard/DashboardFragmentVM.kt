@@ -20,8 +20,8 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugCardProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -29,6 +29,8 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.updater.UpdateChecker
+import eu.darken.sdmse.common.updater.isNewer
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -69,6 +71,7 @@ class DashboardFragmentVM @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
     private val schedulerManager: SchedulerManager,
+    private val updateChecker: UpdateChecker,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -80,6 +83,39 @@ class DashboardFragmentVM @Inject constructor(
     private val refreshTrigger = MutableStateFlow(rngString)
 
     val events = SingleLiveEvent<DashboardEvents>()
+
+    private val updateInfo: Flow<UpdateCardVH.Item?> = flow {
+        try {
+            val currentChannel = updateChecker.currentChannel()
+            val update = updateChecker.getLatest(currentChannel)
+
+            if (update == null) {
+                log(TAG) { "No update available: ($currentChannel)" }
+                emit(null)
+                return@flow
+            }
+
+            if (!update.isNewer()) {
+                log(TAG) { "Latest update isn't newer: $update" }
+                emit(null)
+                return@flow
+            }
+
+            val info = UpdateCardVH.Item(
+                update = update,
+                onViewUpdate = {
+                    launch { updateChecker.viewUpdate(update) }
+                },
+                onUpdate = {
+                    launch { updateChecker.startUpdate(update) }
+                }
+            )
+            emit(info)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Update check failed: ${e.asLog()}" }
+            emit(null)
+        }
+    }
 
     private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
         .map {
@@ -197,6 +233,7 @@ class DashboardFragmentVM @Inject constructor(
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
         upgradeInfo,
+        updateInfo,
         setupManager.state,
         dataAreaItem,
         corpseFinderItem,
@@ -207,6 +244,7 @@ class DashboardFragmentVM @Inject constructor(
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
         upgradeInfo: UpgradeRepo.Info?,
+        updateInfo: UpdateCardVH.Item?,
         setupState: SetupManager.SetupState,
         dataAreaInfo: DataAreaCardVH.Item?,
         corpseFinderItem: CorpseFinderDashCardVH.Item?,
@@ -238,6 +276,8 @@ class DashboardFragmentVM @Inject constructor(
                 }
             ).run { items.add(this) }
         }
+
+        updateInfo?.let { items.add(it) }
 
         dataAreaInfo?.let { items.add(it) }
 

@@ -64,6 +64,7 @@
 
     <string name="general_details_label">Details</string>
     <string name="general_view_action">View</string>
+    <string name="general_update_action">Update</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>
     <string name="general_delete_all_action">Delete all</string>

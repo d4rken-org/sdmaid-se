@@ -2,8 +2,8 @@ package eu.darken.sdmse.common.updater
 
 import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -12,6 +12,7 @@ import javax.inject.Inject
 @Reusable
 class FossUpdateChecker @Inject constructor(
     private val checker: GithubReleaseCheck,
+    private val webpageTool: WebpageTool,
 ) : UpdateChecker {
 
     override suspend fun currentChannel(): UpdateChecker.Channel = when (BuildConfigWrap.BUILD_TYPE) {
@@ -36,21 +37,33 @@ class FossUpdateChecker @Inject constructor(
 
         return Update(
             channel = channel,
-            versionName = release.tagName
+            versionName = release.tagName,
+            changelogLink = release.htmlUrl,
+            downloadLink = release.assets.singleOrNull { it.name.endsWith(".apk") }?.downloadUrl,
         )
     }
 
     override suspend fun startUpdate(update: UpdateChecker.Update) {
         log(TAG, INFO) { "startUpdate($update)" }
+        update as Update
+        if (update.downloadLink != null) {
+            webpageTool.open(update.downloadLink)
+        } else {
+            log(TAG, WARN) { "No download link available for $update" }
+        }
     }
 
     override suspend fun viewUpdate(update: UpdateChecker.Update) {
         log(TAG, INFO) { "viewUpdate($update)" }
+        update as Update
+        webpageTool.open(update.changelogLink)
     }
 
     data class Update(
         override val channel: UpdateChecker.Channel,
-        override val versionName: String
+        override val versionName: String,
+        val changelogLink: String,
+        val downloadLink: String?,
     ) : UpdateChecker.Update
 
     companion object {
