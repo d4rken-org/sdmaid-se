@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.areas.modules.pubdata
+package eu.darken.sdmse.common.areas.modules.pub
 
 import dagger.Binds
 import dagger.Module
@@ -23,7 +23,7 @@ import eu.darken.sdmse.common.storage.SAFMapper
 import javax.inject.Inject
 
 @Reusable
-class PublicObbModule @Inject constructor(
+class PublicDataModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val safMapper: SAFMapper,
 ) : DataAreaModule {
@@ -39,6 +39,7 @@ class PublicObbModule @Inject constructor(
                     hasApiLevel(33) -> {
                         when {
                             localGateway.hasRoot() -> {
+                                // If we have root, we need to convert any SAFPath back
                                 when (val target = parentArea.path) {
                                     is LocalPath -> target
                                     is SAFPath -> safMapper.toLocalPath(target)
@@ -52,16 +53,24 @@ class PublicObbModule @Inject constructor(
                         }
                     }
                     hasApiLevel(30) -> {
-                        when (val target = parentArea.path) {
-                            is LocalPath -> safMapper.toSAFPath(target)
-                            is SAFPath -> target
-                            else -> null
+                        val target = parentArea.path
+                        // On API30 we can do the direct SAF grant workaround
+                        when {
+                            localGateway.hasRoot() -> when (target) {
+                                is SAFPath -> safMapper.toLocalPath(target)
+                                else -> target
+                            }
+                            else -> when (target) {
+                                is LocalPath -> safMapper.toSAFPath(target)
+                                is SAFPath -> target
+                                else -> null
+                            }
                         }
                     }
                     else -> parentArea.path
                 }
-                val dataAccessPath = accessPath?.child("Android", "obb") ?: return@mapNotNull null
-                parentArea to dataAccessPath
+                val childPath = accessPath?.child("Android", "data") ?: return@mapNotNull null
+                parentArea to childPath
             }
             .filter {
                 val canRead = it.second.canRead(gatewaySwitch)
@@ -70,7 +79,7 @@ class PublicObbModule @Inject constructor(
             }
             .map { (parentArea, path) ->
                 DataArea(
-                    type = DataArea.Type.PUBLIC_OBB,
+                    type = DataArea.Type.PUBLIC_DATA,
                     path = path,
                     flags = parentArea.flags,
                     userHandle = parentArea.userHandle,
@@ -85,10 +94,10 @@ class PublicObbModule @Inject constructor(
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: PublicObbModule): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: PublicDataModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "Public", "Obb")
+        val TAG: String = logTag("DataArea", "Module", "Public", "Data")
     }
 }

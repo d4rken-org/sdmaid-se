@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.areas.modules.privdata
+package eu.darken.sdmse.common.areas.modules.priv
 
 import dagger.Binds
 import dagger.Module
@@ -19,8 +19,9 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 
+
 @Reusable
-class DataSystemCEModule @Inject constructor(
+class DataSystemDEModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
@@ -38,8 +39,8 @@ class DataSystemCEModule @Inject constructor(
             .map { parentArea ->
                 userManager2.allUsers().map { profile ->
                     DataArea(
-                        type = DataArea.Type.DATA_SYSTEM_CE,
-                        path = parentArea.path.child("system_ce", profile.handle.handleId.toString()),
+                        type = DataArea.Type.DATA_SYSTEM_DE,
+                        path = parentArea.path.child("system_de", profile.handle.handleId.toString()),
                         userHandle = profile.handle,
                         flags = parentArea.flags,
                     )
@@ -55,10 +56,10 @@ class DataSystemCEModule @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataSystemCEModule): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: DataSystemDEModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "DataSystemCE")
+        val TAG: String = logTag("DataArea", "Module", "DataSystemDE")
     }
 }
