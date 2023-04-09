@@ -8,6 +8,8 @@ import android.os.RemoteException
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import eu.darken.rxshell.cmd.Cmd
+import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -22,10 +24,10 @@ import java.util.concurrent.TimeoutException
  * This class wraps the supplied Binder interface in its own helper (primarily to keep track of
  * the non-root processes' state), and broadcasts the wrapper to the non-root process.
 
- * @param packageName           Package name of process to send Binder to. Use BuildConfig.APPLICATION_ID (double check you're importing the correct BuildConfig!) for convenience
- * @param userBinder                   Binder object to wrap and send out
- * @param pairingCode                  User-value, should be unique per Binder
- * @param timeout               How long to wait for the other process to initiate the connection, 0 to wait forever
+ * @param packageName       Package name of process to send Binder to. Use BuildConfig.APPLICATION_ID (double check you're importing the correct BuildConfig!) for convenience
+ * @param userBinder        Binder object to wrap and send out
+ * @param pairingCode       User-value, should be unique per Binder
+ * @param timeout           How long to wait for the other process to initiate the connection, 0 to wait forever
  * @throws TimeoutException If the connection times out
 
  * @see RootIPCReceiver
@@ -173,7 +175,9 @@ class RootIPC @AssistedInject constructor(
             putExtra(RootIPCReceiver.BROADCAST_EXTRA, bundle)
         }
 
-        reflectionBroadcast.sendBroadcast(intent)
+        getUserIds().forEach {
+            reflectionBroadcast.sendBroadcast(intent, it)
+        }
     }
 
 
@@ -214,7 +218,35 @@ class RootIPC @AssistedInject constructor(
         connections.singleOrNull { it.deathRecipient === deathRecipient }
     }
 
+    private fun getUserIds(): List<Int> {
+        val result = Cmd.builder("pm list users").execute(RxCmdShell.builder().build())
+        if (result.exitCode != Cmd.ExitCode.OK) {
+            log(TAG, ERROR) { "Failed to get user handles via shell: ${result.merge()}" }
+            return listOf(0)
+        }
+
+        val parsedIds = result.output.mapNotNull {
+            try {
+                val match = USER_ID_REGEX.matchEntire(it) ?: return@mapNotNull null
+                match.groupValues[1].toInt()
+            } catch (e: Exception) {
+                log(TAG) { "Failed to extract user handles from shell: ${e.asLog()}" }
+                null
+            }
+        }
+
+        log(TAG) { "getUserIds(): $parsedIds" }
+
+        if (parsedIds.isEmpty()) {
+            log(TAG, ERROR) { "Failed to parse user handles" }
+            return listOf(0)
+        }
+
+        return parsedIds
+    }
+
     companion object {
+        private val USER_ID_REGEX = Regex("^\\s+UserInfo\\W(\\d+)\\W.+?\$")
         private val TAG = logTag("Root", "IPC")
     }
 

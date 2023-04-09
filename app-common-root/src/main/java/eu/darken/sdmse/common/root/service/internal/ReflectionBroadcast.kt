@@ -5,6 +5,7 @@ import android.content.Intent
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import java.lang.reflect.Method
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class ReflectionBroadcast @Inject constructor() {
             // not present on all Android versions
             0
         } catch (e: IllegalAccessException) {
-            log(ERROR) { "Failed to determine 'flagReceiverFromShell': ${e.asLog()}" }
+            log(TAG, ERROR) { "Failed to determine 'flagReceiverFromShell': ${e.asLog()}" }
             0
         }
     }
@@ -48,14 +49,14 @@ class ReflectionBroadcast @Inject constructor() {
             val mGetDefault = cActivityManagerNative.getMethod("getDefault")
             return@lazy mGetDefault.invoke(null)
         } catch (e: Exception) {
-            log(WARN) { "activityManager via ActivityManagerNative failed: ${e.asLog()}" }
+            log(TAG, WARN) { "activityManager via ActivityManagerNative failed: ${e.asLog()}" }
         }
         try { // alternative
             val cActivityManager = Class.forName("android.app.ActivityManager")
             val mGetService = cActivityManager.getMethod("getService")
             return@lazy mGetService.invoke(null)
         } catch (e: Exception) {
-            log(ERROR) { "activityManager via ActivityManager failed: ${e.asLog()}" }
+            log(TAG, ERROR) { "activityManager via ActivityManager failed: ${e.asLog()}" }
         }
         throw RuntimeException("Unable to retrieve ActivityManager")
     }
@@ -90,31 +91,33 @@ class ReflectionBroadcast @Inject constructor() {
      * @param intent Intent to broadcast
      */
     @SuppressLint("PrivateApi")
-    fun sendBroadcast(intent: Intent) {
+    fun sendBroadcast(intent: Intent, userId: Int) {
         try {
-            log { "sendBroadcast(${intent})..." }
+            log { "sendBroadcast(userId=$userId, intent=${intent})..." }
             // Prevent system from complaining about unprotected broadcast, if the field exists
             intent.flags = flagReceiverFromShell
             log { "sendBroadcast(...) flags prepared" }
 
+            // API 24+
+            // https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java;l=14427
             if (broadcastIntent.parameterTypes.size == 13) {
                 log { "sendBroadcast(...) sending (type=13)" }
-                // API 24+
+
                 broadcastIntent.invoke(
                     activityManager,
-                    null,
-                    intent,
-                    null,
-                    null,
-                    0,
-                    null,
-                    null,
-                    null,
-                    -1,
-                    null,
-                    false,
-                    false,
-                    0
+                    null, // IApplicationThread caller
+                    intent, // Intent intent
+                    null, // String resolvedType
+                    null, // IIntentReceiver resultTo
+                    0, // int resultCode
+                    null, // String resultData
+                    null, // Bundle resultExtras
+                    null, // String[] requiredPermissions
+                    -1, // int appOp,
+                    null, // Bundle bOptions
+                    false, // boolean serialized
+                    false, // boolean sticky
+                    userId, // int userId
                 )
                 log { "sendBroadcast(..) (type=13) done." }
                 return
@@ -136,15 +139,18 @@ class ReflectionBroadcast @Inject constructor() {
                     -1,
                     false,
                     false,
-                    0
+                    userId,
                 )
                 log { "sendBroadcast(..) (type=12) done." }
                 return
             }
         } catch (e: Exception) {
-            log(ERROR) { "sendBroadcast(...) failed: ${e.asLog()}" }
+            log(TAG, ERROR) { "sendBroadcast(...) failed: ${e.asLog()}" }
             throw RuntimeException("Unable to send broadcast", e)
         }
     }
 
+    companion object {
+        private val TAG = logTag("Root", "ReflectionBroadcast")
+    }
 }
