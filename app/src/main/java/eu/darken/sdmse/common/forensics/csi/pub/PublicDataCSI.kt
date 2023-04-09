@@ -18,13 +18,15 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
 class PublicDataCSI @Inject constructor(
     private val clutterRepo: ClutterRepo,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
     private val areaManager: DataAreaManager,
 ) : LocalCSIProcessor {
 
@@ -49,28 +51,29 @@ class PublicDataCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
+        val userHandle = areaInfo.userHandle
         val dirNameAsPkg = areaInfo.prefixFreePath.first()
         var hiddenDirAsPkg: String? = null
 
-        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId())) {
-            owners.add(Owner(dirNameAsPkg.toPkgId()))
+        if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId(), userHandle)) {
+            owners.add(Owner(dirNameAsPkg.toPkgId(), userHandle))
         } else {
             hiddenDirAsPkg = tryCleanName(dirNameAsPkg)
-            if (hiddenDirAsPkg != null && pkgRepo.isInstalled(hiddenDirAsPkg.toPkgId())) {
-                owners.add(Owner(hiddenDirAsPkg.toPkgId()))
+            if (hiddenDirAsPkg != null && pkgRepo.isInstalled(hiddenDirAsPkg.toPkgId(), userHandle)) {
+                owners.add(Owner(hiddenDirAsPkg.toPkgId(), userHandle))
             }
         }
 
         if (owners.isEmpty()) {
             clutterRepo.match(areaInfo.type, listOf(dirNameAsPkg))
-                .map { it.toOwners() }
+                .map { it.toOwners(areaInfo) }
                 .flatten()
                 .run { owners.addAll(this) }
         }
 
         // Fallback, no downside to assuming that dirname=pkgname for PUBLIC_DATA if there are no other owners
         if (owners.isEmpty()) {
-            owners.add(Owner((hiddenDirAsPkg ?: dirNameAsPkg).toPkgId()))
+            owners.add(Owner((hiddenDirAsPkg ?: dirNameAsPkg).toPkgId(), userHandle))
         }
 
         return CSIProcessor.Result(

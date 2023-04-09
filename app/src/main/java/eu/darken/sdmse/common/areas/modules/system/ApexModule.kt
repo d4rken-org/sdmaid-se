@@ -49,7 +49,7 @@ class ApexModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.APEX,
                     path = LocalPath.build(resolvedPath),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = emptySet(),
                 )
             )

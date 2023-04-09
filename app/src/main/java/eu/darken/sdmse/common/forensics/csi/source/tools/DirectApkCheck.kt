@@ -15,16 +15,16 @@ import javax.inject.Inject
 @Reusable
 class DirectApkCheck @Inject constructor(
     private val pkgOps: PkgOps,
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
         if (!areaInfo.file.name.endsWith(".apk")) return AppSourceCheck.Result()
 
         val info = pkgOps.viewArchive(areaInfo.file, 0)
+        val userHandle = areaInfo.userHandle
 
         val owners = if (info != null) {
-            setOf(Owner(info.id))
+            setOf(Owner(info.id, userHandle))
         } else {
             emptySet()
         }

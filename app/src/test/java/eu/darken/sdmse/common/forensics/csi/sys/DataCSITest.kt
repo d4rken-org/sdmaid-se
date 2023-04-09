@@ -7,9 +7,9 @@ import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -20,125 +20,125 @@ class DataCSITest : BaseCSITest() {
     private val baseDataPath1 = LocalPath.build("/data")
     private val baseDataPath2 = LocalPath.build("/mnt/expand", rngString)
 
-    private val storageData1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA
-        every { path } returns baseDataPath1
-    }
+    private val storageData1 = DataArea(
+        type = DataArea.Type.DATA,
+        path = baseDataPath1,
+        userHandle = UserHandle2(-1),
+    )
 
-    private val storageData2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA
-        every { path } returns baseDataPath2
-    }
+    private val storageData2 = DataArea(
+        type = DataArea.Type.DATA,
+        path = baseDataPath2,
+        userHandle = UserHandle2(-1),
+    )
 
-    private val storageDataApp1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_APP
-        every { path } returns LocalPath.build(baseDataPath1, "app")
-    }
+    private val storageDataApp1 = DataArea(
+        type = DataArea.Type.APP_APP,
+        path = LocalPath.build(baseDataPath1, "app"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataApp2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_APP
-        every { path } returns LocalPath.build(baseDataPath2, "app")
-    }
+    private val storageDataApp2 = DataArea(
+        type = DataArea.Type.APP_APP,
+        path = LocalPath.build(baseDataPath2, "app"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataAppAsec1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_ASEC
-        every { path } returns LocalPath.build(baseDataPath1, "app-asec")
-    }
+    private val storageDataAppAsec1 = DataArea(
+        type = DataArea.Type.APP_ASEC,
+        path = LocalPath.build(baseDataPath1, "app-asec"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataAppAsec2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_ASEC
-        every { path } returns LocalPath.build(baseDataPath2, "app-asec")
-    }
+    private val storageDataAppAsec2 = DataArea(
+        type = DataArea.Type.APP_ASEC,
+        path = LocalPath.build(baseDataPath2, "app-asec"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataAppPrivate1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_APP_PRIVATE
-        every { path } returns LocalPath.build(baseDataPath1, "app-private")
-    }
+    private val storageDataAppPrivate1 = DataArea(
+        type = DataArea.Type.APP_APP_PRIVATE,
+        path = LocalPath.build(baseDataPath1, "app-private"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataAppPrivate2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_APP_PRIVATE
-        every { path } returns LocalPath.build(baseDataPath2, "app-private")
-    }
+    private val storageDataAppPrivate2 = DataArea(
+        type = DataArea.Type.APP_APP_PRIVATE,
+        path = LocalPath.build(baseDataPath2, "app-private"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataAppLib1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_LIB
-        every { path } returns LocalPath.build(baseDataPath1, "app-lib")
-    }
+    private val storageDataAppLib1 = DataArea(
+        type = DataArea.Type.APP_LIB,
+        path = LocalPath.build(baseDataPath1, "app-lib"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataAppLib2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_LIB
-        every { path } returns LocalPath.build(baseDataPath2, "app-lib")
-    }
+    private val storageDataAppLib2 = DataArea(
+        type = DataArea.Type.APP_LIB,
+        path = LocalPath.build(baseDataPath2, "app-lib"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataSystem1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM
-        every { path } returns LocalPath.build(baseDataPath1, "system")
-    }
+    private val storageDataSystem1 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM,
+        path = LocalPath.build(baseDataPath1, "system"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataSystem2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM
-        every { path } returns LocalPath.build(baseDataPath2, "system")
-    }
+    private val storageDataSystem2 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM,
+        path = LocalPath.build(baseDataPath2, "system"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataSystemCE1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM_CE
-        every { path } returns LocalPath.build(baseDataPath1, "system_ce")
-    }
+    private val storageDataSystemCE1 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM_CE,
+        path = LocalPath.build(baseDataPath1, "system_ce"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataSystemCE2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM_CE
-        every { path } returns LocalPath.build(baseDataPath2, "system_ce")
-    }
+    private val storageDataSystemCE2 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM_CE,
+        path = LocalPath.build(baseDataPath2, "system_ce"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDataSystemDE1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM_DE
-        every { path } returns LocalPath.build(baseDataPath1, "system_de")
-    }
+    private val storageDataSystemDE1 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM_DE,
+        path = LocalPath.build(baseDataPath1, "system_de"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDataSystemDE2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DATA_SYSTEM_DE
-        every { path } returns LocalPath.build(baseDataPath2, "system_de")
-    }
+    private val storageDataSystemDE2 = DataArea(
+        type = DataArea.Type.DATA_SYSTEM_DE,
+        path = LocalPath.build(baseDataPath2, "system_de"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDalvikDex1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DALVIK_DEX
-        every { path } returns LocalPath.build(baseDataPath1, "dalvik-cache", "arm64")
-    }
+    private val storageDalvikDex1 = DataArea(
+        type = DataArea.Type.DALVIK_DEX,
+        path = LocalPath.build(baseDataPath1, "dalvik-cache", "arm64"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDalvikDex2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DALVIK_DEX
-        every { path } returns LocalPath.build(baseDataPath2, "dalvik-cache", "arm64")
-    }
+    private val storageDalvikDex2 = DataArea(
+        type = DataArea.Type.DALVIK_DEX,
+        path = LocalPath.build(baseDataPath2, "dalvik-cache", "arm64"),
+        userHandle = storageData2.userHandle,
+    )
 
-    private val storageDalvikProfile1 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DALVIK_PROFILE
-        every { path } returns LocalPath.build(baseDataPath1, "dalvik-cache", "profiles")
-    }
+    private val storageDalvikProfile1 = DataArea(
+        type = DataArea.Type.DALVIK_PROFILE,
+        path = LocalPath.build(baseDataPath1, "dalvik-cache", "profiles"),
+        userHandle = storageData1.userHandle,
+    )
 
-    private val storageDalvikProfile2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.DALVIK_PROFILE
-        every { path } returns LocalPath.build(baseDataPath2, "dalvik-cache", "profiles")
-    }
+    private val storageDalvikProfile2 = DataArea(
+        type = DataArea.Type.DALVIK_PROFILE,
+        path = LocalPath.build(baseDataPath2, "dalvik-cache", "profiles"),
+        userHandle = storageData2.userHandle,
+    )
 
     private val bases = setOf(
         storageData1.path,

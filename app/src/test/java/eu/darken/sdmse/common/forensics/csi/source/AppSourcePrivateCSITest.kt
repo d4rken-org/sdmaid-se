@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.forensics.csi.source.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -20,12 +21,11 @@ import org.junit.Test
 
 class AppSourcePrivateCSITest : BaseCSITest() {
 
-    private val appSourcesArea = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns DataArea.Type.APP_APP_PRIVATE
-        every { path } returns LocalPath.build("/data/app-private")
-    }
-
+    private val appSourcesArea = DataArea(
+        type = DataArea.Type.APP_APP_PRIVATE,
+        path = LocalPath.build("/data/app-private"),
+        userHandle = UserHandle2(-1),
+    )
     private val bases = setOf(
         appSourcesArea.path,
     )
@@ -48,7 +48,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
         sourceChecks = setOf(
             ApkDirCheck(pkgOps),
             AppSourceClutterCheck(clutterRepo),
-            DirectApkCheck(pkgOps, pkgRepo),
+            DirectApkCheck(pkgOps),
             DirToPkgCheck(pkgRepo),
             FileToPkgCheck(pkgRepo),
             LuckyPatcherCheck(pkgRepo),

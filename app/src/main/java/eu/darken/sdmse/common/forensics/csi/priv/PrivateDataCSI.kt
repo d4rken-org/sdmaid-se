@@ -19,6 +19,8 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.storage.StorageEnvironment
@@ -28,7 +30,7 @@ import javax.inject.Inject
 
 @Reusable
 class PrivateDataCSI @Inject constructor(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
     private val pkgOps: PkgOps,
     private val areaManager: DataAreaManager,
     private val clutterRepo: ClutterRepo,
@@ -42,7 +44,7 @@ class PrivateDataCSI @Inject constructor(
         var userPrimary: DataArea? = null
         for (area in areaManager.currentAreas().filter { it.type == DataArea.Type.PRIVATE_DATA }) {
 
-            if (userManager.currentUser === area.userHandle) {
+            if (userManager.currentUser().handle == area.userHandle) {
                 userPrimary = area
             }
             if (area.path.isAncestorOf(target)) {
@@ -74,28 +76,29 @@ class PrivateDataCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
+        val userHandle = areaInfo.userHandle
         val dirName = areaInfo.prefixFreePath.first()
 
-        if (pkgRepo.isInstalled(dirName.toPkgId())) {
-            owners.add(Owner(dirName.toPkgId()))
+        if (pkgRepo.isInstalled(dirName.toPkgId(), userHandle)) {
+            owners.add(Owner(dirName.toPkgId(), userHandle))
         }
 
         val hiddenPkg = tryCleanName(dirName)
         if (owners.isEmpty()) {
-            if (hiddenPkg != null && pkgRepo.isInstalled(hiddenPkg.toPkgId())) {
-                owners.add(Owner(hiddenPkg.toPkgId()))
+            if (hiddenPkg != null && pkgRepo.isInstalled(hiddenPkg.toPkgId(), userHandle)) {
+                owners.add(Owner(hiddenPkg.toPkgId(), userHandle))
             }
         }
 
         if (owners.isEmpty()) {
             // Once it's no longer a default folder name and match, we need to find all possible owners to protect against false positive corpses
             val matches = clutterRepo.match(areaInfo.type, listOf(dirName))
-            owners.addAll(matches.map { it.toOwners() }.flatten())
+            owners.addAll(matches.map { it.toOwners(areaInfo) }.flatten())
         }
 
         // Fallback, no downside to assuming that dirname=pkgname for PRIVATE_DATA if there are no other owners
         if (owners.isEmpty()) {
-            owners.add(Owner((hiddenPkg ?: dirName).toPkgId()))
+            owners.add(Owner((hiddenPkg ?: dirName).toPkgId(), userHandle))
         }
 
         return CSIProcessor.Result(

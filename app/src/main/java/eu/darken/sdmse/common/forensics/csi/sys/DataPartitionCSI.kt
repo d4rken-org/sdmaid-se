@@ -60,7 +60,7 @@ class DataPartitionCSI @Inject constructor(
 
         while (bestBet.isNotEmpty()) {
             val matches = clutterRepo.match(areaInfo.type, bestBet)
-            owners.addAll(matches.map { it.toOwners() }.flatten())
+            owners.addAll(matches.map { it.toOwners(areaInfo) }.flatten())
 
             if (owners.isNotEmpty()) break
 

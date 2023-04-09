@@ -59,7 +59,7 @@ class PortableModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.PORTABLE,
                     path = it.lookedUp,
-                    userHandle = userManager2.currentUser,
+                    userHandle = userManager2.currentUser().handle,
                 )
             }
     }

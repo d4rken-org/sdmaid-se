@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
@@ -183,7 +184,7 @@ class SdcardCorpseFilter @Inject constructor(
                 // marker + List<AreaInfo> --> areaInfo + List<Owner>
                 potentialCorpses.mapNotNull { areaInfo ->
                     val match = marker.match(areaInfo.type, areaInfo.prefixFreePath) ?: return@mapNotNull null
-                    areaInfo to match.packageNames.map { Owner(it, match.flags) }
+                    areaInfo to match.packageNames.map { Owner(it, areaInfo.userHandle, match.flags) }
                 }
             }
             .toList()
@@ -197,7 +198,9 @@ class SdcardCorpseFilter @Inject constructor(
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter {
+                        pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
+                    }.toSet(),
                     hasUnknownOwner = false
                 )
             }

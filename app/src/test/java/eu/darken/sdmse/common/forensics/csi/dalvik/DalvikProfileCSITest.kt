@@ -9,9 +9,9 @@ import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DirNameCheck
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -24,16 +24,16 @@ class DalvikProfileCSITest : BaseCSITest() {
         LocalPath.build("/cache/dalvik-cache"),
     )
 
-    private val areaProfile1 = mockk<DataArea>().apply {
-        every { type } returns DataArea.Type.DALVIK_PROFILE
-        every { path } returns LocalPath.build(dalvikCachesBases[0], "profiles")
-        every { flags } returns emptySet()
-    }
-    private val areaProfile2 = mockk<DataArea>().apply {
-        every { type } returns DataArea.Type.DALVIK_PROFILE
-        every { path } returns LocalPath.build(dalvikCachesBases[1], "profiles")
-        every { flags } returns emptySet()
-    }
+    private val areaProfile1 = DataArea(
+        type = DataArea.Type.DALVIK_PROFILE,
+        path = LocalPath.build(dalvikCachesBases[0], "profiles"),
+        userHandle = UserHandle2(-1),
+    )
+    private val areaProfile2 = DataArea(
+        type = DataArea.Type.DALVIK_PROFILE,
+        path = LocalPath.build(dalvikCachesBases[1], "profiles"),
+        userHandle = UserHandle2(-1),
+    )
 
     private val profilePaths = setOf(
         areaProfile1.path,

@@ -45,7 +45,7 @@ class ApkDirCheck @Inject constructor(
         val baseInfo = pkgOps.viewArchive(apk, 0) ?: return AppSourceCheck.Result()
 
         // Normal app :')
-        owners.add(Owner(baseInfo.id))
+        owners.add(Owner(baseInfo.id, areaInfo.userHandle))
 
         // It might be a theme/overlay...
         // https://github.com/d4rken/sdmaid-public/issues/1813
@@ -59,7 +59,7 @@ class ApkDirCheck @Inject constructor(
         }
         if (overlayTargetPkg != null) {
             log(TAG) { "Target via reflection, PackageInfo.overlayTarget=$overlayTargetPkg from $apk" }
-            owners.add(Owner(overlayTargetPkg))
+            owners.add(Owner(overlayTargetPkg, areaInfo.userHandle))
         }
 
         val extendedInfo = pkgOps.viewArchive(apk, GET_META_DATA or GET_PERMISSIONS)
@@ -68,14 +68,14 @@ class ApkDirCheck @Inject constructor(
         val targetPkg = extendedInfo?.applicationInfo?.metaData?.getString("target_package")?.toPkgId()
         if (targetPkg != null) {
             log(TAG) { "Target via metadata, target_package=$targetPkg from $apk" }
-            owners.add(Owner(targetPkg))
+            owners.add(Owner(targetPkg, areaInfo.userHandle))
         }
 
         // <meta-data android:name="Substratum_Target" android:value="com.whatsapp"/>
         val substratumPkg = extendedInfo?.applicationInfo?.metaData?.getString("Substratum_Target")?.toPkgId()
         if (substratumPkg != null) {
             log(TAG) { "Target via metadata, Substratum_Target=$ from $apk" }
-            owners.add(Owner(substratumPkg))
+            owners.add(Owner(substratumPkg, areaInfo.userHandle))
         }
 
         // <uses-permission d1p1:name="com.samsung.android.permission.SAMSUNG_OVERLAY_APPICON"/>

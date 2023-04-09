@@ -1,12 +1,9 @@
 package eu.darken.sdmse.common.pkgs.features
 
 import android.content.pm.ApplicationInfo
-import eu.darken.sdmse.common.user.UserHandle2
 import java.time.Instant
 
 interface ExtendedInstallData : PkgInfo {
-
-    val userHandles: Set<UserHandle2>
 
     val isEnabled: Boolean
         get() = packageInfo.applicationInfo?.enabled ?: true

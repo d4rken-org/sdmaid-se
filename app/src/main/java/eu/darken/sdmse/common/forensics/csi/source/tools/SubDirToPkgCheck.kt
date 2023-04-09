@@ -50,7 +50,7 @@ class SubDirToPkgCheck @Inject constructor(
         val owners = ANDROID11_SUBDIR.matcher(subDir)
             .takeIf { it.matches() }
             ?.group(1)
-            ?.let { setOf(Owner(it.toPkgId())) }
+            ?.let { setOf(Owner(it.toPkgId(), areaInfo.userHandle)) }
             ?: emptySet()
 
         return AppSourceCheck.Result(owners)

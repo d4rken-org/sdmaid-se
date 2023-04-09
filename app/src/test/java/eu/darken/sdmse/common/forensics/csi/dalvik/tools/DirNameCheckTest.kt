@@ -4,7 +4,9 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -18,9 +20,10 @@ class DirNameCheckTest : BaseTest() {
     private val areaInfo: AreaInfo = mockk<AreaInfo>().apply {
         every { type } returns DataArea.Type.DALVIK_PROFILE
         every { prefixFreePath } returns listOf(testPkgId.name)
+        every { userHandle } returns UserHandle2(0)
     }
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk<eu.darken.sdmse.common.pkgs.PkgRepo>().apply {
-        coEvery { isInstalled(any()) } returns false
+    private val pkgRepo: PkgRepo = mockk<PkgRepo>().apply {
+        coEvery { query(any(), any()) } returns emptySet()
     }
 
     private fun create() = DirNameCheck(pkgRepo)
@@ -32,9 +35,9 @@ class DirNameCheckTest : BaseTest() {
     }
 
     @Test fun testBaseMatch() = runTest {
-        coEvery { pkgRepo.isInstalled(testPkgId) } returns true
+        coEvery { pkgRepo.query(testPkgId, UserHandle2(0)) } returns setOf(mockk())
         val instance = create()
 
-        instance.process(areaInfo) shouldBe DalvikCheck.Result(setOf(Owner(testPkgId)))
+        instance.process(areaInfo) shouldBe DalvikCheck.Result(setOf(Owner(testPkgId, UserHandle2(0))))
     }
 }

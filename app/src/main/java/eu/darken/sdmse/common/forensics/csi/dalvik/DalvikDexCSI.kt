@@ -52,7 +52,7 @@ class DalvikDexCSI @Inject constructor(
 
         val candidates = sourceGenerator.getCandidates(basePath).toMutableList()
 
-        sourceDirCheck.check(candidates)
+        sourceDirCheck.check(areaInfo, candidates)
             .takeIf { !it.isEmpty() }
             ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
 
@@ -67,7 +67,7 @@ class DalvikDexCSI @Inject constructor(
             .takeIf { !it.isEmpty() }
             ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
 
-        apkCheck.check(candidates)
+        apkCheck.check(areaInfo, candidates)
             .takeIf { !it.isEmpty() }
             ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
 

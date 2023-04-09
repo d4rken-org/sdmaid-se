@@ -9,8 +9,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
-import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.SAFDocFile
+import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.SAFPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -274,7 +274,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
 
-        coEvery { pkgRepo.getPkg(any()) } returns null
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
     }
 
     @AfterEach
@@ -406,8 +406,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
             every { packageName } returns id.name
         }
         pkgs[pkgId] = installed
-        coEvery { pkgRepo.getPkg(pkgId) } answers {
-            pkgs[arg(0)]
+        coEvery { pkgRepo.query(pkgId, any()) } answers {
+            setOf(pkgs[arg(0)]!!)
         }
         return installed
     }

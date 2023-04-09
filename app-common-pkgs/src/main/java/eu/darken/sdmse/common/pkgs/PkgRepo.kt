@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.sources.PackageManagerPkgSource
+import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
@@ -26,11 +28,12 @@ class PkgRepo @Inject constructor(
     private val pkgSources: Set<@JvmSuppressWildcards PkgDataSource>,
     private val gatewaySwitch: GatewaySwitch,
     private val pkgOps: PkgOps,
+    private val userManager: UserManager2,
 ) {
 
     data class CacheContainer(
         val isInitialized: Boolean = false,
-        val pkgData: Map<Pkg.Id, CachedInfo> = emptyMap(),
+        val pkgData: Map<CacheKey, CachedInfo> = emptyMap(),
     )
 
     private val cacheLock = Mutex()
@@ -73,7 +76,7 @@ class PkgRepo @Inject constructor(
         )
     }
 
-    private suspend fun generatePkgcache(): Map<Pkg.Id, CachedInfo> {
+    private suspend fun generatePkgcache(): Map<CacheKey, CachedInfo> {
         log(TAG) { "Generating package cache" }
         return gatewaySwitch.useRes {
             pkgOps.useRes {
@@ -83,68 +86,99 @@ class PkgRepo @Inject constructor(
                     source::class to fromSource
                 }
 
-                val mergedData = mutableMapOf<Pkg.Id, CachedInfo>()
-                sourceMap[PackageManagerPkgSource::class]!!.forEach {
-                    mergedData[it.id] = CachedInfo(id = it.id, data = it)
+                val mergedData = mutableMapOf<CacheKey, CachedInfo>()
+
+                // This is our primary source of data, we don't overwrite this data with data from other sources
+                sourceMap[PackageManagerPkgSource::class]!!.forEach { pkg ->
+                    val key = CacheKey(pkg)
+                    mergedData[key] = CachedInfo(key, pkg)
                 }
 
                 sourceMap
                     .filter { it.key != PackageManagerPkgSource::class }
                     .onEach { (type, pkgs) ->
                         val extraPkgs = pkgs
-                            .filter { !mergedData.containsKey(it.id) }
-                            .associate { it.id to CachedInfo(id = it.id, data = it) }
-                        log(TAG) { "${extraPkgs.size} extra pkgs from $type" }
+                            .map { pkg ->
+                                val key = CacheKey(pkg)
+                                key to CachedInfo(key, pkg)
+                            }
+                            .filter { (key, _) -> !mergedData.containsKey(key) }
+                            .associate { (key, info) -> key to info }
+
                         if (Bugs.isTrace) {
+                            log(TAG) { "${extraPkgs.size} extra pkgs from $type" }
                             extraPkgs.forEach { log(TAG, VERBOSE) { "Extra pkg from $type: ${it.value}" } }
                         }
+
                         mergedData.putAll(extraPkgs)
                     }
 
-                if (Bugs.isTrace) {
-                    mergedData.values.forEach { log(TAG, VERBOSE) { "Installed package: $it" } }
-                }
                 log(TAG) { "Pkgs total: ${mergedData.size}" }
+                mergedData.values.forEach { log(TAG, VERBOSE) { "Installed package: $it" } }
+
                 mergedData
             }
         }
     }
 
-    private suspend fun queryCache(pkgId: Pkg.Id): CachedInfo = cacheLock.withLock {
+    private suspend fun queryCache(
+        pkgId: Pkg.Id,
+        userHandle: UserHandle2?,
+    ): Set<CachedInfo> = cacheLock.withLock {
         if (!pkgCache.value.isInitialized) {
             log(TAG) { "Package cache doesn't exist yet..." }
             load()
         }
+        val systemHandle = userManager.systemUser().handle
 
-        pkgCache.value.pkgData[pkgId]?.let { return@withLock it }
+        val infos = pkgCache.value.pkgData.values.filter {
+            it.key.pkgId == pkgId && (userHandle == null || userHandle == systemHandle || it.key.userHandle == userHandle)
+        }
+        if (infos.isNotEmpty()) return@withLock infos.toSet()
 
-        log(TAG, VERBOSE) { "Cache miss for $pkgId" }
+        log(TAG, VERBOSE) { "Cache miss for $pkgId:$userHandle" }
 
-        return CachedInfo(
-            id = pkgId,
-            data = null,
-        ).also {
+        // We didn't have any cache matches
+        if (userHandle != null) {
+            val key = CacheKey(pkgId, userHandle)
+            val cacheInfo = CachedInfo(key, null)
+
             pkgCache.value = pkgCache.value.copy(
                 pkgData = pkgCache.value.pkgData.mutate {
-                    this[pkgId] = it
+                    this[key] = cacheInfo
                 }
             )
+
+            setOf(cacheInfo)
+        } else {
+            emptySet()
         }
     }
 
-    suspend fun isInstalled(pkgId: Pkg.Id): Boolean = queryCache(pkgId).isInstalled
+    suspend fun query(
+        pkgId: Pkg.Id,
+        userHandle: UserHandle2?,
+    ): Collection<Installed> = queryCache(pkgId, userHandle).mapNotNull { it.data }
 
-    suspend fun getPkg(pkgId: Pkg.Id): Installed? = queryCache(pkgId).data
-
-    suspend fun refresh(id: Pkg.Id): Installed? {
+    suspend fun refresh(
+        id: Pkg.Id,
+        userHandle: UserHandle2? = null
+    ): Collection<Installed> {
         log(TAG) { "refresh(): $id" }
         // TODO refreshing the whole cache is inefficient, implement single target refresh?
         cacheLock.withLock { load() }
-        return queryCache(id).data
+        return queryCache(id, userHandle).mapNotNull { it.data }
+    }
+
+    data class CacheKey(
+        val pkgId: Pkg.Id,
+        val userHandle: UserHandle2,
+    ) {
+        constructor(pkg: Installed) : this(pkg.id, pkg.userHandle)
     }
 
     data class CachedInfo(
-        val id: Pkg.Id,
+        val key: CacheKey,
         val data: Installed?,
     ) {
         val isInstalled: Boolean

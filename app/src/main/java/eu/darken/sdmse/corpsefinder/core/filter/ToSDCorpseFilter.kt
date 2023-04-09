@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressSecondary
@@ -103,11 +104,13 @@ class ToSDCorpseFilter @Inject constructor(
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter {
+                        pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
+                    }.toSet(),
                     hasUnknownOwner = false,
                 )
             }
@@ -154,11 +157,13 @@ class ToSDCorpseFilter @Inject constructor(
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter {
+                        pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
+                    }.toSet(),
                     hasUnknownOwner = false,
                 )
             }
@@ -217,11 +222,11 @@ class ToSDCorpseFilter @Inject constructor(
                 if (!matcher.matches()) return@mapNotNull null
 
                 val dirPkg = matcher.group(1)!!.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle) }.toSet(),
                     hasUnknownOwner = false,
                 )
             }
@@ -270,11 +275,11 @@ class ToSDCorpseFilter @Inject constructor(
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
                 val dirPkg = areaInfo.file.name.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle) }.toSet(),
                     hasUnknownOwner = false,
                 )
             }
@@ -324,11 +329,11 @@ class ToSDCorpseFilter @Inject constructor(
                 if (!matcher.matches()) return@mapNotNull null
 
                 val dirPkg = matcher.group(1)!!.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle) }.toSet(),
                     hasUnknownOwner = false,
                 )
             }
@@ -372,11 +377,11 @@ class ToSDCorpseFilter @Inject constructor(
                 if (!matcher.matches()) return@mapNotNull null
 
                 val dirPkg = matcher.group(1)!!.toPkgId()
-                val owners = setOf(Owner(dirPkg))
+                val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
                     owners = owners,
-                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId) }.toSet(),
+                    installedOwners = owners.filter { pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle) }.toSet(),
                     hasUnknownOwner = false,
                 )
             }

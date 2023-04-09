@@ -6,7 +6,6 @@ import android.content.pm.PackageManager.*
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -76,16 +75,11 @@ class PkgOps @Inject constructor(
         it.forceStop(packageName)
     }
 
-    suspend fun queryPkg(
-        pkgName: Pkg.Id,
-        flags: Int = MATCH_UNINSTALLED_PACKAGES,
-        userHandle: UserHandle2 = userManager.currentUser
-    ): Installed? = ipcFunnel.use {
+    suspend fun queryPkg(pkgName: Pkg.Id, flags: Int, userHandle: UserHandle2): Installed? = ipcFunnel.use {
         val pkgInfo: PackageInfo? = try {
+            @Suppress("DEPRECATION")
             packageManager.getPackageInfo(pkgName.name, flags)
         } catch (e: NameNotFoundException) {
-//            log(TAG, VERBOSE) { "Pkg was not found, trying list-based lookup" }
-//            packageManager.getInstalledPackages(flags).singleOrNull { it.packageName == pkgName.name }
             log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): null" }
             null
         }
@@ -95,52 +89,40 @@ class PkgOps @Inject constructor(
         pkgInfo?.let {
             NormalPkg(
                 packageInfo = it,
-                userHandles = setOf(userHandle),
+                userHandle = userHandle,
                 installerInfo = it.getInstallerInfo(packageManager)
             )
         }
     }
 
-    suspend fun getInstalledPackages(flags: Int = 0): Collection<Installed> {
-        log(TAG, VERBOSE) { "getInstalledPackages()..." }
+    suspend fun queryPkgs(flags: Int): Collection<Installed> {
+        @Suppress("DEPRECATION", "QueryPermissionsNeeded")
+        val rawPkgs = ipcFunnel.use { packageManager.getInstalledPackages(flags) }
 
-        @Suppress("DEPRECATION")
-        val resultBase = ipcFunnel.use {
-            packageManager.getInstalledPackages(flags).map {
+        val handle = userManager.currentUser().handle
+        return ipcFunnel.use {
+            rawPkgs.map {
                 NormalPkg(
                     packageInfo = it,
-                    userHandles = setOf(userManager.currentUser),
+                    userHandle = handle,
                     installerInfo = it.getInstallerInfo(packageManager)
                 )
             }
         }
+    }
 
-        val result = if (hasRoot()) {
-            val otherUsers = userManager.allUsers - userManager.currentUser
-            val otherUserPkgs: List<Pair<PackageInfo, UserHandle2>> = otherUsers.map { userHandle ->
-                rootOps { it.getInstalledPackagesAsUser(0, userHandle) }.map { it to userHandle }
-            }.flatten()
-            resultBase.map { basePkg ->
-                val twins = otherUserPkgs
-                    .filter { it.first.packageName == basePkg.packageName }
-                    .map { it.second }
-                basePkg.copy(
-                    userHandles = basePkg.userHandles + twins
+    suspend fun queryPkgs(flags: Int, userHandle: UserHandle2): Collection<Installed> {
+        val rawPkgs = rootOps { it.getInstalledPackagesAsUser(flags, userHandle) }
+
+        return ipcFunnel.use {
+            rawPkgs.map {
+                NormalPkg(
+                    packageInfo = it,
+                    userHandle = userHandle,
+                    installerInfo = it.getInstallerInfo(packageManager)
                 )
             }
-        } else {
-            resultBase
         }
-
-        log(TAG, VERBOSE) { "getInstalledPackages(flags=$flags): size=${result.size}" }
-        if (result.isEmpty()) {
-            throw IllegalPkgDataException("No installed packages")
-        }
-        if (result.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
-            throw IllegalPkgDataException("Returned package data didn't contain us")
-        }
-
-        return result
     }
 
     suspend fun queryAppInfos(

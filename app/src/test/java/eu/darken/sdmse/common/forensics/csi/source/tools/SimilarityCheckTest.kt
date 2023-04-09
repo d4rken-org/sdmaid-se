@@ -3,8 +3,10 @@ package eu.darken.sdmse.common.forensics.csi.source.tools
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -15,11 +17,12 @@ import testhelpers.BaseTest
 
 class SimilarityCheckTest : BaseTest() {
 
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo = mockk<eu.darken.sdmse.common.pkgs.PkgRepo>()
-
+    private val pkgRepo: PkgRepo = mockk()
+    private val handle = UserHandle2(0)
     private val areaInfo = mockk<AreaInfo>().apply {
         every { prefix } returns LocalPath.build("/abc")
         every { prefixFreePath } returns listOf("testdir-1")
+        every { userHandle } returns handle
     }
 
     private fun create() = SimilarityFilter(
@@ -30,17 +33,17 @@ class SimilarityCheckTest : BaseTest() {
         val pkgA = "pkgA".toPkgId()
         val pkgB = "pkgB".toPkgId()
         pkgRepo.apply {
-            coEvery { getPkg(pkgA) } returns mockk<Installed>().apply {
+            coEvery { query(pkgA, handle) } returns listOf(mockk<Installed>().apply {
                 every { sourceDir } returns LocalPath.build("/abc/testdir-1")
-            }
-            coEvery { getPkg(pkgB) } returns mockk<Installed>().apply {
+            })
+            coEvery { query(pkgB, handle) } returns listOf(mockk<Installed>().apply {
                 every { sourceDir } returns LocalPath.build("/abc/testdir-2")
-            }
+            })
         }
 
         val owners = setOf(
-            Owner(pkgA),
-            Owner(pkgB)
+            Owner(pkgA, handle),
+            Owner(pkgB, handle)
         )
         create().filterFalsePositives(areaInfo, owners).apply {
             map { it.pkgId } shouldBe setOf("pkgA".toPkgId())
@@ -51,13 +54,12 @@ class SimilarityCheckTest : BaseTest() {
         val pkgA = "pkgA".toPkgId()
         val pkgB = "pkgB".toPkgId()
         pkgRepo.apply {
-            coEvery { getPkg(any()) } returns null
-
+            coEvery { query(any(), handle) } returns emptySet()
         }
 
         val toCheck = setOf(
-            Owner(pkgA),
-            Owner(pkgB)
+            Owner(pkgA, handle),
+            Owner(pkgB, handle)
         )
 
         create().filterFalsePositives(areaInfo, toCheck) shouldBe toCheck
@@ -67,17 +69,17 @@ class SimilarityCheckTest : BaseTest() {
         val pkgA = "pkgA".toPkgId()
         val pkgB = "pkgB".toPkgId()
         pkgRepo.apply {
-            coEvery { getPkg(pkgA) } returns mockk<Installed>().apply {
+            coEvery { query(pkgA, handle) } returns listOf(mockk<Installed>().apply {
                 every { sourceDir } returns null
-            }
-            coEvery { getPkg(pkgB) } returns mockk<Installed>().apply {
+            })
+            coEvery { query(pkgB, handle) } returns listOf(mockk<Installed>().apply {
                 every { sourceDir } returns null
-            }
+            })
         }
 
         val owners = setOf(
-            Owner(pkgA),
-            Owner(pkgB)
+            Owner(pkgA, handle),
+            Owner(pkgB, handle)
         )
 
         create().filterFalsePositives(areaInfo, owners) shouldBe owners

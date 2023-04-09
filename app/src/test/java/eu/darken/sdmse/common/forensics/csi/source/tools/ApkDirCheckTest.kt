@@ -5,9 +5,11 @@ import android.os.Bundle
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -21,12 +23,13 @@ import testhelpers.BaseTest
 
 class ApkDirCheckTest : BaseTest() {
 
-    @MockK lateinit var pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo
+    @MockK lateinit var pkgRepo: PkgRepo
     @MockK lateinit var pkgOps: PkgOps
+    private val handle = UserHandle2(0)
 
     @Before fun setup() {
         MockKAnnotations.init(this)
-        coEvery { pkgRepo.isInstalled(any()) } returns false
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
     }
 
@@ -35,6 +38,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun testDontMatch() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
 
         create().process(areaInfo).apply {
@@ -46,6 +50,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun `named apk`() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
         val testPkg = "com.mxtech.ffmpeg.x86".toPkgId()
 
@@ -71,6 +76,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun `base apk`() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
         val testPkg = "com.mxtech.ffmpeg.x86".toPkgId()
 
@@ -96,6 +102,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun testThemeCheck_pkginfo_overlay_reflection() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
 
         val pkg1 = "pkg1".toPkgId()
@@ -116,8 +123,8 @@ class ApkDirCheckTest : BaseTest() {
 
         create().process(areaInfo).apply {
             owners shouldBe setOf(
-                Owner(pkg1),
-                Owner(pkg2)
+                Owner(pkg1, handle),
+                Owner(pkg2, handle)
             )
             hasKnownUnknownOwner shouldBe false
         }
@@ -126,6 +133,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun testThemeCheck_metaData_targetPkg() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
 
         val pkg1 = "pkg1".toPkgId()
@@ -152,9 +160,9 @@ class ApkDirCheckTest : BaseTest() {
 
         create().process(areaInfo).apply {
             owners shouldBe setOf(
-                Owner(pkg1),
-                Owner(pkg2),
-                Owner(pkg3),
+                Owner(pkg1, handle),
+                Owner(pkg2, handle),
+                Owner(pkg3, handle),
             )
             hasKnownUnknownOwner shouldBe false
         }
@@ -163,6 +171,7 @@ class ApkDirCheckTest : BaseTest() {
     @Test fun testThemeCheck_metaData_Substratum_targetPkg() = runTest {
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
 
         val pkg1 = "pkg1".toPkgId()
@@ -191,10 +200,10 @@ class ApkDirCheckTest : BaseTest() {
 
         create().process(areaInfo).apply {
             owners shouldBe setOf(
-                Owner(pkg1),
-                Owner(pkg2),
-                Owner(pkg3),
-                Owner(pkg4),
+                Owner(pkg1, handle),
+                Owner(pkg2, handle),
+                Owner(pkg3, handle),
+                Owner(pkg4, handle),
             )
             hasKnownUnknownOwner shouldBe false
         }
@@ -204,6 +213,7 @@ class ApkDirCheckTest : BaseTest() {
 
         val areaInfo = mockk<AreaInfo>().apply {
             every { file } returns LocalPath.build("test")
+            every { userHandle } returns handle
         }
 
         val pkg1 = "pkg1".toPkgId()
@@ -234,10 +244,10 @@ class ApkDirCheckTest : BaseTest() {
 
         create().process(areaInfo).apply {
             owners shouldBe setOf(
-                Owner(pkg1),
-                Owner(pkg2),
-                Owner(pkg3),
-                Owner(pkg4),
+                Owner(pkg1, handle),
+                Owner(pkg2, handle),
+                Owner(pkg3, handle),
+                Owner(pkg4, handle),
             )
             hasKnownUnknownOwner shouldBe true
         }

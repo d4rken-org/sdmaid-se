@@ -53,7 +53,7 @@ class DalvikProfileModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DALVIK_PROFILE,
                     path = it,
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                 )
             }
             .filter {

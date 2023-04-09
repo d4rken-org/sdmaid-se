@@ -39,7 +39,7 @@ class DataSDExt2Module @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DATA_SDEXT2,
                     path = parentArea.path.child("sdext2"),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
             }

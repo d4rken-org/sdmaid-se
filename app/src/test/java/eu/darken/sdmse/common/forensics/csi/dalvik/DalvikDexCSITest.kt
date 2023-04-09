@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -37,51 +38,61 @@ class CSIDalvikDexTest : BaseCSITest() {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.DALVIK_DEX
         every { path } returns dalvik1
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageDalvikProfileX641 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.DALVIK_DEX
         every { path } returns dalvik2
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageDalvikProfileX862 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.DALVIK_DEX
         every { path } returns dalvik3
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageDalvikProfileX642 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.DALVIK_DEX
         every { path } returns dalvik4
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageData1 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.APP_APP
         every { path } returns LocalPath.build("/data/app")
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageData2 = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.APP_APP
         every { path } returns LocalPath.build("/mnt/expand/uuid/app")
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageSystem = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.SYSTEM
         every { path } returns LocalPath.build("/system")
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageSystemApp = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.SYSTEM_APP
         every { path } returns LocalPath.build("/system/app")
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageSystemPrivApp = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.SYSTEM_PRIV_APP
         every { path } returns LocalPath.build("/system/priv-app")
+        every { userHandle } returns UserHandle2(-1)
     }
     private val storageVendor = mockk<DataArea>().apply {
         every { flags } returns emptySet()
         every { type } returns DataArea.Type.SYSTEM
         every { path } returns LocalPath.build("/vendor")
+        every { userHandle } returns UserHandle2(-1)
     }
 
     @Before override fun setup() {

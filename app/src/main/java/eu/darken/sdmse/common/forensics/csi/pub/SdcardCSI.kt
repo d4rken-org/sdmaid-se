@@ -62,11 +62,11 @@ class SdcardCSI @Inject constructor(
         var bestBet = areaInfo.prefixFreePath
         val owners = mutableSetOf<Owner>()
         while (bestBet.isNotEmpty()) {
-            val matches = clutterRepo.match(areaInfo.dataArea.type, bestBet)
+            val matches = clutterRepo.match(areaInfo.type, bestBet)
             val newOwners = matches
                 .map { match -> match.packageNames.map { it to match.flags } }
                 .flatten()
-                .map { (pkg, flags) -> Owner(pkg, flags) }
+                .map { (pkg, flags) -> Owner(pkg, areaInfo.userHandle, flags) }
 
             owners.addAll(newOwners)
             bestBet = if (owners.isEmpty()) {

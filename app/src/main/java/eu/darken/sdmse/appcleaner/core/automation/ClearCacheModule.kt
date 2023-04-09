@@ -30,7 +30,9 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -45,6 +47,7 @@ class ClearCacheModule @AssistedInject constructor(
     private val automationCrawlerFactory: AutomationCrawler.Factory,
     private val appSpecProviders: Provider<Set<@JvmSuppressWildcards AutomationStepGenerator>>,
     private val deviceDetective: DeviceDetective,
+    private val userManager2: UserManager2,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AutomationStepGenerator> = appSpecProviders
@@ -106,8 +109,9 @@ class ClearCacheModule @AssistedInject constructor(
 
         updateProgressCount(Progress.Count.Percent(0, task.targets.size))
 
+        val userHandle = userManager2.currentUser().handle
         for (target in task.targets) {
-            val installed = pkgRepo.getPkg(target)
+            val installed = pkgRepo.getPkg(target, userHandle)
 
             if (installed == null) {
                 log(TAG, WARN) { "$target is not in package repo" }

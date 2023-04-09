@@ -39,7 +39,7 @@ class DataAppModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.APP_APP,
                     path = parentArea.path.child("app"),
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
             }

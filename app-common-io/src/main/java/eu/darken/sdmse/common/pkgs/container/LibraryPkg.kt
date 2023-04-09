@@ -14,11 +14,13 @@ import eu.darken.sdmse.common.pkgs.features.ReadableApk
 import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
 
 data class LibraryPkg(
     private val sharedLibraryInfo: SharedLibraryInfo,
     private val apkPath: APath,
     override val packageInfo: PackageInfo,
+    override val userHandle: UserHandle2,
 ) : Installed, ReadableApk {
 
     override val id: Pkg.Id

@@ -287,7 +287,7 @@ abstract class BaseFilterTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
 
-        coEvery { pkgRepo.getPkg(any()) } returns null
+        coEvery { pkgRepo.query(any(), any()) } returns emptySet()
     }
 
     @AfterEach

@@ -6,13 +6,14 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.pathChopOffLast
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import java.io.File
 import javax.inject.Inject
 
 @Reusable
 class CustomDexOptCheck @Inject constructor(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) : DalvikCheck {
 
     suspend fun check(
@@ -35,7 +36,7 @@ class CustomDexOptCheck @Inject constructor(
 
                     val hit = currentPkgs.firstOrNull { it.id.name == poi }
                     if (hit != null) {
-                        owners.add(Owner(hit.id))
+                        owners.add(Owner(hit.id, areaInfo.userHandle))
                         break
                     }
                 }

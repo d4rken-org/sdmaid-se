@@ -133,11 +133,11 @@ class AppControl @Inject constructor(
                     successful.contains(app.id) || failed.contains(app.id) -> {
                         val fresh = pkgRepo.refresh(app.id)
                         // TODO if the app is suddenly no longer installed, show the user an error?
-                        fresh?.toAppInfo()
+                        fresh.map { it.toAppInfo() }
                     }
-                    else -> app
+                    else -> setOf(app)
                 }
-            }
+            }.flatten()
         )
 
         return AppControlToggleTask.Success(successful, failed)

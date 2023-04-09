@@ -6,12 +6,14 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.getPkg
 import javax.inject.Inject
 
 
 @Reusable
 class SimilarityFilter @Inject constructor(
-    private val pkgRepo: eu.darken.sdmse.common.pkgs.PkgRepo,
+    private val pkgRepo: PkgRepo,
 ) {
 
     suspend fun filterFalsePositives(areaInfo: AreaInfo, toCheck: Collection<Owner>): Collection<Owner> {
@@ -33,7 +35,8 @@ class SimilarityFilter @Inject constructor(
         // Do we have an owner that could falsely match this, despite not using it?
         return toCheck.filter { candidate ->
 
-            val sourceDir = pkgRepo.getPkg(candidate.pkgId)
+            val userHandle = areaInfo.userHandle
+            val sourceDir = pkgRepo.getPkg(candidate.pkgId, userHandle)
                 ?.let { it }
                 ?.sourceDir ?: return@filter true
 

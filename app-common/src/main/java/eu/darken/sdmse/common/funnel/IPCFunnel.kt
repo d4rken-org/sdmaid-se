@@ -41,7 +41,7 @@ class IPCFunnel @Inject constructor(
         log(TAG) { "IPCFunnel initialized." }
     }
 
-    suspend fun <T> use(block: FunnelEnvironment.() -> T): T = withContext(dispatcherProvider.IO) {
+    suspend fun <T> use(block: suspend FunnelEnvironment.() -> T): T = withContext(dispatcherProvider.IO) {
         execLock.withPermit {
             block(funnelEnv)
         }

@@ -60,7 +60,7 @@ class DalvikDexModule @Inject constructor(
                 DataArea(
                     type = DataArea.Type.DALVIK_DEX,
                     path = it,
-                    userHandle = userManager2.systemUser,
+                    userHandle = userManager2.systemUser().handle,
                 )
             }
             .filter {
