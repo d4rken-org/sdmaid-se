@@ -53,7 +53,7 @@ class UserManager2 @Inject constructor(
                                 handle = UserHandle2(match.groupValues[1].toInt()),
                                 label = match.groupValues[2],
                                 code = match.groupValues[3],
-                                isRunning = match.groupValues[4].toBoolean(),
+                                isRunning = match.groupValues[4] == "running",
                             )
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "UserProfile parsing failed for $shellResult: ${e.asLog()}" }
