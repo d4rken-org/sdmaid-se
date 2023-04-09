@@ -8,31 +8,28 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
+import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserManager2
-import timber.log.Timber
-import java.io.IOException
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
 class PrivateDataModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
+    private val privateDataLegacyModule: PrivateDataLegacyModule,
 ) : DataAreaModule {
 
-    private val mirrorStorage = LocalPath.build("/data_mirror")
+    private val mirrorArea = LocalPath.build("/data_mirror")
 
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
@@ -42,10 +39,17 @@ class PrivateDataModule @Inject constructor(
             return emptySet()
         }
 
-        return if (hasApiLevel(Build.VERSION_CODES.R) && gateway.exists(mirrorStorage, mode = LocalGateway.Mode.ROOT)) {
-            getMirrored(gateway, firstPass)
+        val dataStorages = firstPass.filter { it.type == DataArea.Type.DATA }
+
+        if (dataStorages.isEmpty()) {
+            log(TAG, WARN) { "No data areas available." }
+            return emptySet()
+        }
+
+        return if (hasApiLevel(Build.VERSION_CODES.R) && gateway.exists(mirrorArea, mode = LocalGateway.Mode.ROOT)) {
+            getMirrored(gateway)
         } else {
-            determineLegacy(gateway, firstPass)
+            privateDataLegacyModule.secondPass(firstPass)
         }
     }
 
@@ -56,151 +60,57 @@ class PrivateDataModule @Inject constructor(
      * /data_mirror/data_ce/null/0
      * /data_mirror/data_de/null/0
      */
-    private suspend fun getMirrored(gateway: LocalGateway, allAreas: Collection<DataArea>): Collection<DataArea> {
-        val dataAreas = allAreas.filter { it.type == DataArea.Type.DATA }
+    private suspend fun getMirrored(gateway: LocalGateway): Collection<DataArea> {
+        val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT)
+        log(TAG, VERBOSE) { "Items in mirror: $dataMirrorContent" }
 
-        if (dataAreas.isEmpty()) {
-            log(TAG, WARN) { "No data areas available." }
-            return emptySet()
+        val users = userManager2.allUsers()
+
+        val deviceEncrypted = users.mapNotNull { user ->
+            val areaPath = mirrorArea.child("data_de", "null", "${user.handle.handleId}")
+            if (!areaPath.canRead(gateway)) {
+                log(TAG, WARN) { "Can't read $areaPath" }
+                return@mapNotNull null
+            }
+
+            DataArea(
+                type = DataArea.Type.PRIVATE_DATA,
+                path = areaPath,
+                userHandle = user.handle,
+                flags = setOf(DataArea.Flag.PRIMARY)
+            )
+        }
+        log(TAG, VERBOSE) { "Device encrypted areas: $deviceEncrypted" }
+
+        val credentialsEncrypted = users.mapNotNull { user ->
+            val areaPath = mirrorArea.child("data_ce", "null", "${user.handle.handleId}")
+            if (!areaPath.canRead(gateway)) {
+                log(TAG, WARN) { "Can't read $areaPath" }
+                return@mapNotNull null
+            }
+
+            var isEncrypted = !user.isRunning
+
+            if (isEncrypted && areaPath.child("android").exists(gateway)) {
+                isEncrypted = false
+            }
+
+            if (isEncrypted) {
+                log(TAG, WARN) { "Area was encrypted, skipping $areaPath" }
+                return@mapNotNull null
+            }
+
+            DataArea(
+                type = DataArea.Type.PRIVATE_DATA,
+                path = areaPath,
+                userHandle = user.handle,
+                flags = setOf(DataArea.Flag.PRIMARY)
+            )
         }
 
-        val pois = listOf("data_ce", "data_de")
+        log(TAG, VERBOSE) { "Credentials encrypted areas: $credentialsEncrypted" }
 
-        return gateway.listFiles(mirrorStorage, mode = LocalGateway.Mode.ROOT)
-            .also { log(TAG, VERBOSE) { "Items in mirror: $it" } }
-            .filter { pois.contains(it.name) }
-            .map { folder ->
-                userManager2.allUsers().map { user ->
-                    DataArea(
-                        type = DataArea.Type.PRIVATE_DATA,
-                        path = LocalPath.build(mirrorStorage, folder.name, "null", "${user.handle.handleId}"),
-                        userHandle = user.handle,
-                        flags = setOf(DataArea.Flag.PRIMARY),
-                    )
-                }
-            }
-            .flatten()
-            .filter {
-                val canRead = it.path.canRead(gatewaySwitch)
-                if (!canRead) log(TAG) { "Can't read $it" }
-                canRead
-            }
-    }
-
-    // Pre Android 11, pre /data_mirror
-    private suspend fun determineLegacy(
-        gateway: LocalGateway,
-        allAreas: Collection<DataArea>
-    ): Collection<DataArea> {
-        val dataStorages = allAreas.filter { it.type == DataArea.Type.DATA }
-
-        if (dataStorages.isEmpty()) {
-            log(TAG, WARN) { "No data areas available." }
-            return emptySet()
-        }
-
-        val resultAreas = mutableSetOf<DataArea>()
-
-        dataStorages
-            .map { baseArea ->
-                val userDirs = getPreApi30UserDirs(gateway, baseArea.path as LocalPath)
-
-                when {
-                    userDirs.isNotEmpty() -> {
-                        userDirs.map {
-                            DataArea(
-                                type = DataArea.Type.PRIVATE_DATA,
-                                path = it,
-                                userHandle = userManager2.getHandleForId(it.name.toInt()),
-                                flags = baseArea.flags
-                            )
-                        }
-                    }
-                    baseArea.hasFlags(DataArea.Flag.PRIMARY) && !userManager2.hasMultiUserSupport -> {
-                        DataArea(
-                            type = DataArea.Type.PRIVATE_DATA,
-                            path = LocalPath.build(baseArea.path, "data"),
-                            userHandle = userManager2.currentUser().handle,
-                            flags = setOf(DataArea.Flag.PRIMARY),
-                        ).let { setOf(it) }
-                    }
-                    else -> {
-                        log(TAG, WARN) { "Unknown base area, can't map: $baseArea" }
-                        emptySet()
-                    }
-                }
-            }
-            .flatten()
-            .filter {
-                val canRead = it.path.canRead(gatewaySwitch)
-                if (!canRead) log(TAG) { "Can't read $it" }
-                canRead
-            }
-            .run { resultAreas.addAll(this) }
-
-        try {
-            val path = LocalPath.build("/dbdata", "clutter")
-
-            if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
-                DataArea(
-                    type = DataArea.Type.PRIVATE_DATA,
-                    path = path,
-                    userHandle = userManager2.currentUser().handle,
-                ).run { resultAreas.add(this) }
-            }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "/dbdata/databases lookup failed: $e" }
-        }
-
-        try {
-            val path = LocalPath.build("/datadata")
-
-            if (gateway.canRead(path, mode = LocalGateway.Mode.ROOT)) {
-                DataArea(
-                    type = DataArea.Type.PRIVATE_DATA,
-                    path = path,
-                    userHandle = userManager2.currentUser().handle,
-                ).run { resultAreas.add(this) }
-            }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "/dbdata/databases lookup failed: $e" }
-        }
-
-        return resultAreas
-    }
-
-    /**
-     * API 29 (Android 9) and lower
-     */
-    private suspend fun getPreApi30UserDirs(gateway: LocalGateway, base: LocalPath): Collection<LocalPath> = try {
-        val userDirs = mutableSetOf<LocalPath>()
-
-        try {
-            gateway
-                .listFiles(
-                    path = LocalPath.build(base, "user"),
-                    mode = LocalGateway.Mode.ROOT,
-                )
-                .run { userDirs.addAll(this) }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to get 'user' dirs: ${e.asLog()}" }
-        }
-
-        try {
-            gateway
-                .listFiles(
-                    path = LocalPath.build(base, "user_de"),
-                    mode = LocalGateway.Mode.ROOT,
-                )
-                .run { userDirs.addAll(this) }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to get 'user_de' dirs: ${e.asLog()}" }
-        }
-
-        userDirs.filter { USER_DIR_NUMBER_PATTERN.matcher(it.name).matches() }
-    } catch (e: IOException) {
-        Timber.tag(TAG).e(e)
-        emptySet()
+        return deviceEncrypted + credentialsEncrypted
     }
 
     @Module @InstallIn(SingletonComponent::class)
@@ -210,6 +120,5 @@ class PrivateDataModule @Inject constructor(
 
     companion object {
         val TAG: String = logTag("DataArea", "Module", "PrivateData")
-        private val USER_DIR_NUMBER_PATTERN = Pattern.compile("([0-9]{1,2})")
     }
 }
