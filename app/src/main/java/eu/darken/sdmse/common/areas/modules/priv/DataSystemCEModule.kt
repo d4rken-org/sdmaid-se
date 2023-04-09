@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.areas.modules.privdata
+package eu.darken.sdmse.common.areas.modules.priv
 
 import dagger.Binds
 import dagger.Module
@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 
 @Reusable
-class DataSDExt2Module @Inject constructor(
+class DataSystemCEModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
@@ -36,13 +36,16 @@ class DataSDExt2Module @Inject constructor(
         return firstPass
             .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
             .map { parentArea ->
-                DataArea(
-                    type = DataArea.Type.DATA_SDEXT2,
-                    path = parentArea.path.child("sdext2"),
-                    userHandle = userManager2.systemUser().handle,
-                    flags = parentArea.flags,
-                )
+                userManager2.allUsers().map { profile ->
+                    DataArea(
+                        type = DataArea.Type.DATA_SYSTEM_CE,
+                        path = parentArea.path.child("system_ce", profile.handle.handleId.toString()),
+                        userHandle = profile.handle,
+                        flags = parentArea.flags,
+                    )
+                }
             }
+            .flatten()
             .filter {
                 val canRead = it.path.canRead(gatewaySwitch)
                 if (!canRead) log(TAG) { "Can't read $it" }
@@ -52,10 +55,10 @@ class DataSDExt2Module @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataSDExt2Module): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: DataSystemCEModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "DataSDExt2")
+        val TAG: String = logTag("DataArea", "Module", "DataSystemCE")
     }
 }

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.areas.modules.pubdata
+package eu.darken.sdmse.common.areas.modules.pub
 
 import dagger.Binds
 import dagger.Module

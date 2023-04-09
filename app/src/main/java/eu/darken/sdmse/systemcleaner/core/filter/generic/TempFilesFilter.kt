@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.modules.pubdata.SdcardsModule
+import eu.darken.sdmse.common.areas.modules.pub.SdcardsModule
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
