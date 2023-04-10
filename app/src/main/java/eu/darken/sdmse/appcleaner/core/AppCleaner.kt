@@ -103,6 +103,10 @@ class AppCleaner @Inject constructor(
             scan()
         }
 
+        log(TAG) { "Warming up fields..." }
+        results.forEach { it.size }
+        log(TAG) { "Field warm up done." }
+
         internalData.value = Data(
             junks = results,
         )

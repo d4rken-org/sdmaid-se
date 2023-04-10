@@ -144,6 +144,10 @@ class CorpseFinder @Inject constructor(
 
         results.forEach { log(TAG, INFO) { "Result: $it" } }
 
+        log(TAG) { "Warming up fields..." }
+        results.forEach { it.size }
+        log(TAG) { "Field warm up done." }
+
         internalData.value = Data(
             corpses = results
         )
