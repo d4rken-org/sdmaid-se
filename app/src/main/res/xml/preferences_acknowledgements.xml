@@ -5,7 +5,7 @@
     <PreferenceCategory
         android:title="@string/settings_licenses_label"
         app:iconSpaceReserved="false">
-        <Preference
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.librootjava"
             android:summary="Run Java (and Kotlin) code as root! (APACHE 2.0)"
             android:title="libRootJava"
@@ -13,8 +13,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Chainfire/librootjava" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.librootkotlinx"
             android:summary="Run rooted Kotlin JVM code made easy with coroutines. (APACHE 2.0)"
             android:title="librootkotlinx"
@@ -22,8 +22,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Mygod/librootkotlinx" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.shizuku"
             android:summary="Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. (APACHE 2.0)"
             android:title="Shizuku"
@@ -31,8 +31,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/RikkaApps/Shizuku" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.bugsnag"
             android:summary="Client side library for crash monitoring via bugsnag.com. (MIT)"
             android:title="Bugsnag"
@@ -40,8 +40,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/bugsnag/bugsnag-android" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.materialdesignicons"
             android:summary="materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)"
             android:title="Material Design Icons"
@@ -49,8 +49,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Templarian/MaterialDesign" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.lottie"
             android:summary="Airbnb's Lottie for Android. (APACHE 2.0)"
             android:title="Lottie"
@@ -58,8 +58,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/airbnb/lottie-android" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.indicatorfastscroll"
             android:summary="Android library providing a simple UI control for scrolling through RecyclerViews. (APACHE 2.0)"
             android:title="Indicator Fast Scroll"
@@ -67,8 +67,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/reddit/IndicatorFastScroll" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.kotlin"
             android:summary="The Kotlin Programming Language. (APACHE 2.0)"
             android:title="Kotlin"
@@ -76,8 +76,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/JetBrains/kotlin" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.dagger"
             android:summary="A fast dependency injector for Android and Java. (APACHE 2.0)"
             android:title="Dagger"
@@ -85,8 +85,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/google/dagger" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="android.android"
             android:summary="Android Open Source Project (APACHE 2.0)"
             android:title="Android"
@@ -94,8 +94,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://source.android.com/source/licenses.html" />
-        </Preference>
-        <Preference
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="android.logo"
             android:summary="The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License."
             android:title="Android"
@@ -103,6 +103,6 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://developer.android.com/distribute/tools/promote/brand.html" />
-        </Preference>
+        </eu.darken.sdmse.common.preferences.IntentPreference>
     </PreferenceCategory>
 </PreferenceScreen>

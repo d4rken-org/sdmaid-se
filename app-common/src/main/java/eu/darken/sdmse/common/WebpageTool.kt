@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -20,7 +21,7 @@ class WebpageTool @Inject constructor(
         }
         try {
             context.startActivity(intent)
-        } catch (e: Exception) {
+        } catch (e: ActivityNotFoundException) {
             log(ERROR) { "Failed to launch" }
         }
     }
