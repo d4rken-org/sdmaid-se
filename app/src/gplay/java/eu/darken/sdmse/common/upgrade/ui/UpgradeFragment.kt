@@ -25,11 +25,11 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
         ui.toolbar.setupWithNavController(findNavController())
 
         vm.state.observe2(ui) { state ->
-            val iapOffer = state.iap.details.oneTimePurchaseOfferDetails
-            val subOffer = state.sub.details.subscriptionOfferDetails!!.singleOrNull { offer ->
-               OurSku.Sub.PRO_UPGRADE.BASE_OFFER.matches(offer)
+            val iapOffer = state.iap?.details?.oneTimePurchaseOfferDetails
+            val subOffer = state.sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
+                OurSku.Sub.PRO_UPGRADE.BASE_OFFER.matches(offer)
             }
-            val subOfferTrial = state.sub.details.subscriptionOfferDetails!!.singleOrNull { offer ->
+            val subOfferTrial = state.sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
                 OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER.matches(offer)
             }
 

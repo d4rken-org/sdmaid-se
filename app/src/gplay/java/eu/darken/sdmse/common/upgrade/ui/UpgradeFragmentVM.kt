@@ -10,8 +10,10 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
+import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,21 +36,34 @@ class UpgradeFragmentVM @Inject constructor(
     }
 
     val state = combine(
-        flow { emit(upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)) },
-        flow { emit(upgradeRepo.querySkus(OurSku.Sub.PRO_UPGRADE)) },
+        flow {
+            val data = withTimeoutOrNull(5000) {
+                upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)
+            }
+            emit(data)
+        },
+        flow {
+            val data = withTimeoutOrNull(5000) {
+                upgradeRepo.querySkus(OurSku.Sub.PRO_UPGRADE)
+            }
+            emit(data)
+        },
         upgradeRepo.upgradeInfo,
     ) { iap, sub, current ->
+        if (iap == null && sub == null) {
+            throw GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
+        }
         Pricing(
-            iap = iap.single(),
-            sub = sub.single(),
+            iap = iap?.first(),
+            sub = sub?.first(),
             hasIap = current.upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
             hasSub = current.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE },
         )
     }.asLiveData2()
 
     data class Pricing(
-        val iap: SkuDetails,
-        val sub: SkuDetails,
+        val iap: SkuDetails?,
+        val sub: SkuDetails?,
         val hasSub: Boolean,
         val hasIap: Boolean,
     )
