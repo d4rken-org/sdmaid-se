@@ -16,7 +16,7 @@ class InaccessibleCacheProvider @Inject constructor(
         val storageStats = storageStatsProvider.getStats(pkgId) ?: return null
         return InaccessibleCache(
             pkgId,
-            itemCount = 2,
+            itemCount = 1,
             cacheBytes = storageStats.cacheBytes,
             externalCacheBytes = if (hasApiLevel(31)) {
                 @Suppress("NewApi")
