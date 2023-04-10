@@ -8,6 +8,7 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -57,8 +58,11 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
             }
 
             val scanTask = UninstallWatcherTask(pkg)
-            taskManager.submit(scanTask)
-
+            try {
+                taskManager.submit(scanTask)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Uninstall watcher task ($scanTask) failed: ${e.asLog()}" }
+            }
         }
 
         appScope.launch {
