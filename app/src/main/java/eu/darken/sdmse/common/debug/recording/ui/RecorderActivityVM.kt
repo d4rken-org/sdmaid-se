@@ -14,15 +14,15 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compression.Zipper
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.onError
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject
@@ -39,6 +39,7 @@ class RecorderActivityVM @Inject constructor(
     private val pathCache = MutableStateFlow(recordedPath)
     private val resultCacheObs = pathCache
         .map { path -> Pair(path, File(path).length()) }
+        .catch { log(TAG, ERROR) { "Failed to get normal log size: ${it.asLog()}" } }
         .replayingShare(vmScope)
 
     private val resultCacheCompressedObs = resultCacheObs
@@ -47,6 +48,7 @@ class RecorderActivityVM @Inject constructor(
             Zipper().zip(arrayOf(uncompressed.first), zipped)
             Pair(zipped, File(zipped).length())
         }
+        .catch { log(TAG, ERROR) { "Failed to compress log: ${it.asLog()}" } }
         .replayingShare(vmScope + dispatcherProvider.IO)
 
     private val stater = DynamicStateFlow(TAG, vmScope) { State() }
