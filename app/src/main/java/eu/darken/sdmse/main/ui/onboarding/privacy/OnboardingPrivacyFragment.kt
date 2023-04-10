@@ -22,11 +22,16 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
 
         ui.privacyPolicyAction.setOnClickListener { vm.goPrivacyPolicy() }
 
+        var isInitial = true
         vm.isBugReporterEnabled.observe2(ui) { isEnabled ->
-            bugreportingToggle.setOnCheckedChangeListener(null)
-            bugreportingToggle.isChecked = isEnabled
-            bugreportingToggle.setOnCheckedChangeListener { _, isChecked ->
-                vm.setBugReportingEnabled(isChecked)
+            bugreportingToggle.apply {
+                setOnCheckedChangeListener(null)
+                isChecked = isEnabled
+                if (isInitial) {
+                    isInitial = false
+                    jumpDrawablesToCurrentState()
+                }
+                setOnCheckedChangeListener { _, isChecked -> vm.setBugReportingEnabled(isChecked) }
             }
         }
         super.onViewCreated(view, savedInstanceState)
