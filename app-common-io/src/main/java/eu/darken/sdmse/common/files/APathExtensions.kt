@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.crumbsTo
@@ -96,16 +95,8 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
 }
 
 suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>) {
-    try {
-        gateway.delete(this)
-        log(VERBOSE) { "APath.delete(): Deleted $this" }
-    } catch (e: PathException) {
-        if (gateway.exists(this)) {
-            throw e
-        } else {
-            log(WARN) { "APath.delete(): Item didn't exist: $this" }
-        }
-    }
+    gateway.delete(this)
+    log(VERBOSE) { "APath.delete(): Deleted $this" }
 }
 
 suspend fun <T : APath> T.deleteAll(

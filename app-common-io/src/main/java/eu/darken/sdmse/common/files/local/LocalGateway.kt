@@ -385,12 +385,19 @@ class LocalGateway @Inject constructor(
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
                     log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
                     if (!canNormalWrite) throw WriteException(path)
-                    val success = if (Bugs.isDryRun) {
+
+                    var success = if (Bugs.isDryRun) {
                         log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
                         javaFile.exists()
                     } else {
                         javaFile.delete()
                     }
+
+                    if (!success) {
+                        success = !javaFile.exists()
+                        if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                    }
+
                     if (!success) {
                         if (mode == Mode.AUTO && hasRoot()) {
                             delete(path, Mode.ROOT)
@@ -403,12 +410,19 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
-                        val success = if (Bugs.isDryRun) {
+                        var success = if (Bugs.isDryRun) {
                             log(TAG, WARN) { "DRYRUN: Not deleting (root) $javaFile" }
                             it.exists(path)
                         } else {
                             it.delete(path)
                         }
+
+                        if (!success) {
+                            // TODO We could move this into the root service for better performance?
+                            success = !it.exists(path)
+                            if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                        }
+
                         if (!success) throw IOException("Root delete() call returned false")
                     }
                 }
