@@ -159,7 +159,14 @@ class SAFGateway @Inject constructor(
         try {
             val docFile = findDocFile(path)
             log(TAG, VERBOSE) { "delete(): $path -> $docFile" }
-            val success = docFile.delete()
+
+            var success = docFile.delete()
+
+            if (!success) {
+                success = !docFile.exists
+                if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+            }
+
             if (!success) throw IOException("Document delete() call returned false")
         } catch (e: Exception) {
             throw WriteException(path, cause = e)

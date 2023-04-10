@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.files
 
-import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import okio.Sink
@@ -28,16 +27,8 @@ suspend fun <P : APath, PL : APathLookup<P>> PL.exists(
 suspend fun <P : APath, PL : APathLookup<P>> PL.delete(
     gateway: APathGateway<P, out APathLookup<P>>
 ) {
-    try {
-        lookedUp.delete(gateway)
-        log(VERBOSE) { "APath.delete(): Deleted $this" }
-    } catch (e: PathException) {
-        if (lookedUp.exists(gateway)) {
-            throw e
-        } else {
-            log(Logging.Priority.WARN) { "APath.delete(): Item didn't exist: $this" }
-        }
-    }
+    lookedUp.delete(gateway)
+    log(VERBOSE) { "APath.delete(): Deleted $this" }
 }
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.deleteAll(
