@@ -62,7 +62,7 @@ class AppControlListFragmentVM @Inject constructor(
             }
             ?.filter {
                 if (query.isEmpty()) return@filter true
-                it.pkg.packageName.contains(query)
+                it.pkg.packageName.contains(query) || it.label.get(context).contains(query)
             }
             ?.sortedWith(
                 when (listSort.mode) {
