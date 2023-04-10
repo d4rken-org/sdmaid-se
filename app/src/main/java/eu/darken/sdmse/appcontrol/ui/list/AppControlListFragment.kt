@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -184,10 +185,10 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             currentSortMode = state.listSort.mode
 
             val listFilter = state.listFilter
-            tagFilterUserSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.USER)
-            tagFilterSystemSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.SYSTEM)
-            tagFilterEnabledSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.ENABLED)
-            tagFilterDisabledSwitch.isChecked = listFilter.tags.contains(FilterSettings.Tag.DISABLED)
+            tagFilterUserSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.USER), animate = false)
+            tagFilterSystemSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.SYSTEM), animate = false)
+            tagFilterEnabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.ENABLED), animate = false)
+            tagFilterDisabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.DISABLED), animate = false)
 
             if (state.appInfos != null) {
                 toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.appInfos.size)

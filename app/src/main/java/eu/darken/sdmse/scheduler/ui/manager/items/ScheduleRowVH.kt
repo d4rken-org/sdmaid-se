@@ -5,6 +5,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.SchedulerManagerListScheduleItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
@@ -63,8 +64,7 @@ class ScheduleRowVH(parent: ViewGroup) :
         }
 
         enabledToggle.apply {
-            setOnClickListener(null)
-            isChecked = schedule.isEnabled
+            setChecked2(schedule.isEnabled)
             setOnClickListener { item.onToggle() }
             text = when (schedule.isEnabled) {
                 true -> getString(R.string.scheduler_schedule_toggle_enabled)
@@ -85,18 +85,15 @@ class ScheduleRowVH(parent: ViewGroup) :
         }
 
         toolCorpsefinderToggle.apply {
-            setOnCheckedChangeListener(null)
-            isChecked = schedule.useCorpseFinder
+            setChecked2(schedule.useCorpseFinder)
             setOnCheckedChangeListener { _, _ -> item.onToggleCorpseFinder() }
         }
         toolSystemcleanerToggle.apply {
-            setOnCheckedChangeListener(null)
-            isChecked = schedule.useSystemCleaner
+            setChecked2(schedule.useSystemCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleSystemCleaner() }
         }
         toolAppcleanerToggle.apply {
-            setOnCheckedChangeListener(null)
-            isChecked = schedule.useAppCleaner
+            setChecked2(schedule.useAppCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
         }
     }

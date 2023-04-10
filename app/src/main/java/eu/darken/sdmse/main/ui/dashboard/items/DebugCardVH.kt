@@ -7,6 +7,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.databinding.DashboardDebugItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 
@@ -22,13 +23,11 @@ class DebugCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         traceEnabled.apply {
-            setOnCheckedChangeListener(null)
-            isChecked = item.isTraceEnabled
+            setChecked2(item.isTraceEnabled)
             setOnCheckedChangeListener { _, isChecked -> item.onTraceEnabled(isChecked) }
         }
         dryrunEnabled.apply {
-            setOnCheckedChangeListener(null)
-            isChecked = item.isDryRunEnabled
+            setChecked2(item.isDryRunEnabled)
             setOnCheckedChangeListener { _, isChecked -> item.onDryRunEnabled(isChecked) }
         }
         pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }
