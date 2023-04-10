@@ -99,6 +99,10 @@ class SystemCleaner @Inject constructor(
             crawl()
         }
 
+        log(TAG) { "Warming up fields..." }
+        results.forEach { it.size }
+        log(TAG) { "Field warm up done." }
+
         internalData.value = Data(
             filterContents = results
         )
