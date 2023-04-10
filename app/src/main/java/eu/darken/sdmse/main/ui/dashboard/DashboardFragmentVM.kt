@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -302,9 +301,6 @@ class DashboardFragmentVM @Inject constructor(
         items
     }
         .throttleLatest(500)
-        .let {
-            if (Bugs.isTrace) it.setupCommonEventHandlers(TAG) { "listItems" } else it
-        }
         .asLiveData2()
 
 
