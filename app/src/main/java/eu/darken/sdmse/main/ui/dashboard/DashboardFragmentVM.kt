@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.core.AppControl
@@ -35,9 +36,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
@@ -50,6 +49,7 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import kotlinx.coroutines.flow.*
@@ -462,14 +462,18 @@ class DashboardFragmentVM @Inject constructor(
         when (result) {
             is CorpseFinderTask.Result -> when (result) {
                 is CorpseFinderScanTask.Success -> {}
+                is UninstallWatcherTask.Success -> {}
+                is CorpseFinderSchedulerTask.Success -> {}
                 is CorpseFinderDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
             is SystemCleanerTask.Result -> when (result) {
                 is SystemCleanerScanTask.Success -> {}
+                is SystemCleanerSchedulerTask.Success -> {}
                 is SystemCleanerDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
             is AppCleanerTask.Result -> when (result) {
                 is AppCleanerScanTask.Success -> {}
+                is AppCleanerSchedulerTask.Success -> {}
                 is AppCleanerDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }

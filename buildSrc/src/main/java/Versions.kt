@@ -4,8 +4,8 @@ object Versions {
     }
 
     object Kotlin {
-        const val core = "1.6.10"
-        const val coroutines = "1.6.0"
+        const val core = "1.8.20"
+        const val coroutines = "1.6.4"
     }
 
     object Dagger {
@@ -13,7 +13,7 @@ object Versions {
     }
 
     object Moshi {
-        const val core = "1.13.0"
+        const val core = "1.14.0"
     }
 
     object AndroidX {

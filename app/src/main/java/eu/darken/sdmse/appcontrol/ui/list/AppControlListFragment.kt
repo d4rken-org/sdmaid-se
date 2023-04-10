@@ -199,7 +199,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         vm.events.observe2(ui) {
             when (it) {
-
+                is AppControlListEvents.ConfirmDeletion -> {}
             }
         }
 
