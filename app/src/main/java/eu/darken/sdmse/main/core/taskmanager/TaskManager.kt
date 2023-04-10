@@ -172,14 +172,15 @@ class TaskManager @Inject constructor(
             start = CoroutineStart.LAZY,
         ) {
             var result: SDMTool.Task.Result? = null
-            var error: Throwable? = null
+            var error: Exception? = null
             try {
                 stage(taskId)
                 result = execute(taskId)
+
                 log(TAG) { "Result for $taskId is $result" }
-            } catch (e: Throwable) {
+            } catch (e: Exception) {
                 if (e is CancellationException) {
-                    log(TAG, WARN) { "execute(): Task was cancelled ($taskId): $task" }
+                    log(TAG, INFO) { "execute(): Task was cancelled ($taskId): $task" }
                 } else {
                     log(TAG, ERROR) { "execute(): Execution failed ($taskId): $task\n${e.asLog()}" }
                 }
