@@ -15,6 +15,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -65,6 +66,7 @@ class FilterContentDetailsFragmentVM @Inject constructor(
         when (result) {
             is SystemCleanerDeleteTask.Success -> events.postValue(FilterContentDetailsEvents.TaskResult(result))
             is SystemCleanerScanTask.Success -> {}
+            is SystemCleanerSchedulerTask.Success -> {}
         }
     }
 

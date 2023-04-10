@@ -12,9 +12,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -60,6 +58,8 @@ class CorpseDetailsFragmentVM @Inject constructor(
         log(TAG) { "forwardTask(): Result $result" }
         when (result) {
             is CorpseFinderDeleteTask.Success -> events.postValue(CorpseDetailsEvents.TaskResult(result))
+            is UninstallWatcherTask.Success -> {}
+            is CorpseFinderSchedulerTask.Success -> {}
             is CorpseFinderScanTask.Success -> {}
         }
     }

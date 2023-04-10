@@ -51,7 +51,7 @@ class AppActionDialog : BottomSheetDialogFragment2() {
 
         vm.events.observe2(ui) { event ->
             when (event) {
-
+                else -> {}
             }
         }
 

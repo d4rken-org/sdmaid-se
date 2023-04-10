@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -60,6 +61,7 @@ class AppJunkDetailsFragmentVM @Inject constructor(
         log(TAG) { "forwardTask(): Result $result" }
         when (result) {
             is AppCleanerScanTask.Success -> {}
+            is AppCleanerSchedulerTask.Success -> {}
             is AppCleanerDeleteTask.Success -> events.postValue(AppJunkDetailsEvents.TaskResult(result))
         }
     }
