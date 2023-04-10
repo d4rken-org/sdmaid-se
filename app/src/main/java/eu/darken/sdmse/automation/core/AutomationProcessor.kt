@@ -15,6 +15,8 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
 class AutomationProcessor @AssistedInject constructor(
@@ -22,8 +24,13 @@ class AutomationProcessor @AssistedInject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val moduleFactories: Set<@JvmSuppressWildcards AutomationModule.Factory>
 ) {
+    private val execLock = Mutex()
 
-    suspend fun process(task: AutomationTask): AutomationTask.Result {
+    var hasTask: Boolean = false
+        private set
+
+    suspend fun process(task: AutomationTask): AutomationTask.Result = execLock.withLock {
+        hasTask = true
         log(TAG) { "process(): $task" }
         automationHost.updateProgressPrimary(R.string.general_progress_loading)
 
@@ -49,7 +56,8 @@ class AutomationProcessor @AssistedInject constructor(
 
         log(TAG) { "process(): Result is $result" }
 
-        return result
+        hasTask = false
+        result
     }
 
     @AssistedFactory

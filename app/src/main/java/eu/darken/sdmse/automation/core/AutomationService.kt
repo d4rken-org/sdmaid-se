@@ -167,6 +167,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
+        if (!automationProcessor.hasTask) return
+
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
             return
