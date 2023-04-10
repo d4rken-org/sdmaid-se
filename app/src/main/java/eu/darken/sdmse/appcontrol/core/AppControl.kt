@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -40,6 +41,7 @@ class AppControl @Inject constructor(
     private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
+    private val userManager: UserManager2,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(pkgOps)
@@ -81,7 +83,11 @@ class AppControl @Inject constructor(
 
         internalData.value = null
 
-        val appInfos = pkgRepo.currentPkgs().map { it.toAppInfo() }
+        val currentUserHandle = userManager.currentUser().handle
+
+        val appInfos = pkgRepo.currentPkgs()
+            .filter { it.userHandle == currentUserHandle }
+            .map { it.toAppInfo() }
 
         internalData.value = Data(
             apps = appInfos,
