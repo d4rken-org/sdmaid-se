@@ -8,10 +8,12 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.remoteInputStream
+import eu.darken.sdmse.common.root.io.RemoteInputStream
+import eu.darken.sdmse.common.root.io.inputStream
 import okio.Buffer
 
 data class LocalPathsPayload(
-    val payload: Collection<LocalPath>,
+    val payload: List<LocalPath>,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readParcelableArray(LocalPathLookup::class.java.classLoader)!!.toList() as List<LocalPath>
@@ -55,6 +57,6 @@ fun RemoteInputStream.toLocalPathsPayload(): LocalPathsPayload {
     return payload
 }
 
-fun Collection<LocalPath>.toRemoteInputStream() = LocalPathsPayload(this).toRemoteInputStream()
+fun List<LocalPath>.toRemoteInputStream() = LocalPathsPayload(this).toRemoteInputStream()
 
 fun RemoteInputStream.toLocalPaths() = toLocalPathsPayload().payload

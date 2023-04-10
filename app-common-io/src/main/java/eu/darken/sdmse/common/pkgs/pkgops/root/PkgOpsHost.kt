@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.root.io.RemoteInputStream
 import eu.darken.sdmse.common.user.UserHandle2
 import java.lang.reflect.Method
 import javax.inject.Inject
@@ -48,9 +49,23 @@ class PkgOpsHost @Inject constructor(
     override fun getInstalledPackagesAsUser(flags: Int, handleId: Int): List<PackageInfo> = try {
         log(TAG, VERBOSE) { "getInstalledPackagesAsUser($flags, $handleId)..." }
         val packageManager = context.packageManager
-        packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+        val result = packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
             log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
         }
+        result + result + result + result + result
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, handleId=$handleId) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun getInstalledPackagesAsUserStream(flags: Int, handleId: Int): RemoteInputStream = try {
+        log(TAG, VERBOSE) { "getInstalledPackagesAsUserStream($flags, $handleId)..." }
+        val packageManager = context.packageManager
+        val result = packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+            log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
+        }
+        val payload = result + result + result + result + result
+        payload.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, handleId=$handleId) failed." }
         throw wrapPropagating(e)

@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files.local.root
 
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.remoteInputStream
+import eu.darken.sdmse.common.root.io.RemoteInputStream
 import okio.Source
 
 data class DetailedInputSourceWrap(

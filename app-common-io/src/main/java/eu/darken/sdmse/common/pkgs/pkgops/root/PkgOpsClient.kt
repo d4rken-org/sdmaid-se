@@ -38,10 +38,24 @@ class PkgOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    /**
+     * Can fail if the amount of packages exceeds the IPC buffer size.
+     * android.os.DeadObjectException: Transaction failed on small parcel; remote process probably died
+     */
     fun getInstalledPackagesAsUser(flags: Int, userHandle: UserHandle2): List<PackageInfo> = try {
         connection.getInstalledPackagesAsUser(flags, userHandle.handleId)
     } catch (e: Exception) {
         log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, userHandle=$userHandle) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun getInstalledPackagesAsUserStream(flags: Int, userHandle: UserHandle2): List<PackageInfo> = try {
+        connection.getInstalledPackagesAsUserStream(flags, userHandle.handleId).toPackageInfos()
+    } catch (e: Exception) {
+        log(
+            TAG,
+            ERROR
+        ) { "getInstalledPackagesAsUserStream(flags=$flags, userHandle=$userHandle) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 

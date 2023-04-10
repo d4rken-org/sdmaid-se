@@ -11,6 +11,10 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.local.*
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.root.io.RemoteInputStream
+import eu.darken.sdmse.common.root.io.RemoteOutputStream
+import eu.darken.sdmse.common.root.io.remoteInputStream
+import eu.darken.sdmse.common.root.io.toRemoteOutputStream
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException

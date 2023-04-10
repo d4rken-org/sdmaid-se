@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.files.local.root;
 
-import eu.darken.sdmse.common.files.local.root.RemoteInputStream;
-import eu.darken.sdmse.common.files.local.root.RemoteOutputStream;
+import eu.darken.sdmse.common.root.io.RemoteInputStream;
+import eu.darken.sdmse.common.root.io.RemoteOutputStream;
 import eu.darken.sdmse.common.files.local.LocalPath;
 import eu.darken.sdmse.common.files.local.LocalPathLookup;
 import eu.darken.sdmse.common.files.Ownership;

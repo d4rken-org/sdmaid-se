@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.local.root
+package eu.darken.sdmse.common.root.io
 
 
 import android.os.RemoteException
@@ -36,7 +36,6 @@ internal fun OutputStream.toRemoteOutputStream(): RemoteOutputStream.Stub = obje
     } catch (e: IOException) {
         // no action required
     }
-
 }
 
 /**
