@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.files
 
-import eu.darken.sdmse.common.files.local.root.RemoteInputStream
-import eu.darken.sdmse.common.files.local.root.remoteInputStream
+import eu.darken.sdmse.common.root.io.RemoteInputStream
+import eu.darken.sdmse.common.root.io.remoteInputStream
 import okio.Source
 import okio.buffer
 import java.io.InputStream

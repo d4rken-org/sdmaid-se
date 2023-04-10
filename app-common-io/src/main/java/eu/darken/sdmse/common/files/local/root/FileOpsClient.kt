@@ -14,6 +14,8 @@ import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.root.io.sink
+import eu.darken.sdmse.common.root.io.source
 import okio.Sink
 import okio.Source
 import java.io.IOException

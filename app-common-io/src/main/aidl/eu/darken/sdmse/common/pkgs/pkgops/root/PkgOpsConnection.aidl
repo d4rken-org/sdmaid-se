@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.pkgs.pkgops.root;
 
 import android.content.pm.PackageInfo;
+import eu.darken.sdmse.common.root.io.RemoteInputStream;
 
 interface PkgOpsConnection {
 
@@ -10,7 +11,9 @@ interface PkgOpsConnection {
 
     boolean forceStop(String packageName);
 
-    List<PackageInfo> getInstalledPackagesAsUser(int flags, int userId);
+    List<PackageInfo> getInstalledPackagesAsUser(int flags, int handleId);
+
+    RemoteInputStream getInstalledPackagesAsUserStream(int flags, int handleId);
 
     void setApplicationEnabledSetting (String packageName, int newState, int flags);
 

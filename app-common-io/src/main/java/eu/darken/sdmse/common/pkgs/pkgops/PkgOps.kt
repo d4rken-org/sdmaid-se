@@ -112,7 +112,7 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun queryPkgs(flags: Int, userHandle: UserHandle2): Collection<Installed> {
-        val rawPkgs = rootOps { it.getInstalledPackagesAsUser(flags, userHandle) }
+        val rawPkgs = rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
 
         return ipcFunnel.use {
             rawPkgs.map {
