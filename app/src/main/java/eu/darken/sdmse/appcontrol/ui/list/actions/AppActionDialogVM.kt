@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
@@ -66,7 +67,13 @@ class AppActionDialogVM @Inject constructor(
             ?.let { intent ->
                 LaunchActionVH.Item(
                     appInfo = appInfo,
-                    onItemClicked = { context.startActivity(intent) }
+                    onItemClicked = {
+                        try {
+                            context.startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            errorEvents.postValue(e)
+                        }
+                    }
                 )
             }
 
