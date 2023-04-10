@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingPrivacyFragmentBinding
@@ -21,18 +22,12 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
         }
 
         ui.privacyPolicyAction.setOnClickListener { vm.goPrivacyPolicy() }
+        ui.bugreportingToggle.setOnCheckedChangeListener { _, isChecked -> vm.setBugReportingEnabled(isChecked) }
 
         var isInitial = true
         vm.isBugReporterEnabled.observe2(ui) { isEnabled ->
-            bugreportingToggle.apply {
-                setOnCheckedChangeListener(null)
-                isChecked = isEnabled
-                if (isInitial) {
-                    isInitial = false
-                    jumpDrawablesToCurrentState()
-                }
-                setOnCheckedChangeListener { _, isChecked -> vm.setBugReportingEnabled(isChecked) }
-            }
+            bugreportingToggle.setChecked2(isEnabled, animate = !isInitial)
+            isInitial = false
         }
         super.onViewCreated(view, savedInstanceState)
     }
