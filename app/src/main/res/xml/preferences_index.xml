@@ -59,7 +59,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
-        <Preference
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:icon="@drawable/ic_changelog_onsurface"
             android:key="core.changelog"
             android:title="@string/changelog_label"
@@ -67,7 +67,7 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/d4rken-org/sdmaid-se/releases" />
-        </Preference>
+        </eu.darken.sdmse.common.preferences.IntentPreference>
 
         <Preference
             android:icon="@drawable/ic_baseline_contact_support_24"
