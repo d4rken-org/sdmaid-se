@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
 
+    <string name="slogan_message_0">At your service.</string>
+    <string name="slogan_message_1">Clean &amp; tidy.</string>
+    <string name="slogan_message_2">Preventing chaos.</string>
+    <string name="slogan_message_3">Doing what is necessary.</string>
+    <string name="slogan_message_4">All your ducks in a row.</string>
+    <string name="slogan_message_5">Spotless.</string>
+
+    <string name="general_thank_you_label">Thank you</string>
+
     <string name="general_error_type_mismatch_msg">Type mismatch: Wanted %1$s, but got %2$s.</string>
     <string name="general_error_cant_access_msg">Can\'t access %s.</string>
     <string name="general_error_root_unavailable">Root access is unavailable.</string>
@@ -104,6 +113,9 @@
     <string name="general_exclude_all_action">Exclude all</string>
 
     <string name="general_device_label">Device</string>
+
+    <string name="general_settings_title">Settings</string>
+    <string name="general_help_title">Help</string>
 
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Directory</string>

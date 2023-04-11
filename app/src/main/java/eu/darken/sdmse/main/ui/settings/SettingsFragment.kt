@@ -42,7 +42,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
                     screens.removeLastOrNull()
                     screens.lastOrNull() ?: Screen(
                         fragmentClass = SettingsIndexFragment::class.qualifiedName!!,
-                        screenTitle = getString(R.string.label_settings)
+                        screenTitle = getString(R.string.general_settings_title)
                     )
                 }
                 else -> {
