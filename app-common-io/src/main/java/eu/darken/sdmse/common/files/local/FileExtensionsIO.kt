@@ -6,11 +6,13 @@ import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import java.io.File
 
-fun File.getAPathFileType(): FileType = when {
+fun File.getAPathFileType(): FileType? = when {
     // Order matters!
     isSymbolicLink() -> FileType.SYMBOLIC_LINK
     isDirectory -> FileType.DIRECTORY
-    else -> FileType.FILE
+    isFile -> FileType.FILE
+    exists() -> FileType.UNKNOWN
+    else -> null
 }
 
 fun File.toLocalPath(): LocalPath = LocalPath.build(this)

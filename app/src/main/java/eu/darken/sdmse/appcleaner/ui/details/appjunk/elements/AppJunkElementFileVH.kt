@@ -8,6 +8,8 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.iconRes
+import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileBinding
 import kotlin.reflect.KClass
@@ -26,18 +28,14 @@ class AppJunkElementFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        when (item.lookup.fileType) {
-            FileType.DIRECTORY -> R.drawable.ic_folder
-            FileType.SYMBOLIC_LINK -> R.drawable.ic_file_link
-            FileType.FILE -> R.drawable.ic_file
-        }.run { icon.setImageResource(this) }
+        icon.setImageResource(item.lookup.fileType.iconRes)
 
         primary.text = item.lookup.userReadablePath.get(context)
 
-        secondary.text = when (item.lookup.fileType) {
-            FileType.DIRECTORY -> getString(R.string.file_type_directory)
-            FileType.SYMBOLIC_LINK -> getString(R.string.file_type_symbolic_link)
-            FileType.FILE -> Formatter.formatFileSize(context, item.lookup.size)
+        secondary.text = if (item.lookup.fileType == FileType.FILE) {
+            Formatter.formatFileSize(context, item.lookup.size)
+        } else {
+            getString(item.lookup.fileType.labelRes)
         }
 
         root.setOnClickListener { item.onItemClick(item) }

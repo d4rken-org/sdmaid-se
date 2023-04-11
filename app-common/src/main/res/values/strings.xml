@@ -106,6 +106,7 @@
     <string name="general_device_label">Device</string>
 
     <string name="file_type_symbolic_link">Link</string>
-    <string name="file_type_file">File</string>
     <string name="file_type_directory">Directory</string>
+    <string name="file_type_file">File</string>
+    <string name="file_type_unknown">Unknown</string>
 </resources>
