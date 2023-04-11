@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-        app:title="@string/label_settings" />
+        app:title="@string/general_settings_title" />
 
     <FrameLayout
         android:id="@+id/content_frame"

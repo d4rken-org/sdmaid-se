@@ -14,7 +14,7 @@
         android:id="@+id/menu_action_settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="100"
-        android:title="@string/label_settings"
+        android:title="@string/general_settings_title"
         app:showAsAction="always" />
 
 </menu>
