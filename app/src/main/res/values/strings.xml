@@ -40,7 +40,7 @@
 
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are send when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are sent when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
     <string name="onboarding_privacy_bugreport_toggle">Allow automatic bug reports</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">These options can be changed in the settings.</string>
     <string name="onboarding_privacy_continue_action">Continue</string>
@@ -95,7 +95,7 @@
 
     <string name="setup_saf_card_title">Storage access framework</string>
     <string name="setup_saf_card_body">Improve results by granting SD Maid access to additional areas.</string>
-    <string name="setup_saf_card_body2">In most cases the window will open with the correct path preselected. Entries turn green when access was granted. </string>
+    <string name="setup_saf_card_body2">In most cases the window will open with the correct path preselected. Entries turn green when access is granted. </string>
     <string name="setup_saf_error_wrong_path">You selected the wrong path</string>
     <string name="setup_saf_missing_app_error">The Documents UI app is unavailable. It\'s a built-in system app and should be available on all Android devices.</string>
 
@@ -129,12 +129,12 @@
     <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
     <string name="setup_acs_state_running">Accessibility service is running</string>
     <string name="setup_acs_state_stopped">Accessibility service is stopped</string>
-    <string name="setup_acs_state_stopped_hint">The service is enabled, but not running. Toggeling it off/on or reboot your device. Check that SD Maid is not being "optimized" by the system.</string>
-    <string name="setup_acs_state_stopped_hint_miui">If the service keeps getting disabled after a while, try enabling the "Autostart" option for SD Maid in the system settings.</string>
+    <string name="setup_acs_state_stopped_hint">The service is enabled, but not running. Toggling it off/on or rebooting your device. Check that SD Maid is not being "optimized" by the system.</string>
+    <string name="setup_acs_state_stopped_hint_miui">If the service keeps getting disabled after a while, try enabling the "Auto Start" option for SD Maid in the system settings.</string>
     <string name="setup_acs_consent_positive_action">Enable service and grant access</string>
     <string name="setup_acs_consent_negative_action">Don\'t use accessibility service</string>
     <string name="setup_acs_allow_hint">If you see a little icon on the screen edge, then you accidentally enabled the "shortcut" option.</string>
-    <string name="setup_acs_disallow_hint">If you change you mind, you can alter this option again by going into settings and restarting the setup.</string>
+    <string name="setup_acs_disallow_hint">If you change your mind, you can alter this option again by going into settings and restarting the setup.</string>
     <string name="setup_acs_appops_restriction_title">Restricted settings</string>
     <string name="setup_acs_appops_restriction_body">Can\'t enable SD Maids accessibility service? Android 13+ may apply restrictions to apps not installed via Google Play. Lift these restrictions from the system\'s detail page for SD Maid. The option is in the context menu in the top right corner.</string>
 
@@ -223,7 +223,7 @@
     <string name="systemcleaner_filter_thumbnails_label">Thumbnail images</string>
     <string name="systemcleaner_filter_thumbnails_summary">Cached previews for images and videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Temporary files</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Temporary files, usually shortlived caches for active operations.</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Temporary files, usually short lived caches for active operations.</string>
     <string name="systemcleaner_filter_analytics_label">Analytics files</string>
     <string name="systemcleaner_filter_analytics_summary">Data related to analytics and bug tracking.</string>
     <string name="systemcleaner_filter_downloadcache_label">Download cache</string>
@@ -307,7 +307,7 @@
     <string name="appcontrol_toggle_app_disable_action">Disable app</string>
     <string name="appcontrol_toggle_app_enable_description">Enabling an app allows it to run and may make it visible in your launcher if it has an activity.</string>
     <string name="appcontrol_toggle_app_disable_description">Disabling an app prevents it from running and hides it from menus. There is no data loss.</string>
-    <string name="appcontrol_appstore_open_title">Open in appstore</string>
+    <string name="appcontrol_appstore_open_title">Open in app store</string>
     <string name="appcontrol_appstore_open_description">Open this app in the app store it was installed from.</string>
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
@@ -343,10 +343,10 @@
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
     <string name="automation_active_title">SD Maid is working</string>
     <string name="automation_error_no_consent_title">Automation error</string>
-    <string name="automation_error_no_consent_body">Accessibility service is not setup. Complete the setup and give consent.</string>
+    <string name="automation_error_no_consent_body">Accessibility service is not set up. Complete the setup and give consent.</string>
     <string name="automation_error_not_enabled_title">Service isn\'t enabled</string>
     <string name="automation_error_not_enabled_body">Accessibility service is disabled. Turn it on again.</string>
-    <string name="automation_error_not_running_title">Service isn\'t runnning</string>
+    <string name="automation_error_not_running_title">Service isn\'t running</string>
     <string name="automation_error_not_running_body">Accessibility service is not running. Try rebooting the device.</string>
 
     <string name="history_label">History</string>
