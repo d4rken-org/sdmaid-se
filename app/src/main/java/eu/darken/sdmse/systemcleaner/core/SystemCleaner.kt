@@ -131,15 +131,20 @@ class SystemCleaner @Inject constructor(
                     it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
                 })
                 log(TAG) { "Deleting $targetContent..." }
-                targetContent.deleteAll(gatewaySwitch) {
-                    updateProgressSecondary(it.userReadablePath)
-                    true
-                }
-                log(TAG) { "Deleted $targetContent!" }
 
-                deleted.addAll(
-                    filterContent.items.filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
-                )
+                try {
+                    targetContent.deleteAll(gatewaySwitch) {
+                        updateProgressSecondary(it.userReadablePath)
+                        true
+                    }
+                    log(TAG) { "Deleted $targetContent!" }
+
+                    filterContent.items
+                        .filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
+                        .run { deleted.addAll(this) }
+                } catch (e: WriteException) {
+                    log(TAG, WARN) { "Deletion failed for $targetContent" }
+                }
             }
 
             deletedContents[filterContent] = deleted

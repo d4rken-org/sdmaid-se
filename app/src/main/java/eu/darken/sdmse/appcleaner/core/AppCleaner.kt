@@ -149,12 +149,16 @@ class AppCleaner @Inject constructor(
                     it.getString(R.string.general_progress_deleting, targetFile.userReadableName.get(it))
                 })
                 log(TAG) { "Deleting $targetFile..." }
-                targetFile.deleteAll(gatewaySwitch) {
-                    updateProgressSecondary(it.userReadablePath)
-                    true
+                try {
+                    targetFile.deleteAll(gatewaySwitch) {
+                        updateProgressSecondary(it.userReadablePath)
+                        true
+                    }
+                    log(TAG) { "Deleted $targetFile!" }
+                    deleted.add(targetFile)
+                } catch (e: WriteException) {
+                    log(TAG, WARN) { "Deletion failed for $targetFile" }
                 }
-                log(TAG) { "Deleted $targetFile!" }
-                deleted.add(targetFile)
             }
 
             deletionMap[appJunk.identifier] = deleted
