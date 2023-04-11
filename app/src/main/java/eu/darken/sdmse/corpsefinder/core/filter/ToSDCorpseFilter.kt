@@ -25,7 +25,6 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.*
-import java.util.regex.Pattern
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -218,10 +217,9 @@ class ToSDCorpseFilter @Inject constructor(
             .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
                 val fileName: String = areaInfo.file.name
-                val matcher = DALVIK_MATCHER.matcher(fileName)
-                if (!matcher.matches()) return@mapNotNull null
+                val matcher = DALVIK_MATCHER.matchEntire(fileName) ?: return@mapNotNull null
 
-                val dirPkg = matcher.group(1)!!.toPkgId()
+                val dirPkg = matcher.groupValues[1].toPkgId()
                 val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
@@ -324,11 +322,11 @@ class ToSDCorpseFilter @Inject constructor(
             .mapNotNull { areaInfo ->
                 val name = areaInfo.file.name
                 val candidateName: String = if (name.endsWith(".apk")) name.substring(0, name.length - 4) else name
-                var matcher = APKDIR.matcher(candidateName)
-                if (!matcher.matches()) matcher = APPDIR_ANDROIDO.matcher(candidateName)
-                if (!matcher.matches()) return@mapNotNull null
+                var matcher = APKDIR.matchEntire(candidateName)
+                if (matcher == null) matcher = APPDIR_ANDROIDO.matchEntire(candidateName)
+                if (matcher == null) return@mapNotNull null
 
-                val dirPkg = matcher.group(1)!!.toPkgId()
+                val dirPkg = matcher.groupValues[1].toPkgId()
                 val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
@@ -373,10 +371,9 @@ class ToSDCorpseFilter @Inject constructor(
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
-                val matcher = APPLIB_DIR.matcher(areaInfo.file.name)
-                if (!matcher.matches()) return@mapNotNull null
+                val match = APPLIB_DIR.matchEntire(areaInfo.file.name) ?: return@mapNotNull null
 
-                val dirPkg = matcher.group(1)!!.toPkgId()
+                val dirPkg = match.groupValues[1].toPkgId()
                 val owners = setOf(Owner(dirPkg, areaInfo.userHandle))
                 OwnerInfo(
                     areaInfo = areaInfo,
@@ -426,10 +423,9 @@ class ToSDCorpseFilter @Inject constructor(
             count = Progress.Count.Indeterminate()
         )
         val TAG: String = logTag("CorpseFinder", "Filter", "App2SD")
-        private val DALVIK_MATCHER =
-            Pattern.compile("^(?:(?:.+?@)+?)([\\w\\.\\_\\-]+)(?:-\\d+\\.(?:apk|jar|zip)@\\w+\\.(?:dex|odex|jar|art))$")
-        private val APKDIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
-        private val APPDIR_ANDROIDO = Pattern.compile("^([\\w.\\-]+)(?:\\-[a-zA-Z0-9=_-]{24})$")
-        private val APPLIB_DIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
+        private val DALVIK_MATCHER by lazy { Regex("^(?:.+?@)+?([\\w._\\-]+)-\\d+\\.(?:apk|jar|zip)@\\w+\\.(?:dex|odex|jar|art)$") }
+        private val APKDIR by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}$") }
+        private val APPDIR_ANDROIDO by lazy { Regex("^([\\w.\\-]+)-[a-zA-Z0-9=_-]{24}$") }
+        private val APPLIB_DIR by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}$") }
     }
 }

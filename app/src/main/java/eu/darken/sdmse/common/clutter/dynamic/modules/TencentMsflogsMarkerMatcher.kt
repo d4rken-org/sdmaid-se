@@ -9,14 +9,13 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.dynamic.NestedPackageV2Matcher
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
 class TencentMsflogsMarkerMatcher @Inject constructor() : NestedPackageV2Matcher(
     DataArea.Type.SDCARD,
     listOf("tencent", "msflogs"),
-    setOf(Pattern.compile("^(?>tencent/msflogs/((?:\\w+/){2}\\w+))$", Pattern.CASE_INSENSITIVE)),
+    setOf(Regex("^(?>tencent/msflogs/((?:\\w+/){2}\\w+))$", RegexOption.IGNORE_CASE)),
     emptySet(),
     emptySet(),
     Converter.PackagePathConverter()

@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
@@ -26,9 +25,8 @@ class LuckyPatcherCheck @Inject constructor(
 
         if (!name.endsWith(".odex") && !name.endsWith(".dex")) return AppSourceCheck.Result()
 
-        val pkgName = LUCKYPATCHER_ODDONES.matcher(name)
-            .takeIf { it.matches() }
-            ?.group(1)
+        val pkgName = LUCKYPATCHER_ODDONES.matchEntire(name)
+            ?.groupValues?.get(1)
             ?.toPkgId()
             ?: return AppSourceCheck.Result()
 
@@ -55,7 +53,7 @@ class LuckyPatcherCheck @Inject constructor(
     }
 
     companion object {
-        private val LUCKYPATCHER_ODDONES = Pattern.compile("^([\\w\\W]+?)(?:-[0-9]{1,4}\\.o?dex)$")
+        private val LUCKYPATCHER_ODDONES by lazy { Regex("^([\\w\\W]+?)-[0-9]{1,4}\\.o?dex$") }
         private val BAD_UNCLES = setOf(
             "com.forpda.lp",
             "com.chelpus.lackypatch",

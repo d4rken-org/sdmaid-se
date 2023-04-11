@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -25,9 +24,8 @@ class FileToPkgCheck @Inject constructor(
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
-        val pkgId = CODESOURCE_FILE.matcher(areaInfo.file.name)
-            .takeIf { it.matches() }
-            ?.group(1)
+        val pkgId = CODESOURCE_FILE.matchEntire(areaInfo.file.name)
+            ?.groupValues?.get(1)
             ?.toPkgId()
             ?: return AppSourceCheck.Result()
 
@@ -46,6 +44,6 @@ class FileToPkgCheck @Inject constructor(
     }
 
     companion object {
-        private val CODESOURCE_FILE = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4}.apk)$")
+        private val CODESOURCE_FILE by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}.apk$") }
     }
 }

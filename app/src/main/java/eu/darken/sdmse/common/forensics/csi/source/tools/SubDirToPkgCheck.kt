@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -35,9 +34,9 @@ class SubDirToPkgCheck @Inject constructor(
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
 
         val topDir = potPkgNames[0]
-        val topDirMatcher = ANDROID11_TOPDIR.matcher(topDir)
+        val topDirmatches = ANDROID11_TOPDIR.matches(topDir)
 
-        if (!topDirMatcher.matches()) return AppSourceCheck.Result()
+        if (!topDirmatches) return AppSourceCheck.Result()
 
         val subDir = try {
             val subDirContent = areaInfo.file.listFiles(gatewaySwitch)
@@ -47,9 +46,8 @@ class SubDirToPkgCheck @Inject constructor(
             return AppSourceCheck.Result()
         }
 
-        val owners = ANDROID11_SUBDIR.matcher(subDir)
-            .takeIf { it.matches() }
-            ?.group(1)
+        val owners = ANDROID11_SUBDIR.matchEntire(subDir)
+            ?.groupValues?.get(1)
             ?.let { setOf(Owner(it.toPkgId(), areaInfo.userHandle)) }
             ?: emptySet()
 
@@ -62,8 +60,8 @@ class SubDirToPkgCheck @Inject constructor(
     }
 
     companion object {
-        private val ANDROID11_TOPDIR = Pattern.compile("^(~~.+?==)\$")
-        private val ANDROID11_SUBDIR = Pattern.compile("^([\\w.\\-]+)(?:-[a-zA-Z0-9=_-]{24})$")
+        private val ANDROID11_TOPDIR by lazy { Regex("^(~~.+?==)\$") }
+        private val ANDROID11_SUBDIR by lazy { Regex("^([\\w.\\-]+)-[a-zA-Z0-9=_-]{24}$") }
         val TAG: String = logTag("CSI", "App", "Tools", "SubDirToPkgCheck")
     }
 }

@@ -20,7 +20,6 @@ import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import java.util.*
-import java.util.regex.Pattern
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -72,7 +71,7 @@ class LogFilesFilter @Inject constructor(
 
         // TODO Support SAF path matching?
         // https://github.com/d4rken/sdmaid-public/issues/2147
-        val badTelegramMatch = EDGECASE_TELEGRAMX.matcher(item.path).matches()
+        val badTelegramMatch = EDGECASE_TELEGRAMX.matches(item.path)
 
         // https://github.com/d4rken/sdmaid-public/issues/961
         val overlap = mediaLocations.any { it.isAncestorOf(item) }
@@ -97,7 +96,7 @@ class LogFilesFilter @Inject constructor(
     }
 
     companion object {
-        private val EDGECASE_TELEGRAMX = Pattern.compile(".+/pmc/db/\\d+\\.log")
+        private val EDGECASE_TELEGRAMX by lazy { Regex(".+/pmc/db/\\d+\\.log") }
         private val TAG = logTag("SystemCleaner", "Filter", "LogFiles")
     }
 }

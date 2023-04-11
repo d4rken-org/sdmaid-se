@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.forensics.csi.source.AppSourceCheck
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -33,9 +32,9 @@ class DirToPkgCheck @Inject constructor(
         val userHandle = areaInfo.userHandle
         val owners = listOf(CODESOURCE_DIR, APPDIR_ANDROIDO)
             .asSequence()
-            .map { it.matcher(potPkgNames[0]) }
-            .firstOrNull { it.matches() }
-            ?.group(1)
+            .mapNotNull { it.matchEntire(potPkgNames[0]) }
+            .firstOrNull()
+            ?.groupValues?.get(1)
             ?.toPkgId()
             ?.takeIf { pkgRepo.isInstalled(it, userHandle) }
             ?.let { setOf(Owner(it, userHandle)) }
@@ -49,7 +48,7 @@ class DirToPkgCheck @Inject constructor(
     }
 
     companion object {
-        private val CODESOURCE_DIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
-        private val APPDIR_ANDROIDO = Pattern.compile("^([\\w.\\-]+)(?:\\-[a-zA-Z0-9=_-]{24})$")
+        private val CODESOURCE_DIR by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}$") }
+        private val APPDIR_ANDROIDO by lazy { Regex("^([\\w.\\-]+)-[a-zA-Z0-9=_-]{24}$") }
     }
 }

@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.util.regex.Pattern
 
 open class ManualMarkerSource(
     private val pkgRepo: PkgRepo,
@@ -99,9 +98,9 @@ open class ManualMarkerSource(
             }
             if (entry.regexPkgs != null) {
                 for (regexPkg in entry.regexPkgs) {
-                    val pattern = Pattern.compile(regexPkg)
+                    val pattern = Regex(regexPkg)
                     for (app in installedApps) {
-                        if (pattern.matcher(app.packageName).matches()) {
+                        if (pattern.matches(app.packageName)) {
                             log(TAG, VERBOSE) { "Regex package match: pkg=${app.packageName}, entry=$entry" }
                             if (!rawPkgs.add(app.packageName)) {
                                 log(TAG, WARN) { "Package defined multiple times: ${app.packageName}" }

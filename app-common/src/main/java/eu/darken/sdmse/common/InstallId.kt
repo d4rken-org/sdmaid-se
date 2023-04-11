@@ -6,7 +6,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.File
 import java.util.*
-import java.util.regex.Pattern
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,7 +17,7 @@ class InstallId @Inject constructor(
     val id: String by lazy {
         val existing = if (installIDFile.exists()) {
             installIDFile.readText().also {
-                if (!UUID_PATTERN.matcher(it).matches()) throw IllegalStateException("Invalid InstallID: $it")
+                if (!UUID_PATTERN.matches(it)) throw IllegalStateException("Invalid InstallID: $it")
             }
         } else {
             null
@@ -32,9 +31,9 @@ class InstallId @Inject constructor(
 
     companion object {
         private val TAG: String = logTag("InstallID")
-        private val UUID_PATTERN = Pattern.compile(
-            "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-        )
+        private val UUID_PATTERN by lazy {
+            Regex("^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+        }
 
         private const val INSTALL_ID_FILENAME = "installid"
     }
