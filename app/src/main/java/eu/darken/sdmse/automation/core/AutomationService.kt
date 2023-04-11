@@ -83,6 +83,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 //            App.require().serviceInjector().inject(this)
 //        }
 
+        Bugs.leaveBreadCrumb("Automation service launched")
+
         if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
             log(TAG, INFO) { "We are not restricted by app ops." }
             generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true

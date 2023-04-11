@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -46,6 +47,8 @@ class SchedulerReceiver : BroadcastReceiver() {
             ?: return
 
         val asyncPi = goAsync()
+
+        Bugs.leaveBreadCrumb("Scheduler triggered")
 
         appScope.launch {
             val schedule = schedulerManager.getSchedule(scheduleId)

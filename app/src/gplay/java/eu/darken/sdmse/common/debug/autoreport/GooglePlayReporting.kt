@@ -66,8 +66,12 @@ class GooglePlayReporting @Inject constructor(
         }
     }
 
+    override fun leaveBreadCrumb(crumb: String) {
+        Bugsnag.leaveBreadcrumb(crumb)
+    }
+
     override fun notify(throwable: Throwable) {
-        // NOOP
+        Bugsnag.notify(throwable)
     }
 
     companion object {

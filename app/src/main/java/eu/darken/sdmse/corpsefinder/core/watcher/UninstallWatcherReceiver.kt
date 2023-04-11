@@ -7,6 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -50,6 +51,8 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
         }
 
         val asyncPi = goAsync()
+
+        Bugs.leaveBreadCrumb("Uninstall event")
 
         appScope.launch {
             if (!corpseFinderSettings.isUninstallWatcherEnabled.value()) {
