@@ -25,7 +25,6 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
@@ -116,9 +115,9 @@ class PrivateDataCSI @Inject constructor(
             return currentName.substring(1)
         } else if (currentName.startsWith("com.lge.theme.")) {
             // https://github.com/d4rken/sdmaid-public/issues/615
-            val matcher = LGE_THEME_PATTERN.matcher(currentName)
-            if (matcher.matches()) {
-                return matcher.group(1)
+            val matcher = LGE_THEME_PATTERN.matchEntire(currentName)
+            if (matcher != null) {
+                return matcher.groupValues[1]
             }
         } else if (currentName.endsWith(".overlay")) {
             val ownerPkg = currentName.substring(0, currentName.lastIndexOf(".overlay"))
@@ -145,6 +144,6 @@ class PrivateDataCSI @Inject constructor(
     companion object {
         val TAG: String = logTag("CSI", "Private", "AppData")
         const val DEFAULT_DIR = "data"
-        private val LGE_THEME_PATTERN = Pattern.compile("^(com\\.lge\\.theme\\.[\\w_\\-]+)(\\.[\\w\\._\\-]+)$")
+        private val LGE_THEME_PATTERN by lazy { Regex("^(com\\.lge\\.theme\\.[\\w_\\-]+)(\\.[\\w._\\-]+)$") }
     }
 }

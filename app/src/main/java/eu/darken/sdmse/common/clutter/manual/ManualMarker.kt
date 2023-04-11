@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.hashCode
 import eu.darken.sdmse.common.pkgs.Pkg
-import java.util.regex.Pattern
 
 data class ManualMarker(
     private val pkgs: Set<Pkg.Id>,
@@ -25,7 +24,7 @@ data class ManualMarker(
 
     private val pattern by lazy {
         regex?.let {
-            Pattern.compile(it, if (ignoreCase) Pattern.CASE_INSENSITIVE else 0)
+            if (ignoreCase) Regex(it, RegexOption.IGNORE_CASE) else Regex(it)
         }
     }
 
@@ -54,7 +53,7 @@ data class ManualMarker(
                 } else if (contains != null && !otherSegments.joinSegments().contains(contains, ignoreCase)) {
                     false
                 } else {
-                    pattern!!.matcher(otherSegments.joinSegments()).matches()
+                    pattern!!.matches(otherSegments.joinSegments())
                 }
             }
             else -> false

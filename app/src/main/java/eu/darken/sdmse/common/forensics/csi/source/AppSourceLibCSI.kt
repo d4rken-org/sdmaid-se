@@ -24,7 +24,6 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
@@ -56,9 +55,8 @@ class AppSourceLibCSI @Inject constructor(
         val userHandle = areaInfo.userHandle
         val dirName = areaInfo.prefixFreePath.first()
         dirName
-            .let { APPLIB_DIR.matcher(it) }
-            .takeIf { it.matches() }
-            ?.let { it.group(1)?.toPkgId() }
+            .let { APPLIB_DIR.matchEntire(it) }
+            ?.let { it.groupValues[1].toPkgId() }
             ?.takeIf { pkgRepo.isInstalled(it, userHandle) }
             ?.let { owners.add(Owner(it, userHandle)) }
 
@@ -90,6 +88,6 @@ class AppSourceLibCSI @Inject constructor(
     companion object {
         val TAG: String = logTag("CSI", "AppSource", "Lib")
         const val DIRNAME = "app-lib"
-        private val APPLIB_DIR = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4})$")
+        private val APPLIB_DIR by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}$") }
     }
 }

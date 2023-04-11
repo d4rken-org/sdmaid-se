@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.user.UserManager2
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -161,6 +160,6 @@ class PrivateDataLegacyModule @Inject constructor(
 
     companion object {
         val TAG: String = logTag("DataArea", "Module", "PrivateData", "Legacy")
-        private val USER_DIR_NUMBER_PATTERN = Pattern.compile("([0-9]{1,2})")
+        private val USER_DIR_NUMBER_PATTERN by lazy { Regex("([0-9]{1,2})") }
     }
 }

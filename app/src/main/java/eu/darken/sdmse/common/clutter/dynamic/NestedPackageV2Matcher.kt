@@ -10,14 +10,12 @@ import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.io.File
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 open class NestedPackageV2Matcher(
     val dataAreaType: DataArea.Type,
     val basePath: List<String>,
-    val goodMatches: Set<Pattern>,
-    val badMatches: Set<Pattern>,
+    val goodRegexes: Set<Regex>,
+    val badRegexes: Set<Regex>,
     val flags: Set<Marker.Flag>,
     val converter: Converter
 ) : MarkerSource {
@@ -27,12 +25,12 @@ open class NestedPackageV2Matcher(
     val ignoreCase: Boolean = dataAreaType.isCaseInsensitive
 
     interface Converter {
-        fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id>
+        fun onConvertMatchToPackageNames(match: MatchResult): Set<Pkg.Id>
         fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>>
 
         class PackagePathConverter : Converter {
-            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> {
-                return setOf(matcher.group(1).replace(File.separatorChar, '.').toPkgId())
+            override fun onConvertMatchToPackageNames(match: MatchResult): Set<Pkg.Id> {
+                return setOf(match.groupValues[1].replace(File.separatorChar, '.').toPkgId())
             }
 
             override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>> {
@@ -44,8 +42,8 @@ open class NestedPackageV2Matcher(
     init {
         require(basePath.isNotEmpty()) { "Prefix is empty" }
         require(!basePath.any { it.contains(File.separator) }) { "Prefix should not contain " + File.separatorChar }
-        require(goodMatches.isNotEmpty()) { "Good matches is empty" }
-        require(goodMatches.iterator().next().pattern().isNotEmpty()) { "Empty patterns are not allowed" }
+        require(goodRegexes.isNotEmpty()) { "Good matches is empty" }
+        require(goodRegexes.iterator().next().pattern.isNotEmpty()) { "Empty patterns are not allowed" }
 
         dynamicMarkers.add(object : Marker {
             override val flags: Set<Marker.Flag>
@@ -59,21 +57,16 @@ open class NestedPackageV2Matcher(
                     return null
                 }
                 val joinedSegments = otherSegments.joinSegments()
-                var goodMatcher: Matcher? = null
-                for (p in goodMatches) {
-                    val matcher = p.matcher(joinedSegments)
-                    if (matcher.matches()) {
-                        goodMatcher = matcher
-                        break
-                    }
+
+                val goodRegex = goodRegexes.firstNotNullOfOrNull {
+                    it.matchEntire(joinedSegments)
+                } ?: return null
+
+                if (badRegexes.any { it.matches(joinedSegments) }) {
+                    return null
                 }
-                if (goodMatcher == null) return null
-                for (p in badMatches) {
-                    if (p.matcher(joinedSegments).matches()) {
-                        return null
-                    }
-                }
-                val pkgNames = this@NestedPackageV2Matcher.converter.onConvertMatchToPackageNames(goodMatcher)
+
+                val pkgNames = this@NestedPackageV2Matcher.converter.onConvertMatchToPackageNames(goodRegex)
                 return Marker.Match(pkgNames, this@NestedPackageV2Matcher.flags)
             }
 

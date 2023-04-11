@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @Reusable
@@ -53,9 +52,8 @@ class AppSourceAsecCSI @Inject constructor(
         val userHandle = areaInfo.userHandle
         val dirName = areaInfo.prefixFreePath.first()
         dirName
-            .let { ASEC_FILE.matcher(it) }
-            .takeIf { it.matches() }
-            ?.let { it.group(1)?.toPkgId() }
+            .let { ASEC_FILE.matchEntire(it) }
+            ?.let { it.groupValues[1].toPkgId() }
             ?.takeIf { pkgRepo.isInstalled(it, userHandle) }
             ?.let { owners.add(Owner(it, userHandle)) }
 
@@ -80,6 +78,6 @@ class AppSourceAsecCSI @Inject constructor(
     companion object {
         val TAG: String = logTag("CSI", "AppSource", "Asec")
         const val DIRNAME = "app-asec"
-        private val ASEC_FILE = Pattern.compile("^([\\w.\\-]+)(?:\\-[0-9]{1,4}.asec)$")
+        private val ASEC_FILE by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}.asec$") }
     }
 }

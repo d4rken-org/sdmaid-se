@@ -9,13 +9,11 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import java.io.File
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 class NestedPackageV2MatcherTest {
 
     val stubConverter = object : NestedPackageV2Matcher.Converter {
-        override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> = emptySet()
+        override fun onConvertMatchToPackageNames(match: MatchResult): Set<Pkg.Id> = emptySet()
 
         override fun onConvertPackageNameToPaths(pkgId: Pkg.Id): Set<List<String>> = emptySet()
     }
@@ -25,7 +23,7 @@ class NestedPackageV2MatcherTest {
             NestedPackageV2Matcher(
                 SDCARD,
                 listOf(""),
-                setOf(Pattern.compile("")),
+                setOf(Regex("")),
                 emptySet(),
                 emptySet(),
                 stubConverter,
@@ -51,7 +49,7 @@ class NestedPackageV2MatcherTest {
             NestedPackageV2Matcher(
                 SDCARD,
                 listOf("bad", "prefix"),
-                setOf(Pattern.compile("")),
+                setOf(Regex("")),
                 emptySet(),
                 emptySet(),
                 stubConverter,
@@ -64,7 +62,7 @@ class NestedPackageV2MatcherTest {
             NestedPackageV2Matcher(
                 SDCARD,
                 listOf("/"),
-                setOf(Pattern.compile("")),
+                setOf(Regex("")),
                 emptySet(),
                 emptySet(),
                 stubConverter,
@@ -74,9 +72,9 @@ class NestedPackageV2MatcherTest {
 
     @Test fun testSimpleCase() = runTest {
         val converter: NestedPackageV2Matcher.Converter = object : NestedPackageV2Matcher.Converter {
-            override fun onConvertMatchToPackageNames(matcher: Matcher): Set<Pkg.Id> {
+            override fun onConvertMatchToPackageNames(match: MatchResult): Set<Pkg.Id> {
                 val pkgs: MutableSet<Pkg.Id> = LinkedHashSet()
-                pkgs.add(matcher.group(1)!!.replace(File.separatorChar, '.').toPkgId())
+                pkgs.add(match.groupValues[1].replace(File.separatorChar, '.').toPkgId())
                 return pkgs
             }
 
@@ -89,8 +87,8 @@ class NestedPackageV2MatcherTest {
         val markerSource = NestedPackageV2Matcher(
             SDCARD,
             listOf("pre", "fix"),
-            setOf(Pattern.compile("^(?>pre/fix/((?:\\w+/){2}\\w+))$", Pattern.CASE_INSENSITIVE)),
-            setOf(Pattern.compile("^(?>pre/fix/((?:\\w+/){2}bad_last_dir))$", Pattern.CASE_INSENSITIVE)),  // BAD
+            setOf(Regex("^(?>pre/fix/((?:\\w+/){2}\\w+))$", RegexOption.IGNORE_CASE)),
+            setOf(Regex("^(?>pre/fix/((?:\\w+/){2}bad_last_dir))$", RegexOption.IGNORE_CASE)),  // BAD
             setOf(Marker.Flag.COMMON, Marker.Flag.KEEPER, Marker.Flag.CUSTODIAN),
             converter
         )
