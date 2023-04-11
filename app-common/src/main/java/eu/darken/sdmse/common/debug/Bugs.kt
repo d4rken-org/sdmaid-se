@@ -16,8 +16,11 @@ object Bugs {
     }
 
     var isDryRun = false
-    var isTrace = false
     var isDebug = false
+    var isTrace = false
+    var isDeepDive = false
+    val isTraceDeepDive: Boolean
+        get() = isTrace && isDeepDive
 
     private val TAG = logTag("Debug", "Bugs")
 }

@@ -109,7 +109,7 @@ open class SharedResource<T : Any> constructor(
         val activeLease = lock.withLock {
             val job = resourceHolder.launchIn(leaseScope).apply {
                 invokeOnCompletion {
-                    if (Bugs.isTrace) {
+                    if (Bugs.isTraceDeepDive) {
                         val leaseSize = leases.size
                         log(iTag, VERBOSE) { "get(): Lease completed (now=$leaseSize, $job)." }
                     }
@@ -118,15 +118,15 @@ open class SharedResource<T : Any> constructor(
 
             ActiveLease(
                 job,
-                if (Bugs.isTrace) traceCall() else null
+                if (Bugs.isTraceDeepDive) traceCall() else null
             ).also {
-                if (Bugs.isTrace) {
+                if (Bugs.isTraceDeepDive) {
                     log(iTag, VERBOSE) { "get(): Adding new lease ($job)" }
                 }
 
                 leases.add(it)
 
-                if (Bugs.isTrace) {
+                if (Bugs.isTraceDeepDive) {
                     val leaseSize = leases.size
                     log(iTag, VERBOSE) { "get(): Now holding $leaseSize lease(s)" }
                 }
@@ -134,7 +134,7 @@ open class SharedResource<T : Any> constructor(
         }
 
         val resource = try {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "get(): Retrieving resource" }
+            if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "get(): Retrieving resource" }
             when (val event = resourceHolder.first()) {
                 is Event.Error -> throw event.error
                 is Event.Resource -> event.resource
@@ -158,16 +158,16 @@ open class SharedResource<T : Any> constructor(
             get() = !job.isActive
 
         override fun close() {
-            if (Bugs.isTrace) {
+            if (Bugs.isTraceDeepDive) {
                 log(iTag, VERBOSE) { "Closing keep alive ($job)." }
             }
             leaseScope.launch {
-                if (Bugs.isTrace) log(iTag, VERBOSE) { "Close code running, waiting for lock! ($job)" }
+                if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "Close code running, waiting for lock! ($job)" }
                 val removed = lock.withLock {
-                    if (Bugs.isTrace) log(iTag, VERBOSE) { "Close code running, WITH lock! ($job)" }
+                    if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "Close code running, WITH lock! ($job)" }
 
                     leases.remove(this@ActiveLease).also {
-                        if (Bugs.isTrace) log(iTag, VERBOSE) { "Lease removed, will cancel! ($job)" }
+                        if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "Lease removed, will cancel! ($job)" }
 
                         if (job.isActive) {
                             job.cancel()
@@ -177,7 +177,7 @@ open class SharedResource<T : Any> constructor(
                     }
                 }
 
-                if (Bugs.isTrace) {
+                if (Bugs.isTraceDeepDive) {
                     val leaseSize = leases.size
                     if (removed) {
                         log(iTag, VERBOSE) { "Active lease removed (now $leaseSize) ($job)" }
@@ -209,7 +209,7 @@ open class SharedResource<T : Any> constructor(
      */
     suspend fun addChild(child: SharedResource<*>) = lock.withLock {
         if (children.contains(child)) {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "Already keeping child alive: $child" }
+            if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "Already keeping child alive: $child" }
             return@withLock
         }
 
@@ -223,7 +223,7 @@ open class SharedResource<T : Any> constructor(
         val wrapped = Child(child, keepAlive)
         children[child] = wrapped
 
-        if (Bugs.isTrace) {
+        if (Bugs.isTraceDeepDive) {
             val childrenSize = children.size
             log(iTag, VERBOSE) { "addChild(): Resource now has $childrenSize children: $child" }
         }
