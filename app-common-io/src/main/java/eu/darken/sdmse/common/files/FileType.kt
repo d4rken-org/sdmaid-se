@@ -7,5 +7,5 @@ import kotlinx.parcelize.Parcelize
 @Keep
 @Parcelize
 enum class FileType : Parcelable {
-    DIRECTORY, SYMBOLIC_LINK, FILE
+    DIRECTORY, SYMBOLIC_LINK, FILE, UNKNOWN
 }

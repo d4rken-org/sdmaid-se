@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.files
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.AbstractFlow
@@ -40,7 +39,7 @@ class PathTreeFlow<
             val newBatch = try {
                 lookUp.lookedUp.lookupFiles(gateway)
             } catch (e: IOException) {
-                log(TAG, ERROR) { "Failed to read $lookUp: ${e.asLog()}" }
+                log(TAG, ERROR) { "Failed to read $lookUp: $e" }
                 if (onError(lookUp, e)) {
                     emptyList()
                 } else {

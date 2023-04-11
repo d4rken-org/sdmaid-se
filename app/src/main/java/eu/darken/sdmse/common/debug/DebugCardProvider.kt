@@ -6,11 +6,10 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.walk
+import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -27,7 +26,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.*
 import javax.inject.Inject
@@ -102,17 +100,9 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 vm.launch {
-                    val local = LocalPath.build("/storage/emulated/0/Android/data")
-                    val saf = safMapper.toSAFPath(local)!!
-                    val start = System.currentTimeMillis()
-
-                    val paths = gatewaySwitch.useRes {
-                        saf.walk(gatewaySwitch).toList()
-                    }
-
-                    val duration = System.currentTimeMillis() - start
-                    val durationS = duration / 1000
-                    log(TAG) { "${paths.size} items in $duration ms (${paths.size / durationS} item/s)" }
+                    val local =
+                        LocalPath.build("/data_mirror/data_ce/null/0/com.google.android.trichromelibrary_428014133/lib")
+                    local.lookup(gatewaySwitch)
                 }
             }
         )

@@ -39,7 +39,7 @@ fun LocalPath.performLookup(
     ipcFunnel: IPCFunnel,
     libcoreTool: LibcoreTool,
 ): LocalPathLookup {
-    if (!file.exists()) throw ReadException(this, "Does not exist")
+    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist")
 
     val fstat: StructStat? = try {
         Os.lstat(file.path)
@@ -61,7 +61,7 @@ fun LocalPath.performLookup(
     }
 
     return LocalPathLookup(
-        fileType = file.getAPathFileType(),
+        fileType = type,
         lookedUp = this,
         size = file.length(),
         modifiedAt = Instant.ofEpochMilli(file.lastModified()),
