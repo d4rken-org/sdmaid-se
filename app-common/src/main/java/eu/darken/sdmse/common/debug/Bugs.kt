@@ -15,6 +15,14 @@ object Bugs {
         }
     }
 
+    fun leaveBreadCrumb(crumb: String) {
+        log(TAG, VERBOSE) { "Leaving crumb $crumb" }
+
+        reporter?.leaveBreadCrumb(crumb) ?: run {
+            log(TAG, WARN) { "Bug tracking not initialized yet." }
+        }
+    }
+
     var isDryRun = false
     var isDebug = false
     var isTrace = false

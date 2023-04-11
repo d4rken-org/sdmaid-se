@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -32,8 +33,9 @@ class SchedulerRestoreReceiver : BroadcastReceiver() {
 
         log(TAG, INFO) { "Rechecking scheduler states (${intent.data}" }
 
-
         val asyncPi = goAsync()
+
+        Bugs.leaveBreadCrumb("Scheduler restored")
 
         appScope.launch {
             schedulerManager.state.take(1).first()

@@ -11,6 +11,10 @@ class FossAutoReporting @Inject constructor() : AutomaticBugReporter {
         // NOOP
     }
 
+    override fun leaveBreadCrumb(crumb: String) {
+        throw IllegalStateException("Who initliazed this? Without setup no calls to here!")
+    }
+
     override fun notify(throwable: Throwable) {
         throw IllegalStateException("Who initliazed this? Without setup no calls to here!")
     }
