@@ -177,14 +177,19 @@ class CorpseFinder @Inject constructor(
                         it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
                     })
                     log(TAG) { "Deleting $targetContent..." }
-                    targetContent.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
+                    try {
+                        targetContent.deleteAll(gatewaySwitch) {
+                            updateProgressSecondary(it.userReadablePath)
+                            true
+                        }
+                        log(TAG) { "Deleted $targetContent!" }
+
+                        corpse.content
+                            .filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
+                            .run { deleted.addAll(this) }
+                    } catch (e: WriteException) {
+                        log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
                     }
-                    log(TAG) { "Deleted $targetContent!" }
-                    deleted.addAll(
-                        corpse.content.filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
-                    )
                 }
 
                 deletedContents[corpse] = deleted
@@ -193,12 +198,17 @@ class CorpseFinder @Inject constructor(
                     it.getString(R.string.general_progress_deleting, corpse.path.userReadableName.get(it))
                 })
                 log(TAG) { "Deleting $targetCorpse..." }
-                corpse.path.deleteAll(gatewaySwitch) {
-                    updateProgressSecondary(it.userReadablePath)
-                    true
+                try {
+                    corpse.path.deleteAll(gatewaySwitch) {
+                        updateProgressSecondary(it.userReadablePath)
+                        true
+                    }
+                    log(TAG) { "Deleted $targetCorpse!" }
+
+                    deletedCorpses.add(corpse)
+                } catch (e: WriteException) {
+                    log(TAG, WARN) { "Deletion failed for $targetCorpse: $e" }
                 }
-                log(TAG) { "Deleted $targetCorpse!" }
-                deletedCorpses.add(corpse)
             }
         }
 

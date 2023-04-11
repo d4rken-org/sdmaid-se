@@ -99,14 +99,14 @@ suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>) {
     log(VERBOSE) { "APath.delete(): Deleted $this" }
 }
 
+// TODO move this into the gateways?
 suspend fun <T : APath> T.deleteAll(
     gateway: APathGateway<T, out APathLookup<T>>,
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
     try {
         // Recursion enter
-        @Suppress("UNCHECKED_CAST")
-        val lookup = this as? APathLookup<T> ?: gateway.lookup(this)
+        val lookup = gateway.lookup(this)
 
         if (lookup.isDirectory) {
             gateway.listFiles(this).forEach { it.deleteAll(gateway, filter) }
