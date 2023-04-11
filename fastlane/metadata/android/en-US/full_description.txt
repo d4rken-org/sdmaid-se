@@ -1,4 +1,4 @@
-<i>SD Maid SE</i> is trusty maid for your Android, to keep it clean & tidy.
+<i>SD Maid SE</i> is a trusty maid for your Android, to keep it clean & tidy.
 
 Nobody is perfect and neither is Android.
 * Apps you have already removed leave something behind.
@@ -13,7 +13,7 @@ Let’s not go on here... Let SD Maid SE help you:
 
 SD Maid SE is ad-free. Some features required a paid upgrade.
 
-SD Maid SE is the successor to SD Maid.
+SD Maid 2/SE is the successor to SD Maid 1/Legacy.
 Optimized for newer Android versions and focused on cleaning up.
 
 SD Maid SE has optional features that utilize the AccessibilityService API to automate tedious actions.
