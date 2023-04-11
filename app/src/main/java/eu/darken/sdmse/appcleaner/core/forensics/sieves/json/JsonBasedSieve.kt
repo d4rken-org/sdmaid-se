@@ -30,6 +30,9 @@ class JsonBasedSieve @AssistedInject constructor(
         moshi.adapter<SieveJsonDb>().fromJson(source)!!
     }
 
+    private val regexCache = mutableMapOf<String, Regex>()
+    private val regexCacheIgnoreCase = mutableMapOf<String, Regex>()
+
     fun matches(
         pkgId: Pkg.Id,
         areaType: DataArea.Type,
@@ -72,12 +75,20 @@ class JsonBasedSieve @AssistedInject constructor(
 
             val regexCondition = fileFilter.patterns
                 ?.takeIf { it.isNotEmpty() }
-                ?.let { rawPatterns ->
-                    val segsAsPath = target.joinSegments()
-                    rawPatterns.any { rawPattern ->
-                        val regex = if (ignoreCase) Regex(rawPattern, RegexOption.IGNORE_CASE) else Regex(rawPattern)
-                        regex.matches(segsAsPath)
+                ?.map { rawPattern ->
+                    if (ignoreCase) {
+                        regexCacheIgnoreCase[rawPattern] ?: Regex(rawPattern, RegexOption.IGNORE_CASE).also {
+                            regexCacheIgnoreCase[rawPattern] = it
+                        }
+                    } else {
+                        regexCache[rawPattern] ?: Regex(rawPattern).also {
+                            regexCache[rawPattern] = it
+                        }
                     }
+                }
+                ?.let { regexes ->
+                    val segsAsPath = target.joinSegments()
+                    regexes.any { it.matches(segsAsPath) }
                 }
                 ?: true
 
