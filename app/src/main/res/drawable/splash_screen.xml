@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:bottom="40dp"
-        android:drawable="@drawable/sdm_happy"
+        android:drawable="@drawable/splash_icon"
         android:left="40dp"
         android:right="40dp"
         android:top="40dp" />
