@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <PreferenceCategory
+        android:title="Translation"
+        app:iconSpaceReserved="false">
+        <Preference
+            android:key="translation.translators"
+            android:summary="@string/translation_translators_people"
+            android:title="@string/translation_translators_title"
+            app:iconSpaceReserved="false" />
+        <eu.darken.sdmse.common.preferences.IntentPreference
+            android:key="translation.join"
+            android:summary="@string/translation_encourage_body"
+            android:title="@string/translation_encourage_title"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://crowdin.com/project/sdmaid-se" />
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Thanks"
+        app:iconSpaceReserved="false">
+        <eu.darken.sdmse.common.preferences.IntentPreference
+            android:key="thanks.maxpatchs"
+            android:summary="Thanks for the great icons &amp; graphics"
+            android:title="Max Patchs"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://twitter.com/maxpatchs" />
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/settings_licenses_label"
         app:iconSpaceReserved="false">
