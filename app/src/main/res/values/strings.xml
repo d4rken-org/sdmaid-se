@@ -380,4 +380,9 @@
 
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>
+
+    <string name="translation_encourage_title">Translate SD Maid</string>
+    <string name="translation_encourage_body">SD Maid is translated by volunteers. Translation, review or proofreading, your help is appreciate!</string>
+    <string name="translation_translators_title">This version is translated by</string>
+    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
 </resources>
