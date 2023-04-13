@@ -5,8 +5,9 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.UserPkgId
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.userPkgId
 import kotlin.reflect.KClass
 
 data class AppJunk(
@@ -15,8 +16,8 @@ data class AppJunk(
     val inaccessibleCache: InaccessibleCache?,
 ) {
 
-    val identifier: Pkg.Id
-        get() = pkg.id
+    val identifier: UserPkgId
+        get() = pkg.userPkgId
 
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()

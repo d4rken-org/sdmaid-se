@@ -65,7 +65,7 @@ class AppCleanerListFragmentVM @Inject constructor(
             AppCleanerListFragmentDirections.actionAppCleanerListFragmentToUpgradeFragment().navigate()
             return@launch
         }
-        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id))
+        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.identifier))
         val result = taskManager.submit(task) as AppCleanerDeleteTask.Result
         log(TAG) { "doDelete(): Result was $result" }
         when (result) {
@@ -76,7 +76,7 @@ class AppCleanerListFragmentVM @Inject constructor(
     fun showDetails(appJunk: AppJunk) = launch {
         log(TAG, INFO) { "showDetails(appJunk=$appJunk)" }
         AppCleanerListFragmentDirections.actionAppCleanerListFragmentToAppCleanerDetailsFragment2(
-            pkgId = appJunk.identifier
+            identifier = appJunk.identifier
         ).navigate()
     }
 

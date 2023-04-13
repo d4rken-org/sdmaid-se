@@ -198,8 +198,8 @@
         android:name="eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment"
         tools:layout="@layout/appcleaner_details_fragment">
         <argument
-            android:name="pkgId"
-            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id"
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.common.pkgs.UserPkgId"
             app:nullable="true" />
         <action
             android:id="@+id/action_appCleanerDetailsFragment_to_upgradeFragment"
@@ -211,7 +211,7 @@
         tools:layout="@layout/appcleaner_appjunk_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+            app:argType="eu.darken.sdmse.common.pkgs.UserPkgId" />
     </fragment>
     <fragment
         android:id="@+id/appControlListFragment"
