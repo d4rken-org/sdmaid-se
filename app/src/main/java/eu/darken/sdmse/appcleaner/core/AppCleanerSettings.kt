@@ -30,6 +30,7 @@ class AppCleanerSettings @Inject constructor(
 
     val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", false)
     val includeRunningAppsEnabled = dataStore.createValue("include.runningapps.enabled", true)
+    val includeOtherUsersEnabled = dataStore.createValue("include.multiuser.enabled", false)
 
     val useAccessibilityService = dataStore.createValue("acs.enabled", false)
     val useShizuku = dataStore.createValue("shizuku.enabled", false)
@@ -62,6 +63,7 @@ class AppCleanerSettings @Inject constructor(
     override val mapper = PreferenceStoreMapper(
         includeSystemAppsEnabled,
         includeRunningAppsEnabled,
+        includeOtherUsersEnabled,
         includeInaccessibleEnabled,
         filterDefaultCachesPublicEnabled,
         filterDefaultCachesPrivateEnabled,
