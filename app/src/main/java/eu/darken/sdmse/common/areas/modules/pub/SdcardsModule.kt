@@ -49,13 +49,14 @@ class SdcardsModule @Inject constructor(
             }
             ?.run { sdcards.add(this) }
 
+        // Secondary storage is not user specific, e.g. /storage/3135-3132/Android/data
         storageEnvironment.getPublicSecondaryStorage(userManager2.currentUser().handle)
             .mapNotNull { determineAreaAccessPath(it) }
             .map {
                 DataArea(
                     path = it,
                     type = DataArea.Type.SDCARD,
-                    userHandle = userManager2.currentUser().handle,
+                    userHandle = userManager2.systemUser().handle,
                     flags = emptySet(),
                 )
             }
