@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
+import android.os.Environment
 import android.os.Parcel
 import android.os.Parcelable
 import android.os.UserHandle
@@ -56,6 +57,9 @@ class StorageVolumeX constructor(
 
     val state: String?
         get() = volume.state
+
+    val isMounted: Boolean
+        get() = volume.state == Environment.MEDIA_MOUNTED
 
     private val methodGetPath: Method? by lazy {
         try {

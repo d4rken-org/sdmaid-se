@@ -15,8 +15,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.dropLastColon
@@ -59,7 +58,17 @@ class SAFSetupModule @Inject constructor(
 
         if (!hasApiLevel(30)) {
             storageManager2.storageVolumes
-                .filter { it.directory != null }
+                .filter {
+                    if (it.directory == null) {
+                        log(TAG, INFO) { "Storage not backed by a path: $it" }
+                        return@filter false
+                    }
+                    if (!it.isMounted) {
+                        log(TAG, WARN) { "Storage not mounted: $it" }
+                        return@filter false
+                    }
+                    return@filter true
+                }
                 .mapNotNull { volume ->
                     val targetPath = volume.directory!!.toLocalPath()
                     val safPath = safMapper.toSAFPath(targetPath)
