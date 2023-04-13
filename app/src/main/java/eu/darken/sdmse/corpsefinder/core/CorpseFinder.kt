@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.exclusion.core.*
@@ -41,7 +42,8 @@ class CorpseFinder @Inject constructor(
     fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
-    pkgOps: PkgOps,
+    private val userManager: UserManager2,
+    private val pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
@@ -140,6 +142,20 @@ class CorpseFinder @Inject constructor(
                         if (it) log(TAG, INFO) { "Excluded due to $excl: $corpse" }
                     }
                 }
+            }
+            .filter { corpse ->
+                // One extra check for multi-user devices without root
+                if (!userManager.hasMultiUserSupport) return@filter true
+
+                // Another user might own corpses in secondary public storage
+                if (corpse.areaInfo.userHandle != userManager.systemUser().handle) return@filter true
+
+                if (corpse.ownerInfo.owners.any { pkgOps.isInstalleMaybe(it.pkgId, it.userHandle) }) {
+                    log(TAG, WARN) { "Potential multi-user false positive: $corpse" }
+                    return@filter false
+                }
+
+                return@filter true
             }
 
         results.forEach { log(TAG, INFO) { "Result: $it" } }

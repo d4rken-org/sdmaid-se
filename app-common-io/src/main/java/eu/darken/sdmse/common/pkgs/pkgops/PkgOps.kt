@@ -125,6 +125,15 @@ class PkgOps @Inject constructor(
         }
     }
 
+    suspend fun isInstalleMaybe(pkg: Pkg.Id, userHandle: UserHandle2): Boolean = try {
+        ipcFunnel.use {
+            packageManager.getPackageUid(pkg.name, 0)
+        }
+        true
+    } catch (e: NameNotFoundException) {
+        false
+    }
+
     suspend fun queryAppInfos(
         pkg: Pkg.Id,
         flags: Int = GET_UNINSTALLED_PACKAGES
