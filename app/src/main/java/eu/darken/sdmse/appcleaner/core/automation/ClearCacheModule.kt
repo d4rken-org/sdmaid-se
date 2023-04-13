@@ -27,8 +27,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.UserPkgId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.progress.*
@@ -104,14 +104,18 @@ class ClearCacheModule @AssistedInject constructor(
 
         val crawler = automationCrawlerFactory.create(host)
 
-        val successful = mutableSetOf<Pkg.Id>()
-        val failed = mutableSetOf<Pkg.Id>()
+        val successful = mutableSetOf<UserPkgId>()
+        val failed = mutableSetOf<UserPkgId>()
 
         updateProgressCount(Progress.Count.Percent(0, task.targets.size))
 
-        val userHandle = userManager2.currentUser().handle
+        val currentUserHandle = userManager2.currentUser().handle
         for (target in task.targets) {
-            val installed = pkgRepo.getPkg(target, userHandle)
+            if (target.userHandle != currentUserHandle) {
+                throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
+            }
+
+            val installed = pkgRepo.getPkg(target.pkgId, target.userHandle)
 
             if (installed == null) {
                 log(TAG, WARN) { "$target is not in package repo" }
@@ -121,7 +125,7 @@ class ClearCacheModule @AssistedInject constructor(
 
             log(TAG) { "Clearing cache for $installed" }
 
-            updateProgressPrimary(installed.label ?: target.name.toCaString())
+            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
             try {
                 clearCache(crawler, installed)
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }

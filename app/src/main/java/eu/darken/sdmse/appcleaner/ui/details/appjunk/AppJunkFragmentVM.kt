@@ -116,7 +116,7 @@ class AppJunkFragmentVM @Inject constructor(
             AppJunkDetailsFragmentDirections.actionAppCleanerDetailsFragmentToUpgradeFragment().navigate()
             return@launch
         }
-        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.pkg.id), filterTypes, paths, onlyInaccessible)
+        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.identifier), filterTypes, paths, onlyInaccessible)
         // Removnig the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(AppJunkEvents.TaskForParent(task))
     }

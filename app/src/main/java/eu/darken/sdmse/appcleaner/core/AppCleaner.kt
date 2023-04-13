@@ -22,11 +22,12 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.UserPkgId
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
@@ -50,6 +51,7 @@ class AppCleaner @Inject constructor(
     private val appScannerProvider: Provider<AppScanner>,
     private val automationController: AutomationController,
     private val exclusionManager: ExclusionManager,
+    private val userManager: UserManager2,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -120,15 +122,16 @@ class AppCleaner @Inject constructor(
     private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result {
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        val deletionMap = mutableMapOf<Pkg.Id, Set<APathLookup<*>>>()
+        val deletionMap = mutableMapOf<UserPkgId, Set<APathLookup<*>>>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.pkg.id }
+        val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.identifier }
 
         targetPkgs.forEach { targetPkg ->
+            log(TAG) { "Processing $targetPkg" }
             if (task.onlyInaccessible) return@forEach
 
-            val appJunk = snapshot.junks.single { it.pkg.id == targetPkg }
+            val appJunk = snapshot.junks.single { it.identifier == targetPkg }
 
             val targetFilters = task.targetFilters
                 ?: appJunk.expendables?.keys
@@ -164,9 +167,19 @@ class AppCleaner @Inject constructor(
             deletionMap[appJunk.identifier] = deleted
         }
 
-        val automationTargets = targetPkgs.filter { targetPkg ->
-            snapshot.junks.single { it.pkg.id == targetPkg }.inaccessibleCache != null
-        }
+        val currentUser = userManager.currentUser()
+        val automationTargets = targetPkgs
+            .filter { targetPkg ->
+                snapshot.junks.single { it.identifier == targetPkg }.inaccessibleCache != null
+            }
+            .filter {
+                // Without root, we shouldn't have inaccessible caches from other users
+                val isCurrentUser = it.userHandle == currentUser.handle
+                if (!isCurrentUser) {
+                    log(TAG, WARN) { "Unexpected inaccessible data from other users: $it" }
+                }
+                isCurrentUser
+            }
 
         val automationResult = if (automationTargets.isNotEmpty()) {
             updateProgressPrimary(R.string.appcleaner_automation_loading)
@@ -209,8 +222,8 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(pkgId: Pkg.Id, path: APath? = null) = toolLock.withLock {
-        log(TAG) { "exclude(): $pkgId, $path" }
+    suspend fun exclude(identifier: UserPkgId, path: APath? = null) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, $path" }
         if (path != null) {
             val exclusion = PathExclusion(
                 path = path,
@@ -221,7 +234,7 @@ class AppCleaner @Inject constructor(
             val snapshot = internalData.value!!
             internalData.value = snapshot.copy(
                 junks = snapshot.junks.map { junk ->
-                    if (junk.identifier == pkgId) {
+                    if (junk.identifier == identifier) {
                         junk.copy(
                             expendables = junk.expendables?.entries
                                 ?.map { entry -> entry.key to entry.value.filter { !it.matches(path) } }
@@ -234,15 +247,16 @@ class AppCleaner @Inject constructor(
                 }
             )
         } else {
+            // FIXME what about user specific exclusion?
             val exclusion = PackageExclusion(
-                pkgId = pkgId,
+                pkgId = identifier.pkgId,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
             exclusionManager.add(exclusion)
 
             val snapshot = internalData.value!!
             internalData.value = snapshot.copy(
-                junks = snapshot.junks - snapshot.junks.single { it.identifier == pkgId }
+                junks = snapshot.junks - snapshot.junks.single { it.identifier == identifier }
             )
         }
     }
