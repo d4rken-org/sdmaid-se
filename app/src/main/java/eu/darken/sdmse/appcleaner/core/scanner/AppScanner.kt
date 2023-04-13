@@ -123,15 +123,15 @@ class AppScanner @Inject constructor(
 
         log(TAG) { "${allCurrentPkgs.size} apps to check :)" }
 
-        val expendablesFromAppData = buildSearchMap(allCurrentPkgs)
+        val expendablesFromAppData: Map<UserPkgId, Collection<FilterMatch>> = buildSearchMap(allCurrentPkgs)
             .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
             .let { readAppDirs(it) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
 
         val appJunks = allCurrentPkgs.mapNotNull { pkg ->
-            val expendables = expendablesFromAppData[pkg.id]
-            var inaccessible = inaccessibleCaches.firstOrNull { pkg.id == it.pkgId }
+            val expendables = expendablesFromAppData[pkg.userPkgId]
+            var inaccessible = inaccessibleCaches.firstOrNull { pkg.userPkgId == it.identifier }
             if (expendables.isNullOrEmpty() && inaccessible == null) return@mapNotNull null
 
             val byFilterType: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>? = expendables
@@ -173,21 +173,21 @@ class AppScanner @Inject constructor(
     }
 
     private suspend fun buildSearchMap(
-        pkgs: Collection<Installed>,
-    ): Map<AreaInfo, Collection<Pkg.Id>> {
+        installedPkgs: Collection<Installed>,
+    ): Map<AreaInfo, Collection<UserPkgId>> {
         updateProgressSecondary(R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val dataAreaMap = getDataAreaMap()
 
-        val searchPathMap = mutableMapOf<AreaInfo, Collection<Pkg.Id>>()
+        val searchPathMap = mutableMapOf<AreaInfo, Collection<UserPkgId>>()
 
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
 
-        for (pkg in pkgs) {
+        for (pkg in installedPkgs) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
-            updateProgressCount(Progress.Count.Percent(0, pkgs.size))
-            log(TAG) { "Generating search paths for ${pkg.packageName}" }
+            updateProgressCount(Progress.Count.Percent(0, installedPkgs.size))
+            log(TAG) { "Generating search paths for ${pkg.userPkgId}" }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
@@ -254,7 +254,7 @@ class AppScanner @Inject constructor(
             // Then we reverse the mapping here as each location can have multiple owners: One path, multiple apps
             // In the next step we will attribute each location to a single owner
             for (path in interestingPaths) {
-                searchPathMap[path] = (searchPathMap[path] ?: emptySet()).plus(pkg.id)
+                searchPathMap[path] = (searchPathMap[path] ?: emptySet()).plus(pkg.userPkgId)
             }
 
             increaseProgress()
@@ -276,39 +276,37 @@ class AppScanner @Inject constructor(
             .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
             .filterIsInstance<Exclusion.Path>()
 
-        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
-
-        // TODO do we need this? without root, the data area isn't supplied by the DataAreaManager?
-        if (useRoot) {
-            areaDataMap[DataArea.Type.PRIVATE_DATA] = emptySet()
-            currentAreas
-                .filter { it.type == DataArea.Type.PRIVATE_DATA }
-                .forEach { area ->
-                    val areaLookups = try {
-                        area.path.lookupFiles(gatewaySwitch)
-                    } catch (e: IOException) {
-                        log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
-                        return@forEach
-                    }
-                    val areaInfos = areaLookups
-                        .filter { it.fileType == FileType.DIRECTORY }
-                        .filter { appDir ->
-                            pathExclusions.none { it.match(appDir) }.also {
-                                if (!it) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $appDir" }
-                            }
-                        }
-                        .mapNotNull { lookup ->
-                            fileForensics.identifyArea(lookup).also {
-                                if (it == null) log(TAG, WARN) { "Failed to identify $it" }
-                            }
-                        }
-
-                    areaDataMap[area.type] = when {
-                        areaDataMap[area.type] == null -> areaInfos
-                        else -> areaDataMap[area.type]!!.plus(areaInfos)
-                    }
-                }
+        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>().apply {
+            this[DataArea.Type.PRIVATE_DATA] = emptySet()
         }
+
+        currentAreas
+            .filter { it.type == DataArea.Type.PRIVATE_DATA }
+            .forEach { area ->
+                val areaLookups = try {
+                    area.path.lookupFiles(gatewaySwitch)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    return@forEach
+                }
+                val areaInfos = areaLookups
+                    .filter { it.fileType == FileType.DIRECTORY }
+                    .filter { appDir ->
+                        pathExclusions.none { it.match(appDir) }.also {
+                            if (!it) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $appDir" }
+                        }
+                    }
+                    .mapNotNull { lookup ->
+                        fileForensics.identifyArea(lookup).also {
+                            if (it == null) log(TAG, WARN) { "Failed to identify $it" }
+                        }
+                    }
+
+                areaDataMap[area.type] = when {
+                    areaDataMap[area.type] == null -> areaInfos
+                    else -> areaDataMap[area.type]!!.plus(areaInfos)
+                }
+            }
 
         currentAreas
             .filter {
@@ -360,7 +358,9 @@ class AppScanner @Inject constructor(
         val type: KClass<out ExpendablesFilter>,
     )
 
-    private suspend fun readAppDirs(searchPathsOfInterest: Map<AreaInfo, Collection<Pkg.Id>>): Map<Pkg.Id, Collection<FilterMatch>> {
+    private suspend fun readAppDirs(
+        searchPathsOfInterest: Map<AreaInfo, Collection<UserPkgId>>
+    ): Map<UserPkgId, Collection<FilterMatch>> {
         updateProgressPrimary(R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Percent(0, searchPathsOfInterest.size))
@@ -368,17 +368,19 @@ class AppScanner @Inject constructor(
         val minCacheAgeMs = settings.minCacheAgeMs.value()
         val minCacheSizeBytes = settings.minCacheSizeBytes.value()
 
-        val results = HashMap<Pkg.Id, Collection<FilterMatch>>()
+        val results = HashMap<UserPkgId, Collection<FilterMatch>>()
+
+        val systemUser = userManager.systemUser()
 
         searchPathsOfInterest.entries.forEach spoi@{ target ->
             log(TAG, VERBOSE) { "Searching ${target.key.file} (${target.value})" }
             updateProgressSecondary(target.key.file.userReadablePath)
 
-            val spoi = target.key
+            val searchPath = target.key
             val possibleOwners = target.value
 
-            val pathContents = try {
-                spoi.file
+            val searchPathContents = try {
+                searchPath.file
                     .walk(
                         gatewaySwitch,
                         filter = {
@@ -391,32 +393,42 @@ class AppScanner @Inject constructor(
                     )
                     .toList()
             } catch (e: IOException) {
-                log(TAG, WARN) { "Failed to read ${spoi.file}: ${e.asLog()}" }
+                log(TAG, WARN) { "Failed to read ${searchPath.file}: ${e.asLog()}" }
                 emptyList()
             }
 
-            pathContents
+            val pathsOfInterest = searchPathContents
                 .filter { minCacheAgeMs == 0L || it.modifiedAt >= Instant.now().minusMillis(minCacheAgeMs) }
-                .filter { it.segments.startsWith(spoi.file.segments) }
-                .forEach { foi ->
-                    // TODO do we need this extra lookup or can we construct the prefix free segments without it?
-                    val foiAreaInfo = fileForensics.identifyArea(foi)
-                    if (foiAreaInfo == null) {
-                        log(TAG, WARN) { "Failed to identify $foi" }
-                        return@forEach
-                    }
-                    for (pkgId in possibleOwners) {
-                        val type: KClass<out ExpendablesFilter> = enabledFilters
-                            .firstOrNull { it.isExpendable(pkgId, foi, spoi.type, foiAreaInfo.prefixFreePath) }
-                            ?.javaClass?.kotlin
-                            ?: continue
+                .filter { it.segments.startsWith(searchPath.file.segments) }
 
-                        log(TAG, INFO) { "${type.simpleName} matched ${spoi.type}:${foiAreaInfo.prefixFreePath}" }
+            val ownersOfInterest = possibleOwners
+                .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
 
-                        results[pkgId] = (results[pkgId] ?: emptySet()).plus(FilterMatch(foi, type))
-                    }
-
+            pathsOfInterest.forEach { path ->
+                // TODO do we need this extra lookup or can we construct the prefix free segments without it?
+                val foiAreaInfo = fileForensics.identifyArea(path)
+                if (foiAreaInfo == null) {
+                    log(TAG, WARN) { "Failed to identify $path" }
+                    return@forEach
                 }
+                for (userPkgId in ownersOfInterest) {
+                    val type: KClass<out ExpendablesFilter> = enabledFilters
+                        .firstOrNull { filter ->
+                            filter.isExpendable(
+                                pkgId = userPkgId.pkgId,
+                                target = path,
+                                areaType = searchPath.type,
+                                segments = foiAreaInfo.prefixFreePath
+                            )
+                        }
+                        ?.javaClass?.kotlin
+                        ?: continue
+
+                    log(TAG, INFO) { "${type.simpleName} matched ${searchPath.type}:${foiAreaInfo.prefixFreePath}" }
+                    results[userPkgId] = (results[userPkgId] ?: emptySet()).plus(FilterMatch(path, type))
+                    break
+                }
+            }
 
             increaseProgress()
         }
@@ -433,7 +445,10 @@ class AppScanner @Inject constructor(
         }
         val acsEnabled = settings.useAccessibilityService.value()
         val isSamsungRom = BuildWrap.MANUFACTOR == "Samsung"
+        val currentUser = userManager.currentUser()
+
         return pkgs
+            .filter { it.userHandle == currentUser.handle }
             .filter { pkg ->
                 // On Samsung ROMs, we can't open the settings page for disabled apps
                 if (!isSamsungRom) return@filter true
@@ -443,7 +458,7 @@ class AppScanner @Inject constructor(
                 }
             }
             .filterIsInstance<NormalPkg>()
-            .mapNotNull { inaccessibleCacheProvider.determineCache(it.id) }
+            .mapNotNull { inaccessibleCacheProvider.determineCache(it.id, it.userHandle) }
             .filter { !it.isEmpty }
     }
 
