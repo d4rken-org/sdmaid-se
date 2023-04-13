@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -58,6 +59,7 @@ class AppScanner @Inject constructor(
     private val clutterRepo: ClutterRepo,
     private val settings: AppCleanerSettings,
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
+    private val userManager: UserManager2,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -99,6 +101,7 @@ class AppScanner @Inject constructor(
 
         val includeSystemApps = settings.includeSystemAppsEnabled.value()
         val includeRunningApps = settings.includeRunningAppsEnabled.value()
+        val includeOtherUsers = settings.includeOtherUsersEnabled.value()
 
         val pkgExclusions = exclusionManager.currentExclusions()
             .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
@@ -106,7 +109,9 @@ class AppScanner @Inject constructor(
 
         updateProgressSecondary(R.string.general_progress_loading_app_data)
 
+        val currentUser = userManager.currentUser()
         val allCurrentPkgs = pkgRepo.currentPkgs()
+            .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
             .filter { pkgFilter.isEmpty() || pkgFilter.contains(it.id) }
             .filter { pkg ->
