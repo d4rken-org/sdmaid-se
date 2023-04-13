@@ -123,15 +123,15 @@ class AppScanner @Inject constructor(
 
         log(TAG) { "${allCurrentPkgs.size} apps to check :)" }
 
-        val expendablesFromAppData: Map<UserPkgId, Collection<FilterMatch>> = buildSearchMap(allCurrentPkgs)
+        val expendablesFromAppData: Map<Installed.InstallId, Collection<FilterMatch>> = buildSearchMap(allCurrentPkgs)
             .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
             .let { readAppDirs(it) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
 
         val appJunks = allCurrentPkgs.mapNotNull { pkg ->
-            val expendables = expendablesFromAppData[pkg.userPkgId]
-            var inaccessible = inaccessibleCaches.firstOrNull { pkg.userPkgId == it.identifier }
+            val expendables = expendablesFromAppData[pkg.installId]
+            var inaccessible = inaccessibleCaches.firstOrNull { pkg.installId == it.identifier }
             if (expendables.isNullOrEmpty() && inaccessible == null) return@mapNotNull null
 
             val byFilterType: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>? = expendables
@@ -174,20 +174,20 @@ class AppScanner @Inject constructor(
 
     private suspend fun buildSearchMap(
         installedPkgs: Collection<Installed>,
-    ): Map<AreaInfo, Collection<UserPkgId>> {
+    ): Map<AreaInfo, Collection<Installed.InstallId>> {
         updateProgressSecondary(R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val dataAreaMap = getDataAreaMap()
 
-        val searchPathMap = mutableMapOf<AreaInfo, Collection<UserPkgId>>()
+        val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
 
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
 
         for (pkg in installedPkgs) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
             updateProgressCount(Progress.Count.Percent(0, installedPkgs.size))
-            log(TAG) { "Generating search paths for ${pkg.userPkgId}" }
+            log(TAG) { "Generating search paths for ${pkg.installId}" }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
@@ -254,7 +254,7 @@ class AppScanner @Inject constructor(
             // Then we reverse the mapping here as each location can have multiple owners: One path, multiple apps
             // In the next step we will attribute each location to a single owner
             for (path in interestingPaths) {
-                searchPathMap[path] = (searchPathMap[path] ?: emptySet()).plus(pkg.userPkgId)
+                searchPathMap[path] = (searchPathMap[path] ?: emptySet()).plus(pkg.installId)
             }
 
             increaseProgress()
@@ -359,8 +359,8 @@ class AppScanner @Inject constructor(
     )
 
     private suspend fun readAppDirs(
-        searchPathsOfInterest: Map<AreaInfo, Collection<UserPkgId>>
-    ): Map<UserPkgId, Collection<FilterMatch>> {
+        searchPathsOfInterest: Map<AreaInfo, Collection<Installed.InstallId>>
+    ): Map<Installed.InstallId, Collection<FilterMatch>> {
         updateProgressPrimary(R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Percent(0, searchPathsOfInterest.size))
@@ -368,7 +368,7 @@ class AppScanner @Inject constructor(
         val minCacheAgeMs = settings.minCacheAgeMs.value()
         val minCacheSizeBytes = settings.minCacheSizeBytes.value()
 
-        val results = HashMap<UserPkgId, Collection<FilterMatch>>()
+        val results = HashMap<Installed.InstallId, Collection<FilterMatch>>()
 
         val systemUser = userManager.systemUser()
 
@@ -458,7 +458,7 @@ class AppScanner @Inject constructor(
                 }
             }
             .filterIsInstance<NormalPkg>()
-            .mapNotNull { inaccessibleCacheProvider.determineCache(it.id, it.userHandle) }
+            .mapNotNull { inaccessibleCacheProvider.determineCache(it) }
             .filter { !it.isEmpty }
     }
 

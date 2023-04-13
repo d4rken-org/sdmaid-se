@@ -1,9 +1,9 @@
 package eu.darken.sdmse.appcleaner.core.scanner
 
-import eu.darken.sdmse.common.pkgs.UserPkgId
+import eu.darken.sdmse.common.pkgs.features.Installed
 
 data class InaccessibleCache(
-    val identifier: UserPkgId,
+    val identifier: Installed.InstallId,
     val itemCount: Int,
     val cacheBytes: Long,
     val externalCacheBytes: Long?,

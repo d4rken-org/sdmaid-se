@@ -6,7 +6,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.pkgs.UserPkgId
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.serialization.KClassParcelizer
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 @Parcelize
 @TypeParceler<KClass<out ExpendablesFilter>, KClassParcelizer>()
 data class AppCleanerDeleteTask(
-    val targetPkgs: Set<UserPkgId>? = null,
+    val targetPkgs: Set<Installed.InstallId>? = null,
     val targetFilters: Set<KClass<out ExpendablesFilter>>? = null,
     val targetContents: Set<APath>? = null,
     val onlyInaccessible: Boolean = false,

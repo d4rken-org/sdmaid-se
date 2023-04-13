@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
-import eu.darken.sdmse.common.pkgs.UserPkgId
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
@@ -52,7 +52,7 @@ class AppJunkDetailsFragmentVM @Inject constructor(
 
     data class State(
         val items: List<AppJunk>,
-        val target: UserPkgId?
+        val target: Installed.InstallId?
     )
 
     fun forwardTask(task: AppCleanerTask) = launch {

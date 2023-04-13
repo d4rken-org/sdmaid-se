@@ -22,7 +22,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.pkgs.UserPkgId
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -122,7 +122,7 @@ class AppCleaner @Inject constructor(
     private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result {
         log(TAG, VERBOSE) { "performDelete(): $task" }
 
-        val deletionMap = mutableMapOf<UserPkgId, Set<APathLookup<*>>>()
+        val deletionMap = mutableMapOf<Installed.InstallId, Set<APathLookup<*>>>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
         val targetPkgs = task.targetPkgs ?: snapshot.junks.map { it.identifier }
@@ -222,7 +222,7 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: UserPkgId, path: APath? = null) = toolLock.withLock {
+    suspend fun exclude(identifier: Installed.InstallId, path: APath? = null) = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, $path" }
         if (path != null) {
             val exclusion = PathExclusion(

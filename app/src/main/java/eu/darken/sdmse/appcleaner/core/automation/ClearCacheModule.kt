@@ -28,7 +28,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.UserPkgId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.progress.*
@@ -104,8 +103,8 @@ class ClearCacheModule @AssistedInject constructor(
 
         val crawler = automationCrawlerFactory.create(host)
 
-        val successful = mutableSetOf<UserPkgId>()
-        val failed = mutableSetOf<UserPkgId>()
+        val successful = mutableSetOf<Installed.InstallId>()
+        val failed = mutableSetOf<Installed.InstallId>()
 
         updateProgressCount(Progress.Count.Percent(0, task.targets.size))
 
