@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files.saf
 
 import android.content.UriPermission
+import eu.darken.sdmse.common.files.Segments
 import java.io.File
 
 
@@ -87,7 +88,7 @@ fun SAFPath.startsWith(prefix: SAFPath): Boolean {
     }
 }
 
-fun SAFPath.removePrefix(prefix: SAFPath): List<String> {
+fun SAFPath.removePrefix(prefix: SAFPath, overlap: Int = 0): Segments {
     if (!startsWith(prefix)) throw IllegalArgumentException("$prefix is not a prefix of $this")
-    return segments.drop(prefix.segments.size)
+    return segments.drop(prefix.segments.size - overlap)
 }

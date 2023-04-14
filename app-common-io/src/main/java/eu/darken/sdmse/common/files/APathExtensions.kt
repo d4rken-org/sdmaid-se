@@ -2,17 +2,15 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.*
 import eu.darken.sdmse.common.files.local.crumbsTo
 import eu.darken.sdmse.common.files.local.isAncestorOf
 import eu.darken.sdmse.common.files.local.isParentOf
-import eu.darken.sdmse.common.files.local.removePrefix
 import eu.darken.sdmse.common.files.local.startsWith
 import eu.darken.sdmse.common.files.saf.*
 import eu.darken.sdmse.common.files.saf.crumbsTo
 import eu.darken.sdmse.common.files.saf.isAncestorOf
 import eu.darken.sdmse.common.files.saf.isParentOf
-import eu.darken.sdmse.common.files.saf.removePrefix
 import eu.darken.sdmse.common.files.saf.startsWith
 import okio.Sink
 import okio.Source
@@ -20,6 +18,8 @@ import java.io.File
 import java.io.IOException
 import java.time.Instant
 import java.util.*
+import eu.darken.sdmse.common.files.local.removePrefix as removePrefixLocalPath
+import eu.darken.sdmse.common.files.saf.removePrefix as removePrefixSafPath
 
 fun APath.crumbsTo(child: APath): Array<String> {
     require(this.pathType == child.pathType)
@@ -245,13 +245,13 @@ fun APath.startsWith(prefix: APath): Boolean {
     }
 }
 
-fun APath.removePrefix(prefix: APath): List<String> {
+fun APath.removePrefix(prefix: APath, overlap: Int = 0): Segments {
     if (this.pathType != prefix.pathType) {
-        throw IllegalArgumentException("Can't compare different types ($this and $prefix)")
+        throw IllegalArgumentException("removePrefix(): Can't compare different types ($this and $prefix)")
     }
     return when (pathType) {
-        APath.PathType.LOCAL -> (this as LocalPath).removePrefix(prefix as LocalPath)
-        APath.PathType.SAF -> (this as SAFPath).removePrefix(prefix as SAFPath)
-        APath.PathType.RAW -> this.segments.drop(prefix.segments.size)
+        APath.PathType.LOCAL -> (this as LocalPath).removePrefixLocalPath(prefix as LocalPath, overlap)
+        APath.PathType.SAF -> (this as SAFPath).removePrefixSafPath(prefix as SAFPath, overlap)
+        APath.PathType.RAW -> this.segments.drop(prefix.segments.size - overlap)
     }
 }

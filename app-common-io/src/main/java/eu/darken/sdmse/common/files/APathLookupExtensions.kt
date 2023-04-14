@@ -80,6 +80,11 @@ fun APathLookup<*>.isParentOf(child: APath): Boolean = lookedUp.isParentOf(child
 fun APath.isParentOf(child: APathLookup<*>): Boolean = isParentOf(child.lookedUp)
 fun APathLookup<*>.isParentOf(child: APathLookup<*>): Boolean = lookedUp.isParentOf(child.lookedUp)
 
-fun APathLookup<*>.removePrefix(prefix: APathLookup<*>) = lookedUp.removePrefix(prefix.lookedUp)
-fun APath.removePrefix(prefix: APathLookup<*>) = removePrefix(prefix.lookedUp)
-fun APathLookup<*>.removePrefix(prefix: APath) = lookedUp.removePrefix(prefix)
+fun APathLookup<*>.removePrefix(prefix: APathLookup<*>, overlap: Int = 0) =
+    lookedUp.removePrefix(prefix.lookedUp, overlap)
+
+fun APath.removePrefix(prefix: APathLookup<*>, overlap: Int = 0) =
+    this.removePrefix(prefix.lookedUp, overlap)
+
+fun APathLookup<*>.removePrefix(prefix: APath, overlap: Int = 0) =
+    lookedUp.removePrefix(prefix, overlap)

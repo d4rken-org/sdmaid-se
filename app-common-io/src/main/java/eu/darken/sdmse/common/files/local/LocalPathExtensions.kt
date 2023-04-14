@@ -5,10 +5,7 @@ import android.system.StructStat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.Ownership
-import eu.darken.sdmse.common.files.Permissions
-import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
@@ -105,7 +102,7 @@ fun LocalPath.startsWith(prefix: LocalPath): Boolean {
     }
 }
 
-fun LocalPath.removePrefix(prefix: LocalPath): List<String> {
+fun LocalPath.removePrefix(prefix: LocalPath, overlap: Int = 0): Segments {
     if (!startsWith(prefix)) throw IllegalArgumentException("$prefix is not a prefix of $this")
-    return segments.drop(prefix.segments.size)
+    return segments.drop(prefix.segments.size - overlap)
 }
