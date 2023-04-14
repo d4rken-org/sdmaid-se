@@ -27,6 +27,17 @@ class GplayUpdateChecker @Inject constructor(
         // NOOP
     }
 
+    override suspend fun dismissUpdate(update: UpdateChecker.Update) {
+        log(TAG) { "dismissUpdate($update)" }
+        // NOOP
+    }
+
+    override suspend fun isDismissed(update: UpdateChecker.Update): Boolean {
+        log(TAG) { "isDismissed($update)" }
+        // NOOP
+        return true
+    }
+
     companion object {
         private val TAG = logTag("Updater", "Checker", "Gplay")
     }
