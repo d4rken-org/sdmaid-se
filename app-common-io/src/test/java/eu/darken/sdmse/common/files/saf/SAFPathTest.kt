@@ -89,7 +89,6 @@ class SAFPathTest : BaseTest() {
         }
     }
 
-
     @Test
     fun `path comparison`() {
         val file1a = SAFPath.build(testUri, "seg1", "seg2")
@@ -150,4 +149,26 @@ class SAFPathTest : BaseTest() {
         lookup1a shouldNotBe lookup2
     }
 
+    @Test
+    fun `user readable path mapping`() {
+        SAFPath.build(
+            Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor"),
+            "seg1",
+            "seg2",
+        ).userReadablePath.get(mockk()) shouldBe "/storage/emulated/0/seg1/seg2"
+        SAFPath.build(
+            Uri.parse("content://com.android.externalstorage.documents/tree/primary"),
+            "seg1",
+            "seg2",
+        ).userReadablePath.get(mockk()) shouldBe "/storage/emulated/0/seg1/seg2"
+        SAFPath.build(
+            Uri.parse("content://com.android.externalstorage.documents/tree/3135-3132%3Asafstor"),
+            "seg1",
+            "seg2",
+        ).userReadablePath.get(mockk()) shouldBe "/storage/3135-3132/seg1/seg2" SAFPath . build (
+                Uri.parse("content://com.android.externalstorage.documents/tree/3135-3132"),
+        "seg1",
+        "seg2",
+        ).userReadablePath.get(mockk()) shouldBe "/storage/3135-3132/seg1/seg2"
+    }
 }
