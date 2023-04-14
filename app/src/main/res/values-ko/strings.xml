@@ -124,5 +124,5 @@
     <string name="translation_encourage_title">SD Maid 번역하기</string>
     <string name="translation_encourage_body">SD Maid는 자원 봉사자가 번역했습니다. 번역, 검토 또는 교정, 도와주셔서 감사합니다!</string>
     <string name="translation_translators_title">이 버전을 번역한 사람은</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">사람1;사람2(선택적@email.com)</string>
+    <string name="translation_translators_people">사람1;사람2(선택적@email.com)</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="slogan_message_1">تنظيف وترتيب.</string>
     <string name="slogan_message_2">منع الفوضى.</string>
     <string name="slogan_message_3">فعل ما هو ضروري.</string>
-    <string name="slogan_message_4">كل بطك على التوالي.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">كل بطك على التوالي.</string>
     <string name="slogan_message_5">نظيف.</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_error_type_mismatch_msg">النوع غير متطابق: مطلوب %1$s, لكن حصل على%2$s.</string>

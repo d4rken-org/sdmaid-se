@@ -142,7 +142,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">قم بتضمين البقايا المرغوبة</string>
     <string name="corpsefinder_settings_risk_keeper_summary">الملفات التي قد ترغب في الاحتفاظ بها ، حتى إذا تم إلغاء تثبيت التطبيق ، على سبيل المثال الصور التي التقطتها أو النسخ الاحتياطية التي قمت بإنشائها.</string>
     <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
-    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء الشائعة جدًا ، على سبيل المثال يمتلك مجلد \"ملاحظات\" عددًا كبيرًا جدًا من التطبيقات غير المعروفة.</string>
+    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء الشائعة جدًا, على سبيل المثال مجلد \"ملاحظات\" يمتلكه عدد كبير من التطبيقات غير المعروفة.</string>
     <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
     <string name="corpsefinder_watcher_summary">البحث عن البقايا تلقائيًا عند إزالة التطبيق.</string>
     <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
@@ -237,6 +237,8 @@
     <string name="appcleaner_include_runningapps_summary">قم بتضمين التطبيقات قيد التشغيل حاليًا والتي تسبب تداخلًا.</string>
     <string name="appcleaner_include_inaccessible_label">قم بتضمين البيانات التي يتعذر الوصول إليها</string>
     <string name="appcleaner_include_inaccessible_summary">قم بتضمين البيانات التي لا يمكن الوصول إليها مباشرة ولكن يمكن حذفها عبر إعدادات النظام وأتمتة باستخدام خدمة إمكانية الوصول. </string>
+    <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
+    <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
     <string name="appcleaner_filter_advertisement_label">بيانات الإعلان</string>
@@ -275,6 +277,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
     <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
+    <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcontrol_tool_name">إدارة التطبيق</string>
     <string name="appcontrol_explanation_short">التطبيقات المثبتة على جهازك.</string>
     <string name="appcontrol_toggle_app_enable_action">تفعيل التطبيق</string>
@@ -355,5 +358,5 @@
     <string name="translation_encourage_title">ترجمة SD Maid</string>
     <string name="translation_encourage_body">SD Maid تمت ترجمته بواسطة متطوعين. الترجمة أو المراجعة أو التدقيق اللغوي ، نقدر مساعدتك!</string>
     <string name="translation_translators_title">تمت ترجمة هذا الإصدار بواسطة</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Rex_sa</string>
+    <string name="translation_translators_people">Rex_sa</string>
 </resources>

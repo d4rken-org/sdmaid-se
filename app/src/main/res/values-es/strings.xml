@@ -9,11 +9,11 @@
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo guardado del registro</string>
-    <string name="debug_debuglog_record_action">Guardar el registro de depuración</string>
+    <string name="debug_debuglog_record_action">Grabar registro de depuración</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza.</string>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártelo solo con personas de confianza (por ejemplo, un desarrollador que esté solucionando un problema).</string>
-    <string name="tasks_activity_notification_channel_label">Tareas en curso</string>
-    <string name="tasks_activity_working_notification_title">SD Maid está en ejecución</string>
+    <string name="tasks_activity_notification_channel_label">Tareas activas</string>
+    <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d tarea activa</item>
         <item quantity="other">%d tareas activas</item>
@@ -22,10 +22,10 @@
         <item quantity="one">%d tarea en espera</item>
         <item quantity="other">%d tareas en espera</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Resultado de las operaciones</string>
-    <string name="tasks_result_subtext">Resultado de las tareas</string>
+    <string name="tasks_result_notification_channel_label">Resultado de las tareas</string>
+    <string name="tasks_result_subtext">Resultado de la tarea</string>
     <string name="onboarding_welcome_title">Bienvenido</string>
-    <string name="onboarding_welcome_body1">SD Maid SE gestiona los archivos, las aplicaciones y el almacenamiento.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE administra archivos, aplicaciones y almacenamiento.</string>
     <string name="onboarding_welcome_body2">Libera el espacio de almacenamiento limpiando de otras aplicaciones. Borrar archivos prescindibles y elimina los datos sobrantes.</string>
     <string name="onboarding_welcome_body_beta">Esta es una versión beta (de prueba). Procede con sentido del humor y un plan de seguridad. Por favor, informa de los problemas que encuentres.</string>
     <string name="onboarding_welcome_continue_action">Continúa</string>
@@ -134,7 +134,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Incluir restos deseados</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Archivos que quieras conservar, aunque la aplicación esté desinstalada, por ejemplo, fotos que hiciste o copias de seguridad que creaste.</string>
     <string name="corpsefinder_settings_risk_common_title">Incluir los nombres comunes</string>
-    <string name="corpsefinder_settings_risk_common_summary">Datos con nombres demasiado comunes, por ejemplo, una carpeta \"Notas\" es propiedad de demasiadas apps desconocidas.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Los datos con nombres demasiado comunes, por ejemplo, la carpeta \"Notas\" pertenecen a demasiadas aplicaciones desconocidas.</string>
     <string name="corpsefinder_watcher_title">Desinstalación del observador</string>
     <string name="corpsefinder_watcher_summary">Escanea automáticamente en busca de restos cuando se elimina una aplicación.</string>
     <string name="corpsefinder_filter_publicmedia_label">Medios públicos</string>
@@ -170,7 +170,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Este elemento puede contener datos que quieres conservar a pesar de que su propietario ha sido desinstalado, por ejemplo, fotos o copias de seguridad.</string>
     <string name="corpsefinder_corpse_hint_common">Este elemento tiene un nombre muy común y podría pertenecer a aplicaciones aún instaladas que SD Maid desconoce.</string>
     <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Datos superfluos que no pertenecen a ninguna aplicación específica.</string>
+    <string name="systemcleaner_explanation_short">Datos innecesarios que no pertenecen a ninguna aplicación específica.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidencia del filtro</item>
         <item quantity="other">%d coincidencias de los filtros</item>
@@ -229,6 +229,8 @@
     <string name="appcleaner_include_runningapps_summary">Incluya las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
     <string name="appcleaner_include_inaccessible_label">Incluir los datos inaccesibles</string>
     <string name="appcleaner_include_inaccessible_summary">Incluye datos a los que no se puede acceder directamente, pero que pueden eliminarse a través de la configuración del sistema y automatizarse mediante un servicio de accesibilidad. </string>
+    <string name="appcleaner_include_multiuser_label">Incluir a otros usuarios</string>
+    <string name="appcleaner_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>
     <string name="appcleaner_filter_codecache_label">Caché de código</string>
     <string name="appcleaner_filter_codecache_summary">Caché de código JVM. Bloques de bytecode compilados en código nativo.</string>
     <string name="appcleaner_filter_advertisement_label">Datos de publicidad</string>
@@ -271,6 +273,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cachés públicas y privadas por defecto. No son accesibles directamente, pero pueden eliminarse indirectamente (por ejemplo, a través del servicio de accesibilidad).</string>
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>
     <string name="appcleaner_automation_unavailable_body">Al ser eliminadas las cachés inaccesibles se requiere del servicio de accesibilidad de SD Maid, pero no estaba disponible. Si no deseas utilizarlo: Desactiva la opción \"Incluir las cachés inaccesibles\".</string>
+    <string name="appcleaner_junk_userprofile_label">Usuario</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -351,5 +354,5 @@
     <string name="translation_encourage_title">Traducir SD Maid</string>
     <string name="translation_encourage_body">SD Maid es traducido por voluntarios. ¡Se agradece su ayuda en la traducción, revisión o corrección de pruebas!</string>
     <string name="translation_translators_title">Esta versión ha sido traducida por</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Diego F.(diegobautista100@gmail.com)</string>
+    <string name="translation_translators_people">Diego F.(diegobautista100@gmail.com)</string>
 </resources>

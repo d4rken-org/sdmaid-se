@@ -134,7 +134,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">वांछनीय अवशेषों को शामिल करें</string>
     <string name="corpsefinder_settings_risk_keeper_summary">फ़ाइलें जिन्हें आप रखना चाहते हैं, भले ही ऐप अनइंस्टॉल हो, उदाहरण के लिए आपके द्वारा ली गई तस्वीरें या आपके द्वारा बनाए गए बैकअप।</string>
     <string name="corpsefinder_settings_risk_common_title">सामान्य नाम शामिल करें</string>
-    <string name="corpsefinder_settings_risk_common_summary">बहुत सामान्य नामों वाला डेटा, उदाहरण के लिए एक फ़ोल्डर \"नोट्स\" नाम का स्वामित्व बहुत से अज्ञात ऐप्स के पास है।</string>
     <string name="corpsefinder_watcher_title">प्रहरी की स्थापना रद्द करें</string>
     <string name="corpsefinder_watcher_summary">ऐप हटाए जाने पर अवशेष के लिए स्वचालित रूप से स्कैन करें।</string>
     <string name="corpsefinder_filter_publicmedia_label">सार्वजनिक मीडिया</string>
@@ -351,6 +350,6 @@
     <string name="translation_encourage_title">SD मेड का अनुवाद करें</string>
     <string name="translation_encourage_body">SD मेड का अनुवाद स्वयंसेवकों द्वारा किया जाता है। अनुवाद, समीक्षा या प्रूफरीडिंग, आपकी सहायता की सराहना की जाती है!</string>
     <string name="translation_translators_title">यह संस्करण इन सभी द्वारा अनुवादित है</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Yogesh KaushiK
+    <string name="translation_translators_people">Yogesh KaushiK
 (KaushikYogesh@yahoo.com)</string>
 </resources>

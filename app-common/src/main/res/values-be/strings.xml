@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Чысціня і парадак.</string>
     <string name="slogan_message_2">Прадухіленне хаосу.</string>
     <string name="slogan_message_3">Рабіць тое, што патрэбна.</string>
-    <string name="slogan_message_4">Усё на сваім месцы.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Усё на сваім месцы.</string>
     <string name="slogan_message_5">Бездакорна.</string>
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_error_type_mismatch_msg">Неадпаведнасць тыпу: мае быць %1$s, але па факце %2$s.</string>

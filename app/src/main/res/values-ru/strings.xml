@@ -138,7 +138,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Включить желаемые остатки</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Файлы, которые Вы, возможно, захотите сохранить, даже если приложение будет удалено, например, сделанные Вами фотографии или созданные Вами резервные копии.</string>
     <string name="corpsefinder_settings_risk_common_title">Включить общие названия</string>
-    <string name="corpsefinder_settings_risk_common_summary">Данные со слишком общими именами, например, папка \"Заметки\" принадлежит многим неизвестным приложениям.</string>
     <string name="corpsefinder_watcher_title">Контроль удаления</string>
     <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
     <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
@@ -365,5 +364,5 @@
     <string name="translation_encourage_title">Перевод SD Maid</string>
     <string name="translation_encourage_body">SD Maid переводится добровольцами. Перевод, рецензирование или корректура - Ваша помощь будет оценена по достоинству!</string>
     <string name="translation_translators_title">Перевод этой версии выполнен</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">gaich;Anton user334;notmerennor</string>
+    <string name="translation_translators_people">gaich;Anton user334;notmerennor</string>
 </resources>

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">A su servicio.</string>
+    <string name="slogan_message_0">A tu servicio.</string>
     <string name="slogan_message_1">Limpio &amp; ordenado.</string>
     <string name="slogan_message_2">Previene el caos.</string>
-    <string name="slogan_message_3">Hacer lo que sea necesario.</string>
-    <string name="slogan_message_4">Todo en orden.</string>
+    <string name="slogan_message_3">Haciendo lo que sea necesario.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="general_thank_you_label">Gracias</string>
-    <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>
-    <string name="general_error_cant_access_msg">No puedes acceder a %s.</string>
-    <string name="general_error_root_unavailable">El acceso root no está disponible.</string>
+    <string name="general_error_type_mismatch_msg">No coinciden: quería %1$s, pero obtuve %2$s.</string>
+    <string name="general_error_cant_access_msg">Sin acceso a %s.</string>
+    <string name="general_error_root_unavailable">Permiso Root no disponible.</string>
     <string name="general_error_empty_result_msg">El resultado estaba vacío.</string>
-    <string name="general_todo_msg">Esta característica todavía está en desarrollo y actualmente no está disponible.</string>
+    <string name="general_todo_msg">Esta característica está en desarrollo y aún no está disponible.</string>
     <string name="general_share_action">Compartir</string>
-    <string name="general_done_action">Hecho</string>
+    <string name="general_done_action">Realizado</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_remove_action">Quitar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
-    <string name="general_gotit_action">Entendido</string>
+    <string name="general_gotit_action">Entiendo</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_create_account_action">Crear una cuenta</string>
     <string name="general_link_existing_action">Vincular a cuenta existente</string>
@@ -34,12 +34,12 @@
     <string name="general_error_label">Error</string>
     <string name="general_select_server_label">Selecciona un servidor</string>
     <string name="general_quota_label">Cuota</string>
-    <string name="general_tap_hint_msg">Toca para más opciones</string>
+    <string name="general_tap_hint_msg">Pulsa para más opciones</string>
     <string name="general_upgrade_action">Actualizar</string>
     <string name="general_donate_action">Donar</string>
     <string name="general_check_action">Comprobar</string>
     <string name="general_filter_action">Filtrar</string>
-    <string name="general_internal_not_available_msg">No hay conexión a Internet</string>
+    <string name="general_internal_not_available_msg">Sin conexión</string>
     <string name="general_refresh_action">Actualizar</string>
     <string name="general_progress_searching">Buscando</string>
     <string name="general_progress_generating_searchpaths">Generando rutas de búsqueda</string>

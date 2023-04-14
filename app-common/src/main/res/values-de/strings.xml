@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Sauber &amp; aufgeräumt.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
     <string name="slogan_message_3">Das Notwendige tun.</string>
-    <string name="slogan_message_4">Alle Ihre Enten in einer Reihe.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Alle Ihre Enten in einer Reihe.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Typ stimmt nicht überein: %1$s gesucht, aber %2$s bekommen.</string>
@@ -27,7 +27,7 @@
     <string name="general_link_existing_action">Verknüpfung mit bestehendem Konto</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Leer</string>
-    <string name="general_dismiss_action">Zurückweisen</string>
+    <string name="general_dismiss_action">Ausblenden</string>
     <string name="general_maybe_later_action">Vielleicht später</string>
     <string name="general_manage_action">Verwalten</string>
     <string name="general_sync_action">Synchronismen</string>
@@ -50,13 +50,13 @@
     <string name="general_progress_loading_app_data">Laden von App Daten</string>
     <string name="general_progress_loading_data_areas">Laden von Datenbereichen</string>
     <string name="general_progress_loading_egg_0">Immer noch schneller als ein iPhone</string>
-    <string name="general_progress_loading_egg_1">Lädt mehr RAM runter</string>
+    <string name="general_progress_loading_egg_1">Downloade mehr RAM</string>
     <string name="general_progress_loading_egg_2">Bald™</string>
     <string name="general_progress_loading_egg_3">Die CPU macht Kaffeepause</string>
     <string name="general_progress_loading_egg_4">Warte auf Daten von Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">Turbo Encabulator wird initiiert</string>
-    <string name="general_progress_loading_egg_6">Übergibt die Butter</string>
-    <string name="general_progress_loading_egg_7">So. Wie geht es dir?</string>
+    <string name="general_progress_loading_egg_6">Übergebe die Butter</string>
+    <string name="general_progress_loading_egg_7">Na, Wie geht es dir?</string>
     <string name="general_progress_loading_egg_8">Hier drin riecht es nach Hochsteckfrisur</string>
     <string name="general_help_action">Hilfe</string>
     <string name="general_continue">Weitermachen</string>
@@ -68,7 +68,7 @@
     <string name="general_result_failure_message">Operation fehlgeschlagen</string>
     <string name="general_result_x_space_freed">%s befreit</string>
     <string name="general_details_label">Details</string>
-    <string name="general_view_action">Sicht</string>
+    <string name="general_view_action">Ansehen</string>
     <string name="general_update_action">Aktualisieren</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_delete_action">Löschen</string>

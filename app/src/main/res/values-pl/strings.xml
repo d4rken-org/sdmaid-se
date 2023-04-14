@@ -4,7 +4,7 @@
     <string name="dashboard_delete_all_message">Czy na pewno chcesz usunąć wyniki we wszystkich narzędziach?</string>
     <string name="dashboard_settings_category">Panel główny</string>
     <string name="dashboard_settings_oneclick_title">Tryb jednego kliknięcia</string>
-    <string name="dashboard_settings_oneclick_summary">Uruchamia skanowanie i usuwanie dla wszystkich narzędzi jednym kliknięciem przycisku akcji w panelu głównym, bez dodatkowych potwierdzeń.</string>
+    <string name="dashboard_settings_oneclick_summary">Uruchom skanowanie i usuwanie dla wszystkich narzędzi jednym kliknięciem przycisku akcji w panelu głównym, bez dodatkowych potwierdzeń.</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
@@ -30,7 +30,7 @@
     <string name="tasks_result_subtext">Wynik zadania</string>
     <string name="onboarding_welcome_title">Witaj</string>
     <string name="onboarding_welcome_body1">SD Maid SE zarządza plikami, aplikacjami i pamięcią urządzenia.</string>
-    <string name="onboarding_welcome_body2">Zyskaj przestrzeń na urządzeniu, usuwając niepotrzebne pliki i dane pozostałe po innych aplikacjach.</string>
+    <string name="onboarding_welcome_body2">Zwolnij przestrzeń na urządzeniu, usuwając niepotrzebne pliki i dane pozostałe po innych aplikacjach.</string>
     <string name="onboarding_welcome_body_beta">To jest wersja beta (testowa). Postępuj z poczuciem humoru i planem awaryjnym. Zgłaszaj proszę napotkane problemy.</string>
     <string name="onboarding_welcome_continue_action">Dalej</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -106,15 +106,15 @@
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
     <string name="setup_acs_card_title">Usługa dostępności</string>
-    <string name="setup_acs_card_body">Usługa dostępności umożliwia SD Maid interakcję z Twoim ekranem i automatyzację żmudnych działań, np. kliknięcie \"Wyczyść pamięć podręczną\" na wielu ekranach.</string>
-    <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi dostępności bez Twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas aktywności i nie będzie jej używać do zbierania informacji.</string>
+    <string name="setup_acs_card_body">Usługa dostępności umożliwia SD Maid interakcję z Twoim ekranem i automatyzację żmudnych działań, np. kliknięcie \"Wyczyść pamięć podręczną\" po kolei dla wielu aplikacji.</string>
+    <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi dostępności bez Twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas działania i nie będzie jej używać do zbierania danych.</string>
     <string name="setup_acs_allow">Usługa dostępności jest włączona</string>
     <string name="setup_acs_disallow">Usługa dostępności jest włączona</string>
     <string name="setup_acs_state_enabled">Usługa dostępności jest włączona</string>
     <string name="setup_acs_state_disabled">Usługa dostępności jest wyłączona</string>
     <string name="setup_acs_state_running">Usługa dostępności jest uruchomiona</string>
     <string name="setup_acs_state_stopped">Usługa dostępności jest zatrzymana</string>
-    <string name="setup_acs_state_stopped_hint">Usługa jest włączona, ale nie jest uruchomiona. Spróbuj wyłączyć i włączyć lub zrestartować urządzenie. Upewnij się, że SD Maid nie jest „optymalizowana” przez system.</string>
+    <string name="setup_acs_state_stopped_hint">Usługa jest włączona, ale nie jest uruchomiona. Spróbuj wyłączyć i włączyć lub zrestartować urządzenie. Upewnij się, że aplikacja SD Maid nie jest „optymalizowana” przez system.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jeśli usługa jest ciągle wyłączana po pewnym czasie, spróbuj włączyć opcję „Auto Start” dla SD Maid w ustawieniach systemowych.</string>
     <string name="setup_acs_consent_positive_action">Włącz usługę i udziel dostępu</string>
     <string name="setup_acs_consent_negative_action">Nie używaj usługi dostępności</string>
@@ -138,7 +138,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Uwzględnij pożądane pozostałości</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Pliki, które mogą być przydatne, nawet jeśli aplikacja jest odinstalowana, np. zdjęcia lub kopie zapasowe.</string>
     <string name="corpsefinder_settings_risk_common_title">Uwzględnij powszechne nazwy</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dane o zbyt powszechnych nazwach, np. folder \"Notatki\" jest własnością zbyt wielu nieznanych aplikacji.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dane o zbyt powszechnych nazwach, np. folder \"Notatki\" może być własnością wielu nieznanych aplikacji.</string>
     <string name="corpsefinder_watcher_title">Obserwator odinstalowania</string>
     <string name="corpsefinder_watcher_summary">Automatyczne skanowanie pozostałości po usunięciu aplikacji.</string>
     <string name="corpsefinder_filter_publicmedia_label">Publiczne pliki multimedialne</string>
@@ -237,6 +237,8 @@
     <string name="appcleaner_include_runningapps_summary">Uwzględnij uruchomione aplikacje, które mogą powodować zakłócenia.</string>
     <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne dane</string>
     <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi dostępności.</string>
+    <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
+    <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcleaner_filter_codecache_label">Pamięć podręczna kodu</string>
     <string name="appcleaner_filter_codecache_summary">Pamięć podręczna kodu JVM. Bloki kodu bajtowego kompilowane w kod natywny.</string>
     <string name="appcleaner_filter_advertisement_label">Dane reklam</string>
@@ -281,6 +283,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi dostępności).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa dostępności niedostępna</string>
     <string name="appcleaner_automation_unavailable_body">Usuwanie niedostępnych pamięci podręcznych wymaga usługi dostępności SD Maid, ale była niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
+    <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -365,5 +368,5 @@
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>
     <string name="translation_encourage_body">Aplikacja SD Maid jest tłumaczona przez wolontariuszy. Tłumaczenie, recenzowanie lub korekta, każda pomoc jest mile widziana!</string>
     <string name="translation_translators_title">Ta wersja została przetłumaczona przez</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Damian Stasik (sd@coded.pl)</string>
+    <string name="translation_translators_people">Damian Stasik (sd@coded.pl)</string>
 </resources>

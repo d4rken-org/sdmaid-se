@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Propre &amp; rangé.</string>
     <string name="slogan_message_2">Prévient le chaos.</string>
     <string name="slogan_message_3">Fait le nécessaire.</string>
-    <string name="slogan_message_4">Tous vos canards en colonne.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tous vos canards en colonne.</string>
     <string name="slogan_message_5">Impeccable.</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_error_type_mismatch_msg">Mauvais type: %1$s désiré, mais %2$s obtenu.</string>
