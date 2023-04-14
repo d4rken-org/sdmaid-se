@@ -309,20 +309,51 @@ class SAFPathExtensionsTest : BaseTest() {
             docFile = mockk(),
         )
 
-        prefix.removePrefix(prefix) shouldBe emptyList()
+        prefix.removePrefix(prefix) shouldBe segs()
 
         shouldThrow<IllegalArgumentException> {
             pre.removePrefix(prefix)
         }
-        prefix.removePrefix(pre) shouldBe listOf("fix")
-        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+        prefix.removePrefix(pre) shouldBe segs("fix")
+        prefix.removePrefix(preLookup) shouldBe segs("fix")
 
-        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+        prefixLookup.removePrefix(prefixLookup) shouldBe segs()
 
         shouldThrow<IllegalArgumentException> {
             preLookup.removePrefix(prefixLookup)
         }
-        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
-        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
+        prefixLookup.removePrefix(preLookup) shouldBe segs("fix")
+        prefixLookup.removePrefix(pre) shouldBe segs("fix")
+    }
+
+    @Test fun `remove prefix with overlap`() {
+        val prefix = SAFPath.build(baseTreeUri, "prefix", "overlap", "folder")
+        val pre = SAFPath.build(baseTreeUri, "prefix", "overlap")
+        val prefixLookup = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "prefix", "overlap", "folder"),
+            docFile = mockk(),
+        )
+        val preLookup = SAFPathLookup(
+            lookedUp = SAFPath.build(baseTreeUri, "prefix", "overlap"),
+            docFile = mockk(),
+        )
+
+        prefix.removePrefix(prefix, overlap = 0) shouldBe prefix.removePrefix(prefix)
+
+        prefix.removePrefix(prefix, overlap = 1) shouldBe segs("folder")
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix, overlap = 1)
+        }
+        prefix.removePrefix(pre, overlap = 1) shouldBe segs("overlap", "folder")
+        prefix.removePrefix(preLookup, overlap = 1) shouldBe segs("overlap", "folder")
+
+        prefixLookup.removePrefix(prefixLookup, overlap = 1) shouldBe segs("folder")
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup)
+        }
+        prefixLookup.removePrefix(preLookup, overlap = 1) shouldBe segs("overlap", "folder")
+        prefixLookup.removePrefix(pre, overlap = 1) shouldBe segs("overlap", "folder")
     }
 }

@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.files.local
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.local.*
-import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.files.startsWith
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -351,20 +350,63 @@ class LocalPathExtensionsTest : BaseTest() {
             target = null,
         )
 
-        prefix.removePrefix(prefix) shouldBe emptyList()
+        prefix.removePrefix(prefix) shouldBe segs()
 
         shouldThrow<IllegalArgumentException> {
             pre.removePrefix(prefix)
         }
-        prefix.removePrefix(pre) shouldBe listOf("fix")
-        prefix.removePrefix(preLookup) shouldBe listOf("fix")
+        prefix.removePrefix(pre) shouldBe segs("fix")
+        prefix.removePrefix(preLookup) shouldBe segs("fix")
 
-        prefixLookup.removePrefix(prefixLookup) shouldBe emptyList()
+        prefixLookup.removePrefix(prefixLookup) shouldBe segs()
 
         shouldThrow<IllegalArgumentException> {
             preLookup.removePrefix(prefixLookup)
         }
-        prefixLookup.removePrefix(preLookup) shouldBe listOf("fix")
-        prefixLookup.removePrefix(pre) shouldBe listOf("fix")
+        prefixLookup.removePrefix(preLookup) shouldBe segs("fix")
+        prefixLookup.removePrefix(pre) shouldBe segs("fix")
+    }
+
+
+    @Test fun `remove prefix with overlap`() {
+        val prefix = LocalPath.build("prefix", "overlap", "folder")
+        val pre = LocalPath.build("prefix", "overlap")
+
+        val prefixLookup = LocalPathLookup(
+            lookedUp = LocalPath.build("prefix", "overlap", "folder"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+        val preLookup = LocalPathLookup(
+            lookedUp = LocalPath.build("prefix", "overlap"),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            ownership = null,
+            permissions = null,
+            target = null,
+        )
+
+        prefix.removePrefix(prefix, overlap = 0) shouldBe prefix.removePrefix(prefix)
+
+        prefix.removePrefix(prefix, overlap = 1) shouldBe segs("folder")
+
+        shouldThrow<IllegalArgumentException> {
+            pre.removePrefix(prefix, overlap = 1)
+        }
+        prefix.removePrefix(pre, overlap = 1) shouldBe segs("overlap", "folder")
+        prefix.removePrefix(preLookup, overlap = 1) shouldBe segs("overlap", "folder")
+
+        prefixLookup.removePrefix(prefixLookup, overlap = 1) shouldBe segs("folder")
+
+        shouldThrow<IllegalArgumentException> {
+            preLookup.removePrefix(prefixLookup, overlap = 1)
+        }
+        prefixLookup.removePrefix(preLookup, overlap = 1) shouldBe segs("overlap", "folder")
+        prefixLookup.removePrefix(pre, overlap = 1) shouldBe segs("overlap", "folder")
     }
 }
