@@ -102,13 +102,14 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/details_action"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
+                app:icon="@drawable/ic_eye_24"
+                android:paddingHorizontal="16dp"
                 android:layout_height="wrap_content"
-                android:text="@string/general_view_action"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/delete_action"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
