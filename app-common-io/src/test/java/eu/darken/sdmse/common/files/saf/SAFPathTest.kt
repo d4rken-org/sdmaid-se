@@ -165,10 +165,11 @@ class SAFPathTest : BaseTest() {
             Uri.parse("content://com.android.externalstorage.documents/tree/3135-3132%3Asafstor"),
             "seg1",
             "seg2",
-        ).userReadablePath.get(mockk()) shouldBe "/storage/3135-3132/seg1/seg2" SAFPath . build (
-                Uri.parse("content://com.android.externalstorage.documents/tree/3135-3132"),
-        "seg1",
-        "seg2",
+        ).userReadablePath.get(mockk()) shouldBe "/storage/3135-3132/seg1/seg2"
+        SAFPath.build(
+            Uri.parse("content://com.android.externalstorage.documents/tree/3135-3132"),
+            "seg1",
+            "seg2",
         ).userReadablePath.get(mockk()) shouldBe "/storage/3135-3132/seg1/seg2"
     }
 }
