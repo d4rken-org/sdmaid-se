@@ -11,11 +11,11 @@ No sigamos así... Deja que SD Maid SE te ayude:
 * Encuentra cachés de aplicaciones ocultas
 * Eliminar archivos innecesarios del sistema
 
-SD Maid SE no tiene anuncios. Algunas funciones requieren una actualización de pago.
+SD Maid SE no tiene anuncios. Some features require a paid upgrade.
 
 SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
 Optimizado para las nuevas versiones de Android y enfocado en la limpieza.
 
 SD Maid SE dispone de funciones opcionales que utilizan la API AccessibilityService para automatizar acciones tediosas.
-Mediante la API AccessibilityService, SD Maid SE puede pulsar botones por ti para que realices operaciones en múltiples aplicaciones, por ejemplo. borrando cachés.
+Using the AccessibilityService API, SD Maid SE can click buttons for you to perform operations on multiple apps, e.g. borrando cachés.
 SD Maid SE no utiliza la API de AccessibilityService para recopilar información.

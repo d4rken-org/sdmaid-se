@@ -17,5 +17,5 @@ SD Maid 2/SE, SD Maid 1/Legacy'nin yeni sürümüdür.
 Daha yeni Android sürümleri için optimize edilmiş ve temizliğe odaklanmıştır.
 
 SD Maid SE, sıkıcı eylemleri otomatikleştirmek için AccessibilityService API'sini kullanan isteğe bağlı özelliklere sahiptir.
-SD Maid SE, AccessibilityService API'sini kullanarak çoklu uygulamalarda işlem yapabilmeniz için düğmelere tıklayabilir, örn. önbellekleri silme.
+SD Maid SE, AccessibilityService API'sini kullanarak birden fazla uygulama üzerinde işlem gerçekleştirmeniz için düğmelere tıklayabilir, örn. önbellekleri silme.
 SD Maid SE, bilgi toplamak için AccessibilityService API'sini kullanmaz.

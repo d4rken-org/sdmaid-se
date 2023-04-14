@@ -17,5 +17,5 @@ SD Maid 2/SE ialah penerus dari SD Maid 1/Lawas.
 Dioptimalkan untuk Android versi terbaru dan difokuskan untuk membersihkan.
 
 SD Maid SE mempunyai fitur opsional yang memanfaatkan API AccessibilityService untuk mengotomatisasi aksi yang membosankan.
-Dengan menggunakan API AccessibilityService API, SD Maid SE dapat mengeklik tombol-tombol untuk anda untuk menjalankan perintah di beberapa aplikasi, seperti menghapus cache.
+Dengan menggunakan API AccessibilityService, SD Maid SE dapat mengeklik tombol-tombol untuk Anda untuk melakukan pekerjaan di beberapa aplikasi, seperti menghapus cache.
 SD Maid SE tidak menggunakan API AccessibilityService untuk mengumpulkan informasi pribadi Anda.

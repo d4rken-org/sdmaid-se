@@ -17,5 +17,5 @@ L'SD Maid 2/SE és el successor de l'SD Maid 1/Legacy.
 Optimitzat per a les versions més noves d'Android i centrat en la neteja.
 
 L'SD Maid SE té funcions opcionals que utilitzen l'API AccessibilityService per automatitzar accions tedioses.
-Mitjançant l'API AccessibilityService, SD Maid SE pot fer clic als botons perquè realitzeu operacions en diverses aplicacions, p. ex. esborrant memòries cau.
+Mitjançant l'API AccessibilityService, l'SD Maid SE pot fer clic als botons perquè realitzeu operacions en diverses aplicacions, p. ex. esborrant memòries cau.
 L'SD Maid SE no utilitza l'API AccessibilityService per recopilar informació.
