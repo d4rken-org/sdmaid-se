@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_click_hint">Teatud sisu põhjaliku teabe saamiseks klõpsake sellel.</string>
+    <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
+    <string name="dashboard_settings_category">Esileht</string>
+    <string name="dashboard_settings_oneclick_title">Üheklõpsuline režiim</string>
+    <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevale nupule klõpsates, ilma täiendavate nõusolekuteta.</string>
+    <string name="debug_debuglog_size_label">Maht</string>
+    <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
+    <string name="debug_notification_channel_label">Vigade parandamise teated</string>
+</resources>

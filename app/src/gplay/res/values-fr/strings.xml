@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Nécessite SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Mise à niveau de SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro offre de meilleurs résultats, davantage de fonctionnalités et d\'options pour les power users.</string>
+    <string name="upgrades_dashcard_upgrade_action">Mise à niveau</string>
+    <string name="upgrades_gplay_unavailable_error">Les services Google Play ne sont pas disponibles.</string>
+    <string name="upgrades_no_purchases_found_check_account">Aucun achat trouvé. Utilisez-vous le bon compte ?</string>
+    <string name="upgrade_screen_title">Obtenez SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid ne contient pas de pubs et ne vend pas les données des utilisateurs. Mon travail est financé par vous.</string>
+    <string name="upgrade_screen_benefits_title">Avantages</string>
+    <string name="upgrade_screen_how_title">Options</string>
+    <string name="upgrade_screen_how_body">Deux options s\'offrent à vous : Un achat unique ou un abonnement annuel moins cher. L\'abonnement est assorti d\'une période d\'essai gratuite. Les fonctionnalités sont identiques, seules les méthodes de paiement diffèrent.</string>
+    <string name="upgrade_screen_subscription_trial_action">Commencez votre essai gratuit</string>
+    <string name="upgrade_screen_subscription_action">Souscrire</string>
+    <string name="upgrade_screen_subscription_action_hint">La souscription coûte %s par année.</string>
+    <string name="upgrade_screen_iap_action">Achat unique</string>
+    <string name="upgrade_screen_iap_action_hint">L\'achat unique coûte %s.</string>
+    <string name="upgrade_screen_thanks_toast">Vous êtes super ! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Ensemble, nous sommes parvenus à la première version ! Merci de m\'avoir aidé à tester ! Le développement se poursuit bien sûr, mais vous pouvez désormais passer à des versions non-bêta. Pour ce faire, téléchargez la dernière version stable.</string>
+    <string name="nudge_betagoodbye_hint">Petite remarque : les notes données pendant les tests ne sont visibles que par moi, je vous serais reconnaissant de donner une note publique à SD Maid si vous êtes satisfait.</string>
+    <string name="nudge_betagoodbye_negative_action">Continuer à tester</string>
+</resources>

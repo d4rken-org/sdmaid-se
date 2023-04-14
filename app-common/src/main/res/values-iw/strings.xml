@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="slogan_message_1">נקי &amp; מסודר.</string>
+    <string name="slogan_message_2">מונע כאוס.</string>
+    <string name="general_share_action">שיתוף</string>
+    <string name="general_copy_action">העתקה</string>
+    <string name="general_cancel_action">ביטול</string>
+    <string name="general_save_action">שמור</string>
+    <string name="general_edit_action">עריכה</string>
+    <string name="general_create_account_action">צור משתמש</string>
+    <string name="general_link_existing_action">קשר למשתמש קיים</string>
+    <string name="general_maybe_later_action">אולי מאוחר יותר</string>
+    <string name="general_error_label">שגיאה</string>
+    <string name="general_select_server_label">בחר שרת</string>
+    <string name="general_tap_hint_msg">לחץ לעוד אפשרויות</string>
+    <string name="general_filter_action">סינון</string>
+    <string name="general_internal_not_available_msg">אין חיבור לאינטרנט</string>
+    <string name="general_refresh_action">רענן</string>
+    <string name="general_progress_searching">מחפש</string>
+    <string name="general_progress_preparing">מכין</string>
+    <string name="general_progress_processing_x">מעבד %s</string>
+    <string name="general_progress_loading">טוען</string>
+    <string name="general_progress_loading_egg_0">עדין מהיר יותר מאייפון</string>
+    <string name="general_update_action">עדכן</string>
+    <string name="general_scan_action">סרוק</string>
+    <string name="general_delete_action">מחק</string>
+    <string name="general_delete_all_action">מחק הכל</string>
+    <string name="general_show_details_action">הראה פרטים</string>
+    <string name="general_delete_confirmation_title">אשר מחיקה</string>
+    <string name="general_clean_confirmation_title">אשר ניקוי</string>
+    <string name="general_root_required_label">מצריך גישת רוט</string>
+    <string name="general_root_required_message">מצריך מכשיר עם הרשאת רוט</string>
+    <string name="general_search_action">חפש</string>
+    <string name="general_scan_device_action">סרוק מכשיר</string>
+    <string name="general_open_system_settings_action">פתח הגדרות מכשיר</string>
+    <string name="general_grant_access_action">אשר גישה</string>
+    <string name="general_path_label">נתיב</string>
+    <string name="general_type_label">סוג</string>
+    <string name="general_size_label">גודל</string>
+    <string name="general_device_label">מכשיר</string>
+    <string name="general_settings_title">הגדרות</string>
+    <string name="general_help_title">עזרה</string>
+    <string name="file_type_directory">תיקייה</string>
+    <string name="file_type_file">קובץ</string>
+    <string name="file_type_unknown">לא ידוע</string>
+</resources>

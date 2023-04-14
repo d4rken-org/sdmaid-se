@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_0">Hizmetinizde.</string>
+    <string name="slogan_message_1">Temiz &amp; düzenli.</string>
+    <string name="slogan_message_2">Karışıklığı önleme.</string>
+    <string name="slogan_message_3">Gerekeni yapmak.</string>
+    <string name="slogan_message_4">Tüm işleriniz hazır ve organize.</string>
+    <string name="slogan_message_5">Tertemiz.</string>
+    <string name="general_thank_you_label">Teşekkürler</string>
+</resources>

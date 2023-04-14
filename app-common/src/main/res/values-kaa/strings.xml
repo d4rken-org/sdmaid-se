@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_share_action">Bólisiw</string>
+    <string name="general_done_action">Tayar</string>
+    <string name="general_copy_action">Kóshirip alıw</string>
+    <string name="general_remove_action">Alıp taslaw</string>
+    <string name="general_wipe_action">Tazalaw</string>
+    <string name="general_cancel_action">Biykarlaw</string>
+    <string name="general_save_action">Saqlaw</string>
+    <string name="general_thanks_action">Raxmet</string>
+    <string name="general_gotit_action">Túsinikli</string>
+    <string name="general_edit_action">Ózgeris kiritiw</string>
+    <string name="general_create_account_action">Akkaunt jaratıw</string>
+    <string name="general_empty_label">Bos</string>
+    <string name="general_manage_action">Basqarıw</string>
+    <string name="general_sync_action">Sáykeslestiriw</string>
+    <string name="general_error_label">Qátelik</string>
+    <string name="general_select_server_label">Serverdi tańlań</string>
+    <string name="general_upgrade_action">Jańalaw</string>
+    <string name="general_donate_action">Qollap-quwatlaw</string>
+    <string name="general_check_action">Tekseriw</string>
+    <string name="general_filter_action">Filtr</string>
+    <string name="general_refresh_action">Jańalaw</string>
+    <string name="general_progress_searching">Izlenbekte</string>
+    <string name="general_progress_loading">Júklenbekte</string>
+    <string name="general_search_action">Izlew</string>
+    <string name="general_info_label">Maǵlıwmat</string>
+    <string name="general_app_label">Baǵdarlama</string>
+    <string name="general_more_infos_action">Kóbirek maǵlıwmat</string>
+    <string name="general_path_label">Jol</string>
+    <string name="general_type_label">Túr</string>
+    <string name="general_settings_title">Sazlawlar</string>
+    <string name="general_help_title">Járdem</string>
+    <string name="file_type_symbolic_link">Silteme</string>
+    <string name="file_type_directory">Papka</string>
+    <string name="file_type_file">Fayl</string>
+    <string name="file_type_unknown">Belgisiz</string>
+</resources>

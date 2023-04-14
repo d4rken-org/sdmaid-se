@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE مفتوح المصدر</string>
+    <string name="app_name_upgrade_postfix">أمن حر مجاني مفتوح المصدر</string>
+    <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">ترقية SD Maid</string>
+    <string name="upgrades_dashcard_body">افتح ميزات إضافية وكن راعياً لدعم التطوير المستمر!</string>
+    <string name="upgrades_dashcard_upgrade_action">ترقية</string>
+    <string name="upgrade_screen_title">تحسين SD Maid</string>
+    <string name="upgrade_screen_preamble">لا تحتوي SD Maid على إعلانات ولا يبيع بيانات المستخدم. التطوير المستمر ممكن فقط بواسطتك.</string>
+    <string name="upgrade_screen_how_title">كيف أساعد</string>
+    <string name="upgrade_screen_how_body">كن داعما وراعيًا للتطوير! انقر فوق الزر أدناه لتنشيط جميع الميزات الإضافية وفتح ملف التعريف الخاص بي على Github.</string>
+    <string name="upgrade_screen_why_title">هذا يستحضر 🪄</string>
+    <string name="upgrade_screen_why_body">وظيفة حذف AppCleaner 💯 \ n • عمليات مجدولة ⏰ \ n • خيارات إضافية لجميع الأدوات ⚙️ \ n • قواعد الحذف الخاصة بك ✍️ \ n • مطور متحمس 🧙 \ n والمزيد…</string>
+    <string name="upgrade_screen_sponsor_action">أدعم التطوير</string>
+    <string name="upgrade_screen_sponsor_action_hint">البديل هو الإعلانات والتحليلات و Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">شكراً لدعمك تطوير المصادر المفتوحة ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">معًا ، وصلنا إلى الإصدار الأول! شكرا لك لمساعدتي في الاختبار! سيستمر التطوير بالطبع ، ولكن يمكنك الآن التبديل إلى الإصدارات غير التجريبية. قم بذلك عن طريق تنزيل أحدث إصدار مستقر.</string>
+    <string name="nudge_betagoodbye_hint">ملاحظة صغيرة: التقييمات المقدمة أثناء الاختبار مرئية لي فقط ، وسأكون ممتنًا إذا كان بإمكانك منح SD Maid تصنيفًا عامًا إذا كنت سعيدًا.</string>
+    <string name="nudge_betagoodbye_positive_action">الخروج</string>
+    <string name="nudge_betagoodbye_negative_action">استمر بالاختبار</string>
+</resources>

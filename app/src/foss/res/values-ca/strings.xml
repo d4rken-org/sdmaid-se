@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Actualització de l\'SD Maid</string>
+    <string name="upgrades_dashcard_body">Desbloquegeu funcions addicionals i convertiu-vos en mecenes per donar suport al continuïtat del suport!</string>
+    <string name="upgrades_dashcard_upgrade_action">Actualitza</string>
+    <string name="upgrade_screen_title">Millora l\'SD Maid</string>
+    <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven dades d\'usuaris. El desenvolupament continuat només és possible gràcies a tots vosaltres.</string>
+    <string name="upgrade_screen_how_title">Com ajudar</string>
+    <string name="upgrade_screen_how_body">Convertiu-vos en mecenes i patrocinadors del desenvolupament! Feu clic al botó següent per activar totes les funcions addicionals i obrir el meu perfil de patrocinadors del Github.</string>
+    <string name="upgrade_screen_why_title">Això evoca 🪄</string>
+    <string name="upgrade_screen_why_body">• Neteja d\'aplicacions 💯\n• Operacions programades ⏰\n• Opcions extres per a totes les eines ⚙️\n• Les vostres pròpies regles d\'eliminació ✍️\n• Un desenvolupador motivat 🧙\ni molt més…</string>
+    <string name="upgrade_screen_sponsor_action">Desenvolupament del patrocinador</string>
+    <string name="upgrade_screen_sponsor_action_hint">L\'alternativa són els anuncis, les analítiques i Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Gràcies per donar suport al desenvolupament de codi obert ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Junts, vam arribar a la primera versió! Gràcies per ajudar-me a provar-la! Per descomptat, el desenvolupament continuarà, però ara podeu canviar a versions no beta. Feu-ho baixant la darrera versió estable.</string>
+    <string name="nudge_betagoodbye_hint">Petita nota: les puntuacions donades durant les proves només són visibles per a mi, us agrairia que pugueu donar una puntuació pública a l\'SD Maid si esteu content.</string>
+    <string name="nudge_betagoodbye_positive_action">Desactiva</string>
+    <string name="nudge_betagoodbye_negative_action">Continua amb la beta</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Proが必要です</string>
+    <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
+    <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
+    <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
+    <string name="upgrade_screen_how_title">オプション</string>
+    <string name="upgrade_screen_subscription_trial_action">試用を開始する</string>
+    <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
+</resources>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_click_hint">بعض المدخلات يمكن الضغط عليها لعرض المزيد من التفاصيل.</string>
+    <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
+    <string name="dashboard_settings_category">الرئيسية</string>
+    <string name="dashboard_settings_oneclick_title">وضع الضغطة الواحدة</string>
+    <string name="dashboard_settings_oneclick_summary">ابدأ الفحص والحذف لجميع الأدوات بنقرة واحدة على زر إجراء الرئيسية ، دون تأكيدات إضافية.</string>
+    <string name="debug_debuglog_size_label">الحجم</string>
+    <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
+    <string name="debug_notification_channel_label">إشعار التطوير</string>
+    <string name="debug_debuglog_file_label">الكتابة إلى مِلَفّ السجل</string>
+    <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
+    <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
+    <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
+    <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
+    <string name="tasks_activity_working_notification_title">SD Maid لا يعمل</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="zero">%d مهمة نشطة</item>
+        <item quantity="one">%d مهمة نشطة</item>
+        <item quantity="two">%d مهمتان نشطتان</item>
+        <item quantity="few">%d مهام نشطة</item>
+        <item quantity="many">%d مهام نشطة</item>
+        <item quantity="other">%d مهام نشطة</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="zero">%d مهمة في الانتظار</item>
+        <item quantity="one">%d مهمة في الانتظار</item>
+        <item quantity="two">%d مهمتان في الانتظار</item>
+        <item quantity="few">%d مهام في الانتظار</item>
+        <item quantity="many">%d مهام في الانتظار</item>
+        <item quantity="other">%d مهام في الانتظار</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">نتائج المهام</string>
+    <string name="tasks_result_subtext">نتيجة المهمة</string>
+    <string name="onboarding_welcome_title">أهلاً وسهلاً</string>
+    <string name="onboarding_welcome_body1">SD Maid SE يدير الملفات, التطبيقات والتخزين.</string>
+    <string name="onboarding_welcome_body2">احصل على مساحة تخزين عن طريق التنظيف خلف التطبيقات الأخرى. حذف الملفات القابلة للاستهلاك وإزالة البيانات المتبقية.</string>
+    <string name="onboarding_welcome_body_beta">هذا إصدار تجريبي (تجريبي). انطلق بروح الدعابة وخطة احتياطية. الرجاء الإبلاغ عن المشاكل التي تواجهها.</string>
+    <string name="onboarding_welcome_continue_action">متابعة</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (المعروف أيضًا باسم SD Maid 2) هو خليفة SD Maid. تطبيق جديد مُحسّن لنظام Android الحديث.</string>
+    <string name="onboarding_versus_body2">عمر التصميم السابق له أكثر من 7 سنوات ولم يتم تصميمه لمواجهة تحديات إصدارات Android الأحدث. كان من الضروري إعادة التصميم الكاملة لتطبيق لمواصلة التطوير.</string>
+    <string name="onboarding_versus_body3">ضع في اعتبارك التبديل إلى SD Maid SE للحصول على نتائج أفضل.</string>
+    <string name="onboarding_versus_continue_action">متابعة</string>
+    <string name="onboarding_privacy_title">الخصوصية</string>
+    <string name="onboarding_privacy_body1">لا تحتوي SD Maid على إعلانات ولا تبيع بيانات المستخدم.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">يتم إرسال تقارير الأخطاء عند حدوث أخطاء وقد تحتوي على تفاصيل حول التطبيقات والملفات الموجودة على جهازك. تساعدني التقارير في إصلاح الأخطاء وتحسين التطبيق.</string>
+    <string name="onboarding_privacy_bugreport_toggle">السماح بتقارير الأخطاء التلقائية</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">هذه الخيارات يمكن تغيرها في الاعدادات.</string>
+    <string name="onboarding_privacy_continue_action">متابعة</string>
+    <string name="onboarding_setup_title">اعداد</string>
+    <string name="onboarding_setup_body1">سيقوم SD Maid بالبحث في جميع اماكن البيانات التي يمكن الوصول إليها.</string>
+    <string name="onboarding_setup_body2">يعتمد ما يمكن الوصول إليه على هاتفك وإصدار Android والأذونات الممنوحة لك.</string>
+    <string name="onboarding_setup_body3">ابدأ في استخدام SD Maid من خلال إعداد الوصول إلى المناطق التي يجب البحث فيها.</string>
+    <string name="onboarding_setup_continue_action">اعداد الدخول</string>
+    <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
+    <string name="settings_privacy_policy_desc">التعامل مع البيانات بمسؤولية.</string>
+    <string name="settings_licenses_label">التراخيص</string>
+    <string name="settings_category_other_label">أخرى</string>
+    <string name="settings_category_filter_generic">مرشح عام</string>
+    <string name="settings_category_filter_specific">مرشح خاص</string>
+    <string name="settings_sponsor_development_title">أدعم التطوير</string>
+    <string name="settings_sponsor_development_summary">كن راعيًا واجعل التطوير المستمر ممكنًا.</string>
+    <string name="general_settings_label">عام</string>
+    <string name="general_settings_desc">إعدادات عامة يتم تطبيقها على كامل التطبيق.</string>
+    <string name="settings_category_ui_label">واجهة المستخدم</string>
+    <string name="ui_theme_setting_label">السمة</string>
+    <string name="ui_theme_dark_label">مظلم</string>
+    <string name="ui_theme_light_label">مضيء</string>
+    <string name="ui_theme_system_label">النظام</string>
+    <string name="ui_theme_setting_explanation">تغيير سمة التطبيق الحالية وتجاوز إعداد النظام.</string>
+    <string name="settings_support_label">الدعم</string>
+    <string name="documentation_label">المستندات</string>
+    <string name="issue_tracker_description">أداة تعقب المشكلات العامة لتقارير الأخطاء وطلبات الميزات.</string>
+    <string name="issue_tracker_label">متعقب الأخطاء</string>
+    <string name="support_installid_label">معرف التثبيت</string>
+    <string name="support_installid_desc">تقارير الخطأ التلقائية مجهولة المصدر. شارك معرف التثبيت الخاص بك إذا احتاج المطور إلى العثور على تقارير الأخطاء الخاصة بك.</string>
+    <string name="support_debuglog_label">سجل التطوير</string>
+    <string name="support_debuglog_desc">سجل كل ما يفعله التطبيق في ملف نصي يمكنك مشاركته.</string>
+    <string name="discord_label">ديسكورد</string>
+    <string name="discord_description">مكان للتسكع وطرح الأسئلة.</string>
+    <string name="changelog_label">سجل التغييرات</string>
+    <string name="settings_acknowledgements_label">شكر وتقدير</string>
+    <string name="setup_label">الإعداد</string>
+    <string name="setup_incomplete_card_title">الإعداد غير مكتمل</string>
+    <string name="setup_incomplete_card_body">أكمل إعداد SD Maid للحصول على نتائج جيدة.</string>
+    <string name="setup_incomplete_card_dismiss_action">تجاهل</string>
+    <string name="setup_incomplete_card_continue_action">متابعة الإعداد</string>
+    <string name="setup_title">الإعداد</string>
+    <string name="setup_forcedshow_summary">عرض شاشة الإعداد مرة أخرى ، بما في ذلك العناصر المكتملة بالفعل.</string>
+    <string name="setup_saf_card_title">إطار الوصول إلى التخزين</string>
+    <string name="setup_saf_card_body">تحسين النتائج من خلال منح SD Maid الوصول إلى مناطق إضافية.</string>
+    <string name="setup_saf_card_body2">في معظم الحالات ، تفتح النافذة مع تحديد المسار الصحيح مسبقًا. تتحول الإدخالات إلى اللون الأخضر عند منح الوصول. </string>
+    <string name="setup_saf_error_wrong_path">لقد حددت المسار الخطأ</string>
+    <string name="setup_saf_missing_app_error">تطبيق Documents UI غير متوفر. إنه تطبيق نظام مدمج ويجب أن يكون متاحًا على جميع أجهزة Android.</string>
+    <string name="setup_manage_storage_card_title">إدارة التخزين</string>
+    <string name="setup_manage_storage_card_body">السماح لـ SD Maid بإدارة التخزين.</string>
+    <string name="setup_manage_storage_card_body2">الوصول الأساسي إلى التخزين العام ، على سبيل المثال \"Download /\" و \"DCIM /\" ، ولكن ليس دائمًا \"Android / data\".</string>
+    <string name="setup_root_card_title">صَلاحِيَة الجذر</string>
+    <string name="setup_root_card_body">يجب أن تستخدم SD Maid الوصول إلى الجذر إذا كان متاحًا للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاصة.</string>
+    <string name="setup_root_enable_root_use_label">استخدم صَلاحِيَة الجذر عند توفرها</string>
+    <string name="setup_root_disable_root_use_label">لا تستخدم صَلاحِيَة الجذر</string>
+    <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
+    <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
+    <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
+    <string name="setup_usagestats_title">بيانات الاستخدام</string>
+    <string name="setup_usagestats_body">يمنح إذن إحصائيات الاستخدام إمكانية الوصول إلى مزيد من تفاصيل التطبيق. يستخدم SD Maid لتحديد أحجام ذاكرة التخزين المؤقت الإضافية.</string>
+    <string name="setup_usagestats_hint">مطلوب لحذف ذاكرة التخزين المؤقت المستندة إلى خدمة الوصول.</string>
+    <string name="setup_notification_title">الإشعارات</string>
+    <string name="setup_notification_body">اسمح لـ SD Maid بنشر إشعارات لإبلاغك بالعمليات الجارية أو الأحداث المهمة.</string>
+    <string name="setup_notification_hint">يتم استخدام الإخطارات باعتدال 🤞</string>
+    <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
+    <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
+    <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>
+    <string name="setup_acs_allow">خدمة أمكانية الوصول مفعلة</string>
+    <string name="setup_acs_disallow">خدمة أمكانية الوصول مفعلة</string>
+    <string name="setup_acs_state_enabled">خدمة أمكانية الوصول مفعلة</string>
+    <string name="setup_acs_state_disabled">خدمة أمكانية الوصول معطلة</string>
+    <string name="setup_acs_state_running">خدمة أمكانية الوصول تعمل</string>
+    <string name="setup_acs_state_stopped">خدمة أمكانية الوصول متوقفة</string>
+    <string name="setup_acs_state_stopped_hint">الخدمة ممكّنة ولكنها لا تعمل. قم بتبديله / إيقاف تشغيله أو إعادة تشغيل جهازك. تحقق من أن SD Maid لم يتم \"تحسينه\" بواسطة النظام.</string>
+    <string name="setup_acs_state_stopped_hint_miui">إذا استمر تعطيل الخدمة بعد فترة ، فحاول تمكين خيار \"البدء التلقائي\" لـ SD Maid في إعدادات النظام.</string>
+    <string name="setup_acs_consent_positive_action">تمكين الخدمة ومنح الوصول</string>
+    <string name="setup_acs_consent_negative_action">لا تستخدم خدمة الوصول</string>
+    <string name="setup_acs_allow_hint">إذا رأيت رمزًا صغيرًا على حافة الشاشة ، فهذا يعني أنك قمت عن طريق الخطأ بتمكين خيار \"الاختصار\".</string>
+    <string name="setup_acs_disallow_hint">إذا غيرت رأيك ، يمكنك تغيير هذا الخيار مرة أخرى بالذهاب إلى الإعدادات وإعادة تشغيل الإعداد.</string>
+    <string name="setup_acs_appops_restriction_title">إعدادات مقيدة</string>
+    <string name="setup_acs_appops_restriction_body">لا يمكن تمكين SD Maids الوصول الخدمة؟ قد يفرض Android 13+ قيودًا على التطبيقات غير المثبتة عبر Google Play. ارفع هذه القيود من صفحة تفاصيل النظام لـ SD Maid. الخيار موجود في قائمة السياق في أعلى اليمين.</string>
+    <string name="dataarea_warningcard_empty_message">لم تجد SD Maid أي مناطق بيانات يمكن مسحها. هل أكملت الإعداد؟</string>
+    <string name="dataarea_warningcard_label">مناطق البيانات</string>
+    <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
+    <string name="debug_mode_label">وضع التطوير</string>
+    <string name="debug_mode_explanation">تمكين خيارات الاختبار والمزيد من الإخراج المطول. سيعمل التطبيق بشكل أبطأ ويعمل بشكل مختلف.</string>
+    <string name="debug_bugreporter_label">تقارير الأخطاء التلقائية</string>
+    <string name="debug_bugreporter_summary">الإبلاغ عن المشكلات تلقائيًا ، على سبيل المثال تفاصيل تعطل التطبيق حتى أتمكن من تحديد السبب وإصلاحه.</string>
+    <string name="settings_category_tools_label">الأدوات</string>
+    <string name="settings_category_filter">المرشحات</string>
+    <string name="settings_category_risklevel">مستوى الخطورة</string>
+    <string name="corpsefinder_tool_name">العثور على الملفات المتبقية</string>
+    <string name="corpsefinder_explanation_short">بيانات لتطبيقات قد تم حذفها.</string>
+    <string name="corpsefinder_settings_summary">ضبط عوامل تصفية الفحص ومستويات المخاطر.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">قم بتضمين البقايا المرغوبة</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">الملفات التي قد ترغب في الاحتفاظ بها ، حتى إذا تم إلغاء تثبيت التطبيق ، على سبيل المثال الصور التي التقطتها أو النسخ الاحتياطية التي قمت بإنشائها.</string>
+    <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
+    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء الشائعة جدًا ، على سبيل المثال يمتلك مجلد \"ملاحظات\" عددًا كبيرًا جدًا من التطبيقات غير المعروفة.</string>
+    <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
+    <string name="corpsefinder_watcher_summary">البحث عن البقايا تلقائيًا عند إزالة التطبيق.</string>
+    <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ملفات الوسائط العامة ، على سبيل المثال الملفات المستلمة عبر تطبيقات المراسلة.</string>
+    <string name="corpsefinder_filter_publicobb_label">موارد OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">موارد التطبيق الإضافية ، على سبيل المثال أصول اللعبة.</string>
+    <string name="corpsefinder_filter_publicdata_label">بيانات التطبيق العامة</string>
+    <string name="corpsefinder_filter_publicdata_summary">بيانات التطبيق غير الحساسة ، على سبيل المثال مخابئ الخريطة.</string>
+    <string name="corpsefinder_filter_sdcard_label">بطاقة الذاكرة</string>
+    <string name="corpsefinder_filter_sdcard_summary">التخزين العام ، الداخلي والخارجي (مثل بطاقات SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">بيانات التطبيق الخاصة</string>
+    <string name="corpsefinder_filter_privatedata_summary">بيانات التطبيق الخاص ، على سبيل المثال بيانات الاعتماد وإعدادات التطبيق وأيضًا ذاكرة التخزين المؤقت للمتصفح.</string>
+    <string name="corpsefinder_filter_dalvik_label">مخبأ Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">بيانات تنفيذ التطبيق المخزنة مؤقتًا.</string>
+    <string name="corpsefinder_filter_applib_label">مكتبات التطبيقات</string>
+    <string name="corpsefinder_filter_applib_summary">بيانات المكتبة ذات الصلة بالتطبيق.</string>
+    <string name="corpsefinder_filter_appsource_label">موارد التطبيق</string>
+    <string name="corpsefinder_filter_appsource_summary">بيانات تثبيت التطبيق ، أي أين تذهب ملفات APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">موارد التطبيق الخاصة</string>
+    <string name="corpsefinder_filter_appsource_private_summary">بيانات تثبيت التطبيق المقيدة ، على سبيل المثال تطبيقات الطرف الثالث المحمية.</string>
+    <string name="corpsefinder_filter_appasec_label">موارد التطبيق المشفرة</string>
+    <string name="corpsefinder_filter_appasec_summary">موارد التطبيق المشفرة ، على سبيل المثال أصول اللعبة.</string>
+    <string name="corpsefinder_filter_app2sd_summary">تم نقل البيانات إلى وحدة التخزين الخارجية عن طريق تعديل App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">التطبيق إلى الذاكرة</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="zero">%d تطبيق بقي مكتشفاً</item>
+        <item quantity="one">%d تطبيق بقي مكتشفاً</item>
+        <item quantity="two">%d تطبيقان بقيا مكتشفان</item>
+        <item quantity="few">%d تطبيقات بقيت مكتشفة</item>
+        <item quantity="many">%d تطبيقات بقيت مكتشفة</item>
+        <item quantity="other">%d تطبيقات بقيت مكتشفة</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">حذف كل بقايا التطبيق؟</string>
+    <string name="corpsefinder_owners_label">المالكون</string>
+    <string name="corpsefinder_corpse_hints_label">ملاحظة</string>
+    <string name="corpsefinder_owner_unknown">مالك غير معروف</string>
+    <string name="corpsefinder_corpse_hint_keeper">قد يحتوي هذا العنصر على بيانات تريد الاحتفاظ بها بالرغم من إلغاء تثبيت مالكها ، على سبيل المثال الصور أو النسخ الاحتياطية.</string>
+    <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>
+    <string name="systemcleaner_tool_name">منظف النظام</string>
+    <string name="systemcleaner_explanation_short">تنظيف دقيق للبيانات التي لا تنتمي لأي تطبيق محدد.</string>
+    <string name="systemcleaner_filter_custom_label">مرشح خاص</string>
+    <string name="systemcleaner_filter_custom_manage_label">إدارة المرشح المخصص</string>
+    <string name="systemcleaner_filter_custom_manage_summary">إنشاء وحذف واستيراد وتصدير عوامل التصفية المخصصة الخاصة بك.</string>
+    <string name="systemcleaner_filter_logfiles_label">ملفات السجلات</string>
+    <string name="systemcleaner_filter_logfiles_summary">ملفات السجل (*.log) من جميع أنحاء الجهاز.</string>
+    <string name="systemcleaner_filter_advertisements_label">ملفات الإعلانات</string>
+    <string name="systemcleaner_filter_advertisements_summary">الملفات التي تم إنشاؤها من أجل أو عن طريق الإعلانات.</string>
+    <string name="systemcleaner_filter_anr_label">سجلات الأخطاء</string>
+    <string name="systemcleaner_filter_anr_summary">تتبعات من أحداث \"التطبيق لا يستجيب\".</string>
+    <string name="systemcleaner_filter_emptydirectories_label">مسارات فارغة</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">مسارات فارغة من جميع أنحاء الجهاز. قد تتطلب المسارات المتداخلة تمريرات متعددة.</string>
+    <string name="systemcleaner_filter_superfluosapks_label">ملفات APK زائدة</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ملفات الإعداد الأقدم أو المساوية لإصدارات التطبيق المثبتة بالفعل.</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR مجلدات</string>
+    <string name="systemcleaner_filter_lostdir_summary">الملفات المؤقتة التي يتم إنشاؤها عند نقل البيانات بين أجهزة Android.</string>
+    <string name="systemcleaner_filter_linuxfiles_label">ملفات لينكس</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">ملفات &amp; أمبير ؛ المجلدات التي تم إنشاؤها عند توصيل وحدة التخزين بجهاز كمبيوتر يعمل بنظام التشغيل Linux.</string>
+    <string name="systemcleaner_filter_macfiles_label">ملفات ماك</string>
+    <string name="systemcleaner_filter_macfiles_summary">الملفات و ؛ المجلدات التي تم إنشاؤها عند تصفح التخزين باستخدام تطبيق Apple finder.</string>
+    <string name="systemcleaner_filter_windowsfiles_label">ملفات ويندوز</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"البيانات التي يمكن أن ينشئها مستكشف ملفات Windows على التخزين المتصل. "</string>
+    <string name="systemcleaner_filter_thumbnails_label">صور مصغرة</string>
+    <string name="systemcleaner_filter_thumbnails_summary">المعاينات المخبأة للصور ومقاطع الفيديو.</string>
+    <string name="systemcleaner_filter_tempfiles_label">ملفات مؤقتة</string>
+    <string name="systemcleaner_filter_tempfiles_summary">الملفات المؤقتة ، وعادة ما تكون مخبأة قصيرة الأجل للعمليات النشطة.</string>
+    <string name="systemcleaner_filter_analytics_label">ملفات التحليل</string>
+    <string name="systemcleaner_filter_analytics_summary">البيانات المتعلقة بالتحليلات وتتبع الأخطاء.</string>
+    <string name="systemcleaner_filter_downloadcache_label">تخزين التنزيل المؤقت</string>
+    <string name="systemcleaner_filter_downloadcache_summary">يستخدم مجلد ذاكرة التخزين المؤقت للنظام لأشياء مختلفة (مثل تحديثات OTA).</string>
+    <string name="systemcleaner_filter_localtmp_label">ملفات مؤقتة محلية</string>
+    <string name="systemcleaner_filter_localtmp_summary">الملفات المؤقتة المتعلقة بالنظام (على سبيل المثال من Android Studio).</string>
+    <string name="systemcleaner_filter_datalogger_label">ملفات سجل النظام</string>
+    <string name="systemcleaner_filter_datalogger_summary">ملفات السجل الخاصة بخدمة النظام.</string>
+    <string name="systemcleaner_filter_logdropbox_label">صندوق إسقاط السجل</string>
+    <string name="systemcleaner_filter_logdropbox_summary">مساحة للنظام لإسقاط ملفات السجل فيها.</string>
+    <string name="systemcleaner_filter_recenttasks_label">المهام الأخيرة</string>
+    <string name="systemcleaner_filter_recenttasks_summary">البيانات المتعلقة بسجل المهام في مبدل مهام النظام.</string>
+    <string name="systemcleaner_filter_tombstones_label">أخطاء النظام المتبقية</string>
+    <string name="systemcleaner_filter_tombstones_summary">إذا تعطلت العمليات الأصلية (مثل الألعاب) ، فسيتم إنشاء الملفات هنا.</string>
+    <string name="systemcleaner_filter_usagestats_label">بيانات الاستخدام</string>
+    <string name="systemcleaner_filter_usagestats_summary">الملفات المتعلقة بإحصائيات استخدام التطبيق.</string>
+    <string name="systemcleaner_delete_all_confirmation_message">هل تريد حذف كافة محتويات المرشح؟</string>
+    <string name="appcleaner_tool_name">منظف التطبيقات</string>
+    <string name="appcleaner_explanation_short">بيانات قابلة للاستهلاك تنتمي إلى تطبيقات محددة.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">مخابئ افتراضية عامة</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">ذاكرة التخزين المؤقت للتطبيق العام الافتراضي. يمكن الوصول إليه ضمن Android / البيانات على إصدارات Android الأقدم. يتم حذفه عند النقر على \"مسح ذاكرة التخزين المؤقت\" في إعدادات النظام.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">مخابئ افتراضية خاصة</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">التخزين المؤقت الافتراضي للتطبيق الخاص. يتم حذفه عند النقر على \"مسح ذاكرة التخزين المؤقت\" في إعدادات النظام.</string>
+    <string name="appcleaner_include_systemapps_label">تضمين تطبيقات النظام</string>
+    <string name="appcleaner_include_systemapps_summary">قم بتضمين تطبيقات النظام في الفحص.</string>
+    <string name="appcleaner_include_runningapps_label">تضمين تطبيقات التي تعمل</string>
+    <string name="appcleaner_include_runningapps_summary">قم بتضمين التطبيقات قيد التشغيل حاليًا والتي تسبب تداخلًا.</string>
+    <string name="appcleaner_include_inaccessible_label">قم بتضمين البيانات التي يتعذر الوصول إليها</string>
+    <string name="appcleaner_include_inaccessible_summary">قم بتضمين البيانات التي لا يمكن الوصول إليها مباشرة ولكن يمكن حذفها عبر إعدادات النظام وأتمتة باستخدام خدمة إمكانية الوصول. </string>
+    <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
+    <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
+    <string name="appcleaner_filter_advertisement_label">بيانات الإعلان</string>
+    <string name="appcleaner_filter_advertisement_summary">الملفات المتعلقة بالإعلانات ، على سبيل المثال الوسائط المخزنة مؤقتًا.</string>
+    <string name="appcleaner_filter_bugreporting_label">الإبلاغ عن الأخطاء</string>
+    <string name="appcleaner_filter_bugreporting_summary">البيانات ذات الصلة بالإبلاغ عن الأخطاء ، على سبيل المثال سجلات الخطأ أو تفريغ الأعطال.</string>
+    <string name="appcleaner_filter_analytics_label">التحليلات</string>
+    <string name="appcleaner_filter_analytics_summary">البيانات ذات الصلة بالتحليلات ، على سبيل المثال احصائيات مخبأة لما تنقر عليه في التطبيق.</string>
+    <string name="appcleaner_filter_hiddencaches_label">مخابئ مخفية</string>
+    <string name="appcleaner_filter_hiddencaches_summary">مخابئ الأغراض العامة المخزنة خارج نطاق وصول النظام.</string>
+    <string name="appcleaner_filter_gamefiles_label">ملفات ألعاب</string>
+    <string name="appcleaner_filter_gamefiles_summary">الموارد المتعلقة باللعبة التي ستعيد اللعبة تحميلها عند التشغيل التالي إذا لزم الأمر.</string>
+    <string name="appcleaner_filter_offlinecache_label">ذاكرة التخزين المؤقت غير المتصلة</string>
+    <string name="appcleaner_filter_offlinecache_summary">الملفات المخزنة للاستخدام في وضع عدم الاتصال ، على سبيل المثال بلاط الخرائط.</string>
+    <string name="appcleaner_filter_recyclebins_label">سلال المهملات</string>
+    <string name="appcleaner_filter_recyclebins_summary">الملفات التي تم حذفها ولكن تم وضعها في مجلد خاص للسماح باستعادتها.</string>
+    <string name="appcleaner_filter_webview_label">ملفات عارض الويب</string>
+    <string name="appcleaner_filter_webview_summary">الملفات المخزنة مؤقتًا بواسطة طبعات عرض الويب المستخدمة داخل التطبيقات.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">نسخ وأتساب الاحتياطية</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">احذف النسخ الإضافية من نسخ WhatsApp الاحتياطية واحتفظ بالأحدث فقط.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">ملفات وأتساب المستلمة</string>
+    <string name="appcleaner_filter_whatsapp_received_label">الملفات التي تلقيتها من أي شخص عبر WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من WhatsApp إلى الآخرين.</string>
+    <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
+    <string name="appcleaner_filter_telegram_summary">الملفات التي تم استلامها أو إرسالها عبر Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">الملفات التي تم استلامها عبر Threema.</string>
+    <string name="appcleaner_filter_wechat_label">وي شات</string>
+    <string name="appcleaner_filter_wechat_summary">الملفات المرسلة والمستلمة في المحادثات ولحظات WeChat.</string>
+    <string name="appcleaner_delete_all_confirmation_message">تنظيف كل التطبيقات؟</string>
+    <string name="appcleaner_automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
+    <string name="appcleaner_automation_title">أتمتة منظف التطبيقات</string>
+    <string name="appcleaner_automation_subtitle_default_caches">مسح ذاكرة التخزين المؤقت الافتراضية…</string>
+    <string name="appcleaner_item_caches_inaccessible_title">ذاكرة التخزين المؤقت الافتراضية</string>
+    <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
+    <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
+    <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
+    <string name="appcontrol_tool_name">إدارة التطبيق</string>
+    <string name="appcontrol_explanation_short">التطبيقات المثبتة على جهازك.</string>
+    <string name="appcontrol_toggle_app_enable_action">تفعيل التطبيق</string>
+    <string name="appcontrol_toggle_app_disable_action">تعطيل التطبيق</string>
+    <string name="appcontrol_toggle_app_enable_description">يتيح تمكين التطبيق تشغيله وقد يجعله مرئيًا في المشغل الخاص بك إذا كان به نشاط.</string>
+    <string name="appcontrol_toggle_app_disable_description">يؤدي تعطيل التطبيق إلى منعه من العمل وإخفائه من القوائم. لا يوجد فقدان للبيانات.</string>
+    <string name="appcontrol_appstore_open_title">فتح في متجر التطبيقات</string>
+    <string name="appcontrol_appstore_open_description">افتح هذا التطبيق في متجر التطبيقات الذي تم تثبيته منه.</string>
+    <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
+    <string name="appcontrol_systemsettings_open_description">افتح إعدادات النظام بجهازك لهذا التطبيق.</string>
+    <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
+    <string name="appcontrol_app_launch_description">تشغيل نشاط التطبيق الافتراضي</string>
+    <string name="appcontrol_tag_user">المستخدم</string>
+    <string name="appcontrol_tag_system">النظام</string>
+    <string name="appcontrol_tag_enabled">مفعل</string>
+    <string name="appcontrol_tag_disabled">معطل</string>
+    <string name="appcontrol_progress_enabling_package">تفعيل التطبيق</string>
+    <string name="appcontrol_progress_disabling_package">تعطيل التطبيق</string>
+    <string name="appcontrol_list_filteroptions_label">خيارات المرشح</string>
+    <string name="appcontrol_list_sortmode_name_label">اسم التطبيق</string>
+    <string name="appcontrol_list_sortmode_updated_label">أخز تحديث له في</string>
+    <string name="appcontrol_list_sortmode_installed_label">لول تثبيت له في</string>
+    <string name="appcontrol_list_sortmode_packagename_label">اسم الحُزْمَة</string>
+    <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
+    <string name="data_area_public_storage_label">التخزين العام</string>
+    <string name="data_area_sdcard_label">ذاكرة تخزين خارجية</string>
+    <string name="data_areas_label">مناطق البيانات</string>
+    <string name="data_areas_description">تمثل مناطق البيانات المواقع الموجودة على جهازك والتي يمكن الوصول إليها بواسطة SD Maid. قد تتوفر مناطق بيانات مختلفة بناءً على إصدار Android الخاص بك والأذونات التي تم منحها.</string>
+    <string name="data_areas_short_summary">المناطق التي يمكن لـ SD Maid الوصول إليها بناءً على الأذونات الممنوحة حاليًا.</string>
+    <string name="exclusion_manager_title">مدير الاستبعاد</string>
+    <string name="exclusion_manager_desc">إدارة استثناءات الملفات والتطبيقات.</string>
+    <string name="exclusion_explanation_body1">استبعاد الملفات والتطبيقات من عمليات SD Maid.</string>
+    <string name="exclusion_add_new_hint">أضف استثناءات جديدة عن طريق السماح أولاً لـ SD Maid بالبحث ثم استخدام قائمة السياق في النتيجة التي تريد استبعادها.</string>
+    <string name="exclusion_type_package">التطبيقات المستثناة</string>
+    <string name="exclusion_type_path">المسارات المستثناة</string>
+    <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
+    <string name="automation_active_title">SD Maid يعمل</string>
+    <string name="automation_error_no_consent_title">خطأ في الأتمتة</string>
+    <string name="automation_error_no_consent_body">لم يتم إعداد خدمة الوصول. أكمل الإعداد وامنح الموافقة.</string>
+    <string name="automation_error_not_enabled_title">الخدمة غير ممكّنة</string>
+    <string name="automation_error_not_enabled_body">خدمة الوصول معطلة. قم بتشغيله مرة أخرى.</string>
+    <string name="automation_error_not_running_title">الخدمة لا تعمل</string>
+    <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
+    <string name="history_label">السجل</string>
+    <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
+    <string name="scheduler_label">الجدولة</string>
+    <string name="scheduler_execution_label">التنفيذ التالي(تقريبي)</string>
+    <string name="scheduler_execution_last_label">اخر تنفيذ</string>
+    <string name="scheduler_settings_label">الجدولة</string>
+    <string name="scheduler_settings_summary">اضبط الإعدادات ذات الصلة بالجدول الزمني.</string>
+    <string name="scheduler_new_schedule_action">إنشاء جدول زمني</string>
+    <string name="scheduler_schedule_name_label">اسم الجدول</string>
+    <string name="scheduler_schedule_toggle_enabled">الجدول ممكن</string>
+    <string name="scheduler_schedule_toggle_disabled">الجدول معطل</string>
+    <string name="scheduler_edit_schedule_action">تعديل الجدول</string>
+    <string name="scheduler_schedule_time_label">وقت تقريبي</string>
+    <string name="scheduler_schedule_repeat_label">كرر الفاصل في أيام</string>
+    <string name="scheduler_schedule_default_name">الجدول الزمني الافتراضي</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s في %2$s</string>
+    <string name="scheduler_schedule_next_at_x">مجدول لـ %s</string>
+    <string name="scheduler_schedule_last_at_x">أخز تنفيذ له في %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="zero">يومي</item>
+        <item quantity="one">يوميا</item>
+        <item quantity="two">كل يومين</item>
+        <item quantity="few">بعض الايام</item>
+        <item quantity="many">كل %d ايام</item>
+        <item quantity="other">كل %d ايام</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">كرر الفاصل في أيام</string>
+    <string name="scheduler_inaccurate_execution_hint">أوقات التنفيذ المتوقعة تقريبية. قد تتأخر الجداول الزمنية أو تسريعها إذا كان ذلك يحافظ على البطارية.</string>
+    <string name="scheduler_no_active_schedules_subtitle">لايوجد جدول زمني فعال</string>
+    <string name="scheduler_setting_nopowersaving_title">تخط في حالة البطارية ضعيفة</string>
+    <string name="scheduler_setting_nopowersaving_summary">إذا كان الهاتف في وضع توفير الطاقة ، فسيتم تخطي التنفيذ المجدول.</string>
+    <string name="updates_dashcard_title">تحديث متاح</string>
+    <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
+    <string name="translation_encourage_title">ترجمة SD Maid</string>
+    <string name="translation_encourage_body">SD Maid تمت ترجمته بواسطة متطوعين. الترجمة أو المراجعة أو التدقيق اللغوي ، نقدر مساعدتك!</string>
+    <string name="translation_translators_title">تمت ترجمة هذا الإصدار بواسطة</string>
+    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Rex_sa</string>
+</resources>

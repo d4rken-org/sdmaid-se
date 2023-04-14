@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_click_hint">บางรายการสามารถคลิกเพื่อดูรายละเอียด</string>
+    <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
+    <string name="dashboard_settings_category">แดชบอร์ด</string>
+    <string name="dashboard_settings_oneclick_title">โหมดคลิกครั้งเดียว</string>
+    <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
+    <string name="debug_debuglog_size_label">ขนาด</string>
+    <string name="debug_debuglog_size_compressed_label">ขนาดที่ถูกบีบอัด</string>
+    <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
+    <string name="debug_debuglog_file_label">บันทึกล็อกไฟล์แล้ว</string>
+    <string name="debug_debuglog_record_action">บันทึกล็อกการดีบัค</string>
+    <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่เพิ่งสร้างมีข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น</string>
+    <string name="settings_debuglog_explanation">ฟีเจอร์นี้จะบันทึกการทำงานทุกอย่างของแอพลงในไฟล์ที่แชร์ได้ ซึ่งจะประกอบด้วยข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น (เช่น ส่งให้นักพัฒนาโปรแกรมเพื่อแก้ไขปัญหา)</string>
+    <string name="tasks_activity_notification_channel_label">งานที่กำลังทำ</string>
+    <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">%d งาน</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">%d งานอยู่ในคิว</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">ผลงาน</string>
+    <string name="tasks_result_subtext">ผลงาน</string>
+    <string name="onboarding_welcome_title">ยินดีต้อนรับ</string>
+    <string name="onboarding_welcome_body1">SD Maid SE เป็นแอพจัดการไฟล์, แอพ, และพื้นที่จัดเก็บในอุปกรณ์</string>
+    <string name="onboarding_welcome_body2">เพิ่มพื้นที่จัดเก็บโดยล้างไฟล์ขยะในแอพต่างๆ และลบไฟล์ตกค้าง</string>
+    <string name="onboarding_welcome_body_beta">แอพนี้เป็นรุ่นเบต้า (รุ่นทดลอง) โปรดสำรองข้อมูลและใช้ด้วยความระมัดระวัง โปรดแจ้งเมื่อพบปัญหาในการใช้งาน</string>
+    <string name="onboarding_welcome_continue_action">ไปต่อ</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (หรือ SD Maid 2) คือโปรแกรมต่อยอดจาก SD Maid แต่ปรับปรุงและแปลงโฉมเพื่อแอนดรอยด์รุ่นใหม่</string>
+    <string name="onboarding_versus_body2">โปรแกรมรุ่นก่อนมีอายุมากกว่า 7 ปีแล้วและไม่ได้ถูกออกแบบมาสำหรับแอนดรอยด์รุ่นใหม่ๆ ดังนั้น เพื่อให้มีการพัฒนาต่อไปจึงต้องปรับโฉมใหม่ทั้งหมด</string>
+    <string name="onboarding_versus_body3">พิจารณาเปลี่ยนมาใช้ SD Maid SE เพื่อผลลัพธ์ที่ดีกว่า</string>
+    <string name="onboarding_versus_continue_action">ไปต่อ</string>
+    <string name="onboarding_privacy_title">ความเป็นส่วนตัว</string>
+    <string name="onboarding_privacy_body1">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลของผู้ใช้</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">จะมีการส่งรายงานข้อผิดพลาดเมื่อพบปัญหาการใช้งานซึ่งอาจมีข้อมูลเกี่ยวกับแอพและไฟล์ในอุปกรณ์ของคุณ รายงานดังกล่าวช่วยผมแก้ไขปัญหาและพัฒนาแอพต่อไปได้</string>
+    <string name="onboarding_privacy_bugreport_toggle">ส่งรายงานข้อผิดพลาดโดยอัตโนมัติ</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">ตัวเลือกนี้สามารถเปลี่ยนได้ในการตั้งค่า</string>
+    <string name="onboarding_privacy_continue_action">ไปต่อ</string>
+    <string name="onboarding_setup_title">ตั้งค่า</string>
+    <string name="onboarding_setup_body1">SD Maid จะค้นหาในพื้นที่ทั้งหมดที่เข้าถึงได้</string>
+    <string name="onboarding_setup_body2">แอพจะเข้าถึงได้มากแค่ไหนขึ้นอยู่กับอุปกรณ์ของคุณ, เวอร์ชันของแอนดรอยด์ และการอนุญาตที่ได้รับ</string>
+    <string name="onboarding_setup_body3">เริ่มต้นใช้งาน SD Maid โดยอนุญาตให้แอพเข้าถึงพื้นที่ที่ต้องทำการค้นหา</string>
+    <string name="onboarding_setup_continue_action">ตั้งค่าการเข้าถึง</string>
+    <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
+</resources>
