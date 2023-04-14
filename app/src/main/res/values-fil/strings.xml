@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="debug_debuglog_sensitive_information_message">Yung File na nagawa ay may nilalaman na sensitibo na impormasyon (halimbawa, mga pangalan ng files at mga aplikasyon na naka installed). Ibahagi lang ang file na nagawa sa pag kakatiwalaan na tao/partido.</string>
+    <string name="tasks_result_notification_channel_label">Mga Resulta ng Gawain</string>
+    <string name="tasks_result_subtext">Resulta ng gawain</string>
+    <string name="onboarding_welcome_continue_action">Pagpatuloy</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body3">Konsidarang lumipat sa SD Maid SE para sa napabuting resulta.</string>
+    <string name="onboarding_versus_continue_action">Pagpatuloy</string>
+    <string name="onboarding_privacy_body1">Ang SD Maid ay walang patalastas at hindi nag bebenta ng datos ng mga gumagamit neto.</string>
+    <string name="onboarding_privacy_continue_action">Pagpatuloy</string>
+    <string name="onboarding_setup_body1">Hahanapin ng SD Maid ang lahat ng naa-access na lugar (storage) ng data.</string>
+    <string name="onboarding_setup_body2">Ang naa-access ay depende sa iyong telepono, bersyon ng Android at mga ibinigay na pahintulot.</string>
+    <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
+    <string name="settings_licenses_label">Mga Lisensya</string>
+    <string name="settings_category_other_label">Iba</string>
+    <string name="ui_theme_setting_label">Tema</string>
+    <string name="ui_theme_dark_label">Itim</string>
+    <string name="ui_theme_light_label">Maliwanag</string>
+    <string name="settings_support_label">Suporta</string>
+    <string name="issue_tracker_label">Issue tracker</string>
+    <string name="support_installid_label">Install ID</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Lugar kung saan makipag usap at mag tanong.</string>
+</resources>

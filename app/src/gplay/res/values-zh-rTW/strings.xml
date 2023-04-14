@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD 女僕 SE 專業版</string>
+    <string name="app_name_upgrade_postfix">專業版</string>
+    <string name="upgrade_feature_requires_pro">需要 SD 女僕 SE 專業版</string>
+    <string name="upgrades_dashcard_title">升級 SD 女僕</string>
+    <string name="upgrades_dashcard_body">SD 女僕專業版提供更佳的結果、更多的功能和選項，適用於進階使用者。</string>
+    <string name="upgrades_dashcard_upgrade_action">升級</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play 服務無法使用。</string>
+    <string name="upgrades_no_purchases_found_check_account">找不到購買，您正在使用正確的帳戶嗎？</string>
+    <string name="upgrade_screen_title">取得 SD 女僕 SE 專業版</string>
+    <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。我的工作由你們資助。</string>
+    <string name="upgrade_screen_benefits_title">優點</string>
+    <string name="upgrade_screen_benefits_body">• 應用程式清理 💯\n• 排程作業 ⏰\n• 所有工具的額外選項 ⚙️\n• 您的專屬刪除規則 ✍️\n• 一位積極的開發人員 🧙\n以及更多…</string>
+    <string name="upgrade_screen_how_title">選項</string>
+    <string name="upgrade_screen_how_body">您有兩個選項：一次購買或更便宜的年度訂閱。訂閱有一次免費試用，您得到的功能將是相同的，只是付款方式不同。</string>
+    <string name="upgrade_screen_subscription_trial_action">開始免費試用</string>
+    <string name="upgrade_screen_subscription_action">訂閱</string>
+    <string name="upgrade_screen_subscription_action_hint">訂閱費用為 %s 每年。</string>
+    <string name="upgrade_screen_iap_action">一次購買</string>
+    <string name="upgrade_screen_iap_action_hint">一次購買的費用為 %s。</string>
+    <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
+    <string name="nudge_betagoodbye_title">SD 女僕 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">我們一起做到了初次發行！感謝您對我的協助！當然，開發將繼續進行，但您現在可以切換至更穩定的組建，如果可以的話。透過在 Google Play 上選取退出測試來做到這一點。</string>
+    <string name="nudge_betagoodbye_hint">小附註：測試期間給出的評分只有我自己能看到，如果您樂意能給 SD 女僕一個公開的評分的話，我會很感激。</string>
+    <string name="nudge_betagoodbye_positive_action">退出</string>
+    <string name="nudge_betagoodbye_negative_action">繼續測試</string>
+</resources>

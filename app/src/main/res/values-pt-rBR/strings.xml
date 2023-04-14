@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_click_hint">Algumas entradas podem ser clicadas para ver mais detalhes.</string>
+    <string name="dashboard_delete_all_message">Excluir resultados em todas as ferramentas?</string>
+    <string name="dashboard_settings_category">Painel</string>
+    <string name="dashboard_settings_oneclick_title">Modo de um clique</string>
+    <string name="dashboard_settings_oneclick_summary">Inicie a verificação e exclusão de todas as ferramentas com um clique no botão de ação do painel, sem confirmações extras.</string>
+    <string name="debug_debuglog_size_label">Tamanho</string>
+    <string name="debug_debuglog_size_compressed_label">Tamanho compactado</string>
+    <string name="debug_notification_channel_label">Notificações de depuração</string>
+    <string name="debug_debuglog_file_label">Arquivo de log gravado</string>
+    <string name="debug_debuglog_record_action">Gravar log de depuração</string>
+    <string name="debug_debuglog_sensitive_information_message">O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com pessoas confiáveis.</string>
+    <string name="settings_debuglog_explanation">Esse recurso registra tudo o que o aplicativo está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com partes confiáveis ​​(por exemplo, um desenvolvedor que está solucionando um problema).</string>
+    <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
+    <string name="tasks_activity_working_notification_title">SD Maid está trabalhando</string>
+    <string name="tasks_result_notification_channel_label">Resultados das tarefas</string>
+    <string name="tasks_result_subtext">Resultado da tarefa</string>
+    <string name="onboarding_welcome_title">Bem-vindo</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, apps e armazenamento.</string>
+    <string name="onboarding_welcome_body_beta">Esta é uma compilação beta (teste). Prossiga com senso de humor e um plano B. Relate os problemas que encontrar.</string>
+    <string name="onboarding_welcome_continue_action">Continuar</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (também conhecido como SD Maid 2) é o sucessor do SD Maid. Um novo aplicativo, otimizado para o Android moderno.</string>
+    <string name="onboarding_versus_body2">A arquitetura de seu antecessor tem mais de 7 anos e não foi projetada para os desafios das versões mais recentes do Android. Um redesenho completo foi necessário para continuar o desenvolvimento.</string>
+    <string name="onboarding_versus_body3">Considere mudar para SD Maid SE para melhores resultados.</string>
+    <string name="onboarding_versus_continue_action">Continuar</string>
+    <string name="onboarding_privacy_title">Privacidade</string>
+    <string name="onboarding_privacy_body1">O SD Maid não tem anúncios e não vende dados do usuário.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Permitir relatórios automáticos de bugs</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Estas opções podem ser alteradas nas configurações.</string>
+    <string name="onboarding_privacy_continue_action">Continuar</string>
+    <string name="onboarding_setup_title">Configurar</string>
+    <string name="onboarding_setup_body1">SD Maid irá buscar em todas as áreas de dados acessíveis.</string>
+    <string name="onboarding_setup_continue_action">Configurar acesso</string>
+    <string name="settings_privacy_policy_label">Política de privacidade</string>
+    <string name="settings_privacy_policy_desc">Manipulação responsável dos dados.</string>
+    <string name="settings_licenses_label">Licenças</string>
+    <string name="settings_category_other_label">Outros</string>
+    <string name="settings_category_filter_generic">Filtro genérico</string>
+    <string name="settings_category_filter_specific">Filtro específico</string>
+    <string name="settings_sponsor_development_title">Patrocinador do desenvolvimento</string>
+    <string name="settings_sponsor_development_summary">Seja um apoiador e torne possível o desenvolvimento contínuo.</string>
+    <string name="general_settings_label">Gerais</string>
+    <string name="settings_category_ui_label">Interface de usuário</string>
+    <string name="ui_theme_setting_label">Tema</string>
+    <string name="ui_theme_dark_label">Escuro</string>
+    <string name="ui_theme_light_label">Claro</string>
+    <string name="ui_theme_system_label">Sistema</string>
+    <string name="settings_support_label">Suporte</string>
+    <string name="documentation_label">Documentação</string>
+    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Natanaelrj(natanael.caetano@gmail.com)</string>
+</resources>

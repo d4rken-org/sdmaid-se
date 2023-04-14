@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Este necesar SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Actualizează SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro oferă rezultate mai bune, mai multe funcții și opțiuni pentru utilizatorii de putere.</string>
+    <string name="upgrades_dashcard_upgrade_action">Actualizează</string>
+    <string name="upgrades_gplay_unavailable_error">Serviciile Google Play nu sunt disponibile.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nu s-a găsit nicio achiziție. Ești sigur că folosești contul corect?</string>
+    <string name="upgrade_screen_title">Obține SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>
+    <string name="upgrade_screen_benefits_title">Avantaje</string>
+    <string name="upgrade_screen_benefits_body">• Curățare Aplicații 💯\n• Programator Operații ⏰\n• Opțiuni extra pentru toate opțiunile ⚙️\n• Regulile tale pentru ștergere ✍️\n• Un dezvoltator motivat 🧙\nși multe altele...</string>
+    <string name="upgrade_screen_how_title">Opțiuni</string>
+    <string name="upgrade_screen_how_body">Ai 2 opțiuni: O achiziție unică sau un abonament ieftin pe an. Abonamentul are o încercare gratuită. Funcțiile pe care le obții sunt la fel, doar metodele de plată diferă.</string>
+    <string name="upgrade_screen_subscription_trial_action">Începe încercarea gratuită</string>
+    <string name="upgrade_screen_subscription_action">Abonează-te</string>
+    <string name="upgrade_screen_subscription_action_hint">Abonamentul costă %s pe an.</string>
+    <string name="upgrade_screen_iap_action">Achiziție unică</string>
+    <string name="upgrade_screen_iap_action_hint">Achiziția unică costă %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ești cel mai bun! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Împreună, am putut să facem prima lansare! Mulțumesc pentru că m-ai ajutat. Dezvoltarea va continua bineînțeles, dar acum pot să treci pe mai multe construcții stabile, dacă dorești să faci asta. Fă asta prin renunțarea la testare în Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Mică notă: Evaluările primite în timpul testelor sunt vizibili numai mie. Apreciez dacă pot să îi dai SD Maid o evaluare publică dacă ești fericit.</string>
+    <string name="nudge_betagoodbye_positive_action">Renunță</string>
+    <string name="nudge_betagoodbye_negative_action">Continuă testarea</string>
+</resources>

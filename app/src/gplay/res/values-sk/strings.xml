@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Vyžaduje SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Inovujte SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ponúka lepšie výsledky, viac funkcií a možností pre náročných používateľov.</string>
+    <string name="upgrades_dashcard_upgrade_action">Inovovať</string>
+    <string name="upgrades_gplay_unavailable_error">Služby Google Play nie sú k dispozícii.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nenašli sa žiadne nákupy. Používate správny účet?</string>
+    <string name="upgrade_screen_title">Získajte SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje. Moja práca je financovaná vami.</string>
+    <string name="upgrade_screen_benefits_title">Výhody</string>
+    <string name="upgrade_screen_benefits_body">• Čistenie aplikácií 💯\n• Plánované operácie ⏰\n• Ďalšie možnosti pre všetky nástroje ⚙️\n• Vaše vlastné pravidlá odstraňovania ✍️\n• Motivovaný vývojár 🧙\na ďalšie…</string>
+    <string name="upgrade_screen_how_title">Možnosti</string>
+    <string name="upgrade_screen_how_body">Máte 2 možnosti: Jednorazový nákup alebo lacnejšie ročné predplatné. Predplatné má bezplatnú skúšobnú verziu. Funkcie, ktoré získate, sú rovnaké, líšia sa len spôsoby platby.</string>
+    <string name="upgrade_screen_subscription_trial_action">Vyskúšajte zadarmo</string>
+    <string name="upgrade_screen_subscription_action">Predplatiť</string>
+    <string name="upgrade_screen_subscription_action_hint">Predplatné stojí %s ročne.</string>
+    <string name="upgrade_screen_iap_action">Jednorazový nákup</string>
+    <string name="upgrade_screen_iap_action_hint">Jednorazový nákup stojí %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ste najlepší! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Spoločne sme sa dostali do prvého vydania! Ďakujem, že mi pomáhate! Vývoj bude samozrejme pokračovať, ale ak chcete, teraz môžete prejsť na stabilnejšie zostavy. Urobte to tak, že sa odhlásite z testovania v službe Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Malá poznámka: Hodnotenia udelené počas testovania sú viditeľné iba pre mňa, ocenil by som, keby ste SD Maid mohli udeliť verejné hodnotenie, ak ste spokojní.</string>
+    <string name="nudge_betagoodbye_positive_action">Odhlásiť sa</string>
+    <string name="nudge_betagoodbye_negative_action">Pokračujte v testovaní</string>
+</resources>

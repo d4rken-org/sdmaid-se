@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Proが必要です</string>
+    <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
+    <string name="upgrades_dashcard_body">開発を続けるためパトロンになって追加機能を解除してください</string>
+    <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
+    <string name="upgrade_screen_title">SD Maidを更新中</string>
+    <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
+</resources>

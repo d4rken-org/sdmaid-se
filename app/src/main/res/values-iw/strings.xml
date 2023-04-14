@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="debug_debuglog_size_label">גודל</string>
+    <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
+    <string name="debug_notification_channel_label">התראות דיבג</string>
+    <string name="onboarding_welcome_title">ברוכים הבאים</string>
+    <string name="onboarding_welcome_continue_action">המשך</string>
+    <string name="onboarding_privacy_title">פרטיות</string>
+    <string name="settings_licenses_label">רשיונות</string>
+    <string name="settings_category_other_label">אחר</string>
+    <string name="general_settings_label">כללי</string>
+    <string name="ui_theme_setting_label">ערכת נושא</string>
+    <string name="ui_theme_dark_label">כהה</string>
+    <string name="ui_theme_light_label">בהיר</string>
+    <string name="ui_theme_system_label">מערכת</string>
+    <string name="settings_support_label">תמיכה</string>
+    <string name="discord_label">דיסקורד</string>
+    <string name="changelog_label">רשימת שינויים</string>
+    <string name="settings_acknowledgements_label">תודות</string>
+    <string name="setup_root_card_title">הרשאות רוט</string>
+    <string name="setup_root_enable_root_use_label">השתמש בהרשאות רוט אם אפשרי</string>
+    <string name="setup_root_disable_root_use_label">אל תשתמש בהרשאות רוט</string>
+    <string name="setup_notification_title">התראות</string>
+    <string name="settings_category_tools_label">כלים</string>
+    <string name="settings_category_filter">סינון</string>
+    <string name="systemcleaner_filter_linuxfiles_label">קבצי לינוקס</string>
+    <string name="systemcleaner_filter_macfiles_label">קבצי מאק</string>
+    <string name="systemcleaner_filter_windowsfiles_label">קבצי ווינדוס</string>
+    <string name="appcleaner_filter_telegram_label">קבצי מדיה של טלגרם</string>
+    <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
+    <string name="appcontrol_tag_user">משתמש</string>
+    <string name="appcontrol_tag_system">מערכת</string>
+    <string name="appcontrol_tag_enabled">פועל</string>
+    <string name="appcontrol_tag_disabled">מושבת</string>
+    <string name="appcontrol_progress_enabling_package">מפעיל אפליקציה</string>
+    <string name="appcontrol_progress_disabling_package">משבית אפליקציה</string>
+    <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>
+    <string name="updates_dashcard_title">קיים עדכון</string>
+    <string name="translation_encourage_title">תרגם את SD Maid</string>
+    <string name="translation_translators_title">המתגרמים של גרסה זו</string>
+</resources>

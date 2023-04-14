@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Requer SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Atualizar SD Maid</string>
+    <string name="upgrades_dashcard_body">Desbloqueie recursos adicionais e torne-se um patrono para apoiar o desenvolvimento contínuo!</string>
+    <string name="upgrades_dashcard_upgrade_action">Atualizar</string>
+    <string name="upgrade_screen_title">Melhorar SD Maid</string>
+    <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados do usuário. O desenvolvimento contínuo só é possível por você.</string>
+    <string name="upgrade_screen_how_title">Como ajudar</string>
+    <string name="upgrade_screen_how_body">Torne-se um patrono e patrocine o desenvolvimento! Clique no botão abaixo para ativar todos os recursos extras e abrir meu perfil Github Sponsors.</string>
+    <string name="upgrade_screen_why_title">Isso evoca 🪄</string>
+    <string name="upgrade_screen_why_body">Funcionalidade de exclusão do AppCleaner 💯\n• Operações agendadas ⏰\n• Opções extras para todas as ferramentas ⚙️\n• Suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
+    <string name="upgrade_screen_sponsor_action">Desenvolvimento do patrocinador</string>
+    <string name="upgrade_screen_sponsor_action_hint">A alternativa são anúncios, análises e Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Obrigado por apoiar o desenvolvimento de código aberto ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Juntos, chegamos ao primeiro lançamento! Obrigado por me ajudar a testar! É claro que o desenvolvimento continuará, mas agora você pode mudar para versões não beta. Faça isso baixando a versão estável mais recente.</string>
+    <string name="nudge_betagoodbye_hint">Nota pequena: as avaliações dadas durante o teste são visíveis apenas para mim, agradeceria se você pudesse dar uma classificação pública ao SD Maid se estiver satisfeito.</string>
+    <string name="nudge_betagoodbye_positive_action">Desativar</string>
+    <string name="nudge_betagoodbye_negative_action">Continue testando</string>
+</resources>

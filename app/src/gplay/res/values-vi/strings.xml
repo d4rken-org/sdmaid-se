@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Yêu cầu SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Nâng cấp SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro cung cấp kết quả tốt hơn, nhiều tính năng và tùy chọn hơn cho người dùng thành thạo.</string>
+    <string name="upgrades_dashcard_upgrade_action">Nâng cấp</string>
+    <string name="upgrades_gplay_unavailable_error">Dịch vụ Google Play không khả dụng.</string>
+    <string name="upgrades_no_purchases_found_check_account">Không tìm thấy giao dịch nào. Bạn có đang sử dụng đúng tài khoản không?</string>
+    <string name="upgrade_screen_title">Nhận SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn.</string>
+    <string name="upgrade_screen_benefits_title">Lợi thế</string>
+    <string name="upgrade_screen_benefits_body">• Dọn dẹp ứng dụng 💯\n• Hoạt động theo lịch trình ⏰\n• Tùy chọn bổ sung cho tất cả các công cụ ⚙️\n• Quy tắc xóa của riêng bạn ✍️\n• Một nhà phát triển năng động 🧙\nvà hơn thế nữa…</string>
+    <string name="upgrade_screen_how_title">Tùy chọn</string>
+    <string name="upgrade_screen_how_body">Bạn có 2 lựa chọn: Mua một lần hoặc đăng ký hàng năm rẻ hơn. Đăng ký có bản dùng thử miễn phí. Các tính năng bạn nhận được là như nhau, chỉ khác phương thức thanh toán.</string>
+    <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử miễn phí</string>
+    <string name="upgrade_screen_subscription_action">Đăng ký</string>
+    <string name="upgrade_screen_subscription_action_hint">Chi phí đăng ký %s mỗi năm.</string>
+    <string name="upgrade_screen_iap_action">Thanh toán một lần</string>
+    <string name="upgrade_screen_iap_action_hint">Chi phí mua một lần là %s.</string>
+    <string name="upgrade_screen_thanks_toast">Bạn là nhất! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Cùng nhau, chúng tôi đã làm cho nó phát hành đầu tiên! Cảm ơn vì đã giúp tôi! Quá trình phát triển tất nhiên sẽ tiếp tục, nhưng giờ đây bạn có thể chuyển sang các bản dựng ổn định hơn nếu muốn. Thực hiện việc này bằng cách chọn không tham gia thử nghiệm trên Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Lưu ý nhỏ: Xếp hạng được đưa ra trong quá trình thử nghiệm chỉ hiển thị với tôi, tôi sẽ đánh giá cao nếu bạn có thể xếp hạng SD Maid công khai nếu bạn hài lòng.</string>
+    <string name="nudge_betagoodbye_positive_action">Chọn không tham gia</string>
+    <string name="nudge_betagoodbye_negative_action">Tiếp tục thử nghiệm</string>
+</resources>

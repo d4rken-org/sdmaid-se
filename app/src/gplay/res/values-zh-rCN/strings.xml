@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upgrade_screen_how_title">选项</string>
+    <string name="upgrade_screen_how_body">您有 2 种选择：一次性购买或较便宜的按年订阅。订阅包含免费试用。您得到的功能是一样的，只不过支付方式不同。</string>
+    <string name="upgrade_screen_subscription_trial_action">开始免费试用</string>
+    <string name="upgrade_screen_subscription_action">订阅</string>
+    <string name="upgrade_screen_subscription_action_hint">每年的订阅费用为 %s。</string>
+    <string name="upgrade_screen_iap_action">一次性购买</string>
+    <string name="upgrade_screen_iap_action_hint">一次性购买费用为 %s。</string>
+    <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+</resources>

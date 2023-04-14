@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Actualització de l\'SD Maid</string>
+    <string name="upgrades_dashcard_body">L\'SD Maid Pro ofereix millors resultats, més funcions i opcions per als usuaris més avançats.</string>
+    <string name="upgrades_dashcard_upgrade_action">Actualitza</string>
+    <string name="upgrades_gplay_unavailable_error">Els serveis del Google Play no estan disponibles.</string>
+    <string name="upgrades_no_purchases_found_check_account">No s\'han trobat compres. Esteu utilitzant el compte correcte?</string>
+    <string name="upgrade_screen_title">Obtén l\'SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven les dades d\'usuari. El meu treball està finançat per vosaltres.</string>
+    <string name="upgrade_screen_benefits_title">Avantatges</string>
+    <string name="upgrade_screen_benefits_body">• Neteja d\'aplicacions 💯\n• Operacions programades ⏰\n• Opcions extres per a totes les eines ⚙️\n• Les vostres pròpies regles d\'eliminació ✍️\n• Un desenvolupador motivat 🧙\ni molt més…</string>
+    <string name="upgrade_screen_how_title">Opcions</string>
+    <string name="upgrade_screen_how_body">Teniu 2 opcions: una compra única o una subscripció anual més econòmica. La subscripció té una prova gratuïta. Les funcions que obteniu són les mateixes, només els mètodes de pagament són diferents.</string>
+    <string name="upgrade_screen_subscription_trial_action">Inicia la prova gratuïta</string>
+    <string name="upgrade_screen_subscription_action">Subscripció</string>
+    <string name="upgrade_screen_subscription_action_hint">El preu de la subscripció és de %s anuals.</string>
+    <string name="upgrade_screen_iap_action">Compra única</string>
+    <string name="upgrade_screen_iap_action_hint">El preu de la compra única és de %s.</string>
+    <string name="upgrade_screen_thanks_toast">Sou el millor! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Junts, vam arribar a la primera versió! Gràcies per ajudar-me! Per descomptat, el desenvolupament continuarà, però ara podeu canviar a versions més estables, si voleu. Feu-ho desactivant la prova al Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Petita nota: les puntuacions donades durant les proves només són visibles per a mi, us agrairia que pugueu donar una puntuació pública a l\'SD Maid si esteu content.</string>
+    <string name="nudge_betagoodbye_positive_action">Desactiva</string>
+    <string name="nudge_betagoodbye_negative_action">Continua amb la beta</string>
+</resources>

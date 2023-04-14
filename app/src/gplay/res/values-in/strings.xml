@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Membutuhkan SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan pilihan untuk pengguna mahir.</string>
+    <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
+    <string name="upgrades_gplay_unavailable_error">Layanan Google Play sedang tidak tersedia.</string>
+    <string name="upgrades_no_purchases_found_check_account">Pembelian tidak ditemukan. Apakah Anda menggunakan akun yang benar?</string>
+    <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda.</string>
+    <string name="upgrade_screen_benefits_title">Kelebihan</string>
+    <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Pekerjaan yang dijadwalkan⏰\n• Pilihan tambahan untuk semua perangkat ⚙️\n• Aturan penghapusan buatan sendiri ✍️\n• Pengembang termotivasi 🧙\ndan lebih banyak lagi…</string>
+    <string name="upgrade_screen_how_title">Pilihan</string>
+    <string name="upgrade_screen_how_body">Anda punya 2 pilihan: Bayar satu kali atau langganan tahunan yang lebih murah. Langganannya punya masa coba gratis. Fitur-fitur yang Anda dapatkan sama, hanya metode pembayarannya saja yang berbeda.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis</string>
+    <string name="upgrade_screen_subscription_action">Berlangganan</string>
+    <string name="upgrade_screen_subscription_action_hint">Langganan harganya %s per tahun.</string>
+    <string name="upgrade_screen_iap_action">Sekali bayar</string>
+    <string name="upgrade_screen_iap_action_hint">Sekali bayar harganya %s.</string>
+    <string name="upgrade_screen_thanks_toast">Terbaik! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Bersama, kita telah mencapai peluncuran pertama! Terima kasih karena telah membantu saya! Pengembangannya pasti akan terus berlanjut, tetapi Anda sekarang bisa memakai versi yang lebih stabil kalau Anda mau. Kamu bisa melakukannya dengan keluar dari pengujian di Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Catatan kecil: Penilaian yang diberikan saat pengujian hanya dapat dilihat saya, saya akan sangat mengapresiasi jika Anda memberikan penilaian publik kepada SD Maid kalau Anda menyukainya.</string>
+    <string name="nudge_betagoodbye_positive_action">Pilih keluar</string>
+    <string name="nudge_betagoodbye_negative_action">Teruslah menguji</string>
+</resources>
