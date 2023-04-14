@@ -20,7 +20,8 @@ class PathExclusionVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        primary.text = item.exclusion.path.userReadablePath.get(context)
+        val excl = item.exclusion
+        primary.text = excl.path.userReadablePath.get(context)
         secondary.text = getString(R.string.exclusion_type_path)
 
         root.setOnClickListener { item.onItemClick(item) }
