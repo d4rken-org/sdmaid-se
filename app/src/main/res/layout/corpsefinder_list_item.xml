@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
-        tools:text="/storage/emulated/0/Android/data" />
+        tools:text="/storage/emulated/0/Android/data/eu.darken.sdmse" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tertiary"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/secondary"
         tools:text="This item is flagged as KEEPER, you may want to keep it."
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/area_info"

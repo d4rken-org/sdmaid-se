@@ -52,6 +52,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import kotlinx.coroutines.flow.*
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -83,38 +84,48 @@ class DashboardFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<DashboardEvents>()
 
-    private val updateInfo: Flow<UpdateCardVH.Item?> = flow {
-        try {
-            val currentChannel = updateChecker.currentChannel()
-            val update = updateChecker.getLatest(currentChannel)
+    private val updateCheckTrigger = MutableStateFlow(UUID.randomUUID())
+    private val updateInfo: Flow<UpdateCardVH.Item?> = updateCheckTrigger
+        .map {
+            try {
+                val currentChannel = updateChecker.currentChannel()
+                val update = updateChecker.getLatest(currentChannel)
 
-            if (update == null) {
-                log(TAG) { "No update available: ($currentChannel)" }
-                emit(null)
-                return@flow
-            }
-
-            if (!update.isNewer()) {
-                log(TAG) { "Latest update isn't newer: $update" }
-                emit(null)
-                return@flow
-            }
-
-            val info = UpdateCardVH.Item(
-                update = update,
-                onViewUpdate = {
-                    launch { updateChecker.viewUpdate(update) }
-                },
-                onUpdate = {
-                    launch { updateChecker.startUpdate(update) }
+                if (update == null) {
+                    log(TAG) { "No update available: ($currentChannel)" }
+                    return@map null
                 }
-            )
-            emit(info)
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Update check failed: ${e.asLog()}" }
-            emit(null)
+
+                if (!update.isNewer()) {
+                    log(TAG) { "Latest update isn't newer: $update" }
+                    return@map null
+                }
+
+                if (updateChecker.isDismissed(update)) {
+                    log(TAG) { "Update was previously dismissed: $update" }
+                    return@map null
+                }
+
+                return@map UpdateCardVH.Item(
+                    update = update,
+                    onDismiss = {
+                        launch {
+                            updateChecker.dismissUpdate(update)
+                            updateCheckTrigger.value = UUID.randomUUID()
+                        }
+                    },
+                    onViewUpdate = {
+                        launch { updateChecker.viewUpdate(update) }
+                    },
+                    onUpdate = {
+                        launch { updateChecker.startUpdate(update) }
+                    }
+                )
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Update check failed: ${e.asLog()}" }
+                return@map null
+            }
         }
-    }
 
     private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
         .map {
@@ -261,6 +272,8 @@ class DashboardFragmentVM @Inject constructor(
             }
         ).run { items.add(this) }
 
+        updateInfo?.let { items.add(it) }
+
         if (!setupState.isComplete && !setupState.isDismissed) {
             SetupCardVH.Item(
                 setupState = setupState,
@@ -275,8 +288,6 @@ class DashboardFragmentVM @Inject constructor(
                 }
             ).run { items.add(this) }
         }
-
-        updateInfo?.let { items.add(it) }
 
         dataAreaInfo?.let { items.add(it) }
 
