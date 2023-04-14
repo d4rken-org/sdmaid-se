@@ -17,5 +17,5 @@ SD Maid 2/SE ialah pengganti SD Maid 1/Legacy.
 Dioptimumkan untuk versi Android yang lebih baharu dan memfokuskan pada pembersihan.
 
 SD Maid SE mempunyai ciri pilihan yang menggunakan API AccessibilityService untuk mengautomasikan tindakan yang membosankan.
-Menggunakan API AccessibilityService, SD Maid SE boleh mengklik butang untuk anda melaksanakan operasi pada aplikasi berbilang, misalnya,. memadam cache.
+Using the AccessibilityService API, SD Maid SE can click buttons for you to perform operations on multiple apps, e.g. memadam cache.
 SD Maid SE tidak menggunakan API AccessibilityService untuk mengumpul maklumat.

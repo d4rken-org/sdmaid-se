@@ -5,7 +5,7 @@ Nikt nie jest doskonały, podobnie jak Android.
 * Logi, raporty o awariach i inne niepotrzebne pliki są tworzone na bieżąco.
 * Twoje urządzenie gromadzi pliki i katalogi, których nie rozpoznajesz.
 
-Nie będziemy się tu rozpisywać... Pozwól SD Maid SE pomóc Ci:
+Nie będziemy się tu rozpisywać... Pozwól SD Maid SE:
 
 * Posprzątać dane z odinstalowanych już aplikacji
 * Znaleźć ukryte pamięci podręczne aplikacji
@@ -16,6 +16,6 @@ SD Maid SE nie wyświetla reklam. Niektóre funkcje wymagają płatnego ulepszen
 SD Maid 2/SE to następca SD Maid 1/Legacy.
 Zoptymalizowana dla nowszych wersji Androida i skupiona na sprzątaniu.
 
-SD Maid SE posiada opcjonalne funkcje, które wykorzystują API AccessibilityService do automatyzacji żmudnych czynności.
-Korzystając z API AccessibilityService, SD Maid SE może klikać przyciski za Ciebie, aby wykonywać operacje na wielu aplikacjach, np. usuwanie pamięci podręcznych.
-SD Maid SE nie używa API AccessibilityService do zbierania informacji.
+SD Maid SE posiada opcjonalne funkcje, które wykorzystują usługę dostępności do automatyzacji żmudnych czynności.
+Korzystając z tej usługi, SD Maid SE może klikać na przyciski za Ciebie, aby wykonywać operacje na wielu aplikacjach, np. usuwanie pamięci podręcznych.
+SD Maid SE nie używa usługi dostępności do zbierania Twoich danych.

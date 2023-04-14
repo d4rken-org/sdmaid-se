@@ -16,6 +16,6 @@ SD Maid SE je bez reklam a zdarma. Některé funkce však vyžadují placený up
 SD Maid 2/SE je nástupcem SD Maid 1/Legacy.
 Optimalizováno pro novější verze systému Android a zaměřeno na čištění.
 
-SD Maid SE má volitelné funkce, které využívají rozhraní API služby AccessibilityService k automatizaci zdlouhavých činností.
-Pomocí rozhraní API služby AccessibilityService může SD Maid SE klikat na tlačítka pro provádění operací s vícero aplikacemi, např. mazání mezipamětí.
-SD Maid SE nepoužívá rozhraní API služby AccessibilityService ke shromažďování informací.
+SD Maid SE má volitelné funkce, které využívají rozhraní API služby přístupnosti k automatizaci zdlouhavých činností.
+Pomocí rozhraní API služby přístupnosti může SD Maid SE klikat na tlačítka pro provádění operací s vícero aplikacemi, např. mazání mezipamětí.
+SD Maid SE nepoužívá rozhraní API služby přístupnosti ke shromažďování informací.
