@@ -6,10 +6,12 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.user.UserProfile2
 import kotlin.reflect.KClass
 
 data class AppJunk(
     val pkg: Installed,
+    val userProfile: UserProfile2?,
     val expendables: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>?,
     val inaccessibleCache: InaccessibleCache?,
 ) {

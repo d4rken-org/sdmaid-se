@@ -67,6 +67,29 @@
             tools:text="120,78 MB" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/user_label"
+            style="@style/TextAppearance.Material3.LabelMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/appcleaner_junk_userprofile_label"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/size_value"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/user_value"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/user_label"
+            app:layout_constraintTop_toBottomOf="@id/user_label"
+            tools:text="Owner (0)"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/hints_label"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
@@ -75,7 +98,7 @@
             android:text="@string/corpsefinder_corpse_hints_label"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/size_value"
+            app:layout_constraintTop_toBottomOf="@id/user_value"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView

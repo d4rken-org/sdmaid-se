@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.ui.details.appjunk.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
@@ -38,6 +39,12 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
         appId.text = junk.pkg.packageName
 
         sizeValue.text = Formatter.formatFileSize(context, junk.size)
+
+        userLabel.isVisible = junk.userProfile != null
+        userValue.apply {
+            isVisible = junk.userProfile != null
+            text = junk.userProfile?.label ?: "ID#${junk.userProfile?.handle?.handleId}"
+        }
 
         val hasHint = false
         hintsLabel.isGone = !hasHint
