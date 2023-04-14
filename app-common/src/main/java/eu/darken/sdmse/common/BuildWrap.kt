@@ -16,6 +16,8 @@ object BuildWrap {
     object VersionWrap {
         val SDK_INT
             get() = Build.VERSION.SDK_INT
+        val PREVIEW_SDK_INT
+            get() = Build.VERSION.PREVIEW_SDK_INT
     }
 }
 
