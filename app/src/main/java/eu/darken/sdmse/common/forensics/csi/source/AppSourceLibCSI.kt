@@ -63,8 +63,10 @@ class AppSourceLibCSI @Inject constructor(
         if (owners.isEmpty()) {
             pkgRepo.currentPkgs()
                 .filter { it.packageInfo.applicationInfo != null }
-                .filter {
-                    val nativLibDir = LocalPath.build(it.packageInfo.applicationInfo.nativeLibraryDir)
+                .filter { pkg ->
+                    val nativLibDir = pkg.packageInfo.applicationInfo.nativeLibraryDir?.let {
+                        LocalPath.build(it)
+                    } ?: return@filter false
                     areaInfo.file == nativLibDir || areaInfo.file.isDescendantOf(nativLibDir)
                 }
                 .map { Owner(it.id, userHandle) }
