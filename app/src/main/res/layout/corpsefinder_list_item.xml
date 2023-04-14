@@ -50,13 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:textSize="10sp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/area_info"
         app:layout_constraintEnd_toEndOf="@id/secondary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/secondary"
-        tools:text="This item is flagged as KEEPER, you may want to keep it."
-        tools:visibility="gone" />
+        tools:text="@string/corpsefinder_corpse_hint_keeper"
+        tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/area_info"
