@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> là một người giúp việc đáng tin cậy cho Android của bạn, để giữ cho nó sạch sẽ và ngăn nắp.
+
+Không ai là hoàn hảo cả và Android cũng vậy.
+* Các ứng dụng bạn đã gỡ bỏ để lại thứ gì đó đằng sau.
+* Nhật ký, báo cáo sự cố và các tệp khác mà bạn không thực sự muốn liên tục được tạo.
+* Bộ lưu trữ của bạn đang thu thập các tệp và thư mục mà bạn không nhận ra.
+
+Đừng để nó tiếp diễn như vậy nữa... Hãy để SD Maid SE giúp bạn:
+
+* Dọn dẹp dữ liệu từ các ứng dụng đã gỡ cài đặt
+* Tìm bộ nhớ đệm ẩn trong ứng dụng
+* Loại bỏ các tập tin hệ thống thừa
+
+SD Maid SE không có quảng cáo. Một số tính năng yêu cầu trả phí để nâng cấp.
+
+SD Maid 2/SE là sự kế thừa của SD Maid 1/Legacy.
+Được tối ưu hóa cho các phiên bản Android mới hơn và tập trung vào việc dọn dẹp.
+
+SD Maid SE có các tính năng tùy chọn sử dụng API Dịch Vụ Trợ Năng để tự động hóa các hành động tẻ nhạt.
+Sử dụng API Dịch Vụ Trợ Năng, SD Maid SE có thể nhấp vào các nút để bạn thực hiện các thao tác trên nhiều ứng dụng, ví dụ như xóa bộ nhớ đệm.
+SD Maid SE không sử dụng API Dịch Vụ Trợ Năng để thu thập thông tin.

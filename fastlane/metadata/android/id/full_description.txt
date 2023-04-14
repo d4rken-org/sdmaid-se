@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> adalah pelayan terpercaya untuk Android anda, untuk menjaganya tetap bersih & rapi.
+
+Tiada yang sempurna dan itu termasuk Android.
+* Aplikasi yang baru saja dihapus meninggalkan beberapa jejak.
+* Log, laporan galat dan file-file lainnya yang Anda tidak benar-benar butuhkan masih terus dibuat secara terus-menerus.
+* Penyimpanan anda mengumpulkan file-file dan direktori-direktori yang Anda tidak kenali.
+
+Kita tidak boleh membiarkan itu... Biarkan SD Maid SE membantu Anda:
+
+*Bersihkan data dari aplikasi yang baru saja dihapus
+* Temukan cache aplikasi yang tersembunyi
+Hapus file sistem yang tidak berguna
+
+SD Maid SE bebas iklan. Beberapa fitur membutuhkan peningkatan berbayar.
+
+SD Maid 2/SE ialah penerus dari SD Maid 1/Lawas.
+Dioptimalkan untuk Android versi terbaru dan difokuskan untuk membersihkan.
+
+SD Maid SE mempunyai fitur opsional yang memanfaatkan API AccessibilityService untuk mengotomatisasi aksi yang membosankan.
+Dengan menggunakan API AccessibilityService API, SD Maid SE dapat mengeklik tombol-tombol untuk anda untuk menjalankan perintah di beberapa aplikasi, seperti menghapus cache.
+SD Maid SE tidak menggunakan API AccessibilityService untuk mengumpulkan informasi pribadi Anda.
