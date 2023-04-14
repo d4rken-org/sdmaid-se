@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Làm sạch &amp; ngăn nắp.</string>
     <string name="slogan_message_2">Ngăn chặn hỗn loạn.</string>
     <string name="slogan_message_3">Đang làm những gì cần thiết.</string>
-    <string name="slogan_message_4">Mọi thứ đều xếp thành một hàng.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Mọi thứ đều xếp thành một hàng.</string>
     <string name="slogan_message_5">Không tì vết.</string>
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>

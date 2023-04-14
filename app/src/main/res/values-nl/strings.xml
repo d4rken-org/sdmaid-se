@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_click_hint">Op sommige items kan worden geklikt om meer details te zien.</string>
+    <string name="dashboard_delete_all_message">Resultaten in alle tools verwijderen?</string>
+    <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_settings_oneclick_title">Eén-klik-modus</string>
+    <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle tools met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
+    <string name="debug_debuglog_size_label">Grootte</string>
+    <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
+    <string name="debug_notification_channel_label">Debug-meldingen</string>
+    <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data met te gebruikelijke namen zoals bijvoorbeeld een map met de naam \"notities\" wordt door veel te veel onbekende apps gebruikt.</string>
+    <string name="appcleaner_include_multiuser_label">Inclusief andere gebruikers</string>
+    <string name="appcleaner_include_multiuser_summary">Gebruik ook apps van andere gebruikersprofielen op dit apparaat.</string>
+    <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
+</resources>

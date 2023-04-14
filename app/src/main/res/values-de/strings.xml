@@ -77,7 +77,7 @@
     <string name="setup_incomplete_card_title">Die Einrichtung ist unvollständig</string>
     <string name="setup_incomplete_card_body">Beenden Sie die Einrichtung von SD Maid, um bessere Ergebnisse zu erzielen.</string>
     <string name="setup_incomplete_card_dismiss_action">Zurückweisen</string>
-    <string name="setup_incomplete_card_continue_action">Setze die Einrichtung fort</string>
+    <string name="setup_incomplete_card_continue_action">Einrichtung fortsetzen</string>
     <string name="setup_title">Setup</string>
     <string name="setup_forcedshow_summary">Setup Bildschirm erneut anzeigen, einschließlich bereits abgeschlossener Elemente.</string>
     <string name="setup_saf_card_title">Speicherzugriffs Framework</string>
@@ -134,7 +134,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Fügen Sie wünschenswerte Reste hinzu</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Dateien, die Sie vielleicht behalten möchten, auch wenn die App deinstalliert ist, z.B. Fotos, die Sie aufgenommen haben, oder Sicherungskopien, die Sie erstellt haben.</string>
     <string name="corpsefinder_settings_risk_common_title">Fügen Sie gebräuchliche Namen hinzu</string>
-    <string name="corpsefinder_settings_risk_common_summary">Daten mit zu häufigen Namen, z.B. Ein Ordner \"Notizen\" gehört zu vielen unbekannten Apps.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Daten mit zu häufigen Namen, z.B. Ein Ordner „Notizen“ gehört zu vielen unbekannten Apps.</string>
     <string name="corpsefinder_watcher_title">Beobachter deinstallieren</string>
     <string name="corpsefinder_watcher_summary">Automatische Suche nach Überresten, wenn eine App entfernt wird.</string>
     <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
@@ -229,6 +229,8 @@
     <string name="appcleaner_include_runningapps_summary">Schließen Sie derzeit ausgeführte Apps ein, die Störungen verursachen.</string>
     <string name="appcleaner_include_inaccessible_label">Schließen Sie unzugängliche Daten ein</string>
     <string name="appcleaner_include_inaccessible_summary">Schließen Sie Daten ein, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht und mithilfe eines Zugriffsdienstes automatisiert werden können. </string>
+    <string name="appcleaner_include_multiuser_label">Schließen Sie andere Benutzer ein</string>
+    <string name="appcleaner_include_multiuser_summary">Schließen Sie Apps von anderen Benutzerprofilen auf diesem Gerät ein.</string>
     <string name="appcleaner_filter_codecache_label">Code-Cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM-Code-Cache. In nativen Code kompilierte Bytecode-Blöcke.</string>
     <string name="appcleaner_filter_advertisement_label">Werbedaten</string>
@@ -271,6 +273,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Zugänglichkeitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Sie es nicht verwenden möchten: Deaktivieren Sie die Option \"Unzugängliche Caches einbeziehen\".</string>
+    <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcontrol_tool_name">AppKontrolle</string>
     <string name="appcontrol_explanation_short">Auf Ihrem Gerät installierte Apps.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -351,5 +354,5 @@
     <string name="translation_encourage_title">Übersetze SD Maid</string>
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Gamechanger181</string>
+    <string name="translation_translators_people">Gamechanger181</string>
 </resources>

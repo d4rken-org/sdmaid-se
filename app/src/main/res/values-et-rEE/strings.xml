@@ -8,4 +8,8 @@
     <string name="debug_debuglog_size_label">Maht</string>
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
+    <string name="corpsefinder_settings_risk_common_summary">Liiga levinud nimedega andmete, nt kausta \"Märkmed\", omanikuks on liiga palju rakendusi.</string>
+    <string name="appcleaner_include_multiuser_label">Sh teised kasutajad</string>
+    <string name="appcleaner_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>
+    <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
 </resources>

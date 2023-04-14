@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Pulizia &amp; ordine.</string>
     <string name="slogan_message_2">Prevenire il caos.</string>
     <string name="slogan_message_3">Fare ciò che è necessario.</string>
-    <string name="slogan_message_4">Tutto il necessario a disposizione.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tutto il necessario a disposizione.</string>
     <string name="slogan_message_5">Senza pubblicità.</string>
     <string name="general_thank_you_label">Grazie</string>
     <string name="general_error_type_mismatch_msg">Mancata corrispondenza: voleva %1$s, ma ha ottenuto %2$s.</string>

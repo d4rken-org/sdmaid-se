@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Limpio &amp; ordenado.</string>
     <string name="slogan_message_2">Evitando el caos.</string>
     <string name="slogan_message_3">Haciendo lo que es necesario.</string>
-    <string name="slogan_message_4">Todo en orden.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>

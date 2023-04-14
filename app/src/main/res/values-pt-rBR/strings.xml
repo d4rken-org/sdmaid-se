@@ -49,5 +49,5 @@
     <string name="ui_theme_system_label">Sistema</string>
     <string name="settings_support_label">Suporte</string>
     <string name="documentation_label">Documentação</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Natanaelrj(natanael.caetano@gmail.com)</string>
+    <string name="translation_translators_people">Natanaelrj(natanael.caetano@gmail.com)</string>
 </resources>

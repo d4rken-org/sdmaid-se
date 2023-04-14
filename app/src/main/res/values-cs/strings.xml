@@ -101,7 +101,7 @@
     <string name="setup_permission_granted_label">Oprávnění uděleno</string>
     <string name="setup_usagestats_title">Statistiky používání</string>
     <string name="setup_usagestats_body">Oprávnění ke statistikám používání umožňuje přístup k dalším podrobnostem o aplikaci. SD Maid je používá k určení dalších velikostí mezipaměti.</string>
-    <string name="setup_usagestats_hint">Vyžadováno pro mazání mezipaměti na základě služby zpřístupnění.</string>
+    <string name="setup_usagestats_hint">Vyžadováno pro mazání mezipaměti na základě služby přístupnosti.</string>
     <string name="setup_notification_title">Oznámení</string>
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
@@ -131,7 +131,7 @@
     <string name="debug_bugreporter_summary">Automaticky hlásí problémy, např. podrobnosti o pádech aplikace, aby bylo možné zjistit příčinu a opravit ji.</string>
     <string name="settings_category_tools_label">Nástroje</string>
     <string name="settings_category_filter">Filtr</string>
-    <string name="settings_category_risklevel">Úroveň rizika</string>
+    <string name="settings_category_risklevel">Riziková úroveň</string>
     <string name="corpsefinder_tool_name">Hledač mrtvol</string>
     <string name="corpsefinder_explanation_short">Data patřící již odebraným aplikacím.</string>
     <string name="corpsefinder_settings_summary">Nastavte filtry skenování a úroveň rizika.</string>
@@ -237,6 +237,8 @@
     <string name="appcleaner_include_runningapps_summary">Zahrnout právě běžící aplikace, což může způsobit jejich přerušení.</string>
     <string name="appcleaner_include_inaccessible_label">Zahrnout nepřístupná data</string>
     <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je odstranit prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
+    <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
+    <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
     <string name="appcleaner_filter_codecache_label">Mezipaměť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Mezipaměť kódu JVM. Bloky bajtového kódu zkompilované do nativního kódu.</string>
     <string name="appcleaner_filter_advertisement_label">Reklamní data</string>
@@ -281,6 +283,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
     <string name="appcleaner_automation_unavailable_body">K vymazání nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
+    <string name="appcleaner_junk_userprofile_label">Uživatel</string>
     <string name="appcontrol_tool_name">Správce aplikací</string>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -365,5 +368,5 @@
     <string name="translation_encourage_title">Přeložit SD Maid</string>
     <string name="translation_encourage_body">SD Maid překládají dobrovolníci. Překlad, revize nebo korektury, vaše pomoc je vítána!</string>
     <string name="translation_translators_title">Tuto verzi přeložili</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">novas78@xda;OndraVa;Woytazzer</string>
+    <string name="translation_translators_people">novas78@xda;OndraVa;Woytazzer</string>
 </resources>

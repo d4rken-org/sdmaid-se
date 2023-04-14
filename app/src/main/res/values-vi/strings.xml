@@ -132,7 +132,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Bao gồm tàn dư mong muốn</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Các tệp mà bạn có thể muốn giữ lại, ngay cả khi đã gỡ cài đặt ứng dụng, ví dụ: ảnh bạn đã chụp hoặc bản sao lưu bạn đã tạo.</string>
     <string name="corpsefinder_settings_risk_common_title">Bao gồm tên phổ biến</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên quá phổ biến, ví dụ: một thư mục \"Ghi chú\" được sở hữu bởi quá nhiều ứng dụng, ứng dụng không xác định.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên quá phổ biến, v.d. một thư mục \"Ghi chú\" thuộc sở hữu của quá nhiều ứng dụng không xác định.</string>
     <string name="corpsefinder_watcher_title">Trình theo dõi gỡ cài đặt</string>
     <string name="corpsefinder_watcher_summary">Tự động quét tìm phần còn lại khi xóa ứng dụng.</string>
     <string name="corpsefinder_filter_publicmedia_label">Đa phương tiện công khai</string>
@@ -225,6 +225,8 @@
     <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy gây nhiễu.</string>
     <string name="appcleaner_include_inaccessible_label">Bao gồm dữ liệu không thể truy cập</string>
     <string name="appcleaner_include_inaccessible_summary">Bao gồm dữ liệu không thể truy cập trực tiếp nhưng có thể xóa thông qua cài đặt hệ thống và tự động hóa bằng dịch vụ trợ năng. </string>
+    <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
+    <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
     <string name="appcleaner_filter_codecache_label">Mã bộ nhớ đệm</string>
     <string name="appcleaner_filter_codecache_summary">Bộ đệm mã JVM. Các khối mã byte được biên dịch thành mã gốc.</string>
     <string name="appcleaner_filter_advertisement_label">Dữ liệu quảng cáo</string>
@@ -266,6 +268,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
     <string name="appcleaner_automation_unavailable_body">Việc xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
+    <string name="appcleaner_junk_userprofile_label">Người dùng</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -344,5 +347,5 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc)</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc)</string>
 </resources>

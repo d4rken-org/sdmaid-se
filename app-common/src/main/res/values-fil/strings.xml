@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Malinis &amp; maganda.</string>
     <string name="slogan_message_2">Pangontra-kalat.</string>
     <string name="slogan_message_3">Ginagawa ang dapat gawin.</string>
-    <string name="slogan_message_4">Mabusisi\'t iwas-pagkakamali.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Mabusisi\'t iwas-pagkakamali.</string>
     <string name="slogan_message_5">Walang natitirang dumi.</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_error_type_mismatch_msg">Pagkakaiba sa uri: %1$s ang hiniling, pero %2$s ang nakuha.</string>
@@ -80,4 +80,32 @@
     <string name="general_clean_confirmation_title">Kumpirmahin ang paglilinis</string>
     <string name="general_clean_confirmation_message_x">Linisin ang \"%s\"?</string>
     <string name="general_root_required_label">Nangangailangan ng root</string>
+    <string name="general_root_required_message">Kailangang naka-root ang device</string>
+    <string name="general_search_action">Maghanap</string>
+    <string name="general_scan_device_action">I-scan ang device</string>
+    <string name="general_open_system_settings_action">Buksan ang mga setting ng sistema</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s item</item>
+        <item quantity="other">%s item</item>
+    </plurals>
+    <string name="x_space_can_be_freed">%s ang mapapakawalan</string>
+    <string name="general_info_label">Impormasyon</string>
+    <string name="general_count_label">Bilang</string>
+    <string name="general_app_label">App</string>
+    <string name="general_more_infos_action">Higit pang impormasyon</string>
+    <string name="general_grant_access_action">Magbigay-pahintulot</string>
+    <string name="general_enable_service_action">Buksan ang serbisyo</string>
+    <string name="general_undo_action">I-undo</string>
+    <string name="general_path_label">Path</string>
+    <string name="general_type_label">Uri</string>
+    <string name="general_size_label">Laki</string>
+    <string name="general_exclude_action">Huwag isama</string>
+    <string name="general_exclude_all_action">Huwag isama lahat</string>
+    <string name="general_device_label">Device</string>
+    <string name="general_settings_title">Mga setting</string>
+    <string name="general_help_title">Tulong</string>
+    <string name="file_type_symbolic_link">Link</string>
+    <string name="file_type_directory">Directory</string>
+    <string name="file_type_file">File</string>
+    <string name="file_type_unknown">Hindi alam</string>
 </resources>

@@ -129,9 +129,9 @@
     <string name="corpsefinder_tool_name">殘骸尋檢器</string>
     <string name="corpsefinder_explanation_short">屬於已移除的應用程式的資料。</string>
     <string name="corpsefinder_settings_summary">調整掃描過濾器和風險層級。</string>
-    <string name="corpsefinder_settings_risk_keeper_title">包括合理的殘餘項目</string>
+    <string name="corpsefinder_settings_risk_keeper_title">包含合理的殘餘項目</string>
     <string name="corpsefinder_settings_risk_keeper_summary">您可能想要保留的檔案，即使這個應用程式已被解除安裝，例如您拍攝的相片和您建立的備份。</string>
-    <string name="corpsefinder_settings_risk_common_title">包括常見名稱</string>
+    <string name="corpsefinder_settings_risk_common_title">包含常見名稱</string>
     <string name="corpsefinder_settings_risk_common_summary">具有常見名稱的資料，例如被過多未知應用程式擁有的「Notes」資料夾。</string>
     <string name="corpsefinder_watcher_title">解除安裝監看員</string>
     <string name="corpsefinder_watcher_summary">在應用程式被移除時自動掃描殘留項目。</string>
@@ -225,6 +225,8 @@
     <string name="appcleaner_include_runningapps_summary">包含目前正在執行的應用程式，可能會造成干擾。</string>
     <string name="appcleaner_include_inaccessible_label">包含無法存取的資料</string>
     <string name="appcleaner_include_inaccessible_summary">包含無法直接存取但可以透過系統設定和自動使用無障礙服務刪除的資料。 </string>
+    <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
+    <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcleaner_filter_codecache_label">程式碼快取</string>
     <string name="appcleaner_filter_codecache_summary">JVM 程式碼快取，被編譯為機器碼的位元組程式碼區塊。</string>
     <string name="appcleaner_filter_advertisement_label">廣告資料</string>
@@ -266,6 +268,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">刪除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
+    <string name="appcleaner_junk_userprofile_label">使用者</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -327,7 +330,7 @@
     <string name="scheduler_edit_schedule_action">編輯排程</string>
     <string name="scheduler_schedule_time_label">大約時間</string>
     <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
-    <string name="scheduler_schedule_default_name">預設排程器</string>
+    <string name="scheduler_schedule_default_name">預設排程</string>
     <string name="scheduler_current_schedule_x_at_x">%1$s 於 %2$s</string>
     <string name="scheduler_schedule_next_at_x">計畫於 %s</string>
     <string name="scheduler_schedule_last_at_x">上次執行於 %s</string>
@@ -344,5 +347,5 @@
     <string name="translation_encourage_title">翻譯 SD 女僕</string>
     <string name="translation_encourage_body">SD 女僕由志工翻譯，無論是翻譯、審閱、還是校對，都非常感謝您的協助！</string>
     <string name="translation_translators_title">此版本的翻譯人員：</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Adeptus2</string>
+    <string name="translation_translators_people">Adeptus2</string>
 </resources>

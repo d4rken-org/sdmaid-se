@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Bersih &amp; kemas.</string>
     <string name="slogan_message_2">Mencegah huru-hara.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu.</string>
-    <string name="slogan_message_4">Semua itik anda berturut-turut.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Semua itik anda berturut-turut.</string>
     <string name="slogan_message_5">Tanpa noda.</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Jenis tidak sepadan: Inginkan %1$s, tetapi mendapat %2$s.</string>
@@ -51,4 +51,64 @@
     <string name="general_progress_loading_data_areas">Memuatkan kawasan data</string>
     <string name="general_progress_loading_egg_0">Masih lebih laju daripada iPhone</string>
     <string name="general_progress_loading_egg_1">Memuat turun lebih banyak RAM</string>
+    <string name="general_progress_loading_egg_2">Soon™</string>
+    <string name="general_progress_loading_egg_3">CPU sedang rehat minum kopi</string>
+    <string name="general_progress_loading_egg_4">Menunggu data daripada Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Encabulator turbo sedang dimulakan</string>
+    <string name="general_progress_loading_egg_6">Melepasi mentega</string>
+    <string name="general_progress_loading_egg_7">Jadi. Bagaimana anda bertahan?</string>
+    <string name="general_progress_loading_egg_8">Bau seperti updog di sini</string>
+    <string name="general_help_action">Bantuan</string>
+    <string name="general_continue">Teruskan</string>
+    <string name="general_progress_queued">Dalam barisan</string>
+    <string name="general_progress_deleting">Memadamkan %s</string>
+    <string name="general_sort_options_label">Isih pilihan</string>
+    <string name="general_tag_filter_label">Tapis mengikut tag</string>
+    <string name="general_result_success_message">Operasi berjaya</string>
+    <string name="general_result_failure_message">Operasi gagal</string>
+    <string name="general_result_x_space_freed">%s dibebaskan</string>
+    <string name="general_details_label">Butiran</string>
+    <string name="general_view_action">Lihat</string>
+    <string name="general_update_action">Kemas kini</string>
+    <string name="general_scan_action">Imbas</string>
+    <string name="general_delete_action">Padam</string>
+    <string name="general_delete_all_action">Memadam semua</string>
+    <string name="general_show_details_action">Tunjukkan butiran</string>
+    <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
+    <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
+    <string name="general_delete_confirmation_message_x_for_x">Padamkan \"%1$s\" untuk \"%2$s\"?</string>
+    <string name="general_clean_confirmation_title">Sahkan pembersihan</string>
+    <string name="general_clean_confirmation_message_x">Bersihkan \"%s\"?</string>
+    <string name="general_root_required_label">Memerlukan root</string>
+    <string name="general_root_required_message">Memerlukan peranti yang telah di root</string>
+    <string name="general_search_action">Cari</string>
+    <string name="general_scan_device_action">Imbas peranti</string>
+    <string name="general_open_system_settings_action">Buka tetapan sistem</string>
+    <plurals name="result_x_items">
+        <item quantity="other">Satu
+%s item
+
+Lain-lain
+%s item</item>
+    </plurals>
+    <string name="x_space_can_be_freed">%s boleh dibebaskan</string>
+    <string name="general_info_label">Info</string>
+    <string name="general_count_label">Kira</string>
+    <string name="general_app_label">Aplikasi</string>
+    <string name="general_more_infos_action">Maklumat lanjut</string>
+    <string name="general_grant_access_action">Berikan akses</string>
+    <string name="general_enable_service_action">Dayakan perkhidmatan</string>
+    <string name="general_undo_action">Buat asal</string>
+    <string name="general_path_label">Laluan</string>
+    <string name="general_type_label">Taip</string>
+    <string name="general_size_label">Saiz</string>
+    <string name="general_exclude_action">Kecualikan</string>
+    <string name="general_exclude_all_action">Kecualikan semua</string>
+    <string name="general_device_label">Peranti</string>
+    <string name="general_settings_title">Tetapan</string>
+    <string name="general_help_title">Bantu</string>
+    <string name="file_type_symbolic_link">Pautan</string>
+    <string name="file_type_directory">Direktori</string>
+    <string name="file_type_file">Fail</string>
+    <string name="file_type_unknown">Tidak diketahui</string>
 </resources>

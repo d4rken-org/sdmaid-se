@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Czysto &amp; schludnie.</string>
     <string name="slogan_message_2">Zapobieganie chaosowi.</string>
     <string name="slogan_message_3">Robienie tego, co konieczne.</string>
-    <string name="slogan_message_4">Wszystkie Twoje sprawki w jednym miejscu.</string>
+    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Wszystkie Twoje sprawki w jednym miejscu.</string>
     <string name="slogan_message_5">Bez skazy.</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>

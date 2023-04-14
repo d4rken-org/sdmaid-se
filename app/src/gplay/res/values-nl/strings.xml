@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Vereist SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">SD Maid upgraden</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro biedt betere resultaten, meer functies en opties voor ervaren gebruikers.</string>
+    <string name="upgrades_dashcard_upgrade_action">Upgraden</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play-diensten zijn niet beschikbaar.</string>
+    <string name="upgrades_no_purchases_found_check_account">Geen aankopen gevonden. Gebruik je de juiste rekening?</string>
+    <string name="upgrade_screen_title">Koop SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid heeft geen advertenties en verkoopt geen gebruikersgegevens. Mijn werk wordt door jou gefinancierd.</string>
+    <string name="upgrade_screen_benefits_title">Voordelen</string>
+    <string name="upgrade_screen_benefits_body">• App opschonen 💯\n• Geplande bewerkingen ⏰\n• Extra opties voor alle tools ⚙️\n• Je eigen verwijderingsregels ✍️\n• Een gemotiveerde ontwikkelaar 🧙\nen meer…</string>
+    <string name="upgrade_screen_how_title">Opties</string>
+    <string name="upgrade_screen_how_body">Je hebt 2 opties: Een eenmalige aankoop of een goedkoper jaarabonnement. Het abonnement heeft een gratis proefperiode. De functies die je krijgt zijn hetzelfde, alleen de betaalmethoden verschillen.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode</string>
+    <string name="upgrade_screen_subscription_action">Abonneren</string>
+    <string name="upgrade_screen_subscription_action_hint">Het abonnement kost %s per jaar.</string>
+    <string name="upgrade_screen_iap_action">Eenmalige aankoop</string>
+    <string name="upgrade_screen_iap_action_hint">De eenmalige aankoop kost %s.</string>
+    <string name="upgrade_screen_thanks_toast">Jij bent de beste! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Samen hebben we de eerste release gehaald! Bedankt dat je mij geholpen hebt! De ontwikkeling gaat natuurlijk door, maar je kunt nu overstappen naar stabielere builds, als je dat wilt. Doe dit door je af te melden voor testen op Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Kleine opmerking: beoordelingen die tijdens het testen zijn gegeven, zijn alleen zichtbaar voor mij, ik zou het op prijs stellen als je SD Maid een openbare beoordeling zou kunnen geven als je tevreden bent.</string>
+    <string name="nudge_betagoodbye_positive_action">Er van af zien</string>
+    <string name="nudge_betagoodbye_negative_action">Blijf testen</string>
+</resources>

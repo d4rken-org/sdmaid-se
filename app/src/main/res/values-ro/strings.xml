@@ -126,7 +126,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fișiere pe care vrei să le păstrezi, chiar dacă aplicația este dezinstalată, ex: fotografii pe care le-ai făcut sau copii de rezervă pe care le-ai creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
-    <string name="corpsefinder_settings_risk_common_summary">Date cu nume prea comune, ex: un dosar \"Notes\" este aparținută de prea multe aplicații / aplicații necunoscute.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Date cu nume prea comune, ex: un dosar \"Notes\" este aparținută de prea multe aplicații necunoscute.</string>
     <string name="corpsefinder_watcher_title">Urmăritor de dezinstalare</string>
     <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media public</string>
@@ -213,6 +213,8 @@
     <string name="appcleaner_include_runningapps_summary">Include aplicațiile care rulează în prezent ceea ce poate să provoace interferențe.</string>
     <string name="appcleaner_include_inaccessible_label">Include date neaccesibile</string>
     <string name="appcleaner_include_inaccessible_summary">Include date care nu pot fi accesate direct dar poate fi șters în setările de sistem și automatizat folosind serviciul de accesibilitate. </string>
+    <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
+    <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>
     <string name="appcleaner_filter_advertisement_label">Date de la reclame</string>
@@ -245,6 +247,7 @@
     <string name="appcleaner_filter_wechat_summary">Fișiere primite sau trimise în conversații și momente în WeChat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Cureți toate aplicațiile?</string>
     <string name="appcleaner_automation_loading">Se așteaptă automatizația prin serviciul de accesibilitate</string>
+    <string name="appcleaner_junk_userprofile_label">Utilizator</string>
     <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încearcă să repornești dispozitivul.</string>
     <string name="history_label">Istoric</string>
     <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
@@ -274,5 +277,5 @@
     <string name="translation_encourage_title">Traduce SD Maid</string>
     <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducerea, revizuire sau corectare, ajutorul tău este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
-    <string name="translation_translators_people" comment="Example:&#10;&quot;Person1;Person2(optional@email.com)&quot;&#10;&#10;This field allows you to have your name visible inside the app.&#10;You can &quot;translate&quot; this field to your name (or nickname) and your name will be displayed in the app under SD Maid &gt; Settings &gt; Acknowledgements.&#10;&#10;Multiple translators should be separated with semicolons &quot;;&quot; (the app will replace them with new lines).&#10;You can also add your email in brackets behind your name, if you want to, otherwise just leave it out.">Alexandru51 (Alexandru9035 pe crowdin)</string>
+    <string name="translation_translators_people">Alexandru51 (Alexandru9035 pe crowdin)</string>
 </resources>

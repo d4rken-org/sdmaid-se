@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, mis. folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
+    <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
+    <string name="appcleaner_junk_userprofile_label">Pengguna</string>
+</resources>
