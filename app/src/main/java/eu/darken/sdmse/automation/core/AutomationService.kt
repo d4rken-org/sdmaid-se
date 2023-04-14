@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
 import eu.darken.sdmse.setup.accessibility.mightBeRestrictedDueToSideload
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
@@ -52,6 +53,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private lateinit var automationProcessor: AutomationProcessor
 
     @Inject lateinit var generalSettings: GeneralSettings
+    @Inject lateinit var automationSetupModule: AccessibilitySetupModule
 
     private var currentOptions = AutomationHost.Options()
     private lateinit var windowManager: WindowManager
@@ -96,6 +98,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
             disableSelf()
             return
+        }
+
+        serviceScope.launch {
+            delay(2000)
+            automationSetupModule.refresh()
         }
 
         automationProcessor = automationProcessorFactory.create(this)
