@@ -11,7 +11,7 @@ Let’s not go on here... Let SD Maid SE help you:
 * Find hidden app caches
 * Remove superfluous system files
 
-SD Maid SE is ad-free. Some features required a paid upgrade.
+SD Maid SE is ad-free. Some features require a paid upgrade.
 
 SD Maid 2/SE is the successor to SD Maid 1/Legacy.
 Optimized for newer Android versions and focused on cleaning up.
