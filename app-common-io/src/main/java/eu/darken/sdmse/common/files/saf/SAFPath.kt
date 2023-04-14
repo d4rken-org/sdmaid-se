@@ -5,7 +5,9 @@ import androidx.annotation.Keep
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.joinSegments
 import kotlinx.parcelize.Parcelize
 import java.io.File
 
@@ -25,7 +27,16 @@ data class SAFPath(
         get() = super.userReadableName
 
     override val userReadablePath: CaString
-        get() = super.userReadablePath
+        get() = when {
+            treeRoot.path?.startsWith("/tree/primary") == true -> caString {
+                "/storage/emulated/0/${segments.joinSegments("/")}"
+            }
+            treeRoot.path?.let { URIPATH_ID_REGEX.matches(it) } == true -> caString {
+                val storageId = URIPATH_ID_REGEX.matchEntire(treeRoot.path!!)
+                "/storage/${storageId?.groupValues?.get(1)}/${segments.joinSegments("/")}"
+            }
+            else -> super.userReadablePath
+        }
 
     override var pathType: APath.PathType
         get() = APath.PathType.SAF
@@ -66,5 +77,7 @@ data class SAFPath(
         fun build(base: Uri, vararg segs: String): SAFPath {
             return SAFPath(base, segs.toList())
         }
+
+        private val URIPATH_ID_REGEX by lazy { Regex("^/tree/([a-z0-9-]+)(?::.+?)*\$") }
     }
 }
