@@ -27,12 +27,16 @@ class ExclusionActionDialog : BottomSheetDialogFragment2() {
         vm.state.observe2(ui) { state ->
             when (state.exclusion) {
                 is PackageExclusion -> {
-                    primary.text = state.exclusion.pkgId.name
-                    secondary.text = getString(R.string.exclusion_type_package)
+                    icon.setImageResource(R.drawable.ic_default_app_icon_24)
+                    primary.text = state.exclusion.label.get(requireContext())
+                    secondary.text = state.exclusion.pkgId.name
+                    type.text = getString(R.string.exclusion_type_package)
                 }
                 is PathExclusion -> {
-                    primary.text = state.exclusion.path.userReadablePath.get(requireContext())
-                    secondary.text = getString(R.string.exclusion_type_path)
+                    icon.setImageResource(R.drawable.ic_file)
+                    primary.text = state.exclusion.label.get(requireContext())
+                    secondary.text = state.exclusion.path.path
+                    type.text = getString(R.string.exclusion_type_path)
                 }
                 else -> throw NotImplementedError()
             }

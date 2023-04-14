@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.files
 
 import androidx.annotation.Keep
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaString
 import java.time.Instant
 
 @Keep
@@ -22,9 +21,9 @@ interface APathLookup<out T : APath> {
     val pathType: APath.PathType
         get() = lookedUp.pathType
     val userReadablePath: CaString
-        get() = path.toCaString()
+        get() = lookedUp.userReadablePath
     val userReadableName: CaString
-        get() = name.toCaString()
+        get() = lookedUp.userReadableName
 
     val segments: Segments
         get() = lookedUp.segments
