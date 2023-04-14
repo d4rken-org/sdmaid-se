@@ -13,6 +13,7 @@ import javax.inject.Inject
 class FossUpdateChecker @Inject constructor(
     private val checker: GithubReleaseCheck,
     private val webpageTool: WebpageTool,
+    private val settings: FossUpdateSettings,
 ) : UpdateChecker {
 
     override suspend fun currentChannel(): UpdateChecker.Channel = when (BuildConfigWrap.BUILD_TYPE) {
@@ -57,6 +58,17 @@ class FossUpdateChecker @Inject constructor(
         log(TAG, INFO) { "viewUpdate($update)" }
         update as Update
         webpageTool.open(update.changelogLink)
+    }
+
+    override suspend fun dismissUpdate(update: UpdateChecker.Update) {
+        log(TAG, INFO) { "dismissUpdate($update)" }
+        update as Update
+        settings.dismiss(update)
+    }
+
+    override suspend fun isDismissed(update: UpdateChecker.Update): Boolean {
+        update as Update
+        return settings.isDismissed(update)
     }
 
     data class Update(

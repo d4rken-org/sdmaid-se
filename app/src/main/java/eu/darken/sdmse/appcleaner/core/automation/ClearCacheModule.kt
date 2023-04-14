@@ -74,6 +74,7 @@ class ClearCacheModule @AssistedInject constructor(
                 is OnePlus31PlusSpecs -> 50
                 is OnePlus29PlusSpecs -> 40
                 is OnePlus14to28Specs -> 30
+                is AOSP34PlusSpecs -> -5
                 is AOSP29PlusSpecs -> -10
                 is AOSP14to28Specs -> -20
                 else -> 0

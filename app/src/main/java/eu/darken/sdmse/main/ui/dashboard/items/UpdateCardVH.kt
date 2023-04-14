@@ -29,11 +29,14 @@ class UpdateCardVH(parent: ViewGroup) :
         )
 
         viewAction.setOnClickListener { item.onViewUpdate() }
+        root.setOnClickListener { viewAction.performClick() }
+        dismissAction.setOnClickListener { item.onDismiss() }
         updateAction.setOnClickListener { item.onUpdate() }
     }
 
     data class Item(
         val update: UpdateChecker.Update,
+        val onDismiss: () -> Unit,
         val onViewUpdate: () -> Unit,
         val onUpdate: () -> Unit,
     ) : DashboardAdapter.Item {

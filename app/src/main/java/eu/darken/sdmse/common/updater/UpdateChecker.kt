@@ -9,6 +9,10 @@ interface UpdateChecker {
 
     suspend fun viewUpdate(update: Update)
 
+    suspend fun dismissUpdate(update: Update)
+
+    suspend fun isDismissed(update: Update): Boolean
+
     interface Update {
         val channel: Channel
         val versionName: String
