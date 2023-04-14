@@ -397,20 +397,15 @@ class AppScanner @Inject constructor(
                 emptyList()
             }
 
-            val pathsOfInterest = searchPathContents
+            val pathsOfInterest: List<Pair<APathLookup<APath>, Segments>> = searchPathContents
                 .filter { minCacheAgeMs == 0L || it.modifiedAt >= Instant.now().minusMillis(minCacheAgeMs) }
                 .filter { it.segments.startsWith(searchPath.file.segments) }
+                .map { it to it.removePrefix(searchPath.file, overlap = 1) }
 
             val ownersOfInterest = possibleOwners
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
 
-            pathsOfInterest.forEach { path ->
-                // TODO do we need this extra lookup or can we construct the prefix free segments without it?
-                val foiAreaInfo = fileForensics.identifyArea(path)
-                if (foiAreaInfo == null) {
-                    log(TAG, WARN) { "Failed to identify $path" }
-                    return@forEach
-                }
+            pathsOfInterest.forEach { (path, segments) ->
                 for (userPkgId in ownersOfInterest) {
                     val type: KClass<out ExpendablesFilter> = enabledFilters
                         .firstOrNull { filter ->
@@ -418,13 +413,13 @@ class AppScanner @Inject constructor(
                                 pkgId = userPkgId.pkgId,
                                 target = path,
                                 areaType = searchPath.type,
-                                segments = foiAreaInfo.prefixFreePath
+                                segments = segments,
                             )
                         }
                         ?.javaClass?.kotlin
                         ?: continue
 
-                    log(TAG, INFO) { "${type.simpleName} matched ${searchPath.type}:${foiAreaInfo.prefixFreePath}" }
+                    log(TAG, INFO) { "${type.simpleName} matched ${searchPath.type}:$segments" }
                     results[userPkgId] = (results[userPkgId] ?: emptySet()).plus(FilterMatch(path, type))
                     break
                 }
