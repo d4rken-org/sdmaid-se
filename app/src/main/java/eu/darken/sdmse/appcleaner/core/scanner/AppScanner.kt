@@ -110,6 +110,7 @@ class AppScanner @Inject constructor(
         updateProgressSecondary(R.string.general_progress_loading_app_data)
 
         val currentUser = userManager.currentUser()
+        val allUsers = userManager.allUsers()
         val allCurrentPkgs = pkgRepo.currentPkgs()
             .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
@@ -148,6 +149,7 @@ class AppScanner @Inject constructor(
 
             AppJunk(
                 pkg = pkg,
+                userProfile = if (includeOtherUsers) allUsers.singleOrNull { it.handle == pkg.userHandle } else null,
                 expendables = byFilterType,
                 inaccessibleCache = inaccessible,
             )

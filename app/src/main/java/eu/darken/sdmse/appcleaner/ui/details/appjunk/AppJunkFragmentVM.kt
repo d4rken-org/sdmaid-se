@@ -43,32 +43,32 @@ class AppJunkFragmentVM @Inject constructor(
             .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
             .filterNotNull(),
         appCleaner.progress,
-    ) { data, progress ->
+    ) { junk, progress ->
         val items = mutableListOf<AppJunkElementsAdapter.Item>()
 
         AppJunkElementHeaderVH.Item(
-            appJunk = data,
+            appJunk = junk,
             onDeleteAllClicked = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk)) },
-            onExcludeClicked = { launch { appCleaner.exclude(data.identifier) } },
+            onExcludeClicked = { launch { appCleaner.exclude(junk.identifier) } },
         ).run { items.add(this) }
 
-        data.inaccessibleCache?.let {
+        junk.inaccessibleCache?.let {
             AppJunkElementInaccessibleVH.Item(
-                appJunk = data,
-                inaccessibleCache = data.inaccessibleCache,
+                appJunk = junk,
+                inaccessibleCache = junk.inaccessibleCache,
                 onItemClick = {
                     events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, onlyInaccessible = true))
                 }
             ).run { items.add(this) }
         }
 
-        data.expendables
+        junk.expendables
             ?.filter { it.value.isNotEmpty() }
             ?.map { (category, paths) ->
                 val categoryGroup = mutableListOf<AppJunkElementsAdapter.Item>()
 
                 AppJunkElementFileCategoryVH.Item(
-                    appJunk = data,
+                    appJunk = junk,
                     category = category,
                     paths = paths,
                     onItemClick = { events.postValue(AppJunkEvents.ConfirmDeletion(it.appJunk, it.category)) },
@@ -77,7 +77,7 @@ class AppJunkFragmentVM @Inject constructor(
                 paths
                     .map { lookup ->
                         AppJunkElementFileVH.Item(
-                            appJunk = data,
+                            appJunk = junk,
                             category = category,
                             lookup = lookup,
                             onItemClick = {
