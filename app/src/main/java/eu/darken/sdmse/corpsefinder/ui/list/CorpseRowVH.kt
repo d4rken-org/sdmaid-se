@@ -28,16 +28,18 @@ class CorpseRowVH(parent: ViewGroup) :
 
         icon.setImageResource(corpse.filterType.iconRes)
         primary.text = corpse.path.userReadableName.get(context)
-        secondary.text = corpse.path.userReadablePath.get(context)
+        secondary.text = corpse.path.userReadablePath.get(context).removeSuffix(primary.text)
 
         when (corpse.riskLevel) {
             RiskLevel.NORMAL -> {
                 tertiary.isVisible = false
             }
             RiskLevel.KEEPER -> {
+                tertiary.text = getString(R.string.corpsefinder_corpse_hint_keeper)
                 tertiary.isVisible = true
             }
             RiskLevel.COMMON -> {
+                tertiary.text = getString(R.string.corpsefinder_corpse_hint_common)
                 tertiary.isVisible = true
             }
         }
