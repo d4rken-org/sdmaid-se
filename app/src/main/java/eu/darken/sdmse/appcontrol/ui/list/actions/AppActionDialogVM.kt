@@ -72,6 +72,8 @@ class AppActionDialogVM @Inject constructor(
                             context.startActivity(intent)
                         } catch (e: ActivityNotFoundException) {
                             errorEvents.postValue(e)
+                        } catch (e: SecurityException) {
+                            errorEvents.postValue(e)
                         }
                     }
                 )
