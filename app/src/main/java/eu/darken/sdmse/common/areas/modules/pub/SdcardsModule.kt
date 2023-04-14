@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -61,8 +60,6 @@ class SdcardsModule @Inject constructor(
                 )
             }
             .run { sdcards.addAll(this) }
-
-        if (sdcards.isEmpty()) Bugs.report(IllegalStateException("No sdcards found."))
 
         log(TAG, VERBOSE) { "firstPass():$sdcards" }
 
