@@ -4,4 +4,9 @@
         <attr name="pvTitle" format="reference|string" />
         <attr name="pvDescription" format="reference|string" />
     </declare-styleable>
+    <declare-styleable name="SliderPreference">
+        <attr name="spMin" format="integer" />
+        <attr name="spMax" format="integer" />
+        <attr name="sliderText" format="reference" />
+    </declare-styleable>
 </resources>

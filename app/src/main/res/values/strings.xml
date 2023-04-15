@@ -256,6 +256,10 @@
     <string name="appcleaner_include_inaccessible_summary">Include data that can\'t be accessed directly but can be deleted via system settings and automated using an accessibility service. </string>
     <string name="appcleaner_include_multiuser_label">Include other users</string>
     <string name="appcleaner_include_multiuser_summary">Include apps from other user profiles on this device.</string>
+    <string name="appcleaner_include_minimumsize_label">Minimum size</string>
+    <string name="appcleaner_include_minimumsize_summary">Skip apps where the sum of expendable data is below the minimum.</string>
+    <string name="appcleaner_include_minimumage_label">Minimum age</string>
+    <string name="appcleaner_include_minimumage_summary">Skip files that are younger than the minimum age.</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Blocks of bytecode compiled into native code.</string>
     <string name="appcleaner_filter_advertisement_label">Advertisement data</string>

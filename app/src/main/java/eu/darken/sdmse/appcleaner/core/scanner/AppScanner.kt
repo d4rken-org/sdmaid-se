@@ -368,7 +368,6 @@ class AppScanner @Inject constructor(
         updateProgressCount(Progress.Count.Percent(0, searchPathsOfInterest.size))
 
         val minCacheAgeMs = settings.minCacheAgeMs.value()
-        val minCacheSizeBytes = settings.minCacheSizeBytes.value()
 
         val results = HashMap<Installed.InstallId, Collection<FilterMatch>>()
 
