@@ -53,10 +53,10 @@ class AppCleanerSettings @Inject constructor(
     val filterWhatsAppSentEnabled = dataStore.createValue("filter.whatsapp.sent.enabled", false)
     val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", false)
 
-    val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", 0L)
+    val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", MIN_CACHE_AGE_DEFAULT)
 
     // Amounts to common folders created by default
-    val minCacheSizeBytes = dataStore.createValue<Long>("skip.mincachesize.bytes", 48 * 1024L)
+    val minCacheSizeBytes = dataStore.createValue<Long>("skip.mincachesize.bytes", MIN_CACHE_SIZE_DEFAULT)
 
     val automationCustomSteps = dataStore.createValue<CustomSpecs.Config?>("automation.custom.config", null, moshi)
 
@@ -87,6 +87,8 @@ class AppCleanerSettings @Inject constructor(
     )
 
     companion object {
+        val MIN_CACHE_SIZE_DEFAULT = 48 * 1024L
+        val MIN_CACHE_AGE_DEFAULT = 0L
         internal val TAG = logTag("AppCleaner", "Settings")
     }
 }
