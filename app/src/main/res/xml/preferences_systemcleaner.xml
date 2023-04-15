@@ -37,7 +37,7 @@
             app:summary="@string/systemcleaner_filter_lostdir_summary"
             app:title="@string/systemcleaner_filter_lostdir_label" />
         <CheckBoxPreference
-            app:icon="@drawable/ic_os_linux"
+            app:icon="@drawable/ic_penguin_24"
             app:key="filter.linuxfiles.enabled"
             app:summary="@string/systemcleaner_filter_linuxfiles_summary"
             app:title="@string/systemcleaner_filter_linuxfiles_label" />
