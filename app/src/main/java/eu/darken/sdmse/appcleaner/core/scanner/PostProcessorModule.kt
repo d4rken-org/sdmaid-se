@@ -31,9 +31,9 @@ import kotlin.reflect.KClass
 
 @Reusable
 class PostProcessorModule @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val rootManager: RootManager,
     private val exclusionManager: ExclusionManager,
-    @ApplicationContext private val context: Context,
     private val settings: AppCleanerSettings,
 ) : Progress.Host, Progress.Client {
 

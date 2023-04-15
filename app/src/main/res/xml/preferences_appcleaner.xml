@@ -26,6 +26,18 @@
         app:summary="@string/appcleaner_include_inaccessible_summary"
         app:title="@string/appcleaner_include_inaccessible_label" />
 
+    <Preference
+        app:icon="@drawable/ic_file_chart_outline_24"
+        app:key="skip.mincachesize.bytes"
+        app:summary="@string/appcleaner_include_minimumsize_summary"
+        app:title="@string/appcleaner_include_minimumsize_label" />
+
+    <Preference
+        app:icon="@drawable/ic_file_clock_outline_24"
+        app:key="skip.mincacheage.milliseconds"
+        app:summary="@string/appcleaner_include_minimumage_summary"
+        app:title="@string/appcleaner_include_minimumage_label" />
+
     <PreferenceCategory android:title="@string/settings_category_filter_generic">
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
