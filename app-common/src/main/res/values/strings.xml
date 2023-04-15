@@ -21,6 +21,7 @@
     <string name="general_remove_action">Remove</string>
     <string name="general_wipe_action">Wipe</string>
     <string name="general_cancel_action">Cancel</string>
+    <string name="general_reset_action">Reset</string>
     <string name="general_save_action">Save</string>
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>

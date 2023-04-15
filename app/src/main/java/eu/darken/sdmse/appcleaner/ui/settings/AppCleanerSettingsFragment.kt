@@ -61,6 +61,9 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                         settings.minCacheSizeBytes.valueBlocking = dialogLayout.slider.value.toLong() * 1024L * 1024L
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(R.string.general_reset_action) { _, _ ->
+                        settings.minCacheSizeBytes.valueBlocking = AppCleanerSettings.MIN_CACHE_SIZE_DEFAULT
+                    }
                 }.show()
                 true
             }
@@ -103,6 +106,9 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                         settings.minCacheAgeMs.valueBlocking = dialogLayout.slider.value.toLong() * 60 * 1000L
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(R.string.general_reset_action) { _, _ ->
+                        settings.minCacheAgeMs.valueBlocking = AppCleanerSettings.MIN_CACHE_AGE_DEFAULT
+                    }
                 }.show()
                 true
             }
