@@ -85,6 +85,7 @@ class AppScanner @Inject constructor(
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
         log(TAG) { "${enabledFilters.size} filter are enabled" }
         useRoot = rootManager.useRoot()
+        log(TAG) { "useRoot: $useRoot" }
     }
 
     suspend fun scan(
@@ -183,7 +184,6 @@ class AppScanner @Inject constructor(
         val dataAreaMap = getDataAreaMap()
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
-
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
 
         for (pkg in installedPkgs) {
@@ -193,64 +193,46 @@ class AppScanner @Inject constructor(
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
+            // The default private app data
             pkg.packageInfo.applicationInfo
                 ?.dataDir
-                ?.takeIf { it.isNotEmpty() }
-                ?.let { dataDir ->
-                    if (useRoot) {
-                        fileForensics.identifyArea(LocalPath.build(dataDir))?.let {
-                            interestingPaths.add(it)
-                        }
-                    } else {
-                        log(TAG) { "Skipping $dataDir (no root)" }
-                    }
-                }
-
+                ?.takeIf { it.isNotEmpty() && useRoot }
+                ?.let { fileForensics.identifyArea(LocalPath.build(it)) }
+                ?.let { interestingPaths.add(it) }
 
             val clutterMarkerForPkg = clutterRepo.getMarkerForPkg(pkg.id)
 
-            listOf(
-                DataArea.Type.PRIVATE_DATA,
-                DataArea.Type.PUBLIC_DATA,
-                DataArea.Type.PUBLIC_MEDIA,
-                DataArea.Type.SDCARD
-            )
-                .mapNotNull { dataAreaMap[it] }
+            dataAreaMap.values
                 .flatten()
-                .forEach { tlCandidate ->
-                    if (tlCandidate.type != DataArea.Type.SDCARD && tlCandidate.file.name == pkg.packageName) {
-                        interestingPaths.add(tlCandidate)
+                .forEach { candidate ->
+                    // Is it a direct match? Should be valid for PUBLIC_* (i.e. blacklist areas)
+                    if (candidate.type != DataArea.Type.SDCARD && candidate.file.name == pkg.packageName) {
+                        interestingPaths.add(candidate)
                         return@forEach
                     }
 
-                    clutterMarkerForPkg
-                        .mapNotNull { it.match(tlCandidate.type, tlCandidate.prefixFreePath) }
-                        .firstOrNull { !it.hasFlags(Marker.Flag.CUSTODIAN) }
-                        ?.let {
-                            interestingPaths.add(tlCandidate)
-                        }
+                    // Maybe an outlier that can be mapped via clutter db?
+                    val indirectMatch = clutterMarkerForPkg.any {
+                        val match = it.match(candidate.type, candidate.prefixFreePath)
+                        match != null && !match.hasFlags(Marker.Flag.CUSTODIAN)
+                    }
+                    if (indirectMatch) interestingPaths.add(candidate)
                 }
 
             // Check all files on public storage for potentially deeper nested clutter
-            dataAreaMap
-                .mapNotNull { dataAreaMap[DataArea.Type.SDCARD] }
-                .flatten()
-                .forEach { topLvlSDDir ->
+            dataAreaMap[DataArea.Type.SDCARD]
+                ?.forEach { topLevelArea ->
                     clutterMarkerForPkg
-                        .filter { it.areaType == DataArea.Type.SDCARD }
+                        .filter { it.areaType == topLevelArea.type }
                         .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
-                        .filter { it.isDirectMatch }
-                        .filter { it.segments.startsWith(topLvlSDDir.prefixFreePath, ignoreCase = true) }
-                        .map { topLvlSDDir.prefix.child(*it.segments.toTypedArray()) }
+                        .filter { it.isDirectMatch } // Can't reverse lookup regex markers
+                        .filter { it.segments.startsWith(topLevelArea.prefixFreePath, ignoreCase = true) }
+                        .map { topLevelArea.prefix.child(*it.segments.toTypedArray()) }
                         .filter { it.exists(gatewaySwitch) }
-                        .forEach { file ->
-                            log(TAG) { "Nested marker target exists: $file" }
-                            fileForensics.identifyArea(file)?.let {
-                                interestingPaths.add(it)
-                            }
-                        }
+                        .onEach { log(TAG) { "Nested marker target exists: $it" } }
+                        .mapNotNull { fileForensics.identifyArea(it) }
+                        .forEach { interestingPaths.add(it) }
                 }
-
 
             // To build the search map we find all pathes that belong to an app: One App multiple pathes
             // Then we reverse the mapping here as each location can have multiple owners: One path, multiple apps
@@ -261,6 +243,20 @@ class AppScanner @Inject constructor(
 
             increaseProgress()
         }
+
+        // So far we have default blacklist entries and matches from direct clutter markers
+        // We are missing dynamic markers especially from blacklist locations like PUBLIC_DATA.
+        // i.e. Android/data/_some.pkg or Android/data/-some.pkg is dynamically matched to some.pkg by CSI
+        dataAreaMap.entries
+            .map { it.value }
+            .flatten()
+            .mapNotNull { fileForensics.findOwners(it) }
+            .forEach { owner ->
+                val installIds = owner.installedOwners
+                    .filter { !it.hasFlag(Marker.Flag.CUSTODIAN) }
+                    .map { it.installId }
+                searchPathMap[owner.areaInfo] = (searchPathMap[owner.areaInfo] ?: emptySet()).plus(installIds)
+            }
 
         log(TAG) { "Search paths build (${searchPathMap.keys.size} interesting paths)." }
 
@@ -314,8 +310,8 @@ class AppScanner @Inject constructor(
             .filter {
                 listOf(
                     DataArea.Type.PUBLIC_DATA,
+                    DataArea.Type.PUBLIC_MEDIA,
                     DataArea.Type.SDCARD,
-                    DataArea.Type.PUBLIC_MEDIA
                 ).contains(it.type)
             }
             .forEach { area ->
