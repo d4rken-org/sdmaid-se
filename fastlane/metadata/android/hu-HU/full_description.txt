@@ -1,0 +1,21 @@
+Az <i>SD Maid SE</i> egy megbízható szobalány az Android számára, hogy tisztán és rendben tartsa.
+
+Senki sem tökéletes, és az Android sem.
+* A már eltávolított alkalmazások hagynak maguk után valamit.
+* Folyamatosan készülnek a naplók, összeomlási jelentések és más olyan fájlok, amelyeket nem igazán szeretne.
+* A tárhely olyan fájlokat és könyvtárakat gyűjt, amelyeket Ön nem ismer fel.
+
+Ne folytassuk itt... Hagyja, hogy az SD Maid SE segítsen:
+
+* Tisztítsa meg az adatokat a már eltávolított alkalmazásokból
+* Találja meg a rejtett alkalmazás-gyorsítótárakat
+* Távolítsa el a felesleges rendszerfájlokat
+
+Az SD Maid SE reklámmentes. Egyes funkciók fizetős frissítést igényelnek.
+
+Az SD Maid 2/SE az SD Maid 1/Legacy utódja.
+Az újabb Android-verziókra optimalizálva, és a tisztításra összpontosít.
+
+Az SD Maid SE olyan opcionális funkciókkal rendelkezik, amelyek az AccessibilityService API-t használják az unalmas műveletek automatizálására.
+Az AccessibilityService API használatával az SD Maid SE gombokra kattintva több alkalmazáson is végrehajthat műveleteket, pl. gyorsítótárak törlése.
+Az SD Maid SE nem használja az Kisegítő lehetőségek API-t információgyűjtésre.
