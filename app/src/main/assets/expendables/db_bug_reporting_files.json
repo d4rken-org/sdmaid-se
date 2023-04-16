@@ -391,12 +391,8 @@
 	  "fileFilter": [
 		{
 		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/debug_log/bugreport-"],
-		  "patterns": ["^(?:MIUI/debug_log/bugreport-)(?:.+?\\.zip)$"]
-		}, {
-		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/debug_log/com.miui.bugreport/cache/"],
-		  "patterns": ["^(?:MIUI/debug_log/com.miui.bugreport/cache/)(?:.+?)$"]
+		  "startsWith": ["MIUI/debug_log/"],
+		  "patterns": ["^(?:MIUI/debug_log/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -415,6 +411,24 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["debuglogger"],
 		  "patterns": ["^(?:debuglogger/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.android.providers.contacts"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Android/contacts_db_log.txt"],
+		  "patterns": ["^Android/contacts_db_log\\.txt$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.meizu.pps"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["PPS/"],
+		  "patterns": ["^PPS/.+?\\.txt$"]
 		}
 	  ]
 	}

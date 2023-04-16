@@ -21,7 +21,8 @@ class AdvertisementFilterTest : BaseFilterTest() {
     }
 
     private fun create() = AdvertisementFilter(
-        jsonBasedSieveFactory = createJsonSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory(),
+        environment = storageEnvironment,
     )
 
     @Test fun testAnalyticsFilterMologiq() = runTest {
@@ -227,6 +228,22 @@ class AdvertisementFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         addCandidate(neg().pkgs("com.quvideo.xiaoying").locs(SDCARD).prefixFree("data/.push"))
         addCandidate(pos().pkgs("com.quvideo.xiaoying").locs(SDCARD).prefixFree("data/.push_deviceid"))
+        confirm(create())
+    }
+
+    @Test fun `miui ad preload`() = runTest {
+        addDefaultNegatives()
+        neg("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filespush_ad_preload")
+        neg("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filessplash_preload")
+        pos("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filespush_ad_preload/$rngString")
+        pos("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filessplash_preload/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `vast rtb ad caches`() = runTest {
+        addDefaultNegatives()
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/vast_rtb_cache")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/vast_rtb_cache/$rngString")
         confirm(create())
     }
 }

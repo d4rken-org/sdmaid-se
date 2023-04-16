@@ -56,6 +56,20 @@
 		  "patterns": ["^(?>com\\.android\\.vending/files/dna_data/)(FullArchive[\\W\\w]+?)$"]
 		}
 	  ]
+	}, {
+	  "packages": [
+		"org.coolreader",
+		"org.coolreader.newui",
+		"org.coolreader.donation.silver",
+		"org.coolreader.donation.bronze"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Books/cr3_manual_"],
+		  "patterns": ["^Books/cr3_manual_.+?\\.fb2$"]
+		}
+	  ]
 	}
   ]
 }

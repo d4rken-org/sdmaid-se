@@ -127,4 +127,13 @@ class OfflineCacheFilterTest : BaseFilterTest() {
         )
         confirm(create())
     }
+
+    @Test fun `coolreader manuals`() = runTest {
+        addDefaultNegatives()
+        neg("org.coolreader", SDCARD, "Books/book.fb2")
+        neg("org.coolreader", SDCARD, "Books/book.pdf")
+        pos("org.coolreader", SDCARD, "Books/cr3_manual_ru_RU.fb2")
+        pos("org.coolreader", SDCARD, "Books/cr3_manual_de_DE.fb2")
+        confirm(create())
+    }
 }
