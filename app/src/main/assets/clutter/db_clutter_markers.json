@@ -3973,6 +3973,7 @@
   "mrks": [
 	{"loc": "SDCARD", "path": "Books/.cr3sync"},
 	{"loc": "SDCARD", "path": "eBooks", "flags": ["keeper"]},
+	{"loc": "SDCARD", "contains": "Books/cr3_manual_", "regex": "^Books/cr3_manual_[a-zA-Z_]+?.fb2$"},
 	{"loc": "SDCARD", "path": ".cr3"}
   ]
 }, {
