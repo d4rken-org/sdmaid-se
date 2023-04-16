@@ -93,6 +93,17 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.pinterest"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".sysdv/"],
+		  "patterns": [
+			"^(?>.sysdv/)([\\W\\w]+?)$"
+		  ]
+		}
+	  ]
 	}
   ]
 }
