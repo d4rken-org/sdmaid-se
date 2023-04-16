@@ -2204,8 +2204,10 @@ class HiddenFilterTest : BaseFilterTest() {
 
     @Test fun testMIUIGallery() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("DCIM/Creative/temp"))
-        addCandidate(pos().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("DCIM/Creative/temp/file"))
+        neg("com.miui.gallery", SDCARD, "DCIM/Creative/temp")
+        pos("com.miui.gallery", SDCARD, "DCIM/Creative/temp/file")
+        neg("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.cache")
+        pos("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.cache/$rngString")
         confirm(create())
     }
 
@@ -2256,15 +2258,21 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testMiuiMsaGlobal() = runTest {
+    @Test fun `vimages cache`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.miui.msa.global").locs(PUBLIC_DATA).prefixFree("com.miui.msa.global/filescache")
-        )
-        addCandidate(
-            pos().pkgs("com.miui.msa.global").locs(PUBLIC_DATA)
-                .prefixFree("com.miui.msa.global/filescache/something")
-        )
+        neg("com.vimage.android", SDCARD, "Movies/movie.mp4")
+        neg("com.vimage.android", SDCARD, "Movies/Vimages/selfie.jpg")
+        neg("com.vimage.android", SDCARD, "Movies/Vimages/.data")
+        pos("com.vimage.android", SDCARD, "Movies/Vimages/.data/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `xiaomi fast connect cache`() = runTest {
+        addDefaultNegatives()
+        neg("com.xiaomi.bluetooth", SDCARD, "Download/MiuiFastConnect")
+        pos("com.xiaomi.bluetooth", SDCARD, "Download/MiuiFastConnect/$rngString")
+
         confirm(create())
     }
 }

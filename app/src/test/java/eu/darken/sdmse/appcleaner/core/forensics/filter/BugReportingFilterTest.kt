@@ -1159,19 +1159,14 @@ class BugReportingFilterTest : BaseFilterTest() {
 
     @Test fun testMIUIBugReport() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.bugreport").locs(SDCARD).prefixFree("MIUI/debug_log"))
-        addCandidate(neg().pkgs("com.miui.bugreport").locs(SDCARD).prefixFree("MIUI/debug_log/bugrepor"))
-        addCandidate(
-            pos().pkgs("com.miui.bugreport").locs(SDCARD)
-                .prefixFree("MIUI/debug_log/bugreport-2021-03-15-030946.zip")
-        )
-        addCandidate(
-            neg().pkgs("com.miui.bugreport").locs(SDCARD)
-                .prefixFree("MIUI/debug_log/com.miui.bugreport/cache")
-        )
-        addCandidate(
-            pos().pkgs("com.miui.bugreport").locs(SDCARD)
-                .prefixFree("MIUI/debug_log/com.miui.bugreport/cache/image/screenshot_0_1618216975622.jpg")
+        neg("com.miui.bugreport", SDCARD, "MIUI/debug_log")
+        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/bugrepor")
+        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/bugreport-2021-03-15-030946.zip")
+        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/powerinfo/result_reason")
+        pos(
+            "com.miui.bugreport",
+            SDCARD,
+            "MIUI/debug_log/com.miui.bugreport/cache/image/screenshot_0_1618216975622.jpg"
         )
 
         confirm(create())
@@ -1222,4 +1217,24 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
+    @Test fun `meizu contacts db log`() = runTest {
+        addDefaultNegatives()
+
+        neg("android", SDCARD, "Android")
+        neg("android", SDCARD, "Android/contacts_db_log.txt")
+        neg("com.android.providers.contacts", SDCARD, "Android")
+        pos("com.android.providers.contacts", SDCARD, "Android/contacts_db_log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `meizu PPS dumps`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.meizu.pps", SDCARD, "PPS")
+        neg("com.meizu.pps", SDCARD, "PPS/something")
+        pos("com.meizu.pps", SDCARD, "PPS/2020-08-06.txt")
+
+        confirm(create())
+    }
 }

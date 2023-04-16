@@ -138,6 +138,21 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.miui.msa.global"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [
+			"com.miui.msa.global/filessplash_preload",
+			"com.miui.msa.global/filespush_ad_preload"
+		  ],
+		  "patterns": [
+			"^com.miui.msa.global/filessplash_preload/.+?$",
+			"^com.miui.msa.global/filespush_ad_preload/.+?$"
+		  ]
+		}
+	  ]
 	}
   ]
 }

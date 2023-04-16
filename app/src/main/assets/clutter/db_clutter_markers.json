@@ -11214,6 +11214,7 @@
 }, {
   "pkgs": ["com.miui.gallery"],
   "mrks": [
+	{"loc": "SDCARD", "path": "MIUI/Gallery", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "DCIM/.thumbnails", "flags": ["keeper", "common"]},
 	{"loc": "SDCARD", "path": "DCIM/Creative", "flags": ["keeper", "common"]}
   ]
@@ -12535,5 +12536,8 @@
 }, {
   "pkgs": ["com.meizu.safe"],
   "mrks": [{"loc": "SDCARD", "path": "360", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.xiaomi.bluetooth"],
+  "mrks": [{"loc": "SDCARD", "path": "Download/MiuiFastConnect"}]
 }
 ]

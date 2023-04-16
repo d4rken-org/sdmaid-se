@@ -1126,6 +1126,10 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["DCIM/Creative/temp"],
 		  "patterns": ["^(?:DCIM/Creative/temp/)(.+?)$"]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/Gallery/cloud/.cache/"],
+		  "patterns": ["^(?:MIUI/Gallery/cloud/.cache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -1171,6 +1175,24 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["MIUI/Video/thumb/"],
 		  "patterns": ["^(?:MIUI/Video/thumb/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.vimage.android"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Movies/Vimages/.data"],
+		  "patterns": ["^(?:Movies/Vimages/.data/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.xiaomi.bluetooth"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Download/MiuiFastConnect"],
+		  "patterns": ["^(?:Download/MiuiFastConnect/)(.+?)$"]
 		}
 	  ]
 	}, {
