@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.debug.autoreport.bugsnag
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import com.bugsnag.android.Event
 import com.bugsnag.android.OnErrorCallback
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -33,6 +34,7 @@ class BugsnagErrorHandler @Inject constructor(
 
             event.addMetadata(tab, "buildTime", BuildConfigWrap.BUILD_TIME.toString())
             event.addMetadata(tab, "gitSha", BuildConfigWrap.GIT_SHA)
+            event.addMetadata(tab, "locales", "${Resources.getSystem().configuration.locales}")
 
             context.tryFormattedSignature()?.let { event.addMetadata(tab, "signatures", it) }
         }
