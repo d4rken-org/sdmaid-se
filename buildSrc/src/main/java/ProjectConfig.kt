@@ -29,8 +29,9 @@ object ProjectConfig {
         val minor = versionProperties.getProperty("project.versioning.minor").toInt()
         val patch = versionProperties.getProperty("project.versioning.patch").toInt()
         val build = versionProperties.getProperty("project.versioning.build").toInt()
+        val type = versionProperties.getProperty("project.versioning.type")
 
-        val name = "${major}.${minor}.${patch}-rc${build}"
+        val name = "${major}.${minor}.${patch}-$type${build}"
         val code = major * 10000000 + minor * 100000 + patch * 1000 + build * 10
     }
 }
