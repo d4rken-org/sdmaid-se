@@ -2900,7 +2900,10 @@
   "mrks": [{"loc": "SDCARD", "path": "baiduyunrom"}]
 }, {
   "pkgs": ["com.snapchat.android"],
-  "mrks": [{"loc": "SDCARD", "path": "Snapchat", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "Snapchat", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "DCIM/Snapchat", "flags": ["keeper"]}
+  ]
 }, {
   "pkgs": ["uc.ucdl"],
   "mrks": [
