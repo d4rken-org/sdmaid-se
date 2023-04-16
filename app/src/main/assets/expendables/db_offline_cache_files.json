@@ -70,6 +70,20 @@
 		  "patterns": ["^Books/cr3_manual_.+?\\.fb2$"]
 		}
 	  ]
+	}, {
+	  "packages": [
+		"com.estrongs.android.pop",
+		"com.estrongs.android.pop.cupcake",
+		"com.estrongs.android.pop.app.shortcut",
+		"com.estrongs.android.pop.pro"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".estrongs/.app_icon_back"],
+		  "patterns": ["^\\.estrongs/\\.app_icon_back/.+?$"]
+		}
+	  ]
 	}
   ]
 }

@@ -136,4 +136,20 @@ class OfflineCacheFilterTest : BaseFilterTest() {
         pos("org.coolreader", SDCARD, "Books/cr3_manual_de_DE.fb2")
         confirm(create())
     }
+
+    @Test fun `estrongs icon cache`() = runTest {
+        addDefaultNegatives()
+        val pkgs = setOf(
+            "com.estrongs.android.pop",
+            "com.estrongs.android.pop.cupcake",
+            "com.estrongs.android.pop.app.shortcut",
+            "com.estrongs.android.pop.pro"
+        )
+        pkgs.forEach {
+            neg(it, SDCARD, ".estrongs/.app_icon_back")
+            pos(it, SDCARD, ".estrongs/.app_icon_back/ver")
+            pos(it, SDCARD, ".estrongs/.app_icon_back/com.zebu.hitrosti.png")
+        }
+        confirm(create())
+    }
 }
