@@ -3334,15 +3334,9 @@
   "pkgs": ["com.anddoes.fancywidgets"],
   "mrks": [{"loc": "PUBLIC_DATA", "path": "fancywidgets"}]
 }, {
-  "pkgs": ["com.drweb.pro"],
+  "pkgs": ["com.drweb.pro", "com.drweb.pro.market"],
   "mrks": [
-	{"loc": "PUBLIC_DATA", "path": "com.drweb"},
-	{"loc": "SDCARD", "path": "Android/com.drweb"}
-  ]
-}, {
-  "pkgs": ["com.drweb.pro.market"],
-  "mrks": [
-	{"loc": "PUBLIC_DATA", "path": "com.drweb"},
+	{"loc": "PUBLIC_DATA", "path": "com.drweb", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "Android/com.drweb"}
   ]
 }, {
@@ -6377,7 +6371,8 @@
   "pkgs": ["com.infraware.office.link"],
   "mrks": [
 	{"loc": "SDCARD", "path": ".polaris_temp"},
-	{"loc": "SDCARD", "path": ".polarisOffice"}
+	{"loc": "SDCARD", "path": ".polarisOffice"},
+	{"loc": "SDCARD", "path": ".polarisOffice6"}
   ]
 }, {
   "pkgs": ["com.infraware.polarisoffice.entbiz.gd.viewer"],
@@ -8737,7 +8732,9 @@
   "pkgs": ["com.android.providers.downloads.ui", "com.android.providers.downloads"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Download", "flags": ["keeper", "common"]},
-	{"loc": "SDCARD", "path": "MyFavorite", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": "MyFavorite", "flags": ["keeper", "common"]},
+	{"loc": "SDCARD", "path": "MGameDownload"},
+	{"loc": "SDCARD", "path": "QQBrowser", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": ["polis.app.callrecorder"],
@@ -10974,6 +10971,7 @@
 	{"loc": "PUBLIC_DATA", "path": ".MeizuGalleryTrashBin"},
 	{"loc": "SDCARD", "path": "DCIM", "flags": ["keeper", "common"]},
 	{"loc": "PUBLIC_DATA", "path": "Gallery_local"},
+	{"loc": "PUBLIC_DATA", "path": "gallery_cloud", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "gallery_cloud"}
   ]
 }, {
@@ -11982,7 +11980,10 @@
   "mrks": [{"loc": "SDCARD", "path": "com.bestringtonesapps.smsringtones"}]
 }, {
   "pkgs": ["com.meizu.cloud"],
-  "mrks": [{"loc": "SDCARD", "path": "sslCache", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "sslCache", "flags": ["keeper"]},
+	{"loc": "PUBLIC_DATA", "path": "com.meizu.cloud:mz_tracker"}
+  ]
 }, {
   "pkgs": ["com.android.providers.contacts"],
   "mrks": [{"loc": "SDCARD", "path": "Android/contacts_db_log.txt"}]
@@ -12421,7 +12422,10 @@
   "mrks": [{"loc": "SDCARD", "path": "Documents/AdGuard", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.drakeet.purewriter"],
-  "mrks": [{"loc": "SDCARD", "path": "Documents/PureWriter", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "Documents/PureWriter", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "backups", "flags": ["keeper", "common"]}
+  ]
 }, {
   "pkgs": ["com.miui.audiomonitor"],
   "mrks": [{"loc": "SDCARD", "path": "MIUI/sound_recorder", "flags": ["keeper"]}]
@@ -12515,5 +12519,20 @@
 }, {
   "pkgs": ["com.nunti"],
   "mrks": [{"loc": "SDCARD", "path": "Nunti", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.openmedia.om4kVideoDownloader"],
+  "mrks": [{"loc": "SDCARD", "path": "Documents/.config/4kdownload.com", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.telltalegames.batman100"],
+  "mrks": [{"loc": "SDCARD", "path": "Telltale/Batman"}]
+}, {
+  "pkgs": ["com.kingwaytek.naviking4g"],
+  "mrks": [{"loc": "SDCARD", "path": "LocalKingUserData"}]
+}, {
+  "pkgs": ["hk.alipay.wallet"],
+  "mrks": [{"loc": "SDCARD", "path": ".gs_file"}]
+}, {
+  "pkgs": ["com.meizu.safe"],
+  "mrks": [{"loc": "SDCARD", "path": "360", "flags": ["keeper"]}]
 }
 ]
