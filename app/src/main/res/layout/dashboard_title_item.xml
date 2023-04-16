@@ -8,15 +8,35 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/icon"
+
+    <FrameLayout
+        android:id="@+id/mascot_container"
         android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/vector_mascot_nobroom"
+        android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toStartOf="@id/title_container"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="@id/title_container" />
+        app:layout_constraintTop_toTopOf="@id/title_container">
+
+        <ImageView
+            android:id="@+id/mascot_rigid"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:src="@drawable/vector_mascot_nobroom" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mascot_animated"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_fallbackRes="@drawable/splash_mascot"
+            app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
+            app:lottie_loop="true" />
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/title_container"
@@ -50,13 +70,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ribbon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="-50dp"
         android:background="?colorError"
         android:orientation="vertical"
-        android:id="@+id/ribbon"
         android:paddingHorizontal="8dp"
         android:paddingVertical="4dp"
         android:rotation="42"
