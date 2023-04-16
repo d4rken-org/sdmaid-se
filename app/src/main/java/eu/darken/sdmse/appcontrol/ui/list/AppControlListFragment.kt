@@ -147,17 +147,6 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             fastscrollerThumb.setupWithFastScroller(ui.fastscroller)
         }
 
-        ui.sortmodeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
-            if (!isChecked) return@addOnButtonCheckedListener
-            val mode = when (checkedId) {
-                R.id.sortmode_name -> SortSettings.Mode.NAME
-                R.id.sortmode_updated -> SortSettings.Mode.LAST_UPDATE
-                R.id.sortmode_installed -> SortSettings.Mode.INSTALLED_AT
-                R.id.sortmode_packagename -> SortSettings.Mode.PACKAGENAME
-                else -> throw IllegalArgumentException("Unknown sortmode $checkedId")
-            }
-            vm.updateSortMode(mode)
-        }
         ui.sortmodeDirection.setOnClickListener { vm.toggleSortDirection() }
 
         ui.apply {
@@ -178,7 +167,22 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 SortSettings.Mode.INSTALLED_AT -> R.id.sortmode_installed
                 SortSettings.Mode.PACKAGENAME -> R.id.sortmode_packagename
             }
-            sortmodeGroup.check(checkedSortMode)
+            sortmodeGroup.apply {
+                clearOnButtonCheckedListeners()
+                check(checkedSortMode)
+                addOnButtonCheckedListener { _, checkedId, isChecked ->
+                    if (!isChecked) return@addOnButtonCheckedListener
+                    val mode = when (checkedId) {
+                        R.id.sortmode_name -> SortSettings.Mode.NAME
+                        R.id.sortmode_updated -> SortSettings.Mode.LAST_UPDATE
+                        R.id.sortmode_installed -> SortSettings.Mode.INSTALLED_AT
+                        R.id.sortmode_packagename -> SortSettings.Mode.PACKAGENAME
+                        else -> throw IllegalArgumentException("Unknown sortmode $checkedId")
+                    }
+                    vm.updateSortMode(mode)
+                }
+            }
+
             sortmodeDirection.setIconResource(
                 if (state.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
             )
