@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_delete_all_message">Nátiyjeler barlıq ásbaplardan óshirilsin be?</string>
+    <string name="dashboard_settings_category">Basqarıw paneli</string>
+    <string name="debug_debuglog_size_label">Kólem</string>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d tapsırma gezekte</item>
+        <item quantity="other">%d tapsırma gezekte</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Tapsırmanı orınlaw nátiyjeleri</string>
+    <string name="tasks_result_subtext">Tapsırmanı orınlaw nátiyjesi</string>
     <string name="onboarding_welcome_continue_action">Dawam etiw</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_continue_action">Dawam etiw</string>
+    <string name="onboarding_privacy_title">Qupiyalıq</string>
     <string name="onboarding_privacy_continue_action">Dawam etiw</string>
     <string name="onboarding_setup_title">Sazlaw</string>
+    <string name="settings_privacy_policy_label">Qupiyalıq siyasatı</string>
+    <string name="settings_licenses_label">Licenziyalar</string>
     <string name="settings_category_other_label">Basqa</string>
+    <string name="settings_category_filter_generic">Ulıwmalıq filtr</string>
     <string name="settings_category_filter_specific">Arnawlı filtr</string>
+    <string name="general_settings_label">Ulıwmalıq</string>
     <string name="settings_category_ui_label">Paydalanıwshı interfeysı</string>
     <string name="ui_theme_setting_label">Tema</string>
     <string name="ui_theme_dark_label">Qarańǵı</string>
+    <string name="ui_theme_light_label">Jaqtı</string>
+    <string name="documentation_label">Hújjetshilik</string>
     <string name="discord_label">Discord</string>
     <string name="changelog_label">Ózgerisler</string>
     <string name="setup_label">Ornatıw</string>
@@ -17,15 +33,42 @@
     <string name="setup_title">Ornatıw</string>
     <string name="setup_usagestats_title">Paydalanıw statistikası</string>
     <string name="setup_notification_title">Xabarlamalar</string>
+    <string name="debug_mode_label">Nasazlıqtı sazlaw rejimi</string>
+    <string name="settings_category_tools_label">Ásbaplar</string>
     <string name="settings_category_filter">Filtr</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik kesh</string>
+    <string name="corpsefinder_filter_applib_label">Baǵdarlama kitapxanaları</string>
     <string name="corpsefinder_filter_appsource_label">Baǵdarlama derekleri</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_advertisements_label">Reklama faylları</string>
+    <string name="systemcleaner_filter_anr_label">ANR qátelikleri</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Bos papkalar</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR papkaları</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Linux faylları</string>
+    <string name="systemcleaner_filter_macfiles_label">Mac faylları</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows faylları</string>
+    <string name="systemcleaner_filter_analytics_label">Analitika faylları</string>
+    <string name="systemcleaner_filter_downloadcache_label">Júklep alıw keshi</string>
+    <string name="systemcleaner_filter_usagestats_label">Qollanıw statistikası</string>
+    <string name="systemcleaner_filter_usagestats_summary">Baǵdarlamanı qollanıw statistikasına baylanıslı fayllar.</string>
+    <string name="appcleaner_filter_analytics_label">Analitika</string>
+    <string name="appcleaner_filter_hiddencaches_label">Jasırın kesh</string>
+    <string name="appcleaner_filter_offlinecache_label">Offlayn kesh</string>
+    <string name="appcleaner_junk_userprofile_label">Paydalanıwshı</string>
+    <string name="appcontrol_explanation_short">Qurılmańızǵa ornatılǵan baǵdarlamalar.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d baǵdarlama tabıldı</item>
+        <item quantity="other">%d baǵdarlama tabıldı</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_enable_action">Baǵdarlamanı qosıw</string>
+    <string name="appcontrol_toggle_app_disable_action">Baǵdarlamanı óshiriw</string>
     <string name="appcontrol_systemsettings_open_title">Sazlawlardı kórsetiw</string>
     <string name="appcontrol_app_launch_title">Baǵdarlamanı iske túsiriw</string>
     <string name="appcontrol_tag_user">Paydalanıwshı</string>
     <string name="appcontrol_tag_enabled">Qosılǵan</string>
     <string name="appcontrol_tag_disabled">Óshirilgen</string>
     <string name="appcontrol_list_sortmode_name_label">Baǵdarlama ataması</string>
+    <string name="appcontrol_list_sortmode_installed_label">Birinshi ornatıw</string>
     <string name="history_label">Tariyx</string>
     <string name="updates_dashcard_title">Jańalanıw bar</string>
 </resources>

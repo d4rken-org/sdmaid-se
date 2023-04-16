@@ -18,6 +18,7 @@
     <string name="tasks_result_subtext">Resultado da tarefa</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
     <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, apps e armazenamento.</string>
+    <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando atrás de outros aplicativos. Exclua arquivos descartáveis ​​e remova os dados restantes.</string>
     <string name="onboarding_welcome_body_beta">Esta é uma compilação beta (teste). Prossiga com senso de humor e um plano B. Relate os problemas que encontrar.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -27,11 +28,14 @@
     <string name="onboarding_versus_continue_action">Continuar</string>
     <string name="onboarding_privacy_title">Privacidade</string>
     <string name="onboarding_privacy_body1">O SD Maid não tem anúncios e não vende dados do usuário.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Os relatórios de erros são enviados quando ocorrem erros e podem conter detalhes sobre aplicativos e arquivos em seu dispositivo. Os relatórios me ajudam a corrigir bugs e melhorar o aplicativo.</string>
     <string name="onboarding_privacy_bugreport_toggle">Permitir relatórios automáticos de bugs</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Estas opções podem ser alteradas nas configurações.</string>
     <string name="onboarding_privacy_continue_action">Continuar</string>
     <string name="onboarding_setup_title">Configurar</string>
     <string name="onboarding_setup_body1">SD Maid irá buscar em todas as áreas de dados acessíveis.</string>
+    <string name="onboarding_setup_body2">O que é acessível depende do seu telefone, versão do Android e permissões concedidas.</string>
+    <string name="onboarding_setup_body3">Comece a usar o SD Maid configurando o acesso às áreas que devem ser pesquisadas.</string>
     <string name="onboarding_setup_continue_action">Configurar acesso</string>
     <string name="settings_privacy_policy_label">Política de privacidade</string>
     <string name="settings_privacy_policy_desc">Manipulação responsável dos dados.</string>
@@ -42,12 +46,19 @@
     <string name="settings_sponsor_development_title">Patrocinador do desenvolvimento</string>
     <string name="settings_sponsor_development_summary">Seja um apoiador e torne possível o desenvolvimento contínuo.</string>
     <string name="general_settings_label">Gerais</string>
+    <string name="general_settings_desc">Ajustes gerais que afetam todo o aplicativo.</string>
     <string name="settings_category_ui_label">Interface de usuário</string>
     <string name="ui_theme_setting_label">Tema</string>
     <string name="ui_theme_dark_label">Escuro</string>
     <string name="ui_theme_light_label">Claro</string>
     <string name="ui_theme_system_label">Sistema</string>
+    <string name="ui_theme_setting_explanation">Altere o tema atual do aplicativo e substitua as configurações do sistema.</string>
     <string name="settings_support_label">Suporte</string>
     <string name="documentation_label">Documentação</string>
+    <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dados com nomes muito comuns, por exemplo, uma pasta \"Notas\" pertence a muitos aplicativos desconhecidos.</string>
+    <string name="appcleaner_include_multiuser_label">Incluir outros usuários</string>
+    <string name="appcleaner_include_multiuser_summary">Incluir aplicativos de outros perfis de usuário neste dispositivo.</string>
+    <string name="appcleaner_junk_userprofile_label">Usuário</string>
     <string name="translation_translators_people">Natanaelrj(natanael.caetano@gmail.com)</string>
 </resources>

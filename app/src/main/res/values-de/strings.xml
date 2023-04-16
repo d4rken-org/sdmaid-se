@@ -26,7 +26,7 @@
     <string name="tasks_result_subtext">Ergebnis der Aufgabe</string>
     <string name="onboarding_welcome_title">Willkommen</string>
     <string name="onboarding_welcome_body1">SD Maid SE verwaltet Dateien, Apps und Speicher.</string>
-    <string name="onboarding_welcome_body2">Gewinnen Sie Speicherplatz, indem Sie hinter anderen Apps aufräumen. Löschen Sie Verbrauchsdateien und entfernen Sie übrig gebliebene Daten.</string>
+    <string name="onboarding_welcome_body2">Gewinnen Sie Speicherplatz, indem Sie Reste von anderen Apps aufräumen. Löschen Sie überflüssige und übrig gebliebene Daten.</string>
     <string name="onboarding_welcome_body_beta">Dies ist eine Beta (Test) Version. Fahren Sie mit einem Sinn für Humor und einem Backup-Plan fort. Bitte melden Sie Probleme, auf die Sie stoßen.</string>
     <string name="onboarding_welcome_continue_action">Weiter</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -160,8 +160,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d App bleibt entdeckt</item>
-        <item quantity="other">%d App bleibt entdeckt</item>
+        <item quantity="one">%d App wurde entdeckt</item>
+        <item quantity="other">%d Apps wurden entdeckt</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Alle App Reste löschen?</string>
     <string name="corpsefinder_owners_label">Besitzer</string>
@@ -169,7 +169,7 @@
     <string name="corpsefinder_owner_unknown">Unbekannter Besitzer</string>
     <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die Sie behalten möchten, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
     <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>
-    <string name="systemcleaner_tool_name">SystemReiniger</string>
+    <string name="systemcleaner_tool_name">System-Reiniger</string>
     <string name="systemcleaner_explanation_short">Überflüssige Daten, die zu keiner bestimmten App gehören.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d Filterübereinstimmung</item>
@@ -217,8 +217,8 @@
     <string name="systemcleaner_filter_usagestats_label">Nutzungsstatistiken</string>
     <string name="systemcleaner_filter_usagestats_summary">Dateien, die sich auf Anwendungsnutzungsstatistiken beziehen.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle Filterinhalte löschen?</string>
-    <string name="appcleaner_tool_name">AppReiniger</string>
-    <string name="appcleaner_explanation_short">Verbrauchte Daten, die zu bestimmten Apps gehören.</string>
+    <string name="appcleaner_tool_name">App-Reiniger</string>
+    <string name="appcleaner_explanation_short">Überflüssige Daten, die zu bestimmten Apps gehören.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Öffentliche Standard-Caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standardmäßige öffentliche App-Caches. Auf älteren Android-Versionen unter Android/data erreichbar. Wird gelöscht, wenn in den Systemeinstellungen auf \"Cache leeren\" geklickt wird.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Private Standard-Caches</string>
@@ -263,18 +263,18 @@
     <string name="appcleaner_filter_wechat_summary">Gesendete oder empfangene Dateien in Konversationen und WeChat Momenten.</string>
     <string name="appcleaner_delete_all_confirmation_message">Alle Apps bereinigen?</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d Verbrauchsgegenstand gefunden</item>
-        <item quantity="other">%d Verbrauchsgegenstände gefunden</item>
+        <item quantity="one">%d überflüssiges Objekt gefunden</item>
+        <item quantity="other">%d überflüssige Objekte gefunden</item>
     </plurals>
     <string name="appcleaner_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
-    <string name="appcleaner_automation_title">AppReiniger Automatisierung</string>
+    <string name="appcleaner_automation_title">App-Reiniger Automatisierung</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standard Caches löschen…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Zugänglichkeitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Sie es nicht verwenden möchten: Deaktivieren Sie die Option \"Unzugängliche Caches einbeziehen\".</string>
     <string name="appcleaner_junk_userprofile_label">Benutzer</string>
-    <string name="appcontrol_tool_name">AppKontrolle</string>
+    <string name="appcontrol_tool_name">App-Kontrolle</string>
     <string name="appcontrol_explanation_short">Auf Ihrem Gerät installierte Apps.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d App erkannt</item>
@@ -354,5 +354,5 @@
     <string name="translation_encourage_title">Übersetze SD Maid</string>
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
-    <string name="translation_translators_people">Gamechanger181</string>
+    <string name="translation_translators_people">Gamechanger181;Darken</string>
 </resources>

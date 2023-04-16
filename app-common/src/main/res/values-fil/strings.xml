@@ -12,7 +12,7 @@
     <string name="general_error_cant_access_msg">Hindi ma-access ang %s.</string>
     <string name="general_error_root_unavailable">Hindi available ang root access.</string>
     <string name="general_error_empty_result_msg">Walang laman ang resulta.</string>
-    <string name="general_todo_msg">Ginagawa pa at hindi pa kasalukuyang available ang feature na ito.</string>
+    <string name="general_todo_msg">Tinatrabaho pa at hindi pa kasalukuyang available ang feature na ito.</string>
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos na</string>
     <string name="general_copy_action">Kopyahin</string>

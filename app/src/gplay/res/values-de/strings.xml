@@ -3,17 +3,17 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Erfordert SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Aktualisieren Sie SD Maid</string>
+    <string name="upgrades_dashcard_title">SD Maid Upgrade</string>
     <string name="upgrades_dashcard_body">SD Maid Pro bietet bessere Ergebnisse, mehr Funktionen und Optionen für Leistung Benutzer.</string>
-    <string name="upgrades_dashcard_upgrade_action">Aktualisierung</string>
+    <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
     <string name="upgrades_gplay_unavailable_error">Google Play-Dienste sind nicht verfügbar.</string>
-    <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwenden Sie das richtige Konto?</string>
-    <string name="upgrade_screen_title">Holen Sie sich SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid hat keine Werbung und verkauft keine Benutzerdaten. Meine Arbeit wird von Ihnen finanziert.</string>
+    <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwendest du das richtige Konto?</string>
+    <string name="upgrade_screen_title">Hol dir SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid hat keine Werbung und verkauft keine Benutzerdaten. Meine Arbeit wird von dir finanziert.</string>
     <string name="upgrade_screen_benefits_title">Vorteile</string>
     <string name="upgrade_screen_benefits_body">• App-Bereinigung 💯\n• Geplante Operationen ⏰\n• Extra-Optionen für alle Tools ⚙️\n• Eigene Löschregeln ✍️\n• Ein motivierter Entwickler 🧙\nund mehr…</string>
     <string name="upgrade_screen_how_title">Optionen</string>
-    <string name="upgrade_screen_how_body">Sie haben 2 Möglichkeiten: Ein einmaliger Kauf oder ein günstigeres Jahresabonnement. Das Abonnement hat eine kostenlose Testversion. Die Funktionen, die Sie erhalten, sind die gleichen, nur die Zahlungsmethoden unterscheiden sich.</string>
+    <string name="upgrade_screen_how_body">Du hast 2 Möglichkeiten: Ein einmaliger Kauf oder ein günstigeres Jahresabonnement. Das Abonnement hat eine kostenlose Testversion. Die Funktionen, die Sie erhalten, sind die gleichen, nur die Zahlungsmethoden unterscheiden sich.</string>
     <string name="upgrade_screen_subscription_trial_action">Kostenlos testen</string>
     <string name="upgrade_screen_subscription_action">Abonnieren</string>
     <string name="upgrade_screen_subscription_action_hint">Das Abonnement kostet %s pro Jahr.</string>
@@ -21,8 +21,8 @@
     <string name="upgrade_screen_iap_action_hint">Der einmalige Kauf kostet %s.</string>
     <string name="upgrade_screen_thanks_toast">Du bist super &lt;3</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Gemeinsam haben wir es bis zur ersten Veröffentlichung geschafft! Danke, dass du mir geholfen hast! Die Entwicklung wird natürlich fortgesetzt, aber Sie können jetzt auf stabilere Builds umsteigen, wenn Sie möchten. Deaktivieren Sie dazu das Testen bei Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Kleiner Hinweis: Während des Tests abgegebene Bewertungen sind nur für mich sichtbar, ich würde mich freuen, wenn Sie SD Maid eine öffentliche Bewertung geben könnten, wenn Sie zufrieden sind.</string>
+    <string name="nudge_betagoodbye_body">Gemeinsam haben wir es bis zur ersten Veröffentlichung geschafft! Danke, dass du mir geholfen hast! Die Entwicklung wird natürlich fortgesetzt, aber du kannst jetzt auf stabilere Builds umsteigen, wenn du möchtest. Deaktiviere dazu das Testen bei Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Kleiner Hinweis: Während des Tests abgegebene Bewertungen sind nur für mich sichtbar, ich würde mich freuen, wenn du SD Maid eine öffentliche Bewertung geben könntest, falls du zufrieden sind.</string>
     <string name="nudge_betagoodbye_positive_action">Ablehnen</string>
-    <string name="nudge_betagoodbye_negative_action">Testen Sie weiter</string>
+    <string name="nudge_betagoodbye_negative_action">Weiter testen</string>
 </resources>

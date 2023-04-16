@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Richiede SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Aggiorna SD Maid</string>
+    <string name="upgrades_dashcard_upgrade_action">Aggiorna</string>
+    <string name="upgrade_screen_sponsor_action">Finanzia lo sviluppo</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+</resources>

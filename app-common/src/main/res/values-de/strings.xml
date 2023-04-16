@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE Pro</string>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Zu Ihren Diensten.</string>
     <string name="slogan_message_1">Sauber &amp; aufgeräumt.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
@@ -18,9 +18,9 @@
     <string name="general_copy_action">Kopieren</string>
     <string name="general_remove_action">Entfernen</string>
     <string name="general_wipe_action">Wischen</string>
-    <string name="general_cancel_action">Stornieren</string>
+    <string name="general_cancel_action">Abbrechen</string>
     <string name="general_save_action">Speichern</string>
-    <string name="general_thanks_action">Danke an</string>
+    <string name="general_thanks_action">Danke</string>
     <string name="general_gotit_action">Habe es</string>
     <string name="general_edit_action">Bearbeiten</string>
     <string name="general_create_account_action">Benutzerkonto erstellen</string>
@@ -30,12 +30,12 @@
     <string name="general_dismiss_action">Ausblenden</string>
     <string name="general_maybe_later_action">Vielleicht später</string>
     <string name="general_manage_action">Verwalten</string>
-    <string name="general_sync_action">Synchronismen</string>
+    <string name="general_sync_action">Synchronisieren</string>
     <string name="general_error_label">Fehler</string>
     <string name="general_select_server_label">Server auswählen</string>
     <string name="general_quota_label">Quote</string>
     <string name="general_tap_hint_msg">Tippe für weitere Optionen</string>
-    <string name="general_upgrade_action">Aktualisierung</string>
+    <string name="general_upgrade_action">Upgrade</string>
     <string name="general_donate_action">Spenden</string>
     <string name="general_check_action">Überprüfen</string>
     <string name="general_filter_action">Filter</string>
@@ -88,7 +88,7 @@
         <item quantity="one">%s Artikel</item>
         <item quantity="other">%s Artikel</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s kann befreit werden</string>
+    <string name="x_space_can_be_freed">%s können freigegeben werden</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Zählen</string>
     <string name="general_app_label">App</string>

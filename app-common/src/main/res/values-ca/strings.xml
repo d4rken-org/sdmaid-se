@@ -50,7 +50,7 @@
     <string name="general_progress_loading_app_data">Carregant les dades de l\'aplicació</string>
     <string name="general_progress_loading_data_areas">Carregant les àrees de dades</string>
     <string name="general_progress_loading_egg_0">Encara més ràpid que un iPhone</string>
-    <string name="general_progress_loading_egg_1">Alliberant més memòria RAM</string>
+    <string name="general_progress_loading_egg_1">Alliberant més RAM</string>
     <string name="general_progress_loading_egg_2">Aviat™</string>
     <string name="general_progress_loading_egg_3">La CPU està descansant per prendre un cafè</string>
     <string name="general_progress_loading_egg_4">A l\'espera de les dades de Pepe Silvia</string>

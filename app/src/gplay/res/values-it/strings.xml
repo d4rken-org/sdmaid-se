@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Richiede SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Aggiorna SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro offre risultati migliori, più funzioni e opzioni per gli utenti più esperti.</string>
+    <string name="upgrades_dashcard_upgrade_action">Aggiorna</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play Services non sono disponibili.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nessun acquisto trovato. Stai usando l\'account corretto?</string>
+    <string name="upgrade_screen_title">Passa a SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid non contiene pubblicità e non vende i dati degli utenti. Il mio lavoro è finanziato dagli utenti.</string>
+    <string name="upgrade_screen_benefits_title">Vantaggi</string>
+    <string name="upgrade_screen_benefits_body">• Pulizia delle app 💯\n• Attività programmate ⏰\n• Funzionalità aggiuntive per tutti i programmi ⚙️\n• Regole di pulizia personalizzabili ✍️\n• Uno sviluppatore motivato 🧙\ne tanto altro…</string>
+    <string name="upgrade_screen_how_title">Opzioni</string>
+    <string name="upgrade_screen_thanks_toast">Sei il migliore! ❤️</string>
+</resources>

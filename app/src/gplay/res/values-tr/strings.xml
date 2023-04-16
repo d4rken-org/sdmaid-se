@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro gerektirir</string>
+    <string name="upgrades_dashcard_title">SD Maid\'i Yükseltin</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro, uzman kullanıcılar için daha iyi sonuçlar, daha fazla özellik ve seçenek sunar.</string>
+    <string name="upgrades_dashcard_upgrade_action">Güncelleme</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play hizmetleri kullanılamıyor.</string>
+    <string name="upgrades_no_purchases_found_check_account">Satın alma bulunamadı. Doğru hesabı mı kullanıyorsunuz?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro\'yu edinin</string>
+    <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. İşim senin tarafından finanse ediliyor.</string>
+    <string name="upgrade_screen_benefits_title">Avantajlar</string>
+    <string name="upgrade_screen_benefits_body">Uygulama temizleme 💯\n• Planlanmış işlemler ⏰\n• Tüm araçlar için ekstra seçenekler ⚙️\n• Kendi silme kurallarınız ✍️\n• Motivasyonlu bir geliştirici 🧙\nve daha fazlası…</string>
+    <string name="upgrade_screen_how_title">Seçenekler</string>
+    <string name="upgrade_screen_how_body">2 seçeneğiniz var: Bir kerelik satın alma veya daha ucuz bir yıllık abonelik. Aboneliğin ücretsiz bir denemesi var. Aldığınız özellikler aynıdır, sadece ödeme yöntemleri farklıdır.</string>
+    <string name="upgrade_screen_subscription_trial_action">Deneme sürümüne başla</string>
+    <string name="upgrade_screen_subscription_action">Abone</string>
+    <string name="upgrade_screen_subscription_action_hint">Aboneliğin yıllık maliyeti %s\'dir.</string>
+    <string name="upgrade_screen_iap_action">Tek seferlik satın alma</string>
+    <string name="upgrade_screen_iap_action_hint">Bir kerelik satın alma maliyeti %s.</string>
+    <string name="upgrade_screen_thanks_toast">Sen en iyisin! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Birlikte ilk sürüme ulaştık! Bana yardım ettiğin için teşekkür ederim! Geliştirme elbette devam edecek, ancak isterseniz artık daha kararlı yapılara geçebilirsiniz. Bunu, Google Play\'de test etmeyi devre dışı bırakarak yapın.</string>
+    <string name="nudge_betagoodbye_hint">Küçük not: Test sırasında verilen derecelendirmeler yalnızca benim tarafımdan görülebilir, eğer memnunsanız, SD Maid\'e herkese açık bir derecelendirme verirseniz çok sevinirim.</string>
+    <string name="nudge_betagoodbye_positive_action">Vazgeçmek</string>
+    <string name="nudge_betagoodbye_negative_action">Test etmeye devam et</string>
+</resources>

@@ -83,7 +83,7 @@
     <string name="setup_incomplete_card_dismiss_action">Отклонить</string>
     <string name="setup_incomplete_card_continue_action">Продолжить установку</string>
     <string name="setup_title">Установка</string>
-    <string name="setup_forcedshow_summary">Повторно показать экран установки, включая уже выполненные пункты.</string>
+    <string name="setup_forcedshow_summary">Повторный запуск экрана установки, включая выполненные пункты.</string>
     <string name="setup_saf_card_title">Доступ к хранилищу</string>
     <string name="setup_saf_card_body">Улучшите результаты, предоставив SD Maid доступ к дополнительным параметрам.</string>
     <string name="setup_saf_card_body2">В большинстве случаев окно открывается с предварительно выбранным правильным путем. Записи становятся зелеными, когда доступ разрешен. </string>
@@ -134,10 +134,11 @@
     <string name="settings_category_risklevel">Уровень риска</string>
     <string name="corpsefinder_tool_name">Мусор</string>
     <string name="corpsefinder_explanation_short">Данные, принадлежащие уже удаленным приложениям.</string>
-    <string name="corpsefinder_settings_summary">Настроить фильтры сканирования и уровни риска.</string>
+    <string name="corpsefinder_settings_summary">Настройка фильтров сканирования и уровней риска.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Включить желаемые остатки</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Файлы, которые Вы, возможно, захотите сохранить, даже если приложение будет удалено, например, сделанные Вами фотографии или созданные Вами резервные копии.</string>
     <string name="corpsefinder_settings_risk_common_title">Включить общие названия</string>
+    <string name="corpsefinder_settings_risk_common_summary">Данные со слишком общими именами, например, папка \"Заметки\" принадлежит многим неизвестным приложениям.</string>
     <string name="corpsefinder_watcher_title">Контроль удаления</string>
     <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
     <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
@@ -236,6 +237,8 @@
     <string name="appcleaner_include_runningapps_summary">Включение в проверку работающих в данный момент приложений, это может создать помехи.</string>
     <string name="appcleaner_include_inaccessible_label">Включать недоступные данные</string>
     <string name="appcleaner_include_inaccessible_summary">Включение данных, к которым нет прямого доступа, но их можно удалить в системных настройках и автоматизировать удаление с помощью службы специальных возможностей. </string>
+    <string name="appcleaner_include_multiuser_label">Включать других пользователей</string>
+    <string name="appcleaner_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блоки байткода, скомпилированные в нативный код.</string>
     <string name="appcleaner_filter_advertisement_label">Данные рекламы</string>
@@ -280,6 +283,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публичный и приватный кэш по умолчанию. Не имеют прямого доступа, но могут быть удалены косвенно (например, через службу специальных возможностей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба специальных возможностей недоступна</string>
     <string name="appcleaner_automation_unavailable_body">Удаление недоступного кэша при невозможности использования службы специальных возможностей SD Maid. Если Вы не хотите использовать эту функцию, выключите опцию \"Включать недоступный кэш\".</string>
+    <string name="appcleaner_junk_userprofile_label">Пользователь</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
     <plurals name="appcontrol_x_apps_detected_label">

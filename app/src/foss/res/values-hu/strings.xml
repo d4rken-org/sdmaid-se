@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro szükséges</string>
+    <string name="upgrades_dashcard_title">Az SD Maid frissítése</string>
+    <string name="upgrades_dashcard_body">Fedezze fel a további funkciókat, és legyen patron támogató, hogy támogassa a folyamatos fejlesztést!</string>
+    <string name="upgrades_dashcard_upgrade_action">Frissítés</string>
+    <string name="upgrade_screen_title">Az SD Maid fejlesztése</string>
+    <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A folyamatos fejlődést csak Ön teszi lehetővé.</string>
+    <string name="upgrade_screen_how_title">Hogyan lehet segíteni</string>
+    <string name="upgrade_screen_how_body">Legyen patron támogató és szponzorálja a fejlesztést! Kattintson az alábbi gombra az összes extra funkció aktiválásához és a Github Sponsors profilom megnyitásához.</string>
+    <string name="upgrade_screen_why_title">Ez varázsol 🪄</string>
+    <string name="upgrade_screen_why_body">AlkalmazásTiszító törlési funkció 💯\n• Ütemezett műveletek ⏰\n• Extra lehetőségek minden eszközhöz ⚙️\n• Saját törlési szabályok ✍️\n• Motivált fejlesztő 🧙\nés több…</string>
+    <string name="upgrade_screen_sponsor_action">Szponzori fejlesztés</string>
+    <string name="upgrade_screen_sponsor_action_hint">Az alternatívák a hirdetések, az elemzések és a Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Köszönjük, hogy támogatod a nyílt forráskódú fejlesztést ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Együtt eljutottunk az első kiadásig! Köszönöm, hogy segítettél tesztelni! A fejlesztés természetesen folytatódik, de most már nem béta verziókra válthatsz. Ehhez töltse le a legújabb stabil kiadást.</string>
+    <string name="nudge_betagoodbye_hint">Apró megjegyzés: A tesztelés során adott értékeléseket csak én látom, hálás lennék, ha nyilvánosan értékelné az SD Maid-et, ha elégedett.</string>
+    <string name="nudge_betagoodbye_positive_action">Kimenet</string>
+    <string name="nudge_betagoodbye_negative_action">Folytasd a tesztelést</string>
+</resources>

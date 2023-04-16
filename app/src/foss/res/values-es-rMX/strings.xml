@@ -2,7 +2,7 @@
 <resources>
     <string name="upgrade_feature_requires_pro">Requiere SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
-    <string name="upgrades_dashcard_body">¡Desbloquea características adicionales y conviértete en patrocinador para apoyar la continuidad del proyecto!</string>
+    <string name="upgrades_dashcard_body">¡Desbloquea las funciones adicionales convirtiéndote en pratrocinador para apoyar el desarrollo!</string>
     <string name="upgrades_dashcard_upgrade_action">Actualizar</string>
     <string name="upgrade_screen_title">Mejora SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende datos de usuarios. La continuidad del desarrollo solo es posible gracias a ti.</string>

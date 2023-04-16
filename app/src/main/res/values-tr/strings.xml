@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_click_hint">Bazı girdiler daha fazla detay görebilmek için tıklanılabilirdir.</string>
+    <string name="dashboard_delete_all_message">Tüm sonuçlar silinsin mi?</string>
     <string name="dashboard_settings_category">Panel</string>
     <string name="dashboard_settings_oneclick_title">Tek Tık Modu</string>
+    <string name="dashboard_settings_oneclick_summary">Panelin eylemler düğmesine bir kez tıklayarak, ilave teyit gösterilmeden, tüm araçları kullanarak tarama ve silmeyi başatın.</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
@@ -63,6 +65,7 @@
     <string name="documentation_label">Dokümantasyon</string>
     <string name="issue_tracker_description">Hata raporları ve özellik istekleri için genel sorun takipçisi.</string>
     <string name="issue_tracker_label">Sorun takipçisi</string>
+    <string name="support_installid_label">Yükleme Kimliği</string>
     <string name="support_installid_desc">Otomatik hata raporları anonim olarak bildirilir. Geliştiricinin hata raporlarınızı bulabilmesi için yükleme kimliğinizi paylaşın.</string>
     <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
     <string name="support_debuglog_desc">Uygulamanın yaptığı her işlemi paylaşabileceğiniz bir metin dosyasına kaydedin.</string>
@@ -70,6 +73,30 @@
     <string name="discord_description">Vakit geçirip soru sorabileceğiniz bir yer.</string>
     <string name="changelog_label">Değişiklik günlüğü</string>
     <string name="settings_acknowledgements_label">Teşekkür Bölümü</string>
+    <string name="setup_label">Kur</string>
+    <string name="setup_incomplete_card_title">Kurulum tamamlanmadı</string>
+    <string name="setup_incomplete_card_body">Daha iyi sonuçlar almak için SD Maid kurulumunu tamamlayın.</string>
+    <string name="setup_incomplete_card_dismiss_action">Tamam</string>
+    <string name="setup_incomplete_card_continue_action">Kuruluma devam et</string>
+    <string name="setup_title">Kur</string>
+    <string name="setup_forcedshow_summary">Tamamlanmış adımları da içeren kurulum ekranını tekrar göster.</string>
+    <string name="setup_saf_card_title">Depolama erişim çerçevesi</string>
+    <string name="setup_saf_card_body">SD Maid\'in ilave alanlara erişimini onaylayarak gelişmiş sonuçlar alın.</string>
+    <string name="setup_saf_card_body2">Çoğu durumda pencere doğru yol önceden seçilmiş halde açılır. Erişim izni verildiğinde girdiler yeşile döner. </string>
+    <string name="setup_saf_error_wrong_path">Yanlış yol seçtiniz</string>
+    <string name="setup_saf_missing_app_error">Belgeler Kullanıcı Arayüzü uygulaması bulunamadı. Bu, tüm Android cihazlarda bulunması gereken yerleşik bir sistem uygulamasıdır.</string>
+    <string name="setup_manage_storage_card_title">Depolama alanını yönet</string>
+    <string name="setup_manage_storage_card_body">SD Maid\'e depolama alanınızı yönetmesi için izin verin.</string>
+    <string name="setup_manage_storage_card_body2">Genel depolamaya temel erişim, örn. \"İndir/\" ve \"DCIM/\", ancak her zaman \"Android/data\" değil.</string>
+    <string name="setup_root_card_title">Kök erişimi</string>
+    <string name="setup_root_card_body">Ek sistem klasörlerini ve özel uygulama verilerini kontrol etmek için varsa, SD Maid kök erişimini kullanmalıdır.</string>
+    <string name="setup_root_enable_root_use_label">Varsa kök erişimini kullanın</string>
+    <string name="setup_root_disable_root_use_label">Kök erişimini kullanmayın</string>
+    <string name="setup_root_card_body2">Yalnızca köklü cihazlarda kullanılabilir. Bu değişikliği siz yapmadıysanız, cihazınız rootlu değildir ve bu ayarın bir etkisi yoktur.</string>
+    <string name="setup_permission_granted_label">İzin verildi</string>
+    <string name="setup_notification_title">Bildirimler</string>
+    <string name="setup_acs_state_running">Erişebirlik servisi çalışıyor</string>
+    <string name="setup_acs_state_stopped">Erişebirlik servisi durduruldu</string>
     <string name="dataarea_warningcard_reload_action">Veri alanlarını tekrar yükle</string>
     <string name="debug_mode_label">Hata ayıklama modu</string>
     <string name="debug_mode_explanation">Test seçeneklerini ve daha ayrıntılı çıktı almayı etkinleştir. Uygulama daha yavaş ve farklı bir şekilde çalışacak.</string>
@@ -121,8 +148,24 @@
     <string name="corpsefinder_corpse_hint_common">Bu öge çok yaygın bir isme sahip, bu yüzden SD Maid\'in haberinin olmadığı, hâlâ yüklü bir uygulamaya ait olabilir.</string>
     <string name="systemcleaner_tool_name">SistemTemizleyicisi</string>
     <string name="systemcleaner_explanation_short">Belli bir uygulamaya ait olmayan gereksiz veriler.</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d filtre eşleşti</item>
+        <item quantity="other">%d filtre eşleşti</item>
+    </plurals>
+    <string name="systemcleaner_filter_custom_label">Özel filtre</string>
+    <string name="systemcleaner_filter_custom_manage_label">Özel filtreleri yönet</string>
+    <string name="systemcleaner_filter_logfiles_label">Log dosyaları</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR klasörleri</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Linux dosyaları</string>
+    <string name="systemcleaner_filter_macfiles_label">Mac dosyaları</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows dosyaları</string>
+    <string name="systemcleaner_filter_tempfiles_label">Gereksiz dosyalar</string>
+    <string name="appcleaner_tool_name">Uygulama temizleyici</string>
     <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
     <string name="appcleaner_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
+    <string name="appcleaner_filter_gamefiles_label">Oyun dosyaları</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_junk_userprofile_label">Kullanıcı</string>
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>
     <string name="translation_encourage_body">SD Maid gönüllüler tarafından tercüme edilmektedir. Tercüme, gözden geçirme veya redaksiyon olsun, her türlü yardımınızı takdir ederiz!</string>

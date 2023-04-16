@@ -87,7 +87,7 @@
     <string name="setup_manage_storage_card_body">允許 SD 女僕管理您的儲存空間。</string>
     <string name="setup_manage_storage_card_body2">對公用儲存空間的基本存取，例如「Download/」和「DCIM/」，但不一定都是「Android/data」。</string>
     <string name="setup_root_card_title">Root 存取</string>
-    <string name="setup_root_card_body">如果可以檢查額外的系統資料夾和私人應用程式資料，SD 女僕應該使用 Root 存取權。</string>
+    <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
     <string name="setup_root_enable_root_use_label">使用 Root 存取 (如果可用)</string>
     <string name="setup_root_disable_root_use_label">不要使用 Root 存取</string>
     <string name="setup_root_card_body2">僅適用於已 Root 的裝置。如果您的裝置並未作此修改，那麼您的裝置並未被 Root，這個設定就不會有任何作用。</string>
