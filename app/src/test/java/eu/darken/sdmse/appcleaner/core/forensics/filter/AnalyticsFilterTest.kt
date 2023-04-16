@@ -249,4 +249,14 @@ class AnalyticsFilterTest : BaseFilterTest() {
         )
         confirm(create())
     }
+
+
+    @Test fun testSysDV() = runTest {
+        addDefaultNegatives()
+        addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sys"))
+        addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sys/$rngString"))
+        addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sysdv/"))
+        addCandidate(pos().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sysdv/$rngString"))
+        confirm(create())
+    }
 }
