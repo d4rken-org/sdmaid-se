@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.appcleaner.core.forensics.generic.RecycleBinsFilter
 import eu.darken.sdmse.common.areas.DataArea.Type.*
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
