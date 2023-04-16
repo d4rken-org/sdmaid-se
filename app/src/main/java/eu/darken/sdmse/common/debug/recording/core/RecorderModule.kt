@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.debug.recording.core
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Environment
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -123,6 +124,9 @@ class RecorderModule @Inject constructor(
 
         val installID = installId.id
         log(TAG, INFO) { "Install ID: $installID" }
+
+        val locales = Resources.getSystem().configuration.locales
+        log(TAG, INFO) { "App locales: $locales" }
 
         val state = dataAreaManager.latestState.firstOrNull()
         log(TAG, INFO) { "Data areas: (${state?.areas?.size})" }
