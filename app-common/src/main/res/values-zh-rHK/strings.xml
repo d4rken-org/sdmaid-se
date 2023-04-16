@@ -80,7 +80,7 @@
     <string name="general_clean_confirmation_title">確認清理</string>
     <string name="general_clean_confirmation_message_x">清理「%s」？</string>
     <string name="general_root_required_label">需要 Root</string>
-    <string name="general_root_required_message">需要已 Root 的裝置</string>
+    <string name="general_root_required_message">需要 Root 存取權</string>
     <string name="general_search_action">搜尋</string>
     <string name="general_scan_device_action">掃描裝置</string>
     <string name="general_open_system_settings_action">開啟系統設定</string>

@@ -6,10 +6,10 @@
     <string name="upgrades_dashcard_title">升级 SD 女佣</string>
     <string name="upgrades_dashcard_body">解锁附加功能，成为支持持续开发的赞助人！</string>
     <string name="upgrades_dashcard_upgrade_action">升级</string>
-    <string name="upgrade_screen_title">提升SD Maid</string>
+    <string name="upgrade_screen_title">改进 SD Maid</string>
     <string name="upgrade_screen_preamble">SD 女佣没有广告，也不出售用户数据。只有您才能实现持续开发。</string>
-    <string name="upgrade_screen_how_title">如何求助</string>
-    <string name="upgrade_screen_how_body">成为赞助人和赞助发展！单击下面的按钮以激活所有额外功能并打开我的 Github 赞助商个人资料</string>
+    <string name="upgrade_screen_how_title">如何帮助我们</string>
+    <string name="upgrade_screen_how_body">成为赞助人和赞助发展！单击下面的按钮以激活所有额外功能并打开我的 Github 赞助者个人资料</string>
     <string name="upgrade_screen_why_title">这如魔法一般🪄</string>
     <string name="upgrade_screen_why_body">• 应用清理的删除功能 💯\n• 计划任务 ⏰\n• 为所有工具添加额外选项 ⚙️\n• 自定义删除规则 ✍️\n• 积极的开发人员 🧙\n还有更多…</string>
     <string name="upgrade_screen_sponsor_action">赞助开发</string>
@@ -17,7 +17,7 @@
     <string name="upgrade_screen_thanks_toast">感谢您支持开源开发 ❤️</string>
     <string name="nudge_betagoodbye_title">SD 女佣 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">我们一起开发了第一个版本！谢谢您帮我测试！开发当然会继续，但您现在可以切换到非测试版。通过下载最新的稳定版本来执行此操作。</string>
-    <string name="nudge_betagoodbye_hint">小提示：测试期间给出的评分只有我才能看到，如果您满意能给SD 女佣一个公开的评分的话，我将不胜感激。</string>
+    <string name="nudge_betagoodbye_hint">小提示：测试期间给出的评分只有我才能看到，如果您乐意给 SD 女佣一个公开的评分的话，我将不胜感激。</string>
     <string name="nudge_betagoodbye_positive_action">退出</string>
     <string name="nudge_betagoodbye_negative_action">继续测试</string>
 </resources>

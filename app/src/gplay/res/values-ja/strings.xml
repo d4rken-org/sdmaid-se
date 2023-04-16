@@ -5,8 +5,19 @@
     <string name="upgrade_feature_requires_pro">SD Maid SE Proが必要です</string>
     <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play servicesが利用できません。</string>
+    <string name="upgrades_no_purchases_found_check_account">購入が確認できませんでした。正しいアカウントを使用していますでしょうか？</string>
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
+    <string name="upgrade_screen_benefits_title">優位点</string>
+    <string name="upgrade_screen_benefits_body">• アプリの整頓 💯\n• 予定されている動作 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 意欲的な開発🧙\nそれ以外にも…</string>
     <string name="upgrade_screen_how_title">オプション</string>
     <string name="upgrade_screen_subscription_trial_action">試用を開始する</string>
+    <string name="upgrade_screen_subscription_action">登録</string>
+    <string name="upgrade_screen_subscription_action_hint">サブスクライブには年 %s 円かかります。</string>
+    <string name="upgrade_screen_thanks_toast">あなたが一番です! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">一緒になって、初公開までこぎつけました！ご協力ありがとうございました！もちろん開発は続きますが、より安定したビルドに切り替えたい場合は、今すぐ切り替えられます。Google Playのテストをオプトアウトすることで、これを実現できます。</string>
+    <string name="nudge_betagoodbye_hint">メモ: テスト中につけられた評価は私だけが見ることができますので、もしよろしければSDメイドに公開評価をしていただければ幸いです。</string>
     <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
+    <string name="nudge_betagoodbye_negative_action">テスト中</string>
 </resources>

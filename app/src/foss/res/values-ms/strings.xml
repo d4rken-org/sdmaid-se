@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Memerlukan SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Naik tarafkan SD Maid</string>
+    <string name="upgrades_dashcard_body">Buka kunci ciri tambahan dan menjadi penaung untuk menyokong pembangunan berterusan!</string>
+    <string name="upgrades_dashcard_upgrade_action">Naik taraf</string>
+    <string name="upgrade_screen_title">Tingkatkan SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Pembangunan berterusan hanya boleh dilakukan oleh anda.</string>
+    <string name="upgrade_screen_how_title">Bagaimana untuk membantu</string>
+    <string name="upgrade_screen_how_body">Menjadi penaung dan penaja pembangunan! Klik butang di bawah untuk mengaktifkan semua ciri tambahan dan buka profil Penaja Github saya.</string>
+    <string name="upgrade_screen_why_title">Ini menimbulkan 🪄</string>
+    <string name="upgrade_screen_why_body">• Fungsi pemadaman AppCleaner 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\ndan banyak lagi…</string>
+    <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternatifnya ialah iklan, analitik dan Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Terima kasih kerana menyokong pembangunan sumber terbuka ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Bersama-sama, kita berjaya mencapai pelancaran pertama! Terima kasih kerana membantu saya menguji! Pembangunan sudah tentu akan diteruskan, tetapi anda kini boleh bertukar kepada binaan bukan beta. Lakukan ini dengan memuat turun keluaran stabil terkini.</string>
+    <string name="nudge_betagoodbye_hint">Nota kecil: Penilaian yang diberikan semasa ujian hanya kelihatan kepada saya, saya amat menghargai jika anda boleh memberikan SD Maid penilaian awam jika anda berpuas hati.</string>
+    <string name="nudge_betagoodbye_positive_action">Pilih-keluar</string>
+    <string name="nudge_betagoodbye_negative_action">Teruskan pengujian</string>
+</resources>

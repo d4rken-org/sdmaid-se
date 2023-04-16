@@ -1,4 +1,4 @@
-<i>SD Maid SE</i>は、きれいで整然とした状態にしてくれる信頼できるメイドアプリです。
+<i>SD Maid SE</i>は、きれいで整然とした状態にしてくれる信頼できるメイドさんのようなアプリです。
 
 完璧な人がいないように、Androidも同様です。
 * 既に削除したアプリが何かを残していることがあります。
@@ -11,11 +11,11 @@
 * 隠されたアプリのキャッシュデータを見つけます。
 * 不必要なシステムファイルを削除できます。
 
-SD Maid SEには広告がありません。 Some features require a paid upgrade.
+SD Maid SEには広告がありません。 いくつかの機能を利用するためにはアップグレードを購入する必要があります。
 
 SD Maid 2/SEはSD Maid 1/Legacyの後継です。
 新しいAndroid用に最適化されクリーンアップに焦点を当てています。
 
 SD Maid SEには、面倒な作業を自動化するためにAccessibilityService APIを利用するオプション機能があります。
-Using the AccessibilityService API, SD Maid SE can click buttons for you to perform operations on multiple apps, e.g. キャッシュを削除することができます。
+AccessibilityService APIを使用することで、SD Maid SEは複数アプリでのクリーニングを自動操作をを利用して行うことができます。例えば、 キャッシュを削除することができます。
 SD Maid SEは、情報収集のためにAccessibilityService APIを使用しません。

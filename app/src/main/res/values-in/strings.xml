@@ -23,13 +23,13 @@
     <string name="tasks_result_notification_channel_label">Hasil tugas</string>
     <string name="tasks_result_subtext">Hasil tugas</string>
     <string name="onboarding_welcome_title">Selamat datang</string>
-    <string name="onboarding_welcome_body1">SD Maid SE mengelola berkas-berkas, aplikasi-aplikasi, dan penyimpanan.</string>
-    <string name="onboarding_welcome_body2">Dapatkan kembali ruang untuk menyimpan dengan membersihkan aplikasi-aplikasi. Buang berkas-berkas yang tidak terpakai dan hapus data-data sisa.</string>
-    <string name="onboarding_welcome_body_beta">Ini adalah versi beta (pengujian). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE mengelola berkas, aplikasi, dan penyimpanan.</string>
+    <string name="onboarding_welcome_body2">Kosongkan ruang penyimpanan dengan membersihkan aplikasi. Buang berkas yang tidak terpakai dan hapus sisa-sisa data.</string>
+    <string name="onboarding_welcome_body_beta">Aplikasi ini dalam tahap beta (uji coba). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
     <string name="onboarding_welcome_continue_action">Lanjut</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid. Ini adalah aplikasi baru yang dioptimalkan untuk Android modern.</string>
-    <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada versi-versi Android yang lebih baru. Diperlukan desain ulang yang menyeleruh untuk melanjutkan pengembangan aplikasi.</string>
+    <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
     <string name="onboarding_privacy_title">Privasi</string>
@@ -100,7 +100,7 @@
     <string name="setup_notification_body">Izinkan SD Maid untuk mengirim notifikasi untuk memberitahu Anda mengenai perintah yang sedang dijalankan atau peristiwa penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan hemat 🤞</string>
     <string name="setup_acs_card_title">Layanan aksesibilitas</string>
-    <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatisasi aksi yang membosankan, seperti mengeklik \"Bersihkan Cache\" pada kebanyakan layar.</string>
+    <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatisasi tindakan yang merepotkan, seperti mengklik \"Bersihkan Cache\" di banyak layar.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan layanan aksesibilitas tanpa persetujuan Anda, akan selalu menampilkan indikator yang menonjol (dapat dibatalkan) saat aktif dan tidak akan menggunakannya untuk mengumpulkan informasi.</string>
     <string name="setup_acs_allow">Layanan aksesibilitas diaktifkan</string>
     <string name="setup_acs_disallow">Layanan aksesibilitas diaktifkan</string>
@@ -166,7 +166,7 @@
     <string name="corpsefinder_owner_unknown">Pemilik tak dikenal</string>
     <string name="corpsefinder_corpse_hint_keeper">Berkas ini mungkin mengandung data yang ingin Anda simpan walau dihapus oleh pemiliknya, cth. foto atau cadangan.</string>
     <string name="corpsefinder_corpse_hint_common">Berkas ini memiliki nama yang umum dan kemungkinan masih berkaitan dengan aplikasi yang terpasang yang tidak diketahui oleh SD Maid.</string>
-    <string name="systemcleaner_tool_name">PembersihSistem</string>
+    <string name="systemcleaner_tool_name">Pembersih Sistem</string>
     <string name="systemcleaner_explanation_short">Data berlebihan yang bukan milik aplikasi tertentu.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d filter yang cocok</item>
@@ -213,7 +213,7 @@
     <string name="systemcleaner_filter_usagestats_label">Statistik penggunaan</string>
     <string name="systemcleaner_filter_usagestats_summary">Berkas yang berhubungan dengan statistik penggunaan aplikasi.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Hapus semua isi filter?</string>
-    <string name="appcleaner_tool_name">PembersihAplikasi</string>
+    <string name="appcleaner_tool_name">Pembersih Aplikasi</string>
     <string name="appcleaner_explanation_short">Data yang bisa dihapus milik aplikasi tertentu.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache publik bawaan</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache publik bawaan. Bisa diakses melalui Android/data pada perangkat Android versi lama. Akan dihapus saat menekan \"Hapus cache\" pada pengaturan sistem.</string>
@@ -269,7 +269,7 @@
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
     <string name="appcleaner_automation_unavailable_body">Menghapus cache yang tidak dapat diakses membutuhkan layanan aksesibilitas SD Maid, namun tidak tersedia. Jika tidak ingin menggunakannya: Matikan pilihan \"Sertakan cache yang tidak bisa diakses\".</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
-    <string name="appcontrol_tool_name">PengendaliAplikasi</string>
+    <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">%d aplikasi terdeteksi</item>
@@ -347,5 +347,5 @@
     <string name="translation_encourage_title">Terjemahkan SD Maid</string>
     <string name="translation_encourage_body">SD Maid diterjemahkan oleh sukarelawan. Saya menghargai bantuan terjemahan, peninjauan, maupun pengoreksian Anda!</string>
     <string name="translation_translators_title">Versi ini diterjemahkan oleh</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">M. Arif Majidi(m.arif.majidi@gmail.com);NekoSam395(newsamcool939@gmail.com);Muhammad Bintang</string>
 </resources>

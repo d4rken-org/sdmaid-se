@@ -1,2 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="debug_debuglog_size_label">Dimensione</string>
+    <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
+    <string name="onboarding_welcome_title">Benvenuto</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gestisce file, app e spazio di archiviazione.</string>
+    <string name="onboarding_welcome_body2">Guadagna spazio di memoria rimuovendo i rimasugli delle altre app. Elimina i file inutili e rimuovi i dati in eccesso.</string>
+    <string name="onboarding_welcome_body_beta">Questa è una versione beta (di prova). Procedi con senso dell\'umorismo e un piano di backup. Ti prego di segnalare i problemi riscontrati.</string>
+    <string name="onboarding_welcome_continue_action">Avanti</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_continue_action">Avanti</string>
+    <string name="onboarding_privacy_title">Privacy</string>
+    <string name="onboarding_privacy_body1">SD Maid non contiene pubblicità e non vende i dati degli utenti.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Le segnalazioni di bug vengono inviate quando si verificano errori e possono contenere dettagli sulle app e sui file presenti sul dispositivo. Le segnalazioni mi aiutano a risolvere i bug e a migliorare l\'app.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Consenti la segnalazione automatica dei bug</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Queste opzioni possono essere modificate nelle impostazioni.</string>
+    <string name="onboarding_privacy_continue_action">Avanti</string>
+    <string name="settings_privacy_policy_label">Informativa sulla privacy</string>
+    <string name="settings_licenses_label">Licenze</string>
+    <string name="settings_category_other_label">Altro</string>
+    <string name="general_settings_label">Generale</string>
+    <string name="ui_theme_setting_label">Tema</string>
+    <string name="ui_theme_dark_label">Scuro</string>
+    <string name="ui_theme_light_label">Chiaro</string>
+    <string name="ui_theme_system_label">Sistema</string>
+    <string name="settings_support_label">Supporto</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Un posto dove aprirsi e fare domande.</string>
+    <string name="changelog_label">Changelog</string>
+    <string name="settings_acknowledgements_label">Ringraziamenti</string>
+    <string name="setup_notification_title">Notifiche</string>
+    <string name="settings_category_filter">Filtro</string>
+</resources>

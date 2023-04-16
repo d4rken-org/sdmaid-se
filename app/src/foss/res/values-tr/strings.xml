@@ -6,4 +6,18 @@
     <string name="upgrades_dashcard_title">SD Maid\'i Yükseltme</string>
     <string name="upgrades_dashcard_body">Ek özelliklerin kilidini açın ve sürekli gelişimi desteklemek için bir patron olun!</string>
     <string name="upgrades_dashcard_upgrade_action">Yükselt</string>
+    <string name="upgrade_screen_title">SD Maid\'i geliştirin</string>
+    <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Sürekli gelişim sadece sizin tarafınızdan mümkün kılınır.</string>
+    <string name="upgrade_screen_how_title">Nasıl yardım edilir</string>
+    <string name="upgrade_screen_how_body">Patron ol ve gelişime sponsor ol! Tüm ekstra özellikleri etkinleştirmek ve Github Sponsorları profilimi açmak için aşağıdaki düğmeyi tıklayın.</string>
+    <string name="upgrade_screen_why_title">Bu çağrıştırıyor 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner silme işlevi 💯\n• Planlanmış işlemler ⏰\n• Tüm araçlar için ekstra seçenekler ⚙️\n• Kendi silme kurallarınız ✍️\n• Motivasyonlu bir geliştirici 🧙\nve daha fazlası…</string>
+    <string name="upgrade_screen_sponsor_action">Sponsor geliştirme</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternatif reklamlar, analizler ve Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Birlikte ilk sürüme ulaştık! Test etmeme yardım ettiğin için teşekkür ederim! Geliştirme elbette devam edecek, ancak artık beta olmayan yapılara geçebilirsiniz. En son kararlı sürümü indirerek bunu yapın.</string>
+    <string name="nudge_betagoodbye_hint">Küçük not: Test sırasında verilen derecelendirmeler yalnızca benim tarafımdan görülebilir, eğer memnunsanız, SD Maid\'e herkese açık bir derecelendirme verirseniz çok sevinirim.</string>
+    <string name="nudge_betagoodbye_positive_action">Vazgeçmek</string>
+    <string name="nudge_betagoodbye_negative_action">Test etmeye devam et</string>
 </resources>
