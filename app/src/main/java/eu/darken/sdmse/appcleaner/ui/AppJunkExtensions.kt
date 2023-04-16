@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.*
-import eu.darken.sdmse.appcleaner.core.forensics.generic.RecycleBinsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.RecycleBinsFilter
 import kotlin.reflect.KClass
 
 @get:StringRes
