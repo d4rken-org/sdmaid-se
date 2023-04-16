@@ -30,7 +30,15 @@ class AutomationControlView @JvmOverloads constructor(
 
     fun setProgress(data: Progress.Data?) {
         isVisible = data != null
-        if (data == null) return
+
+        if (data == null) {
+            ui.mascotAnimated.pauseAnimation()
+            return
+        }
+
+        ui.mascotAnimated.apply {
+            if (!isAnimating) playAnimation()
+        }
 
         ui.primary.apply {
             val newText = data.primary.get(context)
@@ -77,12 +85,12 @@ class AutomationControlView @JvmOverloads constructor(
     fun showOverlay(show: Boolean) {
         ui.clickScreen.isVisible = show
         ui.clickScreenExplanation.isVisible = show
-        ui.clickScreenIcon.isVisible = show
+        ui.clickScreenMascotContainer.isVisible = show
     }
 
     fun setCancelListener(listener: OnClickListener?) {
         ui.cancelAction.setOnClickListener(listener)
-        ui.clickScreenIcon.apply {
+        ui.clickScreenMascotContainer.apply {
             setOnClickListener {
                 clickCount++
                 if (clickCount % 5 == 0) startAnimation(wiggleAnim)

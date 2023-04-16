@@ -28,7 +28,7 @@ class TitleCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        icon.apply {
+        mascotContainer.apply {
             var clickCount = 0
             setOnClickListener {
                 clickCount++
@@ -63,6 +63,7 @@ class TitleCardVH(parent: ViewGroup) :
 
     data class Item(
         val upgradeInfo: UpgradeRepo.Info?,
+        val isWorking: Boolean,
         val onRibbonClicked: () -> Unit,
     ) : DashboardAdapter.Item {
 

@@ -17,17 +17,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/click_screen_icon"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+    <FrameLayout
+        android:id="@+id/click_screen_mascot_container"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
         android:focusableInTouchMode="true"
-        android:src="@drawable/splash_mascot"
         app:layout_constraintBottom_toTopOf="@id/click_screen_explanation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:id="@+id/click_screen_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/splash_mascot"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mascot_animated"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:lottie_fallbackRes="@drawable/splash_mascot"
+            app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
+            app:lottie_loop="true" />
+    </FrameLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/click_screen_explanation"

@@ -135,6 +135,17 @@ class DashboardFragmentVM @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(vmScope)
 
+    private val titleCardItem = combine(
+        upgradeInfo,
+        taskManager.state
+    ) { upgradeInfo, taskState ->
+        TitleCardVH.Item(
+            upgradeInfo = upgradeInfo,
+            isWorking = !taskState.isIdle,
+            onRibbonClicked = { webpageTool.open(SdmSeLinks.ISSUES) }
+        )
+    }
+
     private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = combine(
         corpseFinder.data,
         corpseFinder.progress,
@@ -242,6 +253,7 @@ class DashboardFragmentVM @Inject constructor(
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         debugCardProvider.create(this),
+        titleCardItem,
         upgradeInfo,
         updateInfo,
         setupManager.state,
@@ -253,6 +265,7 @@ class DashboardFragmentVM @Inject constructor(
         schedulerItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
+        titleInfo: TitleCardVH.Item,
         upgradeInfo: UpgradeRepo.Info?,
         updateInfo: UpdateCardVH.Item?,
         setupState: SetupManager.SetupState,
@@ -263,14 +276,7 @@ class DashboardFragmentVM @Inject constructor(
         appControlItem: AppControlDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
         _ ->
-        val items = mutableListOf<DashboardAdapter.Item>()
-
-        TitleCardVH.Item(
-            upgradeInfo = upgradeInfo,
-            onRibbonClicked = {
-                webpageTool.open(SdmSeLinks.ISSUES)
-            }
-        ).run { items.add(this) }
+        val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
         updateInfo?.let { items.add(it) }
 
