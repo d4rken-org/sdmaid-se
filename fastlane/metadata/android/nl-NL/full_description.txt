@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> is een betrouwbare meid voor je Android, om het schoon en netjes te houden.
+
+Niemand is perfect en Android ook niet.
+* Apps die je al hebt verwijderd, laten iets achter.
+* Er worden constant logboeken, crashrapporten en andere bestanden gemaakt die je eigenlijk niet wilt hebben.
+* Je opslagruimte verzamelt bestanden en mappen die je niet herkent.
+
+Laten we hier niet verder gaan... Laat SD Maid SE je helpen:
+
+* Ruim gegevens op van reeds verwijderde apps
+* Vind verborgen app-caches
+* Verwijder overbodige systeembestanden
+
+SD Maid SE bevat geen advertenties. Voor sommige functies is een betaalde upgrade vereist.
+
+SD Maid 2/SE is de opvolger van SD Maid 1/Legacy.
+Geoptimaliseerd voor nieuwere Android-versies en gericht op opruimen.
+
+SD Maid SE heeft optionele functies die gebruikmaken van de AccessibilityService API om vervelende handelingen te automatiseren.
+Met behulp van de AccessibilityService API kan SD Maid SE op knoppen klikken om bewerkingen uit te voeren op meerdere apps, bijvoorbeeld. caches verwijderen.
+SD Maid SE gebruikt de AccessibilityService API niet om informatie te verzamelen.
