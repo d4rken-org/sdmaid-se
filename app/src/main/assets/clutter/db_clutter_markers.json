@@ -11329,7 +11329,10 @@
   "mrks": [{"loc": "SDCARD", "path": "DCIM/Selfie", "flags": ["keeper", "common"]}]
 }, {
   "pkgs": ["com.zmobileapps.celebrityfacemorph"],
-  "mrks": [{"loc": "SDCARD", "path": "DCIM/Celebrity Face Morph", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "DCIM/Celebrity Face Morph", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "shape_predictor_68_face_landmarks.dat"}
+  ]
 }, {
   "pkgs": ["com.jb.zcamera"],
   "mrks": [
