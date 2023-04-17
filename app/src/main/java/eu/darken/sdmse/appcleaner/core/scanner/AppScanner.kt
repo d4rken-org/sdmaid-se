@@ -218,7 +218,7 @@ class AppScanner @Inject constructor(
                     if (indirectMatch) interestingPaths.add(candidate)
                 }
 
-            // Check all files on public storage for potentially deeper nested clutter
+            // Check all files on public (whitelist) storage (i.e. SDCARD) for potentially deeper nested clutter
             dataAreaMap[DataArea.Type.SDCARD]
                 ?.forEach { topLevelArea ->
                     clutterMarkerForPkg
@@ -279,14 +279,16 @@ class AppScanner @Inject constructor(
 
         currentAreas
             .filter { supportedPrivateAreas.contains(it.type) }
-            .forEach { area ->
-                val areaLookups = try {
-                    area.path.listFiles(gatewaySwitch)
+            .mapNotNull { area ->
+                try {
+                    area to area.path.listFiles(gatewaySwitch)
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
-                    return@forEach
+                    null
                 }
-                val areaInfos = areaLookups
+            }
+            .map { (area, content) ->
+                area.type to content
                     .filter { path ->
                         val isExcluded = pathExclusions.any { it.match(path) }
                         if (isExcluded) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $path" }
@@ -294,14 +296,12 @@ class AppScanner @Inject constructor(
                     }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
-                            if (it == null) log(TAG, WARN) { "Failed to identify $it" }
+                            if (it == null) log(TAG, WARN) { "Failed to identify $lookup" }
                         }
                     }
-
-                areaDataMap[area.type] = when {
-                    areaDataMap[area.type] == null -> areaInfos
-                    else -> areaDataMap[area.type]!!.plus(areaInfos)
-                }
+            }
+            .forEach { (type, infos) ->
+                areaDataMap[type] = (areaDataMap[type] ?: emptySet()).plus(infos)
             }
 
         val supportedPublicAreas = setOf(
@@ -312,15 +312,16 @@ class AppScanner @Inject constructor(
 
         currentAreas
             .filter { supportedPublicAreas.contains(it.type) }
-            .forEach { area ->
-                val areaLookups = try {
-                    area.path.lookupFiles(gatewaySwitch)
+            .mapNotNull { area ->
+                try {
+                    area to area.path.lookupFiles(gatewaySwitch)
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
-                    return@forEach
+                    null
                 }
-
-                val areaInfos = areaLookups
+            }
+            .map { (area, content) ->
+                area.type to content
                     .filter { it.fileType == FileType.DIRECTORY }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
@@ -339,11 +340,9 @@ class AppScanner @Inject constructor(
                         }
                         !excluded || edgeCase
                     }
-
-                areaDataMap[area.type] = when {
-                    areaDataMap[area.type] == null -> areaInfos
-                    else -> areaDataMap[area.type]!!.plus(areaInfos)
-                }
+            }
+            .forEach { (type, infos) ->
+                areaDataMap[type] = (areaDataMap[type] ?: emptySet()).plus(infos)
             }
 
         return areaDataMap
