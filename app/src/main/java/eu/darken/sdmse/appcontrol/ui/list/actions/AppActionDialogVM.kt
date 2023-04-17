@@ -88,6 +88,13 @@ class AppActionDialogVM @Inject constructor(
             }
         )
 
+        val excludeAction = ExcludeActionVH.Item(
+            appInfo = appInfo,
+            onExclude = {
+                // TODO
+            }
+        )
+
         val appStoreAction = (appInfo.pkg as? ExtendedInstallData)
             ?.takeIf { it.installerInfo.installer != null }
             ?.let {
@@ -117,6 +124,7 @@ class AppActionDialogVM @Inject constructor(
             actions = listOfNotNull(
                 launchAction,
                 systemSettingsAction,
+                excludeAction,
                 appStoreAction,
                 disableAction,
             ).filterNotNull()
