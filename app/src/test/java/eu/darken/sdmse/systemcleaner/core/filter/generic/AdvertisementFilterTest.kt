@@ -75,6 +75,10 @@ class AdvertisementFilterTest : SystemCleanerFilterTest() {
         mockPositive(Type.SDCARD, ".mobvista700", Flags.DIR)
         mockPositive(Type.SDCARD, ".mobvista800", Flags.DIR)
         mockPositive(Type.SDCARD, ".mobvista800/something", Flags.DIR)
+        mockPositive(Type.SDCARD, ".goadsdk", Flags.DIR)
+        mockPositive(Type.SDCARD, ".goadsdk/something", Flags.DIR)
+        mockPositive(Type.SDCARD, ".goproduct", Flags.DIR)
+        mockPositive(Type.SDCARD, ".goproduct/something", Flags.DIR)
         confirm(create())
     }
 

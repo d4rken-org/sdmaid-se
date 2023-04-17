@@ -137,6 +137,20 @@ class AdvertisementFilter @Inject constructor(
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
+                startsWith.add(segs(".goadsdk"))
+                rawRegexes.add(
+                    String.format(
+                        "^(?:%s/)(?:\\.goadsdk|\\.goadsdk/.+)$".replace("/", "\\" + File.separator),
+                        toCheck.path.replace("\\", "\\\\")
+                    )
+                )
+                startsWith.add(segs(".goproduct"))
+                rawRegexes.add(
+                    String.format(
+                        "^(?:%s/)(?:\\.goproduct|\\.goproduct/.+)$".replace("/", "\\" + File.separator),
+                        toCheck.path.replace("\\", "\\\\")
+                    )
+                )
             }
 
         val config = BaseSieve.Config(
