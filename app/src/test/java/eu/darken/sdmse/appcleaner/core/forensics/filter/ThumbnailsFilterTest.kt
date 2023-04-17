@@ -172,5 +172,12 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         addCandidate(neg().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs"))
         addCandidate(pos().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs/test"))
         confirm(create())
+
+    }
+
+    @Test fun `viber user photo thumbs`() = runTest {
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails/$rngString")
+        confirm(create())
     }
 }
