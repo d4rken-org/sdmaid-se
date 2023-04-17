@@ -78,6 +78,15 @@
 		  "patterns": ["^(?:MIUI/Video/thumb/)(.+?)$"]
 		}
 	  ]
+	}, {
+	  "packages": ["com.viber.voip"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.viber.voip/files/User photos/.thumbnails/"],
+		  "patterns": ["^com\\.viber\\.voip/files/User photos/\\.thumbnails/.+?$"]
+		}
+	  ]
 	}
   ]
 }
