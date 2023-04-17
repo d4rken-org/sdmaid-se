@@ -36,7 +36,6 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.match
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
@@ -181,7 +180,7 @@ class AppScanner @Inject constructor(
         updateProgressSecondary(R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val dataAreaMap = getDataAreaMap()
+        val dataAreaMap = createDataAreaMap()
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
@@ -212,10 +211,10 @@ class AppScanner @Inject constructor(
                     }
 
                     // Maybe an outlier that can be mapped via clutter db?
-                    val indirectMatch = clutterMarkerForPkg.any {
-                        val match = it.match(candidate.type, candidate.prefixFreePath)
-                        match != null && !match.hasFlags(Marker.Flag.CUSTODIAN)
-                    }
+                    val indirectMatch = clutterMarkerForPkg
+                        .filter { it.areaType == candidate.type }
+                        .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
+                        .any { it.match(candidate.type, candidate.prefixFreePath) != null }
                     if (indirectMatch) interestingPaths.add(candidate)
                 }
 
@@ -267,32 +266,31 @@ class AppScanner @Inject constructor(
      * First we determine all areas that we check,
      * i.e. public/priv storage and some levels of the root of the sdcard
      */
-    private suspend fun getDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
+    private suspend fun createDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
         val currentAreas = areaManager.currentAreas()
 
         val pathExclusions = exclusionManager.currentExclusions()
             .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
             .filterIsInstance<Exclusion.Path>()
 
-        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>().apply {
-            this[DataArea.Type.PRIVATE_DATA] = emptySet()
-        }
+        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
+
+        val supportedPrivateAreas = setOf(DataArea.Type.PRIVATE_DATA)
 
         currentAreas
-            .filter { it.type == DataArea.Type.PRIVATE_DATA }
+            .filter { supportedPrivateAreas.contains(it.type) }
             .forEach { area ->
                 val areaLookups = try {
-                    area.path.lookupFiles(gatewaySwitch)
+                    area.path.listFiles(gatewaySwitch)
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
                     return@forEach
                 }
                 val areaInfos = areaLookups
-                    .filter { it.fileType == FileType.DIRECTORY }
-                    .filter { appDir ->
-                        pathExclusions.none { it.match(appDir) }.also {
-                            if (!it) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $appDir" }
-                        }
+                    .filter { path ->
+                        val isExcluded = pathExclusions.any { it.match(path) }
+                        if (isExcluded) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $path" }
+                        !isExcluded
                     }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
@@ -306,14 +304,14 @@ class AppScanner @Inject constructor(
                 }
             }
 
+        val supportedPublicAreas = setOf(
+            DataArea.Type.PUBLIC_DATA,
+            DataArea.Type.PUBLIC_MEDIA,
+            DataArea.Type.SDCARD,
+        )
+
         currentAreas
-            .filter {
-                listOf(
-                    DataArea.Type.PUBLIC_DATA,
-                    DataArea.Type.PUBLIC_MEDIA,
-                    DataArea.Type.SDCARD,
-                ).contains(it.type)
-            }
+            .filter { supportedPublicAreas.contains(it.type) }
             .forEach { area ->
                 val areaLookups = try {
                     area.path.lookupFiles(gatewaySwitch)
@@ -326,7 +324,7 @@ class AppScanner @Inject constructor(
                     .filter { it.fileType == FileType.DIRECTORY }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
-                            if (it == null) log(TAG, WARN) { "Failed to identify $it" }
+                            if (it == null) log(TAG, WARN) { "Failed to identify $lookup" }
                         }
                     }
                     .filter { areaInfo ->
