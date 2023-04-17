@@ -2131,10 +2131,18 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
+    @Test fun `movie fx`() = runTest {
+        neg("tv.waterston.movieridefx", SDCARD, "MovieRideFXtmp")
+        pos("tv.waterston.movieridefx", SDCARD, "MovieRideFXtmp.mp4")
+        confirm(create())
+    }
 
-    @Test fun testMovieFx() = runTest {
-        addCandidate(neg().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFXtmp"))
-        addCandidate(pos().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFXtmp.mp4"))
+    @Test fun `winrar temp files`() = runTest {
+        neg("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_1")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_2")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_closed_2")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_123456789")
         confirm(create())
     }
 }

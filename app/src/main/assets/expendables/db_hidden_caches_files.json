@@ -1127,6 +1127,15 @@
 		  "patterns": ["^(?>com\\.facemoji\\.lite\\.xiaomi/files/okhttp_cache)(.+?)$"]
 		}
 	  ]
+	}, {
+	  "packages": ["com.rarlab.rar"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["com.rarlab.rar/files/_rartemp_"],
+		  "patterns": ["^com\\.rarlab\\.rar/files/_rartemp_.+?$"]
+		}
+	  ]
 	}
   ]
 }
