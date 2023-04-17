@@ -43,6 +43,7 @@ class AppCleanerSettings @Inject constructor(
     val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
     val filterGameFilesEnabled = dataStore.createValue("filter.gamefiles.enabled", false)
     val filterHiddenCachesEnabled = dataStore.createValue("filter.hiddencaches.enabled", true)
+    val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", true)
     val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", false)
     val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", false)
     val filterWebviewEnabled = dataStore.createValue("filter.webview.enabled", true)
@@ -75,6 +76,7 @@ class AppCleanerSettings @Inject constructor(
         filterAnalyticsEnabled,
         filterGameFilesEnabled,
         filterHiddenCachesEnabled,
+        filterThumbnailsEnabled,
         filterOfflineCachesEnabled,
         filterRecycleBinsEnabled,
         filterWebviewEnabled,

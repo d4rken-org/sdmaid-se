@@ -94,15 +94,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["com.quickoffice.android"],
-	  "fileFilter": [
-		{
-		  "locations": ["PRIVATE_DATA"],
-		  "startsWith": ["com.quickoffice.android/files/"],
-		  "patterns": ["^(?:com\\.quickoffice\\.android\\/files\\/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
-		}
-	  ]
-	}, {
 	  "packages": ["com.google.android.apps.genie.geniewidget"],
 	  "fileFilter": [
 		{
@@ -237,19 +228,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["nextapp.fx"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": [".FX/CloudThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/CloudThumbnail\\/)([\\W\\w]+?)$"]
-		}, {
-		  "locations": ["SDCARD"],
-		  "startsWith": [".FX/ImageThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/ImageThumbnail\\/)([\\W\\w]+?)$"]
-		}
-	  ]
-	}, {
 	  "packages": [
 		"com.infraware.polarisoffice5tablet",
 		"com.infraware.polarisoffice.entbiz.gd",
@@ -350,24 +328,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["net.coollet.infzmreader"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["infzm/thumb_image/"],
-		  "patterns": ["^(?:infzm\\/thumb_image\\/)([\\W\\w]+)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.kascend.video"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["kascend/videoshow/.thumbcache/"],
-		  "patterns": ["^(?:kascend\\/videoshow\\/\\.thumbcache\\/)([\\W\\w]+)$"]
-		}
-	  ]
-	}, {
 	  "packages": ["com.telenav.doudouyou.android.autonavi"],
 	  "fileFilter": [
 		{
@@ -439,15 +399,6 @@
 			"^(?:com\\.ninegag\\.android\\.app\\/files\\/avatar\\/)([\\W\\w]+)$",
 			"^(?:com\\.ninegag\\.android\\.app\\/files\\/covers\\/)([\\W\\w]+)$"
 		  ]
-		}
-	  ]
-	}, {
-	  "packages": ["com.hashcode.walloid", "com.hashcode.walloidpro"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["Walloid/.Thumbnail/"],
-		  "patterns": ["^(?:Walloid\\/\\.Thumbnail\\/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -583,16 +534,6 @@
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.sec.android.gallery3d/Temp/"],
 		  "patterns": ["^(?:com\\.sec\\.android\\.gallery3d\\/Temp\\/)([0-9]+?)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.sec.android.app.videoplayer"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": [".thumbnails/"],
-		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:\\.thumbnails\\/.+?\\/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -1157,24 +1098,6 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".Android/.data/com.visky.gallery.data/.data/.secure/.cache"],
 		  "patterns": ["^(?:\\.Android/\\.data/com\\.visky\\.gallery\\.data/\\.data/\\.secure/\\.cache/)(.+?)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.miui.player"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/music/album/.player_thumb"],
-		  "patterns": ["^(?:MIUI/music/album/\\.player_thumb/)(.+?)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.miui.videoplayer"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/Video/thumb/"],
-		  "patterns": ["^(?:MIUI/Video/thumb/)(.+?)$"]
 		}
 	  ]
 	}, {

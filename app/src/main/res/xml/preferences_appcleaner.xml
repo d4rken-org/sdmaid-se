@@ -55,6 +55,11 @@
             app:summary="@string/appcleaner_filter_hiddencaches_summary"
             app:title="@string/appcleaner_filter_hiddencaches_label" />
         <CheckBoxPreference
+            app:icon="@drawable/ic_multimedia_24"
+            app:key="filter.thumbnails.enabled"
+            app:summary="@string/appcleaner_filter_thumbnails_summary"
+            app:title="@string/appcleaner_filter_thumbnails_label" />
+        <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.codecache.enabled"
             app:summary="@string/appcleaner_filter_codecache_summary"

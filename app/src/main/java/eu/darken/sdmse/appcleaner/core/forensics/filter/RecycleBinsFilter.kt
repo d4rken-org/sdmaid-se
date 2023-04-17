@@ -41,7 +41,6 @@ class RecycleBinsFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): Boolean {
-        log(TAG) { "TARGET: ${target.path}" }
         val hierarchy = segments.lowercase()
 
         // package/trashfile

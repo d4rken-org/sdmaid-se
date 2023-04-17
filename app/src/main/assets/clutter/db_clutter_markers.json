@@ -5717,8 +5717,14 @@
 	{"loc": "PUBLIC_DATA", "path": "com.android.gallery3d"},
 	{"loc": "PUBLIC_DATA", "path": "com.cooliris.media"},
 	{"loc": "SDCARD", "path": "Gallery", "flags": ["common", "keeper"]},
-	{"loc": "SDCARD", "path": "Pictures", "flags": ["common", "keeper"]},
 	{"loc": "SDCARD", "path": ".face"}
+  ]
+}, {
+  "pkgs": ["com.android.providers.media"],
+  "mrks": [
+	{"loc": "SDCARD", "path": "Pictures", "flags": ["common", "keeper"]},
+	{"loc": "SDCARD", "path": "Movies", "flags": ["common", "keeper"]},
+	{"loc": "SDCARD", "path": "Music", "flags": ["common", "keeper"]}
   ]
 }, {
   "pkgs": ["com.diveboard.mobile"],
