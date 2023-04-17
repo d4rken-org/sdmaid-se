@@ -180,4 +180,11 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails/$rngString")
         confirm(create())
     }
+
+    @Test fun `FxGuru thumbs`() = runTest {
+        neg("com.picadelic.fxguru", SDCARD, "FxGuru/thumbnails")
+        pos("com.picadelic.fxguru", SDCARD, "FxGuru/thumbnails/$rngString")
+        confirm(create())
+    }
+
 }
