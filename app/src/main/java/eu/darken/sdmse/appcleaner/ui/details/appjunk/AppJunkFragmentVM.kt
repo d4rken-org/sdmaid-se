@@ -87,6 +87,7 @@ class AppJunkFragmentVM @Inject constructor(
                             },
                         )
                     }
+                    .sortedByDescending { it.lookup.size }
                     .run { categoryGroup.addAll(this) }
 
                 categoryGroup
