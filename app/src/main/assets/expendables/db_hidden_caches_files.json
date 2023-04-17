@@ -860,8 +860,8 @@
 	  "fileFilter": [
 		{
 		  "locations": ["PUBLIC_DATA"],
-		  "startsWith": ["com.google.android.googlequicksearchbox/files/pending_blobs/"],
-		  "patterns": ["^(?>com\\.google\\.android\\.googlequicksearchbox/files/pending_blobs/)([\\W\\w]+?)$"]
+		  "startsWith": ["com.google.android.googlequicksearchbox/files/pending_blobs"],
+		  "patterns": ["^com\\.google\\.android\\.googlequicksearchbox/files/pending_blobs/.+?$"]
 		}
 	  ]
 	}, {

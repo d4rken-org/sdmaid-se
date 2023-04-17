@@ -1747,18 +1747,6 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testGoogleQuickSearchBox() = runTest {
-        addCandidate(
-            neg().pkgs("com.google.android.googlequicksearchbox").locs(PUBLIC_DATA)
-                .prefixFree("com.google.android.googlequicksearchbox/files/pending_blobs")
-        )
-        addCandidate(
-            pos().pkgs("com.google.android.googlequicksearchbox").locs(PUBLIC_DATA)
-                .prefixFree("com.google.android.googlequicksearchbox/files/pending_blobs/something")
-        )
-        confirm(create())
-    }
-
     @Test fun testGuruVideoMaker() = runTest {
         addCandidate(
             neg().pkgs("videoeditor.videomaker.videoeditorforyoutube").locs(PUBLIC_DATA)
@@ -2143,6 +2131,20 @@ class HiddenFilterTest : BaseFilterTest() {
         pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_2")
         pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_closed_2")
         pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_123456789")
+        confirm(create())
+    }
+
+    @Test fun `quicksearchbox blobs`() = runTest {
+        neg(
+            "com.google.android.googlequicksearchbox",
+            PUBLIC_DATA,
+            "com.google.android.googlequicksearchbox/files/pending_blobs"
+        )
+        pos(
+            "com.google.android.googlequicksearchbox",
+            PUBLIC_DATA,
+            "com.google.android.googlequicksearchbox/files/pending_blobs/something"
+        )
         confirm(create())
     }
 }
