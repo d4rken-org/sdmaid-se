@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות דיבג</string>
+    <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
+    <string name="debug_debuglog_record_action">שמירת קובץ לוג</string>
+    <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
+    <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
     <string name="onboarding_welcome_continue_action">המשך</string>
     <string name="onboarding_privacy_title">פרטיות</string>
     <string name="settings_licenses_label">רשיונות</string>
     <string name="settings_category_other_label">אחר</string>
+    <string name="settings_category_filter_generic">פילטר כללי</string>
+    <string name="settings_category_filter_specific">פילטר ספציפי</string>
     <string name="general_settings_label">כללי</string>
+    <string name="settings_category_ui_label">ממשק משתמש</string>
     <string name="ui_theme_setting_label">ערכת נושא</string>
     <string name="ui_theme_dark_label">כהה</string>
     <string name="ui_theme_light_label">בהיר</string>
     <string name="ui_theme_system_label">מערכת</string>
     <string name="settings_support_label">תמיכה</string>
+    <string name="documentation_label">תיעוד</string>
     <string name="discord_label">דיסקורד</string>
     <string name="changelog_label">רשימת שינויים</string>
     <string name="settings_acknowledgements_label">תודות</string>

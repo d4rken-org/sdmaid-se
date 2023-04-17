@@ -62,11 +62,11 @@
     <string name="general_continue">Weitermachen</string>
     <string name="general_progress_queued">In der Warteschlange</string>
     <string name="general_progress_deleting">%s wird gelöscht</string>
-    <string name="general_sort_options_label">Optionen sortieren</string>
-    <string name="general_tag_filter_label">Filtern Sie nach Tags</string>
+    <string name="general_sort_options_label">Sortier-Optionen</string>
+    <string name="general_tag_filter_label">Nach Tags filtern</string>
     <string name="general_result_success_message">Operation erfolgreich</string>
     <string name="general_result_failure_message">Operation fehlgeschlagen</string>
-    <string name="general_result_x_space_freed">%s befreit</string>
+    <string name="general_result_x_space_freed">%s freigegeben</string>
     <string name="general_details_label">Details</string>
     <string name="general_view_action">Ansehen</string>
     <string name="general_update_action">Aktualisieren</string>
@@ -85,18 +85,18 @@
     <string name="general_scan_device_action">Gerät scannen</string>
     <string name="general_open_system_settings_action">Systemeinstellungen öffnen</string>
     <plurals name="result_x_items">
-        <item quantity="one">%s Artikel</item>
+        <item quantity="one">%s Objekt</item>
         <item quantity="other">%s Artikel</item>
     </plurals>
     <string name="x_space_can_be_freed">%s können freigegeben werden</string>
     <string name="general_info_label">Info</string>
-    <string name="general_count_label">Zählen</string>
+    <string name="general_count_label">Anzahl</string>
     <string name="general_app_label">App</string>
     <string name="general_more_infos_action">Weitere Infos</string>
     <string name="general_grant_access_action">Zugriff gewähren</string>
     <string name="general_enable_service_action">Dienst aktivieren</string>
     <string name="general_undo_action">Rückgängig machen</string>
-    <string name="general_path_label">Weg</string>
+    <string name="general_path_label">Dateipfad</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Größe</string>
     <string name="general_exclude_action">Ausschließen</string>
