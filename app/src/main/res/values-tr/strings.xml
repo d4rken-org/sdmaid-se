@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Bazı girdiler daha fazla detay görebilmek için tıklanılabilirdir.</string>
+    <string name="dashboard_click_hint">Bazı girdilere tıklanarak daha fazla detay görüntülenebilir.</string>
     <string name="dashboard_delete_all_message">Tüm sonuçlar silinsin mi?</string>
     <string name="dashboard_settings_category">Panel</string>
     <string name="dashboard_settings_oneclick_title">Tek Tık Modu</string>
-    <string name="dashboard_settings_oneclick_summary">Panelin eylemler düğmesine bir kez tıklayarak, ilave teyit gösterilmeden, tüm araçları kullanarak tarama ve silmeyi başatın.</string>
+    <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
     <string name="debug_debuglog_file_label">Kaydedilmiş günlük dosyası</string>
-    <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydetmeye başla</string>
+    <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içermektedir. Sadece güvenilir taraflarla paylaşın.</string>
-    <string name="settings_debuglog_explanation">Bu özellik uygylamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içerir. Sadece güvenilir taraflarla (sorun gidermeye çalışan bir geliştirici gibi) paylaşın.</string>
+    <string name="settings_debuglog_explanation">Bu özellik uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içerir. Sadece güvenilir taraflarla (sorun gidermeye çalışan bir geliştirici gibi) paylaşın.</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -26,8 +26,8 @@
     <string name="tasks_result_subtext">Sonuç</string>
     <string name="onboarding_welcome_title">Hoşgeldiniz</string>
     <string name="onboarding_welcome_body1">SD Maid SE dosyaları, uygulamaları ve depolama alanını yönetir.</string>
-    <string name="onboarding_welcome_body2">Diğer uygulamaları temizleyerek depolama alanı kazanın. Gereksiz dosyaları ve artakalan verileri silin.</string>
-    <string name="onboarding_welcome_body_beta">Bu bir beta (test) derlemesidir. Olası hatalara karşı biraz tolerasyon ve bir B planı ile ilerleyin. Lütfen karşılaştığınız sorunları bildirin.</string>
+    <string name="onboarding_welcome_body2">Diğer uygulamaların geride bıraktıklarını temizleyerek depolama alanı kazanın. Gereksiz dosyaları ve artakalan verileri silin.</string>
+    <string name="onboarding_welcome_body_beta">Bu bir beta (test) derlemesidir. Olası hatalara karşı anlayışlı ve hazırlıklı olun. Lütfen karşılaştığınız sorunları bildirin.</string>
     <string name="onboarding_welcome_continue_action">Devam et</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ya da SD Maid 2) SD Maid\'in devamıdır. Modern Android için optimize edilmiş yeni bir uygulamadır.</string>
@@ -76,7 +76,7 @@
     <string name="setup_label">Kur</string>
     <string name="setup_incomplete_card_title">Kurulum tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha iyi sonuçlar almak için SD Maid kurulumunu tamamlayın.</string>
-    <string name="setup_incomplete_card_dismiss_action">Tamam</string>
+    <string name="setup_incomplete_card_dismiss_action">Yoksay</string>
     <string name="setup_incomplete_card_continue_action">Kuruluma devam et</string>
     <string name="setup_title">Kur</string>
     <string name="setup_forcedshow_summary">Tamamlanmış adımları da içeren kurulum ekranını tekrar göster.</string>

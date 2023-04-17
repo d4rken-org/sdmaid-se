@@ -2,27 +2,27 @@
 <resources>
     <string name="dashboard_click_hint">Einige Einträge können angeklickt werden, um weitere Details anzuzeigen.</string>
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
-    <string name="dashboard_settings_category">Startseite</string>
-    <string name="dashboard_settings_oneclick_title">Ein-Klick-Modus</string>
-    <string name="dashboard_settings_oneclick_summary">Starten Sie den Scan und das Löschen für alle Tools mit einem Klick auf die Aktionsschaltfläche der Startseite, ohne zusätzliche Bestätigungen.</string>
+    <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_settings_oneclick_title">Einzel-Klick Modus</string>
+    <string name="dashboard_settings_oneclick_summary">Starte den Scan und das Löschen für alle Tools mit einem Klick auf die Aktionsschaltfläche des Dashboards, schließt den Vorgang ohne zusätzliche Bestätigungen ab.</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
-    <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
+    <string name="debug_notification_channel_label">Debug Benachrichtigungen</string>
     <string name="debug_debuglog_file_label">Aufgezeichnete Logdatei</string>
     <string name="debug_debuglog_record_action">Debug-Log aufzeichnen</string>
-    <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teilen Sie sie nur mit vertrauenswürdigen Parteien.</string>
-    <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten dieser App auf, und speichert sie in eine teilbare Datei. Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teilen Sie es nur mit vertrauenswürdigen Parteien (z.B. einem Entwickler, der ein Problem behebt).</string>
+    <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
+    <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten dieser App auf, und speichert sie in einer teilbaren Datei. Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen (z.B. einem Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d aktive Aufgabe</item>
-        <item quantity="other">%d aktive Aufgabe</item>
+        <item quantity="other">%d aktive Aufgaben</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d Aufgabe in Warteschlange</item>
         <item quantity="other">%d Aufgaben in der Warteschlange</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Aufgabenergebnisse</string>
+    <string name="tasks_result_notification_channel_label">Ergebnisse der Aufgabe</string>
     <string name="tasks_result_subtext">Ergebnis der Aufgabe</string>
     <string name="onboarding_welcome_title">Willkommen</string>
     <string name="onboarding_welcome_body1">SD Maid SE verwaltet Dateien, Apps und Speicher.</string>
@@ -76,7 +76,7 @@
     <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Die Einrichtung ist unvollständig</string>
     <string name="setup_incomplete_card_body">Beenden Sie die Einrichtung von SD Maid, um bessere Ergebnisse zu erzielen.</string>
-    <string name="setup_incomplete_card_dismiss_action">Zurückweisen</string>
+    <string name="setup_incomplete_card_dismiss_action">Ausblenden</string>
     <string name="setup_incomplete_card_continue_action">Einrichtung fortsetzen</string>
     <string name="setup_title">Setup</string>
     <string name="setup_forcedshow_summary">Setup Bildschirm erneut anzeigen, einschließlich bereits abgeschlossener Elemente.</string>
@@ -141,7 +141,7 @@
     <string name="corpsefinder_filter_publicmedia_summary">Öffentliche Mediendateien, z.B. Dateien, die über Messenger-Apps empfangen wurden.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB Ressourcen</string>
     <string name="corpsefinder_filter_publicobb_summary">Zusätzliche App-Ressourcen, z.B Spiel Assets.</string>
-    <string name="corpsefinder_filter_publicdata_label">Öffentliche App Daten</string>
+    <string name="corpsefinder_filter_publicdata_label">Öffentliche App-Daten</string>
     <string name="corpsefinder_filter_publicdata_summary">Unsensible App Daten, z.B. Karten Caches.</string>
     <string name="corpsefinder_filter_sdcard_label">SD-Karte</string>
     <string name="corpsefinder_filter_sdcard_summary">Allgemeiner öffentlicher Speicher, intern und extern (z.B. SD-Karten).</string>
@@ -292,15 +292,15 @@
     <string name="appcontrol_app_launch_description">Starten Sie die primäre Aktivität dieser App</string>
     <string name="appcontrol_tag_user">Benutzer</string>
     <string name="appcontrol_tag_system">System</string>
-    <string name="appcontrol_tag_enabled">Ermöglicht</string>
+    <string name="appcontrol_tag_enabled">Aktiviert</string>
     <string name="appcontrol_tag_disabled">Deaktiviert</string>
     <string name="appcontrol_progress_enabling_package">App aktivieren</string>
     <string name="appcontrol_progress_disabling_package">App deaktivieren</string>
     <string name="appcontrol_list_filteroptions_label">Filteroptionen</string>
-    <string name="appcontrol_list_sortmode_name_label">App Name</string>
+    <string name="appcontrol_list_sortmode_name_label">App-Name</string>
     <string name="appcontrol_list_sortmode_updated_label">Zuletzt aktualisiert um</string>
     <string name="appcontrol_list_sortmode_installed_label">Zuerst installiert bei</string>
-    <string name="appcontrol_list_sortmode_packagename_label">Paketnamen</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Paketname</string>
     <string name="data_area_public_app_data_official_label">Standarddaten für öffentliche Apps</string>
     <string name="data_area_public_storage_label">Öffentliche Speicherung</string>
     <string name="data_area_sdcard_label">SD-Karte</string>

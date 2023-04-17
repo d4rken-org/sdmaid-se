@@ -1,21 +1,21 @@
-<i>SD Maid SE</i> es una criada de confianza para tu Android, que lo mantendrá limpio y ordenado.
+<i>SD Maid SE</i> es un asistente de confianza para tu Android, que lo mantendrá limpio y ordenado.
 
 Nadie es perfecto y Android tampoco lo es.
 * Las aplicaciones desinstaladas dejan restos.
-* Registros, informes de fallos y otros archivos que realmente no quieres se creen constantemente.
-* Tu dispositivo está lleno de archivos y directorios que no reconoces.
+* Registros, informes de fallos y otros archivos que realmente no quieres se crean constantemente.
+* Tu almacenamiento está acumulando archivos y directorios que no reconoces.
 
-No sigamos... Permite a SD Maid SE ayudarte:
+No sigamos... Deja que SD Maid SE te ayude:
 
-* Limpia los datos residuales de las aplicaciones desinstaladas
-* Encuentra las cachés de las aplicaciones ocultas
+* Limpia datos de aplicaciones ya desinstaladas
+* Encuentra cachés ocultas de aplicaciones
 * Elimina los archivos innecesarios del sistema
 
-SD Maid SE no tiene publicidad. Sin embargo, para algunas funciones adicionales requiere una versión de pago.
+SD Maid SE no tiene publicidad. Algunas funciones requieren la versión de pago.
 
-SD Maid 2/SE es sucesor de SD Maid 1/Legacy.
-Optimizado para las nuevas versiones de Android y enfocado en la limpieza.
+SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
+Optimizado para nuevas versiones de Android y enfocado en la limpieza.
 
 SD Maid SE tiene funciones opcionales que utilizan la API AccessibilityService para automatizar las tareas tediosas.
-Usando el Servicio de Accesibilidad, SD Maid SE puede presionar botones para ti en múltiples aplicaciones, por ejemplo. borrando la memoria caché.
+SD Maid SE puede presionar botones para que realice operaciones en múltiples aplicaciones utilizando la API AccessibilityService, como por ejemplo. borrando la memoria caché.
 SD Maid SE no utiliza el servicio de accesibilidad para recopilar información.
