@@ -160,10 +160,16 @@ class AdvertisementFilterTest : BaseFilterTest() {
     }
 
     @Test fun testZCamera() = runTest {
-        addCandidate(neg().pkgs("com.jb.zcamera").locs(PUBLIC_OBB).prefixFree("com.jb.zcamera/GoAdSdk/advert"))
-        addCandidate(
-            pos().pkgs("com.jb.zcamera").locs(PUBLIC_OBB).prefixFree("com.jb.zcamera/GoAdSdk/advert/cacheFile")
-        )
+        neg("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk")
+        pos("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk/advert")
+        pos("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk/advert/cacheFile")
+        confirm(create())
+    }
+
+    @Test fun `general GoAdSdk test`() = runTest {
+        neg(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk")
+        pos(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk/advert")
+        pos(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk/advert/cacheFile")
         confirm(create())
     }
 

@@ -61,14 +61,20 @@ class AdvertisementFilter @Inject constructor(
             return true
         }
 
-        //    0      1     2
+        //    0       1      2
         // package/files/cache.dat
         if (lcsegments.size == 3 && HIDDEN_CACHE_FILES.contains(lcsegments[2])) {
             return true
         }
 
+        //    0       1       2
+        // package/adcache/...
+        if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) {
+            return true
+        }
+
         //    0      1      2      3
-        // package/files/adcache/file
+        // package/files/adcache/...
         if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_CACHE_FOLDERS.contains(lcsegments[2])) {
             return true
         }
@@ -98,7 +104,8 @@ class AdvertisementFilter @Inject constructor(
         )
         private val HIDDEN_CACHE_FOLDERS: Collection<String> = listOf(
             "vast_rtb_cache",
-        )
+            "GoAdSdk",
+        ).lowercase()
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
 
         )
