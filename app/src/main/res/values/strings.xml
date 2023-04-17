@@ -270,6 +270,8 @@
     <string name="appcleaner_filter_analytics_summary">Analytics related data, e.g. cached stats for what you click in an app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Hidden caches</string>
     <string name="appcleaner_filter_hiddencaches_summary">General purpose caches stored outside of the systems reach.</string>
+    <string name="appcleaner_filter_thumbnails_label">Media thumbnails</string>
+    <string name="appcleaner_filter_thumbnails_summary">Image, video and audio preview thumbnail pictures.</string>
     <string name="appcleaner_filter_gamefiles_label">Game files</string>
     <string name="appcleaner_filter_gamefiles_summary">Game related resources that the game would reload on next launch if necessary.</string>
     <string name="appcleaner_filter_offlinecache_label">Offline cache</string>

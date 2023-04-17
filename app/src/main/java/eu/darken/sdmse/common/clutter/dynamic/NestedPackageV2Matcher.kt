@@ -107,7 +107,7 @@ open class NestedPackageV2Matcher(
         override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
             if (this.areaType !== otherAreaType) return null
 
-            return if (otherSegments.matches(this.segments, ignoreCase)) Marker.Match(setOf(pkgId)) else null
+            return if (otherSegments.matches(this.segments, ignoreCase)) Marker.Match(setOf(pkgId), flags) else null
         }
     }
 }

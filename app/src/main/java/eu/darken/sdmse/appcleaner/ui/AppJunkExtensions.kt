@@ -14,6 +14,7 @@ val <T : ExpendablesFilter> KClass<T>.labelRes: Int
         DefaultCachesPublicFilter::class -> R.string.appcleaner_filter_defaultcachespublic_label
         DefaultCachesPrivateFilter::class -> R.string.appcleaner_filter_defaultcachesprivate_label
         HiddenFilter::class -> R.string.appcleaner_filter_hiddencaches_label
+        ThumbnailsFilter::class -> R.string.appcleaner_filter_thumbnails_label
         CodeCacheFilter::class -> R.string.appcleaner_filter_codecache_label
         AdvertisementFilter::class -> R.string.appcleaner_filter_advertisement_label
         BugReportingFilter::class -> R.string.appcleaner_filter_bugreporting_label
@@ -37,6 +38,7 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
         DefaultCachesPublicFilter::class -> R.string.appcleaner_filter_defaultcachespublic_summary
         DefaultCachesPrivateFilter::class -> R.string.appcleaner_filter_defaultcachesprivate_summary
         HiddenFilter::class -> R.string.appcleaner_filter_hiddencaches_summary
+        ThumbnailsFilter::class -> R.string.appcleaner_filter_thumbnails_summary
         CodeCacheFilter::class -> R.string.appcleaner_filter_codecache_summary
         AdvertisementFilter::class -> R.string.appcleaner_filter_advertisement_summary
         BugReportingFilter::class -> R.string.appcleaner_filter_bugreporting_summary
@@ -60,6 +62,7 @@ val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
         DefaultCachesPublicFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
         DefaultCachesPrivateFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
         HiddenFilter::class -> R.drawable.ic_hidden_file_24
+        ThumbnailsFilter::class -> R.drawable.ic_multimedia_24
         CodeCacheFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
         AdvertisementFilter::class -> R.drawable.ic_baseline_ads_click_24
         BugReportingFilter::class -> R.drawable.ic_bug_report

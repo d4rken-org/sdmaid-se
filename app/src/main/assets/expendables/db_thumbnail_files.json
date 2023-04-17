@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "appFilter": [
+	{
+	  "packages": ["com.quickoffice.android"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": ["com.quickoffice.android/files/"],
+		  "patterns": ["^(?:com\\.quickoffice\\.android\\/files\\/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
+		}
+	  ]
+	}, {
+	  "packages": ["nextapp.fx"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".FX/CloudThumbnail/"],
+		  "patterns": ["^(?:\\.FX\\/CloudThumbnail\\/)([\\W\\w]+?)$"]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": [".FX/ImageThumbnail/"],
+		  "patterns": ["^(?:\\.FX\\/ImageThumbnail\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["net.coollet.infzmreader"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["infzm/thumb_image/"],
+		  "patterns": ["^(?:infzm\\/thumb_image\\/)([\\W\\w]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.kascend.video"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["kascend/videoshow/.thumbcache/"],
+		  "patterns": ["^(?:kascend\\/videoshow\\/\\.thumbcache\\/)([\\W\\w]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.hashcode.walloid", "com.hashcode.walloidpro"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Walloid/.Thumbnail/"],
+		  "patterns": ["^(?:Walloid\\/\\.Thumbnail\\/)([\\W\\w]+)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.sec.android.app.videoplayer"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".thumbnails/"],
+		  "notContains": [".nomedia"],
+		  "patterns": ["^(?:\\.thumbnails\\/.+?\\/)([\\W\\w]+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.player"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/music/album/.player_thumb"],
+		  "patterns": ["^(?:MIUI/music/album/\\.player_thumb/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.videoplayer"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/Video/thumb/"],
+		  "patterns": ["^(?:MIUI/Video/thumb/)(.+?)$"]
+		}
+	  ]
+	}
+  ]
+}

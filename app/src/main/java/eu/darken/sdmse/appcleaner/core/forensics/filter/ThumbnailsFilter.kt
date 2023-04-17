@@ -25,7 +25,7 @@ import javax.inject.Provider
 
 
 @Reusable
-class HiddenFilter @Inject constructor(
+class ThumbnailsFilter @Inject constructor(
     private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
     environment: StorageEnvironment,
 ) : ExpendablesFilter {
@@ -36,7 +36,7 @@ class HiddenFilter @Inject constructor(
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        sieve = jsonBasedSieveFactory.create("expendables/db_hidden_caches_files.json")
+        sieve = jsonBasedSieveFactory.create("expendables/db_thumbnail_files.json")
     }
 
     override suspend fun isExpendable(
@@ -58,40 +58,32 @@ class HiddenFilter @Inject constructor(
 
         val lcsegments = segments.lowercase()
 
-        // package/cache.dat
-        if (lcsegments.size == 2 && HIDDEN_CACHE_FILES.contains(lcsegments[1])) {
+        // package/thumbs.dat
+        if (lcsegments.size == 2 && HIDDEN_FILES.contains(lcsegments[1])) {
             return true
         }
 
-        // package/files/cache.dat
-        if (lcsegments.size == 3 && HIDDEN_CACHE_FILES.contains(lcsegments[2])) {
+        // package/files/thumbs.dat
+        if (lcsegments.size == 3 && HIDDEN_FILES.contains(lcsegments[2])) {
             return true
         }
 
         //    0      1     2
-        // package/.cache/file
-        if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) { // weird name cache folder
+        // package/.thumbnails/file
+        if (lcsegments.size >= 3 && HIDDEN_FODLERS.contains(lcsegments[1])) {
             return true
         }
         if (isException(segments)) return false
 
         //    0      1     2     3
-        // package/files/.cache/file
-        if (lcsegments.size >= 4
-            && "files" == lcsegments[1]
-            && (HIDDEN_CACHE_FOLDERS.contains(lcsegments[2]) || "cache" == lcsegments[2])
-        ) {
-            // cache hidden in files
+        // package/files/.thumbnails/file
+        if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_FODLERS.contains(lcsegments[2])) {
             return true
         }
 
         //    -1     0      1     2     3
         // sdcard/Huawei/Themes/.cache/file
-        if (lcsegments.size >= 4
-            && areaType == DataArea.Type.SDCARD
-            && HIDDEN_CACHE_FOLDERS.contains(lcsegments[2])
-        ) {
-            // cache hidden in files
+        if (lcsegments.size >= 4 && areaType == DataArea.Type.SDCARD && HIDDEN_FODLERS.contains(lcsegments[2])) {
             return true
         }
 
@@ -99,15 +91,15 @@ class HiddenFilter @Inject constructor(
     }
 
     private fun isException(dirs: Segments): Boolean {
-        return dirs.size >= 4 && dirs[2] == "Cache" && dirs[3].contains(".unity3d&")
+        return false
     }
 
     @Reusable
     class Factory @Inject constructor(
         private val settings: AppCleanerSettings,
-        private val filterProvider: Provider<HiddenFilter>
+        private val filterProvider: Provider<ThumbnailsFilter>
     ) : ExpendablesFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterHiddenCachesEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterThumbnailsEnabled.value()
         override suspend fun create(): ExpendablesFilter = filterProvider.get()
     }
 
@@ -118,34 +110,18 @@ class HiddenFilter @Inject constructor(
     }
 
     companion object {
-        private val HIDDEN_CACHE_FOLDERS: Collection<String> = listOf(
-            ".cache",
-            "tmp", ".tmp",
-            "tmpdata", "tmp-data", "tmp_data",
-            ".tmpdata", ".tmp-data", ".tmp_data",
-            ".temp", "temp",
-            "tempdata", "temp-data", "temp_data",
-            ".tempdata", ".temp-data", ".temp_data",
-            "cache", "_cache", "-cache",
-            "imagecache", "image-cache", "image_cache",
-            ".imagecache", ".image-cache", ".image_cache",
-            "videocache", "video-cache", "video_cache",
-            ".videocache", ".video-cache", ".video_cache",
-            "mediacache", "media-cache", "media_cache",
-            ".mediacache", ".mediacache", ".media-cache",
-            "diskcache", "disk-cache", "disk_cache",
-            ".diskcache", ".disk-cache", ".disk_cache",
-            "filescache"
+        private val HIDDEN_FODLERS: Collection<String> = listOf(
+            ".thumbs",
+            "thumbs",
+            ".thumbnails",
+            "thumbnails",
         )
-        private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
-            "cache.dat",
-            "tmp.dat",
-            "temp.dat",
-            ".temp.jpg"
+        private val HIDDEN_FILES: Collection<String> = listOf(
+
         )
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia"
         )
-        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "HiddenCaches")
+        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Thumbnails")
     }
 }
