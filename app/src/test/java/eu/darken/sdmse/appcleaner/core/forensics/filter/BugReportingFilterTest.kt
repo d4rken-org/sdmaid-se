@@ -1237,4 +1237,15 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `PicsArt debug logs`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.picsart.studio", SDCARD, "Download")
+        neg("com.picsart.studio", SDCARD, "Download/file")
+        pos("com.picsart.studio", SDCARD, "Download/crash_log_1.txt")
+        pos("com.picsart.studio", SDCARD, "Download/crash_log_2.txt")
+
+        confirm(create())
+    }
 }

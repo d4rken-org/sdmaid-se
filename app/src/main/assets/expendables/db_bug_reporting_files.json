@@ -431,6 +431,15 @@
 		  "patterns": ["^PPS/.+?\\.txt$"]
 		}
 	  ]
+	}, {
+	  "packages": ["com.picsart.studio"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["Download/crash_log"],
+		  "patterns": ["^Download/crash_log_\\d+\\.txt$"]
+		}
+	  ]
 	}
   ]
 }

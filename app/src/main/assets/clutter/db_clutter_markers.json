@@ -1004,7 +1004,9 @@
   "mrks": [
 	{"loc": "SDCARD", "path": "PicsArt"},
 	{"loc": "SDCARD", "path": "Movies/PicsArt", "flags": ["keeper"]},
-	{"loc": "SDCARD", "path": "Pictures/PicsArt", "flags": ["keeper"]}
+	{"loc": "SDCARD", "path": "Pictures/PicsArt", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Download/crash_log_1.txt", "flags": ["keeper"]},
+	{"loc": "SDCARD", "contains": "Download/crash_log_", "regex": "^Download/crash_log_\\d+\\.txt$"}
   ]
 }, {
   "pkgs": ["com.path"],
