@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> pouzdan je pomoćnik za vaš Android koji ga održava čistim i urednim.
+
+Nitko nije savršen, pa tako ni Android.
+* Aplikacije koje ste već uklonili ostavljaju nešto iza sebe.
+* Dnevnici, izvješća o rušenju i druge datoteke koje zapravo ne želite stalno se stvaraju.
+* Vaša pohrana skuplja datoteke i direktorije koje ne prepoznajete.
+
+Da ne duljimo ovdje... Neka vam SD Maid SE pomogne:
+
+* Očistite podatke iz već deinstaliranih aplikacija
+* Pronađite skrivene predmemorije aplikacija
+* Uklonite suvišne sistemske datoteke
+
+SD Maid SE je bez oglasa. Neke značajke zahtijevaju nadogradnju koja se plaća.
+
+SD Maid 2/SE nasljednik je SD Maid 1/Legacy.
+Optimiziran za novije verzije Androida i usmjeren na čišćenje.
+
+SD Maid SE ima izborne značajke koje koriste AccessibilityService API za automatizaciju zamornih radnji.
+Korištenjem AccessibilityService API-ja, SD Maid SE može kliknuti gumbe za izvođenje operacija na više aplikacija, na primjer brisanje predmemorija.
+SD Maid SE ne koristi AccessibilityService API za prikupljanje informacija.
