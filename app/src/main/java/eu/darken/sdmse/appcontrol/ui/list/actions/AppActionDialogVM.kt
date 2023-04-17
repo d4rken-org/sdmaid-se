@@ -11,7 +11,10 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -65,7 +68,7 @@ class AppActionDialogVM @Inject constructor(
             ?.let { intent ->
                 LaunchActionVH.Item(
                     appInfo = appInfo,
-                    onItemClicked = {
+                    onLaunch = {
                         try {
                             context.startActivity(intent)
                         } catch (e: ActivityNotFoundException) {
@@ -79,7 +82,7 @@ class AppActionDialogVM @Inject constructor(
 
         val systemSettingsAction = SystemSettingsActionVH.Item(
             appInfo = appInfo,
-            onItemClicked = {
+            onSettings = {
                 val intent = it.createSystemSettingsIntent(context)
                 context.startActivity(intent)
             }
@@ -90,7 +93,7 @@ class AppActionDialogVM @Inject constructor(
             ?.let {
                 AppStoreActionVH.Item(
                     appInfo = appInfo,
-                    onItemClicked = { info ->
+                    onAppStore = { info ->
                         val intent = info.createGooglePlayIntent(context)
                         context.startActivity(intent)
                     }
@@ -100,7 +103,7 @@ class AppActionDialogVM @Inject constructor(
         val disableAction = if (rootManager.useRoot()) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
-                onItemClicked = {
+                onToggle = {
                     val task = AppControlToggleTask(setOf(appInfo.pkg.id))
                     launch { taskManager.submit(task) }
                 }

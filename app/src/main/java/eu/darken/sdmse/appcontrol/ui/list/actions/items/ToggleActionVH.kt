@@ -33,12 +33,12 @@ class ToggleActionVH(parent: ViewGroup) :
             secondary.text = getString(R.string.appcontrol_toggle_app_enable_description)
         }
 
-        root.setOnClickListener { item.onItemClicked(appInfo) }
+        itemView.setOnClickListener { item.onToggle(appInfo) }
     }
 
     data class Item(
         val appInfo: AppInfo,
-        val onItemClicked: (AppInfo) -> Unit,
+        val onToggle: (AppInfo) -> Unit,
     ) : AppActionAdapter.Item {
 
         override val stableId: Long = this::class.java.hashCode().toLong()
