@@ -100,12 +100,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             return
         }
 
+        automationProcessor = automationProcessorFactory.create(this)
+
         serviceScope.launch {
             delay(2000)
             automationSetupModule.refresh()
         }
-
-        automationProcessor = automationProcessorFactory.create(this)
 
         progress
             .mapLatest { progressData ->
@@ -178,6 +178,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
+            return
+        }
+
+        if (!this::automationProcessor.isInitialized) {
+            log(TAG, ERROR) { "automationProcessor has not been initialized" }
             return
         }
 
