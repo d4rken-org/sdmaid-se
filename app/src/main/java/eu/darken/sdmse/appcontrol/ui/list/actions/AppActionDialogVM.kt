@@ -11,16 +11,14 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -86,13 +84,19 @@ class AppActionDialogVM @Inject constructor(
                 context.startActivity(intent)
             }
         )
-        val appStoreAction = AppStoreActionVH.Item(
-            appInfo = appInfo,
-            onItemClicked = { info ->
-                val intent = info.createGooglePlayIntent(context)
-                context.startActivity(intent)
+
+        val appStoreAction = (appInfo.pkg as? ExtendedInstallData)
+            ?.takeIf { it.installerInfo.installer != null }
+            ?.let {
+                AppStoreActionVH.Item(
+                    appInfo = appInfo,
+                    onItemClicked = { info ->
+                        val intent = info.createGooglePlayIntent(context)
+                        context.startActivity(intent)
+                    }
+                )
             }
-        )
+
         val disableAction = if (rootManager.useRoot()) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
