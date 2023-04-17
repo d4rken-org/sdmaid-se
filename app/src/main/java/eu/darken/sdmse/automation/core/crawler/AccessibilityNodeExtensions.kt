@@ -130,12 +130,10 @@ fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> =
 
 // Recursive
 fun AccessibilityNodeInfo.scrollNode(): Boolean {
-    if (isScrollable) {
-        Timber.tag(CrawlerCommon.TAG).v("Scrolling node: %s", toStringShort())
-        return performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
-    }
+    if (!isScrollable) return false
 
-    return children().any { it.scrollNode() }
+    Timber.tag(CrawlerCommon.TAG).v("Scrolling node: %s", toStringShort())
+    return performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
 }
 
 val AccessibilityEvent.pkgId: Pkg.Id get() = packageName.toString().toPkgId()

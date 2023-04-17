@@ -121,8 +121,16 @@ object CrawlerCommon {
             root.refresh()
             true
         } else {
-            val scrolled = root.scrollNode()
-            root.refresh()
+            var scrolled = false
+            root.crawl()
+                .filter { it.node.isScrollable }
+                .forEach {
+                    val success = it.node.scrollNode()
+                    if (success) {
+                        scrolled = true
+                        it.node.refresh()
+                    }
+                }
             scrolled
         }
     }
