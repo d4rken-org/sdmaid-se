@@ -88,7 +88,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Mais informações</string>
+    <string name="general_more_info_action">Mais informações</string>
     <string name="general_grant_access_action">Garantir acesso</string>
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>

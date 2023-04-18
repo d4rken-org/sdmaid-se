@@ -96,7 +96,7 @@
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">العدد</string>
     <string name="general_app_label">تطبيق</string>
-    <string name="general_more_infos_action">المزيد من المعلومات</string>
+    <string name="general_more_info_action">المزيد من المعلومات</string>
     <string name="general_grant_access_action">السماح بالوصول</string>
     <string name="general_enable_service_action">تمكين الخدمة</string>
     <string name="general_undo_action">تراجع</string>

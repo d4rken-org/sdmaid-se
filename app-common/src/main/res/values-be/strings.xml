@@ -94,7 +94,7 @@
     <string name="general_info_label">Інфармацыя</string>
     <string name="general_count_label">Колькасць</string>
     <string name="general_app_label">Праграма</string>
-    <string name="general_more_infos_action">Больш інфармацыі</string>
+    <string name="general_more_info_action">Больш інфармацыі</string>
     <string name="general_grant_access_action">Даць доступ</string>
     <string name="general_enable_service_action">Уключыць службу</string>
     <string name="general_undo_action">Скасаваць</string>

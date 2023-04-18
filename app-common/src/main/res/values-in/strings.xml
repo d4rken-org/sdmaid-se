@@ -91,7 +91,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Jumlah</string>
     <string name="general_app_label">Aplikasi</string>
-    <string name="general_more_infos_action">Info lebih lanjut</string>
+    <string name="general_more_info_action">Info lebih lanjut</string>
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Aktifkan layanan</string>
     <string name="general_undo_action">Batalkan</string>

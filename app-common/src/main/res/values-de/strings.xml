@@ -92,7 +92,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Anzahl</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Weitere Infos</string>
+    <string name="general_more_info_action">Weitere Infos</string>
     <string name="general_grant_access_action">Zugriff gewähren</string>
     <string name="general_enable_service_action">Dienst aktivieren</string>
     <string name="general_undo_action">Rückgängig machen</string>

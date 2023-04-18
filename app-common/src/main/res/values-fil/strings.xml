@@ -92,7 +92,7 @@
     <string name="general_info_label">Impormasyon</string>
     <string name="general_count_label">Bilang</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Higit pang impormasyon</string>
+    <string name="general_more_info_action">Higit pang impormasyon</string>
     <string name="general_grant_access_action">Magbigay-pahintulot</string>
     <string name="general_enable_service_action">Buksan ang serbisyo</string>
     <string name="general_undo_action">I-undo</string>

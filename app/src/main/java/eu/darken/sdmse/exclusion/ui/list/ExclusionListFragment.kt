@@ -32,7 +32,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                     R.id.menu_action_info -> {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setMessage(R.string.exclusion_explanation_body1)
-                            setNeutralButton(R.string.general_more_infos_action) { _, _ ->
+                            setNeutralButton(R.string.general_more_info_action) { _, _ ->
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Exclusions")
                             }
                         }.show()

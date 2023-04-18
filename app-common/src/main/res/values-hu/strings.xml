@@ -92,7 +92,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Darabszám</string>
     <string name="general_app_label">Alkalmazás</string>
-    <string name="general_more_infos_action">További infók</string>
+    <string name="general_more_info_action">További infók</string>
     <string name="general_grant_access_action">Hozzáférés megadása</string>
     <string name="general_enable_service_action">Szolgáltatás engedélyezése</string>
     <string name="general_undo_action">Visszavonás</string>

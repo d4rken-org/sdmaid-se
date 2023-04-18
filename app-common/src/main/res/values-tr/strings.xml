@@ -92,7 +92,7 @@
     <string name="general_info_label">Bilgi</string>
     <string name="general_count_label">Toplam</string>
     <string name="general_app_label">Uygulama</string>
-    <string name="general_more_infos_action">Daha fazla bilgi</string>
+    <string name="general_more_info_action">Daha fazla bilgi</string>
     <string name="general_grant_access_action">Erişim izni ver</string>
     <string name="general_enable_service_action">Hizmeti etkinleştir</string>
     <string name="general_undo_action">Geri al</string>

@@ -92,7 +92,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Meer informatie</string>
+    <string name="general_more_info_action">Meer informatie</string>
     <string name="general_grant_access_action">Toegang verlenen</string>
     <string name="general_enable_service_action">Dienst inschakelen</string>
     <string name="general_undo_action">Ongedaan maken</string>

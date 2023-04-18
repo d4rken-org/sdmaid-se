@@ -91,7 +91,7 @@
     <string name="general_info_label">Thông tin</string>
     <string name="general_count_label">Đếm được</string>
     <string name="general_app_label">Ứng dụng</string>
-    <string name="general_more_infos_action">Thêm thông tin</string>
+    <string name="general_more_info_action">Thêm thông tin</string>
     <string name="general_grant_access_action">Cấp quyền truy cấp</string>
     <string name="general_enable_service_action">Bật dịch vụ</string>
     <string name="general_undo_action">Hoàn tác</string>

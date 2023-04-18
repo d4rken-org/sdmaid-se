@@ -94,7 +94,7 @@
     <string name="general_info_label">Informacje</string>
     <string name="general_count_label">Liczba</string>
     <string name="general_app_label">Aplikacja</string>
-    <string name="general_more_infos_action">Więcej informacji</string>
+    <string name="general_more_info_action">Więcej informacji</string>
     <string name="general_grant_access_action">Udziel dostępu</string>
     <string name="general_enable_service_action">Włącz usługę</string>
     <string name="general_undo_action">Cofnij</string>
