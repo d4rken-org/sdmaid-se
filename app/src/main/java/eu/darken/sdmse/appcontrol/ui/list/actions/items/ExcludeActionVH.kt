@@ -6,6 +6,7 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcontrolActionExcludeItemBinding
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 
 
 class ExcludeActionVH(parent: ViewGroup) :
@@ -21,13 +22,25 @@ class ExcludeActionVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val appInfo = item.appInfo
-
-        itemView.setOnClickListener { item.onExclude(appInfo) }
+        if (item.exclusion == null) {
+            icon.setImageResource(R.drawable.ic_shield_24)
+            primary.text = getString(R.string.appcontrol_app_exclude_add_title)
+            secondary.text = getString(R.string.appcontrol_app_exclude_add_description)
+        } else {
+            icon.setImageResource(R.drawable.ic_shield_edit_24)
+            primary.text = getString(R.string.appcontrol_app_exclude_edit_title)
+            secondary.text = getString(R.string.appcontrol_app_exclude_edit_description)
+        }
+        itemView.setOnClickListener {
+            if (item.exclusion == null) item.onExclude(item.appInfo) else item.onEdit(item.exclusion)
+        }
     }
 
     data class Item(
         val appInfo: AppInfo,
+        val exclusion: Exclusion.Package?,
         val onExclude: (AppInfo) -> Unit,
+        val onEdit: (Exclusion.Package) -> Unit,
     ) : AppActionAdapter.Item {
 
         override val stableId: Long = this::class.java.hashCode().toLong()

@@ -22,6 +22,10 @@ import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.currentExclusions
+import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -35,6 +39,7 @@ class AppActionDialogVM @Inject constructor(
     private val appControl: AppControl,
     private val taskManager: TaskManager,
     private val rootManager: RootManager,
+    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
@@ -85,10 +90,25 @@ class AppActionDialogVM @Inject constructor(
             }
         )
 
+        val existingExclusion = exclusionManager
+            .currentExclusions()
+            .filterIsInstance<Exclusion.Package>()
+            .firstOrNull { it.match(appInfo.id) }
+
         val excludeAction = ExcludeActionVH.Item(
             appInfo = appInfo,
+            exclusion = existingExclusion,
             onExclude = {
-                // TODO
+                launch {
+                    val exclusion = PackageExclusion(
+                        pkgId = appInfo.id,
+                    )
+                    exclusionManager.add(exclusion)
+                    popNavStack()
+                }
+            },
+            onEdit = {
+                AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(it.id).navigate()
             }
         )
 
@@ -121,8 +141,8 @@ class AppActionDialogVM @Inject constructor(
             actions = listOfNotNull(
                 launchAction,
                 systemSettingsAction,
-                excludeAction,
                 appStoreAction,
+                excludeAction,
                 disableAction,
             ).filterNotNull()
         )

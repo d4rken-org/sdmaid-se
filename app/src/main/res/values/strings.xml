@@ -320,8 +320,10 @@
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">Launch app</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
-    <string name="appcontrol_app_exclude_title">Exclude app</string>
-    <string name="appcontrol_app_exclude_description">Exclude this app from other operations in SD Maid.</string>
+    <string name="appcontrol_app_exclude_add_title">Exclude app</string>
+    <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edit exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">This app is currently excluded from one or more tools.</string>
     <string name="appcontrol_tag_user">User</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
