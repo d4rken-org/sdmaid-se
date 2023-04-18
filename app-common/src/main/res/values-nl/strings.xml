@@ -3,7 +3,7 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Tot uw dienst.</string>
     <string name="slogan_message_1">Schoon &amp; netjes.</string>
-    <string name="slogan_message_2">Voorkomen van chaos.</string>
+    <string name="slogan_message_2">Chaos voorkomen.</string>
     <string name="slogan_message_3">Doen wat noodzakelijk is.</string>
     <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Al je eenden op een rij.</string>
     <string name="slogan_message_5">Brandschoon.</string>
@@ -78,17 +78,17 @@
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
     <string name="general_delete_confirmation_message_x_for_x">Verwijder \"%1$s\" voor \"%2$s\"?</string>
     <string name="general_clean_confirmation_title">Opschonen bevestigen</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" schoonmaken?</string>
+    <string name="general_clean_confirmation_message_x">\"%s\" opschonen?</string>
     <string name="general_root_required_label">Vereist root</string>
     <string name="general_root_required_message">Vereist een geroot apparaat</string>
     <string name="general_search_action">Zoeken</string>
-    <string name="general_scan_device_action">Scan apparaat</string>
+    <string name="general_scan_device_action">Apparaat scannen</string>
     <string name="general_open_system_settings_action">Systeeminstellingen openen</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s items</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s kan vrijgemaakt worden</string>
+    <string name="x_space_can_be_freed">%s kan worden vrijgemaakt</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
     <string name="general_app_label">App</string>
@@ -104,7 +104,7 @@
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
     <string name="general_help_title">Help</string>
-    <string name="file_type_symbolic_link">Link</string>
+    <string name="file_type_symbolic_link">Koppeling</string>
     <string name="file_type_directory">Adresboek</string>
     <string name="file_type_file">Bestand</string>
     <string name="file_type_unknown">Onbekend</string>

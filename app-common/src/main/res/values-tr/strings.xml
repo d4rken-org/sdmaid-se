@@ -3,7 +3,7 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Hizmetinizde.</string>
     <string name="slogan_message_1">Temiz &amp; düzenli.</string>
-    <string name="slogan_message_2">Karışıklığı önlemek.</string>
+    <string name="slogan_message_2">Kaosu önleme.</string>
     <string name="slogan_message_3">Gerekeni yapmak.</string>
     <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tüm işleriniz hazır ve organize.</string>
     <string name="slogan_message_5">Tertemiz.</string>
@@ -27,14 +27,14 @@
     <string name="general_link_existing_action">Mevcut hesaba bağlan</string>
     <string name="general_na_label">Yok</string>
     <string name="general_empty_label">Boş</string>
-    <string name="general_dismiss_action">Azletmek</string>
+    <string name="general_dismiss_action">Yoksay</string>
     <string name="general_maybe_later_action">Belki daha sonra</string>
     <string name="general_manage_action">Yönet</string>
     <string name="general_sync_action">Senkronize et</string>
     <string name="general_error_label">Hata</string>
     <string name="general_select_server_label">Sunucu seç</string>
     <string name="general_quota_label">Kota</string>
-    <string name="general_tap_hint_msg">Daha fazla seçenek için dokun</string>
+    <string name="general_tap_hint_msg">Daha fazla seçenek için dokunun</string>
     <string name="general_upgrade_action">Yükselt</string>
     <string name="general_donate_action">Bağış yap</string>
     <string name="general_check_action">Kontrol et</string>
@@ -55,8 +55,8 @@
     <string name="general_progress_loading_egg_3">CPU kahve molasında</string>
     <string name="general_progress_loading_egg_4">Pepe Silvia\'dan veri bekleniyor</string>
     <string name="general_progress_loading_egg_5">Turbo kapsülleyici başlatılıyor</string>
-    <string name="general_progress_loading_egg_6">Tereyağını geç</string>
-    <string name="general_progress_loading_egg_7">Ee. Nasıl dayanıyorsun?</string>
+    <string name="general_progress_loading_egg_6">Tereyağını uzatıyorum</string>
+    <string name="general_progress_loading_egg_7">Nasıl oldun daha iyi misin?</string>
     <string name="general_progress_loading_egg_8">Burası leş gibi kokuyor</string>
     <string name="general_help_action">Yardım</string>
     <string name="general_continue">Devam et</string>
@@ -68,9 +68,9 @@
     <string name="general_result_failure_message">Operasyon başarısız</string>
     <string name="general_result_x_space_freed">%s serbest bırakıldı</string>
     <string name="general_details_label">Detaylar</string>
-    <string name="general_view_action">Görüş</string>
+    <string name="general_view_action">Bak</string>
     <string name="general_update_action">Güncelle</string>
-    <string name="general_scan_action">Tarama</string>
+    <string name="general_scan_action">Tara</string>
     <string name="general_delete_action">Sil</string>
     <string name="general_delete_all_action">Hepsini sil</string>
     <string name="general_show_details_action">Detayları göster</string>
@@ -79,7 +79,7 @@
     <string name="general_delete_confirmation_message_x_for_x">\"%2$s\" için \"%1$s\" silinsin mi?</string>
     <string name="general_clean_confirmation_title">Temizliği onayla</string>
     <string name="general_clean_confirmation_message_x">\"%s\" temizlensin mi?</string>
-    <string name="general_root_required_label">Kök gerektirir</string>
+    <string name="general_root_required_label">Kök (root) erişimi gerektirir</string>
     <string name="general_root_required_message">Köklü bir cihaz gerektirir</string>
     <string name="general_search_action">Ara</string>
     <string name="general_scan_device_action">Cihazı tara</string>
@@ -90,16 +90,16 @@
     </plurals>
     <string name="x_space_can_be_freed">%s serbest bırakılabilir</string>
     <string name="general_info_label">Bilgi</string>
-    <string name="general_count_label">Saymak</string>
+    <string name="general_count_label">Toplam</string>
     <string name="general_app_label">Uygulama</string>
     <string name="general_more_infos_action">Daha fazla bilgi</string>
     <string name="general_grant_access_action">Erişim izni ver</string>
     <string name="general_enable_service_action">Hizmeti etkinleştir</string>
-    <string name="general_undo_action">Geri alma</string>
+    <string name="general_undo_action">Geri al</string>
     <string name="general_path_label">Yol</string>
-    <string name="general_type_label">Tip</string>
+    <string name="general_type_label">Tür</string>
     <string name="general_size_label">Boyut</string>
-    <string name="general_exclude_action">Hariç tutmak</string>
+    <string name="general_exclude_action">Hariç Tut</string>
     <string name="general_exclude_all_action">Tümünü hariç tut</string>
     <string name="general_device_label">Cihaz</string>
     <string name="general_settings_title">Ayarlar</string>

@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="general_thank_you_label">ممنون</string>
+    <string name="general_share_action">اشتراک</string>
+    <string name="general_done_action">انجام شد</string>
+    <string name="general_copy_action">رونوشت</string>
+    <string name="general_remove_action">حذف</string>
+    <string name="general_wipe_action">پاک کردن</string>
+    <string name="general_cancel_action">لفو</string>
+    <string name="general_save_action">ذخيره</string>
+    <string name="general_thanks_action">تشکر</string>
+    <string name="general_gotit_action">فهمیدم</string>
+    <string name="general_edit_action">ویرایش</string>
+    <string name="general_create_account_action">ایجاد حساب کاربری</string>
+    <string name="general_link_existing_action">اتصال به حساب کاربری موجود</string>
+    <string name="general_na_label">نامعلوم</string>
+    <string name="general_empty_label">خالی</string>
+    <string name="general_dismiss_action">نادیده گرفتن</string>
+    <string name="general_maybe_later_action">شاید بعدا</string>
+    <string name="general_manage_action">مدیریت</string>
+    <string name="general_sync_action">همگام سازی</string>
+    <string name="general_error_label">خطا</string>
+    <string name="general_select_server_label">انتخاب سرور</string>
+    <string name="general_quota_label">بیشینه</string>
+    <string name="general_upgrade_action">ارتقاء</string>
+    <string name="general_donate_action">کمک مالی</string>
+    <string name="general_check_action">بررسی</string>
+    <string name="general_filter_action">فیلتر</string>
+    <string name="general_internal_not_available_msg">بدون اتصال اینترنت</string>
+    <string name="general_refresh_action">نوسازی</string>
+    <string name="general_progress_searching">درحال جستجو</string>
+    <string name="general_progress_filtering">فیلتر کردن</string>
+    <string name="general_progress_preparing">در‌حال آماده‌سازی</string>
+    <string name="general_search_action">جستجو</string>
+    <string name="general_scan_device_action">اسکن دستگاه</string>
+    <string name="general_open_system_settings_action">باز کردن تنظیمات سیستمی</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s مورد</item>
+        <item quantity="other">%s مورد</item>
+    </plurals>
+    <string name="x_space_can_be_freed">%s قابل آزادسازی است</string>
+    <string name="general_info_label">درباره</string>
+    <string name="general_count_label">تعداد</string>
+    <string name="general_app_label">برنامه</string>
+    <string name="general_more_infos_action">اطلاعات بیشتر</string>
+    <string name="general_grant_access_action">موافقت کردن با دسترسی</string>
+    <string name="general_undo_action">واگرد</string>
+    <string name="general_path_label">مسیر</string>
+    <string name="general_type_label">نوع</string>
+    <string name="general_size_label">اندازه‌</string>
+    <string name="general_exclude_action">استثناء</string>
+    <string name="general_exclude_all_action">استثناء همه</string>
+    <string name="general_device_label">دستگاه</string>
+    <string name="general_settings_title">تنظیمات</string>
+    <string name="general_help_title">کمک</string>
+    <string name="file_type_symbolic_link">پیوند</string>
+    <string name="file_type_directory">مسیر</string>
+    <string name="file_type_file">فایل</string>
+    <string name="file_type_unknown">ناشناخته</string>
+</resources>

@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_click_hint">Κάποιες καταχωρήσεις μπορούν να εμφανίσουν λεπτομέρειες εάν κάνετε κλίκ.</string>
+    <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
+    <string name="dashboard_settings_category">Πίνακας Ελέγχου</string>
+    <string name="dashboard_settings_oneclick_title">Λειτουργία Με Ένα Κλικ</string>
+    <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
+    <string name="debug_debuglog_size_label">Μέγεθος</string>
+    <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
+    <string name="debug_notification_channel_label">Αποσφαλμάτωση ειδοποιήσεων</string>
+    <string name="debug_debuglog_file_label">Αρχείο καταγραφής</string>
+    <string name="debug_debuglog_record_action">Καταγραφή αποσφαλμάτωσης</string>
+    <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύστε.</string>
+    <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. ένας προγραμματιστής που αντιμετωπίζει προβλήματα σε ένα ζήτημα).</string>
+    <string name="tasks_activity_notification_channel_label">Ενεργές εργασίες</string>
+    <string name="tasks_activity_working_notification_title">SD Maid λειτουργεί</string>
+</resources>
