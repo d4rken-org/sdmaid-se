@@ -50,7 +50,7 @@
     <string name="general_result_failure_message">実行失敗</string>
     <string name="general_result_x_space_freed">%s解放されました</string>
     <string name="general_details_label">詳細</string>
-    <string name="general_view_action">ビュー</string>
+    <string name="general_view_action">表示</string>
     <string name="general_update_action">アップデート</string>
     <string name="general_scan_action">スキャン</string>
     <string name="general_delete_action">削除</string>

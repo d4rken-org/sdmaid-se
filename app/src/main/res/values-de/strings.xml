@@ -48,7 +48,7 @@
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
     <string name="settings_licenses_label">Lizenzen</string>
-    <string name="settings_category_other_label">Andere</string>
+    <string name="settings_category_other_label">Sonstiges</string>
     <string name="settings_category_filter_generic">Allgemeiner Filter</string>
     <string name="settings_category_filter_specific">Spezifischer Filter</string>
     <string name="settings_sponsor_development_title">Sponsorenentwicklung</string>
@@ -131,11 +131,11 @@
     <string name="corpsefinder_tool_name">Leichenfinder</string>
     <string name="corpsefinder_explanation_short">Daten, die zu bereits entfernten Apps gehören.</string>
     <string name="corpsefinder_settings_summary">Passen Sie Scanfilter und Risikostufen an.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Fügen Sie wünschenswerte Reste hinzu</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Erwünschte Reste einbeziehen</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Dateien, die Sie vielleicht behalten möchten, auch wenn die App deinstalliert ist, z.B. Fotos, die Sie aufgenommen haben, oder Sicherungskopien, die Sie erstellt haben.</string>
-    <string name="corpsefinder_settings_risk_common_title">Fügen Sie gebräuchliche Namen hinzu</string>
+    <string name="corpsefinder_settings_risk_common_title">Gebräuchliche Namen einbeziehen</string>
     <string name="corpsefinder_settings_risk_common_summary">Daten mit zu häufigen Namen, z.B. Ein Ordner „Notizen“ gehört zu vielen unbekannten Apps.</string>
-    <string name="corpsefinder_watcher_title">Beobachter deinstallieren</string>
+    <string name="corpsefinder_watcher_title">Deinstallations-Beobachter</string>
     <string name="corpsefinder_watcher_summary">Automatische Suche nach Überresten, wenn eine App entfernt wird.</string>
     <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
     <string name="corpsefinder_filter_publicmedia_summary">Öffentliche Mediendateien, z.B. Dateien, die über Messenger-Apps empfangen wurden.</string>
@@ -176,7 +176,7 @@
         <item quantity="other">%d Filterübereinstimmungen</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Benutzerdefinierte Filter</string>
-    <string name="systemcleaner_filter_custom_manage_label">Verwalten Sie benutzerdefinierte Filter</string>
+    <string name="systemcleaner_filter_custom_manage_label">Benutzerdefinierte Filter verwalten</string>
     <string name="systemcleaner_filter_custom_manage_summary">Erstellen, löschen, importieren und exportieren Sie Ihre benutzerdefinierten Filter.</string>
     <string name="systemcleaner_filter_logfiles_label">Protokolldateien</string>
     <string name="systemcleaner_filter_logfiles_summary">Protokolldateien (*.log) vom gesamten Gerät.</string>
@@ -212,7 +212,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Ein Bereich, in dem das System Protokolldateien ablegen kann.</string>
     <string name="systemcleaner_filter_recenttasks_label">Aktuelle Aufgaben</string>
     <string name="systemcleaner_filter_recenttasks_summary">Daten im Zusammenhang mit dem Aufgabenverlauf im Aufgabenumschalter des Systems.</string>
-    <string name="systemcleaner_filter_tombstones_label">Systemabsturz bleibt</string>
+    <string name="systemcleaner_filter_tombstones_label">Systemabsturz-Überreste</string>
     <string name="systemcleaner_filter_tombstones_summary">Wenn native Prozesse abstürzen (z.B. Spiele), werden hier Dateien erstellt.</string>
     <string name="systemcleaner_filter_usagestats_label">Nutzungsstatistiken</string>
     <string name="systemcleaner_filter_usagestats_summary">Dateien, die sich auf Anwendungsnutzungsstatistiken beziehen.</string>
@@ -224,13 +224,13 @@
     <string name="appcleaner_filter_defaultcachesprivate_label">Private Standard-Caches</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">Standardmäßige private App-Caches. Wird gelöscht, wenn in den Systemeinstellungen auf \"Cache leeren\" geklickt wird.</string>
     <string name="appcleaner_include_systemapps_label">System-Apps einschließen</string>
-    <string name="appcleaner_include_systemapps_summary">Schließen Sie System-Apps in den Scan ein.</string>
-    <string name="appcleaner_include_runningapps_label">Schließen Sie laufende Apps ein</string>
-    <string name="appcleaner_include_runningapps_summary">Schließen Sie derzeit ausgeführte Apps ein, die Störungen verursachen.</string>
-    <string name="appcleaner_include_inaccessible_label">Schließen Sie unzugängliche Daten ein</string>
-    <string name="appcleaner_include_inaccessible_summary">Schließen Sie Daten ein, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht und mithilfe eines Zugriffsdienstes automatisiert werden können. </string>
-    <string name="appcleaner_include_multiuser_label">Schließen Sie andere Benutzer ein</string>
-    <string name="appcleaner_include_multiuser_summary">Schließen Sie Apps von anderen Benutzerprofilen auf diesem Gerät ein.</string>
+    <string name="appcleaner_include_systemapps_summary">System-Apps in den Scan einbeziehen.</string>
+    <string name="appcleaner_include_runningapps_label">Laufende Apps einbeziehen</string>
+    <string name="appcleaner_include_runningapps_summary">Derzeit ausgeführte Apps einbeziehen. Kann Störungen verursachen.</string>
+    <string name="appcleaner_include_inaccessible_label">Unzugängliche Daten einbeziehen</string>
+    <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht werde können, automatisiert mittels eines Bedienungshilfe-Services. </string>
+    <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
+    <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcleaner_filter_codecache_label">Code-Cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM-Code-Cache. In nativen Code kompilierte Bytecode-Blöcke.</string>
     <string name="appcleaner_filter_advertisement_label">Werbedaten</string>
@@ -306,7 +306,7 @@
     <string name="data_area_sdcard_label">SD-Karte</string>
     <string name="data_areas_label">Datenbereiche</string>
     <string name="data_areas_description">Datenbereiche stellen Orte auf Ihrem Gerät dar, auf die SD Maid zugreifen kann. Abhängig von Ihrer Android-Version und den erteilten Berechtigungen können unterschiedliche Datenbereiche verfügbar sein.</string>
-    <string name="data_areas_short_summary">Bereiche, auf die SD Maid basierend auf den aktuell erteilten Berechtigungen zugreifen kann.</string>
+    <string name="data_areas_short_summary">Bereiche, auf die SD-Maid aufgrund der derzeit gewährten Berechtigungen zugreifen kann.</string>
     <string name="exclusion_manager_title">Ausschluss Manager</string>
     <string name="exclusion_manager_desc">Datei und App Ausschlüsse verwalten.</string>
     <string name="exclusion_explanation_body1">Schließen Sie Dateien und Apps von den Vorgängen von SD Maid aus.</string>
@@ -317,7 +317,7 @@
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Ihrem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warten Sie, bis der Vorgang abgeschlossen ist, oder brechen Sie ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
-    <string name="automation_error_no_consent_body">Der Barrierefreiheitsdienst ist nicht eingerichtet. Schließen Sie die Einrichtung ab und geben Sie Ihre Zustimmung.</string>
+    <string name="automation_error_no_consent_body">Der Bedienungshilfe-Service ist nicht eingerichtet. Schließen Sie die Einrichtung ab, indem Sie Ihre Zustimmung geben.</string>
     <string name="automation_error_not_enabled_title">Dienst ist nicht aktiviert</string>
     <string name="automation_error_not_enabled_body">Der Barrierefreiheitsdienst ist deaktiviert. Schalten Sie es wieder ein.</string>
     <string name="automation_error_not_running_title">Der Dienst läuft nicht</string>

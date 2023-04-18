@@ -134,6 +134,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">वांछनीय अवशेषों को शामिल करें</string>
     <string name="corpsefinder_settings_risk_keeper_summary">फ़ाइलें जिन्हें आप रखना चाहते हैं, भले ही ऐप अनइंस्टॉल हो, उदाहरण के लिए आपके द्वारा ली गई तस्वीरें या आपके द्वारा बनाए गए बैकअप।</string>
     <string name="corpsefinder_settings_risk_common_title">सामान्य नाम शामिल करें</string>
+    <string name="corpsefinder_settings_risk_common_summary">बहुत सामान्य नामों वाला डेटा, उदाहरण के लिए एक फ़ोल्डर \"नोट्स\" नाम का स्वामित्व बहुत से अज्ञात ऐप्स के पास है।</string>
     <string name="corpsefinder_watcher_title">प्रहरी की स्थापना रद्द करें</string>
     <string name="corpsefinder_watcher_summary">ऐप हटाए जाने पर अवशेष के लिए स्वचालित रूप से स्कैन करें।</string>
     <string name="corpsefinder_filter_publicmedia_label">सार्वजनिक मीडिया</string>
@@ -228,6 +229,8 @@
     <string name="appcleaner_include_runningapps_summary">वर्तमान में चल रहे ऐप्‍स को शामिल करें जो हस्‍तक्षेप का कारण बनते हैं।</string>
     <string name="appcleaner_include_inaccessible_label">अप्राप्य डेटा शामिल करें</string>
     <string name="appcleaner_include_inaccessible_summary">ऐसा डेटा शामिल करें जिस तक सीधे पहुंचा नहीं जा सकता है लेकिन सिस्टम सेटिंग्स के माध्यम से मिटाया जा सकता है और अभिगम्यता सेवा का उपयोग करके स्वचालित रूप से मिटाया जा सकता है। </string>
+    <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
+    <string name="appcleaner_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>
     <string name="appcleaner_filter_codecache_label">कोड कैश</string>
     <string name="appcleaner_filter_codecache_summary">JVM कोड कैश। मूल कोड में संकलित बायटेकोड के डब्बे।</string>
     <string name="appcleaner_filter_advertisement_label">विज्ञान का डाटा</string>
@@ -270,6 +273,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>
     <string name="appcleaner_automation_unavailable_body">अप्राप्य कैश को हटाने के लिए SD मेड की एक्सेसिबिलिटी सेवा की आवश्यकता होती है, लेकिन यह अनुपलब्ध थी। यदि आप इसका उपयोग नहीं करना चाहते हैं: इस \"पहुंच योग्य कैश शामिल करें\" विकल्प को अक्षम करें।</string>
+    <string name="appcleaner_junk_userprofile_label">उपयोगकर्ता</string>
     <string name="appcontrol_tool_name">ऐप नियंत्रक</string>
     <string name="appcontrol_explanation_short">आपके डिवाइस पर स्थापित किए गए ऐप्स।</string>
     <plurals name="appcontrol_x_apps_detected_label">

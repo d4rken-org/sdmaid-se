@@ -4,20 +4,20 @@
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Vereist SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">SD Maid upgraden</string>
-    <string name="upgrades_dashcard_body">Ontgrendel extra functies en word een beschermheer om verdere ontwikkeling te ondersteunen!</string>
+    <string name="upgrades_dashcard_body">Ontgrendel extra functies en word een patroon om verdere ontwikkeling te ondersteunen!</string>
     <string name="upgrades_dashcard_upgrade_action">Upgraden</string>
     <string name="upgrade_screen_title">Verbeter SD Maid</string>
-    <string name="upgrade_screen_preamble">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens. Alleen jij maakt verdere ontwikkeling mogelijk.</string>
+    <string name="upgrade_screen_preamble">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens. Voortdurende ontwikkeling wordt alleen door jou mogelijk gemaakt.</string>
     <string name="upgrade_screen_how_title">Hoe kun je helpen</string>
     <string name="upgrade_screen_how_body">Word beschermheer en sponsor ontwikkeling! Klik op de onderstaande knop om alle extra functies te activeren en mijn Github Sponsors-profiel te openen.</string>
     <string name="upgrade_screen_why_title">Dit tovert 🪄</string>
-    <string name="upgrade_screen_why_body">• App opschonen 💯\n• Geplande bewerkingen ⏰\n• Extra opties voor alle tools ⚙️\n• Je eigen verwijderingsregels ✍️\n• Een gemotiveerde ontwikkelaar 🧙\nen meer…</string>
+    <string name="upgrade_screen_why_body">• AppCleaner-verwijderfunctionaliteit 💯\n• Geplande bewerkingen ⏰\n• Extra opties voor alle gereedschap ⚙️\n• Je eigen verwijderingsregels ✍️\n• Een gemotiveerde ontwikkelaar 🧙\nen meer…</string>
     <string name="upgrade_screen_sponsor_action">Sponsor ontwikkeling</string>
     <string name="upgrade_screen_sponsor_action_hint">Het alternatief zijn advertenties, analyses en Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Bedankt voor het ondersteunen van open-sourceontwikkeling ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Samen hebben we de eerste release gehaald! Bedankt voor je hulp bij het testen! De ontwikkeling gaat natuurlijk door, maar je kunt nu overstappen op niet-bètaversies. Doe dit door de nieuwste stabiele release te downloaden.</string>
     <string name="nudge_betagoodbye_hint">Kleine opmerking: beoordelingen die tijdens het testen zijn gegeven, zijn alleen zichtbaar voor mij, ik zou het op prijs stellen als je SD Maid een openbare beoordeling zou kunnen geven als je tevreden bent.</string>
-    <string name="nudge_betagoodbye_positive_action">Er van af zien</string>
+    <string name="nudge_betagoodbye_positive_action">Afmelden</string>
     <string name="nudge_betagoodbye_negative_action">Blijf testen</string>
 </resources>
