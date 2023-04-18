@@ -22,7 +22,7 @@ class ExcludeActionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val appInfo = item.appInfo
 
-        root.setOnClickListener { item.onExclude(appInfo) }
+        itemView.setOnClickListener { item.onExclude(appInfo) }
     }
 
     data class Item(
