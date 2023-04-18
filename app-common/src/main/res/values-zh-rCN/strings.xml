@@ -91,7 +91,7 @@
     <string name="general_info_label">信息</string>
     <string name="general_count_label">数量</string>
     <string name="general_app_label">应用</string>
-    <string name="general_more_infos_action">更多信息</string>
+    <string name="general_more_info_action">更多信息</string>
     <string name="general_grant_access_action">授予权限</string>
     <string name="general_enable_service_action">启用服务</string>
     <string name="general_undo_action">撤销</string>

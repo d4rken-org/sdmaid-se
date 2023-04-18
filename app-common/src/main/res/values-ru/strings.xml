@@ -94,7 +94,7 @@
     <string name="general_info_label">Информация</string>
     <string name="general_count_label">Количество</string>
     <string name="general_app_label">Приложение</string>
-    <string name="general_more_infos_action">Подробнее</string>
+    <string name="general_more_info_action">Подробнее</string>
     <string name="general_grant_access_action">Предоставить доступ</string>
     <string name="general_enable_service_action">Включить службу</string>
     <string name="general_undo_action">Отменить</string>

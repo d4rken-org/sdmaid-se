@@ -91,7 +91,7 @@
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
     <string name="general_app_label">Aplikacija</string>
-    <string name="general_more_infos_action">Više informacija</string>
+    <string name="general_more_info_action">Više informacija</string>
     <string name="general_grant_access_action">Dozvoli pristup</string>
     <string name="general_enable_service_action">Omogući uslugu</string>
     <string name="general_undo_action">Poništi</string>

@@ -93,7 +93,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Počet</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Ďalšie informácie</string>
+    <string name="general_more_info_action">Ďalšie informácie</string>
     <string name="general_grant_access_action">Povoliť prístup</string>
     <string name="general_enable_service_action">Povoliť službu</string>
     <string name="general_undo_action">Vrátiť späť</string>

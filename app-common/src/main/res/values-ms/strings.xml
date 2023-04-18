@@ -95,7 +95,7 @@ Lain-lain
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Kira</string>
     <string name="general_app_label">Aplikasi</string>
-    <string name="general_more_infos_action">Maklumat lanjut</string>
+    <string name="general_more_info_action">Maklumat lanjut</string>
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Dayakan perkhidmatan</string>
     <string name="general_undo_action">Buat asal</string>

@@ -88,7 +88,7 @@
     <string name="general_info_label">Informații</string>
     <string name="general_count_label">Numără</string>
     <string name="general_app_label">Aplicație</string>
-    <string name="general_more_infos_action">Mai multe informații</string>
+    <string name="general_more_info_action">Mai multe informații</string>
     <string name="general_grant_access_action">Acordă accesul</string>
     <string name="general_enable_service_action">Activează serviciul</string>
     <string name="general_undo_action">Anulă</string>

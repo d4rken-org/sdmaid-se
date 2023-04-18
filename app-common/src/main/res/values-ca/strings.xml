@@ -92,7 +92,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Compta</string>
     <string name="general_app_label">Aplicació</string>
-    <string name="general_more_infos_action">Més informació</string>
+    <string name="general_more_info_action">Més informació</string>
     <string name="general_grant_access_action">Permet l\'accés</string>
     <string name="general_enable_service_action">Activa el servei</string>
     <string name="general_undo_action">Desfés</string>

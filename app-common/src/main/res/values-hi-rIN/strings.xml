@@ -92,7 +92,7 @@
     <string name="general_info_label">जानकारी</string>
     <string name="general_count_label">गणना</string>
     <string name="general_app_label">ऐप</string>
-    <string name="general_more_infos_action">अधिक जानकारी</string>
+    <string name="general_more_info_action">अधिक जानकारी</string>
     <string name="general_grant_access_action">पहुंच प्रदान करें</string>
     <string name="general_enable_service_action">सेवा सक्षम करें</string>
     <string name="general_undo_action">पूर्ववत</string>
