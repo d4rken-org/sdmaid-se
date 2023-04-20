@@ -229,7 +229,7 @@ class AppCleaner @Inject constructor(
                 path = path,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
-            exclusionManager.add(exclusion)
+            exclusionManager.save(exclusion)
 
             val snapshot = internalData.value!!
             internalData.value = snapshot.copy(
@@ -252,7 +252,7 @@ class AppCleaner @Inject constructor(
                 pkgId = identifier.pkgId,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
-            exclusionManager.add(exclusion)
+            exclusionManager.save(exclusion)
 
             val snapshot = internalData.value!!
             internalData.value = snapshot.copy(

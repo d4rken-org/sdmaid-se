@@ -2,7 +2,6 @@ package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.ExclusionListItemPackageBinding
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
@@ -21,20 +20,14 @@ class PackageExclusionVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        primary.apply {
-            text = item.exclusion.pkgId.name
-            item.appLabel?.let {
-                append(" (${it.get(context)})")
-            }
-        }
-        secondary.text = getString(R.string.exclusion_type_package)
+        primary.text = item.exclusion.label.get(context)
+        secondary.text = item.exclusion.pkgId.name
 
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         val exclusion: PackageExclusion,
-        val appLabel: CaString?,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

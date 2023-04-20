@@ -20,10 +20,10 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.excludeNestedLookups
-import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -98,9 +98,7 @@ class PostProcessorModule @Inject constructor(
             }
         }
 
-        val exclusions = exclusionManager.currentExclusions()
-            .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
-            .filterIsInstance<Exclusion.Path>()
+        val exclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
 
         var after = before.copy(
             expendables = before.expendables.mapValues { (type, paths) ->
