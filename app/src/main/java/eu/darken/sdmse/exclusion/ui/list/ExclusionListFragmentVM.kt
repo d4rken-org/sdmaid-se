@@ -5,7 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
@@ -30,7 +29,6 @@ class ExclusionListFragmentVM @Inject constructor(
             val items = exclusions.map { exclusion ->
                 when (exclusion) {
                     is PackageExclusion -> PackageExclusionVH.Item(
-                        appLabel = pkgRepo.getPkg(exclusion.pkgId).firstOrNull()?.label,
                         exclusion = exclusion,
                         onItemClick = {
                             ExclusionListFragmentDirections.actionExclusionsListFragmentToExclusionActionDialog(

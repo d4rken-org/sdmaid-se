@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
 import eu.darken.sdmse.databinding.ExclusionActionFragmentBinding
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 
@@ -23,25 +25,58 @@ class ExclusionActionDialog : BottomSheetDialogFragment2() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         vm.state.observe2(ui) { state ->
-            when (state.exclusion) {
+            val exclusion = state.exclusion
+            when (exclusion) {
                 is PackageExclusion -> {
-                    icon.setImageResource(R.drawable.ic_default_app_icon_24)
-                    primary.text = state.exclusion.label.get(requireContext())
-                    secondary.text = state.exclusion.pkgId.name
+                    typeIcon.setImageResource(R.drawable.ic_app_extra_24)
+
+                    icon.apply {
+                        setImageResource(R.drawable.ic_default_app_icon_24)
+                        isGone = false
+                    }
+                    primary.text = exclusion.label.get(requireContext())
+                    secondary.text = exclusion.pkgId.name
                     type.text = getString(R.string.exclusion_type_package)
                 }
                 is PathExclusion -> {
-                    icon.setImageResource(R.drawable.ic_file)
-                    primary.text = state.exclusion.label.get(requireContext())
-                    secondary.text = state.exclusion.path.path
+                    typeIcon.setImageResource(R.drawable.ic_file)
+
+                    icon.isGone = true
+                    primary.text = exclusion.label.get(requireContext())
+                    secondary.text = exclusion.path.pathType.name
                     type.text = getString(R.string.exclusion_type_path)
                 }
                 else -> throw NotImplementedError()
             }
 
-            ui.deleteAction.setOnClickListener { vm.delete() }
+            ui.toolsAll.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.GENERAL)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.GENERAL) }
+            }
+            ui.toolsCorpsefinder.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.CORPSEFINDER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.CORPSEFINDER) }
+            }
+            ui.toolsSystemcleaner.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.SYSTEMCLEANER) }
+            }
+            ui.toolsAppcleaner.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.APPCLEANER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.APPCLEANER) }
+            }
+            ui.deleteAction.apply {
+                isEnabled = state.canRemove
+                setOnClickListener { vm.delete() }
+            }
+            ui.cancelAction.setOnClickListener {
+                vm.cancel()
+            }
+            ui.saveAction.apply {
+                isEnabled = state.canSave
+                setOnClickListener { vm.save() }
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

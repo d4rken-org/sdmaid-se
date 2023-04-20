@@ -22,7 +22,7 @@ class PathExclusionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val excl = item.exclusion
         primary.text = excl.path.userReadablePath.get(context)
-        secondary.text = getString(R.string.exclusion_type_path)
+        secondary.text = excl.path.pathType.name
 
         root.setOnClickListener { item.onItemClick(item) }
     }

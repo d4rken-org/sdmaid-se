@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.hasTags
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.first
 
@@ -12,10 +13,10 @@ suspend fun ExclusionManager.currentExclusions() = exclusions.first()
 suspend fun ExclusionManager.pathExclusions(tool: SDMTool.Type) = currentExclusions()
     .filterIsInstance<Exclusion.Path>()
     .filter {
-        return@filter if (it.tags.contains(Exclusion.Tag.GENERAL)) true else when (tool) {
-            SDMTool.Type.CORPSEFINDER -> it.tags.contains(Exclusion.Tag.CORPSEFINDER)
-            SDMTool.Type.SYSTEMCLEANER -> it.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
-            SDMTool.Type.APPCLEANER -> it.tags.contains(Exclusion.Tag.APPCLEANER)
+        return@filter when (tool) {
+            SDMTool.Type.CORPSEFINDER -> it.hasTags(Exclusion.Tag.CORPSEFINDER)
+            SDMTool.Type.SYSTEMCLEANER -> it.hasTags(Exclusion.Tag.SYSTEMCLEANER)
+            SDMTool.Type.APPCLEANER -> it.hasTags(Exclusion.Tag.APPCLEANER)
             SDMTool.Type.APPCONTROL -> throw UnsupportedOperationException()
         }
     }
@@ -23,10 +24,10 @@ suspend fun ExclusionManager.pathExclusions(tool: SDMTool.Type) = currentExclusi
 suspend fun ExclusionManager.pkgExclusions(tool: SDMTool.Type) = currentExclusions()
     .filterIsInstance<Exclusion.Package>()
     .filter {
-        return@filter if (it.tags.contains(Exclusion.Tag.GENERAL)) true else when (tool) {
-            SDMTool.Type.CORPSEFINDER -> it.tags.contains(Exclusion.Tag.CORPSEFINDER)
-            SDMTool.Type.SYSTEMCLEANER -> it.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
-            SDMTool.Type.APPCLEANER -> it.tags.contains(Exclusion.Tag.APPCLEANER)
+        return@filter when (tool) {
+            SDMTool.Type.CORPSEFINDER -> it.hasTags(Exclusion.Tag.CORPSEFINDER)
+            SDMTool.Type.SYSTEMCLEANER -> it.hasTags(Exclusion.Tag.SYSTEMCLEANER)
+            SDMTool.Type.APPCLEANER -> it.hasTags(Exclusion.Tag.APPCLEANER)
             SDMTool.Type.APPCONTROL -> throw UnsupportedOperationException()
         }
     }

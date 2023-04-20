@@ -8,6 +8,8 @@ import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,12 +26,16 @@ class ExclusionManager @Inject constructor(
     }
     val exclusions: Flow<Collection<Exclusion>> = _exclusions.flow
 
-    suspend fun add(exclusion: Exclusion): Boolean {
+    init {
+        _exclusions.flow
+            .onEach { exclusionStorage.save(it) }
+            .launchIn(appScope + dispatcherProvider.IO)
+    }
+
+    suspend fun save(exclusion: Exclusion): Boolean {
         log(TAG) { "add(): $exclusion" }
         _exclusions.updateAsync {
-            val newData = this + exclusion
-            exclusionStorage.save(newData)
-            newData
+            this.filter { it.id != exclusion.id }.plus(exclusion).toSet()
         }
         return true
     }
@@ -43,9 +49,7 @@ class ExclusionManager @Inject constructor(
     suspend fun remove(exclusion: Exclusion): Boolean {
         log(TAG) { "remove(): $exclusion" }
         _exclusions.updateAsync {
-            val newData = this - exclusion
-            exclusionStorage.save(newData)
-            newData
+            this - exclusion
         }
         return true
     }

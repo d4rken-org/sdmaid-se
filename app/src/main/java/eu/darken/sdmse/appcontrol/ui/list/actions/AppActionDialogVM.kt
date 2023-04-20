@@ -100,11 +100,9 @@ class AppActionDialogVM @Inject constructor(
             exclusion = existingExclusion,
             onExclude = {
                 launch {
-                    val exclusion = PackageExclusion(
-                        pkgId = appInfo.id,
-                    )
-                    exclusionManager.add(exclusion)
-                    popNavStack()
+                    val newExcl = PackageExclusion(pkgId = appInfo.id)
+                    exclusionManager.save(newExcl)
+                    AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(newExcl.id).navigate()
                 }
             },
             onEdit = {
