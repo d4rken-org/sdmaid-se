@@ -123,8 +123,6 @@
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. clicking \"Clear cache\" on multiple screens.</string>
     <string name="setup_acs_card_body2">SD Maid will not use the accessibility service without your consent, will always display a prominent (cancelable) indicator while active and will not use it to collect information.</string>
-    <string name="setup_acs_allow">Accessibility service is enabled</string>
-    <string name="setup_acs_disallow">Accessibility service is enabled</string>
     <string name="setup_acs_state_enabled">Accessibility service is enabled</string>
     <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
     <string name="setup_acs_state_running">Accessibility service is running</string>
