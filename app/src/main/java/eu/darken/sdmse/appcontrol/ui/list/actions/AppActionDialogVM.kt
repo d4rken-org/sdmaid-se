@@ -60,10 +60,10 @@ class AppActionDialogVM @Inject constructor(
     val events = SingleLiveEvent<AppActionEvents>()
 
     val state = combine(
+        exclusionManager.exclusions,
         appControl.data.mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } },
         appControl.progress,
-    ) { appInfo, progress ->
-
+    ) { exclusions, appInfo, progress ->
         val launchAction = context.packageManager
             .getLaunchIntentForPackage(appInfo.pkg.packageName)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
@@ -100,9 +100,14 @@ class AppActionDialogVM @Inject constructor(
             exclusion = existingExclusion,
             onExclude = {
                 launch {
-                    val newExcl = PackageExclusion(pkgId = appInfo.id)
-                    exclusionManager.save(newExcl)
-                    AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(newExcl.id).navigate()
+                    if (existingExclusion != null) {
+                        AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(
+                            existingExclusion.id
+                        ).navigate()
+                    } else {
+                        val newExcl = PackageExclusion(pkgId = appInfo.id)
+                        exclusionManager.save(newExcl)
+                    }
                 }
             },
             onEdit = {
