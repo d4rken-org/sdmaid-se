@@ -11,10 +11,12 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.uninstall
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -86,6 +88,14 @@ class AppActionDialogVM @Inject constructor(
                 context.startActivity(intent)
             }
         )
+
+        val uninstallAction = UninstallActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = { info ->
+                println("Uninstalling $info")
+                info.uninstall(context)
+            }
+        )
         val appStoreAction = AppStoreActionVH.Item(
             appInfo = appInfo,
             onItemClicked = { info ->
@@ -109,6 +119,7 @@ class AppActionDialogVM @Inject constructor(
             appInfo = appInfo,
             actions = listOfNotNull(
                 launchAction,
+                uninstallAction,
                 systemSettingsAction,
                 appStoreAction,
                 disableAction,

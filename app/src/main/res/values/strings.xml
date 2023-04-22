@@ -320,6 +320,8 @@
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">Launch app</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity</string>
+    <string name="appcontrol_app_uninstall_title">Uninstall app</string>
+    <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_tag_user">User</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
