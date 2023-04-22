@@ -48,8 +48,6 @@
     <string name="setup_permission_granted_label">権限は許可されています</string>
     <string name="setup_usagestats_title">使用状況の統計</string>
     <string name="setup_notification_title">通知</string>
-    <string name="setup_acs_allow">アクセシビリティサービスは有効です。</string>
-    <string name="setup_acs_disallow">アクセシビリティサービスは有効です。</string>
     <string name="setup_acs_state_enabled">アクセシビリティサービスは有効です。</string>
     <string name="setup_acs_state_disabled">アクセシビリティサービスは無効です。</string>
     <string name="setup_acs_state_running">アクセシビリティサービスは実行中です。</string>

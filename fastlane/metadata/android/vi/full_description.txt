@@ -11,7 +11,7 @@ Không ai là hoàn hảo cả và Android cũng vậy.
 * Tìm bộ nhớ đệm ẩn trong ứng dụng
 * Loại bỏ các tập tin hệ thống thừa
 
-SD Maid SE không có quảng cáo. Một số tính năng yêu cầu nâng cấp trả phí.
+SD Maid SE không có quảng cáo. Một số tính năng yêu cầu trả phí để nâng cấp.
 
 SD Maid 2/SE là sự kế thừa của SD Maid 1/Legacy.
 Được tối ưu hóa cho các phiên bản Android mới hơn và tập trung vào việc dọn dẹp.

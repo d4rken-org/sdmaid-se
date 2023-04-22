@@ -104,8 +104,6 @@
     <string name="setup_acs_card_title">अभिगम्यता सेवा</string>
     <string name="setup_acs_card_body">अभिगम्यता सेवा SD मेड को आपकी स्क्रीन के साथ जोड़ने और थकाऊ कार्यों को स्वचालित करने की अनुमति देती है, उदाहरण कई स्क्रीन पर \"कैश हटाएं\" पर क्लिक करना।</string>
     <string name="setup_acs_card_body2">SD मेड आपकी सहमति के बिना अभिगम्यता सेवा का उपयोग नहीं करेगी, सक्रिय होने पर हमेशा एक प्रमुख (रद्द करने योग्य) संकेतक प्रदर्शित करेगी और जानकारी एकत्र करने के लिए इसका उपयोग नहीं करेगी।</string>
-    <string name="setup_acs_allow">अभिगम्यता सेवा सक्षम है</string>
-    <string name="setup_acs_disallow">अभिगम्यता सेवा सक्षम है</string>
     <string name="setup_acs_state_enabled">अभिगम्यता सेवा सक्षम है</string>
     <string name="setup_acs_state_disabled">अभिगम्यता सेवा अक्षम है</string>
     <string name="setup_acs_state_running">अभिगम्यता सेवा चालू है</string>
@@ -226,7 +224,6 @@
     <string name="appcleaner_include_systemapps_label">सिस्टम ऐप्स शामिल करें</string>
     <string name="appcleaner_include_systemapps_summary">स्कैन में सिस्टम ऐप्स शामिल करें।</string>
     <string name="appcleaner_include_runningapps_label">चल रहे ऐप्स शामिल करें</string>
-    <string name="appcleaner_include_runningapps_summary">वर्तमान में चल रहे ऐप्‍स को शामिल करें जो हस्‍तक्षेप का कारण बनते हैं।</string>
     <string name="appcleaner_include_inaccessible_label">अप्राप्य डेटा शामिल करें</string>
     <string name="appcleaner_include_inaccessible_summary">ऐसा डेटा शामिल करें जिस तक सीधे पहुंचा नहीं जा सकता है लेकिन सिस्टम सेटिंग्स के माध्यम से मिटाया जा सकता है और अभिगम्यता सेवा का उपयोग करके स्वचालित रूप से मिटाया जा सकता है। </string>
     <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>

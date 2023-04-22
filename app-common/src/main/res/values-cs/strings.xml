@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Čistota a pořádek.</string>
     <string name="slogan_message_2">Předcházení chaosu.</string>
     <string name="slogan_message_3">Dělat to, co je nezbytné.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Všechny vaše karty jsou v pořádku.</string>
+    <string name="slogan_message_4">Všechny vaše karty jsou v pořádku.</string>
     <string name="slogan_message_5">Bez chyby.</string>
     <string name="general_thank_you_label">Děkuji</string>
     <string name="general_error_type_mismatch_msg">Neshoda: Požadováno %1$s, ale obdrženo %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Odstranit</string>
     <string name="general_wipe_action">Smazat</string>
     <string name="general_cancel_action">Zrušit</string>
+    <string name="general_reset_action">Obnovit</string>
     <string name="general_save_action">Uložit</string>
     <string name="general_thanks_action">Poděkování</string>
     <string name="general_gotit_action">Rozumím</string>
@@ -94,7 +95,7 @@
     <string name="general_info_label">Informace</string>
     <string name="general_count_label">Počet</string>
     <string name="general_app_label">Aplikace</string>
-    <string name="general_more_info_action">Další informace</string>
+    <string name="general_more_info_action">Více informací</string>
     <string name="general_grant_access_action">Udělit přístup</string>
     <string name="general_enable_service_action">Povolit službu</string>
     <string name="general_undo_action">Vrátit zpět</string>

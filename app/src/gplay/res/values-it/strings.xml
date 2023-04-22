@@ -13,5 +13,16 @@
     <string name="upgrade_screen_benefits_title">Vantaggi</string>
     <string name="upgrade_screen_benefits_body">• Pulizia delle app 💯\n• Attività programmate ⏰\n• Funzionalità aggiuntive per tutti i programmi ⚙️\n• Regole di pulizia personalizzabili ✍️\n• Uno sviluppatore motivato 🧙\ne tanto altro…</string>
     <string name="upgrade_screen_how_title">Opzioni</string>
+    <string name="upgrade_screen_how_body">Hai 2 opzioni: Un acquisto una tantum o un abbonamento annuale più economico. L\'abbonamento ha una prova gratuita. Le funzionalità che otterrai sono le stesse, solo i metodi di pagamento differiscono.</string>
+    <string name="upgrade_screen_subscription_trial_action">Inizia la prova gratuita</string>
+    <string name="upgrade_screen_subscription_action">Abbonati</string>
+    <string name="upgrade_screen_subscription_action_hint">L\'abbonamento costa %s all\'anno.</string>
+    <string name="upgrade_screen_iap_action">Acquisto una tantum</string>
+    <string name="upgrade_screen_iap_action_hint">L\'acquisto una tantum costa %s.</string>
     <string name="upgrade_screen_thanks_toast">Sei il migliore! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Insieme, siamo arrivati alla prima versione! Grazie per avermi aiutato! Naturalmente lo sviluppo continuerà, ma adesso è possibile passare a versioni più stabili. Puoi farlo uscendo dal programma beta su Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Piccola nota: le valutazioni fornite durante i test sono visibili soltanto a me, Gradirei se potreste dare a SD Maid una valutazione pubblica se siete soddisfatti.</string>
+    <string name="nudge_betagoodbye_positive_action">Disattiva</string>
+    <string name="nudge_betagoodbye_negative_action">Continua a testare</string>
 </resources>

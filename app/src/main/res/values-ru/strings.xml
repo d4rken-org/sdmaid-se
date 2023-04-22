@@ -108,8 +108,6 @@
     <string name="setup_acs_card_title">Служба специальных возможностей</string>
     <string name="setup_acs_card_body">Служба специальных возможностей позволяет SD Maid SE взаимодействовать с Вашим экраном и автоматизировать утомительные действия, например, нажатие кнопки \"Очистить кэш\" на нескольких экранах.</string>
     <string name="setup_acs_card_body2">SD Maid не будет использовать службу специальных возможностей без Вашего согласия, всегда будет отображать её работу с возможностью отмены и не будет использовать её для сбора информации.</string>
-    <string name="setup_acs_allow">Служба специальных возможностей включена</string>
-    <string name="setup_acs_disallow">Служба специальных возможностей включена</string>
     <string name="setup_acs_state_enabled">Служба специальных возможностей включена</string>
     <string name="setup_acs_state_disabled">Служба специальных возможностей отключена</string>
     <string name="setup_acs_state_running">Служба специальных возможностей запущена</string>
@@ -239,6 +237,10 @@
     <string name="appcleaner_include_inaccessible_summary">Включение данных, к которым нет прямого доступа, но их можно удалить в системных настройках и автоматизировать удаление с помощью службы специальных возможностей. </string>
     <string name="appcleaner_include_multiuser_label">Включать других пользователей</string>
     <string name="appcleaner_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
+    <string name="appcleaner_include_minimumsize_label">Минимальный размер</string>
+    <string name="appcleaner_include_minimumsize_summary">Пропускать приложения с потреблением данных ниже минимума.</string>
+    <string name="appcleaner_include_minimumage_label">Минимальный возраст</string>
+    <string name="appcleaner_include_minimumage_summary">Пропускать файлы, которые не достигли минимального возраста.</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блоки байткода, скомпилированные в нативный код.</string>
     <string name="appcleaner_filter_advertisement_label">Данные рекламы</string>
@@ -249,6 +251,8 @@
     <string name="appcleaner_filter_analytics_summary">Данные, связанные с аналитикой, например, кэшированная статистика того, что Вы нажимаете в приложении.</string>
     <string name="appcleaner_filter_hiddencaches_label">Скрытый кэш</string>
     <string name="appcleaner_filter_hiddencaches_summary">Кэш общего назначения, хранящийся вне зоны доступа системы.</string>
+    <string name="appcleaner_filter_thumbnails_label">Эскизы медиа</string>
+    <string name="appcleaner_filter_thumbnails_summary">Файлы предпросмотра изображений, видео и аудио.</string>
     <string name="appcleaner_filter_gamefiles_label">Файлы игр</string>
     <string name="appcleaner_filter_gamefiles_summary">Ресурсы, связанные с игрой, которые игра будет загружать при следующем запуске, если это необходимо.</string>
     <string name="appcleaner_filter_offlinecache_label">Автономный кэш</string>

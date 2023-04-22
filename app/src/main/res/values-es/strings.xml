@@ -8,7 +8,7 @@
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
-    <string name="debug_debuglog_file_label">Archivo guardado en el registro</string>
+    <string name="debug_debuglog_file_label">Archivo del registro grabado</string>
     <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza.</string>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártelo solo con personas de confianza (por ejemplo, un desarrollador que esté solucionando un problema).</string>
@@ -104,8 +104,6 @@
     <string name="setup_acs_card_title">Servicio de accesibilidad</string>
     <string name="setup_acs_card_body">El servicio de accesibilidad permite a SD Maid interactuar con tu pantalla y automatizar las acciones tediosas, por ejemplo, hacer clic en \"Borrar la caché\" en varias pantallas.</string>
     <string name="setup_acs_card_body2">SD Maid no utilizará el servicio de accesibilidad sin tu consentimiento, mostrará siempre un indicador destacado (cancelable) mientras esté activo y no lo utilizará para recopilar información.</string>
-    <string name="setup_acs_allow">Servicio de accesibilidad activado</string>
-    <string name="setup_acs_disallow">Servicio de accesibilidad activado</string>
     <string name="setup_acs_state_enabled">Servicio de accesibilidad activado</string>
     <string name="setup_acs_state_disabled">Servicio de accesibilidad desactivado</string>
     <string name="setup_acs_state_running">Servicio de accesibilidad ejecutándose</string>
@@ -226,11 +224,15 @@
     <string name="appcleaner_include_systemapps_label">Incluir aplicaciones del sistema</string>
     <string name="appcleaner_include_systemapps_summary">Incluye las aplicaciones del sistema en el análisis.</string>
     <string name="appcleaner_include_runningapps_label">Incluir aplicaciones ejecutándose</string>
-    <string name="appcleaner_include_runningapps_summary">Incluya las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
+    <string name="appcleaner_include_runningapps_summary">Incluye las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
     <string name="appcleaner_include_inaccessible_label">Incluir los datos inaccesibles</string>
     <string name="appcleaner_include_inaccessible_summary">Incluye datos a los que no se puede acceder directamente, pero que pueden eliminarse a través de la configuración del sistema y automatizarse mediante un servicio de accesibilidad. </string>
     <string name="appcleaner_include_multiuser_label">Incluir a otros usuarios</string>
     <string name="appcleaner_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>
+    <string name="appcleaner_include_minimumsize_label">Tamaño mínimo</string>
+    <string name="appcleaner_include_minimumsize_summary">Omite las aplicaciones cuya suma de datos prescindibles esté por debajo del mínimo.</string>
+    <string name="appcleaner_include_minimumage_label">Antigüedad</string>
+    <string name="appcleaner_include_minimumage_summary">Omite los archivos que son más recientes que la antigüedad fijada.</string>
     <string name="appcleaner_filter_codecache_label">Caché de código</string>
     <string name="appcleaner_filter_codecache_summary">Caché de código JVM. Bloques de bytecode compilados en código nativo.</string>
     <string name="appcleaner_filter_advertisement_label">Datos de publicidad</string>
@@ -241,6 +243,8 @@
     <string name="appcleaner_filter_analytics_summary">Datos relacionados con los análisis, por ejemplo, estadísticas en caché de lo que se pulsa en una aplicación.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cachés ocultas</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cachés de propósito general almacenadas fuera del alcance de los sistemas.</string>
+    <string name="appcleaner_filter_thumbnails_label">Miniaturas multimedia</string>
+    <string name="appcleaner_filter_thumbnails_summary">Vista previa de las imágenes, los vídeos y los audios en miniaturas.</string>
     <string name="appcleaner_filter_gamefiles_label">Archivos de juegos</string>
     <string name="appcleaner_filter_gamefiles_summary">Recursos relacionados con el juego o que el juego recargaría en el próximo lanzamiento si fuera necesario.</string>
     <string name="appcleaner_filter_offlinecache_label">Caché sin conexión</string>

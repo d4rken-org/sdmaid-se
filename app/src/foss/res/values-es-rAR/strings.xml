@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrades_dashcard_upgrade_action">Mejorar</string>
+    <string name="upgrade_screen_how_title">Como ayudar</string>
+    <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
+</resources>

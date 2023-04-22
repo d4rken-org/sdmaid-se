@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Temiz &amp; düzenli.</string>
     <string name="slogan_message_2">Kaosu önleme.</string>
     <string name="slogan_message_3">Gerekeni yapmak.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tüm işleriniz hazır ve organize.</string>
+    <string name="slogan_message_4">Tüm işleriniz hazır ve organize.</string>
     <string name="slogan_message_5">Tertemiz.</string>
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_error_type_mismatch_msg">Biçim eşleşmiyor: İstenen %1$s fakat bulunan %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Kaldır</string>
     <string name="general_wipe_action">Temizle</string>
     <string name="general_cancel_action">İptal et</string>
+    <string name="general_reset_action">Sıfırla</string>
     <string name="general_save_action">Kaydet</string>
     <string name="general_thanks_action">Teşekkürler</string>
     <string name="general_gotit_action">Anladım</string>

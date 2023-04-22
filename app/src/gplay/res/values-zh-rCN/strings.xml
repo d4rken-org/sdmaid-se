@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD 女佣 SE 专业版</string>
+    <string name="app_name_upgraded">SD Maid SE 专业版</string>
     <string name="app_name_upgrade_postfix">专业版</string>
     <string name="upgrade_feature_requires_pro">需要 SD 女佣专业版</string>
     <string name="upgrades_dashcard_title">升级 SD 女佣</string>

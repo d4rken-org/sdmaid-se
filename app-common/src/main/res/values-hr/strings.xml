@@ -4,7 +4,7 @@
     <string name="slogan_message_1">Čisto i uredno.</string>
     <string name="slogan_message_2">Sprječava kaos.</string>
     <string name="slogan_message_3">Radi ono što je potrebno.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Sve vaše patke redom.</string>
+    <string name="slogan_message_4">Sve vaše patke redom.</string>
     <string name="slogan_message_5">Besprijekoran.</string>
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_error_type_mismatch_msg">Nepodudaranje tipa: Htio sam %1$s, ali sam dobio %2$s.</string>
@@ -91,7 +91,6 @@
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
     <string name="general_app_label">Aplikacija</string>
-    <string name="general_more_info_action">Više informacija</string>
     <string name="general_grant_access_action">Dozvoli pristup</string>
     <string name="general_enable_service_action">Omogući uslugu</string>
     <string name="general_undo_action">Poništi</string>

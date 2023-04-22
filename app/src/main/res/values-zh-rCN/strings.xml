@@ -102,8 +102,6 @@
     <string name="setup_acs_card_title">无障碍服务</string>
     <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
     <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。此过程可以随时取消，并且不会收集信息。</string>
-    <string name="setup_acs_allow">无障碍服务已启用</string>
-    <string name="setup_acs_disallow">无障碍服务已启用</string>
     <string name="setup_acs_state_enabled">无障碍服务已启用</string>
     <string name="setup_acs_state_disabled">无障碍服务已禁用</string>
     <string name="setup_acs_state_running">无障碍服务正在运行</string>
@@ -222,11 +220,15 @@
     <string name="appcleaner_include_systemapps_label">包含系统应用</string>
     <string name="appcleaner_include_systemapps_summary">在扫描中包含系统应用。</string>
     <string name="appcleaner_include_runningapps_label">包含正在运行的应用</string>
-    <string name="appcleaner_include_runningapps_summary">包含可能会被干扰的正在运行的应用。</string>
+    <string name="appcleaner_include_runningapps_summary">包含正在运行的应用，这可能造成干扰。</string>
     <string name="appcleaner_include_inaccessible_label">包含无法访问的数据</string>
     <string name="appcleaner_include_inaccessible_summary">包含无法被直接访问的数据，但是这些数据可以通过系统设置删除，也可以通过无障碍服务自动处理。 </string>
     <string name="appcleaner_include_multiuser_label">包含其他用户</string>
     <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
+    <string name="appcleaner_include_minimumsize_label">最小文件大小</string>
+    <string name="appcleaner_include_minimumsize_summary">当可删除数据总大小低于最低值时跳过应用。</string>
+    <string name="appcleaner_include_minimumage_label">最短时间</string>
+    <string name="appcleaner_include_minimumage_summary">跳过低于最短时间的文件。</string>
     <string name="appcleaner_filter_codecache_label">代码缓存</string>
     <string name="appcleaner_filter_codecache_summary">JVM 代码缓存。将字节码块编译成本机代码。</string>
     <string name="appcleaner_filter_advertisement_label">广告数据</string>
@@ -237,6 +239,8 @@
     <string name="appcleaner_filter_analytics_summary">与分析相关的数据，如用户在应用中点击情况的缓存。</string>
     <string name="appcleaner_filter_hiddencaches_label">隐藏缓存</string>
     <string name="appcleaner_filter_hiddencaches_summary">储存在系统范围之外的通用缓存。</string>
+    <string name="appcleaner_filter_thumbnails_label">媒体缩略图</string>
+    <string name="appcleaner_filter_thumbnails_summary">图像、视频和音频预览缩略图。</string>
     <string name="appcleaner_filter_gamefiles_label">游戏文件</string>
     <string name="appcleaner_filter_gamefiles_summary">游戏相关的资源文件，在下次启动需要时会重新加载。</string>
     <string name="appcleaner_filter_offlinecache_label">离线缓存</string>
@@ -270,7 +274,7 @@
     <string name="appcleaner_automation_unavailable_body">无法访问的缓存需要 SD Maid 的无障碍服务来删除，但是删除失败。如果您不想使用这一功能，可关闭“包含无法访问的缓存”这一选项。</string>
     <string name="appcleaner_junk_userprofile_label">用户</string>
     <string name="appcontrol_tool_name">应用控制</string>
-    <string name="appcontrol_explanation_short">安装在您的设备上的通用程式</string>
+    <string name="appcontrol_explanation_short">安装在您的设备上的应用程序。</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">检测到 %d 个应用</item>
     </plurals>

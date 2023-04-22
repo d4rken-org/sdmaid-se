@@ -3,7 +3,7 @@
     <string name="dashboard_click_hint">Một số mục có thể được bấm vào để xem thêm chi tiết.</string>
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả các công cụ?</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
-    <string name="dashboard_settings_oneclick_title">Chế độ một lần nhấn</string>
+    <string name="dashboard_settings_oneclick_title">Chế độ 1 chạm</string>
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
@@ -25,7 +25,7 @@
     <string name="onboarding_welcome_title">Chào mừng</string>
     <string name="onboarding_welcome_body1">SD Maid SE quản lý tệp, ứng dụng và bộ nhớ.</string>
     <string name="onboarding_welcome_body2">Tăng dung lượng lưu trữ bằng cách dọn dẹp các ứng dụng chạy ngầm. Xóa các tệp có thể sử dụng và xóa dữ liệu còn sót lại.</string>
-    <string name="onboarding_welcome_body_beta">Đây là bản dựng beta (thử nghiệm). Tiến hành với một khiếu hài hước và một kế hoạch dự phòng. Vui lòng báo cáo các vấn đề bạn gặp phải.</string>
+    <string name="onboarding_welcome_body_beta">Đây là bản dựng beta (thử nghiệm). Sao lưu trước khi tiến hành. Vui lòng báo cáo các vấn đề bạn gặp phải.</string>
     <string name="onboarding_welcome_continue_action">Tiếp tục</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (hay còn gọi là SD Maid 2) là sự kế thừa của SD Maid. Một ứng dụng mới, được tối ưu hóa cho Android hiện đại.</string>
@@ -102,8 +102,6 @@
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
     <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấp vào \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>
-    <string name="setup_acs_allow">Dịch vụ trợ năng được bật</string>
-    <string name="setup_acs_disallow">Dịch vụ trợ năng được bật</string>
     <string name="setup_acs_state_enabled">Dịch vụ trợ năng được bật</string>
     <string name="setup_acs_state_disabled">Dịch vụ trợ năng bị vô hiệu hóa</string>
     <string name="setup_acs_state_running">Dịch vụ trợ năng đang chạy</string>
@@ -222,11 +220,15 @@
     <string name="appcleaner_include_systemapps_label">Bao gồm các ứd hthống</string>
     <string name="appcleaner_include_systemapps_summary">Bao gồm các ứng dụng hệ thống trong quá trình quét.</string>
     <string name="appcleaner_include_runningapps_label">Bao gồm các app đang chạy</string>
-    <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy gây nhiễu.</string>
+    <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy có thể gây nhiễu.</string>
     <string name="appcleaner_include_inaccessible_label">Bao gồm dữ liệu không thể truy cập</string>
     <string name="appcleaner_include_inaccessible_summary">Bao gồm dữ liệu không thể truy cập trực tiếp nhưng có thể xóa thông qua cài đặt hệ thống và tự động hóa bằng dịch vụ trợ năng. </string>
     <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
     <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
+    <string name="appcleaner_include_minimumsize_label">Kích thước tối thiểu</string>
+    <string name="appcleaner_include_minimumsize_summary">Bỏ qua các ứng dụng có dữ liệu nhỏ hơn kích thước tối thiểu.</string>
+    <string name="appcleaner_include_minimumage_label">Thời gian tối thiểu</string>
+    <string name="appcleaner_include_minimumage_summary">Bỏ qua các tệp cũ hơn thời gian tối thiểu.</string>
     <string name="appcleaner_filter_codecache_label">Mã bộ nhớ đệm</string>
     <string name="appcleaner_filter_codecache_summary">Bộ đệm mã JVM. Các khối mã byte được biên dịch thành mã gốc.</string>
     <string name="appcleaner_filter_advertisement_label">Dữ liệu quảng cáo</string>
@@ -237,6 +239,8 @@
     <string name="appcleaner_filter_analytics_summary">Dữ liệu liên quan đến phân tích, ví dụ: số liệu thống kê được lưu trong bộ nhớ đệm cho những gì bạn nhấp vào trong một ứng dụng.</string>
     <string name="appcleaner_filter_hiddencaches_label">Bộ nhớ đệm ẩn</string>
     <string name="appcleaner_filter_hiddencaches_summary">Bộ nhớ đệm mục đích chung được lưu trữ bên ngoài phạm vi tiếp cận của hệ thống.</string>
+    <string name="appcleaner_filter_thumbnails_label">Hình ảnh thu nhỏ</string>
+    <string name="appcleaner_filter_thumbnails_summary">Hình ảnh thu nhỏ của video và âm thanh.</string>
     <string name="appcleaner_filter_gamefiles_label">Tệp trò chơi</string>
     <string name="appcleaner_filter_gamefiles_summary">Các tài nguyên liên quan đến trò chơi mà trò chơi sẽ tải lại vào lần khởi chạy tiếp theo nếu cần.</string>
     <string name="appcleaner_filter_offlinecache_label">Bộ nhớ đệm ngoại tuyến</string>
@@ -347,5 +351,5 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc)</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk)</string>
 </resources>
