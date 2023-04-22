@@ -15,12 +15,12 @@
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">%d etkin görev</item>
-        <item quantity="other">%d etkin görev</item>
+        <item quantity="one">%d görev etkin</item>
+        <item quantity="other">%d görev etkin</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d sırada bekleyen görev</item>
-        <item quantity="other">%d sırada bekleyen görev</item>
+        <item quantity="one">%d görev sırada</item>
+        <item quantity="other">%d görev sırada</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Sonuçlar</string>
     <string name="tasks_result_subtext">Sonuç</string>
@@ -104,13 +104,11 @@
     <string name="setup_acs_card_title">Erişilebilirlik hizmeti</string>
     <string name="setup_acs_card_body">Erişilebilirlik hizmeti, SD Maid\'in ekranınızla etkileşime girmesine ve birden fazla ekranda \"Önbelleği temizle\" seçeneğine tıklamak gibi sıkıcı eylemleri otomatikleştirmesine olanak tanır.</string>
     <string name="setup_acs_card_body2">SD Maid, izniniz olmadan erişilebilirlik hizmetini kullanmayacak, aktifken her zaman belirgin (iptal edilebilir) bir gösterge gösterecek ve bilgi toplamak için kullanmayacaktır.</string>
-    <string name="setup_acs_allow">Erişilebilirlik hizmeti etkinleştirildi</string>
-    <string name="setup_acs_disallow">Erişilebilirlik hizmeti etkinleştirildi</string>
     <string name="setup_acs_state_enabled">Erişilebilirlik hizmeti etkinleştirildi</string>
     <string name="setup_acs_state_disabled">Erişilebilirlik hizmeti devre dışı</string>
     <string name="setup_acs_state_running">Erişebirlik servisi çalışıyor</string>
-    <string name="setup_acs_state_stopped">Erişebirlik servisi durduruldu</string>
-    <string name="setup_acs_state_stopped_hint">Hizmet etkin, ancak çalışmıyor. Cihazınızı kapatın/açın veya yeniden başlatın. SD Maid\'in sistem tarafından \"optimize\" edilmediğini kontrol edin.</string>
+    <string name="setup_acs_state_stopped">Erişilebilirlik servisi durduruldu</string>
+    <string name="setup_acs_state_stopped_hint">Hizmet etkinleştirilmiş, ancak çalışmıyor. Erişilebilirlik iznini kapatıp-açın veya cihazınızı yeniden başlatın. SD Maid\'in sistem tarafından pil tasarrufu için \"optimize\" edilmediğini kontrol edin.</string>
     <string name="setup_acs_state_stopped_hint_miui">Hizmet bir süre sonra devre dışı kalmaya devam ederse, sistem ayarlarında SD Maid için \"Otomatik Başlat\" seçeneğini etkinleştirmeyi deneyin.</string>
     <string name="setup_acs_consent_positive_action">Hizmeti etkinleştirin ve erişim izni verin</string>
     <string name="setup_acs_consent_negative_action">Erişilebilirlik hizmetini kullanma</string>
@@ -124,16 +122,16 @@
     <string name="debug_mode_label">Hata ayıklama modu</string>
     <string name="debug_mode_explanation">Test seçeneklerini ve daha ayrıntılı çıktı almayı etkinleştir. Uygulama daha yavaş ve farklı bir şekilde çalışacak.</string>
     <string name="debug_bugreporter_label">Otomatik hata raporları</string>
-    <string name="debug_bugreporter_summary">Otomatik olarak hataları raporlar, uygulama çökmesi detayları gibi. Böylece olası sebepleri bulup düzeltebilirim.</string>
+    <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
     <string name="settings_category_tools_label">Araçlar</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risk seviyesi</string>
-    <string name="corpsefinder_tool_name">CesetBulucu</string>
+    <string name="corpsefinder_tool_name">ArtıkBulucu</string>
     <string name="corpsefinder_explanation_short">Kaldırılmış uygulamalara ait veriler.</string>
     <string name="corpsefinder_settings_summary">Tarama filtrelerini ve risk seviyelerini ayarla.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Özel kalıntıları dahil et</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Uygulama kaldırılmış olsa bile saklamak isteyebileceğin dosyaları içerir; çektiğin fotoğraflar ya da oluşturduğun yedekler gibi.</string>
-    <string name="corpsefinder_settings_risk_common_title">Orta adları dahil et</string>
+    <string name="corpsefinder_settings_risk_common_title">Ortak adları dahil et</string>
     <string name="corpsefinder_settings_risk_common_summary">Çok yaygın adlara sahip veriler, örneğin bir \"Notlar\" klasörünün çok fazla bilinmeyen uygulamaya ait olması.</string>
     <string name="corpsefinder_watcher_title">Uygulama kaldırma izleyicisi</string>
     <string name="corpsefinder_watcher_summary">Bir uygulama kaldırıldığında otomatik olarak kalıntıları tarar.</string>
@@ -216,7 +214,7 @@
     <string name="systemcleaner_filter_tombstones_summary">Yerel işlemler çökerse (ör. oyunlar), dosyalar burada oluşturulur.</string>
     <string name="systemcleaner_filter_usagestats_label">Kullanım istatistikleri</string>
     <string name="systemcleaner_filter_usagestats_summary">Uygulama kullanım istatistikleriyle ilgili dosyalar.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Tüm filtre içerikleri silinsin mi?</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Filtrelenen tüm içerikler silinsin mi?</string>
     <string name="appcleaner_tool_name">Uygulama temizleyici</string>
     <string name="appcleaner_explanation_short">Belirli uygulamalara ait harcanabilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
@@ -226,11 +224,15 @@
     <string name="appcleaner_include_systemapps_label">Sistem uygulamalarını dahil et</string>
     <string name="appcleaner_include_systemapps_summary">Taramaya sistem uygulamalarını dahil edin.</string>
     <string name="appcleaner_include_runningapps_label">Çalışan uygulamaları dahil et</string>
-    <string name="appcleaner_include_runningapps_summary">Şu anda çalışmakta olan ve parazite neden olan uygulamaları dahil edin.</string>
+    <string name="appcleaner_include_runningapps_summary">Şu anda çalışmakta olan ve parazite neden olabilecek uygulamaları dahil edin.</string>
     <string name="appcleaner_include_inaccessible_label">Erişilemeyen verileri dahil et</string>
     <string name="appcleaner_include_inaccessible_summary">Doğrudan erişilemeyen ancak sistem ayarları aracılığıyla silinebilen ve bir erişilebilirlik hizmeti kullanılarak otomatikleştirilebilen verileri dahil edin. </string>
     <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
     <string name="appcleaner_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
+    <string name="appcleaner_include_minimumsize_label">En küçük boyut</string>
+    <string name="appcleaner_include_minimumsize_summary">Gereksiz veri toplamının minimum değerin altında olduğu uygulamaları atlayın.</string>
+    <string name="appcleaner_include_minimumage_label">Minimum boyut</string>
+    <string name="appcleaner_include_minimumage_summary">Minimum boyuttan daha küçük dosyaları atlayın.</string>
     <string name="appcleaner_filter_codecache_label">Kod önbelleği</string>
     <string name="appcleaner_filter_codecache_summary">JVM kod önbelleği. Yerel kodda derlenen bayt kodu blokları.</string>
     <string name="appcleaner_filter_advertisement_label">Reklam verileri</string>
@@ -241,6 +243,8 @@
     <string name="appcleaner_filter_analytics_summary">Analitikle ilgili veriler, ör. bir uygulamada tıkladığınız şey için önbelleğe alınmış istatistikler.</string>
     <string name="appcleaner_filter_hiddencaches_label">Gizli önbellekler</string>
     <string name="appcleaner_filter_hiddencaches_summary">Sistemlerin dışında depolanan genel amaçlı önbelleklere ulaşır.</string>
+    <string name="appcleaner_filter_thumbnails_label">Medya küçük resimleri</string>
+    <string name="appcleaner_filter_thumbnails_summary">Görüntü, video ve ses önizleme küçük resimleri.</string>
     <string name="appcleaner_filter_gamefiles_label">Oyun dosyaları</string>
     <string name="appcleaner_filter_gamefiles_summary">Gerekirse oyunun bir sonraki açılışta yeniden yükleyeceği oyunla ilgili kaynaklar.</string>
     <string name="appcleaner_filter_offlinecache_label">Çevrimdışı önbellek</string>

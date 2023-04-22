@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Curat &amp; ordonat.</string>
     <string name="slogan_message_2">Previne haosul.</string>
     <string name="slogan_message_3">Face ceea ce este necesar.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Toate rațele tale la rând.</string>
+    <string name="slogan_message_4">Toate rațele tale la rând.</string>
     <string name="slogan_message_5">Imaculat.</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_error_type_mismatch_msg">Nepotrivire de tip: Am vrut %1$s, dar am primit %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Elimină</string>
     <string name="general_wipe_action">Șterge</string>
     <string name="general_cancel_action">Anulează</string>
+    <string name="general_reset_action">Resetează</string>
     <string name="general_save_action">Salvează</string>
     <string name="general_thanks_action">Mulțumiri</string>
     <string name="general_gotit_action">Am înțeles</string>

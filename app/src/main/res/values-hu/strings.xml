@@ -104,8 +104,6 @@
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
     <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>
-    <string name="setup_acs_allow">A kisegítő lehetőségek szolgáltatása engedélyezve van</string>
-    <string name="setup_acs_disallow">A kisegítő lehetőségek szolgáltatása engedélyezve van</string>
     <string name="setup_acs_state_enabled">A kisegítő lehetőségek szolgáltatása engedélyezve van</string>
     <string name="setup_acs_state_disabled">A kisegítő lehetőségek szolgáltatása le van tiltva</string>
     <string name="setup_acs_state_running">A kisegítő lehetőségek szolgáltatás fut</string>
@@ -226,11 +224,15 @@
     <string name="appcleaner_include_systemapps_label">Tartalmazza a rendszeralkalmazásokat</string>
     <string name="appcleaner_include_systemapps_summary">Tartalmazza a rendszeralkalmazásokat a vizsgálatban.</string>
     <string name="appcleaner_include_runningapps_label">Tartalmazza a futó alkalmazásokat</string>
-    <string name="appcleaner_include_runningapps_summary">Tartalmazza a jelenleg futó alkalmazásokat, amelyek interferenciát okoznak.</string>
+    <string name="appcleaner_include_runningapps_summary">Tartalmazza a jelenleg futó alkalmazásokat, amelyek interferenciát okozhatnak.</string>
     <string name="appcleaner_include_inaccessible_label">Tartalmazza a hozzáférhetetlen adatokat</string>
     <string name="appcleaner_include_inaccessible_summary">Tartalmazzon olyan adatokat, amelyek közvetlenül nem érhetők el, de a rendszerbeállításokon keresztül törölhetők, és egy kisegítő szolgáltatás segítségével automatizálhatók. </string>
     <string name="appcleaner_include_multiuser_label">Egyéb felhasználók bevonása</string>
     <string name="appcleaner_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
+    <string name="appcleaner_include_minimumsize_label">Minimális méret</string>
+    <string name="appcleaner_include_minimumsize_summary">Hagyja ki azokat az alkalmazásokat, amelyekben a felhasználható adatok összege a minimum alatt van.</string>
+    <string name="appcleaner_include_minimumage_label">Minimális kor</string>
+    <string name="appcleaner_include_minimumage_summary">A minimális életkornál fiatalabb fájlok kihagyása.</string>
     <string name="appcleaner_filter_codecache_label">Kód gyorsítótár</string>
     <string name="appcleaner_filter_codecache_summary">JVM kód gyorsítótár. Bájtkód blokkok natív kódba fordítva.</string>
     <string name="appcleaner_filter_advertisement_label">Hirdetési adatok</string>
@@ -241,6 +243,8 @@
     <string name="appcleaner_filter_analytics_summary">Az elemzéssel kapcsolatos adatok, pl. gyorsítótárban tárolt statisztikák arra vonatkozóan, hogy mire kattint az alkalmazásban.</string>
     <string name="appcleaner_filter_hiddencaches_label">Rejtett gyorsítótárak</string>
     <string name="appcleaner_filter_hiddencaches_summary">A rendszer hatókörén kívül tárolt általános célú gyorsítótárak.</string>
+    <string name="appcleaner_filter_thumbnails_label">Médiaképek miniatűrjei</string>
+    <string name="appcleaner_filter_thumbnails_summary">Kép, videó és audio előnézeti miniatűr képek.</string>
     <string name="appcleaner_filter_gamefiles_label">Játékfájlok</string>
     <string name="appcleaner_filter_gamefiles_summary">A játékkal kapcsolatos források, amelyeket a játék a következő indításakor újra betölt, ha szükséges.</string>
     <string name="appcleaner_filter_offlinecache_label">Offline gyorsítótár</string>

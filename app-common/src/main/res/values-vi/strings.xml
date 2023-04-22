@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Làm sạch &amp; ngăn nắp.</string>
     <string name="slogan_message_2">Ngăn chặn hỗn loạn.</string>
     <string name="slogan_message_3">Đang làm những gì cần thiết.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Mọi thứ đều xếp thành một hàng.</string>
+    <string name="slogan_message_4">Mọi thứ đều xếp thành một hàng.</string>
     <string name="slogan_message_5">Không tì vết.</string>
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Loại bỏ</string>
     <string name="general_wipe_action">Làm sạch</string>
     <string name="general_cancel_action">Hủy</string>
+    <string name="general_reset_action">Đặt lại</string>
     <string name="general_save_action">Lưu</string>
     <string name="general_thanks_action">Cảm ơn</string>
     <string name="general_gotit_action">Đã hiểu</string>
@@ -92,7 +93,7 @@
     <string name="general_count_label">Đếm được</string>
     <string name="general_app_label">Ứng dụng</string>
     <string name="general_more_info_action">Thêm thông tin</string>
-    <string name="general_grant_access_action">Cấp quyền truy cấp</string>
+    <string name="general_grant_access_action">Cấp quyền truy cập</string>
     <string name="general_enable_service_action">Bật dịch vụ</string>
     <string name="general_undo_action">Hoàn tác</string>
     <string name="general_path_label">Đường dẫn</string>

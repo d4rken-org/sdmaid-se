@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Καθαρό &amp; τακτοποιημένο.</string>
     <string name="slogan_message_2">Αποτροπή του Χάους.</string>
     <string name="slogan_message_3">Κάνουμε ότι είναι αναγκαίο.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Όλα τα παπάκια στη σειρά.</string>
+    <string name="slogan_message_4">Όλα τα παπάκια στη σειρά.</string>
     <string name="slogan_message_5">Τζάμι.</string>
     <string name="general_thank_you_label">Ευχαριστώ</string>
     <string name="general_error_type_mismatch_msg">Αναντιστοιχία τύπου: Αναμενόταν %1$s, αλλά εμφανίστηκε %2$s.</string>

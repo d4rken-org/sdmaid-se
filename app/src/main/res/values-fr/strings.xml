@@ -104,8 +104,6 @@
     <string name="setup_acs_card_title">Service d\'accessibilité</string>
     <string name="setup_acs_card_body">Le service d\'accessibilité permet à SD Maid d\'interagir avec votre écran et d\'automatiser des actions fastidieuses, par exemple en cliquant sur \"Vider le cache\" sur plusieurs écrans.</string>
     <string name="setup_acs_card_body2">SD Maid n\'utilisera pas le service d\'accessibilité sans votre consentement, affichera toujours un indicateur bien visible (annulable) lorsqu\'il est actif et ne l\'utilisera pas pour collecter des informations.</string>
-    <string name="setup_acs_allow">Service d\'accessibilité est activé</string>
-    <string name="setup_acs_disallow">Service d\'accessibilité est activé</string>
     <string name="setup_acs_state_enabled">Service d\'accessibilité est activé</string>
     <string name="setup_acs_state_disabled">Service d\'accessibilité est désactivé</string>
     <string name="setup_acs_state_running">Service d\'accessibilité est en cours d\'exécution</string>
@@ -143,6 +141,14 @@
     <string name="corpsefinder_owners_label">Propriétaires</string>
     <string name="corpsefinder_corpse_hints_label">Remarque</string>
     <string name="corpsefinder_owner_unknown">Propriétaire inconnu</string>
+    <string name="systemcleaner_filter_tempfiles_label">Fichiers temporaires</string>
+    <string name="systemcleaner_filter_analytics_label">Fichiers d\'analyse</string>
+    <string name="systemcleaner_filter_analytics_summary">Données relatives à l\'analyse et au suivi des bugs.</string>
+    <string name="appcleaner_include_runningapps_summary">Inclure les apps en cours d\'exécution susceptibles de provoquer des interférences.</string>
+    <string name="appcleaner_include_minimumsize_label">Taille minimale</string>
+    <string name="appcleaner_include_minimumage_label">Age minimum</string>
+    <string name="appcleaner_include_minimumage_summary">Ignorer les fichiers dont l\'âge est inférieur à l\'âge minimum.</string>
+    <string name="appcleaner_filter_thumbnails_label">Miniatures des médias</string>
     <string name="history_label">Historique</string>
     <string name="scheduler_execution_label">Prochaine exécution (approximativement)</string>
     <string name="scheduler_execution_last_label">Dernière exécution</string>

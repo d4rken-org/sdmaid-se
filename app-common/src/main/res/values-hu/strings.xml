@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Tiszta &amp; rendezett.</string>
     <string name="slogan_message_2">A káosz megelőzése.</string>
     <string name="slogan_message_3">Megteszem, amit szükséges.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Az összes kacsa egy sorban.</string>
+    <string name="slogan_message_4">Az összes kacsa egy sorban.</string>
     <string name="slogan_message_5">Hibátlan.</string>
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_error_type_mismatch_msg">Típuseltérés: %1$s keresett, de %2$s lett.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Eltávolítás</string>
     <string name="general_wipe_action">Törlés</string>
     <string name="general_cancel_action">Mégsem</string>
+    <string name="general_reset_action">Visszaállítás</string>
     <string name="general_save_action">Mentés</string>
     <string name="general_thanks_action">Köszönöm</string>
     <string name="general_gotit_action">Megvan</string>
@@ -92,7 +93,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Darabszám</string>
     <string name="general_app_label">Alkalmazás</string>
-    <string name="general_more_info_action">További infók</string>
+    <string name="general_more_info_action">További információk</string>
     <string name="general_grant_access_action">Hozzáférés megadása</string>
     <string name="general_enable_service_action">Szolgáltatás engedélyezése</string>
     <string name="general_undo_action">Visszavonás</string>

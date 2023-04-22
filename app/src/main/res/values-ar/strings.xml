@@ -112,8 +112,6 @@
     <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
     <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
     <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>
-    <string name="setup_acs_allow">خدمة أمكانية الوصول مفعلة</string>
-    <string name="setup_acs_disallow">خدمة أمكانية الوصول مفعلة</string>
     <string name="setup_acs_state_enabled">خدمة أمكانية الوصول مفعلة</string>
     <string name="setup_acs_state_disabled">خدمة أمكانية الوصول معطلة</string>
     <string name="setup_acs_state_running">خدمة أمكانية الوصول تعمل</string>
@@ -183,6 +181,14 @@
     <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>
     <string name="systemcleaner_tool_name">منظف النظام</string>
     <string name="systemcleaner_explanation_short">تنظيف دقيق للبيانات التي لا تنتمي لأي تطبيق محدد.</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="zero">تطابق %d فلتر</item>
+        <item quantity="one">%d مرشح مطابق</item>
+        <item quantity="two">%d مرشحان مطابقان</item>
+        <item quantity="few">%d مرشحات متطابقة</item>
+        <item quantity="many">%d مرشحات متطابقة</item>
+        <item quantity="other">%d مرشحات متطابقة</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">مرشح خاص</string>
     <string name="systemcleaner_filter_custom_manage_label">إدارة المرشح المخصص</string>
     <string name="systemcleaner_filter_custom_manage_summary">إنشاء وحذف واستيراد وتصدير عوامل التصفية المخصصة الخاصة بك.</string>
@@ -234,11 +240,15 @@
     <string name="appcleaner_include_systemapps_label">تضمين تطبيقات النظام</string>
     <string name="appcleaner_include_systemapps_summary">قم بتضمين تطبيقات النظام في الفحص.</string>
     <string name="appcleaner_include_runningapps_label">تضمين تطبيقات التي تعمل</string>
-    <string name="appcleaner_include_runningapps_summary">قم بتضمين التطبيقات قيد التشغيل حاليًا والتي تسبب تداخلًا.</string>
+    <string name="appcleaner_include_runningapps_summary">تضمين التطبيقات التي تعمل حاليا والتي قد تسبب تدخلا.</string>
     <string name="appcleaner_include_inaccessible_label">قم بتضمين البيانات التي يتعذر الوصول إليها</string>
     <string name="appcleaner_include_inaccessible_summary">قم بتضمين البيانات التي لا يمكن الوصول إليها مباشرة ولكن يمكن حذفها عبر إعدادات النظام وأتمتة باستخدام خدمة إمكانية الوصول. </string>
     <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
     <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
+    <string name="appcleaner_include_minimumsize_label">الحجم الأدنى</string>
+    <string name="appcleaner_include_minimumsize_summary">تخطي التطبيقات التي يقل فيها مجموع البيانات المستهلكة عن الحد الأدنى.</string>
+    <string name="appcleaner_include_minimumage_label">الحد الأدنى للسن</string>
+    <string name="appcleaner_include_minimumage_summary">تخطي الملفات التي هي أصغر من الحد الأدنى للعمر.</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
     <string name="appcleaner_filter_advertisement_label">بيانات الإعلان</string>
@@ -249,6 +259,8 @@
     <string name="appcleaner_filter_analytics_summary">البيانات ذات الصلة بالتحليلات ، على سبيل المثال احصائيات مخبأة لما تنقر عليه في التطبيق.</string>
     <string name="appcleaner_filter_hiddencaches_label">مخابئ مخفية</string>
     <string name="appcleaner_filter_hiddencaches_summary">مخابئ الأغراض العامة المخزنة خارج نطاق وصول النظام.</string>
+    <string name="appcleaner_filter_thumbnails_label">الصور المصغرة للوسائط</string>
+    <string name="appcleaner_filter_thumbnails_summary">الصور المصغرة للصورة والفيديو والصوت معاينة.</string>
     <string name="appcleaner_filter_gamefiles_label">ملفات ألعاب</string>
     <string name="appcleaner_filter_gamefiles_summary">الموارد المتعلقة باللعبة التي ستعيد اللعبة تحميلها عند التشغيل التالي إذا لزم الأمر.</string>
     <string name="appcleaner_filter_offlinecache_label">ذاكرة التخزين المؤقت غير المتصلة</string>
@@ -270,6 +282,14 @@
     <string name="appcleaner_filter_wechat_label">وي شات</string>
     <string name="appcleaner_filter_wechat_summary">الملفات المرسلة والمستلمة في المحادثات ولحظات WeChat.</string>
     <string name="appcleaner_delete_all_confirmation_message">تنظيف كل التطبيقات؟</string>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="zero">تم العثور على %d عنصر مستهلك</item>
+        <item quantity="one">تم العثور على %d عنصر قابل للاستهلاك</item>
+        <item quantity="two">تم العثور على %d عنصر مستهلك</item>
+        <item quantity="few">تم العثور على %d عنصر مستهلك</item>
+        <item quantity="many">تم العثور على %d عنصر مستهلك</item>
+        <item quantity="other">تم العثور على %d عناصر قابلة للاستهلاك</item>
+    </plurals>
     <string name="appcleaner_automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
     <string name="appcleaner_automation_title">أتمتة منظف التطبيقات</string>
     <string name="appcleaner_automation_subtitle_default_caches">مسح ذاكرة التخزين المؤقت الافتراضية…</string>
@@ -280,6 +300,14 @@
     <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcontrol_tool_name">إدارة التطبيق</string>
     <string name="appcontrol_explanation_short">التطبيقات المثبتة على جهازك.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="zero">%d تطبيق محدد</item>
+        <item quantity="one">%d تطبيق محدد</item>
+        <item quantity="two">%d تطبيق محدد</item>
+        <item quantity="few">%d تطبيقات محددة</item>
+        <item quantity="many">%d تطبيقات محددة</item>
+        <item quantity="other">%d تطبيقات محددة</item>
+    </plurals>
     <string name="appcontrol_toggle_app_enable_action">تفعيل التطبيق</string>
     <string name="appcontrol_toggle_app_disable_action">تعطيل التطبيق</string>
     <string name="appcontrol_toggle_app_enable_description">يتيح تمكين التطبيق تشغيله وقد يجعله مرئيًا في المشغل الخاص بك إذا كان به نشاط.</string>

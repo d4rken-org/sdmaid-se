@@ -5,7 +5,7 @@
     <string name="slogan_message_1">干净整洁。</string>
     <string name="slogan_message_2">治之于未乱。</string>
     <string name="slogan_message_3">只做必行之事。</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">万物归整。</string>
+    <string name="slogan_message_4">万物归整。</string>
     <string name="slogan_message_5">一尘不染。</string>
     <string name="general_thank_you_label">感谢</string>
     <string name="general_error_type_mismatch_msg">类型不匹配：目标“%1$s”，却得到“%2$s”</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">删除</string>
     <string name="general_wipe_action">清除</string>
     <string name="general_cancel_action">取消</string>
+    <string name="general_reset_action">重置</string>
     <string name="general_save_action">保存</string>
     <string name="general_thanks_action">致谢</string>
     <string name="general_gotit_action">明白</string>

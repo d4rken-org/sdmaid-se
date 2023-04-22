@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Sauber &amp; aufgeräumt.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
     <string name="slogan_message_3">Das Notwendige tun.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Alle Ihre Enten in einer Reihe.</string>
+    <string name="slogan_message_4">Alle Ihre Enten in einer Reihe.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Typ stimmt nicht überein: %1$s gesucht, aber %2$s bekommen.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Entfernen</string>
     <string name="general_wipe_action">Wischen</string>
     <string name="general_cancel_action">Abbrechen</string>
+    <string name="general_reset_action">Zurücksetzen</string>
     <string name="general_save_action">Speichern</string>
     <string name="general_thanks_action">Danke</string>
     <string name="general_gotit_action">Habe es</string>
@@ -92,7 +93,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Anzahl</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_info_action">Weitere Infos</string>
+    <string name="general_more_info_action">Mehr Info</string>
     <string name="general_grant_access_action">Zugriff gewähren</string>
     <string name="general_enable_service_action">Dienst aktivieren</string>
     <string name="general_undo_action">Rückgängig machen</string>

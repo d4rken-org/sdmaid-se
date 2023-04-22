@@ -73,7 +73,6 @@
     <string name="general_info_label">情報</string>
     <string name="general_count_label">カウント</string>
     <string name="general_app_label">アプリ</string>
-    <string name="general_more_info_action">その他の情報</string>
     <string name="general_grant_access_action">アクセスを許可</string>
     <string name="general_enable_service_action">サービスを有効化</string>
     <string name="general_undo_action">戻す</string>

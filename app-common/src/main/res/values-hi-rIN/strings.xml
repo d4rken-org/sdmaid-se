@@ -5,7 +5,7 @@
     <string name="slogan_message_1">साफ &amp; सुव्यवस्थित।</string>
     <string name="slogan_message_2">अव्यवस्था पर रोक लगा रहा है।</string>
     <string name="slogan_message_3">जो आवश्यक है वह करती है।</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">सब कुछ सही हिसाब से।</string>
+    <string name="slogan_message_4">सब कुछ सही हिसाब से।</string>
     <string name="slogan_message_5">निर्मल</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_error_type_mismatch_msg">बेमेल प्रकार: %1$s चाहता था, लेकिन %2$s प्राप्त हुआ।</string>
@@ -92,7 +92,6 @@
     <string name="general_info_label">जानकारी</string>
     <string name="general_count_label">गणना</string>
     <string name="general_app_label">ऐप</string>
-    <string name="general_more_info_action">अधिक जानकारी</string>
     <string name="general_grant_access_action">पहुंच प्रदान करें</string>
     <string name="general_enable_service_action">सेवा सक्षम करें</string>
     <string name="general_undo_action">पूर्ववत</string>

@@ -8,12 +8,12 @@
     <string name="upgrades_dashcard_upgrade_action">Ulepsz</string>
     <string name="upgrades_gplay_unavailable_error">Usługi Google Play są niedostępne.</string>
     <string name="upgrades_no_purchases_found_check_account">Nie znaleziono żadnych zakupów. Czy używasz właściwego konta?</string>
-    <string name="upgrade_screen_title">Przejdź na SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid nie ma reklam i nie sprzedaje danych użytkowników. Moja praca jest fundowana przez Ciebie.</string>
+    <string name="upgrade_screen_title">Ulepsz do SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nie ma reklam i nie sprzedaje danych użytkowników. Moja praca jest finansowana przez Ciebie.</string>
     <string name="upgrade_screen_benefits_title">Zalety</string>
     <string name="upgrade_screen_benefits_body">• Czyszczenie aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne reguły usuwania ✍️\n• Zmotywowany autor 🧙\ni więcej…</string>
     <string name="upgrade_screen_how_title">Opcje</string>
-    <string name="upgrade_screen_how_body">Masz 2 opcje: Jednorazowy zakup lub tańsza roczna subskrypcja. Subskrypcja ma darmowy okres próbny. W obu przypadkach otrzymujesz to samo, jedynie metoda płatności się różni.</string>
+    <string name="upgrade_screen_how_body">Masz 2 opcje: Jednorazowy zakup lub tańsza roczna subskrypcja. Subskrypcja ma darmowy okres próbny. W obu przypadkach otrzymujesz to samo, różnica jest tylko w metodzie płatności.</string>
     <string name="upgrade_screen_subscription_trial_action">Rozpocznij wersję próbną</string>
     <string name="upgrade_screen_subscription_action">Subskrybuj</string>
     <string name="upgrade_screen_subscription_action_hint">Subskrypcja kosztuje %s rocznie.</string>
@@ -21,8 +21,8 @@
     <string name="upgrade_screen_iap_action_hint">Jednorazowy zakup kosztuje %s.</string>
     <string name="upgrade_screen_thanks_toast">Dziękuje! ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Razem osiągnęliśmy pierwszą wersję! Dziękuję za pomoc! Praca nad tą aplikacją oczywiście będzie kontynuowana, ale jeśli chcesz, możesz teraz przełączyć się na bardziej stabilne wersje. Możesz to zrobić, rezygnując z testowania w Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Mała uwaga: Oceny udzielone podczas testów są widoczne tylko dla mnie. Byłbym wdzięczny, gdybyś wystawił/a publiczną ocenę SD Maid, jeśli jesteś zadowolony/a.</string>
+    <string name="nudge_betagoodbye_body">Razem udało nam się przygotować pierwszą wersję! Dziękuję za pomoc w testowaniu! Praca nad aplikacją oczywiście będzie kontynuowana, ale jeśli chcesz, możesz teraz przełączyć się na stabilną wersję. Możesz to zrobić, opuszczając program beta testów w Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Mała uwaga: Oceny udzielone podczas testów są widoczne tylko dla mnie. Byłbym wdzięczny, gdybyś wystawił publiczną ocenę SD Maid, jeśli jesteś zadowolony.</string>
     <string name="nudge_betagoodbye_positive_action">Opuść</string>
     <string name="nudge_betagoodbye_negative_action">Kontynuuj testowanie</string>
 </resources>

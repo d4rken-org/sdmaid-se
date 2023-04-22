@@ -42,7 +42,6 @@
     <string name="general_info_label">درباره</string>
     <string name="general_count_label">تعداد</string>
     <string name="general_app_label">برنامه</string>
-    <string name="general_more_info_action">اطلاعات بیشتر</string>
     <string name="general_grant_access_action">موافقت کردن با دسترسی</string>
     <string name="general_undo_action">واگرد</string>
     <string name="general_path_label">مسیر</string>

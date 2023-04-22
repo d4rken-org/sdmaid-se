@@ -102,8 +102,6 @@
     <string name="setup_acs_card_title">Layanan aksesibilitas</string>
     <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatisasi tindakan yang merepotkan, seperti mengklik \"Bersihkan Cache\" di banyak layar.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan layanan aksesibilitas tanpa persetujuan Anda, akan selalu menampilkan indikator yang menonjol (dapat dibatalkan) saat aktif dan tidak akan menggunakannya untuk mengumpulkan informasi.</string>
-    <string name="setup_acs_allow">Layanan aksesibilitas diaktifkan</string>
-    <string name="setup_acs_disallow">Layanan aksesibilitas diaktifkan</string>
     <string name="setup_acs_state_enabled">Layanan aksesibilitas diaktifkan</string>
     <string name="setup_acs_state_disabled">Layanan aksesibilitas dinonaktifkan</string>
     <string name="setup_acs_state_running">Layanan aksesibilitas sedang berjalan</string>
@@ -222,11 +220,15 @@
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
-    <string name="appcleaner_include_runningapps_summary">Menyertakan aplikasi yang sedang berjalan dapat menyebabkan gangguan.</string>
+    <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi berjalan yang bisa menyebabkan gangguan.</string>
     <string name="appcleaner_include_inaccessible_label">Sertakan data yang tidak bisa diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Menyertakan data yang tidak bisa diakses langsung namun dapat dihapus melalui pengaturan sistem dan diotomatisasi menggunakan layanan aksesibilitas. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
+    <string name="appcleaner_include_minimumsize_label">Ukuran minimal</string>
+    <string name="appcleaner_include_minimumsize_summary">Lewati aplikasi saat jumlah data yang dapat dihapus di bawah batas minimum.</string>
+    <string name="appcleaner_include_minimumage_label">Umur minimal</string>
+    <string name="appcleaner_include_minimumage_summary">Lewati berkas yang lebih baru dari umur minimum.</string>
     <string name="appcleaner_filter_codecache_label">Cache code</string>
     <string name="appcleaner_filter_codecache_summary">Cache kode JVM. Blok dari bytecode yang dikompilasi menjadi kode asli.</string>
     <string name="appcleaner_filter_advertisement_label">Data iklan</string>
@@ -237,6 +239,8 @@
     <string name="appcleaner_filter_analytics_summary">Data berkaitan dengan analitik, misalnya cache status mengenai yang Anda klik pada aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache tersembunyi</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache tujuan umum yang disimpan di luar jangkauan sistem.</string>
+    <string name="appcleaner_filter_thumbnails_label">Pratinjau media</string>
+    <string name="appcleaner_filter_thumbnails_summary">Gambar-gambar pratinjau foto, video, dan suara.</string>
     <string name="appcleaner_filter_gamefiles_label">Berkas permainan</string>
     <string name="appcleaner_filter_gamefiles_summary">Sumber berkaitan dengan permainan yang dimuat sewaktu permainan dibuka jika diperlukan.</string>
     <string name="appcleaner_filter_offlinecache_label">Cache luring</string>

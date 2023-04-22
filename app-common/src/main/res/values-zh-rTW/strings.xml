@@ -5,7 +5,7 @@
     <string name="slogan_message_1">乾淨與整潔</string>
     <string name="slogan_message_2">防止混亂</string>
     <string name="slogan_message_3">做好必要的工作</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">把事情安排得有條不紊</string>
+    <string name="slogan_message_4">把事情安排得有條不紊</string>
     <string name="slogan_message_5">一塵不染</string>
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">移除</string>
     <string name="general_wipe_action">抹除</string>
     <string name="general_cancel_action">取消</string>
+    <string name="general_reset_action">重設</string>
     <string name="general_save_action">儲存</string>
     <string name="general_thanks_action">感謝</string>
     <string name="general_gotit_action">瞭解了</string>

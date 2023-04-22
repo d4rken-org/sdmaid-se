@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_click_hint">На деякі записи можна натиснути, щоб переглянути більш детальну інформацію.</string>
+    <string name="dashboard_delete_all_message">Видалити результати в усіх інструментах?</string>
+    <string name="dashboard_settings_category">Панель керування</string>
+    <string name="dashboard_settings_oneclick_title">Режим \"одного натискання\"</string>
+    <string name="dashboard_settings_oneclick_summary">Запуск сканування та очищення одним натисканням кнопки на панелі керування, без додаткових підтверджень.</string>
+    <string name="debug_debuglog_size_label">Розмір</string>
+    <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
+    <string name="debug_notification_channel_label">Налагоджувальні сповіщення</string>
+    <string name="debug_debuglog_file_label">Записаний файл журналу</string>
+    <string name="debug_debuglog_record_action">Запис журналу налагодження</string>
+    <string name="debug_debuglog_sensitive_information_message">Створений файл містить конфіденційну інформацію (наприклад, імена файлів та встановлені програми). Діліться нею лише з довіреними особами.</string>
+    <string name="settings_debuglog_explanation">Ця функція записує все що робить програма у файл, який може бути викладений у спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених програм). Діліться ним лише з довіреними особами (наприклад, з розробником, який виправляє проблему).</string>
+    <string name="tasks_activity_notification_channel_label">Активні задачі</string>
+    <string name="tasks_activity_working_notification_title">SD Maid працює</string>
+</resources>

@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Schoon &amp; netjes.</string>
     <string name="slogan_message_2">Chaos voorkomen.</string>
     <string name="slogan_message_3">Doen wat noodzakelijk is.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Al je eenden op een rij.</string>
+    <string name="slogan_message_4">Al je eenden op een rij.</string>
     <string name="slogan_message_5">Brandschoon.</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_error_type_mismatch_msg">Type komt niet overeen: %1$s gevraagd, maar %2$s gekregen.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Verwijderen</string>
     <string name="general_wipe_action">Vegen</string>
     <string name="general_cancel_action">Annuleren</string>
+    <string name="general_reset_action">Resetten</string>
     <string name="general_save_action">Opslaan</string>
     <string name="general_thanks_action">Bedankt</string>
     <string name="general_gotit_action">Begrepen</string>
@@ -36,7 +37,7 @@
     <string name="general_quota_label">Quota</string>
     <string name="general_tap_hint_msg">Tik voor meer opties</string>
     <string name="general_upgrade_action">Upgraden</string>
-    <string name="general_donate_action">Doneer</string>
+    <string name="general_donate_action">Doneren</string>
     <string name="general_check_action">Controleren</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_internal_not_available_msg">Internetverbinding niet beschikbaar</string>

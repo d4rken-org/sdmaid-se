@@ -96,8 +96,6 @@
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
     <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interoga cu ecranul tău și a automatiza acțiuni tedioase, ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>
-    <string name="setup_acs_allow">Serviciul de accesibilitate este activată</string>
-    <string name="setup_acs_disallow">Serviciul de accesibilitate este activată</string>
     <string name="setup_acs_state_enabled">Serviciul de accesibilitate este activată</string>
     <string name="setup_acs_state_disabled">Serviciul de accesibilitate este dezactivată</string>
     <string name="setup_acs_state_running">Serviciul de accesibilitate rulează</string>
@@ -210,11 +208,15 @@
     <string name="appcleaner_include_systemapps_label">Include aplicații de sistem</string>
     <string name="appcleaner_include_systemapps_summary">Include aplicații de sistem la scanare.</string>
     <string name="appcleaner_include_runningapps_label">Include aplicații care rulează</string>
-    <string name="appcleaner_include_runningapps_summary">Include aplicațiile care rulează în prezent ceea ce poate să provoace interferențe.</string>
+    <string name="appcleaner_include_runningapps_summary">Include aplicații care rulează în prezent unde poate să provoace interferențe.</string>
     <string name="appcleaner_include_inaccessible_label">Include date neaccesibile</string>
     <string name="appcleaner_include_inaccessible_summary">Include date care nu pot fi accesate direct dar poate fi șters în setările de sistem și automatizat folosind serviciul de accesibilitate. </string>
     <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
     <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
+    <string name="appcleaner_include_minimumsize_label">Dimensiunea minimă</string>
+    <string name="appcleaner_include_minimumsize_summary">Sari peste aplicațiile care suma de date consumabile este sub minimum.</string>
+    <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
+    <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>
     <string name="appcleaner_filter_advertisement_label">Date de la reclame</string>
@@ -225,6 +227,8 @@
     <string name="appcleaner_filter_analytics_summary">Date relatate la analize, ex: statistici stocate în cache pentru ceea ce faci clic într-o aplicație.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache ascunși</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache-urile de uz general stocate în afara accesului sistemelor.</string>
+    <string name="appcleaner_filter_thumbnails_label">Miniaturi media</string>
+    <string name="appcleaner_filter_thumbnails_summary">Imagini, imagini video şi imagini de previzualizare a imaginii.</string>
     <string name="appcleaner_filter_gamefiles_label">Fișiere de joc</string>
     <string name="appcleaner_filter_gamefiles_summary">Resurse legate de joc pe care jocul le va reîncărca la următoarea lansare, dacă este necesar.</string>
     <string name="appcleaner_filter_offlinecache_label">Cache offline</string>

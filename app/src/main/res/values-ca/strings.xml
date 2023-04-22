@@ -104,8 +104,6 @@
     <string name="setup_acs_card_title">Servei d\'accessibilitat</string>
     <string name="setup_acs_card_body">El servei d\'accessibilitat permet a l\'SD Maid interactuar amb la vostra pantalla i automatitzar accions tedioses, p. ex. fent clic a «Esborra la memòria cau» a diverses pantalles.</string>
     <string name="setup_acs_card_body2">L\'SD Maid no utilitzarà el servei d\'accessibilitat sense el vostre consentiment, sempre mostrarà un indicador destacat (cancel·lable) mentre estigui actiu i no l\'utilitzarà per recollir informació.</string>
-    <string name="setup_acs_allow">El servei d\'accessibilitat està habilitat</string>
-    <string name="setup_acs_disallow">El servei d\'accessibilitat està habilitat</string>
     <string name="setup_acs_state_enabled">El servei d\'accessibilitat està habilitat</string>
     <string name="setup_acs_state_disabled">El servei d\'accessibilitat està deshabilitat</string>
     <string name="setup_acs_state_running">El servei d\'accessibilitat s\'està executant</string>
@@ -226,11 +224,15 @@
     <string name="appcleaner_include_systemapps_label">Inclou aplicacions del sistema</string>
     <string name="appcleaner_include_systemapps_summary">Inclou les aplicacions del sistema a l\'escaneig.</string>
     <string name="appcleaner_include_runningapps_label">Inclou aplicacions en execució</string>
-    <string name="appcleaner_include_runningapps_summary">Inclou aplicacions que s\'estan executant actualment i que causen interferències.</string>
+    <string name="appcleaner_include_runningapps_summary">Inclou aplicacions que s\'estan executant actualment i que poden causar interferències.</string>
     <string name="appcleaner_include_inaccessible_label">Inclou dades inaccessibles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclou dades a les quals no es pot accedir directament, però que es poden suprimir mitjançant la configuració del sistema i automatitzar-les mitjançant un servei d\'accessibilitat. </string>
     <string name="appcleaner_include_multiuser_label">Inclou altres usuaris</string>
     <string name="appcleaner_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
+    <string name="appcleaner_include_minimumsize_label">Grandària mínima</string>
+    <string name="appcleaner_include_minimumsize_summary">Omet les aplicacions on la suma de dades prescindibles sigui inferior al mínim.</string>
+    <string name="appcleaner_include_minimumage_label">Edat mínima</string>
+    <string name="appcleaner_include_minimumage_summary">Omet els fitxers que siguin menors a l\'edat mínima.</string>
     <string name="appcleaner_filter_codecache_label">Memòria cau de codi</string>
     <string name="appcleaner_filter_codecache_summary">Memòria cau de codi JVM. Blocs de «bytecode» compilats en codi natiu.</string>
     <string name="appcleaner_filter_advertisement_label">Dades de publicitat</string>
@@ -241,6 +243,8 @@
     <string name="appcleaner_filter_analytics_summary">Dades relacionades amb l\'anàlisi, p. ex. estadístiques a la memòria cau del que feu clic en una aplicació.</string>
     <string name="appcleaner_filter_hiddencaches_label">Memòries cau ocultes</string>
     <string name="appcleaner_filter_hiddencaches_summary">Memòries cau de propòsit general emmagatzemades fora de l\'abast dels sistemes.</string>
+    <string name="appcleaner_filter_thumbnails_label">Miniatura de l’objecte multimèdia</string>
+    <string name="appcleaner_filter_thumbnails_summary">Imatges en miniatura de previsualització d\'imatge, vídeo i àudio.</string>
     <string name="appcleaner_filter_gamefiles_label">Fitxers de jocs</string>
     <string name="appcleaner_filter_gamefiles_summary">Recursos relacionats amb jocs que el joc tornaria a carregar en la propera execució si fos necessari.</string>
     <string name="appcleaner_filter_offlinecache_label">Memòria cau fora de línia</string>

@@ -96,8 +96,6 @@
     <string name="setup_acs_card_title">Serviço de acessibilidade</string>
     <string name="setup_acs_card_body">O serviço de acessibilidade permite que o SD Maid interaja com sua tela e automatize ações tediosas, por exemplo, clicando em \"Limpar cache\" em várias telas.</string>
     <string name="setup_acs_card_body2">O SD Maid não usará o serviço de acessibilidade sem seu consentimento, sempre exibirá um indicador proeminente (cancelável) enquanto ativo e não o usará para coletar informações.</string>
-    <string name="setup_acs_allow">Serviço de acessibilidade está habilitado</string>
-    <string name="setup_acs_disallow">Serviço de acessibilidade está habilitado</string>
     <string name="setup_acs_state_enabled">Serviço de acessibilidade está habilitado</string>
     <string name="setup_acs_state_disabled">Serviço de acessibilidade está desabilitado</string>
     <string name="setup_acs_state_running">Serviço de acessibilidade está rodando</string>
@@ -109,6 +107,7 @@
     <string name="setup_acs_allow_hint">Se você ver um pequeno ícone na borda da tela, então você ativou acidentalmente a opção \"atalho\".</string>
     <string name="setup_acs_disallow_hint">Se mudar de ideia, você pode alterar esta opção novamente indo para as configurações e reiniciando a configuração.</string>
     <string name="setup_acs_appops_restriction_title">Ajustes restritos</string>
+    <string name="setup_acs_appops_restriction_body">Não é possível ativar o serviço de acessibilidade para o SD Maid? O Android 13+ talvez aplique restrições a “apps” não instalados pelo Google Pastorela. Confira essas restrições na página de detalhes do sistema para o SD Maid. A opção está no menu de contexto no canto superior direito.</string>
     <string name="dataarea_warningcard_empty_message">O SD Maid não encontrou nenhuma área de dados que pode ser digitalizada. Você concluiu a configuração?</string>
     <string name="dataarea_warningcard_label">Áreas de dados</string>
     <string name="dataarea_warningcard_reload_action">Recarregar áreas de dados</string>
@@ -139,7 +138,11 @@
     <string name="corpsefinder_filter_privatedata_label">Dados privados de app</string>
     <string name="corpsefinder_filter_privatedata_summary">Dados privados do aplicativo, ex.: credenciais, configurações do aplicativo, mas também caches do navegador.</string>
     <string name="corpsefinder_filter_dalvik_label">Cache Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Dados de execução do app em cache.</string>
     <string name="corpsefinder_filter_applib_label">Bibliotecas de app</string>
+    <string name="corpsefinder_filter_applib_summary">Dados de biblioteca relacionados ao app.</string>
+    <string name="corpsefinder_filter_appsource_label">Código-fontes de apps</string>
+    <string name="corpsefinder_filter_appsource_summary">Dados de instalação de aplicativos, ou seja, onde estão os APKs.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_owners_label">Proprietários</string>
     <string name="corpsefinder_corpse_hints_label">Aviso</string>

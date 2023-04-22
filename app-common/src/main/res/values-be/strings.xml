@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Чысціня і парадак.</string>
     <string name="slogan_message_2">Прадухіленне хаосу.</string>
     <string name="slogan_message_3">Рабіць тое, што патрэбна.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Усё на сваім месцы.</string>
+    <string name="slogan_message_4">Усё на сваім месцы.</string>
     <string name="slogan_message_5">Бездакорна.</string>
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_error_type_mismatch_msg">Неадпаведнасць тыпу: мае быць %1$s, але па факце %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Выдаліць</string>
     <string name="general_wipe_action">Ачысціць</string>
     <string name="general_cancel_action">Скасаваць</string>
+    <string name="general_reset_action">Скінуць</string>
     <string name="general_save_action">Захаваць</string>
     <string name="general_thanks_action">Падзякі</string>
     <string name="general_gotit_action">Зразумела</string>
@@ -70,7 +71,7 @@
     <string name="general_details_label">Падрабязнасці</string>
     <string name="general_view_action">Праглядзець</string>
     <string name="general_update_action">Абнавіць</string>
-    <string name="general_scan_action">Скапіраваць</string>
+    <string name="general_scan_action">Сканіраваць</string>
     <string name="general_delete_action">Выдаліць</string>
     <string name="general_delete_all_action">Выдаліць усё</string>
     <string name="general_show_details_action">Паказаць падрабязнасці</string>
@@ -94,7 +95,7 @@
     <string name="general_info_label">Інфармацыя</string>
     <string name="general_count_label">Колькасць</string>
     <string name="general_app_label">Праграма</string>
-    <string name="general_more_info_action">Больш інфармацыі</string>
+    <string name="general_more_info_action">Падрабязней</string>
     <string name="general_grant_access_action">Даць доступ</string>
     <string name="general_enable_service_action">Уключыць службу</string>
     <string name="general_undo_action">Скасаваць</string>
