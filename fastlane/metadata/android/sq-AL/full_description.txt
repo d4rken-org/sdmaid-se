@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> është një shërbyes i besueshëm për Android-in juaj, për ta mbajtur atë të pastër dhe të rregullt.
+
+Askush nuk është i përkryer dhe as Android.
+*Aplikacionet që keni hequr tashmë lënë diçka pas.
+* Regjistrat, raportet e dështimit dhe skedarët e tjerë që nuk i dëshironi vërtet po krijohen vazhdimisht.
+* Hapësira juaj ruajtëse po mbledh skedarë dhe drejtori që nuk i njihni.
+
+Të mos vazhdojmë më shum... Lejoni SD Maid SE t'ju ndihmojë:
+
+* Pastroni të dhënat nga aplikacionet tashmë të çinstaluara
+* Gjeni memoriet e fshehura të aplikacioneve
+* Hiq skedarët e tepërt dhe të panevojshëm të sistemit juaj
+
+SD Maid SE është pa reklama. Disa veçori kërkojnë një përmirësim me pagesë.
+
+SD Maid 2/SE është pasardhësi i SD Maid 1/Legacy.
+Optimizuar dhe i përshtatur për versionet më të reja të Android-it dhe fokusuar në pastrimin.
+
+SD Maid SE ka veçori opcionale që përdorin API-në e shërbimit të qasjes për të automatizuar veprimet e lodhshme.
+Duke përdorur API-në e shërbimit të qasjes, SD Maid SE mund të klikojë butonat që ju të kryeni operacione në aplikacione të shumta, p.sh. fshirja e cache-ve.
+SD Maid SE nuk përdor API-në e shërbimit të qasjes për të mbledhur informacion.
