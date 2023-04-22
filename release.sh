@@ -308,6 +308,7 @@ do-version-properties() {
   V_MINOR_REGEX='^([a-zA-Z\.]+minor)=([0-9]+)$'
   V_PATCH_REGEX='^([a-zA-Z\.]+patch)=([0-9]+)$'
   V_BUILD_REGEX='^([a-zA-Z\.]+build)=([0-9]+)$'
+  V_TYPE_REGEX='^([a-zA-Z\.]+type)=(rc|beta)$'
 
   PROPS_FILE_NEW=""
 
@@ -332,6 +333,10 @@ do-version-properties() {
     elif [[ $line =~ $V_BUILD_REGEX ]]; then
       updated="${BASH_REMATCH[1]}=${V_BUILD_COUNTER}"
       echo "Found build, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
+    elif [[ $line =~ $V_TYPE_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_BUILD_TYPE}"
+      echo "Found type, replacing: $line -> $updated"
       PROPS_FILE_NEW+=$updated
     else
       PROPS_FILE_NEW+="$line"

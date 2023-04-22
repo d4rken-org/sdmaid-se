@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD 女佣 SE 专业版</string>
+    <string name="app_name_upgraded">SD Maid SE 专业版</string>
     <string name="app_name_upgrade_postfix">专业版</string>
     <string name="upgrade_feature_requires_pro">需要 SD 女佣专业版</string>
     <string name="upgrades_dashcard_title">升级 SD 女佣</string>
@@ -8,8 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrades_gplay_unavailable_error">Google Play 服务无法使用。</string>
     <string name="upgrades_no_purchases_found_check_account">未找到购买记录。您确定账号正确吗？</string>
-    <string name="upgrade_screen_title">获得SD 女佣 SE 专业版</string>
-    <string name="upgrade_screen_preamble">SD 女佣没有广告，也不出售用户数据。我的工作是由您资助的。</string>
+    <string name="upgrade_screen_title">获取 SD 女佣 SE 专业版</string>
+    <string name="upgrade_screen_preamble">SD 女佣没有广告，也不出售用户数据。我的工作只由您赞助。</string>
     <string name="upgrade_screen_benefits_title">优点</string>
     <string name="upgrade_screen_benefits_body">•应用程序清理💯\n•计划运行⏰\n•所有工具的额外选项⚙️\n•您自己的删除规则✍️\n•积极的开发人员🧙\n还有更多…</string>
     <string name="upgrade_screen_how_title">选项</string>

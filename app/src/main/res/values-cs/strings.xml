@@ -108,8 +108,6 @@
     <string name="setup_acs_card_title">Služba přístupnosti</string>
     <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. kliknutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>
-    <string name="setup_acs_allow">Služba přístupnosti je povolena</string>
-    <string name="setup_acs_disallow">Služba přístupnosti je povolena</string>
     <string name="setup_acs_state_enabled">Služba přístupnosti je povolena</string>
     <string name="setup_acs_state_disabled">Služba přístupnosti je zakázána</string>
     <string name="setup_acs_state_running">Služba přístupnosti je spuštěna</string>
@@ -239,6 +237,10 @@
     <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je odstranit prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
     <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
     <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
+    <string name="appcleaner_include_minimumsize_label">Minimální velikost</string>
+    <string name="appcleaner_include_minimumsize_summary">Přeskočit aplikace, u nichž je součet nepotřebných dat nižší než minimum.</string>
+    <string name="appcleaner_include_minimumage_label">Minimální stáří</string>
+    <string name="appcleaner_include_minimumage_summary">Přeskočit soubory, které jsou mladší než minimální stáří.</string>
     <string name="appcleaner_filter_codecache_label">Mezipaměť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Mezipaměť kódu JVM. Bloky bajtového kódu zkompilované do nativního kódu.</string>
     <string name="appcleaner_filter_advertisement_label">Reklamní data</string>
@@ -249,6 +251,8 @@
     <string name="appcleaner_filter_analytics_summary">Data související s analytikou, např. statistiky kliknutí v aplikaci, které jsou uložené v mezipaměti.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skryté mezipaměti</string>
     <string name="appcleaner_filter_hiddencaches_summary">Mezipaměti pro obecné účely uložené mimo dosah systému.</string>
+    <string name="appcleaner_filter_thumbnails_label">Miniatury médií</string>
+    <string name="appcleaner_filter_thumbnails_summary">Náhledy miniatur obrázků, videí a zvuků.</string>
     <string name="appcleaner_filter_gamefiles_label">Soubory pro hry</string>
     <string name="appcleaner_filter_gamefiles_summary">Prostředky související s hrou, které by hra v případě potřeby znovu načetla při dalším spuštění.</string>
     <string name="appcleaner_filter_offlinecache_label">Offline mezipaměť</string>

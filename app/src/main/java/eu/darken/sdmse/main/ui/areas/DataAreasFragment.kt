@@ -36,7 +36,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
                     R.id.menu_action_info -> {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setMessage(R.string.data_areas_description)
-                            setNeutralButton(R.string.general_more_infos_action) { _, _ ->
+                            setNeutralButton(R.string.general_more_info_action) { _, _ ->
                                 // TODO more direct link
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki")
                             }

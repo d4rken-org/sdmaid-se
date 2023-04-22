@@ -3,11 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -34,6 +30,7 @@ class AppActionAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is ToggleActionVH.Item }) { ToggleActionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppStoreActionVH.Item }) { AppStoreActionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SystemSettingsActionVH.Item }) { SystemSettingsActionVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is ExcludeActionVH.Item }) { ExcludeActionVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

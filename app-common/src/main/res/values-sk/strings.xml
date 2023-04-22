@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Čistý &amp; uprataný.</string>
     <string name="slogan_message_2">Predchádzanie chaosu.</string>
     <string name="slogan_message_3">Robím, čo je potrebné.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Všetky vaše kačice v rade.</string>
+    <string name="slogan_message_4">Všetky vaše kačice v rade.</string>
     <string name="slogan_message_5">Bez poškvrny.</string>
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_error_type_mismatch_msg">Nezhoda typu: Chceli ste %1$s, ale dostali ste %2$s.</string>
@@ -93,7 +93,6 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Počet</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Ďalšie informácie</string>
     <string name="general_grant_access_action">Povoliť prístup</string>
     <string name="general_enable_service_action">Povoliť službu</string>
     <string name="general_undo_action">Vrátiť späť</string>

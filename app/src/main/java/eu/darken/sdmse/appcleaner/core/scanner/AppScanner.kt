@@ -36,7 +36,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.hasTags
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
@@ -85,6 +85,7 @@ class AppScanner @Inject constructor(
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
         log(TAG) { "${enabledFilters.size} filter are enabled" }
         useRoot = rootManager.useRoot()
+        log(TAG) { "useRoot: $useRoot" }
     }
 
     suspend fun scan(
@@ -104,7 +105,7 @@ class AppScanner @Inject constructor(
         val includeOtherUsers = settings.includeOtherUsersEnabled.value()
 
         val pkgExclusions = exclusionManager.currentExclusions()
-            .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
+            .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
             .filterIsInstance<Exclusion.Package>()
 
         updateProgressSecondary(R.string.general_progress_loading_app_data)
@@ -180,10 +181,9 @@ class AppScanner @Inject constructor(
         updateProgressSecondary(R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val dataAreaMap = getDataAreaMap()
+        val dataAreaMap = createDataAreaMap()
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
-
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
 
         for (pkg in installedPkgs) {
@@ -193,64 +193,46 @@ class AppScanner @Inject constructor(
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
+            // The default private app data
             pkg.packageInfo.applicationInfo
                 ?.dataDir
-                ?.takeIf { it.isNotEmpty() }
-                ?.let { dataDir ->
-                    if (useRoot) {
-                        fileForensics.identifyArea(LocalPath.build(dataDir))?.let {
-                            interestingPaths.add(it)
-                        }
-                    } else {
-                        log(TAG) { "Skipping $dataDir (no root)" }
-                    }
-                }
-
+                ?.takeIf { it.isNotEmpty() && useRoot }
+                ?.let { fileForensics.identifyArea(LocalPath.build(it)) }
+                ?.let { interestingPaths.add(it) }
 
             val clutterMarkerForPkg = clutterRepo.getMarkerForPkg(pkg.id)
 
-            listOf(
-                DataArea.Type.PRIVATE_DATA,
-                DataArea.Type.PUBLIC_DATA,
-                DataArea.Type.PUBLIC_MEDIA,
-                DataArea.Type.SDCARD
-            )
-                .mapNotNull { dataAreaMap[it] }
+            dataAreaMap.values
                 .flatten()
-                .forEach { tlCandidate ->
-                    if (tlCandidate.type != DataArea.Type.SDCARD && tlCandidate.file.name == pkg.packageName) {
-                        interestingPaths.add(tlCandidate)
+                .forEach { candidate ->
+                    // Is it a direct match? Should be valid for PUBLIC_* (i.e. blacklist areas)
+                    if (candidate.type != DataArea.Type.SDCARD && candidate.file.name == pkg.packageName) {
+                        interestingPaths.add(candidate)
                         return@forEach
                     }
 
-                    clutterMarkerForPkg
-                        .mapNotNull { it.match(tlCandidate.type, tlCandidate.prefixFreePath) }
-                        .firstOrNull { !it.hasFlags(Marker.Flag.CUSTODIAN) }
-                        ?.let {
-                            interestingPaths.add(tlCandidate)
-                        }
-                }
-
-            // Check all files on public storage for potentially deeper nested clutter
-            dataAreaMap
-                .mapNotNull { dataAreaMap[DataArea.Type.SDCARD] }
-                .flatten()
-                .forEach { topLvlSDDir ->
-                    clutterMarkerForPkg
-                        .filter { it.areaType == DataArea.Type.SDCARD }
+                    // Maybe an outlier that can be mapped via clutter db?
+                    val indirectMatch = clutterMarkerForPkg
+                        .filter { it.areaType == candidate.type }
                         .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
-                        .filter { it.isDirectMatch }
-                        .filter { it.segments.startsWith(topLvlSDDir.prefixFreePath, ignoreCase = true) }
-                        .map { topLvlSDDir.prefix.child(*it.segments.toTypedArray()) }
-                        .filter { it.exists(gatewaySwitch) }
-                        .forEach { file ->
-                            log(TAG) { "Nested marker target exists: $file" }
-                            fileForensics.identifyArea(file)?.let {
-                                interestingPaths.add(it)
-                            }
-                        }
+                        .any { it.match(candidate.type, candidate.prefixFreePath) != null }
+                    if (indirectMatch) interestingPaths.add(candidate)
                 }
 
+            // Check all files on public (whitelist) storage (i.e. SDCARD) for potentially deeper nested clutter
+            dataAreaMap[DataArea.Type.SDCARD]
+                ?.forEach { topLevelArea ->
+                    clutterMarkerForPkg
+                        .filter { it.areaType == topLevelArea.type }
+                        .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
+                        .filter { it.isDirectMatch } // Can't reverse lookup regex markers
+                        .filter { it.segments.startsWith(topLevelArea.prefixFreePath, ignoreCase = true) }
+                        .map { topLevelArea.prefix.child(*it.segments.toTypedArray()) }
+                        .filter { it.exists(gatewaySwitch) }
+                        .onEach { log(TAG) { "Nested marker target exists: $it" } }
+                        .mapNotNull { fileForensics.identifyArea(it) }
+                        .forEach { interestingPaths.add(it) }
+                }
 
             // To build the search map we find all pathes that belong to an app: One App multiple pathes
             // Then we reverse the mapping here as each location can have multiple owners: One path, multiple apps
@@ -262,6 +244,20 @@ class AppScanner @Inject constructor(
             increaseProgress()
         }
 
+        // So far we have default blacklist entries and matches from direct clutter markers
+        // We are missing dynamic markers especially from blacklist locations like PUBLIC_DATA.
+        // i.e. Android/data/_some.pkg or Android/data/-some.pkg is dynamically matched to some.pkg by CSI
+        dataAreaMap.entries
+            .map { it.value }
+            .flatten()
+            .mapNotNull { fileForensics.findOwners(it) }
+            .forEach { owner ->
+                val installIds = owner.installedOwners
+                    .filter { !it.hasFlag(Marker.Flag.CUSTODIAN) }
+                    .map { it.installId }
+                searchPathMap[owner.areaInfo] = (searchPathMap[owner.areaInfo] ?: emptySet()).plus(installIds)
+            }
+
         log(TAG) { "Search paths build (${searchPathMap.keys.size} interesting paths)." }
 
         return searchPathMap
@@ -271,66 +267,66 @@ class AppScanner @Inject constructor(
      * First we determine all areas that we check,
      * i.e. public/priv storage and some levels of the root of the sdcard
      */
-    private suspend fun getDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
+    private suspend fun createDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
         val currentAreas = areaManager.currentAreas()
 
         val pathExclusions = exclusionManager.currentExclusions()
-            .filter { it.tags.contains(Exclusion.Tag.APPCLEANER) || it.tags.contains(Exclusion.Tag.GENERAL) }
+            .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
             .filterIsInstance<Exclusion.Path>()
 
-        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>().apply {
-            this[DataArea.Type.PRIVATE_DATA] = emptySet()
-        }
+        val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
+
+        val supportedPrivateAreas = setOf(DataArea.Type.PRIVATE_DATA)
 
         currentAreas
-            .filter { it.type == DataArea.Type.PRIVATE_DATA }
-            .forEach { area ->
-                val areaLookups = try {
-                    area.path.lookupFiles(gatewaySwitch)
+            .filter { supportedPrivateAreas.contains(it.type) }
+            .mapNotNull { area ->
+                try {
+                    area to area.path.listFiles(gatewaySwitch)
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
-                    return@forEach
+                    null
                 }
-                val areaInfos = areaLookups
-                    .filter { it.fileType == FileType.DIRECTORY }
-                    .filter { appDir ->
-                        pathExclusions.none { it.match(appDir) }.also {
-                            if (!it) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $appDir" }
-                        }
+            }
+            .map { (area, content) ->
+                area.type to content
+                    .filter { path ->
+                        val isExcluded = pathExclusions.any { it.match(path) }
+                        if (isExcluded) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $path" }
+                        !isExcluded
                     }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
-                            if (it == null) log(TAG, WARN) { "Failed to identify $it" }
+                            if (it == null) log(TAG, WARN) { "Failed to identify $lookup" }
                         }
                     }
-
-                areaDataMap[area.type] = when {
-                    areaDataMap[area.type] == null -> areaInfos
-                    else -> areaDataMap[area.type]!!.plus(areaInfos)
-                }
             }
+            .forEach { (type, infos) ->
+                areaDataMap[type] = (areaDataMap[type] ?: emptySet()).plus(infos)
+            }
+
+        val supportedPublicAreas = setOf(
+            DataArea.Type.PUBLIC_DATA,
+            DataArea.Type.PUBLIC_MEDIA,
+            DataArea.Type.SDCARD,
+        )
 
         currentAreas
-            .filter {
-                listOf(
-                    DataArea.Type.PUBLIC_DATA,
-                    DataArea.Type.SDCARD,
-                    DataArea.Type.PUBLIC_MEDIA
-                ).contains(it.type)
-            }
-            .forEach { area ->
-                val areaLookups = try {
-                    area.path.lookupFiles(gatewaySwitch)
+            .filter { supportedPublicAreas.contains(it.type) }
+            .mapNotNull { area ->
+                try {
+                    area to area.path.lookupFiles(gatewaySwitch)
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
-                    return@forEach
+                    null
                 }
-
-                val areaInfos = areaLookups
+            }
+            .map { (area, content) ->
+                area.type to content
                     .filter { it.fileType == FileType.DIRECTORY }
                     .mapNotNull { lookup ->
                         fileForensics.identifyArea(lookup).also {
-                            if (it == null) log(TAG, WARN) { "Failed to identify $it" }
+                            if (it == null) log(TAG, WARN) { "Failed to identify $lookup" }
                         }
                     }
                     .filter { areaInfo ->
@@ -345,11 +341,9 @@ class AppScanner @Inject constructor(
                         }
                         !excluded || edgeCase
                     }
-
-                areaDataMap[area.type] = when {
-                    areaDataMap[area.type] == null -> areaInfos
-                    else -> areaDataMap[area.type]!!.plus(areaInfos)
-                }
+            }
+            .forEach { (type, infos) ->
+                areaDataMap[type] = (areaDataMap[type] ?: emptySet()).plus(infos)
             }
 
         return areaDataMap

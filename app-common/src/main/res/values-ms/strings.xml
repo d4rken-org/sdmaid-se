@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Bersih &amp; kemas.</string>
     <string name="slogan_message_2">Mencegah huru-hara.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Semua itik anda berturut-turut.</string>
+    <string name="slogan_message_4">Semua itik anda berturut-turut.</string>
     <string name="slogan_message_5">Tanpa noda.</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Jenis tidak sepadan: Inginkan %1$s, tetapi mendapat %2$s.</string>
@@ -95,7 +95,6 @@ Lain-lain
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Kira</string>
     <string name="general_app_label">Aplikasi</string>
-    <string name="general_more_infos_action">Maklumat lanjut</string>
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Dayakan perkhidmatan</string>
     <string name="general_undo_action">Buat asal</string>

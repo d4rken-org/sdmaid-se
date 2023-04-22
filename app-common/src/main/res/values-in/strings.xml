@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Bersih &amp; rapi.</string>
     <string name="slogan_message_2">Menghindari kekacauan.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu dilakukan.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Membariskan bebek-bebek Anda.</string>
+    <string name="slogan_message_4">Membariskan bebek-bebek Anda.</string>
     <string name="slogan_message_5">Tak bernoda.</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Ketidakcocokan jenis: Menginginkan %1$s, tapi mendapatkan %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Hapus</string>
     <string name="general_wipe_action">Bersihkan</string>
     <string name="general_cancel_action">Batal</string>
+    <string name="general_reset_action">Atur ulang</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Mengerti</string>
@@ -91,7 +92,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Jumlah</string>
     <string name="general_app_label">Aplikasi</string>
-    <string name="general_more_infos_action">Info lebih lanjut</string>
+    <string name="general_more_info_action">Info lebih lanjut</string>
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Aktifkan layanan</string>
     <string name="general_undo_action">Batalkan</string>

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
-class ManualMarkerSourceTest : BaseTest() {
+class DebugManualMarkerSourceTest : BaseTest() {
 
     private var markerTestTool = MarkerSourceTestTool("./src/test/assets/clutter/db_debug_markers.json")
 

@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrades_dashcard_upgrade_action">Mejorar</string>
+    <string name="upgrade_screen_benefits_title">Ventajas</string>
+    <string name="upgrade_screen_how_title">Opciones</string>
+    <string name="upgrade_screen_subscription_action">Suscríbete</string>
+    <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
+</resources>

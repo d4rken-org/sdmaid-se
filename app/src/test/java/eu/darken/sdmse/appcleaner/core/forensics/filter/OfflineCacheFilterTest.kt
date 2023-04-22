@@ -127,4 +127,29 @@ class OfflineCacheFilterTest : BaseFilterTest() {
         )
         confirm(create())
     }
+
+    @Test fun `coolreader manuals`() = runTest {
+        addDefaultNegatives()
+        neg("org.coolreader", SDCARD, "Books/book.fb2")
+        neg("org.coolreader", SDCARD, "Books/book.pdf")
+        pos("org.coolreader", SDCARD, "Books/cr3_manual_ru_RU.fb2")
+        pos("org.coolreader", SDCARD, "Books/cr3_manual_de_DE.fb2")
+        confirm(create())
+    }
+
+    @Test fun `estrongs icon cache`() = runTest {
+        addDefaultNegatives()
+        val pkgs = setOf(
+            "com.estrongs.android.pop",
+            "com.estrongs.android.pop.cupcake",
+            "com.estrongs.android.pop.app.shortcut",
+            "com.estrongs.android.pop.pro"
+        )
+        pkgs.forEach {
+            neg(it, SDCARD, ".estrongs/.app_icon_back")
+            pos(it, SDCARD, ".estrongs/.app_icon_back/ver")
+            pos(it, SDCARD, ".estrongs/.app_icon_back/com.zebu.hitrosti.png")
+        }
+        confirm(create())
+    }
 }

@@ -166,22 +166,6 @@ class HiddenFilterTest : BaseFilterTest() {
                 .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
         )
         addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.thumbnails")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.thumbnails/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.thumbnails")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.thumbnails/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
             neg().pkgs(testPkg).prefixFree("$testPkg/TempData")
                 .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
         )
@@ -523,25 +507,6 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testFilterQuickOffice() = runTest {
-        addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.quickoffice.android").locs(PRIVATE_DATA).prefixFree("com.quickoffice.android/files")
-        )
-        addCandidate(
-            neg().pkgs("com.quickoffice.android").locs(PRIVATE_DATA).prefixFree("com.quickoffice.android/files/asdasd")
-        )
-        addCandidate(
-            pos().pkgs("com.quickoffice.android").locs(PRIVATE_DATA)
-                .prefixFree("com.quickoffice.android/files/kljalskdjlkjasd.thumb.panel")
-        )
-        addCandidate(
-            pos().pkgs("com.quickoffice.android").locs(PRIVATE_DATA)
-                .prefixFree("com.quickoffice.android/files/kljalskdjlkjasd.thumb.home")
-        )
-        confirm(create())
-    }
-
     @Test fun testFilterGenieWidget() = runTest {
         addDefaultNegatives()
         addCandidate(
@@ -700,19 +665,6 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testFilterNextAppFx() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/CloudThumbnail"))
-        addCandidate(
-            pos().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/CloudThumbnail/$rngString")
-        )
-        addCandidate(neg().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/ImageThumbnail"))
-        addCandidate(
-            pos().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/ImageThumbnail/$rngString")
-        )
-        confirm(create())
-    }
-
     @Test fun testFilterPolarisOffice() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf(
@@ -815,26 +767,6 @@ class HiddenFilterTest : BaseFilterTest() {
         addCandidate(neg().pkgs("com.evernote.skitch").locs(SDCARD).prefixFree("Skitch/Temp"))
         addCandidate(
             pos().pkgs("com.evernote.skitch").locs(SDCARD).prefixFree("Skitch/Temp/$rngString")
-        )
-        confirm(create())
-    }
-
-    @Test fun testFilterInfzmReader() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("net.coollet.infzmreader").locs(SDCARD).prefixFree("infzm/thumb_image"))
-        addCandidate(
-            pos().pkgs("net.coollet.infzmreader").locs(SDCARD)
-                .prefixFree("infzm/thumb_image/$rngString")
-        )
-        confirm(create())
-    }
-
-    @Test fun testFilterKascendVideo() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("com.kascend.video").locs(SDCARD).prefixFree("kascend/videoshow/.thumbcache"))
-        addCandidate(
-            pos().pkgs("com.kascend.video").locs(SDCARD)
-                .prefixFree("kascend/videoshow/.thumbcache/$rngString")
         )
         confirm(create())
     }
@@ -1023,18 +955,6 @@ class HiddenFilterTest : BaseFilterTest() {
         addCandidate(
             pos().pkgs("com.ninegag.android.app").locs(PUBLIC_DATA)
                 .prefixFree("com.ninegag.android.app/files/covers/$rngString")
-        )
-        confirm(create())
-    }
-
-    @Test fun testFilterWalloid() = runTest {
-        addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.hashcode.walloidpro", "com.hashcode.walloid").locs(SDCARD).prefixFree("Walloid/.Thumbnail")
-        )
-        addCandidate(
-            pos().pkgs("com.hashcode.walloidpro", "com.hashcode.walloid").locs(SDCARD)
-                .prefixFree("Walloid/.Thumbnail/$rngString")
         )
         confirm(create())
     }
@@ -1298,38 +1218,6 @@ class HiddenFilterTest : BaseFilterTest() {
             neg().pkgs("com.android.gallery3d", "com.google.android.gallery3d", "com.sec.android.gallery3d")
                 .locs(SDCARD).prefixFree(".face")
         )
-        confirm(create())
-    }
-
-    @Test fun testVideoPlayer() = runTest {
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/MAKO-6.0.1/movie_10326")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/MAKO-6.0.1/movie_10326/camera.ListView.lvl")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/MAKO-6.0.1/movie_156560/instaweather_vid_20141227_085331.ListView.lvl")
-        )
-        addCandidate(neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/MAKO-6.0.1"))
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_10326")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_10326/camera.ListView.lvl")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_156560/instaweather_vid_20141227_085331.ListView.lvl")
-        )
-        addCandidate(
-            neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/I9505XXUEMKF_4.3")
-        )
-        addCandidate(neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails"))
         confirm(create())
     }
 
@@ -1859,18 +1747,6 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testGoogleQuickSearchBox() = runTest {
-        addCandidate(
-            neg().pkgs("com.google.android.googlequicksearchbox").locs(PUBLIC_DATA)
-                .prefixFree("com.google.android.googlequicksearchbox/files/pending_blobs")
-        )
-        addCandidate(
-            pos().pkgs("com.google.android.googlequicksearchbox").locs(PUBLIC_DATA)
-                .prefixFree("com.google.android.googlequicksearchbox/files/pending_blobs/something")
-        )
-        confirm(create())
-    }
-
     @Test fun testGuruVideoMaker() = runTest {
         addCandidate(
             neg().pkgs("videoeditor.videomaker.videoeditorforyoutube").locs(PUBLIC_DATA)
@@ -1941,12 +1817,6 @@ class HiddenFilterTest : BaseFilterTest() {
             pos().pkgs("breastenlarger.bodyeditor.photoeditor").prefixFree("Body Editor/.tattooTemp/something")
                 .locs(SDCARD)
         )
-        confirm(create())
-    }
-
-    @Test fun testSamsungMyFilesThumbnails() = runTest {
-        addCandidate(neg().pkgs("com.sec.android.app.myfiles").locs(SDCARD).prefixFree("Movies/.thumbnails"))
-        addCandidate(pos().pkgs("com.sec.android.app.myfiles").locs(SDCARD).prefixFree("Movies/.thumbnails/something"))
         confirm(create())
     }
 
@@ -2121,14 +1991,6 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testMovieFx() = runTest {
-        addCandidate(neg().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs"))
-        addCandidate(pos().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs/test"))
-        addCandidate(neg().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFXtmp"))
-        addCandidate(pos().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFXtmp.mp4"))
-        confirm(create())
-    }
-
     @Test fun testInstashot() = runTest {
         addCandidate(
             neg().pkgs("com.camerasideas.instashot").locs(PUBLIC_DATA)
@@ -2193,29 +2055,12 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testMiuiPlayer() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.player").locs(SDCARD).prefixFree("MIUI/music/album/.player_thumb"))
-        addCandidate(
-            pos().pkgs("com.miui.player").locs(SDCARD).prefixFree("MIUI/music/album/.player_thumb/file")
-        )
-        confirm(create())
-    }
-
     @Test fun testMIUIGallery() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("DCIM/Creative/temp"))
-        addCandidate(pos().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("DCIM/Creative/temp/file"))
-        confirm(create())
-    }
-
-    @Test fun testMIUIVideoThumbs() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.videoplayer").locs(SDCARD).prefixFree("MIUI/Video/thumb/"))
-        addCandidate(
-            pos().pkgs("com.miui.videoplayer").locs(SDCARD)
-                .prefixFree("MIUI/Video/thumb/6ba49cfe32916e890491ee101f97424d.thumb")
-        )
+        neg("com.miui.gallery", SDCARD, "DCIM/Creative/temp")
+        pos("com.miui.gallery", SDCARD, "DCIM/Creative/temp/file")
+        neg("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.cache")
+        pos("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.cache/$rngString")
         confirm(create())
     }
 
@@ -2256,14 +2101,49 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testMiuiMsaGlobal() = runTest {
+    @Test fun `vimages cache`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.miui.msa.global").locs(PUBLIC_DATA).prefixFree("com.miui.msa.global/filescache")
+        neg("com.vimage.android", SDCARD, "Movies/movie.mp4")
+        neg("com.vimage.android", SDCARD, "Movies/Vimages/selfie.jpg")
+        neg("com.vimage.android", SDCARD, "Movies/Vimages/.data")
+        pos("com.vimage.android", SDCARD, "Movies/Vimages/.data/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `xiaomi fast connect cache`() = runTest {
+        addDefaultNegatives()
+        neg("com.xiaomi.bluetooth", SDCARD, "Download/MiuiFastConnect")
+        pos("com.xiaomi.bluetooth", SDCARD, "Download/MiuiFastConnect/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `movie fx`() = runTest {
+        neg("tv.waterston.movieridefx", SDCARD, "MovieRideFXtmp")
+        pos("tv.waterston.movieridefx", SDCARD, "MovieRideFXtmp.mp4")
+        confirm(create())
+    }
+
+    @Test fun `winrar temp files`() = runTest {
+        neg("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_1")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_2")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_closed_2")
+        pos("com.rarlab.rar", PUBLIC_DATA, "com.rarlab.rar/files/_rartemp_open_123456789")
+        confirm(create())
+    }
+
+    @Test fun `quicksearchbox blobs`() = runTest {
+        neg(
+            "com.google.android.googlequicksearchbox",
+            PUBLIC_DATA,
+            "com.google.android.googlequicksearchbox/files/pending_blobs"
         )
-        addCandidate(
-            pos().pkgs("com.miui.msa.global").locs(PUBLIC_DATA)
-                .prefixFree("com.miui.msa.global/filescache/something")
+        pos(
+            "com.google.android.googlequicksearchbox",
+            PUBLIC_DATA,
+            "com.google.android.googlequicksearchbox/files/pending_blobs/something"
         )
         confirm(create())
     }

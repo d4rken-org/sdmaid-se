@@ -104,7 +104,7 @@
     <string name="setup_manage_storage_card_body2">Basic access to public storage, e.g. "Download/" and "DCIM/", but not always "Android/data".</string>
 
     <string name="setup_root_card_title">Root access</string>
-    <string name="setup_root_card_body">Should SD Maid use root access if it is available to check additional system folders and private application data.</string>
+    <string name="setup_root_card_body">Should SD Maid use root access if it is available? Root access can be used to check additional system folders and private application data.</string>
     <string name="setup_root_enable_root_use_label">Use root access if available</string>
     <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
@@ -123,8 +123,6 @@
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. clicking \"Clear cache\" on multiple screens.</string>
     <string name="setup_acs_card_body2">SD Maid will not use the accessibility service without your consent, will always display a prominent (cancelable) indicator while active and will not use it to collect information.</string>
-    <string name="setup_acs_allow">Accessibility service is enabled</string>
-    <string name="setup_acs_disallow">Accessibility service is enabled</string>
     <string name="setup_acs_state_enabled">Accessibility service is enabled</string>
     <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
     <string name="setup_acs_state_running">Accessibility service is running</string>
@@ -251,7 +249,7 @@
     <string name="appcleaner_include_systemapps_label">Include system apps</string>
     <string name="appcleaner_include_systemapps_summary">Include system apps in the scan.</string>
     <string name="appcleaner_include_runningapps_label">Include running apps</string>
-    <string name="appcleaner_include_runningapps_summary">Include apps that are currently running which make cause interference.</string>
+    <string name="appcleaner_include_runningapps_summary">Include apps that are currently running which may cause interference.</string>
     <string name="appcleaner_include_inaccessible_label">Include inaccessible data</string>
     <string name="appcleaner_include_inaccessible_summary">Include data that can\'t be accessed directly but can be deleted via system settings and automated using an accessibility service. </string>
     <string name="appcleaner_include_multiuser_label">Include other users</string>
@@ -270,6 +268,8 @@
     <string name="appcleaner_filter_analytics_summary">Analytics related data, e.g. cached stats for what you click in an app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Hidden caches</string>
     <string name="appcleaner_filter_hiddencaches_summary">General purpose caches stored outside of the systems reach.</string>
+    <string name="appcleaner_filter_thumbnails_label">Media thumbnails</string>
+    <string name="appcleaner_filter_thumbnails_summary">Image, video and audio preview thumbnail pictures.</string>
     <string name="appcleaner_filter_gamefiles_label">Game files</string>
     <string name="appcleaner_filter_gamefiles_summary">Game related resources that the game would reload on next launch if necessary.</string>
     <string name="appcleaner_filter_offlinecache_label">Offline cache</string>
@@ -319,9 +319,13 @@
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">Launch app</string>
-    <string name="appcontrol_app_launch_description">Launch this app\'s primary activity</string>
     <string name="appcontrol_app_uninstall_title">Uninstall app</string>
     <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
+    <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
+    <string name="appcontrol_app_exclude_add_title">Exclude app</string>
+    <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edit exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">This app is currently excluded from one or more tools.</string>
     <string name="appcontrol_tag_user">User</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
@@ -347,6 +351,7 @@
     <string name="exclusion_add_new_hint">Add new exclusions by first letting SD Maid search and then using the context menu on the result you want to exclude.</string>
     <string name="exclusion_type_package">App exclusion</string>
     <string name="exclusion_type_path">Path exclusion</string>
+    <string name="exclusion_tags_alltools">All tools</string>
 
     <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nExample: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force Stop\' button and click it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nNo actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>

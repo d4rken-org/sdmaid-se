@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Патрабуецца SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Абнавіць SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro прапануе лепшыя рэзультаты, больш функцый і опцый для дасведчаных карыстальнікаў.</string>
+    <string name="upgrades_dashcard_upgrade_action">Абнавіць</string>
+    <string name="upgrades_gplay_unavailable_error">Службы Google Play недаступны.</string>
+    <string name="upgrades_no_purchases_found_check_account">Пакупак не знойдзена. Вы выкарыстоўваеце правільны ўліковы запіс?</string>
+    <string name="upgrade_screen_title">Атрымаць SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid не мае рэкламы і не прадае даныя карыстальнікаў. Мая праца фінансуецца вамі.</string>
+    <string name="upgrade_screen_benefits_title">Перавагі</string>
+    <string name="upgrade_screen_benefits_body">• Ачыстка праграм 💯\n• Запланаваныя аперацыі ⏰\n• Дадатковыя параметры для ўсіх інструментаў ⚙️\n• Карыстальніцкія правілы выдалення ✍️\n• Матываваны распрацоўшчык 🧙\nі шмат чаго іншага…</string>
+    <string name="upgrade_screen_how_title">Варыянты</string>
+    <string name="upgrade_screen_how_body">У вас ёсць 2 варыянты: аднаразовая пакупка або больш танная гадавая падпіска. Падпіска мае бясплатную пробную версію. Функцыі, якія вы атрымліваеце, аднолькавыя, адрозніваюцца толькі спосабы аплаты.</string>
+    <string name="upgrade_screen_subscription_trial_action">Пачаць бясплатны пробны перыяд</string>
+    <string name="upgrade_screen_subscription_action">Падпісацца</string>
+    <string name="upgrade_screen_subscription_action_hint">Падпіска каштуе %s у год.</string>
+    <string name="upgrade_screen_iap_action">Аднаразовая пакупка</string>
+    <string name="upgrade_screen_iap_action_hint">Аднаразовая пакупка каштуе %s.</string>
+    <string name="upgrade_screen_thanks_toast">Вы найлепшы! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Разам мы дайшлі да першага выпуску! Дзякуй за дапамогу! Распрацоўка, вядома, будзе працягвацца, але цяпер, калі захочаце, вы можаце пераключыцца на больш стабільныя зборкі. Зрабіць гэта можна, адмовіўшыся ад тэсціравання ў Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Невялікая заўвага: ацэнкі, выстаўленыя падчас тэсціравання, бачныя толькі мне. Буду ўдзячны за публічную ацэнку SD Maid, калі вам усё спадабалася.</string>
+    <string name="nudge_betagoodbye_positive_action">Адмовіцца ад удзелу</string>
+    <string name="nudge_betagoodbye_negative_action">Працягнуць тэсціраванне</string>
+</resources>

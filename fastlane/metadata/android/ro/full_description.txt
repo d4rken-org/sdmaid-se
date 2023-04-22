@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> este o servitoare de încredere pentru dispozitivul tău Android, de a ține curat și ordonat.
+
+Nimeni nu este perfect și nici Android nu este.
+* Aplicațiile pe care le-ai eliminat deja lasă ceva în spatele lor.
+* Jurnalele, rapoarte de blocaj și alte fișiere pe care nu le doreai sunt create constant.
+* Stocarea ta colectează fișiere și directoare pe care nu le recunoști.
+
+Hai să nu mergem aici... Lasă SD Maid SE să te ajute:
+
+* Curăță date din aplicații deja dezinstalate
+* Găsește cache-uri ascunse de la aplicații
+* Elimină fișiere de sistem superfluu
+
+SD Maid SE este fără reclame. Unele funcții necesită o actualizare plătită.
+
+SD Maid 2/SE este succesorul lui SD Maid 1/Legacy.
+Optimizat pentru versiuni noi de Android și concentrat pe curățare.
+
+SD Maid SE are funcții opționale care utilizează AccessibilityService API pentru a automatiza acțiuni plictisitoare.
+Folosind AccessibilityService API, SD Maid SE poate să apese pe butoane pentru tine pentru a performa operații pe aplicații multiple, de ex. ștergerea cachelui.
+SD Maid SE nu utilizează AccessibilityService API pentru a colecta informații.

@@ -22,12 +22,12 @@ class LaunchActionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val appInfo = item.appInfo
 
-        root.setOnClickListener { item.onItemClicked(appInfo) }
+        itemView.setOnClickListener { item.onLaunch(appInfo) }
     }
 
     data class Item(
         val appInfo: AppInfo,
-        val onItemClicked: (AppInfo) -> Unit,
+        val onLaunch: (AppInfo) -> Unit,
     ) : AppActionAdapter.Item {
 
         override val stableId: Long = this::class.java.hashCode().toLong()

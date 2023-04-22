@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_delete_all_message">すべてのツールの結果を削除しますか？</string>
     <string name="dashboard_settings_category">ダッシュボード</string>
     <string name="dashboard_settings_oneclick_title">ワンクリックモード</string>
     <string name="debug_debuglog_size_label">サイズ</string>
     <string name="debug_notification_channel_label">デバッグの通知</string>
+    <string name="debug_debuglog_file_label">記録されたログファイル</string>
+    <string name="debug_debuglog_record_action">デバッグログの記録</string>
     <string name="tasks_activity_notification_channel_label">アクティブなタスク</string>
     <string name="tasks_activity_working_notification_title">SD Maidは稼動中です</string>
     <string name="tasks_result_notification_channel_label">タスクの結果</string>
@@ -31,19 +34,20 @@
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="support_installid_label">インストールID</string>
     <string name="support_debuglog_label">デバッグログ</string>
-    <string name="discord_label">破棄</string>
+    <string name="discord_label">Discord</string>
     <string name="changelog_label">更新履歴</string>
+    <string name="settings_acknowledgements_label">謝辞</string>
     <string name="setup_label">セットアップ</string>
     <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させるとより良い結果が得られます。</string>
     <string name="setup_incomplete_card_continue_action">セットアップを続行</string>
     <string name="setup_title">セットアップ</string>
     <string name="setup_manage_storage_card_title">ストレージの管理</string>
     <string name="setup_root_card_title">Rootアクセス</string>
+    <string name="setup_root_enable_root_use_label">もし可能ならrootアクセスを使用する</string>
     <string name="setup_root_disable_root_use_label">Rootアクセスを使用しない</string>
     <string name="setup_permission_granted_label">権限は許可されています</string>
+    <string name="setup_usagestats_title">使用状況の統計</string>
     <string name="setup_notification_title">通知</string>
-    <string name="setup_acs_allow">アクセシビリティサービスは有効です。</string>
-    <string name="setup_acs_disallow">アクセシビリティサービスは有効です。</string>
     <string name="setup_acs_state_enabled">アクセシビリティサービスは有効です。</string>
     <string name="setup_acs_state_disabled">アクセシビリティサービスは無効です。</string>
     <string name="setup_acs_state_running">アクセシビリティサービスは実行中です。</string>
@@ -84,10 +88,15 @@
     <string name="appcleaner_filter_offlinecache_label">オフラインキャッシュ</string>
     <string name="appcleaner_filter_recyclebins_label">ごみ箱</string>
     <string name="appcleaner_filter_webview_label">Webviewのファイル</string>
+    <string name="appcleaner_filter_telegram_label">Telegram メディアファイル</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcontrol_toggle_app_enable_action">アプリを有効化</string>
     <string name="appcontrol_toggle_app_disable_action">アプリを無効化</string>
     <string name="appcontrol_appstore_open_title">アプリストアを開く</string>
     <string name="appcontrol_systemsettings_open_title">設定を表示</string>
+    <string name="appcontrol_tag_user">ユーザー</string>
+    <string name="appcontrol_tag_system">システム</string>
+    <string name="appcontrol_tag_enabled">有効</string>
     <string name="appcontrol_list_sortmode_name_label">アプリ名</string>
     <string name="appcontrol_list_sortmode_packagename_label">パッケージ名</string>
     <string name="data_area_sdcard_label">SDカード</string>
@@ -101,6 +110,7 @@
     <string name="scheduler_schedule_toggle_enabled">スケジュールは有効です</string>
     <string name="scheduler_schedule_toggle_disabled">スケジュールは無効です</string>
     <string name="scheduler_edit_schedule_action">スケジュールを編集</string>
-    <string name="updates_dashcard_title">アップデートが可能です</string>
+    <string name="scheduler_setting_nopowersaving_title">低バッテリー時はスキップする</string>
+    <string name="updates_dashcard_title">アップデートが利用可能です</string>
     <string name="translation_encourage_title">SD Maidを翻訳</string>
 </resources>

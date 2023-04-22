@@ -45,8 +45,6 @@ class HiddenFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): Boolean {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
-
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
             return false
         }
@@ -121,7 +119,6 @@ class HiddenFilter @Inject constructor(
 
     companion object {
         private val HIDDEN_CACHE_FOLDERS: Collection<String> = listOf(
-            "thumbs",
             ".cache",
             "tmp", ".tmp",
             "tmpdata", "tmp-data", "tmp_data",
@@ -129,7 +126,6 @@ class HiddenFilter @Inject constructor(
             ".temp", "temp",
             "tempdata", "temp-data", "temp_data",
             ".tempdata", ".temp-data", ".temp_data",
-            ".thumbnails",
             "cache", "_cache", "-cache",
             "imagecache", "image-cache", "image_cache",
             ".imagecache", ".image-cache", ".image_cache",

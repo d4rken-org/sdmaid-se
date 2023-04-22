@@ -16,8 +16,8 @@
     <string name="upgrade_screen_sponsor_action_hint">Alternatywą są reklamy, analityka i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Dziękuję za wsparcie dla rozwoju oprogramowania open-source ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Razem osiągnęliśmy pierwszą wersję! Dziękuję za pomoc w testowaniu! Praca nad tą aplikacją oczywiście będzie kontynuowana, ale jeśli chcesz, możesz teraz przełączyć się na bardziej stabilne wersje. Możesz to zrobić, pobierając najnowsze stabilne wydanie.</string>
-    <string name="nudge_betagoodbye_hint">Mała uwaga: Oceny udzielone podczas testów są widoczne tylko dla mnie. Byłbym wdzięczny, gdybyś wystawił/a publiczną ocenę SD Maid, jeśli jesteś zadowolony/a.</string>
+    <string name="nudge_betagoodbye_body">Razem udało nam się przygotować pierwszą wersję! Dziękuję za pomoc w testowaniu! Praca nad aplikacją oczywiście będzie kontynuowana, ale jeśli chcesz, możesz teraz przełączyć się na stabilną wersję. Możesz to zrobić, pobierając najnowsze stabilne wydanie.</string>
+    <string name="nudge_betagoodbye_hint">Mała uwaga: Oceny udzielone podczas testów są widoczne tylko dla mnie. Byłbym wdzięczny, gdybyś wystawił publiczną ocenę SD Maid, jeśli jesteś zadowolony.</string>
     <string name="nudge_betagoodbye_positive_action">Opuść</string>
     <string name="nudge_betagoodbye_negative_action">Kontynuuj testowanie</string>
 </resources>

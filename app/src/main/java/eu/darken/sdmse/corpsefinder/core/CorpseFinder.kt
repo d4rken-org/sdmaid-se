@@ -256,7 +256,7 @@ class CorpseFinder @Inject constructor(
             path = corpse.path,
             tags = setOf(Exclusion.Tag.CORPSEFINDER),
         )
-        exclusionManager.add(exclusion)
+        exclusionManager.save(exclusion)
 
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(

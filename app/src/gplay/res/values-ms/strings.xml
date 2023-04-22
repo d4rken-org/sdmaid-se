@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Memerlukan SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Naikkan taraf SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak ciri dan pilihan untuk pengguna berkuasa.</string>
+    <string name="upgrades_dashcard_upgrade_action">Naik taraf</string>
+    <string name="upgrades_gplay_unavailable_error">Perkhidmatan Google Play tidak tersedia.</string>
+    <string name="upgrades_no_purchases_found_check_account">Tiada pembelian ditemui. Adakah anda menggunakan akaun yang betul?</string>
+    <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda.</string>
+    <string name="upgrade_screen_benefits_title">Kelebihan</string>
+    <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\dan banyak lagi…</string>
+    <string name="upgrade_screen_how_title">Pilihan</string>
+    <string name="upgrade_screen_how_body">Anda mempunyai 2 pilihan: Pembelian sekali atau langganan tahunan yang lebih murah. Langganan mempunyai percubaan percuma. Ciri yang anda dapat adalah sama, cuma kaedah pembayaran sahaja yang berbeza.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan percuma</string>
+    <string name="upgrade_screen_subscription_action">Langgan</string>
+    <string name="upgrade_screen_subscription_action_hint">Kos langganan %s setahun.</string>
+    <string name="upgrade_screen_iap_action">Belian sekali</string>
+    <string name="upgrade_screen_iap_action_hint">Kos pembelian sekali ialah %s.</string>
+    <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Bersama-sama, kita berjaya mencapai pelancaran pertama! Terima kasih kerana membantu saya! Pembangunan sudah tentu akan diteruskan, tetapi anda kini boleh bertukar kepada binaan yang lebih stabil, jika anda mahu. Lakukan ini dengan menarik diri daripada ujian di Google Play.</string>
+</resources>

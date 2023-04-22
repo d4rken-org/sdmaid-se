@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="general_thank_you_label">Raxmet</string>
+    <string name="general_error_empty_result_msg">Bos nátiyje.</string>
     <string name="general_share_action">Bólisiw</string>
     <string name="general_done_action">Tayar</string>
     <string name="general_copy_action">Kóshirip alıw</string>
@@ -23,12 +25,22 @@
     <string name="general_refresh_action">Jańalaw</string>
     <string name="general_progress_searching">Izlenbekte</string>
     <string name="general_progress_loading">Júklenbekte</string>
+    <string name="general_help_action">Járdem</string>
+    <string name="general_continue">Dawam etiw</string>
+    <string name="general_progress_queued">Gezekte</string>
+    <string name="general_progress_deleting">%s óshirilmekte</string>
+    <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
+    <string name="general_clean_confirmation_title">Tazalawdı tastıyıqlaw</string>
+    <string name="general_clean_confirmation_message_x">\"%s\" tazalansın ba?</string>
     <string name="general_search_action">Izlew</string>
+    <string name="x_space_can_be_freed">%s bosatılıwı múmkin</string>
     <string name="general_info_label">Maǵlıwmat</string>
     <string name="general_app_label">Baǵdarlama</string>
-    <string name="general_more_infos_action">Kóbirek maǵlıwmat</string>
     <string name="general_path_label">Jol</string>
     <string name="general_type_label">Túr</string>
+    <string name="general_size_label">Kólem</string>
+    <string name="general_device_label">Qurılma</string>
     <string name="general_settings_title">Sazlawlar</string>
     <string name="general_help_title">Járdem</string>
     <string name="file_type_symbolic_link">Silteme</string>

@@ -42,9 +42,9 @@ class AppJunkDetailsFragmentVM @Inject constructor(
     val state = appCleaner.data
         .filterNotNull()
         .distinctUntilChangedBy { junks -> junks.junks.map { it.identifier }.toSet() }
-        .map {
+        .map { data ->
             State(
-                items = it.junks.toList(),
+                items = data.junks.sortedByDescending { it.size },
                 target = args.identifier,
             )
         }

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.forensics.generic
+package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import dagger.Binds
 import dagger.Module

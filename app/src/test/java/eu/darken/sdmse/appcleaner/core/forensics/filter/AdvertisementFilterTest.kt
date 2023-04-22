@@ -21,7 +21,8 @@ class AdvertisementFilterTest : BaseFilterTest() {
     }
 
     private fun create() = AdvertisementFilter(
-        jsonBasedSieveFactory = createJsonSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory(),
+        environment = storageEnvironment,
     )
 
     @Test fun testAnalyticsFilterMologiq() = runTest {
@@ -159,10 +160,16 @@ class AdvertisementFilterTest : BaseFilterTest() {
     }
 
     @Test fun testZCamera() = runTest {
-        addCandidate(neg().pkgs("com.jb.zcamera").locs(PUBLIC_OBB).prefixFree("com.jb.zcamera/GoAdSdk/advert"))
-        addCandidate(
-            pos().pkgs("com.jb.zcamera").locs(PUBLIC_OBB).prefixFree("com.jb.zcamera/GoAdSdk/advert/cacheFile")
-        )
+        neg("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk")
+        pos("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk/advert")
+        pos("com.jb.zcamera", PUBLIC_OBB, "com.jb.zcamera/GoAdSdk/advert/cacheFile")
+        confirm(create())
+    }
+
+    @Test fun `general GoAdSdk test`() = runTest {
+        neg(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk")
+        pos(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk/advert")
+        pos(testPkg, PUBLIC_OBB, "com.jb.beautycam/GoAdSdk/advert/cacheFile")
         confirm(create())
     }
 
@@ -227,6 +234,22 @@ class AdvertisementFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         addCandidate(neg().pkgs("com.quvideo.xiaoying").locs(SDCARD).prefixFree("data/.push"))
         addCandidate(pos().pkgs("com.quvideo.xiaoying").locs(SDCARD).prefixFree("data/.push_deviceid"))
+        confirm(create())
+    }
+
+    @Test fun `miui ad preload`() = runTest {
+        addDefaultNegatives()
+        neg("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filespush_ad_preload")
+        neg("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filessplash_preload")
+        pos("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filespush_ad_preload/$rngString")
+        pos("com.miui.msa.global", PUBLIC_DATA, "com.miui.msa.global/filessplash_preload/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `vast rtb ad caches`() = runTest {
+        addDefaultNegatives()
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/vast_rtb_cache")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/vast_rtb_cache/$rngString")
         confirm(create())
     }
 }

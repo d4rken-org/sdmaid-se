@@ -69,14 +69,6 @@
 	}, {
 	  "fileFilter": [
 		{
-		  "locations": ["PUBLIC_OBB"],
-		  "contains": ["com.jb.zcamera/GoAdSdk/advert/"],
-		  "patterns": ["^(?:com\\.jb\\.zcamera/GoAdSdk/advert/)(?:.+?)$"]
-		}
-	  ]
-	}, {
-	  "fileFilter": [
-		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.scoompa.faceeditor/files/ads/"],
 		  "patterns": ["^(?:com\\.scoompa\\.faceeditor/files/ads/)(?:.+?)$"]
@@ -135,6 +127,21 @@
 		  "patterns": [
 			"^(?:data/\\.push_deviceid)$",
 			"^(?:data/\\.push_udid)$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.miui.msa.global"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [
+			"com.miui.msa.global/filessplash_preload",
+			"com.miui.msa.global/filespush_ad_preload"
+		  ],
+		  "patterns": [
+			"^com.miui.msa.global/filessplash_preload/.+?$",
+			"^com.miui.msa.global/filespush_ad_preload/.+?$"
 		  ]
 		}
 	  ]

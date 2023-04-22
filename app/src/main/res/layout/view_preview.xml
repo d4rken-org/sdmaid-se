@@ -23,7 +23,7 @@
         android:padding="2dp"
         app:lottie_autoPlay="true"
         app:lottie_colorFilter="?colorOnBackground"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/anim_loading_circle" />
+        app:lottie_fileName="lottie/anim_loading_circle.json"
+        app:lottie_loop="true" />
 
 </merge>

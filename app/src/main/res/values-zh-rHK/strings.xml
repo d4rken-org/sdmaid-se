@@ -87,7 +87,7 @@
     <string name="setup_manage_storage_card_body">允許 SD 女僕管理您的儲存空間。</string>
     <string name="setup_manage_storage_card_body2">對公用儲存空間的基本存取，例如「Download/」和「DCIM/」，但不一定都是「Android/data」。</string>
     <string name="setup_root_card_title">Root 存取</string>
-    <string name="setup_root_card_body">如果可以檢查額外的系統資料夾和私人應用程式資料，SD 女僕應該使用 Root 存取權。</string>
+    <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
     <string name="setup_root_enable_root_use_label">使用 Root 存取 (如果可用)</string>
     <string name="setup_root_disable_root_use_label">不要使用 Root 存取</string>
     <string name="setup_root_card_body2">僅適用於已 Root 的裝置。如果您的裝置並未作此修改，那麼您的裝置並未被 Root，這個設定就不會有任何作用。</string>
@@ -102,8 +102,6 @@
     <string name="setup_acs_card_title">無障礙服務</string>
     <string name="setup_acs_card_body">無障礙服務允許 SD 女僕與您的畫面進行互動，並使乏味的動作自動化，例如在多個畫面上按下「清除快取」。</string>
     <string name="setup_acs_card_body2">未經您同意之下，SD 女僕不會使用無障礙服務，在啟用時將一律顯示為一個顯著的 (可取消) 指示器，並且不會用它來收集資訊。</string>
-    <string name="setup_acs_allow">無障礙服務已啟用</string>
-    <string name="setup_acs_disallow">無障礙服務已啟用</string>
     <string name="setup_acs_state_enabled">無障礙服務已啟用</string>
     <string name="setup_acs_state_disabled">無障礙服務已停用</string>
     <string name="setup_acs_state_running">無障礙服務正在執行</string>
@@ -127,7 +125,7 @@
     <string name="settings_category_filter">過濾器</string>
     <string name="settings_category_risklevel">風險層級</string>
     <string name="corpsefinder_tool_name">殘骸尋檢器</string>
-    <string name="corpsefinder_explanation_short">屬於已移除的應用程式的資料。</string>
+    <string name="corpsefinder_explanation_short">屬於已移除應用程式的資料。</string>
     <string name="corpsefinder_settings_summary">調整掃描過濾器和風險層級。</string>
     <string name="corpsefinder_settings_risk_keeper_title">包含合理的殘餘項目</string>
     <string name="corpsefinder_settings_risk_keeper_summary">您可能想要保留的檔案，即使這個應用程式已被解除安裝，例如您拍攝的相片和您建立的備份。</string>
@@ -227,6 +225,10 @@
     <string name="appcleaner_include_inaccessible_summary">包含無法直接存取但可以透過系統設定和自動使用無障礙服務刪除的資料。 </string>
     <string name="appcleaner_include_multiuser_label">包含其他用戶</string>
     <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他用戶設定檔的應用程式。</string>
+    <string name="appcleaner_include_minimumsize_label">最小大小</string>
+    <string name="appcleaner_include_minimumsize_summary">跳過可展開資料總和低於最小大小的應用程式。</string>
+    <string name="appcleaner_include_minimumage_label">最小期限</string>
+    <string name="appcleaner_include_minimumage_summary">跳過存在時間低於最小期限的檔案。</string>
     <string name="appcleaner_filter_codecache_label">程式碼快取</string>
     <string name="appcleaner_filter_codecache_summary">JVM 程式碼快取，被編譯為機器碼的位元組程式碼區塊。</string>
     <string name="appcleaner_filter_advertisement_label">廣告資料</string>
@@ -237,6 +239,8 @@
     <string name="appcleaner_filter_analytics_summary">與分析相關的資料，例如您在一個應用程式中進行動作而快取的統計資料。</string>
     <string name="appcleaner_filter_hiddencaches_label">已隱藏的快取</string>
     <string name="appcleaner_filter_hiddencaches_summary">儲存在系統可及範圍之外的一般用途快取。</string>
+    <string name="appcleaner_filter_thumbnails_label">媒體縮圖</string>
+    <string name="appcleaner_filter_thumbnails_summary">圖像、影片和音訊預覽縮圖圖片。</string>
     <string name="appcleaner_filter_gamefiles_label">遊戲檔案</string>
     <string name="appcleaner_filter_gamefiles_summary">與遊戲相關的資源，如果有必要，遊戲將在下次啟動時重新載入。</string>
     <string name="appcleaner_filter_offlinecache_label">離線快取</string>
@@ -345,7 +349,7 @@
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用的更新項目。您已安裝 %1$s，而最新版本為 %2$s。</string>
     <string name="translation_encourage_title">翻譯 SD 女僕</string>
-    <string name="translation_encourage_body">SD 女僕由志工翻譯，無論是翻譯、審閱、還是校對，都非常感謝您的協助！</string>
+    <string name="translation_encourage_body">SD 女僕由義工翻譯，無論是翻譯、審閱、還是校對，都非常感謝您的協助！</string>
     <string name="translation_translators_title">此版本的翻譯人員：</string>
     <string name="translation_translators_people">Adeptus2</string>
 </resources>

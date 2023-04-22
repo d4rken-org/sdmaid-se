@@ -180,7 +180,7 @@ class SystemCleaner @Inject constructor(
             path = target,
             tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
         )
-        exclusionManager.add(exclusion)
+        exclusionManager.save(exclusion)
 
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(

@@ -93,6 +93,7 @@ class PublicDataCSI @Inject constructor(
             // some devs just don't know better
             name.substring(1)
         }
+        name.endsWith(":remote") -> name.removeSuffix(":remote")
         else -> null
     }
 

@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Limpar &amp; limpo.</string>
     <string name="slogan_message_2">Evitando o caos.</string>
     <string name="slogan_message_3">Fazendo o que é necessário.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tudo em ordem e organizado.</string>
+    <string name="slogan_message_4">Tudo em ordem e organizado.</string>
     <string name="slogan_message_5">Impecável.</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: queria %1$s, mas obteve %2$s.</string>
@@ -88,7 +88,6 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">App</string>
-    <string name="general_more_infos_action">Mais informações</string>
     <string name="general_grant_access_action">Garantir acesso</string>
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>

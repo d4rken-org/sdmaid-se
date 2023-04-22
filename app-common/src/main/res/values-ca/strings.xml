@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Net i ordenat.</string>
     <string name="slogan_message_2">Prevenció del caos.</string>
     <string name="slogan_message_3">Fent el que cal.</string>
-    <string name="slogan_message_4" comment="slogan_message_4&#10;This is an english colloquialism, it does not have to be translated literally. You can translate it different to match a colloquialism in your native language.">Tot en ordre.</string>
+    <string name="slogan_message_4">Tot en ordre.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_error_type_mismatch_msg">Error tipogràfic: volíeu %1$s, però heu obtingut %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Elimina</string>
     <string name="general_wipe_action">Neteja</string>
     <string name="general_cancel_action">Cancel·la</string>
+    <string name="general_reset_action">Restableix</string>
     <string name="general_save_action">Desa</string>
     <string name="general_thanks_action">Gràcies</string>
     <string name="general_gotit_action">Entesos</string>
@@ -50,7 +51,7 @@
     <string name="general_progress_loading_app_data">Carregant les dades de l\'aplicació</string>
     <string name="general_progress_loading_data_areas">Carregant les àrees de dades</string>
     <string name="general_progress_loading_egg_0">Encara més ràpid que un iPhone</string>
-    <string name="general_progress_loading_egg_1">Alliberant més memòria RAM</string>
+    <string name="general_progress_loading_egg_1">Alliberant més RAM</string>
     <string name="general_progress_loading_egg_2">Aviat™</string>
     <string name="general_progress_loading_egg_3">La CPU està descansant per prendre un cafè</string>
     <string name="general_progress_loading_egg_4">A l\'espera de les dades de Pepe Silvia</string>
@@ -92,7 +93,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Compta</string>
     <string name="general_app_label">Aplicació</string>
-    <string name="general_more_infos_action">Més informació</string>
+    <string name="general_more_info_action">Més info</string>
     <string name="general_grant_access_action">Permet l\'accés</string>
     <string name="general_enable_service_action">Activa el servei</string>
     <string name="general_undo_action">Desfés</string>

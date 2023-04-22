@@ -94,15 +94,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["com.quickoffice.android"],
-	  "fileFilter": [
-		{
-		  "locations": ["PRIVATE_DATA"],
-		  "startsWith": ["com.quickoffice.android/files/"],
-		  "patterns": ["^(?:com\\.quickoffice\\.android\\/files\\/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
-		}
-	  ]
-	}, {
 	  "packages": ["com.google.android.apps.genie.geniewidget"],
 	  "fileFilter": [
 		{
@@ -237,19 +228,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["nextapp.fx"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": [".FX/CloudThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/CloudThumbnail\\/)([\\W\\w]+?)$"]
-		}, {
-		  "locations": ["SDCARD"],
-		  "startsWith": [".FX/ImageThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/ImageThumbnail\\/)([\\W\\w]+?)$"]
-		}
-	  ]
-	}, {
 	  "packages": [
 		"com.infraware.polarisoffice5tablet",
 		"com.infraware.polarisoffice.entbiz.gd",
@@ -350,24 +328,6 @@
 		}
 	  ]
 	}, {
-	  "packages": ["net.coollet.infzmreader"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["infzm/thumb_image/"],
-		  "patterns": ["^(?:infzm\\/thumb_image\\/)([\\W\\w]+)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.kascend.video"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["kascend/videoshow/.thumbcache/"],
-		  "patterns": ["^(?:kascend\\/videoshow\\/\\.thumbcache\\/)([\\W\\w]+)$"]
-		}
-	  ]
-	}, {
 	  "packages": ["com.telenav.doudouyou.android.autonavi"],
 	  "fileFilter": [
 		{
@@ -439,15 +399,6 @@
 			"^(?:com\\.ninegag\\.android\\.app\\/files\\/avatar\\/)([\\W\\w]+)$",
 			"^(?:com\\.ninegag\\.android\\.app\\/files\\/covers\\/)([\\W\\w]+)$"
 		  ]
-		}
-	  ]
-	}, {
-	  "packages": ["com.hashcode.walloid", "com.hashcode.walloidpro"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["Walloid/.Thumbnail/"],
-		  "patterns": ["^(?:Walloid\\/\\.Thumbnail\\/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -583,16 +534,6 @@
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.sec.android.gallery3d/Temp/"],
 		  "patterns": ["^(?:com\\.sec\\.android\\.gallery3d\\/Temp\\/)([0-9]+?)$"]
-		}
-	  ]
-	}, {
-	  "packages": ["com.sec.android.app.videoplayer"],
-	  "fileFilter": [
-		{
-		  "locations": ["SDCARD"],
-		  "startsWith": [".thumbnails/"],
-		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:\\.thumbnails\\/.+?\\/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -919,8 +860,8 @@
 	  "fileFilter": [
 		{
 		  "locations": ["PUBLIC_DATA"],
-		  "startsWith": ["com.google.android.googlequicksearchbox/files/pending_blobs/"],
-		  "patterns": ["^(?>com\\.google\\.android\\.googlequicksearchbox/files/pending_blobs/)([\\W\\w]+?)$"]
+		  "startsWith": ["com.google.android.googlequicksearchbox/files/pending_blobs"],
+		  "patterns": ["^com\\.google\\.android\\.googlequicksearchbox/files/pending_blobs/.+?$"]
 		}
 	  ]
 	}, {
@@ -1126,6 +1067,10 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["DCIM/Creative/temp"],
 		  "patterns": ["^(?:DCIM/Creative/temp/)(.+?)$"]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": ["MIUI/Gallery/cloud/.cache/"],
+		  "patterns": ["^(?:MIUI/Gallery/cloud/.cache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -1156,21 +1101,21 @@
 		}
 	  ]
 	}, {
-	  "packages": ["com.miui.player"],
+	  "packages": ["com.vimage.android"],
 	  "fileFilter": [
 		{
 		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/music/album/.player_thumb"],
-		  "patterns": ["^(?:MIUI/music/album/\\.player_thumb/)(.+?)$"]
+		  "startsWith": ["Movies/Vimages/.data"],
+		  "patterns": ["^(?:Movies/Vimages/.data/)(.+?)$"]
 		}
 	  ]
 	}, {
-	  "packages": ["com.miui.videoplayer"],
+	  "packages": ["com.xiaomi.bluetooth"],
 	  "fileFilter": [
 		{
 		  "locations": ["SDCARD"],
-		  "startsWith": ["MIUI/Video/thumb/"],
-		  "patterns": ["^(?:MIUI/Video/thumb/)(.+?)$"]
+		  "startsWith": ["Download/MiuiFastConnect"],
+		  "patterns": ["^(?:Download/MiuiFastConnect/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -1180,6 +1125,15 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["com.facemoji.lite.xiaomi/files/okhttp_cache"],
 		  "patterns": ["^(?>com\\.facemoji\\.lite\\.xiaomi/files/okhttp_cache)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.rarlab.rar"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["com.rarlab.rar/files/_rartemp_"],
+		  "patterns": ["^com\\.rarlab\\.rar/files/_rartemp_.+?$"]
 		}
 	  ]
 	}

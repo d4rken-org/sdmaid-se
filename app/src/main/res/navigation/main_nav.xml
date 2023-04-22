@@ -228,6 +228,10 @@
         <argument
             android:name="pkgId"
             app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+        <action
+            android:id="@+id/action_appActionDialog_to_exclusionActionDialog"
+            app:popUpTo="@id/appControlListFragment"
+            app:destination="@id/exclusionActionDialog" />
     </dialog>
     <fragment
         android:id="@+id/dataAreasFragment"
