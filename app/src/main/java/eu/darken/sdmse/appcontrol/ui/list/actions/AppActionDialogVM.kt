@@ -6,10 +6,7 @@ import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.appcontrol.core.AppControl
-import eu.darken.sdmse.appcontrol.core.AppInfo
-import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
-import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
+import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
 import eu.darken.sdmse.common.SingleLiveEvent
