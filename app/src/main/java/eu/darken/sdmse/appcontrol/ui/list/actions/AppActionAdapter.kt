@@ -26,6 +26,7 @@ class AppActionAdapter @Inject constructor() :
     init {
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is LaunchActionVH.Item }) { LaunchActionVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is UninstallActionVH.Item }) { UninstallActionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is ToggleActionVH.Item }) { ToggleActionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppStoreActionVH.Item }) { AppStoreActionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SystemSettingsActionVH.Item }) { SystemSettingsActionVH(it) })

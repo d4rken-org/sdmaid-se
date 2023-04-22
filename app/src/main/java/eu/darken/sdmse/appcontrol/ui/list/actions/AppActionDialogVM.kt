@@ -90,6 +90,14 @@ class AppActionDialogVM @Inject constructor(
             }
         )
 
+        val uninstallAction = UninstallActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = { info ->
+                println("Uninstalling $info")
+                info.uninstall(context)
+            }
+        )
+
         val existingExclusion = exclusionManager
             .currentExclusions()
             .filterIsInstance<Exclusion.Package>()
@@ -143,6 +151,7 @@ class AppActionDialogVM @Inject constructor(
             appInfo = appInfo,
             actions = listOfNotNull(
                 launchAction,
+                uninstallAction,
                 systemSettingsAction,
                 appStoreAction,
                 excludeAction,
