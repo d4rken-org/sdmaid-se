@@ -87,7 +87,7 @@
     <string name="setup_manage_storage_card_body">Izinkan SD Maid mengelola penyimpanan Anda.</string>
     <string name="setup_manage_storage_card_body2">Akses dasar ke penyimpanan publik, e.g. \"Download/\" dan \"DCIM/\", tetapi tidak selalu \"Android/data\".</string>
     <string name="setup_root_card_title">Akses root</string>
-    <string name="setup_root_card_body">Haruskah SD Maid menggunakan akses root jika tersedia untuk memeriksa folder sistem tambahan dan data aplikasi pribadi.</string>
+    <string name="setup_root_card_body">Haruskah SD Maid menggunakan akses root jika tersedia? Akses root dapat digunakan untuk memeriksa folder sistem tambahan serta data aplikasi pribadi.</string>
     <string name="setup_root_enable_root_use_label">Gunakan akses root jika tersedia</string>
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada perangkat yang di-root. Jika Anda belum melakukan pengubahan, maka perangkat Anda belum di-root dan pengaturan ini tidak berpengaruh.</string>
@@ -287,7 +287,11 @@
     <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
     <string name="appcontrol_systemsettings_open_description">Membuka info aplikasi ini di pengaturan sistem perangkat.</string>
     <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
-    <string name="appcontrol_app_launch_description">Jalankan aktivitas utama aplikasi ini</string>
+    <string name="appcontrol_app_launch_description">Jalankan aktivitas utama aplikasi ini.</string>
+    <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
+    <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Ubah pengecualian</string>
+    <string name="appcontrol_app_exclude_edit_description">Saat ini aplikasi ini dikecualikan dari satu atau lebih peralatan.</string>
     <string name="appcontrol_tag_user">Pengguna</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Diaktifkan</string>
@@ -311,6 +315,7 @@
     <string name="exclusion_add_new_hint">Tambah pengecualian baru dengan mengizinkan SD Maid mencari dan menggunakan konteks menu pada hasil yang ingin Anda kecualikan.</string>
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
     <string name="exclusion_type_path">Pengecualian lokasi</string>
+    <string name="exclusion_tags_alltools">Semua peralatan</string>
     <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan SD Maid mengotomatisasi tugas manual yang cukup merepotkan (misalnya penghapusan cache).\n\nContoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi maka SD Maid dapat menggunakan layanan ini untuk membuka setiap layar pengaturan aplikasi, cari tombol \'Paksa Berhenti\' dan menekannya.\n\nSD Maid akan selalu terlihat jelas saat menggunakan layanan ini dan memberikan cara mudah bagi pengguna untuk membatalkan interaksi apa pun.\n\nTidak ada tindakan yang akan dilakukan tanpa persetujuan pengguna. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>

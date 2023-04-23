@@ -89,7 +89,6 @@
     <string name="setup_manage_storage_card_body">SD मेड को अपना भण्डारण व्यवस्थित करने की अनुमति दें।</string>
     <string name="setup_manage_storage_card_body2">सार्वजनिक भंडारण के लिए बुनियादी पहुँच, उदाहरण \"डाउनलोड/\" और \"DCIM/\", लेकिन हमेशा \"एंड्रॉइड/डेटा\" नहीं।</string>
     <string name="setup_root_card_title">रूट तक पहुंच</string>
-    <string name="setup_root_card_body">क्या SD मेड को रूट तक पहुंच का उपयोग करना चाहिए, यदि यह अतिरिक्त सिस्टम फोल्डर और निजी एप्लिकेशन डेटा की जांच के लिए उपलब्ध है।</string>
     <string name="setup_root_enable_root_use_label">यदि उपलब्ध है तब रूट तक पहुंच का उपयोग करें</string>
     <string name="setup_root_disable_root_use_label">रूट तक पहुंच का उपयोग न करें</string>
     <string name="setup_root_card_body2">केवल रूट किए गए उपकरणों पर उपलब्ध है। यदि आपने यह संशोधन नहीं किया है, तो आपका डिवाइस रूट नहीं किया गया है और इस सेटिंग का कोई प्रभाव नहीं पड़ता है।</string>
@@ -286,7 +285,6 @@
     <string name="appcontrol_systemsettings_open_title">सेटिंग दिखाएं</string>
     <string name="appcontrol_systemsettings_open_description">इस ऐप्लिकेशन के लिए अपने डिवाइस की सिस्टम सेटिंग खोलें.</string>
     <string name="appcontrol_app_launch_title">ऐप खोलें</string>
-    <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
     <string name="appcontrol_tag_user">उपयोगकर्ता</string>
     <string name="appcontrol_tag_system">सिस्टम</string>
     <string name="appcontrol_tag_enabled">सक्षम</string>

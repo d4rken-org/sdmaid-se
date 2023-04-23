@@ -10,10 +10,24 @@
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
-    <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (cth. nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
-    <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan oleh aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (cth. nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai (mis. pembangun yang sedang menyelesaikan masalah).</string>
+    <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
+    <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan oleh aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai (misalnya, pembangun yang sedang menyelesaikan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">Satu
+%d tugasan aktif
+
+Lain-lain
+%d tugasan aktif</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">Satu
+%d tugasan dalam giliran
+
+Lain-lain
+%d giliran tugasan</item>
+    </plurals>
     <string name="tasks_result_notification_channel_label">Keputusan tugas</string>
     <string name="tasks_result_subtext">Keputusan tugas</string>
     <string name="onboarding_welcome_title">Selamat datang</string>
@@ -22,7 +36,7 @@
     <string name="onboarding_welcome_body_beta">Ini ialah binaan beta (ujian). Teruskan dengan rasa humor dan pelan sandaran. Sila laporkan isu yang anda hadapi.</string>
     <string name="onboarding_welcome_continue_action">Teruskan</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) ialah pengganti SD Maid. Apl baharu, dioptimumkan untuk Android moden.</string>
+    <string name="onboarding_versus_body1">SD Maid SE (dikenali juga, SD Maid 2) ialah pengganti SD Maid. Aplikasi baharu, dioptimumkan untuk Android moden.</string>
     <string name="onboarding_versus_body2">Seni bina pendahulunya berusia lebih 7 tahun dan tidak direka bentuk untuk cabaran versi Android yang lebih baharu. Reka bentuk semula yang lengkap diperlukan untuk meneruskan pembangunan.</string>
     <string name="onboarding_versus_body3">Pertimbangkan untuk bertukar kepada SD Maid SE untuk hasil yang lebih baik.</string>
     <string name="onboarding_versus_continue_action">Teruskan</string>
@@ -79,9 +93,9 @@
     <string name="setup_saf_missing_app_error">Aplikasi UI Dokumen tidak tersedia. Ia adalah aplikasi sistem terbina dalam dan harus tersedia pada semua peranti Android.</string>
     <string name="setup_manage_storage_card_title">Urus storan</string>
     <string name="setup_manage_storage_card_body">Benarkan SD Maid mengurus storan anda.</string>
-    <string name="setup_manage_storage_card_body2">Akses asas kepada storan awam, cth. \"Muat turun/\" dan \"DCIM/\", tetapi tidak selalu \"Android/data\".</string>
+    <string name="setup_manage_storage_card_body2">Akses asas kepada storan awam, contoh, \"Muat turun/\" dan \"DCIM/\", tetapi tidak selalu \"Android/data\".</string>
     <string name="setup_root_card_title">Akses root</string>
-    <string name="setup_root_card_body">Sekiranya SD Maid menggunakan akses root jika ia tersedia untuk menyemak folder sistem tambahan dan data aplikasi peribadi.</string>
+    <string name="setup_root_card_body">Perlukah SD Maid menggunakan akses root jika ia tersedia? Akses root boleh digunakan untuk menyemak folder sistem tambahan dan data aplikasi peribadi.</string>
     <string name="setup_root_enable_root_use_label">Gunakan akses root jika tersedia</string>
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada peranti di root. Jika anda tidak membuat pengubahsuaian ini, maka peranti anda tidak di root dan tetapan ini tidak mempunyai kesan.</string>
@@ -259,6 +273,13 @@ Lain-lain
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Menghantar atau menerima fail dalam perbualan dan detik WeChat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Bersihkan semua aplikasi?</string>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="other">Satu
+%d item boleh dibelanjakan ditemui
+
+Lain-lain
+%d item boleh dibelanjakan ditemui</item>
+    </plurals>
     <string name="appcleaner_automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
     <string name="appcleaner_automation_title">Automasi AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Mengosongkan cache lalai…</string>
@@ -269,6 +290,13 @@ Lain-lain
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">Satu
+%d aplikasi dikesan
+
+Lain-lain
+%d aplikasi dikesan</item>
+    </plurals>
     <string name="appcontrol_toggle_app_enable_action">Dayakan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nyahdayakan aplikasi</string>
     <string name="appcontrol_toggle_app_enable_description">Mendayakan aplikasi membolehkannya berjalan dan mungkin membuatkannya terlihat dalam pelancar anda jika ia mempunyai aktiviti.</string>
@@ -278,16 +306,25 @@ Lain-lain
     <string name="appcontrol_systemsettings_open_title">Tunjukkan tetapan</string>
     <string name="appcontrol_systemsettings_open_description">Buka tetapan sistem peranti anda untuk aplikasi ini.</string>
     <string name="appcontrol_app_launch_title">Lancarkan aplikasi</string>
-    <string name="appcontrol_app_launch_description">Lancarkan aktiviti utama aplikasi ini</string>
+    <string name="appcontrol_app_exclude_add_title">Singkir aplikasi</string>
+    <string name="appcontrol_app_exclude_add_description">Asingkan aplikasi ini daripada operasi lain dalam SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edit pengecualian</string>
+    <string name="appcontrol_app_exclude_edit_description">Buat masa ini aplikasi ini dikecualikan daripada satu atau lebih alatan.</string>
     <string name="appcontrol_tag_user">Pengguna</string>
+    <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_enabled">Didayakan</string>
     <string name="appcontrol_tag_disabled">Dinyahdayakan</string>
     <string name="appcontrol_progress_enabling_package">Mendayakan aplikasi</string>
     <string name="appcontrol_progress_disabling_package">Menyahdayakan aplikasi</string>
     <string name="appcontrol_list_filteroptions_label">Pilihan penapis</string>
+    <string name="appcontrol_list_sortmode_name_label">Nama aplikasi</string>
     <string name="appcontrol_list_sortmode_updated_label">Kemas kini terakhir pada</string>
     <string name="appcontrol_list_sortmode_installed_label">Kali pertama dipasang di</string>
     <string name="appcontrol_list_sortmode_packagename_label">Packagename</string>
     <string name="data_area_public_app_data_official_label">Data Aplikasi Awam Lalai</string>
+    <string name="data_area_public_storage_label">Storan awam</string>
+    <string name="data_area_sdcard_label">Kad-SD</string>
+    <string name="data_areas_label">Kawasan data</string>
     <string name="data_areas_description">Kawasan data mewakili lokasi pada peranti anda yang boleh diakses oleh SD Maid. Kawasan data yang berbeza mungkin tersedia bergantung pada versi Android anda dan kebenaran yang telah diberikan.</string>
     <string name="data_areas_short_summary">Kawasan yang boleh diakses oleh SD Maid berdasarkan kebenaran yang diberikan pada masa ini.</string>
     <string name="exclusion_manager_title">Pengurus pengecualian</string>
@@ -296,15 +333,22 @@ Lain-lain
     <string name="exclusion_add_new_hint">Tambahkan pengecualian baharu dengan terlebih dahulu membenarkan SD Maid mencari dan kemudian menggunakan menu konteks pada hasil yang ingin anda kecualikan.</string>
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
     <string name="exclusion_type_path">Pengecualian laluan</string>
+    <string name="exclusion_tags_alltools">Semua alatan</string>
+    <string name="automation_accessibility_service_description">Pengguna yang mempunyai keperluan aksesibiliti khas boleh mendayakan perkhidmatan ini membenarkan SD Maid mengautomasikan tugasan yang memerlukan interaksi pengguna manual yang membosankan (cth. pemadaman cache).\n\nContoh: Jika anda mengarahkan SD Maid menghentikan berbilang aplikasi maka SD Maid boleh menggunakan perkhidmatan ini untuk membuka setiap skrin tetapan aplikasi, cari butang \'Henti Paksa\' dan klik padanya.\n\nSD Maid akan sentiasa ditunjukkan dengan jelas apabila menggunakan perkhidmatan ini dan menyediakan cara mudah untuk pengguna membatalkan sebarang interaksi dengan segera.\n\nTiada tindakan akan dilakukan tanpa kelulusan pengguna terlebih dahulu. Perkhidmatan ini boleh dinyahdayakan semula pada bila-bila masa tanpa kesan buruk.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan peranti anda. Ia tidak boleh menggunakan skrin pada masa yang sama. Tunggu sehingga operasi selesai atau batalkannya.</string>
+    <string name="automation_active_title">SD Maid sedang bekerja</string>
+    <string name="automation_error_no_consent_title">Ralat automasi</string>
     <string name="automation_error_no_consent_body">Perkhidmatan aksesibiliti tidak disediakan. Lengkapkan persediaan dan berikan persetujuan.</string>
     <string name="automation_error_not_enabled_title">Perkhidmatan tidak didayakan</string>
     <string name="automation_error_not_enabled_body">Perkhidmatan aksesibiliti dinyahdayakan. Hidupkan semula.</string>
     <string name="automation_error_not_running_title">Perkhidmatan tidak berjalan</string>
     <string name="automation_error_not_running_body">Perkhidmatan aksesibiliti tidak berjalan. Cuba reboot peranti.</string>
+    <string name="history_label">Sejarah</string>
     <string name="history_description">Senarai kronologi tindakan terkini dan data yang terjejas.</string>
     <string name="scheduler_label">Penjadual</string>
     <string name="scheduler_execution_label">Pelaksanaan seterusnya (lebihkurang)</string>
+    <string name="scheduler_execution_last_label">Pelaksanaan terakhir</string>
+    <string name="scheduler_settings_label">Penjadual</string>
     <string name="scheduler_settings_summary">Laraskan tetapan berkaitan penjadual.</string>
     <string name="scheduler_new_schedule_action">Buat jadual</string>
     <string name="scheduler_schedule_name_label">Nama jadual</string>
@@ -328,4 +372,11 @@ Setiap %d hari</item>
     <string name="scheduler_inaccurate_execution_hint">Jangkaan masa pelaksanaan adalah anggaran. Jadual mungkin ditangguhkan atau dipercepatkan jika ia menjimatkan bateri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Tiada jadual aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Langkau pada bateri lemah</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jika telefon berada dalam mod penjimatan kuasa, pelaksanaan yang dijadualkan akan dilangkau.</string>
+    <string name="updates_dashcard_title">Kemaskini tersedia</string>
+    <string name="updates_dashcard_body">Kemas kini tersedia. Anda memiliki %1$s dan versi terkini ialah %2$s.</string>
+    <string name="translation_encourage_title">Alih bahasa SD Maid</string>
+    <string name="translation_encourage_body">SD Maid dialih bahasakan oleh sukarelawan. Terjemahan, semakan atau semakan proof, bantuan anda amat dihargai!</string>
+    <string name="translation_translators_title">Versi ini diterjemahkan oleh</string>
+    <string name="translation_translators_people">Orang1;Orang2(optional@email.com)</string>
 </resources>

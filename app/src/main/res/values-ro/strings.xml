@@ -81,7 +81,7 @@
     <string name="setup_manage_storage_card_body">Permite SD Maid să gestioneze stocarea ta.</string>
     <string name="setup_manage_storage_card_body2">Acces de bază la stocarea publică, ex: \"Download/\" și \"DCIM/\", dar nu întotdeauna \"Android/data\".</string>
     <string name="setup_root_card_title">Acces root</string>
-    <string name="setup_root_card_body">SD Maid va folosi accesul prin root dacă este disponibilă pentru a verifica dosare de sistem suplimentare și datele aplicației private.</string>
+    <string name="setup_root_card_body">Ar trebui ca SD Maid să folosească accesul root dacă este disponibil? Accesul root poate fi folosit pentru a verifica folderele de sistem și datele private ale aplicației.</string>
     <string name="setup_root_enable_root_use_label">Folosește accesul root dacă este disponibil</string>
     <string name="setup_root_disable_root_use_label">Nu folosi accesul root</string>
     <string name="setup_root_card_body2">Disponibil numai la dispozitivele rootate. Dacă nu ai făcut această modificare, atunci dispozitivul tău nu este rootat și această setare nu are efect.</string>
@@ -269,7 +269,11 @@
     <string name="appcontrol_systemsettings_open_title">Arată setările</string>
     <string name="appcontrol_systemsettings_open_description">Deschide setările de sistem al dispozitivului tău pentru această aplicație.</string>
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
-    <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației</string>
+    <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
+    <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
+    <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Editează excluderea</string>
+    <string name="appcontrol_app_exclude_edit_description">Această aplicație este în prezent exclusă de la una sau mai multe instrumente.</string>
     <string name="appcontrol_tag_user">Utilizator</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Activat</string>
@@ -293,6 +297,7 @@
     <string name="exclusion_add_new_hint">Adaugă excluderi noi prin lăsarea SD Maid să caute întâi și după să folosească meniul contextual în rezultatul pe care vrei să îl excludi.</string>
     <string name="exclusion_type_package">Excludere aplicație</string>
     <string name="exclusion_type_path">Excludere cale</string>
+    <string name="exclusion_tags_alltools">Toate instrumentele</string>
     <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot activa acest serviciu pentru a permite SD Maid să automatizeze sarcini care altfel ar necesita o interacțiune manuală obositoare a utilizatorului (ex: ștergerea memoriei cache).\n\nExemplu: Dacă instruți SD Maid să oprească mai multe aplicații, atunci SD Maid poate folosi acest serviciu pentru a deschide fiecare ecran de setări a aplicațiilor, găsește butonul „Oprire forțată” și fă clic pe el.\n\nSD Maid se va afișa întotdeauna în mod vizibil atunci când folosește acest serviciu și va oferi utilizatorului o modalitate ușoară de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interoghează cu dispozitivul tău. Nu este posibil să utilizezi ecranul în același timp. Așteaptă până când operația este terminată sau anulează-l.</string>
     <string name="automation_active_title">SD Maid funcționează</string>

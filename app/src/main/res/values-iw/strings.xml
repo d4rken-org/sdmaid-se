@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_click_hint">ניתן ללחוץ על חלק מהערכים כדי לראות פרטים נוספים.</string>
     <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
+    <string name="dashboard_settings_category">לוח בקרה</string>
+    <string name="dashboard_settings_oneclick_title">מצב בלחיצה אחת</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות דיבג</string>

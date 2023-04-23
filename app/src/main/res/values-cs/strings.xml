@@ -93,7 +93,7 @@
     <string name="setup_manage_storage_card_body">Umožněte aplikaci SD Maid spravovat úložiště.</string>
     <string name="setup_manage_storage_card_body2">Základní přístup k veřejnému úložišti, např. \"Download/\" a \"DCIM/\", ale ne vždy \"Android/data\".</string>
     <string name="setup_root_card_title">Root přístup</string>
-    <string name="setup_root_card_body">Pro kontrolu dalších systémových složek a soukromých dat aplikací by aplikace SD Maid měla používat přístup root, pokud je k dispozici.</string>
+    <string name="setup_root_card_body">Má SD Maid použít root přístup, pokud je k dispozici? Root přístup může být použit pro kontrolu dalších systémových složek a soukromých dat aplikací.</string>
     <string name="setup_root_enable_root_use_label">Použít root přístup pokud je k dispozici</string>
     <string name="setup_root_disable_root_use_label">Nepoužívat root přístup</string>
     <string name="setup_root_card_body2">K dispozici pouze na zařízeních s root přístupem. Pokud jste tuto úpravu neprovedli, vaše zařízení nemá root přístup a toto nastavení nemá žádný vliv.</string>
@@ -305,7 +305,11 @@
     <string name="appcontrol_systemsettings_open_title">Zobrazit nastavení</string>
     <string name="appcontrol_systemsettings_open_description">Otevřete systémové nastavení zařízení pro tuto aplikaci.</string>
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
-    <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace</string>
+    <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
+    <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
+    <string name="appcontrol_app_exclude_add_description">Vyloučit tuto aplikaci z ostatních operací v SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Upravit výjimku</string>
+    <string name="appcontrol_app_exclude_edit_description">Tato aplikace je nyní vyloučena z jednoho nebo více nástrojů.</string>
     <string name="appcontrol_tag_user">Uživatel</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
@@ -329,6 +333,7 @@
     <string name="exclusion_add_new_hint">Novou výjimku přidáte tak, že nejprve necháte SD Maid vyhledávat a poté pomocí kontextové nabídky vyberete výsledek, který chcete vyloučit.</string>
     <string name="exclusion_type_package">Aplikace ve výjimkách</string>
     <string name="exclusion_type_path">Cesta ve výjimkách</string>
+    <string name="exclusion_tags_alltools">Všechny nástroje</string>
     <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a kliknout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

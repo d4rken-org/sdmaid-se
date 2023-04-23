@@ -87,7 +87,6 @@
     <string name="setup_manage_storage_card_body">อนุญาตให้ SD Maid จัดการพื้นที่ในอุปกรณ์</string>
     <string name="setup_manage_storage_card_body2">การอนุญาตขั้นพื้นฐานให้เข้าถึงพื้นที่สาธารณะ เช่น \"Download/\" และ \"DCIM/\" แต่มักไม่รวม \"Android/data\"</string>
     <string name="setup_root_card_title">การเข้าถึงรูธ</string>
-    <string name="setup_root_card_body">ให้ SD Maid ใช้การเข้าถึงรูธหากมี เพื่อให้เช็คโฟลเดอร์ระบบเพิ่มเติมและข้อมูลจำเพาะของแอพอื่นๆ</string>
     <string name="setup_root_enable_root_use_label">ใช้การเข้าถึงรูธหากมี</string>
     <string name="setup_root_disable_root_use_label">ไม่ใช้การเข้าถึงรูธ</string>
     <string name="setup_root_card_body2">ใช้ได้กับอุปกรณ์ที่รูธแล้วเท่านั้น การตั้งค่านี้จะไม่มีผลใดๆ หากอุปกรณ์ไม่ได้รูธ</string>
