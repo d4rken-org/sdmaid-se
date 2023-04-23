@@ -8,7 +8,7 @@ import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.App
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.InstallId
+import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
 import eu.darken.sdmse.common.debug.Bugs
@@ -28,7 +28,7 @@ class GooglePlayReporting @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val debugSettings: DebugSettings,
-    private val installId: InstallId,
+    private val sdmId: SDMId,
     private val bugsnagLogger: Provider<BugsnagLogger>,
     private val bugsnagErrorHandler: Provider<BugsnagErrorHandler>,
     private val nopBugsnagErrorHandler: Provider<NOPBugsnagErrorHandler>,
@@ -47,7 +47,7 @@ class GooglePlayReporting @Inject constructor(
             val bugsnagConfig = Configuration.load(context).apply {
                 if (generalSettings.isBugReporterEnabled.valueBlocking) {
                     Logging.install(bugsnagLogger.get())
-                    setUser(installId.id, null, null)
+                    setUser(sdmId.id, null, null)
                     autoTrackSessions = true
                     addOnError(bugsnagErrorHandler.get())
                     addMetadata("App", "buildFlavor", BuildConfigWrap.FLAVOR)
