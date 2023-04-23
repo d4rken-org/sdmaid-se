@@ -19,6 +19,7 @@
     <string name="general_remove_action">Odstrániť</string>
     <string name="general_wipe_action">Zmazať</string>
     <string name="general_cancel_action">Zrušiť</string>
+    <string name="general_reset_action">Obnoviť</string>
     <string name="general_save_action">Uložiť</string>
     <string name="general_thanks_action">Vďaka</string>
     <string name="general_gotit_action">Rozumiem</string>
@@ -93,6 +94,7 @@
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Počet</string>
     <string name="general_app_label">App</string>
+    <string name="general_more_info_action">Viac informácií</string>
     <string name="general_grant_access_action">Povoliť prístup</string>
     <string name="general_enable_service_action">Povoliť službu</string>
     <string name="general_undo_action">Vrátiť späť</string>

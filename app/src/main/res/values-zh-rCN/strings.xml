@@ -287,7 +287,11 @@
     <string name="appcontrol_systemsettings_open_title">显示设置</string>
     <string name="appcontrol_systemsettings_open_description">打开此应用在设备中的系统设置。</string>
     <string name="appcontrol_app_launch_title">启动应用</string>
-    <string name="appcontrol_app_launch_description">启动此应用的主要活动</string>
+    <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
+    <string name="appcontrol_app_exclude_add_title">排除应用</string>
+    <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
+    <string name="appcontrol_app_exclude_edit_title">编辑排除</string>
+    <string name="appcontrol_app_exclude_edit_description">此应用目前被排除在一个或多个工具之外。</string>
     <string name="appcontrol_tag_user">用户</string>
     <string name="appcontrol_tag_system">系统</string>
     <string name="appcontrol_tag_enabled">已启用</string>
@@ -311,6 +315,7 @@
     <string name="exclusion_add_new_hint">可按如下操作添加排除项：使用 SD Maid 进行搜索；在搜索结果中选择您想要排除的内容。</string>
     <string name="exclusion_type_package">排除应用</string>
     <string name="exclusion_type_path">排除路径</string>
+    <string name="exclusion_tags_alltools">所有工具</string>
     <string name="automation_accessibility_service_description">有特殊无障碍需求的用户可以启用此服务，SD Maid 可替您自动完成那些需要用户繁琐交互的任务（如清理缓存）。\n\n例如，如果您想批量停止应用，SD Maid 可以借助此服务打开每个应用的设置界面，自动找到“强制停止”按钮并点击。\n\nSD Maid 在运行此服务时会产生醒目提示，以便您随时取消任意操作。\n\n所有操作行为都需要用户事先批准才会实施。用户可以随时禁用此服务，且不会产生任何负面影响。</string>
     <string name="automation_screenoverlay_explanation">SD Maid 正在占用您的设备。此时无法使用屏幕，请等待操作完成或取消操作。</string>
     <string name="automation_active_title">SD Maid 正在运行</string>

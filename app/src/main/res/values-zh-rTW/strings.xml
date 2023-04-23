@@ -287,7 +287,11 @@
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
     <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
-    <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動</string>
+    <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
+    <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
+    <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
+    <string name="appcontrol_app_exclude_edit_title">編輯排除</string>
+    <string name="appcontrol_app_exclude_edit_description">這個應用程式目前已從一個或多個工具中排除。</string>
     <string name="appcontrol_tag_user">使用者</string>
     <string name="appcontrol_tag_system">系統</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
@@ -311,6 +315,7 @@
     <string name="exclusion_add_new_hint">透過先讓 SD 女僕搜尋，然後在您想要排除的結果上使用內容選單，這樣就可以新增排除項目。</string>
     <string name="exclusion_type_package">應用程式排除</string>
     <string name="exclusion_type_path">路徑排除</string>
+    <string name="exclusion_tags_alltools">所有工具</string>
     <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並按下。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
     <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
     <string name="automation_active_title">SD 女僕正在運作</string>

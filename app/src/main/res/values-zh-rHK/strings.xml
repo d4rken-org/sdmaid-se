@@ -33,7 +33,7 @@
     <string name="onboarding_versus_body3">考慮切換至 SD 女僕 SE 以取得改善的結果。</string>
     <string name="onboarding_versus_continue_action">繼續</string>
     <string name="onboarding_privacy_title">私隱</string>
-    <string name="onboarding_privacy_body1">SD 女僕沒有廣告，也不會出售用戶資料。</string>
+    <string name="onboarding_privacy_body1">SD 女僕沒有廣告，也不會出售使用者資料。</string>
     <string name="onboarding_privacy_bugreport_toggle_body">錯誤報告將在發生錯誤時傳送，可能包含關於您的裝置上的應用程式和檔案的詳細資料。報告可以協助我修正錯誤並改善應用程式。</string>
     <string name="onboarding_privacy_bugreport_toggle">允許自動回報錯誤</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">這些選項可在設定中變更。</string>
@@ -53,7 +53,7 @@
     <string name="settings_sponsor_development_summary">成為贊助者，使持續開發成為可能。</string>
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">影響整個應用程式的一般調校。</string>
-    <string name="settings_category_ui_label">用戶介面</string>
+    <string name="settings_category_ui_label">使用者介面</string>
     <string name="ui_theme_setting_label">主題</string>
     <string name="ui_theme_dark_label">深色</string>
     <string name="ui_theme_light_label">淺色</string>
@@ -223,8 +223,8 @@
     <string name="appcleaner_include_runningapps_summary">包含目前正在執行的應用程式，可能會造成干擾。</string>
     <string name="appcleaner_include_inaccessible_label">包含無法存取的資料</string>
     <string name="appcleaner_include_inaccessible_summary">包含無法直接存取但可以透過系統設定和自動使用無障礙服務刪除的資料。 </string>
-    <string name="appcleaner_include_multiuser_label">包含其他用戶</string>
-    <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他用戶設定檔的應用程式。</string>
+    <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
+    <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcleaner_include_minimumsize_label">最小大小</string>
     <string name="appcleaner_include_minimumsize_summary">跳過可展開資料總和低於最小大小的應用程式。</string>
     <string name="appcleaner_include_minimumage_label">最小期限</string>
@@ -272,7 +272,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">刪除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
-    <string name="appcleaner_junk_userprofile_label">用戶</string>
+    <string name="appcleaner_junk_userprofile_label">使用者</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -287,8 +287,12 @@
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
     <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
-    <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動</string>
-    <string name="appcontrol_tag_user">用戶</string>
+    <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
+    <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
+    <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
+    <string name="appcontrol_app_exclude_edit_title">編輯排除</string>
+    <string name="appcontrol_app_exclude_edit_description">這個應用程式目前已從一個或多個工具中排除。</string>
+    <string name="appcontrol_tag_user">使用者</string>
     <string name="appcontrol_tag_system">系統</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
@@ -311,7 +315,8 @@
     <string name="exclusion_add_new_hint">透過先讓 SD 女僕搜尋，然後在您想要排除的結果上使用內容選單，這樣就可以新增排除項目。</string>
     <string name="exclusion_type_package">應用程式排除</string>
     <string name="exclusion_type_path">路徑排除</string>
-    <string name="automation_accessibility_service_description">有特殊存取需要的用戶可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並按下。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為用戶直接取消互動提供一個簡單的方法。\n\n未經用戶預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
+    <string name="exclusion_tags_alltools">所有工具</string>
+    <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並按下。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
     <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
     <string name="automation_active_title">SD 女僕正在運作</string>
     <string name="automation_error_no_consent_title">自動化錯誤</string>

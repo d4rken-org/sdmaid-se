@@ -89,7 +89,7 @@
     <string name="setup_manage_storage_card_body">Permeteu que l\'SD Maid gestioni el vostre emmagatzematge.</string>
     <string name="setup_manage_storage_card_body2">Accés bàsic a l\'emmagatzematge públic, p. ex. «Download/» i «DCIM/», però no sempre «Android/data».</string>
     <string name="setup_root_card_title">Accés «root»</string>
-    <string name="setup_root_card_body">L\'SD Maid ha de fer servir l\'accés «root» si està disponible per verificar carpetes addicionals del sistema i dades d\'aplicacions privades?</string>
+    <string name="setup_root_card_body">L\'SD Maid hauria d\'utilitzar l\'accés «root» si està disponible? L\'accés «root» es pot utilitzar per comprovar carpetes addicionals del sistema i dades privades d\'aplicacions.</string>
     <string name="setup_root_enable_root_use_label">Utilitza l\'accés «root» si està disponible</string>
     <string name="setup_root_disable_root_use_label">No utilitzis l\'accés «root»</string>
     <string name="setup_root_card_body2">Només disponible en dispositius amb «root». Si no heu fet aquesta modificació, el vostre dispositiu no té «root» i aquesta configuració no té cap efecte.</string>
@@ -293,7 +293,11 @@
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
     <string name="appcontrol_systemsettings_open_description">Obre la configuració del sistema del vostre dispositiu per a aquesta aplicació.</string>
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
-    <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació</string>
+    <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
+    <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
+    <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edita l\'exclusió</string>
+    <string name="appcontrol_app_exclude_edit_description">Actualment aquesta aplicació està exclosa d\'una o més eines.</string>
     <string name="appcontrol_tag_user">Usuari</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Habilitat</string>
@@ -317,6 +321,7 @@
     <string name="exclusion_add_new_hint">Afegiu noves exclusions deixant primer que l\'SD Maid cerqui i després utilitzant el menú contextual del resultat que voleu excloure.</string>
     <string name="exclusion_type_package">Exclusió d\'aplicacions</string>
     <string name="exclusion_type_path">Exclusió de rutes</string>
+    <string name="exclusion_tags_alltools">Totes les eines</string>
     <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i feu-hi clic. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>

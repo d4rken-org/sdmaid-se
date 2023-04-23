@@ -89,7 +89,6 @@
     <string name="setup_manage_storage_card_body">Autoriser SD Maid à gérer votre espace de stockage.</string>
     <string name="setup_manage_storage_card_body2">Accès de base au stockage public, par exemple \"Download/\" et \"DCIM/\", mais pas toujours \"Android/data\".</string>
     <string name="setup_root_card_title">Access root</string>
-    <string name="setup_root_card_body">SD Maid devrait-il utiliser l\'accès root s\'il est disponible pour vérifier les dossiers système supplémentaires et les données privées des applications.</string>
     <string name="setup_root_enable_root_use_label">Utiliser l\'accès root si disponible</string>
     <string name="setup_root_disable_root_use_label">Ne pas utiliser l\'accès root</string>
     <string name="setup_root_card_body2">Uniquement disponible sur les appareils rootés. Si vous n\'avez pas effectué cette modification, c\'est que votre appareil n\'est pas rooté et ce paramètre n\'a pas d\'effet.</string>

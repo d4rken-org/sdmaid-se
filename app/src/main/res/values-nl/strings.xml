@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_click_hint">Op sommige items kan worden geklikt om meer details te zien.</string>
-    <string name="dashboard_delete_all_message">Resultaten in alle gereedschap verwijderen?</string>
+    <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Eén-klik-modus</string>
-    <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle gereedschap met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
+    <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
@@ -89,7 +89,7 @@
     <string name="setup_manage_storage_card_body">Sta SD Maid toe om je opslag te beheren.</string>
     <string name="setup_manage_storage_card_body2">Basistoegang tot openbare opslag, bijv. \"Download/\" en \"DCIM/\", maar niet altijd \"Android/data\".</string>
     <string name="setup_root_card_title">Root toegang</string>
-    <string name="setup_root_card_body">Moet SD Maid root toegang gebruiken als deze beschikbaar is om aanvullende systeemmappen en privé toepassingsgegevens te controleren.</string>
+    <string name="setup_root_card_body">Moet SD Maid root-toegang gebruiken als deze beschikbaar is? Root-toegang kan worden gebruikt om aanvullende systeemmappen en privétoepassingsgegevens te controleren.</string>
     <string name="setup_root_enable_root_use_label">Gebruik root toegang indien beschikbaar</string>
     <string name="setup_root_disable_root_use_label">Gebruik geen root toegang</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
@@ -123,7 +123,7 @@
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
     <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
-    <string name="settings_category_tools_label">Gereedschap</string>
+    <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risiconiveau</string>
     <string name="corpsefinder_tool_name">LijkenZoeker</string>
@@ -293,7 +293,11 @@
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
     <string name="appcontrol_systemsettings_open_description">Open de systeeminstellingen van je apparaat voor deze app.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
-    <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app</string>
+    <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
+    <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>
+    <string name="appcontrol_app_exclude_add_description">Sluit deze app uit van andere bewerkingen in SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Uitsluiting bewerken</string>
+    <string name="appcontrol_app_exclude_edit_description">Deze app is momenteel uitgesloten van één of meer hulpprogramma\'s.</string>
     <string name="appcontrol_tag_user">Gebruiker</string>
     <string name="appcontrol_tag_system">Systeem</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
@@ -317,6 +321,7 @@
     <string name="exclusion_add_new_hint">Voeg nieuwe uitsluitingen toe door SD Maid eerst te laten zoeken en vervolgens het contextmenu te gebruiken op het resultaat dat je wilt uitsluiten.</string>
     <string name="exclusion_type_package">App-uitsluiting</string>
     <string name="exclusion_type_path">Pad uitsluiting</string>
+    <string name="exclusion_tags_alltools">Alle hulpmiddelen</string>
     <string name="automation_accessibility_service_description">Gebruikers met speciale toegankelijkheidsbehoeften kunnen deze service inschakelen om SD Maid in staat te stellen taken te automatiseren waarvoor anders een vervelende handmatige gebruikersinteractie nodig zou zijn (bijv. het verwijderen van de cache).\n\nVoorbeeld: Als je SD Maid instrueert om meerdere apps te stoppen, dan kan SD Maid deze service gebruiken om elk app-instellingenscherm te openen, de knop \'Forceer Stop\' te vinden en erop te klikken.\n\nSD Maid wordt altijd prominent weergegeven wanneer deze service wordt gebruikt en biedt de gebruiker een gemakkelijke manier om elke interactie onmiddellijk te annuleren.\n\nNee acties worden uitgevoerd zonder voorafgaande toestemming van de gebruiker. Deze service kan op elk moment weer worden uitgeschakeld zonder nadelige gevolgen.</string>
     <string name="automation_screenoverlay_explanation">SD Maid communiceert met je apparaat. Het is niet mogelijk om tegelijkertijd het scherm te gebruiken. Wacht tot de bewerking voltooid is of annuleer deze.</string>
     <string name="automation_active_title">SD Maid is aan het werk</string>

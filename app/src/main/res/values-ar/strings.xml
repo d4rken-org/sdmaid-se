@@ -97,7 +97,7 @@
     <string name="setup_manage_storage_card_body">السماح لـ SD Maid بإدارة التخزين.</string>
     <string name="setup_manage_storage_card_body2">الوصول الأساسي إلى التخزين العام ، على سبيل المثال \"Download /\" و \"DCIM /\" ، ولكن ليس دائمًا \"Android / data\".</string>
     <string name="setup_root_card_title">صَلاحِيَة الجذر</string>
-    <string name="setup_root_card_body">يجب أن تستخدم SD Maid الوصول إلى الجذر إذا كان متاحًا للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاصة.</string>
+    <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid الوصول إلى الجذر إذا كان متاحاً؟ يمكن استخدام الوصول إلى الجذر للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>
     <string name="setup_root_enable_root_use_label">استخدم صَلاحِيَة الجذر عند توفرها</string>
     <string name="setup_root_disable_root_use_label">لا تستخدم صَلاحِيَة الجذر</string>
     <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
@@ -317,7 +317,11 @@
     <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
     <string name="appcontrol_systemsettings_open_description">افتح إعدادات النظام بجهازك لهذا التطبيق.</string>
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
-    <string name="appcontrol_app_launch_description">تشغيل نشاط التطبيق الافتراضي</string>
+    <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
+    <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
+    <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">تعديل الاستبعاد</string>
+    <string name="appcontrol_app_exclude_edit_description">هذا التطبيق مستبعد حاليا من أداة واحدة أو أكثر.</string>
     <string name="appcontrol_tag_user">المستخدم</string>
     <string name="appcontrol_tag_system">النظام</string>
     <string name="appcontrol_tag_enabled">مفعل</string>
@@ -341,6 +345,7 @@
     <string name="exclusion_add_new_hint">أضف استثناءات جديدة عن طريق السماح أولاً لـ SD Maid بالبحث ثم استخدام قائمة السياق في النتيجة التي تريد استبعادها.</string>
     <string name="exclusion_type_package">التطبيقات المستثناة</string>
     <string name="exclusion_type_path">المسارات المستثناة</string>
+    <string name="exclusion_tags_alltools">جميع الأدوات</string>
     <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
     <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
     <string name="automation_active_title">SD Maid يعمل</string>

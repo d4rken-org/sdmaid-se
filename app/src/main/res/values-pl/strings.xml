@@ -93,7 +93,7 @@
     <string name="setup_manage_storage_card_body">Zezwól SD Maid na zarządzanie pamięcią Twojego urządzenia.</string>
     <string name="setup_manage_storage_card_body2">Podstawowy dostęp do pamięci publicznej, np. \"Download/\" i \"DCIM/\", ale nie zawsze \"Android/data\".</string>
     <string name="setup_root_card_title">Dostęp root</string>
-    <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu root, jeśli jest dostępny, aby sprawdzić dodatkowe foldery systemowe i prywatne dane aplikacji.</string>
+    <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu root, jeśli jest dostępny? Dostęp root może zostać wykorzystany do sprawdzenia dodatkowych folderów systemowych i prywatnych danych aplikacji.</string>
     <string name="setup_root_enable_root_use_label">Użyj dostępu root, jeśli jest dostępny</string>
     <string name="setup_root_disable_root_use_label">Nie używaj dostępu root</string>
     <string name="setup_root_card_body2">Dostępne tylko na urządzeniach z uprawnieniami root. Jeśli nie dokonałeś tej modyfikacji, to Twoje urządzenie nie ma uprawnień root i wybór nie ma wpływu na działanie aplikacji.</string>
@@ -305,7 +305,11 @@
     <string name="appcontrol_systemsettings_open_title">Pokaż ustawienia</string>
     <string name="appcontrol_systemsettings_open_description">Otwórz ustawienia systemowe Twojego urządzenia dla tej aplikacji.</string>
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
-    <string name="appcontrol_app_launch_description">Uruchom główną aktywność tej aplikacji</string>
+    <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
+    <string name="appcontrol_app_exclude_add_title">Wykluczenie aplikacji</string>
+    <string name="appcontrol_app_exclude_add_description">Wyklucz tę aplikację z innych operacji w SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edytuj wykluczenie</string>
+    <string name="appcontrol_app_exclude_edit_description">Ta aplikacja jest obecnie wykluczona z jednego lub więcej narzędzi.</string>
     <string name="appcontrol_tag_user">Użytkownik</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Włączona</string>
@@ -329,6 +333,7 @@
     <string name="exclusion_add_new_hint">Dodaj nowe wykluczenia, najpierw pozwalając SD Maid wyszukać, a następnie używając menu kontekstowego na wyniku, który chcesz wykluczyć.</string>
     <string name="exclusion_type_package">Wykluczenie aplikacji</string>
     <string name="exclusion_type_path">Wykluczenie ścieżki</string>
+    <string name="exclusion_tags_alltools">Wszystkie narzędzia</string>
     <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami ułatwień mogą włączyć tę usługę, aby pozwolić SD Maid automatyzować zadania, które w przeciwnym razie wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: Jeśli instruujesz SD Maid, aby zatrzymać wiele aplikacji, SD Maid może użyć tej usługi, aby otworzyć ekran ustawień każdej aplikacji, znaleźć przycisk \"Wymuś zatrzymanie\" i kliknąć go.\n\nSD Maid zawsze wyraźnie pokaże, kiedy korzysta z tej usługi, i zapewni użytkownikowi łatwy sposób na natychmiastowe anulowanie wszelkich interakcji.\n\nŻadne działania nie będą wykonywane bez wcześniejszej zgody użytkownika. Usługę można wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
     <string name="automation_screenoverlay_explanation">SD Maid wchodzi w interakcję z Twoim urządzeniem. Nie jest możliwe jednoczesne korzystanie z ekranu. Poczekaj na zakończenie operacji lub anuluj ją.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

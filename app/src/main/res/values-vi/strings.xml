@@ -87,7 +87,7 @@
     <string name="setup_manage_storage_card_body">Cho phép SD Maid quản lý bộ nhớ của bạn.</string>
     <string name="setup_manage_storage_card_body2">Quyền truy cập cơ bản vào kho lưu trữ công khai, ví dụ: \"Tải xuống/\" và \"DCIM/\", nhưng không phải lúc nào cũng là \"Android/data\".</string>
     <string name="setup_root_card_title">Truy cập root</string>
-    <string name="setup_root_card_body">SD Maid nên sử dụng quyền truy cập root nếu có để kiểm tra thêm các thư mục hệ thống và dữ liệu ứng dụng riêng tư.</string>
+    <string name="setup_root_card_body">SD Maid có nên sử dụng quyền truy cập root nếu có? Quyền truy cập root có thể được sử dụng để kiểm tra các thư mục hệ thống bổ sung và dữ liệu ứng dụng riêng tư.</string>
     <string name="setup_root_enable_root_use_label">Sử dụng quyền truy cập root nếu có</string>
     <string name="setup_root_disable_root_use_label">Không sử dụng quyền truy cập root</string>
     <string name="setup_root_card_body2">Chỉ khả dụng trên các thiết bị đã root. Nếu bạn không thực hiện sửa đổi này, thì thiết bị của bạn chưa được root và cài đặt này không có hiệu lực.</string>
@@ -287,7 +287,11 @@
     <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
     <string name="appcontrol_systemsettings_open_description">Mở cài đặt hệ thống của thiết bị cho ứng dụng này.</string>
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
-    <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này</string>
+    <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
+    <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
+    <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Chỉnh sửa loại trừ</string>
+    <string name="appcontrol_app_exclude_edit_description">Ứng dụng này hiện bị loại trừ khỏi một hoặc nhiều công cụ.</string>
     <string name="appcontrol_tag_user">Người dùng</string>
     <string name="appcontrol_tag_system">Hệ thống</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
@@ -311,6 +315,7 @@
     <string name="exclusion_add_new_hint">Thêm các loại trừ mới bằng cách trước tiên cho phép SD Maid tìm kiếm, sau đó sử dụng menu ngữ cảnh trên kết quả bạn muốn loại trừ.</string>
     <string name="exclusion_type_package">Loại trừ ứng dụng</string>
     <string name="exclusion_type_path">Loại trừ đường dẫn</string>
+    <string name="exclusion_tags_alltools">Tất cả công cụ</string>
     <string name="automation_accessibility_service_description">Người dùng có nhu cầu trợ năng đặc biệt có thể bật dịch vụ này để cho phép SD Maid tự động hóa các tác vụ mà nếu không sẽ yêu cầu tương tác thủ công tẻ nhạt của người dùng (ví dụ: xóa bộ nhớ cache).\n\nVí dụ: Nếu bạn hướng dẫn SD Maid dừng nhiều ứng dụng thì SD Maid có thể sử dụng dịch vụ này để mở từng màn hình cài đặt ứng dụng, hãy tìm nút \'Buộc dừng\' và nhấp vào nút đó.\n\nSD Maid sẽ luôn hiển thị nổi bật khi sử dụng dịch vụ này và cung cấp một cách dễ dàng để người dùng hủy mọi tương tác ngay lập tức.\n\nKhông các hành động sẽ được thực hiện mà không có sự chấp thuận trước của người dùng. Dịch vụ này có thể bị vô hiệu hóa lại bất cứ lúc nào mà không có tác dụng phụ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid đang tương tác với thiết bị của bạn. Không thể sử dụng màn hình cùng một lúc. Chờ cho đến khi hoạt động kết thúc hoặc hủy bỏ nó.</string>
     <string name="automation_active_title">SD Maid đang hoạt động</string>
@@ -351,5 +356,5 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk)</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau)</string>
 </resources>

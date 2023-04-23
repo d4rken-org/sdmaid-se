@@ -93,7 +93,7 @@
     <string name="setup_manage_storage_card_body">Разрешите SD Maid SE управлять Вашим хранилищем.</string>
     <string name="setup_manage_storage_card_body2">Базовый доступ к общему хранилищу, например, \"Download/\" и \"DCIM/\", но не всегда \"Android/data\".</string>
     <string name="setup_root_card_title">Рут-доступ</string>
-    <string name="setup_root_card_body">Следует ли SD Maid использовать рут-доступ, если он имеется, для проверки дополнительных системных папок и приватных данных приложений.</string>
+    <string name="setup_root_card_body">Следует ли SD Maid использовать root-доступ, если он имеется, для проверки дополнительных системных папок и приватных данных приложений.</string>
     <string name="setup_root_enable_root_use_label">Использовать рут-доступ, если он имеется</string>
     <string name="setup_root_disable_root_use_label">Не использовать рут-права</string>
     <string name="setup_root_card_body2">Доступно только на устройствах с рутом. Если Вы не делали эту модификацию, значит, Ваше устройство не имеет рут-прав и эта настройка не работает.</string>
@@ -305,7 +305,11 @@
     <string name="appcontrol_systemsettings_open_title">Показать настройки</string>
     <string name="appcontrol_systemsettings_open_description">Открыть системные настройки для этого приложения.</string>
     <string name="appcontrol_app_launch_title">Запустить приложение</string>
-    <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения</string>
+    <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения.</string>
+    <string name="appcontrol_app_exclude_add_title">Исключение приложений</string>
+    <string name="appcontrol_app_exclude_add_description">Исключить это приложение из других операций в SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Редактировать исключение</string>
+    <string name="appcontrol_app_exclude_edit_description">Это приложение в настоящее время исключено из одного или нескольких инструментов.</string>
     <string name="appcontrol_tag_user">Пользователь</string>
     <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_enabled">Включено</string>
@@ -329,6 +333,7 @@
     <string name="exclusion_add_new_hint">Чтобы добавить новые исключения, позвольте SD Maid выполнить поиск, а затем воспользуйтесь контекстным меню результата, который Вы хотите исключить.</string>
     <string name="exclusion_type_package">Исключение приложения</string>
     <string name="exclusion_type_path">Исключение пути</string>
+    <string name="exclusion_tags_alltools">Все инструменты</string>
     <string name="automation_accessibility_service_description">Пользователи с особыми потребностями доступности могут включить эту службу, чтобы позволить SD Maid автоматизировать задачи, которые в противном случае потребовали бы утомительного ручного взаимодействия с пользователем (например, удаление кэша).\n\nПример: Если вы поручите SD Maid остановить несколько приложений, SD Maid может использовать эту службу, чтобы открыть экран настроек каждого приложения, найти кнопку \'Завершить\' и нажать ее.\n\n\nSD Maid всегда будет показывать, когда используется эта служба, и предоставит пользователю простой способ немедленно отменить любое взаимодействие.\n\nНикакие действия не будут выполняться без предварительного одобрения пользователя. Эта служба может быть снова отключена в любое время без каких-либо негативных последствий.</string>
     <string name="automation_screenoverlay_explanation">SD Maid взаимодействует с Вашим устройством. Одновременное использование экрана невозможно. Дождитесь завершения операции или отмените её.</string>
     <string name="automation_active_title">SD Maid работает</string>
