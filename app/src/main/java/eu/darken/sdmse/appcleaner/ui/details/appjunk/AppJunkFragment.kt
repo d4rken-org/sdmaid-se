@@ -12,6 +12,7 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFile
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
 import eu.darken.sdmse.appcleaner.ui.labelRes
+import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -50,21 +51,22 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 is AppJunkEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    val task = event.deletionTask
                     setTitle(R.string.general_delete_confirmation_title)
                     setMessage(
                         when {
-                            event.onlyInaccessible -> getString(
+                            task.onlyInaccessible -> getString(
                                 R.string.general_delete_confirmation_message_x_for_x,
                                 getString(R.string.appcleaner_item_caches_inaccessible_title),
                                 event.appJunk.label.get(context),
                             )
-                            event.path != null -> getString(
+                            task.targetContents.isNotNullOrEmpty() -> getString(
                                 R.string.general_delete_confirmation_message_x,
-                                event.path.userReadablePath.get(context),
+                                task.targetContents!!.first().userReadablePath.get(context),
                             )
-                            event.filterType != null -> getString(
+                            task.targetFilters.isNotNullOrEmpty() -> getString(
                                 R.string.general_delete_confirmation_message_x_for_x,
-                                getString(event.filterType.labelRes),
+                                getString(task.targetFilters!!.first().labelRes),
                                 event.appJunk.label.get(context),
                             )
                             else -> getString(
@@ -75,17 +77,12 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
 
                     )
                     setPositiveButton(R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(
-                            event.appJunk,
-                            event.filterType?.let { setOf(it) },
-                            event.path?.let { setOf(it) },
-                            event.onlyInaccessible,
-                        )
+                        vm.doDelete(task)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    if (event.path != null) {
+                    if (task.targetContents.isNotNullOrEmpty()) {
                         setNeutralButton(R.string.general_exclude_action) { _, _ ->
-                            vm.doExclude(event.appJunk, event.path)
+                            vm.doExclude(task.targetPkgs!!.first(), task.targetContents!!.first())
                         }
                     }
                 }.show()
