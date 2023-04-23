@@ -167,8 +167,12 @@ class AppCleaner @Inject constructor(
             deletionMap[appJunk.identifier] = deleted
         }
 
+        updateProgressPrimary(R.string.appcleaner_automation_loading)
+        updateProgressSecondary(CaString.EMPTY)
+
         val currentUser = userManager.currentUser()
         val automationTargets = targetPkgs
+            .filter { task.includeInaccessible }
             .filter { targetPkg ->
                 snapshot.junks.single { it.identifier == targetPkg }.inaccessibleCache != null
             }
@@ -181,36 +185,37 @@ class AppCleaner @Inject constructor(
                 isCurrentUser
             }
 
-        val automationResult = if (automationTargets.isNotEmpty()) {
-            updateProgressPrimary(R.string.appcleaner_automation_loading)
-            updateProgressSecondary(CaString.EMPTY)
 
-            val automationTask = ClearCacheTask(automationTargets)
-            try {
-                automationController.submit(automationTask) as ClearCacheTask.Result
-            } catch (e: AutomationUnavailableException) {
-                throw InaccessibleDeletionException(e)
+        val automationResult = automationTargets
+            .takeIf { it.isNotEmpty() }
+            ?.let {
+                try {
+                    automationController.submit(ClearCacheTask(automationTargets)) as ClearCacheTask.Result
+                } catch (e: AutomationUnavailableException) {
+                    throw InaccessibleDeletionException(e)
+                }
             }
-        } else {
-            null
-        }
 
         internalData.value = snapshot.copy(
             junks = snapshot.junks
                 .map { appJunk ->
                     // Remove all files we deleted or children of deleted files
-                    appJunk.copy(
-                        expendables = appJunk.expendables
-                            ?.mapValues { (type, typeFiles) ->
-                                typeFiles.filter { file ->
-                                    val mapContent = deletionMap[appJunk.identifier]
-                                    mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
-                                }
+                    val updatedExpendables = appJunk.expendables
+                        ?.mapValues { (type, typeFiles) ->
+                            typeFiles.filter { file ->
+                                val mapContent = deletionMap[appJunk.identifier]
+                                mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
                             }
-                            ?.filterValues { it.isNotEmpty() },
-                        inaccessibleCache = automationResult?.let {
-                            if (it.successful.contains(appJunk.identifier)) null else appJunk.inaccessibleCache
-                        },
+                        }
+                        ?.filterValues { it.isNotEmpty() }
+
+                    val updatedInaccesible = automationResult
+                        ?.let { if (it.successful.contains(appJunk.identifier)) null else appJunk.inaccessibleCache }
+                        ?: appJunk.inaccessibleCache
+
+                    appJunk.copy(
+                        expendables = updatedExpendables,
+                        inaccessibleCache = updatedInaccesible,
                     )
                 }
                 .filter { !it.isEmpty() }
