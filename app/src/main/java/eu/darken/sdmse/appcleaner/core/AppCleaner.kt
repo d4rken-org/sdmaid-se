@@ -209,9 +209,10 @@ class AppCleaner @Inject constructor(
                         }
                         ?.filterValues { it.isNotEmpty() }
 
-                    val updatedInaccesible = automationResult
-                        ?.let { if (it.successful.contains(appJunk.identifier)) null else appJunk.inaccessibleCache }
-                        ?: appJunk.inaccessibleCache
+                    val updatedInaccesible = when {
+                        automationResult?.successful?.contains(appJunk.identifier) == true -> null
+                        else -> appJunk.inaccessibleCache
+                    }
 
                     appJunk.copy(
                         expendables = updatedExpendables,
@@ -221,9 +222,16 @@ class AppCleaner @Inject constructor(
                 .filter { !it.isEmpty() }
         )
 
+        val automationCount = automationResult?.successful
+            ?.mapNotNull { installId -> snapshot.junks.single { it.identifier == installId }.inaccessibleCache?.itemCount }
+            ?.sum() ?: 0
+        val automationSize = automationResult?.successful
+            ?.mapNotNull { installId -> snapshot.junks.single { it.identifier == installId }.inaccessibleCache?.cacheBytes }
+            ?.sum() ?: 0L
+
         return AppCleanerDeleteTask.Success(
-            deletedCount = deletionMap.values.sumOf { it.size },
-            recoveredSpace = deletionMap.values.sumOf { contents -> contents.sumOf { it.size } }
+            deletedCount = deletionMap.values.sumOf { it.size } + automationCount,
+            recoveredSpace = deletionMap.values.sumOf { contents -> contents.sumOf { it.size } } + automationSize,
         )
     }
 
