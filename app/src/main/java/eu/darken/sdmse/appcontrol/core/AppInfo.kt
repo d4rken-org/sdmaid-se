@@ -13,4 +13,7 @@ data class AppInfo(
 
     val id: Pkg.Id
         get() = pkg.id
+
+    val installId: Installed.InstallId
+        get() = pkg.installId
 }

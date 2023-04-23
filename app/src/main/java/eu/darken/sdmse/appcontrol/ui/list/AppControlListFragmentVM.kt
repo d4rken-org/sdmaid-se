@@ -153,6 +153,11 @@ class AppControlListFragmentVM @Inject constructor(
         }
     }
 
+    fun refresh() = launch {
+        log(TAG) { "refresh()" }
+        appControl.submit(AppControlScanTask())
+    }
+
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progress: Progress.Data?,

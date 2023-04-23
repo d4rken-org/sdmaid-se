@@ -37,11 +37,3 @@ fun AppInfo.createGooglePlayIntent(context: Context): Intent {
         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
 }
-
-fun AppInfo.uninstall(context: Context) {
-    val appSettingsIntent = Intent(Intent.ACTION_DELETE)
-    appSettingsIntent.data = Uri.parse("package:${pkg.packageName}")
-    appSettingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    context.startActivity(appSettingsIntent)
-    AppControl.lastUninstalledPkg = pkg.id
-}

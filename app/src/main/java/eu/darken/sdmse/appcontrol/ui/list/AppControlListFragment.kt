@@ -160,6 +160,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
             fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()
+            refreshAction.isInvisible = state.progress != null
 
             val checkedSortMode = when (state.listSort.mode) {
                 SortSettings.Mode.NAME -> R.id.sortmode_name
@@ -207,6 +208,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 is AppControlListEvents.ConfirmDeletion -> {}
             }
         }
+
+        ui.refreshAction.setOnClickListener { vm.refresh() }
 
         super.onViewCreated(view, savedInstanceState)
     }
