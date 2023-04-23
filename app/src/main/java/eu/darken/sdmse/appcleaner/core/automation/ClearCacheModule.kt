@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.core.automation
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.content.Intent
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
@@ -32,10 +31,10 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.user.UserManager2
-import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.delay
 import javax.inject.Provider
 
 class ClearCacheModule @AssistedInject constructor(
@@ -146,15 +145,13 @@ class ClearCacheModule @AssistedInject constructor(
 
         val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
         log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
+
+        // Xiaomi devices can clear cache from the first settings page via dialog
         if (!deviceDetective.isXiaomi()) {
+            delay(500)
             val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
             log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
         }
-
-        val returnIntent = Intent(context, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-        host.service.startActivity(returnIntent)
 
         return ClearCacheTask.Result(
             successful = successful,
