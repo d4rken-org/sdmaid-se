@@ -6,9 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcontrol.core.tasks.AppControlScanTask
-import eu.darken.sdmse.appcontrol.core.tasks.AppControlTask
-import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.common.RootRequiredException
@@ -22,7 +21,6 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isEnabled
-import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -39,10 +37,10 @@ import javax.inject.Singleton
 @Singleton
 class AppControl @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
     private val userManager: UserManager2,
+    private val componentToggler: ComponentToggler,
     private val uninstaller: Uninstaller,
 ) : SDMTool, Progress.Client {
 
@@ -94,7 +92,7 @@ class AppControl @Inject constructor(
             apps = appInfos,
         )
 
-        return AppControlScanTask.Success(
+        return AppControlScanTask.Result(
             itemCount = appInfos.size
         )
     }
@@ -106,13 +104,13 @@ class AppControl @Inject constructor(
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 
-        val successful = mutableSetOf<Pkg.Id>()
-        val failed = mutableSetOf<Pkg.Id>()
+        val successful = mutableSetOf<Installed.InstallId>()
+        val failed = mutableSetOf<Installed.InstallId>()
         updateProgressCount(Progress.Count.Percent(0, task.targets.size))
 
-        pkgOps.useRes {
+        componentToggler.useRes {
             task.targets.forEach { targetId ->
-                val target = snapshot.apps.single { it.id == targetId }
+                val target = snapshot.apps.single { it.installId == targetId }
                 val oldState = target.pkg.isEnabled
                 val newState = !oldState
                 log(TAG) { "Toggeling $targetId enabled state $oldState -> $newState" }
@@ -124,7 +122,7 @@ class AppControl @Inject constructor(
                 )
 
                 try {
-                    pkgOps.changePackageState(targetId, newState)
+                    componentToggler.changePackageState(target.installId, newState)
                     successful.add(targetId)
                     log(TAG, INFO) { "State successfully changed to $newState" }
                 } catch (e: Exception) {
@@ -139,7 +137,7 @@ class AppControl @Inject constructor(
         internalData.value = snapshot.copy(
             apps = snapshot.apps.mapNotNull { app ->
                 when {
-                    successful.contains(app.id) || failed.contains(app.id) -> {
+                    successful.contains(app.installId) || failed.contains(app.installId) -> {
                         val fresh = pkgRepo.refresh(app.id)
                         // TODO if the app is suddenly no longer installed, show the user an error?
                         fresh.map { it.toAppInfo() }
@@ -149,7 +147,7 @@ class AppControl @Inject constructor(
             }.flatten()
         )
 
-        return AppControlToggleTask.Success(successful, failed)
+        return AppControlToggleTask.Result(successful, failed)
     }
 
     private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {

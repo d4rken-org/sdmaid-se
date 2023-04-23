@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class InstallId @Inject constructor(
+class SDMId @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
     private val installIDFile = File(context.filesDir, INSTALL_ID_FILENAME)

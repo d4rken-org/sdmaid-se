@@ -7,7 +7,7 @@ import android.os.Environment
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
-import eu.darken.sdmse.common.InstallId
+import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -32,7 +32,7 @@ class RecorderModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
-    private val installId: InstallId,
+    private val sdmId: SDMId,
 ) {
 
     private val triggerFile = try {
@@ -122,7 +122,7 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
         log(TAG, INFO) { "Build: ${BuildConfigWrap.FLAVOR}-${BuildConfigWrap.BUILD_TYPE}" }
 
-        val installID = installId.id
+        val installID = sdmId.id
         log(TAG, INFO) { "Install ID: $installID" }
 
         val locales = Resources.getSystem().configuration.locales

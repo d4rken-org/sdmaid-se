@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.EmailTool
-import eu.darken.sdmse.common.InstallId
+import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class SupportFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     private val emailTool: EmailTool,
-    private val installId: InstallId,
+    private val sdmId: SDMId,
     private val dispatcherProvider: DispatcherProvider,
     private val recorderModule: RecorderModule,
 ) : ViewModel3(dispatcherProvider) {
@@ -28,7 +28,7 @@ class SupportFragmentVM @Inject constructor(
     val isRecording = recorderModule.state.map { it.isRecording }.asLiveData2()
 
     fun copyInstallID() = launch {
-        clipboardEvent.postValue(installId.id)
+        clipboardEvent.postValue(sdmId.id)
     }
 
     fun startDebugLog() = launch {

@@ -10,7 +10,7 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
-import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
@@ -145,7 +145,7 @@ class AppActionDialogVM @Inject constructor(
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {
-                    val task = AppControlToggleTask(setOf(appInfo.pkg.id))
+                    val task = AppControlToggleTask(setOf(appInfo.installId))
                     launch { taskManager.submit(task) }
                 }
             )
