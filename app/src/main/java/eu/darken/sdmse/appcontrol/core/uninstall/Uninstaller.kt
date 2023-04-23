@@ -15,8 +15,12 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.root.ShellOpsCmd
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.plus
@@ -29,6 +33,8 @@ class Uninstaller @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val pkgRepo: PkgRepo,
+    private val shellOps: ShellOps,
+    private val rootManager: RootManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -36,10 +42,25 @@ class Uninstaller @Inject constructor(
     suspend fun uninstall(installId: Installed.InstallId) {
         log(TAG, INFO) { "Uninstalling $installId" }
 
-        val appSettingsIntent = Intent(Intent.ACTION_DELETE)
-        appSettingsIntent.data = Uri.parse("package:${installId.pkgId.name}")
-        appSettingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(appSettingsIntent)
+        if (rootManager.useRoot()) {
+            adoptChildResource(shellOps)
+            val userId = installId.userHandle.handleId
+            val pkgName = installId.pkgId.name
+            val shellCmd = ShellOpsCmd("pm uninstall --user $userId $pkgName")
+            val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ROOT)
+            log(TAG) { "Uninstall command result: $result" }
+            if (!result.isSuccess) {
+                throw UninstallException(
+                    installId,
+                    IllegalStateException(result.errors.joinToString())
+                )
+            }
+        } else {
+            val appSettingsIntent = Intent(Intent.ACTION_DELETE)
+            appSettingsIntent.data = Uri.parse("package:${installId.pkgId.name}")
+            appSettingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(appSettingsIntent)
+        }
 
         try {
             // Wait until the app is no longer installed
