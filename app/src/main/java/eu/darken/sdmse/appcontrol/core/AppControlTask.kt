@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcontrol.core.tasks
+package eu.darken.sdmse.appcontrol.core
 
 import eu.darken.sdmse.main.core.SDMTool
 

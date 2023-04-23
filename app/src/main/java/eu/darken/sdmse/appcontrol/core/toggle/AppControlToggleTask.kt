@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcontrol.core.uninstall
+package eu.darken.sdmse.appcontrol.core.toggle
 
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControlTask
@@ -8,14 +8,14 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class UninstallTask(
+data class AppControlToggleTask(
     val targets: Set<Installed.InstallId> = emptySet(),
 ) : AppControlTask {
 
     @Parcelize
     data class Result(
-        val success: Set<Installed.InstallId>,
-        val failed: Set<Installed.InstallId>,
+        private val success: Set<Installed.InstallId>,
+        private val failed: Set<Installed.InstallId>,
     ) : AppControlTask.Result {
         override val primaryInfo: CaString
             get() = R.string.general_result_success_message.toCaString()
