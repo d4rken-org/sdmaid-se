@@ -9,6 +9,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlScanTask
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlTask
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
+import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.common.RootRequiredException
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -24,7 +26,6 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
@@ -42,9 +43,8 @@ class AppControl @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
     private val userManager: UserManager2,
+    private val uninstaller: Uninstaller,
 ) : SDMTool, Progress.Client {
-
-    private val usedResources = setOf(pkgOps)
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
@@ -65,12 +65,13 @@ class AppControl @Inject constructor(
         log(TAG) { "submit($task) starting..." }
         updateProgress { Progress.DEFAULT_STATE }
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
-                when (task) {
-                    is AppControlScanTask -> performScan(task)
-                    is AppControlToggleTask -> performToggle(task)
-                }
+            val result = when (task) {
+                is AppControlScanTask -> performScan(task)
+                is AppControlToggleTask -> performToggle(task)
+                is UninstallTask -> performUninstall(task)
+                else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
+
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } finally {
@@ -109,27 +110,29 @@ class AppControl @Inject constructor(
         val failed = mutableSetOf<Pkg.Id>()
         updateProgressCount(Progress.Count.Percent(0, task.targets.size))
 
-        task.targets.forEach { targetId ->
-            val target = snapshot.apps.single { it.id == targetId }
-            val oldState = target.pkg.isEnabled
-            val newState = !oldState
-            log(TAG) { "Toggeling $targetId enabled state $oldState -> $newState" }
+        pkgOps.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.id == targetId }
+                val oldState = target.pkg.isEnabled
+                val newState = !oldState
+                log(TAG) { "Toggeling $targetId enabled state $oldState -> $newState" }
 
-            updateProgressPrimary(target.label)
-            updateProgressSecondary(
-                if (newState) R.string.appcontrol_progress_enabling_package
-                else R.string.appcontrol_progress_disabling_package
-            )
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(
+                    if (newState) R.string.appcontrol_progress_enabling_package
+                    else R.string.appcontrol_progress_disabling_package
+                )
 
-            try {
-                pkgOps.changePackageState(targetId, newState)
-                successful.add(targetId)
-                log(TAG) { "State successfully changed to $newState" }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to change state for $targetId: ${e.asLog()}" }
-                failed.add(targetId)
-            } finally {
-                increaseProgress()
+                try {
+                    pkgOps.changePackageState(targetId, newState)
+                    successful.add(targetId)
+                    log(TAG, INFO) { "State successfully changed to $newState" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to change state for $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
             }
         }
 
@@ -147,6 +150,49 @@ class AppControl @Inject constructor(
         )
 
         return AppControlToggleTask.Success(successful, failed)
+    }
+
+    private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {
+        log(TAG) { "performUninstall(): $task" }
+        updateProgressCount(Progress.Count.Percent(0, task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+        val successful = mutableSetOf<Installed.InstallId>()
+        val failed = mutableSetOf<Installed.InstallId>()
+
+        uninstaller.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(R.string.appcontrol_progress_uninstalling_app)
+
+                try {
+                    uninstaller.uninstall(target.installId)
+                    successful.add(target.installId)
+                    log(TAG, INFO) { "Successfully uninstalled $target" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to uninstall $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
+            }
+        }
+
+        internalData.value = snapshot.copy(
+            apps = snapshot.apps.mapNotNull { app ->
+                when {
+                    successful.contains(app.installId) || failed.contains(app.installId) -> {
+                        // TODO on multi app uninstalls, this refreshes the data too often, once would be enough
+                        val fresh = pkgRepo.refresh(app.id)
+                        fresh.map { it.toAppInfo() }
+                    }
+                    else -> setOf(app)
+                }
+            }.flatten()
+        )
+
+        return UninstallTask.Result(successful, failed)
     }
 
     private suspend fun Installed.toAppInfo(): AppInfo {
@@ -167,6 +213,10 @@ class AppControl @Inject constructor(
 
     companion object {
         var lastUninstalledPkg: Pkg.Id? = null
+            set(value) {
+                field = value
+                log(TAG) { "Updated lastUninstalledPkg to $value" }
+            }
         private val TAG = logTag("AppControl")
     }
 }

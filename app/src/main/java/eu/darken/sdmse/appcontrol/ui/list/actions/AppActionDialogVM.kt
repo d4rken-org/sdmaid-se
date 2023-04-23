@@ -6,8 +6,13 @@ import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.appcontrol.core.*
+import eu.darken.sdmse.appcontrol.core.AppControl
+import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
+import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.tasks.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
+import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -87,14 +92,6 @@ class AppActionDialogVM @Inject constructor(
             }
         )
 
-        val uninstallAction = UninstallActionVH.Item(
-            appInfo = appInfo,
-            onItemClicked = { info ->
-                println("Uninstalling $info")
-                info.uninstall(context)
-            }
-        )
-
         val existingExclusion = exclusionManager
             .currentExclusions()
             .filterIsInstance<Exclusion.Package>()
@@ -132,6 +129,18 @@ class AppActionDialogVM @Inject constructor(
                 )
             }
 
+        val uninstallAction = UninstallActionVH.Item(
+            appInfo = appInfo,
+            onItemClicked = { info ->
+                launch {
+                    val result = appControl.submit(UninstallTask(setOf(info.installId))) as UninstallTask.Result
+                    if (result.failed.isNotEmpty()) {
+                        throw UninstallException(result.failed.first())
+                    }
+                }
+            }
+        )
+
         val disableAction = if (rootManager.useRoot()) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
@@ -143,16 +152,17 @@ class AppActionDialogVM @Inject constructor(
         } else {
             null
         }
+
         State(
             progress = progress,
             appInfo = appInfo,
             actions = listOfNotNull(
                 launchAction,
-                uninstallAction,
                 systemSettingsAction,
                 appStoreAction,
                 excludeAction,
                 disableAction,
+                uninstallAction,
             ).filterNotNull()
         )
     }
