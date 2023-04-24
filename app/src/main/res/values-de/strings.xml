@@ -3,7 +3,7 @@
     <string name="dashboard_click_hint">Einige Einträge können angeklickt werden, um weitere Details anzuzeigen.</string>
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
-    <string name="dashboard_settings_oneclick_title">Einzel-Klick Modus</string>
+    <string name="dashboard_settings_oneclick_title">Einzel-Klick-Modus</string>
     <string name="dashboard_settings_oneclick_summary">Starte den Scan und das Löschen für alle Tools mit einem Klick auf die Aktionsschaltfläche des Dashboards, schließt den Vorgang ohne zusätzliche Bestätigungen ab.</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
@@ -36,13 +36,13 @@
     <string name="onboarding_versus_continue_action">Weiter</string>
     <string name="onboarding_privacy_title">Privatsphäre</string>
     <string name="onboarding_privacy_body1">SD Maid hat keine Werbung und verkauft keine Benutzerdaten.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Fehlerberichte werden gesendet, wenn Fehler auftreten, und können Details zu Apps und Dateien auf Ihrem Gerät enthalten. Berichte helfen mir, Fehler zu beheben und die App zu verbessern.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Fehlerberichte werden gesendet, wenn Fehler auftreten, und können Details zu Apps und Dateien auf deinem Gerät enthalten. Berichte helfen mir, Fehler zu beheben und die App zu verbessern.</string>
     <string name="onboarding_privacy_bugreport_toggle">Automatische Fehlerberichte zulassen</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Diese Optionen können in den Einstellungen geändert werden.</string>
     <string name="onboarding_privacy_continue_action">Weiter</string>
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid durchsucht alle zugänglichen Datenbereiche.</string>
-    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von Ihrem Telefon, Ihrer Android-Version und den erteilten Berechtigungen ab.</string>
+    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von deinem Telefon, deiner Android-Version und den erteilten Berechtigungen ab.</string>
     <string name="onboarding_setup_body3">Beginne mit der Verwendung von SD Maid, indem Du Zugriff auf Bereiche einrichtest, die durchsucht werden sollen.</string>
     <string name="onboarding_setup_continue_action">Zugriff einrichten</string>
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
@@ -313,7 +313,7 @@
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>
     <string name="data_area_sdcard_label">SD-Karte</string>
     <string name="data_areas_label">Datenbereiche</string>
-    <string name="data_areas_description">Datenbereiche stellen Orte auf Ihrem Gerät dar, auf die SD Maid zugreifen kann. Abhängig von Ihrer Android-Version und den erteilten Berechtigungen können unterschiedliche Datenbereiche verfügbar sein.</string>
+    <string name="data_areas_description">Datenbereiche stellen Orte auf deinem Gerät dar, auf die SD Maid zugreifen kann. Abhängig von deiner Android-Version und den erteilten Berechtigungen können unterschiedliche Datenbereiche verfügbar sein.</string>
     <string name="data_areas_short_summary">Bereiche, auf die SD-Maid aufgrund der derzeit gewährten Berechtigungen zugreifen kann.</string>
     <string name="exclusion_manager_title">Ausschluss-Manager</string>
     <string name="exclusion_manager_desc">Datei- und App-Ausschlüsse verwalten.</string>
@@ -323,7 +323,7 @@
     <string name="exclusion_type_path">Pfadausschluss</string>
     <string name="exclusion_tags_alltools">Alle Werkzeuge</string>
     <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die andernfalls langwierige manuelle Benutzerinteraktionen erfordern würden (z.B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid diesen Dienst verwenden, um den Einstellungsbildschirm jeder App zu öffnen, die Schaltfläche \"Stopp erzwingen\" zu suchen und dann darauf zu klicken.\n\nSD Maid wird immer deutlich anzeigen, wenn es diesen Dienst verwendet, und bietet dir eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nKeine Aktionen werden ohne vorherige Zustimmung des Benutzers ausgeführt. Dieser Dienst kann jederzeit ohne Beeinträchtigung wieder deaktiviert werden.</string>
-    <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist, oder brich ihn ab.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
     <string name="automation_error_no_consent_body">Der Bedienungshilfe-Service ist nicht eingerichtet. Schließ die Einrichtung ab und bestätige die Verwendung.</string>
@@ -331,7 +331,7 @@
     <string name="automation_error_not_enabled_body">Der Barrierefreiheitsdienst ist deaktiviert. Schalte Ihn wieder ein.</string>
     <string name="automation_error_not_running_title">Der Dienst läuft nicht</string>
     <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
-    <string name="history_label">Geschichte</string>
+    <string name="history_label">Verlauf</string>
     <string name="history_description">Eine chronologische Liste der letzten Aktionen und betroffenen Daten.</string>
     <string name="scheduler_label">Planer</string>
     <string name="scheduler_execution_label">Nächste Ausführung (ungefähr)</string>
@@ -339,7 +339,7 @@
     <string name="scheduler_settings_label">Planer</string>
     <string name="scheduler_settings_summary">Planerbezogene Einstellungen anpassen.</string>
     <string name="scheduler_new_schedule_action">Zeitplan erstellen</string>
-    <string name="scheduler_schedule_name_label">Zeitplan Name</string>
+    <string name="scheduler_schedule_name_label">Zeitplan-Name</string>
     <string name="scheduler_schedule_toggle_enabled">Zeitplan ist aktiviert</string>
     <string name="scheduler_schedule_toggle_disabled">Zeitplan ist deaktiviert</string>
     <string name="scheduler_edit_schedule_action">Zeitplan bearbeiten</string>
@@ -363,5 +363,5 @@
     <string name="translation_encourage_title">Übersetze SD Maid</string>
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
-    <string name="translation_translators_people">Gamechanger181;Darken</string>
+    <string name="translation_translators_people">Gamechanger181;Darken;uli</string>
 </resources>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">Zu Ihren Diensten.</string>
+    <string name="slogan_message_0">Zu Deinen Diensten.</string>
     <string name="slogan_message_1">Sauber &amp; aufgeräumt.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
     <string name="slogan_message_3">Das Notwendige tun.</string>
-    <string name="slogan_message_4">Alle Ihre Enten in einer Reihe.</string>
+    <string name="slogan_message_4">All deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="general_thank_you_label">Danke</string>
-    <string name="general_error_type_mismatch_msg">Typ stimmt nicht überein: %1$s gesucht, aber %2$s bekommen.</string>
+    <string name="general_error_type_mismatch_msg">Typ stimmt nicht überein: %1$s gewünscht, aber %2$s bekommen.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
-    <string name="general_error_root_unavailable">Root Zugriff ist nicht verfügbar.</string>
+    <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>
     <string name="general_error_empty_result_msg">Das Ergebnis war leer.</string>
     <string name="general_todo_msg">Diese Funktion wird noch bearbeitet und ist derzeit nicht verfügbar.</string>
     <string name="general_share_action">Teilen</string>
@@ -22,7 +22,7 @@
     <string name="general_reset_action">Zurücksetzen</string>
     <string name="general_save_action">Speichern</string>
     <string name="general_thanks_action">Danke</string>
-    <string name="general_gotit_action">Habe es</string>
+    <string name="general_gotit_action">Verstanden</string>
     <string name="general_edit_action">Bearbeiten</string>
     <string name="general_create_account_action">Benutzerkonto erstellen</string>
     <string name="general_link_existing_action">Verknüpfung mit bestehendem Konto</string>
@@ -57,8 +57,8 @@
     <string name="general_progress_loading_egg_4">Warte auf Daten von Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">Turbo Encabulator wird initiiert</string>
     <string name="general_progress_loading_egg_6">Übergebe die Butter</string>
-    <string name="general_progress_loading_egg_7">Na, Wie geht es dir?</string>
-    <string name="general_progress_loading_egg_8">Hier drin riecht es nach Hochsteckfrisur</string>
+    <string name="general_progress_loading_egg_7">Na, wie geht es dir?</string>
+    <string name="general_progress_loading_egg_8">Riecht übel nach Wassollas</string>
     <string name="general_help_action">Hilfe</string>
     <string name="general_continue">Weitermachen</string>
     <string name="general_progress_queued">In der Warteschlange</string>
@@ -79,7 +79,7 @@
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
     <string name="general_delete_confirmation_message_x_for_x">\"%1$s\" für \"%2$s\" löschen?</string>
     <string name="general_clean_confirmation_title">Reinigung bestätigen</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" löschen?</string>
+    <string name="general_clean_confirmation_message_x">\"%s\" säubern?</string>
     <string name="general_root_required_label">Benötigt root</string>
     <string name="general_root_required_message">Erfordert ein gerootetes Gerät</string>
     <string name="general_search_action">Suchen</string>

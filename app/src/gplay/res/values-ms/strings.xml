@@ -22,4 +22,7 @@
     <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Bersama-sama, kita berjaya mencapai pelancaran pertama! Terima kasih kerana membantu saya! Pembangunan sudah tentu akan diteruskan, tetapi anda kini boleh bertukar kepada binaan yang lebih stabil, jika anda mahu. Lakukan ini dengan menarik diri daripada ujian di Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Nota kecil: Hanya saya sahaja yang dapat melihat penilaian yang diberikan semasa ujian, saya amat menghargai sekiranya anda boleh memberi SD Maid penilaian awam jika anda berpuas hati.</string>
+    <string name="nudge_betagoodbye_positive_action">Pilih-keluar</string>
+    <string name="nudge_betagoodbye_negative_action">Teruskan menguji</string>
 </resources>
