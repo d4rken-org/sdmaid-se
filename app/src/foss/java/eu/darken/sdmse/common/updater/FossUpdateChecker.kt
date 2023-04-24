@@ -3,10 +3,13 @@ package eu.darken.sdmse.common.updater
 import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import java.time.Duration
+import java.time.Instant
 import javax.inject.Inject
 
 @Reusable
@@ -23,25 +26,46 @@ class FossUpdateChecker @Inject constructor(
     }
 
     override suspend fun getLatest(channel: UpdateChecker.Channel): UpdateChecker.Update? {
-        val release = try {
-            when (channel) {
-                UpdateChecker.Channel.BETA -> checker.allReleases(OWNER, REPO).firstOrNull { it.isPreRelease }
-                UpdateChecker.Channel.PROD -> checker.latestRelease(OWNER, REPO)
+        log(TAG) { "getLatest($channel) checking..." }
+
+        val release: GithubApi.ReleaseInfo? = try {
+            if (Duration.between(settings.lastReleaseCheck.value(), Instant.now()) < UPDATE_CHECK_INTERVAL) {
+                log(TAG) { "Using cached release data" }
+                when (channel) {
+                    UpdateChecker.Channel.BETA -> settings.lastReleaseBeta.value()
+                    UpdateChecker.Channel.PROD -> settings.lastReleaseProd.value()
+                }
+            } else {
+                log(TAG) { "Fetching new release data" }
+                when (channel) {
+                    UpdateChecker.Channel.BETA -> checker.allReleases(OWNER, REPO).firstOrNull { it.isPreRelease }
+                    UpdateChecker.Channel.PROD -> checker.latestRelease(OWNER, REPO)
+                }.also {
+                    log(TAG, INFO) { "getLatest($channel) new data is $it" }
+                    settings.lastReleaseCheck.value(Instant.now())
+                    when (channel) {
+                        UpdateChecker.Channel.BETA -> settings.lastReleaseBeta.value(it)
+                        UpdateChecker.Channel.PROD -> settings.lastReleaseProd.value(it)
+                    }
+                }
             }
         } catch (e: Exception) {
             log(TAG, ERROR) { "getLatest($channel) failed: ${e.asLog()}" }
             null
         }
-        log(TAG, INFO) { "getLatest($channel) is $release" }
 
-        if (release == null) return null
+        log(TAG, INFO) { "getLatest($channel) is ${release?.tagName}" }
 
-        return Update(
-            channel = channel,
-            versionName = release.tagName,
-            changelogLink = release.htmlUrl,
-            downloadLink = release.assets.singleOrNull { it.name.endsWith(".apk") }?.downloadUrl,
-        )
+        val update = release?.let { rel ->
+            Update(
+                channel = channel,
+                versionName = rel.tagName,
+                changelogLink = rel.htmlUrl,
+                downloadLink = rel.assets.singleOrNull { it.name.endsWith(".apk") }?.downloadUrl,
+            )
+        }
+
+        return update
     }
 
     override suspend fun startUpdate(update: UpdateChecker.Update) {
@@ -79,6 +103,7 @@ class FossUpdateChecker @Inject constructor(
     ) : UpdateChecker.Update
 
     companion object {
+        private val UPDATE_CHECK_INTERVAL = Duration.ofHours(6)
         private const val OWNER = "d4rken-org"
         private const val REPO = "sdmaid-se"
 
