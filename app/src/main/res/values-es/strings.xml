@@ -294,9 +294,9 @@
     <string name="appcontrol_systemsettings_open_description">Abre la configuración del sistema de tu dispositivo para esta aplicación.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
-    <string name="appcontrol_app_exclude_add_title">Excluir aplicacion</string>
-    <string name="appcontrol_app_exclude_add_description">Excluye esta app de otras operaciones en SD Maid.</string>
-    <string name="appcontrol_app_exclude_edit_title">Editar exclusión</string>
+    <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
+    <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Modificar la excepción</string>
     <string name="appcontrol_app_exclude_edit_description">Actualmente, esta aplicación está excluida de una o más herramientas.</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_system">Sistema</string>

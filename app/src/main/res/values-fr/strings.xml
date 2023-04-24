@@ -89,6 +89,7 @@
     <string name="setup_manage_storage_card_body">Autoriser SD Maid à gérer votre espace de stockage.</string>
     <string name="setup_manage_storage_card_body2">Accès de base au stockage public, par exemple \"Download/\" et \"DCIM/\", mais pas toujours \"Android/data\".</string>
     <string name="setup_root_card_title">Access root</string>
+    <string name="setup_root_card_body">SD Maid doit-il utiliser l\'accès root s\'il est disponible ? L\'accès root peut être utilisé pour vérifier des dossiers système supplémentaires et des données d\'application privées.</string>
     <string name="setup_root_enable_root_use_label">Utiliser l\'accès root si disponible</string>
     <string name="setup_root_disable_root_use_label">Ne pas utiliser l\'accès root</string>
     <string name="setup_root_card_body2">Uniquement disponible sur les appareils rootés. Si vous n\'avez pas effectué cette modification, c\'est que votre appareil n\'est pas rooté et ce paramètre n\'a pas d\'effet.</string>
@@ -148,6 +149,12 @@
     <string name="appcleaner_include_minimumage_label">Age minimum</string>
     <string name="appcleaner_include_minimumage_summary">Ignorer les fichiers dont l\'âge est inférieur à l\'âge minimum.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatures des médias</string>
+    <string name="appcontrol_app_launch_description">Lancer l\'activité principale de cette application.</string>
+    <string name="appcontrol_app_exclude_add_title">Applications exclues</string>
+    <string name="appcontrol_app_exclude_add_description">Exclure cette application des autres opérations dans SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Modifier l\'exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">Cette application est actuellement exclue d\'un ou plusieurs outils.</string>
+    <string name="exclusion_tags_alltools">Tous les outils</string>
     <string name="history_label">Historique</string>
     <string name="scheduler_execution_label">Prochaine exécution (approximativement)</string>
     <string name="scheduler_execution_last_label">Dernière exécution</string>

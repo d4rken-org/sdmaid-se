@@ -9,12 +9,12 @@
     <string name="upgrade_screen_title">Verbessere SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid hat keine Werbung und verkauft keine Benutzerdaten. Die Weiterentwicklung wird nur durch dich ermöglicht.</string>
     <string name="upgrade_screen_how_title">Wie man hilft</string>
-    <string name="upgrade_screen_how_body">Werden Sie Patron und sponsern Sie Entwicklung! Klicken Sie auf die Schaltfläche unten, um alle zusätzlichen Funktionen zu aktivieren und mein Github Sponsorenprofil zu öffnen.</string>
-    <string name="upgrade_screen_why_title">Das zaubert 🪄</string>
-    <string name="upgrade_screen_why_body">• App-Reiniger Löschfunktion 💯\n• Geplante Operationen ⏰\n• Extra Optionen für alle Tools ⚙️\n• Deine eigenen Löschregeln ✍️\n• Ein motivierter Entwickler 🧙\nund mehr…</string>
+    <string name="upgrade_screen_how_body">Werde Förderer und unterstütze Entwicklung! Klicke auf die Schaltfläche unten, um alle zusätzlichen Funktionen zu aktivieren und mein Github-Sponsorenprofil zu öffnen.</string>
+    <string name="upgrade_screen_why_title">Das zaubert herbei 🪄</string>
+    <string name="upgrade_screen_why_body">• App-Reiniger-Löschfunktion 💯\n• Geplante Operationen ⏰\n• Extra-Optionen für alle Tools ⚙️\n• Deine eigenen Löschregeln ✍️\n• Einen motivierten Entwickler 🧙\nund mehr…</string>
     <string name="upgrade_screen_sponsor_action">Weiterentwicklung unterstützen</string>
     <string name="upgrade_screen_sponsor_action_hint">Die Alternative sind Anzeigen, Analysen und Google Play 🙁</string>
-    <string name="upgrade_screen_thanks_toast">Vielen Dank für die Unterstützung der Open-Source Entwicklung ❤️</string>
+    <string name="upgrade_screen_thanks_toast">Vielen Dank für deine Unterstützung der Open-Source-Entwicklung ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Gemeinsam haben wir es bis zur ersten Veröffentlichung geschafft! Danke, dass du mir beim Testen geholfen hast! Die Entwicklung wird natürlich fortgesetzt, aber du kannst jetzt zu Nicht-Beta-Builds wechseln, indem du die neueste stabile Version herunterlädst.</string>
     <string name="nudge_betagoodbye_hint">Kleiner Hinweis: Während des Tests abgegebene Bewertungen sind nur für mich sichtbar, ich würde mich freuen, wenn du SD Maid eine öffentliche Bewertung geben könnten, wenn du zufrieden sind.</string>

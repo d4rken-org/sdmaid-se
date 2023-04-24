@@ -12,7 +12,7 @@
     <string name="general_error_cant_access_msg">לא מצליח לגשת ל-%s.</string>
     <string name="general_error_root_unavailable">גישת root אינה זמינה.</string>
     <string name="general_error_empty_result_msg">התוצאה הייתה ריקה.</string>
-    <string name="general_todo_msg">הפונקציה עדיין בעובדה ואינה זמינה כרגע.</string>
+    <string name="general_todo_msg">הפונקציה עדיין בעבודה ואינה זמינה כרגע.</string>
     <string name="general_share_action">שיתוף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_copy_action">העתקה</string>

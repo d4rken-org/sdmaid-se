@@ -4,7 +4,7 @@
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Erfordert SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">SD Maid Upgrade</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro bietet bessere Ergebnisse, mehr Funktionen und Optionen für Leistung Benutzer.</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro bietet bessere Ergebnisse, mehr Funktionen und Optionen für Power-User.</string>
     <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
     <string name="upgrades_gplay_unavailable_error">Google Play-Dienste sind nicht verfügbar.</string>
     <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwendest du das richtige Konto?</string>
@@ -13,11 +13,11 @@
     <string name="upgrade_screen_benefits_title">Vorteile</string>
     <string name="upgrade_screen_benefits_body">• App-Bereinigung 💯\n• Geplante Operationen ⏰\n• Extra-Optionen für alle Tools ⚙️\n• Eigene Löschregeln ✍️\n• Ein motivierter Entwickler 🧙\nund mehr…</string>
     <string name="upgrade_screen_how_title">Optionen</string>
-    <string name="upgrade_screen_how_body">Du hast 2 Möglichkeiten: Ein einmaliger Kauf oder ein günstigeres Jahresabonnement. Das Abonnement hat eine kostenlose Testversion. Die Funktionen, die Sie erhalten, sind die gleichen, nur die Zahlungsmethoden unterscheiden sich.</string>
+    <string name="upgrade_screen_how_body">Du hast 2 Möglichkeiten: Ein einmaliger Kauf oder ein günstigeres Jahresabonnement. Das Abonnement hat eine kostenlose Testversion. Die Funktionen, die du erhältst, sind die gleichen, nur die Zahlungsmethoden unterscheiden sich.</string>
     <string name="upgrade_screen_subscription_trial_action">Kostenlos testen</string>
     <string name="upgrade_screen_subscription_action">Abonnieren</string>
     <string name="upgrade_screen_subscription_action_hint">Das Abonnement kostet %s pro Jahr.</string>
-    <string name="upgrade_screen_iap_action">Einmaliger kauf</string>
+    <string name="upgrade_screen_iap_action">Einmaliger Kauf</string>
     <string name="upgrade_screen_iap_action_hint">Der einmalige Kauf kostet %s.</string>
     <string name="upgrade_screen_thanks_toast">Du bist super &lt;3</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>

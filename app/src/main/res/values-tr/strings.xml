@@ -90,8 +90,8 @@
     <string name="setup_manage_storage_card_body2">Genel depolamaya temel erişim, örn. \"İndirilenler/\" ve \"DCIM/\", ancak \"Android/data\" için her zaman mümkün değil.</string>
     <string name="setup_root_card_title">Kök erişimi</string>
     <string name="setup_root_card_body">SD Maid mevcutsa root erişimini kullansın mı? Kök erişimi, ek sistem klasörlerini ve özel uygulama verilerini kontrol etmek için kullanılabilir.</string>
-    <string name="setup_root_enable_root_use_label">Varsa kök erişimini kullanın</string>
-    <string name="setup_root_disable_root_use_label">Kök erişimini kullanmayın</string>
+    <string name="setup_root_enable_root_use_label">Varsa kök erişimi kullan</string>
+    <string name="setup_root_disable_root_use_label">Kök erişimi kullanma</string>
     <string name="setup_root_card_body2">Yalnızca köklü cihazlarda kullanılabilir. Bu değişikliği siz yapmadıysanız, cihazınız rootlu değildir ve bu ayarın bir etkisi yoktur.</string>
     <string name="setup_dismiss_hint">Ayarlar menüsünden kurulum ekranına tekrar ulaşabilirsiniz.</string>
     <string name="setup_permission_granted_label">İzin verildi</string>
@@ -198,9 +198,9 @@
     <string name="systemcleaner_filter_thumbnails_summary">Resimler ve videolar için önbelleğe alınmış önizlemeler.</string>
     <string name="systemcleaner_filter_tempfiles_label">Geçici dosyalar</string>
     <string name="systemcleaner_filter_tempfiles_summary">Geçici dosyalar, genellikle etkin işlemler için kısa ömürlü önbelleklerdir.</string>
-    <string name="systemcleaner_filter_analytics_label">Analitik dosyaları</string>
+    <string name="systemcleaner_filter_analytics_label">Analiz dosyaları</string>
     <string name="systemcleaner_filter_analytics_summary">Analitik ve hata izleme ile ilgili veriler.</string>
-    <string name="systemcleaner_filter_downloadcache_label">Önbelleği indir</string>
+    <string name="systemcleaner_filter_downloadcache_label">İndirme önbelleği</string>
     <string name="systemcleaner_filter_downloadcache_summary">Çeşitli şeyler için kullanılan sistem önbellek klasörü (ör. OTA güncellemeleri).</string>
     <string name="systemcleaner_filter_localtmp_label">Yerel geçici dosyalar</string>
     <string name="systemcleaner_filter_localtmp_summary">Sistemle ilgili geçici dosyalar (ör. Android Studio\'dan).</string>
@@ -216,7 +216,7 @@
     <string name="systemcleaner_filter_usagestats_summary">Uygulama kullanım istatistikleriyle ilgili dosyalar.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Filtrelenen tüm içerikler silinsin mi?</string>
     <string name="appcleaner_tool_name">Uygulama temizleyici</string>
-    <string name="appcleaner_explanation_short">Belirli uygulamalara ait harcanabilir veriler.</string>
+    <string name="appcleaner_explanation_short">Belirli uygulamalara ait silinebilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Varsayılan genel uygulama önbellekleri. Eski Android sürümlerinde Android/data altından erişilebilir. Sistem ayarlarında \"Önbelleği temizle\" tıklandığında silinir.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Özel varsayılan önbellekler</string>
@@ -300,8 +300,8 @@
     <string name="appcontrol_app_exclude_edit_description">Bu uygulama şu anda bir veya daha fazla araçtan hariç tutulmaktadır.</string>
     <string name="appcontrol_tag_user">Kullanıcı</string>
     <string name="appcontrol_tag_system">Sistem</string>
-    <string name="appcontrol_tag_enabled">Etkinleştirildi</string>
-    <string name="appcontrol_tag_disabled">Devre dışı bırakıldı</string>
+    <string name="appcontrol_tag_enabled">Etkin</string>
+    <string name="appcontrol_tag_disabled">Devre dışı</string>
     <string name="appcontrol_progress_enabling_package">Uygulama etkinleştiriliyor</string>
     <string name="appcontrol_progress_disabling_package">Uygulama devre dışı bırakılıyor</string>
     <string name="appcontrol_list_filteroptions_label">Filtre seçenekleri</string>
@@ -363,5 +363,5 @@
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>
     <string name="translation_encourage_body">SD Maid gönüllüler tarafından tercüme edilmektedir. Tercüme, gözden geçirme veya redaksiyon olsun, her türlü yardımınızı takdir ederiz!</string>
     <string name="translation_translators_title">Bu sürümün tercümanları</string>
-    <string name="translation_translators_people">Mustafa Şahin(3mustafasahin@gmail.com)</string>
+    <string name="translation_translators_people">GheoLei(gheolei@gmail.com);Mustafa Şahin(3mustafasahin@gmail.com)</string>
 </resources>
