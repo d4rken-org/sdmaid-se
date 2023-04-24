@@ -79,32 +79,13 @@
                 android:id="@+id/break_even_info"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="16dp"
                 android:layout_height="wrap_content"
                 android:text="@string/upgrade_screen_how_body" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/upgrade_iap_action"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:layout_marginTop="32dp"
-                android:text="@string/upgrade_screen_iap_action" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/upgrade_iap_hint"
-                style="@style/TextAppearance.Material3.LabelSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:gravity="center"
-                android:text="@string/upgrade_screen_iap_action_hint" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/upgrade_sub_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -121,6 +102,26 @@
                 android:text="@string/upgrade_screen_subscription_action_hint"
                 android:visibility="gone"
                 tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upgrade_iap_action"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_marginTop="16dp"
+                android:text="@string/upgrade_screen_iap_action" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/upgrade_iap_hint"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:gravity="center"
+                android:text="@string/upgrade_screen_iap_action_hint" />
 
         </LinearLayout>
     </ScrollView>
