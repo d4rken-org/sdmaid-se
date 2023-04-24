@@ -146,12 +146,10 @@ class ClearCacheModule @AssistedInject constructor(
         val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
         log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
 
-        // Xiaomi devices can clear cache from the first settings page via dialog
-        if (!deviceDetective.isXiaomi()) {
-            delay(500)
-            val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-            log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
-        }
+        delay(500)
+
+        val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+        log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
 
         return ClearCacheTask.Result(
             successful = successful,
