@@ -143,7 +143,7 @@
     <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
     <string name="debug_bugreporter_label">Automatic bug reports</string>
-    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can fix figure out why and fix it.</string>
+    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
 
     <string name="settings_category_tools_label">Tools</string>
     <string name="settings_category_filter">Filter</string>
