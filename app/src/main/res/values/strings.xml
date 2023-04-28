@@ -164,7 +164,7 @@
     <string name="corpsefinder_filter_publicobb_summary">Additional app resources, e.g. game assets.</string>
     <string name="corpsefinder_filter_publicdata_label">Public app data</string>
     <string name="corpsefinder_filter_publicdata_summary">Non-sensitive app data, e.g. map caches.</string>
-    <string name="corpsefinder_filter_sdcard_label">Sdcard</string>
+    <string name="corpsefinder_filter_sdcard_label">SD card</string>
     <string name="corpsefinder_filter_sdcard_summary">General public storage, internal and external (e.g. SD cards).</string>
     <string name="corpsefinder_filter_privatedata_label">Private app data</string>
     <string name="corpsefinder_filter_privatedata_summary">Private app data, e.g. credentials, app settings but also browser caches.</string>
