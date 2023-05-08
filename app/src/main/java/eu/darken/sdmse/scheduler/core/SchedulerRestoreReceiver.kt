@@ -31,7 +31,7 @@ class SchedulerRestoreReceiver : BroadcastReceiver() {
             return
         }
 
-        log(TAG, INFO) { "Rechecking scheduler states (${intent.data}" }
+        log(TAG, INFO) { "Rechecking scheduler states (${intent.data})" }
 
         val asyncPi = goAsync()
 

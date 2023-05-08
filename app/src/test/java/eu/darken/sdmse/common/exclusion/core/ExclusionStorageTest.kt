@@ -15,6 +15,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.json.toComparableJson
 import java.io.File
 
@@ -30,7 +31,11 @@ class ExclusionStorageTest : BaseTest() {
         testFolder.deleteAll()
     }
 
-    fun create() = ExclusionStorage(context, moshi)
+    fun create() = ExclusionStorage(
+        dispatcherProvider = TestDispatcherProvider(),
+        context = context,
+        moshi = moshi
+    )
 
     @Test
     fun `combined serialization`() = runTest {

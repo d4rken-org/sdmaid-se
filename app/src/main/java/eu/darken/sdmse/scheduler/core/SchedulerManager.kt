@@ -34,7 +34,7 @@ class SchedulerManager @Inject constructor(
 ) {
 
     private val internalState = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
-        State(schedules = storage.load())
+        State(schedules = storage.load() ?: emptySet())
     }
     val state: Flow<State> = internalState.flow
 

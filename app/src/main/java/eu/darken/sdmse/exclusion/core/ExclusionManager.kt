@@ -22,7 +22,7 @@ class ExclusionManager @Inject constructor(
 ) {
 
     private val _exclusions = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
-        exclusionStorage.load()
+        exclusionStorage.load() ?: emptySet()
     }
     val exclusions: Flow<Collection<Exclusion>> = _exclusions.flow
 
