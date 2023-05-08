@@ -14,6 +14,18 @@
     <string name="settings_debuglog_explanation">Táto funkcia zaznamenáva všetko, čo aplikácia robí, do zdieľaného súboru. Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami (napr. vývojár, ktorý rieši problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d aktívna úloha</item>
+        <item quantity="few">%d aktívne úlohy</item>
+        <item quantity="many">%d aktívnych úloh</item>
+        <item quantity="other">%d aktívnych úloh</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d úloha vo fronte</item>
+        <item quantity="few">%d úlohy vo fronte</item>
+        <item quantity="many">%d úloh vo fronte</item>
+        <item quantity="other">%d úloh vo fronte</item>
+    </plurals>
     <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledok úlohy</string>
     <string name="onboarding_welcome_title">Vitajte</string>
@@ -149,6 +161,12 @@
     <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikácií, napr. herné prostriedky.</string>
     <string name="corpsefinder_filter_app2sd_summary">Údaje presunuté do externého úložiska pomocou modov App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d nájdený pozostatok aplikácie</item>
+        <item quantity="few">%d nájdené pozostatky aplikácie</item>
+        <item quantity="many">%d nájdených pozostatkov aplikácie</item>
+        <item quantity="other">%d nájdených pozostatkov aplikácie</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Odstrániť všetky zvyšky aplikácie?</string>
     <string name="corpsefinder_owners_label">Vlastníci</string>
     <string name="corpsefinder_corpse_hints_label">Oznámenie</string>
@@ -157,6 +175,12 @@
     <string name="corpsefinder_corpse_hint_common">Táto položka má veľmi bežný názov a môže patriť k stále nainštalovaným aplikáciám, ktoré SD Maid nepozná.</string>
     <string name="systemcleaner_tool_name">Čistič systému</string>
     <string name="systemcleaner_explanation_short">Nadbytočné dáta, ktoré nepatria žiadnej konkrétnej aplikácii.</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d zhoda s filtrom</item>
+        <item quantity="few">%d zhody s filtrom</item>
+        <item quantity="many">%d zhôd s filtrom</item>
+        <item quantity="other">%d zhôd s filtrom</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">Vlastný filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Spravovať vlastné filtre</string>
     <string name="systemcleaner_filter_custom_manage_summary">Vytvorte, odstráňte, importujte a exportujte svoje vlastné filtre.</string>
@@ -250,6 +274,12 @@
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Odoslané alebo prijaté súbory v konverzáciách a WeChat momentoch.</string>
     <string name="appcleaner_delete_all_confirmation_message">Vyčistiť všetky aplikácie?</string>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d nepotrebná položka nájdená</item>
+        <item quantity="few">%d nepotrebné položky nájdené</item>
+        <item quantity="many">%d nepotrebných položiek nájdených</item>
+        <item quantity="other">%d nepotrebných položiek nájdených</item>
+    </plurals>
     <string name="appcleaner_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
     <string name="appcleaner_automation_title">Automatizácia Čističa aplikácií</string>
     <string name="appcleaner_automation_subtitle_default_caches">Vymazáva sa predvolená vyrovnávacia pamäť…</string>
@@ -260,6 +290,12 @@
     <string name="appcleaner_junk_userprofile_label">Užívateľ</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d aplikácia zistená</item>
+        <item quantity="few">%d aplikácie zistené</item>
+        <item quantity="many">%d aplikácií zistených</item>
+        <item quantity="other">%d aplikácií zistených</item>
+    </plurals>
     <string name="appcontrol_toggle_app_enable_action">Povoliť aplikáciu</string>
     <string name="appcontrol_toggle_app_disable_action">Zakázať aplikáciu</string>
     <string name="appcontrol_toggle_app_enable_description">Povolenie aplikácie umožní jej spustenie a môže sa stať viditeľnou v spúšťači, ak má nejakú aktivitu.</string>
@@ -285,6 +321,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Posledná aktualizácia</string>
     <string name="appcontrol_list_sortmode_installed_label">Prvá inštalácia</string>
     <string name="appcontrol_list_sortmode_packagename_label">Názov balíka</string>
+    <string name="data_area_public_app_data_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_storage_label">Verejné úložisko</string>
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Dátové oblasti</string>
@@ -297,14 +334,40 @@
     <string name="exclusion_type_package">Vylúčenie aplikácie</string>
     <string name="exclusion_type_path">Vylúčenie cesty</string>
     <string name="exclusion_tags_alltools">Všetky nástroje</string>
+    <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a kliknúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Chyba automatizácie</string>
+    <string name="automation_error_no_consent_body">Služba dostupnosti nie je nastavená. Dokončite nastavenie a udeľte súhlas.</string>
+    <string name="automation_error_not_enabled_title">Služba nie je povolená</string>
     <string name="automation_error_not_enabled_body">Služba dostupnosti je zakázaná. Znovu ju zapnite.</string>
     <string name="automation_error_not_running_title">Služba nie je spustená</string>
     <string name="automation_error_not_running_body">Služba dostupnosti nie je spustená. Skúste reštartovať zariadenie.</string>
     <string name="history_label">História</string>
+    <string name="history_description">Chronologický zoznam nedávnych akcií a ovplyvnených údajov.</string>
     <string name="scheduler_label">Plánovač</string>
+    <string name="scheduler_execution_label">Ďalšie spustenie (približne)</string>
+    <string name="scheduler_execution_last_label">Posledné spustenie</string>
     <string name="scheduler_settings_label">Plánovač</string>
+    <string name="scheduler_settings_summary">Upravte nastavenia súvisiace s plánovačom.</string>
+    <string name="scheduler_new_schedule_action">Vytvoriť plán</string>
+    <string name="scheduler_schedule_name_label">Názov plánu</string>
+    <string name="scheduler_schedule_toggle_enabled">Plán je povolený</string>
+    <string name="scheduler_schedule_toggle_disabled">Plán je zakázaný</string>
+    <string name="scheduler_edit_schedule_action">Upraviť plán</string>
+    <string name="scheduler_schedule_time_label">Približný čas</string>
+    <string name="scheduler_schedule_repeat_label">Interval opakovania v dňoch</string>
+    <string name="scheduler_schedule_default_name">Predvolený plán</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s o %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Plánované na %s</string>
+    <string name="scheduler_schedule_last_at_x">Naposledy spustené o %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Denne</item>
+        <item quantity="few">Každé %d dni</item>
+        <item quantity="many">Každých %d dní</item>
+        <item quantity="other">Každých %d dní</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Interval opakovania</string>
     <string name="scheduler_inaccurate_execution_hint">Očakávané časy spustenia sú približné. Plány sa môžu oneskoriť alebo urýchliť, ak sa tým šetrí batéria.</string>
     <string name="scheduler_no_active_schedules_subtitle">Žiadne aktívne plány</string>
     <string name="scheduler_setting_nopowersaving_title">Preskočiť pri nízkom stave batérie</string>

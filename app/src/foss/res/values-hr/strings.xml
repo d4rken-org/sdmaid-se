@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Zahtijeva SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Nadogradite SD Maid</string>
+    <string name="upgrades_dashcard_body">Otključajte dodatne značajke i postanite pokrovitelj kako biste podržali daljnji razvoj!</string>
+    <string name="upgrades_dashcard_upgrade_action">Nadogradnja</string>
+    <string name="upgrade_screen_title">Poboljšajte SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid nema reklama i ne prodaje korisničke podatke. Kontinuirani razvoj omogućen je samo vama.</string>
+    <string name="upgrade_screen_how_title">Kako pomoći</string>
+    <string name="upgrade_screen_how_body">Postanite pokrovitelj i sponzorirajte razvoj! Pritisnite gumb ispod da biste aktivirali sve dodatne značajke i otvorili moj Github sponzorski profil.</string>
+    <string name="upgrade_screen_why_title">Ovo dočarava 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner funkcija brisanja 💯\\n• Planirane operacije ⏰\\n• Dodatne opcije za sve alate ⚙️\\n• Vaša vlastita pravila brisanja ✍️\\n• Motivirani programer 🧙\\ni više…</string>
+    <string name="upgrade_screen_sponsor_action">Podržite razvoj</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternativa su oglasi, analitika i Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Hvala vam što podržavate razvoj otvorenog koda ❤️</string>
+    <string name="nudge_betagoodbye_body">Zajedno smo stigli do prvog izdanja! Hvala što ste mi pomogli u testiranju! Razvoj će se naravno nastaviti, ali sada se možete prebaciti na ne-beta verzije. Učinite to preuzimanjem najnovijeg stabilnog izdanja.</string>
+    <string name="nudge_betagoodbye_hint">Mala napomena: ocjene dane tijekom testiranja vidljive su samo meni, bio bih vam zahvalan ako biste SD Maidu dali javnu ocjenu ako ste zadovoljni.</string>
+    <string name="nudge_betagoodbye_positive_action">Isključite se</string>
+    <string name="nudge_betagoodbye_negative_action">Nastavite s testiranjem</string>
+</resources>

@@ -4,7 +4,7 @@
     <string name="dashboard_delete_all_message">是否删除所有工具的结果？</string>
     <string name="dashboard_settings_category">控制面板</string>
     <string name="dashboard_settings_oneclick_title">一键模式</string>
-    <string name="dashboard_settings_oneclick_summary">点击界面上的开始按钮即可一键扫描并清理，对所有工具适用，无序二次确认。</string>
+    <string name="dashboard_settings_oneclick_summary">单击仪表板的操作按钮即可开始扫描和删除所有工具，无需额外确认。</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">压缩大小</string>
     <string name="debug_notification_channel_label">调试通知</string>

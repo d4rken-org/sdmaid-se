@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgraded">SD Maid SE 源代码</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">需要 SD 女佣专业版</string>
-    <string name="upgrades_dashcard_title">升级 SD 女佣</string>
+    <string name="upgrade_feature_requires_pro">需要 SD Maid SE 专业版</string>
+    <string name="upgrades_dashcard_title">升级 SD Maid</string>
     <string name="upgrades_dashcard_body">解锁附加功能，成为支持持续开发的赞助人！</string>
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrade_screen_title">改进 SD Maid</string>

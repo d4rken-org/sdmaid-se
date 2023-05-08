@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">تحت خدمتك.</string>
-    <string name="slogan_message_1">تنظيف وترتيب.</string>
+    <string name="slogan_message_0">في خدمتك.</string>
+    <string name="slogan_message_1">نظيف &amp; ومرتب.</string>
     <string name="slogan_message_2">منع الفوضى.</string>
     <string name="slogan_message_3">القيام بما هو ضروري.</string>
     <string name="slogan_message_4">كل الملفات في صف لتنظيف.</string>
@@ -14,19 +14,19 @@
     <string name="general_error_empty_result_msg">كانت النتيجة فارغة.</string>
     <string name="general_todo_msg">لا تزال هذه الميزة قيد العمل وهي غير متوفرة حاليًا.</string>
     <string name="general_share_action">مشاركة</string>
-    <string name="general_done_action">انتهى</string>
+    <string name="general_done_action">تم</string>
     <string name="general_copy_action">نسخ</string>
     <string name="general_remove_action">حذف</string>
     <string name="general_wipe_action">مسح</string>
-    <string name="general_cancel_action">الغاء</string>
+    <string name="general_cancel_action">إلغاء</string>
     <string name="general_reset_action">إعادة ضبط</string>
     <string name="general_save_action">حفظ</string>
     <string name="general_thanks_action">شكراً</string>
     <string name="general_gotit_action">عُلم</string>
     <string name="general_edit_action">تعديل</string>
-    <string name="general_create_account_action">انشاء حساب</string>
-    <string name="general_link_existing_action">ربط بحساب متوفر</string>
-    <string name="general_na_label">N/A</string>
+    <string name="general_create_account_action">إنشاء حساب</string>
+    <string name="general_link_existing_action">ربط بحساب موجود</string>
+    <string name="general_na_label">غير متاح</string>
     <string name="general_empty_label">فارغ</string>
     <string name="general_dismiss_action">تجاهل</string>
     <string name="general_maybe_later_action">فيما بعد</string>

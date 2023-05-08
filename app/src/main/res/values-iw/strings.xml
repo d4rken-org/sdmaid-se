@@ -75,6 +75,7 @@
     <string name="systemcleaner_filter_linuxfiles_label">קבצי לינוקס</string>
     <string name="systemcleaner_filter_macfiles_label">קבצי מאק</string>
     <string name="systemcleaner_filter_windowsfiles_label">קבצי ווינדוס</string>
+    <string name="systemcleaner_filter_tempfiles_label">קבצים זמניים</string>
     <string name="appcleaner_filter_telegram_label">קבצי מדיה של טלגרם</string>
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_tag_user">משתמש</string>

@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Zahtijeva SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Nadogradite SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro nudi bolje rezultate, više značajki i opcija za napredne korisnike.</string>
+    <string name="upgrades_dashcard_upgrade_action">Nadogradnja</string>
+    <string name="upgrades_gplay_unavailable_error">Usluge Google Playa nisu dostupne.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nema pronađenih kupnji. Koristite li pravi račun?</string>
+    <string name="upgrade_screen_title">Nabavite SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nema reklama i ne prodaje korisničke podatke. Moj rad financirate vi.</string>
+    <string name="upgrade_screen_benefits_title">Prednosti</string>
+    <string name="upgrade_screen_benefits_body">• Čišćenje aplikacija 💯\\n• Planirane operacije ⏰\\n• Dodatne mogućnosti za sve alate ⚙️\\n• Vaša vlastita pravila brisanja ✍️\\n• Motivirani programer 🧙\\ni više…</string>
+    <string name="upgrade_screen_how_title">Mogućnosti</string>
+    <string name="upgrade_screen_how_body">Imate dvije mogućnosti: jednokratnu kupnju ili jeftiniju godišnju pretplatu. Pretplata ima besplatno probno razdoblje. Značajke koje dobivate su iste, samo se načini plaćanja razlikuju.</string>
+    <string name="upgrade_screen_subscription_trial_action">Započnite besplatnu probu</string>
+    <string name="upgrade_screen_subscription_action">Pretplatite se</string>
+    <string name="upgrade_screen_subscription_action_hint">Pretplata košta %s godišnje.</string>
+    <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
+    <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
+    <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
+    <string name="nudge_betagoodbye_body">Zajedno smo stigli do prvog izdanja! Hvala na pomoći! Razvoj će se naravno nastaviti, ali sada se možete prebaciti na stabilnije verzije, ako to želite. Učinite to tako da odustanete od testiranja na Google Playu.</string>
+    <string name="nudge_betagoodbye_hint">Mala napomena: ocjene dane tijekom testiranja vidljive su samo meni, bio bih vam zahvalan ako biste SD Maidu dali javnu ocjenu ako ste zadovoljni.</string>
+    <string name="nudge_betagoodbye_positive_action">Isključite se</string>
+    <string name="nudge_betagoodbye_negative_action">Nastavite s testiranjem</string>
+</resources>

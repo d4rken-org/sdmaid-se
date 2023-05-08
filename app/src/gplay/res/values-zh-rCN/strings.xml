@@ -2,14 +2,14 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE 专业版</string>
     <string name="app_name_upgrade_postfix">专业版</string>
-    <string name="upgrade_feature_requires_pro">需要 SD 女佣专业版</string>
-    <string name="upgrades_dashcard_title">升级 SD 女佣</string>
-    <string name="upgrades_dashcard_body">SD 女佣专业版为高级用户提供更好的效果，更多的功能和选项。</string>
+    <string name="upgrade_feature_requires_pro">需要 SD Maid SE 专业版</string>
+    <string name="upgrades_dashcard_title">升级 SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid 专业版为高级用户提供更好的结果、更多的功能和选项。</string>
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrades_gplay_unavailable_error">Google Play 服务无法使用。</string>
     <string name="upgrades_no_purchases_found_check_account">未找到购买记录。您确定账号正确吗？</string>
-    <string name="upgrade_screen_title">获取 SD 女佣 SE 专业版</string>
-    <string name="upgrade_screen_preamble">SD 女佣没有广告，也不出售用户数据。我的工作只由您赞助。</string>
+    <string name="upgrade_screen_title">获取 SD Maid SE 专业版</string>
+    <string name="upgrade_screen_preamble">SD Maid 没有广告，也不出售用户数据。我的工作是由您赞助的。</string>
     <string name="upgrade_screen_benefits_title">优点</string>
     <string name="upgrade_screen_benefits_body">•应用程序清理💯\n•计划运行⏰\n•所有工具的额外选项⚙️\n•您自己的删除规则✍️\n•积极的开发人员🧙\n还有更多…</string>
     <string name="upgrade_screen_how_title">选项</string>
@@ -22,7 +22,7 @@
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">我们一起开发了第一个版本！谢您你帮助我！开发当然会继续，但如果您愿意，您现在可以切换到更稳定的版本。为此，请选择退出在 Google Play 上的测试。</string>
-    <string name="nudge_betagoodbye_hint">小提示：测试期间给出的评分只有我才能看到，如果您满意能给SD 女佣一个公开的评分的话，我将不胜感激。</string>
+    <string name="nudge_betagoodbye_hint">温馨提示：测试期间您的的评分仅对我可见，如果您满意，请给 SD Maid 一个公开评分，我将不胜感激。</string>
     <string name="nudge_betagoodbye_positive_action">退出</string>
     <string name="nudge_betagoodbye_negative_action">继续测试</string>
 </resources>

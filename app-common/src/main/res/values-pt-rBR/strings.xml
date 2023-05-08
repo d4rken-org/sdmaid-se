@@ -19,6 +19,7 @@
     <string name="general_remove_action">Remover</string>
     <string name="general_wipe_action">Limpar</string>
     <string name="general_cancel_action">Cancelar</string>
+    <string name="general_reset_action">Reiniciar</string>
     <string name="general_save_action">Salvar</string>
     <string name="general_thanks_action">Obrigado</string>
     <string name="general_gotit_action">Entendi</string>
@@ -84,10 +85,15 @@
     <string name="general_search_action">Buscar</string>
     <string name="general_scan_device_action">Escanear dispositivo</string>
     <string name="general_open_system_settings_action">Abrir configurações do sistema</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s item</item>
+        <item quantity="other">%s itens</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s podem ser liberado</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">App</string>
+    <string name="general_more_info_action">Mais informações</string>
     <string name="general_grant_access_action">Garantir acesso</string>
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>

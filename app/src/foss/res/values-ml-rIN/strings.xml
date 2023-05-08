@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD മെയ്ഡ് SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD മെയ്ഡ് SE പ്രോ ആവശ്യമാണ്</string>
+    <string name="upgrades_dashcard_title">SD മെയ്ഡ് നവീകരിക്കുക</string>
+    <string name="upgrades_dashcard_body">കൂടുതൽ സവിശേഷതകൾ അൺലോക്കുചെയ്‌ത് തുടർ വികസനത്തെ പിന്തുണയ്ക്കുന്നതിന് ഒരു പാട്രോൺ ആകുക!</string>
+    <string name="upgrades_dashcard_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
+</resources>

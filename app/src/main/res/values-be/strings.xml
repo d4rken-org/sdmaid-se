@@ -93,6 +93,7 @@
     <string name="setup_manage_storage_card_body">Дазвольце SD Maid кіраваць вашым сховішчам.</string>
     <string name="setup_manage_storage_card_body2">Базавы доступ да агульнага сховішча, напрыклад, да папак \"Download/\" і «DCIM/», але не заўсёды да папкі \"Android/data\".</string>
     <string name="setup_root_card_title">Каранёвы доступ</string>
+    <string name="setup_root_card_body">Ці варта SD Maid выкарыстоўваць каранёвы доступ, калі ён даступны? Каранёвы доступ будзе выкарыстоўвацца для праверкі дадатковых сістэмных папак і прыватных даных праграм.</string>
     <string name="setup_root_enable_root_use_label">Выкарыстоўваць каранёвы доступ, калі ён даступны</string>
     <string name="setup_root_disable_root_use_label">Не выкарыстоўваць каранёвы доступ</string>
     <string name="setup_root_card_body2">Даступна толькі на прыладах з разблакіраваным каранёвым доступам. Калі вы не ўносілі гэтую мадыфікацыю, значыць, ваша прылада не мае каранёвага доступу, і гэты параметр не на што не паўплывае.</string>
@@ -304,6 +305,11 @@
     <string name="appcontrol_systemsettings_open_title">Паказаць налады</string>
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
+    <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
+    <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
+    <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Рэдагаваць выключэнне</string>
+    <string name="appcontrol_app_exclude_edit_description">Цяпер гэта праграма выключана з аднаго або некалькіх інструментаў.</string>
     <string name="appcontrol_tag_user">Карыстальнік</string>
     <string name="appcontrol_tag_system">Сістэма</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
@@ -327,6 +333,7 @@
     <string name="exclusion_add_new_hint">Каб дадаць новыя выключэнні, спачатку дазвольце SD Maid выканаць пошук, а затым скарыстайцеся кантэкстным меню для рэзультату, які вы хочаце выключыць.</string>
     <string name="exclusion_type_package">Выключаныя праграмы</string>
     <string name="exclusion_type_path">Выключаныя шляхі</string>
+    <string name="exclusion_tags_alltools">Усе інструменты</string>
     <string name="automation_accessibility_service_description">Карыстальнікі, якім патрабуюцца спецыяльныя магчымасці, могуць уключыць гэту службу, каб дазволіць SD Maid аўтаматызаваць задачы, для вырашэння якіх у звычайным парадку неабходна пастаянны ўдзел карыстальніка (напрыклад, выдаленне кэшу). \n\nНапрыклад: калі Вы хочаце, каб SD Maid спыніла некалькі праграм, то SD Maid зможа выкарыстаць дадзеную службу для адкрыцця экрана налад кожнай праграмы, выяўлення кнопкі прымусовага завяршэння і яе актывацыі. \n\nSD Maid заўсёды будзе апавяшчаць аб выкарыстанні гэтай службы і прадастаўляць карыстальніку просты варыянт па неадкладнай адмене любой аперацыі. \n\nНіякіх дзеянняў без папярэдняга адабрэння карыстальнікам прадпрымацца не будзе. Службу заўсёды можна зноў адключыць без якіх-небудзь неспрыяльных наступстваў.</string>
     <string name="automation_screenoverlay_explanation">SD Maid узаемадзейнічае з вашай прыладай. Адначасовае выкарыстанне экрана немагчыма. Дачакайцеся завяршэння аперацыі або адмяніце яе.</string>
     <string name="automation_active_title">SD Maid працуе</string>
