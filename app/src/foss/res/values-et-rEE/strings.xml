@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro on vajalik</string>
+    <string name="upgrades_dashcard_title">SD Maidi täiendamine</string>
+    <string name="upgrades_dashcard_body">Lubage lisavõimalused ja hakake toetajaks, et edendada arendamist.</string>
+    <string name="upgrades_dashcard_upgrade_action">Täienda</string>
+    <string name="upgrade_screen_title">SD Maidi täiendamine</string>
+    <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Jätkuv arendamine on võimalik vaid teie abil.</string>
+    <string name="upgrade_screen_how_title">Kuidas aidata?</string>
+    <string name="upgrade_screen_how_body">Hakake toetajaks ja rahastage arendamist. Kõikide lisavõimaluste kasutamiseks ja minu Github Sponsors profiili avamiseks klõpsake alumisel nupul.</string>
+    <string name="upgrade_screen_why_title">Need ilmuvad nagu võluväel 🪄:</string>
+    <string name="upgrade_screen_why_body">• rakendusepuhastaja kustutamisvõimalus 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
+    <string name="upgrade_screen_sponsor_action">Rahastage arendamist</string>
+    <string name="upgrade_screen_sponsor_action_hint">Teiseks võimaluseks on reklaamid, analüüs ja Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Aitäh, et toetate avatud lähtekoodiga arendamist ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Koos oleme jõudnud esimese väljalaskeni. Aitäh, et aitasite mul katsetada. Arendamine jätkub, kuid nüüd saate kasutada avalikke versioone, selleks laadides alla uusim stabiilne väljalase.</string>
+    <string name="nudge_betagoodbye_hint">Muide, katsetamise ajal antud hinnangud on nähtavad vaid mulle. Oleksin tänulik, kui hindaksite meid avalikult SD Maidi loa kaudu.</string>
+    <string name="nudge_betagoodbye_positive_action">Välju loendist</string>
+    <string name="nudge_betagoodbye_negative_action">Jätka katsetamist</string>
+</resources>

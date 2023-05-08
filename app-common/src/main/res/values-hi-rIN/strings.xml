@@ -19,6 +19,7 @@
     <string name="general_remove_action">हटाएं</string>
     <string name="general_wipe_action">साफ करें</string>
     <string name="general_cancel_action">रद्द करें</string>
+    <string name="general_reset_action">रीसेट</string>
     <string name="general_save_action">सहेजे</string>
     <string name="general_thanks_action">धन्यवाद</string>
     <string name="general_gotit_action">समझ गया</string>
@@ -92,6 +93,7 @@
     <string name="general_info_label">जानकारी</string>
     <string name="general_count_label">गणना</string>
     <string name="general_app_label">ऐप</string>
+    <string name="general_more_info_action">अधिक जानकारी</string>
     <string name="general_grant_access_action">पहुंच प्रदान करें</string>
     <string name="general_enable_service_action">सेवा सक्षम करें</string>
     <string name="general_undo_action">पूर्ववत</string>

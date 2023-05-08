@@ -3,10 +3,10 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A tu servicio.</string>
     <string name="slogan_message_1">Limpio &amp; ordenado.</string>
-    <string name="slogan_message_2">Previene el caos.</string>
+    <string name="slogan_message_2">Impedir el caos.</string>
     <string name="slogan_message_3">Haciendo lo que sea necesario.</string>
     <string name="slogan_message_4">Todo en orden.</string>
-    <string name="slogan_message_5">Impecable.</string>
+    <string name="slogan_message_5">Inmaculado.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">No coinciden: quería %1$s, pero obtuve %2$s.</string>
     <string name="general_error_cant_access_msg">Sin acceso a %s.</string>

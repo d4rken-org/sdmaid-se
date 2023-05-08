@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro on vajalik</string>
+    <string name="upgrades_dashcard_title">SD Maidi täiendamine</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro pakub paremaid tulemusi, rohkem võimalusi ja valikuid edasijõudnutele.</string>
+    <string name="upgrades_dashcard_upgrade_action">Täienda</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play teenused pole saadaval.</string>
+    <string name="upgrades_no_purchases_found_check_account">Oste ei leitud. Kas kasutate õiget kontot?</string>
+    <string name="upgrade_screen_title">Hankige SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Minu tööd toetate teie.</string>
+    <string name="upgrade_screen_benefits_title">Eelised</string>
+    <string name="upgrade_screen_benefits_body">• rakenduse puhastamine 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
+    <string name="upgrade_screen_how_title">Valikud</string>
+    <string name="upgrade_screen_how_body">Teil on kaks valikut: ühekordne ost või odavam aastane tellimus. Tellimust saab proovida. Võimalused kattuvad, erineb vaid makseviisid.</string>
+    <string name="upgrade_screen_subscription_trial_action">Proovige</string>
+    <string name="upgrade_screen_subscription_action">Telli</string>
+    <string name="upgrade_screen_subscription_action_hint">Tellimus maksab %s aastas.</string>
+    <string name="upgrade_screen_iap_action">Ühekordne ost</string>
+    <string name="upgrade_screen_iap_action_hint">Ühekordne ost maksab %s.</string>
+    <string name="upgrade_screen_thanks_toast">Olete parim! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Koos oleme jõudnud esimese väljalaskeni. Aitäh, et aitasite mind. Arendamine jätkub, kuid nüüd saate kasutada stabiilsemaid väljalaskeid, selleks lõpetage Google Plays katsetamine.</string>
+    <string name="nudge_betagoodbye_hint">Muide, katsetamise ajal antud hinnangud on nähtavad vaid mulle. Oleksin tänulik, kui hindaksite meid avalikult SD Maidi loa kaudu.</string>
+    <string name="nudge_betagoodbye_positive_action">Välju loendist</string>
+    <string name="nudge_betagoodbye_negative_action">Jätka katsetamist</string>
+</resources>

@@ -158,12 +158,12 @@
     <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d App wurde entdeckt</item>
-        <item quantity="other">%d Apps wurden entdeckt</item>
+        <item quantity="one">%d App-Überbleibsel entdeckt</item>
+        <item quantity="other">%d App-Überreste entdeckt</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Alle App-Reste löschen?</string>
     <string name="corpsefinder_owners_label">Besitzer</string>
-    <string name="corpsefinder_corpse_hints_label">Notiz</string>
+    <string name="corpsefinder_corpse_hints_label">Hinweis</string>
     <string name="corpsefinder_owner_unknown">Unbekannter Besitzer</string>
     <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die Du behalten möchtest, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
     <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>

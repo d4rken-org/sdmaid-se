@@ -14,4 +14,22 @@
     <string name="settings_debuglog_explanation">Ця функція записує все що робить програма у файл, який може бути викладений у спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених програм). Діліться ним лише з довіреними особами (наприклад, з розробником, який виправляє проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активні задачі</string>
     <string name="tasks_activity_working_notification_title">SD Maid працює</string>
+    <string name="tasks_result_subtext">Підсумок завдання</string>
+    <string name="onboarding_welcome_title">Вітаємо</string>
+    <string name="onboarding_welcome_continue_action">Продовжити</string>
+    <string name="onboarding_versus_continue_action">Продовжити</string>
+    <string name="onboarding_privacy_title">Конфіденційність</string>
+    <string name="onboarding_privacy_continue_action">Продовжити</string>
+    <string name="settings_privacy_policy_label">Політика конфіденційності</string>
+    <string name="ui_theme_setting_label">Тема</string>
+    <string name="ui_theme_dark_label">Темна</string>
+    <string name="ui_theme_light_label">Світла</string>
+    <string name="ui_theme_system_label">Системна</string>
+    <string name="settings_support_label">Підтримка</string>
+    <string name="documentation_label">Документація</string>
+    <string name="setup_usagestats_title">Статистика використання</string>
+    <string name="setup_notification_title">Сповіщення</string>
+    <string name="settings_category_tools_label">Інструменти</string>
+    <string name="settings_category_filter">Фільтр</string>
+    <string name="corpsefinder_owners_label">Власники</string>
 </resources>

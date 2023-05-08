@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ</string>
+    <string name="app_name_upgrade_postfix">ప్రొ</string>
+    <string name="upgrade_feature_requires_pro">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ అవసరం</string>
+    <string name="upgrades_dashcard_title">ఎస్ డీ పనిమనిషి ని నవీకరించు</string>
+    <string name="upgrade_screen_how_title">ఎంపికలు</string>
+    <string name="upgrade_screen_subscription_trial_action">ఉచిత ప్రయత్నం ప్రారంభించండి</string>
+    <string name="upgrade_screen_subscription_action">చందాదారులవండి</string>
+    <string name="upgrade_screen_subscription_action_hint">ఏడాదికి చందా %s అవుతుంది.</string>
+    <string name="upgrade_screen_iap_action">ఒకేసారి కొనేయి</string>
+    <string name="upgrade_screen_iap_action_hint">ఒకేసారి కొనేయడానికి %s అవుతుంది.</string>
+    <string name="upgrade_screen_thanks_toast">మీరు అత్యుత్తమం❤️</string>
+    <string name="nudge_betagoodbye_negative_action">పరీక్షిస్తూ ఉండు</string>
+</resources>

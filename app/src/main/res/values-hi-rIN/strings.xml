@@ -89,6 +89,7 @@
     <string name="setup_manage_storage_card_body">SD मेड को अपना भण्डारण व्यवस्थित करने की अनुमति दें।</string>
     <string name="setup_manage_storage_card_body2">सार्वजनिक भंडारण के लिए बुनियादी पहुँच, उदाहरण \"डाउनलोड/\" और \"DCIM/\", लेकिन हमेशा \"एंड्रॉइड/डेटा\" नहीं।</string>
     <string name="setup_root_card_title">रूट तक पहुंच</string>
+    <string name="setup_root_card_body">यदि यह अतिरिक्त सिस्टम फोल्डर और निजी एप्लिकेशन डेटा की जांच के लिए उपलब्ध है। तो क्या SD मेड को रूट तक पहुंच का उपयोग करना चाहिए?</string>
     <string name="setup_root_enable_root_use_label">यदि उपलब्ध है तब रूट तक पहुंच का उपयोग करें</string>
     <string name="setup_root_disable_root_use_label">रूट तक पहुंच का उपयोग न करें</string>
     <string name="setup_root_card_body2">केवल रूट किए गए उपकरणों पर उपलब्ध है। यदि आपने यह संशोधन नहीं किया है, तो आपका डिवाइस रूट नहीं किया गया है और इस सेटिंग का कोई प्रभाव नहीं पड़ता है।</string>
@@ -223,10 +224,15 @@
     <string name="appcleaner_include_systemapps_label">सिस्टम ऐप्स शामिल करें</string>
     <string name="appcleaner_include_systemapps_summary">स्कैन में सिस्टम ऐप्स शामिल करें।</string>
     <string name="appcleaner_include_runningapps_label">चल रहे ऐप्स शामिल करें</string>
+    <string name="appcleaner_include_runningapps_summary">वर्तमान में चल रहे ऐप्‍स को शामिल करें जो हस्‍तक्षेप का कारण बनते हैं।</string>
     <string name="appcleaner_include_inaccessible_label">अप्राप्य डेटा शामिल करें</string>
     <string name="appcleaner_include_inaccessible_summary">ऐसा डेटा शामिल करें जिस तक सीधे पहुंचा नहीं जा सकता है लेकिन सिस्टम सेटिंग्स के माध्यम से मिटाया जा सकता है और अभिगम्यता सेवा का उपयोग करके स्वचालित रूप से मिटाया जा सकता है। </string>
     <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
     <string name="appcleaner_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>
+    <string name="appcleaner_include_minimumsize_label">न्यूनतम आकार करें</string>
+    <string name="appcleaner_include_minimumsize_summary">उन ऐप्स को छोड़ दें जहां खर्च करने योग्य डेटा का योग न्यूनतम से कम है।</string>
+    <string name="appcleaner_include_minimumage_label">न्यूनतम आयु</string>
+    <string name="appcleaner_include_minimumage_summary">उन फ़ाइलों को छोड़ दें जो न्यूनतम आयु से छोटी हैं।</string>
     <string name="appcleaner_filter_codecache_label">कोड कैश</string>
     <string name="appcleaner_filter_codecache_summary">JVM कोड कैश। मूल कोड में संकलित बायटेकोड के डब्बे।</string>
     <string name="appcleaner_filter_advertisement_label">विज्ञान का डाटा</string>
@@ -237,6 +243,8 @@
     <string name="appcleaner_filter_analytics_summary">विश्लेषिकी संबंधित डेटा, जैसे कि किसी ऐप में आप जो क्लिक करते हैं उसके कैश्ड आँकड़े।</string>
     <string name="appcleaner_filter_hiddencaches_label">छिपे हुए कैश</string>
     <string name="appcleaner_filter_hiddencaches_summary">सामान्य प्रयोजन के कैश सिस्टम के बाहर संग्रहीत होते हैं।</string>
+    <string name="appcleaner_filter_thumbnails_label">मीडिया थंबनेल</string>
+    <string name="appcleaner_filter_thumbnails_summary">छवि, वीडियो और ऑडियो पूर्वावलोकन थंबनेल चित्र।</string>
     <string name="appcleaner_filter_gamefiles_label">खेल की फ़ाइलें</string>
     <string name="appcleaner_filter_gamefiles_summary">खेल से संबंधित संसाधन जो यदि आवश्यक हुआ तो खेल को अगले लॉन्च पर फिर से लोड करेंगे।</string>
     <string name="appcleaner_filter_offlinecache_label">ऑफ़लाइन कैश</string>
@@ -285,6 +293,11 @@
     <string name="appcontrol_systemsettings_open_title">सेटिंग दिखाएं</string>
     <string name="appcontrol_systemsettings_open_description">इस ऐप्लिकेशन के लिए अपने डिवाइस की सिस्टम सेटिंग खोलें.</string>
     <string name="appcontrol_app_launch_title">ऐप खोलें</string>
+    <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
+    <string name="appcontrol_app_exclude_add_title">बहिष्कृत ऐप्स</string>
+    <string name="appcontrol_app_exclude_add_description">SD मेड में अन्य कार्यों से इस ऐप को बाहर करें।</string>
+    <string name="appcontrol_app_exclude_edit_title">अपवर्जन में संशोधन करें</string>
+    <string name="appcontrol_app_exclude_edit_description">इस ऐप को वर्तमान में एक या अधिक टूल से बाहर रखा गया है।</string>
     <string name="appcontrol_tag_user">उपयोगकर्ता</string>
     <string name="appcontrol_tag_system">सिस्टम</string>
     <string name="appcontrol_tag_enabled">सक्षम</string>
@@ -308,6 +321,7 @@
     <string name="exclusion_add_new_hint">पहले SD मेड को खोजने की अनुमति देकर और फिर उस परिणाम पर संदर्भ मेनू का उपयोग करके नए अपवर्जन जोड़ें, जिसे आप बाहर करना चाहते हैं।</string>
     <string name="exclusion_type_package">ऐप अपवर्जन में जोड़े</string>
     <string name="exclusion_type_path">पथ को अपवर्जन में जोड़े</string>
+    <string name="exclusion_tags_alltools">सभी टूल</string>
     <string name="automation_accessibility_service_description">विशेष पहुंच की आवश्यकता वाले उपयोगकर्ता इस सेवा को सक्षम कर सकते हैं ताकि SD मेड को ऐसे कार्यों को स्वचालित करने की अनुमति मिल सके जिसके लिए अन्यथा थकाऊ मैन्युअल उपयोगकर्ता सहभागिता (जैसे कैश हटाना) की आवश्यकता होती है।\n\nउदाहरण: यदि आप SD मेड को कई ऐप बंद करने का निर्देश देते हैं तो SD मेड इसका उपयोग कर सकती है प्रत्येक ऐप सेटिंग स्क्रीन खोलने के लिए सेवा, \'फ़ोर्स स्टॉप\' बटन ढूंढें और उस पर क्लिक करें।\n\nइस सेवा का उपयोग करते समय SD मेड हमेशा प्रमुखता से दिखाई देगी और उपयोगकर्ता को तुरंत किसी भी बातचीत को रद्द करने का एक आसान तरीका प्रदान करेगी।\n\nकार्रवाई पूर्व उपयोगकर्ता अनुमोदन के बिना की जाएगी। इस सेवा को बिना किसी प्रतिकूल प्रभाव के किसी भी समय फिर से अक्षम किया जा सकता है।</string>
     <string name="automation_screenoverlay_explanation">SD मेड आपके डिवाइस के साथ सहभागिता कर रही है। एक ही समय में स्क्रीन का उपयोग करना संभव नहीं है। ऑपरेशन समाप्त होने तक प्रतीक्षा करें या इसे रद्द करें।</string>
     <string name="automation_active_title">SD मेड कार्य कर रही है</string>

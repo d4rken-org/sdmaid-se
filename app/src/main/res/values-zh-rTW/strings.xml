@@ -148,7 +148,7 @@
     <string name="corpsefinder_filter_applib_label">應用程式庫</string>
     <string name="corpsefinder_filter_applib_summary">與應用程式相關的程式庫資料。</string>
     <string name="corpsefinder_filter_appsource_label">應用程式來源</string>
-    <string name="corpsefinder_filter_appsource_summary">應用程式安裝資料，例如 APK 的去向。</string>
+    <string name="corpsefinder_filter_appsource_summary">應用程式安裝資料，例如 APK 的位置。</string>
     <string name="corpsefinder_filter_appsource_private_label">私人應用程式來源</string>
     <string name="corpsefinder_filter_appsource_private_summary">受限制的應用程式安裝資料，例如受保護的第三方應用程式。</string>
     <string name="corpsefinder_filter_appasec_label">加密的應用程式資源</string>
@@ -348,7 +348,7 @@
     </plurals>
     <string name="scheduler_schedule_repeat_interval">重複間隔</string>
     <string name="scheduler_inaccurate_execution_hint">預期的執行時間是近似值。如果能節約電力，排程可能會被延遲或加快。</string>
-    <string name="scheduler_no_active_schedules_subtitle">沒有進行中的排程</string>
+    <string name="scheduler_no_active_schedules_subtitle">沒有已啟用的排程</string>
     <string name="scheduler_setting_nopowersaving_title">低電量時跳過</string>
     <string name="scheduler_setting_nopowersaving_summary">如果手機處於電力節省模式，已排程的執行項目將會被跳過。</string>
     <string name="updates_dashcard_title">有可用的更新</string>

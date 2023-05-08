@@ -15,18 +15,10 @@
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="other">Satu
-%d tugasan aktif
-
-Lain-lain
-%d tugasan aktif</item>
+        <item quantity="other">%d tugasan aktif</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="other">Satu
-%d tugasan dalam giliran
-
-Lain-lain
-%d giliran tugasan</item>
+        <item quantity="other">%d giliran tugasan</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Keputusan tugas</string>
     <string name="tasks_result_subtext">Keputusan tugas</string>
@@ -136,7 +128,6 @@ Lain-lain
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa yang diingini</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fail yang mungkin mahu anda simpan, walaupun aplikasi dinyahpasang, mis. foto yang anda ambil atau sandaran yang anda buat.</string>
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, mis. folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
     <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
     <string name="corpsefinder_watcher_summary">Imbas baki tinggalan secara automatik apabila aplikasi dialih keluar.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media awam</string>
@@ -162,11 +153,7 @@ Lain-lain
     <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">Satu
-%d sisa aplikasi ditemui
-
-Lain-lain
-%d sisa aplikasi ditemui</item>
+        <item quantity="other">%d sisa aplikasi ditemui</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Padamkan semua baki aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
@@ -177,11 +164,7 @@ Lain-lain
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Data berlebihan yang bukan milik mana-mana aplikasi tertentu.</string>
     <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="other">Satu
-%d padanan penapis
-
-Lain-lain
-%d padanan penapis</item>
+        <item quantity="other">%d padanan penapis</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Penapis tersuai</string>
     <string name="systemcleaner_filter_custom_manage_label">Urus penapis tersuai</string>
@@ -234,13 +217,13 @@ Lain-lain
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Sertakan aplikasi sistem dalam imbasan.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
+    <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi yang sedang berjalan yang boleh menyebabkan gangguan.</string>
     <string name="appcleaner_include_inaccessible_label">Sertakan data yang tidak boleh diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Sertakan data yang tidak boleh diakses secara langsung tetapi boleh dipadamkan melalui tetapan sistem dan diautomatikkan menggunakan perkhidmatan aksesibiliti. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
     <string name="appcleaner_include_minimumsize_summary">Langkau aplikasi di mana jumlah data boleh dibelanjakan berada di bawah minimum.</string>
-    <string name="appcleaner_include_minimumage_label">Umur minimum</string>
-    <string name="appcleaner_include_minimumage_summary">Langkau fail yang lebih muda daripada umur minimum.</string>
+    <string name="appcleaner_include_minimumage_summary">Langkau fail yang usianya di bawah usia minimum.</string>
     <string name="appcleaner_filter_codecache_label">Cache kod</string>
     <string name="appcleaner_filter_codecache_summary">Cache kod JVM. Blok dari kod bait yang disusun menjadi kod asli.</string>
     <string name="appcleaner_filter_advertisement_label">Data iklan</string>
@@ -250,8 +233,8 @@ Lain-lain
     <string name="appcleaner_filter_analytics_label">Analitis</string>
     <string name="appcleaner_filter_analytics_summary">Data berkaitan analitis, mis. statistik cache untuk perkara yang anda klik dalam aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache kegunaan am yang disimpan di luar jangkauan sistem.</string>
-    <string name="appcleaner_filter_thumbnails_label">Thumbnail media</string>
-    <string name="appcleaner_filter_thumbnails_summary">Thumbnail pratonton imej, video dan audio.</string>
+    <string name="appcleaner_filter_thumbnails_label">Lakaran kecil media</string>
+    <string name="appcleaner_filter_thumbnails_summary">Lakaran kecil pratonton imej, video dan audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Fail permainan</string>
     <string name="appcleaner_filter_gamefiles_summary">Sumber berkaitan permainan yang akan dimuatkan semula pada pelancaran seterusnya jika perlu.</string>
     <string name="appcleaner_filter_offlinecache_label">Cache luar talian</string>
@@ -274,11 +257,7 @@ Lain-lain
     <string name="appcleaner_filter_wechat_summary">Menghantar atau menerima fail dalam perbualan dan detik WeChat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Bersihkan semua aplikasi?</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="other">Satu
-%d item boleh dibelanjakan ditemui
-
-Lain-lain
-%d item boleh dibelanjakan ditemui</item>
+        <item quantity="other">%d item boleh dibelanjakan ditemui</item>
     </plurals>
     <string name="appcleaner_automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
     <string name="appcleaner_automation_title">Automasi AppCleaner</string>
@@ -291,11 +270,7 @@ Lain-lain
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">Satu
-%d aplikasi dikesan
-
-Lain-lain
-%d aplikasi dikesan</item>
+        <item quantity="other">%d aplikasi dikesan</item>
     </plurals>
     <string name="appcontrol_toggle_app_enable_action">Dayakan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nyahdayakan aplikasi</string>
@@ -363,11 +338,7 @@ Lain-lain
     <string name="scheduler_schedule_next_at_x">Dirancang untuk %s</string>
     <string name="scheduler_schedule_last_at_x">Terakhir dilaksanakan pada %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="other">Satu
-Setiap hari
-
-Lain-lain
-Setiap %d hari</item>
+        <item quantity="other">Setiap %d hari</item>
     </plurals>
     <string name="scheduler_schedule_repeat_interval">Ulang selang</string>
     <string name="scheduler_inaccurate_execution_hint">Jangkaan masa pelaksanaan adalah anggaran. Jadual mungkin ditangguhkan atau dipercepatkan jika ia menjimatkan bateri.</string>

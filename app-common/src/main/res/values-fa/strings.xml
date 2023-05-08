@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_0">در خدمت شما.</string>
+    <string name="slogan_message_1">تمیز کردن &amp; پاکیزگی.</string>
+    <string name="slogan_message_2">جلوگیری از هرج و مرج.</string>
+    <string name="slogan_message_3">انجام آنچه لازم است.</string>
+    <string name="slogan_message_4">همه اردک های شما پشت سر هم.</string>
+    <string name="slogan_message_5">بی عیب.</string>
     <string name="general_thank_you_label">ممنون</string>
     <string name="general_share_action">اشتراک</string>
     <string name="general_done_action">انجام شد</string>
@@ -7,6 +14,7 @@
     <string name="general_remove_action">حذف</string>
     <string name="general_wipe_action">پاک کردن</string>
     <string name="general_cancel_action">لفو</string>
+    <string name="general_reset_action">بازنشانی</string>
     <string name="general_save_action">ذخيره</string>
     <string name="general_thanks_action">تشکر</string>
     <string name="general_gotit_action">فهمیدم</string>
@@ -31,6 +39,32 @@
     <string name="general_progress_searching">درحال جستجو</string>
     <string name="general_progress_filtering">فیلتر کردن</string>
     <string name="general_progress_preparing">در‌حال آماده‌سازی</string>
+    <string name="general_progress_loading">بارگذاری</string>
+    <string name="general_progress_loading_egg_0">هنوز هم سریعتر از آیفون</string>
+    <string name="general_progress_loading_egg_1">در حال دانلود رم بیشتر</string>
+    <string name="general_progress_loading_egg_2">به زودی™</string>
+    <string name="general_progress_loading_egg_3">پردازنده در حال استراحت با قهوه است</string>
+    <string name="general_help_action">کمک</string>
+    <string name="general_continue">ادامه</string>
+    <string name="general_progress_queued">در صف</string>
+    <string name="general_progress_deleting">درحال حذف %s</string>
+    <string name="general_sort_options_label">گزینه‌های مرتب‌سازی</string>
+    <string name="general_result_success_message">عملیات موفق</string>
+    <string name="general_result_failure_message">عملیات انجام نشد</string>
+    <string name="general_details_label">جزئیات</string>
+    <string name="general_view_action">نمایش</string>
+    <string name="general_update_action">به‌روزرسانی</string>
+    <string name="general_scan_action">اسکن</string>
+    <string name="general_delete_action">حذف</string>
+    <string name="general_delete_all_action">حذف همه</string>
+    <string name="general_show_details_action">نمایش جزئیات</string>
+    <string name="general_delete_confirmation_title">تایید حذف</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" حذف شود؟</string>
+    <string name="general_delete_confirmation_message_x_for_x">\"%1$s\" برای \"%2$s\" حذف شود؟</string>
+    <string name="general_clean_confirmation_title">تایید پاکسازی</string>
+    <string name="general_clean_confirmation_message_x">\"%s\" پاک شود؟</string>
+    <string name="general_root_required_label">نیازمند روت</string>
+    <string name="general_root_required_message">به دستگاه روت شده نیاز دارد</string>
     <string name="general_search_action">جستجو</string>
     <string name="general_scan_device_action">اسکن دستگاه</string>
     <string name="general_open_system_settings_action">باز کردن تنظیمات سیستمی</string>
@@ -42,7 +76,9 @@
     <string name="general_info_label">درباره</string>
     <string name="general_count_label">تعداد</string>
     <string name="general_app_label">برنامه</string>
+    <string name="general_more_info_action">اطلاعات بیشتر</string>
     <string name="general_grant_access_action">موافقت کردن با دسترسی</string>
+    <string name="general_enable_service_action">فعال کردن سرویس</string>
     <string name="general_undo_action">واگرد</string>
     <string name="general_path_label">مسیر</string>
     <string name="general_type_label">نوع</string>

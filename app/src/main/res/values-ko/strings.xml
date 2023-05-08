@@ -8,7 +8,7 @@
     <string name="debug_debuglog_size_label">크기</string>
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
-    <string name="debug_debuglog_file_label">기록한 로그</string>
+    <string name="debug_debuglog_file_label">기록한 로그 파일</string>
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일이 민감한 정보를 포함하고 있습니다. (파일 이름, 설치된 앱 등) 신뢰할 수 있는 이들과만 공유하세요.</string>
     <string name="settings_debuglog_explanation">이 기능을 사용하면 앱에서 하고 있는 모든 작업을 한 파일에 저장합니다. 생성된 파일은 민감한 정보를 포함할 수 있습니다. (파일 이름, 설치된 앱 등) 애플리케이션의 개발자 등, 신뢰할 수 있는 이들과만 공유하세요.</string>
