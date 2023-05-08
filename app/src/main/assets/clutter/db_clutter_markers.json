@@ -10170,6 +10170,9 @@
 	{"loc": "SDCARD", "path": "StardewScreenShots", "flags": ["keeper"]}
   ]
 }, {
+  "pkgs": ["com.zane.stardewvalley"],
+  "mrks": [	{"loc": "SDCARD", "path": "StardewValley"}]
+}, {
   "pkgs": ["com.miHoYo.bh3oversea"],
   "mrks": [
 	{"loc": "SDCARD", "path": "AIHlepSDK"},
