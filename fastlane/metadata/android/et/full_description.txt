@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> on usaldusväärne Androidi teenija, mis hoiab selle puhta ja korras.
+
+Mitte keegi pole täiuslik ja sama kehtib Androidile.
+* Juba eemaldatud rakendused jätavad midagi maha.
+* Sageli luuakse logisid, veaaruandeid ja muid faile.
+* Hoiustamisruum kogub tundmatuid faile ja kaustu.
+
+Hingame sügavalt sisse ja välja... Laske SD Maid SE-l end aidata:
+
+* Andmete tühjendamine juba eemaldatud rakendustest
+* Leidke peidetud rakenduse vahemälud
+* Eemaldage üleliigsed süsteemifailid
+
+SD Maid SE on reklaamivaba. Osa võimalusi vajab tasulist täiendust.
+
+SD Maid 2/SE on SD Maid 1/Legacy uus põlvkond.
+Optimeeritud uuemate Androidi versioonide jaoks ja keskendub puhastamisele.
+
+SD Maid SE-l on lisavõimalused, mis automatiseerib tüütuid toiminguid AccessibilityService API kaudu.
+Juurdepääsuteenuse API-ga saab SD Maid SE klõpsata nuppe teie eest, et toimetada mitmes rakenduses, nt vahemälude kustutamine.
+SD Maid SE ei kogu teavet AccessibilityService API kaudu.
