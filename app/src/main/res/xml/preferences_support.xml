@@ -2,29 +2,29 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Preference
+    <eu.darken.sdmse.common.preferences.IntentPreference
         android:icon="@drawable/ic_book_onsurface"
         android:title="@string/documentation_label">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/d4rken-org/sdmaid-se/wiki" />
-    </Preference>
-    <Preference
+    </eu.darken.sdmse.common.preferences.IntentPreference>
+    <eu.darken.sdmse.common.preferences.IntentPreference
         android:icon="@drawable/ic_github_onsurface"
         android:summary="@string/issue_tracker_description"
         android:title="@string/issue_tracker_label">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/d4rken-org/sdmaid-se/issues" />
-    </Preference>
-    <Preference
+    </eu.darken.sdmse.common.preferences.IntentPreference>
+    <eu.darken.sdmse.common.preferences.IntentPreference
         android:icon="@drawable/ic_discord_onsurface"
         android:summary="@string/discord_description"
         android:title="@string/discord_label">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://discord.gg/8Fjy6PTfXu" />
-    </Preference>
+    </eu.darken.sdmse.common.preferences.IntentPreference>
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference

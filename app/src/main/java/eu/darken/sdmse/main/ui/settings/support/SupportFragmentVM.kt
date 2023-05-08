@@ -1,9 +1,7 @@
 package eu.darken.sdmse.main.ui.settings.support
 
-import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.EmailTool
 import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -15,14 +13,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SupportFragmentVM @Inject constructor(
-    private val handle: SavedStateHandle,
-    private val emailTool: EmailTool,
+    @Suppress("unused") private val handle: SavedStateHandle,
+    dispatcherProvider: DispatcherProvider,
     private val sdmId: SDMId,
-    private val dispatcherProvider: DispatcherProvider,
     private val recorderModule: RecorderModule,
 ) : ViewModel3(dispatcherProvider) {
 
-    val emailEvent = SingleLiveEvent<Intent>()
     val clipboardEvent = SingleLiveEvent<String>()
 
     val isRecording = recorderModule.state.map { it.isRecording }.asLiveData2()

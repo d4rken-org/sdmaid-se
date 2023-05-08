@@ -61,8 +61,6 @@ class SupportFragment : PreferenceFragment2() {
                 .show()
         }
 
-        vm.emailEvent.observe2(this) { startActivity(it) }
-
         vm.isRecording.observe2(this) {
             debugLogPref.isEnabled = !it
         }
