@@ -176,7 +176,7 @@ class AppScanner @Inject constructor(
     }
 
     private suspend fun buildSearchMap(
-        installedPkgs: Collection<Installed>,
+        pkgsToCheck: Collection<Installed>,
     ): Map<AreaInfo, Collection<Installed.InstallId>> {
         updateProgressSecondary(R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
@@ -186,9 +186,9 @@ class AppScanner @Inject constructor(
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
         updateProgressPrimary(R.string.general_progress_generating_searchpaths)
 
-        for (pkg in installedPkgs) {
+        for (pkg in pkgsToCheck) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
-            updateProgressCount(Progress.Count.Percent(0, installedPkgs.size))
+            updateProgressCount(Progress.Count.Percent(0, pkgsToCheck.size))
             log(TAG) { "Generating search paths for ${pkg.installId}" }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
@@ -251,11 +251,24 @@ class AppScanner @Inject constructor(
             .map { it.value }
             .flatten()
             .mapNotNull { fileForensics.findOwners(it) }
-            .forEach { owner ->
-                val installIds = owner.installedOwners
+            .forEach { ownerInfo ->
+                val installIds = ownerInfo.installedOwners
                     .filter { !it.hasFlag(Marker.Flag.CUSTODIAN) }
+                    .filter { installedOwner ->
+                        // The app may be installed, but also excluded from scan
+                        pkgsToCheck.any { installedOwner.installId == it.installId }.also {
+                            if (!it) log(TAG) { "$installedOwner is excluded " }
+                        }
+                    }
                     .map { it.installId }
-                searchPathMap[owner.areaInfo] = (searchPathMap[owner.areaInfo] ?: emptySet()).plus(installIds)
+                    .takeIf { it.isNotEmpty() }
+
+                if (installIds == null) {
+                    log(TAG) { "${ownerInfo.item} has no valid owners, excluding from search map..." }
+                    return@forEach
+                }
+
+                searchPathMap[ownerInfo.areaInfo] = (searchPathMap[ownerInfo.areaInfo] ?: emptySet()).plus(installIds)
             }
 
         log(TAG) { "Search paths build (${searchPathMap.keys.size} interesting paths)." }
