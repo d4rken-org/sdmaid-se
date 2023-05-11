@@ -8,8 +8,6 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -26,6 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.*
 import javax.inject.Inject
@@ -99,10 +98,13 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             onRunTest = {
-                vm.launch {
-                    val local =
-                        LocalPath.build("/data_mirror/data_ce/null/0/com.google.android.trichromelibrary_428014133/lib")
-                    local.lookup(gatewaySwitch)
+//                vm.launch {
+//                    val local =
+//                        LocalPath.build("/data_mirror/data_ce/null/0/com.google.android.trichromelibrary_428014133/lib")
+//                    local.lookup(gatewaySwitch)
+//                }
+                appScope.launch {
+                    throw RuntimeException()
                 }
             }
         )

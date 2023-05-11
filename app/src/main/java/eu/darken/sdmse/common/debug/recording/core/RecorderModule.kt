@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.autoreport.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -33,6 +35,7 @@ class RecorderModule @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val sdmId: SDMId,
+    private val debugSettings: DebugSettings,
 ) {
 
     private val triggerFile = try {
@@ -46,7 +49,7 @@ class RecorderModule @Inject constructor(
 
     private val internalState = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
         val triggerFileExists = triggerFile.exists()
-        State(shouldRecord = triggerFileExists)
+        State(shouldRecord = triggerFileExists || debugSettings.recorderPath.value() != null)
     }
     val state: Flow<State> = internalState.flow
 
@@ -57,9 +60,18 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
-                        val newRecorder = Recorder()
-                        newRecorder.start(createRecordingFilePath())
-                        triggerFile.createNewFile()
+
+                        val logPath = debugSettings.recorderPath.value()?.let {
+                            log(TAG) { "Continuing existing log: $it" }
+                            File(it)
+                        } ?: createRecordingFilePath().also {
+                            log(TAG) { "Starting new log: ${it.path}" }
+                            debugSettings.recorderPath.value(it.path)
+                        }
+
+                        val newRecorder = Recorder().apply { start(logPath) }
+
+                        if (!triggerFile.exists()) triggerFile.createNewFile()
 
                         logInfos()
 
@@ -70,8 +82,10 @@ class RecorderModule @Inject constructor(
                         )
                     } else if (!shouldRecord && isRecording) {
                         val currentLog = recorder!!.path!!
+                        log(TAG) { "Stopping log recorder for: $currentLog" }
                         recorder.stop()
 
+                        debugSettings.recorderPath.value(null)
                         if (triggerFile.exists() && !triggerFile.delete()) {
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
