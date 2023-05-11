@@ -40,44 +40,47 @@ class RecorderService : Service2() {
 
     override fun onCreate() {
         super.onCreate()
-        val compatChannel = NotificationChannelCompat
-            .Builder(NOTIF_CHANID_DEBUG, NotificationManagerCompat.IMPORTANCE_MAX)
-            .setName(getString(R.string.debug_notification_channel_label))
-            .build()
+        val compatChannel = NotificationChannelCompat.Builder(
+            NOTIF_CHANID_DEBUG, NotificationManagerCompat.IMPORTANCE_MAX
+        ).apply {
+            setName(getString(R.string.debug_notification_channel_label))
+        }.build()
+
         NotificationManagerCompat.from(this).createNotificationChannel(compatChannel)
 
-        val openIntent = Intent(this, MainActivity::class.java)
         val openPi = PendingIntent.getActivity(
             this,
             0,
-            openIntent,
+            Intent(this, MainActivity::class.java),
             PendingIntentCompat.FLAG_IMMUTABLE
         )
 
-        val stopIntent = Intent(this, RecorderService::class.java)
-        stopIntent.action = STOP_ACTION
         val stopPi = PendingIntent.getService(
             this,
             0,
-            stopIntent,
+            Intent(this, RecorderService::class.java).apply {
+                action = STOP_ACTION
+            },
             PendingIntentCompat.FLAG_IMMUTABLE
         )
 
-        builder = NotificationCompat.Builder(this, NOTIF_CHANID_DEBUG)
-            .setChannelId(NOTIF_CHANID_DEBUG)
-            .setContentIntent(openPi)
-            .setPriority(NotificationCompat.PRIORITY_MAX)
-            .setSmallIcon(R.drawable.ic_baseline_bug_report_24)
-            .setContentText("Idle")
-            .setContentTitle(getString(R.string.app_name))
-            .addAction(NotificationCompat.Action.Builder(0, getString(R.string.general_done_action), stopPi).build())
+        builder = NotificationCompat.Builder(this, NOTIF_CHANID_DEBUG).apply {
+            setChannelId(NOTIF_CHANID_DEBUG)
+            setContentIntent(openPi)
+            priority = NotificationCompat.PRIORITY_MAX
+            setSmallIcon(R.drawable.ic_baseline_bug_report_24)
+            setContentText(getString(R.string.general_progress_loading))
+            setContentTitle("Debug log")
+            setOngoing(true)
+            addAction(NotificationCompat.Action.Builder(0, getString(R.string.general_done_action), stopPi).build())
+        }
 
         startForeground(NOTIFICATION_ID, builder.build())
 
         recorderModule.state
             .onEach {
                 if (it.isRecording) {
-                    builder.setContentText("Recording debug log: ${it.currentLogPath?.path}")
+                    builder.setContentText("${it.currentLogPath?.path}")
                     notificationManager.notify(NOTIFICATION_ID, builder.build())
                 } else {
                     stopForeground(true)
