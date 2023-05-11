@@ -37,8 +37,8 @@ jobs:
       - name: Install JDK ${{ matrix.java_version }}
         uses: actions/setup-java@v3
         with:
+          java-version: '17'
           distribution: 'adopt'
-          java-version: 11
 
       - name: Assemble beta APK
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -125,8 +125,8 @@ jobs:
       - name: Install JDK ${{ matrix.java_version }}
         uses: actions/setup-java@v3
         with:
+          java-version: '17'
           distribution: 'adopt'
-          java-version: 11
 
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
