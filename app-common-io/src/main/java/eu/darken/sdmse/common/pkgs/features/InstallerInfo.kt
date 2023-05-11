@@ -35,7 +35,7 @@ data class InstallerInfo(
 
     fun getLabel(context: Context): String {
         if (installer == null) {
-            return context.getString(R.string.general_na_label)
+            return context.getString(eu.darken.sdmse.common.R.string.general_na_label)
         }
 
         return installingPkg?.label?.get(context) ?: installer!!.id.name

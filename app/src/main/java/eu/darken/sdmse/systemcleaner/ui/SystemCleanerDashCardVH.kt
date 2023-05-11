@@ -40,7 +40,7 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
                 item.data.filterContents.sumOf { it.items.size }
             )
             val space = Formatter.formatFileSize(context, item.data.totalSize)
-            statusSecondary.text = getString(R.string.x_space_can_be_freed, space)
+            statusSecondary.text = getString(eu.darken.sdmse.common.R.string.x_space_can_be_freed, space)
         } else {
             statusPrimary.text = null
             statusSecondary.text = null

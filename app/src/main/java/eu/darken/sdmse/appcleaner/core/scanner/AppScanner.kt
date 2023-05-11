@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.core.scanner
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
@@ -17,20 +16,41 @@ import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.hasFlags
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.exists
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.lookupFiles
+import eu.darken.sdmse.common.files.removePrefix
+import eu.darken.sdmse.common.files.startsWith
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
-import eu.darken.sdmse.common.pkgs.*
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
+import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.isSystemApp
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -64,7 +84,7 @@ class AppScanner @Inject constructor(
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
         Progress.DEFAULT_STATE.copy(
-            primary = R.string.general_progress_preparing.toCaString()
+            primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString()
         )
     )
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
@@ -92,7 +112,7 @@ class AppScanner @Inject constructor(
         pkgFilter: Collection<Pkg.Id> = emptySet()
     ): Collection<AppJunk> {
         log(TAG, INFO) { "scan(pkgFilter=$pkgFilter)" }
-        updateProgressPrimary(R.string.general_progress_preparing)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
         updateProgressCount(Progress.Count.Indeterminate())
 
         if (enabledFilters.isEmpty()) {
@@ -108,7 +128,7 @@ class AppScanner @Inject constructor(
             .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
             .filterIsInstance<Exclusion.Package>()
 
-        updateProgressSecondary(R.string.general_progress_loading_app_data)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
         val currentUser = userManager.currentUser()
         val allUsers = userManager.allUsers()
@@ -158,7 +178,7 @@ class AppScanner @Inject constructor(
 
         log(TAG) { "Found ${expendablesFromAppData.size} apps with expendable files" }
 
-        updateProgressPrimary(R.string.general_progress_filtering)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val prunedAppJunks = postProcessorModule.postProcess(appJunks)
@@ -178,13 +198,13 @@ class AppScanner @Inject constructor(
     private suspend fun buildSearchMap(
         pkgsToCheck: Collection<Installed>,
     ): Map<AreaInfo, Collection<Installed.InstallId>> {
-        updateProgressSecondary(R.string.general_progress_loading_data_areas)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val dataAreaMap = createDataAreaMap()
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
-        updateProgressPrimary(R.string.general_progress_generating_searchpaths)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
 
         for (pkg in pkgsToCheck) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
@@ -370,7 +390,7 @@ class AppScanner @Inject constructor(
     private suspend fun readAppDirs(
         searchPathsOfInterest: Map<AreaInfo, Collection<Installed.InstallId>>
     ): Map<Installed.InstallId, Collection<FilterMatch>> {
-        updateProgressPrimary(R.string.general_progress_searching)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Percent(0, searchPathsOfInterest.size))
 

@@ -67,12 +67,15 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             } else if (state.totalItems > 0 || state.totalSize > 0L) {
                 bottomBarText.apply {
                     text = requireContext().getString(
-                        R.string.x_space_can_be_freed,
+                        eu.darken.sdmse.common.R.string.x_space_can_be_freed,
                         Formatter.formatShortFileSize(requireContext(), state.totalSize)
                     )
                     append("\n")
                     append(
-                        requireContext().getQuantityString2(R.plurals.result_x_items, state.totalItems)
+                        requireContext().getQuantityString2(
+                            eu.darken.sdmse.common.R.plurals.result_x_items,
+                            state.totalItems
+                        )
                     )
                 }
             } else {
@@ -88,10 +91,14 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             mainAction.setOnClickListener {
                 if (state.actionState == DashboardFragmentVM.BottomBarState.Action.DELETE) {
                     MaterialAlertDialogBuilder(requireContext()).apply {
-                        setTitle(R.string.general_delete_confirmation_title)
+                        setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                         setMessage(R.string.dashboard_delete_all_message)
-                        setPositiveButton(R.string.general_delete_all_action) { _, _ -> vm.mainAction(state.actionState) }
-                        setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_all_action) { _, _ ->
+                            vm.mainAction(
+                                state.actionState
+                            )
+                        }
+                        setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     }.show()
                 } else {
                     vm.mainAction(state.actionState)
@@ -102,41 +109,41 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 DashboardFragmentVM.BottomBarState.Action.SCAN -> {
                     mainAction.setImageResource(R.drawable.ic_layer_search_24)
                     mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnPrimaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnPrimaryContainer))
                     mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorPrimaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer))
                 }
                 DashboardFragmentVM.BottomBarState.Action.DELETE -> {
                     mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
-                        requireContext().getColorForAttr(R.attr.colorOnError)
+                        requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
                     )
                     mainAction.backgroundTintList = ColorStateList.valueOf(
-                        requireContext().getColorForAttr(R.attr.colorError)
+                        requireContext().getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
                 }
                 DashboardFragmentVM.BottomBarState.Action.ONECLICK -> {
                     mainAction.setImageResource(R.drawable.ic_delete_alert_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
-                        requireContext().getColorForAttr(R.attr.colorOnError)
+                        requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
                     )
                     mainAction.backgroundTintList = ColorStateList.valueOf(
-                        requireContext().getColorForAttr(R.attr.colorError)
+                        requireContext().getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
                 }
                 DashboardFragmentVM.BottomBarState.Action.WORKING -> {
                     mainAction.setImageDrawable(null)
                     mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnSecondaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnSecondaryContainer))
                     mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorSecondaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorSecondaryContainer))
                 }
                 DashboardFragmentVM.BottomBarState.Action.WORKING_CANCELABLE -> {
                     mainAction.setImageResource(R.drawable.ic_cancel)
                     mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorOnTertiaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnTertiaryContainer))
                     mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(R.attr.colorTertiaryContainer))
+                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorTertiaryContainer))
                 }
             }
         }
@@ -144,25 +151,25 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 is DashboardEvents.CorpseFinderDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(R.string.corpsefinder_delete_all_confirmation_message)
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showCorpseFinderDetails() }
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCorpseFinderDetails() }
                 }.show()
                 is DashboardEvents.SystemCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(R.string.systemcleaner_delete_all_confirmation_message)
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
                 }.show()
                 is DashboardEvents.AppCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(R.string.appcleaner_delete_all_confirmation_message)
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion() }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion() }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
@@ -171,7 +178,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                             R.string.setup_dismiss_hint,
                             Snackbar.LENGTH_LONG
                         )
-                        .setAction(R.string.general_undo_action) { _ -> vm.undoSetupHide() }
+                        .setAction(eu.darken.sdmse.common.R.string.general_undo_action) { _ -> vm.undoSetupHide() }
                         .show()
                 }
                 is DashboardEvents.TaskResult -> Snackbar.make(
@@ -180,7 +187,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     Snackbar.LENGTH_LONG
                 ).show()
                 DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.general_todo_msg)
+                    setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
                 }.show()
             }
         }

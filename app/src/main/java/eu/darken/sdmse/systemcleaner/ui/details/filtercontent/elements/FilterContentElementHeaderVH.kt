@@ -28,7 +28,7 @@ class FilterContentElementHeaderVH(parent: ViewGroup) :
         val fc = item.filterContent
         icon.setImageDrawable(fc.filterIdentifier.getIcon(context))
         typeValue.text = fc.filterIdentifier.getLabel(context)
-        countValue.text = context.getQuantityString2(R.plurals.result_x_items, fc.items.size)
+        countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, fc.items.size)
         sizeVaule.text = Formatter.formatFileSize(context, fc.size)
         descriptionValue.text = fc.filterIdentifier.getDescription(context)
 

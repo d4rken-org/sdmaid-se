@@ -52,36 +52,38 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
             when (event) {
                 is AppJunkEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     val task = event.deletionTask
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         when {
                             task.onlyInaccessible -> getString(
-                                R.string.general_delete_confirmation_message_x_for_x,
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x_for_x,
                                 getString(R.string.appcleaner_item_caches_inaccessible_title),
                                 event.appJunk.label.get(context),
                             )
+
                             task.targetContents.isNotNullOrEmpty() -> getString(
-                                R.string.general_delete_confirmation_message_x,
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                                 task.targetContents!!.first().userReadablePath.get(context),
                             )
                             task.targetFilters.isNotNullOrEmpty() -> getString(
-                                R.string.general_delete_confirmation_message_x_for_x,
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x_for_x,
                                 getString(task.targetFilters!!.first().labelRes),
                                 event.appJunk.label.get(context),
                             )
+
                             else -> getString(
-                                R.string.general_delete_confirmation_message_x,
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                                 event.appJunk.label.get(context)
                             )
                         }
 
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.doDelete(task)
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     if (task.targetContents.isNotNullOrEmpty()) {
-                        setNeutralButton(R.string.general_exclude_action) { _, _ ->
+                        setNeutralButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
                             vm.doExclude(task.targetPkgs!!.first(), task.targetContents!!.first())
                         }
                     }

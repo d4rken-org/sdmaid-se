@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -64,7 +63,7 @@ class CorpseFinder @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as CorpseFinderTask
         log(TAG, INFO) { "submit($task) starting..." }
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(easterEggProgressMsg)
         updateProgressCount(Progress.Count.Indeterminate())
 
@@ -190,7 +189,10 @@ class CorpseFinder @Inject constructor(
 
                 task.targetContent.forEach { targetContent ->
                     updateProgressPrimary(caString {
-                        it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
+                        it.getString(
+                            eu.darken.sdmse.common.R.string.general_progress_deleting,
+                            targetContent.userReadableName.get(it)
+                        )
                     })
                     log(TAG) { "Deleting $targetContent..." }
                     try {
@@ -211,7 +213,10 @@ class CorpseFinder @Inject constructor(
                 deletedContents[corpse] = deleted
             } else {
                 updateProgressPrimary(caString {
-                    it.getString(R.string.general_progress_deleting, corpse.path.userReadableName.get(it))
+                    it.getString(
+                        eu.darken.sdmse.common.R.string.general_progress_deleting,
+                        corpse.path.userReadableName.get(it)
+                    )
                 })
                 log(TAG) { "Deleting $targetCorpse..." }
                 try {
@@ -228,7 +233,7 @@ class CorpseFinder @Inject constructor(
             }
         }
 
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(

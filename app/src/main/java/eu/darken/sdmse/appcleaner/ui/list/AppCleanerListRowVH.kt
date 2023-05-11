@@ -34,7 +34,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         primary.text = junk.label.get(context)
         secondary.text = junk.pkg.packageName
 
-        items.text = getQuantityString(R.plurals.result_x_items, junk.itemCount)
+        items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, junk.itemCount)
         size.text = Formatter.formatShortFileSize(context, junk.size)
 
         root.setOnClickListener { item.onItemClicked(junk) }

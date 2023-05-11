@@ -50,8 +50,8 @@ class TaskWorkerNotifications @Inject constructor(
             priority = NotificationCompat.PRIORITY_LOW
             setSmallIcon(R.drawable.ic_notification_mascot_24)
             setOngoing(true)
-            setContentTitle(context.getString(R.string.app_name))
-            setContentText(context.getString(R.string.general_progress_loading))
+            setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
+            setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
         }
     }
 
@@ -59,8 +59,8 @@ class TaskWorkerNotifications @Inject constructor(
         if (state == null) {
             return builder.apply {
                 setStyle(null)
-                setContentTitle(context.getString(R.string.app_name))
-                setContentText(context.getString(R.string.general_progress_loading))
+                setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
+                setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
             }
         }
 

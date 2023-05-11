@@ -1,7 +1,6 @@
 package eu.darken.sdmse.corpsefinder.core.tasks
 
 import android.text.format.Formatter
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import kotlinx.parcelize.Parcelize
@@ -21,7 +20,7 @@ data class CorpseFinderSchedulerTask(
         override val primaryInfo: CaString
             get() = caString {
                 it.getString(
-                    R.string.general_result_x_space_freed,
+                    eu.darken.sdmse.common.R.string.general_result_x_space_freed,
                     Formatter.formatShortFileSize(it, recoveredSpace)
                 )
             }

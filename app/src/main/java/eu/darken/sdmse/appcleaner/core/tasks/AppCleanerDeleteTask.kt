@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.tasks
 
 import android.text.format.Formatter
-import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
@@ -32,7 +31,7 @@ data class AppCleanerDeleteTask(
         override val primaryInfo: CaString
             get() = caString {
                 it.getString(
-                    R.string.general_result_x_space_freed,
+                    eu.darken.sdmse.common.R.string.general_result_x_space_freed,
                     Formatter.formatShortFileSize(it, recoveredSpace)
                 )
             }

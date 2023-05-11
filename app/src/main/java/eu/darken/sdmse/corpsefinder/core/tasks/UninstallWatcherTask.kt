@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.core.tasks
 
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -19,6 +18,6 @@ data class UninstallWatcherTask(
         private val recoveredSpace: Long
     ) : Result {
         override val primaryInfo: CaString
-            get() = R.string.general_result_success_message.toCaString()
+            get() = eu.darken.sdmse.common.R.string.general_result_success_message.toCaString()
     }
 }

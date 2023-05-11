@@ -1,17 +1,25 @@
 package eu.darken.sdmse.systemcleaner.core
 
 import dagger.Reusable
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.files.startsWith
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -24,7 +32,16 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.toList
 import java.io.IOException
 import javax.inject.Inject
 
@@ -50,8 +67,8 @@ class SystemCrawler @Inject constructor(
 
     suspend fun crawl(): Collection<FilterContent> {
         log(TAG) { "crawl()" }
-        updateProgressPrimary(R.string.general_progress_searching)
-        updateProgressSecondary(R.string.general_progress_generating_searchpaths)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)

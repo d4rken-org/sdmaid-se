@@ -37,14 +37,14 @@ class TitleCardVH(parent: ViewGroup) :
         }
 
         if (item.upgradeInfo?.isPro == true) {
-            val builder = SpannableStringBuilder(getString(R.string.app_name))
+            val builder = SpannableStringBuilder(getString(eu.darken.sdmse.common.R.string.app_name))
 
             val postFix = getString(R.string.app_name_upgrade_postfix).toColored(context, R.color.colorUpgraded)
             builder.append(" ").append(postFix)
 
             title.text = builder
         } else {
-            title.text = getString(R.string.app_name)
+            title.text = getString(eu.darken.sdmse.common.R.string.app_name)
         }
 
         subtitle.text = getString(slogan)
@@ -73,12 +73,12 @@ class TitleCardVH(parent: ViewGroup) :
     companion object {
         @StringRes
         fun getRngSlogan() = when ((0..5).random()) {
-            0 -> R.string.slogan_message_0
-            1 -> R.string.slogan_message_1
-            2 -> R.string.slogan_message_2
-            3 -> R.string.slogan_message_3
-            4 -> R.string.slogan_message_4
-            5 -> R.string.slogan_message_5
+            0 -> eu.darken.sdmse.common.R.string.slogan_message_0
+            1 -> eu.darken.sdmse.common.R.string.slogan_message_1
+            2 -> eu.darken.sdmse.common.R.string.slogan_message_2
+            3 -> eu.darken.sdmse.common.R.string.slogan_message_3
+            4 -> eu.darken.sdmse.common.R.string.slogan_message_4
+            5 -> eu.darken.sdmse.common.R.string.slogan_message_5
             else -> throw IllegalArgumentException()
         }
     }

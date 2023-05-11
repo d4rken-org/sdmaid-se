@@ -72,7 +72,7 @@ class BreadCrumbBar<ItemT : APath> @JvmOverloads constructor(
             )
 
             if (crumbs[crumbs.size - 1] == crumb) {
-                name.setTextColor(context.getColorForAttr(R.attr.colorSecondary))
+                name.setTextColor(context.getColorForAttr(com.google.android.material.R.attr.colorSecondary))
             }
 
             item.layoutParams = layoutParams

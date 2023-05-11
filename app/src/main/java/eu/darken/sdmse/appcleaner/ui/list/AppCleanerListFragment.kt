@@ -42,24 +42,25 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
 
-            toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.items.size)
+            toolbar.subtitle =
+                requireContext().getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
         }
 
         vm.events.observe2(ui) { event ->
             when (event) {
                 is AppCleanerListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_clean_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_clean_confirmation_title)
                     setMessage(
                         getString(
-                            R.string.general_clean_confirmation_message_x,
+                            eu.darken.sdmse.common.R.string.general_clean_confirmation_message_x,
                             event.appJunk.label.get(context)
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.doDelete(event.appJunk)
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_show_details_action) { _, _ ->
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
                         vm.showDetails(event.appJunk)
                     }
                 }.show()

@@ -42,24 +42,25 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
 
-            toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.items.size)
+            toolbar.subtitle =
+                requireContext().getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
         }
 
         vm.events.observe2(ui) { event ->
             when (event) {
                 is CorpseListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         getString(
-                            R.string.general_delete_confirmation_message_x,
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                             event.corpse.path.userReadableName.get(context)
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.doDelete(event.corpse)
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_show_details_action) { _, _ ->
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
                         vm.showDetails(event.corpse)
                     }
                 }.show()

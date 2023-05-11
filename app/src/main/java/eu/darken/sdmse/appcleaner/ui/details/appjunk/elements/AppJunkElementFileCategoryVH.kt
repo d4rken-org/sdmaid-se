@@ -32,7 +32,7 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
         primary.text = getString(item.category.labelRes)
         secondary.apply {
             text = Formatter.formatFileSize(context, item.paths.sumOf { it.size })
-            append(" (${context.getQuantityString2(R.plurals.result_x_items, item.paths.size)})")
+            append(" (${context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, item.paths.size)})")
         }
         description.text = getString(item.category.descriptionRes)
 

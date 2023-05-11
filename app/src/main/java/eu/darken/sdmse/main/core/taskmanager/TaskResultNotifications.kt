@@ -48,8 +48,8 @@ class TaskResultNotifications @Inject constructor(
             priority = NotificationCompat.PRIORITY_LOW
             setSmallIcon(R.drawable.ic_notification_maid_happy_24)
             setOngoing(true)
-            setContentTitle(context.getString(R.string.app_name))
-            setContentText(context.getString(R.string.general_progress_loading))
+            setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
+            setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
             setSubText(context.getString(R.string.tasks_result_subtext))
         }
     }

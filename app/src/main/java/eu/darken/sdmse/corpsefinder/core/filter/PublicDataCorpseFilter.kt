@@ -57,10 +57,15 @@ class PublicDataCorpseFilter @Inject constructor(
             .filter { it.type == DataArea.Type.PUBLIC_DATA }
             .map { area ->
                 updateProgressPrimary(
-                    { c: Context -> c.getString(R.string.general_progress_processing_x, area.label) }.toCaString()
+                    { c: Context ->
+                        c.getString(
+                            eu.darken.sdmse.common.R.string.general_progress_processing_x,
+                            area.label
+                        )
+                    }.toCaString()
                 )
                 log(TAG) { "Reading $area" }
-                updateProgressSecondary(R.string.general_progress_searching)
+                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
                 val topLevelContents = area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
@@ -71,7 +76,7 @@ class PublicDataCorpseFilter @Inject constructor(
                         }
                     }
                 log(TAG) { "Filtering $area" }
-                updateProgressSecondary(R.string.general_progress_filtering)
+                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
                 doFilter(topLevelContents)
             }
             .flatten()
@@ -143,7 +148,7 @@ class PublicDataCorpseFilter @Inject constructor(
     companion object {
         val DEFAULT_PROGRESS = Progress.Data(
             primary = R.string.corpsefinder_filter_publicdata_label.toCaString(),
-            secondary = R.string.general_progress_loading.toCaString(),
+            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
             count = Progress.Count.Indeterminate()
         )
         val TAG: String = logTag("CorpseFinder", "Filter", "PublicData")

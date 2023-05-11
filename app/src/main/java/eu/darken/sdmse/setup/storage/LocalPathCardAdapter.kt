@@ -54,7 +54,7 @@ class LocalPathCardAdapter @Inject constructor() :
                 imageTintList = if (item.pathAccess.hasAccess) {
                     ColorStateList.valueOf(ContextCompat.getColor(context, R.color.state_positive_3))
                 } else {
-                    ColorStateList.valueOf(context.getColorForAttr(R.attr.colorControlNormal))
+                    ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorControlNormal))
                 }
             }
 
