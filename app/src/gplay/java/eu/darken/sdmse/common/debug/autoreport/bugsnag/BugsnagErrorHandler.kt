@@ -32,7 +32,6 @@ class BugsnagErrorHandler @Inject constructor(
             event.addMetadata(tab, "flavor", BuildConfigWrap.FLAVOR.toString())
             event.addMetadata(tab, "buildType", BuildConfigWrap.BUILD_TYPE.toString())
 
-            event.addMetadata(tab, "buildTime", BuildConfigWrap.BUILD_TIME.toString())
             event.addMetadata(tab, "gitSha", BuildConfigWrap.GIT_SHA)
             event.addMetadata(tab, "locales", "${Resources.getSystem().configuration.locales}")
 

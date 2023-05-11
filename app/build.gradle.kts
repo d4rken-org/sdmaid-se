@@ -8,6 +8,8 @@ apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 apply(plugin = "com.bugsnag.android.gradle")
 
+val commitHashProvider = providers.of(CommitHashValueSource::class) {}
+
 android {
     compileSdk = ProjectConfig.compileSdk
 
@@ -23,8 +25,7 @@ android {
         testInstrumentationRunner = "eu.darken.sdmse.HiltTestRunner"
 
         buildConfigField("String", "PACKAGENAME", "\"${ProjectConfig.packageName}\"")
-        buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
-        buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
+        buildConfigField("String", "GITSHA", "\"${commitHashProvider.get()}\"")
         buildConfigField("String", "VERSION_CODE", "\"${ProjectConfig.Version.code}\"")
         buildConfigField("String", "VERSION_NAME", "\"${ProjectConfig.Version.name}\"")
 
@@ -92,10 +93,10 @@ android {
         val variantOutputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
         val variantName: String = variantOutputImpl.name
 
-        if (listOf("release", "beta").any { variantName.toLowerCase().contains(it) }) {
+        if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
             val outputFileName = ProjectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.toUpperCase()}-${lastCommitHash()}.apk"
+                    "-${variantName.uppercase()}-${commitHashProvider.get()}.apk"
 
             variantOutputImpl.outputFileName = outputFileName
         }
@@ -107,8 +108,8 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     setupKotlinOptions()

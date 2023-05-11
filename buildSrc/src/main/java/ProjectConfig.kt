@@ -1,18 +1,24 @@
+import com.android.build.api.dsl.Packaging
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
+import org.gradle.api.provider.ValueSource
+import org.gradle.api.provider.ValueSourceParameters
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.TestDescriptor
 import org.gradle.api.tasks.testing.TestListener
 import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.process.ExecOperations
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
-import java.time.Instant
+import java.nio.charset.Charset
 import java.util.*
+import javax.inject.Inject
 
 object ProjectConfig {
     const val packageName = "eu.darken.sdmse"
@@ -36,23 +42,10 @@ object ProjectConfig {
     }
 }
 
-fun lastCommitHash(): String = Runtime.getRuntime().exec("git rev-parse --short HEAD").let { process ->
-    process.waitFor()
-    val output = process.inputStream.use { input ->
-        input.bufferedReader().use {
-            it.readText()
-        }
-    }
-    process.destroy()
-    output.trim()
-}
-
-fun buildTime(): Instant = Instant.now()
-
 /**
  * Configures the [kotlinOptions][org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions] extension.
  */
-private fun LibraryExtension.kotlinOptions(configure: Action<org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions>): Unit =
+private fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
 
 fun LibraryExtension.setupLibraryDefaults() {
@@ -75,12 +68,12 @@ fun LibraryExtension.setupLibraryDefaults() {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-Xopt-in=kotlinx.coroutines.FlowPreview",
@@ -89,7 +82,7 @@ fun LibraryExtension.setupLibraryDefaults() {
         )
     }
 
-    packagingOptions {
+    fun Packaging.() {
         resources.excludes += "DebugProbesKt.bin"
     }
 }
@@ -118,11 +111,8 @@ private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Un
 
 fun BaseExtension.setupKotlinOptions() {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
         freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
-            "-Xuse-experimental=kotlin.time.ExperimentalTime",
             "-Xopt-in=kotlin.RequiresOptIn",
             "-Xopt-in=kotlin.ExperimentalStdlibApi",
             "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
@@ -137,8 +127,8 @@ fun BaseExtension.setupKotlinOptions() {
 fun BaseExtension.setupCompileOptions() {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -210,5 +200,19 @@ fun Test.setupTestLogging() {
                 }
             }
         })
+    }
+}
+
+abstract class CommitHashValueSource : ValueSource<String, ValueSourceParameters.None> {
+    @get:Inject
+    abstract val execOperations: ExecOperations
+
+    override fun obtain(): String {
+        val output = ByteArrayOutputStream()
+        execOperations.exec {
+            commandLine("git", "rev-parse", "--short", "HEAD")
+            standardOutput = output
+        }
+        return String(output.toByteArray(), Charset.defaultCharset()).trim()
     }
 }

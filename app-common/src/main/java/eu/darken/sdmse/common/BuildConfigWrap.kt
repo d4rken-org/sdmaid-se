@@ -3,7 +3,6 @@ package eu.darken.sdmse.common
 import android.util.Log
 import androidx.annotation.Keep
 import java.lang.reflect.Field
-import java.time.Instant
 
 
 // Can't be const because that prevents them from being mocked in tests
@@ -40,8 +39,6 @@ object BuildConfigWrap {
         NONE,
         ;
     }
-
-    val BUILD_TIME: Instant = Instant.parse(getBuildConfigValue("BUILDTIME") as String)
 
     val VERSION_CODE: Long = (getBuildConfigValue("VERSION_CODE") as String).toLong()
     val VERSION_NAME: String = getBuildConfigValue("VERSION_NAME") as String
