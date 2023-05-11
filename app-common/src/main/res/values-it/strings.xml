@@ -51,6 +51,8 @@
     <string name="general_progress_loading_app_data">Caricamento dei dati dell\'app</string>
     <string name="general_progress_loading_data_areas">Caricamento aree dati</string>
     <string name="general_progress_loading_egg_0">Ancora più veloce di un iPhone</string>
+    <string name="general_progress_loading_egg_1">Download di più RAM in corso</string>
+    <string name="general_progress_loading_egg_2">Presto™</string>
     <string name="general_progress_loading_egg_3">La CPU è in pausa caffè</string>
     <string name="general_progress_loading_egg_4">In attesa di dati da Pepe Silvia</string>
     <string name="general_help_action">Aiuto</string>

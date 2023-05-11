@@ -85,6 +85,11 @@
     <string name="general_search_action">Caută</string>
     <string name="general_scan_device_action">Scanează dispozitivul</string>
     <string name="general_open_system_settings_action">Deschide setările de sistem</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s articol</item>
+        <item quantity="few">%s articole</item>
+        <item quantity="other">%s articole</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s pot fi eliberați</string>
     <string name="general_info_label">Informații</string>
     <string name="general_count_label">Numără</string>

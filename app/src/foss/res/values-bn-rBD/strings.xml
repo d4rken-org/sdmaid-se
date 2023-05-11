@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="nudge_betagoodbye_positive_action">বেরিয়ে আসুন</string>
+    <string name="nudge_betagoodbye_negative_action">পরীক্ষা করতে থাকুন</string>
+</resources>
