@@ -68,7 +68,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 this as SearchView
                 searchView = this
 
-                queryHint = getString(R.string.general_search_action)
+                queryHint = getString(eu.darken.sdmse.common.R.string.general_search_action)
                 setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String): Boolean {
                         return false
@@ -196,7 +196,10 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             tagFilterDisabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.DISABLED), animate = false)
 
             if (state.appInfos != null) {
-                toolbar.subtitle = requireContext().getQuantityString2(R.plurals.result_x_items, state.appInfos.size)
+                toolbar.subtitle = requireContext().getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.result_x_items,
+                    state.appInfos.size
+                )
                 adapter.update(state.appInfos)
             } else {
                 toolbar.subtitle = null

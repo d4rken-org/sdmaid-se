@@ -29,7 +29,7 @@ interface AutomationHost : Progress.Client {
         val panelGravity: Int = Gravity.BOTTOM,
         val accessibilityServiceInfo: AccessibilityServiceInfo = AccessibilityServiceInfo(),
         val controlPanelTitle: CaString = R.string.automation_active_title.toCaString(),
-        val controlPanelSubtitle: CaString = R.string.general_progress_loading.toCaString(),
+        val controlPanelSubtitle: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
     ) {
         /*
             java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.ComponentName.flattenToShortString()' on a null object reference

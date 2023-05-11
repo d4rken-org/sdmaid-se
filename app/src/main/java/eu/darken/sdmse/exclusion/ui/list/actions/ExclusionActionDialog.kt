@@ -32,7 +32,7 @@ class ExclusionActionDialog : BottomSheetDialogFragment2() {
                     typeIcon.setImageResource(R.drawable.ic_app_extra_24)
 
                     icon.apply {
-                        setImageResource(R.drawable.ic_default_app_icon_24)
+                        setImageResource(eu.darken.sdmse.common.io.R.drawable.ic_default_app_icon_24)
                         isGone = false
                     }
                     primary.text = exclusion.label.get(requireContext())

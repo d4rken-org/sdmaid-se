@@ -5,7 +5,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.error.localized
-import eu.darken.sdmse.common.io.R
 import java.io.File
 import java.io.IOException
 
@@ -28,7 +27,7 @@ open class ReadException(
         label = "ReadException".toCaString(),
         description = caString { cx ->
             val sb = StringBuilder()
-            sb.append(cx.getString(R.string.general_error_cant_access_msg, path))
+            sb.append(cx.getString(eu.darken.sdmse.common.R.string.general_error_cant_access_msg, path))
             cause?.let {
                 sb.append("\n\n")
                 val localizedCause = it.localized(cx)
@@ -52,7 +51,7 @@ class WriteException(
         label = "WriteException".toCaString(),
         description = caString { cx ->
             val sb = StringBuilder()
-            sb.append(cx.getString(R.string.general_error_cant_access_msg, path))
+            sb.append(cx.getString(eu.darken.sdmse.common.R.string.general_error_cant_access_msg, path))
             cause?.let {
                 sb.append("\n\n")
                 val localizedCause = it.localized(cx)

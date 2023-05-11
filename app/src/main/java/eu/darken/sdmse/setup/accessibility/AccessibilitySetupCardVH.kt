@@ -38,7 +38,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             TextViewCompat.setCompoundDrawableTintList(
                 this,
                 ColorStateList.valueOf(
-                    context.getColorForAttr(if (state.isServiceEnabled) R.attr.colorPrimary else R.attr.colorError)
+                    context.getColorForAttr(if (state.isServiceEnabled) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError)
                 )
             )
             text = getString(
@@ -47,7 +47,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             )
             setTextColor(
                 context.getColorForAttr(
-                    if (state.isServiceEnabled) R.attr.colorPrimary else R.attr.colorError
+                    if (state.isServiceEnabled) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError
                 )
             )
         }
@@ -76,7 +76,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             TextViewCompat.setCompoundDrawableTintList(
                 this,
                 ColorStateList.valueOf(
-                    context.getColorForAttr(if (state.isServiceRunning) R.attr.colorPrimary else R.attr.colorError)
+                    context.getColorForAttr(if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError)
                 )
             )
             text = getString(
@@ -85,7 +85,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             )
             setTextColor(
                 context.getColorForAttr(
-                    if (state.isServiceRunning) R.attr.colorPrimary else R.attr.colorError
+                    if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError
                 )
             )
         }
@@ -96,7 +96,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
             isVisible = state.hasConsent != true || (state.hasConsent == true && !state.isServiceRunning)
             text = when {
                 state.hasConsent != true -> getString(R.string.setup_acs_consent_positive_action)
-                state.hasConsent == true && !state.isServiceRunning -> getString(R.string.general_enable_service_action)
+                state.hasConsent == true && !state.isServiceRunning -> getString(eu.darken.sdmse.common.R.string.general_enable_service_action)
                 else -> getString(R.string.setup_acs_consent_positive_action)
             }
             setOnClickListener { item.onGrantAction() }

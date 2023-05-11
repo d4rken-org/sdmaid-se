@@ -27,7 +27,8 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
         findPreference<Preference>(settings.includeOtherUsersEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.minCacheSizeBytes.keyName)?.apply {
             setOnPreferenceClickListener {
@@ -57,11 +58,11 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.appcleaner_include_minimumsize_label)
                     setView(dialogLayout.root)
-                    setPositiveButton(R.string.general_save_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
                         settings.minCacheSizeBytes.valueBlocking = dialogLayout.slider.value.toLong() * 1024L * 1024L
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_reset_action) { _, _ ->
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
                         settings.minCacheSizeBytes.valueBlocking = AppCleanerSettings.MIN_CACHE_SIZE_DEFAULT
                     }
                 }.show()
@@ -102,11 +103,11 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.appcleaner_include_minimumage_label)
                     setView(dialogLayout.root)
-                    setPositiveButton(R.string.general_save_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
                         settings.minCacheAgeMs.valueBlocking = dialogLayout.slider.value.toLong() * 60 * 1000L
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.general_reset_action) { _, _ ->
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
                         settings.minCacheAgeMs.valueBlocking = AppCleanerSettings.MIN_CACHE_AGE_DEFAULT
                     }
                 }.show()

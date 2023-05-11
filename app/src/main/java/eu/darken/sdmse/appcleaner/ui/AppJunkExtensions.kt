@@ -4,8 +4,24 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.filter.*
+import eu.darken.sdmse.appcleaner.core.forensics.filter.AdvertisementFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.AnalyticsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.BugReportingFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.CodeCacheFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPrivateFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.GameFilesFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.HiddenFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.OfflineCacheFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.RecycleBinsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.TelegramFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.ThreemaFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.ThumbnailsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.WeChatFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.WebViewCacheFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppBackupsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppReceivedFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppSentFilter
 import kotlin.reflect.KClass
 
 @get:StringRes
@@ -29,7 +45,7 @@ val <T : ExpendablesFilter> KClass<T>.labelRes: Int
         TelegramFilter::class -> R.string.appcleaner_filter_telegram_label
         ThreemaFilter::class -> R.string.appcleaner_filter_threema_label
         WeChatFilter::class -> R.string.appcleaner_filter_wechat_label
-        else -> R.string.general_todo_msg
+        else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
 @get:StringRes
@@ -53,7 +69,7 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
         TelegramFilter::class -> R.string.appcleaner_filter_telegram_summary
         ThreemaFilter::class -> R.string.appcleaner_filter_threema_summary
         WeChatFilter::class -> R.string.appcleaner_filter_wechat_summary
-        else -> R.string.general_todo_msg
+        else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
 @get:DrawableRes

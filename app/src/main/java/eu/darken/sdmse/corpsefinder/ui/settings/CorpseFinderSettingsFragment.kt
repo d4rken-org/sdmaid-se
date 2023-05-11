@@ -53,25 +53,32 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
         findPreference<Preference>(settings.filterPrivateDataEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterAppSourceAsecEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterDalvikCacheEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterAppLibEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterAppSourceEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterAppSourcePrivateEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
         findPreference<Preference>(settings.filterAppToSdEnabled.keyName)?.apply {
-            summary = summary.toString() + "\n" + getString(R.string.general_root_required_message)
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
     }
 

@@ -39,7 +39,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         super.onPreferencesCreated()
         findPreference<Preference>("filter.custom")!!.setOnPreferenceClickListener {
             MaterialAlertDialogBuilder(requireContext()).apply {
-                setMessage(R.string.general_todo_msg)
+                setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
             }.show()
             true
         }

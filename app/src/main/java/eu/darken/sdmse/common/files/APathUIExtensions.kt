@@ -16,8 +16,8 @@ val FileType.iconRes: Int
 @get:StringRes
 val FileType.labelRes: Int
     get() = when (this) {
-        FileType.DIRECTORY -> R.string.file_type_directory
-        FileType.SYMBOLIC_LINK -> R.string.file_type_symbolic_link
-        FileType.FILE -> R.string.file_type_file
-        FileType.UNKNOWN -> R.string.file_type_unknown
+        FileType.DIRECTORY -> eu.darken.sdmse.common.R.string.file_type_directory
+        FileType.SYMBOLIC_LINK -> eu.darken.sdmse.common.R.string.file_type_symbolic_link
+        FileType.FILE -> eu.darken.sdmse.common.R.string.file_type_file
+        FileType.UNKNOWN -> eu.darken.sdmse.common.R.string.file_type_unknown
     }

@@ -28,7 +28,7 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
         primary.text = content.filterIdentifier.getLabel(context)
         secondary.text = content.filterIdentifier.getDescription(context)
 
-        items.text = getQuantityString(R.plurals.result_x_items, content.items.size)
+        items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, content.items.size)
         size.text = Formatter.formatShortFileSize(context, content.size)
 
         root.setOnClickListener { item.onItemClicked(content) }

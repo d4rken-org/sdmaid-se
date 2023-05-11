@@ -99,11 +99,11 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
                     val errorDialog = if (e.message?.contains("OPEN_DOCUMENT_TREE") == true) {
                         MaterialAlertDialogBuilder(requireContext()).apply {
-                            setTitle(R.string.general_error_label)
+                            setTitle(eu.darken.sdmse.common.R.string.general_error_label)
                             setMessage(R.string.setup_saf_missing_app_error)
 
                             setPositiveButton(android.R.string.ok) { _, _ -> }
-                            setNeutralButton(R.string.general_help_action) { _, _ ->
+                            setNeutralButton(eu.darken.sdmse.common.R.string.general_help_action) { _, _ ->
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#open_document_tree-activitynotfoundexception")
                             }
                         }
@@ -114,7 +114,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                 }
                 is SetupEvents.SafWrongPathError -> {
                     Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.general_help_action) {
+                        .setAction(eu.darken.sdmse.common.R.string.general_help_action) {
                             webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                         }
                         .show()

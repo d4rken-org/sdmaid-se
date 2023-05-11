@@ -43,8 +43,8 @@ class SupportFragment : PreferenceFragment2() {
             MaterialAlertDialogBuilder(requireContext()).apply {
                 setTitle(R.string.support_debuglog_label)
                 setMessage(R.string.settings_debuglog_explanation)
-                setPositiveButton(R.string.general_continue) { _, _ -> vm.startDebugLog() }
-                setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                setPositiveButton(eu.darken.sdmse.common.R.string.general_continue) { _, _ -> vm.startDebugLog() }
+                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(SdmSeLinks.PRIVACY_POLICY) }
             }.show()
             true
@@ -55,7 +55,7 @@ class SupportFragment : PreferenceFragment2() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.clipboardEvent.observe2(this) { installId ->
             Snackbar.make(requireView(), installId, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.general_copy_action) {
+                .setAction(eu.darken.sdmse.common.R.string.general_copy_action) {
                     clipboardHelper.copyToClipboard(installId)
                 }
                 .show()

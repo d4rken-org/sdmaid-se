@@ -10,8 +10,14 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.exists
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalGateway
+import eu.darken.sdmse.common.files.lookup
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
@@ -24,7 +30,11 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.toSet
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -68,7 +78,7 @@ class ToSDCorpseFilter @Inject constructor(
         .asFlow()
         .filter { it.type == areaType }
         .map {
-            updateProgressSecondary(R.string.general_progress_searching)
+            updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
             it.path.child(*segments)
         }
         .filter { it.exists(gatewaySwitch) }
@@ -98,7 +108,7 @@ class ToSDCorpseFilter @Inject constructor(
         candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Apps2SD", "Android", "data"))
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Android", "data"))
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
@@ -151,7 +161,7 @@ class ToSDCorpseFilter @Inject constructor(
         candidates.addAll(areas.getCandidates(DataArea.Type.SDCARD, "Apps2SD", "Android", "obb"))
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "Android", "obb"))
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
@@ -212,7 +222,7 @@ class ToSDCorpseFilter @Inject constructor(
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "dalvik-cache", "arm64"))
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "dalvik-cache"))
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
@@ -268,7 +278,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         val candidates = areas.getCandidates(DataArea.Type.DATA_SDEXT2, "data")
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .map { areaInfo ->
@@ -316,7 +326,7 @@ class ToSDCorpseFilter @Inject constructor(
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2, "apk"))
         candidates.addAll(areas.getCandidates(DataArea.Type.DATA_SDEXT2))
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
@@ -367,7 +377,7 @@ class ToSDCorpseFilter @Inject constructor(
 
         val candidates = areas.getCandidates(DataArea.Type.DATA_SDEXT2, "app-lib")
 
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         return candidates
             .mapNotNull { fileForensics.identifyArea(it) }
             .mapNotNull { areaInfo ->
@@ -419,7 +429,7 @@ class ToSDCorpseFilter @Inject constructor(
     companion object {
         val DEFAULT_PROGRESS = Progress.Data(
             primary = R.string.corpsefinder_filter_app2sd_label.toCaString(),
-            secondary = R.string.general_progress_loading.toCaString(),
+            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
             count = Progress.Count.Indeterminate()
         )
         val TAG: String = logTag("CorpseFinder", "Filter", "App2SD")

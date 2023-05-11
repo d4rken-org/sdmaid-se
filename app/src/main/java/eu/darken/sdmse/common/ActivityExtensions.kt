@@ -65,5 +65,5 @@ fun AppCompatActivity.showFragment(
 }
 
 fun Activity.todoToast() {
-    Toast.makeText(this, R.string.general_todo_msg, Toast.LENGTH_LONG).show()
+    Toast.makeText(this, eu.darken.sdmse.common.R.string.general_todo_msg, Toast.LENGTH_LONG).show()
 }

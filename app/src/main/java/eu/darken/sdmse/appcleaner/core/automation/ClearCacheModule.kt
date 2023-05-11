@@ -82,7 +82,7 @@ class ClearCacheModule @AssistedInject constructor(
 
     override suspend fun process(task: AutomationTask): AutomationTask.Result {
         task as ClearCacheTask
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
         host.changeOptions { old ->
             old.copy(

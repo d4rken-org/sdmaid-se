@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.progress
 
 import android.content.Context
 import android.text.format.Formatter
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -77,7 +76,7 @@ interface Progress {
 
     companion object {
         val DEFAULT_STATE = Data(
-            primary = R.string.general_progress_loading.toCaString(),
+            primary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
             secondary = easterEggProgressMsg.toCaString(),
             count = Count.Indeterminate()
         )

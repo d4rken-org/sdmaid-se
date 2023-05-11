@@ -43,30 +43,30 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
         vm.events.observe2(ui) { event ->
             when (event) {
                 is FilterContentEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         getString(
-                            R.string.general_delete_confirmation_message_x,
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                             event.identifier.getLabel(context)
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ -> vm.doDelete(event.identifier) }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.doDelete(event.identifier) }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
                 is FilterContentEvents.ConfirmFileDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.general_delete_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         getString(
-                            R.string.general_delete_confirmation_message_x,
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                             event.path.userReadablePath.get(context)
                         )
                     )
-                    setPositiveButton(R.string.general_delete_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.doDelete(event.identifier, event.path)
                     }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
 
-                    setNeutralButton(R.string.general_exclude_action) { _, _ ->
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
                         vm.doExclude(event.identifier, event.path)
                     }
                 }.show()

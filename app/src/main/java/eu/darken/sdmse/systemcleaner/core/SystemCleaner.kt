@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -65,7 +64,7 @@ class SystemCleaner @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as SystemCleanerTask
         log(TAG) { "submit($task) starting..." }
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(easterEggProgressMsg)
         updateProgressCount(Progress.Count.Indeterminate())
 
@@ -89,7 +88,7 @@ class SystemCleaner @Inject constructor(
 
     private suspend fun performScan(task: SystemCleanerScanTask): SystemCleanerTask.Result {
         log(TAG, VERBOSE) { "performScan(): $task" }
-        updateProgressPrimary(R.string.general_progress_searching)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
 
         internalData.value = null
 
@@ -128,7 +127,10 @@ class SystemCleaner @Inject constructor(
             val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }
             targetContents.forEach { targetContent ->
                 updateProgressPrimary(caString {
-                    it.getString(R.string.general_progress_deleting, targetContent.userReadableName.get(it))
+                    it.getString(
+                        eu.darken.sdmse.common.R.string.general_progress_deleting,
+                        targetContent.userReadableName.get(it)
+                    )
                 })
                 log(TAG) { "Deleting $targetContent..." }
 
@@ -150,7 +152,7 @@ class SystemCleaner @Inject constructor(
             deletedContents[filterContent] = deleted
         }
 
-        updateProgressPrimary(R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
         internalData.value = snapshot.copy(

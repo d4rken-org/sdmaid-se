@@ -69,10 +69,16 @@ class RecorderService : Service2() {
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_MAX
             setSmallIcon(R.drawable.ic_baseline_bug_report_24)
-            setContentText(getString(R.string.general_progress_loading))
+            setContentText(getString(eu.darken.sdmse.common.R.string.general_progress_loading))
             setContentTitle("Debug log")
             setOngoing(true)
-            addAction(NotificationCompat.Action.Builder(0, getString(R.string.general_done_action), stopPi).build())
+            addAction(
+                NotificationCompat.Action.Builder(
+                    0,
+                    getString(eu.darken.sdmse.common.R.string.general_done_action),
+                    stopPi
+                ).build()
+            )
         }
 
         startForeground(NOTIFICATION_ID, builder.build())

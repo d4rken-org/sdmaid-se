@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
@@ -17,7 +16,7 @@ class SystemCleanerFilterException(
 
     override fun getLocalizedError(): LocalizedError = LocalizedError(
         throwable = this,
-        label = R.string.general_error_label.toCaString(),
+        label = eu.darken.sdmse.common.R.string.general_error_label.toCaString(),
         description = caString {
             val subReason = cause.localized(it).asText().get(it)
             "SystemCleaner filter failed: $filter.\n\n$subReason"

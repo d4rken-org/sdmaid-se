@@ -69,7 +69,7 @@ class SdcardCorpseFilter @Inject constructor(
         log(TAG) { "Got $potentialCorpses potential corpses to check" }
 
         // Deep search each possible corpse
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         updateProgressCount(Progress.Count.Percent(0, potentialCorpses.size))
 
         val deadItems = mutableSetOf<OwnerInfo>()
@@ -164,7 +164,7 @@ class SdcardCorpseFilter @Inject constructor(
         val clutterMarkerList = clutterRepo.getMarkerForLocation(DataArea.Type.SDCARD)
 
         updateProgressCount(Progress.Count.Percent(0, clutterMarkerList.size))
-        updateProgressSecondary(R.string.general_progress_filtering)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
 
         val areas = areaManager.currentAreas().filter { it.type == DataArea.Type.SDCARD }
 
@@ -280,7 +280,7 @@ class SdcardCorpseFilter @Inject constructor(
     companion object {
         val DEFAULT_PROGRESS = Progress.Data(
             primary = R.string.corpsefinder_filter_sdcard_summary.toCaString(),
-            secondary = R.string.general_progress_loading.toCaString(),
+            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
             count = Progress.Count.Indeterminate()
         )
         val TAG: String = logTag("CorpseFinder", "Filter", "Sdcard")

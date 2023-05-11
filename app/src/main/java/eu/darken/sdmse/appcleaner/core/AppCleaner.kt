@@ -149,7 +149,10 @@ class AppCleaner @Inject constructor(
 
             targetFiles.forEach { targetFile ->
                 updateProgressPrimary(caString {
-                    it.getString(R.string.general_progress_deleting, targetFile.userReadableName.get(it))
+                    it.getString(
+                        eu.darken.sdmse.common.R.string.general_progress_deleting,
+                        targetFile.userReadableName.get(it)
+                    )
                 })
                 log(TAG) { "Deleting $targetFile..." }
                 try {

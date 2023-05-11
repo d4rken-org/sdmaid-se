@@ -3,7 +3,6 @@ package eu.darken.sdmse.automation.core
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -32,7 +31,7 @@ class AutomationProcessor @AssistedInject constructor(
     suspend fun process(task: AutomationTask): AutomationTask.Result = execLock.withLock {
         hasTask = true
         log(TAG) { "process(): $task" }
-        automationHost.updateProgressPrimary(R.string.general_progress_loading)
+        automationHost.updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
         val factory: AutomationModule.Factory = moduleFactories.singleOrNull { it.isResponsible(task) }
             ?: throw IllegalStateException("No module found for $task")
