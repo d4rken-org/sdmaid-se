@@ -162,6 +162,9 @@ class SAFSetupModule @Inject constructor(
                 }
         }
 
+        // TODO provide some more elaborate lookups for TV boxes that struggle with this?
+        // See https://commonsware.com/blog/2017/12/27/storage-access-framework-missing-action.html
+
         log(TAG) { "Generated: $requestObjects" }
         return requestObjects
     }
