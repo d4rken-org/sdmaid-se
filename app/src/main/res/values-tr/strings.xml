@@ -99,7 +99,7 @@
     <string name="setup_usagestats_body">Kullanım istatistikleri izni daha fazla uygulama detayına erişim sağlar. SD Maid bunu ek önbellek boyutlarını belirlemek için kullanır.</string>
     <string name="setup_usagestats_hint">Erişilebilirlik hizmeti tabanlı önbellek silme işlemi için gereklidir.</string>
     <string name="setup_notification_title">Bildirimler</string>
-    <string name="setup_notification_body">SD Maid\'in devam eden operasyonlar veya önemli etkinlikler hakkında sizi bilgilendirmek için bildirimler yayınlamasına izin verin.</string>
+    <string name="setup_notification_body">SD Maid\'in devam eden işlemler veya önemli etkinlikler hakkında sizi bilgilendirmek için bildirimler yayınlamasına izin verin.</string>
     <string name="setup_notification_hint">Nadiren bildirim gösterilir 🤞</string>
     <string name="setup_acs_card_title">Erişilebilirlik hizmeti</string>
     <string name="setup_acs_card_body">Erişilebilirlik hizmeti, SD Maid\'in ekranınızla etkileşime girmesine ve birden fazla ekranda \"Önbelleği temizle\" seçeneğine tıklamak gibi sıkıcı eylemleri otomatikleştirmesine olanak tanır.</string>
@@ -199,7 +199,7 @@
     <string name="systemcleaner_filter_tempfiles_label">Geçici dosyalar</string>
     <string name="systemcleaner_filter_tempfiles_summary">Geçici dosyalar, genellikle etkin işlemler için kısa ömürlü önbelleklerdir.</string>
     <string name="systemcleaner_filter_analytics_label">Analiz dosyaları</string>
-    <string name="systemcleaner_filter_analytics_summary">Analitik ve hata izleme ile ilgili veriler.</string>
+    <string name="systemcleaner_filter_analytics_summary">Analiz ve hata izleme ile ilgili veriler.</string>
     <string name="systemcleaner_filter_downloadcache_label">İndirme önbelleği</string>
     <string name="systemcleaner_filter_downloadcache_summary">Çeşitli şeyler için kullanılan sistem önbellek klasörü (ör. OTA güncellemeleri).</string>
     <string name="systemcleaner_filter_localtmp_label">Yerel geçici dosyalar</string>
@@ -224,7 +224,7 @@
     <string name="appcleaner_include_systemapps_label">Sistem uygulamalarını dahil et</string>
     <string name="appcleaner_include_systemapps_summary">Taramaya sistem uygulamalarını dahil edin.</string>
     <string name="appcleaner_include_runningapps_label">Çalışan uygulamaları dahil et</string>
-    <string name="appcleaner_include_runningapps_summary">Şu anda çalışmakta olan ve parazite neden olabilecek uygulamaları dahil edin.</string>
+    <string name="appcleaner_include_runningapps_summary">Şu anda çalışan ve karışıklığa neden olabilecek uygulamaları dahil edin.</string>
     <string name="appcleaner_include_inaccessible_label">Erişilemeyen verileri dahil et</string>
     <string name="appcleaner_include_inaccessible_summary">Doğrudan erişilemeyen ancak sistem ayarları aracılığıyla silinebilen ve bir erişilebilirlik hizmeti kullanılarak otomatikleştirilebilen verileri dahil edin. </string>
     <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
@@ -239,8 +239,8 @@
     <string name="appcleaner_filter_advertisement_summary">Reklamlarla ilgili dosyalar, ör. önbelleğe alınmış medya.</string>
     <string name="appcleaner_filter_bugreporting_label">Hata raporlama</string>
     <string name="appcleaner_filter_bugreporting_summary">Hata raporlama ile ilgili veriler, ör. hata günlükleri veya çökme dökümleri.</string>
-    <string name="appcleaner_filter_analytics_label">Analitik</string>
-    <string name="appcleaner_filter_analytics_summary">Analitikle ilgili veriler, ör. bir uygulamada tıkladığınız şey için önbelleğe alınmış istatistikler.</string>
+    <string name="appcleaner_filter_analytics_label">Analiz</string>
+    <string name="appcleaner_filter_analytics_summary">Analizle ilgili veriler, ör. bir uygulamada tıkladığınız şey için önbelleğe alınmış istatistikler.</string>
     <string name="appcleaner_filter_hiddencaches_label">Gizli önbellekler</string>
     <string name="appcleaner_filter_hiddencaches_summary">Sistemin erişiminin dışında depolanan genel amaçlı önbellekler.</string>
     <string name="appcleaner_filter_thumbnails_label">Medya küçük resimleri</string>
@@ -256,7 +256,7 @@
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp yedekleri</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp yedeklerinin fazladan kopyalarını silin ve yalnızca en yenisini saklayın.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp alınan dosyalar</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla her iki kişiden de aldığınız dosyalar.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalar.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>
@@ -267,16 +267,16 @@
     <string name="appcleaner_filter_wechat_summary">Konuşmalarda ve WeChat anlarında gönderilen veya alınan dosyalar.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamalar temizlensin mi?</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d harcanabilir öğe bulundu</item>
-        <item quantity="other">%d harcanabilir öğe bulundu</item>
+        <item quantity="one">%d silinebilir öğe bulundu</item>
+        <item quantity="other">%d silinebilir öğe bulundu</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlama</string>
-    <string name="appcleaner_automation_title">AppCleaner otomasyonu</string>
+    <string name="appcleaner_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
+    <string name="appcleaner_automation_title">Uygulama Temizleyici otomasyonu</string>
     <string name="appcleaner_automation_subtitle_default_caches">Varsayılan önbellekler temizleniyor…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Varsayılan önbellekler</string>
     <string name="appcleaner_item_caches_inaccessible_body">Genel ve özel varsayılan önbellekler. Doğrudan erişilemez, ancak dolaylı olarak silinebilir (ör. erişilebilirlik hizmeti aracılığıyla).</string>
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>
-    <string name="appcleaner_automation_unavailable_body">Erişilemeyen önbelleklerin silinmesi, SD Maid\'in erişilebilirlik hizmetini gerektirir, ancak bu hizmet kullanılamıyordu. Kullanmak istemiyorsanız: \"Erişilemez önbellekleri dahil et\" seçeneğini devre dışı bırakın.</string>
+    <string name="appcleaner_automation_unavailable_body">Erişilemeyen önbelleklerin silinmesi için SD Maid\'in erişilebilirlik hizmeti gerekiyor, ancak bu hizmet kullanılamıyor. Kullanmak istemiyorsanız: \"Erişilemez önbellekleri dahil et\" seçeneğini devre dışı bırakın.</string>
     <string name="appcleaner_junk_userprofile_label">Kullanıcı</string>
     <string name="appcontrol_tool_name">Uygulama Kontrolü</string>
     <string name="appcontrol_explanation_short">Cihazınızdaki yüklü uygulamalar.</string>

@@ -296,7 +296,7 @@
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
     <string name="appcontrol_app_exclude_add_title">App ausschließen</string>
     <string name="appcontrol_app_exclude_add_description">Diese Anwendung von anderen Vorgängen in SD Maid ausschließen.</string>
-    <string name="appcontrol_app_exclude_edit_title">Ausnahme hinzufügen</string>
+    <string name="appcontrol_app_exclude_edit_title">Ausnahme bearbeiten</string>
     <string name="appcontrol_app_exclude_edit_description">Diese App ist derzeit von einem oder mehreren Tools ausgeschlossen.</string>
     <string name="appcontrol_tag_user">Benutzer</string>
     <string name="appcontrol_tag_system">System</string>
