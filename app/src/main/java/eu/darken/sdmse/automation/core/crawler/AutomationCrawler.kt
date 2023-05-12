@@ -58,6 +58,7 @@ class AutomationCrawler @AssistedInject constructor(
                     @Suppress("NewApi")
                     host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
                 }
+
                 !hasApiLevel(31) -> {
                     log(TAG) { "Clearing system dialogs (retryCount=$attempt)." }
                     val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
@@ -78,9 +79,9 @@ class AutomationCrawler @AssistedInject constructor(
         // Wait for correct window
         val rootNode: AccessibilityNodeInfo = withTimeout(4000) {
             // Condition for the right window, e.g. check title
-            if (step.windowIntent != null) {
+            if (step.windowIntent != null && step.windowEventFilter != null) {
                 log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
-                host.events.filter { step.windowEventFilter == null || step.windowEventFilter.invoke(it) }.first()
+                host.events.filter { step.windowEventFilter.invoke(it) }.first()
                 log(TAG, VERBOSE) { "Waiting for window event filter passed!" }
             }
 
@@ -94,6 +95,7 @@ class AutomationCrawler @AssistedInject constructor(
                 try {
                     if (step.windowNodeTest != null && !step.windowNodeTest.invoke(currentRoot)) {
                         log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
+                        delay(200)
                     } else {
                         break
                     }
@@ -101,7 +103,6 @@ class AutomationCrawler @AssistedInject constructor(
                     log(TAG) { "Branching! ${e.asLog()}" }
                     throw e
                 }
-                delay(200)
             }
 
             currentRoot ?: throw IllegalStateException("No valid root node found")
@@ -113,17 +114,25 @@ class AutomationCrawler @AssistedInject constructor(
                 var target: AccessibilityNodeInfo? = null
                 while (target == null) {
                     target = rootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
-                    if (target == null && step.nodeRecovery != null) {
+
+                    if (target != null) {
+                        log(TAG, VERBOSE) { "Node target found: $target" }
+                        break
+                    }
+
+                    if (step.nodeRecovery != null) {
                         // Should we care about whether the recovery thinks it was successful?
                         step.nodeRecovery.invoke(rootNode)
                         target = host.windowRoot().crawl().map { it.node }.find { step.nodeTest.invoke(it) }
                         delay(200)
+                    } else {
+                        // Timeout will hit here and cancel if necessary
+                        delay(100)
                     }
-                    // Timeout will hit here and cancel if necessary
-                    delay(100)
                 }
-                target
+                target!!
             }
+
             else -> rootNode
         }
         log(TAG, VERBOSE) { "Target node is ${targetNode.toStringShort()}" }
