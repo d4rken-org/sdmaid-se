@@ -9,4 +9,13 @@
         android:title="@string/general_help_title"
         android:icon="@drawable/ic_help_outline"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_show_areas"
+        android:orderInCategory="90"
+        android:title="@string/data_areas_label"
+        android:visible="false"
+        android:contentDescription="@string/data_areas_short_summary"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+        app:showAsAction="never" />
 </menu>
