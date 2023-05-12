@@ -38,11 +38,9 @@ class GooglePlayReporting @Inject constructor(
         val isEnabled = generalSettings.isBugReporterEnabled.valueBlocking
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
-        if (isEnabled) {
             ReLinker
                 .log { message -> log(App.TAG) { "ReLinker: $message" } }
                 .loadLibrary(application, "bugsnag-plugin-android-anr")
-        }
         try {
             val bugsnagConfig = Configuration.load(context).apply {
                 if (generalSettings.isBugReporterEnabled.valueBlocking) {
