@@ -204,7 +204,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         if (!automationProcessor.hasTask) return
 
-        val copy = if (hasApiLevel(30)) {
+        val eventCopy = if (hasApiLevel(30)) {
             event
         } else {
             try {
@@ -216,11 +216,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             }
         }
 
-        if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $copy" }
+        if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $eventCopy" }
 
         serviceScope.launch {
             try {
-                copy.source
+                eventCopy.source
                     ?.getRoot(maxNesting = Int.MAX_VALUE)
                     ?.let {
                         fallbackMutex.withLock {
@@ -240,7 +240,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         serviceScope.launch {
             // If we need fallbackRoot, don't race it
             delay(50)
-            automationEvents.emit(copy)
+            log(TAG, VERBOSE) { "Providing event: $eventCopy" }
+            automationEvents.emit(eventCopy)
         }
     }
 
