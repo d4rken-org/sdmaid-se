@@ -126,6 +126,7 @@ class DashboardFragmentVM @Inject constructor(
                 return@map null
             }
         }
+        .onStart { emit(null) }
 
     private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
         .map {
