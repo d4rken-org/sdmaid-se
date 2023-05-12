@@ -7,9 +7,9 @@ import java.time.Instant
 
 interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any> {
 
-    suspend fun createDir(path: P): Boolean
+    suspend fun createDir(path: P)
 
-    suspend fun createFile(path: P): Boolean
+    suspend fun createFile(path: P)
 
     suspend fun lookup(path: P): PLU
 
