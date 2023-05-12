@@ -220,9 +220,17 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         serviceScope.launch {
             try {
-                event.source
+                copy.source
                     ?.getRoot(maxNesting = Int.MAX_VALUE)
-                    ?.let { fallbackRoot = it }
+                    ?.let {
+                        fallbackMutex.withLock {
+                            if (!hasApiLevel(30)) {
+                                @Suppress("DEPRECATION")
+                                fallbackRoot?.recycle()
+                            }
+                            fallbackRoot = it
+                        }
+                    }
                     .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to get fallbackRoot from $event" }
@@ -230,19 +238,20 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         }
 
         serviceScope.launch {
+            // If we need fallbackRoot, don't race it
             delay(50)
             automationEvents.emit(copy)
         }
     }
 
+    private val fallbackMutex = Mutex()
     private var fallbackRoot: AccessibilityNodeInfo? = null
 
     override suspend fun windowRoot(): AccessibilityNodeInfo = suspendCancellableCoroutine {
-        var maybeRootNode: AccessibilityNodeInfo? = rootInActiveWindow
-        if (maybeRootNode == null) {
-            log(TAG, WARN) { "Using fallback rootNode: $fallbackRoot" }
-            maybeRootNode = fallbackRoot
+        val maybeRootNode: AccessibilityNodeInfo? = rootInActiveWindow ?: fallbackRoot?.also {
+            log(TAG, WARN) { "Using fallback rootNode: $it" }
         }
+
         log(TAG, VERBOSE) { "Providing window root: $maybeRootNode" }
         it.resume(maybeRootNode ?: throw CrawlerException("Root node is currently null"))
     }
