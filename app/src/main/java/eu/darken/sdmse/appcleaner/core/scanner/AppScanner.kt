@@ -205,10 +205,10 @@ class AppScanner @Inject constructor(
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
+        updateProgressCount(Progress.Count.Percent(0, pkgsToCheck.size))
 
         for (pkg in pkgsToCheck) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
-            updateProgressCount(Progress.Count.Percent(0, pkgsToCheck.size))
             log(TAG) { "Generating search paths for ${pkg.installId}" }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
