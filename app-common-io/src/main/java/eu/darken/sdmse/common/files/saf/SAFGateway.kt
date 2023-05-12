@@ -15,13 +15,20 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.Ownership
+import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.WriteException
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
-import okio.*
-import timber.log.Timber
+import okio.Sink
+import okio.Source
+import okio.buffer
+import okio.sink
+import okio.source
 import java.io.IOException
 import java.time.Instant
 import javax.inject.Inject
@@ -61,34 +68,28 @@ class SAFGateway @Inject constructor(
         return SAFDocFile.fromTreeUri(context, contentResolver, targetTreeUri)
     }
 
-    override suspend fun createFile(path: SAFPath): Boolean = runIO {
+    override suspend fun createFile(path: SAFPath): Unit = runIO {
         val docFile = findDocFile(path)
         log(TAG, VERBOSE) { "createFile(): $path -> $docFile" }
-        if (docFile.exists) {
-            if (docFile.isFile) return@runIO false
-            else throw WriteException(path, message = "Path exists, but is not a file.")
-        }
-        return@runIO try {
+        if (docFile.exists) throw WriteException(path, message = "File already exists")
+
+        try {
             createDocumentFile(FILE_TYPE_DEFAULT, path)
-            true
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "createFile(path=%s) failed", path)
+            log(TAG, WARN) { "createFile($path) failed: ${e.asLog()}" }
             throw WriteException(path, cause = e)
         }
     }
 
-    override suspend fun createDir(path: SAFPath): Boolean = runIO {
+    override suspend fun createDir(path: SAFPath): Unit = runIO {
         val docFile = findDocFile(path)
         log(TAG, VERBOSE) { "createDir(): $path -> $docFile" }
-        if (docFile.exists) {
-            if (docFile.isDirectory) return@runIO false
-            else throw WriteException(path, message = "Path exists, but is not a directory.")
-        }
-        return@runIO try {
+        if (docFile.exists) throw WriteException(path, message = "Directory already exists")
+
+        try {
             createDocumentFile(DIR_TYPE, path)
-            true
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "createDir(path=%s) failed", path)
+            log(TAG, WARN) { "createDir($path) failed: ${e.asLog()}" }
             throw WriteException(path, cause = e)
         }
     }
@@ -140,7 +141,7 @@ class SAFGateway @Inject constructor(
                 path.child(name)
             }
         } catch (e: Exception) {
-            Timber.tag(TAG).w("listFiles(%s) failed.", path)
+            log(TAG, WARN) { "listFiles($path) failed." }
             throw ReadException(path, cause = e)
         }
     }
@@ -211,7 +212,7 @@ class SAFGateway @Inject constructor(
                 if (Bugs.isTrace) log(TAG, VERBOSE) { "Looked up: $it" }
             }
         } catch (e: Exception) {
-            Timber.tag(TAG).w("lookup(%s) failed.", path)
+            log(TAG, WARN) { "lookup($path) failed." }
             throw ReadException(path, cause = e)
         }
     }
@@ -250,7 +251,7 @@ class SAFGateway @Inject constructor(
             ParcelFileDescriptor.AutoCloseInputStream(pfd).source().buffer()
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to read from $path: ${e.asLog()}" }
-            throw  ReadException(path = path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -265,7 +266,7 @@ class SAFGateway @Inject constructor(
             ParcelFileDescriptor.AutoCloseOutputStream(pfd).sink().buffer()
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to write to $path: ${e.asLog()}" }
-            throw  WriteException(path = path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 

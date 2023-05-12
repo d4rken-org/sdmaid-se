@@ -52,11 +52,11 @@ class GatewaySwitch @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    override suspend fun createDir(path: APath): Boolean {
+    override suspend fun createDir(path: APath) {
         return useGateway(path) { createDir(path) }
     }
 
-    override suspend fun createFile(path: APath): Boolean {
+    override suspend fun createFile(path: APath) {
         return useGateway(path) { createFile(path) }
     }
 

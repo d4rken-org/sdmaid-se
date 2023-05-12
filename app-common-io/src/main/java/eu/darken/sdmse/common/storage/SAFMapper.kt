@@ -3,7 +3,9 @@ package eu.darken.sdmse.common.storage
 import android.content.ContentResolver
 import android.net.Uri
 import dagger.Reusable
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -30,7 +32,7 @@ class SAFMapper @Inject constructor(
                 .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
                 .filter { it.directory != null }
                 .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
-                ?.also { log(TAG) { "Target storageVolumes for $localPath is $it" } }
+                ?.also { log(TAG, VERBOSE) { "Target storageVolumes for $localPath is $it" } }
                 ?: return null
 
             val prefixFreeFile = if (osStorage.directory!!.path != localPath.path) {
@@ -50,7 +52,7 @@ class SAFMapper @Inject constructor(
                 base = osStorage.treeUri,
                 segs = segments.toTypedArray(),
             ).also {
-                log(TAG, VERBOSE) { "toSAFPath($localPath):$it" }
+                log(TAG, VERBOSE) { "toSAFPath() $localPath -> $it" }
             }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to map $localPath: ${e.asLog()}" }

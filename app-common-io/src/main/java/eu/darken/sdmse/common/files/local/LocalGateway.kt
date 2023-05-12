@@ -56,37 +56,57 @@ class LocalGateway @Inject constructor(
         block()
     }
 
-    override suspend fun createDir(path: LocalPath): Boolean = createDir(path, Mode.AUTO)
+    override suspend fun createDir(path: LocalPath): Unit = createDir(path, Mode.AUTO)
 
-    suspend fun createDir(path: LocalPath, mode: Mode = Mode.AUTO): Boolean = runIO {
+    suspend fun createDir(path: LocalPath, mode: Mode = Mode.AUTO): Unit = runIO {
         try {
             val file = path.asFile()
 
             if (mode == Mode.NORMAL || mode == Mode.AUTO) {
-                if (file.mkdirs()) return@runIO true
-                if (file.exists()) return@runIO false
+                if (file.exists() && file.isFile) {
+                    throw IOException(" Path exists already, but it's a file")
+                }
+
+                if (file.mkdirs()) {
+                    log(TAG, VERBOSE) { "createDir($mode->NORMAL): $path" }
+                    return@runIO
+                }
+                if (file.exists()) {
+                    log(TAG, WARN) { "createDir(NORMAL) failed, but dir does now exist: $path" }
+                    return@runIO
+                }
             }
 
             if (hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO)) {
-                rootOps { it.mkdirs(path) }
-            } else {
-                false
+                if (rootOps { file.exists() && file.isFile }) {
+                    throw IOException("Path exists already, but it's a file.")
+                }
+                if (rootOps { it.mkdirs(path) }) {
+                    log(TAG, VERBOSE) { "createDir($mode->ROOT): $path" }
+                    return@runIO
+                }
+                if (rootOps { it.exists(path) }) {
+                    log(TAG, WARN) { "createDir(ROOT) failed, but dir does now exist: $path" }
+                    return@runIO
+                }
             }
+
+            throw IOException("No matching mode available.")
         } catch (e: IOException) {
             Timber.tag(TAG).w("createDir(path=%s, mode=%s) failed.", path, mode)
             throw WriteException(path, cause = e)
         }
     }
 
-    override suspend fun createFile(path: LocalPath): Boolean = createFile(path, Mode.AUTO)
+    override suspend fun createFile(path: LocalPath): Unit = createFile(path, Mode.AUTO)
 
-    suspend fun createFile(path: LocalPath, mode: Mode = Mode.AUTO): Boolean = runIO {
+    suspend fun createFile(path: LocalPath, mode: Mode = Mode.AUTO): Unit = runIO {
         try {
             if (mode == Mode.NORMAL || mode == Mode.AUTO) {
                 val file = path.asFile()
 
-                if (file.exists() && file.isDirectory) {
-                    throw IOException("Item exists already, but it's a directory.")
+                if (file.exists()) {
+                    throw IOException("Path exists already")
                 }
 
                 file.parentFile?.let {
@@ -97,15 +117,31 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                if (file.createNewFile()) return@runIO true
-                if (file.exists()) return@runIO false
+                if (file.createNewFile()) {
+                    log(TAG, VERBOSE) { "createFile($mode->NORMAL): $path" }
+                    return@runIO
+                }
+                if (file.exists()) {
+                    log(TAG, WARN) { "createFile(NORMAL) failed, but file does now exist: $path" }
+                    return@runIO
+                }
             }
 
             if (hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO)) {
-                rootOps { it.createNewFile(path) }
-            } else {
-                false
+                if (rootOps { it.exists(path) }) {
+                    throw IOException("Path exists already")
+                }
+                if (rootOps { it.createNewFile(path) }) {
+                    log(TAG, VERBOSE) { "createFile($mode->ROOT): $path" }
+                    return@runIO
+                }
+                if (rootOps { it.createNewFile(path) }) {
+                    log(TAG, WARN) { "createFile(ROOT) failed, but file does now exist: $path" }
+                    return@runIO
+                }
             }
+
+            throw IOException("No matching mode available.")
         } catch (e: IOException) {
             Timber.tag(TAG).w("createFile(path=%s, mode=%s) failed.", path, mode)
             throw WriteException(path, cause = e)
@@ -129,10 +165,12 @@ class LocalGateway @Inject constructor(
                     if (!canRead) throw ReadException(path)
                     path.performLookup(ipcFunnel, libcoreTool)
                 }
+
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookup($mode->ROOT): $path" }
                     rootOps { it.lookUp(path) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }.also {
                 log(TAG, VERBOSE) { "Looked up: $it" }
@@ -165,10 +203,12 @@ class LocalGateway @Inject constructor(
                     if (nonRootList == null) throw ReadException(path)
                     nonRootList.map { LocalPath.build(it) }
                 }
+
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ROOT): $path" }
                     rootOps { it.listFilesStream(path) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -201,10 +241,12 @@ class LocalGateway @Inject constructor(
                         .map { it.toLocalPath() }
                         .map { it.performLookup(ipcFunnel, libcoreTool) }
                 }
+
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
                     rootOps { it.lookupFilesStream(path) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }.also {
                 if (Bugs.isTrace) {
@@ -241,10 +283,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "exists($mode->NORMAL): $path" }
                     javaFile.exists()
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canAccessParent) -> {
                     log(TAG, VERBOSE) { "exists($mode->ROOT): $path" }
                     rootOps { it.exists(path) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -268,10 +312,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "canWrite($mode->NORMAL): $path" }
                     canNormalWrite
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "canWrite($mode->ROOT): $path" }
                     rootOps { it.canWrite(path) }
                 }
+
                 else -> false
             }
         } catch (e: IOException) {
@@ -295,10 +341,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "canRead($mode->NORMAL): $path" }
                     canNormalOpen
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
                     log(TAG, VERBOSE) { "canRead($mode->ROOT): $path" }
                     rootOps { it.canRead(path) }
                 }
+
                 else -> false
             }
 
@@ -323,6 +371,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "read($mode->NORMAL): $path" }
                     javaFile.source()
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
                     log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
@@ -331,6 +380,7 @@ class LocalGateway @Inject constructor(
                         it.readFile(path).callbacks { resource.close() }
                     }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -355,6 +405,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "write($mode->NORMAL): $path" }
                     file.sink()
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
                     log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
@@ -363,6 +414,7 @@ class LocalGateway @Inject constructor(
                         it.writeFile(path).callbacks { resource.close() }
                     }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -407,6 +459,7 @@ class LocalGateway @Inject constructor(
                         }
                     }
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
@@ -426,6 +479,7 @@ class LocalGateway @Inject constructor(
                         if (!success) throw IOException("Root delete() call returned false")
                     }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -451,10 +505,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "createSymlink($mode->NORMAL): $linkPath -> $targetPath" }
                     linkPathJava.createSymlink(targetPathJava)
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "createSymlink($mode->ROOT): $linkPath -> $targetPath" }
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -480,12 +536,14 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "setModifiedAt($mode->NORMAL): $path" }
                     path.file.setLastModified(modifiedAt.toEpochMilli())
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "setModifiedAt($mode->ROOT): $path" }
                     rootOps {
                         it.setModifiedAt(path, modifiedAt)
                     }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -509,10 +567,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "setPermissions($mode->NORMAL): $path" }
                     path.file.setPermissions(permissions)
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "setPermissions($mode->ROOT): $path" }
                     rootOps { it.setPermissions(path, permissions) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -539,10 +599,12 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "setOwnership($mode->NORMAL): $path" }
                     path.file.setOwnership(ownership)
                 }
+
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "setOwnership($mode->ROOT): $path" }
                     rootOps { it.setOwnership(path, ownership) }
                 }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
