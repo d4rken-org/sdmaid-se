@@ -13,9 +13,16 @@ import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.*
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
@@ -29,7 +36,12 @@ import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 
@@ -88,7 +100,12 @@ class AppActionDialogVM @Inject constructor(
             appInfo = appInfo,
             onSettings = {
                 val intent = it.createSystemSettingsIntent(context)
-                context.startActivity(intent)
+                try {
+                    context.startActivity(intent)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Launching system settings intent failed: ${e.asLog()}" }
+                    errorEvents.postValue(e)
+                }
             }
         )
 

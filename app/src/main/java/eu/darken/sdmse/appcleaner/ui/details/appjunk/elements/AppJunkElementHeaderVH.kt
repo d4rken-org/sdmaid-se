@@ -8,6 +8,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.coil.loadAppIcon
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementHeaderBinding
@@ -31,7 +33,11 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
             loadAppIcon(junk.pkg)
             setOnLongClickListener {
                 val intent = junk.pkg.getSettingsIntent(context)
-                context.startActivity(intent)
+                try {
+                    context.startActivity(intent)
+                } catch (e: Exception) {
+                    log(WARN) { "Settings intent failed for ${junk.pkg}: $e" }
+                }
                 true
             }
         }
