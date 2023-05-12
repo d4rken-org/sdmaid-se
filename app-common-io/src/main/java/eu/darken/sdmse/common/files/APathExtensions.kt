@@ -74,6 +74,10 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
         }
     }
 
+    return createFile(gateway)
+}
+
+suspend fun <T : APath> T.createFile(gateway: APathGateway<T, out APathLookup<T>>): T {
     gateway.createFile(this)
     log(VERBOSE) { "File created: $this" }
     return this
@@ -185,10 +189,6 @@ suspend fun <T : APath> T.isFile(gateway: APathGateway<T, out APathLookup<T>>): 
 
 suspend fun <T : APath> T.isDirectory(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
     return gateway.lookup(this).fileType == FileType.DIRECTORY
-}
-
-suspend fun <T : APath> T.mkdirs(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
-    return gateway.createDir(this)
 }
 
 fun APath.isAncestorOf(descendant: APath): Boolean {
