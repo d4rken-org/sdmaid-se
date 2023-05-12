@@ -73,7 +73,8 @@ class SdcardsModule @Inject constructor(
             try {
                 require(!testFileLocal.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileLocal)" }
 
-                testFileLocal.createFileIfNecessary(gatewaySwitch)
+                testFileLocal.createFile(gatewaySwitch)
+
                 if (testFileLocal.exists(gatewaySwitch)) {
                     log(TAG) { "Original targetPath is accessible $targetPath" }
                     return localPath
@@ -102,6 +103,7 @@ class SdcardsModule @Inject constructor(
                 }
 
                 localGateway.createFile(testFileLocal, mode = LocalGateway.Mode.ROOT)
+
                 if (localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
                     log(TAG) { "Original targetPath is accessible via ROOT $targetPath" }
                     return localPath
@@ -119,16 +121,15 @@ class SdcardsModule @Inject constructor(
             }
         }
 
-
-
+        // SAF
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
-        // Saf
         safMapper.toSAFPath(targetPath)?.let { safPath ->
             val testFileSaf = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
             try {
                 require(!testFileSaf.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileSaf)" }
 
-                testFileSaf.createFileIfNecessary(gatewaySwitch)
+                testFileSaf.createFile(gatewaySwitch)
+
                 if (testFileSaf.exists(gatewaySwitch)) {
                     log(TAG) { "Switching from $targetPath to $safPath" }
                     return safPath
