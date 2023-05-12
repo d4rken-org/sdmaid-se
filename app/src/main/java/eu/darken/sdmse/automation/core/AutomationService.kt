@@ -21,7 +21,10 @@ import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -29,8 +32,19 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
 import eu.darken.sdmse.setup.accessibility.mightBeRestrictedDueToSideload
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -117,12 +131,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                             try {
                                 windowManager.removeView(acv)
                             } catch (e: Exception) {
-                                log(TAG, WARN) {
-                                    "Failed to remove controlview, possibly failed to add it in the first place: $acv"
-                                }
+                                log(TAG, WARN) { "Failed to remove controlview, not added? $acv" }
                             }
                             controlView = null
                         }
+
                         progressData != null && acv == null -> {
                             log(TAG) { "Adding controlview" }
                             val view = AutomationControlView(ContextThemeWrapper(this, R.style.AppTheme))
@@ -139,11 +152,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                                 log(TAG, ERROR) { "Failed to add control view to window: ${e.asLog()}" }
                             }
                         }
+
                         acv != null -> {
                             log(TAG, VERBOSE) { "Updating control view" }
                             log(TAG, VERBOSE) { "Updating progress $progress" }
                             acv.setProgress(progressData)
                         }
+
                         else -> {
                             log(TAG) { "ControlView is $acv and progress is $progressData" }
                         }
