@@ -47,10 +47,6 @@ class SettingsIndexFragment : PreferenceFragment2() {
             SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true).navigate()
             true
         }
-        findPreference<Preference>("areas.current.show")!!.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToDataAreasFragment().navigate()
-            true
-        }
 
         findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {

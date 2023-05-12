@@ -80,9 +80,16 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
                         true
                     }
-                    else -> super.onOptionsItemSelected(it)
+
+                    R.id.action_show_areas -> {
+                        SetupFragmentDirections.actionSetupFragmentToDataAreasFragment().navigate()
+                        true
+                    }
+
+                    else -> false
                 }
             }
+            menu?.findItem(R.id.action_show_areas)?.isVisible = !vm.isOnboarding
         }
 
         ui.list.setupDefaults(setupAdapter, dividers = false)

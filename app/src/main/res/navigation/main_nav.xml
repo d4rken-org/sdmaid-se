@@ -100,6 +100,9 @@
             app:destination="@id/dashboardFragment"
             app:popUpTo="@id/main"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_setupFragment_to_dataAreasFragment"
+            app:destination="@id/dataAreasFragment" />
     </fragment>
 
     <fragment
@@ -109,9 +112,6 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_setupFragment"
             app:destination="@id/setupFragment" />
-        <action
-            android:id="@+id/action_settingsContainerFragment_to_dataAreasFragment"
-            app:destination="@id/dataAreasFragment" />
         <action
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
