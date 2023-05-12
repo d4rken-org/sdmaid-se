@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
@@ -203,25 +204,35 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         if (!automationProcessor.hasTask) return
 
-        val copy = try {
-            AccessibilityEvent.obtain(event)
-        } catch (e: Exception) {
-            log(TAG, ERROR) { "Failed to obtain accessibility event copy $event" }
-            return
+        val copy = if (hasApiLevel(30)) {
+            event
+        } else {
+            try {
+                @Suppress("DEPRECATION")
+                AccessibilityEvent.obtain(event)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to obtain accessibility event copy $event" }
+                return
+            }
         }
 
         if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $copy" }
 
-        try {
-            event.source
-                ?.getRoot(maxNesting = Int.MAX_VALUE)
-                ?.let { fallbackRoot = it }
-                .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
-        } catch (e: Exception) {
-            log(TAG, ERROR) { "Failed to get fallbackRoot from $event" }
+        serviceScope.launch {
+            try {
+                event.source
+                    ?.getRoot(maxNesting = Int.MAX_VALUE)
+                    ?.let { fallbackRoot = it }
+                    .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to get fallbackRoot from $event" }
+            }
         }
 
-        serviceScope.launch { automationEvents.emit(copy) }
+        serviceScope.launch {
+            delay(50)
+            automationEvents.emit(copy)
+        }
     }
 
     private var fallbackRoot: AccessibilityNodeInfo? = null
