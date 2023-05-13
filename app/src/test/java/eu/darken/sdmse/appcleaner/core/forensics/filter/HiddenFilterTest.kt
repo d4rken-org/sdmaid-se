@@ -1,13 +1,21 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
-import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.UUID
 
 class HiddenFilterTest : BaseFilterTest() {
 
@@ -1908,14 +1916,27 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testViberIcons() = runTest {
-        addCandidate(neg().pkgs("com.viber.voip").locs(PUBLIC_DATA).prefixFree("com.viber.voip/files/.icons"))
-        addCandidate(
-            neg().pkgs("com.viber.voip").locs(PUBLIC_DATA).prefixFree("com.viber.voip/files/aicons/programmist87")
-        )
-        addCandidate(
-            pos().pkgs("com.viber.voip").locs(PUBLIC_DATA).prefixFree("com.viber.voip/files/.icons/programmist87")
-        )
+    @Test fun `Viber icon caches`() = runTest {
+        addDefaultNegatives()
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.icons")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.icons/.nomedia")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/aicons/programmist87")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.icons/programmist87")
+
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/group_icons/7c4f99f8e294485811343b60e3a71cfb.jpg")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons/7c4f99f8e294485811343b60e3a71cfb.jpg")
+        confirm(create())
+    }
+
+    @Test fun `Viber temp files`() = runTest {
+        addDefaultNegatives()
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.shsh/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.shsh/file")
+
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.temp/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.temp/file")
         confirm(create())
     }
 
@@ -2030,15 +2051,6 @@ class HiddenFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         addCandidate(neg().pkgs("com.tinny.gifmaker").locs(SDCARD).prefixFree("TinnyGIFMaker/GIF/.temp"))
         addCandidate(pos().pkgs("com.tinny.gifmaker").locs(SDCARD).prefixFree("TinnyGIFMaker/GIF/.temp/file"))
-        confirm(create())
-    }
-
-    @Test fun testViberHiddenCaches() = runTest {
-        addDefaultNegatives()
-        addCandidate(neg().pkgs("com.viber.voip").locs(PUBLIC_DATA).prefixFree("com.viber.voip/files/.shsh"))
-        addCandidate(
-            pos().pkgs("com.viber.voip").locs(PUBLIC_DATA).prefixFree("com.viber.voip/files/.shsh/file")
-        )
         confirm(create())
     }
 

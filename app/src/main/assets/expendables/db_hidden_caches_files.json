@@ -958,6 +958,10 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.viber.voip/files/.icons"],
 		  "patterns": ["^(?:com\\.viber\\.voip/files/\\.icons/.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.viber.voip/files/.group_icons"],
+		  "patterns": ["^(?:com\\.viber\\.voip/files/\\.group_icons/.+?)$"]
 		}
 	  ]
 	}, {
