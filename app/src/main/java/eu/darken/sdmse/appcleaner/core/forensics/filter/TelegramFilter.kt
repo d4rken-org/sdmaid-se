@@ -35,7 +35,7 @@ class TelegramFilter @Inject constructor(
         DynamicSieve.MatchConfig(
             pkgNames = setOf("org.telegram.messenger".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
+            startsWith = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
@@ -51,7 +51,7 @@ class TelegramFilter @Inject constructor(
         DynamicSieve.MatchConfig(
             pkgNames = setOf("org.telegram.plus".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            ancestors = setOf(
+            startsWith = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
@@ -63,7 +63,7 @@ class TelegramFilter @Inject constructor(
         DynamicSieve.MatchConfig(
             pkgNames = setOf("org.thunderdog.challegram".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
+            startsWith = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
@@ -82,7 +82,7 @@ class TelegramFilter @Inject constructor(
         DynamicSieve.MatchConfig(
             pkgNames = setOf("ir.ilmili.telegraph".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
+            startsWith = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",

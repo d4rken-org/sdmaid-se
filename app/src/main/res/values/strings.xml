@@ -290,6 +290,8 @@
     <string name="appcleaner_filter_threema_summary">Files received through Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sent or received files in conversations and WeChat moments.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Cached media files that are downloaded again when viewed in chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Clean all apps?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d expendable item found</item>

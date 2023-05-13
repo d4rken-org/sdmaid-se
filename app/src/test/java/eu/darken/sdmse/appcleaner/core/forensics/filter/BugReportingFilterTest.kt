@@ -1,7 +1,16 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
-import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
+import eu.darken.sdmse.common.areas.DataArea.Type.DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -1245,6 +1254,16 @@ class BugReportingFilterTest : BaseFilterTest() {
         neg("com.picsart.studio", SDCARD, "Download/file")
         pos("com.picsart.studio", SDCARD, "Download/crash_log_1.txt")
         pos("com.picsart.studio", SDCARD, "Download/crash_log_2.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `Viber debug logs`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.logs")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.logs/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.logs/$rngString")
 
         confirm(create())
     }
