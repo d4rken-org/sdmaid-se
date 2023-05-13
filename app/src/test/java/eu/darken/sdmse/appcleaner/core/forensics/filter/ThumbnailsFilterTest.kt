@@ -1,7 +1,15 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
-import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -175,9 +183,14 @@ class ThumbnailsFilterTest : BaseFilterTest() {
 
     }
 
-    @Test fun `viber user photo thumbs`() = runTest {
+    @Test fun `Viber thumbs`() = runTest {
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails/.nomedia")
         pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/User photos/.thumbnails/$rngString")
+
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.thumbnails")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.thumbnails/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.thumbnails/$rngString")
         confirm(create())
     }
 
@@ -186,5 +199,4 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         pos("com.picadelic.fxguru", SDCARD, "FxGuru/thumbnails/$rngString")
         confirm(create())
     }
-
 }
