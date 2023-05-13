@@ -132,6 +132,11 @@
             app:key="filter.wechat.enabled"
             app:summary="@string/appcleaner_filter_wechat_summary"
             app:title="@string/appcleaner_filter_wechat_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_chat_24"
+            app:key="filter.viber.enabled"
+            app:summary="@string/appcleaner_filter_viber_summary"
+            app:title="@string/appcleaner_filter_viber_label" />
     </PreferenceCategory>
 
 </PreferenceScreen>

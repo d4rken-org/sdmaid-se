@@ -1927,6 +1927,10 @@ class HiddenFilterTest : BaseFilterTest() {
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons")
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons/.nomedia")
         pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.group_icons/7c4f99f8e294485811343b60e3a71cfb.jpg")
+
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.public_cache")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.public_cache/.nomedia")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.public_cache/7c4f99f8e294485811343b60e3a71cfb.jpg")
         confirm(create())
     }
 

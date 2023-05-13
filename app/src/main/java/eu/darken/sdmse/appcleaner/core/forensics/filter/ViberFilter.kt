@@ -22,7 +22,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
-class ThreemaFilter @Inject constructor(
+class ViberFilter @Inject constructor(
     private val dynamicSieveFactory: DynamicSieve.Factory,
 ) : ExpendablesFilter {
 
@@ -31,16 +31,21 @@ class ThreemaFilter @Inject constructor(
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
         val config = DynamicSieve.MatchConfig(
-            pkgNames = setOf("ch.threema.app".toPkgId()),
-            areaTypes = setOf(DataArea.Type.SDCARD),
-            contains = setOf("Threema/Threema "),
-            startsWith = setOf(
-                "Threema/Threema Audio",
-                "Threema/Threema Pictures",
-                "Threema/Threema Videos",
+            pkgNames = setOf("com.viber.voip".toPkgId()),
+            areaTypes = setOf(DataArea.Type.PUBLIC_DATA),
+            ancestors = setOf(
+                "com.viber.voip/files/.converted_gifs",
+                "com.viber.voip/files/.converted_videos",
+                "com.viber.voip/files/.import",
+                "com.viber.voip/files/.image",
+                "com.viber.voip/files/.video",
+                "com.viber.voip/files/.gif",
+                "com.viber.voip/files/.ptt",
+                "com.viber.voip/files/.vptt",
             ),
             exclusions = setOf(".nomedia"),
         )
+
         sieve = dynamicSieveFactory.create(setOf(config))
     }
 
@@ -58,9 +63,9 @@ class ThreemaFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: AppCleanerSettings,
-        private val filterProvider: Provider<ThreemaFilter>
+        private val filterProvider: Provider<ViberFilter>
     ) : ExpendablesFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterThreemaEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterViberEnabled.value()
         override suspend fun create(): ExpendablesFilter = filterProvider.get()
     }
 
@@ -74,6 +79,6 @@ class ThreemaFilter @Inject constructor(
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia",
         )
-        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Threema")
+        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Viber")
     }
 }

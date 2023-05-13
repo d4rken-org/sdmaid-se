@@ -33,7 +33,7 @@ class WeChatFilter @Inject constructor(
         val config = DynamicSieve.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            ancestors = setOf(
+            startsWith = setOf(
                 "tencent/MicroMsg",
             ),
             patterns = setOf(
