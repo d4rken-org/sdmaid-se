@@ -5,7 +5,12 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.startsWith
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
 
@@ -22,12 +27,13 @@ class DynamicSieve @AssistedInject constructor(
         val pkgNames: Set<Pkg.Id>? = null,
         val areaTypes: Set<DataArea.Type>? = null,
         val contains: Set<String>? = null,
+        val startsWith: Set<String>? = null,
         val ancestors: Set<String>? = null,
         val patterns: Set<String>? = null,
         val exclusions: Set<String>? = null,
     ) {
         init {
-            if (contains.isNullOrEmpty() && ancestors.isNullOrEmpty() && patterns.isNullOrEmpty()) {
+            if (contains.isNullOrEmpty() && startsWith.isNullOrEmpty() && patterns.isNullOrEmpty() && ancestors.isNullOrEmpty()) {
                 throw IllegalStateException("Underdefined match config")
             }
         }
@@ -46,7 +52,7 @@ class DynamicSieve @AssistedInject constructor(
         target: Segments,
     ): Boolean = configs.any { it.match(pkgId, areaType, target) }
 
-    private fun DynamicSieve.MatchConfig.match(
+    private fun MatchConfig.match(
         pkgId: Pkg.Id,
         areaType: DataArea.Type,
         target: Segments,
@@ -69,7 +75,14 @@ class DynamicSieve @AssistedInject constructor(
             if (excluded) return@match false
         }
 
-        val ancestorsCondition = ancestors
+        val ancestorCondition = ancestors
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { ancestor ->
+                ancestor.any { it.toSegs().isAncestorOf(target, ignoreCase = ignoreCase) }
+            }
+            ?: true
+
+        val startsWithCondition = startsWith
             ?.takeIf { it.isNotEmpty() }
             ?.let { starters ->
                 starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase) }
@@ -93,17 +106,19 @@ class DynamicSieve @AssistedInject constructor(
             ignoreCase && patternCacheCaseInsensitive.isNotNullOrEmpty() -> {
                 patternCacheCaseInsensitive!!.any { it.matches(target.joinSegments()) }
             }
+
             !ignoreCase && patternCacheCaseSensitive.isNotNullOrEmpty() -> {
                 patternCacheCaseInsensitive!!.any { it.matches(target.joinSegments()) }
             }
+
             else -> true
         }
 
-        return ancestorsCondition && containsCondition && regexCondition
+        return ancestorCondition && startsWithCondition && containsCondition && regexCondition
     }
 
     @AssistedFactory
     interface Factory {
-        fun create(configs: Set<DynamicSieve.MatchConfig>): DynamicSieve
+        fun create(configs: Set<MatchConfig>): DynamicSieve
     }
 }

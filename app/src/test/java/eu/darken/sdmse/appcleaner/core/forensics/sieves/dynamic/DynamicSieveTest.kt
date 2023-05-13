@@ -100,7 +100,34 @@ class DynamicSieveTest : BaseTest() {
         }
     }
 
-    @Test fun testStartsWith() {
+    @Test fun `startsWith ie inclusive`() {
+        val config = DynamicSieve.MatchConfig(
+            areaTypes = setOf(DataArea.Type.SDCARD),
+            startsWith = setOf("a/test/path")
+        )
+
+        create(setOf(config)).apply {
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SDCARD,
+                target = segs("a", "test", "path")
+            ) shouldBe true
+
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SDCARD,
+                target = segs("a", "test", "path", "file")
+            ) shouldBe true
+
+            matches(
+                pkgId = "any.pkg".toPkgId(),
+                areaType = DataArea.Type.SDCARD,
+                target = segs("not", "a", "test", "path")
+            ) shouldBe false
+        }
+    }
+
+    @Test fun `ancestors ie exclusive`() {
         val config = DynamicSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
             ancestors = setOf("a/test/path")
@@ -111,7 +138,7 @@ class DynamicSieveTest : BaseTest() {
                 pkgId = "any.pkg".toPkgId(),
                 areaType = DataArea.Type.SDCARD,
                 target = segs("a", "test", "path")
-            ) shouldBe true
+            ) shouldBe false
 
             matches(
                 pkgId = "any.pkg".toPkgId(),
