@@ -962,6 +962,10 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.viber.voip/files/.group_icons"],
 		  "patterns": ["^(?:com\\.viber\\.voip/files/\\.group_icons/.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.viber.voip/files/.public_cache"],
+		  "patterns": ["^(?:com\\.viber\\.voip/files/\\.public_cache/.+?)$"]
 		}
 	  ]
 	}, {
