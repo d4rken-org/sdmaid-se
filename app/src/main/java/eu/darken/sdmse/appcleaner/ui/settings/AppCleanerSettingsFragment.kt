@@ -35,12 +35,11 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 val dialogLayout = ViewPreferenceSeekbarBinding.inflate(layoutInflater, null, false)
                 dialogLayout.apply {
                     slider.valueFrom = 0f
-                    slider.valueTo = 105f
-                    slider.value = (settings.minCacheSizeBytes.valueBlocking / (1024 * 1024L)).toFloat()
-                        .coerceAtMost(slider.valueTo)
+                    slider.valueTo = 100 * 1024f
+                    slider.value = (settings.minCacheSizeBytes.valueBlocking / 1024f).coerceAtMost(slider.valueTo)
 
                     val updateSliderText = {
-                        val size = slider.value.toLong() * 1024L * 1024L
+                        val size = slider.value.toLong() * 1024L
                         sliderValue.text = Formatter.formatShortFileSize(requireContext(), size)
                     }
                     updateSliderText()
