@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.files.saf
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.provider.DocumentsContract
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -310,10 +309,5 @@ class SAFGateway @Inject constructor(
         const val RW_FLAGSINT = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
         private const val DIR_TYPE: String = DocumentsContract.Document.MIME_TYPE_DIR
         private const val FILE_TYPE_DEFAULT: String = "application/octet-stream"
-
-        fun isTreeUri(uri: Uri): Boolean {
-            val paths = uri.pathSegments
-            return paths.size >= 2 && "tree" == paths[0]
-        }
     }
 }

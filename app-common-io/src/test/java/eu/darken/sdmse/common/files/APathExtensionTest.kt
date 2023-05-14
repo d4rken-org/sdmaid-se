@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.files
 
-import android.net.Uri
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
@@ -20,7 +19,7 @@ import java.time.Instant
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
 class APathExtensionTest : BaseTest() {
-    private val treeUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A")
+    private val treeUri = "content://com.android.externalstorage.documents/tree/primary%3A"
 
     @Test fun `match operator - LocalPath`() {
         val file1: APath = LocalPath.build("test", "file1")

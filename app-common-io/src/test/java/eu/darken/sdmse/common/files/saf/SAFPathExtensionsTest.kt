@@ -18,10 +18,10 @@ import testhelpers.BaseTest
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
 class SAFPathExtensionsTest : BaseTest() {
-    private val baseTreeUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A")
+    private val baseTreeUri = "content://com.android.externalstorage.documents/tree/primary%3A"
 
-    private val testUri1: Uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
-    private val testUri2: Uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
+    private val testUri1 = "content://com.android.externalstorage.documents/tree/primary%3Asafstor"
+    private val testUri2 = "content://com.android.externalstorage.documents/tree/primary%3Asafstor"
 
     @Test
     fun `test crumbsTo`() {

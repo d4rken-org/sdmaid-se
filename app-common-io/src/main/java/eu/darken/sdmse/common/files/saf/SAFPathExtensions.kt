@@ -19,7 +19,7 @@ fun SAFPath.crumbsTo(child: SAFPath): Array<String> {
 }
 
 val SAFPath.isStorageRoot: Boolean
-    get() = segments.isEmpty() && treeRoot.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1
+    get() = segments.isEmpty() && treeRootUri.pathSegments[1].split(":").filter { it.isNotEmpty() }.size == 1
 
 data class PermissionMatch(
     val permission: UriPermission,

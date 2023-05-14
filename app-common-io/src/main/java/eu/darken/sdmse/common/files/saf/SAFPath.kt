@@ -11,31 +11,39 @@ import eu.darken.sdmse.common.files.joinSegments
 import kotlinx.parcelize.Parcelize
 import java.io.File
 
-@Suppress("BlockingMethodInNonBlockingContext")
 @Keep @Parcelize
 @JsonClass(generateAdapter = true)
 data class SAFPath(
-    val treeRoot: Uri,
+    internal val treeRoot: String,
     override val segments: List<String>,
 ) : APath {
 
+    val treeRootUri: Uri
+        get() = Uri.parse(treeRoot)
+
     init {
-        require(SAFGateway.isTreeUri(treeRoot)) { "SAFFile URI's must be a tree uri: $treeRoot" }
+        val paths = treeRootUri.pathSegments
+        require(paths.size >= 2 && "tree" == paths[0]) { "SAFFile URI's must be a tree uri: $treeRoot" }
     }
 
     override val userReadableName: CaString
         get() = super.userReadableName
 
     override val userReadablePath: CaString
-        get() = when {
-            treeRoot.path?.startsWith("/tree/primary") == true -> caString {
-                "/storage/emulated/0/${segments.joinSegments("/")}"
+        get() {
+            val treeRootPath = treeRootUri.path
+            return when {
+                treeRootPath?.startsWith("/tree/primary") == true -> caString {
+                    "/storage/emulated/0/${segments.joinSegments("/")}"
+                }
+
+                treeRootPath?.let { URIPATH_ID_REGEX.matches(it) } == true -> caString {
+                    val storageId = URIPATH_ID_REGEX.matchEntire(treeRootPath)
+                    "/storage/${storageId?.groupValues?.get(1)}/${segments.joinSegments("/")}"
+                }
+
+                else -> super.userReadablePath
             }
-            treeRoot.path?.let { URIPATH_ID_REGEX.matches(it) } == true -> caString {
-                val storageId = URIPATH_ID_REGEX.matchEntire(treeRoot.path!!)
-                "/storage/${storageId?.groupValues?.get(1)}/${segments.joinSegments("/")}"
-            }
-            else -> super.userReadablePath
         }
 
     override var pathType: APath.PathType
@@ -45,38 +53,40 @@ data class SAFPath(
         }
 
     override val path: String
-        get() = "${File.separator}${(treeRoot.pathSegments + segments).joinToString(File.separator)}"
+        get() = "${File.separator}${(treeRootUri.pathSegments + segments).joinToString(File.separator)}"
 
-    val pathUri by lazy {
-        if (segments.isEmpty()) return@lazy treeRoot
+    val pathUri: Uri
+        get() {
+            if (segments.isEmpty()) return treeRootUri
 
-        val uriString = StringBuilder(treeRoot.toString()).apply {
-            append(Uri.encode(":"))
-            segments.forEach {
-                append(Uri.encode(it))
-                if (it != segments.last()) append(Uri.encode(File.separator))
+            val uriString = StringBuilder(treeRoot).apply {
+                append("%3A") // Uri.encode(":")
+                segments.forEach {
+                    append(Uri.encode(it))
+                    if (it != segments.last()) {
+                        append("%2F") // Uri.encode(File.separator)
+                    }
+                }
             }
+            return Uri.parse(uriString.toString())
         }
-        Uri.parse(uriString.toString())
-    }
 
     override val name: String
-        get() = if (segments.isNotEmpty()) {
-            segments.last()
-        } else {
-            treeRoot.pathSegments.last().split('/').last()
+        get() = when {
+            segments.isNotEmpty() -> segments.last()
+            else -> treeRootUri.pathSegments.last().split('/').last()
         }
 
     override fun child(vararg segments: String): SAFPath {
         return build(this.treeRoot, *this.segments.toTypedArray(), *segments)
     }
 
-    override fun toString(): String = "SAFFile(treeRoot=$treeRoot, segments=$segments)"
+    override fun toString(): String = "SAFPath(treeRoot=$treeRoot, segments=$segments)"
 
     companion object {
-        fun build(base: Uri, vararg segs: String): SAFPath {
-            return SAFPath(base, segs.toList())
-        }
+        fun build(base: String, vararg segs: String): SAFPath = SAFPath(base, segs.toList())
+
+        fun build(base: Uri, vararg segs: String): SAFPath = build(base.toString(), *segs)
 
         private val URIPATH_ID_REGEX by lazy { Regex("^/tree/([a-z0-9-]+)(?::.+?)*\$") }
     }
