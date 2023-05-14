@@ -81,7 +81,7 @@
     <string name="general_clean_confirmation_title">Пацвердзіць ачыстку</string>
     <string name="general_clean_confirmation_message_x">Ачысціць \"%s\"?</string>
     <string name="general_root_required_label">Патрабуецца дазвол на каранёвы доступ</string>
-    <string name="general_root_required_message">Патрабуецца прылада з каранёвым доступам</string>
+    <string name="general_root_required_message">Патрабуецца прылада з адкрытым каранёвым доступам</string>
     <string name="general_search_action">Шукаць</string>
     <string name="general_scan_device_action">Сканіраваць прыладу</string>
     <string name="general_open_system_settings_action">Адкрыць сістэмныя налады</string>

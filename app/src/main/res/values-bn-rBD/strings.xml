@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">ড্যাশবোর্ড</string>
     <string name="debug_debuglog_size_label">আকার</string>
     <string name="debug_debuglog_size_compressed_label">সংকোচনের পর আকার</string>
+    <string name="debug_debuglog_file_label">রেকর্ড করা লগ ফাইল</string>
     <string name="onboarding_welcome_title">স্বাগত</string>
     <string name="onboarding_welcome_continue_action">চালিয়ে যান</string>
     <string name="onboarding_versus_title">এসডি মেইড / এসডি মেইড এসই</string>
@@ -14,6 +15,7 @@
     <string name="onboarding_privacy_continue_action">চালিয়ে যান</string>
     <string name="onboarding_setup_title">সেটআপ</string>
     <string name="onboarding_setup_body2">কী অ্যাক্সেসযোগ্য তা নির্ভর করে আপনার ফোন, অ্যান্ড্রয়েড ভার্সন এবং আপনার প্রদত্ত অনুমতির উপর।</string>
+    <string name="onboarding_setup_continue_action">প্রবেশাধিকার সেটআপ করুন</string>
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_licenses_label">লাইসেন্সসমূহ</string>
     <string name="settings_category_other_label">অন্যান্য</string>
@@ -23,26 +25,45 @@
     <string name="ui_theme_setting_label">থিম</string>
     <string name="ui_theme_dark_label">গাঢ়</string>
     <string name="ui_theme_light_label">হালকা</string>
+    <string name="ui_theme_system_label">সিস্টেম</string>
+    <string name="settings_support_label">সমর্থন</string>
+    <string name="documentation_label">নথিপত্রাদি</string>
+    <string name="issue_tracker_label">সমস্যা শনাক্তকারী</string>
+    <string name="support_installid_label">ইনস্টল আইডি</string>
+    <string name="support_debuglog_desc">অ্যাপটি কী করছে তা একটি টেক্সট ফাইলে রেকর্ড করুন যাতে আপনি শেয়ার করতে পারেন।</string>
     <string name="discord_label">ডিসকর্ড</string>
+    <string name="discord_description">আড্ডা দেওয়ার এবং প্রশ্ন করার জায়গা।</string>
     <string name="changelog_label">পরিবর্তনসূচী</string>
     <string name="settings_acknowledgements_label">কৃতজ্ঞতা স্বীকার</string>
     <string name="setup_label">সেটআপ</string>
     <string name="setup_incomplete_card_title">সেটাপ অসম্পূর্ণ</string>
+    <string name="setup_incomplete_card_body">আরও ভালো ফলাফল পেতে SD Maid-এর সেটআপ শেষ করুন।</string>
     <string name="setup_incomplete_card_dismiss_action">খারিজ করুন</string>
     <string name="setup_incomplete_card_continue_action">সেটআপ চালিয়ে যান</string>
     <string name="setup_title">সেটআপ</string>
+    <string name="setup_saf_card_title">স্টোরেজ অ্যাক্সেস ফ্রেমওয়ার্ক</string>
+    <string name="setup_manage_storage_card_body">SD Maid কে আপনার স্টোরেজ পরিচালনা করার অনুমতি দিন।</string>
     <string name="setup_root_card_title">রুট প্রবেশাধিকার</string>
     <string name="setup_root_enable_root_use_label">রুট প্রবেশাধিকার থাকলে ব্যবহার করুন</string>
     <string name="setup_root_disable_root_use_label">রুট প্রবেশাধিকার ব্যবহার করবেন না</string>
+    <string name="setup_dismiss_hint">আপনি সেটিংস মেনুর মাধ্যমে আবার সেটআপ স্ক্রীনটি খুঁজে পেতে পারেন।</string>
+    <string name="setup_permission_granted_label">অনুমতি মঞ্জুর করা হয়েছে</string>
+    <string name="setup_usagestats_title">ব্যবহারের পরিসংখ্যান</string>
+    <string name="setup_acs_card_body2">SD Maid আপনার সম্মতি ছাড়া অ্যাক্সেসিবিলিটি পরিষেবা ব্যবহার করবে না, সক্রিয় থাকাকালীন সর্বদা একটি বিশিষ্ট (বাতিলযোগ্য) নির্দেশক দেখাবে এবং তথ্য সংগ্রহ করতে এটি ব্যবহার করবে না।</string>
+    <string name="setup_acs_state_enabled">অ্যাক্সেসিবিলিটি পরিষেবা সক্রিয় করা হয়েছে</string>
+    <string name="setup_acs_state_disabled">অ্যাক্সেসিবিলিটি পরিষেবা নিষ্ক্রিয় করা হয়েছে</string>
+    <string name="setup_acs_state_stopped">অ্যাক্সেসিবিলিটি পরিষেবা বন্ধ করা হয়েছে</string>
     <string name="debug_bugreporter_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
     <string name="settings_category_tools_label">টুলস</string>
     <string name="settings_category_filter">পরিশ্রুতক</string>
     <string name="settings_category_risklevel">ঝুঁকির মাত্রা</string>
     <string name="corpsefinder_tool_name">শব-সন্ধানী</string>
+    <string name="corpsefinder_settings_risk_common_title">পরিচিত নামগুলো অন্তর্ভুক্ত করুন</string>
     <string name="corpsefinder_filter_sdcard_label">এসডি কার্ড</string>
     <string name="corpsefinder_filter_dalvik_label">ডালভিক ক্যাশ</string>
     <string name="corpsefinder_corpse_hints_label">বিজ্ঞপ্তি</string>
     <string name="systemcleaner_explanation_short">অনাবশ্যক ডাটা যেগুলো কোন অ্যাপেরই নয়।</string>
+    <string name="systemcleaner_filter_logfiles_label">লগ ফাইলসমূহ</string>
     <string name="systemcleaner_filter_emptydirectories_label">খালি ফোল্ডারসমূহ</string>
     <string name="systemcleaner_filter_linuxfiles_label">লিনাক্স ফাইলসমূহ</string>
     <string name="systemcleaner_filter_windowsfiles_label">উইন্ডোজের ফাইলসমূহ</string>
@@ -54,6 +75,7 @@
     <string name="appcleaner_include_minimumsize_label">নূন্যতম আকার</string>
     <string name="appcleaner_include_minimumage_label">ন্যূনতম বয়স</string>
     <string name="appcleaner_filter_advertisement_label">বিজ্ঞাপনী উপাত্তসমূহ</string>
+    <string name="appcleaner_filter_analytics_label">বিশ্লেষণী</string>
     <string name="appcleaner_filter_gamefiles_label">গেম ফাইল</string>
     <string name="appcleaner_filter_offlinecache_label">অফলাইন ক্যাশ</string>
     <string name="appcleaner_filter_recyclebins_label">রিসাইকেল বিন</string>
@@ -66,6 +88,7 @@
     <string name="appcleaner_filter_wechat_label">উইচ্যাট</string>
     <string name="appcleaner_junk_userprofile_label">ব্যবহারকারী</string>
     <string name="appcontrol_explanation_short">আপনার ডিভাইসে ইনস্টল করা অ্যাপসমূহ।.</string>
+    <string name="appcontrol_appstore_open_title">অ্যাপ স্টোরে খুলুন</string>
     <string name="appcontrol_systemsettings_open_title">সেটিংস দেখান</string>
     <string name="appcontrol_tag_user">ব্যবহারকারী</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
@@ -80,5 +103,6 @@
         <item quantity="other">প্রতি %d দিনে</item>
     </plurals>
     <string name="scheduler_setting_nopowersaving_title">চার্জ কম থাকলে এড়িয়ে যান</string>
+    <string name="updates_dashcard_title">আপডেট এসেছে</string>
     <string name="translation_translators_title">এই সংস্করণটি অনুবাদ করেছেন</string>
 </resources>
