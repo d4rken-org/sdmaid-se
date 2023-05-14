@@ -5,7 +5,11 @@ import android.system.StructStat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.Ownership
+import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
@@ -36,7 +40,7 @@ fun LocalPath.performLookup(
     ipcFunnel: IPCFunnel,
     libcoreTool: LibcoreTool,
 ): LocalPathLookup {
-    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist")
+    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist or can't be read")
 
     val fstat: StructStat? = try {
         Os.lstat(file.path)
