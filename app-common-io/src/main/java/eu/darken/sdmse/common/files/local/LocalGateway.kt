@@ -237,7 +237,6 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "lookupFiles($mode->NORMAL): $path" }
                     if (nonRootList == null) throw ReadException(path)
                     nonRootList
-                        .filter { it.canRead() }
                         .map { it.toLocalPath() }
                         .map { it.performLookup(ipcFunnel, libcoreTool) }
                 }
