@@ -1,7 +1,11 @@
 package eu.darken.sdmse.common.files.local
 
 import com.squareup.moshi.JsonDataException
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.Ownership
+import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.RawPath
 import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -33,7 +37,7 @@ class LocalPathTest : BaseTest() {
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
             {
-                "file": "$testFile",
+                "file": "${testFile.path}",
                 "pathType":"LOCAL"
             }
         """.toComparableJson()
@@ -51,7 +55,7 @@ class LocalPathTest : BaseTest() {
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
             {
-                "file":"$testFile",
+                "file":"${testFile.path}",
                 "pathType":"LOCAL"
             }
         """.toComparableJson()

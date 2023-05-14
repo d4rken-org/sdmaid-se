@@ -21,7 +21,7 @@ import testhelpers.json.toComparableJson
 @Config(sdk = [29])
 class SAFPathTest : BaseTest() {
 
-    val testUri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3Asafstor")
+    val testUri = "content://com.android.externalstorage.documents/tree/primary%3Asafstor"
 
     private val moshi = SerializationIOModule().moshi()
 

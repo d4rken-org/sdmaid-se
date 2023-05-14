@@ -65,7 +65,7 @@ class SAFMapper @Inject constructor(
             val osStorage = storageManager2.storageVolumes
                 .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $safPath" } }
                 .filter { it.directory != null }
-                .firstOrNull { safPath.treeRoot == it.treeUri }
+                .firstOrNull { safPath.treeRootUri == it.treeUri }
                 ?.also { log(TAG) { "Target storageVolumes for $safPath is $it" } }
                 ?: return null
 
@@ -103,7 +103,7 @@ class SAFMapper @Inject constructor(
 
     fun releasePermission(path: SAFPath): Boolean {
         log(TAG, INFO) { "Releasing uri permission for $path" }
-        contentResolver.releasePersistableUriPermission(path.treeRoot, SAFGateway.RW_FLAGSINT)
+        contentResolver.releasePersistableUriPermission(path.treeRootUri, SAFGateway.RW_FLAGSINT)
         printCurrentPermissions()
         return true
     }
