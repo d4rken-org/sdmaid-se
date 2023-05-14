@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="nudge_betagoodbye_hint">ছোট্ট টীকা: পরীক্ষামূলক পর্যায়ে দেওয়া রেটিংগুলো শুধুমাত্র আমার কাছে দৃশ্যমান, আপনি যদি এসডি মেইড-এর ব্যাপারে সন্তুষ্ট থাকেন তাহলে আপনি একটি পাবলিক রেটিং দিলে খুব খুশি হব।</string>
     <string name="nudge_betagoodbye_positive_action">বেরিয়ে আসুন</string>
     <string name="nudge_betagoodbye_negative_action">পরীক্ষা করতে থাকুন</string>
 </resources>
