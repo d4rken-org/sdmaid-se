@@ -54,8 +54,11 @@ class SdcardCorpseFilter @Inject constructor(
 
         updateProgressPrimary("SDCARD")
 
-        val result = doReverseCSI()
-        fileCache.clear()
+        val result = try {
+            doReverseCSI()
+        } finally {
+            fileCache.clear()
+        }
         return result
     }
 
