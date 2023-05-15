@@ -3,6 +3,8 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
@@ -66,6 +68,7 @@ class DashboardFragmentVM @Inject constructor(
     private val systemCleaner: SystemCleaner,
     private val appCleaner: AppCleaner,
     private val appControl: AppControl,
+    private val analyzer: Analyzer,
     private val debugCardProvider: DebugCardProvider,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
@@ -224,6 +227,19 @@ class DashboardFragmentVM @Inject constructor(
         )
     }
 
+    private val analyzerItem: Flow<AnalyzerDashCardVH.Item?> = combine(
+        analyzer.data,
+        analyzer.progress,
+    ) { data, progress ->
+        AnalyzerDashCardVH.Item(
+            data = data,
+            progress = progress,
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToStorageFragment().navigate()
+            }
+        )
+    }
+
 
     private val schedulerItem: Flow<SchedulerDashCardVH.Item?> = combine(
         schedulerManager.state,
@@ -263,6 +279,7 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem,
         appCleanerItem,
         appControlItem,
+        analyzerItem,
         schedulerItem,
         refreshTrigger,
     ) { debugItem: DebugCardVH.Item?,
@@ -275,6 +292,7 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem: SystemCleanerDashCardVH.Item?,
         appCleanerItem: AppCleanerDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
+        analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
@@ -302,6 +320,7 @@ class DashboardFragmentVM @Inject constructor(
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
         appControlItem?.let { items.add(it) }
+        analyzerItem?.let { items.add(it) }
 
         schedulerItem?.let { items.add(it) }
 
@@ -385,6 +404,7 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.DELETE -> if (corpseFinder.data.first() != null) {
                     submitTask(CorpseFinderDeleteTask())
                 }
+
                 BottomBarState.Action.ONECLICK -> {
                     submitTask(CorpseFinderScanTask())
                     submitTask(CorpseFinderDeleteTask())
@@ -399,6 +419,7 @@ class DashboardFragmentVM @Inject constructor(
                 BottomBarState.Action.DELETE -> if (systemCleaner.data.first() != null) {
                     submitTask(SystemCleanerDeleteTask())
                 }
+
                 BottomBarState.Action.ONECLICK -> {
                     submitTask(SystemCleanerScanTask())
                     submitTask(SystemCleanerDeleteTask())
@@ -417,6 +438,7 @@ class DashboardFragmentVM @Inject constructor(
                         DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
                     }
                 }
+
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isPro()) {
                         submitTask(AppCleanerScanTask())
@@ -480,11 +502,13 @@ class DashboardFragmentVM @Inject constructor(
                 is CorpseFinderSchedulerTask.Success -> {}
                 is CorpseFinderDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
+
             is SystemCleanerTask.Result -> when (result) {
                 is SystemCleanerScanTask.Success -> {}
                 is SystemCleanerSchedulerTask.Success -> {}
                 is SystemCleanerDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
+
             is AppCleanerTask.Result -> when (result) {
                 is AppCleanerScanTask.Success -> {}
                 is AppCleanerSchedulerTask.Success -> {}

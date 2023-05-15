@@ -341,6 +341,10 @@
     <string name="appcontrol_list_sortmode_packagename_label">Packagename</string>
     <string name="appcontrol_progress_uninstalling_app">Uninstalling app</string>
 
+    <string name="analyzer_tool_name">Storage analyzer</string>
+    <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
+    <string name="analyzer_device_storage_title">Device storage</string>
+
     <string name="data_area_public_app_data_official_label">Default Public App Data</string>
     <string name="data_area_public_storage_label">Public Storage</string>
     <string name="data_area_sdcard_label">SD-Card</string>

@@ -27,5 +27,6 @@ interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
         SYSTEMCLEANER,
         APPCLEANER,
         APPCONTROL,
+        ANALYZER,
     }
 }

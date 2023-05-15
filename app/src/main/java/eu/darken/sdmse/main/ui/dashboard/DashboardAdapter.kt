@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.lists.BindableVH
@@ -14,7 +15,12 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import javax.inject.Inject
@@ -40,6 +46,7 @@ class DashboardAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is SystemCleanerDashCardVH.Item }) { SystemCleanerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppCleanerDashCardVH.Item }) { AppCleanerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
     }
 
