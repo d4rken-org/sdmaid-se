@@ -235,7 +235,7 @@ class DashboardFragmentVM @Inject constructor(
             data = data,
             progress = progress,
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToStorageFragment().navigate()
+                DashboardFragmentDirections.actionDashboardFragmentToStorageListFragment().navigate()
             }
         )
     }

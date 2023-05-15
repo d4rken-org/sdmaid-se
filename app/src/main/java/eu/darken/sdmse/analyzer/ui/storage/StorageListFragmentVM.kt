@@ -6,9 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.core.AnalyzerScanTask
+import eu.darken.sdmse.analyzer.core.storage.DeviceStorageScanTask
 import eu.darken.sdmse.appcontrol.core.*
-import eu.darken.sdmse.appcontrol.ui.list.AppControlListRowVH
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -19,7 +18,7 @@ import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
-class StorageFragmentVM @Inject constructor(
+class StorageListFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
@@ -29,8 +28,8 @@ class StorageFragmentVM @Inject constructor(
     init {
         analyzer.data
             .take(1)
-            .filter { it == null }
-            .onEach { analyzer.submit(AnalyzerScanTask()) }
+            .filter { it.storages.isEmpty() }
+            .onEach { analyzer.submit(DeviceStorageScanTask()) }
             .launchInViewModel()
     }
 
@@ -41,22 +40,29 @@ class StorageFragmentVM @Inject constructor(
     ) { data, progress ->
 
         State(
-            storages = emptyList(),
+            storages = data.storages.map {
+                StorageListItemVH.Item(
+                    storage = it,
+                    onItemClicked = {
+
+                    }
+                )
+            },
             progress = progress,
         )
     }.asLiveData2()
 
     fun refresh() = launch {
         log(TAG) { "refresh()" }
-        analyzer.submit(AnalyzerScanTask())
+        analyzer.submit(DeviceStorageScanTask())
     }
 
     data class State(
-        val storages: List<AppControlListRowVH.Item>?,
+        val storages: List<StorageListItemVH.Item>?,
         val progress: Progress.Data?,
     )
 
     companion object {
-        private val TAG = logTag("Analyzer", "Storage", "Fragment", "VM")
+        private val TAG = logTag("Analyzer", "Storage", "List", "Fragment", "VM")
     }
 }

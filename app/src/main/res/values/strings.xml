@@ -344,6 +344,12 @@
     <string name="analyzer_tool_name">Storage analyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
     <string name="analyzer_device_storage_title">Device storage</string>
+    <string name="analyzer_space_available">%s available</string>
+    <string name="analyzer_space_used">%s used</string>
+    <string name="analyzer_storage_type_primary_title">Primary storage</string>
+    <string name="analyzer_storage_type_primary_description">The primary storage of your device. Contains: Your internal "sdcard", private storage for apps and system data.</string>
+    <string name="analyzer_storage_type_secondary_title">Secondary storage</string>
+    <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable sdcard. Contains media files and data from apps that support it.</string>
 
     <string name="data_area_public_app_data_official_label">Default Public App Data</string>
     <string name="data_area_public_storage_label">Public Storage</string>

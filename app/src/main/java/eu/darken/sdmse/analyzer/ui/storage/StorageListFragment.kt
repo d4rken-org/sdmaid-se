@@ -8,18 +8,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcontrol.ui.list.AppControlListAdapter
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerStorageFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageListFragmentBinding
 
 @AndroidEntryPoint
-class StorageFragment : Fragment3(R.layout.analyzer_storage_fragment) {
+class StorageListFragment : Fragment3(R.layout.analyzer_storage_list_fragment) {
 
-    override val vm: StorageFragmentVM by viewModels()
-    override val ui: AnalyzerStorageFragmentBinding by viewBinding()
+    override val vm: StorageListFragmentVM by viewModels()
+    override val ui: AnalyzerStorageListFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
@@ -31,10 +31,11 @@ class StorageFragment : Fragment3(R.layout.analyzer_storage_fragment) {
 
         }
 
-        val adapter = AppControlListAdapter()
+        val adapter = StorageListAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
+            adapter.update(state.storages)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
         }
@@ -45,6 +46,6 @@ class StorageFragment : Fragment3(R.layout.analyzer_storage_fragment) {
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "Storages", "Fragment")
+        private val TAG = logTag("Analyzer", "Storage", "List", "Fragment")
     }
 }

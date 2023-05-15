@@ -78,8 +78,8 @@
             android:id="@+id/action_dashboardFragment_to_schedulerManagerFragment"
             app:destination="@id/schedulerManagerFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_storageFragment"
-            app:destination="@id/storageFragment" />
+            android:id="@+id/action_dashboardFragment_to_storageListFragment"
+            app:destination="@id/storageListFragment" />
     </fragment>
 
     <action
@@ -280,8 +280,8 @@
             app:argType="string" />
     </dialog>
     <fragment
-        android:id="@+id/storageFragment"
-        android:name="eu.darken.sdmse.analyzer.ui.storage.StorageFragment"
-        tools:layout="@layout/analyzer_storage_fragment" />
+        android:id="@+id/storageListFragment"
+        android:name="eu.darken.sdmse.analyzer.ui.storage.StorageListFragment"
+        tools:layout="@layout/analyzer_storage_list_fragment" />
 
 </navigation>

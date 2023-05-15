@@ -1,11 +1,12 @@
-package eu.darken.sdmse.analyzer.core
+package eu.darken.sdmse.analyzer.core.storage
 
+import eu.darken.sdmse.analyzer.core.AnalyzerTask
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class AnalyzerScanTask(
+data class DeviceStorageScanTask(
     val flag: Boolean = true,
 ) : AnalyzerTask {
 
