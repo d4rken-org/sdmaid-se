@@ -1,34 +1,37 @@
-package eu.darken.sdmse.analyzer.ui.storage.devices
+package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.core.storage.DeviceStorage
+import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerStorageDevicesItemBinding
+import eu.darken.sdmse.databinding.AnalyzerDeviceStorageItemBinding
 
 
-class StorageDevicesItemVH(parent: ViewGroup) :
-    StorageDevicesAdapter.BaseVH<StorageDevicesItemVH.Item, AnalyzerStorageDevicesItemBinding>(
-        R.layout.analyzer_storage_devices_item,
+class DeviceStorageItemVH(parent: ViewGroup) :
+    DeviceStorageAdapter.BaseVH<DeviceStorageItemVH.Item, AnalyzerDeviceStorageItemBinding>(
+        R.layout.analyzer_device_storage_item,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerStorageDevicesItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerDeviceStorageItemBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerStorageDevicesItemBinding.(
+    override val onBindData: AnalyzerDeviceStorageItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val storage = item.storage
 
         primary.text = storage.label.get(context)
-        secondary.text = storage.description.get(context)
+        secondary.text = when (storage.type) {
+            DeviceStorage.Type.PRIMARY -> getString(R.string.analyzer_storage_type_primary_description)
+            DeviceStorage.Type.SECONDARY -> getString(R.string.analyzer_storage_type_secondary_description)
+        }
 
         hardwareIcon.setImageResource(
-            when (storage.hardwareType) {
-                DeviceStorage.HardwareType.BUILT_IN -> R.drawable.ic_chip_24
-                DeviceStorage.HardwareType.SDCARD -> R.drawable.ic_sd_24
+            when (storage.hardware) {
+                DeviceStorage.Hardware.BUILT_IN -> R.drawable.ic_chip_24
+                DeviceStorage.Hardware.SDCARD -> R.drawable.ic_sd_24
             }
         )
 
@@ -58,7 +61,7 @@ class StorageDevicesItemVH(parent: ViewGroup) :
     data class Item(
         val storage: DeviceStorage,
         val onItemClicked: (Item) -> Unit,
-    ) : StorageDevicesAdapter.Item {
+    ) : DeviceStorageAdapter.Item {
 
         override val stableId: Long = storage.id.hashCode().toLong()
     }

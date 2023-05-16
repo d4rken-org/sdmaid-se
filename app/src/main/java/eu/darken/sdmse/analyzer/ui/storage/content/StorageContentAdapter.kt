@@ -1,8 +1,11 @@
-package eu.darken.sdmse.analyzer.ui.storage.devices
+package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.analyzer.ui.storage.content.types.AppContentVH
+import eu.darken.sdmse.analyzer.ui.storage.content.types.MediaContentVH
+import eu.darken.sdmse.analyzer.ui.storage.content.types.SystemContentVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -14,9 +17,9 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import javax.inject.Inject
 
 
-class StorageDevicesAdapter @Inject constructor() :
-    ModularAdapter<StorageDevicesAdapter.BaseVH<StorageDevicesAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<StorageDevicesAdapter.Item> {
+class StorageContentAdapter @Inject constructor() :
+    ModularAdapter<StorageContentAdapter.BaseVH<StorageContentAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<StorageContentAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -24,7 +27,9 @@ class StorageDevicesAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is StorageDevicesItemVH.Item }) { StorageDevicesItemVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AppContentVH.Item }) { AppContentVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is MediaContentVH.Item }) { MediaContentVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SystemContentVH.Item }) { SystemContentVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

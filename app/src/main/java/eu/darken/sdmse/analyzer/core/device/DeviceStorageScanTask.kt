@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.core.storage
+package eu.darken.sdmse.analyzer.core.device
 
 import eu.darken.sdmse.analyzer.core.AnalyzerTask
 import eu.darken.sdmse.common.ca.CaString

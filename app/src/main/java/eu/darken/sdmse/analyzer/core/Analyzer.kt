@@ -5,9 +5,13 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.analyzer.core.storage.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.DeviceStorageScanTask
-import eu.darken.sdmse.analyzer.core.storage.DeviceStorageScanner
+import eu.darken.sdmse.analyzer.core.content.StorageContentScanTask
+import eu.darken.sdmse.analyzer.core.content.StorageContentScanner
+import eu.darken.sdmse.analyzer.core.content.types.StorageContent
+import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
+import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
+import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -28,7 +32,8 @@ import javax.inject.Singleton
 @Singleton
 class Analyzer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val storageScanner: Provider<DeviceStorageScanner>,
+    private val deviceScanner: Provider<DeviceStorageScanner>,
+    private val storageScanner: Provider<StorageContentScanner>,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -39,14 +44,15 @@ class Analyzer @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    private val deviceStorageData = MutableStateFlow(emptySet<DeviceStorage>())
-    private val storageContentData = MutableStateFlow(emptySet<DeviceStorage>())
+    private val storagesDevice = MutableStateFlow(emptySet<DeviceStorage>())
+    private val storageContents = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<StorageContent>>())
     val data: Flow<Data> = combine(
-        deviceStorageData,
-        storageContentData,
+        storagesDevice,
+        storageContents,
     ) { storages, contents ->
         Data(
             storages = storages,
+            contents = contents,
         )
     }
 
@@ -59,7 +65,8 @@ class Analyzer @Inject constructor(
         updateProgress { Progress.DEFAULT_STATE }
         try {
             val result = when (task) {
-                is DeviceStorageScanTask -> performScan(task)
+                is DeviceStorageScanTask -> scanStorageDevices(task)
+                is StorageContentScanTask -> scanStorageContents(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -70,22 +77,36 @@ class Analyzer @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: DeviceStorageScanTask): DeviceStorageScanTask.Result {
-        log(TAG, VERBOSE) { "performScan(): $task" }
+    private suspend fun scanStorageDevices(task: DeviceStorageScanTask): DeviceStorageScanTask.Result {
+        log(TAG, VERBOSE) { "scanStorageDevices(): $task" }
 
-        deviceStorageData.value = emptySet()
+        storagesDevice.value = emptySet()
 
-        val scanner = storageScanner.get()
-        val deviceStorages = scanner.scan()
+        val scanner = deviceScanner.get()
+        val storages = scanner.scan()
 
-        deviceStorageData.value = deviceStorages
+        storagesDevice.value = storages
 
-        return DeviceStorageScanTask.Result(itemCount = deviceStorages.size)
+        return DeviceStorageScanTask.Result(itemCount = storages.size)
     }
 
+    private suspend fun scanStorageContents(task: StorageContentScanTask): DeviceStorageScanTask.Result {
+        log(TAG, VERBOSE) { "scanStorageContents(): $task" }
+        val target = task.target
+
+        val scanner = storageScanner.get()
+        val contents = scanner.scan(target)
+
+        storageContents.value = storageContents.value.mutate {
+            this[target] = contents
+        }
+
+        return DeviceStorageScanTask.Result(itemCount = contents.size)
+    }
 
     data class Data(
-        val storages: Set<DeviceStorage> = emptySet()
+        val storages: Set<DeviceStorage> = emptySet(),
+        val contents: Map<DeviceStorage.Id, Collection<StorageContent>> = emptyMap(),
     )
 
     @InstallIn(SingletonComponent::class)

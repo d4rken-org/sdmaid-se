@@ -1,8 +1,7 @@
-package eu.darken.sdmse.analyzer.core.storage
+package eu.darken.sdmse.analyzer.core.device
 
 import android.app.usage.StorageStatsManager
 import android.os.storage.StorageManager
-import dagger.Reusable
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging
@@ -14,7 +13,6 @@ import eu.darken.sdmse.common.storage.StorageManager2
 import java.util.UUID
 import javax.inject.Inject
 
-@Reusable
 class DeviceStorageScanner @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val storageManager2: StorageManager2,
@@ -27,10 +25,10 @@ class DeviceStorageScanner @Inject constructor(
             val internalId = StorageManager.UUID_DEFAULT
 
             DeviceStorage(
-                id = internalId.toString(),
+                id = DeviceStorage.Id(internalId.toString()),
                 label = R.string.analyzer_storage_type_primary_title.toCaString(),
-                description = R.string.analyzer_storage_type_primary_description.toCaString(),
-                hardwareType = DeviceStorage.HardwareType.BUILT_IN,
+                type = DeviceStorage.Type.PRIMARY,
+                hardware = DeviceStorage.Hardware.BUILT_IN,
                 spaceCapacity = storageStatsmanager.getTotalBytes(internalId),
                 spaceFree = storageStatsmanager.getFreeBytes(internalId),
             )
@@ -64,10 +62,10 @@ class DeviceStorageScanner @Inject constructor(
                 }
 
                 DeviceStorage(
-                    id = volumeId.toString(),
+                    id = DeviceStorage.Id(volumeId.toString()),
                     label = R.string.analyzer_storage_type_secondary_title.toCaString(),
-                    description = R.string.analyzer_storage_type_secondary_description.toCaString(),
-                    hardwareType = DeviceStorage.HardwareType.SDCARD,
+                    type = DeviceStorage.Type.SECONDARY,
+                    hardware = DeviceStorage.Hardware.SDCARD,
                     spaceCapacity = storageStatsmanager.getTotalBytes(volumeId),
                     spaceFree = storageStatsmanager.getFreeBytes(volumeId),
                 )

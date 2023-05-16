@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage.devices
+package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.os.Bundle
 import android.view.View
@@ -13,13 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerStorageDevicesFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageContentFragmentBinding
 
 @AndroidEntryPoint
-class StorageDevicesFragment : Fragment3(R.layout.analyzer_storage_devices_fragment) {
+class StorageContentFragment : Fragment3(R.layout.analyzer_storage_content_fragment) {
 
-    override val vm: StorageDevicesFragmentVM by viewModels()
-    override val ui: AnalyzerStorageDevicesFragmentBinding by viewBinding()
+    override val vm: StorageContentFragmentVM by viewModels()
+    override val ui: AnalyzerStorageContentFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
@@ -31,11 +31,13 @@ class StorageDevicesFragment : Fragment3(R.layout.analyzer_storage_devices_fragm
 
         }
 
-        val adapter = StorageDevicesAdapter()
+        val adapter = StorageContentAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.storages)
+            toolbar.subtitle = state.storage.label.get(requireContext())
+
+            adapter.update(state.content)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
         }
@@ -46,6 +48,6 @@ class StorageDevicesFragment : Fragment3(R.layout.analyzer_storage_devices_fragm
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "Storage", "List", "Fragment")
+        private val TAG = logTag("Analyzer", "Storage", "Content", "Fragment")
     }
 }

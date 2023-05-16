@@ -13,8 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:subtitle="@string/analyzer_device_storage_title"
-        app:title="@string/analyzer_tool_name" />
+        app:title="@string/analyzer_storage_content_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -27,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:listitem="@layout/analyzer_storage_devices_item" />
+        tools:listitem="@layout/analyzer_storage_content_apps_item" />
 
     <eu.darken.sdmse.common.progress.ProgressOverlayView
         android:id="@+id/loading_overlay"

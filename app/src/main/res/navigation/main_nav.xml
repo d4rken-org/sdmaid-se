@@ -78,8 +78,8 @@
             android:id="@+id/action_dashboardFragment_to_schedulerManagerFragment"
             app:destination="@id/schedulerManagerFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_storageDevicesFragment"
-            app:destination="@id/storageDevicesFragment" />
+            android:id="@+id/action_dashboardFragment_to_deviceStorageFragment"
+            app:destination="@id/deviceStorageFragment" />
     </fragment>
 
     <action
@@ -233,8 +233,8 @@
             app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
         <action
             android:id="@+id/action_appActionDialog_to_exclusionActionDialog"
-            app:popUpTo="@id/appControlListFragment"
-            app:destination="@id/exclusionActionDialog" />
+            app:destination="@id/exclusionActionDialog"
+            app:popUpTo="@id/appControlListFragment" />
     </dialog>
     <fragment
         android:id="@+id/dataAreasFragment"
@@ -280,8 +280,20 @@
             app:argType="string" />
     </dialog>
     <fragment
-        android:id="@+id/storageDevicesFragment"
-        android:name="eu.darken.sdmse.analyzer.ui.storage.devices.StorageDevicesFragment"
-        tools:layout="@layout/analyzer_storage_devices_fragment" />
+        android:id="@+id/deviceStorageFragment"
+        android:name="eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment"
+        tools:layout="@layout/analyzer_device_storage_fragment">
+        <action
+            android:id="@+id/action_deviceStorageFragment_to_storageContentFragment"
+            app:destination="@id/storageContentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageContentFragment"
+        android:name="eu.darken.sdmse.analyzer.ui.storage.content.StorageContentFragment"
+        tools:layout="@layout/analyzer_storage_content_fragment">
+        <argument
+            android:name="storageId"
+            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+    </fragment>
 
 </navigation>
