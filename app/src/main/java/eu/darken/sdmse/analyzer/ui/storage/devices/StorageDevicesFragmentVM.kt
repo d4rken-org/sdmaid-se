@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage
+package eu.darken.sdmse.analyzer.ui.storage.devices
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
-class StorageListFragmentVM @Inject constructor(
+class StorageDevicesFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
@@ -41,7 +41,7 @@ class StorageListFragmentVM @Inject constructor(
 
         State(
             storages = data.storages.map {
-                StorageListItemVH.Item(
+                StorageDevicesItemVH.Item(
                     storage = it,
                     onItemClicked = {
 
@@ -58,7 +58,7 @@ class StorageListFragmentVM @Inject constructor(
     }
 
     data class State(
-        val storages: List<StorageListItemVH.Item>?,
+        val storages: List<StorageDevicesItemVH.Item>?,
         val progress: Progress.Data?,
     )
 

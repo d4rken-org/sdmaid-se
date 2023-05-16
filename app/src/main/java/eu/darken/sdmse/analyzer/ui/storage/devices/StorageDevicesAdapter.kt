@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage
+package eu.darken.sdmse.analyzer.ui.storage.devices
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -14,9 +14,9 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import javax.inject.Inject
 
 
-class StorageListAdapter @Inject constructor() :
-    ModularAdapter<StorageListAdapter.BaseVH<StorageListAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<StorageListAdapter.Item> {
+class StorageDevicesAdapter @Inject constructor() :
+    ModularAdapter<StorageDevicesAdapter.BaseVH<StorageDevicesAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<StorageDevicesAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -24,7 +24,7 @@ class StorageListAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is StorageListItemVH.Item }) { StorageListItemVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is StorageDevicesItemVH.Item }) { StorageDevicesItemVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

@@ -1,22 +1,22 @@
-package eu.darken.sdmse.analyzer.ui.storage
+package eu.darken.sdmse.analyzer.ui.storage.devices
 
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.storage.DeviceStorage
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerStorageListItemBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageDevicesItemBinding
 
 
-class StorageListItemVH(parent: ViewGroup) :
-    StorageListAdapter.BaseVH<StorageListItemVH.Item, AnalyzerStorageListItemBinding>(
-        R.layout.analyzer_storage_list_item,
+class StorageDevicesItemVH(parent: ViewGroup) :
+    StorageDevicesAdapter.BaseVH<StorageDevicesItemVH.Item, AnalyzerStorageDevicesItemBinding>(
+        R.layout.analyzer_storage_devices_item,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerStorageListItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerStorageDevicesItemBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerStorageListItemBinding.(
+    override val onBindData: AnalyzerStorageDevicesItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -58,7 +58,7 @@ class StorageListItemVH(parent: ViewGroup) :
     data class Item(
         val storage: DeviceStorage,
         val onItemClicked: (Item) -> Unit,
-    ) : StorageListAdapter.Item {
+    ) : StorageDevicesAdapter.Item {
 
         override val stableId: Long = storage.id.hashCode().toLong()
     }

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage
+package eu.darken.sdmse.analyzer.ui.storage.devices
 
 import android.os.Bundle
 import android.view.View
@@ -13,13 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerStorageListFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageDevicesFragmentBinding
 
 @AndroidEntryPoint
-class StorageListFragment : Fragment3(R.layout.analyzer_storage_list_fragment) {
+class StorageDevicesFragment : Fragment3(R.layout.analyzer_storage_devices_fragment) {
 
-    override val vm: StorageListFragmentVM by viewModels()
-    override val ui: AnalyzerStorageListFragmentBinding by viewBinding()
+    override val vm: StorageDevicesFragmentVM by viewModels()
+    override val ui: AnalyzerStorageDevicesFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
@@ -31,7 +31,7 @@ class StorageListFragment : Fragment3(R.layout.analyzer_storage_list_fragment) {
 
         }
 
-        val adapter = StorageListAdapter()
+        val adapter = StorageDevicesAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
