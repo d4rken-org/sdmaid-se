@@ -10171,7 +10171,7 @@
   ]
 }, {
   "pkgs": ["com.zane.stardewvalley"],
-  "mrks": [	{"loc": "SDCARD", "path": "StardewValley"}]
+  "mrks": [{"loc": "SDCARD", "path": "StardewValley"}]
 }, {
   "pkgs": ["com.miHoYo.bh3oversea"],
   "mrks": [
@@ -12559,5 +12559,8 @@
 }, {
   "pkgs": ["com.hidex.vaultlocker"],
   "mrks": [{"loc": "SDCARD", "path": ".hidex_dont_delete_me", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.karin.idTech4Amm"],
+  "mrks": [{"loc": "SDCARD", "path": "diii4a"}]
 }
 ]
