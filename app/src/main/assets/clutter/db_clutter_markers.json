@@ -12553,5 +12553,11 @@
 }, {
   "pkgs": ["com.xiaomi.bluetooth"],
   "mrks": [{"loc": "SDCARD", "path": "Download/MiuiFastConnect"}]
+}, {
+  "pkgs": ["com.calculator.hideu"],
+  "mrks": [{"loc": "SDCARD", "path": ".dont_delete_me_by_hideu", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.hidex.vaultlocker"],
+  "mrks": [{"loc": "SDCARD", "path": ".hidex_dont_delete_me", "flags": ["keeper"]}]
 }
 ]
