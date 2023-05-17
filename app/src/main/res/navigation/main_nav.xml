@@ -294,6 +294,17 @@
         <argument
             android:name="storageId"
             app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+        <action
+            android:id="@+id/action_storageContentFragment_to_contentAppsFragment"
+            app:destination="@id/contentAppsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentAppsFragment"
+        android:name="eu.darken.sdmse.analyzer.ui.storage.apps.ContentAppsFragment"
+        tools:layout="@layout/analyzer_content_apps_fragment">
+        <argument
+            android:name="storageId"
+            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
     </fragment>
 
 </navigation>

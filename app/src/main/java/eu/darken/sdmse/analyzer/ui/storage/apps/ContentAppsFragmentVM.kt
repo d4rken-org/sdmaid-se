@@ -1,16 +1,12 @@
-package eu.darken.sdmse.analyzer.ui.storage.content
+package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.content.StorageContentScanTask
 import eu.darken.sdmse.analyzer.core.content.types.AppContent
-import eu.darken.sdmse.analyzer.core.content.types.MediaContent
-import eu.darken.sdmse.analyzer.core.content.types.SystemContent
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.ui.storage.content.types.AppContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.MediaContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.SystemContentVH
+import eu.darken.sdmse.analyzer.ui.storage.content.StorageContentFragmentArgs
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -22,7 +18,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class StorageContentFragmentVM @Inject constructor(
+class ContentAppsFragmentVM @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val analyzer: Analyzer,
@@ -44,33 +40,17 @@ class StorageContentFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
+        val contents = data.contents[targetStorageId]!!.filterIsInstance<AppContent>().single()
+
         State(
             storage = storage,
-            content = data.contents[targetStorageId]?.map { content ->
-                when (content) {
-                    is AppContent -> AppContentVH.Item(
-                        storage = storage,
-                        content = content,
-                        onItemClicked = {
-                            StorageContentFragmentDirections.actionStorageContentFragmentToContentAppsFragment(
-                                targetStorageId
-                            ).navigate()
-                        }
-                    )
+            apps = contents.pkgStats.map { app ->
+                ContentAppVH.Item(
+                    app = app,
+                    onItemClicked = {
 
-                    is MediaContent -> MediaContentVH.Item(
-                        storage = storage,
-                        content = content,
-                        onItemClicked = {
-
-                        }
-                    )
-
-                    is SystemContent -> SystemContentVH.Item(
-                        storage = storage,
-                        content = content,
-                    )
-                }
+                    }
+                )
             },
             progress = progress,
         )
@@ -83,11 +63,11 @@ class StorageContentFragmentVM @Inject constructor(
 
     data class State(
         val storage: DeviceStorage,
-        val content: List<StorageContentAdapter.Item>?,
+        val apps: List<ContentAppVH.Item>?,
         val progress: Progress.Data?,
     )
 
     companion object {
-        private val TAG = logTag("Analyzer", "Storage", "Content", "Fragment", "VM")
+        private val TAG = logTag("Analyzer", "Content", "Apps", "Fragment", "VM")
     }
 }
