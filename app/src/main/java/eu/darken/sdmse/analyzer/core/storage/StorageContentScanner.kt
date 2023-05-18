@@ -1,12 +1,14 @@
-package eu.darken.sdmse.analyzer.core.content
+package eu.darken.sdmse.analyzer.core.storage
 
 import android.app.usage.StorageStatsManager
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.core.content.types.AppContent
-import eu.darken.sdmse.analyzer.core.content.types.MediaContent
-import eu.darken.sdmse.analyzer.core.content.types.StorageContent
-import eu.darken.sdmse.analyzer.core.content.types.SystemContent
+import eu.darken.sdmse.analyzer.core.content.AppContentGroup
+import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.core.storage.types.AppContent
+import eu.darken.sdmse.analyzer.core.storage.types.MediaContent
+import eu.darken.sdmse.analyzer.core.storage.types.StorageContent
+import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -40,9 +42,9 @@ class StorageContentScanner @Inject constructor(
                 val storageStats = statsManager.queryStatsForUid(storageId.asUUID, it.packageInfo.applicationInfo.uid)
 
                 val appCode = if (useRoot) {
-                    emptySet<ContentItem>()
+                    AppContentGroup()
                 } else {
-                    setOf(
+                    AppContentGroup.from(
                         ContentItem(
                             label = R.string.analyzer_storage_content_app_code_label.toCaString(),
                             path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
@@ -51,49 +53,31 @@ class StorageContentScanner @Inject constructor(
                     )
                 }
 
-                val privateAppData = if (useRoot) {
-                    emptySet<ContentItem>()
+                val privateData = if (useRoot) {
+                    AppContentGroup()
                 } else {
-                    setOf(
+                    AppContentGroup.from(
                         ContentItem(
                             label = R.string.analyzer_storage_content_app_data_private_label.toCaString(),
                             path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.appBytes,
+                            size = storageStats.dataBytes,
                         )
                     )
                 }
 
-                val privateAppCache = if (useRoot) {
-                    emptySet<ContentItem>()
-                } else {
-                    setOf(
+                val publicData = run {
+                    AppContentGroup.from(
                         ContentItem(
-                            label = R.string.analyzer_storage_content_app_cache_private_label.toCaString(),
                             path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.appBytes,
+                            size = storageStats.cacheBytes,
                         )
                     )
                 }
 
-                val publicAppData = run {
-                    setOf(
-                        ContentItem(
-                            label = R.string.analyzer_storage_content_app_cache_private_label.toCaString(),
-                            path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.appBytes,
-                        )
-                    )
+                val extraData = run {
+                    AppContentGroup()
                 }
 
-                val publicAppCache = run {
-                    setOf(
-                        ContentItem(
-                            label = R.string.analyzer_storage_content_app_cache_private_label.toCaString(),
-                            path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.appBytes,
-                        )
-                    )
-                }
 
 //                // TODO on lower APIs we need to calculate this manually
 //                @Suppress("NewApi")
@@ -102,24 +86,24 @@ class StorageContentScanner @Inject constructor(
                 AppContent.PkgStat(
                     pkg = it,
                     appCode = appCode,
-                    appData = emptySet(),
-                    appCache = emptySet(),
-                    extra = emptySet(),
+                    privateData = privateData,
+                    publicData = publicData,
+                    extraData = extraData,
                 )
             }
             .onEach { log(TAG, VERBOSE) { "$it" } }
 
         val app = AppContent(
-            id = storageId.value + ".app",
+            storageId = storageId,
             spaceUsed = pkgStats.sumOf { it.totalSize },
             pkgStats = pkgStats,
         )
         val media = MediaContent(
-            id = storageId.value + ".media",
+            storageId = storageId,
             spaceUsed = 1024L * 1024 * 1024L * 24,
         )
         val system = SystemContent(
-            id = storageId.value + ".system",
+            storageId = storageId,
             spaceUsed = 1024L * 1024 * 1024L * 11,
         )
         return setOf(app, media, system)

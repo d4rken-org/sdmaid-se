@@ -45,7 +45,8 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         doNavigate(DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment())
                         true
                     }
-                    else -> super.onOptionsItemSelected(it)
+
+                    else -> false
                 }
             }
         }

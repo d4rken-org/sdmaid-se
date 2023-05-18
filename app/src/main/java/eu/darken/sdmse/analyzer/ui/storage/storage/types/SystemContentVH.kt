@@ -1,12 +1,12 @@
-package eu.darken.sdmse.analyzer.ui.storage.content.types
+package eu.darken.sdmse.analyzer.ui.storage.storage.types
 
 import android.text.format.Formatter
 import android.view.ViewGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.core.content.types.SystemContent
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.ui.storage.content.StorageContentAdapter
+import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
+import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerStorageContentSystemItemBinding
 
@@ -43,7 +43,7 @@ class SystemContentVH(parent: ViewGroup) :
         val content: SystemContent,
     ) : StorageContentAdapter.Item {
 
-        override val stableId: Long = content.id.hashCode().toLong()
+        override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 
 }

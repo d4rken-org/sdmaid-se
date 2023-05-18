@@ -8,18 +8,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.analyzer.ui.storage.apps.ContentAppsAdapter
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerStorageContentFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerContentExplorerFragmentBinding
 
 @AndroidEntryPoint
-class StorageContentFragment : Fragment3(R.layout.analyzer_storage_content_fragment) {
+class ContentExplorerFragment : Fragment3(R.layout.analyzer_content_explorer_fragment) {
 
-    override val vm: StorageContentFragmentVM by viewModels()
-    override val ui: AnalyzerStorageContentFragmentBinding by viewBinding()
+    override val vm: ContentExplorerFragmentVM by viewModels()
+    override val ui: AnalyzerContentExplorerFragmentBinding by viewBinding()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
@@ -31,23 +33,21 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_content_fragm
 
         }
 
-        val adapter = StorageContentAdapter()
-        ui.list.setupDefaults(adapter, dividers = false)
+        val adapter = ContentAppsAdapter()
+        ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
             toolbar.subtitle = state.storage.label.get(requireContext())
 
-            adapter.update(state.content)
+            adapter.update(state.apps)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
         }
-
-        ui.refreshAction.setOnClickListener { vm.refresh() }
 
         super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "Storage", "Content", "Fragment")
+        private val TAG = logTag("Analyzer", "Content", "Explorer", "Fragment")
     }
 }

@@ -1,11 +1,11 @@
-package eu.darken.sdmse.analyzer.ui.storage.content.types
+package eu.darken.sdmse.analyzer.ui.storage.storage.types
 
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.core.content.types.MediaContent
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.ui.storage.content.StorageContentAdapter
+import eu.darken.sdmse.analyzer.core.storage.types.MediaContent
+import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerStorageContentMediaItemBinding
 
@@ -39,7 +39,7 @@ class MediaContentVH(parent: ViewGroup) :
         val onItemClicked: (MediaContent) -> Unit,
     ) : StorageContentAdapter.Item {
 
-        override val stableId: Long = content.id.hashCode().toLong()
+        override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 
 }

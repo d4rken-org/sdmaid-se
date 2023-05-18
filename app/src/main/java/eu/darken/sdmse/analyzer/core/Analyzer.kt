@@ -5,12 +5,12 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.analyzer.core.content.StorageContentScanTask
-import eu.darken.sdmse.analyzer.core.content.StorageContentScanner
-import eu.darken.sdmse.analyzer.core.content.types.StorageContent
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
+import eu.darken.sdmse.analyzer.core.storage.StorageContentScanTask
+import eu.darken.sdmse.analyzer.core.storage.StorageContentScanner
+import eu.darken.sdmse.analyzer.core.storage.types.StorageContent
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*

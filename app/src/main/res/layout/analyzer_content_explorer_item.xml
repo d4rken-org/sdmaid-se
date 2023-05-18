@@ -7,11 +7,11 @@
     android:background="?selectableItemBackground">
 
     <ImageView
-        android:id="@+id/app_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:id="@+id/content_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/ic_default_app_icon_24"
+        android:src="@drawable/ic_folder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,9 +26,9 @@
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/app_icon"
+        app:layout_constraintStart_toEndOf="@id/content_icon"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Some app name" />
+        tools:text="/data/data/eu.darken.sdmse" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"

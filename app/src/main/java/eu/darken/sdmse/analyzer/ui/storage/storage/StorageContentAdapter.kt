@@ -1,11 +1,11 @@
-package eu.darken.sdmse.analyzer.ui.storage.content
+package eu.darken.sdmse.analyzer.ui.storage.storage
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
-import eu.darken.sdmse.analyzer.ui.storage.content.types.AppContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.MediaContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.SystemContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.AppContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.MediaContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.SystemContentVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem

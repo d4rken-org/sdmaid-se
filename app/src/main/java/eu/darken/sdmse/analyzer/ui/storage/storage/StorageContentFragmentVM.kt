@@ -1,16 +1,16 @@
-package eu.darken.sdmse.analyzer.ui.storage.content
+package eu.darken.sdmse.analyzer.ui.storage.storage
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.core.content.StorageContentScanTask
-import eu.darken.sdmse.analyzer.core.content.types.AppContent
-import eu.darken.sdmse.analyzer.core.content.types.MediaContent
-import eu.darken.sdmse.analyzer.core.content.types.SystemContent
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.ui.storage.content.types.AppContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.MediaContentVH
-import eu.darken.sdmse.analyzer.ui.storage.content.types.SystemContentVH
+import eu.darken.sdmse.analyzer.core.storage.StorageContentScanTask
+import eu.darken.sdmse.analyzer.core.storage.types.AppContent
+import eu.darken.sdmse.analyzer.core.storage.types.MediaContent
+import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.AppContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.MediaContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.types.SystemContentVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log

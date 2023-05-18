@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:listitem="@layout/analyzer_content_apps_item" />
+        tools:listitem="@layout/analyzer_content_explorer_item" />
 
     <eu.darken.sdmse.common.progress.ProgressOverlayView
         android:id="@+id/loading_overlay"
