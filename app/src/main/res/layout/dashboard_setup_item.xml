@@ -51,8 +51,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             android:text="@string/setup_incomplete_card_dismiss_action"
             android:textColor="?colorOnSecondaryContainer"
+            app:layout_constraintEnd_toStartOf="@id/continue_setup_action"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
 
@@ -62,6 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@id/dismiss_action"
             android:text="@string/setup_incomplete_card_continue_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
