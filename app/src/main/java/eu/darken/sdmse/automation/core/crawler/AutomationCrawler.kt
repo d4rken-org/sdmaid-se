@@ -81,7 +81,10 @@ class AutomationCrawler @AssistedInject constructor(
             // Condition for the right window, e.g. check title
             if (step.windowIntent != null && step.windowEventFilter != null) {
                 log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
-                host.events.filter { step.windowEventFilter.invoke(it) }.first()
+                host.events.filter {
+                    log(TAG, VERBOSE) { "Testing window event $it" }
+                    step.windowEventFilter.invoke(it)
+                }.first()
                 log(TAG, VERBOSE) { "Waiting for window event filter passed!" }
             }
 

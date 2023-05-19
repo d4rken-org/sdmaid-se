@@ -205,7 +205,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         if (!automationProcessor.hasTask) return
 
         val eventCopy = if (hasApiLevel(30)) {
-            event
+            @Suppress("NewApi")
+            AccessibilityEvent(event)
         } else {
             try {
                 @Suppress("DEPRECATION")
@@ -233,7 +234,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                     }
                     .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to get fallbackRoot from $event" }
+                log(TAG, ERROR) { "Failed to get fallbackRoot from $event: $e" }
             }
         }
 

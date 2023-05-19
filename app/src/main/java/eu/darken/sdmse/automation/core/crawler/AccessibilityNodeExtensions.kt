@@ -136,4 +136,4 @@ fun AccessibilityNodeInfo.scrollNode(): Boolean {
     return performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
 }
 
-val AccessibilityEvent.pkgId: Pkg.Id get() = packageName.toString().toPkgId()
+val AccessibilityEvent.pkgId: Pkg.Id? get() = packageName.takeIf { !it.isNullOrBlank() }?.toString()?.toPkgId()
