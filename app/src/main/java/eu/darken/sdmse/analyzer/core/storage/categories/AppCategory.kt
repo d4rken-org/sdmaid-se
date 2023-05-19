@@ -9,15 +9,20 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 data class AppCategory(
     override val storageId: DeviceStorage.Id,
     override val spaceUsed: Long,
-    val pkgStats: Collection<PkgStat>,
+    val pkgStats: Map<Installed.InstallId, PkgStat>,
 ) : ContentCategory {
+
+    override val groups: Collection<ContentGroup>
+        get() = pkgStats.values
+            .map { setOfNotNull(it.appCode, it.privateData, it.publicData, it.extraData) }
+            .flatten()
 
     data class PkgStat(
         val pkg: Installed,
-        val appCode: ContentGroup,
-        val privateData: ContentGroup,
-        val publicData: ContentGroup,
-        val extraData: ContentGroup,
+        val appCode: ContentGroup?,
+        val privateData: ContentGroup?,
+        val publicData: ContentGroup?,
+        val extraData: ContentGroup?,
     ) {
 
         val id: Installed.InstallId
@@ -28,10 +33,10 @@ data class AppCategory(
 
         val totalSize by lazy {
             var size = 0L
-            size += appCode.groupSize
-            size += privateData.groupSize
-            size += publicData.groupSize
-            size += extraData.groupSize
+            appCode?.groupSize?.let { size += it }
+            privateData?.groupSize?.let { size += it }
+            publicData?.groupSize?.let { size += it }
+            extraData?.groupSize?.let { size += it }
             size
         }
     }

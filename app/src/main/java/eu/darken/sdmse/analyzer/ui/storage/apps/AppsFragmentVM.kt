@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragmentArgs
 import eu.darken.sdmse.appcontrol.core.*
@@ -26,31 +25,23 @@ class AppsFragmentVM @Inject constructor(
     private val navArgs by handle.navArgs<StorageContentFragmentArgs>()
     private val targetStorageId = navArgs.storageId
 
-    init {
-        analyzer.data
-            .take(1)
-            .filter { it.contents[targetStorageId].isNullOrEmpty() }
-            .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
-            .launchInViewModel()
-    }
-
     val state = combine(
         analyzer.data,
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val contents = data.contents[targetStorageId]!!.filterIsInstance<AppCategory>().single()
+        val contents = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
 
         State(
             storage = storage,
             apps = contents.pkgStats
-                .map { pkgStat ->
+                .map { (installId, pkgStat) ->
                     AppsItemVH.Item(
                         pkgStat = pkgStat,
                         onItemClicked = {
                             AppsFragmentDirections.actionAppsFragmentToAppDetailsFragment(
                                 storageId = storage.id,
-                                installId = pkgStat.pkg.installId,
+                                installId = installId,
                             ).navigate()
                         }
                     )

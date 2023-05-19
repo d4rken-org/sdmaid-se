@@ -4,12 +4,12 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
-import eu.darken.sdmse.analyzer.ui.storage.apps.AppsItemVH
-import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragmentArgs
 import eu.darken.sdmse.appcontrol.core.*
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
@@ -24,14 +24,20 @@ class ContentFragmentVM @Inject constructor(
     private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<StorageContentFragmentArgs>()
+    private val navArgs by handle.navArgs<ContentFragmentArgs>()
     private val targetStorageId = navArgs.storageId
+    private val targetGroupId = navArgs.groupId
+    private val targetInstallId = navArgs.installId
 
     init {
         analyzer.data
+            .filter { it.groups[targetGroupId] == null }
             .take(1)
-            .filter { it.contents[targetStorageId].isNullOrEmpty() }
-            .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
+            .onEach {
+                log(TAG, WARN) { "Can't find $targetGroupId" }
+                popNavStack()
+            }
+            .map { }
             .launchInViewModel()
     }
 
@@ -40,13 +46,24 @@ class ContentFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val contents = data.contents[targetStorageId]!!.filterIsInstance<AppCategory>().single()
+        val contentGroup = data.groups[targetGroupId]
+
+        val pkgStat = targetInstallId?.let {
+            data.categories[targetStorageId]
+                ?.filterIsInstance<AppCategory>()?.single()
+                ?.pkgStats?.get(targetInstallId)
+        }
+
+        val title = pkgStat?.label ?: contentGroup?.label
+        val subtitle = if (pkgStat?.label == null) null else contentGroup?.label
 
         State(
+            title = title,
+            subtitle = subtitle,
             storage = storage,
-            apps = contents.pkgStats.map { app ->
-                AppsItemVH.Item(
-                    pkgStat = app,
+            items = contentGroup?.contents?.map { content ->
+                ContentItemVH.Item(
+                    content = content,
                     onItemClicked = {
 
                     }
@@ -57,12 +74,14 @@ class ContentFragmentVM @Inject constructor(
     }.asLiveData2()
 
     data class State(
+        val title: CaString?,
+        val subtitle: CaString?,
         val storage: DeviceStorage,
-        val apps: List<AppsItemVH.Item>?,
+        val items: List<ContentItemVH.Item>?,
         val progress: Progress.Data?,
     )
 
     companion object {
-        private val TAG = logTag("Analyzer", "Content", "Explorer", "Fragment", "VM")
+        private val TAG = logTag("Analyzer", "Content", "Fragment", "VM")
     }
 }

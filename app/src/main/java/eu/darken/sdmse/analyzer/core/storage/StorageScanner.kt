@@ -38,28 +38,32 @@ class StorageScanner @Inject constructor(
 
         val pkgStats = pkgRepo.currentPkgs()
             .filter { it.packageInfo.applicationInfo != null }
-            .map {
-                val storageStats = statsManager.queryStatsForUid(storageId.asUUID, it.packageInfo.applicationInfo.uid)
+            .map { pkg ->
+                val storageStats = statsManager.queryStatsForUid(storageId.asUUID, pkg.packageInfo.applicationInfo.uid)
 
                 val appCode = if (useRoot) {
-                    AppContentGroup()
+                    AppContentGroup.from(label = pkg.label)
                 } else {
                     AppContentGroup.from(
+                        label = pkg.label,
                         ContentItem(
                             label = R.string.analyzer_storage_content_app_code_label.toCaString(),
-                            path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
+                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
                             size = storageStats.appBytes,
                         )
                     )
                 }
 
                 val privateData = if (useRoot) {
-                    AppContentGroup()
+                    AppContentGroup.from(
+                        label = pkg.label,
+                    )
                 } else {
                     AppContentGroup.from(
+                        label = pkg.label,
                         ContentItem(
                             label = R.string.analyzer_storage_content_app_data_private_label.toCaString(),
-                            path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
+                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
                             size = storageStats.dataBytes,
                         )
                     )
@@ -67,35 +71,38 @@ class StorageScanner @Inject constructor(
 
                 val publicData = run {
                     AppContentGroup.from(
+                        label = pkg.label,
                         ContentItem(
-                            path = RawPath.build(it.packageInfo.applicationInfo.sourceDir),
+                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
                             size = storageStats.cacheBytes,
                         )
                     )
                 }
 
                 val extraData = run {
-                    AppContentGroup()
+                    AppContentGroup.from(
+                        label = pkg.label,
+                    )
                 }
-
 
 //                // TODO on lower APIs we need to calculate this manually
 //                @Suppress("NewApi")
 //                if (hasApiLevel(31)) baseSize += it.stats.externalCacheBytes
 
-                AppCategory.PkgStat(
-                    pkg = it,
-                    appCode = appCode,
-                    privateData = privateData,
-                    publicData = publicData,
-                    extraData = extraData,
+                pkg.installId to AppCategory.PkgStat(
+                    pkg = pkg,
+                    appCode = appCode.takeIf { it.contents.isNotEmpty() },
+                    privateData = privateData.takeIf { it.contents.isNotEmpty() },
+                    publicData = publicData.takeIf { it.contents.isNotEmpty() },
+                    extraData = extraData.takeIf { it.contents.isNotEmpty() },
                 )
             }
             .onEach { log(TAG, VERBOSE) { "$it" } }
+            .toMap()
 
         val app = AppCategory(
             storageId = storageId,
-            spaceUsed = pkgStats.sumOf { it.totalSize },
+            spaceUsed = pkgStats.values.sumOf { it.totalSize },
             pkgStats = pkgStats,
         )
         val media = MediaCategory(

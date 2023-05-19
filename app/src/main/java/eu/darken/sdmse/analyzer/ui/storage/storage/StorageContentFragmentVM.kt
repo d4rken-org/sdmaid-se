@@ -34,7 +34,7 @@ class StorageContentFragmentVM @Inject constructor(
     init {
         analyzer.data
             .take(1)
-            .filter { it.contents[targetStorageId].isNullOrEmpty() }
+            .filter { it.categories[targetStorageId].isNullOrEmpty() }
             .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
             .launchInViewModel()
     }
@@ -46,7 +46,7 @@ class StorageContentFragmentVM @Inject constructor(
         val storage = data.storages.single { it.id == targetStorageId }
         State(
             storage = storage,
-            content = data.contents[targetStorageId]?.map { content ->
+            content = data.categories[targetStorageId]?.map { content ->
                 when (content) {
                     is AppCategory -> AppCategoryVH.Item(
                         storage = storage,

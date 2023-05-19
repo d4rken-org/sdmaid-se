@@ -1,5 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
+import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -19,11 +20,12 @@ class ContentItemVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        val content = item.content
 //        val app = item.app
 //
 //        appIcon.loadAppIcon(app.pkg)
-//        primary.text = app.pkg.label?.get(context) ?: app.pkg.packageName
-//        secondary.text = Formatter.formatShortFileSize(context, app.totalSize)
+        primary.text = content.label.get(context)
+        secondary.text = Formatter.formatShortFileSize(context, content.size)
 
         root.setOnClickListener { item.onItemClicked(item) }
     }

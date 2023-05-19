@@ -35,8 +35,8 @@ class AppDetailsFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val appContent = data.contents[targetStorageId]!!.filterIsInstance<AppCategory>().single()
-        val pkgStat = appContent.pkgStats.single { it.id == targetInstallId }
+        val appContent = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
+        val pkgStat = appContent.pkgStats[targetInstallId]!!
 
         val items = mutableListOf<AppDetailsAdapter.Item>()
 
@@ -45,37 +45,73 @@ class AppDetailsFragmentVM @Inject constructor(
             pkgStat = pkgStat,
         ).run { items.add(this) }
 
-        AppDetailsAppCodeVH.Item(
-            storage = storage,
-            pkgStat = pkgStat,
-            onViewAction = {
-
+        pkgStat.appCode
+            ?.let {
+                AppDetailsAppCodeVH.Item(
+                    storage = storage,
+                    pkgStat = pkgStat,
+                    group = it,
+                    onViewAction = {
+                        AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = pkgStat.appCode.id,
+                            installId = pkgStat.id,
+                        ).navigate()
+                    }
+                )
             }
-        ).run { items.add(this) }
+            ?.run { items.add(this) }
 
-        AppDetailsPrivateDataVH.Item(
-            storage = storage,
-            pkgStat = pkgStat,
-            onViewAction = {
-
+        pkgStat.privateData
+            ?.let {
+                AppDetailsPrivateDataVH.Item(
+                    storage = storage,
+                    pkgStat = pkgStat,
+                    group = it,
+                    onViewAction = {
+                        AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = pkgStat.privateData.id,
+                            installId = pkgStat.id,
+                        ).navigate()
+                    }
+                )
             }
-        ).run { items.add(this) }
+            ?.run { items.add(this) }
 
-        AppDetailsPublicDataVH.Item(
-            storage = storage,
-            pkgStat = pkgStat,
-            onViewAction = {
-
+        pkgStat.publicData
+            ?.let {
+                AppDetailsPublicDataVH.Item(
+                    storage = storage,
+                    pkgStat = pkgStat,
+                    group = it,
+                    onViewAction = {
+                        AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = pkgStat.publicData.id,
+                            installId = pkgStat.id,
+                        ).navigate()
+                    }
+                )
             }
-        ).run { items.add(this) }
+            ?.run { items.add(this) }
 
-        AppDetailsExtraDataVH.Item(
-            storage = storage,
-            pkgStat = pkgStat,
-            onViewAction = {
-
+        pkgStat.extraData
+            ?.let {
+                AppDetailsExtraDataVH.Item(
+                    storage = storage,
+                    pkgStat = pkgStat,
+                    group = it,
+                    onViewAction = {
+                        AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = pkgStat.extraData.id,
+                            installId = pkgStat.id,
+                        ).navigate()
+                    }
+                )
             }
-        ).run { items.add(this) }
+            ?.run { items.add(this) }
 
         State(
             storage = storage,

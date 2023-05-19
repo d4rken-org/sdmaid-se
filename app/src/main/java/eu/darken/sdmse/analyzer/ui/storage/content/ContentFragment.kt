@@ -8,7 +8,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.ui.storage.apps.AppsAdapter
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -33,13 +32,14 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
         }
 
-        val adapter = AppsAdapter()
+        val adapter = ContentAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
-            toolbar.subtitle = state.storage.label.get(requireContext())
+            toolbar.title = state.title?.get(requireContext())
+            toolbar.subtitle = state.subtitle?.get(requireContext())
 
-            adapter.update(state.apps)
+            adapter.update(state.items)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
         }
@@ -48,6 +48,6 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "Content", "Explorer", "Fragment")
+        private val TAG = logTag("Analyzer", "Content", "Fragment")
     }
 }

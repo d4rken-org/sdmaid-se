@@ -3,6 +3,7 @@ package eu.darken.sdmse.analyzer.ui.storage.app.items
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsAdapter
@@ -22,10 +23,7 @@ class AppDetailsPublicDataVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val storage = item.storage
-        val pkgStat = item.pkgStat
-
-        val appCodeSize = pkgStat.appCode.groupSize
+        val appCodeSize = item.group.groupSize
         primary.text = Formatter.formatShortFileSize(context, appCodeSize)
 
         root.setOnClickListener { item.onViewAction(item) }
@@ -34,6 +32,7 @@ class AppDetailsPublicDataVH(parent: ViewGroup) :
     data class Item(
         val storage: DeviceStorage,
         val pkgStat: AppCategory.PkgStat,
+        val group: ContentGroup,
         val onViewAction: (Item) -> Unit,
     ) : AppDetailsAdapter.Item {
 

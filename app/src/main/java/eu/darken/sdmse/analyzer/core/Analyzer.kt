@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
@@ -45,14 +46,26 @@ class Analyzer @Inject constructor(
     }
 
     private val storagesDevice = MutableStateFlow(emptySet<DeviceStorage>())
-    private val storageContents = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<ContentCategory>>())
+    private val storageCategories = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<ContentCategory>>())
     val data: Flow<Data> = combine(
         storagesDevice,
-        storageContents,
-    ) { storages, contents ->
+        storageCategories,
+    ) { storages, categories ->
+        val allGroups = categories
+            .map { category ->
+                category.value
+                    .map { it.groups }
+                    .flatten()
+                    .map { it.id to it }
+
+            }
+            .flatten()
+            .toMap()
+
         Data(
             storages = storages,
-            contents = contents,
+            categories = categories,
+            groups = allGroups
         )
     }
 
@@ -97,7 +110,7 @@ class Analyzer @Inject constructor(
         val scanner = storageScanner.get()
         val contents = scanner.scan(target)
 
-        storageContents.value = storageContents.value.mutate {
+        storageCategories.value = storageCategories.value.mutate {
             this[target] = contents
         }
 
@@ -106,7 +119,8 @@ class Analyzer @Inject constructor(
 
     data class Data(
         val storages: Set<DeviceStorage> = emptySet(),
-        val contents: Map<DeviceStorage.Id, Collection<ContentCategory>> = emptyMap(),
+        val categories: Map<DeviceStorage.Id, Collection<ContentCategory>> = emptyMap(),
+        val groups: Map<ContentGroup.Id, ContentGroup> = emptyMap(),
     )
 
     @InstallIn(SingletonComponent::class)

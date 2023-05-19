@@ -330,5 +330,13 @@
         <argument
             android:name="storageId"
             app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+        <argument
+            android:name="groupId"
+            app:argType="eu.darken.sdmse.analyzer.core.content.ContentGroup$Id" />
+        <argument
+            android:name="installId"
+            android:defaultValue="@null"
+            app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
+            app:nullable="true" />
     </fragment>
 </navigation>
