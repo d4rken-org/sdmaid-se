@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.types.AppContent
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppCodeVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsExtraDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderVH
@@ -35,7 +35,7 @@ class AppDetailsFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val appContent = data.contents[targetStorageId]!!.filterIsInstance<AppContent>().single()
+        val appContent = data.contents[targetStorageId]!!.filterIsInstance<AppCategory>().single()
         val pkgStat = appContent.pkgStats.single { it.id == targetInstallId }
 
         val items = mutableListOf<AppDetailsAdapter.Item>()
@@ -87,7 +87,7 @@ class AppDetailsFragmentVM @Inject constructor(
 
     data class State(
         val storage: DeviceStorage,
-        val pkgStat: AppContent.PkgStat,
+        val pkgStat: AppCategory.PkgStat,
         val items: List<AppDetailsAdapter.Item>?,
         val progress: Progress.Data?,
     )

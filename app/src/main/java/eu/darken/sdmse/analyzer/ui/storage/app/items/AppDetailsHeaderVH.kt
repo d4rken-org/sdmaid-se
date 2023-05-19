@@ -4,22 +4,22 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.types.AppContent
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsAdapter
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerAppDetailsVhHeaderBinding
+import eu.darken.sdmse.databinding.AnalyzerAppVhHeaderBinding
 
 
 class AppDetailsHeaderVH(parent: ViewGroup) :
-    AppDetailsAdapter.BaseVH<AppDetailsHeaderVH.Item, AnalyzerAppDetailsVhHeaderBinding>(
-        R.layout.analyzer_app_details_vh_header,
+    AppDetailsAdapter.BaseVH<AppDetailsHeaderVH.Item, AnalyzerAppVhHeaderBinding>(
+        R.layout.analyzer_app_vh_header,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerAppDetailsVhHeaderBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerAppVhHeaderBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerAppDetailsVhHeaderBinding.(
+    override val onBindData: AnalyzerAppVhHeaderBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -38,7 +38,7 @@ class AppDetailsHeaderVH(parent: ViewGroup) :
 
     data class Item(
         val storage: DeviceStorage,
-        val pkgStat: AppContent.PkgStat,
+        val pkgStat: AppCategory.PkgStat,
     ) : AppDetailsAdapter.Item {
 
         override val stableId: Long = pkgStat.id.hashCode().toLong()

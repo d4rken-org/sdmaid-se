@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.core.storage.types
+package eu.darken.sdmse.analyzer.core.storage.categories
 
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -6,11 +6,11 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.features.Installed
 
-data class AppContent(
+data class AppCategory(
     override val storageId: DeviceStorage.Id,
     override val spaceUsed: Long,
     val pkgStats: Collection<PkgStat>,
-) : StorageContent {
+) : ContentCategory {
 
     data class PkgStat(
         val pkg: Installed,

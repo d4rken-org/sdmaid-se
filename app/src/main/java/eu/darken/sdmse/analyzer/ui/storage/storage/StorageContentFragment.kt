@@ -13,13 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerStorageContentFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageFragmentBinding
 
 @AndroidEntryPoint
-class StorageContentFragment : Fragment3(R.layout.analyzer_storage_content_fragment) {
+class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
 
     override val vm: StorageContentFragmentVM by viewModels()
-    override val ui: AnalyzerStorageContentFragmentBinding by viewBinding()
+    override val ui: AnalyzerStorageFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())

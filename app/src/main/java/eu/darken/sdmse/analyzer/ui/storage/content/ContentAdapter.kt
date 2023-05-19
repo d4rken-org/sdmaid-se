@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage.apps
+package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -14,9 +14,9 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import javax.inject.Inject
 
 
-class ContentAppsAdapter @Inject constructor() :
-    ModularAdapter<ContentAppsAdapter.BaseVH<ContentAppsAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<ContentAppsAdapter.Item> {
+class ContentAdapter @Inject constructor() :
+    ModularAdapter<ContentAdapter.BaseVH<ContentAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<ContentAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -24,7 +24,7 @@ class ContentAppsAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is ContentAppVH.Item }) { ContentAppVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is ContentItemVH.Item }) { ContentItemVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

@@ -3,9 +3,9 @@ package eu.darken.sdmse.analyzer.ui.storage.storage
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.AppContentVH
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.MediaContentVH
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.SystemContentVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -27,9 +27,9 @@ class StorageContentAdapter @Inject constructor() :
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is AppContentVH.Item }) { AppContentVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is MediaContentVH.Item }) { MediaContentVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SystemContentVH.Item }) { SystemContentVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is AppCategoryVH.Item }) { AppCategoryVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is MediaCategoryVH.Item }) { MediaCategoryVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SystemCategoryVH.Item }) { SystemCategoryVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

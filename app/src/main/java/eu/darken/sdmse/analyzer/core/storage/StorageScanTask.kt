@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class StorageContentScanTask(
+data class StorageScanTask(
     val target: DeviceStorage.Id
 ) : AnalyzerTask {
 

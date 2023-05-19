@@ -1,8 +1,8 @@
-package eu.darken.sdmse.analyzer.core.storage.types
+package eu.darken.sdmse.analyzer.core.storage.categories
 
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 
-sealed interface StorageContent {
+sealed interface ContentCategory {
     val storageId: DeviceStorage.Id
     val spaceUsed: Long
 }

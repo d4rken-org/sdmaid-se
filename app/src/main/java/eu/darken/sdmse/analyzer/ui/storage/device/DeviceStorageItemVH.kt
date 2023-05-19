@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerDeviceStorageItemBinding
+import eu.darken.sdmse.databinding.AnalyzerDeviceVhBinding
 
 
 class DeviceStorageItemVH(parent: ViewGroup) :
-    DeviceStorageAdapter.BaseVH<DeviceStorageItemVH.Item, AnalyzerDeviceStorageItemBinding>(
-        R.layout.analyzer_device_storage_item,
+    DeviceStorageAdapter.BaseVH<DeviceStorageItemVH.Item, AnalyzerDeviceVhBinding>(
+        R.layout.analyzer_device_vh,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerDeviceStorageItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerDeviceVhBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerDeviceStorageItemBinding.(
+    override val onBindData: AnalyzerDeviceVhBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->

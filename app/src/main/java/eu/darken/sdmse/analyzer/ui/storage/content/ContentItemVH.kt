@@ -4,18 +4,18 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerContentExplorerItemBinding
+import eu.darken.sdmse.databinding.AnalyzerContentVhBinding
 
 
-class ContentExplorerItemVH(parent: ViewGroup) :
-    ContentExplorerAdapter.BaseVH<ContentExplorerItemVH.Item, AnalyzerContentExplorerItemBinding>(
-        R.layout.analyzer_content_explorer_item,
+class ContentItemVH(parent: ViewGroup) :
+    ContentAdapter.BaseVH<ContentItemVH.Item, AnalyzerContentVhBinding>(
+        R.layout.analyzer_content_vh,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerContentExplorerItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerContentVhBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerContentExplorerItemBinding.(
+    override val onBindData: AnalyzerContentVhBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -31,7 +31,7 @@ class ContentExplorerItemVH(parent: ViewGroup) :
     data class Item(
         val content: ContentItem,
         val onItemClicked: (Item) -> Unit,
-    ) : ContentExplorerAdapter.Item {
+    ) : ContentAdapter.Item {
 
         override val stableId: Long = content.path.hashCode().toLong()
     }

@@ -13,13 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerDeviceStorageFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerDeviceFragmentBinding
 
 @AndroidEntryPoint
-class DeviceStorageFragment : Fragment3(R.layout.analyzer_device_storage_fragment) {
+class DeviceStorageFragment : Fragment3(R.layout.analyzer_device_fragment) {
 
     override val vm: DeviceStorageFragmentVM by viewModels()
-    override val ui: AnalyzerDeviceStorageFragmentBinding by viewBinding()
+    override val ui: AnalyzerDeviceFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())

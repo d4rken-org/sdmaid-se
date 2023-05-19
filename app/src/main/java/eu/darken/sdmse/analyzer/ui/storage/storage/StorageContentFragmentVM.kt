@@ -4,13 +4,13 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.StorageContentScanTask
-import eu.darken.sdmse.analyzer.core.storage.types.AppContent
-import eu.darken.sdmse.analyzer.core.storage.types.MediaContent
-import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.AppContentVH
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.MediaContentVH
-import eu.darken.sdmse.analyzer.ui.storage.storage.types.SystemContentVH
+import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryVH
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -35,7 +35,7 @@ class StorageContentFragmentVM @Inject constructor(
         analyzer.data
             .take(1)
             .filter { it.contents[targetStorageId].isNullOrEmpty() }
-            .onEach { analyzer.submit(StorageContentScanTask(targetStorageId)) }
+            .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
             .launchInViewModel()
     }
 
@@ -48,17 +48,17 @@ class StorageContentFragmentVM @Inject constructor(
             storage = storage,
             content = data.contents[targetStorageId]?.map { content ->
                 when (content) {
-                    is AppContent -> AppContentVH.Item(
+                    is AppCategory -> AppCategoryVH.Item(
                         storage = storage,
                         content = content,
                         onItemClicked = {
-                            StorageContentFragmentDirections.actionStorageContentFragmentToContentAppsFragment(
+                            StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
                                 targetStorageId
                             ).navigate()
                         }
                     )
 
-                    is MediaContent -> MediaContentVH.Item(
+                    is MediaCategory -> MediaCategoryVH.Item(
                         storage = storage,
                         content = content,
                         onItemClicked = {
@@ -66,7 +66,7 @@ class StorageContentFragmentVM @Inject constructor(
                         }
                     )
 
-                    is SystemContent -> SystemContentVH.Item(
+                    is SystemCategory -> SystemCategoryVH.Item(
                         storage = storage,
                         content = content,
                     )
@@ -78,7 +78,7 @@ class StorageContentFragmentVM @Inject constructor(
 
     fun refresh() = launch {
         log(TAG) { "refresh()" }
-        analyzer.submit(StorageContentScanTask(target = targetStorageId))
+        analyzer.submit(StorageScanTask(target = targetStorageId))
     }
 
     data class State(

@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.StorageContentScanTask
-import eu.darken.sdmse.analyzer.core.storage.types.AppContent
+import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragmentArgs
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
-class ContentAppsFragmentVM @Inject constructor(
+class AppsFragmentVM @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val analyzer: Analyzer,
@@ -30,7 +30,7 @@ class ContentAppsFragmentVM @Inject constructor(
         analyzer.data
             .take(1)
             .filter { it.contents[targetStorageId].isNullOrEmpty() }
-            .onEach { analyzer.submit(StorageContentScanTask(targetStorageId)) }
+            .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
             .launchInViewModel()
     }
 
@@ -39,16 +39,16 @@ class ContentAppsFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val contents = data.contents[targetStorageId]!!.filterIsInstance<AppContent>().single()
+        val contents = data.contents[targetStorageId]!!.filterIsInstance<AppCategory>().single()
 
         State(
             storage = storage,
             apps = contents.pkgStats
                 .map { pkgStat ->
-                    ContentAppVH.Item(
+                    AppsItemVH.Item(
                         pkgStat = pkgStat,
                         onItemClicked = {
-                            ContentAppsFragmentDirections.actionContentAppsFragmentToAppDetailsFragment(
+                            AppsFragmentDirections.actionAppsFragmentToAppDetailsFragment(
                                 storageId = storage.id,
                                 installId = pkgStat.pkg.installId,
                             ).navigate()
@@ -62,7 +62,7 @@ class ContentAppsFragmentVM @Inject constructor(
 
     data class State(
         val storage: DeviceStorage,
-        val apps: List<ContentAppVH.Item>?,
+        val apps: List<AppsItemVH.Item>?,
         val progress: Progress.Data?,
     )
 

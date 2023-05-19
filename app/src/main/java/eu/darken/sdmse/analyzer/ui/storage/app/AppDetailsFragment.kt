@@ -13,13 +13,13 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerAppDetailsFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerAppFragmentBinding
 
 @AndroidEntryPoint
-class AppDetailsFragment : Fragment3(R.layout.analyzer_app_details_fragment) {
+class AppDetailsFragment : Fragment3(R.layout.analyzer_app_fragment) {
 
     override val vm: AppDetailsFragmentVM by viewModels()
-    override val ui: AnalyzerAppDetailsFragmentBinding by viewBinding()
+    override val ui: AnalyzerAppFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {

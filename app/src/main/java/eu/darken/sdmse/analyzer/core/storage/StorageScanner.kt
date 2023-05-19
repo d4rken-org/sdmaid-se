@@ -5,10 +5,10 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.AppContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.types.AppContent
-import eu.darken.sdmse.analyzer.core.storage.types.MediaContent
-import eu.darken.sdmse.analyzer.core.storage.types.StorageContent
-import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import javax.inject.Inject
 
-class StorageContentScanner @Inject constructor(
+class StorageScanner @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val statsManager: StorageStatsManager,
@@ -30,7 +30,7 @@ class StorageContentScanner @Inject constructor(
 ) {
 
 
-    suspend fun scan(storageId: DeviceStorage.Id): Collection<StorageContent> {
+    suspend fun scan(storageId: DeviceStorage.Id): Collection<ContentCategory> {
         log(TAG) { "scan($storageId)" }
 //        val storage = storageManager2.volumes.first { it.id }
 
@@ -83,7 +83,7 @@ class StorageContentScanner @Inject constructor(
 //                @Suppress("NewApi")
 //                if (hasApiLevel(31)) baseSize += it.stats.externalCacheBytes
 
-                AppContent.PkgStat(
+                AppCategory.PkgStat(
                     pkg = it,
                     appCode = appCode,
                     privateData = privateData,
@@ -93,16 +93,16 @@ class StorageContentScanner @Inject constructor(
             }
             .onEach { log(TAG, VERBOSE) { "$it" } }
 
-        val app = AppContent(
+        val app = AppCategory(
             storageId = storageId,
             spaceUsed = pkgStats.sumOf { it.totalSize },
             pkgStats = pkgStats,
         )
-        val media = MediaContent(
+        val media = MediaCategory(
             storageId = storageId,
             spaceUsed = 1024L * 1024 * 1024L * 24,
         )
-        val system = SystemContent(
+        val system = SystemCategory(
             storageId = storageId,
             spaceUsed = 1024L * 1024 * 1024L * 11,
         )

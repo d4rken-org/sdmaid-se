@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui.storage.content
+package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import android.os.Bundle
 import android.view.View
@@ -8,19 +8,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.ui.storage.apps.ContentAppsAdapter
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.AnalyzerContentExplorerFragmentBinding
+import eu.darken.sdmse.databinding.AnalyzerAppsFragmentBinding
 
 @AndroidEntryPoint
-class ContentExplorerFragment : Fragment3(R.layout.analyzer_content_explorer_fragment) {
+class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
 
-    override val vm: ContentExplorerFragmentVM by viewModels()
-    override val ui: AnalyzerContentExplorerFragmentBinding by viewBinding()
+    override val vm: AppsFragmentVM by viewModels()
+    override val ui: AnalyzerAppsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -33,7 +32,7 @@ class ContentExplorerFragment : Fragment3(R.layout.analyzer_content_explorer_fra
 
         }
 
-        val adapter = ContentAppsAdapter()
+        val adapter = AppsAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
@@ -48,6 +47,6 @@ class ContentExplorerFragment : Fragment3(R.layout.analyzer_content_explorer_fra
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "Content", "Explorer", "Fragment")
+        private val TAG = logTag("Analyzer", "Content", "Apps", "Fragment")
     }
 }

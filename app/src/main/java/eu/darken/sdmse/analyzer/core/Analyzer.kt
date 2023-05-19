@@ -8,9 +8,9 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
-import eu.darken.sdmse.analyzer.core.storage.StorageContentScanTask
-import eu.darken.sdmse.analyzer.core.storage.StorageContentScanner
-import eu.darken.sdmse.analyzer.core.storage.types.StorageContent
+import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
+import eu.darken.sdmse.analyzer.core.storage.StorageScanner
+import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -33,7 +33,7 @@ import javax.inject.Singleton
 class Analyzer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val deviceScanner: Provider<DeviceStorageScanner>,
-    private val storageScanner: Provider<StorageContentScanner>,
+    private val storageScanner: Provider<StorageScanner>,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -45,7 +45,7 @@ class Analyzer @Inject constructor(
     }
 
     private val storagesDevice = MutableStateFlow(emptySet<DeviceStorage>())
-    private val storageContents = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<StorageContent>>())
+    private val storageContents = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<ContentCategory>>())
     val data: Flow<Data> = combine(
         storagesDevice,
         storageContents,
@@ -66,7 +66,7 @@ class Analyzer @Inject constructor(
         try {
             val result = when (task) {
                 is DeviceStorageScanTask -> scanStorageDevices(task)
-                is StorageContentScanTask -> scanStorageContents(task)
+                is StorageScanTask -> scanStorageContents(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -90,7 +90,7 @@ class Analyzer @Inject constructor(
         return DeviceStorageScanTask.Result(itemCount = storages.size)
     }
 
-    private suspend fun scanStorageContents(task: StorageContentScanTask): DeviceStorageScanTask.Result {
+    private suspend fun scanStorageContents(task: StorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageContents(): $task" }
         val target = task.target
 
@@ -106,7 +106,7 @@ class Analyzer @Inject constructor(
 
     data class Data(
         val storages: Set<DeviceStorage> = emptySet(),
-        val contents: Map<DeviceStorage.Id, Collection<StorageContent>> = emptyMap(),
+        val contents: Map<DeviceStorage.Id, Collection<ContentCategory>> = emptyMap(),
     )
 
     @InstallIn(SingletonComponent::class)

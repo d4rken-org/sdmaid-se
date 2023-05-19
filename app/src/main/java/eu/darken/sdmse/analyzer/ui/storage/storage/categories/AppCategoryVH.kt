@@ -1,46 +1,42 @@
-package eu.darken.sdmse.analyzer.ui.storage.storage.types
+package eu.darken.sdmse.analyzer.ui.storage.storage.categories
 
 import android.text.format.Formatter
 import android.view.ViewGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
-import eu.darken.sdmse.analyzer.core.storage.types.SystemContent
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentAdapter
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerStorageContentSystemItemBinding
+import eu.darken.sdmse.databinding.AnalyzerStorageVhAppsBinding
 
 
-class SystemContentVH(parent: ViewGroup) :
-    StorageContentAdapter.BaseVH<SystemContentVH.Item, AnalyzerStorageContentSystemItemBinding>(
-        R.layout.analyzer_storage_content_system_item,
+class AppCategoryVH(parent: ViewGroup) :
+    StorageContentAdapter.BaseVH<AppCategoryVH.Item, AnalyzerStorageVhAppsBinding>(
+        R.layout.analyzer_storage_vh_apps,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerStorageContentSystemItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerStorageVhAppsBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerStorageContentSystemItemBinding.(
+    override val onBindData: AnalyzerStorageVhAppsBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val content = item.content
         val storage = item.storage
+        val content = item.content
 
         val usedText = Formatter.formatShortFileSize(context, content.spaceUsed)
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
         usedSpace.text = getString(R.string.analyzer_storage_content_x_used_of_total_y, usedText, "$totalPercent%")
         progress.progress = totalPercent
 
-        root.setOnClickListener {
-            MaterialAlertDialogBuilder(context).apply {
-                setMessage(R.string.analyzer_storage_content_cant_touch_type)
-            }.show()
-        }
+        root.setOnClickListener { item.onItemClicked(content) }
     }
 
     data class Item(
         val storage: DeviceStorage,
-        val content: SystemContent,
+        val content: AppCategory,
+        val onItemClicked: (AppCategory) -> Unit,
     ) : StorageContentAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
