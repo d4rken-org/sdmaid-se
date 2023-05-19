@@ -44,6 +44,8 @@
             android:text="@string/dataarea_warningcard_reload_action"
             android:textColor="?colorOnTertiaryContainer"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

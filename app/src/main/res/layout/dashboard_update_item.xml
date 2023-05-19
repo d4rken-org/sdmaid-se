@@ -53,17 +53,19 @@
             android:layout_marginTop="8dp"
             app:icon="@drawable/ic_eye_24"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintEnd_toStartOf="@id/dismiss_action"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dismiss_action"
             style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="wrap_content"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/view_action"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/general_dismiss_action"
