@@ -38,6 +38,7 @@ class ExclusionActionDialog : BottomSheetDialogFragment2() {
                     primary.text = exclusion.label.get(requireContext())
                     secondary.text = exclusion.pkgId.name
                     type.text = getString(R.string.exclusion_type_package)
+                    toolsSystemcleaner.isGone = true
                 }
                 is PathExclusion -> {
                     typeIcon.setImageResource(R.drawable.ic_file)
@@ -46,6 +47,7 @@ class ExclusionActionDialog : BottomSheetDialogFragment2() {
                     primary.text = exclusion.label.get(requireContext())
                     secondary.text = exclusion.path.pathType.name
                     type.text = getString(R.string.exclusion_type_path)
+                    toolsSystemcleaner.isGone = false
                 }
                 else -> throw NotImplementedError()
             }
