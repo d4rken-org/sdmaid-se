@@ -12,6 +12,7 @@
     <string name="general_remove_action">削除</string>
     <string name="general_wipe_action">初期化</string>
     <string name="general_cancel_action">キャンセル</string>
+    <string name="general_reset_action">リセット</string>
     <string name="general_save_action">保存</string>
     <string name="general_thanks_action">感謝します</string>
     <string name="general_gotit_action">わかりました。</string>
@@ -25,10 +26,12 @@
     <string name="general_error_label">エラー</string>
     <string name="general_select_server_label">サーバーを選択</string>
     <string name="general_quota_label">クオータ</string>
+    <string name="general_tap_hint_msg">タップで更にオプションを表示</string>
     <string name="general_upgrade_action">アップグレード</string>
     <string name="general_donate_action">寄付</string>
     <string name="general_check_action">確認</string>
     <string name="general_filter_action">フィルタ</string>
+    <string name="general_internal_not_available_msg">インターネットに接続されていません</string>
     <string name="general_refresh_action">再読み込み</string>
     <string name="general_progress_searching">検索中です</string>
     <string name="general_progress_filtering">フィルタリング</string>
@@ -40,6 +43,10 @@
     <string name="general_progress_loading_egg_0">Iphoneよりさらに早い</string>
     <string name="general_progress_loading_egg_2">Soon™</string>
     <string name="general_progress_loading_egg_3">CPUはコーヒー休憩中です</string>
+    <string name="general_progress_loading_egg_5">ターボエンキャブレターが起動中です</string>
+    <string name="general_progress_loading_egg_6">バターを渡す</string>
+    <string name="general_progress_loading_egg_7">あの...調子はどうですか?</string>
+    <string name="general_progress_loading_egg_8">ここはアップドッグのようなニオイがします</string>
     <string name="general_help_action">ヘルプ</string>
     <string name="general_continue">続ける</string>
     <string name="general_progress_queued">待機中</string>
@@ -73,6 +80,7 @@
     <string name="general_info_label">情報</string>
     <string name="general_count_label">カウント</string>
     <string name="general_app_label">アプリ</string>
+    <string name="general_more_info_action">詳細情報</string>
     <string name="general_grant_access_action">アクセスを許可</string>
     <string name="general_enable_service_action">サービスを有効化</string>
     <string name="general_undo_action">戻す</string>
