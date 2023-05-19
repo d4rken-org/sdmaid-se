@@ -155,6 +155,33 @@
     <string name="corpsefinder_filter_appasec_summary">게임 애셋과 같은 앱 리소스 중 암호화된 것들입니다.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd mods에 의해 데이터를 외부 저장 공간으로 옮겼습니다.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">%d개의 앱이 남긴 파일이 감지되었습니다.</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">지워진 앱들이 남긴 파일을 모두 삭제할까요?</string>
+    <string name="corpsefinder_owners_label">소유자</string>
+    <string name="corpsefinder_corpse_hints_label">주의</string>
+    <string name="corpsefinder_owner_unknown">소유자 알 수 없음</string>
+    <string name="corpsefinder_corpse_hint_keeper">이 항목에는 앱이 지워졌더라도 보존하고 싶은 데이터가 포함될 수 있습니다. 예시: 사진이나 백업 파일</string>
+    <string name="corpsefinder_corpse_hint_common">이 항목에는 매우 흔한 이름을 가진, SD Maid가 모르는 아직 설치되어있는 앱의 파일이 포함될 수 있습니다.</string>
+    <string name="systemcleaner_tool_name">시스템 청소</string>
+    <string name="systemcleaner_explanation_short">특정 앱에 소유되지 않은 불필요한 데이터</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="other">%d 개의 파일 찾음</item>
+    </plurals>
+    <string name="systemcleaner_filter_custom_label">사용자 지정 필터</string>
+    <string name="systemcleaner_filter_custom_manage_label">사용자 정의 필터 관리</string>
+    <string name="systemcleaner_filter_custom_manage_summary">사용자 지정 필터를 만들거나, 삭제하거나, 불러오고 내보내세요.</string>
+    <string name="systemcleaner_filter_logfiles_label">로그 파일</string>
+    <string name="systemcleaner_filter_logfiles_summary">기기에서 찾은 로그 (*.log) 파일</string>
+    <string name="systemcleaner_filter_advertisements_label">광고 파일</string>
+    <string name="systemcleaner_filter_advertisements_summary">광고에 의해, 또는 광고를 위해 생성한 파일.</string>
+    <string name="systemcleaner_filter_anr_label">응답 없음 에러</string>
+    <string name="systemcleaner_filter_anr_summary">애플리케이션이 응답이 없을 때 생성되는 추적용 파일.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">빈 폴더</string>
+    <string name="systemcleaner_filter_logdropbox_label">로그 저장소</string>
+    <string name="systemcleaner_filter_logdropbox_summary">시스템이 로그 파일을 저장하는 장소</string>
+    <string name="systemcleaner_filter_recenttasks_label">최근 작업</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d개의 </item>
     </plurals>

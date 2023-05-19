@@ -307,7 +307,7 @@
     <string name="appcontrol_list_filteroptions_label">Filteroptionen</string>
     <string name="appcontrol_list_sortmode_name_label">App-Name</string>
     <string name="appcontrol_list_sortmode_updated_label">Zuletzt aktualisiert</string>
-    <string name="appcontrol_list_sortmode_installed_label">Zuerst installiert</string>
+    <string name="appcontrol_list_sortmode_installed_label">Erstinstallation</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paketname</string>
     <string name="data_area_public_app_data_official_label">Standarddaten für öffentliche Apps</string>
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>

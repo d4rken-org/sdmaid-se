@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Beberapa entri boleh diklik untuk melihat butiran lanjut.</string>
+    <string name="dashboard_click_hint">Beberapa masukkan boleh diklik untuk melihat butiran lanjut.</string>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
     <string name="dashboard_settings_oneclick_title">Mod Satu Klik</string>
@@ -102,6 +102,7 @@
     <string name="setup_acs_card_title">Perkhidmatan aksesibiliti</string>
     <string name="setup_acs_card_body">Perkhidmatan aksesibiliti membolehkan SD Maid berinteraksi dengan skrin anda dan mengautomasikan tindakan yang membosankan, mis. mengklik \"Kosongkan cache\" pada berbilang skrin.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan perkhidmatan aksesibiliti tanpa kebenaran anda, akan sentiasa memaparkan penunjuk yang menonjol (boleh dibatalkan) semasa aktif dan tidak akan menggunakannya untuk mengumpul maklumat.</string>
+    <string name="setup_acs_state_enabled">Perkhidmatan aksesibiliti didayakan</string>
     <string name="setup_acs_state_disabled">Perkhidmatan aksesibiliti dilumpuhkan</string>
     <string name="setup_acs_state_running">Perkhidmatan aksesibiliti sedang berjalan</string>
     <string name="setup_acs_state_stopped">Perkhidmatan aksesibiliti dihentikan</string>
@@ -121,6 +122,7 @@
     <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
     <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, mis. butiran tentang aplikasi ranap supaya saya boleh memperbaiki sebab dan memperbaikinya.</string>
     <string name="settings_category_tools_label">Alatan</string>
+    <string name="settings_category_filter">Penyaring</string>
     <string name="settings_category_risklevel">Tahap risiko</string>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Data milik aplikasi yang telah dialih keluar.</string>
@@ -128,6 +130,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa yang diingini</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fail yang mungkin mahu anda simpan, walaupun aplikasi dinyahpasang, mis. foto yang anda ambil atau sandaran yang anda buat.</string>
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, misalnya, folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
     <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
     <string name="corpsefinder_watcher_summary">Imbas baki tinggalan secara automatik apabila aplikasi dialih keluar.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media awam</string>
@@ -222,6 +225,7 @@
     <string name="appcleaner_include_inaccessible_summary">Sertakan data yang tidak boleh diakses secara langsung tetapi boleh dipadamkan melalui tetapan sistem dan diautomatikkan menggunakan perkhidmatan aksesibiliti. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
+    <string name="appcleaner_include_minimumsize_label">Saiz minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Langkau aplikasi di mana jumlah data boleh dibelanjakan berada di bawah minimum.</string>
     <string name="appcleaner_include_minimumage_summary">Langkau fail yang usianya di bawah usia minimum.</string>
     <string name="appcleaner_filter_codecache_label">Cache kod</string>
