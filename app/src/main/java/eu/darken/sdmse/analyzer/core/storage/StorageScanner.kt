@@ -1,7 +1,9 @@
 package eu.darken.sdmse.analyzer.core.storage
 
-import android.app.usage.StorageStatsManager
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
+import eu.darken.sdmse.analyzer.core.StorageStatsManager2
 import eu.darken.sdmse.analyzer.core.content.AppContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -13,110 +15,170 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.RawPath
+import eu.darken.sdmse.common.files.local.File
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 
 class StorageScanner @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val storageEnvironment: StorageEnvironment,
     private val storageManager2: StorageManager2,
-    private val statsManager: StorageStatsManager,
+    private val statsManager: StorageStatsManager2,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
+    private val userManager2: UserManager2,
 ) {
 
+    suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
+        log(TAG) { "scan($storage)" }
+        val apps = scanForApps(storage)
+        val media = scanForMedia(storage)
+        val system = scanForSystem(storage)
+        return setOf(apps, media, system)
+    }
 
-    suspend fun scan(storageId: DeviceStorage.Id): Collection<ContentCategory> {
-        log(TAG) { "scan($storageId)" }
-//        val storage = storageManager2.volumes.first { it.id }
+    private suspend fun scanForApps(storage: DeviceStorage): AppCategory {
+        log(TAG) { "scanForApps($storage)" }
 
-        val useRoot = rootManager.useRoot()
+        val useRoot = false // TODO: rootManager.useRoot()
 
         val pkgStats = pkgRepo.currentPkgs()
             .filter { it.packageInfo.applicationInfo != null }
             .map { pkg ->
-                val storageStats = statsManager.queryStatsForUid(storageId.asUUID, pkg.packageInfo.applicationInfo.uid)
+                val appStorStats = statsManager.queryStatsForPkg(storage.id, pkg)
 
-                val appCode = if (useRoot) {
-                    AppContentGroup.from(label = pkg.label)
-                } else {
-                    AppContentGroup.from(
-                        label = pkg.label,
-                        ContentItem(
+                val appCode = if (storage.type == DeviceStorage.Type.PRIMARY) {
+                    if (useRoot) {
+                        AppContentGroup.from(
+                            label =
+                            pkg.label
+                        )
+                    } else {
+                        val appCode = pkg.packageInfo.applicationInfo.sourceDir?.let {
+                            ContentItem(
+                                path = LocalPath.build(it),
+                                size = appStorStats.appBytes,
+                            )
+                        }
+                        AppContentGroup(
                             label = R.string.analyzer_storage_content_app_code_label.toCaString(),
-                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.appBytes,
+                            contents = setOfNotNull(appCode),
                         )
-                    )
-                }
-
-                val privateData = if (useRoot) {
-                    AppContentGroup.from(
-                        label = pkg.label,
-                    )
+                    }
                 } else {
-                    AppContentGroup.from(
-                        label = pkg.label,
-                        ContentItem(
-                            label = R.string.analyzer_storage_content_app_data_private_label.toCaString(),
-                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.dataBytes,
-                        )
-                    )
+                    null
                 }
 
-                val publicData = run {
-                    AppContentGroup.from(
-                        label = pkg.label,
-                        ContentItem(
-                            path = RawPath.build(pkg.packageInfo.applicationInfo.sourceDir),
-                            size = storageStats.cacheBytes,
+                val privateData = if (storage.type == DeviceStorage.Type.PRIMARY) {
+                    if (useRoot) {
+                        AppContentGroup.from(
+                            label = pkg.label,
                         )
-                    )
+                    } else {
+                        val baseData = pkg.packageInfo.applicationInfo.dataDir?.let {
+                            ContentItem(
+                                path = LocalPath.build(it),
+                                size = appStorStats.dataBytes,
+                            )
+                        }
+                        val deData = pkg.packageInfo.applicationInfo.deviceProtectedDataDir?.let {
+                            ContentItem(
+                                path = LocalPath.build(it),
+                            )
+                        }
+                        AppContentGroup(
+                            label = R.string.analyzer_storage_content_app_data_private_label.toCaString(),
+                            contents = setOfNotNull(baseData, deData),
+                        )
+                    }
+                } else {
+                    null
+                }
+
+                val publicData: AppContentGroup? = run {
+                    val targetPublicVolume = storageManager2.volumes
+                        ?.filter { !it.isPrivate }
+                        ?.singleOrNull { it.fsUuid == storage.id.internalId }
+                        ?: return@run null
+                    val publicPath = targetPublicVolume.path?.path ?: return@run null
+
+                    context.externalCacheDirs
+                        ?.singleOrNull { it.path.startsWith(publicPath) }
+                        ?.let { it.parentFile?.parentFile }
+                        ?.let { File(it.path, pkg.packageName) }
+                        ?.let {
+                            @Suppress("NewApi")
+                            val size = if (hasApiLevel(31)) {
+                                appStorStats.externalCacheBytes
+                            } else {
+                                // TODO on lower APIs we need to calculate this manually
+                                null
+                            }
+                            val content = ContentItem(
+                                path = LocalPath.build(it),
+                                size = size
+                            )
+                            AppContentGroup(
+                                label = R.string.analyzer_storage_content_app_data_public_label.toCaString(),
+                                contents = setOf(content),
+                            )
+                        }
                 }
 
                 val extraData = run {
                     AppContentGroup.from(
-                        label = pkg.label,
+                        label = R.string.analyzer_storage_content_app_extra_label.toCaString(),
                     )
                 }
 
-//                // TODO on lower APIs we need to calculate this manually
-//                @Suppress("NewApi")
-//                if (hasApiLevel(31)) baseSize += it.stats.externalCacheBytes
-
                 pkg.installId to AppCategory.PkgStat(
                     pkg = pkg,
-                    appCode = appCode.takeIf { it.contents.isNotEmpty() },
-                    privateData = privateData.takeIf { it.contents.isNotEmpty() },
-                    publicData = publicData.takeIf { it.contents.isNotEmpty() },
-                    extraData = extraData.takeIf { it.contents.isNotEmpty() },
+                    appCode = appCode?.takeIf { it.groupSize != 0L },
+                    privateData = privateData?.takeIf { it.groupSize != 0L },
+                    publicData = publicData?.takeIf { it.groupSize != 0L },
+                    extraData = extraData.takeIf { it.groupSize != 0L },
                 )
             }
             .onEach { log(TAG, VERBOSE) { "$it" } }
             .toMap()
 
-        val app = AppCategory(
-            storageId = storageId,
+//        val storageStats = statsManager.queryStatsForUser(storageId, userManager2.currentUser().handle)
+
+        return AppCategory(
+            storageId = storage.id,
             spaceUsed = pkgStats.values.sumOf { it.totalSize },
             pkgStats = pkgStats,
         )
-        val media = MediaCategory(
-            storageId = storageId,
-            spaceUsed = 1024L * 1024 * 1024L * 24,
+    }
+
+    suspend fun scanForMedia(storage: DeviceStorage): MediaCategory {
+        log(TAG) { "scanForMedia($storage)" }
+
+        return MediaCategory(
+            storageId = storage.id,
+            spaceUsed = 0,
         )
-        val system = SystemCategory(
-            storageId = storageId,
-            spaceUsed = 1024L * 1024 * 1024L * 11,
+    }
+
+    suspend fun scanForSystem(storage: DeviceStorage): SystemCategory {
+        log(TAG) { "scanForSystem($storage)" }
+        if (storage.type == DeviceStorage.Type.SECONDARY) {
+            log(TAG) { "No system data here, it's a secondary storage." }
+        }
+        return SystemCategory(
+            storageId = storage.id,
+            spaceUsed = 0,
         )
-        return setOf(app, media, system)
     }
 
     companion object {
-        private val TAG = logTag("Analyzer", "StorageContent", "Scanner")
+        private val TAG = logTag("Analyzer", "Storage", "Scanner")
     }
 }

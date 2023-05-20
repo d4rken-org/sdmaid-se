@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerContentVhBinding
+import eu.darken.sdmse.databinding.AnalyzerContentItemVhBinding
 
 
 class ContentItemVH(parent: ViewGroup) :
-    ContentAdapter.BaseVH<ContentItemVH.Item, AnalyzerContentVhBinding>(
-        R.layout.analyzer_content_vh,
+    ContentAdapter.BaseVH<ContentItemVH.Item, AnalyzerContentItemVhBinding>(
+        R.layout.analyzer_content_item_vh,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerContentVhBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerContentItemVhBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerContentVhBinding.(
+    override val onBindData: AnalyzerContentItemVhBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -25,7 +25,7 @@ class ContentItemVH(parent: ViewGroup) :
 //
 //        appIcon.loadAppIcon(app.pkg)
         primary.text = content.label.get(context)
-        secondary.text = Formatter.formatShortFileSize(context, content.size)
+        secondary.text = content.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
 
         root.setOnClickListener { item.onItemClicked(item) }
     }

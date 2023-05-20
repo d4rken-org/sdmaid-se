@@ -11,7 +11,7 @@ interface ContentGroup {
     val contents: Collection<ContentItem>
 
     val groupSize: Long
-        get() = contents.sumOf { it.size }
+        get() = contents.sumOf { it.size ?: 0L }
 
     @Parcelize
     data class Id(val value: String = UUID.randomUUID().toString()) : Parcelable

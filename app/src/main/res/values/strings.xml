@@ -352,11 +352,11 @@
     <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable sdcard. Contains media files and data from apps that support it.</string>
     <string name="analyzer_storage_content_title">Storage content</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps that you can uninstall, including their private data, public data and caches.</string>
+    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. install files, data and caches).</string>
     <string name="analyzer_storage_content_type_media_label">User files</string>
-    <string name="analyzer_storage_content_type_media_description">Media files, taken pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
+    <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>
-    <string name="analyzer_storage_content_type_system_description">System data, settings and apps you can\'t uninstall.</string>
+    <string name="analyzer_storage_content_type_system_description">System data and system apps.</string>
     <string name="analyzer_storage_content_cant_touch_type">SD Maid has no way of freeing space here.</string>
     <string name="analyzer_storage_content_x_used_of_total_y">%1$s used (%2$s of total)</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>

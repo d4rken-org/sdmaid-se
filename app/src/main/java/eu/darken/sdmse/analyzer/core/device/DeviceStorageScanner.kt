@@ -4,7 +4,7 @@ import android.app.usage.StorageStatsManager
 import android.os.storage.StorageManager
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -22,15 +22,18 @@ class DeviceStorageScanner @Inject constructor(
         log(TAG) { "Scanning..." }
 
         val primaryDevice = run {
-            val internalId = StorageManager.UUID_DEFAULT
+            val id = DeviceStorage.Id(
+                internalId = null,
+                externalId = StorageManager.UUID_DEFAULT,
+            )
 
             DeviceStorage(
-                id = DeviceStorage.Id(internalId.toString()),
+                id = id,
                 label = R.string.analyzer_storage_type_primary_title.toCaString(),
                 type = DeviceStorage.Type.PRIMARY,
                 hardware = DeviceStorage.Hardware.BUILT_IN,
-                spaceCapacity = storageStatsmanager.getTotalBytes(internalId),
-                spaceFree = storageStatsmanager.getFreeBytes(internalId),
+                spaceCapacity = storageStatsmanager.getTotalBytes(id.externalId),
+                spaceFree = storageStatsmanager.getFreeBytes(id.externalId),
             )
         }
 
@@ -52,22 +55,27 @@ class DeviceStorageScanner @Inject constructor(
                             "fafafafa-fafa-5afa-8afa-fafa" + volume.fsUuid!!.replace("-", "")
                         )
                     } catch (e: Exception) {
-                        log(TAG, Logging.Priority.WARN) { "Failed to construct UUID: ${e.asLog()}" }
+                        log(TAG, WARN) { "Failed to construct UUID: ${e.asLog()}" }
                     }
                 }
 
                 if (volumeId == null) {
-                    log(TAG, Logging.Priority.WARN) { "Failed to determine UUID of $volume" }
+                    log(TAG, WARN) { "Failed to determine UUID of $volume" }
                     return@mapNotNull null
                 }
 
+                val id = DeviceStorage.Id(
+                    internalId = volume.fsUuid,
+                    externalId = volumeId,
+                )
+
                 DeviceStorage(
-                    id = DeviceStorage.Id(volumeId.toString()),
+                    id = id,
                     label = R.string.analyzer_storage_type_secondary_title.toCaString(),
                     type = DeviceStorage.Type.SECONDARY,
                     hardware = DeviceStorage.Hardware.SDCARD,
-                    spaceCapacity = storageStatsmanager.getTotalBytes(volumeId),
-                    spaceFree = storageStatsmanager.getFreeBytes(volumeId),
+                    spaceCapacity = storageStatsmanager.getTotalBytes(id.externalId),
+                    spaceFree = storageStatsmanager.getFreeBytes(id.externalId),
                 )
             }
             .toSet()

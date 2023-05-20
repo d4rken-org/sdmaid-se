@@ -25,6 +25,7 @@ class ContentAdapter @Inject constructor() :
     init {
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is ContentItemVH.Item }) { ContentItemVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is ContentGroupVH.Item }) { ContentGroupVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

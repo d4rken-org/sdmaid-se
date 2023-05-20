@@ -30,10 +30,11 @@ data class DeviceStorage(
 
     @Parcelize
     data class Id(
-        val value: String
+        val internalId: String?,
+        val externalId: UUID,
     ) : Parcelable {
-        val asUUID: UUID
-            get() = UUID.fromString(value)
+//        val asUUID: UUID
+//            get() = UUID.fromString(externalId)
     }
 }
 

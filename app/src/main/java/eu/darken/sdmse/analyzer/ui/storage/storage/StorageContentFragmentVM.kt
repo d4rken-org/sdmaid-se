@@ -46,32 +46,34 @@ class StorageContentFragmentVM @Inject constructor(
         val storage = data.storages.single { it.id == targetStorageId }
         State(
             storage = storage,
-            content = data.categories[targetStorageId]?.map { content ->
-                when (content) {
-                    is AppCategory -> AppCategoryVH.Item(
-                        storage = storage,
-                        content = content,
-                        onItemClicked = {
-                            StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
-                                targetStorageId
-                            ).navigate()
-                        }
-                    )
+            content = data.categories[targetStorageId]
+                ?.filter { it.spaceUsed > 0L }
+                ?.map { content ->
+                    when (content) {
+                        is AppCategory -> AppCategoryVH.Item(
+                            storage = storage,
+                            content = content,
+                            onItemClicked = {
+                                StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
+                                    targetStorageId
+                                ).navigate()
+                            }
+                        )
 
-                    is MediaCategory -> MediaCategoryVH.Item(
-                        storage = storage,
-                        content = content,
-                        onItemClicked = {
+                        is MediaCategory -> MediaCategoryVH.Item(
+                            storage = storage,
+                            content = content,
+                            onItemClicked = {
 
-                        }
-                    )
+                            }
+                        )
 
-                    is SystemCategory -> SystemCategoryVH.Item(
-                        storage = storage,
-                        content = content,
-                    )
-                }
-            },
+                        is SystemCategory -> SystemCategoryVH.Item(
+                            storage = storage,
+                            content = content,
+                        )
+                    }
+                },
             progress = progress,
         )
     }.asLiveData2()

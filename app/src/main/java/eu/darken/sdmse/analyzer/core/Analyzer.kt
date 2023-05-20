@@ -45,10 +45,10 @@ class Analyzer @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    private val storagesDevice = MutableStateFlow(emptySet<DeviceStorage>())
+    private val storageDevices = MutableStateFlow(emptySet<DeviceStorage>())
     private val storageCategories = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<ContentCategory>>())
     val data: Flow<Data> = combine(
-        storagesDevice,
+        storageDevices,
         storageCategories,
     ) { storages, categories ->
         val allGroups = categories
@@ -93,28 +93,29 @@ class Analyzer @Inject constructor(
     private suspend fun scanStorageDevices(task: DeviceStorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageDevices(): $task" }
 
-        storagesDevice.value = emptySet()
+        storageDevices.value = emptySet()
+        storageCategories.value = emptyMap()
 
         val scanner = deviceScanner.get()
         val storages = scanner.scan()
 
-        storagesDevice.value = storages
+        storageDevices.value = storages
 
         return DeviceStorageScanTask.Result(itemCount = storages.size)
     }
 
     private suspend fun scanStorageContents(task: StorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageContents(): $task" }
-        val target = task.target
+        val target = storageDevices.value.single { it.id == task.target }
 
         val scanner = storageScanner.get()
-        val contents = scanner.scan(target)
+        val categories = scanner.scan(target)
 
         storageCategories.value = storageCategories.value.mutate {
-            this[target] = contents
+            this[target.id] = categories
         }
 
-        return DeviceStorageScanTask.Result(itemCount = contents.size)
+        return DeviceStorageScanTask.Result(itemCount = 0)
     }
 
     data class Data(
