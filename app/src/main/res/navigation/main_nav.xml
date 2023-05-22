@@ -297,6 +297,9 @@
         <action
             android:id="@+id/action_storageFragment_to_appsFragment"
             app:destination="@id/appsFragment" />
+        <action
+            android:id="@+id/action_storageFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
     </fragment>
     <fragment
         android:id="@+id/appsFragment"

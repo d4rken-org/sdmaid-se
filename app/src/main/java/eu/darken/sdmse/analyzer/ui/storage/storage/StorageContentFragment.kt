@@ -40,6 +40,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
             adapter.update(state.content)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
+            refreshAction.isInvisible = state.progress != null
         }
 
         ui.refreshAction.setOnClickListener { vm.refresh() }

@@ -8,18 +8,18 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsAdapter
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerAppVhDataPrivateBinding
+import eu.darken.sdmse.databinding.AnalyzerAppVhAppdataBinding
 
 
-class AppDetailsPrivateDataVH(parent: ViewGroup) :
-    AppDetailsAdapter.BaseVH<AppDetailsPrivateDataVH.Item, AnalyzerAppVhDataPrivateBinding>(
-        R.layout.analyzer_app_vh_data_private,
+class AppDetailsAppDataVH(parent: ViewGroup) :
+    AppDetailsAdapter.BaseVH<AppDetailsAppDataVH.Item, AnalyzerAppVhAppdataBinding>(
+        R.layout.analyzer_app_vh_appdata,
         parent
     ) {
 
-    override val viewBinding = lazy { AnalyzerAppVhDataPrivateBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerAppVhAppdataBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerAppVhDataPrivateBinding.(
+    override val onBindData: AnalyzerAppVhAppdataBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->

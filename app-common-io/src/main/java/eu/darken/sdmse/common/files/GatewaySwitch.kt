@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.files.saf.SAFGateway
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.plus
 import okio.Sink
 import okio.Source
@@ -38,9 +39,11 @@ class GatewaySwitch @Inject constructor(
             APath.PathType.SAF -> {
                 safGateway.also { adoptChildResource(it) }
             }
+
             APath.PathType.LOCAL -> {
                 localGateway.also { adoptChildResource(it) }
             }
+
             else -> throw NotImplementedError()
         }
         return gateway
@@ -110,6 +113,11 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun setOwnership(path: APath, ownership: Ownership): Boolean {
         return useGateway(path) { setOwnership(path, ownership) }
+    }
+
+    suspend fun walk(path: APath): Collection<APathLookup<APath>> {
+        // TODO use safMapper to change path types if error occurs?
+        return path.walk(this).toList()
     }
 
     companion object {

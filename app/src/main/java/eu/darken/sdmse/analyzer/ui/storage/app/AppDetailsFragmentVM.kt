@@ -6,10 +6,10 @@ import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppCodeVH
+import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppDataVH
+import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppMediaVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsExtraDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderVH
-import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsPrivateDataVH
-import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsPublicDataVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -62,16 +62,16 @@ class AppDetailsFragmentVM @Inject constructor(
             }
             ?.run { items.add(this) }
 
-        pkgStat.privateData
+        pkgStat.appData
             ?.let {
-                AppDetailsPrivateDataVH.Item(
+                AppDetailsAppDataVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
                     group = it,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.privateData.id,
+                            groupId = pkgStat.appData.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }
@@ -79,16 +79,16 @@ class AppDetailsFragmentVM @Inject constructor(
             }
             ?.run { items.add(this) }
 
-        pkgStat.publicData
+        pkgStat.appMedia
             ?.let {
-                AppDetailsPublicDataVH.Item(
+                AppDetailsAppMediaVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
                     group = it,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.publicData.id,
+                            groupId = pkgStat.appMedia.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }

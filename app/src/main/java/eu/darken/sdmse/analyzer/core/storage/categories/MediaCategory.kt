@@ -5,8 +5,10 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 
 data class MediaCategory(
     override val storageId: DeviceStorage.Id,
-    override val spaceUsed: Long,
+    val spaceUsedOverride: Long? = null,
+    override val groups: Collection<ContentGroup>,
 ) : ContentCategory {
-    override val groups: Collection<ContentGroup>
-        get() = emptyList()
+
+    override val spaceUsed: Long
+        get() = spaceUsedOverride ?: groups.sumOf { it.groupSize }
 }

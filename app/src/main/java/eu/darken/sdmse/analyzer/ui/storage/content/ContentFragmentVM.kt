@@ -3,6 +3,7 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.appcontrol.core.*
@@ -28,6 +29,7 @@ class ContentFragmentVM @Inject constructor(
     private val targetStorageId = navArgs.storageId
     private val targetGroupId = navArgs.groupId
     private val targetInstallId = navArgs.installId
+    private val subContentLevel = MutableStateFlow<ContentItem?>(null)
 
     init {
         analyzer.data
@@ -44,7 +46,8 @@ class ContentFragmentVM @Inject constructor(
     val state = combine(
         analyzer.data,
         analyzer.progress,
-    ) { data, progress ->
+        subContentLevel,
+    ) { data, progress, contentLevel ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.groups[targetGroupId]
 
@@ -57,18 +60,22 @@ class ContentFragmentVM @Inject constructor(
         val title = pkgStat?.label ?: contentGroup?.label
         val subtitle = if (pkgStat?.label == null) null else contentGroup?.label
 
+        val items = (contentLevel?.children ?: contentGroup?.contents)
+            ?.sortedByDescending { it.size }
+            ?.map { content ->
+                ContentItemVH.Item(
+                    content = content,
+                    onItemClicked = {
+                        subContentLevel.value = content
+                    }
+                )
+            }
+
         State(
             title = title,
             subtitle = subtitle,
             storage = storage,
-            items = contentGroup?.contents?.map { content ->
-                ContentItemVH.Item(
-                    content = content,
-                    onItemClicked = {
-
-                    }
-                )
-            },
+            items = items,
             progress = progress,
         )
     }.asLiveData2()

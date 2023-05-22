@@ -64,7 +64,10 @@ class StorageContentFragmentVM @Inject constructor(
                             storage = storage,
                             content = content,
                             onItemClicked = {
-
+                                StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
+                                    storageId = targetStorageId,
+                                    groupId = content.groups.single().id,
+                                ).navigate()
                             }
                         )
 

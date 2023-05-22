@@ -21,11 +21,14 @@ class ContentItemVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val content = item.content
-//        val app = item.app
-//
-//        appIcon.loadAppIcon(app.pkg)
+
+        // TODO can we load useful icons for content items?
+        // appIcon.loadAppIcon(app.pkg)
+
         primary.text = content.label.get(context)
-        secondary.text = content.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
+        secondary.text = content.size
+            ?.let { Formatter.formatShortFileSize(context, it) }
+            ?: getString(R.string.analyzer_content_access_opaque)
 
         root.setOnClickListener { item.onItemClicked(item) }
     }

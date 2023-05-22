@@ -8,7 +8,6 @@ import coil.fetch.DrawableResult
 import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.request.Options
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.getIcon2
@@ -23,7 +22,7 @@ class AppIconFetcher @Inject constructor(
     override suspend fun fetch(): FetchResult {
         log { "Fetching $data" }
         val baseIcon = packageManager.getIcon2(data.id)
-            ?: ContextCompat.getDrawable(options.context, R.drawable.ic_apps)!!
+            ?: ContextCompat.getDrawable(options.context, eu.darken.sdmse.common.io.R.drawable.ic_default_app_icon_24)!!
 
         return DrawableResult(
             drawable = baseIcon,

@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.files.FileType
 data class ContentItem(
     val path: APath,
     val label: CaString = path.path.toCaString(),
-    val size: Long? = null,
+    val children: Collection<ContentItem>? = null,
+    val size: Long? = children?.sumOf { it.size ?: 0L },
     val type: FileType = FileType.DIRECTORY,
-    val children: Set<ContentItem> = emptySet(),
 )

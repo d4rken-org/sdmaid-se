@@ -14,14 +14,14 @@ data class AppCategory(
 
     override val groups: Collection<ContentGroup>
         get() = pkgStats.values
-            .map { setOfNotNull(it.appCode, it.privateData, it.publicData, it.extraData) }
+            .map { setOfNotNull(it.appCode, it.appData, it.appMedia, it.extraData) }
             .flatten()
 
     data class PkgStat(
         val pkg: Installed,
         val appCode: ContentGroup?,
-        val privateData: ContentGroup?,
-        val publicData: ContentGroup?,
+        val appData: ContentGroup?,
+        val appMedia: ContentGroup?,
         val extraData: ContentGroup?,
     ) {
 
@@ -34,8 +34,8 @@ data class AppCategory(
         val totalSize by lazy {
             var size = 0L
             appCode?.groupSize?.let { size += it }
-            privateData?.groupSize?.let { size += it }
-            publicData?.groupSize?.let { size += it }
+            appData?.groupSize?.let { size += it }
+            appMedia?.groupSize?.let { size += it }
             extraData?.groupSize?.let { size += it }
             size
         }

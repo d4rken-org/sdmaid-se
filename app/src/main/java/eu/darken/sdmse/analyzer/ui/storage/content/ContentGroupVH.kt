@@ -23,7 +23,7 @@ class ContentGroupVH(parent: ViewGroup) :
         val content = item.contentGroup
 
         primary.text = content.label?.get(context)
-        secondary.text = content.groupSize.let { Formatter.formatShortFileSize(context, it) } ?: "?"
+        secondary.text = Formatter.formatShortFileSize(context, content.groupSize)
 
         root.setOnClickListener { item.onItemClicked(item) }
     }
