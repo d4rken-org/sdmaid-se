@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -38,6 +39,7 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
@@ -178,11 +180,11 @@ class StorageScanner @Inject constructor(
                 }
 
                 if (contents != null) {
-                    ContentItem.fromToplevel(
-                        path = pkgPubDataDir,
-                        children = contents.map {
-                            ContentItem.fromLookup(it)
-                        },
+                    val lookup = pkgPubDataDir.lookup(gatewaySwitch)
+                    val children = contents.map { ContentItem.fromLookup(it) }.toNesting()
+                    ContentItem.fromLookup(
+                        lookup = lookup,
+                        children = children,
                     )
                 } else {
                     ContentItem.fromInaccessible(pkgPubDataDir)
@@ -200,13 +202,9 @@ class StorageScanner @Inject constructor(
             ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
             ?.takeIf { it.exists(gatewaySwitch) }
             ?.let { pubMediaDir ->
-                val folderContent = pubMediaDir.walk(gatewaySwitch).toList()
-                    .map { ContentItem.fromLookup(it) }
-
-                ContentItem.fromToplevel(
-                    path = pubMediaDir,
-                    children = folderContent
-                )
+                val lookup = pubMediaDir.lookup(gatewaySwitch)
+                val children = pubMediaDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList().toNesting()
+                ContentItem.fromLookup(lookup, children)
             }
             ?.let {
                 AppContentGroup(
@@ -223,13 +221,11 @@ class StorageScanner @Inject constructor(
             }
             .map { ownerInfo ->
                 consumed.add(ownerInfo)
-                val folderContent = ownerInfo.areaInfo.file.walk(gatewaySwitch).toList()
+                val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
+                val children = ownerInfo.areaInfo.file.walk(gatewaySwitch)
                     .map { ContentItem.fromLookup(it) }
-
-                ContentItem.fromToplevel(
-                    path = ownerInfo.areaInfo.file,
-                    children = folderContent,
-                )
+                    .toList().toNesting()
+                ContentItem.fromLookup(lookup, children)
             }
             .takeIf { it.isNotEmpty() }
             ?.let {
@@ -253,11 +249,11 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scanForMedia($storage)" }
         val topLevelContents = topLevelDirs
             .map { ownerInfo ->
-                val children = ownerInfo.areaInfo.file.walk(gatewaySwitch).toList()
-                ContentItem.fromToplevel(
-                    path = ownerInfo.areaInfo.file,
-                    children = children.map { ContentItem.fromLookup(it) }
-                )
+                val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
+                val children = lookup.walk(gatewaySwitch)
+                    .map { ContentItem.fromLookup(it) }
+                    .toList().toNesting()
+                ContentItem.fromLookup(lookup, children)
             }
 
         val group = MediaContentGroup(

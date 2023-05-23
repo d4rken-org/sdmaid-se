@@ -38,12 +38,5 @@ data class ContentItem(
             },
             type = lookup.fileType,
         )
-
-        fun fromToplevel(path: APath, children: Collection<ContentItem>): ContentItem = ContentItem(
-            path = path,
-            children = children,
-            itemSize = 3452,
-            type = FileType.DIRECTORY,
-        )
     }
 }
