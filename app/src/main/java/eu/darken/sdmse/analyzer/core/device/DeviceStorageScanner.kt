@@ -8,12 +8,15 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import java.io.IOException
 import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
+    private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val storageStatsmanager: StorageStatsManager,
 ) {
@@ -26,13 +29,26 @@ class DeviceStorageScanner @Inject constructor(
                 externalId = StorageManager.UUID_DEFAULT,
             )
 
+            val totalBytes = try {
+                storageStatsmanager.getTotalBytes(id.externalId)
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Failed to get total bytes for $id" }
+                environment.dataDir.asFile().totalSpace
+            }
+            val freeBytes = try {
+                storageStatsmanager.getFreeBytes(id.externalId)
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Failed to get free bytes for $id" }
+                environment.dataDir.asFile().freeSpace
+            }
+
             DeviceStorage(
                 id = id,
                 label = R.string.analyzer_storage_type_primary_title.toCaString(),
                 type = DeviceStorage.Type.PRIMARY,
                 hardware = DeviceStorage.Hardware.BUILT_IN,
-                spaceCapacity = storageStatsmanager.getTotalBytes(id.externalId),
-                spaceFree = storageStatsmanager.getFreeBytes(id.externalId),
+                spaceCapacity = totalBytes,
+                spaceFree = freeBytes,
             )
         }
 
@@ -75,7 +91,7 @@ class DeviceStorageScanner @Inject constructor(
                     storageStatsmanager.getFreeBytes(id.externalId)
                 } catch (e: IOException) {
                     log(TAG, WARN) { "Failed to get free bytes for $id" }
-                    volume.path?.totalSpace ?: 0L
+                    volume.path?.freeSpace ?: 0L
                 }
 
                 DeviceStorage(
