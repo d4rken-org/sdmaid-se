@@ -35,18 +35,6 @@ class DeviceStorageItemVH(parent: ViewGroup) :
             }
         )
 
-        available.apply {
-            val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
-            text = getString(R.string.analyzer_space_available, formattedFree)
-            setTextColor(
-                if (storage.spaceFree < 1024L * 1024L * 512) {
-                    getColorForAttr(android.R.attr.colorError)
-                } else {
-                    getColorForAttr(android.R.attr.colorControlNormal)
-                }
-            )
-        }
-
         val formattedUsed = Formatter.formatShortFileSize(context, storage.spaceUsed)
         val formattedTotal = Formatter.formatShortFileSize(context, storage.spaceCapacity)
         capacity.text = "$formattedUsed / $formattedTotal"
@@ -54,6 +42,18 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         val percentUsed = ((storage.spaceUsed / storage.spaceCapacity.toDouble()) * 100).toInt()
         progress.progress = percentUsed
         graphCaption.text = "$percentUsed%"
+
+        available.apply {
+            val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
+            text = getString(R.string.analyzer_space_available, formattedFree)
+            setTextColor(
+                if (percentUsed > 95) {
+                    getColorForAttr(android.R.attr.colorError)
+                } else {
+                    getColorForAttr(android.R.attr.colorControlNormal)
+                }
+            )
+        }
 
         root.setOnClickListener { item.onItemClicked(item) }
     }

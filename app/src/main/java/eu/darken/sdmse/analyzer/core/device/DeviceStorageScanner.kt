@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
-import java.io.IOException
 import java.util.UUID
 import javax.inject.Inject
 
@@ -30,14 +29,18 @@ class DeviceStorageScanner @Inject constructor(
             )
 
             val totalBytes = try {
-                storageStatsmanager.getTotalBytes(id.externalId)
-            } catch (e: IOException) {
+                storageStatsmanager.getTotalBytes(id.externalId).also {
+                    if (it == 0L) throw IllegalStateException("Total bytes is 0")
+                }
+            } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to get total bytes for $id" }
                 environment.dataDir.asFile().totalSpace
             }
             val freeBytes = try {
-                storageStatsmanager.getFreeBytes(id.externalId)
-            } catch (e: IOException) {
+                storageStatsmanager.getFreeBytes(id.externalId).also {
+                    if (it == 0L) throw IllegalStateException("Free bytes is 0")
+                }
+            } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to get free bytes for $id" }
                 environment.dataDir.asFile().freeSpace
             }
@@ -82,14 +85,19 @@ class DeviceStorageScanner @Inject constructor(
 
                 val totalBytes = try {
                     // Secondary storage isn't available in on all APIs, (e.g. not on a Redmi 7A @ Android 9)
-                    storageStatsmanager.getTotalBytes(id.externalId)
-                } catch (e: IOException) {
+                    storageStatsmanager.getTotalBytes(id.externalId).also {
+                        if (it == 0L) throw IllegalStateException("Total bytes is 0")
+                    }
+                } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to get total bytes for $id" }
                     volume.path?.totalSpace ?: 0L
                 }
                 val freeBytes = try {
-                    storageStatsmanager.getFreeBytes(id.externalId)
-                } catch (e: IOException) {
+                    storageStatsmanager.getFreeBytes(id.externalId).also {
+                        // Was 0 for Xiaomi/pine_eea/pine:9/PKQ1.190319.001/V11.0.18.0.PCMEUXM:user/release-keys
+                        if (it == 0L) throw IllegalStateException("Free bytes is 0")
+                    }
+                } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to get free bytes for $id" }
                     volume.path?.freeSpace ?: 0L
                 }
