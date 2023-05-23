@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.storage.categories
 
 import android.text.format.Formatter
 import android.view.ViewGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
@@ -30,12 +29,6 @@ class SystemCategoryVH(parent: ViewGroup) :
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
         usedSpace.text = getString(R.string.analyzer_storage_content_x_used_of_total_y, usedText, "$totalPercent%")
         progress.progress = totalPercent
-
-        root.setOnClickListener {
-            MaterialAlertDialogBuilder(context).apply {
-                setMessage(R.string.analyzer_storage_content_cant_touch_type)
-            }.show()
-        }
     }
 
     data class Item(
