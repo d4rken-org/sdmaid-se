@@ -66,6 +66,10 @@ class ContentFragmentVM @Inject constructor(
                 ContentItemVH.Item(
                     content = content,
                     onItemClicked = {
+                        if (content.size == null) {
+                            log(TAG) { "No details available for $content" }
+                            return@Item
+                        }
                         subContentLevel.value = content
                     }
                 )

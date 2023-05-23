@@ -29,10 +29,14 @@ import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
+import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
@@ -52,8 +56,14 @@ class StorageScanner @Inject constructor(
 
     private val topLevelDirs = mutableSetOf<OwnerInfo>()
 
+    private var useRoot = false
+    private lateinit var currentUser: UserHandle2
+
     suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
         log(TAG) { "scan($storage)" }
+
+        useRoot = false // TODO: rootManager.useRoot()
+        currentUser = userManager2.currentUser().handle
 
         val volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
         log(TAG) { "Target public volume: $volume" }
@@ -63,6 +73,7 @@ class StorageScanner @Inject constructor(
                 val folders = volume?.directory
                     ?.let { LocalPath.build(it) }
                     ?.lookupFiles(gatewaySwitch)
+                    ?.filter { it.name != "Android" }
                     ?.mapNotNull { fileForensics.findOwners(it.lookedUp) }
                     ?.filter { it.areaInfo.type == DataArea.Type.SDCARD }
                     ?.onEach { log(TAG) { "Top level dir: $it" } }
@@ -71,8 +82,15 @@ class StorageScanner @Inject constructor(
                 topLevelDirs.addAll(folders)
 
                 val apps = scanForApps(storage)
+
                 val media = scanForMedia(storage)
-                val system = scanForSystem(storage)
+
+                val system = scanForSystem(storage, apps, media)
+
+                log(TAG) { "Apps: ${apps.spaceUsed}" }
+                log(TAG) { "Media: ${media.spaceUsed}" }
+                log(TAG) { "System: ${system.spaceUsed}" }
+
                 setOf(apps, media, system)
             }
         }
@@ -81,146 +99,10 @@ class StorageScanner @Inject constructor(
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory {
         log(TAG) { "scanForApps($storage)" }
 
-        val useRoot = false // TODO: rootManager.useRoot()
-
         val pkgStats = pkgRepo.currentPkgs()
+            .filter { it.packageName != "android" }
             .filter { it.packageInfo.applicationInfo != null }
-            .map { pkg ->
-                val appStorStats = statsManager.queryStatsForPkg(storage.id, pkg)
-
-                val appCodeGroup = if (storage.type == DeviceStorage.Type.PRIMARY) {
-                    if (useRoot) {
-                        AppContentGroup(
-                            label = pkg.label
-                        )
-                    } else {
-                        val appCode = pkg.packageInfo.applicationInfo.sourceDir
-                            ?.let {
-                                when {
-                                    it.endsWith("base.apk") -> File(it).parent
-                                    else -> it
-                                }
-                            }
-                            ?.let { ContentItem(path = LocalPath.build(it)) }
-                        AppContentGroup(
-                            label = R.string.analyzer_storage_content_app_code_label.toCaString(),
-                            contents = setOfNotNull(appCode),
-                            groupSizeOverride = appStorStats.appBytes,
-                        )
-                    }
-                } else {
-                    null
-                }
-
-                val appDataContents = mutableSetOf<ContentItem>()
-
-                if (storage.type == DeviceStorage.Type.PRIMARY) {
-                    if (useRoot) {
-                        AppContentGroup(
-                            label = pkg.label,
-                        )
-                    } else {
-                        pkg.packageInfo.applicationInfo.dataDir
-                            ?.let { ContentItem(path = LocalPath.build(it)) }
-                            ?.run { appDataContents.add(this) }
-
-                        pkg.packageInfo.applicationInfo.deviceProtectedDataDir
-                            ?.let { ContentItem(path = LocalPath.build(it)) }
-                            ?.run { appDataContents.add(this) }
-                    }
-                }
-
-                val publicPath = storageManager2.volumes
-                    ?.filter { !it.isPrivate }
-                    ?.singleOrNull { it.fsUuid == storage.id.internalId }
-                    ?.path?.path?.let { LocalPath.build(it, "0") }
-
-                // Android/data/<pkg>
-                val appDataGroup = publicPath
-                    ?.let { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
-                    ?.takeIf { it.exists(gatewaySwitch) }
-                    ?.let { pkgPubDataDir ->
-
-                        val contents = if (!hasApiLevel(33)) {
-                            try {
-                                pkgPubDataDir.walk(gatewaySwitch).toList()
-                            } catch (e: ReadException) {
-                                null
-                            }
-                        } else {
-                            null
-                        }
-
-                        ContentItem(
-                            path = pkgPubDataDir,
-                            size = contents?.sumOf { it.size },
-                        )
-                    }
-                    ?.let {
-                        AppContentGroup(
-                            label = R.string.analyzer_storage_content_app_data_label.toCaString(),
-                            contents = setOf(it),
-                            groupSizeOverride = appStorStats.dataBytes
-                        )
-                    }
-
-                // Android/media/<pkg>
-                val appMediaGroup = publicPath
-                    ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
-                    ?.takeIf { it.exists(gatewaySwitch) }
-                    ?.let { pkgPubDataDir ->
-
-                        val contents = try {
-                            pkgPubDataDir.walk(gatewaySwitch).toList()
-                        } catch (e: ReadException) {
-                            emptySet()
-                        }
-
-                        ContentItem(
-                            path = pkgPubDataDir,
-                            children = contents.map { ContentItem(path = it.lookedUp, size = it.size) }
-                        )
-                    }
-                    ?.let {
-                        AppContentGroup(
-                            label = R.string.analyzer_storage_content_app_media_label.toCaString(),
-                            contents = setOf(it),
-                        )
-                    }
-
-                val consumed = mutableSetOf<OwnerInfo>()
-                val extraData = topLevelDirs
-                    .filter {
-                        val owner = it.getOwner(pkg.id) ?: return@filter false
-                        !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
-                    }
-                    .map { ownerInfo ->
-                        consumed.add(ownerInfo)
-                        val folderContent = ownerInfo.areaInfo.file.walk(gatewaySwitch).toList()
-                        val sizeSum = folderContent.sumOf { it.size }.takeIf { it != 0L } ?: 3452L
-                        ContentItem(
-                            path = ownerInfo.areaInfo.file,
-                            size = sizeSum,
-                        )
-                    }
-                    .takeIf { it.isNotEmpty() }
-                    ?.let {
-                        AppContentGroup(
-                            label = R.string.analyzer_storage_content_app_extra_label.toCaString(),
-                            contents = it,
-                        )
-                    }
-                topLevelDirs.removeAll(consumed)
-
-                pkg.installId to AppCategory.PkgStat(
-                    pkg = pkg,
-                    appCode = appCodeGroup,
-                    appData = appDataGroup,
-                    appMedia = appMediaGroup,
-                    extraData = extraData,
-                )
-            }
-            .toMap()
+            .associate { it.installId to processPkg(storage, it) }
 
         return AppCategory(
             storageId = storage.id,
@@ -229,16 +111,152 @@ class StorageScanner @Inject constructor(
         )
     }
 
+    private suspend fun processPkg(
+        storage: DeviceStorage,
+        pkg: Installed
+    ): AppCategory.PkgStat {
+        val appStorStats = statsManager.queryStatsForPkg(storage.id, pkg)
+
+        val appCodeGroup = when {
+            storage.type != DeviceStorage.Type.PRIMARY -> null
+            pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
+            useRoot -> AppContentGroup(
+                label = pkg.label
+            )
+
+            else -> {
+                val appCode = pkg.packageInfo.applicationInfo.sourceDir
+                    ?.let {
+                        when {
+                            it.endsWith("base.apk") -> File(it).parent
+                            else -> it
+                        }
+                    }
+                    ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+
+                AppContentGroup(
+                    label = R.string.analyzer_storage_content_app_code_label.toCaString(),
+                    contents = setOfNotNull(appCode),
+                    groupSizeOverride = if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L,
+                )
+            }
+        }
+
+        val dataDirBase = when {
+            storage.type != DeviceStorage.Type.PRIMARY -> null
+            useRoot -> null
+            else -> pkg.packageInfo.applicationInfo.dataDir
+                ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+        }
+
+        val dataDirDe = when {
+            storage.type != DeviceStorage.Type.PRIMARY -> null
+            useRoot -> null
+            else -> pkg.packageInfo.applicationInfo.deviceProtectedDataDir
+                ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+        }
+
+        val publicPath = storageManager2.volumes
+            ?.filter { !it.isPrivate }
+            ?.singleOrNull { it.fsUuid == storage.id.internalId }
+            ?.path?.path?.let { LocalPath.build(it, "0") }
+
+        // Android/data/<pkg>
+        val dataDirPub = publicPath
+            ?.let { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
+            ?.takeIf { it.exists(gatewaySwitch) }
+            ?.let { pkgPubDataDir ->
+
+                val contents = if (!hasApiLevel(33)) {
+                    try {
+                        pkgPubDataDir.walk(gatewaySwitch).toList()
+                    } catch (e: ReadException) {
+                        null
+                    }
+                } else {
+                    null
+                }
+
+                if (contents != null) {
+                    ContentItem.fromToplevel(
+                        path = pkgPubDataDir,
+                        children = contents.map {
+                            ContentItem.fromLookup(it)
+                        },
+                    )
+                } else {
+                    ContentItem.fromInaccessible(pkgPubDataDir)
+                }
+            }
+
+        val appDataGroup = AppContentGroup(
+            label = R.string.analyzer_storage_content_app_data_label.toCaString(),
+            contents = setOfNotNull(dataDirBase, dataDirDe, dataDirPub),
+            groupSizeOverride = appStorStats.dataBytes
+        )
+
+        // Android/media/<pkg>
+        val appMediaGroup = publicPath
+            ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
+            ?.takeIf { it.exists(gatewaySwitch) }
+            ?.let { pubMediaDir ->
+                val folderContent = pubMediaDir.walk(gatewaySwitch).toList()
+                    .map { ContentItem.fromLookup(it) }
+
+                ContentItem.fromToplevel(
+                    path = pubMediaDir,
+                    children = folderContent
+                )
+            }
+            ?.let {
+                AppContentGroup(
+                    label = R.string.analyzer_storage_content_app_media_label.toCaString(),
+                    contents = setOf(it),
+                )
+            }
+
+        val consumed = mutableSetOf<OwnerInfo>()
+        val extraData = topLevelDirs
+            .filter {
+                val owner = it.getOwner(pkg.id) ?: return@filter false
+                !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
+            }
+            .map { ownerInfo ->
+                consumed.add(ownerInfo)
+                val folderContent = ownerInfo.areaInfo.file.walk(gatewaySwitch).toList()
+                    .map { ContentItem.fromLookup(it) }
+
+                ContentItem.fromToplevel(
+                    path = ownerInfo.areaInfo.file,
+                    children = folderContent,
+                )
+            }
+            .takeIf { it.isNotEmpty() }
+            ?.let {
+                AppContentGroup(
+                    label = R.string.analyzer_storage_content_app_extra_label.toCaString(),
+                    contents = it,
+                )
+            }
+        topLevelDirs.removeAll(consumed)
+
+        return AppCategory.PkgStat(
+            pkg = pkg,
+            appCode = appCodeGroup,
+            appData = appDataGroup,
+            appMedia = appMediaGroup,
+            extraData = extraData,
+        )
+    }
+
     private suspend fun scanForMedia(storage: DeviceStorage): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
         val topLevelContents = topLevelDirs
             .map { ownerInfo ->
                 val children = ownerInfo.areaInfo.file.walk(gatewaySwitch).toList()
-                ContentItem(
+                ContentItem.fromToplevel(
                     path = ownerInfo.areaInfo.file,
-                    children = children.map {
-                        ContentItem(path = it.lookedUp)
-                    }
+                    children = children.map { ContentItem.fromLookup(it) }
                 )
             }
 
@@ -253,15 +271,22 @@ class StorageScanner @Inject constructor(
         )
     }
 
-    private suspend fun scanForSystem(storage: DeviceStorage): SystemCategory {
+    private suspend fun scanForSystem(
+        storage: DeviceStorage,
+        appCategory: AppCategory,
+        mediaCategory: MediaCategory
+    ): SystemCategory {
         log(TAG) { "scanForSystem($storage)" }
-        if (storage.type == DeviceStorage.Type.SECONDARY) {
-            log(TAG) { "No system data here, it's a secondary storage." }
+        if (storage.type != DeviceStorage.Type.PRIMARY) {
+            log(TAG) { "Not a primary storage: $storage" }
+            return SystemCategory(storageId = storage.id, spaceUsed = 0)
         }
+
+        val unaccountedFor = storage.spaceUsed - appCategory.spaceUsed - mediaCategory.spaceUsed
 
         return SystemCategory(
             storageId = storage.id,
-            spaceUsed = 0,
+            spaceUsed = unaccountedFor,
         )
     }
 
