@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -29,7 +30,7 @@ class ContentFragmentVM @Inject constructor(
     private val targetStorageId = navArgs.storageId
     private val targetGroupId = navArgs.groupId
     private val targetInstallId = navArgs.installId
-    private val subContentLevel = MutableStateFlow<ContentItem?>(null)
+    private val subContentLevel = MutableStateFlow<List<ContentItem>?>(null)
 
     init {
         analyzer.data
@@ -47,7 +48,7 @@ class ContentFragmentVM @Inject constructor(
         analyzer.data,
         analyzer.progress,
         subContentLevel,
-    ) { data, progress, contentLevel ->
+    ) { data, progress, contentLevels ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.groups[targetGroupId]
 
@@ -58,19 +59,32 @@ class ContentFragmentVM @Inject constructor(
         }
 
         val title = pkgStat?.label ?: contentGroup?.label
-        val subtitle = if (pkgStat?.label == null) null else contentGroup?.label
+        val subtitle = when {
+            contentLevels != null -> contentLevels.last().label
+            pkgStat?.label == null -> null
+            else -> contentGroup?.label
+        }
 
-        val items = (contentLevel?.children ?: contentGroup?.contents)
+        val items = (contentLevels?.last()?.children ?: contentGroup?.contents)
             ?.sortedByDescending { it.size }
             ?.map { content ->
                 ContentItemVH.Item(
+                    parent = contentLevels?.last(),
                     content = content,
                     onItemClicked = {
-                        if (content.size == null) {
-                            log(TAG) { "No details available for $content" }
-                            return@Item
+                        when (content.type) {
+                            FileType.FILE -> {
+                                // TODO File handling
+                            }
+
+                            else -> {
+                                if (content.size == null) {
+                                    log(TAG) { "No details available for $content" }
+                                    return@Item
+                                }
+                                subContentLevel.value = (subContentLevel.value ?: emptyList()).plus(content)
+                            }
                         }
-                        subContentLevel.value = content
                     }
                 )
             }
@@ -83,6 +97,14 @@ class ContentFragmentVM @Inject constructor(
             progress = progress,
         )
     }.asLiveData2()
+
+    fun onNavigateBack() {
+        log(TAG) { "onNavigateBack()" }
+
+        subContentLevel.value?.let { cur ->
+            subContentLevel.value = cur.dropLast(1).takeIf { it.isNotEmpty() }
+        } ?: run { popNavStack() }
+    }
 
     data class State(
         val title: CaString?,

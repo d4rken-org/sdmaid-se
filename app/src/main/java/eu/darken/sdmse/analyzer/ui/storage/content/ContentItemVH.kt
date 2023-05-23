@@ -33,7 +33,11 @@ class ContentItemVH(parent: ViewGroup) :
             }
         )
 
-        primary.text = content.label.get(context)
+        primary.text = if (item.parent != null) {
+            content.path.segments.drop(item.parent.path.segments.size).single()
+        } else {
+            content.label.get(context)
+        }
         secondary.text = content.size
             ?.let { Formatter.formatShortFileSize(context, it) }
             ?: getString(R.string.analyzer_content_access_opaque)
@@ -42,6 +46,7 @@ class ContentItemVH(parent: ViewGroup) :
     }
 
     data class Item(
+        val parent: ContentItem?,
         val content: ContentItem,
         val onItemClicked: (Item) -> Unit,
     ) : ContentAdapter.Item {

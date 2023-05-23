@@ -147,15 +147,17 @@ class StorageScanner @Inject constructor(
         val dataDirBase = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
             useRoot -> null
-            else -> pkg.packageInfo.applicationInfo.dataDir
-                ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+            else -> pkg.packageInfo.applicationInfo.dataDir?.let {
+                ContentItem.fromInaccessible(LocalPath.build(it))
+            }
         }
 
         val dataDirDe = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
             useRoot -> null
-            else -> pkg.packageInfo.applicationInfo.deviceProtectedDataDir
-                ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+            else -> pkg.packageInfo.applicationInfo.deviceProtectedDataDir?.let {
+                ContentItem.fromInaccessible(LocalPath.build(it))
+            }
         }
 
         val publicPath = storageManager2.volumes
@@ -247,14 +249,13 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForMedia(storage: DeviceStorage): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
-        val topLevelContents = topLevelDirs
-            .map { ownerInfo ->
-                val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
-                val children = lookup.walk(gatewaySwitch)
-                    .map { ContentItem.fromLookup(it) }
-                    .toList().toNesting()
-                ContentItem.fromLookup(lookup, children)
-            }
+        val topLevelContents = topLevelDirs.map { ownerInfo ->
+            val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
+            val children = lookup.walk(gatewaySwitch)
+                .map { ContentItem.fromLookup(it) }
+                .toList().toNesting()
+            ContentItem.fromLookup(lookup, children)
+        }
 
         val group = MediaContentGroup(
             label = R.string.analyzer_storage_content_type_media_label.toCaString(),
@@ -273,6 +274,7 @@ class StorageScanner @Inject constructor(
         mediaCategory: MediaCategory
     ): SystemCategory {
         log(TAG) { "scanForSystem($storage)" }
+
         if (storage.type != DeviceStorage.Type.PRIMARY) {
             log(TAG) { "Not a primary storage: $storage" }
             return SystemCategory(storageId = storage.id, spaceUsed = 0)

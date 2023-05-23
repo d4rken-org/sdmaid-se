@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -21,9 +22,21 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
     override val vm: ContentFragmentVM by viewModels()
     override val ui: AnalyzerContentFragmentBinding by viewBinding()
 
+    private val onBackPressedcallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            vm.onNavigateBack()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressedcallback)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            setNavigationOnClickListener { vm.onNavigateBack() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> false
