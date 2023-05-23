@@ -8,13 +8,12 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
+import java.io.IOException
 import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
-    private val storageEnvironment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val storageStatsmanager: StorageStatsManager,
 ) {
@@ -39,8 +38,7 @@ class DeviceStorageScanner @Inject constructor(
 
         log(TAG) { "Primary: $primaryDevice" }
 
-        val volumes = storageManager2.volumes ?: emptySet()
-        val secondaryDevices: Set<DeviceStorage> = volumes
+        val secondaryDevices: Set<DeviceStorage> = (storageManager2.volumes ?: emptySet())
             .filter { it.isPrimary == false && it.fsUuid != null && it.isMounted }
             .mapNotNull { volume ->
                 var volumeId: UUID? = try {
@@ -64,18 +62,29 @@ class DeviceStorageScanner @Inject constructor(
                     return@mapNotNull null
                 }
 
-                val id = DeviceStorage.Id(
-                    internalId = volume.fsUuid,
-                    externalId = volumeId,
-                )
+                val id = DeviceStorage.Id(internalId = volume.fsUuid, externalId = volumeId)
+
+                val totalBytes = try {
+                    // Secondary storage isn't available in on all APIs, (e.g. not on a Redmi 7A @ Android 9)
+                    storageStatsmanager.getTotalBytes(id.externalId)
+                } catch (e: IOException) {
+                    log(TAG, WARN) { "Failed to get total bytes for $id" }
+                    volume.path?.totalSpace ?: 0L
+                }
+                val freeBytes = try {
+                    storageStatsmanager.getFreeBytes(id.externalId)
+                } catch (e: IOException) {
+                    log(TAG, WARN) { "Failed to get free bytes for $id" }
+                    volume.path?.totalSpace ?: 0L
+                }
 
                 DeviceStorage(
                     id = id,
                     label = R.string.analyzer_storage_type_secondary_title.toCaString(),
                     type = DeviceStorage.Type.SECONDARY,
                     hardware = DeviceStorage.Hardware.SDCARD,
-                    spaceCapacity = storageStatsmanager.getTotalBytes(id.externalId),
-                    spaceFree = storageStatsmanager.getFreeBytes(id.externalId),
+                    spaceCapacity = totalBytes,
+                    spaceFree = freeBytes,
                 )
             }
             .toSet()
