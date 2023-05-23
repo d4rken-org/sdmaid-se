@@ -348,7 +348,7 @@
     <string name="analyzer_space_used">%s used</string>
     <string name="analyzer_content_access_opaque">No direct access</string>
     <string name="analyzer_storage_type_primary_title">Primary storage</string>
-    <string name="analyzer_storage_type_primary_description">The primary storage of your device. Contains your internal "sdcard", private storage for apps and system data.</string>
+    <string name="analyzer_storage_type_primary_description">The primary storage of your device. Contains the internal "sdcard", private storage for apps and system data.</string>
     <string name="analyzer_storage_type_secondary_title">Secondary storage</string>
     <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable sdcard. Contains media files and data from apps that support it.</string>
     <string name="analyzer_storage_content_title">Storage content</string>
