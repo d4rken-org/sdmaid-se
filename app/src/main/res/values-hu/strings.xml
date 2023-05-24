@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_click_hint">Egyes bejegyzésekre kattintva további részletek tekinthetőek meg.</string>
-    <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközökben?</string>
+    <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
-    <string name="dashboard_settings_oneclick_title">Egykattintásos mód ☝</string>
-    <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül. 😉</string>
-    <string name="debug_debuglog_size_label">Méret 🤌</string>
-    <string name="debug_debuglog_size_compressed_label">Tömörített méret 👌</string>
-    <string name="debug_notification_channel_label">Hibakeresési értesítések 🤨</string>
-    <string name="debug_debuglog_file_label">Rögzített naplófájl 😏</string>
-    <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése 😀</string>
-    <string name="debug_debuglog_sensitive_information_message">A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg. 🤭</string>
-    <string name="settings_debuglog_explanation">Ez a funkció megosztható fájlba rögzíti mindazt, amit az alkalmazás csinál. A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg (pl. egy fejlesztővel, aki egy probléma megoldását végzi). 😆</string>
-    <string name="tasks_activity_notification_channel_label">Aktív feladatok 🙄</string>
-    <string name="tasks_activity_working_notification_title">Az SD Maid működik 👍</string>
+    <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
+    <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
+    <string name="debug_debuglog_size_label">Méret</string>
+    <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
+    <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
+    <string name="debug_debuglog_file_label">Rögzített naplófájl</string>
+    <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>
+    <string name="debug_debuglog_sensitive_information_message">A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg.</string>
+    <string name="settings_debuglog_explanation">Ez a funkció megosztható fájlba rögzíti mindazt, amit az alkalmazás csinál. A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg (pl. egy fejlesztővel, aki egy probléma megoldását végzi).</string>
+    <string name="tasks_activity_notification_channel_label">Aktív feladatok</string>
+    <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">%d aktív feladat 😊</item>
+        <item quantity="one">%d aktív feladat</item>
         <item quantity="other">%d aktív feladatok 😁</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d feladat a sorban 😇</item>
+        <item quantity="one">%d feladat a sorban</item>
         <item quantity="other">%d feladatok a sorban</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">A feladat eredményei</string>

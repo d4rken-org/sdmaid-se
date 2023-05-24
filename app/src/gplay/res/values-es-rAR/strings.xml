@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Requiere SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ofrece mejores resultados, más características y opciones para usuarios avanzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Mejorar</string>
+    <string name="upgrades_gplay_unavailable_error">Los Servicios de Google Play no están disponibles.</string>
+    <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
+    <string name="upgrade_screen_title">Obtené SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por vos.</string>
     <string name="upgrade_screen_benefits_title">Ventajas</string>
     <string name="upgrade_screen_how_title">Opciones</string>
+    <string name="upgrade_screen_how_body">Tenés 2 opciones: una compra única o una suscripción anual más barata. La suscripción tiene una prueba gratuita. Las características que tienes son las mismas, solo los métodos de pago son diferentes.</string>
+    <string name="upgrade_screen_subscription_trial_action">Empezá la prueba gratuita</string>
     <string name="upgrade_screen_subscription_action">Suscríbete</string>
+    <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s al año.</string>
+    <string name="upgrade_screen_iap_action">Compra única</string>
+    <string name="upgrade_screen_iap_action_hint">La compra única cuesta %s.</string>
+    <string name="upgrade_screen_thanks_toast">¡Sos el mejor! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">¡Juntos, lo hicimos al primer release! ¡Gracias por ayudarme a testear! El desarrollo, por supuesto, continuará, pero ahora podés cambiarte a builds no betas. Hacé esto descargando la versión estable más reciente.</string>
+    <string name="nudge_betagoodbye_positive_action">Date de baja</string>
     <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
 </resources>

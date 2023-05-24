@@ -38,6 +38,8 @@
     <string name="general_tap_hint_msg">Tapoter pour plus d\'options</string>
     <string name="general_upgrade_action">Mise à niveau</string>
     <string name="general_donate_action">Faire un don</string>
+    <string name="general_check_action">Vérifier</string>
+    <string name="general_filter_action">Filtrer</string>
     <string name="general_internal_not_available_msg">Connexion internet non disponible</string>
     <string name="general_refresh_action">Rafraîchir</string>
     <string name="general_progress_searching">En cours de recherche</string>
@@ -53,9 +55,10 @@
     <string name="general_progress_loading_egg_2">Bientôt™</string>
     <string name="general_progress_loading_egg_3">Le CPU est en pause café</string>
     <string name="general_progress_loading_egg_4">En attente des données de Pepe Silvia</string>
-    <string name="general_progress_loading_egg_5">Initiation du turbo-encabulateur</string>
+    <string name="general_progress_loading_egg_5">Initialisation du turbo-encabulateur</string>
     <string name="general_progress_loading_egg_6">Passe le beurre</string>
     <string name="general_progress_loading_egg_7">Voilà. Vous tenez le coup ?</string>
+    <string name="general_progress_loading_egg_8">Ça sent 💩 ici</string>
     <string name="general_help_action">Aide</string>
     <string name="general_continue">Continuer</string>
     <string name="general_progress_queued">En attente</string>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_0">喜んでお手伝いします。</string>
+    <string name="slogan_message_1">完璧に綺麗になりました</string>
+    <string name="slogan_message_2">ごちゃごちゃを防ぐ。</string>
+    <string name="slogan_message_3">必要なことをする。</string>
+    <string name="slogan_message_4">あなたのために準備をしています</string>
+    <string name="slogan_message_5">潔白</string>
     <string name="general_thank_you_label">ありがとうごさいます</string>
+    <string name="general_error_type_mismatch_msg">タイプ不一致: %1$sを期待しましたが、 %2$s が得られました。</string>
     <string name="general_error_cant_access_msg">%sにアクセスできません。</string>
     <string name="general_error_root_unavailable">Rootアクセスは利用できません。</string>
     <string name="general_error_empty_result_msg">結果はありません。</string>
@@ -18,9 +25,11 @@
     <string name="general_gotit_action">わかりました。</string>
     <string name="general_edit_action">編集</string>
     <string name="general_create_account_action">アカウントを作成</string>
+    <string name="general_link_existing_action">既存のアカウントとリンク</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空</string>
     <string name="general_dismiss_action">解散</string>
+    <string name="general_maybe_later_action">また後で</string>
     <string name="general_manage_action">管理</string>
     <string name="general_sync_action">同期</string>
     <string name="general_error_label">エラー</string>
@@ -34,6 +43,7 @@
     <string name="general_internal_not_available_msg">インターネットに接続されていません</string>
     <string name="general_refresh_action">再読み込み</string>
     <string name="general_progress_searching">検索中です</string>
+    <string name="general_progress_generating_searchpaths">検索パスの生成</string>
     <string name="general_progress_filtering">フィルタリング</string>
     <string name="general_progress_preparing">準備中</string>
     <string name="general_progress_processing_x"> %sを実行中</string>
@@ -41,8 +51,10 @@
     <string name="general_progress_loading_app_data">アプリデータを読み込み中</string>
     <string name="general_progress_loading_data_areas">データエリアを読み込み中</string>
     <string name="general_progress_loading_egg_0">Iphoneよりさらに早い</string>
+    <string name="general_progress_loading_egg_1">更なるRAMをダウンロードしています。</string>
     <string name="general_progress_loading_egg_2">Soon™</string>
     <string name="general_progress_loading_egg_3">CPUはコーヒー休憩中です</string>
+    <string name="general_progress_loading_egg_4">Pepe Silviaからのデータを待っています</string>
     <string name="general_progress_loading_egg_5">ターボエンキャブレターが起動中です</string>
     <string name="general_progress_loading_egg_6">バターを渡す</string>
     <string name="general_progress_loading_egg_7">あの...調子はどうですか?</string>

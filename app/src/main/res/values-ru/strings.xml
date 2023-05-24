@@ -377,5 +377,5 @@
     <string name="translation_encourage_title">Перевод SD Maid</string>
     <string name="translation_encourage_body">SD Maid переводится добровольцами. Перевод, рецензирование или корректура - Ваша помощь будет оценена по достоинству!</string>
     <string name="translation_translators_title">Перевод этой версии выполнен</string>
-    <string name="translation_translators_people">gaich;user334;notmerennor</string>
+    <string name="translation_translators_people">\"Gaich;User334()\"</string>
 </resources>
