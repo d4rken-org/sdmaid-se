@@ -38,7 +38,8 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                         }.show()
                         true
                     }
-                    else -> super.onOptionsItemSelected(it)
+
+                    else -> false
                 }
             }
         }

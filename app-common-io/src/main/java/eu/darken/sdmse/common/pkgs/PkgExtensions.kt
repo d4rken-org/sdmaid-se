@@ -19,3 +19,6 @@ val Pkg.isEnabled: Boolean
 
 val Pkg.isSystemApp: Boolean
     get() = (this !is ExtendedInstallData) || this.isSystemApp
+
+val Pkg.isUpdatedSystemApp: Boolean
+    get() = (this !is ExtendedInstallData) || this.isUpdatedSystemApp

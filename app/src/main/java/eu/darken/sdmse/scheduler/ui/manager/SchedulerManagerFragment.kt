@@ -32,7 +32,8 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
                         webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Scheduler")
                         true
                     }
-                    else -> super.onOptionsItemSelected(it)
+
+                    else -> false
                 }
             }
         }

@@ -43,7 +43,8 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
                         }.show()
                         true
                     }
-                    else -> super.onOptionsItemSelected(it)
+
+                    else -> false
                 }
             }
         }

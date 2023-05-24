@@ -10,4 +10,5 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
         SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
+        SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
     }
