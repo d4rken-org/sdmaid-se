@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.walk
+import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel
@@ -33,12 +34,17 @@ import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
@@ -54,7 +60,17 @@ class StorageScanner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val safMapper: SAFMapper,
-) {
+) : Progress.Host, Progress.Client {
+
+    private val progressPub = MutableStateFlow<Progress.Data?>(
+        Progress.DEFAULT_STATE.copy(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
+    )
+
+    override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
+
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.value = update(progressPub.value)
+    }
 
     private val topLevelDirs = mutableSetOf<OwnerInfo>()
 
@@ -63,6 +79,9 @@ class StorageScanner @Inject constructor(
 
     suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
         log(TAG) { "scan($storage)" }
+
+        updateProgressPrimary(storage.label)
+        updateProgressSecondary("Getting a storage overview...")
 
         useRoot = false // TODO: rootManager.useRoot()
         currentUser = userManager2.currentUser().handle
@@ -85,8 +104,10 @@ class StorageScanner @Inject constructor(
 
                 val apps = scanForApps(storage)
 
+                updateProgressSecondary("Scanning media files")
                 val media = scanForMedia(storage)
 
+                updateProgressSecondary("Scanning system data")
                 val system = scanForSystem(storage, apps, media)
 
                 log(TAG) { "Apps: ${apps.spaceUsed}" }
@@ -100,11 +121,15 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory {
         log(TAG) { "scanForApps($storage)" }
+        updateProgressPrimary(R.string.analyzer_progress_scanning_apps)
 
         val pkgStats = pkgRepo.currentPkgs()
             .filter { it.packageName != "android" }
             .filter { it.packageInfo.applicationInfo != null }
-            .associate { it.installId to processPkg(storage, it) }
+            .associate {
+                updateProgressSecondary(it.label ?: it.packageName.toCaString())
+                it.installId to processPkg(storage, it)
+            }
 
         return AppCategory(
             storageId = storage.id,
@@ -249,7 +274,11 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForMedia(storage: DeviceStorage): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
+        updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
+
         val topLevelContents = topLevelDirs.map { ownerInfo ->
+            updateProgressPrimary(ownerInfo.areaInfo.file.userReadablePath)
+
             val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
             val children = lookup.walk(gatewaySwitch)
                 .map { ContentItem.fromLookup(it) }
@@ -274,6 +303,8 @@ class StorageScanner @Inject constructor(
         mediaCategory: MediaCategory
     ): SystemCategory {
         log(TAG) { "scanForSystem($storage)" }
+        updateProgressPrimary(R.string.analyzer_progress_scanning_system)
+        updateProgressSecondary(Progress.DEFAULT_STATE.secondary)
 
         if (storage.type != DeviceStorage.Type.PRIMARY) {
             log(TAG) { "Not a primary storage: $storage" }

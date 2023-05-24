@@ -97,7 +97,7 @@ class Analyzer @Inject constructor(
         storageCategories.value = emptyMap()
 
         val scanner = deviceScanner.get()
-        val storages = scanner.scan()
+        val storages = scanner.withProgress(this) { scan() }
 
         storageDevices.value = storages
 
@@ -109,7 +109,7 @@ class Analyzer @Inject constructor(
         val target = storageDevices.value.single { it.id == task.target }
 
         val scanner = storageScanner.get()
-        val categories = scanner.scan(target)
+        val categories = scanner.withProgress(this) { scan(target) }
 
         storageCategories.value = storageCategories.value.mutate {
             this[target.id] = categories

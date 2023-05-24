@@ -9,8 +9,14 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
 import javax.inject.Inject
 
@@ -18,11 +24,25 @@ class DeviceStorageScanner @Inject constructor(
     private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val storageStatsmanager: StorageStatsManager,
-) {
+) : Progress.Host, Progress.Client {
+
+    private val progressPub = MutableStateFlow<Progress.Data?>(
+        Progress.DEFAULT_STATE.copy(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
+    )
+
+    override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
+
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.value = update(progressPub.value)
+    }
+
     suspend fun scan(): Set<DeviceStorage> {
         log(TAG) { "Scanning..." }
 
+        updateProgressPrimary(R.string.analyzer_progress_scanning_device)
+
         val primaryDevice = run {
+            updateProgressSecondary(R.string.analyzer_storage_type_primary_title)
             val id = DeviceStorage.Id(
                 internalId = null,
                 externalId = StorageManager.UUID_DEFAULT,
@@ -56,10 +76,15 @@ class DeviceStorageScanner @Inject constructor(
         }
 
         log(TAG) { "Primary: $primaryDevice" }
+        updateProgressSecondary(R.string.analyzer_storage_type_secondary_title)
 
         val secondaryDevices: Set<DeviceStorage> = (storageManager2.volumes ?: emptySet())
             .filter { it.isPrimary == false && it.fsUuid != null && it.isMounted }
             .mapNotNull { volume ->
+                updateProgressSecondary(
+                    volume.path?.path?.toCaString() ?: R.string.analyzer_storage_type_secondary_title.toCaString()
+                )
+
                 var volumeId: UUID? = try {
                     UUID.fromString(volume.fsUuid)
                 } catch (e: IllegalArgumentException) {
