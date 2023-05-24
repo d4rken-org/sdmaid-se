@@ -20,7 +20,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.*
-import timber.log.Timber
 import java.io.File
 import java.io.IOException
 import java.time.Instant
@@ -93,7 +92,7 @@ class LocalGateway @Inject constructor(
 
             throw IOException("No matching mode available.")
         } catch (e: IOException) {
-            Timber.tag(TAG).w("createDir(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "createDir(path=$path, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -143,7 +142,7 @@ class LocalGateway @Inject constructor(
 
             throw IOException("No matching mode available.")
         } catch (e: IOException) {
-            Timber.tag(TAG).w("createFile(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "createFile(path=$path, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -320,7 +319,7 @@ class LocalGateway @Inject constructor(
                 else -> false
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("canWrite(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "canWrite(path=$path, mode$mode) failed." }
             throw ReadException(path, cause = e)
         }
     }
@@ -350,7 +349,7 @@ class LocalGateway @Inject constructor(
             }
 
         } catch (e: IOException) {
-            Timber.tag(TAG).w("canRead(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "canRead(path=$path, mode=$mode) failed." }
             throw ReadException(path, cause = e)
         }
     }
@@ -383,7 +382,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("read(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "read(path=$path, mode=$mode) failed." }
             throw ReadException(path, cause = e)
         }
     }
@@ -417,7 +416,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("write(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "write(path=$path, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -482,7 +481,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("delete(path=%s, mode=%s) failed.", path, mode)
+            log(TAG, WARN) { "delete(path=$path, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -513,7 +512,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("createSymlink(linkPath=%s, targetPath=%s, mode=%s) failed.", linkPath, targetPath, mode)
+            log(TAG, WARN) { "createSymlink(linkPath=$linkPath, targetPath=$targetPath, mode=$mode) failed." }
             throw WriteException(linkPath, cause = e)
         }
     }
@@ -546,7 +545,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("setModifiedAt(path=%s, modifiedAt=%s, mode=%s) failed.", path, modifiedAt, mode)
+            log(TAG, WARN) { "setModifiedAt(path=$path, modifiedAt=$modifiedAt, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -575,7 +574,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("setPermissions(path=%s, permissions=%s, mode=%s) failed.", path, permissions, mode)
+            log(TAG, WARN) { "setPermissions(path=$path, permissions=${permissions}, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }
@@ -607,7 +606,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            Timber.tag(TAG).w("setOwnership(path=%s, ownership=%s, mode=%s) failed.", path, ownership, mode)
+            log(TAG, WARN) { "setOwnership(path=$path, ownership=$ownership, mode=$mode) failed." }
             throw WriteException(path, cause = e)
         }
     }

@@ -3,8 +3,10 @@ package eu.darken.sdmse.common.storage
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.os.Build
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import timber.log.Timber
 import java.io.File
 import java.lang.reflect.Method
 
@@ -19,7 +21,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getDisk")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "volumeInfoClass.getMethod(\"getDisk\")")
+            log(TAG, WARN) { "volumeInfoClass.getMethod(\"getDisk\"): ${e.asLog()}" }
             null
         }
     }
@@ -27,7 +29,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetDisk?.invoke(mVolumeInfoObject)?.let { DiskInfoX(it) }
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.disk reflection failed")
+            log(TAG, WARN) { "VolumeInfo.disk reflection failed" }
             null
         }
 
@@ -50,7 +52,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getType")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "volumeInfoClass.getMethod(\"getType\")")
+            log(TAG, WARN) { "volumeInfoClass.getMethod(\"getType\"): ${e.asLog()}" }
             null
         }
     }
@@ -58,7 +60,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetType?.invoke(mVolumeInfoObject) as? Int
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.type reflection failed")
+            log(TAG, WARN) { "VolumeInfo.type reflection failed" }
             null
         }
 
@@ -66,7 +68,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getState")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "volumeInfoClass.getMethod(\"getState\")")
+            log(TAG, WARN) { "volumeInfoClass.getMethod(\"getState\"): ${e.asLog()}" }
             null
         }
     }
@@ -74,7 +76,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetState?.invoke(mVolumeInfoObject) as? Int
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.state reflection failed")
+            log(TAG, WARN) { "VolumeInfo.state reflection failed" }
             null
         }
 
@@ -82,7 +84,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getId")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "volumeInfoClass.getMethod(\"getId\")")
+            log(TAG, WARN) { "volumeInfoClass.getMethod(\"getId\"): ${e.asLog()}" }
             null
         }
     }
@@ -90,7 +92,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetId?.invoke(mVolumeInfoObject) as? String
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.id reflection failed")
+            log(TAG, WARN) { "VolumeInfo.id reflection failed" }
             null
         }
 
@@ -98,7 +100,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("isPrimary")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "Reflection failed: volumeInfoClass.getMethod(\"isPrimary\")")
+            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"isPrimary\"): ${e.asLog()}" }
             null
         }
     }
@@ -106,7 +108,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodIsPrimary?.invoke(mVolumeInfoObject) as? Boolean
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.isPrimary reflection failed")
+            log(TAG, WARN) { "VolumeInfo.isPrimary reflection failed" }
             null
         }
 
@@ -114,7 +116,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getFsUuid")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "Reflection failed: volumeInfoClass.getMethod(\"getId\")")
+            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"getId\"): ${e.asLog()}" }
             null
         }
     }
@@ -122,7 +124,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetFsUuid?.invoke(mVolumeInfoObject) as? String?
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.fsUuid reflection failed")
+            log(TAG, WARN) { "VolumeInfo.fsUuid reflection failed" }
             null
         }
 
@@ -130,7 +132,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getPath")
         } catch (e: Exception) {
-            Timber.tag(TAG).w(e, "Reflection failed: volumeInfoClass.getMethod(\"getPath\")")
+            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"getPath\"): ${e.asLog()}" }
             null
         }
     }
@@ -138,7 +140,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetPath?.invoke(mVolumeInfoObject) as? File?
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.path reflection failed")
+            log(TAG, WARN) { "VolumeInfo.path reflection failed" }
             null
         }
 
@@ -147,7 +149,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
             volumeInfoClass.getMethod("getDescription")
         } catch (e: Exception) {
             // https://github.com/d4rken/sdmaid-public/issues/1678
-            Timber.tag(TAG).w(e, "Reflection failed: volumeInfoClass.getMethod(\"getDescription\")")
+            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"getDescription\"): ${e.asLog()}" }
             null
         }
     }
@@ -155,7 +157,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         get() = try {
             methodGetDescription?.invoke(mVolumeInfoObject) as? String?
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.description reflection failed")
+            log(TAG, WARN) { "VolumeInfo.description reflection failed" }
             null
         }
 
@@ -164,8 +166,9 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
             volumeInfoClass.getMethod("getPathForUser", Int::class.javaPrimitiveType)
         } catch (e: Exception) {
             // https://github.com/d4rken/sdmaid-public/issues/1678
-            Timber.tag(TAG)
-                .w(e, "Reflection failed:  volumeInfoClass.getMethod(\"getPathForUser\", Int::class.javaPrimitiveType)")
+            log(TAG, WARN) {
+                "Reflection failed:  volumeInfoClass.getMethod(\"getPathForUser\", Int::class.javaPrimitiveType): ${e.asLog()}"
+            }
             null
         }
     }
@@ -173,7 +176,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
     fun getPathForUser(userId: Int): File? = try {
         methodGetPathForUser?.invoke(mVolumeInfoObject, userId) as? File?
     } catch (e: ReflectiveOperationException) {
-        Timber.w("VolumeInfo.getPathForUser($userId) reflection failed")
+        log(TAG, WARN) { "VolumeInfo.getPathForUser($userId) reflection failed" }
         null
     }
 
@@ -209,7 +212,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
                 volumeInfoClass.getMethod("getEnvironmentForState", Int::class.javaPrimitiveType)
             methodGetEnvironmentForState.invoke(null, state) as String?
         } catch (e: ReflectiveOperationException) {
-            Timber.w("VolumeInfo.getEnvironmentForState reflection failed")
+            log(TAG, WARN) { "VolumeInfo.getEnvironmentForState reflection failed" }
             null
         }
     }

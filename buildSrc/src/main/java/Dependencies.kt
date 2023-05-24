@@ -85,9 +85,6 @@ fun DependencyHandlerScope.addAndroidCore() {
 
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-
-    // TODO refactor away
-    implementation("com.jakewharton.timber:timber:+")
 }
 
 fun DependencyHandlerScope.addWorkerManager() {

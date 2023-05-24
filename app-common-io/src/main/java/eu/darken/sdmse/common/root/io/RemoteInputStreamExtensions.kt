@@ -2,9 +2,11 @@ package eu.darken.sdmse.common.root.io
 
 
 import android.os.RemoteException
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import okio.Source
 import okio.source
-import timber.log.Timber
 import java.io.IOException
 import java.io.InputStream
 
@@ -32,21 +34,21 @@ internal fun InputStream.remoteInputStream(): RemoteInputStream.Stub = object : 
     override fun available(): Int = try {
         this@remoteInputStream.available()
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "available() failed: ${e.asLog()}" }
         -2
     }
 
     override fun read(): Int = try {
         this@remoteInputStream.read()
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "read() failed: ${e.asLog()}" }
         -2
     }
 
     override fun readBuffer(b: ByteArray, off: Int, len: Int): Int = try {
         this@remoteInputStream.read(b, off, len)
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "readBuffer() failed: ${e.asLog()}" }
         -2
     }
 

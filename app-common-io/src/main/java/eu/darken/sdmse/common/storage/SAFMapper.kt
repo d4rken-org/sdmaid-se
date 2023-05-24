@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.files.saf.SAFGateway
 import eu.darken.sdmse.common.files.saf.SAFPath
-import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
@@ -80,7 +79,7 @@ class SAFMapper @Inject constructor(
         log(TAG, VERBOSE) { "takePermission(path=$uri)" }
 
         if (hasPermission(uri)) {
-            Timber.tag(TAG).d("Already have permission for %s", uri)
+            log(TAG) { "Already have permission for $uri" }
             return
         }
 
@@ -89,11 +88,11 @@ class SAFMapper @Inject constructor(
         try {
             contentResolver.takePersistableUriPermission(uri, SAFGateway.RW_FLAGSINT)
         } catch (e: SecurityException) {
-            Timber.tag(TAG).e(e, "Failed to take permission")
+            log(TAG, ERROR) { "Failed to take permission ${e.asLog()}" }
             try {
                 contentResolver.releasePersistableUriPermission(uri, SAFGateway.RW_FLAGSINT)
             } catch (e2: SecurityException) {
-                Timber.tag(TAG).e(e2, "Error while releasing during error...")
+                log(TAG, ERROR) { "Error while releasing during error... ${e2.asLog()}" }
             }
             throw e
         }

@@ -9,7 +9,6 @@ import java.io.OutputStreamWriter
 import java.time.Instant
 
 
-@SuppressLint("LogNotTimber")
 class FileLogger(private val logFile: File) : Logging.Logger {
     private var logWriter: OutputStreamWriter? = null
 
