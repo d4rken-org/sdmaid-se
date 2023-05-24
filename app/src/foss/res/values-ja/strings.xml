@@ -6,7 +6,7 @@
     <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
     <string name="upgrades_dashcard_body">開発を続けるためパトロンになって追加機能を解除してください</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
-    <string name="upgrade_screen_title">SD Maidを更新中</string>
+    <string name="upgrade_screen_title">SD Maidをより良くする</string>
     <string name="upgrade_screen_preamble">SD Maidには広告がなく、ユーザーデータを販売することもありません。継続的な開発は、あなたのおかげで成り立っているのです。</string>
     <string name="upgrade_screen_how_title">支援する方法</string>
     <string name="upgrade_screen_how_body">パトロンになり、開発のスポンサーになりませんか？ 下のボタンをクリックすると、すべての追加機能が有効になり、Github Sponsorsプロフィールが表示されます。</string>
@@ -16,7 +16,7 @@
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">一緒になって、初公開までこぎつけました！テストにご協力いただき、ありがとうございました！もちろん開発は継続されますが、ベータ版以外のビルドに切り替えることができるようになりました。そのためには、最新の安定版リリースをダウンロードしてください。</string>
+    <string name="nudge_betagoodbye_body">一緒になって、初公開までこぎつけました！テストにご協力いただき、ありがとうございました！もちろん開発は継続されますが、ベータ版以外のビルドに切り替えられるようになりました。そのためには、最新の安定版リリースをダウンロードしてください。</string>
     <string name="nudge_betagoodbye_hint">メモ: テスト中につけられた評価は私だけが見ることができますので、もしよろしければSDメイドに公開評価をしていただければ幸いです。</string>
     <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
     <string name="nudge_betagoodbye_negative_action">テスト中</string>

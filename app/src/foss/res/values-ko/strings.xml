@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro 필요</string>
+    <string name="upgrades_dashcard_title">SD Maid 업그레이드</string>
+    <string name="upgrades_dashcard_body">후원자가 되어 앱 개발을 지원하고 추가 기능을 잠금해제 하세요!</string>
+    <string name="upgrades_dashcard_upgrade_action">업그레이드</string>
+    <string name="upgrade_screen_title">SD Maid 개선</string>
+    <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 사용자 데이터를 팔지 않습니다. 당신이 계속된 개발을 가능하게 합니다.</string>
+    <string name="upgrade_screen_how_title">도움 주기</string>
+    <string name="upgrade_screen_how_body">후원자가 되어 개발을 지원하세요! 아래 버튼을 눌러 Github Sponsors 프로필을 열고 추가 기능을 잠금해제하세요.</string>
+    <string name="upgrade_screen_why_title">추가 기능 🪄</string>
+    <string name="upgrade_screen_why_body">• 앱 청소기 삭제 기능 💯\n• 작동 예약 ⏰\n• 모든 도구에서의 추가 설정 ⚙️\n• 사용자 지정 삭제 규칙 ✍️\n• 행복한 개발자 🧙\n 외 다수...</string>
+    <string name="upgrade_screen_sponsor_action">개발 후원하기</string>
+    <string name="upgrade_screen_sponsor_action_hint">다른 방식은 광고, 데이터 수집, 그리고 플레이 스토어입니다 🙁</string>
+    <string name="upgrade_screen_thanks_toast">오픈소스 개발을 지원해주셔서 감사합니다 ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">함께 정식 출시까지 왔네요! 테스트하는 것을 도와주셔서 감사합니다. 개발은 물론 계속되지만, 이제 베타 프로그램을 나갈 수 있습니다. 최신 안정 빌드를 다운로드 받으면 됩니다.</string>
+    <string name="nudge_betagoodbye_hint">메모: 테스트 기간의 앱 별점은 저에게만 표시됩니다. 앱 사용을 즐기고 있다면 공개 별점을 주시면 감사하겠습니다.</string>
+    <string name="nudge_betagoodbye_positive_action">탈퇴</string>
+    <string name="nudge_betagoodbye_negative_action">계속하기</string>
+</resources>

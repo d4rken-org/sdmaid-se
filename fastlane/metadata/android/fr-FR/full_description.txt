@@ -7,7 +7,7 @@ Personne n'est parfait et Android non plus.
 
 Ne continuons pas comme cela... Laissez SD Maid SE vous aider :
 
-* Nettoye des applications déjà désinstallées
+* Nettoyer les données des applications déjà désinstallées
 * Trouve des caches d'applications cachées
 * Enlève les fichiers système superflus
 

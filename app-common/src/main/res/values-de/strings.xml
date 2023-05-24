@@ -35,13 +35,13 @@
     <string name="general_error_label">Fehler</string>
     <string name="general_select_server_label">Server auswählen</string>
     <string name="general_quota_label">Quote</string>
-    <string name="general_tap_hint_msg">Tippe für weitere Optionen</string>
+    <string name="general_tap_hint_msg">Tippen Sie für weitere Optionen</string>
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_donate_action">Spenden</string>
     <string name="general_check_action">Überprüfen</string>
     <string name="general_filter_action">Filter</string>
-    <string name="general_internal_not_available_msg">Keine Internetverbindung verfügbar</string>
-    <string name="general_refresh_action">Neu laden</string>
+    <string name="general_internal_not_available_msg">Internetverbindung nicht verfügbar</string>
+    <string name="general_refresh_action">Aktualisierung</string>
     <string name="general_progress_searching">Suchen</string>
     <string name="general_progress_generating_searchpaths">Suchpfade generieren</string>
     <string name="general_progress_filtering">Filtern</string>
