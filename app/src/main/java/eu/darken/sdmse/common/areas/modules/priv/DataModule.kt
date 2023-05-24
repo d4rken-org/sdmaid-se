@@ -8,8 +8,10 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -21,7 +23,6 @@ import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserManager2
-import timber.log.Timber
 import javax.inject.Inject
 
 @Reusable
@@ -74,7 +75,7 @@ class DataModule @Inject constructor(
                 }
                 ?.run { areas.addAll(this) }
         } catch (e: Exception) {
-            Timber.tag(TAG).e(e)
+            log(TAG, ERROR) { "Error accessing volumes: ${e.asLog()}" }
         }
 
         log(TAG, VERBOSE) { "firstPass(): $areas" }

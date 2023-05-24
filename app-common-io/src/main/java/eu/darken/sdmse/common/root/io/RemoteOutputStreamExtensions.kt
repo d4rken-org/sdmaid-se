@@ -2,9 +2,11 @@ package eu.darken.sdmse.common.root.io
 
 
 import android.os.RemoteException
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import okio.Sink
 import okio.sink
-import timber.log.Timber
 import java.io.IOException
 import java.io.OutputStream
 
@@ -16,19 +18,19 @@ internal fun OutputStream.toRemoteOutputStream(): RemoteOutputStream.Stub = obje
     override fun write(b: Int) = try {
         this@toRemoteOutputStream.write(b)
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "write() failed: ${e.asLog()}" }
     }
 
     override fun writeBuffer(b: ByteArray, off: Int, len: Int) = try {
         this@toRemoteOutputStream.write(b, off, len)
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "writeBuffer() failed: ${e.asLog()}" }
     }
 
     override fun flush() = try {
         this@toRemoteOutputStream.flush()
     } catch (e: IOException) {
-        Timber.e(e)
+        log(ERROR) { "flush() failed: ${e.asLog()}" }
     }
 
     override fun close() = try {

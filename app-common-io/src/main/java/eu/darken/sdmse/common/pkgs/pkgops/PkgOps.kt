@@ -9,6 +9,7 @@ import android.os.Process
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -31,7 +32,6 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.*
-import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -189,7 +189,7 @@ class PkgOps @Inject constructor(
         try {
             appInfo.loadIcon(packageManager)
         } catch (e: Exception) {
-            Timber.tag(TAG).d(e)
+            log(TAG) { "Failed to get icon ${e.asLog()}" }
             null
         }
     }

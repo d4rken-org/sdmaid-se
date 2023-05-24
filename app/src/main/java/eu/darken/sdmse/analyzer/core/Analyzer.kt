@@ -109,7 +109,13 @@ class Analyzer @Inject constructor(
         val target = storageDevices.value.single { it.id == task.target }
 
         val scanner = storageScanner.get()
+
+        val start = System.currentTimeMillis()
+
         val categories = scanner.withProgress(this) { scan(target) }
+
+        val stop = System.currentTimeMillis()
+        log(TAG) { "scanStorageContents() took ${stop - start}ms" }
 
         storageCategories.value = storageCategories.value.mutate {
             this[target.id] = categories

@@ -7,13 +7,14 @@ import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.crawler.*
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
-import timber.log.Timber
 import java.util.*
 
 interface AutomationStepGenerator {
@@ -29,13 +30,13 @@ interface AutomationStepGenerator {
         val identifier = appResources.getIdentifier(stringIdName, "string", pkgId.name).takeIf { it != 0 }
         identifier?.let { appResources.getString(it) }.also {
             if (it != null) {
-                Timber.d("Read %s:%s from settings APK: %s", pkgId.name, stringIdName, it)
+                log { "Read ${pkgId.name}:${stringIdName} from settings APK: $it" }
             } else {
-                Timber.w("Failed to read %s:%s from settings APK.", pkgId.name, stringIdName)
+                log(WARN) { "Failed to read ${pkgId.name}:${stringIdName} from settings APK." }
             }
         }
     } catch (e: Exception) {
-        Timber.e(e, "get3rdPartyString(%s, %s) failed", pkgId.name, stringIdName)
+        log(ERROR) { "get3rdPartyString(${pkgId.name}, $stringIdName) failed: ${e.asLog()}" }
         null
     }
 
@@ -58,26 +59,28 @@ interface AutomationStepGenerator {
 
         val success = CrawlerCommon.defaultClick(isDryRun = Bugs.isDryRun).invoke(node, retryCount)
         if (!success && !node.isEnabled) {
-            Timber.tag(tag).d("Can't click on the clear cache button because it was disabled, but why...")
+            log(tag) { "Can't click on the clear cache button because it was disabled, but why..." }
             try {
                 val allButtonsAreDisabled = node.getRoot(maxNesting = 4).crawl().map { it.node }.all {
                     !it.isClickyButton() || !it.isEnabled
                 }
                 if (allButtonsAreDisabled) {
                     // https://github.com/d4rken/sdmaid-public/issues/3121
-                    Timber.tag(tag)
-                        .w("Clear cache button was disabled, but so are others, assuming size calculation going on.")
-                    Timber.tag(tag).d("Sleeping for 1000ms to wait for calculation.")
+                    log(tag, WARN) {
+                        "Clear cache button was disabled, but so are others, assuming size calculation going on."
+                    }
+                    log(tag) { "Sleeping for 1000ms to wait for calculation." }
                     Thread.sleep((500 * retryCount).toLong())
                     false
                 } else {
                     // https://github.com/d4rken/sdmaid-public/issues/2517
-                    Timber.tag(tag)
-                        .w("Only the clear cache button was disabled, assuming stale information, counting as success.")
+                    log(tag, WARN) {
+                        "Only the clear cache button was disabled, assuming stale information, counting as success."
+                    }
                     true
                 }
             } catch (e: Exception) {
-                Timber.tag(tag).w("Error while trying to determine why the clear cache button is not enabled.")
+                log(tag, WARN) { "Error while trying to determine why the clear cache button is not enabled." }
                 false
             }
         } else {
@@ -88,7 +91,7 @@ interface AutomationStepGenerator {
     fun tryCollection(source: () -> Collection<String>): Set<String> = try {
         source.invoke().toSet()
     } catch (e: Exception) {
-        Timber.w(e, "Failed to source list.")
+        log(WARN) { "Failed to source list: ${e.asLog()}" }
         emptySet()
     }
 

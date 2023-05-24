@@ -34,7 +34,6 @@ abstract class RootHost(
     val isDebug: Boolean
         get() = options.isDebug
 
-    @SuppressLint("LogNotTimber")
     fun start() = try {
         Log.d(iTag, "start(): RootHost args=${_args}")
 

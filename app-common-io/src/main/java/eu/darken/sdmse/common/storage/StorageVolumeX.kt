@@ -11,12 +11,15 @@ import android.os.Parcelable
 import android.os.UserHandle
 import android.os.storage.StorageVolume
 import android.provider.DocumentsContract
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import kotlinx.parcelize.Parceler
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
-import timber.log.Timber
 import java.io.File
 import java.lang.reflect.Method
 
@@ -65,7 +68,7 @@ class StorageVolumeX constructor(
         try {
             volumeClass.getMethod("getPath")
         } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"getPath\")")
+            log(TAG) { "volumeClass.getMethod(\"getPath\")" }
             null
         }
     }
@@ -74,7 +77,7 @@ class StorageVolumeX constructor(
         get() = try {
             methodGetPath?.invoke(volumeObj) as? String
         } catch (e: ReflectiveOperationException) {
-            Timber.tag(TAG).d("StorageVolume.path reflection failed.")
+            log(TAG) { "StorageVolume.path reflection failed." }
             directory?.path
         }
 
@@ -82,7 +85,7 @@ class StorageVolumeX constructor(
         try {
             volumeClass.getMethod("getPathFile")
         } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"getPathFile\")")
+            log(TAG) { "volumeClass.getMethod(\"getPathFile\")" }
             null
         }
     }
@@ -91,7 +94,7 @@ class StorageVolumeX constructor(
         try {
             volumeClass.getMethod("getUserLabel")
         } catch (e: Exception) {
-            Timber.tag(TAG).d("volumeClass.getMethod(\"getUserLabel\")")
+            log(TAG) { "volumeClass.getMethod(\"getUserLabel\")" }
             null
         }
     }
@@ -100,7 +103,7 @@ class StorageVolumeX constructor(
         get() = try {
             methodGetUserLabel?.invoke(volumeObj) as? String
         } catch (e: ReflectiveOperationException) {
-            Timber.tag(TAG).d("StorageVolume.userLabel reflection failed.")
+            log(TAG) { "StorageVolume.userLabel reflection failed." }
             null
         }
 
@@ -108,7 +111,7 @@ class StorageVolumeX constructor(
         try {
             volumeClass.getMethod("getDescription", Context::class.java)
         } catch (e: Exception) {
-            Timber.tag(TAG).d(" volumeClass.getMethod(\"getDescription\", Context::class.java)")
+            log(TAG) { " volumeClass.getMethod(\"getDescription\", Context::class.java)" }
             null
         }
     }
@@ -120,11 +123,11 @@ class StorageVolumeX constructor(
             try {
                 methodGetDescription?.invoke(volumeObj, context) as? String
             } catch (e: Resources.NotFoundException) {
-                Timber.tag(TAG).e(e)
+                log(TAG, ERROR) { "Resource not found for description. ${e.asLog()}" }
                 null
             }
         } catch (e: ReflectiveOperationException) {
-            Timber.tag(TAG).d("StorageVolume.getDescription reflection failed.")
+            log(TAG) { "StorageVolume.getDescription reflection failed." }
             null
         }
     }
@@ -133,7 +136,7 @@ class StorageVolumeX constructor(
         try {
             volumeClass.getMethod("getOwner")
         } catch (e: Exception) {
-            Timber.tag(TAG).d(" volumeClass.getMethod(\"getDescription\", Context::class.java)")
+            log(TAG) { " volumeClass.getMethod(\"getDescription\", Context::class.java)" }
             null
         }
     }
@@ -142,10 +145,10 @@ class StorageVolumeX constructor(
         get() = try {
             methodGetOwner?.invoke(volumeObj) as? UserHandle
         } catch (e: NoSuchMethodException) {
-            if (!hasApiLevel(30)) Timber.tag(TAG).e("StorageVolumeX.getOwner() unavailable.")
+            if (!hasApiLevel(30)) log(TAG, ERROR) { "StorageVolumeX.getOwner() unavailable." }
             null
         } catch (e: Exception) {
-            Timber.tag(TAG).e(e, "StorageVolumeX.getOwner() threw an error.")
+            log(TAG, ERROR) { "StorageVolumeX.getOwner() threw an error: ${e.asLog()}" }
             null
         }
 
@@ -187,7 +190,7 @@ class StorageVolumeX constructor(
             try {
                 methodGetPathFile?.invoke(volumeObj) as? File
             } catch (e: ReflectiveOperationException) {
-                Timber.tag(TAG).d("StorageVolume.pathFile reflection failed.")
+                log(TAG) { "StorageVolume.pathFile reflection failed." }
                 null
             }
 
@@ -197,7 +200,7 @@ class StorageVolumeX constructor(
         val dumpMethod = volumeClass.getMethod("dump")
         dumpMethod.invoke(volumeObj) as String
     } catch (e: Exception) {
-        Timber.tag(TAG).v("dump() unavailable.")
+        log(TAG, VERBOSE) { "dump() unavailable." }
         this.toString()
     }
 

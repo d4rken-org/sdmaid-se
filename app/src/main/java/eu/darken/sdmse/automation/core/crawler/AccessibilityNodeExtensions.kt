@@ -2,12 +2,12 @@ package eu.darken.sdmse.automation.core.crawler
 
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
-import timber.log.Timber
 import java.util.concurrent.LinkedBlockingDeque
 
 fun AccessibilityNodeInfo.toStringShort() =
@@ -132,7 +132,7 @@ fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> =
 fun AccessibilityNodeInfo.scrollNode(): Boolean {
     if (!isScrollable) return false
 
-    Timber.tag(CrawlerCommon.TAG).v("Scrolling node: %s", toStringShort())
+    log(CrawlerCommon.TAG, VERBOSE) { "Scrolling node: ${toStringShort()}" }
     return performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
 }
 

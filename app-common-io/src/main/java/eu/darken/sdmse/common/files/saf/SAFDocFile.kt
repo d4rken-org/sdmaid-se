@@ -20,7 +20,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.useQuietly
-import timber.log.Timber
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -236,7 +235,7 @@ data class SAFDocFile(
                 }
             }
         } catch (e: Exception) {
-            Timber.tag(SAFGateway.TAG + ":SAFDocFile").w(e, "queryForLong(column=%s)", column)
+            log(SAFGateway.TAG + ":SAFDocFile", WARN) { "queryForLong(column=$column): ${e.asLog()}" }
             null
         }
     }
