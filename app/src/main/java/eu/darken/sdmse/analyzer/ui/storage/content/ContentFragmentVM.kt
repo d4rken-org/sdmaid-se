@@ -23,7 +23,7 @@ import javax.inject.Inject
 class ContentFragmentVM @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val analyzer: Analyzer,
+    analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<ContentFragmentArgs>()
@@ -44,7 +44,7 @@ class ContentFragmentVM @Inject constructor(
             .launchInViewModel()
     }
 
-    val state = combine(
+    val state = combineTransform(
         analyzer.data,
         analyzer.progress,
         subContentLevel,
@@ -64,6 +64,14 @@ class ContentFragmentVM @Inject constructor(
             pkgStat?.label == null -> null
             else -> contentGroup?.label
         }
+
+        State(
+            title = title,
+            subtitle = subtitle,
+            storage = storage,
+            items = null,
+            progress = progress,
+        ).run { emit(this) }
 
         val items = (contentLevels?.last()?.children ?: contentGroup?.contents)
             ?.sortedByDescending { it.size }
@@ -95,7 +103,7 @@ class ContentFragmentVM @Inject constructor(
             storage = storage,
             items = items,
             progress = progress,
-        )
+        ).run { emit(this) }
     }.asLiveData2()
 
     fun onNavigateBack() {

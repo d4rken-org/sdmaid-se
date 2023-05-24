@@ -1,7 +1,5 @@
 package eu.darken.sdmse.analyzer.core.storage
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.StorageStatsManager2
 import eu.darken.sdmse.analyzer.core.content.AppContentGroup
@@ -40,7 +38,6 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.SAFMapper
-import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
@@ -51,8 +48,6 @@ import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 class StorageScanner @Inject constructor(
-    @ApplicationContext private val context: Context,
-    private val storageEnvironment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val statsManager: StorageStatsManager2,
     private val pkgRepo: PkgRepo,
@@ -67,7 +62,7 @@ class StorageScanner @Inject constructor(
         Progress.DEFAULT_STATE.copy(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
     )
 
-    override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
+    override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(50)
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
@@ -82,7 +77,7 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scan($storage)" }
 
         updateProgressPrimary(storage.label)
-        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+        updateProgressSecondary(R.string.analyzer_progress_scanning_storage)
 
         useRoot = false // TODO: rootManager.useRoot()
         currentUser = userManager2.currentUser().handle
@@ -278,7 +273,7 @@ class StorageScanner @Inject constructor(
         updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
 
         val topLevelContents = topLevelDirs.map { ownerInfo ->
-            updateProgressPrimary(ownerInfo.areaInfo.file.userReadablePath)
+            updateProgressSecondary(ownerInfo.areaInfo.file.userReadablePath)
 
             val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
             val children = lookup.walk(gatewaySwitch)
@@ -333,7 +328,6 @@ internal fun Collection<ContentItem>.toNesting(): Collection<ContentItem> {
     val parentIndexMap = mutableMapOf<Segments, Int>()
 
     for ((index, item) in workList.withIndex()) {
-        log("toNesting") { "Index: $index" }
         val parentSegs = item.path.segments.subList(0, item.path.segments.size - 1)
 
         val parentIndex = parentIndexMap[parentSegs]
