@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -81,7 +82,7 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scan($storage)" }
 
         updateProgressPrimary(storage.label)
-        updateProgressSecondary("Getting a storage overview...")
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
         useRoot = false // TODO: rootManager.useRoot()
         currentUser = userManager2.currentUser().handle
@@ -323,3 +324,33 @@ class StorageScanner @Inject constructor(
         private val TAG = logTag("Analyzer", "Storage", "Scanner")
     }
 }
+
+internal fun Collection<ContentItem>.toNesting(): Collection<ContentItem> {
+    val workList = this.sortedByDescending { it.path.segments.size }.toMutableList()
+
+    val topLevel = mutableListOf<ContentItem>()
+
+    val parentIndexMap = mutableMapOf<Segments, Int>()
+
+    for ((index, item) in workList.withIndex()) {
+        log("toNesting") { "Index: $index" }
+        val parentSegs = item.path.segments.subList(0, item.path.segments.size - 1)
+
+        val parentIndex = parentIndexMap[parentSegs]
+            ?: workList.indexOfFirst { it.path.segments == parentSegs }.also { parentIndexMap[parentSegs] = it }
+
+        if (parentIndex != -1) {
+            val parent = workList[parentIndex]
+
+            val updatedParent = parent.copy(
+                children = (parent.children ?: emptySet()).plus(item)
+            )
+            workList[parentIndex] = updatedParent
+        } else {
+            topLevel.add(item)
+        }
+    }
+
+    return topLevel
+}
+
