@@ -38,6 +38,7 @@ class DeviceStorageFragment : Fragment3(R.layout.analyzer_device_fragment) {
             adapter.update(state.storages)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
+            refreshAction.isInvisible = state.progress != null
         }
 
         ui.refreshAction.setOnClickListener { vm.refresh() }
