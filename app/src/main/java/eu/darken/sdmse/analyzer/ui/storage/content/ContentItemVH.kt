@@ -38,9 +38,15 @@ class ContentItemVH(parent: ViewGroup) :
         } else {
             content.label.get(context)
         }
-        secondary.text = content.size
-            ?.let { Formatter.formatShortFileSize(context, it) }
-            ?: getString(R.string.analyzer_content_access_opaque)
+        secondary.text = when (content.type) {
+            FileType.DIRECTORY -> getString(eu.darken.sdmse.common.R.string.file_type_directory)
+            FileType.FILE -> content.size
+                ?.let { Formatter.formatShortFileSize(context, it) }
+                ?: getString(R.string.analyzer_content_access_opaque)
+
+            FileType.SYMBOLIC_LINK -> ""
+            FileType.UNKNOWN -> ""
+        }
 
         root.setOnClickListener { item.onItemClicked(item) }
     }
