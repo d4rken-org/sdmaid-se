@@ -23,18 +23,18 @@ class GatewaySwitch @Inject constructor(
     private val localGateway: LocalGateway,
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
-) : APathGateway<APath, APathLookup<APath>> {
+) : APathGateway<APath, APathLookup<APath>, APathLookupExtended<APath>> {
 
     private suspend fun <T : APath, R> useGateway(
         path: T,
-        action: suspend APathGateway<T, APathLookup<T>>.() -> R
+        action: suspend APathGateway<T, APathLookup<T>, APathLookupExtended<T>>.() -> R
     ): R {
         @Suppress("UNCHECKED_CAST")
-        val targetGateway = getGateway(path.pathType) as APathGateway<T, APathLookup<T>>
+        val targetGateway = getGateway(path.pathType) as APathGateway<T, APathLookup<T>, APathLookupExtended<T>>
         return action(targetGateway)
     }
 
-    private suspend fun resolveGatewayType(type: APath.PathType): APathGateway<*, *> {
+    private suspend fun resolveGatewayType(type: APath.PathType): APathGateway<*, *, *> {
         val gateway = when (type) {
             APath.PathType.SAF -> {
                 safGateway.also { adoptChildResource(it) }
@@ -49,7 +49,7 @@ class GatewaySwitch @Inject constructor(
         return gateway
     }
 
-    suspend fun getGateway(type: APath.PathType): APathGateway<*, *> {
+    suspend fun getGateway(type: APath.PathType): APathGateway<*, *, *> {
         return resolveGatewayType(type)
     }
 
@@ -69,6 +69,10 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun lookupFiles(path: APath): Collection<APathLookup<APath>> {
         return useGateway(path) { lookupFiles(path) }
+    }
+
+    override suspend fun lookupFilesExtended(path: APath): Collection<APathLookupExtended<APath>> {
+        return useGateway(path) { lookupFilesExtended(path) }
     }
 
     override suspend fun listFiles(path: APath): Collection<APath> {

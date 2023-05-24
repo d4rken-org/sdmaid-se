@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.root.io.sink
 import eu.darken.sdmse.common.root.io.source
 import okio.Sink
@@ -22,13 +23,6 @@ import java.time.Instant
 class FileOpsClient @AssistedInject constructor(
     @Assisted private val fileOpsConnection: FileOpsConnection
 ) : ClientModule {
-    fun lookUp(path: LocalPath): LocalPathLookup = try {
-        fileOpsConnection.lookUp(path).also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookup($path): $it" }
-        }
-    } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
-    }
 
     fun listFiles(path: LocalPath): Collection<LocalPath> = try {
         fileOpsConnection.listFiles(path).also {
@@ -57,12 +51,34 @@ class FileOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    fun lookUp(path: LocalPath): LocalPathLookup = try {
+        fileOpsConnection.lookUp(path).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookup($path): $it" }
+        }
+    } catch (e: Exception) {
+        throw fakeIOException(e.getRootCause())
+    }
+
     /**
      * Doesn't run into IPC buffer overflows on large directories
      */
     fun lookupFilesStream(path: LocalPath): Collection<LocalPathLookup> = try {
         fileOpsConnection.lookupFilesStream(path).toLocalPathLookups().also {
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path) finished streaming, ${it.size} items" }
+        }
+    } catch (e: Exception) {
+        throw fakeIOException(e.getRootCause())
+    }
+
+    /**
+     * Doesn't run into IPC buffer overflows on large directories
+     */
+    fun lookupFilesExtendedStream(path: LocalPath): Collection<LocalPathLookupExtended> = try {
+        fileOpsConnection.lookupFilesExtendedStream(path).toLocalPathLookupExtended().also {
+            if (Bugs.isTrace) log(
+                TAG,
+                VERBOSE
+            ) { "lookupFilesExtendedStream($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
         throw fakeIOException(e.getRootCause())

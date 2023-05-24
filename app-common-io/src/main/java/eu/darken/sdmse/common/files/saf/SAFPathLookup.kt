@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.files.saf
 
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
 import java.time.Instant
 
 data class SAFPathLookup(
@@ -17,14 +19,6 @@ data class SAFPathLookup(
 
     override val size: Long by lazy { docFile.length }
     override val modifiedAt: Instant by lazy { docFile.lastModified }
-
-    private val fstat by lazy { docFile.fstat() }
-    override val ownership: Ownership? by lazy {
-        fstat?.let { Ownership(it.st_uid.toLong(), it.st_gid.toLong()) }
-    }
-    override val permissions: Permissions? by lazy {
-        fstat?.let { Permissions(it.st_mode) }
-    }
 
     override val target: APath? = null
 }

@@ -30,8 +30,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -39,8 +37,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         file1.matches(file1) shouldBe true
@@ -86,8 +82,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -111,8 +105,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -120,8 +112,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -189,8 +179,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -214,8 +202,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -223,8 +209,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -292,8 +276,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -319,8 +301,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -328,8 +308,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -397,8 +375,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -422,8 +398,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -431,8 +405,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -500,8 +472,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -526,8 +496,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -535,8 +503,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -604,8 +570,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = SAFPathLookup(
@@ -629,8 +593,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val preLookup: APathLookup<*> = LocalPathLookup(
@@ -638,8 +600,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -715,8 +675,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val preLookup: APathLookup<*> = LocalPathLookup(
@@ -724,8 +682,6 @@ class APathExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 

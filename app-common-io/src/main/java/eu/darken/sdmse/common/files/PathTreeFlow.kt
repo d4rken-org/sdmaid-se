@@ -8,14 +8,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
 import java.io.IOException
-import java.util.*
+import java.util.LinkedList
 
 // TODO support symlinks?
 // TODO unit test coverage
 class PathTreeFlow<
         P : APath,
         PL : APathLookup<P>,
-        GT : APathGateway<P, PL>
+        PLE : APathLookupExtended<P>,
+        GT : APathGateway<P, PL, PLE>
         > constructor(
     private val gateway: GT,
     private val start: P,

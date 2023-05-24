@@ -1,14 +1,24 @@
 package eu.darken.sdmse.common.files.local.root
 
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.asFile
-import eu.darken.sdmse.common.files.local.*
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
+import eu.darken.sdmse.common.files.local.createSymlink
+import eu.darken.sdmse.common.files.local.listFiles2
+import eu.darken.sdmse.common.files.local.performLookup
+import eu.darken.sdmse.common.files.local.performLookupExtended
+import eu.darken.sdmse.common.files.local.setOwnership
+import eu.darken.sdmse.common.files.local.setPermissions
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.io.RemoteInputStream
@@ -24,16 +34,6 @@ class FileOpsHost @Inject constructor(
     private val libcoreTool: LibcoreTool,
     private val ipcFunnel: IPCFunnel
 ) : FileOpsConnection.Stub() {
-
-    override fun lookUp(path: LocalPath): LocalPathLookup = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path)..." }
-        path.performLookup(ipcFunnel, libcoreTool).also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path): $it" }
-        }
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
-    }
 
     override fun listFiles(path: LocalPath): List<LocalPath> = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path)..." }
@@ -56,12 +56,22 @@ class FileOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun lookUp(path: LocalPath): LocalPathLookup = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path)..." }
+        path.performLookup().also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUp($path): $it" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
     override fun lookupFiles(path: LocalPath): List<LocalPathLookup> = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path)..." }
         listFiles(path)
             .mapIndexed { index, item ->
                 if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
-                item.performLookup(ipcFunnel, libcoreTool)
+                item.performLookup()
             }
             .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) done: ${it.size} items" } }
     } catch (e: Exception) {
@@ -74,11 +84,47 @@ class FileOpsHost @Inject constructor(
         val paths = listFiles(path)
         val lookups = paths.mapIndexed { index, item ->
             if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
-            item.performLookup(ipcFunnel, libcoreTool)
+            item.performLookup()
         }
         lookups.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
+    override fun lookUpExtended(path: LocalPath): LocalPathLookupExtended = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUpExtended($path)..." }
+        path.performLookupExtended(ipcFunnel, libcoreTool).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUpExtended($path): $it" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookUpExtended(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
+    override fun lookupFilesExtended(path: LocalPath): List<LocalPathLookupExtended> = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtended($path)..." }
+        listFiles(path)
+            .mapIndexed { index, item ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up extended $index: $item" }
+                item.performLookupExtended(ipcFunnel, libcoreTool)
+            }
+            .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtended($path) done: ${it.size} items" } }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookupFilesExtended(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
+    override fun lookupFilesExtendedStream(path: LocalPath): RemoteInputStream = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtendedStream($path)..." }
+        val paths = listFiles(path)
+        val lookups = paths.mapIndexed { index, item ->
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up extended $index: $item" }
+            item.performLookupExtended(ipcFunnel, libcoreTool)
+        }
+        lookups.toRemoteInputStream()
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 

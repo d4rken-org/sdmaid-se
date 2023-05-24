@@ -15,45 +15,45 @@ val APathLookup<*>.isSymlink: Boolean
 val APathLookup<*>.isFile: Boolean
     get() = fileType == FileType.FILE
 
-fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> PL.walk(
+fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> PL.walk(
     gateway: GT,
     filter: suspend (PL) -> Boolean = { true }
-): PathTreeFlow<P, PL, GT> = lookedUp.walk(gateway, filter)
+): PathTreeFlow<P, PL, PLE, GT> = lookedUp.walk(gateway, filter)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.exists(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Boolean = lookedUp.exists(gateway)
 
-suspend fun <P : APath, PL : APathLookup<P>> PL.delete(
-    gateway: APathGateway<P, out APathLookup<P>>
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> PL.delete(
+    gateway: APathGateway<P, PL, PLE>
 ) {
     lookedUp.delete(gateway)
     log(VERBOSE) { "APath.delete(): Deleted $this" }
 }
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.deleteAll(
-    gateway: APathGateway<P, out APathLookup<P>>,
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>,
     filter: (APathLookup<*>) -> Boolean = { true }
 ) = lookedUp.deleteAll(gateway, filter)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.write(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Sink = lookedUp.write(gateway)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.read(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Source = lookedUp.read(gateway)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.canRead(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Boolean = lookedUp.canRead(gateway)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.canWrite(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Boolean = lookedUp.canWrite(gateway)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.lookupFiles(
-    gateway: APathGateway<P, out APathLookup<P>>
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Collection<APathLookup<*>> = lookedUp.lookupFiles(gateway)
 
 fun APathLookup<*>.matches(other: APath): Boolean = lookedUp.matches(other)

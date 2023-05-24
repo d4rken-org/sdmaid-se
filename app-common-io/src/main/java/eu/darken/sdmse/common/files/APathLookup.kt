@@ -10,8 +10,6 @@ interface APathLookup<out T : APath> {
     val fileType: FileType
     val size: Long
     val modifiedAt: Instant
-    val ownership: Ownership?
-    val permissions: Permissions?
     val target: APath?
 
     val path: String
