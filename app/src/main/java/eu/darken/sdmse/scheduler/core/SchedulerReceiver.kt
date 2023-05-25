@@ -9,7 +9,9 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -67,7 +69,10 @@ class SchedulerReceiver : BroadcastReceiver() {
 
             if (schedule.useCorpseFinder) tasks.add(CorpseFinderSchedulerTask(schedule.id))
             if (schedule.useSystemCleaner) tasks.add(SystemCleanerSchedulerTask(schedule.id))
-            if (schedule.useAppCleaner) tasks.add(AppCleanerSchedulerTask(schedule.id))
+            if (schedule.useAppCleaner) {
+                val useAutomation = schedulerSettings.useAutomation.value()
+                tasks.add(AppCleanerSchedulerTask(schedule.id, useAutomation = useAutomation))
+            }
 
             tasks.forEach { task ->
                 appScope.launch {

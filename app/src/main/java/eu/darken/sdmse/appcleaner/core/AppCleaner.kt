@@ -81,7 +81,7 @@ class AppCleaner @Inject constructor(
                     is AppCleanerDeleteTask -> performDelete(task)
                     is AppCleanerSchedulerTask -> {
                         performScan(AppCleanerScanTask())
-                        performDelete(AppCleanerDeleteTask())
+                        performDelete(AppCleanerDeleteTask(includeInaccessible = task.useAutomation))
                     }
                 }
             }
