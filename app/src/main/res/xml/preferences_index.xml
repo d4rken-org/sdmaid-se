@@ -85,6 +85,7 @@
         <Preference
             android:icon="@drawable/ic_baseline_stars_24"
             android:key="core.sponsor.development"
+            app:singleLineTitle="false"
             app:isPreferenceVisible="false"
             app:summary="@string/settings_sponsor_development_summary"
             app:title="@string/settings_sponsor_development_title"
