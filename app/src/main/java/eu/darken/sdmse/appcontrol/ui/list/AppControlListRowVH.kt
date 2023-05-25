@@ -42,6 +42,10 @@ class AppControlListRowVH(parent: ViewGroup) :
 
     data class Item(
         override val appInfo: AppInfo,
+        val lablrName: String?,
+        val lablrPkg: String?,
+        val lablrUpdated: String?,
+        val lablrInstalled: String?,
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item {
 

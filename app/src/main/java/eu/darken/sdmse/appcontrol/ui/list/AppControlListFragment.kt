@@ -20,13 +20,10 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.setChecked2
-import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcontrolListFragmentBinding
-import java.time.format.DateTimeFormatter
 
 @AndroidEntryPoint
 class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
@@ -61,6 +58,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         ui.drawer.toggle()
                         true
                     }
+
                     else -> super.onOptionsItemSelected(it)
                 }
             }
@@ -109,36 +107,16 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         ui.apply {
             val itemLabler: (Int) -> FastScrollItemIndicator? = { pos ->
-                val lbl = when (currentSortMode) {
-                    SortSettings.Mode.NAME -> adapter.data.getOrNull(pos)?.appInfo
-                        ?.label?.get(requireContext())
-                        ?.take(1)
-                        ?.uppercase()
-                        ?.takeIf { it.toDoubleOrNull() == null }
-                        ?: "?"
-                    SortSettings.Mode.PACKAGENAME -> adapter.data.getOrNull(pos)?.appInfo
-                        ?.pkg?.packageName
-                        ?.take(3)
-                        ?.uppercase()
-                        ?.removeSuffix(".")
-                        ?.takeIf { it.toDoubleOrNull() == null }
-                        ?: "?"
-                    SortSettings.Mode.LAST_UPDATE -> adapter.data.getOrNull(pos)?.appInfo
-                        ?.pkg?.let { it as? ExtendedInstallData }?.updatedAt
-                        ?.let {
-                            val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
-                            formatter.format(it.toSystemTimezone())
-                        }
-                        ?: "?"
-                    SortSettings.Mode.INSTALLED_AT -> adapter.data.getOrNull(pos)?.appInfo
-                        ?.pkg?.let { it as? ExtendedInstallData }?.installedAt
-                        ?.let {
-                            val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
-                            formatter.format(it.toSystemTimezone())
-                        }
-                        ?: "?"
+                val getRowItem: (Int) -> AppControlListRowVH.Item? = {
+                    adapter.data.getOrNull(pos) as? AppControlListRowVH.Item
                 }
-                lbl.let { FastScrollItemIndicator.Text(it) }
+                val lbl = when (currentSortMode) {
+                    SortSettings.Mode.NAME -> getRowItem(pos)?.lablrName
+                    SortSettings.Mode.PACKAGENAME -> getRowItem(pos)?.lablrPkg
+                    SortSettings.Mode.LAST_UPDATE -> getRowItem(pos)?.lablrUpdated
+                    SortSettings.Mode.INSTALLED_AT -> getRowItem(pos)?.lablrInstalled
+                }
+                FastScrollItemIndicator.Text(lbl ?: "?")
             }
             val showIndicator: (FastScrollItemIndicator, Int, Int) -> Boolean = { indicator, index, size ->
                 size in 2..32
