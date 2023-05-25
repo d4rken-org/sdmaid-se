@@ -9,12 +9,9 @@
     <string name="upgrades_gplay_unavailable_error">Google Play servicesが利用できません。</string>
     <string name="upgrades_no_purchases_found_check_account">購入が確認できませんでした。正しいアカウントを使用していますでしょうか？</string>
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
-    <string name="upgrade_screen_preamble">SD Maid には広告がなく、ユーザーデータを販売していません。私の作品はあなたによって賄われています。</string>
     <string name="upgrade_screen_benefits_title">優位点</string>
     <string name="upgrade_screen_benefits_body">• アプリの整頓 💯\n• 予定されている動作 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 意欲的な開発🧙\nそれ以外にも…</string>
     <string name="upgrade_screen_how_title">オプション</string>
-    <string name="upgrade_screen_how_body">あなたには2つの選択肢があります：ワンタイム購入または安価な年間サブスクリプション。 サブスクリプションには無料トライアルがあります. あなたが得られる機能は同じです, ただ支払い方法が異なります.</string>
-    <string name="upgrade_screen_subscription_trial_action">試用を開始する</string>
     <string name="upgrade_screen_subscription_action">登録</string>
     <string name="upgrade_screen_subscription_action_hint">サブスクライブには年 %s 円かかります。</string>
     <string name="upgrade_screen_iap_action">1 回限りの購入</string>

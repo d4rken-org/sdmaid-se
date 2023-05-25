@@ -126,7 +126,7 @@
     <string name="debug_mode_label">Рэжым адладкі</string>
     <string name="debug_mode_explanation">Уключыць эксперыментальныя параметры і больш падрабязны вывад даных. Праграма будзе працаваць павольней, і яе прадукцыйнасць можа змяніцца.</string>
     <string name="debug_bugreporter_label">Аўтаматычныя справаздачы аб памылках</string>
-    <string name="debug_bugreporter_summary">Аўтаматычна паведамляць пра праблемы, напрыклад, падрабязную інфармацыю аб збоях праграмы, каб я мог высветліць, чаму адбылася памылка і выправіць яе.</string>
+    <string name="debug_bugreporter_summary">Аўтаматычна паведамляць пра праблемы, напрыклад, падрабязную інфармацыю аб збоях праграмы, каб я мог высветліць, чаму адбылася памылка.</string>
     <string name="settings_category_tools_label">Інструменты</string>
     <string name="settings_category_filter">Фільтр</string>
     <string name="settings_category_risklevel">Узровень рызыкі</string>
@@ -273,6 +273,8 @@
     <string name="appcleaner_filter_threema_summary">Файлы, атрыманыя праз Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Адпраўленыя або атрыманыя файлы ў гутарках і момантах WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Кэшаваныя медыяфайлы, загружаныя паўторна пры праглядзе ў чаце.</string>
     <string name="appcleaner_delete_all_confirmation_message">Ачысціць усе праграмы?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знойдзены %d непатрэбны элемент</item>
@@ -305,6 +307,8 @@
     <string name="appcontrol_systemsettings_open_title">Паказаць налады</string>
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
+    <string name="appcontrol_app_uninstall_title">Выдаліць праграму</string>
+    <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
     <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
@@ -321,6 +325,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Апошняе абнаўленне</string>
     <string name="appcontrol_list_sortmode_installed_label">Першае ўсталяванне</string>
     <string name="appcontrol_list_sortmode_packagename_label">Назва пакета</string>
+    <string name="appcontrol_progress_uninstalling_app">Выдаленне праграмы</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
     <string name="data_area_public_storage_label">Агульная памяць</string>
     <string name="data_area_sdcard_label">Карта памяці</string>

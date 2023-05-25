@@ -9,12 +9,9 @@
     <string name="upgrades_gplay_unavailable_error">Usługi Google Play są niedostępne.</string>
     <string name="upgrades_no_purchases_found_check_account">Nie znaleziono żadnych zakupów. Czy używasz właściwego konta?</string>
     <string name="upgrade_screen_title">Ulepsz do SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid nie ma reklam i nie sprzedaje danych użytkowników. Moja praca jest finansowana przez Ciebie.</string>
     <string name="upgrade_screen_benefits_title">Zalety</string>
     <string name="upgrade_screen_benefits_body">• Czyszczenie aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne reguły usuwania ✍️\n• Zmotywowany autor 🧙\ni więcej…</string>
     <string name="upgrade_screen_how_title">Opcje</string>
-    <string name="upgrade_screen_how_body">Masz 2 opcje: Jednorazowy zakup lub tańsza roczna subskrypcja. Subskrypcja ma darmowy okres próbny. W obu przypadkach otrzymujesz to samo, różnica jest tylko w metodzie płatności.</string>
-    <string name="upgrade_screen_subscription_trial_action">Rozpocznij wersję próbną</string>
     <string name="upgrade_screen_subscription_action">Subskrybuj</string>
     <string name="upgrade_screen_subscription_action_hint">Subskrypcja kosztuje %s rocznie.</string>
     <string name="upgrade_screen_iap_action">Jednorazowy zakup</string>

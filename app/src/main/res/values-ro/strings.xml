@@ -114,10 +114,8 @@
     <string name="debug_mode_label">Mod de depanare</string>
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
     <string name="debug_bugreporter_label">Rapoarte de jurnal automat</string>
-    <string name="debug_bugreporter_summary">Raportează automat probleme, ex: detalii la oprirea neașteptată a aplicației ca să știu de ce și a rezolva.</string>
     <string name="settings_category_tools_label">Instrumente</string>
     <string name="settings_category_filter">Filtre</string>
-    <string name="settings_category_risklevel">Nivel de risc</string>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Date care aparțin la aplicații deja eliminate.</string>
     <string name="corpsefinder_settings_summary">Ajustează filtrele de scanare și nivelele de risc.</string>
@@ -133,7 +131,6 @@
     <string name="corpsefinder_filter_publicobb_summary">Resurse suplimentare ale aplicației, ex: active de joc.</string>
     <string name="corpsefinder_filter_publicdata_label">Datele aplicației publice</string>
     <string name="corpsefinder_filter_publicdata_summary">Date nesensibile ale aplicației, ex: cache pentru hărți.</string>
-    <string name="corpsefinder_filter_sdcard_label">Card de memorie</string>
     <string name="corpsefinder_filter_sdcard_summary">Stocarea generale publice, intern și extern (ex: Carduri SD).</string>
     <string name="corpsefinder_filter_privatedata_label">Datele aplicației private</string>
     <string name="corpsefinder_filter_privatedata_summary">Datele aplicației private, ex: acreditările, setările aplicației, dar și cache-urile browserului.</string>
@@ -156,7 +153,6 @@
     <string name="corpsefinder_corpse_hint_keeper">Acest articol poate conține date pe care doriți să le păstrați, deși proprietarul său este dezinstalat, ex: fotografii sau copii de rezervă.</string>
     <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și poate să aparțină încă la aplicații instalate pe care SD Maid nu știe.</string>
     <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Date superflue care nu aparțin unei anumite aplicații.</string>
     <string name="systemcleaner_filter_custom_label">Filtru personalizat</string>
     <string name="systemcleaner_filter_custom_manage_label">Gestionează filtrele personalizate</string>
     <string name="systemcleaner_filter_custom_manage_summary">Creează, șterge, importă și exportă filtrele tale personalizate.</string>

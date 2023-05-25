@@ -122,7 +122,7 @@
     <string name="debug_mode_label">Mode de depuració</string>
     <string name="debug_mode_explanation">Activa les opcions de prova i una sortida més detallada. L\'aplicació funcionarà més lentament i funcionarà de manera diferent.</string>
     <string name="debug_bugreporter_label">Informes d\'errors automàtics</string>
-    <string name="debug_bugreporter_summary">Informa automàticament de problemes, p. ex. detalls sobre els bloquejos de l\'aplicació perquè pugui esbrinar el motiu i solucionar-ho.</string>
+    <string name="debug_bugreporter_summary">Informa automàticament de problemes, p. ex. detalls sobre els bloquejos de l\'aplicació perquè puguem esbrinar el motiu i solucionar-ho.</string>
     <string name="settings_category_tools_label">Eines</string>
     <string name="settings_category_filter">Filtra</string>
     <string name="settings_category_risklevel">Nivell de risc</string>
@@ -168,7 +168,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Aquest element pot contenir dades que voleu conservar tot i que el seu propietari s\'hagi desinstal·lat, p. ex. fotos o còpies de seguretat.</string>
     <string name="corpsefinder_corpse_hint_common">Aquest element té un nom molt comú i podria pertànyer a aplicacions encara instal·lades que l\'SD Maid no coneix.</string>
     <string name="systemcleaner_tool_name">Netejador del sistema</string>
-    <string name="systemcleaner_explanation_short">Dades supèrflues que no pertanyen a cap aplicació específica.</string>
+    <string name="systemcleaner_explanation_short">Dades superflues que no pertanyen a cap aplicació concreta.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidència de filtre</item>
         <item quantity="other">%d coincidències de filtre</item>
@@ -265,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Arxius rebuts a través de Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Fitxers enviats o rebuts en converses i moments de WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Fitxers multimèdia a la memòria cau que es tornen a baixar quan es visualitzen al xat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Voleu netejar totes les aplicacions?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>
@@ -293,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
     <string name="appcontrol_systemsettings_open_description">Obre la configuració del sistema del vostre dispositiu per a aquesta aplicació.</string>
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
+    <string name="appcontrol_app_uninstall_title">Desinstal·la l\'aplicació</string>
+    <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
     <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
@@ -309,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Última actualització a les</string>
     <string name="appcontrol_list_sortmode_installed_label">Primera instal·lació a les</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nom del paquet</string>
+    <string name="appcontrol_progress_uninstalling_app">Desinstal·lant l\'aplicació</string>
     <string name="data_area_public_app_data_official_label">Dades de l\'aplicació pública per defecte</string>
     <string name="data_area_public_storage_label">Emmagatzematge públic</string>
     <string name="data_area_sdcard_label">Targeta SD</string>

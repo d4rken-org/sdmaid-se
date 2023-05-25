@@ -122,7 +122,7 @@
     <string name="debug_mode_label">Mode de débogage</string>
     <string name="debug_mode_explanation">Activer les options de test et une sortie plus détaillée. L\'application s\'exécutera plus lentement et fonctionnera différemment.</string>
     <string name="debug_bugreporter_label">Rapports de bug automatiques</string>
-    <string name="debug_bugreporter_summary">Signale automatiquement les problèmes, par exemple les détails sur les plantages de l\'application afin que je puisse en déterminer la cause et y remédier.</string>
+    <string name="debug_bugreporter_summary">Signale automatiquement les problèmes, par ex. les détails sur les plantages de l\'application afin que je puisse en déterminer la cause et y remédier.</string>
     <string name="settings_category_tools_label">Outils</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Niveau de risque</string>
@@ -265,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Fichiers reçus avec Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Fichiers reçus ou envoyés dans les conversations et moments WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Fichiers multimédia mis en cache qui sont téléchargés à nouveau lorsqu\'ils sont affichés dans le chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Nettoyer toutes les applications ?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d élément inutile trouvé</item>
@@ -293,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Afficher les paramètres</string>
     <string name="appcontrol_systemsettings_open_description">Ouvrir les paramètres système de votre appareil pour cette application.</string>
     <string name="appcontrol_app_launch_title">Lancer l\'application</string>
+    <string name="appcontrol_app_uninstall_title">Désinstaller l\'application</string>
+    <string name="appcontrol_app_uninstall_description">Désinstaller cette application de votre appareil.</string>
     <string name="appcontrol_app_launch_description">Lancer l\'activité principale de cette application.</string>
     <string name="appcontrol_app_exclude_add_title">Exclure l\'application</string>
     <string name="appcontrol_app_exclude_add_description">Exclure cette application des autres opérations dans SD Maid.</string>
@@ -309,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Dernière mise à jour</string>
     <string name="appcontrol_list_sortmode_installed_label">Première installation</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nom du paquet</string>
+    <string name="appcontrol_progress_uninstalling_app">Désinstallation de l\'application</string>
     <string name="data_area_public_app_data_official_label">Données publiques par défaut</string>
     <string name="data_area_public_storage_label">Stockage public</string>
     <string name="data_area_sdcard_label">Carte SD</string>

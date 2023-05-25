@@ -13,8 +13,8 @@
     <string name="upgrade_screen_benefits_title">Avantatges</string>
     <string name="upgrade_screen_benefits_body">• Neteja d\'aplicacions 💯\n• Operacions programades ⏰\n• Opcions extres per a totes les eines ⚙️\n• Les vostres pròpies regles d\'eliminació ✍️\n• Un desenvolupador motivat 🧙\ni molt més…</string>
     <string name="upgrade_screen_how_title">Opcions</string>
-    <string name="upgrade_screen_how_body">Teniu 2 opcions: una compra única o una subscripció anual més econòmica. La subscripció té una prova gratuïta. Les funcions que obteniu són les mateixes, només els mètodes de pagament són diferents.</string>
-    <string name="upgrade_screen_subscription_trial_action">Inicia la prova gratuïta</string>
+    <string name="upgrade_screen_how_body">Podeu triar entre una compra única i una subscripció anual més barata.\nLa subscripció comença amb una prova gratuïta de 14 dies, després de la qual se us cobrarà un cop l\'any. La prova i la subscripció es poden cancel·lar en qualsevol moment.\nLes mateixes funcions, només models de preus diferents.</string>
+    <string name="upgrade_screen_subscription_trial_action">Comença la prova gratuïta de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Subscripció</string>
     <string name="upgrade_screen_subscription_action_hint">El preu de la subscripció és de %s anuals.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>

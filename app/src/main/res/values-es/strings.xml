@@ -122,10 +122,10 @@
     <string name="debug_mode_label">Modo de depuración</string>
     <string name="debug_mode_explanation">Habilite las opciones de prueba y una salida más detallada. La aplicación se ejecutará más lentamente y funcionará de manera diferente.</string>
     <string name="debug_bugreporter_label">Informes automáticos de errores</string>
-    <string name="debug_bugreporter_summary">Informa automáticamente de los problemas, por ejemplo, detalles sobre los bloqueos de la aplicación para que pueda averiguar por qué pasan y solucionarlo.</string>
+    <string name="debug_bugreporter_summary">Informa automáticamente de los fallos, por ejemplo, de los detalles de los bloqueos de la aplicación para que pueda averiguar el por qué y solucionarlos.</string>
     <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtrar</string>
-    <string name="settings_category_risklevel">Nivel de riesgo</string>
+    <string name="settings_category_risklevel">Nivel del riesgo</string>
     <string name="corpsefinder_tool_name">Buscador de restos</string>
     <string name="corpsefinder_explanation_short">Datos pertenecientes a aplicaciones ya eliminadas.</string>
     <string name="corpsefinder_settings_summary">Ajustar filtros de escaneo y niveles de riesgo.</string>
@@ -168,7 +168,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Este elemento puede contener datos que quieres conservar a pesar de que su propietario ha sido desinstalado, por ejemplo, fotos o copias de seguridad.</string>
     <string name="corpsefinder_corpse_hint_common">Este elemento tiene un nombre muy común y podría pertenecer a aplicaciones aún instaladas que SD Maid desconoce.</string>
     <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Datos innecesarios que no pertenecen a ninguna aplicación específica.</string>
+    <string name="systemcleaner_explanation_short">Datos superfluos que no pertenecen a ninguna aplicación concreta.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidencia del filtro</item>
         <item quantity="other">%d coincidencias de los filtros</item>
@@ -265,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Archivos recibidos a través de Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Archivos enviados o recibidos en conversaciones y momentos de WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Archivos multimedia en caché que se vuelven a descargar cuando se ven en el chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">¿Limpiar todas las aplicaciones?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento desechable encontrado</item>
@@ -293,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Mostrar ajustes</string>
     <string name="appcontrol_systemsettings_open_description">Abre la configuración del sistema de tu dispositivo para esta aplicación.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
+    <string name="appcontrol_app_uninstall_title">Desinstalar la aplicación</string>
+    <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
     <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
@@ -309,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Última actualización en</string>
     <string name="appcontrol_list_sortmode_installed_label">Instalado por primera vez en</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nombre del paquete</string>
+    <string name="appcontrol_progress_uninstalling_app">Desinstalar la aplicación</string>
     <string name="data_area_public_app_data_official_label">Datos de la aplicación pública por defecto</string>
     <string name="data_area_public_storage_label">Almacenamiento público</string>
     <string name="data_area_sdcard_label">Tarjeta SD</string>

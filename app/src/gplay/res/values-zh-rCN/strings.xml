@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Google Play 服务无法使用。</string>
     <string name="upgrades_no_purchases_found_check_account">未找到购买记录。您确定账号正确吗？</string>
     <string name="upgrade_screen_title">获取 SD Maid SE 专业版</string>
-    <string name="upgrade_screen_preamble">SD Maid 没有广告，也不出售用户数据。我的工作是由您赞助的。</string>
+    <string name="upgrade_screen_preamble">SD Maid 不含广告，也不出售用户数据。我的工作是由您们资助的 ❤️</string>
     <string name="upgrade_screen_benefits_title">优点</string>
     <string name="upgrade_screen_benefits_body">•应用程序清理💯\n•计划运行⏰\n•所有工具的额外选项⚙️\n•您自己的删除规则✍️\n•积极的开发人员🧙\n还有更多…</string>
     <string name="upgrade_screen_how_title">选项</string>
-    <string name="upgrade_screen_how_body">您有 2 种选择：一次性购买或较便宜的按年订阅。订阅包含免费试用。您得到的功能是一样的，只不过支付方式不同。</string>
-    <string name="upgrade_screen_subscription_trial_action">开始免费试用</string>
+    <string name="upgrade_screen_how_body">您可以选择一次性付费，也可以选更便宜的年费订阅\n订阅以 14 天的免费试用期开始，之后将按年计费。试用和订阅期间可随时取消\n两种套餐功能相同，仅定价模式不同</string>
+    <string name="upgrade_screen_subscription_trial_action">开始 14 天免费试用</string>
     <string name="upgrade_screen_subscription_action">订阅</string>
     <string name="upgrade_screen_subscription_action_hint">每年的订阅费用为 %s。</string>
     <string name="upgrade_screen_iap_action">一次性购买</string>

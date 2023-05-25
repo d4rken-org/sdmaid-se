@@ -9,12 +9,9 @@
     <string name="upgrades_gplay_unavailable_error">Google Play 서비스를 이용할 수 없습니다.</string>
     <string name="upgrades_no_purchases_found_check_account">구매 항목을 찾을 수 없습니다. 올바른 계정을 사용 중인가요?</string>
     <string name="upgrade_screen_title">SD Maid SE 프로 구매</string>
-    <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다.</string>
     <string name="upgrade_screen_benefits_title">장점</string>
     <string name="upgrade_screen_benefits_body">• 앱 청소 💯\n• 작동 예약 ⏰\n• 모든 도구에서의 추가 설정 ⚙️\n• 사용자 지정 삭제 규칙 ✍️\n• 행복한 개발자 🧙\n 외 다수...</string>
     <string name="upgrade_screen_how_title">옵션</string>
-    <string name="upgrade_screen_how_body">영구적으로 구매와 연간 구독의 옵션이 있습니다. 연간 구독은 결제 금액이 더 적고, 무료 체험 기간이 있습니다. 결제 방법만 다르고, 제공되는 기능은 같습니다.</string>
-    <string name="upgrade_screen_subscription_trial_action">무료 체험 시작</string>
     <string name="upgrade_screen_subscription_action">구독하기</string>
     <string name="upgrade_screen_subscription_action_hint">구독은 매년 %s 가 청구됩니다.</string>
     <string name="upgrade_screen_iap_action">영구적 구매</string>

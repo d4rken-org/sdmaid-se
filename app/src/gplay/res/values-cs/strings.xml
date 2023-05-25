@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Služby Google Play nejsou k dispozici.</string>
     <string name="upgrades_no_purchases_found_check_account">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
     <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi.</string>
+    <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody</string>
     <string name="upgrade_screen_benefits_body">• Čištění aplikací 💯\n• Plánované operace ⏰\n• Další možnosti pro všechny nástroje ⚙️\n• Vaše vlastní pravidla pro mazání ✍️\n• Motivovaný vývojář 🧙\na další…</string>
     <string name="upgrade_screen_how_title">Možnosti</string>
-    <string name="upgrade_screen_how_body">Máte 2 možnosti: Jednorázový nákup nebo levnější roční předplatné. Předplatné je možné vyzkoušet zdarma. Funkce, které získáte, jsou stejné. Liší se jen způsoby platby.</string>
-    <string name="upgrade_screen_subscription_trial_action">Spustit zkušební verzi</string>
+    <string name="upgrade_screen_how_body">Můžete si vybrat mezi jednorázovým nákupem a levnějším ročním předplatným.\nPředplatné začíná bezplatnou 14denní zkušební dobou, po které vám bude účtován poplatek jednou ročně. Zkušební verzi a předplatné lze kdykoli zrušit.\nStejné funkce, jen odlišné cenové modely.</string>
+    <string name="upgrade_screen_subscription_trial_action">Zahájit bezplatnou 14denní zkušební verzi</string>
     <string name="upgrade_screen_subscription_action">Předplatit</string>
     <string name="upgrade_screen_subscription_action_hint">Předplatné stojí %s za rok.</string>
     <string name="upgrade_screen_iap_action">Jednorázový nákup</string>

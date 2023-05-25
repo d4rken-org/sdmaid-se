@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Los servicios de Google Play no están disponibles.</string>
     <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
     <string name="upgrade_screen_title">Consigue SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por ti.</string>
+    <string name="upgrade_screen_preamble">SD Maid no contiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por ti ❤️.</string>
     <string name="upgrade_screen_benefits_title">Ventajas</string>
     <string name="upgrade_screen_benefits_body">• Limpieza de aplicaciones 💯\n• Operaciones programadas ⏰\n• Opciones adicionales para todas las herramientas ⚙️\n• Tus propias reglas de eliminación ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
     <string name="upgrade_screen_how_title">Opciones</string>
-    <string name="upgrade_screen_how_body">Tiene 2 opciones: Una compra única o una suscripción anual más barata. La suscripción tiene un período de prueba gratuito. Las funciones son las mismas, solo se difieren los métodos de pago.</string>
-    <string name="upgrade_screen_subscription_trial_action">Iniciar el período de prueba gratuita</string>
+    <string name="upgrade_screen_how_body">Puedes elegir entre una compra única o una suscripción anual más barata.\nLa suscripción comienza con una prueba gratuita de 14 días, tras la cual se te cobrará una vez al año. Tanto la prueba como la suscripción se pueden cancelar en cualquier momento.\nLas mismas funciones, pero diferentes modalidades de precios.</string>
+    <string name="upgrade_screen_subscription_trial_action">Empieza la prueba gratuita de 14 días</string>
     <string name="upgrade_screen_subscription_action">Suscríbete</string>
     <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s al año.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>

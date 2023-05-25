@@ -120,7 +120,7 @@
     <string name="debug_mode_label">调试模式</string>
     <string name="debug_mode_explanation">启用测试功能和其他复杂输出后，应用的运行速度会减慢，性能也会有所变化。</string>
     <string name="debug_bugreporter_label">自动错误报告</string>
-    <string name="debug_bugreporter_summary">自动报告如应用崩溃详情等问题，以便我能查明原因并修复漏洞。</string>
+    <string name="debug_bugreporter_summary">自动报告诸如应用崩溃详情等问题，以便我能查明原因并进行修复</string>
     <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">过滤器</string>
     <string name="settings_category_risklevel">风险等级</string>
@@ -139,7 +139,7 @@
     <string name="corpsefinder_filter_publicobb_summary">额外的应用资源，例如游戏资源。</string>
     <string name="corpsefinder_filter_publicdata_label">公共应用数据</string>
     <string name="corpsefinder_filter_publicdata_summary">非敏感的应用数据，例如地图缓存。</string>
-    <string name="corpsefinder_filter_sdcard_label">Sdcard</string>
+    <string name="corpsefinder_filter_sdcard_label">SD 卡</string>
     <string name="corpsefinder_filter_sdcard_summary">一般公共存储，内部和外部(例如 SD 卡)。</string>
     <string name="corpsefinder_filter_privatedata_label">私有程序数据</string>
     <string name="corpsefinder_filter_privatedata_summary">私有程序数据，例如登录凭证、应用设置、浏览器缓存等。</string>
@@ -165,7 +165,7 @@
     <string name="corpsefinder_corpse_hint_keeper">虽然此项的所有者已被卸载，但仍可能包含您想要保留的数据，如照片或备份。</string>
     <string name="corpsefinder_corpse_hint_common">此项的文件名很常见，有可能属于 SD Maid 不知道的未卸载应用。</string>
     <string name="systemcleaner_tool_name">系统清理</string>
-    <string name="systemcleaner_explanation_short">不属于任何应用的冗余数据。</string>
+    <string name="systemcleaner_explanation_short">不属于任何特定应用的冗余数据</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d 项满足筛选</item>
     </plurals>
@@ -261,6 +261,8 @@
     <string name="appcleaner_filter_threema_summary">通过 Threema 接受的文件。</string>
     <string name="appcleaner_filter_wechat_label">微信</string>
     <string name="appcleaner_filter_wechat_summary">在微信聊天和朋友圈中发送或接受的文件。</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">在聊天中查看时会再次下载的缓存媒体文件</string>
     <string name="appcleaner_delete_all_confirmation_message">清理所有应用吗？</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">找到了 %d 个可删除项</item>
@@ -287,6 +289,8 @@
     <string name="appcontrol_systemsettings_open_title">显示设置</string>
     <string name="appcontrol_systemsettings_open_description">打开此应用在设备中的系统设置。</string>
     <string name="appcontrol_app_launch_title">启动应用</string>
+    <string name="appcontrol_app_uninstall_title">卸载应用</string>
+    <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
     <string name="appcontrol_app_exclude_add_title">排除应用</string>
     <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
@@ -303,6 +307,7 @@
     <string name="appcontrol_list_sortmode_updated_label">上次更新时间</string>
     <string name="appcontrol_list_sortmode_installed_label">安装日期</string>
     <string name="appcontrol_list_sortmode_packagename_label">包名</string>
+    <string name="appcontrol_progress_uninstalling_app">正在卸载应用</string>
     <string name="data_area_public_app_data_official_label">默认公用应用数据</string>
     <string name="data_area_public_storage_label">公共存储</string>
     <string name="data_area_sdcard_label">SD卡</string>

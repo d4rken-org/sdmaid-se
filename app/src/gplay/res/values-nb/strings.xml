@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Google Play-tjenester er utilgjengelige.</string>
     <string name="upgrades_no_purchases_found_check_account">Ingen kjøp funnet. Bruker du riktig konto?</string>
     <string name="upgrade_screen_title">Skaff deg SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid har ingen annonser og selger ikke brukerdata. Mitt arbeid er finansiert av deg.</string>
+    <string name="upgrade_screen_preamble">SD Maid har ingen annonser og selger ikke brukerdata. Arbeidet mitt er finansiert av deg ❤️.</string>
     <string name="upgrade_screen_benefits_title">Fordeler</string>
     <string name="upgrade_screen_benefits_body">• App-rengjøring 💯\n• Planlagte handlinger ⏰\n• Ekstra alternativer for alle verktøy ⚙️\n• Dine egne regler for sletting ✍️\n• En motivert utvikler 🧙\nog mer…</string>
     <string name="upgrade_screen_how_title">Alternativer</string>
-    <string name="upgrade_screen_how_body">Du har 2 alternativer: Et engangskjøp eller et billigere årsabonnement. Abonnementet har en gratis prøveversjon. Funksjonene du får er de samme, det er bare forskjellige betalingsmetoder.</string>
-    <string name="upgrade_screen_subscription_trial_action">Start gratis prøveperiode</string>
+    <string name="upgrade_screen_how_body">Du kan velge mellom et engangskjøp og et billigere årlig abonnement.\nAbonnementet starter med en gratis 14-dagers prøveperiode, etterfulgt av en årlig belastning. Prøveperioden og abonnementet kan kanselleres når som helst.\nSamme funksjoner, bare forskjellige prismodeller.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start 14-dagers gratis prøveperiode</string>
     <string name="upgrade_screen_subscription_action">Abonner</string>
     <string name="upgrade_screen_subscription_action_hint">Abonnementet koster %s per år.</string>
     <string name="upgrade_screen_iap_action">Engangskjøp</string>

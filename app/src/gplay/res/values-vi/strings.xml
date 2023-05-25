@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Dịch vụ Google Play không khả dụng.</string>
     <string name="upgrades_no_purchases_found_check_account">Không tìm thấy giao dịch nào. Bạn có đang sử dụng đúng tài khoản không?</string>
     <string name="upgrade_screen_title">Nhận SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn.</string>
+    <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn ❤️.</string>
     <string name="upgrade_screen_benefits_title">Lợi thế</string>
     <string name="upgrade_screen_benefits_body">• Dọn dẹp ứng dụng 💯\n• Hoạt động theo lịch trình ⏰\n• Tùy chọn bổ sung cho tất cả các công cụ ⚙️\n• Quy tắc xóa của riêng bạn ✍️\n• Một nhà phát triển năng động 🧙\nvà hơn thế nữa…</string>
     <string name="upgrade_screen_how_title">Tùy chọn</string>
-    <string name="upgrade_screen_how_body">Bạn có 2 lựa chọn: Mua một lần hoặc đăng ký hàng năm rẻ hơn. Đăng ký có bản dùng thử miễn phí. Các tính năng bạn nhận được là như nhau, chỉ khác phương thức thanh toán.</string>
-    <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử miễn phí</string>
+    <string name="upgrade_screen_how_body">Bạn có thể chọn giữa mua một lần và đăng ký hàng năm rẻ hơn.\nĐăng ký bắt đầu bằng bản dùng thử miễn phí 14 ngày, sau đó bạn sẽ bị tính phí một lần mỗi năm. Bản dùng thử và đăng ký có thể bị hủy bất kỳ lúc nào.\nTính năng giống nhau, chỉ khác mô hình định giá.</string>
+    <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử 14 ngày miễn phí</string>
     <string name="upgrade_screen_subscription_action">Đăng ký</string>
     <string name="upgrade_screen_subscription_action_hint">Chi phí đăng ký %s mỗi năm.</string>
     <string name="upgrade_screen_iap_action">Thanh toán một lần</string>

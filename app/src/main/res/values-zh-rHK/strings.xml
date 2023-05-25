@@ -261,6 +261,8 @@
     <string name="appcleaner_filter_threema_summary">透過 Threema 接收的檔案。</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">在聊天中傳送或接收的檔案和 WeChat 朋友圈。</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">在聊天中檢視時會再次下載的快取媒體檔案。</string>
     <string name="appcleaner_delete_all_confirmation_message">清理所有應用程式？</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 個無關緊要的項目已找到</item>
@@ -287,6 +289,8 @@
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
     <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
+    <string name="appcontrol_app_uninstall_title">解除安裝應用程式</string>
+    <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -303,6 +307,7 @@
     <string name="appcontrol_list_sortmode_updated_label">上次更新時間</string>
     <string name="appcontrol_list_sortmode_installed_label">首次安裝時間</string>
     <string name="appcontrol_list_sortmode_packagename_label">套件名稱</string>
+    <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
     <string name="data_area_public_app_data_official_label">預設公用應用程式資料</string>
     <string name="data_area_public_storage_label">共用儲存空間</string>
     <string name="data_area_sdcard_label">SD 卡</string>

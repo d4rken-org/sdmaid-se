@@ -8,11 +8,8 @@
     <string name="upgrades_gplay_unavailable_error">Los Servicios de Google Play no están disponibles.</string>
     <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
     <string name="upgrade_screen_title">Obtené SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por vos.</string>
     <string name="upgrade_screen_benefits_title">Ventajas</string>
     <string name="upgrade_screen_how_title">Opciones</string>
-    <string name="upgrade_screen_how_body">Tenés 2 opciones: una compra única o una suscripción anual más barata. La suscripción tiene una prueba gratuita. Las características que tienes son las mismas, solo los métodos de pago son diferentes.</string>
-    <string name="upgrade_screen_subscription_trial_action">Empezá la prueba gratuita</string>
     <string name="upgrade_screen_subscription_action">Suscríbete</string>
     <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s al año.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>

@@ -125,7 +125,7 @@
     <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
     <string name="settings_category_tools_label">Araçlar</string>
     <string name="settings_category_filter">Filtre</string>
-    <string name="settings_category_risklevel">Risk seviyesi</string>
+    <string name="settings_category_risklevel">Risk Seviyesi</string>
     <string name="corpsefinder_tool_name">ArtıkBulucu</string>
     <string name="corpsefinder_explanation_short">Kaldırılmış uygulamalara ait veriler.</string>
     <string name="corpsefinder_settings_summary">Tarama filtrelerini ve risk seviyelerini ayarla.</string>
@@ -265,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Threema aracılığıyla alınan dosyalar.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Konuşmalarda ve WeChat anlarında gönderilen veya alınan dosyalar.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Sohbette görüntülendiğinde tekrar indirilen önbelleğe alınmış medya dosyaları.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamalar temizlensin mi?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d silinebilir öğe bulundu</item>
@@ -293,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
     <string name="appcontrol_systemsettings_open_description">Bu uygulama için cihazınızın sistem ayarlarını açın.</string>
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
+    <string name="appcontrol_app_uninstall_title">Uygulamayı kaldır</string>
+    <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
@@ -309,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Son güncelleme</string>
     <string name="appcontrol_list_sortmode_installed_label">İlk indirilme</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paket adı</string>
+    <string name="appcontrol_progress_uninstalling_app">Uygulama kaldırılıyor</string>
     <string name="data_area_public_app_data_official_label">Varsayılan Genel Uygulama Verileri</string>
     <string name="data_area_public_storage_label">Genel Depolama</string>
     <string name="data_area_sdcard_label">Hafıza kartı</string>
