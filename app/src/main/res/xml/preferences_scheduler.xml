@@ -7,4 +7,9 @@
         app:summary="@string/scheduler_setting_nopowersaving_summary"
         app:title="@string/scheduler_setting_nopowersaving_title" />
 
+    <CheckBoxPreference
+        app:icon="@drawable/ic_baseline_accessibility_new_24"
+        app:key="option.automation.enabled"
+        app:summary="@string/scheduler_setting_automation_summary"
+        app:title="@string/scheduler_setting_automation_title" />
 </PreferenceScreen>

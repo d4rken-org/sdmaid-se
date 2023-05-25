@@ -433,6 +433,8 @@
     <string name="scheduler_no_active_schedules_subtitle">No active schedules</string>
     <string name="scheduler_setting_nopowersaving_title">Skip on low battery</string>
     <string name="scheduler_setting_nopowersaving_summary">If the phone is in power-saving mode, the scheduled execution will be skipped.</string>
+    <string name="scheduler_setting_automation_title">Accessibility service</string>
+    <string name="scheduler_setting_automation_summary">Include actions that use an accessibility service. This requires that SD Maid can interact with your screen (i.e. it\'s unlocked) when the tasks are executed.</string>
 
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>

@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AppCleanerSchedulerTask(
     val scheduleId: String,
+    val useAutomation: Boolean,
 ) : AppCleanerTask {
 
     sealed interface Result : AppCleanerTask.Result
