@@ -368,8 +368,6 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                         },
                         size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
                         modifiedAt = Instant.EPOCH,
-                        ownership = null,
-                        permissions = null,
                         target = null,
                     )
                     APath.PathType.SAF -> SAFPathLookup(

@@ -3,8 +3,6 @@ package eu.darken.sdmse.common.files.local
 import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.Ownership
-import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.RawPath
 import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
@@ -119,8 +117,6 @@ class LocalPathTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup1b = LocalPathLookup(
@@ -128,8 +124,6 @@ class LocalPathTest : BaseTest() {
             fileType = FileType.FILE,
             size = 8,
             modifiedAt = Instant.ofEpochMilli(123),
-            ownership = Ownership(1, 1),
-            permissions = Permissions(444),
             target = null,
         )
         val lookup1c = LocalPathLookup(
@@ -137,8 +131,6 @@ class LocalPathTest : BaseTest() {
             fileType = FileType.DIRECTORY,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -146,8 +138,6 @@ class LocalPathTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         lookup1a shouldNotBe lookup1b

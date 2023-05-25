@@ -26,8 +26,6 @@ class APathLookupExtensionTest : BaseTest() {
             fileType = FileType.DIRECTORY,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2: APathLookup<*> = LocalPathLookup(
@@ -35,8 +33,6 @@ class APathLookupExtensionTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         lookup1.isDirectory shouldBe true

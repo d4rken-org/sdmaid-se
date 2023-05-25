@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.root.io.RemoteInputStream;
 import eu.darken.sdmse.common.root.io.RemoteOutputStream;
 import eu.darken.sdmse.common.files.local.LocalPath;
 import eu.darken.sdmse.common.files.local.LocalPathLookup;
+import eu.darken.sdmse.common.files.local.LocalPathLookupExtended;
 import eu.darken.sdmse.common.files.Ownership;
 import eu.darken.sdmse.common.files.Permissions;
 
@@ -28,6 +29,10 @@ interface FileOpsConnection {
     LocalPathLookup lookUp(in LocalPath path);
     List<LocalPathLookup> lookupFiles(in LocalPath path);
     RemoteInputStream lookupFilesStream(in LocalPath path);
+
+    LocalPathLookupExtended lookUpExtended(in LocalPath path);
+    List<LocalPathLookupExtended> lookupFilesExtended(in LocalPath path);
+    RemoteInputStream lookupFilesExtendedStream(in LocalPath path);
 
     boolean createSymlink(in LocalPath linkPath, in LocalPath targetPath);
 

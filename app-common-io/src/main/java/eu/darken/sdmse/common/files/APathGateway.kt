@@ -5,17 +5,23 @@ import okio.Sink
 import okio.Source
 import java.time.Instant
 
-interface APathGateway<P : APath, PLU : APathLookup<P>> : HasSharedResource<Any> {
+interface APathGateway<
+        P : APath,
+        PLU : APathLookup<P>,
+        PLUE : APathLookupExtended<P>,
+        > : HasSharedResource<Any> {
 
     suspend fun createDir(path: P)
 
     suspend fun createFile(path: P)
 
-    suspend fun lookup(path: P): PLU
-
     suspend fun listFiles(path: P): Collection<P>
 
+    suspend fun lookup(path: P): PLU
+
     suspend fun lookupFiles(path: P): Collection<PLU>
+
+    suspend fun lookupFilesExtended(path: P): Collection<PLUE>
 
     suspend fun exists(path: P): Boolean
 

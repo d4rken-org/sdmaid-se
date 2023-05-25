@@ -36,11 +36,25 @@ fun LocalPath.toCrumbs(): List<LocalPath> {
     return crumbs
 }
 
-fun LocalPath.performLookup(
+fun LocalPath.performLookup(): LocalPathLookup {
+    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist or can't be read")
+
+    return LocalPathLookup(
+        fileType = type,
+        lookedUp = this,
+        size = file.length(),
+        modifiedAt = Instant.ofEpochMilli(file.lastModified()),
+
+        target = file.readLink()?.let { LocalPath.Companion.build(it) }
+    )
+}
+
+fun LocalPath.performLookupExtended(
     ipcFunnel: IPCFunnel,
     libcoreTool: LibcoreTool,
-): LocalPathLookup {
-    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist or can't be read")
+): LocalPathLookupExtended {
+
+    val lookup = this.performLookup()
 
     val fstat: StructStat? = try {
         Os.lstat(file.path)
@@ -61,14 +75,10 @@ fun LocalPath.performLookup(
         Ownership(uid, gid, userName, groupName)
     }
 
-    return LocalPathLookup(
-        fileType = type,
-        lookedUp = this,
-        size = file.length(),
-        modifiedAt = Instant.ofEpochMilli(file.lastModified()),
+    return LocalPathLookupExtended(
+        lookup = lookup,
         ownership = ownership,
         permissions = fstat?.let { Permissions(it.st_mode) },
-        target = file.readLink()?.let { LocalPath.Companion.build(it) }
     )
 }
 

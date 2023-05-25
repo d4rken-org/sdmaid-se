@@ -39,32 +39,32 @@ fun APath.asFile(): File = when (this) {
     else -> File(this.path)
 }
 
-fun <P : APath, PL : APathLookup<P>, GT : APathGateway<P, PL>> P.walk(
+fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> P.walk(
     gateway: GT,
     filter: suspend (PL) -> Boolean = { true }
-): PathTreeFlow<P, PL, GT> {
+): PathTreeFlow<P, PL, PLE, GT> {
     return PathTreeFlow(gateway, this, filter)
 }
 
-suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.exists(this)
 }
 
-suspend fun <T : APath> T.requireExists(gateway: APathGateway<T, out APathLookup<T>>): T {
+suspend fun <T : APath> T.requireExists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (!exists(gateway)) {
         throw IllegalStateException("Path doesn't exist, but should: $this")
     }
     return this
 }
 
-suspend fun <T : APath> T.requireNotExists(gateway: APathGateway<T, out APathLookup<T>>): T {
+suspend fun <T : APath> T.requireNotExists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (exists(gateway)) {
         throw IllegalStateException("Path exist, but shouldn't: $this")
     }
     return this
 }
 
-suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
+suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (exists(gateway)) {
         if (gateway.lookup(this).fileType == FileType.FILE) {
             log(VERBOSE) { "File already exists, not creating: $this" }
@@ -77,13 +77,13 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
     return createFile(gateway)
 }
 
-suspend fun <T : APath> T.createFile(gateway: APathGateway<T, out APathLookup<T>>): T {
+suspend fun <T : APath> T.createFile(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     gateway.createFile(this)
     log(VERBOSE) { "File created: $this" }
     return this
 }
 
-suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>>): T {
+suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (exists(gateway)) {
         if (gateway.lookup(this).isDirectory) {
             log(VERBOSE) { "Directory already exists, not creating: $this" }
@@ -98,14 +98,14 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
     return this
 }
 
-suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>>) {
+suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>) {
     gateway.delete(this)
     log(VERBOSE) { "APath.delete(): Deleted $this" }
 }
 
 // TODO move this into the gateways?
 suspend fun <T : APath> T.deleteAll(
-    gateway: APathGateway<T, out APathLookup<T>>,
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
     try {
@@ -128,66 +128,75 @@ suspend fun <T : APath> T.deleteAll(
     this.delete(gateway)
 }
 
-suspend fun <T : APath> T.write(gateway: APathGateway<T, out APathLookup<T>>): Sink {
+suspend fun <T : APath> T.write(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Sink {
     return gateway.write(this)
 }
 
-suspend fun <T : APath> T.read(gateway: APathGateway<T, out APathLookup<T>>): Source {
+suspend fun <T : APath> T.read(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Source {
     return gateway.read(this)
 }
 
-suspend fun <T : APath> T.createSymlink(gateway: APathGateway<T, out APathLookup<T>>, target: T): Boolean {
+suspend fun <T : APath> T.createSymlink(
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
+    target: T
+): Boolean {
     return gateway.createSymlink(this, target)
 }
 
-suspend fun <T : APath> T.setModifiedAt(gateway: APathGateway<T, out APathLookup<T>>, modifiedAt: Instant): Boolean {
+suspend fun <T : APath> T.setModifiedAt(
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
+    modifiedAt: Instant
+): Boolean {
     return gateway.setModifiedAt(this, modifiedAt)
 }
 
 suspend fun <T : APath> T.setPermissions(
-    gateway: APathGateway<T, out APathLookup<T>>,
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
     permissions: Permissions
 ): Boolean {
     return gateway.setPermissions(this, permissions)
 }
 
-suspend fun <T : APath> T.setOwnership(gateway: APathGateway<T, out APathLookup<T>>, ownership: Ownership): Boolean {
+suspend fun <T : APath> T.setOwnership(
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
+    ownership: Ownership
+): Boolean {
     return gateway.setOwnership(this, ownership)
 }
 
-suspend fun <P : APath, PLU : APathLookup<P>> P.lookup(gateway: APathGateway<P, PLU>): PLU {
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookup(gateway: APathGateway<P, PL, PLE>): PL {
     return gateway.lookup(this)
 }
 
-suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFiles(gateway: APathGateway<P, PLU>): Collection<PLU> {
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFiles(gateway: APathGateway<P, PL, PLE>): Collection<PL> {
     return gateway.lookupFiles(this)
 }
 
-suspend fun <P : APath, PLU : APathLookup<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PLU>): Collection<PLU>? {
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PL, PLE>): Collection<PL>? {
     return if (exists(gateway)) gateway.lookupFiles(this) else null
 }
 
-suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>>): Collection<T> {
+suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Collection<T> {
     return gateway.listFiles(this)
 }
 
-suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>>): Collection<T>? {
+suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Collection<T>? {
     return if (exists(gateway)) gateway.listFiles(this) else null
 }
 
-suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.canRead(this)
 }
 
-suspend fun <T : APath> T.canWrite(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+suspend fun <T : APath> T.canWrite(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.canWrite(this)
 }
 
-suspend fun <T : APath> T.isFile(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+suspend fun <T : APath> T.isFile(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.lookup(this).fileType == FileType.FILE
 }
 
-suspend fun <T : APath> T.isDirectory(gateway: APathGateway<T, out APathLookup<T>>): Boolean {
+suspend fun <T : APath> T.isDirectory(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.lookup(this).fileType == FileType.DIRECTORY
 }
 

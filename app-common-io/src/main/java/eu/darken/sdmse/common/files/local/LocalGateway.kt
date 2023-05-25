@@ -37,7 +37,7 @@ class LocalGateway @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val storageEnvironment: StorageEnvironment,
     private val rootManager: RootManager,
-) : APathGateway<LocalPath, LocalPathLookup> {
+) : APathGateway<LocalPath, LocalPathLookup, LocalPathLookupExtended> {
 
     // Represents the resource that keeps the gateway resources alive
     // Internal resources should add themselfes as child to this
@@ -162,7 +162,7 @@ class LocalGateway @Inject constructor(
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "lookup($mode->NORMAL): $path" }
                     if (!canRead) throw ReadException(path)
-                    path.performLookup(ipcFunnel, libcoreTool)
+                    path.performLookup()
                 }
 
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
@@ -237,7 +237,7 @@ class LocalGateway @Inject constructor(
                     if (nonRootList == null) throw ReadException(path)
                     nonRootList
                         .map { it.toLocalPath() }
-                        .map { it.performLookup(ipcFunnel, libcoreTool) }
+                        .map { it.performLookup() }
                 }
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
@@ -257,6 +257,50 @@ class LocalGateway @Inject constructor(
             throw ReadException(path, cause = e)
         }
     }
+
+    override suspend fun lookupFilesExtended(
+        path: LocalPath
+    ): Collection<LocalPathLookupExtended> = lookupFilesExtended(path, Mode.AUTO)
+
+    suspend fun lookupFilesExtended(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookupExtended> =
+        runIO {
+            try {
+                val javaFile = path.asFile()
+                val nonRootList = try {
+                    when (mode) {
+                        Mode.ROOT -> null
+                        else -> if (javaFile.canRead()) javaFile.listFiles2() else null
+                    }
+                } catch (e: Exception) {
+                    null
+                }
+
+                when {
+                    mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
+                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->NORMAL): $path" }
+                        if (nonRootList == null) throw ReadException(path)
+                        nonRootList
+                            .map { it.toLocalPath() }
+                            .map { it.performLookupExtended(ipcFunnel, libcoreTool) }
+                    }
+
+                    hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
+                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->ROOT): $path" }
+                        rootOps { it.lookupFilesExtendedStream(path) }
+                    }
+
+                    else -> throw IOException("No matching mode available.")
+                }.also {
+                    if (Bugs.isTrace) {
+                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
+                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                    }
+                }
+            } catch (e: IOException) {
+                log(TAG, WARN) { "lookupFilesExtended(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+                throw ReadException(path, cause = e)
+            }
+        }
 
     override suspend fun exists(path: LocalPath): Boolean = exists(path, Mode.AUTO)
 

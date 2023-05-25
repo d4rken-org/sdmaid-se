@@ -39,7 +39,7 @@ class SAFGateway @Inject constructor(
     private val contentResolver: ContentResolver,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-) : APathGateway<SAFPath, SAFPathLookup> {
+) : APathGateway<SAFPath, SAFPathLookup, SAFPathLookupExtended> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
@@ -235,6 +235,30 @@ class SAFGateway @Inject constructor(
                 }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupFiles($path) failed." }
+            throw ReadException(path, cause = e)
+        }
+    }
+
+    override suspend fun lookupFilesExtended(path: SAFPath): List<SAFPathLookupExtended> = runIO {
+        try {
+            val docFile = findDocFile(path)
+            log(TAG, VERBOSE) { "lookupFilesExtended($path) -> $docFile" }
+
+            docFile.listFiles()
+                .map {
+                    val name = it.name ?: it.uri.pathSegments.last().split('/').last()
+                    path.child(name)
+                }
+                .map { lookup(it) }
+                .map { SAFPathLookupExtended(it) }
+                .also {
+                    if (Bugs.isTrace) {
+                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
+                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                    }
+                }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "lookupFilesExtended($path) failed." }
             throw ReadException(path, cause = e)
         }
     }

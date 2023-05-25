@@ -76,8 +76,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -85,8 +83,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         file1.matches(file1) shouldBe true
@@ -110,8 +106,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -119,8 +113,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -154,8 +146,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -163,8 +153,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -199,8 +187,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -208,8 +194,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -243,8 +227,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -252,8 +234,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -287,8 +267,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val lookup2 = LocalPathLookup(
@@ -296,8 +274,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -336,8 +312,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val preLookup = LocalPathLookup(
@@ -345,8 +319,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
@@ -377,8 +349,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
         val preLookup = LocalPathLookup(
@@ -386,8 +356,6 @@ class LocalPathExtensionsTest : BaseTest() {
             fileType = FileType.FILE,
             size = 16,
             modifiedAt = Instant.EPOCH,
-            ownership = null,
-            permissions = null,
             target = null,
         )
 
