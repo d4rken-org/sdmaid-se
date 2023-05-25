@@ -41,3 +41,9 @@ fun View.getString(@StringRes stringRes: Int) = resources.getString(stringRes)
 
 val View.layoutInflator: LayoutInflater
     get() = LayoutInflater.from(context)
+
+fun View.performClickWithRipple() {
+    isPressed = true
+    isPressed = false
+    performClick()
+}

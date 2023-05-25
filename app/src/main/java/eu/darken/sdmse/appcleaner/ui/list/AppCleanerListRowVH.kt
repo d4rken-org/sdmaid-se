@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
+import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.databinding.AppcleanerListItemBinding
 
 
@@ -27,6 +28,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         val junk = item.junk
         icon.apply {
             loadAppIcon(junk.pkg)
+            setOnClickListener { root.performClickWithRipple() }
             setOnLongClickListener {
                 val intent = junk.pkg.getSettingsIntent(context)
                 try {
