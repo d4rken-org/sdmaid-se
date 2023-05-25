@@ -11,24 +11,25 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import java.time.Instant
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class AppControlListFragmentVM @Inject constructor(
-    private val handle: SavedStateHandle,
-    private val dispatcherProvider: DispatcherProvider,
+    @Suppress("unused") private val handle: SavedStateHandle,
+    dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
-    private val taskManager: TaskManager,
     private val settings: AppControlSettings,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -43,6 +44,59 @@ class AppControlListFragmentVM @Inject constructor(
     val events = SingleLiveEvent<AppControlListEvents>()
     private val searchQuery = MutableStateFlow("")
 
+    private val queryCacheLabel = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.normalizedLabel: String
+        get() = queryCacheLabel[this.id] ?: this.label.get(context).lowercase().also {
+            queryCacheLabel[this.id] = it
+        }
+
+    private val queryCachePkg = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.normalizedPackageName: String
+        get() = queryCachePkg[this.id] ?: this.pkg.packageName.also {
+            queryCachePkg[this.id] = it
+        }
+
+    private val lablrCacheLabel = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrLabel: String
+        get() = lablrCacheLabel[this.id] ?: run {
+            this.label.get(context)
+                .take(1)
+                .uppercase()
+                .takeIf { it.toDoubleOrNull() == null } ?: "?"
+        }.also { lablrCacheLabel[this.id] = it }
+
+    private val lablrCachePkg = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrPkg: String
+        get() = lablrCachePkg[this.id] ?: run {
+            this.pkg.packageName
+                .take(3)
+                .uppercase()
+                .removeSuffix(".")
+                .takeIf { it.toDoubleOrNull() == null } ?: "?"
+        }.also { lablrCachePkg[this.id] = it }
+    private val lablrCacheUpdated = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrUpdated: String
+        get() = lablrCacheUpdated[this.id] ?: run {
+            this.pkg.let { it as? ExtendedInstallData }
+                ?.updatedAt
+                ?.let {
+                    val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
+                    formatter.format(it.toSystemTimezone())
+                }
+                ?: "?"
+        }.also { lablrCacheUpdated[this.id] = it }
+    private val lablrCacheInstalled = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrInstalled: String
+        get() = lablrCacheInstalled[this.id] ?: run {
+            this.pkg.let { it as? ExtendedInstallData }
+                ?.installedAt
+                ?.let {
+                    val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
+                    formatter.format(it.toSystemTimezone())
+                }
+                ?: "?"
+        }.also { lablrCacheInstalled[this.id] = it }
+
     val state = combine(
         appControl.data,
         appControl.progress,
@@ -50,7 +104,17 @@ class AppControlListFragmentVM @Inject constructor(
         settings.listSort.flow,
         settings.listFilter.flow,
     ) { data, progress, query, listSort, listFilter ->
+        val queryNormalized = query.lowercase()
         val appInfos = data?.apps
+            ?.filter { appInfo ->
+                if (queryNormalized.isEmpty()) return@filter true
+
+                if (appInfo.normalizedPackageName.contains(queryNormalized)) return@filter true
+
+                if (appInfo.normalizedLabel.contains(queryNormalized)) return@filter true
+
+                return@filter false
+            }
             ?.filter {
                 if (listFilter.tags.contains(FilterSettings.Tag.USER) && it.pkg.isSystemApp) return@filter false
                 if (listFilter.tags.contains(FilterSettings.Tag.SYSTEM) && !it.pkg.isSystemApp) return@filter false
@@ -59,32 +123,33 @@ class AppControlListFragmentVM @Inject constructor(
 
                 return@filter true
             }
-            ?.filter {
-                if (query.isEmpty()) return@filter true
-                it.pkg.packageName.contains(query) || it.label.get(context).contains(query)
-            }
             ?.sortedWith(
                 when (listSort.mode) {
-                    SortSettings.Mode.NAME -> compareBy<AppInfo> {
-                        it.label.get(context).uppercase()
+                    SortSettings.Mode.NAME -> compareBy {
+                        it.normalizedLabel
                     }
-                    SortSettings.Mode.PACKAGENAME -> compareBy<AppInfo> {
-                        it.pkg.packageName.uppercase()
+
+                    SortSettings.Mode.PACKAGENAME -> compareBy {
+                        it.normalizedPackageName
                     }
-                    SortSettings.Mode.LAST_UPDATE -> compareBy<AppInfo> {
+
+                    SortSettings.Mode.LAST_UPDATE -> compareBy {
                         (it.pkg as? ExtendedInstallData)?.updatedAt ?: Instant.EPOCH
                     }
-                    SortSettings.Mode.INSTALLED_AT -> compareBy<AppInfo> {
+
+                    SortSettings.Mode.INSTALLED_AT -> compareBy {
                         (it.pkg as? ExtendedInstallData)?.installedAt ?: Instant.EPOCH
                     }
                 }
             )
-            ?.let {
-                if (listSort.reversed) it.reversed() else it
-            }
+            ?.let { if (listSort.reversed) it.reversed() else it }
             ?.map { content ->
                 AppControlListRowVH.Item(
                     appInfo = content,
+                    lablrName = if (listSort.mode == SortSettings.Mode.NAME) content.lablrLabel else null,
+                    lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
+                    lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
+                    lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
                     onItemClicked = {
                         AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
                             content.pkg.id
@@ -132,16 +197,19 @@ class AppControlListFragmentVM @Inject constructor(
                 } else {
                     old.tags.plus(tag).minus(FilterSettings.Tag.SYSTEM)
                 }
+
                 FilterSettings.Tag.SYSTEM -> if (existing) {
                     old.tags.minus(tag)
                 } else {
                     old.tags.plus(tag).minus(FilterSettings.Tag.USER)
                 }
+
                 FilterSettings.Tag.ENABLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
                     old.tags.plus(tag).minus(FilterSettings.Tag.DISABLED)
                 }
+
                 FilterSettings.Tag.DISABLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
