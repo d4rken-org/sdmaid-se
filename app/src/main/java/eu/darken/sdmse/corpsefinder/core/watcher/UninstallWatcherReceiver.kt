@@ -8,7 +8,9 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -60,11 +62,15 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
                 return@launch
             }
 
-            val scanTask = UninstallWatcherTask(pkg)
+            val task = UninstallWatcherTask(
+                target = pkg,
+                autoDelete = corpseFinderSettings.isWatcherAutoDeleteEnabled.value()
+            )
             try {
-                taskManager.submit(scanTask)
+                log(TAG) { "Submitting watcher task: $task" }
+                taskManager.submit(task)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Uninstall watcher task ($scanTask) failed: ${e.asLog()}" }
+                log(TAG, ERROR) { "Uninstall watcher task ($task) failed: ${e.asLog()}" }
             }
         }
 

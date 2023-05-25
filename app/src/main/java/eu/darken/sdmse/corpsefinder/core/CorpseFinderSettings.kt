@@ -36,12 +36,14 @@ class CorpseFinderSettings @Inject constructor(
     val filterAppToSdEnabled = dataStore.createValue("filter.apptosd.enabled", false)
 
     val isUninstallWatcherEnabled = dataStore.createValue("watcher.uninstall.enabled", false)
+    val isWatcherAutoDeleteEnabled = dataStore.createValue("watcher.uninstall.autodelete.enabled", true)
 
     val includeRiskKeeper = dataStore.createValue("risk.include.keeper", false)
     val includeRiskCommon = dataStore.createValue("risk.include.common", false)
 
     override val mapper = PreferenceStoreMapper(
         isUninstallWatcherEnabled,
+        isWatcherAutoDeleteEnabled,
         includeRiskCommon,
         includeRiskKeeper,
         filterPublicMediaEnabled,
