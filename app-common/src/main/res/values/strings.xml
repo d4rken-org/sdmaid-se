@@ -66,6 +66,7 @@
     <string name="general_progress_queued">In queue</string>
     <string name="general_progress_deleting">Deleting %s</string>
     <string name="general_sort_options_label">Sort options</string>
+    <string name="general_sort_reverse_action">Reverse sort mode</string>
     <string name="general_tag_filter_label">Filter by tags</string>
 
     <string name="general_result_success_message">Operation successful</string>
