@@ -6,6 +6,7 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_delete_alert_24"
             app:key="dashboard.oneclick.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/dashboard_settings_oneclick_summary"
             app:title="@string/dashboard_settings_oneclick_title" />
 
@@ -24,6 +25,7 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_spider_thread_onsurface"
             app:key="core.bugreporter.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/debug_bugreporter_summary"
             app:title="@string/debug_bugreporter_label" />
 

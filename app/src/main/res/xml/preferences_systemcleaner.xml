@@ -14,56 +14,67 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.logfiles.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_logfiles_summary"
             app:title="@string/systemcleaner_filter_logfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_ads_click_24"
+            app:singleLineTitle="false"
             app:key="filter.advertisements.enabled"
             app:summary="@string/systemcleaner_filter_advertisements_summary"
             app:title="@string/systemcleaner_filter_advertisements_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_folder_open_24"
             app:key="filter.emptydirectories.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_emptydirectories_summary"
             app:title="@string/systemcleaner_filter_emptydirectories_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_app_extra_24"
             app:key="filter.superfluosapks.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_superfluosapks_summary"
             app:title="@string/systemcleaner_filter_superfluosapks_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_usb_24"
             app:key="filter.lostdir.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_lostdir_summary"
             app:title="@string/systemcleaner_filter_lostdir_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_penguin_24"
             app:key="filter.linuxfiles.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_linuxfiles_summary"
             app:title="@string/systemcleaner_filter_linuxfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_os_mac"
+            app:singleLineTitle="false"
             app:key="filter.macfiles.enabled"
             app:summary="@string/systemcleaner_filter_macfiles_summary"
             app:title="@string/systemcleaner_filter_macfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_os_windows"
             app:key="filter.windowsfiles.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_windowsfiles_summary"
             app:title="@string/systemcleaner_filter_windowsfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/image_multiple"
             app:key="filter.thumbnails.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_thumbnails_summary"
             app:title="@string/systemcleaner_filter_thumbnails_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_access_time_filled_24"
             app:key="filter.tempfiles.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_tempfiles_summary"
             app:title="@string/systemcleaner_filter_tempfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_analytics_onsurface"
             app:key="filter.analytics.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_analytics_summary"
             app:title="@string/systemcleaner_filter_analytics_label" />
     </PreferenceCategory>
@@ -72,26 +83,31 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_running_with_errors_24"
             app:key="filter.anr.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_anr_summary"
             app:title="@string/systemcleaner_filter_anr_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_android_studio_24"
             app:key="filter.localtmp.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_localtmp_summary"
             app:title="@string/systemcleaner_filter_localtmp_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_android_studio_24"
             app:key="filter.downloadcache.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_downloadcache_summary"
             app:title="@string/systemcleaner_filter_downloadcache_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.datalogger.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_datalogger_summary"
             app:title="@string/systemcleaner_filter_datalogger_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.logdropbox.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_logdropbox_summary"
             app:title="@string/systemcleaner_filter_logdropbox_label" />
         <CheckBoxPreference
@@ -102,11 +118,13 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_tombstone"
             app:key="filter.tombstones.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_tombstones_summary"
             app:title="@string/systemcleaner_filter_tombstones_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_chart_bar_stacked_24"
             app:key="filter.usagestats.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_usagestats_summary"
             app:title="@string/systemcleaner_filter_usagestats_label" />
 
