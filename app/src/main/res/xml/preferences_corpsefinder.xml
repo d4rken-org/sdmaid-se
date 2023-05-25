@@ -2,11 +2,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <CheckBoxPreference
-        app:icon="@drawable/ic_details_24"
-        app:key="watcher.uninstall.enabled"
-        app:summary="@string/corpsefinder_watcher_summary"
-        app:title="@string/corpsefinder_watcher_title" />
+    <PreferenceCategory android:title="@string/corpsefinder_watcher_title">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_details_24"
+            app:key="watcher.uninstall.enabled"
+            app:summary="@string/corpsefinder_watcher_summary"
+            app:title="@string/corpsefinder_watcher_title" />
+
+        <CheckBoxPreference
+            app:icon="@drawable/ic_delete_alert_24"
+            app:key="watcher.uninstall.autodelete.enabled"
+            app:summary="@string/corpsefinder_watcher_autodelete_summary"
+            app:title="@string/corpsefinder_watcher_autodelete_title" />
+    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_risklevel">
         <CheckBoxPreference

@@ -8,12 +8,14 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class UninstallWatcherTask(
     val target: Pkg.Id,
+    val autoDelete: Boolean,
 ) : CorpseFinderTask {
 
     sealed interface Result : CorpseFinderTask.Result
 
     @Parcelize
     data class Success(
+        private val foundItems: Int,
         private val deletedItems: Int,
         private val recoveredSpace: Long
     ) : Result {

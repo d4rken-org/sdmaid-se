@@ -8,6 +8,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -81,13 +82,20 @@ class CorpseFinder @Inject constructor(
                             .onEach { log(TAG) { "Uninstall watcher found target $it" } }
                             .toSet()
 
-                        val deleteResult = deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets))
+                        log(TAG) { "Watcher auto delete enabled=${task.autoDelete}" }
+                        val deleteResult = if (task.autoDelete) {
+                            deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets))
+                        } else {
+                            null
+                        }
 
                         UninstallWatcherTask.Success(
-                            deletedItems = deleteResult.deletedItems,
-                            recoveredSpace = deleteResult.recoveredSpace,
+                            foundItems = targets.size,
+                            deletedItems = deleteResult?.deletedItems ?: 0,
+                            recoveredSpace = deleteResult?.recoveredSpace ?: 0L,
                         )
                     }
+
                     is CorpseFinderSchedulerTask -> {
                         performScan(CorpseFinderScanTask())
                         deleteCorpses(CorpseFinderDeleteTask())
@@ -244,6 +252,7 @@ class CorpseFinder @Inject constructor(
                         deletedContents.containsKey(corpse) -> corpse.copy(
                             content = corpse.content.filter { c -> deletedContents[corpse]!!.none { it.matches(c) } }
                         )
+
                         else -> corpse
                     }
                 }
