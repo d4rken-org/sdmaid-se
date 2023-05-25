@@ -64,6 +64,9 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".corpsefinder.core.watcher.ExternalWatcherTaskReceiver"
+            android:exported="false" />
 
         <receiver
             android:name="eu.darken.sdmse.scheduler.core.SchedulerRestoreReceiver"

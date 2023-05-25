@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.*
+import eu.darken.sdmse.corpsefinder.core.watcher.ExternalWatcherResult
+import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherNotifications
 import eu.darken.sdmse.exclusion.core.*
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -44,6 +46,7 @@ class CorpseFinder @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val userManager: UserManager2,
     private val pkgOps: PkgOps,
+    private val watcherNotifications: UninstallWatcherNotifications,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
@@ -83,16 +86,29 @@ class CorpseFinder @Inject constructor(
                             .toSet()
 
                         log(TAG) { "Watcher auto delete enabled=${task.autoDelete}" }
-                        val deleteResult = if (task.autoDelete) {
-                            deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets))
+
+                        val internalDeleteResult = if (task.autoDelete) {
+                            deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets)).also {
+                                val watcherResult = ExternalWatcherResult.Deletion(
+                                    pkgId = task.target,
+                                    deletedItems = it.deletedItems,
+                                    freedSpace = it.recoveredSpace,
+                                )
+                                watcherNotifications.notifyOfDeletion(watcherResult)
+                            }
                         } else {
+                            val watcherResult = ExternalWatcherResult.Scan(
+                                pkgId = task.target,
+                                foundItems = targets.size
+                            )
+                            watcherNotifications.notifyOfScan(watcherResult)
                             null
                         }
 
                         UninstallWatcherTask.Success(
                             foundItems = targets.size,
-                            deletedItems = deleteResult?.deletedItems ?: 0,
-                            recoveredSpace = deleteResult?.recoveredSpace ?: 0L,
+                            deletedItems = internalDeleteResult?.deletedItems ?: 0,
+                            recoveredSpace = internalDeleteResult?.recoveredSpace ?: 0L,
                         )
                     }
 

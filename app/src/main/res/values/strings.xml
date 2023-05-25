@@ -160,6 +160,9 @@
     <string name="corpsefinder_watcher_summary">Automatically scan for remains when an app removed.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatic deletion</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatically delete any remains related to the uninstalled app.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s remain(s) found after uninstalling %2$s.</string>
+    <string name="corpsefinder_watcher_notification_delete_result">Clean up successful (%1$s): Freed %2$s and removed %3$s item(s).</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Delete remains</string>
 
     <string name="corpsefinder_filter_publicmedia_label">Public media</string>
     <string name="corpsefinder_filter_publicmedia_summary">Public media files, e.g. files received via messenger apps.</string>
