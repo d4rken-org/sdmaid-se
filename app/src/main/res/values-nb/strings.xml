@@ -122,7 +122,7 @@
     <string name="debug_mode_label">Feilsøkingsmodus</string>
     <string name="debug_mode_explanation">Aktiver test-alternativer og mer detaljerte data. Appen vil kjøre saktere og yte annerledes.</string>
     <string name="debug_bugreporter_label">Automatiske feilrapporter</string>
-    <string name="debug_bugreporter_summary">Rapporterer problemer automatisk, f.eks. detaljer om appen krasjer slik at jeg kan finne ut hvorfor og fikse det.</string>
+    <string name="debug_bugreporter_summary">Rapporterer problemer automatisk, f.eks. detaljer om app-krasjer slik at jeg kan finne ut hvorfor og fikse det.</string>
     <string name="settings_category_tools_label">Verktøy</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risikonivå</string>
@@ -141,7 +141,7 @@
     <string name="corpsefinder_filter_publicobb_summary">Ytterligere appressurser, f.eks. spillressurser.</string>
     <string name="corpsefinder_filter_publicdata_label">Offentlig appdata</string>
     <string name="corpsefinder_filter_publicdata_summary">Ikke-sensitiv appdata, f.eks. buffere for kart.</string>
-    <string name="corpsefinder_filter_sdcard_label">SD-kort</string>
+    <string name="corpsefinder_filter_sdcard_label">Minnekort</string>
     <string name="corpsefinder_filter_sdcard_summary">Generell offentlig lagring, intern og ekstern (f.eks. SD-kort).</string>
     <string name="corpsefinder_filter_privatedata_label">Privat appdata</string>
     <string name="corpsefinder_filter_privatedata_summary">Privat appdata, f.eks. legitimasjon, appinnstillinger, men også nettleserbuffere.</string>
@@ -265,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Filer mottatt gjennom Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Filer sendt eller mottatt i WeChat samtaler og øyeblikk.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Bufret mediefiler som lastes ned igjen når de vises i chatten.</string>
     <string name="appcleaner_delete_all_confirmation_message">Rens alle apper?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ubetydelig element funnet</item>
@@ -293,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Vis innstillinger</string>
     <string name="appcontrol_systemsettings_open_description">Åpne enhetens systeminnstillinger for denne appen.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
+    <string name="appcontrol_app_uninstall_title">Avinstaller app</string>
+    <string name="appcontrol_app_uninstall_description">Avinstaller denne appen fra enheten din.</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne appen fra andre operasjoner i SD Maid.</string>
@@ -309,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Sist oppdatert</string>
     <string name="appcontrol_list_sortmode_installed_label">Først installert</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakkenavn</string>
+    <string name="appcontrol_progress_uninstalling_app">Avinstallerer app</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>
     <string name="data_area_sdcard_label">SD-kort</string>

@@ -5,7 +5,6 @@
     <string name="upgrades_gplay_unavailable_error">গুগল প্লে পরিষেবা উপলব্ধ নয়।</string>
     <string name="upgrade_screen_benefits_title">সুবিধাসমূহ</string>
     <string name="upgrade_screen_how_title">বিকল্পসমূহ</string>
-    <string name="upgrade_screen_subscription_trial_action">বিনামূল্যের ট্রায়াল শুরু করুন</string>
     <string name="upgrade_screen_subscription_action">সাবস্ক্রাইব করুন</string>
     <string name="upgrade_screen_subscription_action_hint">সাবস্ক্রিপশনে প্রতি এক বছরে %s খরচ হয়।</string>
     <string name="upgrade_screen_iap_action">এককালীন ক্রয়</string>

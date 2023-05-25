@@ -120,10 +120,10 @@
     <string name="debug_mode_label">Mode debug</string>
     <string name="debug_mode_explanation">Aktifkan opsi pengujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih lambat dan bekerja secara berbeda.</string>
     <string name="debug_bugreporter_label">Laporan bug otomatis</string>
-    <string name="debug_bugreporter_summary">Laporan masalah otomatis, cth. rincian aplikasi tidak merespon sehingga saya cepat menemukan dan memperbaiki.</string>
+    <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti rincian aplikasi saat tidak merespons sehingga saya bisa cepat menemukan masalahnya dan memperbaikinya.</string>
     <string name="settings_category_tools_label">Peralatan</string>
     <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Tingkat resiko</string>
+    <string name="settings_category_risklevel">Tingkat risiko</string>
     <string name="corpsefinder_tool_name">PencariMayat</string>
     <string name="corpsefinder_explanation_short">Data milik aplikasi yang sudah dihapus.</string>
     <string name="corpsefinder_settings_summary">Sesuaikan filter pemindaian dan tingkat risiko.</string>
@@ -261,6 +261,8 @@
     <string name="appcleaner_filter_threema_summary">Berkas diterima melalu Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Berkas kiriman atau diterima pada percakapan dan momen WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Berkas-berkas media yang ditembolok yang diunduh lagi saat dilihat di percakapan.</string>
     <string name="appcleaner_delete_all_confirmation_message">Bersihkan semua aplikasi?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d berkas yang bisa dihapus ditemukan</item>
@@ -287,6 +289,8 @@
     <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
     <string name="appcontrol_systemsettings_open_description">Membuka info aplikasi ini di pengaturan sistem perangkat.</string>
     <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
+    <string name="appcontrol_app_uninstall_title">Copot aplikasi</string>
+    <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
     <string name="appcontrol_app_launch_description">Jalankan aplikasi ini.</string>
     <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
@@ -303,6 +307,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Terakhir diperbarui pada</string>
     <string name="appcontrol_list_sortmode_installed_label">Diinstal pertama kali pada</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nama paket</string>
+    <string name="appcontrol_progress_uninstalling_app">Mencopot aplikasi</string>
     <string name="data_area_public_app_data_official_label">Data Aplikasi Publik Default</string>
     <string name="data_area_public_storage_label">Penyimpanan Publik</string>
     <string name="data_area_sdcard_label">Kartu SD</string>

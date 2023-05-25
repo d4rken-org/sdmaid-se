@@ -7,12 +7,9 @@
     <string name="upgrades_gplay_unavailable_error">Usluge Google Playa nisu dostupne.</string>
     <string name="upgrades_no_purchases_found_check_account">Nema pronađenih kupnji. Koristite li pravi račun?</string>
     <string name="upgrade_screen_title">Nabavite SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid nema reklama i ne prodaje korisničke podatke. Moj rad financirate vi.</string>
     <string name="upgrade_screen_benefits_title">Prednosti</string>
     <string name="upgrade_screen_benefits_body">• Čišćenje aplikacija 💯\\n• Planirane operacije ⏰\\n• Dodatne mogućnosti za sve alate ⚙️\\n• Vaša vlastita pravila brisanja ✍️\\n• Motivirani programer 🧙\\ni više…</string>
     <string name="upgrade_screen_how_title">Mogućnosti</string>
-    <string name="upgrade_screen_how_body">Imate dvije mogućnosti: jednokratnu kupnju ili jeftiniju godišnju pretplatu. Pretplata ima besplatno probno razdoblje. Značajke koje dobivate su iste, samo se načini plaćanja razlikuju.</string>
-    <string name="upgrade_screen_subscription_trial_action">Započnite besplatnu probu</string>
     <string name="upgrade_screen_subscription_action">Pretplatite se</string>
     <string name="upgrade_screen_subscription_action_hint">Pretplata košta %s godišnje.</string>
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>

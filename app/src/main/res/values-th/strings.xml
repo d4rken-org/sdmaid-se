@@ -119,10 +119,8 @@
     <string name="debug_mode_label">โหมดดีบัก</string>
     <string name="debug_mode_explanation">เปิดใช้การทดสอบเพื่อแสดงรายละเอียดมากขึ้นในรายงาน แอพจะทำงานช้าลงและประสิทธิภาพลดลง</string>
     <string name="debug_bugreporter_label">รายงานข้อผิดพลาดโดยอัตโนมัติ</string>
-    <string name="debug_bugreporter_summary">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดที่เกิดขึ้นขณะที่แอพหยุดทำงาน เพื่อฉันจะตรวจหาสาเหตุและแก้ไข</string>
     <string name="settings_category_tools_label">เครื่องมือ</string>
     <string name="settings_category_filter">ตัวกรอง</string>
-    <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
     <string name="corpsefinder_tool_name">ค้นหาซากไฟล์</string>
     <string name="corpsefinder_explanation_short">ข้อมูลตกค้างของแอพที่ถูกลบออกไปแล้ว</string>
     <string name="corpsefinder_settings_summary">ปรับแต่งวิธีสแกนและระดับความเสี่ยง</string>
@@ -131,7 +129,6 @@
     <string name="corpsefinder_settings_risk_common_summary">ข้อมูลที่มีชื่อแบบที่พบได้บ่อย เช่น โฟลเดอร์ชื่อ \"Notes\" ไม่อาจบอกอย่างเจาะจงได้ว่าเป็นข้อมูลที่สร้างจากแอพใด</string>
     <string name="corpsefinder_watcher_summary">สแกนหาซากที่เหลือโดยอัตโนมัติหลังจากลบแอพแล้ว</string>
     <string name="corpsefinder_filter_publicmedia_summary">ไฟล์สื่อสาธารณะ เช่น ไฟล์ที่ได้รับจากแอพสนทนาต่างๆ</string>
-    <string name="corpsefinder_filter_sdcard_label">Sdcard</string>
     <string name="corpsefinder_filter_sdcard_summary">พื้นที่เก็บข้อมูลสาธารณะทั้งภายในและภายนอก (เช่น SD cards)</string>
     <string name="corpsefinder_corpse_hint_common">ไฟล์นี้มีชื่อแบบที่พบได้ทั่วไปและอาจเป็นข้อมูลของแอพที่ยังติดตั้งอยู่ในเครื่องซึ่ง SD Maid ไม่รู้จัก</string>
     <string name="appcleaner_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>

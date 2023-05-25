@@ -133,7 +133,7 @@
     <string name="debug_bugreporter_summary">الإبلاغ عن المشكلات تلقائيًا ، على سبيل المثال تفاصيل تعطل التطبيق حتى أتمكن من تحديد السبب وإصلاحه.</string>
     <string name="settings_category_tools_label">الأدوات</string>
     <string name="settings_category_filter">المرشحات</string>
-    <string name="settings_category_risklevel">مستوى الخطورة</string>
+    <string name="settings_category_risklevel">مستوى المخاطرة</string>
     <string name="corpsefinder_tool_name">العثور على الملفات المتبقية</string>
     <string name="corpsefinder_explanation_short">بيانات لتطبيقات قد تم حذفها.</string>
     <string name="corpsefinder_settings_summary">ضبط عوامل تصفية الفحص ومستويات المخاطر.</string>
@@ -149,7 +149,7 @@
     <string name="corpsefinder_filter_publicobb_summary">موارد التطبيق الإضافية ، على سبيل المثال أصول اللعبة.</string>
     <string name="corpsefinder_filter_publicdata_label">بيانات التطبيق العامة</string>
     <string name="corpsefinder_filter_publicdata_summary">بيانات التطبيق غير الحساسة ، على سبيل المثال مخابئ الخريطة.</string>
-    <string name="corpsefinder_filter_sdcard_label">بطاقة الذاكرة</string>
+    <string name="corpsefinder_filter_sdcard_label">بطاقة الذاكرة SD</string>
     <string name="corpsefinder_filter_sdcard_summary">التخزين العام ، الداخلي والخارجي (مثل بطاقات SD).</string>
     <string name="corpsefinder_filter_privatedata_label">بيانات التطبيق الخاصة</string>
     <string name="corpsefinder_filter_privatedata_summary">بيانات التطبيق الخاص ، على سبيل المثال بيانات الاعتماد وإعدادات التطبيق وأيضًا ذاكرة التخزين المؤقت للمتصفح.</string>
@@ -281,6 +281,8 @@
     <string name="appcleaner_filter_threema_summary">الملفات التي تم استلامها عبر Threema.</string>
     <string name="appcleaner_filter_wechat_label">وي شات</string>
     <string name="appcleaner_filter_wechat_summary">الملفات المرسلة والمستلمة في المحادثات ولحظات WeChat.</string>
+    <string name="appcleaner_filter_viber_label">فايبر</string>
+    <string name="appcleaner_filter_viber_summary">ملفات الوسائط المخزنة مؤقتاً والتي يتم تنزيلها مرة أخرى عند عرضها في المحادثة.</string>
     <string name="appcleaner_delete_all_confirmation_message">تنظيف كل التطبيقات؟</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="zero">تم العثور على %d عنصر مستهلك</item>
@@ -317,6 +319,8 @@
     <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
     <string name="appcontrol_systemsettings_open_description">افتح إعدادات النظام بجهازك لهذا التطبيق.</string>
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
+    <string name="appcontrol_app_uninstall_title">إلغاء تثبيت التطبيق</string>
+    <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
     <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
     <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
@@ -333,6 +337,7 @@
     <string name="appcontrol_list_sortmode_updated_label">أخز تحديث له في</string>
     <string name="appcontrol_list_sortmode_installed_label">لول تثبيت له في</string>
     <string name="appcontrol_list_sortmode_packagename_label">اسم الحُزْمَة</string>
+    <string name="appcontrol_progress_uninstalling_app">إلغاء تثبيت التطبيق</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>
     <string name="data_area_sdcard_label">ذاكرة تخزين خارجية</string>

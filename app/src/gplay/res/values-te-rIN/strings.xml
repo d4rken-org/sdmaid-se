@@ -5,7 +5,6 @@
     <string name="upgrade_feature_requires_pro">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ అవసరం</string>
     <string name="upgrades_dashcard_title">ఎస్ డీ పనిమనిషి ని నవీకరించు</string>
     <string name="upgrade_screen_how_title">ఎంపికలు</string>
-    <string name="upgrade_screen_subscription_trial_action">ఉచిత ప్రయత్నం ప్రారంభించండి</string>
     <string name="upgrade_screen_subscription_action">చందాదారులవండి</string>
     <string name="upgrade_screen_subscription_action_hint">ఏడాదికి చందా %s అవుతుంది.</string>
     <string name="upgrade_screen_iap_action">ఒకేసారి కొనేయి</string>

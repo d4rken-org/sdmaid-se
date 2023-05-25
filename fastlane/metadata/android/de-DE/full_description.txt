@@ -5,7 +5,7 @@ Niemand ist perfekt, Android auch nicht.
 * Protokolle, Absturzberichte und andere Dateien, die Du nicht wirklich brauchst, werden ständig erstellt.
 * Dein Speicher sammelt Dateien und Verzeichnisse an, die Du nicht kennst.
 
-Lass uns hier nicht weitermachen... Lass dir von SD Maid SE helfen:
+Lass uns hier nicht weitermachen... Lass Dir von SD Maid SE helfen:
 
 * Daten von bereits deinstallierten Apps bereinigen
 * Finde versteckte App-Caches

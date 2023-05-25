@@ -120,7 +120,7 @@
     <string name="debug_mode_label">Chế độ kiểm tra sửa lỗi</string>
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
     <string name="debug_bugreporter_label">Báo cáo lỗi tự động</string>
-    <string name="debug_bugreporter_summary">Tự động báo cáo sự cố, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể khắc phục, tìm ra lý do và khắc phục sự cố.</string>
+    <string name="debug_bugreporter_summary">Tự động báo cáo sự cố, ví dụ: chi tiết về sự cố ứng dụng để tôi có thể tìm ra lý do và khắc phục sự cố.</string>
     <string name="settings_category_tools_label">Công cụ</string>
     <string name="settings_category_filter">Bộ lọc</string>
     <string name="settings_category_risklevel">Mức độ rủi ro</string>
@@ -139,7 +139,7 @@
     <string name="corpsefinder_filter_publicobb_summary">Tài nguyên ứng dụng bổ sung, ví dụ: tài nguyên rò chơi.</string>
     <string name="corpsefinder_filter_publicdata_label">Dữ liệu ứng dụng công khai</string>
     <string name="corpsefinder_filter_publicdata_summary">Dữ liệu ứng dụng không nhạy cảm, ví dụ: bộ đệm bản đồ.</string>
-    <string name="corpsefinder_filter_sdcard_label">Thẻ Sd</string>
+    <string name="corpsefinder_filter_sdcard_label">Thẻ SD</string>
     <string name="corpsefinder_filter_sdcard_summary">Bộ nhớ chung, bên trong và bên ngoài (ví dụ: thẻ SD).</string>
     <string name="corpsefinder_filter_privatedata_label">Dữ liệu ứng dụng riêng tư</string>
     <string name="corpsefinder_filter_privatedata_summary">Dữ liệu ứng dụng riêng tư, ví dụ: thông tin đăng nhập, cài đặt ứng dụng cũng bao gồm cả bộ đệm của trình duyệt.</string>
@@ -261,6 +261,8 @@
     <string name="appcleaner_filter_threema_summary">Tệp nhận được qua Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Tệp đã gửi hoặc nhận trong các cuộc trò chuyện và khoảnh khắc WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Các tệp phương tiện đã lưu trong bộ nhớ cache được tải xuống lại khi xem trong cuộc trò chuyện.</string>
     <string name="appcleaner_delete_all_confirmation_message">Làm sạch tất cả các ứng dụng?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
@@ -287,6 +289,8 @@
     <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
     <string name="appcontrol_systemsettings_open_description">Mở cài đặt hệ thống của thiết bị cho ứng dụng này.</string>
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
+    <string name="appcontrol_app_uninstall_title">Gỡ cài đặt ứng dụng</string>
+    <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
@@ -303,6 +307,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Cập nhật lần cuối</string>
     <string name="appcontrol_list_sortmode_installed_label">Cài đặt lần đầu</string>
     <string name="appcontrol_list_sortmode_packagename_label">Tên gói</string>
+    <string name="appcontrol_progress_uninstalling_app">Đang gỡ cài đặt ứng dụng</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
     <string name="data_area_public_storage_label">Lưu trữ công khai</string>
     <string name="data_area_sdcard_label">SD-Card</string>

@@ -59,13 +59,10 @@
     <string name="debug_bugreporter_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
     <string name="settings_category_tools_label">টুলস</string>
     <string name="settings_category_filter">পরিশ্রুতক</string>
-    <string name="settings_category_risklevel">ঝুঁকির মাত্রা</string>
     <string name="corpsefinder_tool_name">শব-সন্ধানী</string>
     <string name="corpsefinder_settings_risk_common_title">পরিচিত নামগুলো অন্তর্ভুক্ত করুন</string>
-    <string name="corpsefinder_filter_sdcard_label">এসডি কার্ড</string>
     <string name="corpsefinder_filter_dalvik_label">ডালভিক ক্যাশ</string>
     <string name="corpsefinder_corpse_hints_label">বিজ্ঞপ্তি</string>
-    <string name="systemcleaner_explanation_short">অনাবশ্যক ডাটা যেগুলো কোন অ্যাপেরই নয়।</string>
     <string name="systemcleaner_filter_logfiles_label">লগ ফাইলসমূহ</string>
     <string name="systemcleaner_filter_emptydirectories_label">খালি ফোল্ডারসমূহ</string>
     <string name="systemcleaner_filter_linuxfiles_label">লিনাক্স ফাইলসমূহ</string>

@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Layanan Google Play sedang tidak tersedia.</string>
     <string name="upgrades_no_purchases_found_check_account">Pembelian tidak ditemukan. Apakah Anda menggunakan akun yang benar?</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda.</string>
+    <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Kelebihan</string>
     <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Pekerjaan yang dijadwalkan⏰\n• Pilihan tambahan untuk semua perangkat ⚙️\n• Aturan penghapusan buatan sendiri ✍️\n• Pengembang termotivasi 🧙\ndan lebih banyak lagi…</string>
     <string name="upgrade_screen_how_title">Pilihan</string>
-    <string name="upgrade_screen_how_body">Anda punya 2 pilihan: Bayar satu kali atau langganan tahunan yang lebih murah. Langganannya punya masa coba gratis. Fitur-fitur yang Anda dapatkan sama, hanya metode pembayarannya saja yang berbeda.</string>
-    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis</string>
+    <string name="upgrade_screen_how_body">Anda bisa memilih antara pembelian satu kali dan langganan tahunan yang lebih murah.\nLangganannya dimulai dengan coba gratis 14 hari. Setelah itu, Anda akan dicas tiap tahun. Masa percobaan dan langganan bisa dibatalkan kapan saja.\nFitur-fiturnya sama, hanya model biayanya saja yang berbeda.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis 14 hari</string>
     <string name="upgrade_screen_subscription_action">Berlangganan</string>
     <string name="upgrade_screen_subscription_action_hint">Langganan harganya %s per tahun.</string>
     <string name="upgrade_screen_iap_action">Sekali bayar</string>

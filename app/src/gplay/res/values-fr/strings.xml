@@ -9,12 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Les services Google Play ne sont pas disponibles.</string>
     <string name="upgrades_no_purchases_found_check_account">Aucun achat trouvé. Utilisez-vous le bon compte ?</string>
     <string name="upgrade_screen_title">Obtenez SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid ne contient pas de pubs et ne vend pas les données des utilisateurs. Mon travail est financé par vous.</string>
+    <string name="upgrade_screen_preamble">SD Maid n\'a pas de publicité et ne vend pas les données de ses utilisateurs. Mon travail est financé par vous ❤️.</string>
     <string name="upgrade_screen_benefits_title">Avantages</string>
     <string name="upgrade_screen_benefits_body">• Fonctionnalité de suppression de cache AppCleaner 💯\n• Opérations planifiées ⏰\n• Options supplémentaires pour tous les outils ⚙️\n• Vos propres règles de suppression ✍️\n• Un développeur motivé 🧙\net plus…</string>
     <string name="upgrade_screen_how_title">Options</string>
-    <string name="upgrade_screen_how_body">Deux options s\'offrent à vous : Un achat unique ou un abonnement annuel moins cher. L\'abonnement est assorti d\'une période d\'essai gratuite. Les fonctionnalités sont identiques, seules les méthodes de paiement diffèrent.</string>
-    <string name="upgrade_screen_subscription_trial_action">Commencez votre essai gratuit</string>
+    <string name="upgrade_screen_how_body">Vous pouvez choisir entre un achat unique et un abonnement annuel moins cher.\nL\'abonnement commence par un essai gratuit de 14 jours, après quoi vous serez facturé une fois par an. L\'essai et l\'abonnement peuvent être annulés à tout moment.\nLes fonctionnalités sont identiques, juste des modèles de tarification différents.</string>
+    <string name="upgrade_screen_subscription_trial_action">Commencer l\'essai gratuit de 14 jours</string>
     <string name="upgrade_screen_subscription_action">Souscrire</string>
     <string name="upgrade_screen_subscription_action_hint">La souscription coûte %s par année.</string>
     <string name="upgrade_screen_iap_action">Achat unique</string>

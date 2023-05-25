@@ -129,7 +129,7 @@
     <string name="debug_bugreporter_summary">Automaticky hlásí problémy, např. podrobnosti o pádech aplikace, aby bylo možné zjistit příčinu a opravit ji.</string>
     <string name="settings_category_tools_label">Nástroje</string>
     <string name="settings_category_filter">Filtr</string>
-    <string name="settings_category_risklevel">Riziková úroveň</string>
+    <string name="settings_category_risklevel">Úrovně rizika</string>
     <string name="corpsefinder_tool_name">Hledač mrtvol</string>
     <string name="corpsefinder_explanation_short">Data patřící již odebraným aplikacím.</string>
     <string name="corpsefinder_settings_summary">Nastavte filtry skenování a úroveň rizika.</string>
@@ -273,6 +273,8 @@
     <string name="appcleaner_filter_threema_summary">Soubory přijaté prostřednictvím aplikace Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Odeslané nebo přijaté soubory v konverzacích a momentkách aplikace WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Soubory médií v mezipaměti, které se při zobrazení v konverzaci znovu stáhnou.</string>
     <string name="appcleaner_delete_all_confirmation_message">Vyčistit všechny aplikace?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Nalezena %d nepotřebná položka</item>
@@ -305,6 +307,8 @@
     <string name="appcontrol_systemsettings_open_title">Zobrazit nastavení</string>
     <string name="appcontrol_systemsettings_open_description">Otevřete systémové nastavení zařízení pro tuto aplikaci.</string>
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
+    <string name="appcontrol_app_uninstall_title">Odinstalovat aplikaci</string>
+    <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
     <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
     <string name="appcontrol_app_exclude_add_description">Vyloučit tuto aplikaci z ostatních operací v SD Maid.</string>
@@ -321,6 +325,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Poslední aktualizace</string>
     <string name="appcontrol_list_sortmode_installed_label">První instalace</string>
     <string name="appcontrol_list_sortmode_packagename_label">Název balíčku</string>
+    <string name="appcontrol_progress_uninstalling_app">Odinstalování aplikace</string>
     <string name="data_area_public_app_data_official_label">Výchozí veřejná data aplikace</string>
     <string name="data_area_public_storage_label">Veřejné úložiště</string>
     <string name="data_area_sdcard_label">SD karta</string>

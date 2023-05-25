@@ -122,10 +122,8 @@
     <string name="debug_mode_label">Foutopsporingsmodus</string>
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
-    <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
     <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risiconiveau</string>
     <string name="corpsefinder_tool_name">LijkenZoeker</string>
     <string name="corpsefinder_explanation_short">Gegevens van reeds verwijderde apps.</string>
     <string name="corpsefinder_settings_summary">Pas scanfilters en risiconiveaus aan.</string>
@@ -141,7 +139,6 @@
     <string name="corpsefinder_filter_publicobb_summary">Aanvullende app-bronnen, bijv. spelactiva.</string>
     <string name="corpsefinder_filter_publicdata_label">Openbare app-gegevens</string>
     <string name="corpsefinder_filter_publicdata_summary">Niet-gevoelige app gegevens, bijv. kaartcaches.</string>
-    <string name="corpsefinder_filter_sdcard_label">SD-kaart</string>
     <string name="corpsefinder_filter_sdcard_summary">Algemene openbare opslag, intern en extern (bijv. SD-kaarten).</string>
     <string name="corpsefinder_filter_privatedata_label">Privé app-gegevens</string>
     <string name="corpsefinder_filter_privatedata_summary">Privé app-gegevens, bijv. inloggegevens, app instellingen maar ook browsercaches.</string>
@@ -168,7 +165,6 @@
     <string name="corpsefinder_corpse_hint_keeper">Dit item bevat mogelijk gegevens die je wilt behouden ondanks dat de eigenaar is verwijderd, bijv. foto\'s of back-ups.</string>
     <string name="corpsefinder_corpse_hint_common">Dit item heeft een veel voorkomende naam en zou kunnen behoren tot nog steeds geïnstalleerde apps die SD Maid niet kent.</string>
     <string name="systemcleaner_tool_name">SysteemReiniger</string>
-    <string name="systemcleaner_explanation_short">Overbodige gegevens die niet bij een specifieke app behoren.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filterovereenkomst</item>
         <item quantity="other">%d filterovereenkomsten</item>

@@ -122,10 +122,8 @@
     <string name="debug_mode_label">Način otklanjanja pogrešaka</string>
     <string name="debug_mode_explanation">Omogućite opcije testiranja i opširniji izlaz. Aplikacija će raditi sporije i drugačije.</string>
     <string name="debug_bugreporter_label">Automatska izvješća o greškama</string>
-    <string name="debug_bugreporter_summary">Automatski prijavljuje probleme, npr. pojedinosti o rušenju aplikacije kako bih mogao popraviti, shvatiti zašto i popraviti to.</string>
     <string name="settings_category_tools_label">Alati</string>
     <string name="settings_category_filter">Filtar</string>
-    <string name="settings_category_risklevel">razina rizika</string>
     <string name="corpsefinder_tool_name">Tragač ostataka</string>
     <string name="corpsefinder_explanation_short">Podaci koji pripadaju već uklonjenim aplikacijama.</string>
     <string name="corpsefinder_settings_summary">Podesite filtre skeniranja i razine rizika.</string>
@@ -141,7 +139,6 @@
     <string name="corpsefinder_filter_publicobb_summary">Dodatni resursi aplikacije, npr. sredstva igre.</string>
     <string name="corpsefinder_filter_publicdata_label">Javni podaci aplikacije</string>
     <string name="corpsefinder_filter_publicdata_summary">Neosjetljivi podaci aplikacije, npr. spremišta karte.</string>
-    <string name="corpsefinder_filter_sdcard_label">SD kartica</string>
     <string name="corpsefinder_filter_sdcard_summary">Opća javna pohrana, unutarnja i vanjska (npr. SD kartice).</string>
     <string name="corpsefinder_filter_privatedata_label">Privatni podaci aplikacije</string>
     <string name="corpsefinder_filter_privatedata_summary">Privatni podaci aplikacije, npr. vjerodajnice, postavke aplikacije, ali i predmemorije preglednika.</string>
@@ -168,7 +165,6 @@
     <string name="corpsefinder_corpse_hint_keeper">Ova stavka može sadržavati podatke koje želite zadržati unatoč tome što je njen vlasnik deinstaliran, npr. fotografije ili sigurnosne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ova stavka ima vrlo uobičajeno ime i mogla bi pripadati još instaliranim aplikacijama koje SD Maid ne poznaje.</string>
     <string name="systemcleaner_tool_name">Čistač sustava</string>
-    <string name="systemcleaner_explanation_short">Suvišni podaci koji ne pripadaju nijednoj određenoj aplikaciji.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d podudaranje filtra</item>
         <item quantity="few">%d podudaranja filtra</item>

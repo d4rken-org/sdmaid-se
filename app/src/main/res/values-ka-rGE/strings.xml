@@ -114,10 +114,8 @@
     <string name="debug_mode_label">გამართვის რეჟიმი</string>
     <string name="debug_mode_explanation">ჩართეთ ტესტის ვარიანტები და უფრო ვრცელი გამომავალი. აპლიკაცია უფრო ნელა იმუშავებს და განსხვავებულად მუშაობს.</string>
     <string name="debug_bugreporter_label">შეცდომების ავტომატური ანგარიშები</string>
-    <string name="debug_bugreporter_summary">ავტომატურად აცნობებს პრობლემებს, მაგ. აპლიკაციის დეტალები ავარიულია, რათა გამოვასწორო რატომ და გამოვასწორო.</string>
     <string name="settings_category_tools_label">ხელსაწყოები</string>
     <string name="settings_category_filter">ფილტრი</string>
-    <string name="settings_category_risklevel">რისკის დონე</string>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">უკვე წაშლილი აპების კუთვნილი მონაცემები.</string>
     <string name="corpsefinder_settings_summary">დაარეგულირეთ სკანირების ფილტრები და რისკის დონე.</string>
@@ -133,7 +131,6 @@
     <string name="corpsefinder_filter_publicobb_summary">აპლიკაციის დამატებითი რესურსები, მაგ. თამაშის აქტივები.</string>
     <string name="corpsefinder_filter_publicdata_label">საჯარო აპის მონაცემები</string>
     <string name="corpsefinder_filter_publicdata_summary">აპის არასენსიტიური მონაცემები, მაგ. რუქების ქეშები.</string>
-    <string name="corpsefinder_filter_sdcard_label">Sd ბარათი</string>
     <string name="corpsefinder_filter_sdcard_summary">ზოგადი საჯარო მეხსიერება, შიდა და გარე (მაგ. SD ბარათები).</string>
     <string name="corpsefinder_filter_privatedata_label">პირადი აპლიკაციის მონაცემები</string>
     <string name="corpsefinder_filter_privatedata_summary">პირადი აპლიკაციის მონაცემები, მაგ. რწმუნებათა სიგელები, აპის პარამეტრები, მაგრამ ასევე ბრაუზერის ქეში.</string>

@@ -122,10 +122,8 @@
     <string name="debug_mode_label">डीबग लॉग</string>
     <string name="debug_mode_explanation">परीक्षण विकल्प और अधिक वर्बोज़ आउटपुट सक्षम करें। ऐप धीमी गति से चलेगा और अलग तरह से प्रदर्शन करेगा।</string>
     <string name="debug_bugreporter_label">स्वचालित त्रुटी रिपोर्ट</string>
-    <string name="debug_bugreporter_summary">स्वचालित रूप से त्रुटी की रिपोर्ट करता है, उदाहरण हेतु ऐप पर विवरण क्रैश हो जाता है इसलिए मैं यह पता लगा सकता हूं कि क्यों, और मैं इसे ठीक कर सकता हूं।</string>
     <string name="settings_category_tools_label">टूल</string>
     <string name="settings_category_filter">फ़िल्टर</string>
-    <string name="settings_category_risklevel">जोखिम का स्तर</string>
     <string name="corpsefinder_tool_name">अवशेष अन्वेषक</string>
     <string name="corpsefinder_explanation_short">पहले से हटाए गए ऐप्स से संबंधित डेटा।</string>
     <string name="corpsefinder_settings_summary">स्कैन फिल्टर और जोखिम के स्तर को समायोजित करें।</string>
@@ -141,7 +139,6 @@
     <string name="corpsefinder_filter_publicobb_summary">अतिरिक्त ऐप संसाधन, जैसे, खेल संपत्ति।</string>
     <string name="corpsefinder_filter_publicdata_label">सार्वजनिक ऐप डेटा</string>
     <string name="corpsefinder_filter_publicdata_summary">गैर-संवेदनशील ऐप्लिकेशन डेटा, जैसे कि नक्शा के कैशे फाइल।</string>
-    <string name="corpsefinder_filter_sdcard_label">Sd कार्ड</string>
     <string name="corpsefinder_filter_sdcard_summary">सामान्य सार्वजनिक भंडारण, आंतरिक और बाहरी (जैसे SD कार्ड)।</string>
     <string name="corpsefinder_filter_privatedata_label">निजी ऐप डेटा</string>
     <string name="corpsefinder_filter_privatedata_summary">निजी ऐप्लिकेशन डेटा, जैसे कि अतिसंवेदनशील, ऐप सेटिंग्स लेकिन ब्राउज़र कैश भी।</string>
@@ -168,7 +165,6 @@
     <string name="corpsefinder_corpse_hint_keeper">इस आइटम में वह डेटा हो सकता है जिसे आप इसके स्वामी के द्वारा हटाए जाने के बावजूद रखना चाहते हैं, जैसे कि फोटो या बैकअप।</string>
     <string name="corpsefinder_corpse_hint_common">इस आइटम का एक बहुत ही सामान्य नाम है और यह अभी भी स्थापित किए गए ऐप्स से संबंधित हो सकता है जिसे SD मेड नहीं जानती।</string>
     <string name="systemcleaner_tool_name">सिस्टम स्वच्छक</string>
-    <string name="systemcleaner_explanation_short">अनावश्यक डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d फ़िल्टर अनुरूप</item>
         <item quantity="other">%d फ़िल्टर अनुरूप हुआ</item>
