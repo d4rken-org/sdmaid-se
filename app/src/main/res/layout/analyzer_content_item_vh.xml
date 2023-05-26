@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         app:indicatorColor="?colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tertiary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tertiary"
         app:trackColor="?colorSecondaryContainer"
         tools:progress="80" />
 
@@ -37,17 +37,18 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@id/progress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/content_icon"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="/data/data/eu.darken.sdmse" />
+        tools:maxLines="3"
+        tools:text="@tools:sample/lorem/random" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
         style="@style/TextAppearance.Material3.LabelMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,11 +60,11 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tertiary"
         style="@style/TextAppearance.Material3.LabelMedium"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="end"
         app:layout_constraintBottom_toBottomOf="parent"

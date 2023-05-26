@@ -6,4 +6,7 @@
     <external-cache-path
         name="debug_logs"
         path="debug/logs" />
+    <root-path
+        name="device_root"
+        path="." />
 </paths>
