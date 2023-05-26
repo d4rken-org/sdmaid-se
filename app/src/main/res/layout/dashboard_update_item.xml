@@ -47,8 +47,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
+            app:iconTint="?colorOnTertiaryContainer"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:icon="@drawable/ic_eye_24"
