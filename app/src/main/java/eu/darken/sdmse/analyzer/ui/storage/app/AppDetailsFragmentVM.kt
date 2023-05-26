@@ -1,7 +1,10 @@
 package eu.darken.sdmse.analyzer.ui.storage.app
 
+import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
@@ -12,8 +15,12 @@ import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsExtraDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.*
@@ -23,6 +30,7 @@ import javax.inject.Inject
 class AppDetailsFragmentVM @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
+    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -43,6 +51,17 @@ class AppDetailsFragmentVM @Inject constructor(
         AppDetailsHeaderVH.Item(
             storage = storage,
             pkgStat = pkgStat,
+            onSettingsClicked = {
+                val intent = pkgStat.pkg.getSettingsIntent(context).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                try {
+                    context.startActivity(intent)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Launching system settings intent failed: ${e.asLog()}" }
+                    errorEvents.postValue(e)
+                }
+            }
         ).run { items.add(this) }
 
         pkgStat.appCode
