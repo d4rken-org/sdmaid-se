@@ -27,18 +27,23 @@ class AppDetailsHeaderVH(parent: ViewGroup) :
         val pkgStat = item.pkgStat
 
         appIcon.loadAppIcon(pkgStat.pkg)
+
         title.text = pkgStat.pkg.label?.get(context) ?: pkgStat.pkg.packageName
         subtitle.text = pkgStat.id.pkgId.name
+
         primary.text = getString(
             R.string.analyzer_app_details_app_occupies_x_on_y,
             Formatter.formatShortFileSize(context, pkgStat.totalSize),
             storage.label.get(context)
         )
+
+        settingsAction.setOnClickListener { item.onSettingsClicked() }
     }
 
     data class Item(
         val storage: DeviceStorage,
         val pkgStat: AppCategory.PkgStat,
+        val onSettingsClicked: () -> Unit,
     ) : AppDetailsAdapter.Item {
 
         override val stableId: Long = pkgStat.id.hashCode().toLong()
