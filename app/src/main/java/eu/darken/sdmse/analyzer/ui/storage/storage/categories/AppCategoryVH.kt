@@ -27,7 +27,7 @@ class AppCategoryVH(parent: ViewGroup) :
 
         val usedText = Formatter.formatShortFileSize(context, content.spaceUsed)
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
-        usedSpace.text = getString(R.string.analyzer_storage_content_x_used_of_total_y, usedText, "$totalPercent%")
+        usedSpace.text = getString(R.string.analyzer_space_used, usedText)
         progress.progress = totalPercent
 
         root.setOnClickListener { item.onItemClicked(content) }
