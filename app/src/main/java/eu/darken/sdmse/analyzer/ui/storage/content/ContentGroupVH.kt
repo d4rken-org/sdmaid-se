@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerContentGroupVhBinding
 
@@ -29,6 +30,7 @@ class ContentGroupVH(parent: ViewGroup) :
     }
 
     data class Item(
+        val category: MediaCategory,
         val contentGroup: ContentGroup,
         val onItemClicked: (Item) -> Unit,
     ) : ContentAdapter.Item {

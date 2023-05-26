@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
@@ -87,8 +88,8 @@ class StorageScanner @Inject constructor(
 
         return gatewaySwitch.useRes {
             fileForensics.useRes {
-                val folders = volume?.directory
-                    ?.let { LocalPath.build(it) }
+                val mediaDir = volume?.directory?.let { LocalPath.build(it) }
+                val folders = mediaDir
                     ?.lookupFiles(gatewaySwitch)
                     ?.filter { it.name != "Android" }
                     ?.mapNotNull { fileForensics.findOwners(it.lookedUp) }
@@ -101,7 +102,10 @@ class StorageScanner @Inject constructor(
                 val apps = scanForApps(storage)
 
                 updateProgressSecondary("Scanning media files")
-                val media = scanForMedia(storage)
+                val media = mediaDir
+                    ?.lookup(gatewaySwitch)
+                    ?.let { scanForMedia(storage, it) }
+                    ?: MediaCategory(storage.id, emptySet())
 
                 updateProgressSecondary("Scanning system data")
                 val system = scanForSystem(storage, apps, media)
@@ -268,7 +272,7 @@ class StorageScanner @Inject constructor(
         )
     }
 
-    private suspend fun scanForMedia(storage: DeviceStorage): MediaCategory {
+    private suspend fun scanForMedia(storage: DeviceStorage, mediaDir: APathLookup<*>): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
 
@@ -282,9 +286,11 @@ class StorageScanner @Inject constructor(
             ContentItem.fromLookup(lookup, children)
         }
 
+        val rootItem = ContentItem.fromLookup(mediaDir, topLevelContents)
+
         val group = MediaContentGroup(
             label = R.string.analyzer_storage_content_type_media_label.toCaString(),
-            contents = topLevelContents,
+            contents = setOf(rootItem),
         )
 
         return MediaCategory(
