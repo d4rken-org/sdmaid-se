@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.files.FileType
 
 data class ContentItem(
     val path: APath,
+    val lookup: APathLookup<*>?,
     val label: CaString = path.path.toCaString(),
     val itemSize: Long?,
     val type: FileType,
@@ -26,6 +27,7 @@ data class ContentItem(
     companion object {
         fun fromInaccessible(path: APath): ContentItem = ContentItem(
             path = path,
+            lookup = null,
             type = FileType.DIRECTORY,
             itemSize = null,
             children = null,
@@ -33,6 +35,7 @@ data class ContentItem(
 
         fun fromLookup(lookup: APathLookup<*>, children: Collection<ContentItem>? = null): ContentItem = ContentItem(
             path = lookup.lookedUp,
+            lookup = lookup,
             children = children,
             itemSize = when (lookup.fileType) {
                 FileType.FILE -> lookup.size

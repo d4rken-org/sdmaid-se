@@ -71,6 +71,9 @@
     <string name="ui_theme_system_label">System</string>
     <string name="ui_theme_setting_explanation">Change the current app theme and override system settings.</string>
 
+    <string name="ui_previews_title">File previews</string>
+    <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
+
     <string name="settings_support_label">Support</string>
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>

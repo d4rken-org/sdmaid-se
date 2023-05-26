@@ -18,6 +18,13 @@
             android:key="core.ui.theme.type"
             android:title="@string/ui_theme_setting_label"
             app:summary="@string/ui_theme_setting_explanation" />
+
+        <CheckBoxPreference
+            app:icon="@drawable/image_multiple"
+            app:key="core.ui.previews.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/ui_previews_summary"
+            app:title="@string/ui_previews_title" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

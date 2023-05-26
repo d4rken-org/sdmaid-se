@@ -3,7 +3,12 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.labelRes
+import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseElementsAdapter
@@ -23,7 +28,7 @@ class CorpseElementFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        icon.setImageResource(item.lookup.fileType.iconRes)
+        icon.loadFilePreview(item.lookup)
 
         val prefixFree = item.lookup.lookedUp.removePrefix(item.corpse.path)
         primary.text = prefixFree.joinSegments("/")
