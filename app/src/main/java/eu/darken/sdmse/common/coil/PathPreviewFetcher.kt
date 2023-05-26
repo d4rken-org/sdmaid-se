@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.coil
 
 import android.content.Context
-import android.webkit.MimeTypeMap
 import androidx.core.content.ContextCompat
 import coil.ImageLoader
 import coil.decode.DataSource
@@ -12,6 +11,7 @@ import coil.fetch.Fetcher
 import coil.fetch.SourceResult
 import coil.request.Options
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
@@ -25,6 +25,7 @@ class PathPreviewFetcher @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val gatewaySwitch: GatewaySwitch,
+    private val mimeTypeTool: MimeTypeTool,
     private val data: APathLookup<*>,
     private val options: Options,
 ) : Fetcher {
@@ -42,8 +43,7 @@ class PathPreviewFetcher @Inject constructor(
 
         if (!generalSettings.usePreviews.value()) return fallbackIcon
 
-        val ext = MimeTypeMap.getFileExtensionFromUrl(data.name)
-        val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: return fallbackIcon
+        val mimeType = mimeTypeTool.determineMimeType(data)
 
         val isValid = mimeType.startsWith("image") || mimeType.startsWith("video")
         if (!isValid) return fallbackIcon
@@ -61,13 +61,14 @@ class PathPreviewFetcher @Inject constructor(
         @ApplicationContext private val context: Context,
         private val generalSettings: GeneralSettings,
         private val gatewaySwitch: GatewaySwitch,
+        private val mimeTypeTool: MimeTypeTool,
     ) : Fetcher.Factory<APathLookup<*>> {
 
         override fun create(
             data: APathLookup<*>,
             options: Options,
             imageLoader: ImageLoader
-        ): Fetcher = PathPreviewFetcher(context, generalSettings, gatewaySwitch, data, options)
+        ): Fetcher = PathPreviewFetcher(context, generalSettings, gatewaySwitch, mimeTypeTool, data, options)
     }
 }
 

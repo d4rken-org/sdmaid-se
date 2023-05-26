@@ -69,13 +69,20 @@ class ContentItemVH(parent: ViewGroup) :
             progress = (((content.size ?: 0L) / (item.parent?.size ?: 1L).toDouble()) * 100).toInt()
         }
 
-        root.setOnClickListener { item.onItemClicked(item) }
+        root.apply {
+            setOnClickListener { item.onItemClicked(item) }
+            setOnLongClickListener {
+                item.onItemLongPressed(item)
+                true
+            }
+        }
     }
 
     data class Item(
         val parent: ContentItem?,
         val content: ContentItem,
         val onItemClicked: (Item) -> Unit,
+        val onItemLongPressed: (Item) -> Unit,
     ) : ContentAdapter.Item {
 
         override val stableId: Long = content.path.hashCode().toLong()
