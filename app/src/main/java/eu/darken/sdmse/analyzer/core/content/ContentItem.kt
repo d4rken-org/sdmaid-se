@@ -16,7 +16,10 @@ data class ContentItem(
 
     val size: Long? = when (type) {
         FileType.FILE -> itemSize
-        FileType.DIRECTORY -> children?.sumOf { it.size ?: 0L }?.let { it + 3452 }
+        FileType.DIRECTORY -> children?.let { cs ->
+            cs.sumOf { it.size ?: 0L } + (itemSize ?: 4096L)
+        }
+
         else -> null
     }
 
@@ -32,9 +35,8 @@ data class ContentItem(
             path = lookup.lookedUp,
             children = children,
             itemSize = when (lookup.fileType) {
-                FileType.DIRECTORY -> 3452
                 FileType.FILE -> lookup.size
-                else -> null
+                else -> 4096L
             },
             type = lookup.fileType,
         )
