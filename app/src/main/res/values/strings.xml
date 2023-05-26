@@ -369,7 +369,6 @@
     <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>
     <string name="analyzer_storage_content_type_system_description">System data and system apps.</string>
-    <string name="analyzer_storage_content_x_used_of_total_y">%1$s used (%2$s of total)</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Install files, libraries and resources. This space can only be freed by uninstalling the app.</string>
     <string name="analyzer_storage_content_app_data_label">App data</string>
