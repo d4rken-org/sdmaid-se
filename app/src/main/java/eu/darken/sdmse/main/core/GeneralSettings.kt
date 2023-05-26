@@ -26,6 +26,7 @@ class GeneralSettings @Inject constructor(
         get() = context.dataStore
 
     val themeType = dataStore.createValue("core.ui.theme.type", ThemeType.SYSTEM.identifier)
+    val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
 
     val isOnboardingCompleted = dataStore.createValue("core.onboarding.completed", false)
 
@@ -46,6 +47,7 @@ class GeneralSettings @Inject constructor(
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
         themeType,
+        usePreviews,
         isBugReporterEnabled,
         enableDashboardOneClick
     )

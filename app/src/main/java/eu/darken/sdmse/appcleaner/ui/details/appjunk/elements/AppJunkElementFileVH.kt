@@ -6,9 +6,9 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileBinding
@@ -28,7 +28,7 @@ class AppJunkElementFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        icon.setImageResource(item.lookup.fileType.iconRes)
+        icon.loadFilePreview(item.lookup)
 
         primary.text = item.lookup.userReadablePath.get(context)
 

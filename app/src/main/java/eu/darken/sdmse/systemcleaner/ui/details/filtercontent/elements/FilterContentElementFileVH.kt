@@ -3,9 +3,9 @@ package eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentElementFileBinding
@@ -26,7 +26,7 @@ class FilterContentElementFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        icon.setImageResource(item.lookup.fileType.iconRes)
+        icon.loadFilePreview(item.lookup)
 
         primary.text = item.lookup.userReadablePath.get(context)
 

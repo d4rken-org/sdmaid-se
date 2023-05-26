@@ -166,6 +166,7 @@ dependencies {
     implementation("com.airbnb.android:lottie:3.5.0")
 
     implementation("io.coil-kt:coil:2.0.0-rc02")
+    implementation("io.coil-kt:coil-video:2.0.0-rc02")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
