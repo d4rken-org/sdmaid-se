@@ -21,16 +21,21 @@ class AppsItemVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        val category = item.appCategory
         val app = item.pkgStat
 
         appIcon.loadAppIcon(app.pkg)
+
         primary.text = app.pkg.label?.get(context) ?: app.pkg.packageName
         secondary.text = Formatter.formatShortFileSize(context, app.totalSize)
+
+        progress.progress = ((app.totalSize / category.spaceUsed.toDouble()) * 100).toInt()
 
         root.setOnClickListener { item.onItemClicked(item) }
     }
 
     data class Item(
+        val appCategory: AppCategory,
         val pkgStat: AppCategory.PkgStat,
         val onItemClicked: (Item) -> Unit,
     ) : AppsAdapter.Item {

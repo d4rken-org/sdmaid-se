@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.common.files.FileType
@@ -59,6 +60,11 @@ class ContentItemVH(parent: ViewGroup) :
             FileType.FILE -> getString(eu.darken.sdmse.common.R.string.file_type_file)
             FileType.SYMBOLIC_LINK -> getString(eu.darken.sdmse.common.R.string.file_type_symbolic_link)
             FileType.UNKNOWN -> getString(eu.darken.sdmse.common.R.string.file_type_unknown)
+        }
+
+        progress.apply {
+            isGone = item.parent?.size == null
+            progress = (((content.size ?: 0L) / (item.parent?.size ?: 1L).toDouble()) * 100).toInt()
         }
 
         root.setOnClickListener { item.onItemClicked(item) }

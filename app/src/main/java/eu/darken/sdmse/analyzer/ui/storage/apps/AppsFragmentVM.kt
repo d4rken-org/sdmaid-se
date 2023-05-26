@@ -30,13 +30,14 @@ class AppsFragmentVM @Inject constructor(
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val contents = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
+        val category = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
 
         State(
             storage = storage,
-            apps = contents.pkgStats
+            apps = category.pkgStats
                 .map { (installId, pkgStat) ->
                     AppsItemVH.Item(
+                        appCategory = category,
                         pkgStat = pkgStat,
                         onItemClicked = {
                             AppsFragmentDirections.actionAppsFragmentToAppDetailsFragment(
