@@ -38,14 +38,27 @@ class ContentItemVH(parent: ViewGroup) :
         } else {
             content.label.get(context)
         }
-        secondary.text = when (content.type) {
-            FileType.DIRECTORY -> getString(eu.darken.sdmse.common.R.string.file_type_directory)
-            FileType.FILE -> content.size
-                ?.let { Formatter.formatShortFileSize(context, it) }
-                ?: getString(R.string.analyzer_content_access_opaque)
 
-            FileType.SYMBOLIC_LINK -> ""
-            FileType.UNKNOWN -> ""
+        secondary.text = when (content.type) {
+            FileType.DIRECTORY -> content.size?.let {
+                val sizeFormatted = Formatter.formatShortFileSize(context, it)
+                val itemsFormatted = getQuantityString(
+                    eu.darken.sdmse.common.R.plurals.result_x_items,
+                    content.children?.size ?: -1
+                )
+                "$sizeFormatted ($itemsFormatted)"
+            } ?: "?"
+
+            else -> content.size?.let {
+                Formatter.formatShortFileSize(context, it)
+            } ?: "?"
+        }
+
+        tertiary.text = when (content.type) {
+            FileType.DIRECTORY -> getString(eu.darken.sdmse.common.R.string.file_type_directory)
+            FileType.FILE -> getString(eu.darken.sdmse.common.R.string.file_type_file)
+            FileType.SYMBOLIC_LINK -> getString(eu.darken.sdmse.common.R.string.file_type_symbolic_link)
+            FileType.UNKNOWN -> getString(eu.darken.sdmse.common.R.string.file_type_unknown)
         }
 
         root.setOnClickListener { item.onItemClicked(item) }
