@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.databinding.DashboardUpdateItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -28,8 +29,8 @@ class UpdateCardVH(parent: ViewGroup) :
             item.update.versionName,
         )
 
-        viewAction.setOnClickListener { item.onViewUpdate() }
-        root.setOnClickListener { viewAction.performClick() }
+        viewAction.setOnClickListener { root.performClickWithRipple() }
+        root.setOnClickListener { item.onViewUpdate() }
         dismissAction.setOnClickListener { item.onDismiss() }
         updateAction.setOnClickListener { item.onUpdate() }
     }
