@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.ca.CaString
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
-interface ContentGroup {
+sealed interface ContentGroup {
     val id: Id
     val label: CaString?
     val contents: Collection<ContentItem>

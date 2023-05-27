@@ -47,7 +47,7 @@ class ContentItemVH(parent: ViewGroup) :
                 val sizeFormatted = Formatter.formatShortFileSize(context, it)
                 val itemsFormatted = getQuantityString(
                     eu.darken.sdmse.common.R.plurals.result_x_items,
-                    content.children?.size ?: -1
+                    content.children.size
                 )
                 "$sizeFormatted ($itemsFormatted)"
             } ?: "?"
@@ -70,9 +70,9 @@ class ContentItemVH(parent: ViewGroup) :
         }
 
         root.apply {
-            setOnClickListener { item.onItemClicked(item) }
+            setOnClickListener { item.onItemClicked() }
             setOnLongClickListener {
-                item.onItemLongPressed(item)
+                item.onItemLongPressed()
                 true
             }
         }
@@ -81,8 +81,8 @@ class ContentItemVH(parent: ViewGroup) :
     data class Item(
         val parent: ContentItem?,
         val content: ContentItem,
-        val onItemClicked: (Item) -> Unit,
-        val onItemLongPressed: (Item) -> Unit,
+        val onItemClicked: () -> Unit,
+        val onItemLongPressed: () -> Unit,
     ) : ContentAdapter.Item {
 
         override val stableId: Long = content.path.hashCode().toLong()
