@@ -5,18 +5,30 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.analyzer.core.content.AppContentGroup
+import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.analyzer.core.content.MediaContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanner
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.toFlatContent
+import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.isDescendantOf
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
@@ -35,6 +47,7 @@ class Analyzer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val deviceScanner: Provider<DeviceStorageScanner>,
     private val storageScanner: Provider<StorageScanner>,
+    private val gatewaySwitch: GatewaySwitch,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -80,6 +93,7 @@ class Analyzer @Inject constructor(
             val result = when (task) {
                 is DeviceStorageScanTask -> scanStorageDevices(task)
                 is StorageScanTask -> scanStorageContents(task)
+                is ContentDeleteTask -> deleteContent(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -122,6 +136,65 @@ class Analyzer @Inject constructor(
         }
 
         return DeviceStorageScanTask.Result(itemCount = 0)
+    }
+
+    private suspend fun deleteContent(task: ContentDeleteTask): ContentDeleteTask.Result {
+        log(TAG, VERBOSE) { "deleteContent(): $task" }
+
+        updateProgressPrimary {
+            it.getString(
+                eu.darken.sdmse.common.R.string.general_progress_deleting,
+                it.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, task.targets.size)
+            )
+        }
+
+        task.targets.forEach { target ->
+            log(TAG) { "Deleting $target" }
+            updateProgressSecondary(target.userReadablePath)
+
+            target.deleteAll(gatewaySwitch)
+        }
+
+        // TODO this seems convoluted, can we come up with a better data pattern?
+        var _oldGroup: ContentGroup? = null
+        val oldCategory: ContentCategory = storageCategories.value[task.storageId]!!.singleOrNull { category ->
+            category.groups.singleOrNull { it.id == task.groupId }
+                ?.also { _oldGroup = it }
+                ?.let { true } ?: false
+        } ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
+        val oldGroup = _oldGroup!!
+
+        val newContents = oldGroup.contents
+            .toFlatContent()
+            .filter { item ->
+                task.targets.any { target ->
+                    item.path != target && !item.path.isDescendantOf(target)
+                }
+            }
+            .toNestedContent()
+
+        val newGroup = when (oldGroup) {
+            is AppContentGroup -> oldGroup.copy(contents = newContents)
+            is MediaContentGroup -> oldGroup.copy(contents = newContents)
+        }
+
+        val newCategory = when (oldCategory) {
+            is AppCategory -> oldCategory.copy(
+
+            )
+
+            is MediaCategory -> oldCategory.copy(groups = oldCategory.groups.minus(oldGroup).plus(newGroup))
+
+            is SystemCategory -> {
+                throw UnsupportedOperationException("SystemCategory???")
+            }
+        }
+
+        storageCategories.value = storageCategories.value.mutate {
+            this[task.storageId] = this[task.storageId]!!.minus(oldCategory).plus(newCategory)
+        }
+
+        return ContentDeleteTask.Result(itemCount = 0)
     }
 
     data class Data(

@@ -12,12 +12,12 @@ data class ContentItem(
     val label: CaString = path.path.toCaString(),
     val itemSize: Long?,
     val type: FileType,
-    val children: Collection<ContentItem>?,
+    val children: Collection<ContentItem> = emptySet(),
 ) {
 
     val size: Long? = when (type) {
         FileType.FILE -> itemSize
-        FileType.DIRECTORY -> children?.let { cs ->
+        FileType.DIRECTORY -> children.let { cs ->
             cs.sumOf { it.size ?: 0L } + (itemSize ?: 4096L)
         }
 
@@ -30,13 +30,11 @@ data class ContentItem(
             lookup = null,
             type = FileType.DIRECTORY,
             itemSize = null,
-            children = null,
         )
 
-        fun fromLookup(lookup: APathLookup<*>, children: Collection<ContentItem>? = null): ContentItem = ContentItem(
+        fun fromLookup(lookup: APathLookup<*>): ContentItem = ContentItem(
             path = lookup.lookedUp,
             lookup = lookup,
-            children = children,
             itemSize = when (lookup.fileType) {
                 FileType.FILE -> lookup.size
                 else -> 4096L

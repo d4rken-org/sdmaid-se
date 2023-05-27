@@ -16,9 +16,9 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -47,6 +47,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
+
 
 class StorageScanner @Inject constructor(
     private val storageManager2: StorageManager2,
@@ -195,26 +196,26 @@ class StorageScanner @Inject constructor(
             ?.let { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
             ?.takeIf { it.exists(gatewaySwitch) }
             ?.let { pkgPubDataDir ->
-
-                val contents = if (!hasApiLevel(33)) {
-                    try {
-                        pkgPubDataDir.walk(gatewaySwitch).toList()
-                    } catch (e: ReadException) {
-                        null
-                    }
-                } else {
+                val lookup = try {
+                    pkgPubDataDir.lookup(gatewaySwitch)
+                } catch (e: ReadException) {
                     null
                 }
 
-                if (contents != null) {
-                    val lookup = pkgPubDataDir.lookup(gatewaySwitch)
-                    val children = contents.map { ContentItem.fromLookup(it) }.toNesting()
-                    ContentItem.fromLookup(
-                        lookup = lookup,
-                        children = children,
-                    )
-                } else {
-                    ContentItem.fromInaccessible(pkgPubDataDir)
+                when {
+                    lookup?.fileType == FileType.DIRECTORY && !hasApiLevel(33) -> {
+                        val children = try {
+                            pkgPubDataDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                        } catch (e: ReadException) {
+                            emptySet()
+                        }
+
+                        children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
+                    }
+
+                    else -> {
+                        ContentItem.fromInaccessible(pkgPubDataDir)
+                    }
                 }
             }
 
@@ -230,8 +231,13 @@ class StorageScanner @Inject constructor(
             ?.takeIf { it.exists(gatewaySwitch) }
             ?.let { pubMediaDir ->
                 val lookup = pubMediaDir.lookup(gatewaySwitch)
-                val children = pubMediaDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList().toNesting()
-                ContentItem.fromLookup(lookup, children)
+                val children = if (lookup.fileType == FileType.DIRECTORY) {
+                    pubMediaDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                } else {
+                    emptySet()
+                }
+
+                children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
             }
             ?.let {
                 AppContentGroup(
@@ -249,10 +255,13 @@ class StorageScanner @Inject constructor(
             .map { ownerInfo ->
                 consumed.add(ownerInfo)
                 val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
-                val children = ownerInfo.areaInfo.file.walk(gatewaySwitch)
-                    .map { ContentItem.fromLookup(it) }
-                    .toList().toNesting()
-                ContentItem.fromLookup(lookup, children)
+                val children = if (lookup.fileType == FileType.DIRECTORY) {
+                    ownerInfo.areaInfo.file.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                        .toNestedContent()
+                } else {
+                    emptySet()
+                }
+                children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
             }
             .takeIf { it.isNotEmpty() }
             ?.let {
@@ -276,17 +285,20 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
 
-        val topLevelContents = topLevelDirs.map { ownerInfo ->
+        val topLevelContents: Collection<ContentItem> = topLevelDirs.map { ownerInfo ->
             updateProgressSecondary(ownerInfo.areaInfo.file.userReadablePath)
 
             val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
-            val children = lookup.walk(gatewaySwitch)
-                .map { ContentItem.fromLookup(it) }
-                .toList().toNesting()
-            ContentItem.fromLookup(lookup, children)
+            val children = if (lookup.fileType == FileType.DIRECTORY) {
+                lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+            } else {
+                emptySet()
+            }
+
+            children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
         }
 
-        val rootItem = ContentItem.fromLookup(mediaDir, topLevelContents)
+        val rootItem = topLevelContents.plus(ContentItem.fromLookup(mediaDir)).toNestedContent().single()
 
         val group = MediaContentGroup(
             label = R.string.analyzer_storage_content_type_media_label.toCaString(),
@@ -325,32 +337,3 @@ class StorageScanner @Inject constructor(
         private val TAG = logTag("Analyzer", "Storage", "Scanner")
     }
 }
-
-internal fun Collection<ContentItem>.toNesting(): Collection<ContentItem> {
-    val workList = this.sortedByDescending { it.path.segments.size }.toMutableList()
-
-    val topLevel = mutableListOf<ContentItem>()
-
-    val parentIndexMap = mutableMapOf<Segments, Int>()
-
-    for ((index, item) in workList.withIndex()) {
-        val parentSegs = item.path.segments.subList(0, item.path.segments.size - 1)
-
-        val parentIndex = parentIndexMap[parentSegs]
-            ?: workList.indexOfFirst { it.path.segments == parentSegs }.also { parentIndexMap[parentSegs] = it }
-
-        if (parentIndex != -1) {
-            val parent = workList[parentIndex]
-
-            val updatedParent = parent.copy(
-                children = (parent.children ?: emptySet()).plus(item)
-            )
-            workList[parentIndex] = updatedParent
-        } else {
-            topLevel.add(item)
-        }
-    }
-
-    return topLevel
-}
-

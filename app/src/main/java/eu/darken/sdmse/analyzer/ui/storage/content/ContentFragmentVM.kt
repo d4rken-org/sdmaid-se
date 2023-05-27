@@ -7,16 +7,20 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.File
@@ -32,7 +36,7 @@ class ContentFragmentVM @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
-    analyzer: Analyzer,
+    private val analyzer: Analyzer,
     private val mimeTypeTool: MimeTypeTool,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -40,7 +44,10 @@ class ContentFragmentVM @Inject constructor(
     private val targetStorageId = navArgs.storageId
     private val targetGroupId = navArgs.groupId
     private val targetInstallId = navArgs.installId
-    private val subContentLevel = MutableStateFlow<List<ContentItem>?>(null)
+
+    val events = SingleLiveEvent<ContentItemEvents>()
+
+    private val navigationState = MutableStateFlow<List<APath>?>(null)
 
     init {
         analyzer.data
@@ -57,8 +64,8 @@ class ContentFragmentVM @Inject constructor(
     val state = combineTransform(
         analyzer.data,
         analyzer.progress,
-        subContentLevel,
-    ) { data, progress, contentLevels ->
+        navigationState,
+    ) { data, progress, navLevels ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.groups[targetGroupId]
 
@@ -68,9 +75,13 @@ class ContentFragmentVM @Inject constructor(
                 ?.pkgStats?.get(targetInstallId)
         }
 
+        // If the content was changed, updated our levels
+        val currentLevel = contentGroup?.contents
+            ?.findContent { it.path == navLevels?.last() }
+
         val title = pkgStat?.label ?: contentGroup?.label
         val subtitle = when {
-            contentLevels != null -> contentLevels.last().label
+            currentLevel != null -> currentLevel.label
             pkgStat?.label == null -> null
             else -> contentGroup?.label
         }
@@ -83,33 +94,29 @@ class ContentFragmentVM @Inject constructor(
             progress = progress,
         ).run { emit(this) }
 
-        val items = (contentLevels?.last()?.children ?: contentGroup?.contents)
+        val items = (currentLevel?.children ?: contentGroup?.contents)
             ?.sortedByDescending { it.size }
             ?.map { content ->
                 ContentItemVH.Item(
-                    parent = contentLevels?.last(),
+                    parent = currentLevel,
                     content = content,
                     onItemClicked = {
                         when (content.type) {
-                            FileType.FILE -> {
-                                if (content.lookup != null) {
-                                    launch { open(content.lookup) }
-                                } else {
-                                    log(TAG) { "Content has no lookup, can't open: $content" }
-                                }
+                            FileType.FILE -> if (content.lookup != null) {
+                                open(content.lookup)
+                            } else {
+                                log(TAG) { "Content has no lookup, can't open: $content" }
                             }
 
-                            else -> {
-                                if (content.size == null) {
-                                    log(TAG) { "No details available for $content" }
-                                    return@Item
-                                }
-                                subContentLevel.value = (subContentLevel.value ?: emptyList()).plus(content)
+                            else -> if (content.size == null) {
+                                log(TAG) { "No details available for $content" }
+                            } else {
+                                navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
                             }
                         }
                     },
                     onItemLongPressed = {
-
+                        events.postValue(ContentItemEvents.ContentLongPressActions(content))
                     }
                 )
             }
@@ -123,12 +130,12 @@ class ContentFragmentVM @Inject constructor(
         ).run { emit(this) }
     }.asLiveData2()
 
-    private suspend fun open(lookup: APathLookup<*>) {
+    fun open(lookup: APathLookup<*>) = launch {
         log(TAG) { "open($lookup)" }
 
         if (lookup !is LocalPathLookup) {
             log(TAG) { "Can't open unsupported path type: ${lookup.pathType}" }
-            return
+            return@launch
         }
         val javaPath = File(lookup.path)
         val uri = FileProvider.getUriForFile(context, "${context.packageName}.provider", javaPath)
@@ -147,11 +154,17 @@ class ContentFragmentVM @Inject constructor(
         context.startActivity(chooserIntent)
     }
 
+    fun delete(items: Set<ContentItem>) = launch {
+        log(TAG) { "delete(): $items" }
+        val targets = items.map { it.path }.toSet()
+        analyzer.submit(ContentDeleteTask(targetStorageId, targetGroupId, targets))
+    }
+
     fun onNavigateBack() {
         log(TAG) { "onNavigateBack()" }
 
-        subContentLevel.value?.let { cur ->
-            subContentLevel.value = cur.dropLast(1).takeIf { it.isNotEmpty() }
+        navigationState.value?.let { cur ->
+            navigationState.value = cur.dropLast(1).takeIf { it.isNotEmpty() }
         } ?: run { popNavStack() }
     }
 

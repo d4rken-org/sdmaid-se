@@ -7,6 +7,7 @@ import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -55,6 +56,25 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             adapter.update(state.items)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
+        }
+
+        vm.events.observe2(ui) { event ->
+            when (event) {
+                is ContentItemEvents.ContentLongPressActions -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                    setMessage(
+                        getString(
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                            event.item.path.userReadablePath.get(context),
+                        )
+
+                    )
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                        vm.delete(setOf(event.item))
+                    }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)
