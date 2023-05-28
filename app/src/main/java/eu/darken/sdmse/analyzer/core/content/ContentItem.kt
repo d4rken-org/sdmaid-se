@@ -13,23 +13,25 @@ data class ContentItem(
     val itemSize: Long?,
     val type: FileType,
     val children: Collection<ContentItem> = emptySet(),
+    val inaccessible: Boolean,
 ) {
 
     val size: Long? = when (type) {
         FileType.FILE -> itemSize
-        FileType.DIRECTORY -> children.let { cs ->
-            cs.sumOf { it.size ?: 0L } + (itemSize ?: 4096L)
+        FileType.DIRECTORY -> itemSize?.let { item ->
+            item + children.sumOf { it.size ?: 0L }
         }
 
         else -> null
     }
 
     companion object {
-        fun fromInaccessible(path: APath): ContentItem = ContentItem(
+        fun fromInaccessible(path: APath, size: Long? = null): ContentItem = ContentItem(
             path = path,
             lookup = null,
             type = FileType.DIRECTORY,
-            itemSize = null,
+            itemSize = size,
+            inaccessible = true,
         )
 
         fun fromLookup(lookup: APathLookup<*>): ContentItem = ContentItem(
@@ -40,6 +42,7 @@ data class ContentItem(
                 else -> 4096L
             },
             type = lookup.fileType,
+            inaccessible = false,
         )
     }
 }
