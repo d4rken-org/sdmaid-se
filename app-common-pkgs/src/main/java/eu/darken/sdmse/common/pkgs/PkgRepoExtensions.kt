@@ -16,6 +16,11 @@ suspend fun PkgRepo.getPkg(
     userHandle: UserHandle2?,
 ): Installed? = query(pkgId, userHandle).singleOrNull()
 
+
+suspend fun PkgRepo.getPkg(
+    installId: Installed.InstallId
+): Installed? = query(installId.pkgId, installId.userHandle).singleOrNull()
+
 suspend fun PkgRepo.isInstalled(
     pkgId: Pkg.Id,
     userHandle: UserHandle2? = null,

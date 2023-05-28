@@ -157,7 +157,13 @@ class ContentFragmentVM @Inject constructor(
     fun delete(items: Set<ContentItem>) = launch {
         log(TAG) { "delete(): $items" }
         val targets = items.map { it.path }.toSet()
-        analyzer.submit(ContentDeleteTask(targetStorageId, targetGroupId, targets))
+        val task = ContentDeleteTask(
+            storageId = targetStorageId,
+            groupId = targetGroupId,
+            targetPkg = targetInstallId,
+            targets = targets
+        )
+        analyzer.submit(task)
     }
 
     fun onNavigateBack() {

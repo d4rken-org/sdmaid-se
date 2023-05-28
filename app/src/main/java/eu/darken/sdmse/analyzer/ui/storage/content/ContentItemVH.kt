@@ -42,8 +42,12 @@ class ContentItemVH(parent: ViewGroup) :
             content.label.get(context)
         }
 
-        secondary.text = when (content.type) {
-            FileType.DIRECTORY -> content.size?.let {
+        secondary.text = when {
+            content.inaccessible -> content.size?.let {
+                Formatter.formatShortFileSize(context, it)
+            } ?: "?"
+
+            content.type == FileType.DIRECTORY -> content.size?.let {
                 val sizeFormatted = Formatter.formatShortFileSize(context, it)
                 val itemsFormatted = getQuantityString(
                     eu.darken.sdmse.common.R.plurals.result_x_items,
@@ -70,10 +74,16 @@ class ContentItemVH(parent: ViewGroup) :
         }
 
         root.apply {
-            setOnClickListener { item.onItemClicked() }
-            setOnLongClickListener {
-                item.onItemLongPressed()
-                true
+            if (content.inaccessible) {
+                setOnClickListener(null)
+                setOnLongClickListener(null)
+                isClickable = false
+            } else {
+                setOnClickListener { item.onItemClicked() }
+                setOnLongClickListener {
+                    item.onItemLongPressed()
+                    true
+                }
             }
         }
     }

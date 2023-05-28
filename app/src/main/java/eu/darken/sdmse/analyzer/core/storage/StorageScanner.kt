@@ -2,9 +2,8 @@ package eu.darken.sdmse.analyzer.core.storage
 
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.StorageStatsManager2
-import eu.darken.sdmse.analyzer.core.content.AppContentGroup
+import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
-import eu.darken.sdmse.analyzer.core.content.MediaContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
@@ -148,7 +147,7 @@ class StorageScanner @Inject constructor(
         val appCodeGroup = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
             pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
-            useRoot -> AppContentGroup(
+            useRoot -> ContentGroup(
                 label = pkg.label
             )
 
@@ -160,29 +159,17 @@ class StorageScanner @Inject constructor(
                             else -> it
                         }
                     }
-                    ?.let { ContentItem.fromInaccessible(LocalPath.build(it)) }
+                    ?.let {
+                        ContentItem.fromInaccessible(
+                            LocalPath.build(it),
+                            if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
+                        )
+                    }
 
-                AppContentGroup(
+                ContentGroup(
                     label = R.string.analyzer_storage_content_app_code_label.toCaString(),
                     contents = setOfNotNull(appCode),
-                    groupSizeOverride = if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L,
                 )
-            }
-        }
-
-        val dataDirBase = when {
-            storage.type != DeviceStorage.Type.PRIMARY -> null
-            useRoot -> null
-            else -> pkg.packageInfo.applicationInfo.dataDir?.let {
-                ContentItem.fromInaccessible(LocalPath.build(it))
-            }
-        }
-
-        val dataDirDe = when {
-            storage.type != DeviceStorage.Type.PRIMARY -> null
-            useRoot -> null
-            else -> pkg.packageInfo.applicationInfo.deviceProtectedDataDir?.let {
-                ContentItem.fromInaccessible(LocalPath.build(it))
             }
         }
 
@@ -219,10 +206,29 @@ class StorageScanner @Inject constructor(
                 }
             }
 
-        val appDataGroup = AppContentGroup(
+
+        val dataDirBase = when {
+            storage.type != DeviceStorage.Type.PRIMARY -> null
+            useRoot -> null
+            else -> pkg.packageInfo.applicationInfo.dataDir?.let {
+                ContentItem.fromInaccessible(
+                    LocalPath.build(it),
+                    appStorStats.dataBytes - (dataDirPub?.size ?: 0L)
+                )
+            }
+        }
+
+        val dataDirDe = when {
+            storage.type != DeviceStorage.Type.PRIMARY -> null
+            useRoot -> null
+            else -> pkg.packageInfo.applicationInfo.deviceProtectedDataDir?.let {
+                ContentItem.fromInaccessible(LocalPath.build(it))
+            }
+        }
+
+        val appDataGroup = ContentGroup(
             label = R.string.analyzer_storage_content_app_data_label.toCaString(),
             contents = setOfNotNull(dataDirBase, dataDirDe, dataDirPub),
-            groupSizeOverride = appStorStats.dataBytes
         )
 
         // Android/media/<pkg>
@@ -240,7 +246,7 @@ class StorageScanner @Inject constructor(
                 children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
             }
             ?.let {
-                AppContentGroup(
+                ContentGroup(
                     label = R.string.analyzer_storage_content_app_media_label.toCaString(),
                     contents = setOf(it),
                 )
@@ -265,7 +271,7 @@ class StorageScanner @Inject constructor(
             }
             .takeIf { it.isNotEmpty() }
             ?.let {
-                AppContentGroup(
+                ContentGroup(
                     label = R.string.analyzer_storage_content_app_extra_label.toCaString(),
                     contents = it,
                 )
@@ -300,7 +306,7 @@ class StorageScanner @Inject constructor(
 
         val rootItem = topLevelContents.plus(ContentItem.fromLookup(mediaDir)).toNestedContent().single()
 
-        val group = MediaContentGroup(
+        val group = ContentGroup(
             label = R.string.analyzer_storage_content_type_media_label.toCaString(),
             contents = setOf(rootItem),
         )

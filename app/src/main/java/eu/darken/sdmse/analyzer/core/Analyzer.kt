@@ -5,10 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.analyzer.core.content.AppContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
-import eu.darken.sdmse.analyzer.core.content.MediaContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
@@ -173,15 +171,24 @@ class Analyzer @Inject constructor(
             }
             .toNestedContent()
 
-        val newGroup = when (oldGroup) {
-            is AppContentGroup -> oldGroup.copy(contents = newContents)
-            is MediaContentGroup -> oldGroup.copy(contents = newContents)
-        }
+        val newGroup = oldGroup.copy(contents = newContents)
 
         val newCategory = when (oldCategory) {
-            is AppCategory -> oldCategory.copy(
-
-            )
+            is AppCategory -> {
+                val oldPkg = oldCategory.pkgStats[task.targetPkg]!!
+                val newPkg = when {
+                    oldPkg.appCode == oldGroup -> oldPkg.copy(appCode = newGroup)
+                    oldPkg.appData == oldGroup -> oldPkg.copy(appData = newGroup)
+                    oldPkg.appMedia == oldGroup -> oldPkg.copy(appMedia = newGroup)
+                    oldPkg.extraData == oldGroup -> oldPkg.copy(extraData = newGroup)
+                    else -> throw IllegalArgumentException("${oldPkg.id} has no matching content group")
+                }
+                oldCategory.copy(
+                    pkgStats = oldCategory.pkgStats.mutate {
+                        this[oldPkg.id] = newPkg
+                    }
+                )
+            }
 
             is MediaCategory -> oldCategory.copy(groups = oldCategory.groups.minus(oldGroup).plus(newGroup))
 
