@@ -341,5 +341,8 @@
             android:defaultValue="@null"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_contentFragment_to_exclusionActionDialog"
+            app:destination="@id/exclusionActionDialog" />
     </fragment>
 </navigation>

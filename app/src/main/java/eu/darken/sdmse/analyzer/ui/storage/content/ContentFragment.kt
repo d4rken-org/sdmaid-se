@@ -73,6 +73,9 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         vm.delete(setOf(event.item))
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(R.string.exclusion_create_action) { _, _ ->
+                        vm.createExclusion(event.item)
+                    }
                 }.show()
             }
         }
