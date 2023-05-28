@@ -28,6 +28,9 @@ import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.exists
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -38,6 +41,7 @@ class ContentFragmentVM @Inject constructor(
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
     private val mimeTypeTool: MimeTypeTool,
+    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<ContentFragmentArgs>()
@@ -172,6 +176,17 @@ class ContentFragmentVM @Inject constructor(
         navigationState.value?.let { cur ->
             navigationState.value = cur.dropLast(1).takeIf { it.isNotEmpty() }
         } ?: run { popNavStack() }
+    }
+
+    fun createExclusion(item: ContentItem) = launch {
+        log(TAG) { "createExclusion(${item.path})" }
+        val newExcl = PathExclusion(path = item.path)
+        if (!exclusionManager.exists(newExcl)) {
+            exclusionManager.save(newExcl)
+        }
+        ContentFragmentDirections.actionContentFragmentToExclusionActionDialog(
+            newExcl.id
+        ).navigate()
     }
 
     data class State(
