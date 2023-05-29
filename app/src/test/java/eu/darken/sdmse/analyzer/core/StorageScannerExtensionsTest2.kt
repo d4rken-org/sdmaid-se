@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [29])
+@Config(sdk = [29], application = TestApp::class)
 class StorageScannerExtensionsTest2 : BaseTest() {
 
     private val baseTreeUri = "content://com.android.externalstorage.documents/tree/primary%3A"
