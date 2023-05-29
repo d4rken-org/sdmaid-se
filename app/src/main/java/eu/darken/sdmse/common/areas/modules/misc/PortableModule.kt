@@ -18,7 +18,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.lookup
-import eu.darken.sdmse.common.storage.SAFMapper
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
@@ -29,7 +29,7 @@ class PortableModule @Inject constructor(
     private val environment: StorageEnvironment,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
-    private val safMapper: SAFMapper,
+    private val pathMapper: PathMapper,
 ) : DataAreaModule {
 
     override suspend fun firstPass(): Collection<DataArea> {
@@ -43,7 +43,7 @@ class PortableModule @Inject constructor(
 
                 if (readablePath == null) {
                     // TODO we don't request SAF permission for this during setup
-                    val safPath = safMapper.toSAFPath(origPath)
+                    val safPath = pathMapper.toSAFPath(origPath)
                     if (safPath?.canRead(gatewaySwitch) == true) {
                         log(TAG, WARN) { "Switched from $origPath to $safPath" }
                         readablePath = safPath

@@ -6,17 +6,30 @@ import java.util.LinkedList
 
 
 internal fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> {
-    val workList = this.sortedByDescending { it.path.segments.size }.toMutableList()
+    val workList = this.sortedBy { it.path.segments.size }.reversed().toMutableList()
 
     val topLevel = mutableListOf<ContentItem>()
 
     val parentIndexMap = mutableMapOf<Segments, Int>()
 
-    workList.forEach { item ->
-        val parentSegs = item.path.segments.subList(0, item.path.segments.size - 1)
+    for (item in workList) {
+        val childSegs = item.path.segments
+        if (childSegs.isEmpty() || childSegs.singleOrNull() == "") {
+            topLevel.add(item)
+            continue
+        }
+
+        val parentSegs = childSegs.subList(0, childSegs.size - 1)
 
         val parentIndex = parentIndexMap[parentSegs]
-            ?: workList.indexOfFirst { it.path.segments == parentSegs }.also { parentIndexMap[parentSegs] = it }
+            ?: workList.indexOfFirst {
+                val segs = it.path.segments
+                if (parentSegs.isEmpty()) {
+                    segs.isEmpty() || segs.singleOrNull() == ""
+                } else {
+                    segs == parentSegs
+                }
+            }.also { parentIndexMap[parentSegs] = it }
 
         if (parentIndex != -1) {
             val parent = workList[parentIndex]
@@ -43,8 +56,8 @@ internal fun ContentItem.toFlatContent(): Collection<ContentItem> {
 
     children
         .map { it.toFlatContent() }
-        ?.flatten()
-        ?.let { result.addAll(it) }
+        .flatten()
+        .let { result.addAll(it) }
 
     return result
 }

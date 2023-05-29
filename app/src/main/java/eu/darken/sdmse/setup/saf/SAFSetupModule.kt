@@ -27,7 +27,7 @@ import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.matchPermission
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.rngString
-import eu.darken.sdmse.common.storage.SAFMapper
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.setup.SetupModule
@@ -40,7 +40,7 @@ class SAFSetupModule @Inject constructor(
     private val contentResolver: ContentResolver,
     private val storageManager2: StorageManager2,
     private val storageEnvironment: StorageEnvironment,
-    private val safMapper: SAFMapper,
+    private val pathMapper: PathMapper,
     private val dataAreaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
 ) : SetupModule {
@@ -71,7 +71,7 @@ class SAFSetupModule @Inject constructor(
                 }
                 .mapNotNull { volume ->
                     val targetPath = volume.directory!!.toLocalPath()
-                    val safPath = safMapper.toSAFPath(targetPath)
+                    val safPath = pathMapper.toSAFPath(targetPath)
                     if (safPath == null) {
                         log(TAG, WARN) { "Can't map $targetPath" }
                         return@mapNotNull null
@@ -132,7 +132,7 @@ class SAFSetupModule @Inject constructor(
                 .flatten()
                 .filter { it.exists(gatewaySwitch) }
                 .mapNotNull { targetPath ->
-                    val safPath = safMapper.toSAFPath(targetPath)
+                    val safPath = pathMapper.toSAFPath(targetPath)
                     if (safPath == null) {
                         log(TAG, WARN) { "Can't map $targetPath" }
                         return@mapNotNull null
@@ -180,7 +180,7 @@ class SAFSetupModule @Inject constructor(
             throw IllegalArgumentException("Wrong path")
         }
 
-        safMapper.takePermission(uri)
+        pathMapper.takePermission(uri)
         dataAreaManager.reload()
         refresh()
     }

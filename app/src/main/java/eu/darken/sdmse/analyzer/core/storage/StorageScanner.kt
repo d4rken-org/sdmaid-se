@@ -18,10 +18,8 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -37,7 +35,6 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.storage.SAFMapper
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
@@ -56,7 +53,6 @@ class StorageScanner @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
-    private val safMapper: SAFMapper,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -88,9 +84,12 @@ class StorageScanner @Inject constructor(
 
         return gatewaySwitch.useRes {
             fileForensics.useRes {
-                val mediaDir = volume?.directory?.let { LocalPath.build(it) }
+                val mediaDir = volume?.directory
+                    ?.let { LocalPath.build(it) }
+                    ?.let { gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO) }
+
                 val folders = mediaDir
-                    ?.lookupFiles(gatewaySwitch)
+                    ?.let { mediaDir.lookupFiles(gatewaySwitch) }
                     ?.filter { it.name != "Android" }
                     ?.mapNotNull { fileForensics.findOwners(it.lookedUp) }
                     ?.filter { it.areaInfo.type == DataArea.Type.SDCARD }
@@ -103,7 +102,6 @@ class StorageScanner @Inject constructor(
 
                 updateProgressSecondary("Scanning media files")
                 val media = mediaDir
-                    ?.lookup(gatewaySwitch)
                     ?.let { scanForMedia(storage, it) }
                     ?: MediaCategory(storage.id, emptySet())
 
@@ -181,28 +179,22 @@ class StorageScanner @Inject constructor(
         // Android/data/<pkg>
         val dataDirPub = publicPath
             ?.let { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
-            ?.takeIf { it.exists(gatewaySwitch) }
-            ?.let { pkgPubDataDir ->
-                val lookup = try {
-                    pkgPubDataDir.lookup(gatewaySwitch)
-                } catch (e: ReadException) {
-                    null
-                }
+            ?.let { pubData ->
+                try {
+                    val lookup = gatewaySwitch.lookup(pubData, type = GatewaySwitch.Type.AUTO)
 
-                when {
-                    lookup?.fileType == FileType.DIRECTORY && !hasApiLevel(33) -> {
+                    if (lookup.fileType == FileType.DIRECTORY && !hasApiLevel(33)) {
                         val children = try {
-                            pkgPubDataDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                            lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
                         } catch (e: ReadException) {
                             emptySet()
                         }
-
                         children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
+                    } else {
+                        ContentItem.fromInaccessible(pubData)
                     }
-
-                    else -> {
-                        ContentItem.fromInaccessible(pkgPubDataDir)
-                    }
+                } catch (e: ReadException) {
+                    ContentItem.fromInaccessible(pubData)
                 }
             }
 
@@ -234,11 +226,16 @@ class StorageScanner @Inject constructor(
         // Android/media/<pkg>
         val appMediaGroup = publicPath
             ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
-            ?.takeIf { it.exists(gatewaySwitch) }
-            ?.let { pubMediaDir ->
-                val lookup = pubMediaDir.lookup(gatewaySwitch)
+            ?.let {
+                try {
+                    gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO)
+                } catch (e: ReadException) {
+                    null
+                }
+            }
+            ?.let { lookup ->
                 val children = if (lookup.fileType == FileType.DIRECTORY) {
-                    pubMediaDir.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                    lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
                 } else {
                     emptySet()
                 }
@@ -258,12 +255,18 @@ class StorageScanner @Inject constructor(
                 val owner = it.getOwner(pkg.id) ?: return@filter false
                 !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
             }
-            .map { ownerInfo ->
-                consumed.add(ownerInfo)
-                val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
+            .mapNotNull { ownerInfo ->
+                try {
+                    gatewaySwitch.lookup(ownerInfo.areaInfo.file, type = GatewaySwitch.Type.AUTO).also {
+                        consumed.add(ownerInfo)
+                    }
+                } catch (e: ReadException) {
+                    null
+                }
+            }
+            .map { lookup ->
                 val children = if (lookup.fileType == FileType.DIRECTORY) {
-                    ownerInfo.areaInfo.file.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
-                        .toNestedContent()
+                    lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList().toNestedContent()
                 } else {
                     emptySet()
                 }
@@ -294,7 +297,8 @@ class StorageScanner @Inject constructor(
         val topLevelContents: Collection<ContentItem> = topLevelDirs.map { ownerInfo ->
             updateProgressSecondary(ownerInfo.areaInfo.file.userReadablePath)
 
-            val lookup = ownerInfo.areaInfo.file.lookup(gatewaySwitch)
+            val lookup = gatewaySwitch.lookup(ownerInfo.areaInfo.file, type = GatewaySwitch.Type.AUTO)
+
             val children = if (lookup.fileType == FileType.DIRECTORY) {
                 lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
             } else {

@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.root.ShellOpsCmd
-import eu.darken.sdmse.common.storage.SAFMapper
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
@@ -25,7 +25,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.withTimeoutOrNull
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 
 class DebugCardProvider @Inject constructor(
@@ -39,7 +39,7 @@ class DebugCardProvider @Inject constructor(
     private val pkgOps: PkgOps,
     private val automationController: AutomationController,
     private val gatewaySwitch: GatewaySwitch,
-    private val safMapper: SAFMapper,
+    private val pathMapper: PathMapper,
     private val shellOps: ShellOps,
 ) {
 

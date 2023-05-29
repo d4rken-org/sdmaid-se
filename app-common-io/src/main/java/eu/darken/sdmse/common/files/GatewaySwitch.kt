@@ -4,12 +4,16 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalGateway
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.saf.SAFGateway
+import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
+import eu.darken.sdmse.common.storage.PathMapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.plus
+import okio.IOException
 import okio.Sink
 import okio.Source
 import java.time.Instant
@@ -19,10 +23,11 @@ import javax.inject.Singleton
 
 @Singleton
 class GatewaySwitch @Inject constructor(
-    private val safGateway: SAFGateway,
-    private val localGateway: LocalGateway,
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
+    private val safGateway: SAFGateway,
+    private val localGateway: LocalGateway,
+    private val mapper: PathMapper,
 ) : APathGateway<APath, APathLookup<APath>, APathLookupExtended<APath>> {
 
     private suspend fun <T : APath, R> useGateway(
@@ -67,8 +72,32 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { lookup(path) }
     }
 
+    suspend fun lookup(path: APath, type: Type): APathLookup<APath> {
+        val mapped = path.toTargetType(type)
+        return try {
+            useGateway(mapped) { lookup(mapped) }
+        } catch (e: ReadException) {
+            if (type != Type.AUTO) throw e
+
+            val fallback = path.toAlternative()
+            useGateway(fallback) { lookup(fallback) }
+        }
+    }
+
     override suspend fun lookupFiles(path: APath): Collection<APathLookup<APath>> {
         return useGateway(path) { lookupFiles(path) }
+    }
+
+    suspend fun lookupFiles(path: APath, type: Type): Collection<APathLookup<APath>> {
+        val mapped = path.toTargetType(type)
+        return try {
+            useGateway(mapped) { lookupFiles(mapped) }
+        } catch (e: ReadException) {
+            if (type != Type.AUTO) throw e
+
+            val fallback = path.toAlternative()
+            useGateway(fallback) { lookupFiles(fallback) }
+        }
     }
 
     override suspend fun lookupFilesExtended(path: APath): Collection<APathLookupExtended<APath>> {
@@ -81,6 +110,18 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun exists(path: APath): Boolean {
         return useGateway(path) { exists(path) }
+    }
+
+    suspend fun exists(path: APath, type: Type): Boolean {
+        val mapped = path.toTargetType(type)
+        return try {
+            useGateway(mapped) { exists(mapped) }
+        } catch (e: ReadException) {
+            if (type != Type.AUTO) throw e
+
+            val fallback = path.toAlternative()
+            useGateway(fallback) { exists(fallback) }
+        }
     }
 
     override suspend fun canWrite(path: APath): Boolean {
@@ -122,6 +163,35 @@ class GatewaySwitch @Inject constructor(
     suspend fun walk(path: APath): Collection<APathLookup<APath>> {
         // TODO use safMapper to change path types if error occurs?
         return path.walk(this).toList()
+    }
+
+    private suspend fun APath.toTargetType(type: Type): APath = when (type) {
+        Type.AUTO -> this
+        Type.CURRENT -> this
+        Type.FORCED_LOCAL -> when (this) {
+            is LocalPath -> this
+            is SAFPath -> mapper.toLocalPath(this) ?: throw IOException("Can't map $this to LOCAL")
+            else -> throw IllegalArgumentException("Can't map $this to $type")
+        }
+
+        Type.FORCED_SAF -> when (this) {
+            is LocalPath -> mapper.toSAFPath(this) ?: throw IOException("Can't map $this to SAF")
+            is SAFPath -> this
+            else -> throw IllegalArgumentException("Can't map $this to $type")
+        }
+    }
+
+    private suspend fun APath.toAlternative(): APath = when (this.pathType) {
+        APath.PathType.LOCAL -> mapper.toSAFPath(this as LocalPath) ?: throw IOException("Can't map $this to SAF")
+        APath.PathType.SAF -> mapper.toLocalPath(this as SAFPath) ?: throw IOException("Can't map $this to LOCAL")
+        APath.PathType.RAW -> throw UnsupportedOperationException("Alternative mapping for RAW not available")
+    }
+
+    enum class Type {
+        CURRENT,
+        FORCED_LOCAL,
+        FORCED_SAF,
+        AUTO
     }
 
     companion object {
