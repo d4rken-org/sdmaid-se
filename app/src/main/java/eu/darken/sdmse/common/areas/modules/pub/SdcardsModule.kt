@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.storage.SAFMapper
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import java.io.IOException
@@ -27,7 +27,7 @@ class SdcardsModule @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
-    private val safMapper: SAFMapper,
+    private val pathMapper: PathMapper,
     private val rootManager: RootManager,
 ) : DataAreaModule {
 
@@ -123,7 +123,7 @@ class SdcardsModule @Inject constructor(
 
         // SAF
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
-        safMapper.toSAFPath(targetPath)?.let { safPath ->
+        pathMapper.toSAFPath(targetPath)?.let { safPath ->
             val testFileSaf = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
             try {
                 require(!testFileSaf.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileSaf)" }

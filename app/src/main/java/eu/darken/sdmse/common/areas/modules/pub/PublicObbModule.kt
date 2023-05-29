@@ -19,13 +19,13 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.storage.SAFMapper
+import eu.darken.sdmse.common.storage.PathMapper
 import javax.inject.Inject
 
 @Reusable
 class PublicObbModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
-    private val safMapper: SAFMapper,
+    private val pathMapper: PathMapper,
 ) : DataAreaModule {
 
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
@@ -41,7 +41,7 @@ class PublicObbModule @Inject constructor(
                             localGateway.hasRoot() -> {
                                 when (val target = parentArea.path) {
                                     is LocalPath -> target
-                                    is SAFPath -> safMapper.toLocalPath(target)
+                                    is SAFPath -> pathMapper.toLocalPath(target)
                                     else -> null
                                 }
                             }
@@ -53,7 +53,7 @@ class PublicObbModule @Inject constructor(
                     }
                     hasApiLevel(30) -> {
                         when (val target = parentArea.path) {
-                            is LocalPath -> safMapper.toSAFPath(target)
+                            is LocalPath -> pathMapper.toSAFPath(target)
                             is SAFPath -> target
                             else -> null
                         }

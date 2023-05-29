@@ -20,7 +20,7 @@ import javax.inject.Inject
  * Fuck the SAF, this is grating.
  */
 @Reusable
-class SAFMapper @Inject constructor(
+class PathMapper @Inject constructor(
     private val contentResolver: ContentResolver,
     private val storageManager2: StorageManager2,
 ) {
