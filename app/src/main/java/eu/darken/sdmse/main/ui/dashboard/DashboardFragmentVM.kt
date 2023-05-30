@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
@@ -307,9 +308,7 @@ class DashboardFragmentVM @Inject constructor(
                     events.postValue(DashboardEvents.SetupDismissHint)
                 },
                 onContinue = {
-                    DashboardFragmentDirections.actionDashboardFragmentToSetupFragment(
-                        showCompleted = false
-                    ).navigate()
+                    MainDirections.goToSetup().navigate()
                 }
             ).run { items.add(this) }
         }

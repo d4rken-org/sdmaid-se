@@ -5,6 +5,7 @@ import android.view.View
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SdmSeLinks
@@ -44,7 +45,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
         }
 
         findPreference<Preference>("setup.show.forced")!!.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToSetupFragment(showCompleted = true).navigate()
+            MainDirections.goToSetup(showCompleted = true).navigate()
             true
         }
 

@@ -13,7 +13,7 @@ class InaccessibleCacheProvider @Inject constructor(
 ) {
 
     suspend fun determineCache(pkg: Installed): InaccessibleCache? {
-        val storageStats = storageStatsProvider.getStats(pkg.id) ?: return null
+        val storageStats = storageStatsProvider.getStats(pkg.installId) ?: return null
         return InaccessibleCache(
             pkg.installId,
             itemCount = 1,

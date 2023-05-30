@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.files.isDescendantOf
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -57,7 +58,7 @@ class Analyzer @Inject constructor(
     }
 
     private val storageDevices = MutableStateFlow(emptySet<DeviceStorage>())
-    private val storageCategories = MutableStateFlow(emptyMap<DeviceStorage.Id, Collection<ContentCategory>>())
+    private val storageCategories = MutableStateFlow(emptyMap<StorageId, Collection<ContentCategory>>())
     val data: Flow<Data> = combine(
         storageDevices,
         storageCategories,
@@ -206,7 +207,7 @@ class Analyzer @Inject constructor(
 
     data class Data(
         val storages: Set<DeviceStorage> = emptySet(),
-        val categories: Map<DeviceStorage.Id, Collection<ContentCategory>> = emptyMap(),
+        val categories: Map<StorageId, Collection<ContentCategory>> = emptyMap(),
         val groups: Map<ContentGroup.Id, ContentGroup> = emptyMap(),
     )
 

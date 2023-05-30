@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.storage.categories
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
@@ -27,8 +28,18 @@ class AppCategoryVH(parent: ViewGroup) :
 
         val usedText = Formatter.formatShortFileSize(context, content.spaceUsed)
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
-        usedSpace.text = getString(R.string.analyzer_space_used, usedText)
-        progress.progress = totalPercent
+
+        usedSpace.apply {
+            text = if (content.setupIncomplete) {
+                getString(R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
+            } else {
+                getString(R.string.analyzer_space_used, usedText)
+            }
+        }
+        progress.apply {
+            isInvisible = content.setupIncomplete
+            progress = totalPercent
+        }
 
         root.setOnClickListener { item.onItemClicked(content) }
     }
