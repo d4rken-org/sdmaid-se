@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.storage
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
@@ -47,16 +48,19 @@ class StorageContentFragmentVM @Inject constructor(
         State(
             storage = storage,
             content = data.categories[targetStorageId]
-                ?.filter { it.spaceUsed > 0L }
                 ?.map { content ->
                     when (content) {
                         is AppCategory -> AppCategoryVH.Item(
                             storage = storage,
                             content = content,
                             onItemClicked = {
-                                StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
-                                    targetStorageId
-                                ).navigate()
+                                if (content.setupIncomplete) {
+                                    MainDirections.goToSetup().navigate()
+                                } else {
+                                    StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
+                                        targetStorageId
+                                    ).navigate()
+                                }
                             }
                         )
 

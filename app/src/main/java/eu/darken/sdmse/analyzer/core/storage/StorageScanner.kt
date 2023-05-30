@@ -126,7 +126,11 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scanForApps($storage)" }
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
             log(TAG, WARN) { "Permission PACKAGE_USAGE_STATS is missing, can't scan apps." }
-            return AppCategory(storageId = storage.id, emptyMap())
+            return AppCategory(
+                storageId = storage.id,
+                setupIncomplete = true,
+                pkgStats = emptyMap()
+            )
         }
 
         updateProgressPrimary(R.string.analyzer_progress_scanning_apps)

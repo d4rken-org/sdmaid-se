@@ -368,6 +368,7 @@
     <string name="analyzer_storage_content_title">Storage content</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. install files, data and caches).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Permissions are missing</string>
     <string name="analyzer_storage_content_type_media_label">User files</string>
     <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>

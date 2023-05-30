@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.storage.StorageId
 
 data class AppCategory(
     override val storageId: StorageId,
+    val setupIncomplete: Boolean = false,
     val pkgStats: Map<Installed.InstallId, PkgStat>,
 ) : ContentCategory {
 

@@ -49,9 +49,6 @@
             android:id="@+id/action_dashboardFragment_to_settingsContainerFragment"
             app:destination="@id/settingsContainerFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_setupFragment"
-            app:destination="@id/setupFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_upgradeFragment"
             app:destination="@id/upgradeFragment" />
         <action
@@ -112,9 +109,6 @@
         android:id="@+id/settingsContainerFragment"
         android:name="eu.darken.sdmse.main.ui.settings.SettingsFragment"
         tools:layout="@layout/settings_fragment">
-        <action
-            android:id="@+id/action_settingsContainerFragment_to_setupFragment"
-            app:destination="@id/setupFragment" />
         <action
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
