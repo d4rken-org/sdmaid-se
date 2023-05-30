@@ -2,7 +2,6 @@ package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
-import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.common.progress.Progress
 import kotlinx.coroutines.CoroutineScope
 

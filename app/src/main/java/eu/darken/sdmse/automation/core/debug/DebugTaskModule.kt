@@ -11,10 +11,10 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.crawler.AutomationHost
-import eu.darken.sdmse.automation.core.crawler.crawl
+import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag

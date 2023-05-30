@@ -3,7 +3,6 @@ package eu.darken.sdmse.automation.core
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.automation.core.crawler.AutomationHost
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE

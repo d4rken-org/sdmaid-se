@@ -13,9 +13,8 @@ import android.view.accessibility.AccessibilityNodeInfo
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.automation.core.crawler.AutomationHost
-import eu.darken.sdmse.automation.core.crawler.CrawlerException
-import eu.darken.sdmse.automation.core.crawler.getRoot
+import eu.darken.sdmse.automation.core.common.AutomationException
+import eu.darken.sdmse.automation.core.common.getRoot
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -255,7 +254,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         }
 
         log(TAG, VERBOSE) { "Providing window root: $maybeRootNode" }
-        it.resume(maybeRootNode ?: throw CrawlerException("Root node is currently null"))
+        it.resume(maybeRootNode ?: throw AutomationException("Root node is currently null"))
     }
 
     private val controlLp: WindowManager.LayoutParams = WindowManager.LayoutParams().apply {
