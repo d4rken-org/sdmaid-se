@@ -1,7 +1,8 @@
 package eu.darken.sdmse.analyzer.core.storage
 
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
-import eu.darken.sdmse.analyzer.core.StorageStatsManager2
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -12,6 +13,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
@@ -26,6 +28,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -36,6 +39,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.flow.Flow
@@ -46,6 +50,7 @@ import javax.inject.Inject
 
 
 class StorageScanner @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
     private val statsManager: StorageStatsManager2,
     private val pkgRepo: PkgRepo,
@@ -112,13 +117,18 @@ class StorageScanner @Inject constructor(
                 log(TAG) { "Media: ${media.spaceUsed}" }
                 log(TAG) { "System: ${system.spaceUsed}" }
 
-                setOf(apps, media, system)
+                setOfNotNull(apps, media, system)
             }
         }
     }
 
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory {
         log(TAG) { "scanForApps($storage)" }
+        if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
+            log(TAG, WARN) { "Permission PACKAGE_USAGE_STATS is missing, can't scan apps." }
+            return AppCategory(storageId = storage.id, emptyMap())
+        }
+
         updateProgressPrimary(R.string.analyzer_progress_scanning_apps)
 
         val pkgStats = pkgRepo.currentPkgs()
@@ -131,7 +141,6 @@ class StorageScanner @Inject constructor(
 
         return AppCategory(
             storageId = storage.id,
-            spaceUsed = pkgStats.values.sumOf { it.totalSize },
             pkgStats = pkgStats,
         )
     }

@@ -1,16 +1,18 @@
 package eu.darken.sdmse.analyzer.core.storage.categories
 
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
-import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.storage.StorageId
 
 data class AppCategory(
-    override val storageId: DeviceStorage.Id,
-    override val spaceUsed: Long,
+    override val storageId: StorageId,
     val pkgStats: Map<Installed.InstallId, PkgStat>,
 ) : ContentCategory {
+
+    override val spaceUsed: Long
+        get() = pkgStats.values.sumOf { it.totalSize }
 
     override val groups: Collection<ContentGroup>
         get() = pkgStats.values

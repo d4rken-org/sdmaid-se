@@ -1,12 +1,10 @@
 package eu.darken.sdmse.analyzer.core.device
 
-import android.os.Parcelable
 import eu.darken.sdmse.common.ca.CaString
-import kotlinx.parcelize.Parcelize
-import java.util.UUID
+import eu.darken.sdmse.common.storage.StorageId
 
 data class DeviceStorage(
-    val id: Id,
+    val id: StorageId,
     val label: CaString,
     val type: Type,
     val hardware: Hardware,
@@ -28,14 +26,6 @@ data class DeviceStorage(
         ;
     }
 
-    @Parcelize
-    data class Id(
-        val internalId: String?,
-        val externalId: UUID,
-    ) : Parcelable {
-//        val asUUID: UUID
-//            get() = UUID.fromString(externalId)
-    }
 }
 
 

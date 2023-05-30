@@ -1,10 +1,10 @@
 package eu.darken.sdmse.analyzer.core.storage.categories
 
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
-import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.common.storage.StorageId
 
 data class MediaCategory(
-    override val storageId: DeviceStorage.Id,
+    override val storageId: StorageId,
     override val groups: Collection<ContentGroup>,
     val spaceUsedOverride: Long? = null,
 ) : ContentCategory {

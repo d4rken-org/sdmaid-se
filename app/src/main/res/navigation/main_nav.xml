@@ -293,7 +293,7 @@
         tools:layout="@layout/analyzer_storage_fragment">
         <argument
             android:name="storageId"
-            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+            app:argType="eu.darken.sdmse.common.storage.StorageId" />
         <action
             android:id="@+id/action_storageFragment_to_appsFragment"
             app:destination="@id/appsFragment" />
@@ -307,7 +307,7 @@
         tools:layout="@layout/analyzer_apps_fragment">
         <argument
             android:name="storageId"
-            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+            app:argType="eu.darken.sdmse.common.storage.StorageId" />
         <action
             android:id="@+id/action_appsFragment_to_appDetailsFragment"
             app:destination="@id/appDetailsFragment" />
@@ -318,7 +318,7 @@
         tools:layout="@layout/analyzer_app_fragment">
         <argument
             android:name="storageId"
-            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+            app:argType="eu.darken.sdmse.common.storage.StorageId" />
         <argument
             android:name="installId"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId" />
@@ -332,7 +332,7 @@
         tools:layout="@layout/analyzer_content_fragment">
         <argument
             android:name="storageId"
-            app:argType="eu.darken.sdmse.analyzer.core.device.DeviceStorage$Id" />
+            app:argType="eu.darken.sdmse.common.storage.StorageId" />
         <argument
             android:name="groupId"
             app:argType="eu.darken.sdmse.analyzer.core.content.ContentGroup$Id" />

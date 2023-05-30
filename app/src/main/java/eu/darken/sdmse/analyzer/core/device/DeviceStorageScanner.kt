@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.storage.StorageEnvironment
+import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -43,7 +44,7 @@ class DeviceStorageScanner @Inject constructor(
 
         val primaryDevice = run {
             updateProgressSecondary(R.string.analyzer_storage_type_primary_title)
-            val id = DeviceStorage.Id(
+            val id = StorageId(
                 internalId = null,
                 externalId = StorageManager.UUID_DEFAULT,
             )
@@ -106,7 +107,7 @@ class DeviceStorageScanner @Inject constructor(
                     return@mapNotNull null
                 }
 
-                val id = DeviceStorage.Id(internalId = volume.fsUuid, externalId = volumeId)
+                val id = StorageId(internalId = volume.fsUuid, externalId = volumeId)
 
                 val totalBytes = try {
                     // Secondary storage isn't available in on all APIs, (e.g. not on a Redmi 7A @ Android 9)
