@@ -78,14 +78,27 @@ fun <T : Progress.Client> T.increaseProgress() {
     }
 }
 
-suspend fun <T : Progress.Host> T.forwardProgressTo(client: Progress.Client) = progress
-    .onEach { pro -> client.updateProgress { pro } }
-    .onCompletion { client.updateProgress { null } }
+suspend fun <T : Progress.Host> T.forwardProgressTo(
+    client: Progress.Client,
+    onUpdate: (new: Progress.Data?, existing: Progress.Data?) -> Progress.Data?,
+    onCompletion: (Progress.Data?) -> Progress.Data?,
+) = progress
+    .onEach { new -> client.updateProgress { onUpdate(new, it) } }
+    .onCompletion { client.updateProgress { onCompletion(it) } }
 
-suspend fun <T : Progress.Host, R> T.withProgress(client: Progress.Client, action: suspend T.() -> R): R {
+suspend fun <T : Progress.Host, R> T.withProgress(
+    client: Progress.Client,
+    onUpdate: (new: Progress.Data?, existing: Progress.Data?) -> Progress.Data? = { new, existing -> new },
+    onCompletion: (Progress.Data?) -> Progress.Data? = { null },
+    action: suspend T.() -> R
+): R {
     val scope = CoroutineScope(EmptyCoroutineContext)
 
-    val forwardingJob = forwardProgressTo(client).launchIn(scope)
+    val forwardingJob = forwardProgressTo(
+        client,
+        onUpdate,
+        onCompletion
+    ).launchIn(scope)
 
     return try {
         action()

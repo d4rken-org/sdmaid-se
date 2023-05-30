@@ -6,7 +6,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.appcleaner.core.automation.specs.CustomSpecs
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
@@ -59,8 +58,6 @@ class AppCleanerSettings @Inject constructor(
 
     // Amounts to common folders created by default
     val minCacheSizeBytes = dataStore.createValue<Long>("skip.mincachesize.bytes", MIN_CACHE_SIZE_DEFAULT)
-
-    val automationCustomSteps = dataStore.createValue<CustomSpecs.Config?>("automation.custom.config", null, moshi)
 
     override val mapper = PreferenceStoreMapper(
         includeSystemAppsEnabled,

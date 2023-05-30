@@ -7,7 +7,7 @@ import android.content.res.Configuration
 import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.*
+import java.util.Locale
 import javax.inject.Inject
 
 @Reusable
@@ -43,6 +43,8 @@ class DeviceDetective @Inject constructor(
     suspend fun isLGE(): Boolean = Build.MANUFACTURER.lowercase() == "lge"
 
     suspend fun isXiaomi(): Boolean = Build.MANUFACTURER.lowercase() == "Xiaomi".lowercase()
+
+    suspend fun isPoco(): Boolean = Build.MANUFACTURER.lowercase() == "POCO".lowercase()
 
     suspend fun isNubia(): Boolean = Build.MANUFACTURER.lowercase() == "nubia"
 

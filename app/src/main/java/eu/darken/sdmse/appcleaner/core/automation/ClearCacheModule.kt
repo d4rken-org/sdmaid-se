@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
+import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
@@ -13,13 +14,29 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.*
+import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.androidtv.AndroidTVSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.coloros.ColorOSSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.flyme.FlymeSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.huawei.HuaweiSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.lge.LGESpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.miui.MIUISpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.nubia.NubiaSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.oneplus.OnePlusSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.poco.PocoSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.samsung.SamsungSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
+import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
-import eu.darken.sdmse.automation.core.AutomationStepGenerator
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.crawler.AutomationCrawler
-import eu.darken.sdmse.automation.core.crawler.AutomationHost
-import eu.darken.sdmse.automation.core.crawler.CrawlerCommon
-import eu.darken.sdmse.common.DeviceDetective
+import eu.darken.sdmse.automation.core.common.CrawlerCommon
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.SpecGenerator
+import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -42,40 +59,31 @@ class ClearCacheModule @AssistedInject constructor(
     @Assisted private val moduleScope: CoroutineScope,
     val ipcFunnel: IPCFunnel,
     private val pkgRepo: PkgRepo,
-    private val automationCrawlerFactory: AutomationCrawler.Factory,
-    private val appSpecProviders: Provider<Set<@JvmSuppressWildcards AutomationStepGenerator>>,
-    private val deviceDetective: DeviceDetective,
+    private val automationExplorerFactory: AutomationExplorer.Factory,
+    private val specGenerators: Provider<Set<@JvmSuppressWildcards SpecGenerator>>,
     private val userManager2: UserManager2,
 ) : AutomationModule(automationHost) {
 
-    private fun getPriotizedSpecGenerators(): List<AutomationStepGenerator> = appSpecProviders
+    private fun getPriotizedSpecGenerators(): List<SpecGenerator> = specGenerators
         .get()
         .also { log(TAG) { "${it.size} step generators are available" } }
         .onEach { log(TAG, VERBOSE) { "Loaded: $it" } }
-        .sortedByDescending {
-            when (it) {
-                is CustomSpecs -> 1000
-                is MIUI12Specs -> 200
-                is MIUI11Specs -> 190
-                is Samsung29PlusSpecs -> 180
-                is Samsung14To28Specs -> 170
+        .sortedByDescending { generator: SpecGenerator ->
+            when (generator) {
+                is MIUISpecs -> 190
+                is PocoSpecs -> 180
+                is SamsungSpecs -> 170
                 is AlcatelSpecs -> 160
                 is RealmeSpecs -> 150
                 is HuaweiSpecs -> 140
                 is LGESpecs -> 130
-                is ColorOS27PlusSpecs -> 120
-                is ColorOSLegacySpecs -> 110
+                is ColorOSSpecs -> 110
                 is FlymeSpecs -> 100
-                is VivoAPI29PlusSpecs -> 90
                 is VivoSpecs -> 80
                 is AndroidTVSpecs -> 70
                 is NubiaSpecs -> 60
-                is OnePlus31PlusSpecs -> 50
-                is OnePlus29PlusSpecs -> 40
-                is OnePlus14to28Specs -> 30
-                is AOSP34PlusSpecs -> -5
-                is AOSP29PlusSpecs -> -10
-                is AOSP14to28Specs -> -20
+                is OnePlusSpecs -> 30
+                is AOSPSpecs -> -5
                 else -> 0
             }
         }
@@ -101,8 +109,6 @@ class ClearCacheModule @AssistedInject constructor(
             )
         }
 
-        val crawler = automationCrawlerFactory.create(host)
-
         val successful = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
 
@@ -123,10 +129,10 @@ class ClearCacheModule @AssistedInject constructor(
             }
 
             log(TAG) { "Clearing cache for $installed" }
-
             updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
+
             try {
-                clearCache(crawler, installed)
+                processSpecForPkg(installed)
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
                 successful.add(target)
             } catch (e: TimeoutCancellationException) {
@@ -157,54 +163,37 @@ class ClearCacheModule @AssistedInject constructor(
         )
     }
 
-    private suspend fun clearCache(crawler: AutomationCrawler, pkg: Installed) {
+    private suspend fun processSpecForPkg(pkg: Installed) {
         log(TAG) { "Clearing default primary caches for $pkg" }
         val start = System.currentTimeMillis()
 
-        val stepGenerator = getPriotizedSpecGenerators()
-            .firstOrNull { it.isResponsible(pkg) }
-            ?: throw AutomationStepGenerator.createUnsupportedError("DeviceSpec")
-        log(TAG) { "Using step generator: ${stepGenerator.label}" }
+        val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
+            ?: throw createUnsupportedError("DeviceSpec")
+        log(TAG) { "Using spec generator: ${specGenerator.label}" }
 
-        val specs = stepGenerator.getSpecs(pkg).toMutableList()
 
-        val iterator = specs.listIterator()
-        while (iterator.hasNext()) {
-            val spec = iterator.next()
-            updateProgressSecondary(spec.label)
-            updateProgressIcon(pkg.icon)
+        val spec = specGenerator.getSpec(pkg)
+        log(TAG) { "Generated spec for ${pkg.id} is $spec" }
 
-            log(TAG) { "Crawler (${pkg.id}) is starting for $spec" }
-            try {
-                crawler.crawl(spec)
-                log(TAG) { "Crawler (${pkg.id}) finished for $spec" }
-            } catch (e: Exception) {
-                log(TAG) { "Crawler failed checking for branch exception for $spec" }
-                val branchException = CrawlerCommon.getBranchException(e)
-                if (branchException != null) {
-                    var deletionSteps = branchException.invalidSteps
-
-                    val originalPosition = specs.indexOf(spec)
-
-                    // Add in new steps in front of us
-                    branchException.altRoute.forEach { iterator.add(it) }
-                    // Remove invalid steps
-                    while (iterator.hasNext() && deletionSteps != 0) {
-                        iterator.next()
-                        iterator.remove()
-                        deletionSteps--
-                    }
-                    // Return to original position
-                    while (iterator.previousIndex() != originalPosition) {
-                        iterator.previous()
-                    }
-                } else {
-                    throw e
-                }
-            }
+        when (spec) {
+            is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
         }
+
         val stop = System.currentTimeMillis()
         log(TAG) { "Cleared default primary cache in ${(stop - start)}ms for $pkg " }
+    }
+
+    private suspend fun processExplorerSpec(pkg: Installed, spec: AutomationSpec.Explorer) {
+        log(TAG) { "processExplorerSpec($pkg, $spec)" }
+
+        val explorer = automationExplorerFactory.create(host)
+        explorer.withProgress(
+            client = this,
+            onUpdate = { new, existing -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
+            onCompletion = { it }
+        ) {
+            process(spec)
+        }
     }
 
     @Module @InstallIn(SingletonComponent::class)
@@ -221,5 +210,12 @@ class ClearCacheModule @AssistedInject constructor(
 
     companion object {
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
+
+        fun createUnsupportedError(tag: String): Throwable {
+            val locale = CrawlerCommon.getSysLocale()
+            val apiLevel = BuildWrap.VERSION.SDK_INT
+            val rom = Build.MANUFACTURER
+            return UnsupportedOperationException("$tag: ROM $rom($apiLevel) & Locale ($locale) is not supported.")
+        }
     }
 }
