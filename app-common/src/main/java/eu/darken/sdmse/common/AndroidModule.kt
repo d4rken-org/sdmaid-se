@@ -3,6 +3,7 @@ package eu.darken.sdmse.common
 import android.app.AlarmManager
 import android.app.Application
 import android.app.NotificationManager
+import android.app.admin.DevicePolicyManager
 import android.app.usage.StorageStatsManager
 import android.content.ContentResolver
 import android.content.Context
@@ -80,4 +81,9 @@ class AndroidModule {
     @Provides
     @Singleton
     fun contentResolver(@ApplicationContext context: Context): ContentResolver = context.contentResolver
+
+    @Provides
+    @Singleton
+    fun devicePolicyManager(@ApplicationContext context: Context): DevicePolicyManager =
+        context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
 }
