@@ -65,11 +65,8 @@ class StepProcessor @AssistedInject constructor(
         }
     }
 
-
     private suspend fun doCrawl(step: Step, attempt: Int = 0) {
         log(TAG, VERBOSE) { "doCrawl(): Attempt $attempt for $step" }
-
-        log(TAG, VERBOSE) { "Looking for window root (intent=${step.windowIntent})." }
 
         when {
             attempt > 1 -> when {
@@ -91,13 +88,16 @@ class StepProcessor @AssistedInject constructor(
             }
         }
 
-        if (step.windowIntent != null) host.service.startActivity(step.windowIntent)
+        if (step.windowIntent != null) {
+            log(TAG, VERBOSE) { "Launching window intent: ${step.windowIntent}" }
+            host.service.startActivity(step.windowIntent)
+        }
 
         // avg delay between activity launch and acs event
         delay(200)
 
         // Wait for correct window
-        val rootNode: AccessibilityNodeInfo = withTimeout(4000) {
+        val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
             // Condition for the right window, e.g. check title
             if (step.windowIntent != null && step.windowEventFilter != null) {
                 log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
@@ -109,18 +109,19 @@ class StepProcessor @AssistedInject constructor(
             }
 
             var currentRoot: AccessibilityNodeInfo? = null
-            while (currentCoroutineContext().isActive) {
-                currentRoot = host.windowRoot()
 
-                log(TAG, VERBOSE) { "Current node hierarchy:" }
-                currentRoot.crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+            while (step.windowNodeTest != null && currentCoroutineContext().isActive) {
+                currentRoot = host.windowRoot().apply {
+                    log(TAG, VERBOSE) { "Looking for viable window root, current nodes:" }
+                    crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+                }
 
                 try {
-                    if (step.windowNodeTest != null && !step.windowNodeTest.invoke(currentRoot)) {
+                    if (step.windowNodeTest.invoke(currentRoot)) {
+                        break
+                    } else {
                         log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
                         delay(200)
-                    } else {
-                        break
                     }
                 } catch (e: StepAbortException) {
                     log(TAG) { "ABORT Step! ${e.asLog()}" }
@@ -128,35 +129,44 @@ class StepProcessor @AssistedInject constructor(
                 }
             }
 
-            currentRoot ?: throw IllegalStateException("No valid root node found")
+            currentRoot ?: host.windowRoot()
         }
-        log(TAG, VERBOSE) { "Root node is ${rootNode.toStringShort()}" }
+        log(TAG, VERBOSE) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
 
         val targetNode: AccessibilityNodeInfo = when {
             step.nodeTest != null -> {
                 var target: AccessibilityNodeInfo? = null
-                while (target == null) {
-                    target = rootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
+                var currentRootNode = targetWindowRoot
+
+                while (currentCoroutineContext().isActive) {
+                    log(TAG, VERBOSE) { "Checking current nodes:" }
+                    currentRootNode.crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+
+                    target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
 
                     if (target != null) {
-                        log(TAG, VERBOSE) { "Node target found: $target" }
+                        log(TAG, VERBOSE) { "Target node found: $target" }
                         break
+                    } else {
+                        log(TAG, VERBOSE) { "Target node not found" }
                     }
 
                     if (step.nodeRecovery != null) {
+                        log(TAG, VERBOSE) { "Trying node recovery!" }
                         // Should we care about whether the recovery thinks it was successful?
-                        step.nodeRecovery.invoke(rootNode)
-                        target = host.windowRoot().crawl().map { it.node }.find { step.nodeTest.invoke(it) }
+                        step.nodeRecovery.invoke(currentRootNode)
                         delay(200)
                     } else {
                         // Timeout will hit here and cancel if necessary
                         delay(100)
                     }
+                    // Let's try a new one
+                    currentRootNode = host.windowRoot()
                 }
                 target!!
             }
 
-            else -> rootNode
+            else -> host.windowRoot()
         }
         log(TAG, VERBOSE) { "Target node is ${targetNode.toStringShort()}" }
 
