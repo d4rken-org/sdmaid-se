@@ -101,6 +101,9 @@ object CrawlerCommon {
             }
             ?.let { candidates.add(it) }
 
+        pkgInfo.packageInfo.applicationInfo?.className
+            ?.let { candidates.add(it) }
+
         log(TAG, VERBOSE) { "Looking for window identifiers: $candidates" }
         return windowCriteria(windowPkgId) { node ->
             node.crawl().map { it.node }.any { toTest ->
