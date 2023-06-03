@@ -24,7 +24,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.lge.LGESpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.nubia.NubiaSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.oneplus.OnePlusSpecs
-import eu.darken.sdmse.appcleaner.core.automation.specs.poco.PocoSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.samsung.SamsungSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
@@ -71,7 +70,6 @@ class ClearCacheModule @AssistedInject constructor(
         .sortedByDescending { generator: SpecGenerator ->
             when (generator) {
                 is MIUISpecs -> 190
-                is PocoSpecs -> 180
                 is SamsungSpecs -> 170
                 is AlcatelSpecs -> 160
                 is RealmeSpecs -> 150
