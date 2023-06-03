@@ -33,6 +33,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
@@ -51,6 +52,7 @@ class MIUISpecs @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val miuiLabels: MIUILabels,
     private val aospLabels14Plus: AOSPLabels14Plus,
+    private val deviceAdminManager: DeviceAdminManager,
 ) : ExplorerSpecGenerator() {
 
     override val label = TAG.toCaString()
@@ -193,25 +195,28 @@ class MIUISpecs @Inject constructor(
             },
             action = CrawlerCommon.defaultClick()
         )
-        var useAlternativeStep = false
 
-        val clearDataFilter: suspend (AccessibilityNodeInfo) -> Boolean = filter@{ node ->
-            when {
-                // MIUI 12+
-                isMiui12Plus -> if (!node.isTextView()) return@filter false
-                // MIUI 10/11
-                else -> if (!node.isClickyButton()) return@filter false
-            }
-
-            if (node.textMatchesAny(clearDataLabels)) return@filter true
-
-            if (node.textMatchesAny(clearCacheLabels)) {
-                useAlternativeStep = true
-                throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
-            }
-            return@filter false
+        var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
+            if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }
         }
-        run {
+
+        if (!useAlternativeStep) {
+            val clearDataFilter: suspend (AccessibilityNodeInfo) -> Boolean = filter@{ node ->
+                when {
+                    // MIUI 12+
+                    isMiui12Plus -> if (!node.isTextView()) return@filter false
+                    // MIUI 10/11
+                    else -> if (!node.isClickyButton()) return@filter false
+                }
+
+                if (node.textMatchesAny(clearDataLabels)) return@filter true
+
+                if (node.textMatchesAny(clearCacheLabels)) {
+                    useAlternativeStep = true
+                    throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                }
+                return@filter false
+            }
             val step = StepProcessor.Step(
                 parentTag = TAG,
                 label = "Find & click MIUI 'Clear data' (targets=$clearDataLabels)",
