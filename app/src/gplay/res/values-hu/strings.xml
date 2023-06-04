@@ -9,9 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">A Google Play szolgáltatások nem érhetők el.</string>
     <string name="upgrades_no_purchases_found_check_account">Nem található vásárlás. A megfelelő fiókot használja?</string>
     <string name="upgrade_screen_title">Szerezze be az SD Maid SE Pro-t</string>
+    <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
     <string name="upgrade_screen_benefits_title">Előnyök</string>
     <string name="upgrade_screen_benefits_body">• Alkalmazások tisztítása 💯\n• Ütemezett műveletek ⏰\n• Extra lehetőségek minden eszközhöz ⚙️\n• Saját törlési szabályok ✍️\n• Motivált fejlesztő 🧙\nés több…</string>
     <string name="upgrade_screen_how_title">Lehetőségek</string>
+    <string name="upgrade_screen_how_body">Választhat az egyszeri vásárlás és az olcsóbb éves előfizetés között.\nAz előfizetés egy 14 napos ingyenes próbaverzióval kezdődik, amely után évente egyszer kerül felszámításra. A próbaidőszak és az előfizetés bármikor lemondható.\nAzonos funkciók, csak különböző árképzési modellek.</string>
+    <string name="upgrade_screen_subscription_trial_action">Ingyenes 14 napos próbaidőszak indítása</string>
     <string name="upgrade_screen_subscription_action">Iratkozz fel</string>
     <string name="upgrade_screen_subscription_action_hint">Az előfizetés évi %s.</string>
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>

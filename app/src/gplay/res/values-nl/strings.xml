@@ -9,9 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Google Play-services zijn niet beschikbaar.</string>
     <string name="upgrades_no_purchases_found_check_account">Geen aankopen gevonden. Gebruik je de juiste rekening?</string>
     <string name="upgrade_screen_title">Verkrijg SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens. Mijn werk wordt door jou gefinancierd.</string>
     <string name="upgrade_screen_benefits_title">Voordelen</string>
     <string name="upgrade_screen_benefits_body">• App opschonen 💯\n• Geplande bewerkingen ⏰\n• Extra opties voor alle gereedschap ⚙️\n• Je eigen verwijderingsregels ✍️\n• Een gemotiveerde ontwikkelaar 🧙\nen meer…</string>
     <string name="upgrade_screen_how_title">Opties</string>
+    <string name="upgrade_screen_how_body">Je kunt kiezen tussen een eenmalige aankoop en een goedkoper jaarabonnement.\nHet abonnement begint met een gratis proefperiode van 14 dagen, waarna u eenmaal per jaar in rekening wordt gebracht. Proef en abonnement zijn op elk moment opzegbaar.\nDezelfde functies, alleen verschillende prijsmodellen.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode van 14 dagen</string>
     <string name="upgrade_screen_subscription_action">Abonneren</string>
     <string name="upgrade_screen_subscription_action_hint">Het abonnement kost %s per jaar.</string>
     <string name="upgrade_screen_iap_action">Eenmalige aankoop</string>

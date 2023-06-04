@@ -85,7 +85,7 @@
     <string name="setup_title">Установка</string>
     <string name="setup_forcedshow_summary">Показати екран налаштувань знову, включно з виконаними пунктами.</string>
     <string name="setup_saf_card_title">Доступ до сховища</string>
-    <string name="setup_saf_card_body">Покращуйте результати, надаючи SD Maid доступ до додаткових параметрів.</string>
+    <string name="setup_saf_card_body">Покращуйте результати, надаючи SD Maid доступ до додаткових директорій.</string>
     <string name="setup_saf_card_body2">У більшості випадків вікно відкриється з попередньо вибраним правильним шляхом. Записи стають зеленими, коли доступ надано. </string>
     <string name="setup_saf_error_wrong_path">Ви обрали хибний шлях</string>
     <string name="setup_saf_missing_app_error">Додаток \"Documents UI\" недоступний. Це системний додаток, і він повинен бути доступний на всіх пристроях Android.</string>
@@ -93,14 +93,14 @@
     <string name="setup_manage_storage_card_body">Дозвольте SD Maid керувати вашим сховищем.</string>
     <string name="setup_manage_storage_card_body2">Базовий доступ до загального сховища, наприклад, \"Download/\" і \"DCIM/\", але не завжди \"Android/data\".</string>
     <string name="setup_root_card_title">Root-доступ</string>
-    <string name="setup_root_card_body">Чи вартує SD Maid використовувати Root-доступ, якщо він доступний? Root-доступ може бути використаний для перевірки додаткових системних папок і приватних даних програми.</string>
+    <string name="setup_root_card_body">Чи використовувати Root-доступ, якщо він доступний? Root-доступ може бути використаний для перевірки додаткових системних папок і приватних даних програми.</string>
     <string name="setup_root_enable_root_use_label">Використовувати Root-доступ, якщо він доступний</string>
     <string name="setup_root_disable_root_use_label">Не використовувати Root-доступ</string>
     <string name="setup_root_card_body2">Доступно лише на пристроях з Root-доступом. Якщо ви не зробили цю модифікацію, то ваш пристрій немає Root-доступ і дана опція не буде працювати.</string>
     <string name="setup_dismiss_hint">Ви можете знову перейти до екрана установок через меню налаштувань.</string>
     <string name="setup_permission_granted_label">Дозвіл надано</string>
     <string name="setup_usagestats_title">Статистика використання</string>
-    <string name="setup_usagestats_body">Дозвіл на статистику використання надає доступ до більш детальної інформації про програму. SD Maid використовує його для визначення додаткових розмірів кешу.</string>
+    <string name="setup_usagestats_body">Дозвіл на статистику використання надає доступ до більш детальної інформації про додатки. SD Maid використовує його для визначення додаткових розмірів кешу.</string>
     <string name="setup_usagestats_hint">Вимагається для видалення кешу за допомогою служби \"Спеціальних можливостей\".</string>
     <string name="setup_notification_title">Сповіщення</string>
     <string name="setup_notification_body">Дозвольте SD Maid надсилати сповіщення, щоб інформувати вас про поточні операції або важливі події.</string>
@@ -153,7 +153,7 @@
     <string name="corpsefinder_filter_appsource_label">Джерела додатків</string>
     <string name="corpsefinder_filter_appsource_summary">Дані про інсталяцію додатків, тобто куди потрапляють APK.</string>
     <string name="corpsefinder_filter_appsource_private_label">Приватні джерела додатків</string>
-    <string name="corpsefinder_filter_appsource_private_summary">Дані про інсталяцію додатків с обмеженнями, наприклад такі, як захищені сторонні додатки.</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Дані про інсталяцію додатків з обмеженнями, наприклад, захищених сторонніх додатків.</string>
     <string name="corpsefinder_filter_appasec_label">Зашифровані ресурси додатків</string>
     <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад такі, як дані ігор.</string>
     <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
@@ -169,4 +169,5 @@
     <string name="corpsefinder_corpse_hints_label">Примітка</string>
     <string name="corpsefinder_owner_unknown">Невідомий власник</string>
     <string name="corpsefinder_corpse_hint_keeper">Цей елемент може містити дані, які ви хочете зберегти, незважаючи на видалення його власником, наприклад, фотографії або резервні копії.</string>
+    <string name="data_areas_label">Області сканування</string>
 </resources>

@@ -62,7 +62,7 @@
     <string name="settings_sponsor_development_title">أدعم التطوير</string>
     <string name="settings_sponsor_development_summary">كن راعيًا واجعل التطوير المستمر ممكنًا.</string>
     <string name="general_settings_label">عام</string>
-    <string name="general_settings_desc">إعدادات عامة يتم تطبيقها على كامل التطبيق.</string>
+    <string name="general_settings_desc">التعديلات العامة التي تؤثر على التطبيق بأكمله.</string>
     <string name="settings_category_ui_label">واجهة المستخدم</string>
     <string name="ui_theme_setting_label">السمة</string>
     <string name="ui_theme_dark_label">مظلم</string>
@@ -91,10 +91,10 @@
     <string name="setup_saf_card_title">إطار الوصول إلى التخزين</string>
     <string name="setup_saf_card_body">تحسين النتائج من خلال منح SD Maid الوصول إلى مناطق إضافية.</string>
     <string name="setup_saf_card_body2">في معظم الحالات ، تفتح النافذة مع تحديد المسار الصحيح مسبقًا. تتحول الإدخالات إلى اللون الأخضر عند منح الوصول. </string>
-    <string name="setup_saf_error_wrong_path">لقد حددت المسار الخطأ</string>
+    <string name="setup_saf_error_wrong_path">لقد اخترت المسار الخطأ</string>
     <string name="setup_saf_missing_app_error">تطبيق Documents UI غير متوفر. إنه تطبيق نظام مدمج ويجب أن يكون متاحًا على جميع أجهزة Android.</string>
     <string name="setup_manage_storage_card_title">إدارة التخزين</string>
-    <string name="setup_manage_storage_card_body">السماح لـ SD Maid بإدارة التخزين.</string>
+    <string name="setup_manage_storage_card_body">السماح لـ SD Maid بإدارة التخزين لديك.</string>
     <string name="setup_manage_storage_card_body2">الوصول الأساسي إلى التخزين العام ، على سبيل المثال \"Download /\" و \"DCIM /\" ، ولكن ليس دائمًا \"Android / data\".</string>
     <string name="setup_root_card_title">صَلاحِيَة الجذر</string>
     <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid استخدام صلاحيات الروت إذا كان متاحاً؟ يمكن استخدام صلاحيات الروت للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>

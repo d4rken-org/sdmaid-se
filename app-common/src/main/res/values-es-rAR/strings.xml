@@ -55,6 +55,10 @@
     <string name="general_progress_loading_egg_2">Próximamente™</string>
     <string name="general_progress_loading_egg_3">El CPU está descansando tomando un café</string>
     <string name="general_progress_loading_egg_4">Esperando datos de Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">El turbo encabulator se está iniciando</string>
+    <string name="general_progress_loading_egg_6">Pasando la manteca</string>
+    <string name="general_progress_loading_egg_7">Así que ¿cómo se está manteniendo?</string>
+    <string name="general_progress_loading_egg_8">Huele a perrito aquí</string>
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En cola</string>

@@ -54,6 +54,7 @@
     <string name="setup_acs_card_body2">SD Maid আপনার সম্মতি ছাড়া অ্যাক্সেসিবিলিটি পরিষেবা ব্যবহার করবে না, সক্রিয় থাকাকালীন সর্বদা একটি বিশিষ্ট (বাতিলযোগ্য) নির্দেশক দেখাবে এবং তথ্য সংগ্রহ করতে এটি ব্যবহার করবে না।</string>
     <string name="setup_acs_state_enabled">অ্যাক্সেসিবিলিটি পরিষেবা সক্রিয় করা হয়েছে</string>
     <string name="setup_acs_state_disabled">অ্যাক্সেসিবিলিটি পরিষেবা নিষ্ক্রিয় করা হয়েছে</string>
+    <string name="setup_acs_state_running">অ্যাক্সেসিবিলিটি পরিষেবা চলমান</string>
     <string name="setup_acs_state_stopped">অ্যাক্সেসিবিলিটি পরিষেবা বন্ধ করা হয়েছে</string>
     <string name="setup_acs_allow_hint">আপনি যদি স্ক্রিনের প্রান্তে একটি ছোট আইকন দেখতে পান, তাহলে আপনি ভুলক্রমে \"শর্টকাট\" বিকল্পটি চালু করে ফেলেছেন৷</string>
     <string name="debug_bugreporter_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
