@@ -88,6 +88,9 @@ sealed class Permission(
             }
         }
     }
+
+    object WRITE_SECURE_SETTINGS
+        : Permission("android.permission.WRITE_SECURE_SETTINGS")
 }
 
 interface RuntimePermission
