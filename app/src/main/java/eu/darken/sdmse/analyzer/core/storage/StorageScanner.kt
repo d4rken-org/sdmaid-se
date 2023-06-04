@@ -113,16 +113,16 @@ class StorageScanner @Inject constructor(
                 updateProgressSecondary("Scanning system data")
                 val system = scanForSystem(storage, apps, media)
 
-                log(TAG) { "Apps: ${apps.spaceUsed}" }
+                log(TAG) { "Apps: ${apps?.spaceUsed}" }
                 log(TAG) { "Media: ${media.spaceUsed}" }
-                log(TAG) { "System: ${system.spaceUsed}" }
+                log(TAG) { "System: ${system?.spaceUsed}" }
 
                 setOfNotNull(apps, media, system)
             }
         }
     }
 
-    private suspend fun scanForApps(storage: DeviceStorage): AppCategory {
+    private suspend fun scanForApps(storage: DeviceStorage): AppCategory? {
         log(TAG) { "scanForApps($storage)" }
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
             log(TAG, WARN) { "Permission PACKAGE_USAGE_STATS is missing, can't scan apps." }
@@ -138,15 +138,18 @@ class StorageScanner @Inject constructor(
         val pkgStats = pkgRepo.currentPkgs()
             .filter { it.packageName != "android" }
             .filter { it.packageInfo.applicationInfo != null }
-            .associate {
+            .map {
                 updateProgressSecondary(it.label ?: it.packageName.toCaString())
-                it.installId to processPkg(storage, it)
+                processPkg(storage, it)
             }
+            .filter { it.totalSize > 0L }
+            .associateBy { it.id }
 
-        return AppCategory(
-            storageId = storage.id,
-            pkgStats = pkgStats,
-        )
+        return if (pkgStats.isNotEmpty()) {
+            AppCategory(storageId = storage.id, pkgStats = pkgStats)
+        } else {
+            null
+        }
     }
 
     private suspend fun processPkg(
@@ -336,23 +339,36 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForSystem(
         storage: DeviceStorage,
-        appCategory: AppCategory,
+        appCategory: AppCategory?,
         mediaCategory: MediaCategory
-    ): SystemCategory {
+    ): SystemCategory? {
         log(TAG) { "scanForSystem($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_system)
         updateProgressSecondary(Progress.DEFAULT_STATE.secondary)
 
         if (storage.type != DeviceStorage.Type.PRIMARY) {
             log(TAG) { "Not a primary storage: $storage" }
-            return SystemCategory(storageId = storage.id, spaceUsed = 0)
+            return null
         }
 
-        val unaccountedFor = storage.spaceUsed - appCategory.spaceUsed - mediaCategory.spaceUsed
+        val unaccountedFor = storage.spaceUsed - (appCategory?.spaceUsed ?: 0L) - mediaCategory.spaceUsed
+
+        val contentItems = setOf(
+            ContentItem.fromInaccessible(LocalPath.build("system")),
+            ContentItem.fromInaccessible(LocalPath.build("data"))
+        )
+
+        val groups = setOf(
+            ContentGroup(
+                label = R.string.analyzer_storage_content_type_system_label.toCaString(),
+                contents = contentItems
+            )
+        )
 
         return SystemCategory(
             storageId = storage.id,
-            spaceUsed = unaccountedFor,
+            groups = groups,
+            spaceUsedOverride = unaccountedFor,
         )
     }
 

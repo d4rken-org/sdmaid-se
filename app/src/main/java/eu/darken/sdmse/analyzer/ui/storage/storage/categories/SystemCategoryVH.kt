@@ -29,11 +29,14 @@ class SystemCategoryVH(parent: ViewGroup) :
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
         usedSpace.text = getString(R.string.analyzer_space_used, usedText)
         progress.progress = totalPercent
+
+        root.setOnClickListener { item.onItemClick() }
     }
 
     data class Item(
         val storage: DeviceStorage,
         val content: SystemCategory,
+        val onItemClick: () -> Unit,
     ) : StorageContentAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
