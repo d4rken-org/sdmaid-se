@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -77,6 +78,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         vm.createExclusion(event.item)
                     }
                 }.show()
+
+                is ContentItemEvents.ShowNoAccessHint -> Snackbar.make(
+                    requireView(),
+                    R.string.analyzer_content_access_opaque,
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 

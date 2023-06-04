@@ -74,12 +74,10 @@ class ContentItemVH(parent: ViewGroup) :
         }
 
         root.apply {
+            setOnClickListener { item.onItemClicked() }
             if (content.inaccessible) {
-                setOnClickListener(null)
                 setOnLongClickListener(null)
-                isClickable = false
             } else {
-                setOnClickListener { item.onItemClicked() }
                 setOnLongClickListener {
                     item.onItemLongPressed()
                     true
