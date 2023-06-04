@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -50,6 +51,7 @@ import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
+@Keep
 @AndroidEntryPoint
 class AutomationService : AccessibilityService(), AutomationHost, Progress.Host, Progress.Client {
 

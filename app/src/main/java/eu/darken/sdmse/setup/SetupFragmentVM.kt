@@ -184,6 +184,7 @@ class SetupFragmentVM @Inject constructor(
                 Permission.IGNORE_BATTERY_OPTIMIZATION -> {}
                 Permission.PACKAGE_USAGE_STATS -> {}
                 Permission.POST_NOTIFICATIONS -> {}
+                Permission.WRITE_SECURE_SETTINGS -> {}
                 null -> {}
             }
             setupManager.refresh()
