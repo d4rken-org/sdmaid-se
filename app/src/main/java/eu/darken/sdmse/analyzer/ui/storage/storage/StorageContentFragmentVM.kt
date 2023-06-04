@@ -78,6 +78,12 @@ class StorageContentFragmentVM @Inject constructor(
                         is SystemCategory -> SystemCategoryVH.Item(
                             storage = storage,
                             content = content,
+                            onItemClick = {
+                                StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
+                                    storageId = targetStorageId,
+                                    groupId = content.groups.single().id,
+                                ).navigate()
+                            }
                         )
                     }
                 },
