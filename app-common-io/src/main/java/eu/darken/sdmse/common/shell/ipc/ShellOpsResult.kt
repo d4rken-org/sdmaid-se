@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.shell.ipc
 
 import android.os.Parcelable
-import eu.darken.rxshell.cmd.Cmd
+import eu.darken.flowshell.core.FlowShell
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -12,5 +12,5 @@ data class ShellOpsResult(
 ) : Parcelable {
 
     val isSuccess: Boolean
-        get() = exitCode == Cmd.ExitCode.OK
+        get() = exitCode == FlowShell.ExitCode.OK.value
 }
