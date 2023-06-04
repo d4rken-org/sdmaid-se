@@ -187,6 +187,7 @@ class StorageScanner @Inject constructor(
             }
         }
 
+        // TODO: For root we look up /data/media?
         val publicPath = storageManager2.volumes
             ?.filter { !it.isPrivate }
             ?.singleOrNull { it.fsUuid == storage.id.internalId }
@@ -194,7 +195,7 @@ class StorageScanner @Inject constructor(
             ?.let { LocalPath.build(it) }
             ?.let {
                 when {
-                    it.segments.last() == "emulated" -> it.child("0")
+                    it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
                     else -> it
                 }
             }
