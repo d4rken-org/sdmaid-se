@@ -187,7 +187,14 @@ class StorageScanner @Inject constructor(
         val publicPath = storageManager2.volumes
             ?.filter { !it.isPrivate }
             ?.singleOrNull { it.fsUuid == storage.id.internalId }
-            ?.path?.path?.let { LocalPath.build(it, "0") }
+            ?.path
+            ?.let { LocalPath.build(it) }
+            ?.let {
+                when {
+                    it.segments.last() == "emulated" -> it.child("0")
+                    else -> it
+                }
+            }
 
         // Android/data/<pkg>
         val dataDirPub = publicPath
