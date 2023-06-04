@@ -112,8 +112,9 @@ class ContentFragmentVM @Inject constructor(
                                 log(TAG) { "Content has no lookup, can't open: $content" }
                             }
 
-                            else -> if (content.size == null) {
+                            else -> if (content.inaccessible) {
                                 log(TAG) { "No details available for $content" }
+                                events.postValue(ContentItemEvents.ShowNoAccessHint(content))
                             } else {
                                 navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
                             }
