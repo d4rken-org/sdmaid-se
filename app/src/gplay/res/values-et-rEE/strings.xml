@@ -9,9 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Google Play teenused pole saadaval.</string>
     <string name="upgrades_no_purchases_found_check_account">Oste ei leitud. Kas kasutate õiget kontot?</string>
     <string name="upgrade_screen_title">Hankige SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Minu tööd toetate teie ❤️.</string>
     <string name="upgrade_screen_benefits_title">Eelised</string>
     <string name="upgrade_screen_benefits_body">• rakenduse puhastamine 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
     <string name="upgrade_screen_how_title">Valikud</string>
+    <string name="upgrade_screen_how_body">Saate valida ühekordse ostu ja odavama aastatellimuse vahel.\nTellimus algab 14 päevase prooviperioodiga, pärast seda võetakse raha korra aastas. Prooviperioodi ja tellimust saab tühistada igal ajal.\nSamad võimalused, erineb vaid hinnastamismudel.</string>
+    <string name="upgrade_screen_subscription_trial_action">Alustage tasuta 14 päevast prooviperioodi</string>
     <string name="upgrade_screen_subscription_action">Telli</string>
     <string name="upgrade_screen_subscription_action_hint">Tellimus maksab %s aastas.</string>
     <string name="upgrade_screen_iap_action">Ühekordne ost</string>

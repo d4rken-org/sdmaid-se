@@ -1,7 +1,7 @@
 <i>SD Maid SE</i> là một người giúp việc đáng tin cậy cho Android của bạn, để giữ cho nó sạch sẽ và ngăn nắp.
 
 Không ai là hoàn hảo cả và Android cũng vậy.
-* Các ứng dụng bạn đã gỡ bỏ để lại thứ gì đó đằng sau.
+Những ứng dụng bạn đã gỡ bỏ sẽ để lại các tập tin rác.
 * Nhật ký, báo cáo sự cố và các tệp khác mà bạn không thực sự muốn liên tục được tạo.
 * Bộ lưu trữ của bạn đang thu thập các tệp và thư mục mà bạn không nhận ra.
 

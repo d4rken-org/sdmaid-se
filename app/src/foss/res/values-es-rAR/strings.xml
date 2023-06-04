@@ -11,11 +11,13 @@
     <string name="upgrade_screen_how_title">Como ayudar</string>
     <string name="upgrade_screen_how_body">¡Hacete patreon y sponsoreá el desarrollo! Cliqueá el botón a continuación para activar todas las funciones extra y abrir mi perfil de Github Sponsors.</string>
     <string name="upgrade_screen_why_title">Esto sugiere 🪄</string>
+    <string name="upgrade_screen_why_body">• Funcionalidad de borrado de AppCleaner 💯\n• Operaciones programadas ⏰\n• Opciones extra para todas las herramientas ⚙️\n• Tus propias reglas de borrado ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
     <string name="upgrade_screen_sponsor_action">Sponsorear el desarrollo</string>
     <string name="upgrade_screen_sponsor_action_hint">Las alternativas son anuncios, analíticas y Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gracias por apoyar el desarrollo de código abierto ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">¡Juntos, lo hicimos al primer release! ¡Gracias por ayudarme a testear! El desarrollo, por supuesto, continuará, pero ahora podés cambiarte a builds no betas. Hacé esto descargando la versión estable más reciente.</string>
+    <string name="nudge_betagoodbye_hint">Nota pequeña: Las valoraciones que diste durante las pruebas solo son visibles para mí, te agradecería que dieras a SD Maid una valoración pública si estás contento.</string>
     <string name="nudge_betagoodbye_positive_action">Date de baja</string>
     <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
 </resources>

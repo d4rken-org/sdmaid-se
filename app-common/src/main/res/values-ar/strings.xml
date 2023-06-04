@@ -30,7 +30,7 @@
     <string name="general_empty_label">فارغ</string>
     <string name="general_dismiss_action">تجاهل</string>
     <string name="general_maybe_later_action">فيما بعد</string>
-    <string name="general_manage_action">أدارة</string>
+    <string name="general_manage_action">إدارة</string>
     <string name="general_sync_action">مزامنة</string>
     <string name="general_error_label">خطأ</string>
     <string name="general_select_server_label">اختر خادم</string>
@@ -42,7 +42,7 @@
     <string name="general_filter_action">المرشح</string>
     <string name="general_internal_not_available_msg">اتصال الإنترنت غير متوفر</string>
     <string name="general_refresh_action">تحديث</string>
-    <string name="general_progress_searching">يبحث</string>
+    <string name="general_progress_searching">جاري البحث</string>
     <string name="general_progress_generating_searchpaths">توليد مسارات البحث</string>
     <string name="general_progress_filtering">يرشح</string>
     <string name="general_progress_preparing">قيد التحضير</string>

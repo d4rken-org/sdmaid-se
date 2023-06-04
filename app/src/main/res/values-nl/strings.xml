@@ -122,8 +122,10 @@
     <string name="debug_mode_label">Foutopsporingsmodus</string>
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
+    <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
     <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
+    <string name="settings_category_risklevel">Risico niveau</string>
     <string name="corpsefinder_tool_name">LijkenZoeker</string>
     <string name="corpsefinder_explanation_short">Gegevens van reeds verwijderde apps.</string>
     <string name="corpsefinder_settings_summary">Pas scanfilters en risiconiveaus aan.</string>
@@ -139,6 +141,7 @@
     <string name="corpsefinder_filter_publicobb_summary">Aanvullende app-bronnen, bijv. spelactiva.</string>
     <string name="corpsefinder_filter_publicdata_label">Openbare app-gegevens</string>
     <string name="corpsefinder_filter_publicdata_summary">Niet-gevoelige app gegevens, bijv. kaartcaches.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD-Kaart</string>
     <string name="corpsefinder_filter_sdcard_summary">Algemene openbare opslag, intern en extern (bijv. SD-kaarten).</string>
     <string name="corpsefinder_filter_privatedata_label">Privé app-gegevens</string>
     <string name="corpsefinder_filter_privatedata_summary">Privé app-gegevens, bijv. inloggegevens, app instellingen maar ook browsercaches.</string>
@@ -165,6 +168,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Dit item bevat mogelijk gegevens die je wilt behouden ondanks dat de eigenaar is verwijderd, bijv. foto\'s of back-ups.</string>
     <string name="corpsefinder_corpse_hint_common">Dit item heeft een veel voorkomende naam en zou kunnen behoren tot nog steeds geïnstalleerde apps die SD Maid niet kent.</string>
     <string name="systemcleaner_tool_name">SysteemReiniger</string>
+    <string name="systemcleaner_explanation_short">Overbodige gegevens die niet bij een specifieke app behoren.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filterovereenkomst</item>
         <item quantity="other">%d filterovereenkomsten</item>
@@ -261,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">Bestanden ontvangen via Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Verzonden of ontvangen bestanden in gesprekken en WeChat-momenten.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Mediabestanden in de cache die opnieuw worden gedownload wanneer ze in de chat worden bekeken.</string>
     <string name="appcleaner_delete_all_confirmation_message">Alle apps opschonen?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
@@ -289,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
     <string name="appcontrol_systemsettings_open_description">Open de systeeminstellingen van je apparaat voor deze app.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
+    <string name="appcontrol_app_uninstall_title">App verwijderen</string>
+    <string name="appcontrol_app_uninstall_description">Verwijder deze app van uw apparaat.</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
     <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>
     <string name="appcontrol_app_exclude_add_description">Sluit deze app uit van andere bewerkingen in SD Maid.</string>
@@ -305,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Laatst bijgewerkt op</string>
     <string name="appcontrol_list_sortmode_installed_label">Voor het eerst geïnstalleerd op</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakketnaam</string>
+    <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app-gegevens</string>
     <string name="data_area_public_storage_label">Openbare opslag</string>
     <string name="data_area_sdcard_label">SD-Kaart</string>

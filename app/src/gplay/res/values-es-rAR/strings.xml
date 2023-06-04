@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Requiere SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
@@ -8,8 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Los Servicios de Google Play no están disponibles.</string>
     <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
     <string name="upgrade_screen_title">Obtené SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por vos.</string>
     <string name="upgrade_screen_benefits_title">Ventajas</string>
+    <string name="upgrade_screen_benefits_body">• Limpieza de aplicaciones 💯\n• Operaciones programadas ⏰\n• Opciones adicionales para todas las herramientas ⚙️\n• Tus propias reglas de eliminación ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
     <string name="upgrade_screen_how_title">Opciones</string>
+    <string name="upgrade_screen_how_body">Puedes elegir entre una compra única o una suscripción anual más barata.\nLa suscripción comienza con una prueba gratuita de 14 días, tras la cual se te cobrará una vez al año. Tanto la prueba como la suscripción se pueden cancelar en cualquier momento.\nLas mismas funciones, pero diferentes modalidades de precios.</string>
+    <string name="upgrade_screen_subscription_trial_action">Empieza la prueba gratuita de 14 días</string>
     <string name="upgrade_screen_subscription_action">Suscríbete</string>
     <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s al año.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>
@@ -17,6 +22,7 @@
     <string name="upgrade_screen_thanks_toast">¡Sos el mejor! ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">¡Juntos, lo hicimos al primer release! ¡Gracias por ayudarme a testear! El desarrollo, por supuesto, continuará, pero ahora podés cambiarte a builds no betas. Hacé esto descargando la versión estable más reciente.</string>
+    <string name="nudge_betagoodbye_hint">Nota pequeña: Las valoraciones que diste durante las pruebas solo son visibles para mí, te agradecería que dieras a SD Maid una valoración pública si estás contento.</string>
     <string name="nudge_betagoodbye_positive_action">Date de baja</string>
     <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
 </resources>

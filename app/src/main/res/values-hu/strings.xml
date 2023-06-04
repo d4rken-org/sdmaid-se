@@ -122,8 +122,10 @@
     <string name="debug_mode_label">Hibakeresési mód</string>
     <string name="debug_mode_explanation">Tesztbeállítások és részletesebb kimenet engedélyezése. Az alkalmazás lassabban fog futni, és másként fog működni.</string>
     <string name="debug_bugreporter_label">Automatikus hibajelentések</string>
+    <string name="debug_bugreporter_summary">Automatikusan jelenti a problémákat, pl. az alkalmazás összeomlásának részleteit, hogy kitalálhassam, miért, és kijavíthassam.</string>
     <string name="settings_category_tools_label">Eszközök</string>
     <string name="settings_category_filter">Szűrő</string>
+    <string name="settings_category_risklevel">Kockázati szint</string>
     <string name="corpsefinder_tool_name">MaradványSzűrő</string>
     <string name="corpsefinder_explanation_short">A már eltávolított alkalmazásokhoz tartozó adatok.</string>
     <string name="corpsefinder_settings_summary">Állítsa be a szkennelési szűrőket és a kockázati szinteket.</string>
@@ -139,6 +141,7 @@
     <string name="corpsefinder_filter_publicobb_summary">További alkalmazásforrások, pl. játékeszközök.</string>
     <string name="corpsefinder_filter_publicdata_label">Nyilvános alkalmazásadatok</string>
     <string name="corpsefinder_filter_publicdata_summary">Nem érzékeny alkalmazásadatok, pl. térkép gyorsítótárak.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kártya</string>
     <string name="corpsefinder_filter_sdcard_summary">Általános nyilvános tárhely, belső és külső (pl. SD-kártyák).</string>
     <string name="corpsefinder_filter_privatedata_label">Privát alkalmazásadatok</string>
     <string name="corpsefinder_filter_privatedata_summary">Privát alkalmazásadatok, pl. hitelesítő adatok, alkalmazásbeállítások, de a böngésző gyorsítótárai is azok.</string>
@@ -165,6 +168,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Ez az elem tartalmazhat olyan adatokat, amelyeket meg szeretne őrizni annak ellenére, hogy a tulajdonosát eltávolították, pl. fényképeket vagy biztonsági másolatokat.</string>
     <string name="corpsefinder_corpse_hint_common">Ennek az elemnek nagyon gyakori a neve, és olyan még telepített alkalmazásokhoz tartozhat, amelyeket az SD Maid nem ismer.</string>
     <string name="systemcleaner_tool_name">RendszerTiszító</string>
+    <string name="systemcleaner_explanation_short">Felesleges adatok, amelyek nem tartoznak egyetlen konkrét alkalmazáshoz sem.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d szűrő egyezik</item>
         <item quantity="other">%d szűrők egyeznek</item>
@@ -261,6 +265,8 @@
     <string name="appcleaner_filter_threema_summary">A Threemán keresztül kapott fájlok.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Küldött vagy fogadott fájlok a beszélgetésekben és WeChat moments-ekben.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Gyorsítótárazott médiafájlok, amelyek újra letöltődnek, amikor a csevegésben megtekintik őket.</string>
     <string name="appcleaner_delete_all_confirmation_message">Megtisztítja az összes alkalmazást?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d felhasználható elem található</item>
@@ -289,6 +295,8 @@
     <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
     <string name="appcontrol_systemsettings_open_description">Nyissa meg eszköze rendszerbeállításait ehhez az alkalmazáshoz.</string>
     <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
+    <string name="appcontrol_app_uninstall_title">App eltávolítása</string>
+    <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
     <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
     <string name="appcontrol_app_exclude_add_title">Alkalmazás kizárása</string>
     <string name="appcontrol_app_exclude_add_description">Zárja ki ezt az alkalmazást az SD Maid egyéb műveleteiből.</string>
@@ -305,6 +313,7 @@
     <string name="appcontrol_list_sortmode_updated_label">Utoljára frissítve</string>
     <string name="appcontrol_list_sortmode_installed_label">Először telepítve</string>
     <string name="appcontrol_list_sortmode_packagename_label">Csomag név</string>
+    <string name="appcontrol_progress_uninstalling_app">App eltávolítása...</string>
     <string name="data_area_public_app_data_official_label">Alapértelmezett nyilvános alkalmazásadatok</string>
     <string name="data_area_public_storage_label">Nyilvános Tároló</string>
     <string name="data_area_sdcard_label">SD kártya</string>
