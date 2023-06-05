@@ -5,8 +5,8 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.tryMkFile
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -112,7 +112,7 @@ class PathExclusionTest : BaseTest() {
 
         shouldThrow<JsonDataException> {
             val json = moshi.adapter(PathExclusion::class.java).toJson(original)
-            moshi.adapter(PackageExclusion::class.java).fromJson(json)
+            moshi.adapter(PkgExclusion::class.java).fromJson(json)
         }
     }
 }

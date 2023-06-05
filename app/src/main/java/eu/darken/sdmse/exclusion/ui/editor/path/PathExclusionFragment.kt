@@ -103,8 +103,8 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                     }
                 }.show()
             }
-
-            super.onViewCreated(view, savedInstanceState)
         }
+
+        super.onViewCreated(view, savedInstanceState)
     }
 }

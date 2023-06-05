@@ -17,7 +17,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import javax.inject.Inject
 
 
@@ -30,28 +30,27 @@ class PkgExclusionVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<PkgExclusionFragmentArgs>()
-    private val identifier: ExclusionId? = navArgs.exclusionId
     private val initialOptions: PkgExclusionEditorOptions? = navArgs.initial
+    private val identifier: ExclusionId = navArgs.exclusionId ?: PkgExclusion.createId(initialOptions!!.targetPkgId)
 
     val events = SingleLiveEvent<PkgExclusionEvents>()
 
     private val currentState = DynamicStateFlow(TAG, viewModelScope) {
-        val origExclusion = exclusionManager.currentExclusions()
-            .singleOrNull { it.id == identifier } as PackageExclusion?
+        val origExclusion = exclusionManager.currentExclusions().singleOrNull { it.id == identifier } as PkgExclusion?
 
         if (origExclusion == null && initialOptions == null) {
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")
         }
 
-        val excl = origExclusion ?: PackageExclusion(
+        val newExcl = origExclusion ?: PkgExclusion(
             pkgId = initialOptions!!.targetPkgId,
             tags = setOf(Exclusion.Tag.GENERAL),
         )
 
         State(
             original = origExclusion,
-            current = excl,
-            pkg = pkgRepo.getPkg(excl.pkgId).firstOrNull(),
+            current = newExcl,
+            pkg = pkgRepo.getPkg(newExcl.pkgId).firstOrNull(),
         )
     }
 
@@ -108,8 +107,8 @@ class PkgExclusionVM @Inject constructor(
     }
 
     data class State(
-        val original: PackageExclusion?,
-        val current: PackageExclusion,
+        val original: PkgExclusion?,
+        val current: PkgExclusion,
         val pkg: Pkg?,
     ) {
         val canRemove: Boolean = original != null

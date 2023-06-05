@@ -395,6 +395,7 @@
     <string name="exclusion_explanation_body1">Exclude files and apps from SD Maid\'s operations.</string>
     <string name="exclusion_add_new_hint">Add new exclusions by first letting SD Maid search and then using the context menu on the result you want to exclude.</string>
     <string name="exclusion_create_action">Create exclusion</string>
+    <string name="exclusion_edit_action">Edit exclusion</string>
     <string name="exclusion_type_package">App exclusion</string>
     <string name="exclusion_type_path">Path exclusion</string>
     <string name="exclusion_tags_alltools">All tools</string>

@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.databinding.ExclusionListItemPackageBinding
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
@@ -31,7 +31,7 @@ class PackageExclusionVH(parent: ViewGroup) :
 
     data class Item(
         val pkg: Pkg?,
-        val exclusion: PackageExclusion,
+        val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

@@ -338,6 +338,7 @@
         <argument
             android:name="exclusionId"
             app:argType="string"
+            android:defaultValue="@null"
             app:nullable="true" />
         <argument
             android:name="initial"
@@ -356,6 +357,7 @@
         <argument
             android:name="exclusionId"
             app:argType="string"
+            android:defaultValue="@null"
             app:nullable="true" />
         <argument
             android:name="initial"

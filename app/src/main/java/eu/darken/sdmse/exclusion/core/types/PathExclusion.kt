@@ -14,7 +14,7 @@ data class PathExclusion(
 ) : Exclusion.Path {
 
     override val id: ExclusionId
-        get() = "${this.javaClass}-${path.path}"
+        get() = createId(path)
 
     override val label: CaString
         get() = path.userReadablePath
@@ -23,4 +23,7 @@ data class PathExclusion(
         return candidate.matches(path) || path.isAncestorOf(candidate)
     }
 
+    companion object {
+        fun createId(path: APath): ExclusionId = "${PathExclusion::class.simpleName}-${path.path}"
+    }
 }

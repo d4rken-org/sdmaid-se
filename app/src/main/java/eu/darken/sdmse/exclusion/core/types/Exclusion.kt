@@ -32,7 +32,7 @@ sealed interface Exclusion {
     companion object {
         val MOSHI_FACTORY: NameBasedPolyJsonAdapterFactory<Exclusion> =
             NameBasedPolyJsonAdapterFactory.of(Exclusion::class.java)
-                .withSubtype(PackageExclusion::class.java, "pkgId")
+                .withSubtype(PkgExclusion::class.java, "pkgId")
                 .withSubtype(PathExclusion::class.java, "path")
     }
 }

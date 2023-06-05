@@ -8,8 +8,8 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.main.ui.dashboard.items.*
@@ -28,7 +28,7 @@ class ExclusionListFragmentVM @Inject constructor(
         .map { exclusions ->
             val items = exclusions.map { exclusion ->
                 when (exclusion) {
-                    is PackageExclusion -> PackageExclusionVH.Item(
+                    is PkgExclusion -> PackageExclusionVH.Item(
                         pkg = pkgRepo.getPkg(exclusion.pkgId).firstOrNull(),
                         exclusion = exclusion,
                         onItemClick = {

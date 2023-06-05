@@ -26,27 +26,26 @@ class PathExclusionVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<PathExclusionFragmentArgs>()
-    private val identifier: ExclusionId? = navArgs.exclusionId
     private val initialOptions: PathExclusionEditorOptions? = navArgs.initial
+    private val identifier: ExclusionId = navArgs.exclusionId ?: PathExclusion.createId(initialOptions!!.targetPath)
 
     val events = SingleLiveEvent<PathEditorEvents>()
 
     private val currentState = DynamicStateFlow<State>(TAG, viewModelScope) {
-        val origExclusion = exclusionManager.currentExclusions()
-            .singleOrNull { it.id == identifier } as PathExclusion?
+        val origExclusion = exclusionManager.currentExclusions().singleOrNull { it.id == identifier } as PathExclusion?
 
         if (origExclusion == null && initialOptions == null) {
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")
         }
 
-        val excl = origExclusion ?: PathExclusion(
+        val newExcl = origExclusion ?: PathExclusion(
             path = initialOptions!!.targetPath,
             tags = setOf(Exclusion.Tag.GENERAL)
         )
 
         State(
             original = origExclusion,
-            current = excl,
+            current = newExcl,
         )
     }
 
