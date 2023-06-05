@@ -1,10 +1,9 @@
 package eu.darken.sdmse.exclusion.ui.editor.path
 
-import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -23,13 +22,14 @@ import javax.inject.Inject
 class PathExclusionVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<PathExclusionFragmentArgs>()
     private val identifier: ExclusionId? = navArgs.exclusionId
     private val initialOptions: PathExclusionEditorOptions? = navArgs.initial
+
+    val events = SingleLiveEvent<PathEditorEvents>()
 
     private val currentState = DynamicStateFlow<State>(TAG, viewModelScope) {
         val origExclusion = exclusionManager.currentExclusions()
@@ -45,9 +45,8 @@ class PathExclusionVM @Inject constructor(
         )
 
         State(
-            canRemove = origExclusion != null,
-            canSave = origExclusion == null,
-            exclusion = excl,
+            original = origExclusion,
+            current = excl,
         )
     }
 
@@ -56,7 +55,7 @@ class PathExclusionVM @Inject constructor(
     fun toggleTag(tag: Exclusion.Tag) = launch {
         log(TAG) { "toggleTag($tag)" }
         currentState.updateBlocking {
-            val old = this.exclusion
+            val old = this.current
             val allTags = Exclusion.Tag.values().toSet()
             val allTools = allTags.minus(Exclusion.Tag.GENERAL)
 
@@ -70,38 +69,46 @@ class PathExclusionVM @Inject constructor(
             }
 
             val newExclusion = old.copy(tags = newTags)
-            copy(
-                exclusion = newExclusion,
-                canSave = newExclusion != old,
-            )
+            copy(current = newExclusion)
         }
     }
 
     fun save() = launch {
         log(TAG) { "save()" }
-        exclusionManager.save(currentState.value().exclusion)
+        exclusionManager.save(currentState.value().current)
         popNavStack()
     }
 
-    fun cancel() {
-        log(TAG) { "cancel()" }
-        popNavStack()
-    }
-
-    fun remove() = launch {
+    fun remove(confirmed: Boolean = false) = launch {
         val snap = currentState.value()
         log(TAG) { "remove() state=$snap" }
         if (!snap.canRemove) return@launch
 
-        exclusionManager.remove(snap.exclusion.id)
-        popNavStack()
+        if (!confirmed) {
+            events.postValue(PathEditorEvents.RemoveConfirmation(snap.current))
+        } else {
+            exclusionManager.remove(snap.current.id)
+            popNavStack()
+        }
+    }
+
+    fun cancel(confirmed: Boolean = false) = launch {
+        log(TAG) { "cancel()" }
+        val snap = currentState.value()
+        if (snap.canSave && !confirmed) {
+            events.postValue(PathEditorEvents.UnsavedChangesConfirmation(snap.current))
+        } else {
+            popNavStack()
+        }
     }
 
     data class State(
-        val exclusion: PathExclusion,
-        val canRemove: Boolean = false,
-        val canSave: Boolean = false,
-    )
+        val original: PathExclusion?,
+        val current: PathExclusion,
+    ) {
+        val canRemove: Boolean = original != null
+        val canSave: Boolean = original != current
+    }
 
     companion object {
         private val TAG = logTag("Exclusion", "List", "Action", "VM")
