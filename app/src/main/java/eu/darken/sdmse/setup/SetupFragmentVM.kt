@@ -57,7 +57,7 @@ class SetupFragmentVM @Inject constructor(
 
             setupState.moduleStates
                 .filter { !it.isComplete || navArgs.showCompleted }
-                .map { state ->
+                .mapNotNull { state ->
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
                             state = state,
@@ -69,7 +69,7 @@ class SetupFragmentVM @Inject constructor(
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                             },
-                        )
+                        ).takeIf { it.state.paths.isNotEmpty() }
                         is StorageSetupModule.State -> StorageSetupCardVH.Item(
                             state = state,
                             onPathClicked = {
