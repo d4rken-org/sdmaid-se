@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.exists
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -122,7 +123,10 @@ class ContentFragmentVM @Inject constructor(
                         }
                     },
                     onItemLongPressed = {
-                        events.postValue(ContentItemEvents.ContentLongPressActions(content))
+                        launch {
+                            val exclusionExists = exclusionManager.exists(PathExclusion.createId(content.path))
+                            events.postValue(ContentItemEvents.ContentLongPressActions(content, exclusionExists))
+                        }
                     }
                 )
             }
@@ -180,15 +184,13 @@ class ContentFragmentVM @Inject constructor(
         } ?: run { popNavStack() }
     }
 
-    fun createExclusion(item: ContentItem) = launch {
+    fun openExclusion(item: ContentItem) = launch {
         log(TAG) { "createExclusion(${item.path})" }
-        val newExcl = PathExclusion(path = item.path)
-        if (!exclusionManager.exists(newExcl)) {
-            exclusionManager.save(newExcl)
-        }
         MainDirections.goToPathExclusionEditor(
-            exclusionId = newExcl.id,
-            initial = null,
+            exclusionId = null,
+            initial = PathExclusionEditorOptions(
+                targetPath = item.path,
+            ),
         ).navigate()
     }
 

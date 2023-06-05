@@ -9,13 +9,13 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.getLabel2
 
 @JsonClass(generateAdapter = true)
-data class PackageExclusion(
+data class PkgExclusion(
     @Json(name = "pkgId") val pkgId: Pkg.Id,
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Pkg {
 
     override val id: ExclusionId
-        get() = "${this.javaClass}-${pkgId.name}"
+        get() = createId(pkgId)
 
     override val label: CaString
         get() = caString { it.packageManager.getLabel2(pkgId) ?: it.getString(R.string.exclusion_type_package) }
@@ -24,4 +24,7 @@ data class PackageExclusion(
         return pkgId == candidate
     }
 
+    companion object {
+        fun createId(pkgId: Pkg.Id): ExclusionId = "${PkgExclusion::class.simpleName}-${pkgId.name}"
+    }
 }

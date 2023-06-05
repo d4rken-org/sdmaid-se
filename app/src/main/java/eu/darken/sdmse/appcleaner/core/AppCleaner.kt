@@ -30,8 +30,8 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -264,7 +264,7 @@ class AppCleaner @Inject constructor(
             )
         } else {
             // FIXME what about user specific exclusion?
-            val exclusion = PackageExclusion(
+            val exclusion = PkgExclusion(
                 pkgId = identifier.pkgId,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )

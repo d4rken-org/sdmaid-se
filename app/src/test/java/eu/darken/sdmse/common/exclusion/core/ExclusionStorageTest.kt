@@ -6,8 +6,8 @@ import eu.darken.sdmse.common.files.local.deleteAll
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.exclusion.core.ExclusionStorage
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -42,7 +42,7 @@ class ExclusionStorageTest : BaseTest() {
         val storage = create()
 
         val original = setOf(
-            PackageExclusion(
+            PkgExclusion(
                 pkgId = "test.pkg".toPkgId()
             ),
             PathExclusion(LocalPath.build("test", "path"))

@@ -35,7 +35,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -126,7 +126,7 @@ class AppActionDialogVM @Inject constructor(
                             initial = null,
                         ).navigate()
                     } else {
-                        val newExcl = PackageExclusion(pkgId = appInfo.id)
+                        val newExcl = PkgExclusion(pkgId = appInfo.id)
                         exclusionManager.save(newExcl)
                     }
                 }

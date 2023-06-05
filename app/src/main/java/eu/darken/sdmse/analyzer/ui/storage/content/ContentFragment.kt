@@ -59,7 +59,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             list.isInvisible = state.progress != null
         }
 
-        vm.events.observe2(ui) { event ->
+        vm.events.observe2 { event ->
             when (event) {
                 is ContentItemEvents.ContentLongPressActions -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
@@ -68,14 +68,16 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                             eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                             event.item.path.userReadablePath.get(context),
                         )
-
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.delete(setOf(event.item))
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(R.string.exclusion_create_action) { _, _ ->
-                        vm.createExclusion(event.item)
+
+                    setNeutralButton(
+                        if (event.hasExclusion) R.string.exclusion_edit_action else R.string.exclusion_create_action
+                    ) { _, _ ->
+                        vm.openExclusion(event.item)
                     }
                 }.show()
 
