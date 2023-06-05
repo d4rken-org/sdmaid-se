@@ -54,9 +54,9 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.currentExclusions
-import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.hasTags
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.pkgExclusions
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
@@ -124,9 +124,7 @@ class AppScanner @Inject constructor(
         val includeRunningApps = settings.includeRunningAppsEnabled.value()
         val includeOtherUsers = settings.includeOtherUsersEnabled.value()
 
-        val pkgExclusions = exclusionManager.currentExclusions()
-            .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
-            .filterIsInstance<Exclusion.Pkg>()
+        val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.APPCLEANER)
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
@@ -303,9 +301,7 @@ class AppScanner @Inject constructor(
     private suspend fun createDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
         val currentAreas = areaManager.currentAreas()
 
-        val pathExclusions = exclusionManager.currentExclusions()
-            .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
-            .filterIsInstance<Exclusion.Path>()
+        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
 
         val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
 
