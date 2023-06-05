@@ -225,31 +225,11 @@
         <argument
             android:name="pkgId"
             app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
-        <action
-            android:id="@+id/action_appActionDialog_to_exclusionActionDialog"
-            app:destination="@id/exclusionActionDialog"
-            app:popUpTo="@id/appControlListFragment" />
     </dialog>
     <fragment
         android:id="@+id/dataAreasFragment"
         android:name="eu.darken.sdmse.main.ui.areas.DataAreasFragment"
         tools:layout="@layout/data_areas_fragment" />
-    <fragment
-        android:id="@+id/exclusionsListFragment"
-        android:name="eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment"
-        tools:layout="@layout/exclusion_list_fragment">
-        <action
-            android:id="@+id/action_exclusionsListFragment_to_exclusionActionDialog"
-            app:destination="@id/exclusionActionDialog" />
-    </fragment>
-    <dialog
-        android:id="@+id/exclusionActionDialog"
-        android:name="eu.darken.sdmse.exclusion.ui.list.actions.ExclusionActionDialog"
-        tools:layout="@layout/exclusion_action_fragment">
-        <argument
-            android:name="identifier"
-            app:argType="string" />
-    </dialog>
     <fragment
         android:id="@+id/logViewFragment"
         android:name="eu.darken.sdmse.common.debug.logviewer.ui.LogViewFragment"
@@ -335,8 +315,52 @@
             android:defaultValue="@null"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
             app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exclusionsListFragment"
+        android:name="eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment"
+        tools:layout="@layout/exclusion_list_fragment">
         <action
-            android:id="@+id/action_contentFragment_to_exclusionActionDialog"
-            app:destination="@id/exclusionActionDialog" />
+            android:id="@+id/action_exclusionsListFragment_to_pathExclusionFragment"
+            app:destination="@id/pathExclusionFragment" />
+        <action
+            android:id="@+id/action_exclusionsListFragment_to_pkgExclusionFragment"
+            app:destination="@id/pkgExclusionFragment" />
+    </fragment>
+    <action
+        android:id="@+id/goToPathExclusionEditor"
+        app:destination="@id/pathExclusionFragment" />
+    <fragment
+        android:id="@+id/pathExclusionFragment"
+        android:name="eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionFragment"
+        tools:layout="@layout/exclusion_editor_path_fragment">
+        <argument
+            android:name="exclusionId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="initial"
+            android:defaultValue="@null"
+            app:argType="eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions"
+            app:nullable="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/goToPkgExclusionEditor"
+        app:destination="@id/pkgExclusionFragment" />
+    <fragment
+        android:id="@+id/pkgExclusionFragment"
+        android:name="eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionFragment"
+        tools:layout="@layout/exclusion_editor_pkg_fragment">
+        <argument
+            android:name="exclusionId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="initial"
+            android:defaultValue="@null"
+            app:argType="eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions"
+            app:nullable="true" />
     </fragment>
 </navigation>

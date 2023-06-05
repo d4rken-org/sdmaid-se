@@ -23,7 +23,7 @@ suspend fun ExclusionManager.pathExclusions(tool: SDMTool.Type) = currentExclusi
     }
 
 suspend fun ExclusionManager.pkgExclusions(tool: SDMTool.Type) = currentExclusions()
-    .filterIsInstance<Exclusion.Package>()
+    .filterIsInstance<Exclusion.Pkg>()
     .filter {
         return@filter when (tool) {
             SDMTool.Type.CORPSEFINDER -> it.hasTags(Exclusion.Tag.CORPSEFINDER)

@@ -4,12 +4,10 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.serialization.NameBasedPolyJsonAdapterFactory
 
 sealed interface Exclusion {
-
-    val id: String
+    val id: ExclusionId
 
     val tags: Set<Tag>
 
@@ -23,8 +21,8 @@ sealed interface Exclusion {
         @Json(name = "APPCLEANER") APPCLEANER
     }
 
-    interface Package : Exclusion {
-        suspend fun match(candidate: Pkg.Id): Boolean
+    interface Pkg : Exclusion {
+        suspend fun match(candidate: eu.darken.sdmse.common.pkgs.Pkg.Id): Boolean
     }
 
     interface Path : Exclusion {

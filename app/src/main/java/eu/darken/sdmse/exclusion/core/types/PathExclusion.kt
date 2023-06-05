@@ -13,7 +13,7 @@ data class PathExclusion(
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Path {
 
-    override val id: String
+    override val id: ExclusionId
         get() = "${this.javaClass}-${path.path}"
 
     override val label: CaString

@@ -126,7 +126,7 @@ class AppScanner @Inject constructor(
 
         val pkgExclusions = exclusionManager.currentExclusions()
             .filter { it.hasTags(Exclusion.Tag.APPCLEANER) }
-            .filterIsInstance<Exclusion.Package>()
+            .filterIsInstance<Exclusion.Pkg>()
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 

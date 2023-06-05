@@ -24,7 +24,6 @@ class ExclusionListFragmentVM @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-
     val state = exclusionManager.exclusions
         .map { exclusions ->
             val items = exclusions.map { exclusion ->
@@ -33,19 +32,23 @@ class ExclusionListFragmentVM @Inject constructor(
                         pkg = pkgRepo.getPkg(exclusion.pkgId).firstOrNull(),
                         exclusion = exclusion,
                         onItemClick = {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToExclusionActionDialog(
-                                exclusion.id
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
+                                exclusionId = exclusion.id,
+                                initial = null
                             ).navigate()
                         }
                     )
+
                     is PathExclusion -> PathExclusionVH.Item(
                         exclusion = exclusion,
                         onItemClick = {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToExclusionActionDialog(
-                                exclusion.id
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
+                                exclusionId = exclusion.id,
+                                initial = null
                             ).navigate()
                         }
                     )
+
                     else -> throw NotImplementedError()
                 }
             }
