@@ -6,6 +6,7 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -185,8 +186,9 @@ class ContentFragmentVM @Inject constructor(
         if (!exclusionManager.exists(newExcl)) {
             exclusionManager.save(newExcl)
         }
-        ContentFragmentDirections.actionContentFragmentToExclusionActionDialog(
-            newExcl.id
+        MainDirections.goToPathExclusionEditor(
+            exclusionId = newExcl.id,
+            initial = null,
         ).navigate()
     }
 

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.exclusion.ui.list.actions
+package eu.darken.sdmse.exclusion.ui.editor.path
 
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
@@ -14,27 +14,40 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PackageExclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import javax.inject.Inject
 
 
 @HiltViewModel
-class ExclusionActionDialogVM @Inject constructor(
+class PathExclusionVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<ExclusionActionDialogArgs>()
-    private val identifier: String = navArgs.identifier
+    private val navArgs by handle.navArgs<PathExclusionFragmentArgs>()
+    private val identifier: ExclusionId? = navArgs.exclusionId
+    private val initialOptions: PathExclusionEditorOptions? = navArgs.initial
 
     private val currentState = DynamicStateFlow<State>(TAG, viewModelScope) {
-        val origExclusion = exclusionManager.currentExclusions().singleOrNull { it.id == identifier }
+        val origExclusion = exclusionManager.currentExclusions()
+            .singleOrNull { it.id == identifier } as PathExclusion?
+
+        if (origExclusion == null && initialOptions == null) {
+            throw IllegalArgumentException("Neither existing exclusion nor init options were available")
+        }
+
+        val excl = origExclusion ?: PathExclusion(
+            path = initialOptions!!.targetPath,
+            tags = setOf(Exclusion.Tag.GENERAL)
+        )
+
         State(
             canRemove = origExclusion != null,
-            exclusion = origExclusion ?: throw IllegalArgumentException("$identifier doesn't exist"),
+            canSave = origExclusion == null,
+            exclusion = excl,
         )
     }
 
@@ -56,16 +69,7 @@ class ExclusionActionDialogVM @Inject constructor(
                 newTags = setOf(Exclusion.Tag.GENERAL)
             }
 
-            val newExclusion = when (old) {
-                is Exclusion.Package -> {
-                    old as PackageExclusion
-                    old.copy(tags = newTags)
-                }
-                is Exclusion.Path -> {
-                    old as PathExclusion
-                    old.copy(tags = newTags)
-                }
-            }
+            val newExclusion = old.copy(tags = newTags)
             copy(
                 exclusion = newExclusion,
                 canSave = newExclusion != old,
@@ -84,14 +88,17 @@ class ExclusionActionDialogVM @Inject constructor(
         popNavStack()
     }
 
-    fun delete() = launch {
-        log(TAG) { "delete()" }
-        exclusionManager.remove(identifier)
+    fun remove() = launch {
+        val snap = currentState.value()
+        log(TAG) { "remove() state=$snap" }
+        if (!snap.canRemove) return@launch
+
+        exclusionManager.remove(snap.exclusion.id)
         popNavStack()
     }
 
     data class State(
-        val exclusion: Exclusion,
+        val exclusion: PathExclusion,
         val canRemove: Boolean = false,
         val canSave: Boolean = false,
     )

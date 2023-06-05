@@ -12,9 +12,9 @@ import eu.darken.sdmse.common.pkgs.getLabel2
 data class PackageExclusion(
     @Json(name = "pkgId") val pkgId: Pkg.Id,
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
-) : Exclusion.Package {
+) : Exclusion.Pkg {
 
-    override val id: String
+    override val id: ExclusionId
         get() = "${this.javaClass}-${pkgId.name}"
 
     override val label: CaString

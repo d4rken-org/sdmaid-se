@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
@@ -111,7 +112,7 @@ class AppActionDialogVM @Inject constructor(
 
         val existingExclusion = exclusionManager
             .currentExclusions()
-            .filterIsInstance<Exclusion.Package>()
+            .filterIsInstance<Exclusion.Pkg>()
             .firstOrNull { it.match(appInfo.id) }
 
         val excludeAction = ExcludeActionVH.Item(
@@ -120,8 +121,9 @@ class AppActionDialogVM @Inject constructor(
             onExclude = {
                 launch {
                     if (existingExclusion != null) {
-                        AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(
-                            existingExclusion.id
+                        MainDirections.goToPkgExclusionEditor(
+                            exclusionId = existingExclusion.id,
+                            initial = null,
                         ).navigate()
                     } else {
                         val newExcl = PackageExclusion(pkgId = appInfo.id)
@@ -129,9 +131,6 @@ class AppActionDialogVM @Inject constructor(
                     }
                 }
             },
-            onEdit = {
-                AppActionDialogDirections.actionAppActionDialogToExclusionActionDialog(it.id).navigate()
-            }
         )
 
         val appStoreAction = (appInfo.pkg as? ExtendedInstallData)

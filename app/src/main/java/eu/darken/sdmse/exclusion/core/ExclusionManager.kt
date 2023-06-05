@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
@@ -40,7 +41,7 @@ class ExclusionManager @Inject constructor(
         return true
     }
 
-    suspend fun remove(id: String): Boolean {
+    suspend fun remove(id: ExclusionId): Boolean {
         log(TAG) { "remove(): $id" }
         val target = currentExclusions().single { it.id == id }
         return remove(target)

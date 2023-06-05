@@ -31,16 +31,13 @@ class ExcludeActionVH(parent: ViewGroup) :
             primary.text = getString(R.string.appcontrol_app_exclude_edit_title)
             secondary.text = getString(R.string.appcontrol_app_exclude_edit_description)
         }
-        itemView.setOnClickListener {
-            if (item.exclusion == null) item.onExclude(item.appInfo) else item.onEdit(item.exclusion)
-        }
+        itemView.setOnClickListener { item.onExclude(item.exclusion) }
     }
 
     data class Item(
         val appInfo: AppInfo,
-        val exclusion: Exclusion.Package?,
-        val onExclude: (AppInfo) -> Unit,
-        val onEdit: (Exclusion.Package) -> Unit,
+        val exclusion: Exclusion.Pkg?,
+        val onExclude: (Exclusion.Pkg?) -> Unit,
     ) : AppActionAdapter.Item {
 
         override val stableId: Long = this::class.java.hashCode().toLong()
