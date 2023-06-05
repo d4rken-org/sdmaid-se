@@ -398,6 +398,11 @@
     <string name="exclusion_type_package">App exclusion</string>
     <string name="exclusion_type_path">Path exclusion</string>
     <string name="exclusion_tags_alltools">All tools</string>
+    <string name="exclusion_editor_affected_tools_label">Affected tools</string>
+    <string name="exclusion_editor_path_explanation">A path exclusion prevents SD Maid from further processing any matching paths. This applies to files, directories and sub-directories.</string>
+    <string name="exclusion_editor_pkg_explanation">An app exclusion prevents SD Maid from processing any matching packages.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Remove this exclusion?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">You have unsaved changes!</string>
 
     <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nExample: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force Stop\' button and click it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nNo actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
     <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>

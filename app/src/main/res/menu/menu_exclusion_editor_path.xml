@@ -7,7 +7,8 @@
         android:id="@+id/menu_action_save_exclusion"
         android:icon="@drawable/ic_baseline_save_24"
         android:orderInCategory="80"
-        android:enabled="false"
+        android:visible="false"
+        tools:visible="true"
         android:title="@string/general_remove_action"
         app:showAsAction="always" />
 
@@ -15,7 +16,8 @@
         android:id="@+id/menu_action_remove_exclusion"
         android:icon="@drawable/ic_delete"
         android:orderInCategory="90"
-        android:enabled="false"
+        android:visible="false"
+        tools:visible="true"
         android:title="@string/general_remove_action"
         app:showAsAction="ifRoom" />
 
