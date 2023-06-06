@@ -4,8 +4,8 @@
     android:id="@+id/tag_disabled"
     style="@style/AppControlTagStyle"
     android:background="@drawable/bg_tag_box"
-    android:backgroundTint="?colorPrimaryContainer"
+    android:backgroundTint="?colorSecondaryContainer"
     android:text="@string/appcontrol_tag_disabled"
-    android:textColor="?colorOnPrimaryContainer"
+    android:textColor="?colorOnSecondaryContainer"
     android:visibility="gone"
     tools:visibility="visible" />
