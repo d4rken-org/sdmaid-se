@@ -28,111 +28,134 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Material3.LabelLarge"
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/exclusion_target_label" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:background="?colorSecondaryContainer"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@id/toolbar">
+                android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/segments_layout"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:background="?colorSecondaryContainer"
+                    android:padding="16dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/segments_input"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/target_label"
+                        style="@style/TextAppearance.Material3.LabelLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/exclusion_edit_action" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:paddingBottom="16dp"
+                        android:text="@string/exclusion_target_label"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/segments_display"
-                    style="@style/TextAppearance.Material3.BodySmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    app:layout_constraintTop_toBottomOf="@id/segments_layout"
-                    tools:text="[DCIM,Camera]" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/segments_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/target_label">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/segments_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/exclusion_edit_action" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/options_container"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/segments_display"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        app:layout_constraintTop_toBottomOf="@id/segments_layout"
+                        tools:text="[DCIM,Camera]" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    style="@style/TextAppearance.Material3.TitleSmall"
+                <LinearLayout
+                    android:id="@+id/tools_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
-                    android:text="@string/general_options_label" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/option_allow_partial"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/exclusion_option_allow_partial" />
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.TitleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="@string/general_options_label" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/option_ignore_casing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/exclusion_option_ignore_casing" />
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/option_allow_partial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/exclusion_option_allow_partial" />
 
-            </LinearLayout>
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/option_ignore_casing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/exclusion_option_ignore_casing" />
 
-            <LinearLayout
-                android:id="@+id/tools_container"
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    style="@style/TextAppearance.Material3.TitleSmall"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
-                    android:text="@string/exclusion_editor_affected_tools_label" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_all"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/exclusion_tags_alltools" />
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.TitleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="@string/exclusion_editor_affected_tools_label" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_corpsefinder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/corpsefinder_tool_name" />
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/exclusion_tags_alltools" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_appcleaner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/appcleaner_tool_name" />
-            </LinearLayout>
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_corpsefinder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/corpsefinder_tool_name" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_appcleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/appcleaner_tool_name" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.Material3.BodyMedium"

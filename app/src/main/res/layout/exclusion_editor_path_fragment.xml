@@ -28,100 +28,113 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Material3.LabelLarge"
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/exclusion_target_label" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:background="?colorSecondaryContainer"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@id/toolbar">
+                android:layout_marginBottom="8dp">
 
-                <ImageView
-                    android:id="@+id/icon"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_folder"
-                    app:layout_constraintBottom_toBottomOf="@id/secondary"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/primary" />
-
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/primary"
-                    style="@style/TextAppearance.Material3.BodyMedium"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/icon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="/storage/emulated/0/excluded file" />
+                    android:background="?colorSecondaryContainer"
+                    android:padding="16dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/secondary"
-                    style="@style/TextAppearance.Material3.BodySmall"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/icon"
-                    app:layout_constraintTop_toBottomOf="@id/primary"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="Local file" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/target_label"
+                        style="@style/TextAppearance.Material3.LabelLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp"
+                        android:text="@string/exclusion_target_label"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_folder"
+                        app:layout_constraintBottom_toBottomOf="@id/secondary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/primary" />
 
-            <LinearLayout
-                android:id="@+id/tools_container"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/primary"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon"
+                        app:layout_constraintTop_toBottomOf="@id/target_label"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="/storage/emulated/0/excluded file" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/secondary"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon"
+                        app:layout_constraintTop_toBottomOf="@id/primary"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Local file" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    style="@style/TextAppearance.Material3.LabelLarge"
+                <LinearLayout
+                    android:id="@+id/tools_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
-                    android:text="@string/exclusion_editor_affected_tools_label" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_all"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/exclusion_tags_alltools" />
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.LabelLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="@string/exclusion_editor_affected_tools_label" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_corpsefinder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/corpsefinder_tool_name" />
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/exclusion_tags_alltools" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_systemcleaner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/systemcleaner_tool_name" />
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_corpsefinder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/corpsefinder_tool_name" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/tools_appcleaner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/appcleaner_tool_name" />
-            </LinearLayout>
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_systemcleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/systemcleaner_tool_name" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_appcleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/appcleaner_tool_name" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.Material3.BodyMedium"
