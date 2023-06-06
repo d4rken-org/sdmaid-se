@@ -30,7 +30,6 @@ class SystemCleanerSettings @Inject constructor(
     val filterLostDirEnabled = dataStore.createValue("filter.lostdir.enabled", true)
     val filterLinuxFilesEnabled = dataStore.createValue("filter.linuxfiles.enabled", true)
     val filterMacFilesEnabled = dataStore.createValue("filter.macfiles.enabled", true)
-    val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", false)
     val filterTempFilesEnabled = dataStore.createValue("filter.tempfiles.enabled", true)
     val filterAnalyticsEnabled = dataStore.createValue("filter.analytics.enabled", true)
     val filterWindowsFilesEnabled = dataStore.createValue("filter.windowsfiles.enabled", true)
@@ -52,7 +51,6 @@ class SystemCleanerSettings @Inject constructor(
         filterLostDirEnabled,
         filterLinuxFilesEnabled,
         filterMacFilesEnabled,
-        filterThumbnailsEnabled,
         filterTempFilesEnabled,
         filterAnalyticsEnabled,
         filterWindowsFilesEnabled,

@@ -5440,10 +5440,7 @@
   "pkgs": ["com.advasoft.handyphotofree"],
   "mrks": [{"loc": "SDCARD", "path": "handyphoto", "flags": ["keeper"]}]
 }, {
-  "pkgs": ["com.citc.aag"],
-  "mrks": [{"loc": "SDCARD", "path": "albumthumbs"}]
-}, {
-  "pkgs": ["com.citc.aag.pro"],
+  "pkgs": ["com.citc.aag", "com.citc.aag.pro"],
   "mrks": [{"loc": "SDCARD", "path": "albumthumbs"}]
 }, {
   "pkgs": ["com.digipom.easyvoicerecorder.pro"],

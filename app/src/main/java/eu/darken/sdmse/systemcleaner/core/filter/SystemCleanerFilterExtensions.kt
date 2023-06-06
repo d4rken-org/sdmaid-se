@@ -3,8 +3,24 @@ package eu.darken.sdmse.systemcleaner.core.filter
 import android.content.Context
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.R
-import eu.darken.sdmse.systemcleaner.core.filter.generic.*
-import eu.darken.sdmse.systemcleaner.core.filter.specific.*
+import eu.darken.sdmse.systemcleaner.core.filter.generic.AdvertisementFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.AnalyticsFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.EmptyDirectoryFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.LinuxFilesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.LogFilesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.LostDirFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.MacFilesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.SuperfluousApksFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.TempFilesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.generic.WindowsFilesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.AnrFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.DataLocalTmpFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.DataLoggerFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.DownloadCacheFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.LogDropboxFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.RecentTasksFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.TombstonesFilter
+import eu.darken.sdmse.systemcleaner.core.filter.specific.UsagestatsFilter
 
 typealias FilterIdentifier = String
 
@@ -17,7 +33,6 @@ fun FilterIdentifier.getLabel(context: Context) = when (this) {
     LinuxFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_linuxfiles_label
     MacFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_macfiles_label
     WindowsFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_windowsfiles_label
-    ThumbnailsFilter::class.qualifiedName -> R.string.systemcleaner_filter_thumbnails_label
     TempFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_tempfiles_label
     AnalyticsFilter::class.qualifiedName -> R.string.systemcleaner_filter_analytics_label
     AnrFilter::class.qualifiedName -> R.string.systemcleaner_filter_anr_label
@@ -40,7 +55,6 @@ fun FilterIdentifier.getDescription(context: Context) = when (this) {
     LinuxFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_linuxfiles_summary
     MacFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_macfiles_summary
     WindowsFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_windowsfiles_summary
-    ThumbnailsFilter::class.qualifiedName -> R.string.systemcleaner_filter_thumbnails_summary
     TempFilesFilter::class.qualifiedName -> R.string.systemcleaner_filter_tempfiles_summary
     AnalyticsFilter::class.qualifiedName -> R.string.systemcleaner_filter_analytics_summary
     AnrFilter::class.qualifiedName -> R.string.systemcleaner_filter_anr_summary
@@ -63,7 +77,6 @@ fun FilterIdentifier.getIcon(context: Context) = when (this) {
     LinuxFilesFilter::class.qualifiedName -> R.drawable.ic_os_linux
     MacFilesFilter::class.qualifiedName -> R.drawable.ic_os_mac
     WindowsFilesFilter::class.qualifiedName -> R.drawable.ic_os_windows
-    ThumbnailsFilter::class.qualifiedName -> R.drawable.image_multiple
     TempFilesFilter::class.qualifiedName -> R.drawable.ic_baseline_access_time_filled_24
     AnalyticsFilter::class.qualifiedName -> R.drawable.ic_analytics_onsurface
     AnrFilter::class.qualifiedName -> R.drawable.ic_baseline_running_with_errors_24
