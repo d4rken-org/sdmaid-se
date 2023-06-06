@@ -170,7 +170,7 @@ class AppCleaner @Inject constructor(
             deletionMap[appJunk.identifier] = deleted
         }
 
-        updateProgressPrimary(R.string.appcleaner_automation_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
         val currentUser = userManager.currentUser()
@@ -188,6 +188,8 @@ class AppCleaner @Inject constructor(
                 isCurrentUser
             }
 
+        updateProgressPrimary(R.string.appcleaner_automation_loading)
+        updateProgressSecondary(CaString.EMPTY)
 
         val automationResult = automationTargets
             .takeIf { it.isNotEmpty() }
