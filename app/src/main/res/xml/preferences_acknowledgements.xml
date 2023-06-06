@@ -99,6 +99,15 @@
                 android:data="https://github.com/reddit/IndicatorFastScroll" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
         <eu.darken.sdmse.common.preferences.IntentPreference
+            android:key="license.androidfastscroll"
+            android:summary="Fast scroll for Android RecyclerView and more. (APACHE 2.0)"
+            android:title="AndroidFastScroll"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/zhanghai/AndroidFastScroll" />
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.kotlin"
             android:summary="The Kotlin Programming Language. (APACHE 2.0)"
             android:title="Kotlin"

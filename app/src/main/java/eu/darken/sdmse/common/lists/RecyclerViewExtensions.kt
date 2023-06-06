@@ -5,8 +5,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import eu.darken.sdmse.common.DividerItemDecoration2
+import me.zhanghai.android.fastscroll.FastScrollerBuilder
 
-fun RecyclerView.setupDefaults(adapter: RecyclerView.Adapter<*>? = null, dividers: Boolean = true) = apply {
+fun RecyclerView.setupDefaults(
+    adapter: RecyclerView.Adapter<*>? = null,
+    dividers: Boolean = true,
+    fastscroll: Boolean = true,
+) = apply {
     layoutManager = LinearLayoutManager(context)
     itemAnimator = DefaultItemAnimator()
     if (dividers) addItemDecoration(
@@ -17,4 +22,10 @@ fun RecyclerView.setupDefaults(adapter: RecyclerView.Adapter<*>? = null, divider
         )
     )
     if (adapter != null) this.adapter = adapter
+
+    if (fastscroll) {
+        FastScrollerBuilder(this).apply {
+            useMd2Style()
+        }.build()
+    }
 }
