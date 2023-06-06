@@ -2,6 +2,8 @@ package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.ExclusionListItemPathBinding
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -20,13 +22,14 @@ class PathExclusionVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val excl = item.exclusion
-        primary.text = excl.label.get(context)
+        item.lookup?.let { icon.loadFilePreview(it) }
+        primary.text = item.exclusion.label.get(context)
 
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
+        val lookup: APathLookup<*>?,
         override val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {

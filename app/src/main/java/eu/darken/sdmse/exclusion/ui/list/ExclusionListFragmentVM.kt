@@ -5,7 +5,10 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -27,6 +30,7 @@ class ExclusionListFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val exclusionManager: ExclusionManager,
     private val pkgRepo: PkgRepo,
+    private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val state = exclusionManager.exclusions
@@ -45,6 +49,12 @@ class ExclusionListFragmentVM @Inject constructor(
                     )
 
                     is PathExclusion -> PathExclusionVH.Item(
+                        lookup = try {
+                            gatewaySwitch.lookup(exclusion.path)
+                        } catch (e: Exception) {
+                            log(TAG, VERBOSE) { "Path exclusion lookup failed: $e" }
+                            null
+                        },
                         exclusion = exclusion,
                         onItemClick = {
                             ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(

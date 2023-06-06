@@ -3,13 +3,13 @@ package eu.darken.sdmse.exclusion.ui.editor.path
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.ExclusionEditorPathFragmentBinding
@@ -61,7 +61,7 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                 findItem(R.id.menu_action_remove_exclusion)?.isVisible = state.canRemove
             }
 
-            icon.isGone = true
+            state.lookup?.let { icon.loadFilePreview(it) }
             primary.text = exclusion.label.get(requireContext())
             secondary.text = exclusion.path.pathType.name
 

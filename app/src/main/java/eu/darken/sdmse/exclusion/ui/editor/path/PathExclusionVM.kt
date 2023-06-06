@@ -5,8 +5,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -23,6 +26,7 @@ class PathExclusionVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val exclusionManager: ExclusionManager,
+    private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<PathExclusionFragmentArgs>()
@@ -43,9 +47,17 @@ class PathExclusionVM @Inject constructor(
             tags = setOf(Exclusion.Tag.GENERAL)
         )
 
+        val lookup = try {
+            gatewaySwitch.lookup(newExcl.path)
+        } catch (e: Exception) {
+            log(TAG, VERBOSE) { "Path exclusion lookup failed: $e" }
+            null
+        }
+
         State(
             original = origExclusion,
             current = newExcl,
+            lookup = lookup,
         )
     }
 
@@ -104,6 +116,7 @@ class PathExclusionVM @Inject constructor(
     data class State(
         val original: PathExclusion?,
         val current: PathExclusion,
+        val lookup: APathLookup<*>?,
     ) {
         val canRemove: Boolean = original != null
         val canSave: Boolean = original != current
