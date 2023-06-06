@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -79,8 +80,7 @@ class SchedulerManagerFragmentVM @Inject constructor(
                                 schedule.copy(scheduledAt = if (!schedule.isEnabled) Instant.now() else null)
                             )
                         } else {
-                            SchedulerManagerFragmentDirections.actionSchedulerManagerFragmentToUpgradeFragment()
-                                .navigate()
+                            MainDirections.goToUpgradeFragment().navigate()
                         }
                     }
                 },

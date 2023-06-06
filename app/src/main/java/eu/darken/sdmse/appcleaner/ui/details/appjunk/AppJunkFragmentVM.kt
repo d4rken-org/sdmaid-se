@@ -2,9 +2,9 @@ package eu.darken.sdmse.appcleaner.ui.details.appjunk
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
-import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragmentDirections
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
@@ -129,7 +129,7 @@ class AppJunkFragmentVM @Inject constructor(
     fun doDelete(task: AppCleanerDeleteTask) = launch {
         log(TAG, INFO) { "doDelete($task)" }
         if (!upgradeRepo.isPro()) {
-            AppJunkDetailsFragmentDirections.actionAppCleanerDetailsFragmentToUpgradeFragment().navigate()
+            MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
         // Removnig the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result

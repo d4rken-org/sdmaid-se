@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.navigation.doNavigate
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
@@ -38,11 +37,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_action_upgrade -> {
-                        doNavigate(DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment())
+                        DashboardFragmentDirections.goToUpgradeFragment().navigate()
                         true
                     }
                     R.id.menu_action_settings -> {
-                        doNavigate(DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment())
+                        DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment().navigate()
                         true
                     }
 

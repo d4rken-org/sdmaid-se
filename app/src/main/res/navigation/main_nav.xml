@@ -112,11 +112,11 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
-        <action
-            android:id="@+id/action_settingsContainerFragment_to_upgradeFragment"
-            app:destination="@id/upgradeFragment" />
     </fragment>
 
+    <action
+        android:id="@+id/goToUpgradeFragment"
+        app:destination="@id/upgradeFragment" />
     <fragment
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
@@ -185,9 +185,6 @@
         <action
             android:id="@+id/action_appCleanerListFragment_to_appCleanerDetailsFragment2"
             app:destination="@id/appCleanerDetailsFragment" />
-        <action
-            android:id="@+id/action_appCleanerListFragment_to_upgradeFragment"
-            app:destination="@id/upgradeFragment" />
     </fragment>
 
     <fragment
@@ -198,9 +195,6 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
             app:nullable="true" />
-        <action
-            android:id="@+id/action_appCleanerDetailsFragment_to_upgradeFragment"
-            app:destination="@id/upgradeFragment" />
     </fragment>
     <fragment
         android:id="@+id/appJunkFragment"
@@ -245,9 +239,6 @@
         <action
             android:id="@+id/action_schedulerManagerFragment_to_scheduleItemDialog"
             app:destination="@id/scheduleItemDialog" />
-        <action
-            android:id="@+id/action_schedulerManagerFragment_to_upgradeFragment"
-            app:destination="@id/upgradeFragment" />
     </fragment>
     <dialog
         android:id="@+id/scheduleItemDialog"

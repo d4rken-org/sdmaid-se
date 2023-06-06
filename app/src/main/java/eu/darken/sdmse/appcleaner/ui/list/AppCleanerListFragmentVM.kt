@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.ui.list
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
@@ -16,7 +17,11 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
@@ -62,7 +67,7 @@ class AppCleanerListFragmentVM @Inject constructor(
     fun doDelete(appJunk: AppJunk) = launch {
         log(TAG, INFO) { "doDelete(appJunk=$appJunk)" }
         if (!upgradeRepo.isPro()) {
-            AppCleanerListFragmentDirections.actionAppCleanerListFragmentToUpgradeFragment().navigate()
+            MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
         val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.identifier))

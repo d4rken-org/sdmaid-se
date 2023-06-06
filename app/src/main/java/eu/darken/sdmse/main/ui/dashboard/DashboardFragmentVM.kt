@@ -327,7 +327,7 @@ class DashboardFragmentVM @Inject constructor(
             ?.takeIf { !it.isPro }
             ?.let {
                 UpgradeCardVH.Item(
-                    onUpgrade = { DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate() }
+                    onUpgrade = { MainDirections.goToUpgradeFragment().navigate() }
                 )
             }
             ?.run { items.add(this) }
@@ -434,7 +434,7 @@ class DashboardFragmentVM @Inject constructor(
                     if (appCleaner.data.first() != null && upgradeRepo.isPro()) {
                         submitTask(AppCleanerDeleteTask())
                     } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
-                        DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
+                        MainDirections.goToUpgradeFragment().navigate()
                     }
                 }
 
@@ -443,7 +443,7 @@ class DashboardFragmentVM @Inject constructor(
                         submitTask(AppCleanerScanTask())
                         submitTask(AppCleanerDeleteTask())
                     } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
-                        DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
+                        MainDirections.goToUpgradeFragment().navigate()
                     }
                 }
             }
@@ -474,7 +474,7 @@ class DashboardFragmentVM @Inject constructor(
         log(TAG, INFO) { "confirmAppJunkDeletion()" }
 
         if (!upgradeRepo.isPro()) {
-            DashboardFragmentDirections.actionDashboardFragmentToUpgradeFragment().navigate()
+            MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
         submitTask(AppCleanerDeleteTask())
