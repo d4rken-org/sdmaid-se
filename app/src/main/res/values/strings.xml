@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
+    <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
+    <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer that is troubleshooting an issue).</string>
 
@@ -75,6 +77,7 @@
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
 
     <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">Read documentation, report issues, chat with others or record debug logs.</string>
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
     <string name="issue_tracker_label">Issue tracker</string>

@@ -69,13 +69,13 @@ class RecorderService : Service2() {
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_MAX
             setSmallIcon(R.drawable.ic_baseline_bug_report_24)
-            setContentText(getString(eu.darken.sdmse.common.R.string.general_progress_loading))
-            setContentTitle("Debug log")
+            setContentText(getString(R.string.debug_debuglog_recording_progress))
+            setContentTitle(getString(eu.darken.sdmse.common.R.string.app_name))
             setOngoing(true)
             addAction(
                 NotificationCompat.Action.Builder(
                     0,
-                    getString(eu.darken.sdmse.common.R.string.general_done_action),
+                    getString(R.string.debug_debuglog_stop_action),
                     stopPi
                 ).build()
             )
@@ -86,7 +86,10 @@ class RecorderService : Service2() {
         recorderModule.state
             .onEach {
                 if (it.isRecording) {
-                    builder.setContentText("${it.currentLogPath?.path}")
+                    builder.apply {
+                        setContentTitle(getString(R.string.debug_debuglog_recording_progress))
+                        setContentText("${it.currentLogPath?.path}")
+                    }
                     notificationManager.notify(NOTIFICATION_ID, builder.build())
                 } else {
                     stopForeground(true)
