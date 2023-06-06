@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.serialization.NameBasedPolyJsonAdapterFactory
 
 sealed interface Exclusion {
@@ -29,10 +30,15 @@ sealed interface Exclusion {
         suspend fun match(candidate: APath): Boolean
     }
 
+    interface Segment : Exclusion {
+        suspend fun match(segments: Segments): Boolean
+    }
+
     companion object {
         val MOSHI_FACTORY: NameBasedPolyJsonAdapterFactory<Exclusion> =
             NameBasedPolyJsonAdapterFactory.of(Exclusion::class.java)
                 .withSubtype(PkgExclusion::class.java, "pkgId")
                 .withSubtype(PathExclusion::class.java, "path")
+                .withSubtype(SegmentExclusion::class.java, "segments")
     }
 }

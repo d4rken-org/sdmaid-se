@@ -24,7 +24,6 @@ class PackageExclusionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         item.pkg?.let { icon.loadAppIcon(it) }
         primary.text = item.exclusion.label.get(context)
-        secondary.text = item.exclusion.pkgId.name
 
         root.setOnClickListener { item.onItemClick(item) }
     }

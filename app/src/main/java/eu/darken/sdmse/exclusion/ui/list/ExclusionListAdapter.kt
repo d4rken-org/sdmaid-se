@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
+import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
 import javax.inject.Inject
 
 
@@ -28,6 +29,7 @@ class ExclusionListAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is PackageExclusionVH.Item }) { PackageExclusionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is PathExclusionVH.Item }) { PathExclusionVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SegmentExclusionVH.Item }) { SegmentExclusionVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
