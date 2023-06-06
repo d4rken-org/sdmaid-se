@@ -39,16 +39,6 @@ class SupportFragment : PreferenceFragment2() {
             vm.copyInstallID()
             true
         }
-        debugLogPref.setOnPreferenceClickListener {
-            MaterialAlertDialogBuilder(requireContext()).apply {
-                setTitle(R.string.support_debuglog_label)
-                setMessage(R.string.settings_debuglog_explanation)
-                setPositiveButton(eu.darken.sdmse.common.R.string.general_continue) { _, _ -> vm.startDebugLog() }
-                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(SdmSeLinks.PRIVACY_POLICY) }
-            }.show()
-            true
-        }
         super.onPreferencesCreated()
     }
 
@@ -61,8 +51,29 @@ class SupportFragment : PreferenceFragment2() {
                 .show()
         }
 
-        vm.isRecording.observe2(this) {
-            debugLogPref.isEnabled = !it
+        vm.isRecording.observe2(this) { isRecording ->
+            debugLogPref.setIcon(
+                if (isRecording) R.drawable.ic_cancel
+                else R.drawable.ic_bug_report
+            )
+            debugLogPref.setTitle(
+                if (isRecording) R.string.debug_debuglog_stop_action
+                else R.string.debug_debuglog_record_action
+            )
+            debugLogPref.setOnPreferenceClickListener {
+                if (isRecording) {
+                    vm.stopDebugLog()
+                } else {
+                    MaterialAlertDialogBuilder(requireContext()).apply {
+                        setTitle(R.string.support_debuglog_label)
+                        setMessage(R.string.settings_debuglog_explanation)
+                        setPositiveButton(R.string.debug_debuglog_record_action) { _, _ -> vm.startDebugLog() }
+                        setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                        setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(SdmSeLinks.PRIVACY_POLICY) }
+                    }.show()
+                }
+                true
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

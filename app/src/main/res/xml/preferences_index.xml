@@ -67,7 +67,7 @@
         <Preference
             android:icon="@drawable/ic_baseline_contact_support_24"
             app:fragment="eu.darken.sdmse.main.ui.settings.support.SupportFragment"
-            app:summary="¯\\_(ツ)_/¯"
+            app:summary="@string/settings_support_description"
             app:title="@string/settings_support_label" />
 
         <Preference

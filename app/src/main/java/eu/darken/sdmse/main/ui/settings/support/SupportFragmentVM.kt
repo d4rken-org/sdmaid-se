@@ -31,4 +31,9 @@ class SupportFragmentVM @Inject constructor(
         log { "startDebugLog()" }
         recorderModule.startRecorder()
     }
+
+    fun stopDebugLog() = launch {
+        log { "stopDebugLog()" }
+        recorderModule.stopRecorder()
+    }
 }
