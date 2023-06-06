@@ -108,7 +108,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true
         }
 
-        serviceScope = CoroutineScope(dispatcher.IO + SupervisorJob())
+        serviceScope = CoroutineScope(dispatcher.Default + SupervisorJob())
 
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
