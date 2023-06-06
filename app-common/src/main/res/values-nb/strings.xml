@@ -64,6 +64,7 @@
     <string name="general_progress_queued">I kø</string>
     <string name="general_progress_deleting">Sletter %s</string>
     <string name="general_sort_options_label">Sorteringsalternativer</string>
+    <string name="general_sort_reverse_action">Inverter sorteringsmodus</string>
     <string name="general_tag_filter_label">Filtrer etter etiketter</string>
     <string name="general_result_success_message">Operasjonen var vellykket</string>
     <string name="general_result_failure_message">Operasjonen mislyktes</string>

@@ -64,6 +64,7 @@
     <string name="general_progress_queued">대기 중</string>
     <string name="general_progress_deleting">%s 삭제중</string>
     <string name="general_sort_options_label">정렬 기준</string>
+    <string name="general_sort_reverse_action">역정렬 모드</string>
     <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_result_success_message">작업 성공</string>
     <string name="general_result_failure_message">작업 실패</string>

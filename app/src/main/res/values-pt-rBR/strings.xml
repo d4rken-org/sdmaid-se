@@ -53,6 +53,8 @@
     <string name="ui_theme_light_label">Claro</string>
     <string name="ui_theme_system_label">Sistema</string>
     <string name="ui_theme_setting_explanation">Altere o tema atual do aplicativo e substitua as configurações do sistema.</string>
+    <string name="ui_previews_title">Pré-visualização de arquivos</string>
+    <string name="ui_previews_summary">Exibir pré-visualizações de arquivos em todas as ferramentas (por exemplo, miniaturas de imagens e vídeos).</string>
     <string name="settings_support_label">Suporte</string>
     <string name="documentation_label">Documentação</string>
     <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos.</string>
@@ -127,6 +129,10 @@
     <string name="corpsefinder_settings_risk_common_summary">Dados com nomes muito comuns, por exemplo, uma pasta \"Notas\" pertence a muitos aplicativos desconhecidos.</string>
     <string name="corpsefinder_watcher_title">Verificador de desinstalação</string>
     <string name="corpsefinder_watcher_summary">Procura restos automaticamente quando um aplicativo for removido.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Exclusão automática</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Excluir automaticamente qualquer restante relacionado ao aplicativo desinstalado.</string>
+    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s restante(s) encontrado(s) após a desinstalação de %2$s.</string>
+    <string name="corpsefinder_watcher_notification_delete_result">Limpeza bem sucedida (%1$s): Liberada %2$s e removida %3$s item(s).</string>
     <string name="corpsefinder_filter_publicmedia_label">Mídia pública</string>
     <string name="corpsefinder_filter_publicmedia_summary">Arquivos de mídia públicos, por exemplo, arquivos recebidos via aplicativos de messenger.</string>
     <string name="corpsefinder_filter_publicobb_label">Recursos do OBB</string>
