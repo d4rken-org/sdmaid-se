@@ -64,6 +64,7 @@
     <string name="general_progress_queued">Đang chờ</string>
     <string name="general_progress_deleting">Đang xoá %s</string>
     <string name="general_sort_options_label">Tùy chọn sắp xếp</string>
+    <string name="general_sort_reverse_action">Chế độ sắp xếp ngược</string>
     <string name="general_tag_filter_label">Bộ lọc theo thẻ</string>
     <string name="general_result_success_message">Thao tác thành công</string>
     <string name="general_result_failure_message">Thao tác thất bại</string>

@@ -64,6 +64,7 @@
     <string name="general_progress_queued">Sırada</string>
     <string name="general_progress_deleting">%s siliniyor</string>
     <string name="general_sort_options_label">Sıralama seçenekleri</string>
+    <string name="general_sort_reverse_action">Ters sıralama modu</string>
     <string name="general_tag_filter_label">Etiketlere göre filtrele</string>
     <string name="general_result_success_message">İşlem başarılı</string>
     <string name="general_result_failure_message">Operasyon başarısız</string>

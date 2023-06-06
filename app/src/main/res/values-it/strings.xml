@@ -8,6 +8,8 @@
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>
+    <string name="debug_debuglog_file_label">File di log registrato</string>
+    <string name="debug_debuglog_record_action">Registra log di debug</string>
     <string name="debug_debuglog_sensitive_information_message">Il file generato contiene informazioni sensibili (ad esempio nomi di file e applicazioni installate). Condividilo solo con persone di cui ti fidi.</string>
     <string name="tasks_activity_working_notification_title">SD Maid sta funzionando</string>
     <string name="tasks_result_notification_channel_label">Risultati attività</string>

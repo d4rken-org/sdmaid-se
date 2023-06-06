@@ -64,6 +64,7 @@
     <string name="general_progress_queued">En attente</string>
     <string name="general_progress_deleting">Suppression de %s</string>
     <string name="general_sort_options_label">Options de tri</string>
+    <string name="general_sort_reverse_action">Mode de tri inversé</string>
     <string name="general_tag_filter_label">Filtrer par tag</string>
     <string name="general_result_success_message">Opération réussie</string>
     <string name="general_result_failure_message">Echec de l\'opération</string>
