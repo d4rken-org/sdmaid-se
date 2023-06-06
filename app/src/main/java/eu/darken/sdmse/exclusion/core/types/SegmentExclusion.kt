@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.joinSegments
@@ -14,7 +15,7 @@ data class SegmentExclusion(
     @Json(name = "allowPartial") val allowPartial: Boolean,
     @Json(name = "ignoreCase") val ignoreCase: Boolean,
     @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
-) : Exclusion.Segment {
+) : Exclusion.Path {
 
     override val id: ExclusionId
         get() = createId(segments)
@@ -22,7 +23,7 @@ data class SegmentExclusion(
     override val label: CaString
         get() = caString { segments.joinSegments() }
 
-    override suspend fun match(segments: Segments): Boolean = segments.containsSegments(
+    override suspend fun match(candidate: APath): Boolean = candidate.segments.containsSegments(
         other = this.segments,
         allowPartial = allowPartial,
         ignoreCase = ignoreCase,
