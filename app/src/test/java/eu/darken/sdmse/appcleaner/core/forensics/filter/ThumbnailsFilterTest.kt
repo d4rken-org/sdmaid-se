@@ -120,34 +120,8 @@ class ThumbnailsFilterTest : BaseFilterTest() {
     }
 
     @Test fun testVideoPlayer() = runTest {
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/MAKO-6.0.1/movie_10326")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/MAKO-6.0.1/movie_10326/camera.ListView.lvl")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/MAKO-6.0.1/movie_156560/instaweather_vid_20141227_085331.ListView.lvl")
-        )
-        addCandidate(neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/MAKO-6.0.1"))
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_10326")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_10326/camera.ListView.lvl")
-        )
-        addCandidate(
-            pos().pkgs("com.sec.android.app.videoplayer").locs(SDCARD)
-                .prefixFree(".thumbnails/I9505XXUEMKF_4.3/movie_156560/instaweather_vid_20141227_085331.ListView.lvl")
-        )
-        addCandidate(
-            neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails/I9505XXUEMKF_4.3")
-        )
-        addCandidate(neg().pkgs("com.sec.android.app.videoplayer").locs(SDCARD).prefixFree(".thumbnails"))
+        neg("com.sec.android.app.videoplayer", SDCARD, ".thumbnails")
+        pos("com.sec.android.app.videoplayer", SDCARD, ".thumbnails/$rngString")
         confirm(create())
     }
 
@@ -197,6 +171,51 @@ class ThumbnailsFilterTest : BaseFilterTest() {
     @Test fun `FxGuru thumbs`() = runTest {
         neg("com.picadelic.fxguru", SDCARD, "FxGuru/thumbnails")
         pos("com.picadelic.fxguru", SDCARD, "FxGuru/thumbnails/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `rockon thumbs`() = runTest {
+        neg("org.abrantix.rockon.rockonnggl", SDCARD, "albumthumbs")
+        pos("org.abrantix.rockon.rockonnggl", SDCARD, "albumthumbs/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `poweramp thumbs`() = runTest {
+        neg("com.maxmpz.audioplayer", SDCARD, "albumthumbs")
+        pos("com.maxmpz.audioplayer", SDCARD, "albumthumbs/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `aag thumbs`() = runTest {
+        neg("com.citc.aag", SDCARD, "albumthumbs")
+        pos("com.citc.aag", SDCARD, "albumthumbs/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `blackplayer thumbs`() = runTest {
+        neg("com.musicplayer.blackplayerfree", SDCARD, "albumthumbs")
+        pos("com.musicplayer.blackplayerfree", SDCARD, "albumthumbs/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `another music player thumbs`() = runTest {
+        neg("another.music.player", SDCARD, "albumthumbs")
+        pos("another.music.player", SDCARD, "albumthumbs/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `Camera thumbs`() = runTest {
+        neg("com.sec.android.app.camera", SDCARD, "DCIM/Camera/.thumbnails")
+        pos("com.sec.android.app.camera", SDCARD, "DCIM/Camera/.thumbnails/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `pulsar thumbs`() = runTest {
+        neg("com.rhmsoft.pulsar", SDCARD, "albumthumbs")
+        pos("com.rhmsoft.pulsar", SDCARD, "albumthumbs/$rngString")
+
+        neg("com.rhmsoft.pulsar.pro", SDCARD, "albumthumbs")
+        pos("com.rhmsoft.pulsar.pro", SDCARD, "albumthumbs/$rngString")
         confirm(create())
     }
 }

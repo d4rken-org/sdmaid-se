@@ -49,6 +49,10 @@ class ThumbnailsFilter @Inject constructor(
             return false
         }
 
+        if (segments.size >= 2 && HIDDEN_FOLDERS.contains(segments[0])) {
+            return true
+        }
+
         // Default case, we don't handle that.
         // package/cache/file
         if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
@@ -70,28 +74,23 @@ class ThumbnailsFilter @Inject constructor(
 
         //    0      1     2
         // package/.thumbnails/file
-        if (lcsegments.size >= 3 && HIDDEN_FODLERS.contains(lcsegments[1])) {
+        if (lcsegments.size >= 3 && HIDDEN_FOLDERS.contains(lcsegments[1])) {
             return true
         }
-        if (isException(segments)) return false
 
         //    0      1     2     3
         // package/files/.thumbnails/file
-        if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_FODLERS.contains(lcsegments[2])) {
+        if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_FOLDERS.contains(lcsegments[2])) {
             return true
         }
 
         //    -1     0      1     2     3
         // sdcard/Huawei/Themes/.cache/file
-        if (lcsegments.size >= 4 && areaType == DataArea.Type.SDCARD && HIDDEN_FODLERS.contains(lcsegments[2])) {
+        if (lcsegments.size >= 4 && areaType == DataArea.Type.SDCARD && HIDDEN_FOLDERS.contains(lcsegments[2])) {
             return true
         }
 
         return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
-    }
-
-    private fun isException(dirs: Segments): Boolean {
-        return false
     }
 
     @Reusable
@@ -110,11 +109,12 @@ class ThumbnailsFilter @Inject constructor(
     }
 
     companion object {
-        private val HIDDEN_FODLERS: Collection<String> = listOf(
+        private val HIDDEN_FOLDERS: Collection<String> = listOf(
             ".thumbs",
             "thumbs",
             ".thumbnails",
             "thumbnails",
+            "albumthumbs",
         )
         private val HIDDEN_FILES: Collection<String> = listOf(
 

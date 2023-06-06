@@ -60,12 +60,6 @@
             app:summary="@string/systemcleaner_filter_windowsfiles_summary"
             app:title="@string/systemcleaner_filter_windowsfiles_label" />
         <CheckBoxPreference
-            app:icon="@drawable/image_multiple"
-            app:key="filter.thumbnails.enabled"
-            app:singleLineTitle="false"
-            app:summary="@string/systemcleaner_filter_thumbnails_summary"
-            app:title="@string/systemcleaner_filter_thumbnails_label" />
-        <CheckBoxPreference
             app:icon="@drawable/ic_baseline_access_time_filled_24"
             app:key="filter.tempfiles.enabled"
             app:singleLineTitle="false"
