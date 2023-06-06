@@ -24,14 +24,13 @@ class PackageExclusionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         item.pkg?.let { icon.loadAppIcon(it) }
         primary.text = item.exclusion.label.get(context)
-        secondary.text = item.exclusion.pkgId.name
 
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         val pkg: Pkg?,
-        val exclusion: PkgExclusion,
+        override val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

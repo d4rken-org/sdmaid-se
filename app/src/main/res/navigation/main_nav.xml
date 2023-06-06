@@ -210,6 +210,10 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId" />
     </fragment>
+
+    <action
+        android:id="@+id/goToAppControlListFragment"
+        app:destination="@id/appControlListFragment" />
     <fragment
         android:id="@+id/appControlListFragment"
         android:name="eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment"
@@ -253,6 +257,10 @@
             android:name="scheduleId"
             app:argType="string" />
     </dialog>
+
+    <action
+        android:id="@+id/goToDeviceStorageFragment"
+        app:destination="@id/deviceStorageFragment" />
     <fragment
         android:id="@+id/deviceStorageFragment"
         android:name="eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment"
@@ -327,6 +335,9 @@
         <action
             android:id="@+id/action_exclusionsListFragment_to_pkgExclusionFragment"
             app:destination="@id/pkgExclusionFragment" />
+        <action
+            android:id="@+id/action_exclusionsListFragment_to_segmentExclusionFragment"
+            app:destination="@id/segmentExclusionFragment" />
     </fragment>
     <action
         android:id="@+id/goToPathExclusionEditor"
@@ -363,6 +374,25 @@
             android:name="initial"
             android:defaultValue="@null"
             app:argType="eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions"
+            app:nullable="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/goToSegmentExclusionEditor"
+        app:destination="@id/segmentExclusionFragment" />
+    <fragment
+        android:id="@+id/segmentExclusionFragment"
+        android:name="eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionFragment"
+        tools:layout="@layout/exclusion_editor_segment_fragment">
+        <argument
+            android:name="exclusionId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+        <argument
+            android:name="initial"
+            android:defaultValue="@null"
+            app:argType="eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions"
             app:nullable="true" />
     </fragment>
 </navigation>

@@ -2,6 +2,7 @@ package eu.darken.sdmse.exclusion.ui.list
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.ExclusionListFragmentBinding
+import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -44,13 +46,51 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
             }
         }
 
+        ui.mainAction.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext()).apply {
+                val actions = arrayOf(
+                    getString(R.string.exclusion_type_package),
+                    getString(R.string.exclusion_type_path),
+                    getString(R.string.exclusion_type_segment),
+                )
+                setItems(actions) { dialog, which ->
+                    when (which) {
+                        0 -> {
+                            Toast.makeText(
+                                requireContext(),
+                                R.string.exclusion_create_pkg_hint,
+                                Toast.LENGTH_LONG
+                            ).show()
+                            ExclusionListFragmentDirections.goToAppControlListFragment().navigate()
+                        }
+
+                        1 -> {
+                            Toast.makeText(
+                                requireContext(),
+                                R.string.exclusion_create_path_hint,
+                                Toast.LENGTH_LONG
+                            ).show()
+                            ExclusionListFragmentDirections.goToDeviceStorageFragment().navigate()
+                        }
+
+                        2 -> ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
+                            exclusionId = null,
+                            initial = SegmentExclusionEditorOptions()
+                        ).navigate()
+                    }
+                }
+                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
+                }
+            }.show()
+        }
+
         val adapter = ExclusionListAdapter()
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) {
             adapter.update(it.items)
-            loadingOverlay.isVisible = false
-            emptyOverlay.isVisible = it.items.isEmpty()
+            loadingOverlay.isVisible = it.loading
+            emptyOverlay.isVisible = it.items.isEmpty() && !it.loading
         }
 
         super.onViewCreated(view, savedInstanceState)

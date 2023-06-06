@@ -11,8 +11,10 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
+import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
 import javax.inject.Inject
 
 
@@ -28,6 +30,7 @@ class ExclusionListAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is PackageExclusionVH.Item }) { PackageExclusionVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is PathExclusionVH.Item }) { PathExclusionVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SegmentExclusionVH.Item }) { SegmentExclusionVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
@@ -36,6 +39,8 @@ class ExclusionListAdapter @Inject constructor() :
     ) : VH(layoutId, parent), BindableVH<D, B>
 
     interface Item : DifferItem {
+
+        val exclusion: Exclusion
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

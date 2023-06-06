@@ -34,5 +34,6 @@ sealed interface Exclusion {
             NameBasedPolyJsonAdapterFactory.of(Exclusion::class.java)
                 .withSubtype(PkgExclusion::class.java, "pkgId")
                 .withSubtype(PathExclusion::class.java, "path")
+                .withSubtype(SegmentExclusion::class.java, "segments")
     }
 }
