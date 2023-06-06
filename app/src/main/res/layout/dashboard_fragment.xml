@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingBottom="100dp"
-        app:fastScrollEnabled="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="1"
         tools:listitem="@layout/dashboard_preview_layout" />

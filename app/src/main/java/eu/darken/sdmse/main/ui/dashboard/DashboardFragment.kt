@@ -28,7 +28,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.list.setupDefaults(dashAdapter, dividers = false)
+        ui.list.setupDefaults(dashAdapter, dividers = false, fastscroll = false)
 
         vm.listItems.observe2(ui) {
             dashAdapter.update(it)
