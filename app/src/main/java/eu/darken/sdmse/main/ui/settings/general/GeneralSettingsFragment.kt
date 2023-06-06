@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -12,7 +13,6 @@ import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.ThemeType
 import eu.darken.sdmse.main.core.labelRes
-import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
 
 @Keep
@@ -38,7 +38,7 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             "core.bugreporter.enabled"
         )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
         findPreference<Preference>("upgrade")?.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToUpgradeFragment(forced = true).navigate()
+            MainDirections.goToUpgradeFragment(forced = true).navigate()
             true
         }
         super.onPreferencesCreated()
