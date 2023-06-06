@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -16,82 +15,131 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_exclusion_editor_pkg"
-            app:subtitle="@string/general_details_label"
             app:title="@string/exclusion_type_segment" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pkg_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            android:background="?colorTertiaryContainer"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/segments_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/segments_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="DCIM/Camera" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/segments_display"
-                style="@style/TextAppearance.Material3.BodySmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/segments_layout"
-                tools:text="[DCIM,Camera]" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:id="@+id/tools_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Material3.TitleSmall"
+                style="@style/TextAppearance.Material3.LabelLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/exclusion_editor_affected_tools_label" />
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/exclusion_target_label" />
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/tools_all"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/exclusion_tags_alltools" />
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="16dp"
+                android:background="?colorSecondaryContainer"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/tools_corpsefinder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/corpsefinder_tool_name" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/segments_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/tools_appcleaner"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/segments_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/exclusion_edit_action" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/segments_display"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/segments_layout"
+                    tools:text="[DCIM,Camera]" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/options_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/appcleaner_tool_name" />
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="@string/general_options_label" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/option_allow_partial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exclusion_option_allow_partial" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/option_ignore_casing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exclusion_option_ignore_casing" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tools_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="@string/exclusion_editor_affected_tools_label" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/tools_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exclusion_tags_alltools" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/tools_corpsefinder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/corpsefinder_tool_name" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/tools_appcleaner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/appcleaner_tool_name" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="32dp"
+                android:text="@string/exclusion_editor_segment_explanation" />
         </LinearLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="32dp"
-            android:text="@string/exclusion_editor_segment_explanation" />
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

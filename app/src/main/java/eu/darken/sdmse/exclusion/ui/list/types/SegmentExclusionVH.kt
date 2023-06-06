@@ -27,7 +27,7 @@ class SegmentExclusionVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val exclusion: SegmentExclusion,
+        override val exclusion: SegmentExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

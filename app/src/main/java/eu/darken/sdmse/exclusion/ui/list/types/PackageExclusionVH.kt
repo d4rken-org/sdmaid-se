@@ -30,7 +30,7 @@ class PackageExclusionVH(parent: ViewGroup) :
 
     data class Item(
         val pkg: Pkg?,
-        val exclusion: PkgExclusion,
+        override val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

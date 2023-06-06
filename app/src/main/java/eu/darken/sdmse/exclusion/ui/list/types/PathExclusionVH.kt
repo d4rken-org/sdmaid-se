@@ -27,7 +27,7 @@ class PathExclusionVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val exclusion: PathExclusion,
+        override val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
 

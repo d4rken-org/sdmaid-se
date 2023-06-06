@@ -6,5 +6,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SegmentExclusionEditorOptions(
-    val targetSegments: Segments,
+    val targetSegments: Segments? = null,
 ) : Parcelable

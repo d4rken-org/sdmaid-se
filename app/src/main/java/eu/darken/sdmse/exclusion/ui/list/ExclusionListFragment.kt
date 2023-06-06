@@ -11,7 +11,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
-import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
@@ -76,9 +75,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
                         2 -> ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
                             exclusionId = null,
-                            initial = SegmentExclusionEditorOptions(
-                                targetSegments = segs("DCIM", "Camera")
-                            )
+                            initial = SegmentExclusionEditorOptions()
                         ).navigate()
                     }
                 }
@@ -92,8 +89,8 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
         vm.state.observe2(ui) {
             adapter.update(it.items)
-            loadingOverlay.isVisible = false
-            emptyOverlay.isVisible = it.items.isEmpty()
+            loadingOverlay.isVisible = it.loading
+            emptyOverlay.isVisible = it.items.isEmpty() && !it.loading
         }
 
         super.onViewCreated(view, savedInstanceState)

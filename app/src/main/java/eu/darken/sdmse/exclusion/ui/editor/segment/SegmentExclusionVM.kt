@@ -5,9 +5,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.PkgRepo
@@ -43,7 +45,7 @@ class SegmentExclusionVM @Inject constructor(
         }
 
         val newExcl = origExclusion ?: SegmentExclusion(
-            segments = segs("DCIM", "Camera"),
+            segments = segs(),
             allowPartial = true,
             ignoreCase = true,
             tags = setOf(Exclusion.Tag.GENERAL),
@@ -80,7 +82,12 @@ class SegmentExclusionVM @Inject constructor(
 
     fun save() = launch {
         log(TAG) { "save()" }
-        exclusionManager.save(currentState.value().current)
+        val snap = currentState.value()
+        snap.original?.id?.let {
+            log(TAG) { "save(): Segments (ID) changed, removing previous: $it" }
+            exclusionManager.remove(it)
+        }
+        exclusionManager.save(snap.current)
         popNavStack()
     }
 
@@ -104,6 +111,30 @@ class SegmentExclusionVM @Inject constructor(
             events.postValue(SegmentExclusionEvents.UnsavedChangesConfirmation(snap.current))
         } else {
             popNavStack()
+        }
+    }
+
+    fun updateSegments(raw: String) = launch {
+        log(TAG, VERBOSE) { "updateSegments($raw)" }
+        currentState.updateBlocking {
+            val newCurrent = current.copy(segments = raw.toSegs())
+            copy(current = newCurrent)
+        }
+    }
+
+    fun toggleAllowPartial() = launch {
+        log(TAG, VERBOSE) { "toggleAllowPartial()" }
+        currentState.updateBlocking {
+            val newCurrent = current.copy(allowPartial = !current.allowPartial)
+            copy(current = newCurrent)
+        }
+    }
+
+    fun toggleIgnoreCase() = launch {
+        log(TAG, VERBOSE) { "toggleIgnoreCase()" }
+        currentState.updateBlocking {
+            val newCurrent = current.copy(ignoreCase = !current.ignoreCase)
+            copy(current = newCurrent)
         }
     }
 

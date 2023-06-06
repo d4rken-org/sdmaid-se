@@ -3,6 +3,7 @@ package eu.darken.sdmse.exclusion.ui.editor.segment
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -11,7 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.files.toSegs
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.ExclusionEditorSegmentFragmentBinding
@@ -58,9 +59,13 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
 
         ui.apply {
             segmentsInput.addTextChangedListener {
-                segmentsDisplay.text = it?.toString()?.toSegs()?.toString()
+                vm.updateSegments(it?.toString() ?: "")
             }
         }
+
+        ui.optionAllowPartial.setOnClickListener { vm.toggleAllowPartial() }
+        ui.optionIgnoreCasing.setOnClickListener { vm.toggleIgnoreCase() }
+
         var isInitial = true
         vm.state.observe2(ui) { state ->
             val exclusion = state.current
@@ -70,9 +75,20 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
             }
 
             if (isInitial) {
-                segmentsInput.setText(state.current.segments.joinSegments())
+                segmentsInput.setText(exclusion.segments.joinSegments())
                 isInitial = false
             }
+
+            segmentsDisplay.apply {
+                var demo = exclusion.segments.joinSegments()
+                if (exclusion.allowPartial) demo = "*$demo*"
+                if (exclusion.ignoreCase) demo = demo.lowercase()
+                text = demo
+                isVisible = exclusion.segments.any { it.isNotEmpty() }
+            }
+
+            ui.optionAllowPartial.setChecked2(exclusion.allowPartial)
+            ui.optionIgnoreCasing.setChecked2(exclusion.ignoreCase)
 
             ui.toolsAll.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.GENERAL)

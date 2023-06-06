@@ -65,6 +65,6 @@
         android:layout_margin="32dp"
         android:contentDescription="@string/exclusion_create_action"
         app:shapeAppearance="@style/Widget.Material3.FloatingActionButton.Primary"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_shield_plus_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
