@@ -130,8 +130,8 @@
             app:icon="@drawable/ic_whatsapp_24"
             app:singleLineTitle="false"
             app:key="filter.whatsapp.received.enabled"
-            app:summary="@string/appcleaner_filter_whatsapp_received_summary"
-            app:title="@string/appcleaner_filter_whatsapp_received_label" />
+            app:summary="@string/appcleaner_filter_whatsapp_received_label"
+            app:title="@string/appcleaner_filter_whatsapp_received_summary" />
         <CheckBoxPreference
             app:icon="@drawable/ic_whatsapp_24"
             app:key="filter.whatsapp.sent.enabled"
