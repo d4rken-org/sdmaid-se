@@ -133,10 +133,10 @@
 
         <!-- Debug stuff-->
         <activity
-            android:name="eu.darken.sdmse.common.debug.recording.ui.RecorderActivity"
+            android:name="eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity"
             android:theme="@style/AppThemeFloating" />
 
-        <service android:name="eu.darken.sdmse.common.debug.recording.core.RecorderService" />
+        <service android:name="eu.darken.sdmse.common.debug.recorder.core.RecorderService" />
     </application>
 
 </manifest>

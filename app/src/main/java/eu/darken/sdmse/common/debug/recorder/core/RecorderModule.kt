@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.recording.core
+package eu.darken.sdmse.common.debug.recorder.core
 
 import android.content.Context
 import android.content.Intent
@@ -18,11 +18,17 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.debug.recording.ui.RecorderActivity
+import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.startServiceCompat
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject

@@ -27,6 +27,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -76,6 +78,7 @@ class DashboardFragmentVM @Inject constructor(
     private val webpageTool: WebpageTool,
     private val schedulerManager: SchedulerManager,
     private val updateChecker: UpdateChecker,
+    private val recorderModule: RecorderModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -270,6 +273,7 @@ class DashboardFragmentVM @Inject constructor(
         }
 
     val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
+        recorderModule.state,
         debugCardProvider.create(this),
         titleCardItem,
         upgradeInfo,
@@ -283,7 +287,8 @@ class DashboardFragmentVM @Inject constructor(
         analyzerItem,
         schedulerItem,
         refreshTrigger,
-    ) { debugItem: DebugCardVH.Item?,
+    ) { recorderState: RecorderModule.State,
+        debugItem: DebugCardVH.Item?,
         titleInfo: TitleCardVH.Item,
         upgradeInfo: UpgradeRepo.Info?,
         updateInfo: UpdateCardVH.Item?,
@@ -331,6 +336,23 @@ class DashboardFragmentVM @Inject constructor(
                 )
             }
             ?.run { items.add(this) }
+
+        recorderState
+            .takeIf { it.isRecording || debugItem != null }
+            ?.let {
+                val item = DebugRecorderCardVH.Item(
+                    webpageTool = webpageTool,
+                    state = it,
+                    onToggleRecording = {
+                        if (it.isRecording) {
+                            launch { recorderModule.stopRecorder() }
+                        } else {
+                            launch { recorderModule.startRecorder() }
+                        }
+                    }
+                )
+                if (it.isRecording) items.add(1, item) else items.add(item)
+            }
 
         debugItem?.let { items.add(it) }
 

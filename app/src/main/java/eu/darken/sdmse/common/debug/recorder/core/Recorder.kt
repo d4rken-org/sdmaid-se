@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.recording.core
+package eu.darken.sdmse.common.debug.recorder.core
 
 import eu.darken.sdmse.common.debug.logging.FileLogger
 import eu.darken.sdmse.common.debug.logging.Logging

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.recording.ui
+package eu.darken.sdmse.common.debug.recorder.ui
 
 
 import android.content.Context
@@ -22,7 +22,11 @@ import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.onError
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject
