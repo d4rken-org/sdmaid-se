@@ -199,7 +199,6 @@ class DashboardFragmentVM @Inject constructor(
         appCleaner.progress,
         upgradeInfo.map { it?.isPro ?: false },
     ) { data, progress, isPro ->
-        log(TAG) { "$isPro | $data | $progress" }
         AppCleanerDashCardVH.Item(
             data = data,
             progress = progress,
