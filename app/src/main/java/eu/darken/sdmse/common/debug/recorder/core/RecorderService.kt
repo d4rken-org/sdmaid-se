@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.recording.core
+package eu.darken.sdmse.common.debug.recorder.core
 
 import android.app.NotificationManager
 import android.app.PendingIntent

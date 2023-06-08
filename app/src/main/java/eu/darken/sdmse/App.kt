@@ -14,8 +14,12 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
-import eu.darken.sdmse.common.debug.logging.*
-import eu.darken.sdmse.common.debug.recording.core.RecorderModule
+import eu.darken.sdmse.common.debug.logging.LogCatLogger
+import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.CurriculumVitae

@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.debug.recording.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

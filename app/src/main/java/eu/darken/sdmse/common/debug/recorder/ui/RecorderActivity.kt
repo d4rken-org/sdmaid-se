@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.recording.ui
+package eu.darken.sdmse.common.debug.recorder.ui
 
 import android.content.Context
 import android.content.Intent
@@ -14,12 +14,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.uix.Activity2
-import eu.darken.sdmse.databinding.DebugRecordingActivityBinding
+import eu.darken.sdmse.databinding.DebugRecorderActivityBinding
 
 @AndroidEntryPoint
 class RecorderActivity : Activity2() {
 
-    private lateinit var ui: DebugRecordingActivityBinding
+    private lateinit var ui: DebugRecorderActivityBinding
     private val vm: RecorderActivityVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class RecorderActivity : Activity2() {
             return
         }
 
-        ui = DebugRecordingActivityBinding.inflate(layoutInflater)
+        ui = DebugRecorderActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
         vm.state.observe2 { state ->

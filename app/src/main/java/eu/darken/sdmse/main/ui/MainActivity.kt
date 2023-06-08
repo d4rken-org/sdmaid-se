@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.debug.recording.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.navigation.findNavController
 import eu.darken.sdmse.common.uix.Activity2
 import eu.darken.sdmse.databinding.MainActivityBinding
