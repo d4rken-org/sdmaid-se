@@ -1,9 +1,7 @@
 package eu.darken.sdmse.common.debug.recorder.ui
 
 import android.view.ViewGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.lists.binding
@@ -42,15 +40,7 @@ class DebugRecorderCardVH(parent: ViewGroup) :
                 if (item.state.isRecording) {
                     item.onToggleRecording()
                 } else {
-                    MaterialAlertDialogBuilder(context).apply {
-                        setTitle(R.string.support_debuglog_label)
-                        setMessage(R.string.settings_debuglog_explanation)
-                        setPositiveButton(R.string.debug_debuglog_record_action) { _, _ -> item.onToggleRecording() }
-                        setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                        setNeutralButton(R.string.settings_privacy_policy_label) { _, _ ->
-                            item.webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
-                        }
-                    }.show()
+                    RecorderConsentDialog(context, item.webpageTool).showDialog { item.onToggleRecording() }
                 }
             }
         }

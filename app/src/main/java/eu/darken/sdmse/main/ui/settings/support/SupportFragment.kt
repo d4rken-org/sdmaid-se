@@ -5,13 +5,12 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
-import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -64,13 +63,9 @@ class SupportFragment : PreferenceFragment2() {
                 if (isRecording) {
                     vm.stopDebugLog()
                 } else {
-                    MaterialAlertDialogBuilder(requireContext()).apply {
-                        setTitle(R.string.support_debuglog_label)
-                        setMessage(R.string.settings_debuglog_explanation)
-                        setPositiveButton(R.string.debug_debuglog_record_action) { _, _ -> vm.startDebugLog() }
-                        setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                        setNeutralButton(R.string.settings_privacy_policy_label) { _, _ -> webpageTool.open(SdmSeLinks.PRIVACY_POLICY) }
-                    }.show()
+                    RecorderConsentDialog(requireContext(), webpageTool).showDialog {
+                        vm.startDebugLog()
+                    }
                 }
                 true
             }
