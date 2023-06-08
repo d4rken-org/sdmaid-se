@@ -3,12 +3,16 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("com.bugsnag.android.gradle")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-apply(plugin = "com.bugsnag.android.gradle")
 
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
+
+bugsnag {
+    overwrite.set(true)
+}
 
 android {
     compileSdk = ProjectConfig.compileSdk
