@@ -28,12 +28,12 @@ class AppDetailsAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is AppDetailsHeaderVH.Item }) { AppDetailsHeaderVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppDetailsAppCodeVH.Item }) { AppDetailsAppCodeVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppDetailsAppDataVH.Item }) { AppDetailsAppDataVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppDetailsAppMediaVH.Item }) { AppDetailsAppMediaVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppDetailsExtraDataVH.Item }) { AppDetailsExtraDataVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is AppDetailsHeaderVH.Item }) { AppDetailsHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppDetailsAppCodeVH.Item }) { AppDetailsAppCodeVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppDetailsAppDataVH.Item }) { AppDetailsAppDataVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppDetailsAppMediaVH.Item }) { AppDetailsAppMediaVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppDetailsExtraDataVH.Item }) { AppDetailsExtraDataVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

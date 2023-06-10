@@ -25,9 +25,9 @@ class SchedulerAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is ScheduleRowVH.Item }) { ScheduleRowVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AlarmHintRowVH.Item }) { AlarmHintRowVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is ScheduleRowVH.Item }) { ScheduleRowVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AlarmHintRowVH.Item }) { AlarmHintRowVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

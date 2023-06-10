@@ -26,8 +26,8 @@ class LocalPathCardAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(SimpleVHCreatorMod { VH(it) })
+        addMod(DataBinderMod(data))
+        addMod(SimpleVHCreatorMod { VH(it) })
     }
 
     data class Item(

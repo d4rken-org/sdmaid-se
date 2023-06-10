@@ -10,7 +10,7 @@ class TypedVHCreatorMod<HolderT> constructor(
     ModularAdapter.Module.Creator<HolderT> where HolderT : ModularAdapter.VH {
 
     private fun ModularAdapter<*>.determineOurViewType(): Int {
-        val typingModules = modules.filterIsInstance(ModularAdapter.Module.Typing::class.java)
+        val typingModules = mods.filterIsInstance(ModularAdapter.Module.Typing::class.java)
         return typingModules.indexOf(this@TypedVHCreatorMod)
     }
 

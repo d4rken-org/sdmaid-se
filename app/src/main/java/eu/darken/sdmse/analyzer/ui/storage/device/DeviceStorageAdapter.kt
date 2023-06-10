@@ -23,8 +23,8 @@ class DeviceStorageAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is DeviceStorageItemVH.Item }) { DeviceStorageItemVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is DeviceStorageItemVH.Item }) { DeviceStorageItemVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

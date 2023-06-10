@@ -18,6 +18,8 @@ import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import kotlinx.coroutines.flow.*
 import java.time.Instant
 import java.time.format.DateTimeFormatter
@@ -31,6 +33,7 @@ class AppControlListFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
     private val settings: AppControlSettings,
+    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -223,6 +226,15 @@ class AppControlListFragmentVM @Inject constructor(
     fun refresh() = launch {
         log(TAG) { "refresh()" }
         appControl.submit(AppControlScanTask())
+    }
+
+    fun exclude(items: Collection<AppControlListAdapter.Item>) = launch {
+        val exclusions = items.map {
+            val installId = it.appInfo.installId
+            PkgExclusion(pkgId = installId.pkgId)
+        }
+        val successCount = exclusions.map { exclusionManager.save(it) }
+        events.postValue(AppControlListEvents.ExclusionsCreated(successCount.size))
     }
 
     data class State(

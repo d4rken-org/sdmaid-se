@@ -27,10 +27,10 @@ class ExclusionListAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is PackageExclusionVH.Item }) { PackageExclusionVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is PathExclusionVH.Item }) { PathExclusionVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SegmentExclusionVH.Item }) { SegmentExclusionVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is PackageExclusionVH.Item }) { PackageExclusionVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is PathExclusionVH.Item }) { PathExclusionVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SegmentExclusionVH.Item }) { SegmentExclusionVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
