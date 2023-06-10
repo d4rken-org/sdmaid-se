@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.lists.BindableVH
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.lists.selection.SelectableItem
 import javax.inject.Inject
 
 
@@ -23,9 +25,11 @@ class AppControlListAdapter @Inject constructor() :
 
     override fun getItemCount(): Int = data.size
 
+    var tracker: SelectionTracker<Long>? = null
+
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is AppControlListRowVH.Item }) { AppControlListRowVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is AppControlListRowVH.Item }) { AppControlListRowVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
@@ -33,7 +37,7 @@ class AppControlListAdapter @Inject constructor() :
         parent: ViewGroup
     ) : VH(layoutId, parent), BindableVH<D, B>
 
-    interface Item : DifferItem {
+    interface Item : DifferItem, SelectableItem {
         val appInfo: AppInfo
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->

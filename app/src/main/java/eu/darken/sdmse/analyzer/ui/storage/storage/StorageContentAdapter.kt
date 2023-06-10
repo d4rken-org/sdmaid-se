@@ -26,10 +26,10 @@ class StorageContentAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is AppCategoryVH.Item }) { AppCategoryVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is MediaCategoryVH.Item }) { MediaCategoryVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SystemCategoryVH.Item }) { SystemCategoryVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is AppCategoryVH.Item }) { AppCategoryVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is MediaCategoryVH.Item }) { MediaCategoryVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SystemCategoryVH.Item }) { SystemCategoryVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

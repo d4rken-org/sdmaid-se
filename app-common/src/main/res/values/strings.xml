@@ -110,6 +110,8 @@
     <string name="general_enable_service_action">Enable service</string>
     <string name="general_undo_action">Undo</string>
 
+    <string name="general_list_select_all_action">Select all</string>
+
     <string name="general_path_label">Path</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Size</string>

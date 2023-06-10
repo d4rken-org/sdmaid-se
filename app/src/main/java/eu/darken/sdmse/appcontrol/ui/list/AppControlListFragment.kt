@@ -1,6 +1,9 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import android.os.Bundle
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
@@ -11,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -20,6 +24,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.lists.setupSelectionCommon
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -103,7 +108,29 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         }
 
         val adapter = AppControlListAdapter()
+
         ui.list.setupDefaults(adapter)
+
+        val tracker = ui.list.setupSelectionCommon(
+            tag = TAG,
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_appcontrol_list_cab,
+            toolbar = ui.toolbar,
+            onPrepare = { mode: ActionMode, menu: Menu ->
+                true
+            },
+            onSelected = { mode: ActionMode, item: MenuItem, selected ->
+                when (item.itemId) {
+                    R.id.action_exclude_selection -> {
+                        vm.exclude(selected)
+                        mode.finish()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
 
         ui.apply {
             val itemLabler: (Int) -> FastScrollItemIndicator? = { pos ->
@@ -187,10 +214,18 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         vm.events.observe2(ui) {
             when (it) {
                 is AppControlListEvents.ConfirmDeletion -> {}
+                is AppControlListEvents.ExclusionsCreated -> Snackbar.make(
+                    requireView(),
+                    requireContext().getQuantityString2(R.plurals.exclusion_x_new_exclusions, it.count),
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
         }
 
-        ui.refreshAction.setOnClickListener { vm.refresh() }
+        ui.refreshAction.setOnClickListener {
+            tracker.clearSelection()
+            vm.refresh()
+        }
 
         super.onViewCreated(view, savedInstanceState)
     }

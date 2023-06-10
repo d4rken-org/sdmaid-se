@@ -29,13 +29,13 @@ class SetupAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is UsageStatsSetupCardVH.Item }) { UsageStatsSetupCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AccessibilitySetupCardVH.Item }) { AccessibilitySetupCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is NotificationSetupCardVH.Item }) { NotificationSetupCardVH(it) })
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is UsageStatsSetupCardVH.Item }) { UsageStatsSetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AccessibilitySetupCardVH.Item }) { AccessibilitySetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is NotificationSetupCardVH.Item }) { NotificationSetupCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

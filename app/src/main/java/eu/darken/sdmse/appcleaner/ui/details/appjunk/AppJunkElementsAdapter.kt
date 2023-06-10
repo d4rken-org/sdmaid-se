@@ -27,13 +27,13 @@ class AppJunkElementsAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementHeaderVH.Item }) { AppJunkElementHeaderVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementFileCategoryVH.Item }) {
+        addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is AppJunkElementHeaderVH.Item }) { AppJunkElementHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppJunkElementFileCategoryVH.Item }) {
             AppJunkElementFileCategoryVH(it)
         })
-        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementFileVH.Item }) { AppJunkElementFileVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is AppJunkElementInaccessibleVH.Item }) {
+        addMod(TypedVHCreatorMod({ data[it] is AppJunkElementFileVH.Item }) { AppJunkElementFileVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AppJunkElementInaccessibleVH.Item }) {
             AppJunkElementInaccessibleVH(
                 it
             )

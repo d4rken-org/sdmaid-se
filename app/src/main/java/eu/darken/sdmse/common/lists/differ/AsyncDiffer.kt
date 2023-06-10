@@ -29,7 +29,7 @@ class AsyncDiffer<A, T : DifferItem> internal constructor(
         get() = synchronized(internalList) { internalList }
 
     init {
-        adapter.modules.add(0, StableIdMod(currentList))
+        adapter.addMod(position = 0, mod = StableIdMod(currentList))
     }
 
     fun submitUpdate(newData: List<T>) {
