@@ -58,7 +58,7 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                     setTitle(R.string.appcleaner_include_minimumsize_label)
                     setView(dialogLayout.root)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
-                        settings.minCacheSizeBytes.valueBlocking = dialogLayout.slider.value.toLong() * 1024L * 1024L
+                        settings.minCacheSizeBytes.valueBlocking = dialogLayout.slider.value.toLong() * 1024L
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
