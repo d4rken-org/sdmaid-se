@@ -18,6 +18,13 @@ class ContentItemVH(parent: ViewGroup) :
         R.layout.analyzer_content_item_vh,
         parent
     ) {
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { AnalyzerContentItemVhBinding.bind(itemView) }
 
@@ -25,6 +32,7 @@ class ContentItemVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val content = item.content
 
         contentIcon.apply {
@@ -73,27 +81,20 @@ class ContentItemVH(parent: ViewGroup) :
             progress = (((content.size ?: 0L) / (item.parent?.size ?: 1L).toDouble()) * 100).toInt()
         }
 
-        root.apply {
-            setOnClickListener { item.onItemClicked() }
-            if (content.inaccessible) {
-                setOnLongClickListener(null)
-            } else {
-                setOnLongClickListener {
-                    item.onItemLongPressed()
-                    true
-                }
-            }
-        }
+        root.setOnClickListener { item.onItemClicked() }
     }
 
     data class Item(
         val parent: ContentItem?,
         val content: ContentItem,
         val onItemClicked: () -> Unit,
-        val onItemLongPressed: () -> Unit,
     ) : ContentAdapter.Item {
 
         override val stableId: Long = content.path.hashCode().toLong()
+        override val itemSelectionKey: String? = when {
+            parent == null -> null
+            else -> content.path.path
+        }
     }
 
 }

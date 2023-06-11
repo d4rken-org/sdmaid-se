@@ -18,7 +18,7 @@ class PackageExclusionVH(parent: ViewGroup) :
 
     private var lastItem: Item? = null
     override val itemSelectionKey: String?
-        get() = lastItem?.exclusion?.id
+        get() = lastItem?.itemSelectionKey
 
     override fun updatedSelectionState(selected: Boolean) {
         itemView.isActivated = selected

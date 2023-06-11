@@ -10,6 +10,7 @@ data class DeviceStorage(
     val hardware: Hardware,
     val spaceCapacity: Long,
     val spaceFree: Long,
+    val setupIncomplete: Boolean
 ) {
     val spaceUsed: Long
         get() = spaceCapacity - spaceFree

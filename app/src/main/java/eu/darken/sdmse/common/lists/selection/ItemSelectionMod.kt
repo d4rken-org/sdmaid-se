@@ -17,12 +17,14 @@ class ItemSelectionMod constructor(
 
         vh.updatedSelectionState(tracker.isSelected(vh.itemSelectionKey))
 
-        vh.itemSelectionKey?.let { selectionKey ->
-            vh.itemView.setOnLongClickListener {
-                tracker.select(selectionKey)
-                true
+        vh.itemSelectionKey
+            ?.let { key ->
+                vh.itemView.setOnLongClickListener {
+                    tracker.select(key)
+                    true
+                }
             }
-        }
+            ?: vh.itemView.setOnLongClickListener(null)
 
     }
 }

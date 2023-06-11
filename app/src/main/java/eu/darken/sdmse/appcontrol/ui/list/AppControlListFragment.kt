@@ -122,7 +122,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             },
             onSelected = { mode: ActionMode, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
                 when (item.itemId) {
-                    R.id.action_exclude_selection -> {
+                    R.id.action_exclude_selected -> {
                         vm.exclude(selected)
                         mode.finish()
                         true

@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.lists.binding
@@ -26,6 +27,10 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         secondary.text = when (storage.type) {
             DeviceStorage.Type.PRIMARY -> getString(R.string.analyzer_storage_type_primary_description)
             DeviceStorage.Type.SECONDARY -> getString(R.string.analyzer_storage_type_secondary_description)
+        }
+        tertiary.apply {
+            isVisible = item.storage.setupIncomplete
+            text = getString(R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
         }
 
         hardwareIcon.setImageResource(

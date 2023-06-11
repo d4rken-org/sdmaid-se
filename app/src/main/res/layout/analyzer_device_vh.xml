@@ -67,11 +67,24 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@id/available"
+            app:layout_constraintBottom_toTopOf="@id/tertiary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/progress"
             app:layout_constraintTop_toBottomOf="@id/primary"
             tools:text="Your primary storage, e.g. the device's build in storage chip." />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tertiary"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold"
+            android:textColor="?colorError"
+            app:layout_constraintEnd_toEndOf="@id/secondary"
+            app:layout_constraintStart_toStartOf="@id/secondary"
+            app:layout_constraintTop_toBottomOf="@id/secondary"
+            tools:text="@string/analyzer_storage_content_type_app_setup_incomplete_hint" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/available"
@@ -86,7 +99,7 @@
             app:layout_constraintEnd_toStartOf="@id/capacity"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/progress"
-            app:layout_constraintTop_toBottomOf="@id/secondary"
+            app:layout_constraintTop_toBottomOf="@id/tertiary"
             tools:text="13.59 GB available" />
 
         <com.google.android.material.textview.MaterialTextView

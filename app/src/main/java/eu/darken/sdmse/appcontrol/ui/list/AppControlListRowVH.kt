@@ -24,9 +24,9 @@ class AppControlListRowVH(parent: ViewGroup) :
 
     override val viewBinding = lazy { AppcontrolListItemBinding.bind(itemView) }
 
-    private var lastAppInfo: AppInfo? = null
+    private var lastItem: Item? = null
     override val itemSelectionKey: String?
-        get() = lastAppInfo?.installId?.toString()
+        get() = lastItem?.itemSelectionKey
 
     override fun updatedSelectionState(selected: Boolean) {
         itemView.isActivated = selected
@@ -36,8 +36,8 @@ class AppControlListRowVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val appInfo = item.appInfo
-        lastAppInfo = appInfo
         icon.loadAppIcon(appInfo.pkg)
         primary.text = appInfo.label.get(context)
         secondary.text = appInfo.pkg.packageName

@@ -30,7 +30,6 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.exists
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import kotlinx.coroutines.flow.*
@@ -122,12 +121,6 @@ class ContentFragmentVM @Inject constructor(
                             }
                         }
                     },
-                    onItemLongPressed = {
-                        launch {
-                            val exclusionExists = exclusionManager.exists(PathExclusion.createId(content.path))
-                            events.postValue(ContentItemEvents.ContentLongPressActions(content, exclusionExists))
-                        }
-                    }
                 )
             }
 
@@ -173,7 +166,8 @@ class ContentFragmentVM @Inject constructor(
             targetPkg = targetInstallId,
             targets = targets
         )
-        analyzer.submit(task)
+        val result = analyzer.submit(task) as ContentDeleteTask.Result
+        events.postValue(ContentItemEvents.ContentDeleted(result.itemCount, result.freedSpace))
     }
 
     fun onNavigateBack() {
@@ -185,13 +179,45 @@ class ContentFragmentVM @Inject constructor(
     }
 
     fun openExclusion(item: ContentItem) = launch {
-        log(TAG) { "createExclusion(${item.path})" }
+        log(TAG) { "openExclusion(${item.path})" }
         MainDirections.goToPathExclusionEditor(
             exclusionId = null,
             initial = PathExclusionEditorOptions(
                 targetPath = item.path,
             ),
         ).navigate()
+    }
+
+    fun delete(items: List<ContentAdapter.Item>) {
+        log(TAG) { "delete(${items.size})" }
+        val targets = items
+            .map {
+                when (it) {
+                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentGroupVH.Item -> it.contentGroup.contents
+                    else -> throw IllegalArgumentException("Unknown type $it")
+                }
+            }
+            .flatten()
+            .toSet()
+        delete(targets)
+    }
+
+    fun exclude(items: List<ContentAdapter.Item>) = launch {
+        log(TAG) { "exclude(${items.size})" }
+        val targets = items
+            .map {
+                when (it) {
+                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentGroupVH.Item -> it.contentGroup.contents
+                    else -> throw IllegalArgumentException("Unknown type $it")
+                }
+            }
+            .flatten()
+            .map { PathExclusion(path = it.path) }
+            .toSet()
+        exclusionManager.save(targets)
+        events.postValue(ContentItemEvents.ExclusionsCreated(targets.size))
     }
 
     data class State(

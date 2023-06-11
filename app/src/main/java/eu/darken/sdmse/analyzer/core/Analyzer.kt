@@ -162,13 +162,15 @@ class Analyzer @Inject constructor(
                 ?.let { true } ?: false
         } ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
         val oldGroup = _oldGroup!!
-
+        var freedSpace = 0L
         val newContents = oldGroup.contents
             .toFlatContent()
             .filter { item ->
-                task.targets.any { target ->
-                    item.path != target && !item.path.isDescendantOf(target)
+                val notDeleted = task.targets.none { target ->
+                    item.path == target || item.path.isDescendantOf(target)
                 }
+                if (!notDeleted) freedSpace += item.itemSize ?: 0L
+                notDeleted
             }
             .toNestedContent()
 
@@ -202,7 +204,11 @@ class Analyzer @Inject constructor(
             this[task.storageId] = this[task.storageId]!!.minus(oldCategory).plus(newCategory)
         }
 
-        return ContentDeleteTask.Result(itemCount = 0)
+
+        return ContentDeleteTask.Result(
+            itemCount = task.targets.size,
+            freedSpace = freedSpace,
+        )
     }
 
     data class Data(

@@ -39,9 +39,13 @@ class DeviceStorageFragmentVM @Inject constructor(
                 DeviceStorageItemVH.Item(
                     storage = storage,
                     onItemClicked = {
-                        DeviceStorageFragmentDirections.actionDeviceStorageFragmentToStorageFragment(
-                            it.storage.id
-                        ).navigate()
+                        if (storage.setupIncomplete) {
+                            DeviceStorageFragmentDirections.goToSetup().navigate()
+                        } else {
+                            DeviceStorageFragmentDirections.actionDeviceStorageFragmentToStorageFragment(
+                                it.storage.id
+                            ).navigate()
+                        }
                     }
                 )
             },
