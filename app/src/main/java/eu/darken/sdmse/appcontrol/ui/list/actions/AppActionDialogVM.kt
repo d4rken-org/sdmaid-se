@@ -31,6 +31,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
@@ -157,7 +158,7 @@ class AppActionDialogVM @Inject constructor(
             }
         )
 
-        val disableAction = if (rootManager.useRoot()) {
+        val disableAction = if (rootManager.useRootNow()) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {

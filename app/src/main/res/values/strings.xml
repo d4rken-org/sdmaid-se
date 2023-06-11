@@ -324,6 +324,7 @@
         <item quantity="one">%d app detected</item>
         <item quantity="other">%d apps detected</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Toggle apps</string>
     <string name="appcontrol_toggle_app_enable_action">Enable app</string>
     <string name="appcontrol_toggle_app_disable_action">Disable app</string>
     <string name="appcontrol_toggle_app_enable_description">Enabling an app allows it to run and may make it visible in your launcher if it has an activity.</string>
@@ -333,7 +334,6 @@
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">Launch app</string>
-    <string name="appcontrol_app_uninstall_title">Uninstall app</string>
     <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude app</string>

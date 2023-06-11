@@ -8,7 +8,9 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -50,7 +52,7 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
-                coEvery { useRoot() } returns true
+                every { useRoot } returns flowOf(true)
             }
         ).isEnabled() shouldBe true
 
@@ -60,7 +62,7 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
-                coEvery { useRoot() } returns false
+                every { useRoot } returns flowOf(false)
             }
         ).isEnabled() shouldBe false
     }

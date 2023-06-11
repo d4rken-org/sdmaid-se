@@ -103,9 +103,7 @@ fun <AdapterT, ItemT : SelectableItem> RecyclerView.setupSelectionCommon(
             }
 
             else -> {
-                val selectedItems = tracker.selection.map { key ->
-                    adapter.data.first { it.itemSelectionKey == key }
-                }
+                val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
                 onSelected(mode, menuItem, selectedItems)
             }
         }

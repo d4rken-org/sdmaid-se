@@ -80,11 +80,13 @@
     <string name="general_update_action">Update</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>
+    <string name="general_delete_selection_action">Delete selection</string>
     <string name="general_delete_all_action">Delete all</string>
     <string name="general_show_details_action">Show details</string>
 
     <string name="general_delete_confirmation_title">Confirm deletion</string>
     <string name="general_delete_confirmation_message_x">Delete \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Delete %d selected items?</string>
     <string name="general_delete_confirmation_message_x_for_x">Delete \"%1$s\" for \"%2$s\"?</string>
 
     <string name="general_clean_confirmation_title">Confirm cleaning</string>
@@ -116,6 +118,7 @@
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Size</string>
     <string name="general_exclude_action">Exclude</string>
+    <string name="general_exclude_selection_action">Exclude selection</string>
     <string name="general_exclude_all_action">Exclude all</string>
 
     <string name="general_device_label">Device</string>

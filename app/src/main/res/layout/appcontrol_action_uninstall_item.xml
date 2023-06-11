@@ -33,7 +33,7 @@
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginBottom="8dp"
-        android:text="@string/appcontrol_app_uninstall_title" />
+        android:text="@string/general_delete_action" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"

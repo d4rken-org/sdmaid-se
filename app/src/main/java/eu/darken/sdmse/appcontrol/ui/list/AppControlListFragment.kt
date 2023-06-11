@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +37,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     override val vm: AppControlListFragmentVM by viewModels()
     override val ui: AppcontrolListFragmentBinding by viewBinding()
     private var searchView: SearchView? = null
+    private var showRootActions: Boolean = false
 
     val DrawerLayout.isDrawerOpen: Boolean
         get() = isDrawerOpen(GravityCompat.END)
@@ -117,13 +119,45 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             cabMenuRes = R.menu.menu_appcontrol_list_cab,
             toolbar = ui.toolbar,
             onPrepare = { mode: ActionMode, menu: Menu ->
+                menu.findItem(R.id.action_toggle_selection)?.isVisible = showRootActions
                 true
             },
-            onSelected = { mode: ActionMode, item: MenuItem, selected ->
+            onSelected = { mode: ActionMode, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selection -> {
                         vm.exclude(selected)
                         mode.finish()
+                        true
+                    }
+
+                    R.id.action_toggle_selection -> {
+                        vm.toggle(selected)
+                        mode.finish()
+                        true
+                    }
+
+                    R.id.action_uninstall_selection -> {
+                        MaterialAlertDialogBuilder(requireContext()).apply {
+                            setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                            setMessage(
+                                if (selected.size > 1) {
+                                    getString(
+                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                        selected.size
+                                    )
+                                } else {
+                                    getString(
+                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                        selected.single().appInfo.label.get(requireContext())
+                                    )
+                                }
+                            )
+                            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                                vm.uninstall(selected)
+                                mode.finish()
+                            }
+                            setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                        }.show()
                         true
                     }
 
@@ -162,6 +196,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         }
 
         vm.state.observe2(ui) { state ->
+            showRootActions = state.showRootActions
+
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
             fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()

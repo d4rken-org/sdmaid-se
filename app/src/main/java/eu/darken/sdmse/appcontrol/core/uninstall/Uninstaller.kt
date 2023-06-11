@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
@@ -42,7 +43,7 @@ class Uninstaller @Inject constructor(
     suspend fun uninstall(installId: Installed.InstallId) {
         log(TAG, INFO) { "Uninstalling $installId" }
 
-        if (rootManager.useRoot()) {
+        if (rootManager.useRootNow()) {
             adoptChildResource(shellOps)
             val userId = installId.userHandle.handleId
             val pkgName = installId.pkgId.name

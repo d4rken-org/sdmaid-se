@@ -14,7 +14,13 @@ import eu.darken.sdmse.common.pkgs.sources.PackageManagerPkgSource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -57,15 +63,9 @@ class PkgRepo @Inject constructor(
         pkgEventListener.events
             .onEach {
                 log(TAG) { "Refreshing package cache due to event: $it" }
-                reload()
+                refresh()
             }
             .launchIn(appScope)
-    }
-
-
-    suspend fun reload() = cacheLock.withLock {
-        log(TAG) { "reload()" }
-        load()
     }
 
     private suspend fun load() {
@@ -168,6 +168,12 @@ class PkgRepo @Inject constructor(
         // TODO refreshing the whole cache is inefficient, implement single target refresh?
         cacheLock.withLock { load() }
         return queryCache(id, userHandle).mapNotNull { it.data }
+    }
+
+    suspend fun refresh(): Collection<Installed> = cacheLock.withLock {
+        log(TAG) { "refresh()" }
+        load()
+        pkgCache.value.pkgData.mapNotNull { it.value.data }
     }
 
     data class CacheKey(

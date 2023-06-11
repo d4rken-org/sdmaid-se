@@ -2,13 +2,14 @@ package eu.darken.sdmse.common.root
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.sync.Mutex
@@ -58,11 +59,11 @@ class RootManager @Inject constructor(
     }
 
     /**
-     * Did the user consent to SD Maid using root?
+     * Did the user consent to SD Maid using root and is root available?
      */
-    suspend fun useRoot(): Boolean {
-        return (rootSettings.useRoot.value() ?: false) && isRooted()
-    }
+    val useRoot: Flow<Boolean> = rootSettings.useRoot.flow
+        .mapLatest { (it ?: false) && isRooted() }
+        .shareLatest(appScope)
 
     companion object {
         internal val TAG = logTag("Root", "Manager")

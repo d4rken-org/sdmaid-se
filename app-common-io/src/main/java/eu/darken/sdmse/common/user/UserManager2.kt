@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.root.ShellOpsCmd
 import javax.inject.Inject
@@ -42,7 +43,7 @@ class UserManager2 @Inject constructor(
     suspend fun allUsers(): Set<UserProfile2> {
         val profiles = mutableSetOf<UserProfile2>()
 
-        if (rootManager.useRoot()) {
+        if (rootManager.useRootNow()) {
             val shellResult = shellOps.execute(ShellOpsCmd("pm list users"), mode = ShellOps.Mode.ROOT)
             if (shellResult.isSuccess) {
                 shellResult.output

@@ -62,7 +62,7 @@ class DebugCardProvider @Inject constructor(
             },
             onReloadPkgs = {
                 vm.launch {
-                    pkgRepo.reload()
+                    pkgRepo.refresh()
                 }
             },
             onViewLog = {

@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
@@ -51,7 +52,7 @@ class PkgOps @Inject constructor(
         return rootServiceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
-    suspend fun hasRoot(): Boolean = rootManager.useRoot()
+    suspend fun hasRoot(): Boolean = rootManager.useRootNow()
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
         client.getUserNameForUID(uid)
