@@ -13,6 +13,13 @@ class SegmentExclusionVH(parent: ViewGroup) :
         R.layout.exclusion_list_item_segment,
         parent
     ) {
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.exclusion?.id
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { ExclusionListItemSegmentBinding.bind(itemView) }
 
@@ -20,6 +27,7 @@ class SegmentExclusionVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val excl = item.exclusion
         primary.text = excl.label.get(context)
 
@@ -30,8 +38,8 @@ class SegmentExclusionVH(parent: ViewGroup) :
         override val exclusion: SegmentExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
-
         override val stableId: Long = exclusion.hashCode().toLong()
+        override val itemSelectionKey: String = exclusion.id
     }
 
 }

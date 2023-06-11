@@ -33,26 +33,21 @@ class ExclusionManager @Inject constructor(
             .launchIn(appScope + dispatcherProvider.IO)
     }
 
-    suspend fun save(exclusion: Exclusion): Boolean {
-        log(TAG) { "add(): $exclusion" }
-        _exclusions.updateAsync {
-            this.filter { it.id != exclusion.id }.plus(exclusion).toSet()
+    suspend fun save(exclusions: Set<Exclusion>) {
+        log(TAG) { "save(): $exclusions" }
+        _exclusions.updateBlocking {
+            val toOverwrite = exclusions.map { it.id }
+            this
+                .filter { !toOverwrite.contains(it.id) }
+                .plus(exclusions).toSet()
         }
-        return true
     }
 
-    suspend fun remove(id: ExclusionId): Boolean {
-        log(TAG) { "remove(): $id" }
-        val target = currentExclusions().single { it.id == id }
-        return remove(target)
-    }
-
-    suspend fun remove(exclusion: Exclusion): Boolean {
-        log(TAG) { "remove(): $exclusion" }
-        _exclusions.updateAsync {
-            this - exclusion
-        }
-        return true
+    suspend fun remove(ids: Set<ExclusionId>) {
+        log(TAG) { "remove(): $ids" }
+        val targets = currentExclusions().filter { ids.contains(it.id) }.toSet()
+        log(TAG) { "remove(): $targets" }
+        _exclusions.updateBlocking { this - targets }
     }
 
     companion object {

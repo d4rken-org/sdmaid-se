@@ -239,9 +239,9 @@ class AppControlListFragmentVM @Inject constructor(
         val exclusions = items.map {
             val installId = it.appInfo.installId
             PkgExclusion(pkgId = installId.pkgId)
-        }
-        val successCount = exclusions.map { exclusionManager.save(it) }
-        events.postValue(AppControlListEvents.ExclusionsCreated(successCount.size))
+        }.toSet()
+        exclusionManager.save(exclusions)
+        events.postValue(AppControlListEvents.ExclusionsCreated(items.size))
     }
 
     fun toggle(items: Collection<AppControlListAdapter.Item>) = launch {

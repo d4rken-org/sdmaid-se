@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.lists.selection.ItemSelectionKeyProvider
 import eu.darken.sdmse.common.lists.selection.ItemSelectionLookup
 import eu.darken.sdmse.common.lists.selection.ItemSelectionMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.common.uix.Fragment3
 import me.zhanghai.android.fastscroll.FastScrollerBuilder
 
 fun RecyclerView.setupDefaults(
@@ -46,17 +47,15 @@ fun RecyclerView.setupDefaults(
     }
 }
 
-fun <AdapterT> RecyclerView.setupSelectionBase(
-    tag: String,
-    adapter: AdapterT,
+fun <AdapterT> AdapterT.setupSelectionBase(
+    list: RecyclerView,
     selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
 ): SelectionTracker<String> where AdapterT : DataAdapter<*>, AdapterT : ModularAdapter<*> {
-    log(tag) { "Setting up selection $tag on $this with $adapter" }
-
-    val list = this
+    val adapter = this
+    log { "Setting up selection on $list with $adapter" }
     val tracker = SelectionTracker
         .Builder(
-            tag,
+            adapter.javaClass.canonicalName!!,
             list,
             ItemSelectionKeyProvider(adapter),
             ItemSelectionLookup(list),
@@ -70,17 +69,18 @@ fun <AdapterT> RecyclerView.setupSelectionBase(
     return tracker
 }
 
-fun <AdapterT, ItemT : SelectableItem> RecyclerView.setupSelectionCommon(
-    tag: String,
+fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
+    list: RecyclerView = ui!!.root.findViewById(R.id.list),
+    toolbar: MaterialToolbar = ui!!.root.findViewById(R.id.toolbar),
     adapter: AdapterT,
-    toolbar: MaterialToolbar,
     @MenuRes cabMenuRes: Int,
     onPrepare: (ActionMode, Menu) -> Boolean,
-    onSelected: (ActionMode, MenuItem, Collection<ItemT>) -> Boolean,
+    onSelected: (ActionMode, MenuItem, List<ItemT>) -> Boolean,
     selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
 ): SelectionTracker<String> where AdapterT : DataAdapter<ItemT>, AdapterT : ModularAdapter<*> {
-    val tracker = setupSelectionBase(tag, adapter, selectionPredicate)
-    log(tag) { "Performing common setup for $toolbar" }
+    val context = requireContext()
+    val tracker = adapter.setupSelectionBase(list, selectionPredicate)
+    log { "Performing common setup for $toolbar" }
 
     var actionMode: ActionMode? = null
     val cabCallback = object : ActionMode.Callback {

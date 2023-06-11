@@ -16,12 +16,21 @@ class PackageExclusionVH(parent: ViewGroup) :
         parent
     ) {
 
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.exclusion?.id
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
+
     override val viewBinding = lazy { ExclusionListItemPackageBinding.bind(itemView) }
 
     override val onBindData: ExclusionListItemPackageBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         item.pkg?.let { icon.loadAppIcon(it) }
         primary.text = item.exclusion.label.get(context)
 
@@ -33,8 +42,8 @@ class PackageExclusionVH(parent: ViewGroup) :
         override val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
-
-        override val stableId: Long = exclusion.hashCode().toLong()
+        override val stableId: Long = exclusion.id.hashCode().toLong()
+        override val itemSelectionKey: String = exclusion.id
     }
 
 }

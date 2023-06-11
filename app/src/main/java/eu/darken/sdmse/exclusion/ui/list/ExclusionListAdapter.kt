@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
@@ -36,9 +38,9 @@ class ExclusionListAdapter @Inject constructor() :
     abstract class BaseVH<D : Item, B : ViewBinding>(
         @LayoutRes layoutId: Int,
         parent: ViewGroup
-    ) : VH(layoutId, parent), BindableVH<D, B>
+    ) : VH(layoutId, parent), BindableVH<D, B>, SelectableVH
 
-    interface Item : DifferItem {
+    interface Item : DifferItem, SelectableItem {
 
         val exclusion: Exclusion
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
