@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -20,7 +21,7 @@ class AppCleanerSettingsFragmentVM @Inject constructor(
     val state = flow {
         emit(
             State(
-                isRooted = rootManager.useRoot()
+                isRooted = rootManager.useRootNow()
             )
         )
     }.asLiveData2()

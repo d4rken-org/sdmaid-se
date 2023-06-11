@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -60,7 +61,7 @@ class LogDropboxFilter @Inject constructor(
 
         override suspend fun isEnabled(): Boolean {
             val enabled = settings.filterLogDropboxEnabled.value()
-            val useRoot = rootManager.useRoot()
+            val useRoot = rootManager.useRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
         }

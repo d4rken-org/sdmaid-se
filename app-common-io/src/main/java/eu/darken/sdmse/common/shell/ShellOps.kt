@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.root.ShellOpsClient
@@ -45,7 +46,7 @@ class ShellOps @Inject constructor(
         block()
     }
 
-    suspend fun hasRoot(): Boolean = rootManager.useRoot()
+    suspend fun hasRoot(): Boolean = rootManager.useRootNow()
 
     suspend fun execute(cmd: ShellOpsCmd, mode: Mode = Mode.AUTO): ShellOpsResult = runIO {
         try {

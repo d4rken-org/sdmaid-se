@@ -16,7 +16,10 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherReceiver
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
@@ -45,7 +48,7 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
     }
 
     val state = combine(
-        flow { emit(rootManager.useRoot()) },
+        rootManager.useRoot,
         upgradeRepo.upgradeInfo.map { it.isPro }
     ) { isRooted, isPro ->
         State(

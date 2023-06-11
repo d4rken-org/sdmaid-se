@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.pathExclusions
@@ -85,7 +86,7 @@ class PostProcessorModule @Inject constructor(
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
 
-        val useRoot = rootManager.useRoot()
+        val useRoot = rootManager.useRootNow()
         val useShizuku = settings.useShizuku.value()
 
         val edgeCaseMap = mutableMapOf<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>()

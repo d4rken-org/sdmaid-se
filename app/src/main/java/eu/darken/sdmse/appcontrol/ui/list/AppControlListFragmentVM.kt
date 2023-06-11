@@ -6,6 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.*
+import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
+import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -16,6 +18,8 @@ import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -34,6 +38,7 @@ class AppControlListFragmentVM @Inject constructor(
     private val appControl: AppControl,
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,
+    private val rootManager: RootManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -168,6 +173,7 @@ class AppControlListFragmentVM @Inject constructor(
             searchQuery = query,
             listSort = listSort,
             listFilter = listFilter,
+            showRootActions = rootManager.useRootNow(),
         )
     }.asLiveData2()
 
@@ -229,6 +235,7 @@ class AppControlListFragmentVM @Inject constructor(
     }
 
     fun exclude(items: Collection<AppControlListAdapter.Item>) = launch {
+        log(TAG) { "exclude(${items.size})" }
         val exclusions = items.map {
             val installId = it.appInfo.installId
             PkgExclusion(pkgId = installId.pkgId)
@@ -237,12 +244,25 @@ class AppControlListFragmentVM @Inject constructor(
         events.postValue(AppControlListEvents.ExclusionsCreated(successCount.size))
     }
 
+    fun toggle(items: Collection<AppControlListAdapter.Item>) = launch {
+        log(TAG) { "toggle(${items.size})" }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        appControl.submit(AppControlToggleTask(targets = targets))
+    }
+
+    fun uninstall(items: Collection<AppControlListAdapter.Item>) = launch {
+        log(TAG) { "uninstall(${items.size})" }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        appControl.submit(UninstallTask(targets = targets))
+    }
+
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progress: Progress.Data?,
         val searchQuery: String,
         val listSort: SortSettings,
         val listFilter: FilterSettings,
+        val showRootActions: Boolean,
     )
 
     companion object {

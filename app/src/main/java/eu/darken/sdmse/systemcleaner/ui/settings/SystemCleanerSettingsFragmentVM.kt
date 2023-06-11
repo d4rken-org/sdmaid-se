@@ -8,7 +8,6 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -21,7 +20,7 @@ class SystemCleanerSettingsFragmentVM @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     val state = combine(
-        flow { emit(rootManager.useRoot()) },
+        rootManager.useRoot,
         upgradeRepo.upgradeInfo.map { it.isPro }
     ) { isRooted, isPro ->
         State(
