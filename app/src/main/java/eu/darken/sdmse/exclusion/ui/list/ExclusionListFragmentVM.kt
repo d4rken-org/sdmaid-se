@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -13,6 +14,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
@@ -32,6 +34,8 @@ class ExclusionListFragmentVM @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    val events = SingleLiveEvent<ExclusionListEvents>()
 
     val state = exclusionManager.exclusions
         .map { exclusions ->
@@ -98,6 +102,18 @@ class ExclusionListFragmentVM @Inject constructor(
         val items: List<ExclusionListAdapter.Item> = emptyList(),
         val loading: Boolean = true,
     )
+
+    fun restore(items: Set<Exclusion>) = launch {
+        log(TAG) { "restore(${items.size})" }
+        exclusionManager.save(items)
+    }
+
+    fun remove(items: List<ExclusionListAdapter.Item>) = launch {
+        log(TAG) { "remove(${items.size})" }
+        val exclusions = items.map { it.exclusion }.toSet()
+        exclusionManager.remove(exclusions.map { it.id }.toSet())
+        events.postValue(ExclusionListEvents.UndoRemove(exclusions))
+    }
 
     companion object {
         private val TAG = logTag("Exclusions", "List", "Fragment", "VM")

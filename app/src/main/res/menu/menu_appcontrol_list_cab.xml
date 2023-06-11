@@ -5,12 +5,12 @@
     <item
         android:id="@+id/action_uninstall_selection"
         android:icon="@drawable/ic_delete"
-        android:title="@string/general_delete_selection_action"
+        android:title="@string/general_delete_selected_action"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_exclude_selection"
         android:icon="@drawable/ic_shield_plus_24"
-        android:title="@string/general_exclude_selection_action"
+        android:title="@string/general_exclude_selected_action"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_toggle_selection"

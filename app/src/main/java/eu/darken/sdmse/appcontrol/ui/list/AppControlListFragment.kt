@@ -24,8 +24,8 @@ import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.lists.setupSelectionCommon
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -113,11 +113,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         ui.list.setupDefaults(adapter)
 
-        val tracker = ui.list.setupSelectionCommon(
-            tag = TAG,
+        val tracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_appcontrol_list_cab,
-            toolbar = ui.toolbar,
             onPrepare = { mode: ActionMode, menu: Menu ->
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showRootActions
                 true

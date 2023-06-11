@@ -8,7 +8,6 @@ import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.coil.loadAppIcon
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
@@ -30,7 +29,6 @@ class AppControlListRowVH(parent: ViewGroup) :
         get() = lastAppInfo?.installId?.toString()
 
     override fun updatedSelectionState(selected: Boolean) {
-        log { "updatedSelectionState: $bindingAdapterPosition -> $selected" }
         itemView.isActivated = selected
     }
 

@@ -1,6 +1,9 @@
 package eu.darken.sdmse.exclusion.ui.list
 
 import android.os.Bundle
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -8,10 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -86,11 +92,48 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
         val adapter = ExclusionListAdapter()
         ui.list.setupDefaults(adapter)
+        installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_exclusions_list_cab,
+            toolbar = ui.toolbar,
+            onPrepare = { mode: ActionMode, menu: Menu ->
+                false
+            },
+            onSelected = { mode: ActionMode, item: MenuItem, selected: List<ExclusionListAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_remove_selected -> {
+                        vm.remove(selected)
+                        mode.finish()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
 
         vm.state.observe2(ui) {
             adapter.update(it.items)
             loadingOverlay.isVisible = it.loading
             emptyOverlay.isVisible = it.items.isEmpty() && !it.loading
+        }
+
+        vm.events.observe2 { event ->
+            when (event) {
+                is ExclusionListEvents.UndoRemove -> Snackbar
+                    .make(
+                        requireView(),
+                        requireContext().getQuantityString2(
+                            eu.darken.sdmse.common.R.plurals.general_remove_x_items_success,
+                            event.exclusions.size
+                        ),
+                        Snackbar.LENGTH_INDEFINITE
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_undo_action) {
+                        vm.restore(event.exclusions)
+                    }
+                    .show()
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

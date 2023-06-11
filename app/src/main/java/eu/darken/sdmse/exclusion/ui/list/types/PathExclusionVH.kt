@@ -16,12 +16,21 @@ class PathExclusionVH(parent: ViewGroup) :
         parent
     ) {
 
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.exclusion?.id
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
+
     override val viewBinding = lazy { ExclusionListItemPathBinding.bind(itemView) }
 
     override val onBindData: ExclusionListItemPathBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         item.lookup?.let { icon.loadFilePreview(it) }
         primary.text = item.exclusion.label.get(context)
 
@@ -33,8 +42,8 @@ class PathExclusionVH(parent: ViewGroup) :
         override val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
     ) : ExclusionListAdapter.Item {
-
         override val stableId: Long = exclusion.hashCode().toLong()
+        override val itemSelectionKey: String = exclusion.id
     }
 
 }
