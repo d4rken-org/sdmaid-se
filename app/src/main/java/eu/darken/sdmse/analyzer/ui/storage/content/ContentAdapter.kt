@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.common.lists.selection.SelectableVH
 import javax.inject.Inject
 
 
@@ -31,9 +33,10 @@ class ContentAdapter @Inject constructor() :
     abstract class BaseVH<D : Item, B : ViewBinding>(
         @LayoutRes layoutId: Int,
         parent: ViewGroup
-    ) : VH(layoutId, parent), BindableVH<D, B>
+    ) : VH(layoutId, parent), BindableVH<D, B>, SelectableVH
 
-    interface Item : DifferItem {
+    interface Item : DifferItem, SelectableItem {
+
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

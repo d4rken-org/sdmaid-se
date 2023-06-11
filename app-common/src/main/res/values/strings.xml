@@ -87,10 +87,14 @@
     <string name="general_delete_confirmation_message_x">Delete \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Delete %d selected items?</string>
     <string name="general_delete_confirmation_message_x_for_x">Delete \"%1$s\" for \"%2$s\"?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Deleted %1$d item and freed %2$s</item>
+        <item quantity="other">Deleted %1$d items and freed %2$s</item>
+    </plurals>
 
     <string name="general_remove_action">Remove</string>
     <string name="general_remove_selected_action">Remove selected</string>
-    <plurals name="general_remove_x_items_success">
+    <plurals name="general_remove_success_x_items">
         <item quantity="one">One item was removed</item>
         <item quantity="other">%d items were removed</item>
     </plurals>

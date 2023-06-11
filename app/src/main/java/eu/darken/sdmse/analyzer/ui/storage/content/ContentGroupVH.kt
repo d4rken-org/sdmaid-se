@@ -17,10 +17,19 @@ class ContentGroupVH(parent: ViewGroup) :
 
     override val viewBinding = lazy { AnalyzerContentGroupVhBinding.bind(itemView) }
 
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
+
     override val onBindData: AnalyzerContentGroupVhBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val content = item.contentGroup
 
         primary.text = content.label?.get(context)
@@ -36,6 +45,7 @@ class ContentGroupVH(parent: ViewGroup) :
     ) : ContentAdapter.Item {
 
         override val stableId: Long = contentGroup.id.hashCode().toLong()
+        override val itemSelectionKey: String = contentGroup.id.value
     }
 
 }

@@ -3,20 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_uninstall_selection"
+        android:id="@+id/action_delete_selected"
         android:icon="@drawable/ic_delete"
         android:title="@string/general_delete_selected_action"
         app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_exclude_selected"
         android:icon="@drawable/ic_shield_plus_24"
         android:title="@string/general_exclude_selected_action"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_toggle_selection"
-        android:icon="@drawable/ic_snowflake_24"
-        android:title="@string/appcontrol_toggle_app_selection_action"
-        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/baseline_select_all_24"

@@ -18,7 +18,8 @@ data class ContentDeleteTask(
 
     @Parcelize
     data class Result(
-        private val itemCount: Int,
+        val itemCount: Int,
+        val freedSpace: Long,
     ) : AnalyzerTask.Result {
         override val primaryInfo: CaString
             get() = eu.darken.sdmse.common.R.string.general_result_success_message.toCaString()

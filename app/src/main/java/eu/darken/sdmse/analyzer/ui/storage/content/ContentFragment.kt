@@ -1,6 +1,10 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.os.Bundle
+import android.text.format.Formatter
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isInvisible
@@ -12,7 +16,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -49,6 +55,43 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
         val adapter = ContentAdapter()
         ui.list.setupDefaults(adapter)
+        installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_analyzer_content_list_cab,
+            toolbar = ui.toolbar,
+            onPrepare = { mode: ActionMode, menu: Menu ->
+                false
+            },
+            onSelected = { mode: ActionMode, item: MenuItem, selected: List<ContentAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_exclude_selected -> {
+                        vm.exclude(selected)
+                        mode.finish()
+                        true
+                    }
+
+                    R.id.action_delete_selected -> {
+                        MaterialAlertDialogBuilder(requireContext()).apply {
+                            setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                            setMessage(
+                                getString(
+                                    eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                    selected.size,
+                                )
+                            )
+                            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                                vm.delete(selected)
+                                mode.finish()
+                            }
+                            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                        }.show()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
 
         vm.state.observe2(ui) { state ->
             toolbar.title = state.title?.get(requireContext())
@@ -61,30 +104,26 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
         vm.events.observe2 { event ->
             when (event) {
-                is ContentItemEvents.ContentLongPressActions -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                    setMessage(
-                        getString(
-                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                            event.item.path.userReadablePath.get(context),
-                        )
-                    )
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.delete(setOf(event.item))
-                    }
-                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-
-                    setNeutralButton(
-                        if (event.hasExclusion) R.string.exclusion_edit_action else R.string.exclusion_create_action
-                    ) { _, _ ->
-                        vm.openExclusion(event.item)
-                    }
-                }.show()
-
                 is ContentItemEvents.ShowNoAccessHint -> Snackbar.make(
                     requireView(),
                     R.string.analyzer_content_access_opaque,
                     Snackbar.LENGTH_SHORT
+                ).show()
+
+                is ContentItemEvents.ExclusionsCreated -> Snackbar.make(
+                    requireView(),
+                    requireContext().getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                    Snackbar.LENGTH_LONG
+                ).show()
+
+                is ContentItemEvents.ContentDeleted -> Snackbar.make(
+                    requireView(),
+                    resources.getQuantityString(
+                        eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x_freed_y,
+                        event.count,
+                        event.count, Formatter.formatShortFileSize(requireContext(), event.freedSpace)
+                    ),
+                    Snackbar.LENGTH_LONG
                 ).show()
             }
         }
