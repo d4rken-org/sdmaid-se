@@ -9,9 +9,14 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.ErrorEventSource
 import eu.darken.sdmse.common.flow.DynamicStateFlow
-import kotlinx.coroutines.*
+import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 import kotlin.coroutines.CoroutineContext
 
 
@@ -19,14 +24,14 @@ abstract class ViewModel2(
     private val dispatcherProvider: DispatcherProvider = DefaultDispatcherProvider(),
 ) : ViewModel1() {
 
-    val vmScope = viewModelScope + dispatcherProvider.Default
-
     var launchErrorHandler: CoroutineExceptionHandler? = null
 
     private fun getVMContext(): CoroutineContext {
         val dispatcher = dispatcherProvider.Default
         return getErrorHandler()?.let { dispatcher + it } ?: dispatcher
     }
+
+    val vmScope = viewModelScope + getVMContext()
 
     private fun getErrorHandler(): CoroutineExceptionHandler? {
         val handler = launchErrorHandler
@@ -58,6 +63,8 @@ abstract class ViewModel2(
         }
     }
 
-    open fun <T> Flow<T>.launchInViewModel() = this.launchIn(vmScope)
+    open fun <T> Flow<T>.launchInViewModel() = this
+        .setupCommonEventHandlers(_tag) { "launchInViewModel()" }
+        .launchIn(vmScope)
 
 }

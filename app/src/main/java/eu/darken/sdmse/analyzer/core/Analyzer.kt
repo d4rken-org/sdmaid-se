@@ -119,7 +119,8 @@ class Analyzer @Inject constructor(
 
     private suspend fun scanStorageContents(task: StorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageContents(): $task" }
-        val target = storageDevices.value.single { it.id == task.target }
+        val target = storageDevices.value.singleOrNull { it.id == task.target }
+            ?: throw IllegalStateException("Couldn't find ${task.target}")
 
         val scanner = storageScanner.get()
 
