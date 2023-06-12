@@ -7,7 +7,6 @@ import com.bugsnag.android.Configuration
 import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.App
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
@@ -38,9 +37,10 @@ class GooglePlayReporting @Inject constructor(
         val isEnabled = generalSettings.isBugReporterEnabled.valueBlocking
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
-            ReLinker
-                .log { message -> log(App.TAG) { "ReLinker: $message" } }
-                .loadLibrary(application, "bugsnag-plugin-android-anr")
+        ReLinker
+            .log { message -> log(App.TAG) { "ReLinker: $message" } }
+            .loadLibrary(application, "bugsnag-plugin-android-anr")
+
         try {
             val bugsnagConfig = Configuration.load(context).apply {
                 if (generalSettings.isBugReporterEnabled.valueBlocking) {
@@ -48,7 +48,6 @@ class GooglePlayReporting @Inject constructor(
                     setUser(sdmId.id, null, null)
                     autoTrackSessions = true
                     addOnError(bugsnagErrorHandler.get())
-                    addMetadata("App", "buildFlavor", BuildConfigWrap.FLAVOR)
                     log(TAG) { "Bugsnag setup done!" }
                 } else {
                     autoTrackSessions = false
