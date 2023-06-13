@@ -13,16 +13,18 @@ import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -89,14 +91,14 @@ class StorageScanner @Inject constructor(
 
         return gatewaySwitch.useRes {
             fileForensics.useRes {
-                val mediaDir = volume?.directory
+                val storageDir = volume?.directory
                     ?.let { LocalPath.build(it) }
                     ?.let { gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO) }
 
-                val folders = mediaDir
-                    ?.let { mediaDir.lookupFiles(gatewaySwitch) }
+                val folders = storageDir?.lookedUp
+                    ?.listFiles(gatewaySwitch)
                     ?.filter { it.name != "Android" }
-                    ?.mapNotNull { fileForensics.findOwners(it.lookedUp) }
+                    ?.mapNotNull { fileForensics.findOwners(it) }
                     ?.filter { it.areaInfo.type == DataArea.Type.SDCARD }
                     ?.onEach { log(TAG) { "Top level dir: $it" } }
                     ?: emptySet()
@@ -106,7 +108,7 @@ class StorageScanner @Inject constructor(
                 val apps = scanForApps(storage)
 
                 updateProgressSecondary("Scanning media files")
-                val media = mediaDir
+                val media = storageDir
                     ?.let { scanForMedia(storage, it) }
                     ?: MediaCategory(storage.id, emptySet())
 
@@ -318,10 +320,15 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
 
-        val topLevelContents: Collection<ContentItem> = topLevelDirs.map { ownerInfo ->
+        val topLevelContents: Collection<ContentItem> = topLevelDirs.mapNotNull { ownerInfo ->
             updateProgressSecondary(ownerInfo.areaInfo.file.userReadablePath)
 
-            val lookup = gatewaySwitch.lookup(ownerInfo.areaInfo.file, type = GatewaySwitch.Type.AUTO)
+            val lookup = try {
+                gatewaySwitch.lookup(ownerInfo.areaInfo.file, type = GatewaySwitch.Type.AUTO)
+            } catch (e: ReadException) {
+                log(TAG, ERROR) { "Failed to look up top-level dir ${ownerInfo.areaInfo.file}: ${e.asLog()}" }
+                return@mapNotNull null
+            }
 
             val children = if (lookup.fileType == FileType.DIRECTORY) {
                 lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
