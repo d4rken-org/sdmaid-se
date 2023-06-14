@@ -51,7 +51,7 @@ class MainActivity : Activity2() {
             }
         }
 
-        navController.addOnDestinationChangedListener { controller, destination, bundle ->
+        navController.addOnDestinationChangedListener { _, destination, bundle ->
             Bugs.leaveBreadCrumb("Navigated to $destination with args $bundle")
         }
     }
