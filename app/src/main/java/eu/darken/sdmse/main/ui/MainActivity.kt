@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.navigation.findNavController
 import eu.darken.sdmse.common.uix.Activity2
@@ -48,6 +49,10 @@ class MainActivity : Activity2() {
             } else {
                 window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             }
+        }
+
+        navController.addOnDestinationChangedListener { controller, destination, bundle ->
+            Bugs.leaveBreadCrumb("Navigated to $destination with args $bundle")
         }
     }
 
