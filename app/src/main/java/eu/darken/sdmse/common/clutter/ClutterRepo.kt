@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.clutter
 
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -13,8 +12,7 @@ class ClutterRepo @Inject constructor(
     _markerSources: Set<@JvmSuppressWildcards MarkerSource>,
 ) : MarkerSource {
 
-    private val markerSources = _markerSources
-        .onEach { log(TAG, INFO) { "Loaded clutter source: $it" } }
+    private val markerSources = _markerSources.onEach { log(TAG) { "Loaded clutter source: $it" } }
 
     val sourceCount: Int = markerSources.size
 

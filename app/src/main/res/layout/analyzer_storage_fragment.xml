@@ -17,8 +17,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:layout_width="match_parent"
         style="@style/BaseRecyclerList"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingVertical="4dp"
@@ -45,7 +45,9 @@
         android:layout_margin="32dp"
         android:contentDescription="@string/general_refresh_action"
         android:src="@drawable/ic_baseline_refresh_24"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

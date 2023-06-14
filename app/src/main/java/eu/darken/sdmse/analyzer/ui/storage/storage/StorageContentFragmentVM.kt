@@ -14,6 +14,8 @@ import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryVH
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
@@ -34,59 +36,65 @@ class StorageContentFragmentVM @Inject constructor(
 
     init {
         analyzer.data
-            .take(1)
             .filter { it.categories[targetStorageId].isNullOrEmpty() }
+            .take(1)
             .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
+            .catch {
+                log(TAG, WARN) { "Storage unavailable $navArgs: ${it.asLog()}" }
+                StorageContentFragmentDirections.goToDashboard().navigate()
+            }
             .launchInViewModel()
     }
 
     val state = combine(
-        analyzer.data,
+        analyzer.data.filter { data -> data.storages.any { it.id == targetStorageId } },
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
+
+        val content = data.categories[targetStorageId]?.map { content ->
+            when (content) {
+                is AppCategory -> AppCategoryVH.Item(
+                    storage = storage,
+                    content = content,
+                    onItemClicked = {
+                        if (content.setupIncomplete) {
+                            MainDirections.goToSetup().navigate()
+                        } else {
+                            StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
+                                targetStorageId
+                            ).navigate()
+                        }
+                    }
+                )
+
+                is MediaCategory -> MediaCategoryVH.Item(
+                    storage = storage,
+                    content = content,
+                    onItemClicked = {
+                        StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = content.groups.single().id,
+                        ).navigate()
+                    }
+                )
+
+                is SystemCategory -> SystemCategoryVH.Item(
+                    storage = storage,
+                    content = content,
+                    onItemClick = {
+                        StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
+                            storageId = targetStorageId,
+                            groupId = content.groups.single().id,
+                        ).navigate()
+                    }
+                )
+            }
+        }
+
         State(
             storage = storage,
-            content = data.categories[targetStorageId]
-                ?.map { content ->
-                    when (content) {
-                        is AppCategory -> AppCategoryVH.Item(
-                            storage = storage,
-                            content = content,
-                            onItemClicked = {
-                                if (content.setupIncomplete) {
-                                    MainDirections.goToSetup().navigate()
-                                } else {
-                                    StorageContentFragmentDirections.actionStorageFragmentToAppsFragment(
-                                        targetStorageId
-                                    ).navigate()
-                                }
-                            }
-                        )
-
-                        is MediaCategory -> MediaCategoryVH.Item(
-                            storage = storage,
-                            content = content,
-                            onItemClicked = {
-                                StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
-                                    storageId = targetStorageId,
-                                    groupId = content.groups.single().id,
-                                ).navigate()
-                            }
-                        )
-
-                        is SystemCategory -> SystemCategoryVH.Item(
-                            storage = storage,
-                            content = content,
-                            onItemClick = {
-                                StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
-                                    storageId = targetStorageId,
-                                    groupId = content.groups.single().id,
-                                ).navigate()
-                            }
-                        )
-                    }
-                },
+            content = content,
             progress = progress,
         )
     }.asLiveData2()
