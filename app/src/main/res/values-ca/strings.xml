@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
     <string name="debug_debuglog_file_label">Fitxer de registre desat</string>
+    <string name="debug_debuglog_recording_progress">Gravació del registre de depuració</string>
     <string name="debug_debuglog_record_action">Desa el registre de depuració</string>
+    <string name="debug_debuglog_stop_action">Atura la gravació</string>
     <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació sensible (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
     <string name="settings_debuglog_explanation">Aquesta funció enregistra tot el que fa l\'aplicació en un fitxer que es pot compartir. El fitxer generat conté informació sensible (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança (p. ex. un desenvolupador que està solucionant un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tasques actives</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Previsualitzacions de fitxers</string>
     <string name="ui_previews_summary">Mostra previsualitzacions de fitxers a totes les eines (p. ex., miniatures d\'imatges i vídeos).</string>
     <string name="settings_support_label">Suport</string>
+    <string name="settings_support_description">Llegiu la documentació, informeu de problemes, xategeu amb altres persones o graveu els registres de depuració.</string>
     <string name="documentation_label">Documentació</string>
     <string name="issue_tracker_description">Un gestor de problemes públics per als informes d\'errors i les sol·licituds de funcions.</string>
     <string name="issue_tracker_label">Gestor de problemes</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Explora automàticament les restes quan s\'elimina una aplicació.</string>
     <string name="corpsefinder_watcher_autodelete_title">Eliminació automàtica</string>
     <string name="corpsefinder_watcher_autodelete_summary">Suprimeix automàticament les restes relacionades amb l\'aplicació desinstal·lada.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">S\'han trobat %1$s restes després de desinstal·lar %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">S\'han trobat %1$s restes després de desinstal·lar %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Neteja correcta (%1$s): s\'han alliberat %2$s i s\'han eliminat %3$s element(s).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Elimina les restes</string>
     <string name="corpsefinder_filter_publicmedia_label">Mitjans públics</string>
@@ -364,9 +367,22 @@
     <string name="exclusion_explanation_body1">Exclou fitxers i aplicacions de les operacions de l\'SD Maid.</string>
     <string name="exclusion_add_new_hint">Afegiu noves exclusions deixant primer que l\'SD Maid cerqui i després utilitzant el menú contextual del resultat que voleu excloure.</string>
     <string name="exclusion_create_action">Crea una exclusió</string>
+    <string name="exclusion_edit_action">Edita l\'exclusió</string>
     <string name="exclusion_type_package">Exclusió d\'aplicacions</string>
     <string name="exclusion_type_path">Exclusió de rutes</string>
+    <string name="exclusion_type_segment">Exclusió de segment</string>
     <string name="exclusion_tags_alltools">Totes les eines</string>
+    <string name="exclusion_target_label">Objectiu d\'exclusió</string>
+    <string name="exclusion_option_allow_partial">Permet coincidències parcials</string>
+    <string name="exclusion_option_ignore_casing">Ignora les maj. i min.</string>
+    <string name="exclusion_editor_affected_tools_label">Eines afectades</string>
+    <string name="exclusion_editor_path_explanation">Una exclusió de camí impedeix que l\'SD Maid continuï processant les rutes coincidents. Això s\'aplica a fitxers, directoris i subdirectoris.</string>
+    <string name="exclusion_editor_pkg_explanation">Una exclusió d\'aplicació impedeix que l\'SD Maid processi els paquets coincidents.</string>
+    <string name="exclusion_editor_segment_explanation">Una exclusió basada en segments és similar a una exclusió de ruta, però permet coincidències parcials. Exemple: «DCIM/Camera» exclou «/sdcard/DCIM/Camera/photo.png».</string>
+    <string name="exclusion_editor_remove_confirmation_message">Voleu eliminar aquesta exclusió?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
+    <string name="exclusion_create_pkg_hint">Utilitzeu l\'eina de Control d\'aplicacions per crear exclusions d\'aplicacions.</string>
+    <string name="exclusion_create_path_hint">Utilitzeu l\'eina d\'Anàlisi d\'emmagatzematge per crear exclusions de rutes.</string>
     <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i feu-hi clic. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>

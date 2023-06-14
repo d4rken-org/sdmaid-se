@@ -19,6 +19,7 @@
     <string name="general_remove_action">Elimina</string>
     <string name="general_wipe_action">Neteja</string>
     <string name="general_cancel_action">Cancel·la</string>
+    <string name="general_discard_action">Descarta</string>
     <string name="general_reset_action">Restableix</string>
     <string name="general_save_action">Desa</string>
     <string name="general_thanks_action">Gràcies</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">Operació realitzada amb èxit</string>
     <string name="general_result_failure_message">Operació fallida</string>
     <string name="general_result_x_space_freed">%s alliberats</string>
+    <string name="general_options_label">Opcions</string>
     <string name="general_details_label">Detalls</string>
     <string name="general_view_action">Mostra</string>
     <string name="general_update_action">Actualitza</string>

@@ -19,6 +19,7 @@
     <string name="general_remove_action">Fjern</string>
     <string name="general_wipe_action">Tøm</string>
     <string name="general_cancel_action">Avbryt</string>
+    <string name="general_discard_action">Forkast</string>
     <string name="general_reset_action">Tilbakestill</string>
     <string name="general_save_action">Lagre</string>
     <string name="general_thanks_action">Takk</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">Operasjonen var vellykket</string>
     <string name="general_result_failure_message">Operasjonen mislyktes</string>
     <string name="general_result_x_space_freed">%s frigjort</string>
+    <string name="general_options_label">Alternativer</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Visning</string>
     <string name="general_update_action">Oppdater</string>

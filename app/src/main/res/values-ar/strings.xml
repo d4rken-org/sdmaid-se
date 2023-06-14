@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
     <string name="debug_notification_channel_label">إشعار التطوير</string>
     <string name="debug_debuglog_file_label">الكتابة إلى مِلَفّ السجل</string>
+    <string name="debug_debuglog_recording_progress">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
+    <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
     <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
@@ -72,6 +74,7 @@
     <string name="ui_previews_title">معاينة الملفات</string>
     <string name="ui_previews_summary">عرض معاينات الملفات في جميع الأدوات (على سبيل المثال الصور المصغرة والصور الفيديو).</string>
     <string name="settings_support_label">الدعم</string>
+    <string name="settings_support_description">قراءة الوثائق، والإبلاغ عن المشكلات، والمحادثة مع الآخرين أو تسجيل سجلات التصحيح.</string>
     <string name="documentation_label">المستندات</string>
     <string name="issue_tracker_description">أداة تعقب المشكلات العامة لتقارير الأخطاء وطلبات الميزات.</string>
     <string name="issue_tracker_label">متعقب الأخطاء</string>
@@ -147,7 +150,7 @@
     <string name="corpsefinder_watcher_summary">البحث عن البقايا تلقائيًا عند إزالة التطبيق.</string>
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
     <string name="corpsefinder_watcher_autodelete_summary">حذف أية بقايا ذات صلة بالتطبيق غير المثبت تلقائياً.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s بقايا وجدت بعد إلغاء تثبيت %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s بقايا وجدت بعد إلغاء تثبيت %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$s عنصر(عناصر).</string>
     <string name="corpsefinder_watcher_notification_delete_action">حذف الملفات المتبقية</string>
     <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
@@ -388,9 +391,22 @@
     <string name="exclusion_explanation_body1">استبعاد الملفات والتطبيقات من عمليات SD Maid.</string>
     <string name="exclusion_add_new_hint">أضف استثناءات جديدة عن طريق السماح أولاً لـ SD Maid بالبحث ثم استخدام قائمة السياق في النتيجة التي تريد استبعادها.</string>
     <string name="exclusion_create_action">إنشاء استبعاد</string>
+    <string name="exclusion_edit_action">تعديل الاستبعاد</string>
     <string name="exclusion_type_package">التطبيقات المستثناة</string>
     <string name="exclusion_type_path">المسارات المستثناة</string>
+    <string name="exclusion_type_segment">استبعاد الجزء</string>
     <string name="exclusion_tags_alltools">جميع الأدوات</string>
+    <string name="exclusion_target_label">الهدف المستبعد</string>
+    <string name="exclusion_option_allow_partial">السماح بالتطابق الجزئي</string>
+    <string name="exclusion_option_ignore_casing">تجاهل الغلاف</string>
+    <string name="exclusion_editor_affected_tools_label">الأدوات المتأثرة</string>
+    <string name="exclusion_editor_path_explanation">يمنع استبعاد المسار SD Maid من مواصلة معالجة أي مسارات مطابقة. وينطبق هذا على الملفات والدلائل والدلائل الفرعية.</string>
+    <string name="exclusion_editor_pkg_explanation">يمنع استثناء التطبيق SD Maid من معالجة أي حزم مطابقة.</string>
+    <string name="exclusion_editor_segment_explanation">والاستبعاد القائم على الشريحة مماثل لاستبعاد المسار ولكنه يسمح بمطابقة جزئية. مثال: \"DCIM/Camera\" لا يشمل \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">إزالة هذا الاستبعاد؟</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
+    <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
+    <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
     <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
     <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
     <string name="automation_active_title">SD Maid يعمل</string>

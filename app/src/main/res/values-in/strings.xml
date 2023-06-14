@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompres</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
     <string name="debug_debuglog_file_label">File log yang direkam</string>
+    <string name="debug_debuglog_recording_progress">Merekam jejak debug</string>
     <string name="debug_debuglog_record_action">Rekam log debug</string>
+    <string name="debug_debuglog_stop_action">Berhenti merekam</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya.</string>
     <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
@@ -62,6 +64,7 @@
     <string name="ui_previews_title">Pratinjau berkas</string>
     <string name="ui_previews_summary">Tampilkan pratinjau berkas di semua peralatan (seperti pratinjau gambar dan video).</string>
     <string name="settings_support_label">Bantuan</string>
+    <string name="settings_support_description">Baca dokumentasi, isu laporan, obrolan dengan orang lain atau riwayat rekaman debug.</string>
     <string name="documentation_label">Dokumentasi</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug dan permintaan fitur.</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
@@ -324,9 +327,18 @@
     <string name="exclusion_manager_desc">Atur berkas dan pengecualian aplikasi.</string>
     <string name="exclusion_explanation_body1">Kecualikan aplikasi dan berkas dari operasi SD Maid.</string>
     <string name="exclusion_add_new_hint">Tambah pengecualian baru dengan mengizinkan SD Maid mencari dan menggunakan konteks menu pada hasil yang ingin Anda kecualikan.</string>
+    <string name="exclusion_edit_action">Ubah pengecualian</string>
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
     <string name="exclusion_type_path">Pengecualian lokasi</string>
+    <string name="exclusion_type_segment">Segmen pengecualian</string>
     <string name="exclusion_tags_alltools">Semua peralatan</string>
+    <string name="exclusion_target_label">Target pengecualian</string>
+    <string name="exclusion_option_allow_partial">Izinkan penyocokan terpisah</string>
+    <string name="exclusion_option_ignore_casing">Abaikan kasus</string>
+    <string name="exclusion_editor_remove_confirmation_message">Buang pengecualian ini?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Anda memiliki perubahan yang belum tersimpan!</string>
+    <string name="exclusion_create_pkg_hint">Gunakan alat PengendaliApp untuk membuat pengecualian app.</string>
+    <string name="exclusion_create_path_hint">Gunakan alat PenganalisaPenyimpanan untuk membuat jejak pengecualian.</string>
     <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan SD Maid mengotomatisasi tugas manual yang cukup merepotkan (misalnya penghapusan cache).\n\nContoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi maka SD Maid dapat menggunakan layanan ini untuk membuka setiap layar pengaturan aplikasi, cari tombol \'Paksa Berhenti\' dan menekannya.\n\nSD Maid akan selalu terlihat jelas saat menggunakan layanan ini dan memberikan cara mudah bagi pengguna untuk membatalkan interaksi apa pun.\n\nTidak ada tindakan yang akan dilakukan tanpa persetujuan pengguna. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>

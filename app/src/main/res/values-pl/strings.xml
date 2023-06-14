@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
     <string name="debug_debuglog_file_label">Zapisany plik logu</string>
+    <string name="debug_debuglog_recording_progress">Rejestrowanie dziennika debugowania</string>
     <string name="debug_debuglog_record_action">Rejestruj log debugowania</string>
+    <string name="debug_debuglog_stop_action">Zatrzymaj rejestrowanie</string>
     <string name="debug_debuglog_sensitive_information_message">Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Dziel się nim tylko z zaufanymi osobami.</string>
     <string name="settings_debuglog_explanation">Funkcja rejestruje wszystko, co robi aplikacja, do pliku, który można udostępnić. Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Dziel się nim tylko z zaufanymi osobami (np. z deweloperem, który rozwiązuje problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
@@ -68,6 +70,7 @@
     <string name="ui_previews_title">Podgląd plików</string>
     <string name="ui_previews_summary">Wyświetla podgląd plików we wszystkich narzędziach (np. miniaturach obrazu i wideo).</string>
     <string name="settings_support_label">Wsparcie</string>
+    <string name="settings_support_description">Czytaj dokumentację, zgłaszaj problemy, rozmawiaj z innymi lub rejestruj dzienniki debugowania.</string>
     <string name="documentation_label">Dokumentacja</string>
     <string name="issue_tracker_description">Publiczne narzędzie do śledzenia zgłoszeń błędów i próśb o nowe funkcje.</string>
     <string name="issue_tracker_label">Narzędzie do śledzenia problemów</string>
@@ -143,7 +146,7 @@
     <string name="corpsefinder_watcher_summary">Automatyczne skanowanie pozostałości po usunięciu aplikacji.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatycznie usuwa wszystkie pozostałe elementy związane z odinstalowaną aplikacją.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s zostało znalezionych po odinstalowaniu %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s zostało znalezionych po odinstalowaniu %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$s element(y/ów).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Usuń pozostałości</string>
     <string name="corpsefinder_filter_publicmedia_label">Publiczne pliki multimedialne</string>
@@ -376,9 +379,22 @@
     <string name="exclusion_explanation_body1">Wyklucz pliki i aplikacje z działań SD Maid.</string>
     <string name="exclusion_add_new_hint">Dodaj nowe wykluczenia, najpierw pozwalając SD Maid wyszukać, a następnie używając menu kontekstowego na wyniku, który chcesz wykluczyć.</string>
     <string name="exclusion_create_action">Utwórz wykluczenie</string>
+    <string name="exclusion_edit_action">Edytuj wykluczenie</string>
     <string name="exclusion_type_package">Wykluczenie aplikacji</string>
     <string name="exclusion_type_path">Wykluczenie ścieżki</string>
+    <string name="exclusion_type_segment">Wykluczenie segmentu</string>
     <string name="exclusion_tags_alltools">Wszystkie narzędzia</string>
+    <string name="exclusion_target_label">Cel wykluczenia</string>
+    <string name="exclusion_option_allow_partial">Zezwalaj na częściowe dopasowania</string>
+    <string name="exclusion_option_ignore_casing">Ignoruj wielkość liter</string>
+    <string name="exclusion_editor_affected_tools_label">Narzędzia których dotyczy problem</string>
+    <string name="exclusion_editor_path_explanation">Wykluczenie ścieżki uniemożliwia SD Maid dalsze przetwarzanie pasujących ścieżek. Dotyczy to plików, katalogów i podkatalogów.</string>
+    <string name="exclusion_editor_pkg_explanation">Wykluczenie aplikacji uniemożliwia SD Maid przetwarzanie pasujących pakietów.</string>
+    <string name="exclusion_editor_segment_explanation">Wykluczenie na podstawie segmentu jest podobne do wykluczenia ścieżki, ale umożliwia dopasowanie częściowe. Przykład: „DCIM/Camera” wyklucza „/sdcard/DCIM/Camera/photo.png”.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Usunąć to wykluczenie?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
+    <string name="exclusion_create_pkg_hint">Użyj narzędzia AppControl aby utworzyć wykluczenia aplikacji.</string>
+    <string name="exclusion_create_path_hint">Użyj narzędzia StorageAnalyzer aby utworzyć wykluczenia ścieżek.</string>
     <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami ułatwień mogą włączyć tę usługę, aby pozwolić SD Maid automatyzować zadania, które w przeciwnym razie wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: Jeśli instruujesz SD Maid, aby zatrzymać wiele aplikacji, SD Maid może użyć tej usługi, aby otworzyć ekran ustawień każdej aplikacji, znaleźć przycisk \"Wymuś zatrzymanie\" i kliknąć go.\n\nSD Maid zawsze wyraźnie pokaże, kiedy korzysta z tej usługi, i zapewni użytkownikowi łatwy sposób na natychmiastowe anulowanie wszelkich interakcji.\n\nŻadne działania nie będą wykonywane bez wcześniejszej zgody użytkownika. Usługę można wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
     <string name="automation_screenoverlay_explanation">SD Maid wchodzi w interakcję z Twoim urządzeniem. Nie jest możliwe jednoczesne korzystanie z ekranu. Poczekaj na zakończenie operacji lub anuluj ją.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

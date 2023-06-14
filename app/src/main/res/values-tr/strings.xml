@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
     <string name="debug_debuglog_file_label">Kaydedilmiş günlük dosyası</string>
+    <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
+    <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içermektedir. Sadece güvenilir taraflarla paylaşın.</string>
     <string name="settings_debuglog_explanation">Bu özellik uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içerir. Sadece güvenilir taraflarla (sorun gidermeye çalışan bir geliştirici gibi) paylaşın.</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Dosya önizlemeleri</string>
     <string name="ui_previews_summary">Tüm araçlarda dosya önizlemelerini görüntüle (örn. resim ve video küçük resimleri).</string>
     <string name="settings_support_label">Destek</string>
+    <string name="settings_support_description">Dokümantasyonu oku, hataları bildir, diğerleriyle sohbet et ya da hata ayıklama günlükleri kaydet.</string>
     <string name="documentation_label">Dokümantasyon</string>
     <string name="issue_tracker_description">Hata raporları ve özellik istekleri için genel sorun takipçisi.</string>
     <string name="issue_tracker_label">Sorun izleyici</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Bir uygulama kaldırıldığında otomatik olarak kalıntıları tarar.</string>
     <string name="corpsefinder_watcher_autodelete_title">Otomatik silme</string>
     <string name="corpsefinder_watcher_autodelete_summary">Kaldırılan uygulamayla ilgili tüm kalıntıları otomatik olarak silin.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%2$s kaldırıldıktan sonra %1$s kalıntı bulundu.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%2$s kaldırıldıktan sonra %1$s kalıntı bulundu.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Temizlik başarılı (%1$s): %2$s yer açıldı ve %3$s öğe silindi.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Kalıntıları sil</string>
     <string name="corpsefinder_filter_publicmedia_label">Genel medya</string>
@@ -307,7 +310,7 @@
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
-    <string name="appcontrol_app_exclude_edit_title">Dışlamayı düzenle</string>
+    <string name="appcontrol_app_exclude_edit_title">Hariç tutmayı düzenle</string>
     <string name="appcontrol_app_exclude_edit_description">Bu uygulama şu anda bir veya daha fazla araçtan hariç tutulmaktadır.</string>
     <string name="appcontrol_tag_user">Kullanıcı</string>
     <string name="appcontrol_tag_system">Sistem</string>
@@ -363,10 +366,24 @@
     <string name="exclusion_manager_desc">Dosya ve uygulama hariç tutmalarını yönetin.</string>
     <string name="exclusion_explanation_body1">Dosyaları ve uygulamaları SD Maid\'in işlemlerinden hariç tutun.</string>
     <string name="exclusion_add_new_hint">Önce SD Maid\'in arama yapmasına izin vererek ve ardından hariç tutmak istediğiniz sonuç üzerinde içerik menüsünü kullanarak yeni istisnalar ekleyin.</string>
-    <string name="exclusion_create_action">Dışlama oluşturun</string>
+    <string name="exclusion_create_action">Hariç tutma oluşturun</string>
+    <string name="exclusion_edit_action">Hariç tutmayı düzenle</string>
     <string name="exclusion_type_package">Uygulama hariç tutma</string>
     <string name="exclusion_type_path">Yol hariç tutma</string>
+    <string name="exclusion_type_segment">Bölüm hariç tutma</string>
     <string name="exclusion_tags_alltools">Tüm araçlar</string>
+    <string name="exclusion_target_label">Hariç tutma hedefi</string>
+    <string name="exclusion_option_allow_partial">Kısmi eşleşmelere izin ver</string>
+    <string name="exclusion_option_ignore_casing">Büyük küçük harfi yoksay</string>
+    <string name="exclusion_editor_affected_tools_label">Etkilenen araçlar</string>
+    <string name="exclusion_editor_path_explanation">Bir yolu hariç tutma, SD Maid\'in eşleşen yollara erişimini önler. Bu dosyaları, dizinleri ve alt dizinleri içerir.</string>
+    <string name="exclusion_editor_pkg_explanation">Bir uygulamayı hariç tutma, SD Maid\'in eşleşen paketlere erişimini önler.</string>
+    <string name="exclusion_editor_segment_explanation">Bölüm tabanlı hariç tutma, bir yolu hariç tutmaya benzer ancak kısmi eşleşmeleri mümkün kılar.
+Örneğin: \"DCIM/Camera\", \"/sdcard/DCIM/Camera/photo.png\"i hariç tutar.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Bu hariç tutma silinsin mi?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
+    <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
+    <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için DepolamaAnalizcisini kullan.</string>
     <string name="automation_accessibility_service_description">Özel erişilebilirlik ihtiyaçları olan kullanıcılar, normalde yoğun kullanıcı etkileşimi gerektirebilen, ancak SD Maid\'in bu işlemleri (ör. önbellek temizleme) otomatik yapmasına imkan sağlayacak bu hizmeti etkinleştirebilirler.\n\nÖrneğin: Eğer SD Maid\'in uygulamaları aynı anda durdurmasını isterseniz, SD Maid her bir uygulamanın ayarlar ekranını açmak, \"Zorla Durdur\" düğmesini bulmak ve tıklamak için bu hizmeti kullanabilir.\n\nSD Maid bu hizmeti kullandırken daima bir gösterge gösterecek ve etkileşimleri her an durdurabilmesi için kullanıcıya kolay bir yol sunacaktır.\n\nKullanıcı onayı olmadan hiçbir işlem gerçekleşmeyecektir. Bu hizmet istenmeyen etkiler olmadan istediğiniz an tekrar devre dışı bırakılabilir.</string>
     <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
     <string name="automation_active_title">SD Maid çalışıyor</string>

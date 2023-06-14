@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
     <string name="debug_debuglog_file_label">Salvestatud logifail</string>
+    <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>
+    <string name="debug_debuglog_stop_action">Peata salvestamine</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isiklikku teavet (nt failinimesid ja paigaldatud rakendusi). Jagage seda vaid usaldusväärsete osapooltega.</string>
     <string name="settings_debuglog_explanation">Sellega salvestatakse kogu rakenduse tegevuse jagatavaks failiks. Loodud fail sisaldab tähtsat teavet (nt failinimed ja paigaldatud rakendused). Jagage seda vaid usalduväärsete muude osapooltega ( nt probleemi lahendava arendajaga).</string>
     <string name="tasks_activity_notification_channel_label">Aktiivsed ülesanded</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Faili eelvaated</string>
     <string name="ui_previews_summary">Näita kõikides tööriistades faili eelvaateid (nt pildi ja video pisipilte).</string>
     <string name="settings_support_label">Klienditugi</string>
+    <string name="settings_support_description">Lugege dokumente, teatage vigadest, vestelge teistega või salvestage silumislogisid.</string>
     <string name="documentation_label">Dokumendid</string>
     <string name="issue_tracker_description">Avalik murede kogumik vigade teavitamiseks ja uute funktsioonide palumiseks.</string>
     <string name="issue_tracker_label">Murede kogumik</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Rakenduse eemaldamisel skannige jääke automaatselt.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ise kustuv</string>
     <string name="corpsefinder_watcher_autodelete_summary">Eemaldatud rakendusega seotud jäägid kustuvad ise.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%2$s eemaldamisest jäi järgi %1$s jääk(i).</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%2$s eemaldamisest jäi järgi %1$s jääk(i).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Kustuta jäägid</string>
     <string name="corpsefinder_filter_publicmedia_label">Avalik sisu</string>
     <string name="corpsefinder_filter_publicmedia_summary">Avalikud failid, nt suhtlusrakenduste kaudu saadud failid.</string>
@@ -363,9 +366,21 @@
     <string name="exclusion_explanation_body1">Takistage SD Maidil toimetada failide ja rakendustega.</string>
     <string name="exclusion_add_new_hint">Erandite lisamiseks laske esmalt SD Maidil otsida ja seejärel välistage leitu selle kontekstmenüü kaudu.</string>
     <string name="exclusion_create_action">Loo erand</string>
+    <string name="exclusion_edit_action">Muuda erandit</string>
     <string name="exclusion_type_package">Rakenduse erand</string>
     <string name="exclusion_type_path">Asukoha erand</string>
+    <string name="exclusion_type_segment">Segmendi erand</string>
     <string name="exclusion_tags_alltools">Kõik tööriistad</string>
+    <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
+    <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>
+    <string name="exclusion_editor_affected_tools_label">Mõjutatud tööriistad</string>
+    <string name="exclusion_editor_path_explanation">Asukoha erand takistab SD Maidil töötlemast mistahes kattuvat asukohta. See hõlmab faile, katalooge ja alamkatalooge.</string>
+    <string name="exclusion_editor_pkg_explanation">Rakenduse erand takistab SD Maidil töötlemast mistahes kattuvat paketti.</string>
+    <string name="exclusion_editor_segment_explanation">Segmendil põhinev erand sarnaneb asukoha erandile, ent erinevus seisneb osalise leiu poolest. Näiteks \"DCIM/Camera\" kataloog eirab \"/sdcard/DCIM/Camera/photo.png\" faili.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Eemaldada see erand?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
+    <string name="exclusion_create_pkg_hint">Looge rakenduste erandeid rakenduse kontrolliga.</string>
+    <string name="exclusion_create_path_hint">Looge asukoha erandeid hoiustamisruumi analüüsijaga.</string>
     <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja klõpsata sellel.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
     <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
     <string name="automation_active_title">SD Maid töötab</string>

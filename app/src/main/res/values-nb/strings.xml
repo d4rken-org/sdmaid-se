@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
     <string name="debug_debuglog_file_label">Registrert loggfil</string>
+    <string name="debug_debuglog_recording_progress">Tar opp feilsøkingslogg</string>
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
+    <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter.</string>
     <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Forhåndsvisninger av filer</string>
     <string name="ui_previews_summary">Vis forhåndsvisninger av filer i alle verktøy (f.eks. miniatyrbilder av bilde og video).</string>
     <string name="settings_support_label">Støtte</string>
+    <string name="settings_support_description">Les dokumentasjon, rapporter problemer, chat med andre eller ta opp feilsøkingslogger.</string>
     <string name="documentation_label">Dokumentasjon</string>
     <string name="issue_tracker_description">En offentlig problemsporing for feilrapporter og funksjonsforespørsler.</string>
     <string name="issue_tracker_label">Problemsporer</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Søk etter rester automatisk når en app fjernes.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatisk sletting</string>
     <string name="corpsefinder_watcher_autodelete_summary">Slett eventuelle rester relatert til den avinstallerte appen automatisk.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s rest(er) funnet etter avinstallering av %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s rest(er) funnet etter avinstallering av %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Vellykket opprydding (%1$s): %2$s frigjort og %3$s element(er) fjernet.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Slett rester</string>
     <string name="corpsefinder_filter_publicmedia_label">Offentlige medier</string>
@@ -364,9 +367,22 @@
     <string name="exclusion_explanation_body1">Ekskluder filer og apper fra SD Maids operasjoner.</string>
     <string name="exclusion_add_new_hint">Legg til nye ekskluderinger ved å først la SD Maid søke, og deretter bruke hurtigmenyen på resultatet du vil ekskludere.</string>
     <string name="exclusion_create_action">Opprett ekskludering</string>
+    <string name="exclusion_edit_action">Rediger ekskludering</string>
     <string name="exclusion_type_package">App-ekskludering</string>
     <string name="exclusion_type_path">Bane-ekskludering</string>
+    <string name="exclusion_type_segment">Segment-ekskludering</string>
     <string name="exclusion_tags_alltools">Alle verktøy</string>
+    <string name="exclusion_target_label">Ekskluderingsmål</string>
+    <string name="exclusion_option_allow_partial">Tillat delvise treff</string>
+    <string name="exclusion_option_ignore_casing">Ignorer store og små bokstaver</string>
+    <string name="exclusion_editor_affected_tools_label">Berørte verktøy</string>
+    <string name="exclusion_editor_path_explanation">Ekskludering av en bane forhindrer SD Maid fra å viderebehandle eventuelle samsvarende baner. Dette gjelder filer, mapper og undermapper.</string>
+    <string name="exclusion_editor_pkg_explanation">Ekskludering av en app forhindrer SD Maid fra å behandle samsvarende pakker.</string>
+    <string name="exclusion_editor_segment_explanation">En segmentbasert ekskludering ligner på en baneekskludering, men tillater delvise treff. Eksempel: \"DCIM/Camera\" ekskluderer \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Vil du fjerne denne ekskluderingen?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
+    <string name="exclusion_create_pkg_hint">Bruk Appkontroll-verktøyet for å opprette appekskluderinger.</string>
+    <string name="exclusion_create_path_hint">Bruk Lagringsanalysator-verktøyet for å opprette baneekskluderinger.</string>
     <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
     <string name="automation_active_title">SD Maid jobber</string>

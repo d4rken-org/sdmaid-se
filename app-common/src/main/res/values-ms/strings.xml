@@ -86,11 +86,7 @@
     <string name="general_scan_device_action">Imbas peranti</string>
     <string name="general_open_system_settings_action">Buka tetapan sistem</string>
     <plurals name="result_x_items">
-        <item quantity="other">Satu
-%s item
-
-Lain-lain
-%s item</item>
+        <item quantity="other">%s butiran</item>
     </plurals>
     <string name="x_space_can_be_freed">%s boleh dibebaskan</string>
     <string name="general_info_label">Info</string>

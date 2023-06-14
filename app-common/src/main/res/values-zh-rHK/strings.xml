@@ -19,6 +19,7 @@
     <string name="general_remove_action">移除</string>
     <string name="general_wipe_action">抹除</string>
     <string name="general_cancel_action">取消</string>
+    <string name="general_discard_action">捨棄</string>
     <string name="general_reset_action">重設</string>
     <string name="general_save_action">儲存</string>
     <string name="general_thanks_action">感謝</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">作業成功</string>
     <string name="general_result_failure_message">作業失敗</string>
     <string name="general_result_x_space_freed">%s 已釋出</string>
+    <string name="general_options_label">選項</string>
     <string name="general_details_label">詳細資料</string>
     <string name="general_view_action">檢視</string>
     <string name="general_update_action">更新</string>

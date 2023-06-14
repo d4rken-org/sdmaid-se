@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
     <string name="debug_debuglog_file_label">Zaznamenaný soubor záznamu</string>
+    <string name="debug_debuglog_recording_progress">Zaznamenávání soubor záznamu</string>
     <string name="debug_debuglog_record_action">Zaznamenat soubor záznamu</string>
+    <string name="debug_debuglog_stop_action">Ukončit záznam</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
     <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru, který lze sdílet. Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte je pouze s důvěryhodnými stranami (např. s vývojáři, kteří řeší nějaký problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
@@ -68,6 +70,7 @@
     <string name="ui_previews_title">Náhledy souboru</string>
     <string name="ui_previews_summary">Zobrazení náhledů souborů ve všech nástrojích (např. náhledy obrázků a videí).</string>
     <string name="settings_support_label">Podpora</string>
+    <string name="settings_support_description">Číst dokumentaci, hlásit problémy, komunikovat s ostatními nebo nahrávat záznamy ladění.</string>
     <string name="documentation_label">Dokumentace</string>
     <string name="issue_tracker_description">Veřejný nástroj pro sledování hlášení chyb a požadavků na nové funkce.</string>
     <string name="issue_tracker_label">Nástroj pro sledování chyb</string>
@@ -143,8 +146,8 @@
     <string name="corpsefinder_watcher_summary">Automaticky skenovat pozůstatky, když je nějaká aplikace odinstalována.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstranění</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstranit všechny pozůstatky související s odinstalovanou aplikací.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s pozůstatek(ků) nalezeno po odinstalování %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Vyčistěno úspěšně (%1$s): Uvolněno %2$s a odstraněno %3$s položek.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">Po odinstalování aplikace %2$s nalezeno pozůstatků: %1$s</string>
+    <string name="corpsefinder_watcher_notification_delete_result">Vyčištění bylo úspěšné (%1$s): Bylo uvolněno %2$s, odstraněné položky –⁠ %3$s</string>
     <string name="corpsefinder_watcher_notification_delete_action">Odstranit pozůstatky</string>
     <string name="corpsefinder_filter_publicmedia_label">Veřejná média</string>
     <string name="corpsefinder_filter_publicmedia_summary">Veřejné mediální soubory, např. soubory přijaté aplikacemi pro zasílání zpráv.</string>
@@ -376,9 +379,22 @@
     <string name="exclusion_explanation_body1">Vyloučení souborů a aplikací z operací aplikace SD Maid.</string>
     <string name="exclusion_add_new_hint">Novou výjimku přidáte tak, že nejprve necháte SD Maid vyhledávat a poté pomocí kontextové nabídky vyberete výsledek, který chcete vyloučit.</string>
     <string name="exclusion_create_action">Vytvořit výjimku</string>
+    <string name="exclusion_edit_action">Upravit výjimku</string>
     <string name="exclusion_type_package">Aplikace ve výjimkách</string>
     <string name="exclusion_type_path">Cesta ve výjimkách</string>
+    <string name="exclusion_type_segment">Segmenty ve výjimkách</string>
     <string name="exclusion_tags_alltools">Všechny nástroje</string>
+    <string name="exclusion_target_label">Cíl výjimek</string>
+    <string name="exclusion_option_allow_partial">Povolit částečné shody</string>
+    <string name="exclusion_option_ignore_casing">Ignorovat velikost písmen</string>
+    <string name="exclusion_editor_affected_tools_label">Ovlivněné nástroje</string>
+    <string name="exclusion_editor_path_explanation">Cesta ve výjimkách brání aplikaci SD Maid dále zpracovávat shodné cesty. To platí pro soubory, adresáře a podadresáře.</string>
+    <string name="exclusion_editor_pkg_explanation">Aplikace ve výjimkách brání aplikaci SD Maid zpracovávat všechny shodné balíčky.</string>
+    <string name="exclusion_editor_segment_explanation">Segmenty ve výjimkách jsou podobné jako cesty ve výjimkách, ale umožňují částečné shody. Např.: \"DCIM/Camera\" nezahrnuje \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Odstranit tuto výjimku?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
+    <string name="exclusion_create_pkg_hint">K vytvoření výjimek aplikací použijte nástroj Správce aplikací.</string>
+    <string name="exclusion_create_path_hint">K vytvoření výjimek cest použijte nástroj Analyzátor úložiště.</string>
     <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a kliknout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

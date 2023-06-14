@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
     <string name="debug_debuglog_file_label">已記錄的記錄檔案</string>
+    <string name="debug_debuglog_recording_progress">正在記錄偵錯記錄</string>
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
+    <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
     <string name="settings_debuglog_explanation">此功能將應用程式正在執行所有工作記錄到一個可分享的檔案中。產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象 (例如可以排解問題的開發人員)。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
@@ -62,6 +64,7 @@
     <string name="ui_previews_title">檔案預覽</string>
     <string name="ui_previews_summary">在所有工具中顯示檔案預覽 (例如圖像和影片縮圖)</string>
     <string name="settings_support_label">支援</string>
+    <string name="settings_support_description">閱讀文件、回報問題、與其他使用者聊天或記錄偵錯記錄。</string>
     <string name="documentation_label">文件</string>
     <string name="issue_tracker_description">一個公用問題追蹤器，用於錯誤報告和功能要求。</string>
     <string name="issue_tracker_label">問題追蹤器</string>
@@ -137,7 +140,7 @@
     <string name="corpsefinder_watcher_summary">在應用程式被移除時自動掃描殘留項目。</string>
     <string name="corpsefinder_watcher_autodelete_title">自動刪除</string>
     <string name="corpsefinder_watcher_autodelete_summary">自動刪除與已解除安裝的應用程式相關的殘留。</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">已在 %2$s 解除安裝後找到 %1$s 個殘留項目。</string>
+    <string name="corpsefinder_watcher_notification_scan_result">已在 %2$s 解除安裝後找到 %1$s 個殘留項目。</string>
     <string name="corpsefinder_watcher_notification_delete_result">清理成功 (%1$s)：已釋出 %2$s 並移除 %3$s 個項目。</string>
     <string name="corpsefinder_watcher_notification_delete_action">刪除殘留項目</string>
     <string name="corpsefinder_filter_publicmedia_label">公用媒體</string>
@@ -358,9 +361,22 @@
     <string name="exclusion_explanation_body1">從 SD 女僕的作業中排除檔案和應用程式。</string>
     <string name="exclusion_add_new_hint">透過先讓 SD 女僕搜尋，然後在您想要排除的結果上使用內容選單，這樣就可以新增排除項目。</string>
     <string name="exclusion_create_action">建立排除</string>
+    <string name="exclusion_edit_action">編輯排除</string>
     <string name="exclusion_type_package">應用程式排除</string>
     <string name="exclusion_type_path">路徑排除</string>
+    <string name="exclusion_type_segment">區段排除</string>
     <string name="exclusion_tags_alltools">所有工具</string>
+    <string name="exclusion_target_label">排除目標</string>
+    <string name="exclusion_option_allow_partial">允許部分相符</string>
+    <string name="exclusion_option_ignore_casing">忽略大小寫</string>
+    <string name="exclusion_editor_affected_tools_label">受影響的工具</string>
+    <string name="exclusion_editor_path_explanation">路徑排除可以防止 SD 女僕進一步處理任何相符的路徑，這會套用至檔案、目錄和子目錄。</string>
+    <string name="exclusion_editor_pkg_explanation">應用程式排除可以防止 SD 女僕進一步處理任何相符的套件。</string>
+    <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
+    <string name="exclusion_editor_remove_confirmation_message">移除這個排除？</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
+    <string name="exclusion_create_pkg_hint">使用應用控制工具建立應用程式排除。</string>
+    <string name="exclusion_create_path_hint">使用儲存分析器工具建立路徑排除。</string>
     <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並按下。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
     <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
     <string name="automation_active_title">SD 女僕正在運作</string>

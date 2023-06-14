@@ -14,7 +14,7 @@
     <string name="upgrade_screen_benefits_body">• Limpieza de aplicaciones 💯\n• Operaciones programadas ⏰\n• Opciones adicionales para todas las herramientas ⚙️\n• Tus propias reglas de eliminación ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
     <string name="upgrade_screen_how_title">Opciones</string>
     <string name="upgrade_screen_how_body">Puedes elegir entre una compra única o una suscripción anual más barata.\nLa suscripción comienza con una prueba gratuita de 14 días, tras la cual se te cobrará una vez al año. Tanto la prueba como la suscripción se pueden cancelar en cualquier momento.\nLas mismas funciones, pero diferentes modalidades de precios.</string>
-    <string name="upgrade_screen_subscription_trial_action">Empieza la prueba gratuita de 14 días</string>
+    <string name="upgrade_screen_subscription_trial_action">Empezá la prueba gratuita de 14 días</string>
     <string name="upgrade_screen_subscription_action">Suscríbete</string>
     <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s al año.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>

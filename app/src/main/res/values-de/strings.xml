@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
     <string name="debug_debuglog_file_label">Aufgezeichnete Logdatei</string>
+    <string name="debug_debuglog_recording_progress">Debug-Protokoll wird aufgezeichnet</string>
     <string name="debug_debuglog_record_action">Debug-Log aufzeichnen</string>
+    <string name="debug_debuglog_stop_action">Aufzeichnung beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten dieser App auf, und speichert sie in einer teilbaren Datei. Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen (z.B. einem Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Dateivorschauen</string>
     <string name="ui_previews_summary">Dateivorschauen in allen Tools anzeigen (z. B. Bild- und Video-Miniaturansichten).</string>
     <string name="settings_support_label">Unterstützung</string>
+    <string name="settings_support_description">Die Dokumentation lesen, Probleme melden, mit anderen chatten oder Debug-Protokolle aufzeichnen.</string>
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">Ein öffentlicher Tracker für Fehlerberichte und Funktionsanfragen.</string>
     <string name="issue_tracker_label">Problem-Tracker</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Automatische Suche nach Überresten, wenn eine App entfernt wird.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatisches Löschen</string>
     <string name="corpsefinder_watcher_autodelete_summary">Lösche automatisch alle Überreste der deinstallierten App.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s Überbleibsel nach Deinstallation von %2$s gefunden.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s Überbleibsel nach Deinstallation von %2$s gefunden.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$s Elemente entfernt.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Reste löschen</string>
     <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
@@ -363,9 +366,23 @@
     <string name="exclusion_manager_desc">Datei- und App-Ausschlüsse verwalten.</string>
     <string name="exclusion_explanation_body1">Dateien und Apps von den Operationen von SD Maid ausschließen.</string>
     <string name="exclusion_add_new_hint">Füge neue Ausnahmen hinzu, indem Du zuerst SD Maid suchen lässt und dann das Kontextmenü für das Ergebnis verwendest, das Du ausschließen möchtest.</string>
+    <string name="exclusion_create_action">Ausschluss erstellen</string>
+    <string name="exclusion_edit_action">Ausschluss bearbeiten</string>
     <string name="exclusion_type_package">App-Ausschluss</string>
     <string name="exclusion_type_path">Pfadausschluss</string>
-    <string name="exclusion_tags_alltools">Alle Werkzeuge</string>
+    <string name="exclusion_type_segment">Segmentausschluss</string>
+    <string name="exclusion_tags_alltools">Alle Tools</string>
+    <string name="exclusion_target_label">Ausschlussobjekt</string>
+    <string name="exclusion_option_allow_partial">Teilübereinstimmungen zulassen</string>
+    <string name="exclusion_option_ignore_casing">Groß-/Kleinschreibung ignorieren</string>
+    <string name="exclusion_editor_affected_tools_label">Betroffene Tools</string>
+    <string name="exclusion_editor_path_explanation">Ein Pfadausschluss verhindert, dass SD Maid alle übereinstimmenden Pfade weiter verarbeitet. Dies gilt für Dateien, Verzeichnisse und Unterverzeichnisse.</string>
+    <string name="exclusion_editor_pkg_explanation">Ein App-Ausschluss verhindert, dass SD Maid passende Pakete verarbeitet.</string>
+    <string name="exclusion_editor_segment_explanation">Ein segmentbasierter Ausschluss ähnelt einem Pfadausschluss, ermöglicht jedoch teilweise Übereinstimmungen. Beispiel: „DCIM/Camera“ schließt „/sdcard/DCIM/Camera/photo.png“ aus.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Diesen Ausschluss entfernen?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
+    <string name="exclusion_create_pkg_hint">Verwende das App-Kontrolle-Tool, um App-Ausnahmen zu erstellen.</string>
+    <string name="exclusion_create_path_hint">Verwende das Speicheranalyse-Tool, um Pfadausschlüsse zu erstellen.</string>
     <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die andernfalls langwierige manuelle Benutzerinteraktionen erfordern würden (z.B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid diesen Dienst verwenden, um den Einstellungsbildschirm jeder App zu öffnen, die Schaltfläche \"Beenden erzwingen\" zu suchen und dann darauf zu klicken.\n\nSD Maid wird immer deutlich anzeigen, wenn es diesen Dienst verwendet, und bietet Dir eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nKeine Aktionen werden ohne vorherige Zustimmung des Benutzers ausgeführt. Dieser Dienst kann jederzeit ohne Beeinträchtigung wieder deaktiviert werden.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
@@ -402,6 +419,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Keine aktiven Zeitpläne</string>
     <string name="scheduler_setting_nopowersaving_title">Bei schwacher Batterie überspringen</string>
     <string name="scheduler_setting_nopowersaving_summary">Wenn sich das Telefon im Energiesparmodus befindet, wird die geplante Ausführung übersprungen.</string>
+    <string name="scheduler_setting_automation_title">Barrierefreiheitsdienst</string>
+    <string name="scheduler_setting_automation_summary">Schließen Sie Aktionen ein, die einen Barrierefreiheitsdienst nutzen. Dies erfordert, dass SD Maid mit Ihrem Bildschirm interagieren kann (d.h. er ist entsperrt), wenn die Aufgaben ausgeführt werden.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
     <string name="updates_dashcard_body">Eine Aktualisierung ist verfügbar. Du hast %1$s und die neueste Version ist %2$s.</string>
     <string name="translation_encourage_title">Übersetze SD Maid</string>
