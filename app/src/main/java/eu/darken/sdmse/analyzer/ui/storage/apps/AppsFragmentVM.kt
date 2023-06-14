@@ -8,6 +8,8 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragmentArgs
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
@@ -25,12 +27,29 @@ class AppsFragmentVM @Inject constructor(
     private val navArgs by handle.navArgs<StorageContentFragmentArgs>()
     private val targetStorageId = navArgs.storageId
 
+    init {
+        // Handle process death+restore
+        analyzer.data
+            .filter { it.findAppCategory() == null }
+            .take(1)
+            .onEach {
+                log(TAG, WARN) { "Can't find app category for $targetStorageId" }
+                popNavStack()
+            }
+            .launchInViewModel()
+    }
+
+    private fun Analyzer.Data.findAppCategory(): AppCategory? {
+        return categories[targetStorageId]?.filterIsInstance<AppCategory>()?.singleOrNull()
+    }
+
     val state = combine(
-        analyzer.data,
+        // Handle process death+restore
+        analyzer.data.filter { it.findAppCategory() != null },
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val category = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
+        val category = data.findAppCategory()!!
 
         State(
             storage = storage,

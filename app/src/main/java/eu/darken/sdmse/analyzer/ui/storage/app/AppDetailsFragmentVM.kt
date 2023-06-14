@@ -16,6 +16,7 @@ import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderVH
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -38,13 +39,30 @@ class AppDetailsFragmentVM @Inject constructor(
     private val targetStorageId = navArgs.storageId
     private val targetInstallId = navArgs.installId
 
+    init {
+        // Handle process death+restore
+        analyzer.data
+            .filter { it.findPkg() == null }
+            .take(1)
+            .onEach {
+                log(TAG, WARN) { "Can't find app for $targetInstallId on $targetStorageId" }
+                popNavStack()
+            }
+            .launchInViewModel()
+    }
+
+    private fun Analyzer.Data.findPkg(): AppCategory.PkgStat? {
+        val appContent = categories[targetStorageId]?.filterIsInstance<AppCategory>()?.singleOrNull()
+        return appContent?.pkgStats?.get(targetInstallId)
+    }
+
     val state = combine(
-        analyzer.data,
+        // Handle process death+restore
+        analyzer.data.filter { it.findPkg() != null },
         analyzer.progress,
     ) { data, progress ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val appContent = data.categories[targetStorageId]!!.filterIsInstance<AppCategory>().single()
-        val pkgStat = appContent.pkgStats[targetInstallId]!!
+        val pkgStat = data.findPkg()!!
 
         val items = mutableListOf<AppDetailsAdapter.Item>()
 

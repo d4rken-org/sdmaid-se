@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
+import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
@@ -55,24 +56,29 @@ class ContentFragmentVM @Inject constructor(
     private val navigationState = MutableStateFlow<List<APath>?>(null)
 
     init {
+        // Handle process death+restore
         analyzer.data
-            .filter { it.groups[targetGroupId] == null }
+            .filter { it.findContentGroup() == null }
             .take(1)
             .onEach {
                 log(TAG, WARN) { "Can't find $targetGroupId" }
                 popNavStack()
             }
-            .map { }
             .launchInViewModel()
     }
 
+    private fun Analyzer.Data.findContentGroup(): ContentGroup? {
+        return groups[targetGroupId]
+    }
+
     val state = combineTransform(
-        analyzer.data,
+        // Handle process death+restore
+        analyzer.data.filter { it.findContentGroup() != null },
         analyzer.progress,
         navigationState,
     ) { data, progress, navLevels ->
         val storage = data.storages.single { it.id == targetStorageId }
-        val contentGroup = data.groups[targetGroupId]
+        val contentGroup = data.findContentGroup()!!
 
         val pkgStat = targetInstallId?.let {
             data.categories[targetStorageId]
@@ -81,14 +87,13 @@ class ContentFragmentVM @Inject constructor(
         }
 
         // If the content was changed, updated our levels
-        val currentLevel = contentGroup?.contents
-            ?.findContent { it.path == navLevels?.last() }
+        val currentLevel = contentGroup.contents.findContent { it.path == navLevels?.last() }
 
-        val title = pkgStat?.label ?: contentGroup?.label
+        val title = pkgStat?.label ?: contentGroup.label
         val subtitle = when {
             currentLevel != null -> currentLevel.label
             pkgStat?.label == null -> null
-            else -> contentGroup?.label
+            else -> contentGroup.label
         }
 
         State(
@@ -99,9 +104,9 @@ class ContentFragmentVM @Inject constructor(
             progress = progress,
         ).run { emit(this) }
 
-        val items = (currentLevel?.children ?: contentGroup?.contents)
-            ?.sortedByDescending { it.size }
-            ?.map { content ->
+        val items = (currentLevel?.children ?: contentGroup.contents)
+            .sortedByDescending { it.size }
+            .map { content ->
                 ContentItemVH.Item(
                     parent = currentLevel,
                     content = content,

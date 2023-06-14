@@ -41,6 +41,10 @@
             app:destination="@id/setupFragment" />
     </fragment>
 
+    <action
+        android:id="@+id/goToDashboard"
+        app:destination="@id/dashboardFragment"
+        app:popUpTo="@id/dashboardFragment" />
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="eu.darken.sdmse.main.ui.dashboard.DashboardFragment"
