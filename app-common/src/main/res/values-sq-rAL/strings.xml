@@ -19,6 +19,7 @@
     <string name="general_remove_action">Hiq</string>
     <string name="general_wipe_action">Zhduk</string>
     <string name="general_cancel_action">Anulo</string>
+    <string name="general_discard_action">Braktise</string>
     <string name="general_reset_action">Rivendos</string>
     <string name="general_save_action">Ruaj</string>
     <string name="general_thanks_action">Faleminderit</string>
@@ -68,6 +69,7 @@
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operacioni dështoi</string>
     <string name="general_result_x_space_freed">%s u lirua</string>
+    <string name="general_options_label">Opsione</string>
     <string name="general_details_label">Detajet</string>
     <string name="general_view_action">Pamje</string>
     <string name="general_update_action">Përditëso</string>

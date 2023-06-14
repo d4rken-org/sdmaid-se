@@ -2,7 +2,7 @@
 
 Nadie es perfecto y tampoco Android lo es.
 * Apps que borraste ya dejaron algo detrás.
-* Logs, reportes de crasheos y otros archivos que realmente no querés están constantemente siendo creados.
+* Logs, reportes de errores y otros archivos que realmente no querés están constantemente siendo creados.
 * Tu almacenamiento está agarrando archivos y directorios que no reconocés.
 
 No vayamos acá... Dejá que SD Maid SE te ayude:

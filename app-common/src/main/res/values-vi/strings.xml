@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Làm sạch &amp; ngăn nắp.</string>
     <string name="slogan_message_2">Ngăn chặn hỗn loạn.</string>
     <string name="slogan_message_3">Đang làm những gì cần thiết.</string>
-    <string name="slogan_message_4">Mọi thứ đều xếp thành một hàng.</string>
+    <string name="slogan_message_4">Mọi thứ đều gọn gàng và ngăn nắp.</string>
     <string name="slogan_message_5">Không tì vết.</string>
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>
@@ -19,6 +19,7 @@
     <string name="general_remove_action">Loại bỏ</string>
     <string name="general_wipe_action">Làm sạch</string>
     <string name="general_cancel_action">Hủy</string>
+    <string name="general_discard_action">Bỏ qua</string>
     <string name="general_reset_action">Đặt lại</string>
     <string name="general_save_action">Lưu</string>
     <string name="general_thanks_action">Cảm ơn</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">Thao tác thành công</string>
     <string name="general_result_failure_message">Thao tác thất bại</string>
     <string name="general_result_x_space_freed">Đã giải phóng %s</string>
+    <string name="general_options_label">Tùy chọn</string>
     <string name="general_details_label">Chi tiết</string>
     <string name="general_view_action">Xem</string>
     <string name="general_update_action">Cập nhật</string>

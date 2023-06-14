@@ -139,7 +139,7 @@
     <string name="corpsefinder_watcher_summary">Automatisch scannen op overblijfselen wanneer een app is verwijderd.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatische verwijdering</string>
     <string name="corpsefinder_watcher_autodelete_summary">Verwijder automatisch eventuele overblijfselen van de verwijderde app.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">Er zijn nog %1$s gevonden na het verwijderen van %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">Er zijn nog %1$s gevonden na het verwijderen van %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$s item(s) verwijderd.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Restanten verwijderen</string>
     <string name="corpsefinder_filter_publicmedia_label">Openbare media</string>

@@ -19,6 +19,7 @@
     <string name="general_remove_action">Remover</string>
     <string name="general_wipe_action">Limpar</string>
     <string name="general_cancel_action">Cancelar</string>
+    <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Reiniciar</string>
     <string name="general_save_action">Salvar</string>
     <string name="general_thanks_action">Obrigado</string>
@@ -64,10 +65,12 @@
     <string name="general_progress_queued">Na fila</string>
     <string name="general_progress_deleting">Excluindo %s</string>
     <string name="general_sort_options_label">Opções de classificação</string>
+    <string name="general_sort_reverse_action">Modo de classificação inversa</string>
     <string name="general_tag_filter_label">Filtrar por tags</string>
     <string name="general_result_success_message">Operação bem sucedida</string>
     <string name="general_result_failure_message">Operação falhou</string>
-    <string name="general_result_x_space_freed">%s liberado</string>
+    <string name="general_result_x_space_freed">%s liberados</string>
+    <string name="general_options_label">Opções</string>
     <string name="general_details_label">Detalhes</string>
     <string name="general_view_action">Ver</string>
     <string name="general_update_action">Atualizar</string>
@@ -89,7 +92,7 @@
         <item quantity="one">%s item</item>
         <item quantity="other">%s itens</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s podem ser liberado</string>
+    <string name="x_space_can_be_freed">%s podem ser liberados</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">App</string>

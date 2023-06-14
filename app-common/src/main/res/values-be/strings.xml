@@ -19,6 +19,7 @@
     <string name="general_remove_action">Выдаліць</string>
     <string name="general_wipe_action">Ачысціць</string>
     <string name="general_cancel_action">Скасаваць</string>
+    <string name="general_discard_action">Адхіліць</string>
     <string name="general_reset_action">Скінуць</string>
     <string name="general_save_action">Захаваць</string>
     <string name="general_thanks_action">Падзякі</string>
@@ -64,10 +65,12 @@
     <string name="general_progress_queued">У чарзе</string>
     <string name="general_progress_deleting">Ідзе выдаленне %s</string>
     <string name="general_sort_options_label">Опцыі сартавання</string>
+    <string name="general_sort_reverse_action">Адваротны парадак сартавання</string>
     <string name="general_tag_filter_label">Фільтраваць паводле тэгаў</string>
     <string name="general_result_success_message">Аперацыя выканана</string>
     <string name="general_result_failure_message">Аперацыя не выканана</string>
     <string name="general_result_x_space_freed">Вызвалена %s</string>
+    <string name="general_options_label">Параметры</string>
     <string name="general_details_label">Падрабязнасці</string>
     <string name="general_view_action">Праглядзець</string>
     <string name="general_update_action">Абнавіць</string>

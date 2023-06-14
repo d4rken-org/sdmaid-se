@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Nevojitet SD Maid Pro</string>
+    <string name="upgrades_dashcard_title">Përmirëso SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ofron rezultate më të mira, më shumë veçori dhe opsione për përdoruesit e fuqishëm.</string>
+    <string name="upgrades_dashcard_upgrade_action">Aktualizo</string>
+    <string name="upgrades_gplay_unavailable_error">Shërbimet e Google Play nuk janë të disponueshme.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nuk u gjet asnjë blerje. A po përdorni llogarinë e duhur?</string>
+    <string name="upgrade_screen_title">Merr SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit. Puna ime financohet nga ju ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Avantazhet</string>
+    <string name="upgrade_screen_benefits_body">• Pastrimi i aplikacioneve 💯\n• Operacionet e planifikuara ⏰\n• Opsione shtesë për të gjitha mjetet ⚙️\n• Rregullat tuaja të fshirjes ✍️\n• Një zhvillues i motivuar 🧙\ndhe më shumë…</string>
+    <string name="upgrade_screen_how_title">Opsione</string>
     <string name="upgrade_screen_how_body">Mund të zgjedhësh midis një blerjeje të një herëshme dhe një abonimi vjetor më të lirë.\nAbonimi fillon me një provë falas 14-ditore, pas së cilës do të tarifohesh një herë në vit. Prova dhe abonimi janë të anulueshme në çdo kohë.\nTë njëjtat veçori, vetëm modele të ndryshme çmimesh.</string>
     <string name="upgrade_screen_subscription_trial_action">Filloni provën falas 14-ditore</string>
+    <string name="upgrade_screen_subscription_action">Abonohu</string>
+    <string name="upgrade_screen_subscription_action_hint">Abonimi kushton %s në vit.</string>
+    <string name="upgrade_screen_iap_action">Blerje një herë</string>
+    <string name="upgrade_screen_iap_action_hint">Blerja një herë kushton %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ti je më i miri! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Së bashku, arritëm në publikimin e parë! Faleminderit që më ndihmove! Zhvillimi sigurisht që do të vazhdojë, por tani mund të kaloni në ndërtime më të qëndrueshme, nëse dëshironi. Bëni këtë duke hequr dorë nga testimi në Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Shënim i vogël: Vlerësimet e dhëna gjatë testimit janë të dukshme vetëm për mua, do ta vlerësoja nëse mund t\'i jepni SD Maid një vlerësim publik nëse jeni të kënaqur.</string>
+    <string name="nudge_betagoodbye_positive_action">Lërmëni jashtë</string>
+    <string name="nudge_betagoodbye_negative_action">Vazhdo testimin</string>
 </resources>

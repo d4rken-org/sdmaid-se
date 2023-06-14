@@ -19,6 +19,7 @@
     <string name="general_remove_action">Odstranit</string>
     <string name="general_wipe_action">Smazat</string>
     <string name="general_cancel_action">Zrušit</string>
+    <string name="general_discard_action">Zrušit</string>
     <string name="general_reset_action">Obnovit</string>
     <string name="general_save_action">Uložit</string>
     <string name="general_thanks_action">Poděkování</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">Operace úspěšně dokončena</string>
     <string name="general_result_failure_message">Operace se nezdařila</string>
     <string name="general_result_x_space_freed">Uvolněno %s</string>
+    <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Zobrazit</string>
     <string name="general_update_action">Aktualizovat</string>

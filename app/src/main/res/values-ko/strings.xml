@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
     <string name="debug_debuglog_file_label">기록한 로그 파일</string>
+    <string name="debug_debuglog_recording_progress">디버그 로그 기록 중</string>
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>
+    <string name="debug_debuglog_stop_action">기록 정지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일이 민감한 정보를 포함하고 있습니다. (파일 이름, 설치된 앱 등) 신뢰할 수 있는 이들과만 공유하세요.</string>
     <string name="settings_debuglog_explanation">이 기능을 사용하면 앱에서 하고 있는 모든 작업을 한 파일에 저장합니다. 생성된 파일은 민감한 정보를 포함할 수 있습니다. (파일 이름, 설치된 앱 등) 애플리케이션의 개발자 등, 신뢰할 수 있는 이들과만 공유하세요.</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
@@ -62,6 +64,7 @@
     <string name="ui_previews_title">파일 미리보기</string>
     <string name="ui_previews_summary">모든 파일의 미리보기(영상 썸네일 등)를 표시합니다.</string>
     <string name="settings_support_label">지원</string>
+    <string name="settings_support_description">앱의 자세한 설명을 확인하거나, 오류 보고, 다른 유저와 소통, 혹은 디버그 로그 기록을 할 수 있습니다.</string>
     <string name="documentation_label">문서</string>
     <string name="issue_tracker_description">버그 제보 및 기능 추가 요청을 할 수 있는 공개 이슈 트래커입니다.</string>
     <string name="issue_tracker_label">이슈 트래커</string>
@@ -137,7 +140,7 @@
     <string name="corpsefinder_watcher_summary">앱이 삭제되면 자동으로 남는 파일을 스캔합니다.</string>
     <string name="corpsefinder_watcher_autodelete_title">자동 삭제</string>
     <string name="corpsefinder_watcher_autodelete_summary">앱이 삭제되며 남긴 파일을 자동으로 삭제합니다.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%2$s을 삭제하면서 %1$s개의 남겨진 파일을 찾았습니다.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%2$s을 삭제하면서 %1$s개의 남겨진 파일을 찾았습니다.</string>
     <string name="corpsefinder_watcher_notification_delete_result">삭제를 완료했습니다(%1$s): 공간 확보 %2$s, 삭제 파일 %3$s개</string>
     <string name="corpsefinder_watcher_notification_delete_action">남겨진 파일 삭제</string>
     <string name="corpsefinder_filter_publicmedia_label">공개 미디어</string>
@@ -358,9 +361,15 @@
     <string name="exclusion_explanation_body1">파일과 앱을 SD Maid의 활동으로부터 제외합니다.</string>
     <string name="exclusion_add_new_hint">새로운 예외 사항을 추가하려면 먼저 탐색을 실행한 뒤 제외할 항목의 메뉴를 이용해주세요.</string>
     <string name="exclusion_create_action">예외 생성</string>
+    <string name="exclusion_edit_action">예외 편집</string>
     <string name="exclusion_type_package">앱 제외</string>
     <string name="exclusion_type_path">경로 제외</string>
+    <string name="exclusion_type_segment">예외 구간</string>
     <string name="exclusion_tags_alltools">모든 도구</string>
+    <string name="exclusion_target_label">예외 목표</string>
+    <string name="exclusion_option_allow_partial">부분 매칭 허용</string>
+    <string name="exclusion_option_ignore_casing">대/소문자 무시</string>
+    <string name="exclusion_editor_affected_tools_label">영향받은 도구</string>
     <string name="automation_accessibility_service_description">접근성 기능이 필요한 사용자는 이 서비스를 허용하여 일일이 수동으로 작동시켜야 하는 (캐시 삭제 같은) 기능들을 자동화할 수 있습니다.\n\n예를 들어 SD Maid가 여러 개의 앱을 중지해야 할 경우, SD Maid는 이 서비스를 사용하여 각 앱의 설정 화면을 띄운 뒤 강제 중지 버튼을 찾아 자동으로 누르게 됩니다.\n\nSD Maid는 이 기능을 사용할 때마다 이용자에게 이 기능을 실행할지 반드시 물어볼 것이며, 사용자는 언제든지 서비스 동작을 쉽게 중지할 수 있습니다.\n\n사용자의 동의 없이는 어떠한 동작도 실행되지 않습니다. 사용자는 큰 문제 없이 언제든지 이 기능을 끌 수 있습니다.</string>
     <string name="automation_screenoverlay_explanation">SD Maid가 화면과 상호작용하고 있습니다. 사용자가 지금 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 작업을 취소하세요.</string>
     <string name="automation_active_title">SD Maid가 동작하고 있습니다</string>

@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notification de débogage</string>
     <string name="debug_debuglog_file_label">Fichier de log enregistré</string>
+    <string name="debug_debuglog_recording_progress">Enregistrement du journal de débogage</string>
     <string name="debug_debuglog_record_action">Enregistrer le log de débogage</string>
+    <string name="debug_debuglog_stop_action">Arrêter l\'enregistrement</string>
     <string name="debug_debuglog_sensitive_information_message">Le fichier généré contient des informations sensibles (par exemple, les noms de fichiers et les applications installées). Ne le partagez qu\'avec des personnes de confiance.</string>
     <string name="settings_debuglog_explanation">Cette fonction enregistre tout ce que fait l\'application dans un fichier partageable. Le fichier généré contient des informations sensibles (par exemple, les noms de fichiers et les applications installées). Ne le partagez qu\'avec des personnes de confiance (par exemple, un développeur qui cherche à résoudre un problème).</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
@@ -64,6 +66,7 @@
     <string name="ui_previews_title">Aperçus de fichiers</string>
     <string name="ui_previews_summary">Afficher les aperçus de fichiers dans tous les outils (par ex. les vignettes d\'images et de vidéos).</string>
     <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">Lire la documentation, rapporter des problèmes, discuter avec d\'autres ou enregistrer les journaux de débogage.</string>
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">Un système public de suivi des bogues et des demandes de fonctionnalités.</string>
     <string name="issue_tracker_label">Suivi des problèmes</string>
@@ -139,7 +142,7 @@
     <string name="corpsefinder_watcher_summary">Recherche automatique des reliquats lorsqu\'une application est supprimée.</string>
     <string name="corpsefinder_watcher_autodelete_title">Suppression automatique</string>
     <string name="corpsefinder_watcher_autodelete_summary">Supprimer automatiquement tous les restes liés à l\'application désinstallée.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">%1$s reste(s) trouvé(s) après la désinstallation de %2$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">%1$s reste(s) trouvé(s) après la désinstallation de %2$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Nettoyage réussi (%1$s) : %2$s ont été libérés et %3$s élément(s) supprimé(s).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Supprimer les restes</string>
     <string name="corpsefinder_filter_publicmedia_label">Médias publics</string>
@@ -364,9 +367,22 @@
     <string name="exclusion_explanation_body1">Exclure des fichiers et des applications des opérations de SD Maid.</string>
     <string name="exclusion_add_new_hint">Ajouter de nouvelles exclusions en laissant d\'abord SD Maid rechercher puis en utilisant le menu contextuel sur le résultat que vous souhaitez exclure.</string>
     <string name="exclusion_create_action">Créer une exclusion</string>
+    <string name="exclusion_edit_action">Modifier l\'exclusion</string>
     <string name="exclusion_type_package">Exclure l\'application</string>
     <string name="exclusion_type_path">Exclure le chemin</string>
+    <string name="exclusion_type_segment">Exclusion de segment</string>
     <string name="exclusion_tags_alltools">Tous les outils</string>
+    <string name="exclusion_target_label">Cible de l\'exclusion</string>
+    <string name="exclusion_option_allow_partial">Autoriser les correspondances partielles</string>
+    <string name="exclusion_option_ignore_casing">Ignorer la casse</string>
+    <string name="exclusion_editor_affected_tools_label">Outils affectés</string>
+    <string name="exclusion_editor_path_explanation">Une exclusion de chemin d\'accès empêche SD Maid de continuer à traiter les chemins correspondants. Cela s\'applique aux fichiers, répertoires et sous-répertoires.</string>
+    <string name="exclusion_editor_pkg_explanation">Une exclusion d\'application empêche SD Maid de traiter les paquets correspondants.</string>
+    <string name="exclusion_editor_segment_explanation">Une exclusion basée sur un segment est similaire à une exclusion de chemin d\'accès mais permet des correspondances partielles. Exemple : \"DCIM/Camera\" exclut \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des modifications non enregistrées !</string>
+    <string name="exclusion_create_pkg_hint">Utilisez l\'outil Gestion des applications pour créer des exclusions d\'applications.</string>
+    <string name="exclusion_create_path_hint">Utilisez l\'outil Analyseur de stockage pour créer des exclusions de chemin.</string>
     <string name="automation_accessibility_service_description">Les utilisateurs ayant des besoins particuliers en termes d\'accessibilité peuvent activer ce service pour permettre à SD Maid d\'automatiser des tâches qui nécessiteraient autrement une interaction manuelle fastidieuse de l\'utilisateur (par ex. la suppression du cache).\n\nExemple : si vous demandez à SD Maid d\'arrêter plusieurs applications, SD Maid peut utiliser ce service pour ouvrir l\'écran des paramètres de chaque application, rechercher le bouton \"Forcer l\'arrêt\" et cliquer dessus.\n\nSD Maid s\'affichera toujours en évidence lors de l\'utilisation de ce service et fournira à l\'utilisateur un moyen facile d\'annuler immédiatement toute interaction.\n\nAucune action ne sera effectuée sans l\'approbation préalable de l\'utilisateur. Ce service peut être désactivé à tout moment sans effets indésirables.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagit avec votre appareil. Il n\'est pas possible d\'utiliser l\'écran en même temps. Attendez que l\'opération soit terminée ou annulez-la.</string>
     <string name="automation_active_title">SD Maid travaille</string>

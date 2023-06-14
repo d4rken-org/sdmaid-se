@@ -19,6 +19,7 @@
     <string name="general_remove_action">हटाएं</string>
     <string name="general_wipe_action">साफ करें</string>
     <string name="general_cancel_action">रद्द करें</string>
+    <string name="general_discard_action">खारिज करे</string>
     <string name="general_reset_action">रीसेट</string>
     <string name="general_save_action">सहेजे</string>
     <string name="general_thanks_action">धन्यवाद</string>
@@ -64,10 +65,12 @@
     <string name="general_progress_queued">पंक्ति में</string>
     <string name="general_progress_deleting">हटा रहा है %s</string>
     <string name="general_sort_options_label">क्रमबद्ध विकल्प</string>
+    <string name="general_sort_reverse_action">रिवर्स क्रम मोड</string>
     <string name="general_tag_filter_label">टैग द्वारा फ़िल्टर करें</string>
     <string name="general_result_success_message">ऑपरेशन सफल रहा</string>
     <string name="general_result_failure_message">ऑपरेशन विफल रहा</string>
     <string name="general_result_x_space_freed">%s खाली की गई</string>
+    <string name="general_options_label">विकल्प</string>
     <string name="general_details_label">विवरण</string>
     <string name="general_view_action">देखे</string>
     <string name="general_update_action">अद्यतन</string>

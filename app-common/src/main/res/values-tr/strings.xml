@@ -19,6 +19,7 @@
     <string name="general_remove_action">Kaldır</string>
     <string name="general_wipe_action">Temizle</string>
     <string name="general_cancel_action">İptal et</string>
+    <string name="general_discard_action">Yoksay</string>
     <string name="general_reset_action">Sıfırla</string>
     <string name="general_save_action">Kaydet</string>
     <string name="general_thanks_action">Teşekkürler</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">İşlem başarılı</string>
     <string name="general_result_failure_message">Operasyon başarısız</string>
     <string name="general_result_x_space_freed">%s serbest bırakıldı</string>
+    <string name="general_options_label">Seçenekler</string>
     <string name="general_details_label">Detaylar</string>
     <string name="general_view_action">Bak</string>
     <string name="general_update_action">Güncelle</string>

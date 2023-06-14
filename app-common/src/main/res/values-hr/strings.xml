@@ -18,6 +18,8 @@
     <string name="general_remove_action">Ukloni</string>
     <string name="general_wipe_action">Izbriši</string>
     <string name="general_cancel_action">Otkaži</string>
+    <string name="general_discard_action">Odbaci</string>
+    <string name="general_reset_action">Ponovno postavljanje</string>
     <string name="general_save_action">Spremi</string>
     <string name="general_thanks_action">Hvala</string>
     <string name="general_gotit_action">Shvaćam</string>
@@ -61,10 +63,12 @@
     <string name="general_progress_queued">U redu čekanja</string>
     <string name="general_progress_deleting">Brisanje %s</string>
     <string name="general_sort_options_label">Mogućnosti sortiranja</string>
+    <string name="general_sort_reverse_action">Obrnuti način sortiranja</string>
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
     <string name="general_result_success_message">Operacija je uspjela</string>
     <string name="general_result_failure_message">Operacija nije uspjela</string>
     <string name="general_result_x_space_freed">%s oslobođeno</string>
+    <string name="general_options_label">Mogućnosti</string>
     <string name="general_details_label">Detalji</string>
     <string name="general_view_action">Prikaz</string>
     <string name="general_update_action">Ažuriraj</string>
@@ -91,6 +95,7 @@
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
     <string name="general_app_label">Aplikacija</string>
+    <string name="general_more_info_action">Više informacija</string>
     <string name="general_grant_access_action">Dozvoli pristup</string>
     <string name="general_enable_service_action">Omogući uslugu</string>
     <string name="general_undo_action">Poništi</string>

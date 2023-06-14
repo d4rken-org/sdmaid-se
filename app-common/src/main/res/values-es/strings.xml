@@ -19,6 +19,7 @@
     <string name="general_remove_action">Eliminar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
+    <string name="general_discard_action">Ignorar</string>
     <string name="general_reset_action">Restablecer</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
@@ -64,11 +65,12 @@
     <string name="general_progress_queued">En espera</string>
     <string name="general_progress_deleting">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar las opciones</string>
-    <string name="general_sort_reverse_action">Modo de ordenación inverso</string>
+    <string name="general_sort_reverse_action">Modo de ordenación inversa</string>
     <string name="general_tag_filter_label">Filtrar por las etiquetas</string>
     <string name="general_result_success_message">Operación exitosa</string>
     <string name="general_result_failure_message">Operación fallida</string>
     <string name="general_result_x_space_freed">%s liberado</string>
+    <string name="general_options_label">Opciones</string>
     <string name="general_details_label">Detalles</string>
     <string name="general_view_action">Ver</string>
     <string name="general_update_action">Actualizar</string>

@@ -19,6 +19,7 @@
     <string name="general_remove_action">Quitar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
+    <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Resetear</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
@@ -64,10 +65,12 @@
     <string name="general_progress_queued">En cola</string>
     <string name="general_progress_deleting">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar las opciones</string>
+    <string name="general_sort_reverse_action">Modo de clasificación inversa</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>
     <string name="general_result_success_message">Operación exitosa</string>
     <string name="general_result_failure_message">Operación fallida</string>
     <string name="general_result_x_space_freed">%s liberados</string>
+    <string name="general_options_label">Opciones</string>
     <string name="general_details_label">Detalles</string>
     <string name="general_view_action">Ver</string>
     <string name="general_update_action">Actualizar</string>
@@ -97,7 +100,7 @@
     <string name="general_grant_access_action">Permitir acceso</string>
     <string name="general_enable_service_action">Activar servicio</string>
     <string name="general_undo_action">Deshacer</string>
-    <string name="general_path_label">Directori</string>
+    <string name="general_path_label">Directorio</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamaño</string>
     <string name="general_exclude_action">Excluir</string>

@@ -9,7 +9,9 @@
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
     <string name="debug_debuglog_file_label">Записанный файл журнала</string>
+    <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>
     <string name="debug_debuglog_record_action">Запись журнала отладки</string>
+    <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Передавайте его только доверенным лицам.</string>
     <string name="settings_debuglog_explanation">Эта функция записывает все действия приложения в файл, который может быть выложен в общий доступ. Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Делитесь им только с доверенными лицами (например, с разработчиком, который устраняет проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активные задачи</string>
@@ -68,6 +70,7 @@
     <string name="ui_previews_title">Предпросмотр файлов</string>
     <string name="ui_previews_summary">Предварительный просмотр файлов во всех инструментах (например эскизы изображений и видео).</string>
     <string name="settings_support_label">Поддержка</string>
+    <string name="settings_support_description">Читайте документацию, сообщайте о проблемах, общайтесь с другими пользователями или шлите отладочные журналы.</string>
     <string name="documentation_label">Документация</string>
     <string name="issue_tracker_description">Публичный трекер для сообщений об ошибках и запросов новых возможностей.</string>
     <string name="issue_tracker_label">Трекер проблем приложения</string>
@@ -143,7 +146,7 @@
     <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
     <string name="corpsefinder_watcher_autodelete_title">Автоудаление</string>
     <string name="corpsefinder_watcher_autodelete_summary">Автоматическое удаление всех остатков, связанных с удаленным приложением.</string>
-    <string name="corpsefinder_watcher_notification_scan_result" comment="corpsefinder_watcher_notification_scan_result&#10;e.g. &amp;quot;3 remain(s) found after uninstalling Nova Launcher&amp;quot;">После удаления %2$s найдено остатков: %1$s.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">После удаления %2$s найдено остатков: %1$s.</string>
     <string name="corpsefinder_watcher_notification_delete_result">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$s элем.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Удалить остатки</string>
     <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
@@ -376,9 +379,22 @@
     <string name="exclusion_explanation_body1">Исключение файлов и приложений из задач SD Maid.</string>
     <string name="exclusion_add_new_hint">Чтобы добавить новые исключения, позвольте SD Maid выполнить поиск, а затем воспользуйтесь контекстным меню результата, который Вы хотите исключить.</string>
     <string name="exclusion_create_action">Создать исключение</string>
+    <string name="exclusion_edit_action">Редактировать исключение</string>
     <string name="exclusion_type_package">Исключение приложения</string>
     <string name="exclusion_type_path">Исключение пути</string>
+    <string name="exclusion_type_segment">Исключение сегмента</string>
     <string name="exclusion_tags_alltools">Все инструменты</string>
+    <string name="exclusion_target_label">Цель исключения</string>
+    <string name="exclusion_option_allow_partial">Разрешить частичное совпадение</string>
+    <string name="exclusion_option_ignore_casing">Без учета регистра</string>
+    <string name="exclusion_editor_affected_tools_label">Затрагиваемые инструменты</string>
+    <string name="exclusion_editor_path_explanation">Исключение пути не позволяет SD Maid обрабатывать указанные места. Это относится к файлам, каталогам и подкаталогам.</string>
+    <string name="exclusion_editor_pkg_explanation">Исключение приложения не позволяет SD Maid обрабатывать указанные пакеты.</string>
+    <string name="exclusion_editor_segment_explanation">Исключение сегмента похоже на исключение пути, но допускает частичные совпадения. Пример: \"DCIM/Camera\" исключает \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Удалить исключение?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
+    <string name="exclusion_create_pkg_hint">Используйте Менеджер для создания исключений приложений.</string>
+    <string name="exclusion_create_path_hint">Используйте Анализ памяти для создания исключений путей.</string>
     <string name="automation_accessibility_service_description">Пользователи с особыми потребностями доступности могут включить эту службу, чтобы позволить SD Maid автоматизировать задачи, которые в противном случае потребовали бы утомительного ручного взаимодействия с пользователем (например, удаление кэша).\n\nПример: Если вы поручите SD Maid остановить несколько приложений, SD Maid может использовать эту службу, чтобы открыть экран настроек каждого приложения, найти кнопку \'Завершить\' и нажать ее.\n\n\nSD Maid всегда будет показывать, когда используется эта служба, и предоставит пользователю простой способ немедленно отменить любое взаимодействие.\n\nНикакие действия не будут выполняться без предварительного одобрения пользователя. Эта служба может быть снова отключена в любое время без каких-либо негативных последствий.</string>
     <string name="automation_screenoverlay_explanation">SD Maid взаимодействует с Вашим устройством. Одновременное использование экрана невозможно. Дождитесь завершения операции или отмените её.</string>
     <string name="automation_active_title">SD Maid работает</string>

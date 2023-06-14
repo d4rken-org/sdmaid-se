@@ -19,6 +19,7 @@
     <string name="general_remove_action">Hapus</string>
     <string name="general_wipe_action">Bersihkan</string>
     <string name="general_cancel_action">Batal</string>
+    <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Setel ulang</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
@@ -68,6 +69,7 @@
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <string name="general_result_failure_message">Pekerjaan gagal</string>
     <string name="general_result_x_space_freed">%s dibebaskan</string>
+    <string name="general_options_label">Pilihan</string>
     <string name="general_details_label">Detail</string>
     <string name="general_view_action">Lihat</string>
     <string name="general_update_action">Perbarui</string>

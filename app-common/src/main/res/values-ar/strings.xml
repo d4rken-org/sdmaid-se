@@ -19,6 +19,7 @@
     <string name="general_remove_action">حذف</string>
     <string name="general_wipe_action">مسح</string>
     <string name="general_cancel_action">إلغاء</string>
+    <string name="general_discard_action">تجاهل</string>
     <string name="general_reset_action">إعادة ضبط</string>
     <string name="general_save_action">حفظ</string>
     <string name="general_thanks_action">شكراً</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">تمت المهمة</string>
     <string name="general_result_failure_message">فشلت المهمة</string>
     <string name="general_result_x_space_freed">%s محررة</string>
+    <string name="general_options_label">الخيارات</string>
     <string name="general_details_label">التفاصيل</string>
     <string name="general_view_action">عرض</string>
     <string name="general_update_action">تحديث</string>

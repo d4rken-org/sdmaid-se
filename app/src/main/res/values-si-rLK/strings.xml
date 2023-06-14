@@ -5,11 +5,16 @@
     <string name="onboarding_privacy_continue_action">ඉදිරියට</string>
     <string name="settings_licenses_label">බලපත්‍ර</string>
     <string name="settings_category_other_label">වෙනත්</string>
+    <string name="ui_theme_setting_label">තේමාව</string>
+    <string name="ui_theme_dark_label">අඳුරු</string>
+    <string name="ui_theme_light_label">දීප්ත</string>
     <string name="settings_support_label">සහාය</string>
     <string name="documentation_label">ප්‍රලේඛනය</string>
     <string name="support_installid_label">ස්ථාපන හැඳු.</string>
     <string name="discord_label">ඩිස්කෝඩ්</string>
     <string name="changelog_label">වෙනස්කම් සටහන</string>
+    <string name="setup_label">පිහිටුවීම</string>
+    <string name="setup_title">පිහිටුවීම</string>
     <string name="setup_notification_title">දැනුම්දීම්</string>
     <string name="settings_category_tools_label">මෙවලම්</string>
 </resources>

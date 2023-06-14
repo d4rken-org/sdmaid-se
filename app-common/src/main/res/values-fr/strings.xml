@@ -19,6 +19,7 @@
     <string name="general_remove_action">Supprimer</string>
     <string name="general_wipe_action">Effacer</string>
     <string name="general_cancel_action">Annuler</string>
+    <string name="general_discard_action">Abandonner</string>
     <string name="general_reset_action">Réinitialiser</string>
     <string name="general_save_action">Sauvegarder</string>
     <string name="general_thanks_action">Remerciements</string>
@@ -69,6 +70,7 @@
     <string name="general_result_success_message">Opération réussie</string>
     <string name="general_result_failure_message">Echec de l\'opération</string>
     <string name="general_result_x_space_freed">%s libéré</string>
+    <string name="general_options_label">Options</string>
     <string name="general_details_label">Détails</string>
     <string name="general_view_action">Vue</string>
     <string name="general_update_action">Mise à jour</string>

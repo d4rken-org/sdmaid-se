@@ -19,6 +19,7 @@
     <string name="general_remove_action">Odstrániť</string>
     <string name="general_wipe_action">Zmazať</string>
     <string name="general_cancel_action">Zrušiť</string>
+    <string name="general_discard_action">Zrušiť</string>
     <string name="general_reset_action">Obnoviť</string>
     <string name="general_save_action">Uložiť</string>
     <string name="general_thanks_action">Vďaka</string>
@@ -64,10 +65,12 @@
     <string name="general_progress_queued">V poradí</string>
     <string name="general_progress_deleting">Odstraňuje sa %s</string>
     <string name="general_sort_options_label">Možnosti zoradenia</string>
+    <string name="general_sort_reverse_action">Obrátený režim triedenia</string>
     <string name="general_tag_filter_label">Filtrujte podľa štítkov</string>
     <string name="general_result_success_message">Operácia úspešná</string>
     <string name="general_result_failure_message">Operácia zlyhala</string>
     <string name="general_result_x_space_freed">%s bolo uvoľnené</string>
+    <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Zobraziť</string>
     <string name="general_update_action">Aktualizovať</string>
