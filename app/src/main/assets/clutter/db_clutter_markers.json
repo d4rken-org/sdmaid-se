@@ -10397,16 +10397,15 @@
   ],
   "mrks": [{"loc": "SDCARD", "path": "pizzaboy"}]
 }, {
-  "pkgs": ["com.nutomic.syncthingandroid", "net.syncthing.lite"],
+  "pkgs": [
+	"com.nutomic.syncthingandroid",
+	"net.syncthing.lite",
+	"com.github.catfriend1.syncthingandroid"
+  ],
   "mrks": [
 	{"loc": "PUBLIC_DATA", "path": ".stignore"},
-	{"loc": "PUBLIC_DATA", "path": ".stfolder "}
-  ]
-}, {
-  "pkgs": ["com.github.catfriend1.syncthingandroid"],
-  "mrks": [
-	{"loc": "PUBLIC_DATA", "path": ".stignore"},
-	{"loc": "PUBLIC_DATA", "path": ".stfolder "}
+	{"loc": "PUBLIC_DATA", "path": ".stfolder "},
+	{"loc": "PUBLIC_DATA", "path": "backups", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": [
@@ -12558,5 +12557,8 @@
 }, {
   "pkgs": ["com.karin.idTech4Amm"],
   "mrks": [{"loc": "SDCARD", "path": "diii4a"}]
+}, {
+  "pkgs": ["com.android.dialer"],
+  "mrks": [{"loc": "SDCARD", "path": "Recordings", "flags": ["common", "keeper"]}]
 }
 ]
