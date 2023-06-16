@@ -16,7 +16,7 @@ abstract class PreferenceFragment3 : PreferenceFragment2() {
 
         vm.errorEvents.observe2 {
             val showDialog = onErrorEvent?.invoke(it) ?: true
-            if (showDialog) it.asErrorDialogBuilder(requireContext()).show()
+            if (showDialog) it.asErrorDialogBuilder(requireActivity()).show()
         }
     }
 

@@ -1,5 +1,7 @@
 package eu.darken.sdmse.appcleaner.core
 
+import androidx.navigation.Navigation
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
@@ -23,6 +25,10 @@ class InaccessibleDeletionException(
             }
             sb.toString()
         },
+        fixAction = {
+            val navController = Navigation.findNavController(it, R.id.nav_host)
+            navController.navigate(MainDirections.goToSetup())
+        }
     )
 
 }

@@ -115,7 +115,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                             }
                         }
                     } else {
-                        e.asErrorDialogBuilder(requireContext())
+                        e.asErrorDialogBuilder(requireActivity())
                     }
                     errorDialog.show()
                 }
@@ -139,14 +139,14 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
                                 val fallbackIntent = event.item.createIntentFallback(requireContext())
                                 if (fallbackIntent == null) {
-                                    e.asErrorDialogBuilder(requireContext()).show()
+                                    e.asErrorDialogBuilder(requireActivity()).show()
                                     return@observe2
                                 }
                                 try {
                                     specialPermissionLauncher.launch(fallbackIntent)
                                 } catch (e: Exception) {
                                     log(TAG, ERROR) { "Failed to launch FALLBACK intent too :( ${e.asLog()}" }
-                                    e.asErrorDialogBuilder(requireContext()).show()
+                                    e.asErrorDialogBuilder(requireActivity()).show()
                                 }
                             }
                         }
@@ -154,7 +154,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                             runtimePermissionLauncher.launch(event.item.permissionId)
                         } catch (e: ActivityNotFoundException) {
                             log(TAG, ERROR) { "Failed to launch permission intent for $event: ${e.asLog()}" }
-                            e.asErrorDialogBuilder(requireContext()).show()
+                            e.asErrorDialogBuilder(requireActivity()).show()
                         }
                     }
                 }
@@ -164,7 +164,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         specialPermissionLauncher.launch(intent)
                     } catch (e: Exception) {
                         log(TAG, ERROR) { "Failed to open accessibility settings page: ${e.asLog()}" }
-                        e.asErrorDialogBuilder(requireContext()).show()
+                        e.asErrorDialogBuilder(requireActivity()).show()
                     }
                 }
                 is SetupEvents.ShowOurDetailsPage -> {
@@ -172,7 +172,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         startActivity(event.intent)
                     } catch (e: ActivityNotFoundException) {
                         log(TAG, ERROR) { "Failed to launch app settings for app ops restriction: ${e.asLog()}" }
-                        e.asErrorDialogBuilder(requireContext()).show()
+                        e.asErrorDialogBuilder(requireActivity()).show()
                     }
                 }
             }

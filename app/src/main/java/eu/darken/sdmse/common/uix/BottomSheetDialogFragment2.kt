@@ -53,7 +53,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
         }
         vm.errorEvents.observe2(this, ui) {
             log(tag, VERBOSE) { "Error event: $it" }
-            it.asErrorDialogBuilder(requireContext()).show()
+            it.asErrorDialogBuilder(requireActivity()).show()
         }
     }
 

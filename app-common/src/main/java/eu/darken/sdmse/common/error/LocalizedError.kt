@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.error
 
+import android.app.Activity
 import android.content.Context
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaString
@@ -13,8 +14,8 @@ data class LocalizedError(
     val throwable: Throwable,
     val label: CaString,
     val description: CaString,
-    val fixAction: ((Context) -> Unit)? = null,
-    val infoAction: ((Context) -> Unit)? = null,
+    val fixAction: ((Activity) -> Unit)? = null,
+    val infoAction: ((Activity) -> Unit)? = null,
 ) {
     fun asText() = caString { "${label.get(it)}:\n${description.get(it)}" }
 }
