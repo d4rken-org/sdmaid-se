@@ -53,12 +53,6 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onViewDetails() }
         }
 
-        if (item.progress == null && hasAnyData) {
-            activityContainer.setOnClickListener { item.onViewDetails() }
-        } else {
-            activityContainer.setOnClickListener(null)
-        }
-
         scanAction.apply {
             isGone = item.progress != null
             setOnClickListener { item.onScan() }
@@ -70,6 +64,11 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         cancelAction.apply {
             isGone = item.progress == null
             setOnClickListener { item.onCancel() }
+        }
+
+        itemView.apply {
+            setOnClickListener { item.onViewDetails() }
+            isClickable = item.progress == null && hasAnyData
         }
     }
 
