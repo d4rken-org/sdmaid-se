@@ -9,6 +9,7 @@ import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.databinding.AppcleanerDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 
@@ -31,7 +32,6 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         statusPrimary.isInvisible = item.progress != null
         statusSecondary.isInvisible = item.progress != null
 
-
         if (item.progress != null) {
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
@@ -50,12 +50,12 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
 
         detailsAction.apply {
             isGone = item.progress != null || !hasAnyData
-            setOnClickListener { item.onViewDetails() }
+            setOnClickListener { itemView.performClickWithRipple() }
         }
-        if (item.progress == null && hasAnyData) {
-            activityContainer.setOnClickListener { item.onViewDetails() }
-        } else {
-            activityContainer.setOnClickListener(null)
+
+        itemView.apply {
+            setOnClickListener { item.onViewDetails() }
+            isClickable = item.progress == null && hasAnyData
         }
 
         scanAction.apply {
@@ -74,6 +74,11 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         cancelAction.apply {
             isGone = item.progress == null
             setOnClickListener { item.onCancel() }
+        }
+
+        itemView.apply {
+            setOnClickListener { item.onViewDetails() }
+            isClickable = item.progress == null && hasAnyData
         }
     }
 
