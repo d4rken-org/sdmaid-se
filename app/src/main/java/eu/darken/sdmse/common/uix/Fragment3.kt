@@ -35,7 +35,7 @@ abstract class Fragment3(@LayoutRes layoutRes: Int?) : Fragment2(layoutRes) {
         vm.errorEvents.observe2(ui) {
             log(tag, VERBOSE) { "Error event: $it" }
             val showDialog = onErrorEvent?.invoke(it) ?: true
-            if (showDialog) it.asErrorDialogBuilder(requireContext()).show()
+            if (showDialog) it.asErrorDialogBuilder(requireActivity()).show()
         }
     }
 
