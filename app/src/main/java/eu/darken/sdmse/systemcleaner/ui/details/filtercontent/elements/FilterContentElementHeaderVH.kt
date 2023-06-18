@@ -41,7 +41,7 @@ class FilterContentElementHeaderVH(parent: ViewGroup) :
         val onDeleteAllClicked: (Item) -> Unit,
         val onExcludeClicked: (Item) -> Unit,
     ) : FilterContentElementsAdapter.Item {
-
+        override val itemSelectionKey: String? = null
         override val stableId: Long = this::class.java.hashCode().toLong()
     }
 

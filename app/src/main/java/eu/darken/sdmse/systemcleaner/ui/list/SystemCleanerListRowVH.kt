@@ -4,6 +4,8 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.SystemcleanerListItemBinding
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.filter.getDescription
@@ -15,7 +17,15 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
     SystemCleanerListAdapter.BaseVH<SystemCleanerListRowVH.Item, SystemcleanerListItemBinding>(
         R.layout.systemcleaner_list_item,
         parent
-    ) {
+    ), SelectableVH {
+
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { SystemcleanerListItemBinding.bind(itemView) }
 
@@ -23,6 +33,7 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val content = item.content
         icon.setImageDrawable(content.filterIdentifier.getIcon(context))
         primary.text = content.filterIdentifier.getLabel(context)
@@ -31,16 +42,16 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
         items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, content.items.size)
         size.text = Formatter.formatShortFileSize(context, content.size)
 
-        root.setOnClickListener { item.onItemClicked(content) }
-        detailsAction.setOnClickListener { item.onDetailsClicked(content) }
+        root.setOnClickListener { item.onItemClicked(item) }
+        detailsAction.setOnClickListener { item.onDetailsClicked(item) }
     }
 
     data class Item(
-        val content: FilterContent,
-        val onItemClicked: (FilterContent) -> Unit,
-        val onDetailsClicked: (FilterContent) -> Unit,
-    ) : SystemCleanerListAdapter.Item {
-
+        override val content: FilterContent,
+        val onItemClicked: (Item) -> Unit,
+        val onDetailsClicked: (Item) -> Unit,
+    ) : SystemCleanerListAdapter.Item, SelectableItem {
+        override val itemSelectionKey: String = content.filterIdentifier
         override val stableId: Long = content.filterIdentifier.hashCode().toLong()
     }
 

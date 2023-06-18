@@ -7,12 +7,10 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
-import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
@@ -44,27 +42,15 @@ class FilterContentFragmentVM @Inject constructor(
 
         FilterContentElementHeaderVH.Item(
             filterContent = filterContent,
-            onDeleteAllClicked = {
-                events.postValue(FilterContentEvents.ConfirmDeletion(it.filterContent.filterIdentifier))
-            },
-            onExcludeClicked = {
-                launch {
-                    filterContent.items.forEach {
-                        systemCleaner.exclude(filterContent.filterIdentifier, it.lookedUp)
-                    }
-                }
-            }
+            onDeleteAllClicked = { delete(setOf(it)) },
+            onExcludeClicked = { exclude(setOf(it)) }
         ).run { elements.add(this) }
 
         filterContent.items.map { item ->
             FilterContentElementFileVH.Item(
                 filterContent = filterContent,
                 lookup = item,
-                onItemClick = {
-                    events.postValue(
-                        FilterContentEvents.ConfirmFileDeletion(it.filterContent.filterIdentifier, it.lookup.lookedUp)
-                    )
-                },
+                onItemClick = { delete(setOf(it)) },
             )
         }.run { elements.addAll(this) }
 
@@ -74,22 +60,42 @@ class FilterContentFragmentVM @Inject constructor(
         )
     }.asLiveData2()
 
-    fun doDelete(identifier: FilterIdentifier) = launch {
-        log(TAG, INFO) { "doDelete(): $identifier" }
-        val task = SystemCleanerDeleteTask(targetFilters = setOf(identifier))
+    fun delete(items: Collection<FilterContentElementsAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
+        if (!confirmed) {
+            events.postValue(FilterContentEvents.ConfirmDeletion(items))
+            return@launch
+        }
+
+        val task = when {
+            items.singleOrNull() is FilterContentElementHeaderVH.Item -> SystemCleanerDeleteTask(
+                targetFilters = setOf(args.identifier)
+            )
+
+            else -> SystemCleanerDeleteTask(
+                setOf(args.identifier),
+                items.mapNotNull {
+                    when (it) {
+                        is FilterContentElementFileVH.Item -> it.lookup.lookedUp
+                        else -> null
+                    }
+                }.toSet()
+            )
+        }
         // Removing the filtercontent, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(FilterContentEvents.TaskForParent(task))
     }
 
-    fun doDelete(identifier: FilterIdentifier, path: APath) = launch {
-        log(TAG, INFO) { "doDelete(): $path" }
-        val task = SystemCleanerDeleteTask(setOf(identifier), setOf(path))
-        events.postValue(FilterContentEvents.TaskForParent(task))
-    }
-
-    fun doExclude(identifier: FilterIdentifier, path: APath) = launch {
-        log(TAG) { "doExclude(): $identifier, $path" }
-        systemCleaner.exclude(identifier, path)
+    fun exclude(items: Collection<FilterContentElementsAdapter.Item>) = launch {
+        log(TAG) { "exclude(): ${items.size}" }
+        val toExclude = items.mapNotNull { item ->
+            when (item) {
+                is FilterContentElementFileVH.Item -> setOf(item.lookup.lookedUp)
+                is FilterContentElementHeaderVH.Item -> item.filterContent.items.map { it.lookedUp }
+                else -> null
+            }
+        }.flatten().toSet()
+        systemCleaner.exclude(args.identifier, toExclude)
     }
 
     data class State(

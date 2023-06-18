@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.ui.list
 
 import android.os.Bundle
-import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -9,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -94,11 +94,11 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_exclusions_list_cab,
-            onSelected = { mode: ActionMode, item: MenuItem, selected: List<ExclusionListAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ExclusionListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_remove_selected -> {
                         vm.remove(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 

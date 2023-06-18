@@ -125,7 +125,6 @@
     <string name="general_size_label">Size</string>
     <string name="general_exclude_action">Exclude</string>
     <string name="general_exclude_selected_action">Exclude selected</string>
-    <string name="general_exclude_all_action">Exclude all</string>
 
     <string name="general_device_label">Device</string>
 

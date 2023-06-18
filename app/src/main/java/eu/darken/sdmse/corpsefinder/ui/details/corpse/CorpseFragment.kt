@@ -60,11 +60,6 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                         vm.doDelete(event.corpse, event.content)
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    if (event.content != null) {
-                        setNeutralButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
-                            vm.doExclude(event.corpse, event.content)
-                        }
-                    }
                 }.show()
                 is CorpseEvents.TaskForParent -> (parentFragment as CorpseDetailsFragment).forwardTask(event.task)
             }

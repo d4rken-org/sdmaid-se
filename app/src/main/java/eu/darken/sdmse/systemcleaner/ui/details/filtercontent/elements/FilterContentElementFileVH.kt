@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentElementFileBinding
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentElementsAdapter
@@ -17,7 +18,15 @@ class FilterContentElementFileVH(parent: ViewGroup) :
     FilterContentElementsAdapter.BaseVH<FilterContentElementFileVH.Item, SystemcleanerFiltercontentElementFileBinding>(
         R.layout.systemcleaner_filtercontent_element_file,
         parent
-    ) {
+    ), SelectableVH {
+
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { SystemcleanerFiltercontentElementFileBinding.bind(itemView) }
 
@@ -25,7 +34,7 @@ class FilterContentElementFileVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-
+        lastItem = item
         icon.loadFilePreview(item.lookup)
 
         primary.text = item.lookup.userReadablePath.get(context)
@@ -44,6 +53,9 @@ class FilterContentElementFileVH(parent: ViewGroup) :
         val lookup: APathLookup<*>,
         val onItemClick: (Item) -> Unit,
     ) : FilterContentElementsAdapter.Item {
+
+        override val itemSelectionKey: String
+            get() = lookup.lookedUp.path
 
         override val stableId: Long = lookup.hashCode().toLong()
     }
