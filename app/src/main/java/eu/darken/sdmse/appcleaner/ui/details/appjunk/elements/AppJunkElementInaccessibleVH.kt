@@ -22,7 +22,6 @@ class AppJunkElementInaccessibleVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-
         size.text = Formatter.formatFileSize(context, item.inaccessibleCache.privateCacheSize)
 
         root.setOnClickListener { item.onItemClick(item) }
@@ -34,6 +33,7 @@ class AppJunkElementInaccessibleVH(parent: ViewGroup) :
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
+        override val itemSelectionKey: String? = null
         override val stableId: Long = Item::class.java.hashCode().toLong()
     }
 

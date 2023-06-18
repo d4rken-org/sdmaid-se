@@ -320,6 +320,9 @@
             app:nullable="true" />
     </fragment>
 
+    <action
+        android:id="@+id/goToExclusions"
+        app:destination="@id/exclusionsListFragment" />
     <fragment
         android:id="@+id/exclusionsListFragment"
         android:name="eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment"

@@ -25,6 +25,7 @@ class InaccessibleDeletionException(
             }
             sb.toString()
         },
+        fixActionLabel = R.string.setup_title.toCaString(),
         fixAction = {
             val navController = Navigation.findNavController(it, R.id.nav_host)
             navController.navigate(MainDirections.goToSetup())

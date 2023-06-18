@@ -74,8 +74,9 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
     toolbar: MaterialToolbar = ui!!.root.findViewById(R.id.toolbar),
     adapter: AdapterT,
     @MenuRes cabMenuRes: Int,
-    onPrepare: (ActionMode, Menu) -> Boolean,
+    onPrepare: (ActionMode, Menu) -> Boolean = { _: ActionMode, _: Menu -> false },
     onSelected: (ActionMode, MenuItem, List<ItemT>) -> Boolean,
+    onChange: (SelectionTracker<String>) -> Unit = {},
     selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
 ): SelectionTracker<String> where AdapterT : DataAdapter<ItemT>, AdapterT : ModularAdapter<*> {
     val context = requireContext()
@@ -116,6 +117,7 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
 
     tracker.addObserver(object : SelectionTracker.SelectionObserver<String>() {
         override fun onSelectionChanged() {
+            onChange(tracker)
             when {
                 tracker.hasSelection() -> {
                     actionMode ?: toolbar.startActionMode(cabCallback)?.also { actionMode = it }

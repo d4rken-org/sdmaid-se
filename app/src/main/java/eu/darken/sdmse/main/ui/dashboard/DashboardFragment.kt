@@ -10,9 +10,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
@@ -40,6 +40,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         DashboardFragmentDirections.goToUpgradeFragment().navigate()
                         true
                     }
+
                     R.id.menu_action_settings -> {
                         DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment().navigate()
                         true
@@ -52,17 +53,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
                 bottomBarText.apply {
-                    text = requireContext().getQuantityString2(
-                        R.plurals.tasks_activity_active_notification_message,
-                        state.activeTasks
-                    )
+                    text = getQuantityString2(R.plurals.tasks_activity_active_notification_message, state.activeTasks)
                     append("\n")
-                    append(
-                        requireContext().getQuantityString2(
-                            R.plurals.tasks_activity_queued_notification_message,
-                            state.queuedTasks
-                        )
-                    )
+                    append(getQuantityString2(R.plurals.tasks_activity_queued_notification_message, state.queuedTasks))
                 }
             } else if (state.totalItems > 0 || state.totalSize > 0L) {
                 bottomBarText.apply {
@@ -71,12 +64,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         Formatter.formatShortFileSize(requireContext(), state.totalSize)
                     )
                     append("\n")
-                    append(
-                        requireContext().getQuantityString2(
-                            eu.darken.sdmse.common.R.plurals.result_x_items,
-                            state.totalItems
-                        )
-                    )
+                    append(getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.totalItems))
                 }
             } else {
                 bottomBarText.text = ""
@@ -93,7 +81,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     MaterialAlertDialogBuilder(requireContext()).apply {
                         setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                         setMessage(R.string.dashboard_delete_all_message)
-                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_all_action) { _, _ ->
+                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                             vm.mainAction(
                                 state.actionState
                             )
@@ -113,6 +101,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     mainAction.backgroundTintList =
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer))
                 }
+
                 DashboardFragmentVM.BottomBarState.Action.DELETE -> {
                     mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
@@ -122,6 +111,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         requireContext().getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
                 }
+
                 DashboardFragmentVM.BottomBarState.Action.ONECLICK -> {
                     mainAction.setImageResource(R.drawable.ic_delete_alert_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
@@ -131,6 +121,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         requireContext().getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
                 }
+
                 DashboardFragmentVM.BottomBarState.Action.WORKING -> {
                     mainAction.setImageDrawable(null)
                     mainAction.imageTintList =
@@ -138,6 +129,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     mainAction.backgroundTintList =
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorSecondaryContainer))
                 }
+
                 DashboardFragmentVM.BottomBarState.Action.WORKING_CANCELABLE -> {
                     mainAction.setImageResource(R.drawable.ic_cancel)
                     mainAction.imageTintList =
@@ -157,6 +149,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCorpseFinderDetails() }
                 }.show()
+
                 is DashboardEvents.SystemCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(R.string.systemcleaner_delete_all_confirmation_message)
@@ -164,6 +157,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
                 }.show()
+
                 is DashboardEvents.AppCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(R.string.appcleaner_delete_all_confirmation_message)
@@ -171,6 +165,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
+
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
                         .make(
@@ -181,11 +176,13 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         .setAction(eu.darken.sdmse.common.R.string.general_undo_action) { _ -> vm.undoSetupHide() }
                         .show()
                 }
+
                 is DashboardEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG
                 ).show()
+
                 DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
                 }.show()

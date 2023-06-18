@@ -241,14 +241,16 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: Installed.InstallId, path: APath? = null) = toolLock.withLock {
-        log(TAG) { "exclude(): $identifier, $path" }
-        if (path != null) {
-            val exclusion = PathExclusion(
-                path = path,
-                tags = setOf(Exclusion.Tag.APPCLEANER),
-            )
-            exclusionManager.save(exclusion)
+    suspend fun exclude(identifier: Installed.InstallId, paths: Set<APath>? = null) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, $paths" }
+        if (paths != null) {
+            val exclusions = paths.map {
+                PathExclusion(
+                    path = it,
+                    tags = setOf(Exclusion.Tag.APPCLEANER),
+                )
+            }.toSet()
+            exclusionManager.save(exclusions)
 
             val snapshot = internalData.value!!
             internalData.value = snapshot.copy(
@@ -256,7 +258,11 @@ class AppCleaner @Inject constructor(
                     if (junk.identifier == identifier) {
                         junk.copy(
                             expendables = junk.expendables?.entries
-                                ?.map { entry -> entry.key to entry.value.filter { !it.matches(path) } }
+                                ?.map { entry ->
+                                    entry.key to entry.value.filter { filterContent ->
+                                        paths.none { filterContent.isDescendantOf(it) || filterContent.matches(it) }
+                                    }
+                                }
                                 ?.filter { it.second.isNotEmpty() }
                                 ?.toMap()
                         )

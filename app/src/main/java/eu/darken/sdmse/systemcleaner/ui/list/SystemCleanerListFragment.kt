@@ -10,9 +10,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerListFragmentBinding
@@ -40,7 +40,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
         vm.state.observe2(ui) { state ->
             adapter.update(state.items)
             toolbar.subtitle =
-                requireContext().getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
 
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
@@ -64,6 +64,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
                         vm.showDetails(event.filterContent)
                     }
                 }.show()
+
                 is SystemCleanerListEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),

@@ -1,6 +1,8 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
 import android.os.Bundle
+import android.view.ActionMode
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
@@ -10,9 +12,10 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcleanerListFragmentBinding
@@ -42,33 +45,78 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
 
-            toolbar.subtitle =
-                requireContext().getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+            toolbar.subtitle = getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
         }
+
+        val selectionTracker = installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_appcleaner_list_cab,
+            onSelected = { mode: ActionMode, item: MenuItem, selected: List<AppCleanerListAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_exclude_selected -> {
+                        vm.exclude(selected)
+                        mode.finish()
+                        true
+                    }
+
+                    R.id.action_delete_selected -> {
+                        vm.delete(selected)
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
 
         vm.events.observe2(ui) { event ->
             when (event) {
                 is AppCleanerListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(eu.darken.sdmse.common.R.string.general_clean_confirmation_title)
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
-                        getString(
-                            eu.darken.sdmse.common.R.string.general_clean_confirmation_message_x,
-                            event.appJunk.label.get(context)
-                        )
+                        if (event.items.size == 1) {
+                            getString(
+                                R.string.appcleaner_delete_confirmation_message_x,
+                                event.items.single().junk.label.get(context)
+                            )
+                        } else {
+                            getString(
+                                R.string.appcleaner_delete_confirmation_message_selected_x_items,
+                                event.items.size
+                            )
+                        }
                     )
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(event.appJunk)
+                    setPositiveButton(
+                        if (event.items.size == 1) eu.darken.sdmse.common.R.string.general_delete_action
+                        else eu.darken.sdmse.common.R.string.general_delete_selected_action
+                    ) { _, _ ->
+                        selectionTracker.clearSelection()
+                        vm.delete(event.items, confirmed = true)
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
-                        vm.showDetails(event.appJunk)
+                    if (event.items.size == 1) {
+                        setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
+                            vm.showDetails(event.items.single())
+                        }
                     }
                 }.show()
+
                 is AppCleanerListEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG
                 ).show()
+
+                is AppCleanerListEvents.ExclusionsCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.exclusions.size),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        AppCleanerListFragmentDirections.goToExclusions().navigate()
+                    }
+                    .show()
             }
         }
 

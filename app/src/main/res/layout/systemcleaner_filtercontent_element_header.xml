@@ -113,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/general_delete_all_action"
+            android:text="@string/general_delete_action"
             android:textColor="?colorOnError"
             android:backgroundTint="?colorError"
             app:iconTint="?colorOnError"

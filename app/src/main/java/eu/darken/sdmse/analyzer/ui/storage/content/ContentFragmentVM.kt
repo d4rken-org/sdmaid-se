@@ -221,8 +221,8 @@ class ContentFragmentVM @Inject constructor(
             .flatten()
             .map { PathExclusion(path = it.path) }
             .toSet()
-        exclusionManager.save(targets)
-        events.postValue(ContentItemEvents.ExclusionsCreated(targets.size))
+        val createdExclusions = exclusionManager.save(targets)
+        events.postValue(ContentItemEvents.ExclusionsCreated(createdExclusions.size))
     }
 
     data class State(

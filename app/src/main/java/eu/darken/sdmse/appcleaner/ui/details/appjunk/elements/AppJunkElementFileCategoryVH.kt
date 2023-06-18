@@ -46,6 +46,7 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
+        override val itemSelectionKey: String? = null
         override val stableId: Long = category.hashCode().toLong()
     }
 

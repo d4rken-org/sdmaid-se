@@ -18,6 +18,13 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         R.layout.appcleaner_list_item,
         parent
     ) {
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { AppcleanerListItemBinding.bind(itemView) }
 
@@ -25,6 +32,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
         val junk = item.junk
         icon.apply {
             loadAppIcon(junk.pkg)
@@ -45,17 +53,18 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, junk.itemCount)
         size.text = Formatter.formatShortFileSize(context, junk.size)
 
-        root.setOnClickListener { item.onItemClicked(junk) }
-        detailsAction.setOnClickListener { item.onDetailsClicked(junk) }
+        root.setOnClickListener { item.onItemClicked(item) }
+        detailsAction.setOnClickListener { item.onDetailsClicked(item) }
     }
 
     data class Item(
-        val junk: AppJunk,
-        val onItemClicked: (AppJunk) -> Unit,
-        val onDetailsClicked: (AppJunk) -> Unit,
+        override val junk: AppJunk,
+        val onItemClicked: (Item) -> Unit,
+        val onDetailsClicked: (Item) -> Unit,
     ) : AppCleanerListAdapter.Item {
 
         override val stableId: Long = junk.pkg.id.hashCode().toLong()
+        override val itemSelectionKey: String = junk.identifier.toString()
     }
 
 }

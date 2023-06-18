@@ -67,6 +67,7 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
         val onExcludeClicked: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
+        override val itemSelectionKey: String? = null
         override val stableId: Long = this::class.java.hashCode().toLong()
     }
 
