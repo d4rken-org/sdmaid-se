@@ -122,28 +122,33 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exclude_action"
             style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_shield_24"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/general_exclude_action"
+            app:icon="@drawable/ic_shield_24"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/delete_action"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/action_barrier" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_action"
             style="@style/Widget.Material3.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
-            android:text="@string/general_delete_all_action"
-            android:textColor="?colorOnError"
             android:backgroundTint="?colorError"
-            app:iconTint="?colorOnError"
+            android:text="@string/general_delete_action"
+            android:textColor="?colorOnError"
             app:icon="@drawable/ic_baseline_delete_sweep_24"
+            app:iconTint="?colorOnError"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exclude_action"
             app:layout_constraintTop_toBottomOf="@id/action_barrier" />
 
 

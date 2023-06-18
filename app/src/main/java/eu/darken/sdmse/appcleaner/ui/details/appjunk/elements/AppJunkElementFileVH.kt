@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileBinding
 import kotlin.reflect.KClass
 
@@ -19,7 +20,15 @@ class AppJunkElementFileVH(parent: ViewGroup) :
     AppJunkElementsAdapter.BaseVH<AppJunkElementFileVH.Item, AppcleanerAppjunkElementFileBinding>(
         R.layout.appcleaner_appjunk_element_file,
         parent
-    ) {
+    ), SelectableVH {
+
+    private var lastItem: Item? = null
+    override val itemSelectionKey: String?
+        get() = lastItem?.itemSelectionKey
+
+    override fun updatedSelectionState(selected: Boolean) {
+        itemView.isActivated = selected
+    }
 
     override val viewBinding = lazy { AppcleanerAppjunkElementFileBinding.bind(itemView) }
 
@@ -27,6 +36,7 @@ class AppJunkElementFileVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        lastItem = item
 
         icon.loadFilePreview(item.lookup)
 
@@ -48,6 +58,7 @@ class AppJunkElementFileVH(parent: ViewGroup) :
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
+        override val itemSelectionKey: String = "${appJunk.identifier}:${lookup.path}"
         override val stableId: Long = lookup.hashCode().toLong()
     }
 

@@ -80,7 +80,6 @@
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Delete</string>
     <string name="general_delete_selected_action">Delete selected</string>
-    <string name="general_delete_all_action">Delete all</string>
     <string name="general_show_details_action">Show details</string>
 
     <string name="general_delete_confirmation_title">Confirm deletion</string>

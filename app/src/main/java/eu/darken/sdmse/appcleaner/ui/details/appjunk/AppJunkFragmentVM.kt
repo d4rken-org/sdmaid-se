@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
@@ -15,7 +16,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -35,13 +35,12 @@ class AppJunkFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<AppJunkEvents>()
 
-    val state = combine(
-        appCleaner.data
-            .filterNotNull()
-            .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
-            .filterNotNull(),
-        appCleaner.progress,
-    ) { junk, progress ->
+    private val currentAppJunk = appCleaner.data
+        .filterNotNull()
+        .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
+        .filterNotNull()
+
+    val state = combine(currentAppJunk, appCleaner.progress) { junk, progress ->
         val items = mutableListOf<AppJunkElementsAdapter.Item>()
 
         AppJunkElementHeaderVH.Item(
@@ -116,12 +115,14 @@ class AppJunkFragmentVM @Inject constructor(
             ?.run { items.addAll(this) }
 
         State(
+            junk = junk,
             items = items,
             progress = progress,
         )
     }.asLiveData2()
 
     data class State(
+        val junk: AppJunk,
         val items: List<AppJunkElementsAdapter.Item>,
         val progress: Progress.Data?,
     )
@@ -132,13 +133,46 @@ class AppJunkFragmentVM @Inject constructor(
             MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
-        // Removnig the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
+        // Removing the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(AppJunkEvents.TaskForParent(task))
     }
 
-    fun doExclude(installId: Installed.InstallId, path: APath) = launch {
-        log(TAG) { "exclude(): $installId, $path" }
-        appCleaner.exclude(installId, path)
+    fun exclude(path: APath) = launch {
+        log(TAG) { "excludeApp(): $path" }
+        appCleaner.exclude(args.identifier, setOf(path))
+    }
+
+    fun exclude(selected: Collection<AppJunkElementsAdapter.Item>) = launch {
+        log(TAG) { "excludeContent(): ${selected.size} items" }
+        val paths = selected.mapNotNull {
+            when (it) {
+                is AppJunkElementFileVH.Item -> it.lookup.lookedUp
+                else -> null
+            }
+        }.toSet()
+        appCleaner.exclude(args.identifier, paths)
+    }
+
+    fun delete(selected: Collection<AppJunkElementsAdapter.Item>) = launch {
+        val junk = currentAppJunk.first()
+
+        val deleteTask = AppCleanerDeleteTask(
+            setOf(args.identifier),
+            targetFilters = selected.mapNotNull {
+                when (it) {
+                    is AppJunkElementFileVH.Item -> it.category
+                    else -> null
+                }
+            }.toSet(),
+            targetContents = selected.mapNotNull {
+                when (it) {
+                    is AppJunkElementFileVH.Item -> it.lookup.lookedUp
+                    else -> null
+                }
+            }.toSet(),
+            includeInaccessible = selected.any { it is AppJunkElementInaccessibleVH.Item },
+        )
+        events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
     }
 
     companion object {

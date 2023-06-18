@@ -81,7 +81,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     MaterialAlertDialogBuilder(requireContext()).apply {
                         setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                         setMessage(R.string.dashboard_delete_all_message)
-                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_all_action) { _, _ ->
+                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                             vm.mainAction(
                                 state.actionState
                             )
