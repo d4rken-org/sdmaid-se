@@ -33,14 +33,21 @@ class ExclusionManager @Inject constructor(
             .launchIn(appScope + dispatcherProvider.IO)
     }
 
-    suspend fun save(exclusions: Set<Exclusion>) {
-        log(TAG) { "save(): $exclusions" }
+    suspend fun save(toSave: Set<Exclusion>): Collection<Exclusion> {
+        log(TAG) { "save(): $toSave" }
+        val newOrUpdated = mutableSetOf<Exclusion>()
         _exclusions.updateBlocking {
-            val toOverwrite = exclusions.map { it.id }
+            val newExclusions = toSave.filter {
+                val isDupe = this.contains(it)
+                if (isDupe) log(TAG) { "Exclusion already exists: $it" }
+                else newOrUpdated.add(it)
+                !isDupe
+            }
             this
-                .filter { !toOverwrite.contains(it.id) }
-                .plus(exclusions).toSet()
+                .filter { old -> newExclusions.none { old.id == it.id } }
+                .plus(newExclusions).toSet()
         }
+        return newOrUpdated
     }
 
     suspend fun remove(ids: Set<ExclusionId>) {

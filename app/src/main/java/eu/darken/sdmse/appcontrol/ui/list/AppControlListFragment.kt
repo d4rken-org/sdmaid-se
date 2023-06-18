@@ -22,10 +22,10 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -235,9 +235,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             tagFilterDisabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.DISABLED), animate = false)
 
             if (state.appInfos != null) {
-                toolbar.subtitle = requireContext().getQuantityString2(
-                    eu.darken.sdmse.common.R.plurals.result_x_items,
-                    state.appInfos.size
+                toolbar.subtitle = getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.result_x_items, state.appInfos.size
                 )
                 adapter.update(state.appInfos)
             } else {
@@ -248,11 +247,16 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         vm.events.observe2(ui) {
             when (it) {
                 is AppControlListEvents.ConfirmDeletion -> {}
-                is AppControlListEvents.ExclusionsCreated -> Snackbar.make(
-                    requireView(),
-                    requireContext().getQuantityString2(R.plurals.exclusion_x_new_exclusions, it.count),
-                    Snackbar.LENGTH_LONG
-                ).show()
+                is AppControlListEvents.ExclusionsCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, it.count),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        AppControlListFragmentDirections.goToExclusions().navigate()
+                    }
+                    .show()
             }
         }
 

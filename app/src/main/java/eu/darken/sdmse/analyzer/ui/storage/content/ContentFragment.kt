@@ -3,7 +3,6 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 import android.os.Bundle
 import android.text.format.Formatter
 import android.view.ActionMode
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -16,10 +15,10 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AnalyzerContentFragmentBinding
@@ -58,10 +57,6 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
-            toolbar = ui.toolbar,
-            onPrepare = { mode: ActionMode, menu: Menu ->
-                false
-            },
             onSelected = { mode: ActionMode, item: MenuItem, selected: List<ContentAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
@@ -110,11 +105,16 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                     Snackbar.LENGTH_SHORT
                 ).show()
 
-                is ContentItemEvents.ExclusionsCreated -> Snackbar.make(
-                    requireView(),
-                    requireContext().getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
-                    Snackbar.LENGTH_LONG
-                ).show()
+                is ContentItemEvents.ExclusionsCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        ContentFragmentDirections.goToExclusions().navigate()
+                    }
+                    .show()
 
                 is ContentItemEvents.ContentDeleted -> Snackbar.make(
                     requireView(),

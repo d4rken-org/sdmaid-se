@@ -14,6 +14,7 @@ data class LocalizedError(
     val throwable: Throwable,
     val label: CaString,
     val description: CaString,
+    val fixActionLabel: CaString? = null,
     val fixAction: ((Activity) -> Unit)? = null,
     val infoAction: ((Activity) -> Unit)? = null,
 ) {
@@ -27,6 +28,7 @@ fun Throwable.localized(c: Context): LocalizedError = when {
         label = caString { "${c.getString(R.string.general_error_label)} - ${this::class.simpleName!!}" },
         description = caString { localizedMessage ?: getStackTracePeek() }
     )
+
     else -> LocalizedError(
         throwable = this,
         label = caString { "${c.getString(R.string.general_error_label)} - ${this::class.simpleName!!}" },

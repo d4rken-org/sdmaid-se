@@ -2,7 +2,6 @@ package eu.darken.sdmse.exclusion.ui.list
 
 import android.os.Bundle
 import android.view.ActionMode
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -15,10 +14,10 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.ExclusionListFragmentBinding
@@ -95,10 +94,6 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_exclusions_list_cab,
-            toolbar = ui.toolbar,
-            onPrepare = { mode: ActionMode, menu: Menu ->
-                false
-            },
             onSelected = { mode: ActionMode, item: MenuItem, selected: List<ExclusionListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_remove_selected -> {
@@ -109,8 +104,12 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
                     else -> false
                 }
+            },
+            onChange = {
+                ui.mainAction.isVisible = !it.hasSelection()
             }
         )
+
 
         vm.state.observe2(ui) {
             adapter.update(it.items)
@@ -123,7 +122,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                 is ExclusionListEvents.UndoRemove -> Snackbar
                     .make(
                         requireView(),
-                        requireContext().getQuantityString2(
+                        getQuantityString2(
                             eu.darken.sdmse.common.R.plurals.general_remove_success_x_items,
                             event.exclusions.size
                         ),

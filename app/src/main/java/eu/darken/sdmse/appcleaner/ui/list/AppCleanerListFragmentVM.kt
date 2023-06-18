@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
-import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.common.SingleLiveEvent
@@ -16,6 +15,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -31,6 +32,7 @@ class AppCleanerListFragmentVM @Inject constructor(
     private val appCleaner: AppCleaner,
     private val taskManager: TaskManager,
     private val upgradeRepo: UpgradeRepo,
+    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -52,9 +54,7 @@ class AppCleanerListFragmentVM @Inject constructor(
             .map { content ->
                 AppCleanerListRowVH.Item(
                     junk = content,
-                    onItemClicked = {
-                        events.postValue(AppCleanerListEvents.ConfirmDeletion(it))
-                    },
+                    onItemClicked = { delete(setOf(it)) },
                     onDetailsClicked = { showDetails(it) }
                 )
             }
@@ -64,25 +64,39 @@ class AppCleanerListFragmentVM @Inject constructor(
         )
     }.asLiveData2()
 
-    fun doDelete(appJunk: AppJunk) = launch {
-        log(TAG, INFO) { "doDelete(appJunk=$appJunk)" }
+    fun showDetails(item: AppCleanerListAdapter.Item) = launch {
+        log(TAG, INFO) { "showDetails(${item.junk.identifier})" }
+        AppCleanerListFragmentDirections.actionAppCleanerListFragmentToAppCleanerDetailsFragment2(
+            identifier = item.junk.identifier
+        ).navigate()
+    }
+
+    fun delete(items: Collection<AppCleanerListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "delete(${items.size})" }
         if (!upgradeRepo.isPro()) {
             MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
-        val task = AppCleanerDeleteTask(targetPkgs = setOf(appJunk.identifier))
+        if (!confirmed) {
+            events.postValue(AppCleanerListEvents.ConfirmDeletion(items))
+            return@launch
+        }
+        val task = AppCleanerDeleteTask(targetPkgs = items.map { it.junk.identifier }.toSet())
         val result = taskManager.submit(task) as AppCleanerDeleteTask.Result
-        log(TAG) { "doDelete(): Result was $result" }
+        log(TAG) { "delete(): Result was $result" }
         when (result) {
             is AppCleanerDeleteTask.Success -> events.postValue(AppCleanerListEvents.TaskResult(result))
         }
     }
 
-    fun showDetails(appJunk: AppJunk) = launch {
-        log(TAG, INFO) { "showDetails(appJunk=$appJunk)" }
-        AppCleanerListFragmentDirections.actionAppCleanerListFragmentToAppCleanerDetailsFragment2(
-            identifier = appJunk.identifier
-        ).navigate()
+    fun exclude(items: List<AppCleanerListAdapter.Item>) = launch {
+        log(TAG, INFO) { "exclude(${items.size})" }
+        val exclusions = items
+            .map { it.junk.identifier }
+            .map { PkgExclusion(pkgId = it.pkgId) }
+            .toSet()
+        val createdExclusions = exclusionManager.save(exclusions)
+        events.postValue(AppCleanerListEvents.ExclusionsCreated(createdExclusions))
     }
 
     data class State(

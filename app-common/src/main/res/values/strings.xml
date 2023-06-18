@@ -99,9 +99,6 @@
         <item quantity="other">%d items were removed</item>
     </plurals>
 
-    <string name="general_clean_confirmation_title">Confirm cleaning</string>
-    <string name="general_clean_confirmation_message_x">Clean \"%s\"?</string>
-
     <string name="general_root_required_label">Requires root</string>
     <string name="general_root_required_message">Requires a rooted device</string>
 

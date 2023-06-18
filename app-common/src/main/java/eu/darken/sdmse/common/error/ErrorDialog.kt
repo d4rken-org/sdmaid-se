@@ -16,7 +16,9 @@ fun Throwable.asErrorDialogBuilder(
         setMessage(localizedError.description.get(context))
 
         if (localizedError.fixAction != null) {
-            setPositiveButton(android.R.string.ok) { _, _ ->
+            setPositiveButton(
+                localizedError.fixActionLabel?.get(context) ?: context.getString(android.R.string.ok)
+            ) { _, _ ->
                 localizedError.fixAction.invoke(activity)
             }
             setNegativeButton(R.string.general_cancel_action) { _, _ ->

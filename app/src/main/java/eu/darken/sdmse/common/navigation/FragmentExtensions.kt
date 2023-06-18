@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.navigation
 
 import android.app.Activity
 import androidx.annotation.IdRes
+import androidx.annotation.PluralsRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.getQuantityString2
 
 fun Fragment.doNavigate(direction: NavDirections) = findNavController().doNavigate(direction)
 
@@ -36,3 +38,8 @@ fun FragmentManager.findNavController(@IdRes id: Int): NavController {
     val fragment = findFragmentById(id) ?: throw IllegalStateException("Fragment is not found for id:$id")
     return NavHostFragment.findNavController(fragment)
 }
+
+fun Fragment.getQuantityString2(
+    @PluralsRes pluralRes: Int,
+    quantity: Int,
+) = requireContext().getQuantityString2(pluralRes, quantity)
