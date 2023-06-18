@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
@@ -165,6 +164,7 @@ class SystemCleaner @Inject constructor(
                                 deletedContents[filterContent]!!.none { it.matches(c) }
                             }
                         )
+
                         else -> filterContent
                     }
                 }
@@ -177,21 +177,23 @@ class SystemCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: FilterIdentifier, target: APath) = toolLock.withLock {
-        log(TAG) { "exclude(): $identifier, $target" }
-        val exclusion = PathExclusion(
-            path = target,
-            tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
-        )
-        exclusionManager.save(exclusion)
+    suspend fun exclude(identifier: FilterIdentifier, exclusionTargets: Set<APath>) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, ${exclusionTargets.size}" }
+        val exclusions = exclusionTargets.map {
+            PathExclusion(
+                path = it,
+                tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
+            )
+        }.toSet()
+        exclusionManager.save(exclusions)
 
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(
             filterContents = snapshot.filterContents
                 .map { fc ->
-                    fc.copy(items = fc.items.filter {
-                        val hit = it.matches(target)
-                        if (hit) log(TAG) { "exclude(): Excluded $it" }
+                    fc.copy(items = fc.items.filter { filterItem ->
+                        val hit = exclusions.any { it.match(filterItem.lookedUp) }
+                        if (hit) log(TAG) { "exclude(): Excluded $filterItem" }
                         !hit
                     })
                 }

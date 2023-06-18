@@ -1,16 +1,19 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
@@ -37,6 +40,21 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
         val adapter = SystemCleanerListAdapter()
         ui.list.setupDefaults(adapter)
 
+        val selectionTracker = installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_systemcleaner_list_cab,
+            onSelected = { _: SelectionTracker<String>, item: MenuItem, selected: List<SystemCleanerListAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_delete_selected -> {
+                        vm.delete(selected)
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
+
         vm.state.observe2(ui) { state ->
             adapter.update(state.items)
             toolbar.subtitle =
@@ -51,17 +69,29 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
                 is SystemCleanerListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
-                        getString(
-                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                            event.filterContent.filterIdentifier.getLabel(context)
-                        )
+                        if (event.items.size == 1) {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                event.items.single().content.filterIdentifier.getLabel(context)
+                            )
+                        } else {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                event.items.size
+                            )
+                        }
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(event.filterContent)
+                        vm.delete(event.items, confirmed = true)
+                        selectionTracker.clearSelection()
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
-                        vm.showDetails(event.filterContent)
+
+                    if (event.items.size == 1) {
+                        setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
+                            vm.showDetails(event.items.first())
+                            selectionTracker.clearSelection()
+                        }
                     }
                 }.show()
 

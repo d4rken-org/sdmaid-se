@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -120,17 +121,17 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showRootActions
                 true
             },
-            onSelected = { mode: ActionMode, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
                         vm.exclude(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 
                     R.id.action_toggle_selection -> {
                         vm.toggle(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 
@@ -152,7 +153,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                             )
                             setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                                 vm.uninstall(selected)
-                                mode.finish()
+                                tracker.clearSelection()
                             }
                             setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                         }.show()

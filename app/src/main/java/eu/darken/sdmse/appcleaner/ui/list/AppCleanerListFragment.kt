@@ -1,13 +1,13 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
 import android.os.Bundle
-import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,11 +51,11 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
         val selectionTracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_appcleaner_list_cab,
-            onSelected = { mode: ActionMode, item: MenuItem, selected: List<AppCleanerListAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<AppCleanerListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
                         vm.exclude(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 

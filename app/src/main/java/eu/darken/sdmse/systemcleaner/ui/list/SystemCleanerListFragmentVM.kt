@@ -10,11 +10,14 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,9 +45,7 @@ class SystemCleanerListFragmentVM @Inject constructor(
         val items = data.filterContents.map { content ->
             SystemCleanerListRowVH.Item(
                 content = content,
-                onItemClicked = {
-                    events.postValue(SystemCleanerListEvents.ConfirmDeletion(it))
-                },
+                onItemClicked = { events.postValue(SystemCleanerListEvents.ConfirmDeletion(listOf(it))) },
                 onDetailsClicked = { showDetails(it) }
             )
         }
@@ -54,9 +55,13 @@ class SystemCleanerListFragmentVM @Inject constructor(
         )
     }.asLiveData2()
 
-    fun doDelete(filterContent: FilterContent) = launch {
-        log(TAG, INFO) { "doDelete(): $filterContent" }
-        val task = SystemCleanerDeleteTask(targetFilters = setOf(filterContent.filterIdentifier))
+    fun delete(items: Collection<SystemCleanerListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "delete(): ${items.size}" }
+        if (!confirmed) {
+            events.postValue(SystemCleanerListEvents.ConfirmDeletion(items))
+            return@launch
+        }
+        val task = SystemCleanerDeleteTask(targetFilters = items.map { it.content.filterIdentifier }.toSet())
         val result = taskManager.submit(task) as SystemCleanerDeleteTask.Result
         log(TAG) { "doDelete(): Result was $result" }
         when (result) {
@@ -64,12 +69,13 @@ class SystemCleanerListFragmentVM @Inject constructor(
         }
     }
 
-    fun showDetails(filterContent: FilterContent) = launch {
-        log(TAG, INFO) { "showDetails(filterContent=$filterContent)" }
+    fun showDetails(item: SystemCleanerListAdapter.Item) = launch {
+        log(TAG, INFO) { "showDetails(filterContent=${item.content.filterIdentifier})" }
         SystemCleanerListFragmentDirections.actionSystemCleanerListFragmentToSystemCleanerDetailsFragment(
-            filterIdentifier = filterContent.filterIdentifier
+            filterIdentifier = item.content.filterIdentifier
         ).navigate()
     }
+
 
     data class State(
         val items: List<SystemCleanerListAdapter.Item>,

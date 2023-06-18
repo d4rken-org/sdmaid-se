@@ -241,10 +241,10 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: Installed.InstallId, paths: Set<APath>? = null) = toolLock.withLock {
-        log(TAG) { "exclude(): $identifier, $paths" }
-        if (paths != null) {
-            val exclusions = paths.map {
+    suspend fun exclude(identifier: Installed.InstallId, exclsionTargets: Set<APath>? = null) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, $exclsionTargets" }
+        if (exclsionTargets != null) {
+            val exclusions = exclsionTargets.map {
                 PathExclusion(
                     path = it,
                     tags = setOf(Exclusion.Tag.APPCLEANER),
@@ -259,8 +259,10 @@ class AppCleaner @Inject constructor(
                         junk.copy(
                             expendables = junk.expendables?.entries
                                 ?.map { entry ->
-                                    entry.key to entry.value.filter { filterContent ->
-                                        paths.none { filterContent.isDescendantOf(it) || filterContent.matches(it) }
+                                    entry.key to entry.value.filter { junkFile ->
+                                        val hit = exclusions.any { it.match(junkFile.lookedUp) }
+                                        if (hit) log(TAG) { "exclude(): Excluded $junkFile" }
+                                        !hit
                                     }
                                 }
                                 ?.filter { it.second.isNotEmpty() }

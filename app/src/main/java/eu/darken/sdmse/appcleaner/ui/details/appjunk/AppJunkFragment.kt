@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.details.appjunk
 
 import android.os.Bundle
-import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
@@ -67,11 +66,11 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
             adapter = adapter,
             toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
             cabMenuRes = R.menu.menu_appcleaner_appjunk_cab,
-            onSelected = { mode: ActionMode, item: MenuItem, selected: List<AppJunkElementsAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<AppJunkElementsAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
                         vm.exclude(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 
@@ -141,12 +140,6 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
 
-                    if (task.targetContents.isNotNullOrEmpty()) {
-                        setNeutralButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
-                            vm.exclude(task.targetContents!!.first())
-                            selectionTracker?.clearSelection()
-                        }
-                    }
                 }.show()
 
                 is AppJunkEvents.TaskForParent -> (parentFragment as AppJunkDetailsFragment).forwardTask(event.task)

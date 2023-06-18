@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.systemcleaner.core.FilterContent
 import javax.inject.Inject
 
 
@@ -32,7 +34,10 @@ class SystemCleanerListAdapter @Inject constructor() :
         parent: ViewGroup
     ) : VH(layoutId, parent), BindableVH<D, B>
 
-    interface Item : DifferItem {
+    interface Item : DifferItem, SelectableItem {
+
+        val content: FilterContent
+
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

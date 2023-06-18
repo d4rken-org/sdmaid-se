@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.os.Bundle
 import android.text.format.Formatter
-import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -10,6 +9,7 @@ import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,11 +57,11 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
-            onSelected = { mode: ActionMode, item: MenuItem, selected: List<ContentAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ContentAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
                         vm.exclude(selected)
-                        mode.finish()
+                        tracker.clearSelection()
                         true
                     }
 
@@ -76,7 +76,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                             )
                             setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                                 vm.delete(selected)
-                                mode.finish()
+                                tracker.clearSelection()
                             }
                             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                         }.show()
