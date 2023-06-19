@@ -24,7 +24,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppJunkFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val upgradeRepo: UpgradeRepo,
@@ -150,8 +150,7 @@ class AppJunkFragmentVM @Inject constructor(
             onlyInaccessible = items.singleOrNull() is AppJunkElementInaccessibleVH.Item,
         )
 
-        // Removing the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
-        events.postValue(AppJunkEvents.TaskForParent(deleteTask))
+        taskManager.submit(deleteTask)
     }
 
     companion object {

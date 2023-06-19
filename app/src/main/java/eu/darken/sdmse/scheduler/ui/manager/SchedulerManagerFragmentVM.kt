@@ -30,7 +30,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SchedulerManagerFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,

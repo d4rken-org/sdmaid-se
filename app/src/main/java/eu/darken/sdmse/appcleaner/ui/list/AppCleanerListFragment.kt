@@ -40,12 +40,16 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
         ui.list.setupDefaults(adapter)
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.items)
-
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
 
-            toolbar.subtitle = getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+            if (state.progress == null) adapter.update(state.items)
+
+            toolbar.subtitle = if (state.progress == null) {
+                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+            } else {
+                null
+            }
         }
 
         val selectionTracker = installListSelection(

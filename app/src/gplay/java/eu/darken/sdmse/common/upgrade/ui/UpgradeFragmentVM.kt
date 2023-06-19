@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UpgradeFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {

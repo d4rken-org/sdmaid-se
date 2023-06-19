@@ -15,7 +15,6 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.automation.core.AutomationController
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -132,6 +131,7 @@ class AppCleaner @Inject constructor(
             if (task.onlyInaccessible) return@forEach
 
             val appJunk = snapshot.junks.single { it.identifier == targetPkg }
+            updateProgressPrimary(appJunk.label)
 
             val targetFilters = task.targetFilters
                 ?: appJunk.expendables?.keys
@@ -148,12 +148,6 @@ class AppCleaner @Inject constructor(
             val deleted = mutableSetOf<APathLookup<*>>()
 
             targetFiles.forEach { targetFile ->
-                updateProgressPrimary(caString {
-                    it.getString(
-                        eu.darken.sdmse.common.R.string.general_progress_deleting,
-                        targetFile.userReadableName.get(it)
-                    )
-                })
                 log(TAG) { "Deleting $targetFile..." }
                 try {
                     targetFile.deleteAll(gatewaySwitch) {

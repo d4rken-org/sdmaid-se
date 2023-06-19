@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnboardingPrivacyFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,

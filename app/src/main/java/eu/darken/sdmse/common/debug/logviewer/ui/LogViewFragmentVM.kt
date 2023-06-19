@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LogViewFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val logViewLogger: LogViewLogger,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {

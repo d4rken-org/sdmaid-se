@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DataAreasFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val taskManager: TaskManager,

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnboardingWelcomeFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 

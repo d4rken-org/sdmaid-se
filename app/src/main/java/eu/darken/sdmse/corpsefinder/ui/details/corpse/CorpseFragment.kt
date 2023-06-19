@@ -3,7 +3,6 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.viewpager.widget.ViewPager
@@ -16,7 +15,6 @@ import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementFileVH
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
 import eu.darken.sdmse.databinding.CorpsefinderCorpseFragmentBinding
@@ -78,10 +76,7 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
         parentPager.addOnPageChangeListener(pageChangeListener)
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.elements)
-
-            list.isInvisible = state.progress != null
-            loadingOverlay.setProgress(state.progress)
+            if (state.progress == null) adapter.update(state.elements)
         }
 
         vm.events.observe2(ui) { event ->
@@ -114,8 +109,6 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
-
-                is CorpseEvents.TaskForParent -> (parentFragment as CorpseDetailsFragment).forwardTask(event.task)
             }
         }
 

@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.ui.details
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -11,7 +12,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerDetailsFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 
 @AndroidEntryPoint
 class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fragment) {
@@ -33,11 +33,17 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
         ui.tablayout.setupWithViewPager(ui.viewpager, true)
 
         vm.state.observe2(ui) { state ->
-            adapter.setData(state.items)
-            adapter.notifyDataSetChanged()
-            state.items.indexOfFirst { it.filterIdentifier == state.target }
-                .takeIf { it != -1 }
-                ?.let { viewpager.currentItem = it }
+            loadingOverlay.setProgress(state.progress)
+            tablayout.isInvisible = state.progress != null
+            viewpager.isInvisible = state.progress != null
+
+            if (state.progress == null) {
+                adapter.setData(state.items)
+                adapter.notifyDataSetChanged()
+                state.items.indexOfFirst { it.filterIdentifier == state.target }
+                    .takeIf { it != -1 }
+                    ?.let { viewpager.currentItem = it }
+            }
         }
 
         vm.events.observe2(ui) { event ->
@@ -51,9 +57,5 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
         }
 
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    fun forwardTask(task: SystemCleanerTask) {
-        vm.forwardTask(task)
     }
 }
