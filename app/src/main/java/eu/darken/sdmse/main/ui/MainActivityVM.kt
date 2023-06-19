@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainActivityVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     private val upgradeRepo: UpgradeRepo,
     private val taskManager: TaskManager,
 ) : ViewModel2(dispatcherProvider = dispatcherProvider) {

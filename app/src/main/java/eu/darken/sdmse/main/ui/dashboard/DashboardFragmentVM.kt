@@ -62,7 +62,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val taskManager: TaskManager,

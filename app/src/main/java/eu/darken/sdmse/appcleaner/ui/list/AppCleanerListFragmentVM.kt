@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
-import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -26,12 +25,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppCleanerListFragmentVM @Inject constructor(
-    private val handle: SavedStateHandle,
-    private val dispatcherProvider: DispatcherProvider,
+    @Suppress("unused") private val handle: SavedStateHandle,
+    dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val taskManager: TaskManager,
     private val upgradeRepo: UpgradeRepo,
-    private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {

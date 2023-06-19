@@ -31,7 +31,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SetupFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val setupManager: SetupManager,
     private val storageSetupModule: StorageSetupModule,

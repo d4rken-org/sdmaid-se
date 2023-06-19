@@ -56,12 +56,16 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
         )
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.items)
-            toolbar.subtitle =
-                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
-
             list.isInvisible = state.progress != null
             loadingOverlay.setProgress(state.progress)
+
+            if (state.progress == null) adapter.update(state.items)
+
+            toolbar.subtitle = if (state.progress == null) {
+                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+            } else {
+                null
+            }
         }
 
         vm.events.observe2(ui) { event ->

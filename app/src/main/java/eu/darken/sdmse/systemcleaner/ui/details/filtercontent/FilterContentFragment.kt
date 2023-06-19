@@ -3,7 +3,6 @@ package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.viewpager.widget.ViewPager
@@ -18,7 +17,6 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentFragmentBinding
 import eu.darken.sdmse.systemcleaner.core.filter.getLabel
-import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 
@@ -79,10 +77,7 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
         parentPager.addOnPageChangeListener(pageChangeListener)
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.items)
-
-            list.isInvisible = state.progress != null
-            loadingOverlay.setProgress(state.progress)
+            if (state.progress == null) adapter.update(state.items)
         }
 
         vm.events.observe2(ui) { event ->
@@ -115,10 +110,6 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
-
-                is FilterContentEvents.TaskForParent -> (parentFragment as FilterContentDetailsFragment).forwardTask(
-                    event.task
-                )
             }
         }
         super.onViewCreated(view, savedInstanceState)

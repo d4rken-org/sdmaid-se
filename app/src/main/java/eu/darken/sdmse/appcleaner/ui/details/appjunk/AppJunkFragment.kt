@@ -3,7 +3,6 @@ package eu.darken.sdmse.appcleaner.ui.details.appjunk
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.viewpager.widget.ViewPager
@@ -11,7 +10,6 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
@@ -87,10 +85,7 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
         parentPager.addOnPageChangeListener(pageChangeListener)
 
         vm.state.observe2(ui) { state ->
-            adapter.update(state.items)
-
-            list.isInvisible = state.progress != null
-            loadingOverlay.setProgress(state.progress)
+            if (state.progress == null) adapter.update(state.items)
         }
 
         vm.events.observe2(ui) { event ->
@@ -135,8 +130,6 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
 
                 }.show()
-
-                is AppJunkEvents.TaskForParent -> (parentFragment as AppJunkDetailsFragment).forwardTask(event.task)
             }
         }
 

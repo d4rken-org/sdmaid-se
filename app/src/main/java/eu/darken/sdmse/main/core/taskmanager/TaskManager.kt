@@ -71,6 +71,10 @@ class TaskManager @Inject constructor(
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
         val isActive: Boolean = !isComplete && startedAt != null
         val isQueued: Boolean = !isComplete && startedAt == null && cancelledAt == null
+
+        override fun toString(): String {
+            return "ManagedTask(${tool.type}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
+        }
     }
 
     data class State(

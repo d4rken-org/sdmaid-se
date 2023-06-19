@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FilterContentFragmentVM @Inject constructor(
-    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
     private val taskManager: TaskManager,
@@ -82,8 +82,7 @@ class FilterContentFragmentVM @Inject constructor(
                 }.toSet()
             )
         }
-        // Removing the filtercontent, removes the fragment and also this viewmodel, so we can't post our own result
-        events.postValue(FilterContentEvents.TaskForParent(task))
+        taskManager.submit(task)
     }
 
     fun exclude(items: Collection<FilterContentElementsAdapter.Item>) = launch {
