@@ -6,11 +6,11 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -38,7 +38,7 @@ class CorpseDetailsFragmentVM @Inject constructor(
 
     val state = corpseFinder.data
         .filterNotNull()
-        .distinctUntilChangedBy { data -> data.corpses.map { it.path }.toSet() }
+        .distinctUntilChangedBy { data -> data.corpses.map { it.identifier }.toSet() }
         .map {
             State(
                 items = it.corpses.toList(),
@@ -49,7 +49,7 @@ class CorpseDetailsFragmentVM @Inject constructor(
 
     data class State(
         val items: List<Corpse>,
-        val target: APath?
+        val target: CorpseIdentifier?
     )
 
     fun forwardTask(task: CorpseFinderTask) = launch {

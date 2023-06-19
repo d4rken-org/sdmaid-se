@@ -58,7 +58,7 @@ class AppJunkElementFileVH(parent: ViewGroup) :
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
-        override val itemSelectionKey: String = "${appJunk.identifier}:${lookup.path}"
+        override val itemSelectionKey: String = lookup.path
         override val stableId: Long = lookup.hashCode().toLong()
     }
 

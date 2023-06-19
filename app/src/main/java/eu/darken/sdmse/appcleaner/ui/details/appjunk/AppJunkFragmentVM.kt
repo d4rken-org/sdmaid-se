@@ -12,14 +12,13 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHead
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -29,6 +28,7 @@ class AppJunkFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val upgradeRepo: UpgradeRepo,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = AppJunkFragmentArgs.fromSavedStateHandle(handle)
@@ -45,28 +45,15 @@ class AppJunkFragmentVM @Inject constructor(
 
         AppJunkElementHeaderVH.Item(
             appJunk = junk,
-            onDeleteAllClicked = {
-                val deleteTask = AppCleanerDeleteTask(
-                    setOf(junk.identifier),
-                    includeInaccessible = true
-                )
-                events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
-            },
-            onExcludeClicked = { launch { appCleaner.exclude(junk.identifier) } },
+            onDeleteAllClicked = { delete(setOf(it)) },
+            onExcludeClicked = { exclude(setOf(it)) },
         ).run { items.add(this) }
 
         junk.inaccessibleCache?.let {
             AppJunkElementInaccessibleVH.Item(
                 appJunk = junk,
                 inaccessibleCache = junk.inaccessibleCache,
-                onItemClick = {
-                    val deleteTask = AppCleanerDeleteTask(
-                        setOf(junk.identifier),
-                        includeInaccessible = true,
-                        onlyInaccessible = true
-                    )
-                    events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
-                }
+                onItemClick = { delete(setOf(it)) }
             ).run { items.add(this) }
         }
 
@@ -79,14 +66,7 @@ class AppJunkFragmentVM @Inject constructor(
                     appJunk = junk,
                     category = category,
                     paths = paths,
-                    onItemClick = {
-                        val deleteTask = AppCleanerDeleteTask(
-                            setOf(it.appJunk.identifier),
-                            targetFilters = setOf(it.category),
-                            includeInaccessible = false,
-                        )
-                        events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
-                    },
+                    onItemClick = { delete(setOf(it)) },
                 ).run { categoryGroup.add(this) }
 
                 paths
@@ -95,15 +75,7 @@ class AppJunkFragmentVM @Inject constructor(
                             appJunk = junk,
                             category = category,
                             lookup = lookup,
-                            onItemClick = {
-                                val deleteTask = AppCleanerDeleteTask(
-                                    setOf(it.appJunk.identifier),
-                                    targetFilters = setOf(it.category),
-                                    targetContents = setOf(it.lookup.lookedUp),
-                                    includeInaccessible = false,
-                                )
-                                events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
-                            },
+                            onItemClick = { delete(setOf(it)) },
                         )
                     }
                     .sortedByDescending { it.lookup.size }
@@ -127,52 +99,59 @@ class AppJunkFragmentVM @Inject constructor(
         val progress: Progress.Data?,
     )
 
-    fun doDelete(task: AppCleanerDeleteTask) = launch {
-        log(TAG, INFO) { "doDelete($task)" }
-        if (!upgradeRepo.isPro()) {
-            MainDirections.goToUpgradeFragment().navigate()
-            return@launch
-        }
-        // Removing the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
-        events.postValue(AppJunkEvents.TaskForParent(task))
-    }
-
-    fun exclude(path: APath) = launch {
-        log(TAG) { "excludeApp(): $path" }
-        appCleaner.exclude(args.identifier, setOf(path))
-    }
-
     fun exclude(selected: Collection<AppJunkElementsAdapter.Item>) = launch {
         log(TAG) { "excludeContent(): ${selected.size} items" }
+        val junk = currentAppJunk.first()
+
         val paths = selected.mapNotNull {
             when (it) {
                 is AppJunkElementFileVH.Item -> it.lookup.lookedUp
                 else -> null
             }
         }.toSet()
-        appCleaner.exclude(args.identifier, paths)
+
+        if (paths.isEmpty()) {
+            appCleaner.exclude(setOf(junk.identifier))
+        } else {
+            appCleaner.exclude(junk.identifier, paths)
+        }
     }
 
-    fun delete(selected: Collection<AppJunkElementsAdapter.Item>) = launch {
+    fun delete(items: Collection<AppJunkElementsAdapter.Item>, confirmed: Boolean = false) = launch {
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        if (!confirmed) {
+            events.postValue(AppJunkEvents.ConfirmDeletion(items))
+            return@launch
+        }
+
         val junk = currentAppJunk.first()
 
         val deleteTask = AppCleanerDeleteTask(
-            setOf(args.identifier),
-            targetFilters = selected.mapNotNull {
+            setOf(junk.identifier),
+            targetFilters = items.mapNotNull {
                 when (it) {
+                    is AppJunkElementFileCategoryVH.Item -> it.category
                     is AppJunkElementFileVH.Item -> it.category
                     else -> null
                 }
-            }.toSet(),
-            targetContents = selected.mapNotNull {
-                when (it) {
-                    is AppJunkElementFileVH.Item -> it.lookup.lookedUp
+            }.takeIf { it.isNotEmpty() }?.toSet(),
+            targetContents = items.mapNotNull { item ->
+                when (item) {
+                    is AppJunkElementFileCategoryVH.Item -> item.paths.map { it.lookedUp }
+                    is AppJunkElementFileVH.Item -> listOf(item.lookup.lookedUp)
                     else -> null
                 }
-            }.toSet(),
-            includeInaccessible = selected.any { it is AppJunkElementInaccessibleVH.Item },
+            }.flatten().takeIf { it.isNotEmpty() }?.toSet(),
+            includeInaccessible = items.any { it is AppJunkElementInaccessibleVH.Item || it is AppJunkElementHeaderVH.Item },
+            onlyInaccessible = items.singleOrNull() is AppJunkElementInaccessibleVH.Item,
         )
-        events.postValue(AppJunkEvents.ConfirmDeletion(junk, deleteTask))
+
+        // Removing the AppJunk, removes the fragment and also this viewmodel, so we can't post our own result
+        events.postValue(AppJunkEvents.TaskForParent(deleteTask))
     }
 
     companion object {

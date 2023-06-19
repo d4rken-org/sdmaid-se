@@ -15,8 +15,8 @@ import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
+import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
 import eu.darken.sdmse.appcleaner.ui.labelRes
-import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
@@ -96,47 +96,41 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 is AppJunkEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    val task = event.deletionTask
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         when {
-                            task.onlyInaccessible -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x_for_x,
+                            event.items.singleOrNull() is AppJunkElementInaccessibleVH.Item -> getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                                 getString(R.string.appcleaner_item_caches_inaccessible_title),
-                                event.appJunk.label.get(context),
                             )
 
-                            task.targetContents.isNotNullOrEmpty() -> when (task.targetContents!!.size) {
-                                1 -> {
-                                    getString(
-                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                        task.targetContents.first().userReadablePath.get(context),
-                                    )
-                                }
+                            event.items.singleOrNull() is AppJunkElementFileCategoryVH.Item -> getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                getString((event.items.singleOrNull() as AppJunkElementFileCategoryVH.Item).category.labelRes),
+                            )
 
-                                else -> {
-                                    getString(
-                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
-                                        task.targetContents.size
-                                    )
-                                }
-                            }
+                            event.items.singleOrNull() is AppJunkElementFileVH.Item -> getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                (event.items.singleOrNull() as AppJunkElementFileVH.Item).lookup.userReadableName
+                                    .get(requireContext()),
+                            )
 
-                            task.targetFilters.isNotNullOrEmpty() -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x_for_x,
-                                getString(task.targetFilters!!.first().labelRes),
-                                event.appJunk.label.get(context),
+                            event.items.singleOrNull() is AppJunkElementHeaderVH.Item -> getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                (event.items.singleOrNull() as AppJunkElementHeaderVH.Item).appJunk.label
+                                    .get(requireContext())
                             )
 
                             else -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                event.appJunk.label.get(context)
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                             )
                         }
 
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(task)
+                        vm.delete(event.items, confirmed = true)
+                        selectionTracker!!.clearSelection()
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
 

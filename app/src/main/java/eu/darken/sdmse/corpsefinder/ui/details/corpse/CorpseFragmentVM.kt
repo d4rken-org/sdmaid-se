@@ -7,10 +7,8 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementFileVH
@@ -33,28 +31,28 @@ class CorpseFragmentVM @Inject constructor(
 
     val events = SingleLiveEvent<CorpseEvents>()
 
+    private val corpseData = corpseFinder.data
+        .filterNotNull()
+        .map { data -> data.corpses.singleOrNull { it.identifier == args.identifier } }
+        .filterNotNull()
+
     val state = combine(
-        corpseFinder.data
-            .filterNotNull()
-            .map { data -> data.corpses.singleOrNull { it.path == args.identifier } }
-            .filterNotNull(),
+        corpseData,
         corpseFinder.progress
     ) { corpse, progress ->
         val elements = mutableListOf<CorpseElementsAdapter.Item>()
 
         CorpseElementHeaderVH.Item(
             corpse = corpse,
-            onDeleteAllClicked = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse)) },
-            onExcludeClicked = {
-                launch { corpseFinder.exclude(corpse) }
-            }
+            onDeleteAllClicked = { delete(setOf(it)) },
+            onExcludeClicked = { exclude(setOf(it)) },
         ).run { elements.add(this) }
 
         corpse.content.map { lookup ->
             CorpseElementFileVH.Item(
                 corpse = corpse,
                 lookup = lookup,
-                onItemClick = { events.postValue(CorpseEvents.ConfirmDeletion(it.corpse, it.lookup.lookedUp)) },
+                onItemClick = { delete(setOf(it)) },
             )
         }.run { elements.addAll(this) }
 
@@ -66,19 +64,44 @@ class CorpseFragmentVM @Inject constructor(
         val progress: Progress.Data? = null,
     )
 
-    fun doDelete(corpse: Corpse, content: APath? = null) = launch {
-        log(TAG, INFO) { "doDelete(corpse=$corpse)" }
+    fun delete(items: Collection<CorpseElementsAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "delete(items=$items)" }
+        if (!confirmed) {
+            events.postValue(CorpseEvents.ConfirmDeletion(items))
+            return@launch
+        }
+
+        val targets = items.mapNotNull {
+            when (it) {
+                is CorpseElementFileVH.Item -> it.lookup.lookedUp
+                else -> null
+            }
+        }.toSet()
+
         val task = CorpseFinderDeleteTask(
-            targetCorpses = setOf(corpse.path),
-            targetContent = content?.let { setOf(it) }
+            targetCorpses = setOf(corpseData.first().identifier),
+            targetContent = targets.takeIf { it.isNotEmpty() }
         )
+
         // Removnig the corpse, removes the fragment and also this viewmodel, so we can't post our own result
         events.postValue(CorpseEvents.TaskForParent(task))
     }
 
-    fun doExclude(corpse: Corpse, path: APath) = launch {
-        log(TAG, INFO) { "doExclude(): $path" }
-        corpseFinder.exclude(corpse, path)
+    fun exclude(items: Collection<CorpseElementsAdapter.Item>) = launch {
+        log(TAG, INFO) { "exclude(): $items" }
+        val corpse = corpseData.first()
+
+        val targets = items.mapNotNull {
+            when (it) {
+                is CorpseElementFileVH.Item -> it.lookup.lookedUp
+                else -> null
+            }
+        }.toSet()
+        if (targets.isEmpty()) {
+            corpseFinder.exclude(setOf(corpse.identifier))
+        } else {
+            corpseFinder.exclude(corpse.identifier, targets)
+        }
     }
 
     companion object {

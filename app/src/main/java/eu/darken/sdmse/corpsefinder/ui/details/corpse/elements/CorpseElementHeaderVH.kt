@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseElementsAdapter
@@ -26,7 +27,7 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val corpse = item.corpse
-        pathValue.text = corpse.path.userReadablePath.get(context)
+        pathValue.text = corpse.lookup.userReadablePath.get(context)
         typeIcon.setImageResource(corpse.filterType.iconRes)
         typeValue.text = getString(corpse.filterType.labelRes)
         sizeVaule.text = Formatter.formatFileSize(context, corpse.size)
@@ -53,7 +54,9 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         val corpse: Corpse,
         val onDeleteAllClicked: (Item) -> Unit,
         val onExcludeClicked: (Item) -> Unit,
-    ) : CorpseElementsAdapter.Item {
+    ) : CorpseElementsAdapter.Item, SelectableItem {
+
+        override val itemSelectionKey: String? = null
 
         override val stableId: Long = this::class.java.hashCode().toLong()
     }

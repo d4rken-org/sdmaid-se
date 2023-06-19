@@ -29,7 +29,6 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
@@ -189,12 +188,12 @@ class AppCleaner @Inject constructor(
                 isCurrentUser
             }
 
-        updateProgressPrimary(R.string.appcleaner_automation_loading)
-        updateProgressSecondary(CaString.EMPTY)
-
         val automationResult = automationTargets
             .takeIf { it.isNotEmpty() }
             ?.let {
+                updateProgressPrimary(R.string.appcleaner_automation_loading)
+                updateProgressSecondary(CaString.EMPTY)
+
                 try {
                     automationController.submit(ClearCacheTask(automationTargets)) as ClearCacheTask.Result
                 } catch (e: AutomationUnavailableException) {
@@ -202,9 +201,13 @@ class AppCleaner @Inject constructor(
                 }
             }
 
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
+        updateProgressSecondary(CaString.EMPTY)
+
         internalData.value = snapshot.copy(
             junks = snapshot.junks
                 .map { appJunk ->
+                    updateProgressSecondary(appJunk.label)
                     // Remove all files we deleted or children of deleted files
                     val updatedExpendables = appJunk.expendables
                         ?.mapValues { (type, typeFiles) ->
@@ -241,51 +244,57 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: Installed.InstallId, exclsionTargets: Set<APath>? = null) = toolLock.withLock {
-        log(TAG) { "exclude(): $identifier, $exclsionTargets" }
-        if (exclsionTargets != null) {
-            val exclusions = exclsionTargets.map {
-                PathExclusion(
-                    path = it,
-                    tags = setOf(Exclusion.Tag.APPCLEANER),
-                )
-            }.toSet()
-            exclusionManager.save(exclusions)
+    suspend fun exclude(identifiers: Set<Installed.InstallId>) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifiers" }
 
-            val snapshot = internalData.value!!
-            internalData.value = snapshot.copy(
-                junks = snapshot.junks.map { junk ->
-                    if (junk.identifier == identifier) {
-                        junk.copy(
-                            expendables = junk.expendables?.entries
-                                ?.map { entry ->
-                                    entry.key to entry.value.filter { junkFile ->
-                                        val hit = exclusions.any { it.match(junkFile.lookedUp) }
-                                        if (hit) log(TAG) { "exclude(): Excluded $junkFile" }
-                                        !hit
-                                    }
-                                }
-                                ?.filter { it.second.isNotEmpty() }
-                                ?.toMap()
-                        )
-                    } else {
-                        junk
-                    }
-                }
-            )
-        } else {
-            // FIXME what about user specific exclusion?
-            val exclusion = PkgExclusion(
-                pkgId = identifier.pkgId,
+        // FIXME what about user specific exclusion?
+        val exclusions = identifiers.map {
+            PkgExclusion(
+                pkgId = it.pkgId,
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
-            exclusionManager.save(exclusion)
+        }.toSet()
+        exclusionManager.save(exclusions)
 
-            val snapshot = internalData.value!!
-            internalData.value = snapshot.copy(
-                junks = snapshot.junks - snapshot.junks.single { it.identifier == identifier }
+        val snapshot = internalData.value!!
+        internalData.value = snapshot.copy(
+            junks = snapshot.junks.filter { junk ->
+                exclusions.none { it.match(junk.identifier.pkgId) }
+            }
+        )
+    }
+
+    suspend fun exclude(identifier: Installed.InstallId, exclsionTargets: Set<APath>) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier, $exclsionTargets" }
+        val exclusions = exclsionTargets.map {
+            PathExclusion(
+                path = it,
+                tags = setOf(Exclusion.Tag.APPCLEANER),
             )
-        }
+        }.toSet()
+        exclusionManager.save(exclusions)
+
+        val snapshot = internalData.value!!
+        internalData.value = snapshot.copy(
+            junks = snapshot.junks.map { junk ->
+                if (junk.identifier == identifier) {
+                    junk.copy(
+                        expendables = junk.expendables?.entries
+                            ?.map { entry ->
+                                entry.key to entry.value.filter { junkFile ->
+                                    val hit = exclusions.any { it.match(junkFile.lookedUp) }
+                                    if (hit) log(TAG) { "exclude(): Excluded $junkFile" }
+                                    !hit
+                                }
+                            }
+                            ?.filter { it.second.isNotEmpty() }
+                            ?.toMap()
+                    )
+                } else {
+                    junk
+                }
+            }
+        )
     }
 
     data class Data(

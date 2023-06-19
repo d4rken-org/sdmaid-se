@@ -14,15 +14,15 @@ class CorpseDetailsPagerAdapter(
 ) : DetailsPagerAdapter3<Corpse>(activity, fm) {
 
     override fun onCreateFragment(item: Corpse): Fragment = CorpseFragment().apply {
-        arguments = CorpseFragmentArgs(item.path).toBundle()
+        arguments = CorpseFragmentArgs(item.identifier).toBundle()
     }
 
-    override fun getPageTitle(position: Int): CharSequence = data[position].path.name
+    override fun getPageTitle(position: Int): CharSequence = data[position].lookup.name
 
     override fun getItemPosition(obj: Any): Int = data
         .firstOrNull { set ->
             val fragment = obj as Fragment
-            set.path == fragment.requireArguments().getParcelable(PAGE_IDENTIFIER)
+            set.identifier == fragment.requireArguments().getParcelable(PAGE_IDENTIFIER)
         }
         ?.let { data.indexOf(it) }
         ?: POSITION_NONE

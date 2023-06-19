@@ -110,7 +110,7 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
                 is AppCleanerListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.exclusions.size),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {

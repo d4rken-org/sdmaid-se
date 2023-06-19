@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.core
 
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.OwnerInfo
@@ -15,7 +14,7 @@ data class Corpse(
     val isWriteProtected: Boolean = false,
     val riskLevel: RiskLevel = RiskLevel.NORMAL,
 ) {
-    val path: APath
+    val identifier: CorpseIdentifier
         get() = lookup.lookedUp
 
     val areaInfo: AreaInfo
@@ -25,5 +24,5 @@ data class Corpse(
         get() = lookup.size + content.sumOf { it.size }
 
     override fun toString(): String =
-        "Corpse(path=$path, type=${areaInfo.type}, owners=${ownerInfo.owners}, size=$size)"
+        "Corpse(identifier=$identifier, type=${areaInfo.type}, owners=${ownerInfo.owners}, size=$size)"
 }
