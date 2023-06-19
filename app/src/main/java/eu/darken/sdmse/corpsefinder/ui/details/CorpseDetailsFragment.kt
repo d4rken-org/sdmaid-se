@@ -35,7 +35,7 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
         vm.state.observe2(ui) { state ->
             adapter.setData(state.items)
             adapter.notifyDataSetChanged()
-            state.items.indexOfFirst { it.path == state.target }
+            state.items.indexOfFirst { it.identifier == state.target }
                 .takeIf { it != -1 }
                 ?.let { viewpager.currentItem = it }
         }

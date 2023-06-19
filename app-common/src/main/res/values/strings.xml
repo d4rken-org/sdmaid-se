@@ -85,7 +85,6 @@
     <string name="general_delete_confirmation_title">Confirm deletion</string>
     <string name="general_delete_confirmation_message_x">Delete \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Delete %d selected items?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Delete \"%1$s\" for \"%2$s\"?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
         <item quantity="one">Deleted %1$d item and freed %2$s</item>
         <item quantity="other">Deleted %1$d items and freed %2$s</item>

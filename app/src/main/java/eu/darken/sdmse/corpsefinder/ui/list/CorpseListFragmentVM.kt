@@ -9,12 +9,15 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,9 +45,7 @@ class CorpseListFragmentVM @Inject constructor(
         val rows = data.corpses.map { corpse ->
             CorpseRowVH.Item(
                 corpse = corpse,
-                onItemClicked = {
-                    events.postValue(CorpseListEvents.ConfirmDeletion(it))
-                },
+                onItemClicked = { delete(setOf(it)) },
                 onDetailsClicked = { showDetails(it) }
             )
         }
@@ -56,20 +57,45 @@ class CorpseListFragmentVM @Inject constructor(
         val progress: Progress.Data? = null,
     )
 
-    fun doDelete(corpse: Corpse) = launch {
-        log(TAG, INFO) { "doDelete(): $corpse" }
-        val task = CorpseFinderDeleteTask(targetCorpses = setOf(corpse.path))
+    fun delete(items: Collection<CorpseListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
+        if (!confirmed) {
+            events.postValue(CorpseListEvents.ConfirmDeletion(items))
+            return@launch
+        }
+
+        val targets = items.mapNotNull {
+            when (it) {
+                is CorpseRowVH.Item -> it.corpse.identifier
+                else -> null
+            }
+        }.toSet()
+
+        val task = CorpseFinderDeleteTask(targetCorpses = targets)
         val result = taskManager.submit(task) as CorpseFinderDeleteTask.Result
-        log(TAG) { "doDelete(): Result was $result" }
+
+        log(TAG) { "delete(): Result was $result" }
         when (result) {
             is CorpseFinderDeleteTask.Success -> events.postValue(CorpseListEvents.TaskResult(result))
         }
     }
 
-    fun showDetails(corpse: Corpse) = launch {
-        log(TAG, INFO) { "showDetails(corpse=$corpse)" }
+    fun exclude(items: Collection<CorpseListAdapter.Item>) = launch {
+        log(TAG, INFO) { "exclude(): ${items.size}" }
+        val targets = items.mapNotNull {
+            when (it) {
+                is CorpseRowVH.Item -> it.corpse.identifier
+                else -> null
+            }
+        }.toSet()
+        corpseFinder.exclude(targets)
+        events.postValue(CorpseListEvents.ExclusionsCreated(items.size))
+    }
+
+    fun showDetails(item: CorpseListAdapter.Item) = launch {
+        log(TAG, INFO) { "showDetails(item=$item)" }
         CorpseListFragmentDirections.actionCorpseFinderListFragmentToCorpseFinderDetailsFragment(
-            corpsePath = corpse.path
+            corpsePath = (item as CorpseRowVH.Item).corpse.identifier
         ).navigate()
     }
 

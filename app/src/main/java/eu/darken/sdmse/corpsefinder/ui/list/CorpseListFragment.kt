@@ -1,16 +1,19 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
@@ -36,6 +39,27 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
         val adapter = CorpseListAdapter()
         ui.list.setupDefaults(adapter)
 
+        val selectionTracker = installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_corpsefinder_list_cab,
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseListAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_delete_selected -> {
+                        vm.delete(selected)
+                        true
+                    }
+
+                    R.id.action_exclude_selected -> {
+                        vm.exclude(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        )
+
         vm.state.observe2(ui) { state ->
             adapter.update(state.items)
 
@@ -50,19 +74,43 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
                 is CorpseListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
-                        getString(
-                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                            event.corpse.path.userReadableName.get(context)
-                        )
+                        if (event.items.size == 1) {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                (event.items.single() as CorpseRowVH.Item).corpse.lookup.userReadableName.get(context)
+                            )
+                        } else {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                event.items.size
+                            )
+                        }
+
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.doDelete(event.corpse)
+                        vm.delete(event.items, confirmed = true)
+                        selectionTracker.clearSelection()
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
-                        vm.showDetails(event.corpse)
+                    if (event.items.size == 1) {
+                        setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
+                            vm.showDetails(event.items.first())
+                            selectionTracker.clearSelection()
+                        }
                     }
                 }.show()
+
+                is CorpseListEvents.ExclusionsCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        CorpseListFragmentDirections.goToExclusions().navigate()
+                    }
+                    .show()
+
                 is CorpseListEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),

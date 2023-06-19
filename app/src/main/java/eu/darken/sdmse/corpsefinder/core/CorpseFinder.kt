@@ -27,11 +27,13 @@ import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherNotifications
 import eu.darken.sdmse.exclusion.core.*
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -81,7 +83,7 @@ class CorpseFinder @Inject constructor(
 
                         val targets = internalData.value!!.corpses
                             .filter { it.ownerInfo.getOwner(task.target) != null }
-                            .map { it.path }
+                            .map { it.identifier }
                             .onEach { log(TAG) { "Uninstall watcher found target $it" } }
                             .toSet()
 
@@ -161,7 +163,7 @@ class CorpseFinder @Inject constructor(
             }
             .filter { corpse ->
                 pathExclusions.none { excl ->
-                    excl.match(corpse.path).also {
+                    excl.match(corpse.lookup).also {
                         if (it) log(TAG, INFO) { "Excluded due to $excl: $corpse" }
                     }
                 }
@@ -204,9 +206,9 @@ class CorpseFinder @Inject constructor(
         val deletedContents = mutableMapOf<Corpse, Set<APathLookup<*>>>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val targetCorpses = task.targetCorpses ?: snapshot.corpses.map { it.path }
+        val targetCorpses = task.targetCorpses ?: snapshot.corpses.map { it.identifier }
         targetCorpses.forEach { targetCorpse ->
-            val corpse = snapshot.corpses.single { it.path.matches(targetCorpse) }
+            val corpse = snapshot.corpses.single { it.identifier == targetCorpse }
 
             if (!task.targetContent.isNullOrEmpty()) {
                 val deleted = mutableSetOf<APathLookup<*>>()
@@ -239,12 +241,12 @@ class CorpseFinder @Inject constructor(
                 updateProgressPrimary(caString {
                     it.getString(
                         eu.darken.sdmse.common.R.string.general_progress_deleting,
-                        corpse.path.userReadableName.get(it)
+                        corpse.lookup.userReadableName.get(it)
                     )
                 })
                 log(TAG) { "Deleting $targetCorpse..." }
                 try {
-                    corpse.path.deleteAll(gatewaySwitch) {
+                    corpse.lookup.deleteAll(gatewaySwitch) {
                         updateProgressSecondary(it.userReadablePath)
                         true
                     }
@@ -280,17 +282,54 @@ class CorpseFinder @Inject constructor(
         )
     }
 
-    suspend fun exclude(corpse: Corpse, path: APath? = null) = toolLock.withLock {
-        log(TAG) { "exclude(): $corpse, $path" }
-        val exclusion = PathExclusion(
-            path = corpse.path,
-            tags = setOf(Exclusion.Tag.CORPSEFINDER),
+    suspend fun exclude(identifiers: Set<CorpseIdentifier>) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifiers" }
+
+        val snapshot = internalData.value!!
+
+        val targets = snapshot.corpses
+            .filter { identifiers.contains(it.identifier) }
+
+        val exclusions = targets.map {
+            PathExclusion(
+                path = it.lookup.lookedUp,
+                tags = setOf(Exclusion.Tag.CORPSEFINDER),
+            )
+        }.toSet()
+        exclusionManager.save(exclusions)
+
+        internalData.value = snapshot.copy(
+            corpses = snapshot.corpses.filter { corpse ->
+                exclusions.none { it.match(corpse.lookup) }
+            }
         )
-        exclusionManager.save(exclusion)
+    }
+
+    suspend fun exclude(identifier: CorpseIdentifier, paths: Set<APath>) = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier $paths" }
+
+        val oldCorpse = data.first()!!.corpses.single { it.identifier == identifier }
+
+        val exclusions = oldCorpse.content
+            .filter { paths.contains(it.lookedUp) }
+            .map {
+                PathExclusion(
+                    path = it.lookedUp,
+                    tags = setOf(Exclusion.Tag.CORPSEFINDER),
+                )
+            }
+            .toSet()
+        exclusionManager.save(exclusions)
+
+        val newCorpse = oldCorpse.copy(
+            content = oldCorpse.content.filter { contentItem ->
+                exclusions.none { it.match(contentItem.lookedUp) }
+            }
+        )
 
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(
-            corpses = snapshot.corpses - corpse
+            corpses = snapshot.corpses - oldCorpse + newCorpse
         )
     }
 

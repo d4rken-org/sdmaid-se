@@ -50,7 +50,7 @@ fun RecyclerView.setupDefaults(
 fun <AdapterT> AdapterT.setupSelectionBase(
     list: RecyclerView,
     selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
-): SelectionTracker<String> where AdapterT : DataAdapter<*>, AdapterT : ModularAdapter<*> {
+): SelectionTracker<String> where AdapterT : DataAdapter<out SelectableItem>, AdapterT : ModularAdapter<*> {
     val adapter = this
     log { "Setting up selection on $list with $adapter" }
     val tracker = SelectionTracker

@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementFileVH
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.elements.CorpseElementHeaderVH
 import javax.inject.Inject
@@ -35,7 +36,7 @@ class CorpseElementsAdapter @Inject constructor() :
         parent: ViewGroup
     ) : VH(layoutId, parent), BindableVH<D, B>
 
-    interface Item : DifferItem {
+    interface Item : DifferItem, SelectableItem {
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

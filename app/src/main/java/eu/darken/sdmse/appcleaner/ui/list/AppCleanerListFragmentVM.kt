@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -89,14 +88,16 @@ class AppCleanerListFragmentVM @Inject constructor(
         }
     }
 
-    fun exclude(items: List<AppCleanerListAdapter.Item>) = launch {
+    fun exclude(items: Collection<AppCleanerListAdapter.Item>) = launch {
         log(TAG, INFO) { "exclude(${items.size})" }
-        val exclusions = items
-            .map { it.junk.identifier }
-            .map { PkgExclusion(pkgId = it.pkgId) }
-            .toSet()
-        val createdExclusions = exclusionManager.save(exclusions)
-        events.postValue(AppCleanerListEvents.ExclusionsCreated(createdExclusions))
+        val targets = items.mapNotNull {
+            when (it) {
+                is AppCleanerListRowVH.Item -> it.junk.identifier
+                else -> null
+            }
+        }.toSet()
+        appCleaner.exclude(targets)
+        events.postValue(AppCleanerListEvents.ExclusionsCreated(targets.size))
     }
 
     data class State(
