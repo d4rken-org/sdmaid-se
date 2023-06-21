@@ -12,7 +12,17 @@
         <item name="iconPadding">4dp</item>
     </style>
 
+    <style name="DashboardCardButton.Filled.Tonal" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
     <style name="DashboardCardButton.Outlined" parent="Widget.Material3.Button.IconButton.Outlined">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="DashboardCardButton.Flat" parent="Widget.Material3.Button.IconButton">
         <item name="android:paddingHorizontal">20dp</item>
         <item name="iconPadding">4dp</item>
     </style>

@@ -49,13 +49,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"
-            style="@style/Widget.Material3.Button.IconButton"
+            style="@style/DashboardCardButton.Flat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            app:iconPadding="4dp"
             android:text="@string/general_view_action"
             app:icon="@drawable/ic_eye_24"
             app:layout_constraintBottom_toBottomOf="parent"

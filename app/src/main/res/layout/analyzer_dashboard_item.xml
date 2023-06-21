@@ -49,7 +49,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"
-            style="@style/Widget.Material3.Button.IconButton"
+            style="@style/DashboardCardButton.Flat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
