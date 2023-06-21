@@ -14,6 +14,7 @@
             app:icon="@drawable/ic_delete_alert_24"
             app:singleLineTitle="false"
             app:key="watcher.uninstall.autodelete.enabled"
+            android:enabled="false"
             app:summary="@string/corpsefinder_watcher_autodelete_summary"
             app:title="@string/corpsefinder_watcher_autodelete_title" />
     </PreferenceCategory>

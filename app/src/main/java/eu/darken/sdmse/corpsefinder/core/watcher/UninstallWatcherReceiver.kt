@@ -57,7 +57,7 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
         Bugs.leaveBreadCrumb("Uninstall event")
 
         appScope.launch {
-            if (!corpseFinderSettings.isUninstallWatcherEnabled.value()) {
+            if (!corpseFinderSettings.isWatcherEnabled.value()) {
                 log(TAG, WARN) { "Uninstall watcher is disabled in settings, skipping." }
                 return@launch
             }
