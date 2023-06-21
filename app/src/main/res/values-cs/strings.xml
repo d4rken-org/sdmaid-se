@@ -285,7 +285,7 @@
     <string name="appcleaner_filter_wechat_summary">Odeslané nebo přijaté soubory v konverzacích a momentkách aplikace WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Soubory médií v mezipaměti, které se při zobrazení v konverzaci znovu stáhnou.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Vyčistit všechny aplikace?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Smazat nepotřebné položky pro všechny aplikace?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Nalezena %d nepotřebná položka</item>
         <item quantity="few">Nalezeny %d nepotřebné položky</item>
@@ -300,6 +300,7 @@
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
     <string name="appcleaner_automation_unavailable_body">K vymazání nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
     <string name="appcleaner_junk_userprofile_label">Uživatel</string>
+    <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné položky pro %s?</string>
     <string name="appcontrol_tool_name">Správce aplikací</string>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -308,6 +309,7 @@
         <item quantity="many">Zjištěno %d aplikací</item>
         <item quantity="other">Zjištěno %d aplikací</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Přepnout aplikace</string>
     <string name="appcontrol_toggle_app_enable_action">Povolit aplikaci</string>
     <string name="appcontrol_toggle_app_disable_action">Zakázat aplikaci</string>
     <string name="appcontrol_toggle_app_enable_description">Povolením aplikace se umožní ji spustit a může být zviditelněna ve spouštěči v případě aktivity.</string>
@@ -317,7 +319,6 @@
     <string name="appcontrol_systemsettings_open_title">Zobrazit nastavení</string>
     <string name="appcontrol_systemsettings_open_description">Otevřete systémové nastavení zařízení pro tuto aplikaci.</string>
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
-    <string name="appcontrol_app_uninstall_title">Odinstalovat aplikaci</string>
     <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
     <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
@@ -395,6 +396,12 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
     <string name="exclusion_create_pkg_hint">K vytvoření výjimek aplikací použijte nástroj Správce aplikací.</string>
     <string name="exclusion_create_path_hint">K vytvoření výjimek cest použijte nástroj Analyzátor úložiště.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Vytvořena jedna výjimka</item>
+        <item quantity="few">Vytvořeny %d výjimky</item>
+        <item quantity="many">Vytvořeno %d výjimek</item>
+        <item quantity="other">Vytvořeno %d výjimek</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a kliknout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

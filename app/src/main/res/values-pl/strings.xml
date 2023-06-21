@@ -285,7 +285,7 @@
     <string name="appcleaner_filter_wechat_summary">Wysłane lub otrzymane pliki w konwersacjach WeChat oraz WeChat moments.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Pliki multimedialne zapisane w pamięci podręcznej, które są ponownie pobierane podczas przeglądania na czacie.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Wyczyścić wszystkie aplikacje?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Usunąć zbędne elementy dla wszystkich aplikacji?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d zbędny element znaleziony</item>
         <item quantity="few">%d zbędne elementy znalezione</item>
@@ -300,6 +300,8 @@
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień niedostępna</string>
     <string name="appcleaner_automation_unavailable_body">Usuwanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
     <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
+    <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Usunąć zbędne pliki dla %d wybranych aplikacji?</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -308,6 +310,7 @@
         <item quantity="many">%d aplikacji wykryto</item>
         <item quantity="other">%d aplikacji wykryto</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Przełącz aplikacje</string>
     <string name="appcontrol_toggle_app_enable_action">Włącz aplikację</string>
     <string name="appcontrol_toggle_app_disable_action">Wyłącz aplikację</string>
     <string name="appcontrol_toggle_app_enable_description">Włączenie aplikacji umożliwia jej uruchomienie i może sprawić, że będzie widoczna w launcherze, jeśli ma aktywność.</string>
@@ -317,7 +320,6 @@
     <string name="appcontrol_systemsettings_open_title">Pokaż ustawienia</string>
     <string name="appcontrol_systemsettings_open_description">Otwórz ustawienia systemowe Twojego urządzenia dla tej aplikacji.</string>
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
-    <string name="appcontrol_app_uninstall_title">Odinstaluj aplikację</string>
     <string name="appcontrol_app_uninstall_description">Odinstaluj tę aplikację ze swojego urządzenia.</string>
     <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
     <string name="appcontrol_app_exclude_add_title">Wykluczenie aplikacji</string>

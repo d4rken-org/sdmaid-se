@@ -12,7 +12,6 @@
     <string name="general_share_action">ভাগাভাগি করুন</string>
     <string name="general_done_action">সম্পন্ন</string>
     <string name="general_copy_action">কপি বা অনুলিপি করুন</string>
-    <string name="general_remove_action">অপসারণ করুন</string>
     <string name="general_thanks_action">ধন্যবাদ</string>
     <string name="general_gotit_action">বুঝেছি</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>
@@ -42,14 +41,13 @@
     <string name="general_details_label">বিস্তারিত</string>
     <string name="general_scan_action">স্ক্যান করুন</string>
     <string name="general_delete_action">মুছে ফেলুন</string>
-    <string name="general_delete_all_action">সবগুলো মুছে ফেলুন</string>
+    <string name="general_remove_action">অপসারণ করুন</string>
     <string name="general_more_info_action">আরো তথ্য</string>
     <string name="general_undo_action">পূর্বাবস্থায় ফিরিয়ে আনুন</string>
     <string name="general_path_label">পাথ</string>
     <string name="general_type_label">ধরন</string>
     <string name="general_size_label">আকার</string>
     <string name="general_exclude_action">বাদ দিন</string>
-    <string name="general_exclude_all_action">সবগুলো বাদ দিন</string>
     <string name="general_device_label">ডিভাইস</string>
     <string name="general_settings_title">সেটিংস</string>
     <string name="general_help_title">সহায়তা</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_copy_action">Kopiëren</string>
-    <string name="general_remove_action">Verwijderen</string>
     <string name="general_wipe_action">Vegen</string>
     <string name="general_cancel_action">Annuleren</string>
     <string name="general_reset_action">Resetten</string>
@@ -74,13 +73,10 @@
     <string name="general_update_action">Updaten</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_delete_action">Verwijderen</string>
-    <string name="general_delete_all_action">Verwijder alles</string>
     <string name="general_show_details_action">Toon details</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Verwijder \"%1$s\" voor \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Opschonen bevestigen</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" opschonen?</string>
+    <string name="general_remove_action">Verwijderen</string>
     <string name="general_root_required_label">Vereist root</string>
     <string name="general_root_required_message">Vereist een geroot apparaat</string>
     <string name="general_search_action">Zoeken</string>
@@ -102,7 +98,6 @@
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Grootte</string>
     <string name="general_exclude_action">Uitsluiten</string>
-    <string name="general_exclude_all_action">Alles uitsluiten</string>
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
     <string name="general_help_title">Help</string>

@@ -277,7 +277,7 @@
     <string name="appcleaner_filter_wechat_summary">Filer sendt eller mottatt i WeChat samtaler og øyeblikk.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Bufret mediefiler som lastes ned igjen når de vises i chatten.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Rens alle apper?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Slette unødvendige elementer for alle apper?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ubetydelig element funnet</item>
         <item quantity="other">%d ubetydelige element funnet</item>
@@ -290,12 +290,15 @@
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>
     <string name="appcleaner_automation_unavailable_body">Sletting av utilgjengelige hurtigbuffere krever SD Maid sin tilgjengelighetstjeneste, men den var utilgjengelig. Hvis du ikke vil bruke den: Deaktiver alternativet \"Inkluder utilgjengelige hurtigbuffere\".</string>
     <string name="appcleaner_junk_userprofile_label">Bruker</string>
+    <string name="appcleaner_delete_confirmation_message_x">Slette unødvendige filer for %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Slette unødvendige filer for %d valgte apper?</string>
     <string name="appcontrol_tool_name">Appkontroll</string>
     <string name="appcontrol_explanation_short">Apper installert på enheten din.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d app oppdaget</item>
         <item quantity="other">%d apper oppdaget</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Veksle apper</string>
     <string name="appcontrol_toggle_app_enable_action">Aktiver app</string>
     <string name="appcontrol_toggle_app_disable_action">Deaktiver app</string>
     <string name="appcontrol_toggle_app_enable_description">Aktivering av en app lar den kjøre og kan gjøre den synlig i startprogrammet hvis den har en aktivitet.</string>
@@ -305,7 +308,6 @@
     <string name="appcontrol_systemsettings_open_title">Vis innstillinger</string>
     <string name="appcontrol_systemsettings_open_description">Åpne enhetens systeminnstillinger for denne appen.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
-    <string name="appcontrol_app_uninstall_title">Avinstaller app</string>
     <string name="appcontrol_app_uninstall_description">Avinstaller denne appen fra enheten din.</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
@@ -383,6 +385,10 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
     <string name="exclusion_create_pkg_hint">Bruk Appkontroll-verktøyet for å opprette appekskluderinger.</string>
     <string name="exclusion_create_path_hint">Bruk Lagringsanalysator-verktøyet for å opprette baneekskluderinger.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">En ekskludering opprettet</item>
+        <item quantity="other">%d ekskluderinger opprettet</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
     <string name="automation_active_title">SD Maid jobber</string>

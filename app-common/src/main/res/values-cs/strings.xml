@@ -16,7 +16,6 @@
     <string name="general_share_action">Sdílet</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_copy_action">Kopírovat</string>
-    <string name="general_remove_action">Odstranit</string>
     <string name="general_wipe_action">Smazat</string>
     <string name="general_cancel_action">Zrušit</string>
     <string name="general_discard_action">Zrušit</string>
@@ -76,13 +75,24 @@
     <string name="general_update_action">Aktualizovat</string>
     <string name="general_scan_action">Skenovat</string>
     <string name="general_delete_action">Vymazat</string>
-    <string name="general_delete_all_action">Vymazat vše</string>
+    <string name="general_delete_selected_action">Smazat vybrané</string>
     <string name="general_show_details_action">Zobrazit podrobnosti</string>
     <string name="general_delete_confirmation_title">Potvrdit vymazání</string>
     <string name="general_delete_confirmation_message_x">Vymazat \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Vymazat \"%1$s\" pro \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Potvrdit čištění</string>
-    <string name="general_clean_confirmation_message_x">Vyčistit \"%s\"?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Smazána %1$d položka a uvolněno %2$s</item>
+        <item quantity="few">Smazány %1$d položky a uvolněno %2$s</item>
+        <item quantity="many">Smazáno %1$d položek a uvolněno %2$s</item>
+        <item quantity="other">Smazáno %1$d položek a uvolněno %2$s</item>
+    </plurals>
+    <string name="general_remove_action">Odstranit</string>
+    <string name="general_remove_selected_action">Odstranit vybrané</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Jedna položka byla odstraněna</item>
+        <item quantity="few">%d položky byly odstraněny</item>
+        <item quantity="many">%d položek bylo odstraněno</item>
+        <item quantity="other">%d položek bylo odstraněno</item>
+    </plurals>
     <string name="general_root_required_label">Vyžadovat root</string>
     <string name="general_root_required_message">Vyžaduje zařízení s root přístupem</string>
     <string name="general_search_action">Hledat</string>
@@ -102,11 +112,12 @@
     <string name="general_grant_access_action">Udělit přístup</string>
     <string name="general_enable_service_action">Povolit službu</string>
     <string name="general_undo_action">Vrátit zpět</string>
+    <string name="general_list_select_all_action">Vybrat vše</string>
     <string name="general_path_label">Cesta</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Velikost</string>
     <string name="general_exclude_action">Vyloučit</string>
-    <string name="general_exclude_all_action">Vyloučit vše</string>
+    <string name="general_exclude_selected_action">Vyloučit vybrané</string>
     <string name="general_device_label">Zařízení</string>
     <string name="general_settings_title">Nastavení</string>
     <string name="general_help_title">Pomoc</string>

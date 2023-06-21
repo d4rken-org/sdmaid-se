@@ -245,7 +245,6 @@
     <string name="appcleaner_filter_threema_summary">Fișiere primite prin Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Fișiere primite sau trimise în conversații și momente în WeChat.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Cureți toate aplicațiile?</string>
     <string name="appcleaner_automation_loading">Se așteaptă automatizația prin serviciul de accesibilitate</string>
     <string name="appcleaner_automation_title">Automatizație AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>

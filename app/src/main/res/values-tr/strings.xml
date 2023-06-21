@@ -277,7 +277,7 @@
     <string name="appcleaner_filter_wechat_summary">Konuşmalarda ve WeChat anlarında gönderilen veya alınan dosyalar.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Sohbette görüntülendiğinde tekrar indirilen önbelleğe alınmış medya dosyaları.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamalar temizlensin mi?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamaların gereksiz ögeleri silinsin mi?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d silinebilir öğe bulundu</item>
         <item quantity="other">%d silinebilir öğe bulundu</item>
@@ -290,6 +290,7 @@
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>
     <string name="appcleaner_automation_unavailable_body">Erişilemeyen önbelleklerin silinmesi için SD Maid\'in erişilebilirlik hizmeti gerekiyor, ancak bu hizmet kullanılamıyor. Kullanmak istemiyorsanız: \"Erişilemez önbellekleri dahil et\" seçeneğini devre dışı bırakın.</string>
     <string name="appcleaner_junk_userprofile_label">Kullanıcı</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Seçilen %d uygulamanın gereksiz dosyaları silinsin mi?</string>
     <string name="appcontrol_tool_name">Uygulama Kontrolü</string>
     <string name="appcontrol_explanation_short">Cihazınızdaki yüklü uygulamalar.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -305,7 +306,6 @@
     <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
     <string name="appcontrol_systemsettings_open_description">Bu uygulama için cihazınızın sistem ayarlarını açın.</string>
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
-    <string name="appcontrol_app_uninstall_title">Uygulamayı kaldır</string>
     <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
@@ -384,6 +384,10 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
     <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
     <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için DepolamaAnalizcisini kullan.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bir hariç tutma oluşturuldu</item>
+        <item quantity="other">%d hariç tutma oluşturuldu</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Özel erişilebilirlik ihtiyaçları olan kullanıcılar, normalde yoğun kullanıcı etkileşimi gerektirebilen, ancak SD Maid\'in bu işlemleri (ör. önbellek temizleme) otomatik yapmasına imkan sağlayacak bu hizmeti etkinleştirebilirler.\n\nÖrneğin: Eğer SD Maid\'in uygulamaları aynı anda durdurmasını isterseniz, SD Maid her bir uygulamanın ayarlar ekranını açmak, \"Zorla Durdur\" düğmesini bulmak ve tıklamak için bu hizmeti kullanabilir.\n\nSD Maid bu hizmeti kullandırken daima bir gösterge gösterecek ve etkileşimleri her an durdurabilmesi için kullanıcıya kolay bir yol sunacaktır.\n\nKullanıcı onayı olmadan hiçbir işlem gerçekleşmeyecektir. Bu hizmet istenmeyen etkiler olmadan istediğiniz an tekrar devre dışı bırakılabilir.</string>
     <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
     <string name="automation_active_title">SD Maid çalışıyor</string>

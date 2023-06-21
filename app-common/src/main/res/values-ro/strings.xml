@@ -16,7 +16,6 @@
     <string name="general_share_action">Partajează</string>
     <string name="general_done_action">Terminat</string>
     <string name="general_copy_action">Copiază</string>
-    <string name="general_remove_action">Elimină</string>
     <string name="general_wipe_action">Șterge</string>
     <string name="general_cancel_action">Anulează</string>
     <string name="general_reset_action">Resetează</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">Actualizează</string>
     <string name="general_scan_action">Scanează</string>
     <string name="general_delete_action">Șterge</string>
-    <string name="general_delete_all_action">Șterge tot</string>
     <string name="general_show_details_action">Vezi detalii</string>
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Ștergi \"%1$s\" pentru \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Confirmă curățarea</string>
-    <string name="general_clean_confirmation_message_x">Cureți \"%s\"?</string>
+    <string name="general_remove_action">Elimină</string>
     <string name="general_root_required_label">Necesită root</string>
     <string name="general_root_required_message">Necesită un dispozitiv rootat</string>
     <string name="general_search_action">Caută</string>
@@ -102,7 +98,6 @@
     <string name="general_type_label">Tip</string>
     <string name="general_size_label">Dimensiune</string>
     <string name="general_exclude_action">Exclude</string>
-    <string name="general_exclude_all_action">Exclude tot</string>
     <string name="general_device_label">Dispozitiv</string>
     <string name="general_settings_title">Setări</string>
     <string name="general_help_title">Ajutor</string>

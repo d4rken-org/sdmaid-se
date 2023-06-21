@@ -16,7 +16,6 @@
     <string name="general_share_action">Κοινοποίηση</string>
     <string name="general_done_action">Έγινε</string>
     <string name="general_copy_action">Αντιγραφή</string>
-    <string name="general_remove_action">Αφαίρεση</string>
     <string name="general_wipe_action">Διαγραφή</string>
     <string name="general_cancel_action">Ακύρωση</string>
     <string name="general_save_action">Αποθήκευση</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading_data_areas">Φόρτωση περιοχών δεδομένων</string>
     <string name="general_progress_loading_egg_0">Πιο γρήγορο από ένα iPhone</string>
     <string name="general_progress_loading_egg_1">Φόρτωση περισσότερης μνήμης</string>
+    <string name="general_remove_action">Αφαίρεση</string>
     <string name="file_type_symbolic_link">Σύνδεσμος</string>
     <string name="file_type_directory">Κατάλογος</string>
     <string name="file_type_file">Αρχείο</string>

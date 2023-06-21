@@ -16,7 +16,6 @@
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
     <string name="general_copy_action">Kopieren</string>
-    <string name="general_remove_action">Entfernen</string>
     <string name="general_wipe_action">Wischen</string>
     <string name="general_cancel_action">Abbrechen</string>
     <string name="general_discard_action">Verwerfen</string>
@@ -76,13 +75,21 @@
     <string name="general_update_action">Aktualisieren</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_delete_action">Löschen</string>
-    <string name="general_delete_all_action">Alles löschen</string>
+    <string name="general_delete_selected_action">Ausgewähltes löschen</string>
     <string name="general_show_details_action">Zeige Details</string>
     <string name="general_delete_confirmation_title">Löschung bestätigen</string>
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%1$s\" für \"%2$s\" löschen?</string>
-    <string name="general_clean_confirmation_title">Reinigung bestätigen</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" säubern?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d ausgewählte Elemente löschen?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">%1$d Element gelöscht und %2$s freigegeben</item>
+        <item quantity="other">%1$d Elemente gelöscht und %2$s freigegeben</item>
+    </plurals>
+    <string name="general_remove_action">Entfernen</string>
+    <string name="general_remove_selected_action">Ausgewähltes entfernen</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Ein Element wurde entfernt</item>
+        <item quantity="other">%d Elemente wurden entfernt</item>
+    </plurals>
     <string name="general_root_required_label">Benötigt root</string>
     <string name="general_root_required_message">Erfordert ein gerootetes Gerät</string>
     <string name="general_search_action">Suchen</string>
@@ -100,11 +107,12 @@
     <string name="general_grant_access_action">Zugriff gewähren</string>
     <string name="general_enable_service_action">Dienst aktivieren</string>
     <string name="general_undo_action">Rückgängig machen</string>
+    <string name="general_list_select_all_action">Alles auswählen</string>
     <string name="general_path_label">Dateipfad</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Größe</string>
     <string name="general_exclude_action">Ausschließen</string>
-    <string name="general_exclude_all_action">Alle ausschließen</string>
+    <string name="general_exclude_selected_action">Ausgewählte ausschließen</string>
     <string name="general_device_label">Gerät</string>
     <string name="general_settings_title">Einstellungen</string>
     <string name="general_help_title">Hilfe</string>

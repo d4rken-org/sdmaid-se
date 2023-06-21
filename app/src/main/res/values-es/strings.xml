@@ -277,7 +277,7 @@
     <string name="appcleaner_filter_wechat_summary">Archivos enviados o recibidos en conversaciones y momentos de WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Archivos multimedia en caché que se vuelven a descargar cuando se ven en el chat.</string>
-    <string name="appcleaner_delete_all_confirmation_message">¿Limpiar todas las aplicaciones?</string>
+    <string name="appcleaner_delete_all_confirmation_message">¿Borrar elementos prescindibles para todas las aplicaciones?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento desechable encontrado</item>
         <item quantity="other">%d elementos desechables encontrados</item>
@@ -290,12 +290,15 @@
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>
     <string name="appcleaner_automation_unavailable_body">Al ser eliminadas las cachés inaccesibles se requiere del servicio de accesibilidad de SD Maid, pero no estaba disponible. Si no deseas utilizarlo: Desactiva la opción \"Incluir las cachés inaccesibles\".</string>
     <string name="appcleaner_junk_userprofile_label">Usuario</string>
+    <string name="appcleaner_delete_confirmation_message_x">¿Borrar archivos prescindibles para %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">¿Borrar archivos prescindibles para %d aplicaciones seleccionadas?</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplicación detectada</item>
         <item quantity="other">%d aplicaciónes detectadas</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Alternar aplicaciones</string>
     <string name="appcontrol_toggle_app_enable_action">Activar aplicación</string>
     <string name="appcontrol_toggle_app_disable_action">Desactivar aplicación</string>
     <string name="appcontrol_toggle_app_enable_description">Activar una aplicación permite que se ejecute y puede hacerla visible en tu lanzador si tiene una actividad.</string>
@@ -305,7 +308,6 @@
     <string name="appcontrol_systemsettings_open_title">Mostrar ajustes</string>
     <string name="appcontrol_systemsettings_open_description">Abre la configuración del sistema de tu dispositivo para esta aplicación.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
-    <string name="appcontrol_app_uninstall_title">Desinstalar la aplicación</string>
     <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
     <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
@@ -383,6 +385,10 @@
     <string name="exclusion_editor_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
     <string name="exclusion_create_pkg_hint">Utilice la herramienta AppControl para crear exclusiones de aplicaciones.</string>
     <string name="exclusion_create_path_hint">Utilice la herramienta StorageAnalyzer para crear exclusiones de rutas.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Una exclusión creada</item>
+        <item quantity="other">%d exclusiones creadas</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir que SD Maid automatice tareas que, de otro modo, requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de caché).\n\nEjemplo: si le indica a SD Maid que detenga varias aplicaciones, entonces SD Maid puede usar esto servicio para abrir la pantalla de configuración de cada aplicación, encontrar el botón \'Forzar detención\' y hacer clic en él.\n\nSD Maid siempre se mostrará de forma destacada al usar este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción de inmediato.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio se puede desactivar de nuevo en cualquier momento sin efectos adversos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible utilizar la pantalla al mismo tiempo. Espere a que finalice la operación o cancélela.</string>
     <string name="automation_active_title">SD Maid está trabajando</string>

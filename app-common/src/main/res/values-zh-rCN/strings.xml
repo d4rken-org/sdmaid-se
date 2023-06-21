@@ -16,7 +16,6 @@
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_copy_action">复制</string>
-    <string name="general_remove_action">删除</string>
     <string name="general_wipe_action">清除</string>
     <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">放弃</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">更新</string>
     <string name="general_scan_action">扫描</string>
     <string name="general_delete_action">删除</string>
-    <string name="general_delete_all_action">删除全部</string>
     <string name="general_show_details_action">显示详细信息</string>
     <string name="general_delete_confirmation_title">确认删除</string>
     <string name="general_delete_confirmation_message_x">是否删除“%s”？</string>
-    <string name="general_delete_confirmation_message_x_for_x">是否删除“%2$s”中的“%1$s”？</string>
-    <string name="general_clean_confirmation_title">确认清理</string>
-    <string name="general_clean_confirmation_message_x">是否清理“%s”？</string>
+    <string name="general_remove_action">删除</string>
     <string name="general_root_required_label">需要 Root</string>
     <string name="general_root_required_message">需要设备具有 Root 权限</string>
     <string name="general_search_action">搜索</string>
@@ -103,7 +99,6 @@
     <string name="general_type_label">类型</string>
     <string name="general_size_label">大小</string>
     <string name="general_exclude_action">排除</string>
-    <string name="general_exclude_all_action">排除全部</string>
     <string name="general_device_label">设备</string>
     <string name="general_settings_title">设置</string>
     <string name="general_help_title">帮助</string>

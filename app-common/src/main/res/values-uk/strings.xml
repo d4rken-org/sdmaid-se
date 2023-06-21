@@ -16,7 +16,6 @@
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Готово</string>
     <string name="general_copy_action">Копіювати</string>
-    <string name="general_remove_action">Видалити</string>
     <string name="general_wipe_action">Очистити</string>
     <string name="general_cancel_action">Скасувати</string>
     <string name="general_reset_action">Скинути</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">Оновити</string>
     <string name="general_scan_action">Сканувати</string>
     <string name="general_delete_action">Видалити</string>
-    <string name="general_delete_all_action">Видалити все</string>
     <string name="general_show_details_action">Показати подробиці</string>
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Видалити \"%1$s\" для \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Підтвердити очищення</string>
-    <string name="general_clean_confirmation_message_x">Очистити \"%s\"?</string>
+    <string name="general_remove_action">Видалити</string>
     <string name="general_root_required_label">Потрібні Root-права</string>
     <string name="general_root_required_message">Необхідний Root\'ований пристрій</string>
     <string name="general_search_action">Пошук</string>
@@ -103,7 +99,6 @@
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Розмір</string>
     <string name="general_exclude_action">Виключити</string>
-    <string name="general_exclude_all_action">Виключити всі</string>
     <string name="general_device_label">Пристрій</string>
     <string name="general_settings_title">Налаштування</string>
     <string name="general_help_title">Допомога</string>

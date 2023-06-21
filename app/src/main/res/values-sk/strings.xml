@@ -285,7 +285,6 @@
     <string name="appcleaner_filter_wechat_summary">Odoslané alebo prijaté súbory v konverzáciách a WeChat momentoch.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediálne súbory uložené vo vyrovnávacej pamäti, ktoré sa pri zobrazení v rozhovore znova stiahnu.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Vyčistiť všetky aplikácie?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d nepotrebná položka nájdená</item>
         <item quantity="few">%d nepotrebné položky nájdené</item>
@@ -317,7 +316,6 @@
     <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
     <string name="appcontrol_systemsettings_open_description">Otvorte systémové nastavenia zariadenia pre túto aplikáciu.</string>
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
-    <string name="appcontrol_app_uninstall_title">Odinštalovať aplikáciu</string>
     <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
     <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">Jaga</string>
     <string name="general_done_action">Valmis</string>
     <string name="general_copy_action">Kopeeri</string>
-    <string name="general_remove_action">Eemalda</string>
     <string name="general_wipe_action">Pühi</string>
     <string name="general_cancel_action">Katkesta</string>
     <string name="general_discard_action">Loobu</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Uuenda</string>
     <string name="general_scan_action">Skaneeri</string>
     <string name="general_delete_action">Kustuta</string>
-    <string name="general_delete_all_action">Kustuta kõik</string>
     <string name="general_show_details_action">Näita andmeid</string>
     <string name="general_delete_confirmation_title">Kinnita kustutamine</string>
     <string name="general_delete_confirmation_message_x">Kustuta \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Kustuta \"%1$s\" \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Kustutamise kinnitamine</string>
-    <string name="general_clean_confirmation_message_x">Tühjendada \"%s\"?</string>
+    <string name="general_remove_action">Eemalda</string>
     <string name="general_root_required_label">Nõuab juurpääsu</string>
     <string name="general_root_required_message">Nõuab juurpääsuga seadet</string>
     <string name="general_search_action">Otsing</string>
@@ -104,7 +100,6 @@
     <string name="general_type_label">Tüüp</string>
     <string name="general_size_label">Maht</string>
     <string name="general_exclude_action">Välista</string>
-    <string name="general_exclude_all_action">Eira kõike</string>
     <string name="general_device_label">Seade</string>
     <string name="general_settings_title">Seaded</string>
     <string name="general_help_title">Abi</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">शेयर करें</string>
     <string name="general_done_action">ठीक है</string>
     <string name="general_copy_action">कॉपी करें</string>
-    <string name="general_remove_action">हटाएं</string>
     <string name="general_wipe_action">साफ करें</string>
     <string name="general_cancel_action">रद्द करें</string>
     <string name="general_discard_action">खारिज करे</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">अद्यतन</string>
     <string name="general_scan_action">स्कैन</string>
     <string name="general_delete_action">मिटाएं</string>
-    <string name="general_delete_all_action">सभी को मिटाएं</string>
     <string name="general_show_details_action">विवरण दिखाएं</string>
     <string name="general_delete_confirmation_title">मिटाने की पुष्टि</string>
     <string name="general_delete_confirmation_message_x">मिटाएं \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%2$s\" के लिए \"%1$s\" मिटाएं?</string>
-    <string name="general_clean_confirmation_title">सफाई की पुष्टि करें</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" साफ़?</string>
+    <string name="general_remove_action">हटाएं</string>
     <string name="general_root_required_label">रूट की आवश्यकता है</string>
     <string name="general_root_required_message">रूटेड डिवाइस की आवश्यकता है</string>
     <string name="general_search_action">खेजें</string>
@@ -104,7 +100,6 @@
     <string name="general_type_label">प्रकार</string>
     <string name="general_size_label">आकार</string>
     <string name="general_exclude_action">पृथक करें</string>
-    <string name="general_exclude_all_action">सभी को पृथक करें</string>
     <string name="general_device_label">डिवाइस</string>
     <string name="general_settings_title">सेटिंग्स</string>
     <string name="general_help_title">सहायता</string>

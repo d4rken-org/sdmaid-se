@@ -16,7 +16,6 @@
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
     <string name="general_copy_action">نسخ</string>
-    <string name="general_remove_action">حذف</string>
     <string name="general_wipe_action">مسح</string>
     <string name="general_cancel_action">إلغاء</string>
     <string name="general_discard_action">تجاهل</string>
@@ -76,13 +75,29 @@
     <string name="general_update_action">تحديث</string>
     <string name="general_scan_action">فحص</string>
     <string name="general_delete_action">حذف</string>
-    <string name="general_delete_all_action">حذف الكل</string>
+    <string name="general_delete_selected_action">حذف المحدد</string>
     <string name="general_show_details_action">عرض التفاصيل</string>
     <string name="general_delete_confirmation_title">تأكيد الحذف</string>
     <string name="general_delete_confirmation_message_x">حذف \"%s\"؟</string>
-    <string name="general_delete_confirmation_message_x_for_x">حذف \"%1$s\" لـ \"%2$s\"؟</string>
-    <string name="general_clean_confirmation_title">تأكيد التنظيف</string>
-    <string name="general_clean_confirmation_message_x">تنظيف \"%s\"؟</string>
+    <string name="general_delete_confirmation_message_selected_x_items">حذف %d من العناصر المحددة؟</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="zero">تم حذف %1$d عنصر وحرر %2$s</item>
+        <item quantity="one">تم حذف %1$d عنصر وحرر %2$s</item>
+        <item quantity="two">تم حذف %1$d عنصران وحرر %2$s</item>
+        <item quantity="few">تم حذف %1$d عناصر وحرر %2$s</item>
+        <item quantity="many">تم حذف %1$d عناصر وحرر %2$s</item>
+        <item quantity="other">تم حذف %1$d عناصر وحرر %2$s</item>
+    </plurals>
+    <string name="general_remove_action">حذف</string>
+    <string name="general_remove_selected_action">حذف المُحدد</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="zero">تم إزالة عنصر</item>
+        <item quantity="one">تم إزالة عنصر واحد</item>
+        <item quantity="two">تم إزالة عنصران</item>
+        <item quantity="few">تم إزالة عناصر</item>
+        <item quantity="many">تمت إزالة من العناصر</item>
+        <item quantity="other">تم إزالة %d عناصر</item>
+    </plurals>
     <string name="general_root_required_label">يحتاج صلاحية الجذر</string>
     <string name="general_root_required_message">يحتاج جهاز يمتلك صَلاحِيَة الروت</string>
     <string name="general_search_action">بحث</string>
@@ -104,11 +119,12 @@
     <string name="general_grant_access_action">السماح بالوصول</string>
     <string name="general_enable_service_action">تمكين الخدمة</string>
     <string name="general_undo_action">تراجع</string>
+    <string name="general_list_select_all_action">تحديد الكل</string>
     <string name="general_path_label">المسار</string>
     <string name="general_type_label">النوع</string>
     <string name="general_size_label">الحجم</string>
     <string name="general_exclude_action">استبعاد</string>
-    <string name="general_exclude_all_action">استبعاد الكل</string>
+    <string name="general_exclude_selected_action">استبعاد المحدد</string>
     <string name="general_device_label">الجهاز</string>
     <string name="general_settings_title">الإعدادات</string>
     <string name="general_help_title">مساعدة</string>

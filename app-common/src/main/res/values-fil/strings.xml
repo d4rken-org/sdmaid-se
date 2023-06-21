@@ -16,7 +16,6 @@
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos na</string>
     <string name="general_copy_action">Kopyahin</string>
-    <string name="general_remove_action">Tanggalin</string>
     <string name="general_wipe_action">Linisin</string>
     <string name="general_cancel_action">Kanselahin</string>
     <string name="general_save_action">I-save</string>
@@ -72,13 +71,10 @@
     <string name="general_update_action">Mag-update</string>
     <string name="general_scan_action">Mag-scan</string>
     <string name="general_delete_action">Burahin</string>
-    <string name="general_delete_all_action">Burahin lahat</string>
     <string name="general_show_details_action">Ipakita ang mga detalye</string>
     <string name="general_delete_confirmation_title">Kumpirmahin ang pagbura</string>
     <string name="general_delete_confirmation_message_x">Burahin ang \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Burahin ang \"%1$s\" para sa \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Kumpirmahin ang paglilinis</string>
-    <string name="general_clean_confirmation_message_x">Linisin ang \"%s\"?</string>
+    <string name="general_remove_action">Tanggalin</string>
     <string name="general_root_required_label">Nangangailangan ng root</string>
     <string name="general_root_required_message">Kailangang naka-root ang device</string>
     <string name="general_search_action">Maghanap</string>
@@ -99,7 +95,6 @@
     <string name="general_type_label">Uri</string>
     <string name="general_size_label">Laki</string>
     <string name="general_exclude_action">Huwag isama</string>
-    <string name="general_exclude_all_action">Huwag isama lahat</string>
     <string name="general_device_label">Device</string>
     <string name="general_settings_title">Mga setting</string>
     <string name="general_help_title">Tulong</string>

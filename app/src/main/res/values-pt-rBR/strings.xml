@@ -277,7 +277,6 @@
     <string name="appcleaner_filter_wechat_summary">Arquivos enviados ou recebidos em conversas e momentos do WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Arquivos de mídia em cache baixados novamente quando vistos no chat.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Limpar todos os aplicativos?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d item inútil encontrado</item>
         <item quantity="other">%d itens inúteis encontrados</item>
@@ -305,7 +304,6 @@
     <string name="appcontrol_systemsettings_open_title">Mostrar configurações</string>
     <string name="appcontrol_systemsettings_open_description">Abra as configurações do sistema do seu dispositivo para este aplicativo.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicativo</string>
-    <string name="appcontrol_app_uninstall_title">Desinstalar aplicativo</string>
     <string name="appcontrol_app_uninstall_description">Desinstale este aplicativo de seu dispositivo.</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
     <string name="appcontrol_app_exclude_add_title">Excluir aplicativo</string>

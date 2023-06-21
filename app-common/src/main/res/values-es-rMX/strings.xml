@@ -16,7 +16,6 @@
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_copy_action">Copiar</string>
-    <string name="general_remove_action">Quitar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
     <string name="general_reset_action">Restablecer</string>
@@ -71,13 +70,10 @@
     <string name="general_update_action">Actualizar</string>
     <string name="general_scan_action">Escanear</string>
     <string name="general_delete_action">Borrar</string>
-    <string name="general_delete_all_action">Borrar todo</string>
     <string name="general_show_details_action">Ver los detalles</string>
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">¿Borrar \"%1$s\" por \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Confirma la limpieza</string>
-    <string name="general_clean_confirmation_message_x">¿Limpiar \"%s\"?</string>
+    <string name="general_remove_action">Quitar</string>
     <string name="general_root_required_label">Requiere root</string>
     <string name="general_root_required_message">Requiere un dispositivo rooteado</string>
     <string name="general_search_action">Buscar</string>
@@ -99,7 +95,6 @@
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamaño</string>
     <string name="general_exclude_action">Excluir</string>
-    <string name="general_exclude_all_action">Excluir todo</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Ajustes</string>
     <string name="general_help_title">Ayuda</string>

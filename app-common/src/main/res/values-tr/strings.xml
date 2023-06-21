@@ -16,7 +16,6 @@
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamamlandı</string>
     <string name="general_copy_action">Kopyala</string>
-    <string name="general_remove_action">Kaldır</string>
     <string name="general_wipe_action">Temizle</string>
     <string name="general_cancel_action">İptal et</string>
     <string name="general_discard_action">Yoksay</string>
@@ -76,13 +75,21 @@
     <string name="general_update_action">Güncelle</string>
     <string name="general_scan_action">Tara</string>
     <string name="general_delete_action">Sil</string>
-    <string name="general_delete_all_action">Hepsini sil</string>
+    <string name="general_delete_selected_action">Seçilenleri sil</string>
     <string name="general_show_details_action">Detayları göster</string>
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%2$s\" için \"%1$s\" silinsin mi?</string>
-    <string name="general_clean_confirmation_title">Temizliği onayla</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" temizlensin mi?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">%1$d öğe silindi ve %2$s yer açıldı</item>
+        <item quantity="other">%1$d öğe silindi ve %2$s yer açıldı</item>
+    </plurals>
+    <string name="general_remove_action">Kaldır</string>
+    <string name="general_remove_selected_action">Seçilenleri kaldır</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Bir öğe kaldırıldı</item>
+        <item quantity="other">%d öğe kaldırıldı</item>
+    </plurals>
     <string name="general_root_required_label">Kök (root) erişimi gerektirir</string>
     <string name="general_root_required_message">Köklü bir cihaz gerektirir</string>
     <string name="general_search_action">Ara</string>
@@ -100,11 +107,12 @@
     <string name="general_grant_access_action">Erişim izni ver</string>
     <string name="general_enable_service_action">Hizmeti etkinleştir</string>
     <string name="general_undo_action">Geri al</string>
+    <string name="general_list_select_all_action">Tümünü Seç</string>
     <string name="general_path_label">Yol</string>
     <string name="general_type_label">Tür</string>
     <string name="general_size_label">Boyut</string>
     <string name="general_exclude_action">Hariç Tut</string>
-    <string name="general_exclude_all_action">Tümünü hariç tut</string>
+    <string name="general_exclude_selected_action">Seçilenleri hariç tut</string>
     <string name="general_device_label">Cihaz</string>
     <string name="general_settings_title">Ayarlar</string>
     <string name="general_help_title">Yardım</string>

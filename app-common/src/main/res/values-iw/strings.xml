@@ -16,7 +16,6 @@
     <string name="general_share_action">שיתוף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_copy_action">העתקה</string>
-    <string name="general_remove_action">הסרה</string>
     <string name="general_wipe_action">מחק</string>
     <string name="general_cancel_action">ביטול</string>
     <string name="general_reset_action">אפס</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">עדכן</string>
     <string name="general_scan_action">סרוק</string>
     <string name="general_delete_action">מחק</string>
-    <string name="general_delete_all_action">מחק הכל</string>
     <string name="general_show_details_action">הראה פרטים</string>
     <string name="general_delete_confirmation_title">אשר מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">למחוק את \"%1$s\" עבור \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">אשר ניקוי</string>
-    <string name="general_clean_confirmation_message_x">לנקות את \"%s\"?</string>
+    <string name="general_remove_action">הסרה</string>
     <string name="general_root_required_label">מצריך גישת רוט</string>
     <string name="general_root_required_message">מצריך מכשיר עם הרשאת רוט</string>
     <string name="general_search_action">חפש</string>
@@ -103,7 +99,6 @@
     <string name="general_type_label">סוג</string>
     <string name="general_size_label">גודל</string>
     <string name="general_exclude_action">לא לכלול</string>
-    <string name="general_exclude_all_action">אל תכלול כלום</string>
     <string name="general_device_label">מכשיר</string>
     <string name="general_settings_title">הגדרות</string>
     <string name="general_help_title">עזרה</string>
