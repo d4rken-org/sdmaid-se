@@ -19,7 +19,7 @@ Features include:
 * User configurable filters for random files (SystemCleaner)
 * Scheduling actions (Scheduler)
 * Controling/disabling apps (AppControl)
-* Storage overview (StorageAnalyzer) (tbd)
+* Storage overview (StorageAnalyzer)
 
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor
 to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). A complete rewrite, optimized for newer
