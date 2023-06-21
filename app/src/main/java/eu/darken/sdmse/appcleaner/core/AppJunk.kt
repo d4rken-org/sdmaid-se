@@ -36,7 +36,8 @@ data class AppJunk(
         knownFiles + inaccessible
     }
 
-    fun isEmpty() = expendables.isNullOrEmpty() && inaccessibleCache == null
+    fun isEmpty() =
+        (expendables.isNullOrEmpty() || expendables.values.all { it.isEmpty() }) && inaccessibleCache == null
 
     override fun toString(): String =
         "AppJunk(${pkg.packageName}, categories=${expendables?.size}, inaccessible=$inaccessibleCache)"
