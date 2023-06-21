@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.SystemcleanerDashboardItemBinding
@@ -54,6 +55,13 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         }
 
         scanAction.apply {
+            if (!hasAnyData) {
+                text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
+                iconPadding = context.dpToPx(4f)
+            } else {
+                text = null
+                iconPadding = 0
+            }
             isGone = item.progress != null
             setOnClickListener { item.onScan() }
         }

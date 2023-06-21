@@ -7,6 +7,7 @@ import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
+import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.performClickWithRipple
@@ -59,6 +60,13 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         }
 
         scanAction.apply {
+            if (!hasAnyData) {
+                text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
+                iconPadding = context.dpToPx(4f)
+            } else {
+                text = null
+                iconPadding = 0
+            }
             isGone = item.progress != null
             setOnClickListener { item.onScan() }
         }
@@ -67,6 +75,8 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
             setOnClickListener { item.onDelete() }
             if (!item.isPro) {
                 setIconResource(R.drawable.ic_baseline_stars_24)
+            } else if (hasAnyData) {
+                setIconResource(R.drawable.ic_delete)
             } else {
                 icon = null
             }
