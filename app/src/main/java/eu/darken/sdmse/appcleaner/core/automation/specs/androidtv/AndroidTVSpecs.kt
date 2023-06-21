@@ -90,18 +90,29 @@ open class AndroidTVSpecs @Inject constructor(
             val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
                 if (node.pkgId != SETTINGS_PKG) return false
                 return node.crawl().map { it.node }.any { subNode ->
-                    if (!subNode.idMatches("com.android.tv.settings:id/guidance_title")) return@any false
-                    return@any when {
-                        subNode.textMatchesAny(clearCacheTexts) -> true
-                        subNode.textMatchesAny(clearCacheTexts.map { it.replace("?", "") }) -> true
-                        subNode.textMatchesAny(clearCacheTexts.map { "$it?" }) -> true
+                    when {
+                        subNode.idMatches("com.android.tv.settings:id/guidance_title") -> when {
+                            subNode.textMatchesAny(clearCacheTexts) -> true
+                            subNode.textMatchesAny(clearCacheTexts.map { it.replace("?", "") }) -> true
+                            subNode.textMatchesAny(clearCacheTexts.map { "$it?" }) -> true
+                            else -> false
+                        }
+
+                        subNode.idMatches("com.android.tv.settings:id/guidance_container") -> true
                         else -> false
                     }
                 }
             }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                return node.idMatches("com.android.tv.settings:id/guidedactions_item_content")
+                return when {
+                    node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
+                    node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
+                        node.textMatchesAny(setOf(context.getString(android.R.string.ok)))
+                    }
+
+                    else -> false
+                }
             }
 
             val step = StepProcessor.Step(
