@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -29,6 +30,7 @@ class StorageSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
     private val dataAreaManager: DataAreaManager,
+    private val deviceDetective: DeviceDetective,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -61,7 +63,7 @@ class StorageSetupModule @Inject constructor(
 
     private fun getRequiredPermission(): Set<Permission> {
         return when {
-            hasApiLevel(30) -> setOf(Permission.MANAGE_EXTERNAL_STORAGE)
+            hasApiLevel(30) && !deviceDetective.isAndroidTV() -> setOf(Permission.MANAGE_EXTERNAL_STORAGE)
             else -> setOf(
                 Permission.WRITE_EXTERNAL_STORAGE,
                 Permission.READ_EXTERNAL_STORAGE
