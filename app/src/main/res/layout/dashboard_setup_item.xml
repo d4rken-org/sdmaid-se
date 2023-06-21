@@ -50,24 +50,24 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            android:text="@string/setup_incomplete_card_dismiss_action"
+            android:text="@string/general_dismiss_action"
             android:textColor="?colorOnSecondaryContainer"
-            app:layout_constraintEnd_toStartOf="@id/continue_setup_action"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/body" />
+            app:iconTint="?colorOnSecondaryContainer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continue_setup_action"
-            style="@style/Widget.Material3.Button"
+            style="@style/DashboardCardButton.Filled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@id/dismiss_action"
             android:text="@string/setup_incomplete_card_continue_action"
+            app:icon="@drawable/ic_baseline_settings_suggest_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/dismiss_action"
             app:layout_constraintTop_toBottomOf="@id/body" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

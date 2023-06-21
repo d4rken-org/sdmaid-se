@@ -47,7 +47,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/DashboardCardButton.Flat"
             android:layout_width="wrap_content"
             app:iconTint="?colorOnTertiaryContainer"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dismiss_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/DashboardCardButton.Filled.Tonal"
             android:layout_width="wrap_content"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/update_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/DashboardCardButton.Filled.Tonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
