@@ -55,34 +55,6 @@ Development is financed by individual user contributions, i.e. you buying the up
 
 <img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/1.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/2.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/3.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/4.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/5.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/6.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/7.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/8.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/screenshots/9.png" width="100">
 
-## Contributions
-
-Contributions are welcome!
-There are a few ways you can contribute and a few things to consider.
-
-### Translations
-
-Do you speak multiple languages?
-Making SD Maid accessible to more people is absolutely awesome!
-
-Consider joining SD Maid SE's translation project on Crowdin:
-https://crowdin.com/project/sdmaid-se
-
-If your target language is not yet available, create an issue ticket about adding support.
-
-### Clutter definitions
-
-Parts of SD Maid rely on manually added definitions for clutter and filters for expendable files.
-Found something that SD Maid does not yet detect?
-
-You can either open an issue ticket (example here) an, or directly create a pull request if it's just a definition issue (example here).
-
-### Code
-
-You can code? 🙏🏻
-Even if your fingers are itching, don't just start coding and open a PR.
-First create an issue ticket about what you want to do and wait until it is approved.
-
 ## License
 
 SD Maid SE's code is available under a GPL v3 license, this excludes:
