@@ -260,7 +260,6 @@
     <string name="appcleaner_filter_telegram_summary">Datoteke primljene ili poslane putem Telegrama.</string>
     <string name="appcleaner_filter_threema_summary">Datoteke primljene putem Threeme.</string>
     <string name="appcleaner_filter_wechat_summary">Poslane ili primljene datoteke u razgovorima i WeChat trenucima.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Očistiti sve aplikacije?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Pronađen %d potrošni predmet</item>
         <item quantity="few">Pronađena %d potrošna predmeta</item>

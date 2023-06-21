@@ -277,7 +277,6 @@
     <string name="appcleaner_filter_wechat_summary">Küldött vagy fogadott fájlok a beszélgetésekben és WeChat moments-ekben.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Gyorsítótárazott médiafájlok, amelyek újra letöltődnek, amikor a csevegésben megtekintik őket.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Megtisztítja az összes alkalmazást?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d felhasználható elem található</item>
         <item quantity="other">%d elhasználható elemek találhatók</item>
@@ -305,7 +304,6 @@
     <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
     <string name="appcontrol_systemsettings_open_description">Nyissa meg eszköze rendszerbeállításait ehhez az alkalmazáshoz.</string>
     <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
-    <string name="appcontrol_app_uninstall_title">App eltávolítása</string>
     <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
     <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
     <string name="appcontrol_app_exclude_add_title">Alkalmazás kizárása</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">Partager</string>
     <string name="general_done_action">Terminé</string>
     <string name="general_copy_action">Copier</string>
-    <string name="general_remove_action">Supprimer</string>
     <string name="general_wipe_action">Effacer</string>
     <string name="general_cancel_action">Annuler</string>
     <string name="general_discard_action">Abandonner</string>
@@ -76,13 +75,21 @@
     <string name="general_update_action">Mise à jour</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_delete_action">Supprimer</string>
-    <string name="general_delete_all_action">Tout supprimer</string>
+    <string name="general_delete_selected_action">Supprimer la sélection</string>
     <string name="general_show_details_action">Montrer les détails</string>
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Supprimer \"%1$s\" pour \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Confirmer le nettoyage</string>
-    <string name="general_clean_confirmation_message_x">Nettoyer \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Supprimer les %d éléments sélectionnés ?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">%1$d élément supprimé et %2$s libéré</item>
+        <item quantity="other">%1$d éléments supprimés et %2$s libérés</item>
+    </plurals>
+    <string name="general_remove_action">Supprimer</string>
+    <string name="general_remove_selected_action">Supprimer la sélection</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Un élément a été supprimé</item>
+        <item quantity="other">%d éléments ont été supprimés</item>
+    </plurals>
     <string name="general_root_required_label">Nécessite root</string>
     <string name="general_root_required_message">Nécessite un appareil rooté</string>
     <string name="general_search_action">Recherche</string>
@@ -100,11 +107,12 @@
     <string name="general_grant_access_action">Autoriser l\'accès</string>
     <string name="general_enable_service_action">Activer le service</string>
     <string name="general_undo_action">Annuler</string>
+    <string name="general_list_select_all_action">Tous sélectionner</string>
     <string name="general_path_label">Chemin</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Taille</string>
     <string name="general_exclude_action">Exclure</string>
-    <string name="general_exclude_all_action">Tout exclure</string>
+    <string name="general_exclude_selected_action">Exclure la sélection</string>
     <string name="general_device_label">Appareil</string>
     <string name="general_settings_title">Préférences</string>
     <string name="general_help_title">Aide</string>

@@ -11,7 +11,6 @@
     <string name="general_share_action">اشتراک</string>
     <string name="general_done_action">انجام شد</string>
     <string name="general_copy_action">رونوشت</string>
-    <string name="general_remove_action">حذف</string>
     <string name="general_wipe_action">پاک کردن</string>
     <string name="general_cancel_action">لفو</string>
     <string name="general_reset_action">بازنشانی</string>
@@ -56,13 +55,10 @@
     <string name="general_update_action">به‌روزرسانی</string>
     <string name="general_scan_action">اسکن</string>
     <string name="general_delete_action">حذف</string>
-    <string name="general_delete_all_action">حذف همه</string>
     <string name="general_show_details_action">نمایش جزئیات</string>
     <string name="general_delete_confirmation_title">تایید حذف</string>
     <string name="general_delete_confirmation_message_x">\"%s\" حذف شود؟</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%1$s\" برای \"%2$s\" حذف شود؟</string>
-    <string name="general_clean_confirmation_title">تایید پاکسازی</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" پاک شود؟</string>
+    <string name="general_remove_action">حذف</string>
     <string name="general_root_required_label">نیازمند روت</string>
     <string name="general_root_required_message">به دستگاه روت شده نیاز دارد</string>
     <string name="general_search_action">جستجو</string>
@@ -84,7 +80,6 @@
     <string name="general_type_label">نوع</string>
     <string name="general_size_label">اندازه‌</string>
     <string name="general_exclude_action">استثناء</string>
-    <string name="general_exclude_all_action">استثناء همه</string>
     <string name="general_device_label">دستگاه</string>
     <string name="general_settings_title">تنظیمات</string>
     <string name="general_help_title">کمک</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">공유</string>
     <string name="general_done_action">완료</string>
     <string name="general_copy_action">복사</string>
-    <string name="general_remove_action">제거</string>
     <string name="general_wipe_action">삭제</string>
     <string name="general_cancel_action">취소</string>
     <string name="general_reset_action">초기화</string>
@@ -74,13 +73,10 @@
     <string name="general_update_action">업데이트</string>
     <string name="general_scan_action">스캔</string>
     <string name="general_delete_action">삭제</string>
-    <string name="general_delete_all_action">모두 삭제</string>
     <string name="general_show_details_action">세부 정보 보기</string>
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%2$s\"의 \"%1$s\"를 삭제할까요?</string>
-    <string name="general_clean_confirmation_title">삭제 확인</string>
-    <string name="general_clean_confirmation_message_x">\"%s\"를 삭제할까요?</string>
+    <string name="general_remove_action">제거</string>
     <string name="general_root_required_label">루트 권한 필요</string>
     <string name="general_root_required_message">루팅된 기기가 필요합니다</string>
     <string name="general_search_action">검색</string>
@@ -101,7 +97,6 @@
     <string name="general_type_label">종류</string>
     <string name="general_size_label">크기</string>
     <string name="general_exclude_action">제외</string>
-    <string name="general_exclude_all_action">모두 제외</string>
     <string name="general_device_label">기기</string>
     <string name="general_settings_title">설정</string>
     <string name="general_help_title">도움</string>

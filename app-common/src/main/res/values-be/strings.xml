@@ -16,7 +16,6 @@
     <string name="general_share_action">Падзяліцца</string>
     <string name="general_done_action">Гатова</string>
     <string name="general_copy_action">Скапіраваць</string>
-    <string name="general_remove_action">Выдаліць</string>
     <string name="general_wipe_action">Ачысціць</string>
     <string name="general_cancel_action">Скасаваць</string>
     <string name="general_discard_action">Адхіліць</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Абнавіць</string>
     <string name="general_scan_action">Сканіраваць</string>
     <string name="general_delete_action">Выдаліць</string>
-    <string name="general_delete_all_action">Выдаліць усё</string>
     <string name="general_show_details_action">Паказаць падрабязнасці</string>
     <string name="general_delete_confirmation_title">Пацвердзіць выдаленне</string>
     <string name="general_delete_confirmation_message_x">Выдаліць \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Выдаліць \"%1$s\" для \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Пацвердзіць ачыстку</string>
-    <string name="general_clean_confirmation_message_x">Ачысціць \"%s\"?</string>
+    <string name="general_remove_action">Выдаліць</string>
     <string name="general_root_required_label">Патрабуецца дазвол на каранёвы доступ</string>
     <string name="general_root_required_message">Патрабуецца прылада з адкрытым каранёвым доступам</string>
     <string name="general_search_action">Шукаць</string>
@@ -106,7 +102,6 @@
     <string name="general_type_label">Тып</string>
     <string name="general_size_label">Памер</string>
     <string name="general_exclude_action">Выключыць</string>
-    <string name="general_exclude_all_action">Выключыць усё</string>
     <string name="general_device_label">Прылада</string>
     <string name="general_settings_title">Налады</string>
     <string name="general_help_title">Дапамога</string>

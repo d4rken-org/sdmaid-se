@@ -16,7 +16,6 @@
     <string name="general_share_action">Comparteix</string>
     <string name="general_done_action">Fet</string>
     <string name="general_copy_action">Copia</string>
-    <string name="general_remove_action">Elimina</string>
     <string name="general_wipe_action">Neteja</string>
     <string name="general_cancel_action">Cancel·la</string>
     <string name="general_discard_action">Descarta</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Actualitza</string>
     <string name="general_scan_action">Escaneja</string>
     <string name="general_delete_action">Suprimeix</string>
-    <string name="general_delete_all_action">Suprimeix-ho tot</string>
     <string name="general_show_details_action">Mostra els detalls</string>
     <string name="general_delete_confirmation_title">Confirmeu la supressió</string>
     <string name="general_delete_confirmation_message_x">Voleu suprimir «%s»?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Voleu suprimir «%1$s» per «%2$s»?</string>
-    <string name="general_clean_confirmation_title">Confirmeu la neteja</string>
-    <string name="general_clean_confirmation_message_x">Voleu netejar «%s»?</string>
+    <string name="general_remove_action">Elimina</string>
     <string name="general_root_required_label">Cal «root»</string>
     <string name="general_root_required_message">Cal un dispositiu amb «root»</string>
     <string name="general_search_action">Cerca</string>
@@ -104,7 +100,6 @@
     <string name="general_type_label">Tipus</string>
     <string name="general_size_label">Mida</string>
     <string name="general_exclude_action">Exclou</string>
-    <string name="general_exclude_all_action">Exclou-ho tot</string>
     <string name="general_device_label">Dispositiu</string>
     <string name="general_settings_title">Configuració</string>
     <string name="general_help_title">Ajuda</string>

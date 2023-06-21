@@ -16,7 +16,6 @@
     <string name="general_share_action">Megosztás</string>
     <string name="general_done_action">Kész</string>
     <string name="general_copy_action">Másolás</string>
-    <string name="general_remove_action">Eltávolítás</string>
     <string name="general_wipe_action">Törlés</string>
     <string name="general_cancel_action">Mégsem</string>
     <string name="general_discard_action">Elvetés</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Frissítés</string>
     <string name="general_scan_action">Vizsgálás</string>
     <string name="general_delete_action">Törlés</string>
-    <string name="general_delete_all_action">Összes törlése</string>
     <string name="general_show_details_action">Részletek mutatása</string>
     <string name="general_delete_confirmation_title">A törlés megerősítésére</string>
     <string name="general_delete_confirmation_message_x">Törli a \"%s\" fájlt?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Törli a következőt: „%1$s” a következőhöz: „%2$s”?</string>
-    <string name="general_clean_confirmation_title">Erősítse meg a tisztítást</string>
-    <string name="general_clean_confirmation_message_x">Töröljem \"%s\"-t?</string>
+    <string name="general_remove_action">Eltávolítás</string>
     <string name="general_root_required_label">Root szükséges</string>
     <string name="general_root_required_message">Rootolt eszköz szükséges</string>
     <string name="general_search_action">Keresés</string>
@@ -104,7 +100,6 @@
     <string name="general_type_label">Típus</string>
     <string name="general_size_label">Méret</string>
     <string name="general_exclude_action">Kizárás</string>
-    <string name="general_exclude_all_action">Összes kizárása</string>
     <string name="general_device_label">Eszköz</string>
     <string name="general_settings_title">Beállítások</string>
     <string name="general_help_title">Segítség</string>

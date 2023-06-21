@@ -15,7 +15,6 @@
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
     <string name="general_copy_action">Kopiraj</string>
-    <string name="general_remove_action">Ukloni</string>
     <string name="general_wipe_action">Izbriši</string>
     <string name="general_cancel_action">Otkaži</string>
     <string name="general_discard_action">Odbaci</string>
@@ -74,13 +73,10 @@
     <string name="general_update_action">Ažuriraj</string>
     <string name="general_scan_action">Skeniraj</string>
     <string name="general_delete_action">Izbriši</string>
-    <string name="general_delete_all_action">Izbriši sve</string>
     <string name="general_show_details_action">Prikaži detalje</string>
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Izbrisati \"%1$s\" za \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Potvrdite čišćenje</string>
-    <string name="general_clean_confirmation_message_x">Očistiti \"%s\"?</string>
+    <string name="general_remove_action">Ukloni</string>
     <string name="general_root_required_label">Zahtijeva root</string>
     <string name="general_root_required_message">Zahtijeva rootani uređaj</string>
     <string name="general_search_action">Traži</string>
@@ -103,7 +99,6 @@
     <string name="general_type_label">Vrsta</string>
     <string name="general_size_label">Veličina</string>
     <string name="general_exclude_action">Izdvoji</string>
-    <string name="general_exclude_all_action">Izdvoji sve</string>
     <string name="general_device_label">Uređaj</string>
     <string name="general_settings_title">Postavke</string>
     <string name="general_help_title">Pomoć</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">共有</string>
     <string name="general_done_action">完了</string>
     <string name="general_copy_action">コピー</string>
-    <string name="general_remove_action">削除</string>
     <string name="general_wipe_action">初期化</string>
     <string name="general_cancel_action">キャンセル</string>
     <string name="general_reset_action">リセット</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">アップデート</string>
     <string name="general_scan_action">スキャン</string>
     <string name="general_delete_action">削除</string>
-    <string name="general_delete_all_action">すべて削除</string>
     <string name="general_show_details_action">詳細を表示</string>
     <string name="general_delete_confirmation_title">削除完了</string>
     <string name="general_delete_confirmation_message_x">\"%s\"を削除しますか？</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%2$s\"から\"%1$s\"を削除しますか？</string>
-    <string name="general_clean_confirmation_title">クリーリング完了</string>
-    <string name="general_clean_confirmation_message_x">\"%s\"をクリーンしますか？</string>
+    <string name="general_remove_action">削除</string>
     <string name="general_root_required_label">Root権限が必要です</string>
     <string name="general_root_required_message">Root化されたデバイスが必要です</string>
     <string name="general_search_action">検索</string>
@@ -100,7 +96,6 @@
     <string name="general_type_label">種類</string>
     <string name="general_size_label">サイズ</string>
     <string name="general_exclude_action">除外</string>
-    <string name="general_exclude_all_action">すべて除外</string>
     <string name="general_device_label">デバイス</string>
     <string name="general_settings_title">設定</string>
     <string name="general_help_title">ヘルプ</string>

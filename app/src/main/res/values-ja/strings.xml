@@ -173,7 +173,6 @@
     <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Threemaを通じて受信したファイル</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_delete_all_confirmation_message">すべてのアプリをクリーンアップしますか?</string>
     <string name="appcleaner_automation_title">アプリクリーナーの自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">デフォルトキャッシュをクリアしています…</string>
     <string name="appcleaner_item_caches_inaccessible_title">デフォルトキャッシュ</string>

@@ -236,7 +236,7 @@
     <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
     <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcleaner_include_minimumsize_label">最小大小</string>
-    <string name="appcleaner_include_minimumsize_summary">跳過可展開資料總和低於最小大小的應用程式。</string>
+    <string name="appcleaner_include_minimumsize_summary">跳過無關緊要的資料總和低於最小大小的應用程式。</string>
     <string name="appcleaner_include_minimumage_label">最小期限</string>
     <string name="appcleaner_include_minimumage_summary">跳過存在時間低於最小期限的檔案。</string>
     <string name="appcleaner_filter_codecache_label">程式碼快取</string>
@@ -273,7 +273,7 @@
     <string name="appcleaner_filter_wechat_summary">在聊天中傳送或接收的檔案和 WeChat 朋友圈。</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中檢視時會再次下載的快取媒體檔案。</string>
-    <string name="appcleaner_delete_all_confirmation_message">清理所有應用程式？</string>
+    <string name="appcleaner_delete_all_confirmation_message">為所有應用程式刪除無關緊要的項目？</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 個無關緊要的項目已找到</item>
     </plurals>
@@ -285,11 +285,14 @@
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">刪除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
     <string name="appcleaner_junk_userprofile_label">使用者</string>
+    <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">為 %d 個已選取的應用程式刪除無關緊要的檔案？</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">%d 個應用程式已偵測</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">切換應用程式</string>
     <string name="appcontrol_toggle_app_enable_action">啟用應用程式</string>
     <string name="appcontrol_toggle_app_disable_action">停用應用程式</string>
     <string name="appcontrol_toggle_app_enable_description">啟用應用程式即可允許它執行，但如果它存在活動，可能會使它在您的啟動器中可見。</string>
@@ -299,7 +302,6 @@
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
     <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
-    <string name="appcontrol_app_uninstall_title">解除安裝應用程式</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
@@ -377,6 +379,9 @@
     <string name="exclusion_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
     <string name="exclusion_create_pkg_hint">使用應用控制工具建立應用程式排除。</string>
     <string name="exclusion_create_path_hint">使用儲存分析器工具建立路徑排除。</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d 個排除項目已建立</item>
+    </plurals>
     <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並按下。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
     <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
     <string name="automation_active_title">SD 女僕正在運作</string>

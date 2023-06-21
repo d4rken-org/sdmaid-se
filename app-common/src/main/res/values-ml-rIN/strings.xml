@@ -16,7 +16,6 @@
     <string name="general_share_action">പങ്കിടുക</string>
     <string name="general_done_action">കഴിഞ്ഞു</string>
     <string name="general_copy_action">പകര്‍ത്തുക</string>
-    <string name="general_remove_action">നീക്കം ചെയ്യുക</string>
     <string name="general_wipe_action">മായ്ക്കുക</string>
     <string name="general_cancel_action">റദ്ദ്ചെയ്യുക</string>
     <string name="general_reset_action">പുനഃക്രമീകരിക്കുക</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">അപ്ഡേറ്റ്</string>
     <string name="general_scan_action">സ്കാൻ ചെയ്യുക</string>
     <string name="general_delete_action">ഇല്ലാതാക്കുക</string>
-    <string name="general_delete_all_action">എല്ലാം ഇല്ലാതാക്കുക</string>
     <string name="general_show_details_action">വിശദാംശങ്ങൾ കാണിക്കുക</string>
     <string name="general_delete_confirmation_title">ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ഇല്ലാതാക്കണോ?</string>
-    <string name="general_delete_confirmation_message_x_for_x">\"%2$s\" എന്നതിനായുള്ള \"%1$s\" ഇല്ലാതാക്കണോ?</string>
-    <string name="general_clean_confirmation_title">വൃത്തിയാക്കൽ സ്ഥിരീകരിക്കുക</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" വൃത്തിയാക്കണോ?</string>
+    <string name="general_remove_action">നീക്കം ചെയ്യുക</string>
     <string name="general_root_required_label">റൂട്ട് ആവശ്യമാണ്</string>
     <string name="general_root_required_message">റൂട്ട് ചെയ്‌ത ഉപകരണം ആവശ്യമാണ്</string>
     <string name="general_search_action">തിരയുക</string>
@@ -101,7 +97,6 @@
     <string name="general_type_label">ടൈപ്പ്</string>
     <string name="general_size_label">വലുപ്പം</string>
     <string name="general_exclude_action">ഒഴിവാക്കുക</string>
-    <string name="general_exclude_all_action">എല്ലാം ഒഴിവാക്കുക</string>
     <string name="general_device_label">ഉപകരണം</string>
     <string name="general_settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="general_help_title">ഹെല്പ്</string>

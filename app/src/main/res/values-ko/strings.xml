@@ -273,7 +273,6 @@
     <string name="appcleaner_filter_wechat_summary">위챗 대화나 모멘트에서 주고받은 파일들입니다.</string>
     <string name="appcleaner_filter_viber_label">바이버</string>
     <string name="appcleaner_filter_viber_summary">채팅을 열게 되면 자동으로 다운로드되는 캐시된 미디어 파일입니다.</string>
-    <string name="appcleaner_delete_all_confirmation_message">모든 앱을 청소할까요?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d개의 </item>
     </plurals>
@@ -299,7 +298,6 @@
     <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
     <string name="appcontrol_systemsettings_open_description">이 앱의 시스템 설정으로 이동합니다.</string>
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
-    <string name="appcontrol_app_uninstall_title">앱 제거</string>
     <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
     <string name="appcontrol_app_exclude_add_title">앱 제외</string>

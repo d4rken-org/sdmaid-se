@@ -16,7 +16,6 @@
     <string name="general_share_action">Kongsi</string>
     <string name="general_done_action">Selesai</string>
     <string name="general_copy_action">Salinan</string>
-    <string name="general_remove_action">Alih keluar</string>
     <string name="general_wipe_action">Lap</string>
     <string name="general_cancel_action">Batal</string>
     <string name="general_reset_action">Tetapkan semula</string>
@@ -73,13 +72,10 @@
     <string name="general_update_action">Kemas kini</string>
     <string name="general_scan_action">Imbas</string>
     <string name="general_delete_action">Padam</string>
-    <string name="general_delete_all_action">Memadam semua</string>
     <string name="general_show_details_action">Tunjukkan butiran</string>
     <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Padamkan \"%1$s\" untuk \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Sahkan pembersihan</string>
-    <string name="general_clean_confirmation_message_x">Bersihkan \"%s\"?</string>
+    <string name="general_remove_action">Alih keluar</string>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan peranti yang telah di root</string>
     <string name="general_search_action">Cari</string>
@@ -100,7 +96,6 @@
     <string name="general_type_label">Taip</string>
     <string name="general_size_label">Saiz</string>
     <string name="general_exclude_action">Kecualikan</string>
-    <string name="general_exclude_all_action">Kecualikan semua</string>
     <string name="general_device_label">Peranti</string>
     <string name="general_settings_title">Tetapan</string>
     <string name="general_help_title">Bantu</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
     <string name="general_copy_action">Копировать</string>
-    <string name="general_remove_action">Удалить</string>
     <string name="general_wipe_action">Стереть</string>
     <string name="general_cancel_action">Отменить</string>
     <string name="general_discard_action">Отказаться</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Обновить</string>
     <string name="general_scan_action">Сканировать</string>
     <string name="general_delete_action">Удалить</string>
-    <string name="general_delete_all_action">Удалить все</string>
     <string name="general_show_details_action">Показать детали</string>
     <string name="general_delete_confirmation_title">Подтвердить удаление</string>
     <string name="general_delete_confirmation_message_x">Удалить \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Удалить \"%1$s\" для \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Подтвердить очистку</string>
-    <string name="general_clean_confirmation_message_x">Очистить \"%s\"?</string>
+    <string name="general_remove_action">Удалить</string>
     <string name="general_root_required_label">Требуются рут-права</string>
     <string name="general_root_required_message">Требуется устройство с рутом</string>
     <string name="general_search_action">Поиск</string>
@@ -106,7 +102,6 @@
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Размер</string>
     <string name="general_exclude_action">Исключить</string>
-    <string name="general_exclude_all_action">Исключить всё</string>
     <string name="general_device_label">Устройство</string>
     <string name="general_settings_title">Настройки</string>
     <string name="general_help_title">Помощь</string>

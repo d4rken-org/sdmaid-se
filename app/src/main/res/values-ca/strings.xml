@@ -277,7 +277,6 @@
     <string name="appcleaner_filter_wechat_summary">Fitxers enviats o rebuts en converses i moments de WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fitxers multimèdia a la memòria cau que es tornen a baixar quan es visualitzen al xat.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Voleu netejar totes les aplicacions?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>
         <item quantity="other">S\'han trobat %d articles prescindibles</item>
@@ -305,7 +304,6 @@
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
     <string name="appcontrol_systemsettings_open_description">Obre la configuració del sistema del vostre dispositiu per a aquesta aplicació.</string>
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
-    <string name="appcontrol_app_uninstall_title">Desinstal·la l\'aplicació</string>
     <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>

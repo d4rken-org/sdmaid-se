@@ -16,7 +16,6 @@
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
     <string name="general_copy_action">Kopier</string>
-    <string name="general_remove_action">Fjern</string>
     <string name="general_wipe_action">Tøm</string>
     <string name="general_cancel_action">Avbryt</string>
     <string name="general_discard_action">Forkast</string>
@@ -76,13 +75,21 @@
     <string name="general_update_action">Oppdater</string>
     <string name="general_scan_action">Skann</string>
     <string name="general_delete_action">Slett</string>
-    <string name="general_delete_all_action">Slett alt</string>
+    <string name="general_delete_selected_action">Slett valgte</string>
     <string name="general_show_details_action">Vis detaljer</string>
     <string name="general_delete_confirmation_title">Bekreft sletting</string>
     <string name="general_delete_confirmation_message_x">Slette \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Slette \"%1$s\" for \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Bekreft rengjøring</string>
-    <string name="general_clean_confirmation_message_x">Rense \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Slett %d valgte elementer?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Slettet %1$d element og %2$s ble frigjort</item>
+        <item quantity="other">Slettet %1$d elementer og %2$s ble frigjort</item>
+    </plurals>
+    <string name="general_remove_action">Fjern</string>
+    <string name="general_remove_selected_action">Fjern valgte</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Ett element ble fjernet</item>
+        <item quantity="other">%d elementer ble fjernet</item>
+    </plurals>
     <string name="general_root_required_label">Krever root</string>
     <string name="general_root_required_message">Krever en enhet med root</string>
     <string name="general_search_action">Søk</string>
@@ -100,11 +107,12 @@
     <string name="general_grant_access_action">Gi tilgang</string>
     <string name="general_enable_service_action">Aktiver tjeneste</string>
     <string name="general_undo_action">Angre</string>
+    <string name="general_list_select_all_action">Velg alt</string>
     <string name="general_path_label">Bane</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Størrelse</string>
     <string name="general_exclude_action">Ekskluder</string>
-    <string name="general_exclude_all_action">Ekskluder alle</string>
+    <string name="general_exclude_selected_action">Ekskluder valgte</string>
     <string name="general_device_label">Enhet</string>
     <string name="general_settings_title">Innstillinger</string>
     <string name="general_help_title">Hjelp</string>

@@ -16,7 +16,6 @@
     <string name="general_share_action">Zdieľať</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_copy_action">Kopírovať</string>
-    <string name="general_remove_action">Odstrániť</string>
     <string name="general_wipe_action">Zmazať</string>
     <string name="general_cancel_action">Zrušiť</string>
     <string name="general_discard_action">Zrušiť</string>
@@ -76,13 +75,10 @@
     <string name="general_update_action">Aktualizovať</string>
     <string name="general_scan_action">Skenovať</string>
     <string name="general_delete_action">Vymazať</string>
-    <string name="general_delete_all_action">Vymazať všetko</string>
     <string name="general_show_details_action">Zobraziť podrobnosti</string>
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Vymazať „%1$s“ pre „%2$s“?</string>
-    <string name="general_clean_confirmation_title">Potvrďte čistenie</string>
-    <string name="general_clean_confirmation_message_x">Vyčistiť „%s“?</string>
+    <string name="general_remove_action">Odstrániť</string>
     <string name="general_root_required_label">Vyžaduje root</string>
     <string name="general_root_required_message">Vyžaduje sa rootované zariadenie</string>
     <string name="general_search_action">Hľadať</string>
@@ -106,7 +102,6 @@
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Veľkosť</string>
     <string name="general_exclude_action">Vylúčiť</string>
-    <string name="general_exclude_all_action">Vylúčiť všetko</string>
     <string name="general_device_label">Zariadenie</string>
     <string name="general_settings_title">Nastavenia</string>
     <string name="general_help_title">Pomoc</string>

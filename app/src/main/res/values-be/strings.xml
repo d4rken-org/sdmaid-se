@@ -285,7 +285,6 @@
     <string name="appcleaner_filter_wechat_summary">Адпраўленыя або атрыманыя файлы ў гутарках і момантах WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кэшаваныя медыяфайлы, загружаныя паўторна пры праглядзе ў чаце.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Ачысціць усе праграмы?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знойдзены %d непатрэбны элемент</item>
         <item quantity="few">Знойдзена %d непатрэбных элемента</item>
@@ -317,7 +316,6 @@
     <string name="appcontrol_systemsettings_open_title">Паказаць налады</string>
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
-    <string name="appcontrol_app_uninstall_title">Выдаліць праграму</string>
     <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>

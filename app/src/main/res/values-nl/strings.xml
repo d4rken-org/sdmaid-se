@@ -274,7 +274,6 @@
     <string name="appcleaner_filter_wechat_summary">Verzonden of ontvangen bestanden in gesprekken en WeChat-momenten.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediabestanden in de cache die opnieuw worden gedownload wanneer ze in de chat worden bekeken.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Alle apps opschonen?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
         <item quantity="other">%d vervangbare items gevonden</item>
@@ -302,7 +301,6 @@
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
     <string name="appcontrol_systemsettings_open_description">Open de systeeminstellingen van je apparaat voor deze app.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
-    <string name="appcontrol_app_uninstall_title">App verwijderen</string>
     <string name="appcontrol_app_uninstall_description">Verwijder deze app van uw apparaat.</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
     <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>

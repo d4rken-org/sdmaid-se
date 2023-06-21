@@ -16,7 +16,6 @@
     <string name="general_share_action">Condividi</string>
     <string name="general_done_action">Fatto</string>
     <string name="general_copy_action">Copia</string>
-    <string name="general_remove_action">Elimina</string>
     <string name="general_wipe_action">Cancella</string>
     <string name="general_cancel_action">Annulla</string>
     <string name="general_reset_action">Reimposta</string>
@@ -67,13 +66,10 @@
     <string name="general_update_action">Aggiorna</string>
     <string name="general_scan_action">Scansiona</string>
     <string name="general_delete_action">Elimina</string>
-    <string name="general_delete_all_action">Elimina tutto</string>
     <string name="general_show_details_action">Mostra dettagli</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
-    <string name="general_delete_confirmation_message_x_for_x">Eliminare \"%1$s\" per \"%2$s\"?</string>
-    <string name="general_clean_confirmation_title">Conferma pulizia</string>
-    <string name="general_clean_confirmation_message_x">Pulire \"%s\"?</string>
+    <string name="general_remove_action">Elimina</string>
     <string name="general_root_required_label">Richiede root</string>
     <string name="general_root_required_message">Richiede un dispositivo rootato</string>
     <string name="general_search_action">Ricerca</string>
@@ -94,7 +90,6 @@
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Dimensione</string>
     <string name="general_exclude_action">Escludi</string>
-    <string name="general_exclude_all_action">Escludi tutto</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Impostazioni</string>
     <string name="general_help_title">Aiuto</string>

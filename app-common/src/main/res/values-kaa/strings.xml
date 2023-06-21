@@ -5,7 +5,6 @@
     <string name="general_share_action">Bólisiw</string>
     <string name="general_done_action">Tayar</string>
     <string name="general_copy_action">Kóshirip alıw</string>
-    <string name="general_remove_action">Alıp taslaw</string>
     <string name="general_wipe_action">Tazalaw</string>
     <string name="general_cancel_action">Biykarlaw</string>
     <string name="general_save_action">Saqlaw</string>
@@ -31,8 +30,7 @@
     <string name="general_progress_deleting">%s óshirilmekte</string>
     <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
     <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
-    <string name="general_clean_confirmation_title">Tazalawdı tastıyıqlaw</string>
-    <string name="general_clean_confirmation_message_x">\"%s\" tazalansın ba?</string>
+    <string name="general_remove_action">Alıp taslaw</string>
     <string name="general_search_action">Izlew</string>
     <string name="x_space_can_be_freed">%s bosatılıwı múmkin</string>
     <string name="general_info_label">Maǵlıwmat</string>

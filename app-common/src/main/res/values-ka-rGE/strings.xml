@@ -16,7 +16,6 @@
     <string name="general_share_action">გააზიარება</string>
     <string name="general_done_action">შესრულებულია</string>
     <string name="general_copy_action">კოპირება</string>
-    <string name="general_remove_action">ამოშლა</string>
     <string name="general_wipe_action">წაშლა</string>
     <string name="general_cancel_action">გაუქმება</string>
     <string name="general_reset_action">გადატვირთვა</string>
@@ -50,6 +49,7 @@
     <string name="general_progress_loading">იტვირთება</string>
     <string name="general_progress_loading_app_data">მიმდინარეობს აპის მონაცემების ჩატვირთვა</string>
     <string name="general_progress_loading_data_areas">მონაცემთა ზონების ჩატვირთვა</string>
+    <string name="general_remove_action">ამოშლა</string>
     <string name="general_settings_title">პარამეტრები</string>
     <string name="general_help_title">დახმარება</string>
     <string name="file_type_symbolic_link">Ბმული</string>

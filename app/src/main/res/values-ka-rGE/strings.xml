@@ -198,7 +198,6 @@
     <string name="appcleaner_filter_threema_summary">ფაილები მიღებული Threema-ს მეშვეობით.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">გაგზავნილი ან მიღებული ფაილები საუბრებში და WeChat-ის მომენტებში.</string>
-    <string name="appcleaner_delete_all_confirmation_message">გაასუფთავო ყველა აპი?</string>
     <string name="appcleaner_automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
     <string name="appcleaner_automation_title">AppCleaner ავტომატიზაცია</string>
     <string name="appcleaner_automation_subtitle_default_caches">ნაგულისხმევი ქეშების გასუფთავება…</string>
