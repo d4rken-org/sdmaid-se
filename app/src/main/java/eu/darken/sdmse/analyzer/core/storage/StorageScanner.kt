@@ -37,6 +37,8 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
@@ -137,12 +139,16 @@ class StorageScanner @Inject constructor(
 
         updateProgressPrimary(R.string.analyzer_progress_scanning_apps)
 
-        val pkgStats = pkgRepo.currentPkgs()
+        val targetPkgs = pkgRepo.currentPkgs()
             .filter { it.packageName != "android" }
             .filter { it.packageInfo.applicationInfo != null }
+
+        updateProgressCount(Progress.Count.Percent(0, targetPkgs.size))
+
+        val pkgStats = targetPkgs
             .map {
                 updateProgressSecondary(it.label ?: it.packageName.toCaString())
-                processPkg(storage, it)
+                processPkg(storage, it).also { increaseProgress() }
             }
             .filter { it.totalSize > 0L }
             .associateBy { it.id }
