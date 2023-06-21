@@ -14,10 +14,10 @@
     <string name="debug_debuglog_stop_action">Ngừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
     <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ mà ứng dụng đang thực hiện vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
-    <string name="tasks_activity_notification_channel_label">Tác vụ đang hoạt động</string>
+    <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="other">%d tác vụ đang hoạt động</item>
+        <item quantity="other">%d tác vụ đang chạy</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d tác vụ đang đợi</item>
