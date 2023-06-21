@@ -26,11 +26,11 @@ class FilterContentElementHeaderVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val fc = item.filterContent
-        icon.setImageDrawable(fc.filterIdentifier.getIcon(context))
-        typeValue.text = fc.filterIdentifier.getLabel(context)
+        icon.setImageDrawable(fc.identifier.getIcon(context))
+        typeValue.text = fc.identifier.getLabel(context)
         countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, fc.items.size)
         sizeVaule.text = Formatter.formatFileSize(context, fc.size)
-        descriptionValue.text = fc.filterIdentifier.getDescription(context)
+        descriptionValue.text = fc.identifier.getDescription(context)
 
         deleteAction.setOnClickListener { item.onDeleteAllClicked(item) }
         excludeAction.setOnClickListener { item.onExcludeClicked(item) }

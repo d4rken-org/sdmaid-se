@@ -35,9 +35,9 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         lastItem = item
         val content = item.content
-        icon.setImageDrawable(content.filterIdentifier.getIcon(context))
-        primary.text = content.filterIdentifier.getLabel(context)
-        secondary.text = content.filterIdentifier.getDescription(context)
+        icon.setImageDrawable(content.identifier.getIcon(context))
+        primary.text = content.identifier.getLabel(context)
+        secondary.text = content.identifier.getDescription(context)
 
         items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, content.items.size)
         size.text = Formatter.formatShortFileSize(context, content.size)
@@ -51,8 +51,8 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
         val onItemClicked: (Item) -> Unit,
         val onDetailsClicked: (Item) -> Unit,
     ) : SystemCleanerListAdapter.Item, SelectableItem {
-        override val itemSelectionKey: String = content.filterIdentifier
-        override val stableId: Long = content.filterIdentifier.hashCode().toLong()
+        override val itemSelectionKey: String = content.identifier
+        override val stableId: Long = content.identifier.hashCode().toLong()
     }
 
 }

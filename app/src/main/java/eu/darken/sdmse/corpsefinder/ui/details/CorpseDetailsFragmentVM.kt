@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
@@ -23,6 +24,7 @@ class CorpseDetailsFragmentVM @Inject constructor(
     corpseFinder: CorpseFinder,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<CorpseDetailsFragmentArgs>()
+    private var currentTarget: CorpseIdentifier? = null
 
     init {
         corpseFinder.data
@@ -42,7 +44,7 @@ class CorpseDetailsFragmentVM @Inject constructor(
     ) { progress, data ->
         State(
             items = data.corpses.toList(),
-            target = args.corpsePath,
+            target = currentTarget ?: args.corpsePath,
             progress = progress,
         )
     }.asLiveData2()
@@ -52,6 +54,11 @@ class CorpseDetailsFragmentVM @Inject constructor(
         val target: CorpseIdentifier?,
         val progress: Progress.Data?,
     )
+
+    fun updatePage(identifier: CorpseIdentifier) {
+        log(TAG) { "updatePage($identifier)" }
+        currentTarget = identifier
+    }
 
     companion object {
         private val TAG = logTag("CorpseFinder", "Details", "Fragment", "VM")

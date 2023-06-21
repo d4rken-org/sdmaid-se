@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
@@ -22,6 +23,7 @@ class FilterContentDetailsFragmentVM @Inject constructor(
     systemCleaner: SystemCleaner,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<FilterContentDetailsFragmentArgs>()
+    private var currentTarget: FilterIdentifier? = null
 
     init {
         systemCleaner.data
@@ -40,12 +42,12 @@ class FilterContentDetailsFragmentVM @Inject constructor(
         systemCleaner.data
             .filterNotNull()
             .distinctUntilChangedBy { data ->
-                data.filterContents.map { it.filterIdentifier }.toSet()
+                data.filterContents.map { it.identifier }.toSet()
             },
     ) { progress, data ->
         State(
             items = data.filterContents.toList(),
-            target = args.filterIdentifier,
+            target = currentTarget ?: args.filterIdentifier,
             progress = progress,
         )
     }.asLiveData2()
@@ -55,6 +57,11 @@ class FilterContentDetailsFragmentVM @Inject constructor(
         val target: FilterIdentifier?,
         val progress: Progress.Data?,
     )
+
+    fun updatePage(identifier: FilterIdentifier) {
+        log(TAG) { "updatePage($identifier)" }
+        currentTarget = identifier
+    }
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Details", "Fragment", "VM")

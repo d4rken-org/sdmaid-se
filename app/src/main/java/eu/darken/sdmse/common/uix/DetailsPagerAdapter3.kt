@@ -15,7 +15,4 @@ abstract class DetailsPagerAdapter3<T> : FragmentStatePagerAdapter4<T> {
         enableSavedStates: Boolean
     ) : super(activity, fm, enableSavedStates)
 
-    companion object {
-        const val PAGE_IDENTIFIER = "itemIdentifier"
-    }
 }

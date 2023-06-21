@@ -158,7 +158,7 @@ class SystemCrawler @Inject constructor(
         return sieveContents.map { entry ->
             log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches." }
             FilterContent(
-                filterIdentifier = entry.key.filterIdentifier,
+                identifier = entry.key.filterIdentifier,
                 items = entry.value,
             )
         }

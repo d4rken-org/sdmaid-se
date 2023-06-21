@@ -61,7 +61,7 @@ class SystemCleanerListFragmentVM @Inject constructor(
             events.postValue(SystemCleanerListEvents.ConfirmDeletion(items))
             return@launch
         }
-        val task = SystemCleanerDeleteTask(targetFilters = items.map { it.content.filterIdentifier }.toSet())
+        val task = SystemCleanerDeleteTask(targetFilters = items.map { it.content.identifier }.toSet())
         val result = taskManager.submit(task) as SystemCleanerDeleteTask.Result
         log(TAG) { "doDelete(): Result was $result" }
         when (result) {
@@ -70,9 +70,9 @@ class SystemCleanerListFragmentVM @Inject constructor(
     }
 
     fun showDetails(item: SystemCleanerListAdapter.Item) = launch {
-        log(TAG, INFO) { "showDetails(filterContent=${item.content.filterIdentifier})" }
+        log(TAG, INFO) { "showDetails(filterContent=${item.content.identifier})" }
         SystemCleanerListFragmentDirections.actionSystemCleanerListFragmentToSystemCleanerDetailsFragment(
-            filterIdentifier = item.content.filterIdentifier
+            filterIdentifier = item.content.identifier
         ).navigate()
     }
 
