@@ -62,8 +62,6 @@ class PostProcessorModule @Inject constructor(
     private fun checkAliasedItems(before: AppJunk): AppJunk {
         if (before.expendables.isNullOrEmpty()) return before
 
-        log(TAG) { "Before duplicate/aliased check: ${before.expendables.size}" }
-
         val after = before.copy(
             expendables = before.expendables
                 .mapValues { (key, value) ->
@@ -73,12 +71,12 @@ class PostProcessorModule @Inject constructor(
         )
 
         if (before.expendables != after.expendables!!) {
+            log(TAG) { "Before duplicate/aliased check: ${before.expendables.size}" }
             val beforeAll = before.expendables.map { it.value }.flatten()
             val afterAll = after.expendables.map { it.value }.flatten()
             log(TAG, WARN) { "Overlapping items: ${beforeAll.subtract(afterAll.toSet())}" }
         }
 
-        log(TAG) { "After duplicate/aliased check: ${after.expendables.size}" }
         return after
     }
 
@@ -125,7 +123,7 @@ class PostProcessorModule @Inject constructor(
             }
         )
 
-        if (before != after) {
+        if (before.itemCount != after.itemCount) {
             log(TAG) { "Before checking exclusions: $before" }
             log(TAG) { "After checking exclusions: $after" }
         }

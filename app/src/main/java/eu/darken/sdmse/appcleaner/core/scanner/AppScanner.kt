@@ -40,6 +40,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgPulseMonitor
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.currentPkgs
@@ -81,6 +82,7 @@ class AppScanner @Inject constructor(
     private val settings: AppCleanerSettings,
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val userManager: UserManager2,
+    private val pkgifecycleChecker: PkgPulseMonitor,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -134,6 +136,7 @@ class AppScanner @Inject constructor(
         val allCurrentPkgs = pkgRepo.currentPkgs()
             .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
+            .filter { includeRunningApps || !pkgifecycleChecker.isRunning(it.installId) }
             .filter { pkgFilter.isEmpty() || pkgFilter.contains(it.id) }
             .filter { pkg ->
                 val isExcluded = pkgExclusions.any { it.match(pkg.id) }
@@ -283,7 +286,7 @@ class AppScanner @Inject constructor(
                     .takeIf { it.isNotEmpty() }
 
                 if (installIds == null) {
-                    log(TAG) { "${ownerInfo.item} has no valid owners, excluding from search map..." }
+                    log(TAG) { "${ownerInfo.item} has no valid owners, excluding from search map... ${ownerInfo.installedOwners}" }
                     return@forEach
                 }
 
@@ -431,11 +434,11 @@ class AppScanner @Inject constructor(
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
 
             pathsOfInterest.forEach { (path, segments) ->
-                for (userPkgId in ownersOfInterest) {
+                for (installId in ownersOfInterest) {
                     val type: KClass<out ExpendablesFilter> = enabledFilters
                         .firstOrNull { filter ->
                             filter.isExpendable(
-                                pkgId = userPkgId.pkgId,
+                                pkgId = installId.pkgId,
                                 target = path,
                                 areaType = searchPath.type,
                                 segments = segments,
@@ -445,7 +448,7 @@ class AppScanner @Inject constructor(
                         ?: continue
 
                     log(TAG, INFO) { "${type.simpleName} matched ${searchPath.type}:$segments" }
-                    results[userPkgId] = (results[userPkgId] ?: emptySet()).plus(FilterMatch(path, type))
+                    results[installId] = (results[installId] ?: emptySet()).plus(FilterMatch(path, type))
                     break
                 }
             }

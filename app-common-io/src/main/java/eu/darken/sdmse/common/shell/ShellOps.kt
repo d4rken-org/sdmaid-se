@@ -58,7 +58,7 @@ class ShellOps @Inject constructor(
                     .toShellOpsResult()
             }
 
-            if (result == null && hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO)) {
+            if (result == null && hasRoot() && (mode == Mode.ELEVATED || mode == Mode.ROOT || mode == Mode.AUTO)) {
                 log(TAG, VERBOSE) { "execute(mode->ROOT): $cmd" }
                 result = rootOps { execute(cmd) }
             }
@@ -85,7 +85,7 @@ class ShellOps @Inject constructor(
     )
 
     enum class Mode {
-        AUTO, NORMAL, ROOT
+        AUTO, ELEVATED, NORMAL, ROOT
     }
 
     companion object {
