@@ -28,14 +28,14 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
     @ApplicationContext private val context: Context,
     private val packageManager: PackageManager,
-    private val dispatcherProvider: DispatcherProvider,
-    private val settings: CorpseFinderSettings,
-    private val rootManager: RootManager,
-    private val upgradeRepo: UpgradeRepo,
+    dispatcherProvider: DispatcherProvider,
+    settings: CorpseFinderSettings,
+    rootManager: RootManager,
+    upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        settings.isUninstallWatcherEnabled.flow
+        settings.isWatcherEnabled.flow
             .drop(1)
             .onEach { enabled ->
                 packageManager.toggleSelfComponent(
@@ -49,17 +49,20 @@ class CorpseFinderSettingsFragmentVM @Inject constructor(
 
     val state = combine(
         rootManager.useRoot,
-        upgradeRepo.upgradeInfo.map { it.isPro }
-    ) { isRooted, isPro ->
+        upgradeRepo.upgradeInfo.map { it.isPro },
+        settings.isWatcherEnabled.flow,
+    ) { isRooted, isPro, watcherEnabled ->
         State(
             isRooted = isRooted,
             isPro = isPro,
+            isWatcherEnabled = watcherEnabled,
         )
     }.asLiveData2()
 
     data class State(
         val isRooted: Boolean,
-        val isPro: Boolean
+        val isPro: Boolean,
+        val isWatcherEnabled: Boolean,
     )
 
     companion object {

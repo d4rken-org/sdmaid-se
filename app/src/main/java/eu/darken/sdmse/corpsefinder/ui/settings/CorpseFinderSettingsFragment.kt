@@ -29,7 +29,7 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
         super.onViewCreated(view, savedInstanceState)
 
         vm.state.observe2(this) { state ->
-            findPreference<CheckBoxPreference>("watcher.uninstall.enabled")?.apply {
+            findPreference<CheckBoxPreference>(settings.isWatcherEnabled.keyName)?.apply {
                 isPersistent = state.isPro
                 if (state.isPro) {
                     setSummary(R.string.corpsefinder_watcher_summary)
@@ -46,6 +46,9 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
                         false
                     }
                 }
+            }
+            findPreference<CheckBoxPreference>(settings.isWatcherAutoDeleteEnabled.keyName)?.apply {
+                isEnabled = state.isWatcherEnabled
             }
         }
     }
