@@ -10,6 +10,7 @@
     <string name="debug_notification_channel_label">Notifiche di debug</string>
     <string name="debug_debuglog_file_label">File di log registrato</string>
     <string name="debug_debuglog_record_action">Registra log di debug</string>
+    <string name="debug_debuglog_stop_action">Interrompi registrazione</string>
     <string name="debug_debuglog_sensitive_information_message">Il file generato contiene informazioni sensibili (ad esempio nomi di file e applicazioni installate). Condividilo solo con persone di cui ti fidi.</string>
     <string name="tasks_activity_working_notification_title">SD Maid sta funzionando</string>
     <string name="tasks_result_notification_channel_label">Risultati attività</string>
@@ -101,6 +102,7 @@
     <string name="corpsefinder_filter_publicmedia_summary">File multimediali pubblici, ad esempio file ricevuti tramite applicazioni di messaggistica.</string>
     <string name="corpsefinder_filter_publicobb_label">Risorse OBB</string>
     <string name="corpsefinder_filter_publicdata_label">Dati pubblici dell\'app</string>
+    <string name="corpsefinder_filter_sdcard_label">Scheda SD</string>
     <string name="corpsefinder_filter_privatedata_label">Dati privati dell\'app</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_applib_label">Librerie app</string>
