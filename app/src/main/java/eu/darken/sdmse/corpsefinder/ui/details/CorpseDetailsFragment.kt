@@ -6,6 +6,7 @@ import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -28,8 +29,19 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
                 }
             }
         }
-        val adapter = CorpseDetailsPagerAdapter(requireActivity(), childFragmentManager)
-        ui.viewpager.adapter = adapter
+        val pagerAdapter = CorpseDetailsPagerAdapter(requireActivity(), childFragmentManager)
+        ui.viewpager.apply {
+            adapter = pagerAdapter
+            addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+                override fun onPageSelected(position: Int) {
+                    vm.updatePage(pagerAdapter.data[position].identifier)
+                }
+
+                override fun onPageScrollStateChanged(state: Int) {}
+            })
+        }
         ui.tablayout.setupWithViewPager(ui.viewpager, true)
 
         vm.state.observe2(ui) { state ->
@@ -38,8 +50,10 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
             viewpager.isInvisible = state.progress != null
 
             if (state.progress == null) {
-                adapter.setData(state.items)
-                adapter.notifyDataSetChanged()
+                pagerAdapter.apply {
+                    setData(state.items)
+                    notifyDataSetChanged()
+                }
                 state.items.indexOfFirst { it.identifier == state.target }
                     .takeIf { it != -1 }
                     ?.let { viewpager.currentItem = it }

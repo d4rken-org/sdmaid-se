@@ -23,6 +23,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
@@ -119,19 +120,14 @@ class SystemCleaner @Inject constructor(
 
         val deletedContents = mutableMapOf<FilterContent, Set<APathLookup<*>>>()
 
-        val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.filterIdentifier }
+        val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
         targetFilters.forEach { targetIdentifier ->
-            val filterContent = snapshot.filterContents.single { it.filterIdentifier == targetIdentifier }
+            val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
+            updateProgressPrimary(caString { filterContent.identifier.getLabel(it) })
 
             val deleted = mutableSetOf<APathLookup<*>>()
             val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }
             targetContents.forEach { targetContent ->
-                updateProgressPrimary(caString {
-                    it.getString(
-                        eu.darken.sdmse.common.R.string.general_progress_deleting,
-                        targetContent.userReadableName.get(it)
-                    )
-                })
                 log(TAG) { "Deleting $targetContent..." }
 
                 try {

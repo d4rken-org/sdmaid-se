@@ -22,7 +22,7 @@ class AppJunkDetailsPagerAdapter(
     override fun getItemPosition(obj: Any): Int = data
         .firstOrNull { set ->
             val fragment = obj as Fragment
-            set.identifier == fragment.requireArguments().getParcelable(PAGE_IDENTIFIER)
+            set.identifier == AppJunkFragmentArgs.fromBundle(fragment.requireArguments()).identifier
         }
         ?.let { data.indexOf(it) }
         ?: POSITION_NONE

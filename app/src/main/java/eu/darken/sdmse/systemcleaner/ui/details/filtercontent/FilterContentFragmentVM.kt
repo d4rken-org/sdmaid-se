@@ -33,7 +33,7 @@ class FilterContentFragmentVM @Inject constructor(
         systemCleaner.data
             .filterNotNull()
             .map { data ->
-                data.filterContents.singleOrNull { it.filterIdentifier == args.identifier }
+                data.filterContents.singleOrNull { it.identifier == args.identifier }
             }
             .filterNotNull(),
         systemCleaner.progress,

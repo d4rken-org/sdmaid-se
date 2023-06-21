@@ -15,15 +15,15 @@ class FilterContentDetailsPagerAdapter(
 ) : DetailsPagerAdapter3<FilterContent>(activity, fm) {
 
     override fun onCreateFragment(item: FilterContent): Fragment = FilterContentFragment().apply {
-        arguments = FilterContentFragmentArgs(item.filterIdentifier).toBundle()
+        arguments = FilterContentFragmentArgs(item.identifier).toBundle()
     }
 
-    override fun getPageTitle(position: Int): CharSequence = data[position].filterIdentifier.getLabel(activity)
+    override fun getPageTitle(position: Int): CharSequence = data[position].identifier.getLabel(activity)
 
     override fun getItemPosition(obj: Any): Int = data
         .firstOrNull { set ->
             val fragment = obj as Fragment
-            set.filterIdentifier == fragment.requireArguments().getString(PAGE_IDENTIFIER)
+            set.identifier == FilterContentFragmentArgs.fromBundle(fragment.requireArguments()).identifier
         }
         ?.let { data.indexOf(it) }
         ?: POSITION_NONE
