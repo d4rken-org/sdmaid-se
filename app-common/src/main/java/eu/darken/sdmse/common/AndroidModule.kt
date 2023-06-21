@@ -5,6 +5,7 @@ import android.app.Application
 import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
 import android.app.usage.StorageStatsManager
+import android.app.usage.UsageStatsManager
 import android.content.ContentResolver
 import android.content.Context
 import android.content.pm.PackageManager
@@ -86,4 +87,9 @@ class AndroidModule {
     @Singleton
     fun devicePolicyManager(@ApplicationContext context: Context): DevicePolicyManager =
         context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+
+    @Provides
+    @Singleton
+    fun usageStatsManager(@ApplicationContext context: Context): UsageStatsManager =
+        context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
 }
