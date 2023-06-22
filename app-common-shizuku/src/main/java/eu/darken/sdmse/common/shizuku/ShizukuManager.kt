@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -50,7 +51,12 @@ class ShizukuManager @Inject constructor(
         .shareLatest(appScope)
 
     suspend fun isGranted(): Boolean {
-        val granted = Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
+        val granted = try {
+            Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
+        } catch (e: IllegalStateException) {
+            log(TAG, WARN) { "isGranted(): $e" }
+            false
+        }
         log(TAG) { "isGranted()=$granted" }
         return granted
     }

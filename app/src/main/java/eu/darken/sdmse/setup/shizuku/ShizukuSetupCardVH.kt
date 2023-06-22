@@ -37,15 +37,17 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
         }
 
         shizukuState.apply {
-            isGone = !item.state.isGranted || item.state.hasConsent != true
+            isGone = item.state.hasConsent != true
             text = getString(
                 if (item.state.binderAvailable) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label
             )
         }
 
+        grantState.isVisible = item.state.isGranted
         grantAction.apply {
             isVisible = item.state.hasConsent == true && !item.state.isGranted
+            isEnabled = item.state.binderAvailable
             setOnClickListener { item.onGrant() }
         }
 

@@ -71,8 +71,8 @@ class ShizukuSetupModule @Inject constructor(
     data class State(
         val isInstalled: Boolean,
         val hasConsent: Boolean?,
+        val binderAvailable: Boolean,
         val isGranted: Boolean,
-        val binderAvailable: Boolean
     ) : SetupModule.State {
 
         override val isComplete: Boolean = !isInstalled || hasConsent == false || (isGranted && binderAvailable)

@@ -75,14 +75,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/setup_shizuku_state_waiting_label"
-            app:layout_constraintBottom_toTopOf="@id/grant_action"
+            app:layout_constraintBottom_toTopOf="@id/grant_state"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/allow_shizuku_options"
-            app:layout_goneMarginBottom="32dp" />
+            app:layout_goneMarginBottom="16dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/grant_state"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:drawableStart="@drawable/ic_check_circle"
+            android:drawableTint="?colorPrimary"
+            android:gravity="center"
+            android:text="@string/setup_permission_granted_label"
+            android:textColor="?colorPrimary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/grant_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/shizuku_state"
+            app:layout_goneMarginBottom="24dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/grant_action"
@@ -90,14 +108,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:text="@string/general_grant_access_action"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/allow_shizuku_options"
             app:layout_constraintStart_toStartOf="@id/allow_shizuku_options"
-            app:layout_constraintTop_toBottomOf="@id/shizuku_state"
+            app:layout_constraintTop_toBottomOf="@id/grant_state"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
