@@ -115,6 +115,13 @@
     <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
 
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">SD Maid has detected Shizuku. Should SD Maid use it to enable additional features if possible?</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Use Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use Shizuku</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku link is ready</string>
+    <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku</string>
+
     <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>
     <string name="setup_permission_granted_label">Permission granted</string>
 

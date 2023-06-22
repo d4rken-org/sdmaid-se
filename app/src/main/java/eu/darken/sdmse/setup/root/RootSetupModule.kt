@@ -1,19 +1,15 @@
 package eu.darken.sdmse.setup.root
 
-import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.setup.SetupModule
@@ -23,7 +19,6 @@ import javax.inject.Inject
 
 @Reusable
 class RootSetupModule @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val rootSettings: RootSettings,
     private val dataAreaManager: DataAreaManager,
 ) : SetupModule {
@@ -51,12 +46,6 @@ class RootSetupModule @Inject constructor(
     ) : SetupModule.State {
 
         override val isComplete: Boolean = useRoot != null
-
-        data class PathAccess(
-            val label: CaString,
-            val localPath: LocalPath,
-            val hasAccess: Boolean,
-        )
     }
 
     @Module @InstallIn(SingletonComponent::class)

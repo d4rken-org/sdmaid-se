@@ -21,6 +21,8 @@ import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardVH
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
@@ -39,6 +41,7 @@ class SetupFragmentVM @Inject constructor(
     private val automationSetupModule: AutomationSetupModule,
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
+    private val shizukuSetupModule: ShizukuSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val navArgs by handle.navArgs<SetupFragmentArgs>()
@@ -70,6 +73,7 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
                             },
                         ).takeIf { it.state.paths.isNotEmpty() }
+
                         is StorageSetupModule.State -> StorageSetupCardVH.Item(
                             state = state,
                             onPathClicked = {
@@ -81,6 +85,7 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#manage-storage")
                             },
                         )
+
                         is RootSetupModule.State -> RootSetupCardVH.Item(
                             state = state,
                             onToggleUseRoot = {
@@ -93,6 +98,7 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
                             },
                         )
+
                         is UsageStatsSetupModule.State -> UsageStatsSetupCardVH.Item(
                             state = state,
                             onGrantAction = {
@@ -130,6 +136,7 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
                             },
                         )
+
                         is NotificationSetupModule.State -> NotificationSetupCardVH.Item(
                             state = state,
                             onGrantAction = {
@@ -141,6 +148,23 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#notifications")
                             }
                         )
+
+                        is ShizukuSetupModule.State -> ShizukuSetupCardVH.Item(
+                            state = state,
+                            onToggleConsent = {
+                                launch {
+                                    shizukuSetupModule.toggleUseShizuku(it)
+                                    shizukuSetupModule.refresh()
+                                }
+                            },
+                            onGrant = {
+                                launch { shizukuSetupModule.requestPermission() }
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
+                            },
+                        )
+
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
@@ -182,6 +206,7 @@ class SetupFragmentVM @Inject constructor(
                 Permission.WRITE_EXTERNAL_STORAGE -> {
                     storageSetupModule.onPermissionChanged(permission, granted)
                 }
+
                 Permission.IGNORE_BATTERY_OPTIMIZATION -> {}
                 Permission.PACKAGE_USAGE_STATS -> {}
                 Permission.POST_NOTIFICATIONS -> {}
