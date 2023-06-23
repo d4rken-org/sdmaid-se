@@ -22,7 +22,7 @@ import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
-import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.service.RootServiceClient

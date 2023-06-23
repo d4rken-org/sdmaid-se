@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.ipc.IpcClientModule
-import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.root.ShellOpsClient
 import eu.darken.sdmse.common.shizuku.ShizukuManager

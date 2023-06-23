@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.ipc.IpcClientModule
-import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsClient
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.service.internal.RootHostLauncher

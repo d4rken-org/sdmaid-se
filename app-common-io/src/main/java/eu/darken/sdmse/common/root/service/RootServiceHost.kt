@@ -10,8 +10,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsConnection
 import eu.darken.sdmse.common.files.local.ipc.FileOpsHost
-import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
-import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsConnection
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsHost
 import eu.darken.sdmse.common.shell.root.ShellOpsConnection
 import eu.darken.sdmse.common.shell.root.ShellOpsHost
 import javax.inject.Inject

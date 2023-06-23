@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.pkgs.pkgops.root
+package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
 import android.content.pm.PackageInfo
 import android.os.Parcel
