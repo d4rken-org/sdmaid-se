@@ -1,22 +1,22 @@
-package eu.darken.sdmse.common.files.local.root
+package eu.darken.sdmse.common.files.local.ipc
 
 import android.os.Parcel
 import android.os.Parcelable
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.remoteInputStream
 import eu.darken.sdmse.common.ipc.RemoteInputStream
 import eu.darken.sdmse.common.ipc.inputStream
 import okio.Buffer
 
-data class LocalPathLookupExtendedPayload(
-    val payload: List<LocalPathLookupExtended>,
+data class LocalPathsPayload(
+    val payload: List<LocalPath>,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readParcelableArray(LocalPathLookupExtended::class.java.classLoader)!!
-            .toList() as List<LocalPathLookupExtended>
+        parcel.readParcelableArray(LocalPathLookup::class.java.classLoader)!!.toList() as List<LocalPath>
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -25,17 +25,16 @@ data class LocalPathLookupExtendedPayload(
 
     override fun describeContents(): Int = 0
 
-    companion object CREATOR : Parcelable.Creator<LocalPathLookupExtendedPayload> {
-        override fun createFromParcel(parcel: Parcel): LocalPathLookupExtendedPayload {
-
-            return LocalPathLookupExtendedPayload(parcel)
+    companion object CREATOR : Parcelable.Creator<LocalPathsPayload> {
+        override fun createFromParcel(parcel: Parcel): LocalPathsPayload {
+            return LocalPathsPayload(parcel)
         }
 
-        override fun newArray(size: Int): Array<LocalPathLookupExtendedPayload?> = arrayOfNulls(size)
+        override fun newArray(size: Int): Array<LocalPathsPayload?> = arrayOfNulls(size)
     }
 }
 
-fun LocalPathLookupExtendedPayload.toRemoteInputStream(): RemoteInputStream {
+fun LocalPathsPayload.toRemoteInputStream(): RemoteInputStream {
     val buffer = Buffer()
     val parcel = Parcel.obtain()
     this.writeToParcel(parcel, 0)
@@ -46,17 +45,18 @@ fun LocalPathLookupExtendedPayload.toRemoteInputStream(): RemoteInputStream {
     return buffer.remoteInputStream()
 }
 
-fun RemoteInputStream.toLocalPathLookupExtendedPayload(): LocalPathLookupExtendedPayload {
+fun RemoteInputStream.toLocalPathsPayload(): LocalPathsPayload {
     val output = this.inputStream().readBytes()
     val parcel = Parcel.obtain()
     if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "Unmarshalling parcel now..." }
     parcel.unmarshall(output, 0, output.size)
     parcel.setDataPosition(0)
-    val payload = LocalPathLookupExtendedPayload.createFromParcel(parcel)
     if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "Parcel unmarshalled, creating payload class..." }
+    val payload = LocalPathsPayload.createFromParcel(parcel)
+    parcel.recycle()
     return payload
 }
 
-fun List<LocalPathLookupExtended>.toRemoteInputStream() = LocalPathLookupExtendedPayload(this).toRemoteInputStream()
+fun List<LocalPath>.toRemoteInputStream() = LocalPathsPayload(this).toRemoteInputStream()
 
-fun RemoteInputStream.toLocalPathLookupExtended() = toLocalPathLookupExtendedPayload().payload
+fun RemoteInputStream.toLocalPaths() = toLocalPathsPayload().payload

@@ -8,8 +8,8 @@ import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.local.root.FileOpsConnection
-import eu.darken.sdmse.common.files.local.root.FileOpsHost
+import eu.darken.sdmse.common.files.local.ipc.FileOpsConnection
+import eu.darken.sdmse.common.files.local.ipc.FileOpsHost
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
 import eu.darken.sdmse.common.shell.root.ShellOpsConnection

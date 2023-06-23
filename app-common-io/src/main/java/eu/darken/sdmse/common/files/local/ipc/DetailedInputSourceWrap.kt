@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.local.root
+package eu.darken.sdmse.common.files.local.ipc
 
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.remoteInputStream

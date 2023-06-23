@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.local.root;
+package eu.darken.sdmse.common.files.local.ipc;
 
 import eu.darken.sdmse.common.ipc.RemoteInputStream;
 import eu.darken.sdmse.common.ipc.RemoteOutputStream;

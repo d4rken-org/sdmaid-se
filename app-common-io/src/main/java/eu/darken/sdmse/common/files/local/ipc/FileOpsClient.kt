@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.local.root
+package eu.darken.sdmse.common.files.local.ipc
 
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
