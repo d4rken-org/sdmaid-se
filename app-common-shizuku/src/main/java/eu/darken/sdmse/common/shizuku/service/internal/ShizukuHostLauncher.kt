@@ -38,7 +38,7 @@ class ShizukuHostLauncher @Inject constructor(
             )
         ).apply {
             daemon(false)
-            processNameSuffix("Shizuku:Service")
+            processNameSuffix(logTag("Shizuku"))
             debuggable(enableDebug)
             version(BuildConfigWrap.VERSION_CODE.toInt())
         }
