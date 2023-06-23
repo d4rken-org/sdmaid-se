@@ -201,7 +201,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/shortcut_hint"
-            style="@style/TextAppearance.Material3.BodySmall"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
@@ -227,7 +227,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/disallow_hint"
-            style="@style/TextAppearance.Material3.BodySmall"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"

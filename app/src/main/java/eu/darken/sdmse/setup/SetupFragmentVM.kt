@@ -151,8 +151,8 @@ class SetupFragmentVM @Inject constructor(
 
                         is ShizukuSetupModule.State -> ShizukuSetupCardVH.Item(
                             state = state,
-                            onGrant = {
-                                launch { shizukuSetupModule.requestPermission() }
+                            onToggleUseShizuku = {
+                                launch { shizukuSetupModule.toggleUseShizuku(it) }
                             },
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")

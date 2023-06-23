@@ -37,12 +37,24 @@ class DebugCardVH(parent: ViewGroup) :
             isVisible = item.rootTestResult != null
             val result = item.rootTestResult
             val sb = StringBuilder()
-            sb.append("Consent=${result?.allowed}\n")
+            sb.append("Consent=${result?.hasUserConsent}\n")
             sb.append("MagiskGrant=${result?.magiskGranted}\n")
             sb.append("${result?.serviceLaunched}")
             text = sb.toString()
         }
         rootTestAction.setOnClickListener { item.onTestRoot() }
+
+        shizukuTestState.apply {
+            isVisible = item.shizukuTestResult != null
+            val result = item.shizukuTestResult
+            val sb = StringBuilder()
+            sb.append("Installed=${result?.isInstalled}\n")
+            sb.append("Consent=${result?.hasUserConsent}\n")
+            sb.append("ShizukuGrant=${result?.isGranted}\n")
+            sb.append("${result?.serviceLaunched}")
+            text = sb.toString()
+        }
+        shizukuTestAction.setOnClickListener { item.onTestShizuku() }
 
         testAction.setOnClickListener { item.onRunTest() }
         testAction.isVisible = BuildConfigWrap.DEBUG
@@ -60,6 +72,8 @@ class DebugCardVH(parent: ViewGroup) :
         val onRunTest: () -> Unit,
         val rootTestResult: DebugCardProvider.RootTestResult?,
         val onTestRoot: () -> Unit,
+        val shizukuTestResult: DebugCardProvider.ShizukuTestResult?,
+        val onTestShizuku: () -> Unit,
         val onViewLog: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

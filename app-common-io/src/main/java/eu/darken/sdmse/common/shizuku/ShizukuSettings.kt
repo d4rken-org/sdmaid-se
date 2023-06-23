@@ -7,6 +7,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
+import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,8 +22,10 @@ class ShizukuSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    override val mapper = PreferenceStoreMapper(
+    val useShizuku = dataStore.createValue("core.shizuku.enabled", null as Boolean?)
 
+    override val mapper = PreferenceStoreMapper(
+        useShizuku
     )
 
     companion object {

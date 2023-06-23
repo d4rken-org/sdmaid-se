@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.shizuku.service
 
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -10,10 +11,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
+import eu.darken.sdmse.common.shizuku.ShizukuSettings
 import eu.darken.sdmse.common.shizuku.ShizukuUnavailableException
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostLauncher
 import kotlinx.coroutines.CoroutineScope
@@ -32,7 +34,7 @@ import javax.inject.Singleton
 class ShizukuServiceClient @Inject constructor(
     serviceLauncher: ShizukuHostLauncher,
     @AppScope coroutineScope: CoroutineScope,
-    private val shizukuManager: ShizukuManager,
+    private val shizukuSettings: ShizukuSettings,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
@@ -42,9 +44,7 @@ class ShizukuServiceClient @Inject constructor(
     flow {
         log(TAG) { "Instantiating Shizuku launcher..." }
 
-        if (!shizukuManager.isInstalled()) throw ShizukuUnavailableException("Shizuku is not installed")
-        if (!shizukuManager.isCompatible()) throw ShizukuUnavailableException("Shizuku version is too old")
-        if (!shizukuManager.isGranted()) throw ShizukuUnavailableException("Permission not granted")
+        if (shizukuSettings.useShizuku.value() != true) throw RootUnavailableException("Shizuku is not enabled")
 
         emit(serviceLauncher.createServiceHostConnection())
     }
