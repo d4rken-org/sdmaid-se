@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shell.root
+package eu.darken.sdmse.common.shell.ipc
 
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.sdmse.common.coroutine.AppScope

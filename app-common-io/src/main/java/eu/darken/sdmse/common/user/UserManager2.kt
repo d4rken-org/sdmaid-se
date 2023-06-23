@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import javax.inject.Inject
 import javax.inject.Singleton
 

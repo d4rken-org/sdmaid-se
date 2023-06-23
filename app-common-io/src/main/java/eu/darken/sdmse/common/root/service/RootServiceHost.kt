@@ -12,8 +12,8 @@ import eu.darken.sdmse.common.files.local.ipc.FileOpsConnection
 import eu.darken.sdmse.common.files.local.ipc.FileOpsHost
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsHost
-import eu.darken.sdmse.common.shell.root.ShellOpsConnection
-import eu.darken.sdmse.common.shell.root.ShellOpsHost
+import eu.darken.sdmse.common.shell.ipc.ShellOpsConnection
+import eu.darken.sdmse.common.shell.ipc.ShellOpsHost
 import javax.inject.Inject
 import javax.inject.Singleton
 

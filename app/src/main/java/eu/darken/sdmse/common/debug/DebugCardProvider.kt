@@ -17,7 +17,7 @@ import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.uix.ViewModel3

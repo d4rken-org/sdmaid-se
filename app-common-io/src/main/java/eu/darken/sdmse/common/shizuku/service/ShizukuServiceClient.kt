@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.shell.root.ShellOpsClient
+import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
 import eu.darken.sdmse.common.shizuku.ShizukuUnavailableException

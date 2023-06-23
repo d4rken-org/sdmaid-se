@@ -16,9 +16,9 @@ import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.shell.root.ShellOpsClient
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
-import eu.darken.sdmse.common.shell.root.ShellOpsResult
+import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext

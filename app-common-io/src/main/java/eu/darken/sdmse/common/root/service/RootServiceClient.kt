@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.service.internal.RootHostLauncher
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.shell.root.ShellOpsClient
+import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

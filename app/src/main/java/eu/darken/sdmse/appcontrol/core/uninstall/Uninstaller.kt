@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.plus

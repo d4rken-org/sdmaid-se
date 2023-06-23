@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.shell
 
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import java.io.IOException
 
 open class ShellOpsException(

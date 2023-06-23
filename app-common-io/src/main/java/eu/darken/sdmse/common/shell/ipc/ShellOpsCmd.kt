@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shell.root
+package eu.darken.sdmse.common.shell.ipc
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
