@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.service.internal
+package eu.darken.sdmse.common.root
 
 import java.io.IOException
 

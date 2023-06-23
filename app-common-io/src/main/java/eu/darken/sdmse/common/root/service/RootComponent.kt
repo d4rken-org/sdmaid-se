@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.coroutine.CoroutineModule
 import javax.inject.Singleton
 
 /**
- * Injected into java process run by root via su shell, see [RootServiceHost]
+ * Injected into java process run by root via su shell, see [RootHost]
  */
 @Singleton
 @Component(
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 )
 interface RootComponent {
 
-    fun inject(main: RootServiceHost)
+    fun inject(main: RootHost)
 
     @Component.Builder
     interface Builder {

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.pkgs.pkgops.root;
 
 import android.content.pm.PackageInfo;
-import eu.darken.sdmse.common.root.io.RemoteInputStream;
+import eu.darken.sdmse.common.ipc.RemoteInputStream;
 
 interface PkgOpsConnection {
 

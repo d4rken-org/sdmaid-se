@@ -23,7 +23,10 @@ class UsageStatsSetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         grantState.isGone = item.state.missingPermission.isNotEmpty()
 
-        grantAction.setOnClickListener { item.onGrantAction() }
+        grantAction.apply {
+            isGone = item.state.isComplete
+            setOnClickListener { item.onGrantAction() }
+        }
         helpAction.setOnClickListener { item.onHelp() }
     }
 

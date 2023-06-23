@@ -20,11 +20,12 @@ import eu.darken.sdmse.common.files.local.performLookupExtended
 import eu.darken.sdmse.common.files.local.setOwnership
 import eu.darken.sdmse.common.files.local.setPermissions
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.ipc.IpcHostModule
+import eu.darken.sdmse.common.ipc.RemoteInputStream
+import eu.darken.sdmse.common.ipc.RemoteOutputStream
+import eu.darken.sdmse.common.ipc.remoteInputStream
+import eu.darken.sdmse.common.ipc.toRemoteOutputStream
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.root.io.RemoteInputStream
-import eu.darken.sdmse.common.root.io.RemoteOutputStream
-import eu.darken.sdmse.common.root.io.remoteInputStream
-import eu.darken.sdmse.common.root.io.toRemoteOutputStream
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
@@ -33,7 +34,7 @@ import javax.inject.Inject
 class FileOpsHost @Inject constructor(
     private val libcoreTool: LibcoreTool,
     private val ipcFunnel: IPCFunnel
-) : FileOpsConnection.Stub() {
+) : FileOpsConnection.Stub(), IpcHostModule {
 
     override fun listFiles(path: LocalPath): List<LocalPath> = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path)..." }

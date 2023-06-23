@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
-import eu.darken.sdmse.common.root.service.internal.RootException
 
 class RootUnavailableException(
     message: String,

@@ -9,5 +9,6 @@ data class RootHostOptions(
     val pairingCode: String,
     val isDebug: Boolean = false,
     val isTrace: Boolean = false,
+    val isDryRun: Boolean = false,
     val waitForDebugger: Boolean = false
 ) : Parcelable

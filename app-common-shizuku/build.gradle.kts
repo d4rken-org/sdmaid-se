@@ -51,6 +51,6 @@ dependencies {
 
     addTesting()
 
-    api("dev.rikka.shizuku:api:13.1.2")
-    api("dev.rikka.shizuku:provider:13.1.2")
+    implementation("dev.rikka.shizuku:api:13.1.2")
+    implementation("dev.rikka.shizuku:provider:13.1.2")
 }

@@ -9,14 +9,14 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
-import eu.darken.sdmse.common.files.local.root.ClientModule
+import eu.darken.sdmse.common.ipc.IpcClientModule
 import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class ShellOpsClient @AssistedInject constructor(
     @Assisted private val connection: ShellOpsConnection,
     private val dispatcherProvider: DispatcherProvider,
-) : ClientModule {
+) : IpcClientModule {
 
     suspend fun execute(cmd: ShellOpsCmd): ShellOpsResult = try {
         withContext(dispatcherProvider.IO) {

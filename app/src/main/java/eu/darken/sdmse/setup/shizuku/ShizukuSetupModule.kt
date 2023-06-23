@@ -33,14 +33,13 @@ class ShizukuSetupModule @Inject constructor(
     private val refreshTrigger = MutableStateFlow(rngString)
 
     override val state = combine(
-        shizukuSettings.useShizuku.flow,
         shizukuManager.shizukuBinder.onStart { emit(null) },
         refreshTrigger
-    ) { consent, binder, _ ->
+    ) { binder, _ ->
 
         State(
+            isCompatible = shizukuManager.isCompatible(),
             isInstalled = shizukuManager.isInstalled(),
-            hasConsent = consent,
             isGranted = shizukuManager.isGranted(),
             binderAvailable = binder?.pingBinder() ?: false,
         )
@@ -58,24 +57,19 @@ class ShizukuSetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    suspend fun toggleUseShizuku(useShizuku: Boolean?) {
-        log(TAG) { "toggleUseShizuku(useShizuku=$useShizuku)" }
-        shizukuSettings.useShizuku.value(useShizuku)
-    }
-
     suspend fun requestPermission() {
         log(TAG) { "requestPermission()" }
         shizukuManager.requestPermission()
     }
 
     data class State(
+        val isCompatible: Boolean,
         val isInstalled: Boolean,
-        val hasConsent: Boolean?,
         val binderAvailable: Boolean,
         val isGranted: Boolean,
     ) : SetupModule.State {
 
-        override val isComplete: Boolean = !isInstalled || hasConsent == false || (isGranted && binderAvailable)
+        override val isComplete: Boolean = !isCompatible || !isInstalled || (isGranted && binderAvailable)
     }
 
     @Module @InstallIn(SingletonComponent::class)

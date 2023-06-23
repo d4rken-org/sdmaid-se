@@ -53,7 +53,7 @@ open class App : Application(), Configuration.Provider {
         super.onCreate()
         if (BuildConfigWrap.DEBUG) {
             Logging.install(logCatLogger)
-            log(TAG) { "BuildConfig.DEBUG=true" }
+            log(TAG) { "BuildConfigWrap.DEBUG=true" }
         }
         log(TAG) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
 

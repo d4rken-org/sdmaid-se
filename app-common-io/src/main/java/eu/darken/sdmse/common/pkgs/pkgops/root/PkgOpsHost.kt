@@ -8,9 +8,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.ipc.IpcHostModule
+import eu.darken.sdmse.common.ipc.RemoteInputStream
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import eu.darken.sdmse.common.root.io.RemoteInputStream
 import eu.darken.sdmse.common.user.UserHandle2
 import java.lang.reflect.Method
 import javax.inject.Inject
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
     private val libcoreTool: LibcoreTool,
-) : PkgOpsConnection.Stub() {
+) : PkgOpsConnection.Stub(), IpcHostModule {
 
     override fun getUserNameForUID(uid: Int): String? = try {
         libcoreTool.getNameForUid(uid)

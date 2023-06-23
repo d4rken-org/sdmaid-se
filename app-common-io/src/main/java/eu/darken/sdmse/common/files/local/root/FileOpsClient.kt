@@ -13,8 +13,9 @@ import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
-import eu.darken.sdmse.common.root.io.sink
-import eu.darken.sdmse.common.root.io.source
+import eu.darken.sdmse.common.ipc.IpcClientModule
+import eu.darken.sdmse.common.ipc.sink
+import eu.darken.sdmse.common.ipc.source
 import okio.Sink
 import okio.Source
 import java.io.IOException
@@ -22,7 +23,7 @@ import java.time.Instant
 
 class FileOpsClient @AssistedInject constructor(
     @Assisted private val fileOpsConnection: FileOpsConnection
-) : ClientModule {
+) : IpcClientModule {
 
     fun listFiles(path: LocalPath): Collection<LocalPath> = try {
         fileOpsConnection.listFiles(path).also {

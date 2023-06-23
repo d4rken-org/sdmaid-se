@@ -7,8 +7,8 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.remoteInputStream
-import eu.darken.sdmse.common.root.io.RemoteInputStream
-import eu.darken.sdmse.common.root.io.inputStream
+import eu.darken.sdmse.common.ipc.RemoteInputStream
+import eu.darken.sdmse.common.ipc.inputStream
 import okio.Buffer
 
 data class PackageInfoPayload(

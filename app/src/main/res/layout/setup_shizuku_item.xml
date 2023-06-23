@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -41,46 +40,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/setup_shizuku_card_body"
-            app:layout_constraintBottom_toTopOf="@id/allow_shizuku_options"
+            app:layout_constraintBottom_toTopOf="@id/grant_state"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
-
-        <RadioGroup
-            android:id="@+id/allow_shizuku_options"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
-            app:layout_constraintBottom_toTopOf="@id/shizuku_state"
-            app:layout_constraintTop_toBottomOf="@id/body">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/allow_shizuku_options_enable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/setup_shizuku_enable_shizuku_use_label" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/allow_shizuku_options_disable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/setup_shizuku_disable_shizuku_use_label" />
-        </RadioGroup>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/shizuku_state"
-            style="@style/TextAppearance.Material3.LabelLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:text="@string/setup_shizuku_state_waiting_label"
-            app:layout_constraintBottom_toTopOf="@id/grant_state"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/allow_shizuku_options"
-            app:layout_goneMarginBottom="16dp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/grant_state"
@@ -88,19 +53,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
+            android:layout_marginVertical="8dp"
             android:drawableStart="@drawable/ic_check_circle"
             android:drawableTint="?colorPrimary"
             android:gravity="center"
             android:text="@string/setup_permission_granted_label"
             android:textColor="?colorPrimary"
-            android:visibility="gone"
+            android:visibility="invisible"
+            tools:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/grant_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/shizuku_state"
-            app:layout_goneMarginBottom="24dp" />
+            app:layout_constraintTop_toBottomOf="@id/shizuku_state" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/grant_action"
@@ -108,14 +72,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/general_grant_access_action"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/allow_shizuku_options"
-            app:layout_constraintStart_toStartOf="@id/allow_shizuku_options"
+            app:layout_constraintBottom_toTopOf="@id/shizuku_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/grant_state"
-            tools:visibility="visible" />
+            tools:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shizuku_state"
+            style="@style/TextAppearance.Material3.LabelMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/setup_shizuku_state_waiting_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grant_action" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

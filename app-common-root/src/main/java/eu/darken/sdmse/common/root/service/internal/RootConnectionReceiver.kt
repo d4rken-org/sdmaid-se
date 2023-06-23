@@ -1,34 +1,35 @@
 package eu.darken.sdmse.common.root.service.internal
 
-import android.content.*
-import android.os.*
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Binder
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.IBinder
 import android.os.IBinder.DeathRecipient
+import android.os.RemoteException
 import androidx.annotation.Keep
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
-import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import java.lang.ref.WeakReference
-import java.util.*
-import kotlin.reflect.KClass
 
 /**
  * Binder-based IPC receiver for the non-root process<br></br>
  * <br></br>
  * This class handles receiving the (wrapped) Binder interface, casting it to your own interface,
  * and handling connection state.
- *
- * @param <T> Your IPC interface
- * @see RootIPC
-</T> */
+ */
 //@SuppressWarnings({"unused", "WeakerAccess", "Convert2Diamond", "TryWithIdenticalCatches"})
 @Keep
-abstract class RootIPCReceiver<T : Any> constructor(
-    private val pairingCode: String,
-    private val clazz: KClass<T>,
-) {
+abstract class RootConnectionReceiver constructor(private val pairingCode: String) {
+
     private val handlerThread: HandlerThread by lazy {
-        HandlerThread("javaroot:RootIPCReceiver#$pairingCode")
+        HandlerThread("javaroot:RootConnectionReceiver#$pairingCode")
     }
     private val handler: Handler by lazy {
         handlerThread.start()
@@ -42,8 +43,7 @@ abstract class RootIPCReceiver<T : Any> constructor(
     private var contextRef: WeakReference<Context>? = null
 
     @Volatile private var binder: IBinder? = null
-    @Volatile private var internalIpc: IRootIPC? = null
-    @Volatile private var userIPC: T? = null
+    @Volatile private var internalIpc: RootConnection? = null
     @Volatile private var inEvent = false
     @Volatile private var disconnectAfterEvent = false
 
@@ -56,7 +56,7 @@ abstract class RootIPCReceiver<T : Any> constructor(
     }
 
     /**
-     * Actual BroadcastReceiver that handles receiving the IRootIPC interface, sets up
+     * Actual BroadcastReceiver that handles receiving the RootConnection interface, sets up
      * an on-death callback, and says hello to the other side.
      */
     private val receiver: BroadcastReceiver = object : BroadcastReceiver() {
@@ -73,8 +73,8 @@ abstract class RootIPCReceiver<T : Any> constructor(
             }
 
             val code = bundle.getString(BROADCAST_CODE)
-            if (code != this@RootIPCReceiver.pairingCode) {
-                log(TAG, ERROR) { "Received invalid code, $code instead of ${this@RootIPCReceiver.pairingCode}" }
+            if (code != this@RootConnectionReceiver.pairingCode) {
+                log(TAG, ERROR) { "Received invalid code, $code instead of ${this@RootConnectionReceiver.pairingCode}" }
                 return
             }
 
@@ -89,15 +89,8 @@ abstract class RootIPCReceiver<T : Any> constructor(
 
             synchronized(binderSync) {
                 binder = received
-                internalIpc = IRootIPC.Stub.asInterface(binder).also {
+                internalIpc = RootConnection.Stub.asInterface(binder).also {
                     log(TAG) { "Saved internalIpc=$it" }
-                    try {
-                        log(TAG) { "Saving userIPC... " }
-                        userIPC = getInterfaceFromBinder(clazz, it.userIPC)
-                        log(TAG) { "userIPC saved $userIPC " }
-                    } catch (e: RemoteException) {
-                        log(TAG, ERROR) { "getInterfaceFromBinder() failed: ${e.asLog()}" }
-                    }
                     try {
                         log(TAG) { "hello($self)" }
                         // we send over our own Binder that the other end can linkToDeath with
@@ -150,7 +143,7 @@ abstract class RootIPCReceiver<T : Any> constructor(
      *
      * @param ipc The Binder interface you declared in an aidl and passed to RootIPC on the root side
      */
-    abstract fun onConnect(ipc: T)
+    abstract fun onConnect(connection: RootConnection)
 
     /**
      * Callback for when the IPC interface is going (or has gone) away.<br></br>
@@ -159,48 +152,16 @@ abstract class RootIPCReceiver<T : Any> constructor(
      *
      * @param ipc The Binder interface you declared in an aidl and passed to RootIPC on the root side
      */
-    abstract fun onDisconnect(ipc: T)
-
-    /**
-     * Stability: stable, as changes to this pattern in AOSP would probably require all
-     * AIDL-using apps to be recompiled.
-     *
-     * @return T (proxy) instance or null
-     */
-    @Suppress("UNCHECKED_CAST")
-    private fun <T : Any> getInterfaceFromBinder(clazz: KClass<T>, binder: IBinder): T? = try {
-        val fDescriptor = Class
-            .forName(clazz.qualifiedName + "\$Stub")
-            .getDeclaredField("DESCRIPTOR")
-            .apply { isAccessible = true }
-
-        val intf = binder.queryLocalInterface(fDescriptor[this] as String)
-
-        if (clazz.isInstance(intf)) {
-            // local
-            intf as T?
-        } else {
-            // remote
-            val ctorProxy = Class
-                .forName(clazz.qualifiedName + "\$Stub\$Proxy")
-                .getDeclaredConstructor(IBinder::class.java)
-                .apply { isAccessible = true }
-
-            ctorProxy.newInstance(binder) as T
-        }
-    } catch (e: Exception) {
-        log(ERROR) { "getInterfaceFromBinder() failed: ${e.asLog()}" }
-        null
-    }
+    abstract fun onDisconnect(connection: RootConnection)
 
     private fun doOnConnect() {
         // must be called inside synchronized(binderSync)
-        if (binder != null && userIPC != null) {
+        if (binder != null && internalIpc != null) {
             synchronized(eventSync) {
                 disconnectAfterEvent = false
                 inEvent = true
             }
-            onConnect(userIPC!!)
+            onConnect(internalIpc!!)
             synchronized(eventSync) {
                 inEvent = false
                 if (disconnectAfterEvent) {
@@ -212,9 +173,9 @@ abstract class RootIPCReceiver<T : Any> constructor(
 
     private fun doOnDisconnect() {
         // must be called inside synchronized(binderSync)
-        if (binder != null && userIPC != null) {
+        if (binder != null && internalIpc != null) {
             // we don't need to set inEvent here, only applicable to onConnect()
-            onDisconnect(userIPC!!)
+            onDisconnect(internalIpc!!)
         }
     }
 
@@ -230,7 +191,6 @@ abstract class RootIPCReceiver<T : Any> constructor(
         }
         binder = null
         internalIpc = null
-        userIPC = null
     }
 
     private fun isInEvent(): Boolean {
@@ -293,19 +253,19 @@ abstract class RootIPCReceiver<T : Any> constructor(
         contextRef?.get()?.unregisterReceiver(receiver)
         handlerThread.quitSafely()
     }// otherwise this call would deadlock when called from onConnect()
-    // we know userIPC is valid in this case
+    // we know internalIpc is valid in this case
     /**
      * Retrieve IPC interface immediately
      *
      * @return Your IPC interface if connected, null otherwise
      */
-    val iPC: T?
+    val iPC: RootConnection?
         get() {
             if (isDisconnectScheduled) return null
             if (isInEvent()) {
                 // otherwise this call would deadlock when called from onConnect()
-                // we know userIPC is valid in this case
-                return userIPC
+                // we know internalIpc is valid in this case
+                return internalIpc
             }
             synchronized(binderSync) {
                 if (binder != null) {
@@ -313,8 +273,8 @@ abstract class RootIPCReceiver<T : Any> constructor(
                         clearBinder()
                     }
                 }
-                if (binder != null && userIPC != null) {
-                    return userIPC
+                if (binder != null && internalIpc != null) {
+                    return internalIpc
                 }
             }
             return null
@@ -326,12 +286,12 @@ abstract class RootIPCReceiver<T : Any> constructor(
      * @param timeout_ms Time to wait for a connection (if &gt; 0)
      * @return Your IPC interface if connected, null otherwise
      */
-    fun getIPC(timeout_ms: Int): T? {
+    fun getIPC(timeout_ms: Int): RootConnection? {
         if (isDisconnectScheduled) return null
         if (isInEvent()) {
             // otherwise this call would deadlock when called from onConnect()
-            // we know userIPC is valid in this case
-            return userIPC
+            // we know internalIpc is valid in this case
+            return internalIpc
         }
         if (timeout_ms <= 0) return iPC
         synchronized(binderSync) {
@@ -347,7 +307,7 @@ abstract class RootIPCReceiver<T : Any> constructor(
     }
 
     companion object {
-        private val TAG = logTag("Root", "IPCReceiver")
+        private val TAG = logTag("Root", "Connection", "Receiver")
 
         const val BROADCAST_ACTION = "eu.darken.sdmse.common.root.service.internal.RootIPCReceiver.BROADCAST"
         const val BROADCAST_EXTRA = "eu.darken.sdmse.common.root.service.internal.RootIPCReceiver.BROADCAST.EXTRA"

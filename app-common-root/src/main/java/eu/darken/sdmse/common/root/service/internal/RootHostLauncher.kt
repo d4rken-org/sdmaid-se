@@ -10,11 +10,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.ipc.getInterface
+import eu.darken.sdmse.common.root.RootException
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
@@ -30,11 +32,12 @@ class RootHostLauncher @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    fun <Binder : Any, Host : RootHost> createConnection(
+    fun <Binder : Any, Host : BaseRootHost> createConnection(
         binderClass: KClass<Binder>,
         rootHostClass: KClass<Host>,
         enableDebug: Boolean = false,
         enableTrace: Boolean = false,
+        enableDryRun: Boolean = false,
         useMountMaster: Boolean = false,
     ): Flow<Binder> = callbackFlow {
         log(TAG) { "createConnection($binderClass,$rootHostClass,$enableDebug,$useMountMaster)" }
@@ -48,13 +51,30 @@ class RootHostLauncher @Inject constructor(
 
         val pairingCode = UUID.randomUUID().toString()
 
-        val ipcReceiver = object : RootIPCReceiver<Binder>(pairingCode, binderClass) {
-            override fun onConnect(ipc: Binder) {
-                log(TAG) { "onConnect(ipc=$ipc)" }
-                trySendBlocking(ipc)
+        val rootHostOptions = RootHostOptions(
+            pairingCode = pairingCode,
+            packageName = context.packageName,
+            isDebug = enableDebug,
+            isTrace = enableTrace,
+            isDryRun = enableDryRun,
+            waitForDebugger = enableTrace && Debug.isDebuggerConnected()
+        )
+
+        val ipcReceiver = object : RootConnectionReceiver(pairingCode) {
+            override fun onConnect(connection: RootConnection) {
+                log(TAG) { "onConnect(connection=$connection)" }
+
+                log(TAG) { "Updating host options to $rootHostOptions" }
+                connection.updateHostOptions(rootHostOptions)
+
+                val userConnection = connection.userConnection.getInterface(binderClass)
+                    ?: throw RootException("Failed to get user connection")
+
+                log(TAG) { "onServiceConnected(...) -> $userConnection" }
+                trySendBlocking(userConnection)
             }
 
-            override fun onDisconnect(ipc: Binder) {
+            override fun onDisconnect(ipc: RootConnection) {
                 log(TAG) { "onDisconnect(ipc=$ipc)" }
                 close()
             }
@@ -72,14 +92,6 @@ class RootHostLauncher @Inject constructor(
 
         val result = try {
             val cmdBuilder = RootHostCmdBuilder(context, rootHostClass)
-
-            val rootHostOptions = RootHostOptions(
-                pairingCode = pairingCode,
-                packageName = context.packageName,
-                isDebug = enableDebug,
-                isTrace = enableTrace,
-                waitForDebugger = enableTrace && Debug.isDebuggerConnected()
-            )
 
             if (useMountMaster) {
                 Cmd.builder("su --mount-master").submit(rootSession).observeOn(Schedulers.io()).blockingGet()

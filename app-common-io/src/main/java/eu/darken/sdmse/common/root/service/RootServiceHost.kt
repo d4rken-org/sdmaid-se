@@ -1,87 +1,48 @@
 package eu.darken.sdmse.common.root.service
 
-import android.annotation.SuppressLint
-import android.util.Log
+import android.content.Context
 import androidx.annotation.Keep
 import dagger.Lazy
-import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.rxshell.cmd.Cmd
+import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.root.service.internal.RootHost
-import eu.darken.sdmse.common.root.service.internal.RootIPC
-import eu.darken.sdmse.common.sharedresource.HasSharedResource
-import eu.darken.sdmse.common.sharedresource.Resource
-import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.adoptChildResource
-import eu.darken.sdmse.common.shell.RootProcessShell
-import eu.darken.sdmse.common.shell.SharedShell
-import java.util.concurrent.TimeoutException
+import eu.darken.sdmse.common.files.local.root.FileOpsConnection
+import eu.darken.sdmse.common.files.local.root.FileOpsHost
+import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
+import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
+import eu.darken.sdmse.common.shell.root.ShellOpsConnection
+import eu.darken.sdmse.common.shell.root.ShellOpsHost
 import javax.inject.Inject
+import javax.inject.Singleton
 
-
-/**
- * This class' main method will be launched as root. You can access any other class from your
- * package, but not instances - this is a separate process from the UI.
- */
+@Singleton
 @Keep
-@SuppressLint("UnsafeDynamicallyLoadedCode")
-class RootServiceHost constructor(_args: List<String>) : HasSharedResource<Any>, RootHost("$TAG#${hashCode()}", _args) {
+class RootServiceHost @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val fileOpsHost: Lazy<FileOpsHost>,
+    private val pkgOpsHost: Lazy<PkgOpsHost>,
+    private val shellOpsHost: Lazy<ShellOpsHost>,
+) : RootServiceConnection.Stub() {
 
-    override val sharedResource = SharedResource.createKeepAlive(iTag, rootHostScope)
-
-    lateinit var component: RootComponent
-
-    @RootProcessShell @Inject lateinit var sharedShell: SharedShell
-    @Inject lateinit var connection: Lazy<RootServiceConnectionImpl>
-    @Inject lateinit var rootIpcFactory: RootIPC.Factory
-
-    override suspend fun onInit() {
-        if (isDebug) {
-            Bugs.isDebug = true
-        }
-
-        component = DaggerRootComponent.builder().application(systemContext).build().also {
-            it.inject(this)
-        }
-
-        log(iTag) { "Running on threadId=${Thread.currentThread().id}" }
+    override fun checkBase(): String {
+        val sb = StringBuilder()
+        sb.append("Our pkg: ${context.packageName}\n")
+        val ids = Cmd.builder("id").submit(RxCmdShell.Builder().build()).blockingGet()
+        sb.append("Shell ids are: ${ids.merge()}\n")
+        val result = sb.toString()
+        log(TAG) { "checkBase(): $result" }
+        return result
     }
 
-    override suspend fun onExecute() {
-        log(iTag) { "Starting IPC connection via $rootIpcFactory" }
-        val ipc = rootIpcFactory.create(
-            packageName = BuildConfigWrap.APPLICATION_ID,
-            userProvidedBinder = connection.get(),
-            pairingCode = pairingCode,
-        )
-        log(iTag) { "IPC created: $ipc" }
+    override fun getFileOps(): FileOpsConnection = fileOpsHost.get()
 
-        val keepAliveToken: Resource<*> = sharedResource.get()
+    override fun getPkgOps(): PkgOpsConnection = pkgOpsHost.get()
 
-        log(iTag) { "Launching SharedShell with root" }
-        adoptChildResource(sharedShell)
+    override fun getShellOps(): ShellOpsConnection = shellOpsHost.get()
 
-        try {
-            log(iTag) { "Ready, now broadcasting..." }
-            ipc.broadcastAndWait()
-        } catch (e: TimeoutException) {
-            log(iTag, ERROR) { "Non-root process did not connect in a timely fashion" }
-        }
-
-        keepAliveToken.close()
-    }
-
-    @Keep
     companion object {
-        internal val TAG = logTag("Root", "Service", "Host")
-
-        @Keep
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Log.v(TAG, "main(args=$args)")
-            RootServiceHost(args.toList()).start()
-        }
+        private val TAG = logTag("Root", "Service", "Host")
     }
 }

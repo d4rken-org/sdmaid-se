@@ -18,7 +18,7 @@ import java.lang.reflect.Method
 import kotlin.system.exitProcess
 
 @SuppressLint("PrivateApi")
-abstract class RootHost(
+abstract class BaseRootHost(
     val iTag: String,
     private val _args: List<String>
 ) {

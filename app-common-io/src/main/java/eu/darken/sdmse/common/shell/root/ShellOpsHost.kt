@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.ipc.IpcHostModule
 import eu.darken.sdmse.common.shell.SharedShell
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
@@ -16,7 +17,7 @@ import javax.inject.Inject
 class ShellOpsHost @Inject constructor(
     @AppScope scope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
-) : ShellOpsConnection.Stub() {
+) : ShellOpsConnection.Stub(), IpcHostModule {
 
     private val sharedShell = SharedShell(TAG, scope + dispatcherProvider.Default)
 

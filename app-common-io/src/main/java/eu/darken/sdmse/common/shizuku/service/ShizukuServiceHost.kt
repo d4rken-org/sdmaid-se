@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.service
+package eu.darken.sdmse.common.shizuku.service
 
 import android.content.Context
 import androidx.annotation.Keep
@@ -6,6 +6,7 @@ import dagger.Lazy
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.root.FileOpsConnection
@@ -14,17 +15,22 @@ import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.root.PkgOpsHost
 import eu.darken.sdmse.common.shell.root.ShellOpsConnection
 import eu.darken.sdmse.common.shell.root.ShellOpsHost
+import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 @Keep
-class RootServiceConnectionImpl @Inject constructor(
+class ShizukuServiceHost @Inject constructor(
     @ApplicationContext private val context: Context,
     private val fileOpsHost: Lazy<FileOpsHost>,
     private val pkgOpsHost: Lazy<PkgOpsHost>,
     private val shellOpsHost: Lazy<ShellOpsHost>,
-) : RootServiceConnection.Stub() {
+) : ShizukuServiceConnection.Stub() {
+
+    init {
+        log(TAG, INFO) { "init()" }
+    }
 
     override fun checkBase(): String {
         val sb = StringBuilder()
@@ -43,6 +49,6 @@ class RootServiceConnectionImpl @Inject constructor(
     override fun getShellOps(): ShellOpsConnection = shellOpsHost.get()
 
     companion object {
-        private val TAG = logTag("Root", "Service", "Connection")
+        private val TAG = logTag("Shizuku", "Service", "Host")
     }
 }

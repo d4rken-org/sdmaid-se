@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.navigation.navVia
@@ -14,8 +15,10 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
@@ -41,6 +44,7 @@ class DebugCardProvider @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
     private val shellOps: ShellOps,
+    private val shizukuServiceClient: ShizukuServiceClient,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
@@ -97,7 +101,12 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             onRunTest = {
-
+                vm.launch {
+                    shizukuServiceClient.useRes {
+                        val base = it.ipc.pkgOps.forceStop("com.android.vending")
+                        log(TAG) { "###BASE: $base" }
+                    }
+                }
             }
         )
     }

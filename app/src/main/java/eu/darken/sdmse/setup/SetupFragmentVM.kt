@@ -151,12 +151,6 @@ class SetupFragmentVM @Inject constructor(
 
                         is ShizukuSetupModule.State -> ShizukuSetupCardVH.Item(
                             state = state,
-                            onToggleConsent = {
-                                launch {
-                                    shizukuSetupModule.toggleUseShizuku(it)
-                                    shizukuSetupModule.refresh()
-                                }
-                            },
                             onGrant = {
                                 launch { shizukuSetupModule.requestPermission() }
                             },

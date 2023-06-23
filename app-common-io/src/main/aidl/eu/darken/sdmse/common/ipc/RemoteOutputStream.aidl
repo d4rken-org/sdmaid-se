@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.root.io;
+package eu.darken.sdmse.common.ipc;
 
 interface RemoteOutputStream {
     void write(int b);

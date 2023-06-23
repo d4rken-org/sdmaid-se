@@ -8,8 +8,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.remoteInputStream
-import eu.darken.sdmse.common.root.io.RemoteInputStream
-import eu.darken.sdmse.common.root.io.inputStream
+import eu.darken.sdmse.common.ipc.RemoteInputStream
+import eu.darken.sdmse.common.ipc.inputStream
 import okio.Buffer
 
 data class LocalPathsPayload(
