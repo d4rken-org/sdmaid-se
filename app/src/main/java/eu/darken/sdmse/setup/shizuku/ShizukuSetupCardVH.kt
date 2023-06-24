@@ -34,7 +34,6 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
             }
         }
         allowShizukuOptionsEnable.isEnabled = item.state.binderAvailable
-        allowShizukuOptionsDisable.isEnabled = item.state.binderAvailable
 
         shizukuState.apply {
             text = getString(
