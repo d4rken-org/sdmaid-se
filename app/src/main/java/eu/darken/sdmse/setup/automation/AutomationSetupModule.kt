@@ -9,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.SystemSettingsProvider
@@ -41,7 +41,7 @@ class AutomationSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val generalSettings: GeneralSettings,
-    private val automationController: AutomationController,
+    private val automationManager: AutomationManager,
     private val deviceDetective: DeviceDetective,
     private val settingsProvider: SystemSettingsProvider,
     rootManager: RootManager,
@@ -54,10 +54,10 @@ class AutomationSetupModule @Inject constructor(
         shizukuManager.useShizuku,
         refreshTrigger
     ) { useRoot, useShizuku, _ ->
-        val isServiceEnabled = automationController.isServiceEnabled()
+        val isServiceEnabled = automationManager.isServiceEnabled()
         log(TAG) { "isServiceEnabled=$isServiceEnabled" }
 
-        val isServiceRunning = automationController.isServiceLaunched()
+        val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()

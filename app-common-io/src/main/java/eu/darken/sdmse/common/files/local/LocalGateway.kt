@@ -12,9 +12,9 @@ import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
-import eu.darken.sdmse.common.root.useRootNow
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
@@ -48,7 +48,7 @@ class LocalGateway @Inject constructor(
         return rootServiceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
-    suspend fun hasRoot(): Boolean = rootManager.useRootNow()
+    suspend fun hasRoot(): Boolean = rootManager.canUseRootNow()
 
     private suspend fun <T> runIO(
         block: suspend CoroutineScope.() -> T

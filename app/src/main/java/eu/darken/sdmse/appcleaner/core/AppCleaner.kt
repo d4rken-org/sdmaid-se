@@ -12,7 +12,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
-import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -48,7 +48,7 @@ class AppCleaner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
     private val appScannerProvider: Provider<AppScanner>,
-    private val automationController: AutomationController,
+    private val automationManager: AutomationManager,
     private val exclusionManager: ExclusionManager,
     private val userManager: UserManager2,
 ) : SDMTool, Progress.Client {
@@ -189,7 +189,7 @@ class AppCleaner @Inject constructor(
                 updateProgressSecondary(CaString.EMPTY)
 
                 try {
-                    automationController.submit(ClearCacheTask(automationTargets)) as ClearCacheTask.Result
+                    automationManager.submit(ClearCacheTask(automationTargets)) as ClearCacheTask.Result
                 } catch (e: AutomationUnavailableException) {
                     throw InaccessibleDeletionException(e)
                 }

@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
@@ -93,7 +93,7 @@ class SdcardsModule @Inject constructor(
 
         // Root
         targetPath.let { localPath ->
-            if (!rootManager.useRootNow()) return@let
+            if (!rootManager.canUseRootNow()) return@let
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

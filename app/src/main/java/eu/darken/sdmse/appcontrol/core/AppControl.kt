@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
@@ -103,7 +103,7 @@ class AppControl @Inject constructor(
     private suspend fun performToggle(task: AppControlToggleTask): AppControlToggleTask.Result {
         log(TAG) { "performToggle(): $task" }
 
-        if (!rootManager.useRootNow()) throw RootRequiredException("Toggeling apps requires root")
+        if (!rootManager.canUseRootNow()) throw RootRequiredException("Toggeling apps requires root")
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 

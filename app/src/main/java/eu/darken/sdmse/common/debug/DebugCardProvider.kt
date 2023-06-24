@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.debug
 
-import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
@@ -44,7 +44,7 @@ class DebugCardProvider @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val dataAreaManager: DataAreaManager,
     private val pkgOps: PkgOps,
-    private val automationController: AutomationController,
+    private val automationManager: AutomationManager,
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
     private val shellOps: ShellOps,
