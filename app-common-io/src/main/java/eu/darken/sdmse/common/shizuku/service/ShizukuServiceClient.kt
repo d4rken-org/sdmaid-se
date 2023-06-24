@@ -44,7 +44,7 @@ class ShizukuServiceClient @Inject constructor(
     flow {
         log(TAG) { "Instantiating Shizuku launcher..." }
 
-        if (shizukuSettings.useShizuku.value() != true) throw RootUnavailableException("Shizuku is not enabled")
+        if (shizukuSettings.isEnabled.value() != true) throw RootUnavailableException("Shizuku is not enabled")
 
         emit(serviceLauncher.createServiceHostConnection())
     }

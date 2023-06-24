@@ -77,6 +77,9 @@ class AutomationSetupModule @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        log(TAG) { "useShizuku: $useShizuku" }
+        log(TAG) { "useRoot: $useRoot" }
+
         State(
             isNotRequired = useRoot || useShizuku,
             hasConsent = generalSettings.hasAcsConsent.value(),
@@ -85,7 +88,7 @@ class AutomationSetupModule @Inject constructor(
             needsAutostart = deviceDetective.isXiaomi(),
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
-        )
+        ).also { log(TAG) { "New ACS setup state: $it" } }
     }
 
     init {

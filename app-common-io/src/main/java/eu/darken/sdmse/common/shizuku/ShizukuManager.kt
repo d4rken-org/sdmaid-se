@@ -6,9 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -19,11 +17,10 @@ import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -38,70 +35,6 @@ class ShizukuManager @Inject constructor(
     private val shizukuServiceClient: ShizukuServiceClient,
 ) {
 
-    private var cachedState: Boolean? = null
-    private val cacheLock = Mutex()
-
-    init {
-        settings.useShizuku.flow
-            .mapLatest {
-                log(TAG) { "Shizuku access state: $it" }
-                cacheLock.withLock {
-                    cachedState = null
-                }
-            }
-            .launchIn(appScope)
-
-        appScope.launch {
-            delay(1 * 1000L)
-            val currentAccess = isGranted()
-            log(TAG) { "Shizuku access check: $currentAccess" }
-            if (currentAccess == false) {
-                log(TAG, WARN) { "Shizuku access was revoked!" }
-                settings.useShizuku.value(null)
-            }
-        }
-    }
-
-    /**
-     * Is the device shizukud and we have access?
-     */
-    suspend fun isShizukud(): Boolean = withContext(dispatcherProvider.IO) {
-        cacheLock.withLock {
-            cachedState?.let { return@withContext it }
-
-            val newState = kotlin.run {
-                if (!isInstalled()) {
-                    log(TAG) { "Shizuku is not installed" }
-                    return@run false
-                }
-                if (!isCompatible()) {
-                    log(TAG) { "Shizuku version is too old" }
-                    return@run false
-                }
-                if (isGranted() != true) {
-                    log(TAG) { "Permission not granted" }
-                    return@run false
-                }
-
-                try {
-                    shizukuServiceClient.get().item.ipc.checkBase() != null
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Error during checkBase(): ${e.asLog()}" }
-                    false
-                }
-            }
-
-            newState.also { cachedState = it }
-        }
-    }
-
-    /**
-     * Did the user consent to SD Maid using Shizuku and is Shizuku available?
-     */
-    val useShizuku: Flow<Boolean> = settings.useShizuku.flow
-        .mapLatest { (it ?: false) && isShizukud() }
-        .shareLatest(appScope)
-
     val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = shizukuWrapper.baseServiceBinder
         .setupCommonEventHandlers(TAG) { "binder" }
         .replayingShare(appScope)
@@ -110,6 +43,46 @@ class ShizukuManager @Inject constructor(
         .setupCommonEventHandlers(TAG) { "grantEvents" }
         .replayingShare(appScope)
 
+    init {
+        appScope.launch {
+            delay(1 * 1000L)
+            val currentAccess = isGranted()
+            log(TAG) { "Shizuku access check: $currentAccess" }
+            if (currentAccess == false) {
+                log(TAG, WARN) { "Shizuku access was revoked!" }
+                settings.isEnabled.value(null)
+            }
+        }
+    }
+
+    /**
+     * Is the device shizukud and we have access?
+     */
+    suspend fun isShizukud(): Boolean = withContext(dispatcherProvider.IO) {
+        if (!isInstalled()) {
+            log(TAG) { "Shizuku is not installed" }
+            return@withContext false
+        }
+        if (!isCompatible()) {
+            log(TAG) { "Shizuku version is too old" }
+            return@withContext false
+        }
+
+        val granted = isGranted()
+        if (granted == false) {
+            log(TAG) { "Permission not granted" }
+            return@withContext false
+        }
+
+        if (granted == null) {
+            log(TAG) { "Binder unavailable" }
+            return@withContext false
+        }
+
+        isShizukuServiceAvailable().also {
+            if (!it) log(TAG) { "(Our) ShizukuService is unavailable" }
+        }
+    }
 
     suspend fun isInstalled(): Boolean {
         val installed = try {
@@ -127,6 +100,24 @@ class ShizukuManager @Inject constructor(
     suspend fun isCompatible(): Boolean = shizukuWrapper.isCompatible()
 
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
+
+    suspend fun isShizukuServiceAvailable(): Boolean = try {
+        shizukuServiceClient.get().item.ipc.checkBase() != null
+    } catch (e: Exception) {
+        log(TAG, WARN) { "Error during checkBase(): $e" }
+        false
+    }
+
+    /**
+     * Did the user consent to SD Maid using Shizuku and is Shizuku available?
+     */
+    val useShizuku: Flow<Boolean> = combine(
+        settings.isEnabled.flow,
+        shizukuBinder,
+        permissionGrantEvents.map { }.onStart { emit(Unit) },
+    ) { isEnabled, _, _ ->
+        (isEnabled ?: false) && isShizukud()
+    }.shareLatest(appScope)
 
     companion object {
         private val TAG = logTag("Shizuku", "Manager")

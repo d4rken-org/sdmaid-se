@@ -114,7 +114,7 @@ class DebugCardProvider @Inject constructor(
                 vm.launch {
                     shizukuTestState.value = ShizukuTestResult(
                         testId = UUID.randomUUID().toString(),
-                        hasUserConsent = shizukuSettings.useShizuku.value(),
+                        hasUserConsent = shizukuSettings.isEnabled.value(),
                         isInstalled = shizukuManager.isInstalled(),
                         isGranted = shizukuManager.isGranted(),
                         serviceLaunched = withTimeoutOrNull(10 * 1000) {
@@ -123,7 +123,7 @@ class DebugCardProvider @Inject constructor(
                             val base = try {
                                 shizukuClient.runSessionAction { it.ipc.checkBase() }
                             } catch (e: Exception) {
-                                e.message
+                                e
                             }
                             sb.append("BaseCheck:\n$base\n")
 

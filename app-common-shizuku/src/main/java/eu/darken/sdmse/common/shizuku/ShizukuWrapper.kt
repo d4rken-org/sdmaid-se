@@ -37,7 +37,7 @@ class ShizukuWrapper @Inject constructor(
         val sendBinder = {
             val binder = Shizuku.getBinder()
             log(TAG) { "Sending binder: $binder" }
-            binder?.let { trySendBlocking(ShizukuBinderWrapper(it)) }
+            trySendBlocking(binder?.let { ShizukuBinderWrapper(it) })
         }
 
         val onReceive = Shizuku.OnBinderReceivedListener {
@@ -46,6 +46,7 @@ class ShizukuWrapper @Inject constructor(
         }
         val onDead = Shizuku.OnBinderDeadListener {
             log(TAG) { "binderFlow(): OnBinderDeadListener :(" }
+            sendBinder()
         }
         log(TAG) { "binderFlow(): Registering..." }
 

@@ -19,7 +19,7 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         allowShizukuOptions.apply {
             setOnCheckedChangeListener(null)
-            when (item.state.useShizuku) {
+            when (item.state.isEnabled) {
                 true -> check(R.id.allow_shizuku_options_enable)
                 false -> check(R.id.allow_shizuku_options_disable)
                 null -> check(-1)
@@ -33,15 +33,15 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
                 item.onToggleUseShizuku(selection)
             }
         }
-        allowShizukuOptionsEnable.isEnabled = item.state.binderAvailable
+        allowShizukuOptionsEnable.isEnabled = item.state.basicService
 
         shizukuState.apply {
             text = getString(
-                if (item.state.binderAvailable) R.string.setup_shizuku_state_ready_label
+                if (item.state.ourService) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label
             )
             setTextColor(
-                if (item.state.binderAvailable) context.getColorForAttr(android.R.attr.textColorSecondary)
+                if (item.state.ourService) context.getColorForAttr(android.R.attr.textColorSecondary)
                 else context.getColorForAttr(android.R.attr.colorError)
             )
         }
