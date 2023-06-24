@@ -22,14 +22,16 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -42,10 +44,16 @@ class AutomationSetupModule @Inject constructor(
     private val automationController: AutomationController,
     private val deviceDetective: DeviceDetective,
     private val settingsProvider: SystemSettingsProvider,
+    rootManager: RootManager,
+    shizukuManager: ShizukuManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger.mapLatest {
+    override val state = combine(
+        rootManager.useRoot,
+        shizukuManager.useShizuku,
+        refreshTrigger
+    ) { useRoot, useShizuku, _ ->
         val isServiceEnabled = automationController.isServiceEnabled()
         log(TAG) { "isServiceEnabled=$isServiceEnabled" }
 
@@ -69,7 +77,8 @@ class AutomationSetupModule @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
-        return@mapLatest State(
+        State(
+            isNotRequired = useRoot || useShizuku,
             hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
@@ -128,6 +137,7 @@ class AutomationSetupModule @Inject constructor(
     }
 
     data class State(
+        val isNotRequired: Boolean,
         val hasConsent: Boolean?,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
@@ -137,7 +147,7 @@ class AutomationSetupModule @Inject constructor(
     ) : SetupModule.State {
 
         override val isComplete: Boolean =
-            (hasConsent == true && isServiceEnabled && isServiceRunning) || hasConsent == false
+            isNotRequired || (hasConsent == true && isServiceEnabled && isServiceRunning) || hasConsent == false
 
     }
 
