@@ -129,7 +129,7 @@ class DebugCardProvider @Inject constructor(
 
                             var opsError: String? = null
                             val opsResult = try {
-                                shellOps.execute(ShellOpsCmd("whoami"), ShellOps.Mode.NORMAL)
+                                shellOps.execute(ShellOpsCmd("whoami"), ShellOps.Mode.ADB)
                             } catch (e: Exception) {
                                 opsError = e.message
                                 null

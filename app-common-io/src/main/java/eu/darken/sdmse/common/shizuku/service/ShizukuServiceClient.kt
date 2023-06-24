@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
-import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
@@ -44,7 +43,7 @@ class ShizukuServiceClient @Inject constructor(
     flow {
         log(TAG) { "Instantiating Shizuku launcher..." }
 
-        if (shizukuSettings.isEnabled.value() != true) throw RootUnavailableException("Shizuku is not enabled")
+        if (shizukuSettings.isEnabled.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
 
         emit(serviceLauncher.createServiceHostConnection())
     }

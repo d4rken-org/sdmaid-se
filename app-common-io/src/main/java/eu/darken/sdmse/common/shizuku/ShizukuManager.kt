@@ -32,7 +32,7 @@ class ShizukuManager @Inject constructor(
     private val settings: ShizukuSettings,
     private val dispatcherProvider: DispatcherProvider,
     private val shizukuWrapper: ShizukuWrapper,
-    private val shizukuServiceClient: ShizukuServiceClient,
+    val serviceClient: ShizukuServiceClient,
 ) {
 
     val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = shizukuWrapper.baseServiceBinder
@@ -102,7 +102,7 @@ class ShizukuManager @Inject constructor(
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
 
     suspend fun isShizukuServiceAvailable(): Boolean = try {
-        shizukuServiceClient.get().item.ipc.checkBase() != null
+        serviceClient.get().item.ipc.checkBase() != null
     } catch (e: Exception) {
         log(TAG, WARN) { "Error during checkBase(): $e" }
         false
