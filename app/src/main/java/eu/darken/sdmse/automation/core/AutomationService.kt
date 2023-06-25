@@ -62,11 +62,11 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     @Inject lateinit var dispatcher: DispatcherProvider
-    private lateinit var serviceScope: CoroutineScope
+    private val serviceScope: CoroutineScope by lazy { CoroutineScope(dispatcher.Default + SupervisorJob()) }
     override val scope: CoroutineScope get() = serviceScope
 
     @Inject lateinit var automationProcessorFactory: AutomationProcessor.Factory
-    private lateinit var automationProcessor: AutomationProcessor
+    private val automationProcessor: AutomationProcessor by lazy { automationProcessorFactory.create(this) }
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var automationSetupModule: AccessibilitySetupModule
@@ -84,39 +84,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         log(TAG) { "onCreate(application=$application)" }
         super.onCreate()
 
-//        var injected = false
-//
-//        if (!injected) {
-//            // https://issuetracker.google.com/issues/37137009
-//            (application as? HasManualServiceInjector)?.let {
-//                log(TAG) { "Injecting via service.application." }
-//                it.serviceInjector().inject(this@AutomationService)
-//                injected = true
-//            }
-//        }
-//
-//        if (!injected) {
-//            // We can try this but there is a slim chance this will work if the above failed.
-//            log(TAG, WARN) { "Injecting via fallback singleton access." }
-//            App.require().serviceInjector().inject(this)
-//        }
-
         Bugs.leaveBreadCrumb("Automation service launched")
 
         if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
             log(TAG, INFO) { "We are not restricted by app ops." }
             generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true
         }
-
-        serviceScope = CoroutineScope(dispatcher.Default + SupervisorJob())
-
-        if (generalSettings.hasAcsConsent.valueBlocking != true) {
-            log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
-            disableSelf()
-            return
-        }
-
-        automationProcessor = automationProcessorFactory.create(this)
 
         serviceScope.launch {
             delay(2000)
@@ -162,7 +135,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                         }
 
                         else -> {
-                            log(TAG) { "ControlView is $acv and progress is $progressData" }
+                            log(TAG, VERBOSE) { "ControlView is $acv and progress is $progressData" }
                         }
                     }
                 }
@@ -178,6 +151,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         log(TAG) { "onServiceConnected()" }
         instance = this
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+            log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
+            // disableSelf() does not work if called within `onCreate()`
+            disableSelf()
+            return
+        }
     }
 
     override fun onUnbind(intent: Intent?): Boolean {
@@ -188,6 +168,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     override fun onDestroy() {
         log(TAG) { "onDestroy()" }
+        Bugs.leaveBreadCrumb("Automation service destroyed")
         serviceScope.cancel()
         super.onDestroy()
     }
@@ -195,11 +176,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
-            return
-        }
-
-        if (!this::automationProcessor.isInitialized) {
-            log(TAG, ERROR) { "automationProcessor has not been initialized" }
             return
         }
 
