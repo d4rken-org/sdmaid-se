@@ -10405,7 +10405,7 @@
   "mrks": [
 	{"loc": "PUBLIC_DATA", "path": ".stignore"},
 	{"loc": "PUBLIC_DATA", "path": ".stfolder "},
-	{"loc": "PUBLIC_DATA", "path": "backups", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": "backups", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": [
