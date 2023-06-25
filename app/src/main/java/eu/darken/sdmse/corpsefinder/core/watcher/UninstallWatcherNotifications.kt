@@ -68,11 +68,12 @@ class UninstallWatcherNotifications @Inject constructor(
 
     private fun forDeletionResult(result: ExternalWatcherResult.Deletion): Notification = getBuilder(result).apply {
         setContentText(
-            context.getString(
-                R.string.corpsefinder_watcher_notification_delete_result,
+            context.resources.getQuantityString(
+                R.plurals.corpsefinder_watcher_notification_delete_result,
+                result.deletedItems,
                 result.pkgId.name,
                 Formatter.formatShortFileSize(context, result.freedSpace),
-                result.deletedItems.toString()
+                result.deletedItems
             )
         )
     }.build()

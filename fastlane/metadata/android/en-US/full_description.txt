@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> is a trusty maid for your Android, to keep it clean & tidy.
+<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
 
 Nobody is perfect and neither is Android.
 * Apps you have already removed leave something behind.
 * Logs, crash reports and other files you don't really want are constantly being created.
 * Your storage is collecting files and directories you don't recognize.
 
-Let’s not go on here... Let SD Maid SE help you:
+Let’s not go on here… Let SD Maid SE help you:
 
 * Clean up data from already uninstalled apps
 * Find hidden app caches
