@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.sdmse.setup.accessibility.AccessibilitySetupCardVH
+import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
@@ -33,7 +33,7 @@ class SetupAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is StorageSetupCardVH.Item }) { StorageSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UsageStatsSetupCardVH.Item }) { UsageStatsSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SAFSetupCardVH.Item }) { SAFSetupCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is AccessibilitySetupCardVH.Item }) { AccessibilitySetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is AutomationSetupCardVH.Item }) { AutomationSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is NotificationSetupCardVH.Item }) { NotificationSetupCardVH(it) })
     }

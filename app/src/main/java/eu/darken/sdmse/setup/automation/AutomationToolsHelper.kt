@@ -1,4 +1,4 @@
-package eu.darken.sdmse.setup.accessibility
+package eu.darken.sdmse.setup.automation
 
 import android.content.Context
 import eu.darken.sdmse.common.hasApiLevel
