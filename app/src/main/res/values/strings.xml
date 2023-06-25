@@ -167,7 +167,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatic deletion</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatically delete any remains related to the uninstalled app.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s remain(s) found after uninstalling %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Clean up successful (%1$s): Freed %2$s and removed %3$s item(s).</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Clean up successful (%1$s): Freed %2$s and removed %3$d item.</item>
+        <item quantity="other">Clean up successful (%1$s): Freed %2$s and removed %3$d items.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Delete remains</string>
 
     <string name="corpsefinder_filter_publicmedia_label">Public media</string>
@@ -372,14 +375,14 @@
     <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable sdcard. Contains media files and data from apps that support it.</string>
     <string name="analyzer_storage_content_title">Storage content</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. install files, data and caches).</string>
+    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. application files, data and caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Permissions are missing</string>
     <string name="analyzer_storage_content_type_media_label">User files</string>
     <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>
     <string name="analyzer_storage_content_type_system_description">System data and system apps.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
-    <string name="analyzer_storage_content_app_code_description">Install files, libraries and resources. This space can only be freed by uninstalling the app.</string>
+    <string name="analyzer_storage_content_app_code_description">Application files, libraries and resources. This space can only be freed by uninstalling the app.</string>
     <string name="analyzer_storage_content_app_data_label">App data</string>
     <string name="analyzer_storage_content_app_data_description">Data, settings and caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>

@@ -2,7 +2,7 @@
     <string name="app_name">SD Maid SE</string>
 
     <string name="slogan_message_0">At your service.</string>
-    <string name="slogan_message_1">Clean &amp; tidy.</string>
+    <string name="slogan_message_1">Clean and tidy.</string>
     <string name="slogan_message_2">Preventing chaos.</string>
     <string name="slogan_message_3">Doing what is necessary.</string>
     <string name="slogan_message_4">All your ducks in a row.</string>
@@ -26,8 +26,6 @@
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>
     <string name="general_edit_action">Edit</string>
-    <string name="general_create_account_action">Create account</string>
-    <string name="general_link_existing_action">Link to existing account</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Empty</string>
     <string name="general_dismiss_action">Dismiss</string>
@@ -35,8 +33,6 @@
     <string name="general_manage_action">Manage</string>
     <string name="general_sync_action">Synchronize</string>
     <string name="general_error_label">Error</string>
-    <string name="general_select_server_label">Select server</string>
-    <string name="general_quota_label">Quota</string>
     <string name="general_tap_hint_msg">Tap for more options</string>
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_donate_action">Donate</string>
