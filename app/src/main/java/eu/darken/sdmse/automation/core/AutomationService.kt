@@ -31,8 +31,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
-import eu.darken.sdmse.setup.accessibility.mightBeRestrictedDueToSideload
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
+import eu.darken.sdmse.setup.automation.mightBeRestrictedDueToSideload
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
@@ -69,7 +69,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private val automationProcessor: AutomationProcessor by lazy { automationProcessorFactory.create(this) }
 
     @Inject lateinit var generalSettings: GeneralSettings
-    @Inject lateinit var automationSetupModule: AccessibilitySetupModule
+    @Inject lateinit var automationSetupModule: AutomationSetupModule
 
     private var currentOptions = AutomationHost.Options()
     private lateinit var windowManager: WindowManager

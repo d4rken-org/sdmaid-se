@@ -13,8 +13,8 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.setup.accessibility.AccessibilitySetupCardVH
-import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
+import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
 import eu.darken.sdmse.setup.notification.NotificationSetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardVH
@@ -36,7 +36,7 @@ class SetupFragmentVM @Inject constructor(
     private val setupManager: SetupManager,
     private val storageSetupModule: StorageSetupModule,
     private val safSetupModule: SAFSetupModule,
-    private val accessibilitySetupModule: AccessibilitySetupModule,
+    private val automationSetupModule: AutomationSetupModule,
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
@@ -104,19 +104,20 @@ class SetupFragmentVM @Inject constructor(
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#usage-statistics")
                             }
                         )
-                        is AccessibilitySetupModule.State -> AccessibilitySetupCardVH.Item(
+
+                        is AutomationSetupModule.State -> AutomationSetupCardVH.Item(
                             state = state,
                             onGrantAction = {
                                 launch {
-                                    accessibilitySetupModule.setAllow(true)
-                                    accessibilitySetupModule.refresh()
+                                    automationSetupModule.setAllow(true)
+                                    automationSetupModule.refresh()
                                     events.postValue(SetupEvents.ConfigureAccessibilityService(state))
                                 }
                             },
                             onDismiss = {
                                 launch {
-                                    accessibilitySetupModule.setAllow(false)
-                                    accessibilitySetupModule.refresh()
+                                    automationSetupModule.setAllow(false)
+                                    automationSetupModule.refresh()
                                 }
                             },
                             onHelp = {
@@ -193,7 +194,7 @@ class SetupFragmentVM @Inject constructor(
 
     fun onAccessibilityReturn() = launch {
         log(TAG) { "onAccessibilityReturn" }
-        accessibilitySetupModule.refresh()
+        automationSetupModule.refresh()
     }
 
     fun navback() {
@@ -209,7 +210,7 @@ class SetupFragmentVM @Inject constructor(
             StorageSetupCardVH.Item::class,
             SAFSetupCardVH.Item::class,
             UsageStatsSetupCardVH.Item::class,
-            AccessibilitySetupCardVH.Item::class,
+            AutomationSetupCardVH.Item::class,
             RootSetupCardVH.Item::class,
         )
         private val TAG = logTag("Setup", "Fragment", "VM")

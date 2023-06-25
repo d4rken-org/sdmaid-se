@@ -2,7 +2,7 @@ package eu.darken.sdmse.setup
 
 import android.content.Intent
 import eu.darken.sdmse.common.permissions.Permission
-import eu.darken.sdmse.setup.accessibility.AccessibilitySetupModule
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupModule
 
 sealed interface SetupEvents {
@@ -19,7 +19,7 @@ sealed interface SetupEvents {
     ) : SetupEvents
 
     data class ConfigureAccessibilityService(
-        val item: AccessibilitySetupModule.State,
+        val item: AutomationSetupModule.State,
     ) : SetupEvents
 
     data class ShowOurDetailsPage(

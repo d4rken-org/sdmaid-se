@@ -1,4 +1,4 @@
-package eu.darken.sdmse.setup.accessibility
+package eu.darken.sdmse.setup.automation
 
 import android.content.Context
 import android.content.Intent
@@ -35,7 +35,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @Reusable
-class AccessibilitySetupModule @Inject constructor(
+class AutomationSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val generalSettings: GeneralSettings,
@@ -143,12 +143,12 @@ class AccessibilitySetupModule @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: AccessibilitySetupModule): SetupModule
+        @Binds @IntoSet abstract fun mod(mod: AutomationSetupModule): SetupModule
     }
 
     companion object {
         private val SETTINGS_VALUE_OUR_ACS = "eu.darken.sdmse/${AutomationService::class.qualifiedName!!}"
         private const val SETTINGS_KEY_ACS = "enabled_accessibility_services"
-        private val TAG = logTag("Setup", "Accessibility", "Module")
+        private val TAG = logTag("Setup", "Automation", "Module")
     }
 }

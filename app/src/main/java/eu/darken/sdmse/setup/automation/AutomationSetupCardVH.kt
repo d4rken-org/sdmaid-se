@@ -1,4 +1,4 @@
-package eu.darken.sdmse.setup.accessibility
+package eu.darken.sdmse.setup.automation
 
 import android.content.res.ColorStateList
 import android.view.ViewGroup
@@ -8,19 +8,19 @@ import androidx.core.widget.TextViewCompat
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.SetupAccessibilityItemBinding
+import eu.darken.sdmse.databinding.SetupAutomationItemBinding
 import eu.darken.sdmse.setup.SetupAdapter
 
 
-class AccessibilitySetupCardVH(parent: ViewGroup) :
-    SetupAdapter.BaseVH<AccessibilitySetupCardVH.Item, SetupAccessibilityItemBinding>(
-        R.layout.setup_accessibility_item,
+class AutomationSetupCardVH(parent: ViewGroup) :
+    SetupAdapter.BaseVH<AutomationSetupCardVH.Item, SetupAutomationItemBinding>(
+        R.layout.setup_automation_item,
         parent
     ) {
 
-    override val viewBinding = lazy { SetupAccessibilityItemBinding.bind(itemView) }
+    override val viewBinding = lazy { SetupAutomationItemBinding.bind(itemView) }
 
-    override val onBindData: SetupAccessibilityItemBinding.(
+    override val onBindData: SetupAutomationItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -114,7 +114,7 @@ class AccessibilitySetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: AccessibilitySetupModule.State,
+        override val state: AutomationSetupModule.State,
         val onGrantAction: () -> Unit,
         val onDismiss: () -> Unit,
         val onHelp: () -> Unit,
