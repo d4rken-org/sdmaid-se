@@ -33,7 +33,8 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
                 item.onToggleUseShizuku(selection)
             }
         }
-        allowShizukuOptionsEnable.isEnabled = item.state.basicService
+        allowShizukuOptionsEnable.isEnabled = item.state.basicService && !item.state.pendingPermission
+        allowShizukuOptionsDisable.isEnabled = !item.state.pendingPermission
 
         shizukuState.apply {
             text = getString(
