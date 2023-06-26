@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">为您效劳。</string>
-    <string name="slogan_message_1">干净&amp; 整洁。</string>
     <string name="slogan_message_2">治之于未乱。</string>
     <string name="slogan_message_3">只做必行之事。</string>
     <string name="slogan_message_4">万物归整。</string>
@@ -24,8 +23,6 @@
     <string name="general_thanks_action">致谢</string>
     <string name="general_gotit_action">明白</string>
     <string name="general_edit_action">编辑</string>
-    <string name="general_create_account_action">创建账户</string>
-    <string name="general_link_existing_action">连接已有账户</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空的</string>
     <string name="general_dismiss_action">取消</string>
@@ -33,8 +30,6 @@
     <string name="general_manage_action">管理</string>
     <string name="general_sync_action">同步</string>
     <string name="general_error_label">错误</string>
-    <string name="general_select_server_label">选择服务器</string>
-    <string name="general_quota_label">配额</string>
     <string name="general_tap_hint_msg">轻触查看更多选项</string>
     <string name="general_upgrade_action">升级</string>
     <string name="general_donate_action">捐赠</string>

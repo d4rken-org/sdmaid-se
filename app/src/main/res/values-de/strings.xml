@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatisches Löschen</string>
     <string name="corpsefinder_watcher_autodelete_summary">Lösche automatisch alle Überreste der deinstallierten App.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s Überbleibsel nach Deinstallation von %2$s gefunden.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$s Elemente entfernt.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Reste löschen</string>
     <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
     <string name="corpsefinder_filter_publicmedia_summary">Öffentliche Mediendateien, z.B. Dateien, die über Messenger-Apps empfangen wurden.</string>
@@ -343,14 +342,12 @@
     <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine entfernbare SD-Karte. Enthält Mediendateien und Daten von Apps, die es unterstützen.</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Von installierten Apps und ihren Daten belegter Speicher (Installationsdateien, Daten und Caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Berechtigungen fehlen</string>
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
     <string name="analyzer_storage_content_type_system_description">Systemdaten und System-Apps.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
-    <string name="analyzer_storage_content_app_code_description">Installationsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
     <string name="analyzer_storage_content_app_data_description">Daten, Einstellungen und Caches.</string>
     <string name="analyzer_storage_content_app_media_label">App-Medien</string>

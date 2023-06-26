@@ -13,14 +13,11 @@
     <string name="general_thanks_action">Raxmet</string>
     <string name="general_gotit_action">Túsinikli</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
-    <string name="general_create_account_action">Akkaunt jaratıw</string>
-    <string name="general_link_existing_action">Bar akkauntqa silteme</string>
     <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
     <string name="general_manage_action">Basqarıw</string>
     <string name="general_sync_action">Sáykeslestiriw</string>
     <string name="general_error_label">Qátelik</string>
-    <string name="general_select_server_label">Serverdi tańlań</string>
     <string name="general_upgrade_action">Jańalaw</string>
     <string name="general_donate_action">Qollap-quwatlaw</string>
     <string name="general_check_action">Tekseriw</string>

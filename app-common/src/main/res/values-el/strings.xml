@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Στις υπηρεσίες σας.</string>
-    <string name="slogan_message_1">Καθαρό &amp; τακτοποιημένο.</string>
     <string name="slogan_message_2">Αποτροπή του Χάους.</string>
     <string name="slogan_message_3">Κάνουμε ότι είναι αναγκαίο.</string>
     <string name="slogan_message_4">Όλα τα παπάκια στη σειρά.</string>
@@ -22,8 +21,6 @@
     <string name="general_thanks_action">Ευχαριστούμε</string>
     <string name="general_gotit_action">Εντάξει</string>
     <string name="general_edit_action">Επεξεργασία</string>
-    <string name="general_create_account_action">Δημιουργία λογαριασμού</string>
-    <string name="general_link_existing_action">Σύνδεση με υπάρχων λογαριασμό</string>
     <string name="general_na_label">Μη διαθέσιμο</string>
     <string name="general_empty_label">Αδειο</string>
     <string name="general_dismiss_action">Παράλειψη</string>
@@ -31,8 +28,6 @@
     <string name="general_manage_action">Διαχείριση</string>
     <string name="general_sync_action">Συγχρονισμός</string>
     <string name="general_error_label">Σφάλμα</string>
-    <string name="general_select_server_label">Επιλογή διακομιστή</string>
-    <string name="general_quota_label">Δεσμευμένο</string>
     <string name="general_tap_hint_msg">Πατήστε για περισσότερες επιλογές</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
     <string name="general_donate_action">Συνεισφορά</string>

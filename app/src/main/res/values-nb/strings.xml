@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatisk sletting</string>
     <string name="corpsefinder_watcher_autodelete_summary">Slett eventuelle rester relatert til den avinstallerte appen automatisk.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s rest(er) funnet etter avinstallering av %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Vellykket opprydding (%1$s): %2$s frigjort og %3$s element(er) fjernet.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Slett rester</string>
     <string name="corpsefinder_filter_publicmedia_label">Offentlige medier</string>
     <string name="corpsefinder_filter_publicmedia_summary">Offentlige mediefiler, f.eks. filer mottatt via meldingsapper.</string>
@@ -343,14 +342,12 @@
     <string name="analyzer_storage_type_secondary_description">En sekundær lagring, vanligvis et flyttbart minnekort. Inneholder mediefiler og data fra apper som støtter det.</string>
     <string name="analyzer_storage_content_title">Lagringsinnhold</string>
     <string name="analyzer_storage_content_type_app_label">Apper</string>
-    <string name="analyzer_storage_content_type_app_description">Plass okkupert av installerte apper og deres data (dvs. installasjonsfiler, data og buffere).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Tillatelser mangler</string>
     <string name="analyzer_storage_content_type_media_label">Brukerfiler</string>
     <string name="analyzer_storage_content_type_media_description">Tatt bilder, innspilte videoer eller nedlastet data. Alle data som ikke tilhører en bestemt app.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
     <string name="analyzer_storage_content_type_system_description">Systemdata og systemapper.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
-    <string name="analyzer_storage_content_app_code_description">Installasjonsfiler, biblioteker og ressurser. Denne plassen kan bare frigjøres ved å avinstallere appen.</string>
     <string name="analyzer_storage_content_app_data_label">App-data</string>
     <string name="analyzer_storage_content_app_data_description">Data, innstillinger og buffere.</string>
     <string name="analyzer_storage_content_app_media_label">App-medier</string>

@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">לשירותכם.</string>
-    <string name="slogan_message_1">נקי &amp; מסודר.</string>
     <string name="slogan_message_2">מונע כאוס.</string>
     <string name="slogan_message_3">עושה מה שצריך.</string>
     <string name="slogan_message_4">כל הברווזים שלך ברצף.</string>
@@ -23,8 +22,6 @@
     <string name="general_thanks_action">תודה</string>
     <string name="general_gotit_action">הבנתי</string>
     <string name="general_edit_action">עריכה</string>
-    <string name="general_create_account_action">צור משתמש</string>
-    <string name="general_link_existing_action">קשר למשתמש קיים</string>
     <string name="general_na_label">לא זמין</string>
     <string name="general_empty_label">ריק</string>
     <string name="general_dismiss_action">דחה</string>
@@ -32,8 +29,6 @@
     <string name="general_manage_action">נהל</string>
     <string name="general_sync_action">סנכרן</string>
     <string name="general_error_label">שגיאה</string>
-    <string name="general_select_server_label">בחר שרת</string>
-    <string name="general_quota_label">מכסה</string>
     <string name="general_tap_hint_msg">לחץ לעוד אפשרויות</string>
     <string name="general_upgrade_action">שדרוג</string>
     <string name="general_donate_action">תרומה</string>

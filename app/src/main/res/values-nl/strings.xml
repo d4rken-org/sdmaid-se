@@ -140,7 +140,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatische verwijdering</string>
     <string name="corpsefinder_watcher_autodelete_summary">Verwijder automatisch eventuele overblijfselen van de verwijderde app.</string>
     <string name="corpsefinder_watcher_notification_scan_result">Er zijn nog %1$s gevonden na het verwijderen van %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$s item(s) verwijderd.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Restanten verwijderen</string>
     <string name="corpsefinder_filter_publicmedia_label">Openbare media</string>
     <string name="corpsefinder_filter_publicmedia_summary">Openbare mediabestanden, bijv. bestanden ontvangen via messenger-apps.</string>
@@ -336,14 +335,12 @@
     <string name="analyzer_storage_type_secondary_description">Een secundaire opslag, meestal een verwijderbare sdcard. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. installatiebestanden, gegevens en caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Machtigingen ontbreken</string>
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeemgegevens en systeem apps.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
-    <string name="analyzer_storage_content_app_code_description">Installeer bestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
     <string name="analyzer_storage_content_app_data_description">Data, instellingen en caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>

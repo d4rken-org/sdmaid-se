@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">성심껏 돕겠습니다.</string>
-    <string name="slogan_message_1">깨끗하고 단정하게.</string>
     <string name="slogan_message_2">혼돈을 막습니다.</string>
     <string name="slogan_message_3">필요한 일들을 합니다.</string>
     <string name="slogan_message_4">깨끗함을 유지합니다.</string>
@@ -24,8 +23,6 @@
     <string name="general_thanks_action">감사의 말씀</string>
     <string name="general_gotit_action">확인</string>
     <string name="general_edit_action">수정</string>
-    <string name="general_create_account_action">계정 만들기</string>
-    <string name="general_link_existing_action">기존 계정 연결</string>
     <string name="general_na_label">해당 없음</string>
     <string name="general_empty_label">비어 있음</string>
     <string name="general_dismiss_action">닫기</string>
@@ -33,8 +30,6 @@
     <string name="general_manage_action">관리</string>
     <string name="general_sync_action">동기화</string>
     <string name="general_error_label">오류</string>
-    <string name="general_select_server_label">서버 선택</string>
-    <string name="general_quota_label">할당량</string>
     <string name="general_tap_hint_msg">옵션을 더 보려면 탭하세요</string>
     <string name="general_upgrade_action">업그레이드</string>
     <string name="general_donate_action">후원하기</string>

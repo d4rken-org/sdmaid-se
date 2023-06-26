@@ -141,7 +141,6 @@
     <string name="corpsefinder_watcher_autodelete_title">자동 삭제</string>
     <string name="corpsefinder_watcher_autodelete_summary">앱이 삭제되며 남긴 파일을 자동으로 삭제합니다.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%2$s을 삭제하면서 %1$s개의 남겨진 파일을 찾았습니다.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">삭제를 완료했습니다(%1$s): 공간 확보 %2$s, 삭제 파일 %3$s개</string>
     <string name="corpsefinder_watcher_notification_delete_action">남겨진 파일 삭제</string>
     <string name="corpsefinder_filter_publicmedia_label">공개 미디어</string>
     <string name="corpsefinder_filter_publicmedia_summary">메신저를 통해 받은 파일 등 공개된 미디어 파일입니다.</string>
@@ -337,14 +336,12 @@
     <string name="analyzer_storage_type_secondary_description">외부 SD card 등의 추가 저장소입니다. 사진/영상이나 일부 앱의 데이터를 포함합니다.</string>
     <string name="analyzer_storage_content_title">저장소 내용물</string>
     <string name="analyzer_storage_content_type_app_label">앱</string>
-    <string name="analyzer_storage_content_type_app_description">앱과 그 데이터 및 캐시 등이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">권한이 부여되지 않았습니다</string>
     <string name="analyzer_storage_content_type_media_label">사용자 파일</string>
     <string name="analyzer_storage_content_type_media_description">스크린샷, 녹화한 영상, 다운로드 파일 등의 특정 앱에 속하지 않은 파일이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
     <string name="analyzer_storage_content_type_system_description">시스템이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
-    <string name="analyzer_storage_content_app_code_description">앱의 설치 파일, 라이브러리 등이 차지하는 공간입니다. 해당 앱을 삭제해야 공간을 확보할 수 있습니다.</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>
     <string name="analyzer_storage_content_app_data_description">앱의 데이터, 설정, 캐시 등을 포함하는 공간입니다.</string>
     <string name="analyzer_storage_content_app_media_label">앱 미디어</string>

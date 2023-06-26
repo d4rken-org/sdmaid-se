@@ -147,7 +147,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Аўтавыдаленне</string>
     <string name="corpsefinder_watcher_autodelete_summary">Аўтаматычнае выдаленне ўсіх рэшткаў, звязаных з выдаленай праграмай.</string>
     <string name="corpsefinder_watcher_notification_scan_result">Пасля выдалення %2$s выяўлена рэшткаў: %1$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Выканана ачыстка (%1$s): Вызвалена %2$s і выдалена %3$s элемент(аў).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Выдаліць рэшткі</string>
     <string name="corpsefinder_filter_publicmedia_label">Публічныя медыяфайлы</string>
     <string name="corpsefinder_filter_publicmedia_summary">Публічныя медыяфайлы, напрыклад, файлы, атрыманыя праз праграмы абмену паведамленнямі.</string>
@@ -355,14 +354,12 @@
     <string name="analyzer_storage_type_secondary_description">Дадатковае сховішча, звычайна здымная карта памяці. Змяшчае медыяфайлы і даныя з праграм, якія падтрымліваюць гэта.</string>
     <string name="analyzer_storage_content_title">Змест сховішча</string>
     <string name="analyzer_storage_content_type_app_label">Праграмы</string>
-    <string name="analyzer_storage_content_type_app_description">Месца, занятае ўсталяванымі праграмамі і іх данымі (напр., інсталяцыйнымі файламі, данымі і кэшам).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Адсутнічаюць дазволы</string>
     <string name="analyzer_storage_content_type_media_label">Карыстальніцкія файлы</string>
     <string name="analyzer_storage_content_type_media_description">Фатаграфіі, відэа ці спампаваныя даныя. Любыя даныя, якія не адносяцца да пэўных праграм.</string>
     <string name="analyzer_storage_content_type_system_label">Сістэмныя даныя</string>
     <string name="analyzer_storage_content_type_system_description">Сістэмныя даныя і сістэмныя праграмы.</string>
     <string name="analyzer_storage_content_app_code_label">Праграмы код</string>
-    <string name="analyzer_storage_content_app_code_description">Інсталяцыйныя файлы, бібліятэкі і рэсурсы. Гэта месца можна вызваліць толькі пры выдаленні праграмы.</string>
     <string name="analyzer_storage_content_app_data_label">Праграмныя даныя</string>
     <string name="analyzer_storage_content_app_data_description">Даныя, налады і кэш.</string>
     <string name="analyzer_storage_content_app_media_label">Праграмныя медыяфайлы</string>

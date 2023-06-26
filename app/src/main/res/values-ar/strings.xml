@@ -151,7 +151,6 @@
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
     <string name="corpsefinder_watcher_autodelete_summary">حذف أية بقايا ذات صلة بالتطبيق غير المثبت تلقائياً.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s بقايا وجدت بعد إلغاء تثبيت %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$s عنصر(عناصر).</string>
     <string name="corpsefinder_watcher_notification_delete_action">حذف الملفات المتبقية</string>
     <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
     <string name="corpsefinder_filter_publicmedia_summary">ملفات الوسائط العامة ، على سبيل المثال الملفات المستلمة عبر تطبيقات المراسلة.</string>
@@ -363,14 +362,12 @@
     <string name="analyzer_storage_type_secondary_description">وحدة تخزين ثانوية، عادة بطاقة ذاكرة قابلة للإزالة. تحتوي على ملفات الوسائط والبيانات من التطبيقات التي تدعمها.</string>
     <string name="analyzer_storage_content_title">محتوى التخزين</string>
     <string name="analyzer_storage_content_type_app_label">التطبيقات</string>
-    <string name="analyzer_storage_content_type_app_description">المساحة التي تشغلها التطبيقات المثبتة وبياناتها (أي تثبيت الملفات والبيانات والمخابئ).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">الأذونات مفقودة</string>
     <string name="analyzer_storage_content_type_media_label">ملفات المستخدم</string>
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
     <string name="analyzer_storage_content_type_system_description">بيانات النظام وتطبيقات النظام.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
-    <string name="analyzer_storage_content_app_code_description">تثبيت الملفات والمكتبات والموارد. لا يمكن تحرير هذه المساحة إلا عن طريق إلغاء تثبيت التطبيق.</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>
     <string name="analyzer_storage_content_app_data_description">البيانات والإعدادات والمخابئ.</string>
     <string name="analyzer_storage_content_app_media_label">وسائط التطبيق</string>

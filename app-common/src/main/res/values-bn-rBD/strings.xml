@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">এসডি মেইড এসই</string>
     <string name="slogan_message_0">আপনার সেবায় নিয়োজিত।</string>
-    <string name="slogan_message_1">ঝকঝকে ও পরিপাটি।</string>
     <string name="slogan_message_3">যা প্রয়োজন তাই করা হচ্ছে।</string>
     <string name="slogan_message_5">নিখুঁত।</string>
     <string name="general_thank_you_label">আপনাকে ধন্যবাদ</string>
@@ -15,13 +14,11 @@
     <string name="general_thanks_action">ধন্যবাদ</string>
     <string name="general_gotit_action">বুঝেছি</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>
-    <string name="general_create_account_action">অ্যাকাউন্ট তৈরি করুন</string>
     <string name="general_na_label">অপ্রযোজ্য</string>
     <string name="general_empty_label">খালি</string>
     <string name="general_dismiss_action">খারিজ করুন</string>
     <string name="general_maybe_later_action">হয়তো পরে</string>
     <string name="general_error_label">ত্রুটি দেখা দিয়েছে</string>
-    <string name="general_select_server_label">সার্ভার নির্বাচন করুন</string>
     <string name="general_tap_hint_msg">আরো বিকল্পের জন্য আলতো চাপুন৷</string>
     <string name="general_donate_action">অনুদান দিন</string>
     <string name="general_check_action">চেক করুন</string>

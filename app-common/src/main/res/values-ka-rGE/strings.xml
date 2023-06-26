@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Თქვენს სერვისში.</string>
-    <string name="slogan_message_1">Სუფთა &amp; მოწესრიგებული.</string>
     <string name="slogan_message_2">Ქაოსის პრევენცია.</string>
     <string name="slogan_message_3">Აკეთებს იმას, რაც საჭიროა.</string>
     <string name="slogan_message_4">ყველა თქვენი იხვი ზედიზედ.</string>
@@ -23,8 +22,6 @@
     <string name="general_thanks_action">მადლობა</string>
     <string name="general_gotit_action">Გავიგე</string>
     <string name="general_edit_action">რედაქტირება</string>
-    <string name="general_create_account_action">ანგარიშის შექმნა</string>
-    <string name="general_link_existing_action">ბმული არსებულ ანგარიშთან</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ცარიელი</string>
     <string name="general_dismiss_action">გაუქმება</string>
@@ -32,8 +29,6 @@
     <string name="general_manage_action">მართვა</string>
     <string name="general_sync_action">სინქრონიზაცია</string>
     <string name="general_error_label">შეცდომა</string>
-    <string name="general_select_server_label">აირჩიეთ სერვერი</string>
-    <string name="general_quota_label">Კვოტა</string>
     <string name="general_tap_hint_msg">შეეხეთ მეტი ვარიანტებისთვის</string>
     <string name="general_upgrade_action">გარემონტება</string>
     <string name="general_donate_action">შემოწირულება</string>

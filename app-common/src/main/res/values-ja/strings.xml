@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">喜んでお手伝いします。</string>
-    <string name="slogan_message_1">完璧に綺麗になりました</string>
     <string name="slogan_message_2">ごちゃごちゃを防ぐ。</string>
     <string name="slogan_message_3">必要なことをする。</string>
     <string name="slogan_message_4">あなたのために準備をしています</string>
@@ -23,8 +22,6 @@
     <string name="general_thanks_action">感謝します</string>
     <string name="general_gotit_action">わかりました。</string>
     <string name="general_edit_action">編集</string>
-    <string name="general_create_account_action">アカウントを作成</string>
-    <string name="general_link_existing_action">既存のアカウントとリンク</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空</string>
     <string name="general_dismiss_action">解散</string>
@@ -32,8 +29,6 @@
     <string name="general_manage_action">管理</string>
     <string name="general_sync_action">同期</string>
     <string name="general_error_label">エラー</string>
-    <string name="general_select_server_label">サーバーを選択</string>
-    <string name="general_quota_label">クオータ</string>
     <string name="general_tap_hint_msg">タップで更にオプションを表示</string>
     <string name="general_upgrade_action">アップグレード</string>
     <string name="general_donate_action">寄付</string>

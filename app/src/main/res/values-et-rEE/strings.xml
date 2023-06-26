@@ -338,14 +338,12 @@
     <string name="analyzer_storage_type_secondary_description">Teisejärguline hoiuruum, tavaliselt eemaldatav SD-kaart. Sisaldab seda toetavat meediafaile ja rakenduste andmeid.</string>
     <string name="analyzer_storage_content_title">Hoiustatav sisu</string>
     <string name="analyzer_storage_content_type_app_label">Rakendused</string>
-    <string name="analyzer_storage_content_type_app_description">Paigaldatud rakenduste ja nende andmete (nt paigaldusfailid, andmed ja vahemälud) hoiuruum.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Pole lube</string>
     <string name="analyzer_storage_content_type_media_label">Kasutaja failid</string>
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
     <string name="analyzer_storage_content_type_system_description">Süsteemi andmed ja rakendused.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
-    <string name="analyzer_storage_content_app_code_description">Paigaldusfailid, kogumid ja ressurssid. Selle hoiuruumi vabastamiseks tuleb rakendus eemaldada.</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>
     <string name="analyzer_storage_content_app_data_description">Andmed, seaded ja vahemälud.</string>
     <string name="analyzer_storage_content_app_media_label">Rakenduse meedia</string>

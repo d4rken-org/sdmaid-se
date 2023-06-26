@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">در خدمت شما.</string>
-    <string name="slogan_message_1">تمیز کردن &amp; پاکیزگی.</string>
     <string name="slogan_message_2">جلوگیری از هرج و مرج.</string>
     <string name="slogan_message_3">انجام آنچه لازم است.</string>
     <string name="slogan_message_4">همه اردک های شما پشت سر هم.</string>
@@ -18,8 +17,6 @@
     <string name="general_thanks_action">تشکر</string>
     <string name="general_gotit_action">فهمیدم</string>
     <string name="general_edit_action">ویرایش</string>
-    <string name="general_create_account_action">ایجاد حساب کاربری</string>
-    <string name="general_link_existing_action">اتصال به حساب کاربری موجود</string>
     <string name="general_na_label">نامعلوم</string>
     <string name="general_empty_label">خالی</string>
     <string name="general_dismiss_action">نادیده گرفتن</string>
@@ -27,8 +24,6 @@
     <string name="general_manage_action">مدیریت</string>
     <string name="general_sync_action">همگام سازی</string>
     <string name="general_error_label">خطا</string>
-    <string name="general_select_server_label">انتخاب سرور</string>
-    <string name="general_quota_label">بیشینه</string>
     <string name="general_upgrade_action">ارتقاء</string>
     <string name="general_donate_action">کمک مالی</string>
     <string name="general_check_action">بررسی</string>

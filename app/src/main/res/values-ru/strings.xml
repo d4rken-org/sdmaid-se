@@ -147,7 +147,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Автоудаление</string>
     <string name="corpsefinder_watcher_autodelete_summary">Автоматическое удаление всех остатков, связанных с удаленным приложением.</string>
     <string name="corpsefinder_watcher_notification_scan_result">После удаления %2$s найдено остатков: %1$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$s элем.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Удалить остатки</string>
     <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
     <string name="corpsefinder_filter_publicmedia_summary">Публичные медиафайлы, например, файлы, полученные через приложения для обмена сообщениями.</string>
@@ -351,14 +350,12 @@
     <string name="analyzer_storage_type_secondary_description">Дополнительная память, обычно сменная карта памяти. Содержит медиафайлы и данные приложений, которые поддерживают её.</string>
     <string name="analyzer_storage_content_title">Содержимое хранилища</string>
     <string name="analyzer_storage_content_type_app_label">Приложения</string>
-    <string name="analyzer_storage_content_type_app_description">Место, занятое установленными приложениями и их данными (такими как файлы установки, данные и кэш).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Отсутствуют разрешения</string>
     <string name="analyzer_storage_content_type_media_label">Пользовательские файлы</string>
     <string name="analyzer_storage_content_type_media_description">Сохраненные изображения, видео или загруженные данные. Любые данные, которые не принадлежат определенному приложению.</string>
     <string name="analyzer_storage_content_type_system_label">Системные данные</string>
     <string name="analyzer_storage_content_type_system_description">Системные данные и системные приложения.</string>
     <string name="analyzer_storage_content_app_code_label">Код приложения</string>
-    <string name="analyzer_storage_content_app_code_description">Установочные файлы, библиотеки и ресурсы. Это место может быть освобождено только при удалении приложения.</string>
     <string name="analyzer_storage_content_app_data_label">Данные приложений</string>
     <string name="analyzer_storage_content_app_data_description">Данные, настройки и кэш.</string>
     <string name="analyzer_storage_content_app_media_label">Медиа приложений</string>

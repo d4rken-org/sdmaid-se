@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD 女僕 SE</string>
     <string name="slogan_message_0">為您服務</string>
-    <string name="slogan_message_1">乾淨與整潔</string>
     <string name="slogan_message_2">防止混亂</string>
     <string name="slogan_message_3">做好必要的工作</string>
     <string name="slogan_message_4">把事情安排得有條不紊</string>
@@ -24,8 +23,6 @@
     <string name="general_thanks_action">感謝</string>
     <string name="general_gotit_action">瞭解了</string>
     <string name="general_edit_action">編輯</string>
-    <string name="general_create_account_action">建立帳戶</string>
-    <string name="general_link_existing_action">連結至現有帳戶</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空白</string>
     <string name="general_dismiss_action">關閉</string>
@@ -33,8 +30,6 @@
     <string name="general_manage_action">管理</string>
     <string name="general_sync_action">同步處理</string>
     <string name="general_error_label">錯誤</string>
-    <string name="general_select_server_label">選取伺服器</string>
-    <string name="general_quota_label">配額</string>
     <string name="general_tap_hint_msg">輕觸以取得其他選項</string>
     <string name="general_upgrade_action">升級</string>
     <string name="general_donate_action">捐贈</string>

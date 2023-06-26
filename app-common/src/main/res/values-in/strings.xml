@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Siap melayani anda.</string>
-    <string name="slogan_message_1">Bersih &amp; rapi.</string>
     <string name="slogan_message_2">Menghindari kekacauan.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu dilakukan.</string>
     <string name="slogan_message_4">Membariskan bebek-bebek Anda.</string>
@@ -24,8 +23,6 @@
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Mengerti</string>
     <string name="general_edit_action">Ubah</string>
-    <string name="general_create_account_action">Buat akun</string>
-    <string name="general_link_existing_action">Hubungkan ke akun yang sudah ada</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
     <string name="general_dismiss_action">Tutup</string>
@@ -33,8 +30,6 @@
     <string name="general_manage_action">Kelola</string>
     <string name="general_sync_action">Sinkronkan</string>
     <string name="general_error_label">Eror</string>
-    <string name="general_select_server_label">Pilih server</string>
-    <string name="general_quota_label">Kuota</string>
     <string name="general_tap_hint_msg">Tekan untuk pilihan lain</string>
     <string name="general_upgrade_action">Tingkatkan</string>
     <string name="general_donate_action">Donasi</string>

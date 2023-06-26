@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">स्वचालित हटाए</string>
     <string name="corpsefinder_watcher_autodelete_summary">अनइंस्टॉल किए गए ऐप से संबंधित किसी भी अवशेष को स्वचालित रूप से हटा दें।</string>
     <string name="corpsefinder_watcher_notification_scan_result">%2$s को अनइंस्टॉल करने के बाद %1$s अवशेष(स) मिले।</string>
-    <string name="corpsefinder_watcher_notification_delete_result">सफ़ाई सफल रही (%1$s): %2$s को मुक्त किया गया और %3$s आइटम(स) हटा दिए गए है।</string>
     <string name="corpsefinder_watcher_notification_delete_action">अवशेष हटाएं</string>
     <string name="corpsefinder_filter_publicmedia_label">सार्वजनिक मीडिया</string>
     <string name="corpsefinder_filter_publicmedia_summary">सार्वजनिक मीडिया फ़ाइलें, उदाहरण के लिए मैसेंजर ऐप्स के माध्यम से प्राप्त फ़ाइलें।</string>
@@ -339,14 +338,12 @@
     <string name="analyzer_storage_type_secondary_description">एक माध्यमिक संग्रहण, आमतौर पर एक हटाने योग्य एसडीकार्ड। मीडिया फ़ाइलें और इसका समर्थन करने वाले ऐप्स के डेटा शामिल हैं।</string>
     <string name="analyzer_storage_content_title">संग्रहण सामग्री</string>
     <string name="analyzer_storage_content_type_app_label">ऐप्स</string>
-    <string name="analyzer_storage_content_type_app_description">स्थापित ऐप्स और उनके डेटा द्वारा कब्जा कर लिया गया स्थान (यानी फ़ाइलें, डेटा और कैश इंस्टॉल करें)।</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">अनुमतियाँ गुम हैं</string>
     <string name="analyzer_storage_content_type_media_label">उपयोगकर्ता फ़ाइलें</string>
     <string name="analyzer_storage_content_type_media_description">कैप्चर की गई तस्वीरें, रिकॉर्ड किए गए वीडियो या डाउनलोड किए गए डेटा है। कोई भी डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <string name="analyzer_storage_content_type_system_label">सिस्टम डेटा</string>
     <string name="analyzer_storage_content_type_system_description">सिस्टम डेटा और सिस्टम ऐप्स।</string>
     <string name="analyzer_storage_content_app_code_label">ऐप कोड</string>
-    <string name="analyzer_storage_content_app_code_description">फ़ाइलें, पुस्तकालय और संसाधन स्थापित करें। यह स्थान केवल ऐप को अनइंस्टॉल करके ही मुक्त किया जा सकता है।</string>
     <string name="analyzer_storage_content_app_data_label">ऐप डेटा</string>
     <string name="analyzer_storage_content_app_data_description">डेटा, सेटिंग्स और कैशेस।</string>
     <string name="analyzer_storage_content_app_media_label">ऐप मीडिया</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="slogan_message_0">Na usluzi.</string>
-    <string name="slogan_message_1">Čisto i uredno.</string>
     <string name="slogan_message_2">Sprječava kaos.</string>
     <string name="slogan_message_3">Radi ono što je potrebno.</string>
     <string name="slogan_message_4">Sve vaše patke redom.</string>
@@ -23,16 +22,12 @@
     <string name="general_thanks_action">Hvala</string>
     <string name="general_gotit_action">Shvaćam</string>
     <string name="general_edit_action">Uredi</string>
-    <string name="general_create_account_action">Stvorite račun</string>
-    <string name="general_link_existing_action">Veza na postojeći račun</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_dismiss_action">Odbaci</string>
     <string name="general_maybe_later_action">Možda kasnije</string>
     <string name="general_manage_action">Upravljanje</string>
     <string name="general_sync_action">Sinkroniziraj</string>
     <string name="general_error_label">Greška</string>
-    <string name="general_select_server_label">Odaberite poslužitelj</string>
-    <string name="general_quota_label">Kvota</string>
     <string name="general_tap_hint_msg">Dodirnite za više opcija</string>
     <string name="general_upgrade_action">Nadogradnja</string>
     <string name="general_donate_action">Donirajte</string>

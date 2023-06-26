@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Apagar automaticamente</string>
     <string name="corpsefinder_watcher_autodelete_summary">Apagar automaticamente qualquer resto relacionado com o aplicativo desinstalado.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s restante(s) encontrado(s) após a desinstalação de %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Limpeza bem sucedida (%1$s): Libertos %2$s e removidos %3$s item(s).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Apagar restos</string>
     <string name="corpsefinder_filter_publicmedia_label">Mídia pública</string>
     <string name="corpsefinder_filter_publicmedia_summary">Arquivos de mídia públicos, por exemplo, arquivos recebidos via aplicativos do messenger.</string>
@@ -344,14 +343,12 @@ Recursos dos jogos.</string>
     <string name="analyzer_storage_type_secondary_description">Um armazenamento secundário, geralmente um cartão Sd removível, contém arquivos de mídia e dados de aplicativos que o suportam.</string>
     <string name="analyzer_storage_content_title">Conteúdo de armazenamento</string>
     <string name="analyzer_storage_content_type_app_label">Aplicações</string>
-    <string name="analyzer_storage_content_type_app_description">Espaço ocupado por aplicativos instalados seus dados (ou seja, instalar arquivos, dados e caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Faltam autorizações</string>
     <string name="analyzer_storage_content_type_media_label">Ficheiros do Utilizador</string>
     <string name="analyzer_storage_content_type_media_description">Imagens capturadas, vídeos gravados ou dados baixados. Quaisquer dados que não pertençam a um aplicativo específico.</string>
     <string name="analyzer_storage_content_type_system_label">Dados de sistema</string>
     <string name="analyzer_storage_content_type_system_description">Dados do sistema e aplicativos do sistema.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicação</string>
-    <string name="analyzer_storage_content_app_code_description">Instale ficheiros, bibliotecas e recursos. Este espaço só pode ser libertado desinstalando o aplicativo.</string>
     <string name="analyzer_storage_content_app_data_label">Dados das aplicações</string>
     <string name="analyzer_storage_content_app_data_description">Dados, configurações e caches.</string>
     <string name="analyzer_storage_content_app_media_label">Mídia de apps</string>

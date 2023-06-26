@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Laging nakahandang maglingkod.</string>
-    <string name="slogan_message_1">Malinis &amp; maganda.</string>
     <string name="slogan_message_2">Pangontra-kalat.</string>
     <string name="slogan_message_3">Ginagawa ang dapat gawin.</string>
     <string name="slogan_message_4">Mabusisi\'t iwas-pagkakamali.</string>
@@ -22,8 +21,6 @@
     <string name="general_thanks_action">Salamat</string>
     <string name="general_gotit_action">Kuha ko</string>
     <string name="general_edit_action">Baguhin</string>
-    <string name="general_create_account_action">Gumawa ng account</string>
-    <string name="general_link_existing_action">I-link sa kasalukuyang account</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Walang laman</string>
     <string name="general_dismiss_action">Huwag pansinin</string>
@@ -31,8 +28,6 @@
     <string name="general_manage_action">Pamahalaan</string>
     <string name="general_sync_action">I-sync</string>
     <string name="general_error_label">Problema</string>
-    <string name="general_select_server_label">Pumili ng server</string>
-    <string name="general_quota_label">Quota</string>
     <string name="general_tap_hint_msg">Pindutin para sa higit pang opsyon</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
     <string name="general_donate_action">Mag-donate</string>
