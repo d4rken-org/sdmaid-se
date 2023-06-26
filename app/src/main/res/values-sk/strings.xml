@@ -285,6 +285,7 @@
     <string name="appcleaner_filter_wechat_summary">Odoslané alebo prijaté súbory v konverzáciách a WeChat momentoch.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediálne súbory uložené vo vyrovnávacej pamäti, ktoré sa pri zobrazení v rozhovore znova stiahnu.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Odstrániť nepotrebné položky pre všetky aplikácie?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d nepotrebná položka nájdená</item>
         <item quantity="few">%d nepotrebné položky nájdené</item>
@@ -299,6 +300,8 @@
     <string name="appcleaner_automation_unavailable_title">Služba dostupnosti nie je k dispozícii</string>
     <string name="appcleaner_automation_unavailable_body">Odstránenie nedostupných vyrovnávacích pamätí vyžaduje službu dostupnosti SD Maid, ktorá však bola nedostupná. Ak ju nechcete používať: Zakážte možnosť „Zahrnúť neprístupné vyrovnávacie pamäte“.</string>
     <string name="appcleaner_junk_userprofile_label">Užívateľ</string>
+    <string name="appcleaner_delete_confirmation_message_x">Odstrániť nepotrebné položky pre %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Odstrániť nepotrebné položky pre %d zvolené aplikácie?</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -307,6 +310,7 @@
         <item quantity="many">%d aplikácií zistených</item>
         <item quantity="other">%d aplikácií zistených</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Prepnúť aplikácie</string>
     <string name="appcontrol_toggle_app_enable_action">Povoliť aplikáciu</string>
     <string name="appcontrol_toggle_app_disable_action">Zakázať aplikáciu</string>
     <string name="appcontrol_toggle_app_enable_description">Povolenie aplikácie umožní jej spustenie a môže sa stať viditeľnou v spúšťači, ak má nejakú aktivitu.</string>
@@ -393,6 +397,12 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Máte neuložené zmeny!</string>
     <string name="exclusion_create_pkg_hint">Na vytvorenie vylúčení aplikácií použite nástroj Kontrola aplikácií.</string>
     <string name="exclusion_create_path_hint">Na vytvorenie vylúčení ciest použite nástroj Analyzátor úložiska.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Jedno vylúčenie vytvorené</item>
+        <item quantity="few">%d vylúčenia vytvorené</item>
+        <item quantity="many">%d vylúčení vytvorených</item>
+        <item quantity="other">%d vylúčení vytvorených</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a kliknúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

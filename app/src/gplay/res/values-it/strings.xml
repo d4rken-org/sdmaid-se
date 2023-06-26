@@ -9,9 +9,11 @@
     <string name="upgrades_gplay_unavailable_error">Google Play Services non sono disponibili.</string>
     <string name="upgrades_no_purchases_found_check_account">Nessun acquisto trovato. Stai usando l\'account corretto?</string>
     <string name="upgrade_screen_title">Passa a SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid non contiene pubblicità e non vende i dati degli utenti. Il mio lavoro è finanziato dagli utenti ❤️.</string>
     <string name="upgrade_screen_benefits_title">Vantaggi</string>
     <string name="upgrade_screen_benefits_body">• Pulizia delle app 💯\n• Attività programmate ⏰\n• Funzionalità aggiuntive per tutti i programmi ⚙️\n• Regole di pulizia personalizzabili ✍️\n• Uno sviluppatore motivato 🧙\ne tanto altro…</string>
     <string name="upgrade_screen_how_title">Opzioni</string>
+    <string name="upgrade_screen_subscription_trial_action">Inizia la prova gratuita di 14 giorni</string>
     <string name="upgrade_screen_subscription_action">Abbonati</string>
     <string name="upgrade_screen_subscription_action_hint">L\'abbonamento costa %s all\'anno.</string>
     <string name="upgrade_screen_iap_action">Acquisto una tantum</string>

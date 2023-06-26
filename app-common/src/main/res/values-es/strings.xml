@@ -75,17 +75,17 @@
     <string name="general_update_action">Actualizar</string>
     <string name="general_scan_action">Escanear</string>
     <string name="general_delete_action">Borrar</string>
-    <string name="general_delete_selected_action">Borrar seleccionados</string>
+    <string name="general_delete_selected_action">Eliminar las selecciones</string>
     <string name="general_show_details_action">Mostrar detalles</string>
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">¿Borrar %d elementos seleccionados?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
         <item quantity="one">Eliminado %1$d elemento y liberado %2$s</item>
         <item quantity="other">Eliminados %1$d elementos y liberados %2$s</item>
     </plurals>
     <string name="general_remove_action">Eliminar</string>
-    <string name="general_remove_selected_action">Eliminar seleccionados</string>
+    <string name="general_remove_selected_action">Eliminar la selección</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Se ha eliminado un elemento</item>
         <item quantity="other">Se han eliminado %d elementos</item>
@@ -112,7 +112,7 @@
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamaño</string>
     <string name="general_exclude_action">Excluir</string>
-    <string name="general_exclude_selected_action">Excluir seleccionados</string>
+    <string name="general_exclude_selected_action">Ignorar lo seleccionado</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Ajustes</string>
     <string name="general_help_title">Ayuda</string>

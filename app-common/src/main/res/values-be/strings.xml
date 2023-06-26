@@ -75,10 +75,25 @@
     <string name="general_update_action">Абнавіць</string>
     <string name="general_scan_action">Сканіраваць</string>
     <string name="general_delete_action">Выдаліць</string>
+    <string name="general_delete_selected_action">Выдаліць выбраныя</string>
     <string name="general_show_details_action">Паказаць падрабязнасці</string>
     <string name="general_delete_confirmation_title">Пацвердзіць выдаленне</string>
     <string name="general_delete_confirmation_message_x">Выдаліць \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Выдаліць %d выбраных элементаў?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Выдалены %1$d элемент і вызвалена %2$s</item>
+        <item quantity="few">Выдалена %1$d элементы і вызвалена %2$s</item>
+        <item quantity="many">Выдалена %1$d элементаў і вызвалена %2$s</item>
+        <item quantity="other">Выдалена %1$d элементаў і вызвалена %2$s</item>
+    </plurals>
     <string name="general_remove_action">Выдаліць</string>
+    <string name="general_remove_selected_action">Выдаліць выбраныя</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Быў выдалены адзін элемент</item>
+        <item quantity="few">Было выдалена %d элементы</item>
+        <item quantity="many">Было выдалена %d элементаў</item>
+        <item quantity="other">Было выдалена %d элементаў</item>
+    </plurals>
     <string name="general_root_required_label">Патрабуецца дазвол на каранёвы доступ</string>
     <string name="general_root_required_message">Патрабуецца прылада з адкрытым каранёвым доступам</string>
     <string name="general_search_action">Шукаць</string>
@@ -98,10 +113,12 @@
     <string name="general_grant_access_action">Даць доступ</string>
     <string name="general_enable_service_action">Уключыць службу</string>
     <string name="general_undo_action">Скасаваць</string>
+    <string name="general_list_select_all_action">Выбраць усё</string>
     <string name="general_path_label">Шлях</string>
     <string name="general_type_label">Тып</string>
     <string name="general_size_label">Памер</string>
     <string name="general_exclude_action">Выключыць</string>
+    <string name="general_exclude_selected_action">Выключыць выбранае</string>
     <string name="general_device_label">Прылада</string>
     <string name="general_settings_title">Налады</string>
     <string name="general_help_title">Дапамога</string>

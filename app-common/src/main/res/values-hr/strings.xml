@@ -73,10 +73,23 @@
     <string name="general_update_action">Ažuriraj</string>
     <string name="general_scan_action">Skeniraj</string>
     <string name="general_delete_action">Izbriši</string>
+    <string name="general_delete_selected_action">Izbriši odabrano</string>
     <string name="general_show_details_action">Prikaži detalje</string>
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Izbrisana %1$d stavka i oslobođeno %2$s</item>
+        <item quantity="few">Izbrisane %1$d stavke i oslobođeno %2$s</item>
+        <item quantity="other">Izbrisano %1$d stavki i oslobođeno %2$s</item>
+    </plurals>
     <string name="general_remove_action">Ukloni</string>
+    <string name="general_remove_selected_action">Ukloni odabrano</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Jedna stavka je uklonjena</item>
+        <item quantity="few">%d stavke su uklonjene</item>
+        <item quantity="other">%d stavki je uklonjeno</item>
+    </plurals>
     <string name="general_root_required_label">Zahtijeva root</string>
     <string name="general_root_required_message">Zahtijeva rootani uređaj</string>
     <string name="general_search_action">Traži</string>
@@ -95,10 +108,12 @@
     <string name="general_grant_access_action">Dozvoli pristup</string>
     <string name="general_enable_service_action">Omogući uslugu</string>
     <string name="general_undo_action">Poništi</string>
+    <string name="general_list_select_all_action">Odaberi sve</string>
     <string name="general_path_label">Putanja</string>
     <string name="general_type_label">Vrsta</string>
     <string name="general_size_label">Veličina</string>
     <string name="general_exclude_action">Izdvoji</string>
+    <string name="general_exclude_selected_action">Poništi odabir</string>
     <string name="general_device_label">Uređaj</string>
     <string name="general_settings_title">Postavke</string>
     <string name="general_help_title">Pomoć</string>

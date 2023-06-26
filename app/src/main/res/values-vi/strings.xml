@@ -273,6 +273,7 @@
     <string name="appcleaner_filter_wechat_summary">Tệp đã gửi hoặc nhận trong các cuộc trò chuyện và khoảnh khắc WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Các tệp phương tiện đã lưu trong bộ nhớ cache được tải xuống lại khi xem trong cuộc trò chuyện.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Xóa các mục có thể sử dụng cho tất cả các ứng dụng?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
     </plurals>
@@ -284,11 +285,14 @@
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
     <string name="appcleaner_automation_unavailable_body">Việc xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
     <string name="appcleaner_junk_userprofile_label">Người dùng</string>
+    <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">Đã phát hiện %d ứng dụng</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Chuyển đổi ứng dụng</string>
     <string name="appcontrol_toggle_app_enable_action">Bật ứng dụng</string>
     <string name="appcontrol_toggle_app_disable_action">Tắt ứng dụng</string>
     <string name="appcontrol_toggle_app_enable_description">Kích hoạt ứng dụng sẽ cho phép ứng dụng đó chạy và có thể làm cho ứng dụng hiển thị trong trình khởi chạy của bạn nếu ứng dụng có hoạt động.</string>
@@ -375,6 +379,9 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Bạn có các thay đổi chưa lưu!</string>
     <string name="exclusion_create_pkg_hint">Sử dụng công cụ AppControl để tạo loại trừ ứng dụng.</string>
     <string name="exclusion_create_path_hint">Sử dụng công cụ StorageAnalyzer để tạo loại trừ đường dẫn.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">Đã tạo %d loại trừ</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Người dùng có nhu cầu trợ năng đặc biệt có thể bật dịch vụ này để cho phép SD Maid tự động hóa các tác vụ mà nếu không sẽ yêu cầu tương tác thủ công tẻ nhạt của người dùng (ví dụ: xóa bộ nhớ cache).\n\nVí dụ: Nếu bạn hướng dẫn SD Maid dừng nhiều ứng dụng thì SD Maid có thể sử dụng dịch vụ này để mở từng màn hình cài đặt ứng dụng, hãy tìm nút \'Buộc dừng\' và nhấp vào nút đó.\n\nSD Maid sẽ luôn hiển thị nổi bật khi sử dụng dịch vụ này và cung cấp một cách dễ dàng để người dùng hủy mọi tương tác ngay lập tức.\n\nKhông các hành động sẽ được thực hiện mà không có sự chấp thuận trước của người dùng. Dịch vụ này có thể bị vô hiệu hóa lại bất cứ lúc nào mà không có tác dụng phụ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid đang tương tác với thiết bị của bạn. Không thể sử dụng màn hình cùng một lúc. Chờ cho đến khi hoạt động kết thúc hoặc hủy bỏ nó.</string>
     <string name="automation_active_title">SD Maid đang hoạt động</string>

@@ -64,6 +64,7 @@
     <string name="general_progress_queued">Dalam antrean</string>
     <string name="general_progress_deleting">Menghapus %s</string>
     <string name="general_sort_options_label">Pilihan pengurutan</string>
+    <string name="general_sort_reverse_action">Mode pengurutan terbalik</string>
     <string name="general_tag_filter_label">Saring berdasarkan tag</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <string name="general_result_failure_message">Pekerjaan gagal</string>
@@ -74,10 +75,19 @@
     <string name="general_update_action">Perbarui</string>
     <string name="general_scan_action">Pindai</string>
     <string name="general_delete_action">Hapus</string>
+    <string name="general_delete_selected_action">Hapus yang dipilih</string>
     <string name="general_show_details_action">Tampilkan detail</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d item terpilih?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="other">Menghapus %1$d item dan membebaskan %2$s</item>
+    </plurals>
     <string name="general_remove_action">Hapus</string>
+    <string name="general_remove_selected_action">Hapus yang dipilih</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="other">%d barang dihapus</item>
+    </plurals>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan perangkat yang di-root</string>
     <string name="general_search_action">Cari</string>
@@ -94,10 +104,12 @@
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Aktifkan layanan</string>
     <string name="general_undo_action">Batalkan</string>
+    <string name="general_list_select_all_action">Pilih semua</string>
     <string name="general_path_label">Jalur</string>
     <string name="general_type_label">Jenis</string>
     <string name="general_size_label">Ukuran</string>
     <string name="general_exclude_action">Kecualikan</string>
+    <string name="general_exclude_selected_action">Kecualikan yang dipilih</string>
     <string name="general_device_label">Perangkat</string>
     <string name="general_settings_title">Pengaturan</string>
     <string name="general_help_title">Bantuan</string>

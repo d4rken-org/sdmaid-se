@@ -273,6 +273,7 @@
     <string name="appcleaner_filter_wechat_summary">위챗 대화나 모멘트에서 주고받은 파일들입니다.</string>
     <string name="appcleaner_filter_viber_label">바이버</string>
     <string name="appcleaner_filter_viber_summary">채팅을 열게 되면 자동으로 다운로드되는 캐시된 미디어 파일입니다.</string>
+    <string name="appcleaner_delete_all_confirmation_message">모든 앱의 임시 파일을 제거할까요?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d개의 </item>
     </plurals>
@@ -284,11 +285,14 @@
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>
     <string name="appcleaner_automation_unavailable_body">직접 접근할 수 없는 캐시를 지우려면 SD Maid의 접근성 서비스가 필요하지만, 사용할 수 없었습니다. 사용하고 싶지 않다면 \"접근할 수 없는 캐시 포함\" 옵션을 꺼주세요.</string>
     <string name="appcleaner_junk_userprofile_label">사용자</string>
+    <string name="appcleaner_delete_confirmation_message_x">%s의 임시 파일을 제거할까요?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">%d 개의 선택된 앱의 임시 파일을 제거할까요?</string>
     <string name="appcontrol_tool_name">앱제어</string>
     <string name="appcontrol_explanation_short">장치에 설치한 앱입니다.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">%d개의 앱을 발견했습니다</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">앱 전환</string>
     <string name="appcontrol_toggle_app_enable_action">앱 활성화</string>
     <string name="appcontrol_toggle_app_disable_action">앱 사용 중지</string>
     <string name="appcontrol_toggle_app_enable_description">앱을 사용 설정하면 실행을 허용하고 직접 실행이 가능하다면 런처에 표시될 수 있습니다.</string>
@@ -368,6 +372,16 @@
     <string name="exclusion_option_allow_partial">부분 매칭 허용</string>
     <string name="exclusion_option_ignore_casing">대/소문자 무시</string>
     <string name="exclusion_editor_affected_tools_label">영향받은 도구</string>
+    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 해당하는 경로를 더 처리하는 것을 방지합니다. 파일, 디렉토리, 그리고 디렉토리 내 폴더들에 대해 적용됩니다.</string>
+    <string name="exclusion_editor_pkg_explanation">앱 제외는 SD Maid가 해당하는 애플리케이션을 처리하는 것을 방지합니다.</string>
+    <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
+    <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
+    <string name="exclusion_create_pkg_hint">AppControl 도구를 이용해 앱 제외를 만드세요.</string>
+    <string name="exclusion_create_path_hint">StorageAnalyzer 도구를 이용해 경로 제외를 만드세요.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d개의 제외 생성됨</item>
+    </plurals>
     <string name="automation_accessibility_service_description">접근성 기능이 필요한 사용자는 이 서비스를 허용하여 일일이 수동으로 작동시켜야 하는 (캐시 삭제 같은) 기능들을 자동화할 수 있습니다.\n\n예를 들어 SD Maid가 여러 개의 앱을 중지해야 할 경우, SD Maid는 이 서비스를 사용하여 각 앱의 설정 화면을 띄운 뒤 강제 중지 버튼을 찾아 자동으로 누르게 됩니다.\n\nSD Maid는 이 기능을 사용할 때마다 이용자에게 이 기능을 실행할지 반드시 물어볼 것이며, 사용자는 언제든지 서비스 동작을 쉽게 중지할 수 있습니다.\n\n사용자의 동의 없이는 어떠한 동작도 실행되지 않습니다. 사용자는 큰 문제 없이 언제든지 이 기능을 끌 수 있습니다.</string>
     <string name="automation_screenoverlay_explanation">SD Maid가 화면과 상호작용하고 있습니다. 사용자가 지금 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 작업을 취소하세요.</string>
     <string name="automation_active_title">SD Maid가 동작하고 있습니다</string>

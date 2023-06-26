@@ -143,7 +143,7 @@
     <string name="corpsefinder_watcher_autodelete_title">Suppression automatique</string>
     <string name="corpsefinder_watcher_autodelete_summary">Supprimer automatiquement tous les restes liés à l\'application désinstallée.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s reste(s) trouvé(s) après la désinstallation de %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Nettoyage réussi (%1$s) : %2$s ont été libérés et %3$s élément(s) supprimé(s).</string>
+    <string name="corpsefinder_watcher_notification_delete_result">Le nettoyage est réussi (%1$s) : %2$s ont été libérés et %3$s élément(s) supprimé(s).</string>
     <string name="corpsefinder_watcher_notification_delete_action">Supprimer les restes</string>
     <string name="corpsefinder_filter_publicmedia_label">Médias publics</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fichiers multimédias publics, par ex. fichiers reçus via les applications de messagerie.</string>
@@ -350,7 +350,7 @@
     <string name="analyzer_storage_content_type_system_label">Données système</string>
     <string name="analyzer_storage_content_type_system_description">Données système et applications système.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l\'application</string>
-    <string name="analyzer_storage_content_app_code_description">Installe des fichiers, des bibliothèques et des ressources. Cet espace ne peut être libéré qu\'en désinstallant l\'application.</string>
+    <string name="analyzer_storage_content_app_code_description">Fichiers d’installation, bibliothèques et ressources. Cet espace ne peut être libéré qu\'en désinstallant l\'appli.</string>
     <string name="analyzer_storage_content_app_data_label">Données de l\'application</string>
     <string name="analyzer_storage_content_app_data_description">Données, paramètres et caches.</string>
     <string name="analyzer_storage_content_app_media_label">Média de l\'application</string>
@@ -382,7 +382,7 @@
     <string name="exclusion_editor_pkg_explanation">Une exclusion d\'application empêche SD Maid de traiter les paquets correspondants.</string>
     <string name="exclusion_editor_segment_explanation">Une exclusion basée sur un segment est similaire à une exclusion de chemin d\'accès mais permet des correspondances partielles. Exemple : \"DCIM/Camera\" exclut \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des modifications non enregistrées !</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des modifications non enregistrées.</string>
     <string name="exclusion_create_pkg_hint">Utilisez l\'outil Gestion des applications pour créer des exclusions d\'applications.</string>
     <string name="exclusion_create_path_hint">Utilisez l\'outil Analyseur de stockage pour créer des exclusions de chemin.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -430,7 +430,7 @@
     <string name="updates_dashcard_title">Mise à jour disponible</string>
     <string name="updates_dashcard_body">Une mise à jour est disponible. Vous avez %1$s et la dernière version est %2$s.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>
-    <string name="translation_encourage_body">SD Maid est traduit par des bénévoles. Qu\'il s\'agisse de traduction, de révision ou de relecture, votre aide est la bienvenue !</string>
+    <string name="translation_encourage_body">SD Maid est traduit par des bénévoles. Traduction, révision ou correction, votre aide est précieuse.</string>
     <string name="translation_translators_title">Cette version est traduite par</string>
     <string name="translation_translators_people">V.Oberson;Choukajohn</string>
 </resources>

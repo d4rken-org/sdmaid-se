@@ -277,6 +277,7 @@
     <string name="appcleaner_filter_wechat_summary">Fitxers enviats o rebuts en converses i moments de WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fitxers multimèdia a la memòria cau que es tornen a baixar quan es visualitzen al xat.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Voleu suprimir els elements prescindibles de totes les aplicacions?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>
         <item quantity="other">S\'han trobat %d articles prescindibles</item>
@@ -289,12 +290,15 @@
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
     <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
     <string name="appcleaner_junk_userprofile_label">Usuari</string>
+    <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Voleu suprimir els fitxers prescindibles de %d aplicacions seleccionades?</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">S\'ha detectat %d aplicació</item>
         <item quantity="other">S\'han detectat %d aplicacions</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Commuta aplicacions</string>
     <string name="appcontrol_toggle_app_enable_action">Activa l\'aplicació</string>
     <string name="appcontrol_toggle_app_disable_action">Desactiva l\'aplicació</string>
     <string name="appcontrol_toggle_app_enable_description">Activar una aplicació permet que s\'executi i pot fer-la visible al llançador si té una activitat.</string>
@@ -381,6 +385,10 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
     <string name="exclusion_create_pkg_hint">Utilitzeu l\'eina de Control d\'aplicacions per crear exclusions d\'aplicacions.</string>
     <string name="exclusion_create_path_hint">Utilitzeu l\'eina d\'Anàlisi d\'emmagatzematge per crear exclusions de rutes.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">S\'ha creat una exclusió</item>
+        <item quantity="other">S\'han creat %d exclusions</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i feu-hi clic. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>
