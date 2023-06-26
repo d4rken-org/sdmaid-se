@@ -474,11 +474,7 @@ class AppScanner @Inject constructor(
             .filter { it.userHandle == currentUser.handle }
             .filter { pkg ->
                 // On Samsung ROMs, we can't open the settings page for disabled apps
-                if (!isSamsungRom) return@filter true
-                // TODO Is this our concern? Or should this be up to deletion, not the scan?
-                (!acsEnabled || pkg.isEnabled).also {
-                    if (!it) log(TAG, WARN) { "Skipping inaccessible cache for $pkg. Package disabled, ACS enabled." }
-                }
+                !isSamsungRom || pkg.isEnabled
             }
             .filterIsInstance<NormalPkg>()
             .mapNotNull { inaccessibleCacheProvider.determineCache(it) }

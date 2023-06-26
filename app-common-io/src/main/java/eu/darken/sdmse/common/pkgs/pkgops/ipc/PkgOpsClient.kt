@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.ipc.IpcClientModule
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
 import java.io.IOException
 
@@ -35,6 +36,14 @@ class PkgOpsClient @AssistedInject constructor(
         connection.forceStop(packageName)
     } catch (e: Exception) {
         log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun clearCache(id: Installed.InstallId): Boolean = try {
+//        connection.clearCache(id)
+        TODO()
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(id=$id) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 
