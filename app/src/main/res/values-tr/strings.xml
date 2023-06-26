@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Otomatik silme</string>
     <string name="corpsefinder_watcher_autodelete_summary">Kaldırılan uygulamayla ilgili tüm kalıntıları otomatik olarak silin.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%2$s kaldırıldıktan sonra %1$s kalıntı bulundu.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Temizlik başarılı (%1$s): %2$s yer açıldı ve %3$s öğe silindi.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Kalıntıları sil</string>
     <string name="corpsefinder_filter_publicmedia_label">Genel medya</string>
     <string name="corpsefinder_filter_publicmedia_summary">Genel medya dosyaları, mesajlaşma uygulamaları üzerinden alınan dosyalar gibi.</string>
@@ -341,14 +340,12 @@
     <string name="analyzer_storage_type_secondary_description">Genellikle çıkarılabilir bir hafıza kartı olan ikincil bir depolama alanı. Medya dosyalarını ve destekleyen uygulamaların verilerini içerir.</string>
     <string name="analyzer_storage_content_title">Depolama içeriği</string>
     <string name="analyzer_storage_content_type_app_label">Uygulamalar</string>
-    <string name="analyzer_storage_content_type_app_description">Yüklü uygulamalar ve verileri (yani yükleme dosyaları, veriler ve önbellekler) tarafından kaplanan alan.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">İzinler eksik</string>
     <string name="analyzer_storage_content_type_media_label">Kullanıcı dosyaları</string>
     <string name="analyzer_storage_content_type_media_description">Çekilen resimler, kaydedilen videolar veya indirilen veriler. Belirli bir uygulamaya ait olmayan tüm veriler.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
     <string name="analyzer_storage_content_type_system_description">Sistem verileri ve sistem uygulamaları.</string>
     <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
-    <string name="analyzer_storage_content_app_code_description">Kurulum dosyaları, kütüphaneler ve kaynaklar. Bu alan yalnızca uygulama kaldırılarak boşaltılabilir.</string>
     <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>
     <string name="analyzer_storage_content_app_data_description">Veriler, ayarlar ve önbellekler.</string>
     <string name="analyzer_storage_content_app_media_label">Uygulama medyası</string>

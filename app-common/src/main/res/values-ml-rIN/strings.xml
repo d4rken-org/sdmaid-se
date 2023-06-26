@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD മെയ്ഡ് SE</string>
     <string name="slogan_message_0">നിങ്ങളുടെ സേവനത്തിൽ.</string>
-    <string name="slogan_message_1">വൃത്തിയും &amp; വെടിപ്പും.</string>
     <string name="slogan_message_2">അരാജകത്വം തടയുന്നു.</string>
     <string name="slogan_message_3">ആവശ്യമുള്ളത് ചെയ്യുന്നു.</string>
     <string name="slogan_message_4">എല്ലാം അതിന്റെ സ്ഥാനത്ത്.</string>
@@ -23,8 +22,6 @@
     <string name="general_thanks_action">നന്ദി</string>
     <string name="general_gotit_action">മനസ്സിലായി</string>
     <string name="general_edit_action">തിരുത്തുക</string>
-    <string name="general_create_account_action">അക്കൗണ്ട് സൃഷ്ടിക്കുക</string>
-    <string name="general_link_existing_action">നിലവിലുള്ള ഒരു അക്കൗണ്ടിലേക്ക് ലിങ്ക് ചെയ്യുക</string>
     <string name="general_na_label">ലഭ്യമല്ല</string>
     <string name="general_empty_label">ശൂന്യം</string>
     <string name="general_dismiss_action">തള്ളിക്കളയുക</string>
@@ -32,8 +29,6 @@
     <string name="general_manage_action">കൈകാര്യം ചെയ്യുക</string>
     <string name="general_sync_action">സമന്വയിപ്പിക്കുക</string>
     <string name="general_error_label">ഇറർ</string>
-    <string name="general_select_server_label">സെർവർ തിരഞ്ഞെടുക്കുക</string>
-    <string name="general_quota_label">ക്വാട്ട</string>
     <string name="general_tap_hint_msg">കൂടുതൽ ഓപ്ഷനുകൾക്ക് ടാപ്പുചെയ്യുക</string>
     <string name="general_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
     <string name="general_donate_action">സംഭാവനചെയ്യുക</string>

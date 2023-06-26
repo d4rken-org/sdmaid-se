@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatikus törlés</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatikusan törli az eltávolított alkalmazáshoz kapcsolódó maradványokat.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s maradvány(ok) található(ak) a(z) %2$s eltávolítása után.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Sikeres takarítás (%1$s): %2$s elem(ek) felszabadítva és %3$s elem(ek) eltávolítva.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Maradványok törlése</string>
     <string name="corpsefinder_filter_publicmedia_label">Nyilvános média</string>
     <string name="corpsefinder_filter_publicmedia_summary">Nyilvános médiafájlok, pl. üzenetküldő alkalmazásokon keresztül kapott fájlok.</string>
@@ -339,14 +338,12 @@
     <string name="analyzer_storage_type_secondary_description">Másodlagos tároló, általában egy cserélhető SD kártya. Tartalmazza a médiafájlokat és az azt támogató alkalmazások adatait.</string>
     <string name="analyzer_storage_content_title">Tárhely tartalma</string>
     <string name="analyzer_storage_content_type_app_label">Appok</string>
-    <string name="analyzer_storage_content_type_app_description">A telepített alkalmazások és adataik (pl. telepítőfájlok, adatok és gyorsítótárak) által elfoglalt hely.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Hiányoznak az engedélyek</string>
     <string name="analyzer_storage_content_type_media_label">Felhasználói fájlok</string>
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
     <string name="analyzer_storage_content_type_system_description">Rendszeradatok és rendszeralkalmazások.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
-    <string name="analyzer_storage_content_app_code_description">Telepítőfájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
     <string name="analyzer_storage_content_app_data_description">Adatok, beállítások és gyorsítótárak.</string>
     <string name="analyzer_storage_content_app_media_label">App média</string>

@@ -9,7 +9,6 @@
     <string name="upgrade_screen_title">Cải thiện SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Chỉ có bạn mới có thể tiếp tục phát triển.</string>
     <string name="upgrade_screen_how_title">Làm thế nào để giúp đỡ</string>
-    <string name="upgrade_screen_how_body">Trở thành người bảo trợ và tài trợ phát triển! Nhấp vào nút bên dưới để kích hoạt tất cả các tính năng bổ sung và mở hồ sơ Nhà tài trợ Github của tôi.</string>
     <string name="upgrade_screen_why_title">Điều này gợi lên 🪄</string>
     <string name="upgrade_screen_why_body">• Chức năng xóa AppCleaner 💯\n• Hoạt động theo lịch trình ⏰\n• Tùy chọn bổ sung cho tất cả các công cụ ⚙️\n• Quy tắc xóa của riêng bạn ✍️\n• Nhà phát triển năng động 🧙\nvà hơn thế nữa…</string>
     <string name="upgrade_screen_sponsor_action">Tài trợ nhà phát triển</string>

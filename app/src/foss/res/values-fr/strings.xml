@@ -9,7 +9,6 @@
     <string name="upgrade_screen_title">Améliorer SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid ne présente aucune publicité et ne vend pas les données des utilisateurs. La poursuite du développement n\'est possible que grâce à vous.</string>
     <string name="upgrade_screen_how_title">Comment aider</string>
-    <string name="upgrade_screen_how_body">Devenez mécène et financez le développement. Cliquez sur le bouton ci-dessous pour activer toutes les fonctions supplémentaires et ouvrir mon profil « GitHub Sponsors ».</string>
     <string name="upgrade_screen_why_title">Ceci conjure 🪄</string>
     <string name="upgrade_screen_why_body">• Fonction de suppression Nettoyeur d’applis 💯\n• Opérations planifiées ⏰\n• Options supplémentaires pour tous les outils ⚙️\n• Vos propres règles de suppression ✍️\n• Un développeur motivé 🧙\net plus…</string>
     <string name="upgrade_screen_sponsor_action">Financer le développement</string>

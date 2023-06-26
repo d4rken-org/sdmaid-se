@@ -9,7 +9,6 @@
     <string name="upgrade_screen_title">SD Maidi täiendamine</string>
     <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Jätkuv arendamine on võimalik vaid teie abil.</string>
     <string name="upgrade_screen_how_title">Kuidas aidata?</string>
-    <string name="upgrade_screen_how_body">Hakake toetajaks ja rahastage arendamist. Kõikide lisavõimaluste kasutamiseks ja minu Github Sponsors profiili avamiseks klõpsake alumisel nupul.</string>
     <string name="upgrade_screen_why_title">Need ilmuvad nagu võluväel 🪄:</string>
     <string name="upgrade_screen_why_body">• rakendusepuhastaja kustutamisvõimalus 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
     <string name="upgrade_screen_sponsor_action">Rahastage arendamist</string>

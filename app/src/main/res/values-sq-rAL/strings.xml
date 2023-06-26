@@ -143,7 +143,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Fshirje automatike</string>
     <string name="corpsefinder_watcher_autodelete_summary">Fshi automatikisht çdo mbetje që lidhet me aplikacionin e çinstaluar.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s mbetet(n) të gjetura pas çinstalimit të %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Pastrimi me sukses (%1$s): U çlirua %2$s dhe u hoq %3$s artikuj.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Fshij mbetjet</string>
     <string name="corpsefinder_filter_publicmedia_label">Media publike</string>
     <string name="corpsefinder_filter_publicmedia_summary">Skedarët e mediave publike, p.sh. skedarët e marrë përmes aplikacioneve të mesazheve.</string>
@@ -283,14 +282,12 @@
     <string name="analyzer_storage_type_secondary_description">Një ruajtje dytësore, zakonisht një kartë sd e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
     <string name="analyzer_storage_content_title">Përmbajtja e magazinës</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacionet</string>
-    <string name="analyzer_storage_content_type_app_description">Hapësira e zënë nga aplikacionet e instaluara dhe të dhënat e tyre (d.m.th. instaloni skedarë, të dhëna dhe memorie).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Mungojnë lejet</string>
     <string name="analyzer_storage_content_type_media_label">Skedarët e përdoruesit</string>
     <string name="analyzer_storage_content_type_media_description">Fotografi të shkrepura, video të regjistruara ose të dhëna të shkarkuara. Çdo të dhënë që nuk i përket një aplikacioni specifik.</string>
     <string name="analyzer_storage_content_type_system_label">Të dhënat e sistemit</string>
     <string name="analyzer_storage_content_type_system_description">Të dhënat e sistemit dhe aplikacionet e sistemit.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
-    <string name="analyzer_storage_content_app_code_description">Instaloni skedarë, biblioteka dhe burime. Kjo hapësirë ​​mund të lirohet vetëm duke çinstaluar aplikacionin.</string>
     <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>
     <string name="analyzer_storage_content_app_data_description">Të dhënat, cilësimet dhe cache.</string>
     <string name="analyzer_storage_content_app_media_label">Media e aplikacionit</string>

@@ -141,7 +141,6 @@
     <string name="corpsefinder_watcher_autodelete_title">Tự động xóa</string>
     <string name="corpsefinder_watcher_autodelete_summary">Tự động xóa mọi phần còn lại liên quan đến ứng dụng đã gỡ cài đặt.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$ mục còn lại sau khi gỡ cài đặt %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_result">Dọn dẹp thành công (%1$s): Giải phóng %2$s và xóa %3$s mục.</string>
     <string name="corpsefinder_watcher_notification_delete_action">Xóa tàn dư</string>
     <string name="corpsefinder_filter_publicmedia_label">Đa phương tiện công khai</string>
     <string name="corpsefinder_filter_publicmedia_summary">Các tệp đa phương tiện công khai ví dụ: các tệp nhận được qua ứng dụng nhắn tin.</string>
@@ -337,14 +336,12 @@
     <string name="analyzer_storage_type_secondary_description">Bộ nhớ thứ cấp, thường là thẻ sdcard có thể tháo rời. Chứa các tệp phương tiện và dữ liệu từ các ứng dụng hỗ trợ nó.</string>
     <string name="analyzer_storage_content_title">Nội dung lưu trữ</string>
     <string name="analyzer_storage_content_type_app_label">Ứng Dụng</string>
-    <string name="analyzer_storage_content_type_app_description">Không gian bị chiếm bởi các ứng dụng đã cài đặt và dữ liệu của chúng (tức là tệp cài đặt, dữ liệu và bộ nhớ đệm).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Quyền bị thiếu</string>
     <string name="analyzer_storage_content_type_media_label">Tập tin người dùng</string>
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
     <string name="analyzer_storage_content_type_system_description">Dữ liệu hệ thống và ứng dụng hệ thống.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
-    <string name="analyzer_storage_content_app_code_description">Tệp cài đặt, thư viện và tài nguyên. Không gian này chỉ có thể được giải phóng bằng cách gỡ cài đặt ứng dụng.</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
     <string name="analyzer_storage_content_app_data_description">Dữ liệu, cài đặt và bộ nhớ đệm.</string>
     <string name="analyzer_storage_content_app_media_label">Phương tiện ứng dụng</string>

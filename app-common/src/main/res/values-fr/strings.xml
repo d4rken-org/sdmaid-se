@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">À votre service.</string>
-    <string name="slogan_message_1">Propre et bien rangé.</string>
     <string name="slogan_message_2">Prévient le chaos.</string>
     <string name="slogan_message_3">Fait ce qui est nécessaire.</string>
     <string name="slogan_message_4">Tout est bien organisé.</string>
@@ -24,8 +23,6 @@
     <string name="general_thanks_action">Remerciements</string>
     <string name="general_gotit_action">J’ai compris</string>
     <string name="general_edit_action">Modifier</string>
-    <string name="general_create_account_action">Créer un compte</string>
-    <string name="general_link_existing_action">Associer à un compte existant</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Vide</string>
     <string name="general_dismiss_action">Ignorer</string>
@@ -33,8 +30,6 @@
     <string name="general_manage_action">Gérer</string>
     <string name="general_sync_action">Synchroniser</string>
     <string name="general_error_label">Erreur</string>
-    <string name="general_select_server_label">Sélectionner un serveur</string>
-    <string name="general_quota_label">Quota</string>
     <string name="general_tap_hint_msg">Toucher pour d’autres options</string>
     <string name="general_upgrade_action">Mise à niveau</string>
     <string name="general_donate_action">Faire un don</string>

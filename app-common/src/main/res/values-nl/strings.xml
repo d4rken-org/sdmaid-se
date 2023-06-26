@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Tot uw dienst.</string>
-    <string name="slogan_message_1">Schoon &amp; netjes.</string>
     <string name="slogan_message_2">Chaos voorkomen.</string>
     <string name="slogan_message_3">Doen wat noodzakelijk is.</string>
     <string name="slogan_message_4">Al je eenden op een rij.</string>
@@ -23,8 +22,6 @@
     <string name="general_thanks_action">Bedankt</string>
     <string name="general_gotit_action">Begrepen</string>
     <string name="general_edit_action">Bewerken</string>
-    <string name="general_create_account_action">Account aanmaken</string>
-    <string name="general_link_existing_action">Koppelen aan bestaande account</string>
     <string name="general_na_label">NVT</string>
     <string name="general_empty_label">Leeg</string>
     <string name="general_dismiss_action">Afwijzen</string>
@@ -32,8 +29,6 @@
     <string name="general_manage_action">Beheren</string>
     <string name="general_sync_action">Synchroniseren</string>
     <string name="general_error_label">Fout</string>
-    <string name="general_select_server_label">Selecteer server</string>
-    <string name="general_quota_label">Quota</string>
     <string name="general_tap_hint_msg">Tik voor meer opties</string>
     <string name="general_upgrade_action">Upgraden</string>
     <string name="general_donate_action">Doneren</string>
