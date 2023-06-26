@@ -1,5 +1,4 @@
 <resources>
-    <string name="dashboard_click_hint">Some entries can be clicked to view more details.</string>
     <string name="dashboard_delete_all_message">Delete results in all tools?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">One-Click Mode</string>
