@@ -75,10 +75,19 @@
     <string name="general_update_action">更新</string>
     <string name="general_scan_action">扫描</string>
     <string name="general_delete_action">删除</string>
+    <string name="general_delete_selected_action">删除所选</string>
     <string name="general_show_details_action">显示详细信息</string>
     <string name="general_delete_confirmation_title">确认删除</string>
     <string name="general_delete_confirmation_message_x">是否删除“%s”？</string>
+    <string name="general_delete_confirmation_message_selected_x_items">删除选中的 %d 个项目吗？</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="other">已删除 %1$d 个项目，并释放了 %2$s</item>
+    </plurals>
     <string name="general_remove_action">删除</string>
+    <string name="general_remove_selected_action">移除所选</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="other">已移除 %d 个项目</item>
+    </plurals>
     <string name="general_root_required_label">需要 Root</string>
     <string name="general_root_required_message">需要设备具有 Root 权限</string>
     <string name="general_search_action">搜索</string>
@@ -95,10 +104,12 @@
     <string name="general_grant_access_action">授予权限</string>
     <string name="general_enable_service_action">启用服务</string>
     <string name="general_undo_action">撤销</string>
+    <string name="general_list_select_all_action">全选</string>
     <string name="general_path_label">路径</string>
     <string name="general_type_label">类型</string>
     <string name="general_size_label">大小</string>
     <string name="general_exclude_action">排除</string>
+    <string name="general_exclude_selected_action">排除所选</string>
     <string name="general_device_label">设备</string>
     <string name="general_settings_title">设置</string>
     <string name="general_help_title">帮助</string>

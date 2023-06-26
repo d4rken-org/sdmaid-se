@@ -31,7 +31,7 @@
     <string name="onboarding_welcome_continue_action">继续</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE（又名 SD Maid 2）是 SD Maid 的续作，是专门优化现代 Android 系统的全新应用。</string>
-    <string name="onboarding_versus_body2">它的前身架构已经超过 7 年，不适应新版的 Android 系统。我们重新进行设计才能继续开发。</string>
+    <string name="onboarding_versus_body2">它的前身架构已经超过 7 年了，不适用于新版 Android 系统。为了继续开发，需要进行完全的重新设计。</string>
     <string name="onboarding_versus_body3">您可以考虑转用 SD Maid SE 以获得更好的效果。</string>
     <string name="onboarding_versus_continue_action">继续</string>
     <string name="onboarding_privacy_title">隐私</string>
@@ -85,7 +85,7 @@
     <string name="setup_forcedshow_summary">再次显示设置界面，包括已完成的项目。</string>
     <string name="setup_saf_card_title">存储访问框架</string>
     <string name="setup_saf_card_body">授予 SD Maid 额外访问权限以改进扫描结果。</string>
-    <string name="setup_saf_card_body2">在大多数情况下，打开的窗口将预先选中正确的路径。授权访问后项目将会变绿。</string>
+    <string name="setup_saf_card_body2">在大多数情况下，窗口会打开并预先选择正确的路径。当访问权限被授予时，条目会变为绿色。 </string>
     <string name="setup_saf_error_wrong_path">您选择了错误的路径</string>
     <string name="setup_saf_missing_app_error">未能找到文档应用。该应用为所有 Android 设备都应配备的系统内置应用。</string>
     <string name="setup_manage_storage_card_title">存储管理</string>
@@ -273,6 +273,7 @@
     <string name="appcleaner_filter_wechat_summary">在微信聊天和朋友圈中发送或接受的文件。</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中查看时会再次下载的缓存媒体文件</string>
+    <string name="appcleaner_delete_all_confirmation_message">删除所有应用中的可删除项目？</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">找到了 %d 个可删除项</item>
     </plurals>
@@ -284,11 +285,14 @@
     <string name="appcleaner_automation_unavailable_title">无障碍服务无法使用</string>
     <string name="appcleaner_automation_unavailable_body">无法访问的缓存需要 SD Maid 的无障碍服务来删除，但是删除失败。如果您不想使用这一功能，可关闭“包含无法访问的缓存”这一选项。</string>
     <string name="appcleaner_junk_userprofile_label">用户</string>
+    <string name="appcleaner_delete_confirmation_message_x">删除 %s 的可删除文件？</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">删除 %d 个所选应用的可删除文件？</string>
     <string name="appcontrol_tool_name">应用控制</string>
     <string name="appcontrol_explanation_short">安装在您的设备上的应用程序。</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">检测到 %d 个应用</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">切换应用</string>
     <string name="appcontrol_toggle_app_enable_action">启用应用</string>
     <string name="appcontrol_toggle_app_disable_action">停用应用</string>
     <string name="appcontrol_toggle_app_enable_description">启动应用可使其运行并在有活动时显示在启动器中。</string>
@@ -375,6 +379,9 @@
     <string name="exclusion_editor_unsaved_confirmation_message">您有未保存的更改！</string>
     <string name="exclusion_create_pkg_hint">使用应用控制工具来创建应用排除项。</string>
     <string name="exclusion_create_path_hint">使用储存分析工具来创建路径排除项。</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">已创建 %d 个排除项。</item>
+    </plurals>
     <string name="automation_accessibility_service_description">有特殊无障碍需求的用户可以启用此服务，SD Maid 可替您自动完成那些需要用户繁琐交互的任务（如清理缓存）。\n\n例如，如果您想批量停止应用，SD Maid 可以借助此服务打开每个应用的设置界面，自动找到“强制停止”按钮并点击。\n\nSD Maid 在运行此服务时会产生醒目提示，以便您随时取消任意操作。\n\n所有操作行为都需要用户事先批准才会实施。用户可以随时禁用此服务，且不会产生任何负面影响。</string>
     <string name="automation_screenoverlay_explanation">SD Maid 正在占用您的设备。此时无法使用屏幕，请等待操作完成或取消操作。</string>
     <string name="automation_active_title">SD Maid 正在运行</string>

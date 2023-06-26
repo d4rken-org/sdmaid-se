@@ -2,16 +2,16 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A seu serviço.</string>
-    <string name="slogan_message_1">Limpar &amp; limpo.</string>
-    <string name="slogan_message_2">Evitando o caos.</string>
-    <string name="slogan_message_3">Fazendo o que é necessário.</string>
-    <string name="slogan_message_4">Tudo em ordem e organizado.</string>
-    <string name="slogan_message_5">Impecável.</string>
-    <string name="general_thank_you_label">Obrigado</string>
-    <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: queria %1$s, mas obteve %2$s.</string>
-    <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
-    <string name="general_error_root_unavailable">Acesso root não disponível.</string>
-    <string name="general_error_empty_result_msg">Sem resultado.</string>
+    <string name="slogan_message_1">Limpar</string>
+    <string name="slogan_message_2">Adeus bagunça</string>
+    <string name="slogan_message_3">Fazendo o necessário</string>
+    <string name="slogan_message_4">Tudo limpo e organizado</string>
+    <string name="slogan_message_5">Maravilhoso</string>
+    <string name="general_thank_you_label">Gratidão </string>
+    <string name="general_error_type_mismatch_msg">Incompatibilidade: precisa %1$s, mas obteve %2$s.</string>
+    <string name="general_error_cant_access_msg">Acesso não permitido %s.</string>
+    <string name="general_error_root_unavailable">Acesso root indisponível </string>
+    <string name="general_error_empty_result_msg">Sem resultado encontrado </string>
     <string name="general_todo_msg">Este recurso ainda está sendo trabalhado e atualmente não está disponível.</string>
     <string name="general_share_action">Compartilhar</string>
     <string name="general_done_action">Feito</string>
@@ -26,7 +26,7 @@
     <string name="general_edit_action">Editar</string>
     <string name="general_create_account_action">Criar conta</string>
     <string name="general_link_existing_action">Link para conta existente</string>
-    <string name="general_na_label">Não disponível</string>
+    <string name="general_na_label">Não encontrado </string>
     <string name="general_empty_label">Vazio</string>
     <string name="general_dismiss_action">Liberar</string>
     <string name="general_maybe_later_action">Talvez mais tarde</string>
@@ -40,7 +40,7 @@
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_filter_action">Filtrar</string>
-    <string name="general_internal_not_available_msg">Internet não disponível</string>
+    <string name="general_internal_not_available_msg">Sem conexao</string>
     <string name="general_refresh_action">Recarregar</string>
     <string name="general_progress_searching">Procurando</string>
     <string name="general_progress_generating_searchpaths">Gerando caminhos de pesquisa</string>
@@ -75,10 +75,21 @@
     <string name="general_update_action">Atualizar</string>
     <string name="general_scan_action">Escanear</string>
     <string name="general_delete_action">Apagar</string>
+    <string name="general_delete_selected_action">Excluir selecionados</string>
     <string name="general_show_details_action">Mostrar detalhes</string>
     <string name="general_delete_confirmation_title">Confirmar exclusão</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Foi deletado %1$d item e liberado %2$s de espaço</item>
+        <item quantity="other">Foram deletados %1$d itens e liberado %2$s de espaço</item>
+    </plurals>
     <string name="general_remove_action">Remover</string>
+    <string name="general_remove_selected_action">Remover selecionados</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Um item foi removido</item>
+        <item quantity="other">%d items foram removidos</item>
+    </plurals>
     <string name="general_root_required_label">Requer root</string>
     <string name="general_root_required_message">Requer dispositivo rooteado</string>
     <string name="general_search_action">Buscar</string>
@@ -96,10 +107,12 @@
     <string name="general_grant_access_action">Garantir acesso</string>
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>
+    <string name="general_list_select_all_action">Selecionar todos</string>
     <string name="general_path_label">Caminho</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamanho</string>
     <string name="general_exclude_action">Excluir</string>
+    <string name="general_exclude_selected_action">Ignorar selecionados</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Configurações</string>
     <string name="general_help_title">Ajuda</string>

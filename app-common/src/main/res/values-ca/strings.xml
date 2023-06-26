@@ -75,10 +75,21 @@
     <string name="general_update_action">Actualitza</string>
     <string name="general_scan_action">Escaneja</string>
     <string name="general_delete_action">Suprimeix</string>
+    <string name="general_delete_selected_action">Suprimeix els seleccionats</string>
     <string name="general_show_details_action">Mostra els detalls</string>
     <string name="general_delete_confirmation_title">Confirmeu la supressió</string>
     <string name="general_delete_confirmation_message_x">Voleu suprimir «%s»?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Voleu suprimir els %d elements seleccionats?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">S\'ha suprimit %1$d element i s\'ha alliberat %2$s</item>
+        <item quantity="other">S\'han suprimit %1$d elements i s\'han alliberat %2$s</item>
+    </plurals>
     <string name="general_remove_action">Elimina</string>
+    <string name="general_remove_selected_action">Eliminar els seleccionats</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">S\'ha eliminat un element</item>
+        <item quantity="other">S\'han eliminat %d elements</item>
+    </plurals>
     <string name="general_root_required_label">Cal «root»</string>
     <string name="general_root_required_message">Cal un dispositiu amb «root»</string>
     <string name="general_search_action">Cerca</string>
@@ -96,10 +107,12 @@
     <string name="general_grant_access_action">Permet l\'accés</string>
     <string name="general_enable_service_action">Activa el servei</string>
     <string name="general_undo_action">Desfés</string>
+    <string name="general_list_select_all_action">Selecciona-ho tot</string>
     <string name="general_path_label">Ruta</string>
     <string name="general_type_label">Tipus</string>
     <string name="general_size_label">Mida</string>
     <string name="general_exclude_action">Exclou</string>
+    <string name="general_exclude_selected_action">Exclou els seleccionats</string>
     <string name="general_device_label">Dispositiu</string>
     <string name="general_settings_title">Configuració</string>
     <string name="general_help_title">Ajuda</string>

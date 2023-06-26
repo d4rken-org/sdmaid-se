@@ -75,10 +75,19 @@
     <string name="general_update_action">Cập nhật</string>
     <string name="general_scan_action">Quét</string>
     <string name="general_delete_action">Xoá</string>
+    <string name="general_delete_selected_action">Xóa mục đã chọn</string>
     <string name="general_show_details_action">Xem chi tiết</string>
     <string name="general_delete_confirmation_title">Xác nhận xoá</string>
     <string name="general_delete_confirmation_message_x">Xoá \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Xóa %d mục đã chọn?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="other">Đã xóa %1$d mục và giải phóng %2$s</item>
+    </plurals>
     <string name="general_remove_action">Loại bỏ</string>
+    <string name="general_remove_selected_action">Loại bỏ đã chọn</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="other">%d mục đã bị xóa</item>
+    </plurals>
     <string name="general_root_required_label">Yêu cầu root</string>
     <string name="general_root_required_message">Yêu cầu một thiết bị đã root</string>
     <string name="general_search_action">Tìm kiếm</string>
@@ -95,10 +104,12 @@
     <string name="general_grant_access_action">Cấp quyền truy cập</string>
     <string name="general_enable_service_action">Bật dịch vụ</string>
     <string name="general_undo_action">Hoàn tác</string>
+    <string name="general_list_select_all_action">Chọn tất cả</string>
     <string name="general_path_label">Đường dẫn</string>
     <string name="general_type_label">Loại</string>
     <string name="general_size_label">Kích thước</string>
     <string name="general_exclude_action">Loại trừ</string>
+    <string name="general_exclude_selected_action">Loại trừ đã chọn</string>
     <string name="general_device_label">Thiết bị</string>
     <string name="general_settings_title">Cài đặt</string>
     <string name="general_help_title">Trợ giúp</string>

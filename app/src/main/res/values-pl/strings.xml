@@ -397,6 +397,12 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
     <string name="exclusion_create_pkg_hint">Użyj narzędzia AppControl aby utworzyć wykluczenia aplikacji.</string>
     <string name="exclusion_create_path_hint">Użyj narzędzia StorageAnalyzer aby utworzyć wykluczenia ścieżek.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Utworzono jedno wykluczenie</item>
+        <item quantity="few">Utworzono %d wykluczenia</item>
+        <item quantity="many">Utworzono %d wykluczeń</item>
+        <item quantity="other">Utworzono %d wykluczeń</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami ułatwień mogą włączyć tę usługę, aby pozwolić SD Maid automatyzować zadania, które w przeciwnym razie wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: Jeśli instruujesz SD Maid, aby zatrzymać wiele aplikacji, SD Maid może użyć tej usługi, aby otworzyć ekran ustawień każdej aplikacji, znaleźć przycisk \"Wymuś zatrzymanie\" i kliknąć go.\n\nSD Maid zawsze wyraźnie pokaże, kiedy korzysta z tej usługi, i zapewni użytkownikowi łatwy sposób na natychmiastowe anulowanie wszelkich interakcji.\n\nŻadne działania nie będą wykonywane bez wcześniejszej zgody użytkownika. Usługę można wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
     <string name="automation_screenoverlay_explanation">SD Maid wchodzi w interakcję z Twoim urządzeniem. Nie jest możliwe jednoczesne korzystanie z ekranu. Poczekaj na zakończenie operacji lub anuluj ją.</string>
     <string name="automation_active_title">SD Maid pracuje</string>

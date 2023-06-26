@@ -75,10 +75,25 @@
     <string name="general_update_action">Aktualizovať</string>
     <string name="general_scan_action">Skenovať</string>
     <string name="general_delete_action">Vymazať</string>
+    <string name="general_delete_selected_action">Zmazať vybrané</string>
     <string name="general_show_details_action">Zobraziť podrobnosti</string>
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Odstrániť %d vybraté položky?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Odstránila sa %1$d položka a uvoľnilo sa %2$s</item>
+        <item quantity="few">Odstránili sa %1$d položky a uvoľnilo sa %2$s</item>
+        <item quantity="many">Odstránilo sa %1$d položiek a uvoľnilo sa %2$s</item>
+        <item quantity="other">Odstránilo sa %1$d položiek a uvoľnilo sa %2$s</item>
+    </plurals>
     <string name="general_remove_action">Odstrániť</string>
+    <string name="general_remove_selected_action">Odstrániť vybrané</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Jedna položka bola odstránená</item>
+        <item quantity="few">%d položky boli odstránené</item>
+        <item quantity="many">%d položiek bolo odstránených</item>
+        <item quantity="other">%d položiek bolo odstránených</item>
+    </plurals>
     <string name="general_root_required_label">Vyžaduje root</string>
     <string name="general_root_required_message">Vyžaduje sa rootované zariadenie</string>
     <string name="general_search_action">Hľadať</string>
@@ -98,10 +113,12 @@
     <string name="general_grant_access_action">Povoliť prístup</string>
     <string name="general_enable_service_action">Povoliť službu</string>
     <string name="general_undo_action">Vrátiť späť</string>
+    <string name="general_list_select_all_action">Vybrať všetky</string>
     <string name="general_path_label">Cesta</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Veľkosť</string>
     <string name="general_exclude_action">Vylúčiť</string>
+    <string name="general_exclude_selected_action">Vylúčiť vybrané</string>
     <string name="general_device_label">Zariadenie</string>
     <string name="general_settings_title">Nastavenia</string>
     <string name="general_help_title">Pomoc</string>

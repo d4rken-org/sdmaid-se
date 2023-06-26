@@ -61,6 +61,7 @@
     <string name="general_sort_options_label">Opzioni di ordinamento</string>
     <string name="general_result_success_message">Operazione riuscita</string>
     <string name="general_result_failure_message">Operazione non riuscita</string>
+    <string name="general_options_label">Opzioni</string>
     <string name="general_details_label">Dettagli</string>
     <string name="general_view_action">Visualizza</string>
     <string name="general_update_action">Aggiorna</string>
@@ -69,7 +70,12 @@
     <string name="general_show_details_action">Mostra dettagli</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>
     <string name="general_remove_action">Elimina</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Un elemento è stato rimosso</item>
+        <item quantity="other">%d elementi sono stati rimossi</item>
+    </plurals>
     <string name="general_root_required_label">Richiede root</string>
     <string name="general_root_required_message">Richiede un dispositivo rootato</string>
     <string name="general_search_action">Ricerca</string>
@@ -86,6 +92,7 @@
     <string name="general_grant_access_action">Consenti accesso</string>
     <string name="general_enable_service_action">Abilita servizio</string>
     <string name="general_undo_action">Annulla</string>
+    <string name="general_list_select_all_action">Seleziona tutto</string>
     <string name="general_path_label">Percorso</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Dimensione</string>

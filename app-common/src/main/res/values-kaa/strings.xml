@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="general_thank_you_label">Raxmet</string>
     <string name="general_error_empty_result_msg">Bos nátiyje.</string>
     <string name="general_share_action">Bólisiw</string>
@@ -7,11 +8,14 @@
     <string name="general_copy_action">Kóshirip alıw</string>
     <string name="general_wipe_action">Tazalaw</string>
     <string name="general_cancel_action">Biykarlaw</string>
+    <string name="general_reset_action">Qayta ornatıw</string>
     <string name="general_save_action">Saqlaw</string>
     <string name="general_thanks_action">Raxmet</string>
     <string name="general_gotit_action">Túsinikli</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
     <string name="general_create_account_action">Akkaunt jaratıw</string>
+    <string name="general_link_existing_action">Bar akkauntqa silteme</string>
+    <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
     <string name="general_manage_action">Basqarıw</string>
     <string name="general_sync_action">Sáykeslestiriw</string>
@@ -24,17 +28,30 @@
     <string name="general_refresh_action">Jańalaw</string>
     <string name="general_progress_searching">Izlenbekte</string>
     <string name="general_progress_loading">Júklenbekte</string>
+    <string name="general_progress_loading_egg_2">Jaqın arada™</string>
     <string name="general_help_action">Járdem</string>
     <string name="general_continue">Dawam etiw</string>
     <string name="general_progress_queued">Gezekte</string>
     <string name="general_progress_deleting">%s óshirilmekte</string>
+    <string name="general_view_action">Kóriw</string>
+    <string name="general_update_action">Jańalaw</string>
+    <string name="general_delete_action">Óshiriw</string>
+    <string name="general_delete_selected_action">Tańlanǵanlardı óshiriw</string>
     <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
     <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
     <string name="general_remove_action">Alıp taslaw</string>
+    <string name="general_remove_selected_action">Tańlanǵanlardı óshiriw</string>
     <string name="general_search_action">Izlew</string>
+    <string name="general_open_system_settings_action">Sistema sazlawların ashıw</string>
     <string name="x_space_can_be_freed">%s bosatılıwı múmkin</string>
     <string name="general_info_label">Maǵlıwmat</string>
+    <string name="general_count_label">Muǵdar</string>
     <string name="general_app_label">Baǵdarlama</string>
+    <string name="general_more_info_action">Kóbirek maǵlıwmat</string>
+    <string name="general_grant_access_action">Ruqsat beriw</string>
+    <string name="general_enable_service_action">Xızmetti qosıw</string>
+    <string name="general_undo_action">Biykarlaw</string>
+    <string name="general_list_select_all_action">Barlıǵın tańlaw</string>
     <string name="general_path_label">Jol</string>
     <string name="general_type_label">Túr</string>
     <string name="general_size_label">Kólem</string>

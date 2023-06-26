@@ -2,14 +2,14 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">Requer SD Maid SE Pro</string>
+    <string name="upgrade_feature_requires_pro">Requer versão  Pro</string>
     <string name="upgrades_dashcard_title">Atualizar SD Maid</string>
-    <string name="upgrades_dashcard_body">Desbloqueie recursos adicionais e torne-se um patrono para apoiar o desenvolvimento contínuo!</string>
+    <string name="upgrades_dashcard_body">Desbloqueie recursos adicionais e torne-se um patrão para apoiar o desenvolvimento contínuo!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizar</string>
     <string name="upgrade_screen_title">Melhorar SD Maid</string>
     <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados do usuário. O desenvolvimento contínuo só é possível por você.</string>
     <string name="upgrade_screen_how_title">Como ajudar</string>
-    <string name="upgrade_screen_how_body">Torne-se um patrono e patrocine o desenvolvimento! Clique no botão abaixo para ativar todos os recursos extras e abrir meu perfil Github Sponsors.</string>
+    <string name="upgrade_screen_how_body">Torne-se um patrão e patrocine o desenvolvimento! Clique no botão abaixo para ativar todos os recursos extras e abrir meu perfil Github Sponsors.</string>
     <string name="upgrade_screen_why_title">Isso evoca 🪄</string>
     <string name="upgrade_screen_why_body">Funcionalidade de exclusão do AppCleaner 💯\n• Operações agendadas ⏰\n• Opções extras para todas as ferramentas ⚙️\n• Suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
     <string name="upgrade_screen_sponsor_action">Desenvolvimento do patrocinador</string>

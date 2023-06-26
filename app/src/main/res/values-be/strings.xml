@@ -285,6 +285,7 @@
     <string name="appcleaner_filter_wechat_summary">Адпраўленыя або атрыманыя файлы ў гутарках і момантах WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кэшаваныя медыяфайлы, загружаныя паўторна пры праглядзе ў чаце.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Выдаліць непатрэбныя элементы ва ўсіх праграмах?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знойдзены %d непатрэбны элемент</item>
         <item quantity="few">Знойдзена %d непатрэбных элемента</item>
@@ -299,6 +300,8 @@
     <string name="appcleaner_automation_unavailable_title">Служба спецыяльных магчымасцей недаступна</string>
     <string name="appcleaner_automation_unavailable_body">Для выдалення недаступнага кэшу SD Maid патрабуецца служба спецыяльных магчымасцей, але доступ да яе абмежаваны. Калі вы не хочаце яе выкарыстоўваць: адключыце опцыю \"Уключна з недаступным кэшам\".</string>
     <string name="appcleaner_junk_userprofile_label">Карыстальнік</string>
+    <string name="appcleaner_delete_confirmation_message_x">Выдаліць непатрэбныя файлы ў %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Выдаліць непатрэбныя файлы ў %d выбраных праграмах?</string>
     <string name="appcontrol_tool_name">Менеджар</string>
     <string name="appcontrol_explanation_short">Усталяваныя на вашай прыладзе праграмы.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -307,6 +310,7 @@
         <item quantity="many">Знойдзена %d праграм</item>
         <item quantity="other">Знойдзена %d праграм</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Пераключыць праграмы</string>
     <string name="appcontrol_toggle_app_enable_action">Уключыць праграму</string>
     <string name="appcontrol_toggle_app_disable_action">Адключыць праграму</string>
     <string name="appcontrol_toggle_app_enable_description">Уключэнне праграмы дазваляе ёй працаваць і можа зрабіць яе бачнай у панэлі запуску, калі ў ёй ёсць актыўнасць.</string>
@@ -393,6 +397,12 @@
     <string name="exclusion_editor_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
     <string name="exclusion_create_pkg_hint">З дапамогай Менеджара стварыце выключэнні для праграм.</string>
     <string name="exclusion_create_path_hint">З дапамогай Аналізу памяці стварыце выключэнні для шляхоў.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створана адно выключэнне</item>
+        <item quantity="few">Створана %d выключэння</item>
+        <item quantity="many">Створана %d выключэнняў</item>
+        <item quantity="other">Створана %d выключэнняў</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Карыстальнікі, якім патрабуюцца спецыяльныя магчымасці, могуць уключыць гэту службу, каб дазволіць SD Maid аўтаматызаваць задачы, для вырашэння якіх у звычайным парадку неабходна пастаянны ўдзел карыстальніка (напрыклад, выдаленне кэшу). \n\nНапрыклад: калі Вы хочаце, каб SD Maid спыніла некалькі праграм, то SD Maid зможа выкарыстаць дадзеную службу для адкрыцця экрана налад кожнай праграмы, выяўлення кнопкі прымусовага завяршэння і яе актывацыі. \n\nSD Maid заўсёды будзе апавяшчаць аб выкарыстанні гэтай службы і прадастаўляць карыстальніку просты варыянт па неадкладнай адмене любой аперацыі. \n\nНіякіх дзеянняў без папярэдняга адабрэння карыстальнікам прадпрымацца не будзе. Службу заўсёды можна зноў адключыць без якіх-небудзь неспрыяльных наступстваў.</string>
     <string name="automation_screenoverlay_explanation">SD Maid узаемадзейнічае з вашай прыладай. Адначасовае выкарыстанне экрана немагчыма. Дачакайцеся завяршэння аперацыі або адмяніце яе.</string>
     <string name="automation_active_title">SD Maid працуе</string>
