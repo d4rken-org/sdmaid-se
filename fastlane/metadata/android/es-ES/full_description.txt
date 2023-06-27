@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> es un asistente de confianza para tu Android, que lo mantendrá limpio y ordenado.
+<i>SD Maid SE</i> es el asistente de confianza para tu Android, para mantenerlo limpio y ordenado.
 
 Nadie es perfecto y Android tampoco lo es.
 * Las aplicaciones desinstaladas dejan restos.
 * Registros, informes de fallos y otros archivos que realmente no quieres se crean constantemente.
 * Tu almacenamiento está acumulando archivos y directorios que no reconoces.
 
-No sigamos... Deja que SD Maid SE te ayude:
+No sigamos aquí... Deje que SD Maid SE le ayude:
 
 * Limpia datos de aplicaciones ya desinstaladas
 * Encuentra cachés ocultas de aplicaciones

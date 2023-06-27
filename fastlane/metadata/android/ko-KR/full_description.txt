@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> 는 당신의 Android 기기를 위한 청소부입니다.
+<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
 
 무엇도 완벽할 수는 없죠. 당신의 안드로이드 기기도 마찬가지입니다.
 * 앱을 삭제하더라도 잔여 파일이 남아있을 수 있습니다.
 * 당신이 원하지 않는 로그와 리포트, 그리고 다른 파일들이 계속 생성됩니다.
 * 저장소에 알 수 없는 파일과 디렉토리가 계속 저장됩니다.
 
-이것들을 계속 놔두지 맙시다. SD Maid가 당신을 도와드리게 해주세요!
+Let’s not go on here… Let SD Maid SE help you:
 
 * 이미 삭제된 앱들이 남긴 데이터 제거
 * 숨겨진 임시 파일 탐색

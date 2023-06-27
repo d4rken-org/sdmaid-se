@@ -1,1 +1,1 @@
-Una criada de confianza para Android, que lo mantiene limpio y ordenado.
+Un asistente de confianza para Android, para mantenerlo limpio y ordenado.

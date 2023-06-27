@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Melhore o SD Maid</string>
     <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados de utilizador. O desenvolvimento contínuo só é possível consigo.</string>
     <string name="upgrade_screen_how_title">Como ajudar</string>
+    <string name="upgrade_screen_how_body">Torne-se um patrono e patrocine o desenvolvimento! Clique no botão abaixo para ativar todos os recursos extras e abrir o meu perfil de Patrocinadores GitHub.</string>
     <string name="upgrade_screen_why_title">Isto conjura 🪄</string>
     <string name="upgrade_screen_why_body">• Limpeza das aplicações 💯 \n• Operações agendadas ⏰\n• Opções extra para todas as ferramentas ⚙️\n• Criação das suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
     <string name="upgrade_screen_sponsor_action">Patrocine o desenvolvimento</string>

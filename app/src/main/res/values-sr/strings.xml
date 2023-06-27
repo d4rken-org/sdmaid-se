@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">На неке уносе можете кликнути да бисте видели више детаља.</string>
     <string name="dashboard_delete_all_message">Избрисати резултате у свим алаткама?</string>
     <string name="dashboard_settings_category">Командна табла</string>
     <string name="dashboard_settings_oneclick_title">Режим једним кликом</string>

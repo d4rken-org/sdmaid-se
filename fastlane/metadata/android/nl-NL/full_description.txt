@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> is een betrouwbare meid voor je Android, om het schoon en netjes te houden.
+<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
 
 Niemand is perfect en Android ook niet.
 * Apps die je al hebt verwijderd, laten iets achter.
 * Er worden voortdurend logboeken, crashrapporten en andere bestanden gemaakt die je eigenlijk niet echt wilt hebben.
 * Je opslagruimte verzamelt bestanden en mappen die je niet herkent.
 
-Laten we hier niet verder gaan... Laat SD Maid SE je helpen:
+Let’s not go on here… Let SD Maid SE help you:
 
 * Ruim gegevens op van reeds verwijderde apps
 * Vind verborgen app-caches

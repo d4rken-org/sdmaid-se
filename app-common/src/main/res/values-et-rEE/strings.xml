@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Teie teenistuses.</string>
+    <string name="slogan_message_1">Puhastab ja korrastab.</string>
     <string name="slogan_message_2">Kaose ennetamine.</string>
     <string name="slogan_message_3">Vajaliku tegemine.</string>
     <string name="slogan_message_4">Tipp-topp.</string>
@@ -70,10 +71,21 @@
     <string name="general_update_action">Uuenda</string>
     <string name="general_scan_action">Skaneeri</string>
     <string name="general_delete_action">Kustuta</string>
+    <string name="general_delete_selected_action">Kustuta märgitud</string>
     <string name="general_show_details_action">Näita andmeid</string>
     <string name="general_delete_confirmation_title">Kinnita kustutamine</string>
     <string name="general_delete_confirmation_message_x">Kustuta \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Kustutada %d valitud asja?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Kustutati %1$d ja vabastati %2$s</item>
+        <item quantity="other">Kustutati %1$d ja vabastati %2$s</item>
+    </plurals>
     <string name="general_remove_action">Eemalda</string>
+    <string name="general_remove_selected_action">Eemalda valitud</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Üks eemaldati</item>
+        <item quantity="other">%d eemaldati</item>
+    </plurals>
     <string name="general_root_required_label">Nõuab juurpääsu</string>
     <string name="general_root_required_message">Nõuab juurpääsuga seadet</string>
     <string name="general_search_action">Otsing</string>
@@ -91,10 +103,12 @@
     <string name="general_grant_access_action">Võimalda juurdepääs</string>
     <string name="general_enable_service_action">Luba teenus</string>
     <string name="general_undo_action">Tühista</string>
+    <string name="general_list_select_all_action">Vali kõik</string>
     <string name="general_path_label">Asukoht</string>
     <string name="general_type_label">Tüüp</string>
     <string name="general_size_label">Maht</string>
     <string name="general_exclude_action">Välista</string>
+    <string name="general_exclude_selected_action">Erand valitud</string>
     <string name="general_device_label">Seade</string>
     <string name="general_settings_title">Seaded</string>
     <string name="general_help_title">Abi</string>

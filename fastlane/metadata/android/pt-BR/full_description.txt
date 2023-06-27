@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> é uma faxineira confiável para o seu Android, para mantê-lo limpo e arrumado.
+<i>SD Maid SE</i> é seu assistente confiável de Android, para mantê-lo limpo e arrumado.
 
 Ninguém é perfeito e nem o Android.
 * Os aplicativos que você já removeu deixam algo para trás.
 * Logs, relatórios de falhas e outros arquivos que você realmente não deseja estão sendo constantemente criados.
 * Seu armazenamento está acumulando arquivos e diretórios que você não reconhece.
 
-Não vamos continuar aqui... Deixe o SD Maid ajudá-lo:
+Não vamos continuar aqui... Deixe a SD Maid SE te ajudar:
 
 * Limpe dados de aplicativos já desinstalados
 * Encontre cache de aplicativos ocultos

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Teatud sisu põhjaliku teabe saamiseks klõpsake sellel.</string>
     <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
     <string name="dashboard_settings_category">Esileht</string>
     <string name="dashboard_settings_oneclick_title">Üheklõpsuline režiim</string>
@@ -143,6 +142,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Ise kustuv</string>
     <string name="corpsefinder_watcher_autodelete_summary">Eemaldatud rakendusega seotud jäägid kustuvad ise.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%2$s eemaldamisest jäi järgi %1$s jääk(i).</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Puhastamine õnnestus (%1$s): vabastati %2$s ja eemaldati %3$d.</item>
+        <item quantity="other">Puhastamine õnnestus (%1$s): vabastati %2$s ja eemaldati %3$d.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Kustuta jäägid</string>
     <string name="corpsefinder_filter_publicmedia_label">Avalik sisu</string>
     <string name="corpsefinder_filter_publicmedia_summary">Avalikud failid, nt suhtlusrakenduste kaudu saadud failid.</string>
@@ -276,6 +279,7 @@
     <string name="appcleaner_filter_wechat_summary">Vestlustes ja WeChat hetkedes saadetud või saadud failid.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Vahemällu salvetatud meediafailid, mis laaditakse uuesti alla, kui neid vestlusaknas vaadata.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Kustutada kõikide rakenduste ühekordne sisu?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Järele jäi %d</item>
         <item quantity="other">Järele jäi %d</item>
@@ -288,12 +292,15 @@
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
     <string name="appcleaner_automation_unavailable_body">Juurdepääsmatute vahemälude kustutamine vajab SD Maidi juurdepääsetavusteenust, kuid see oli kättesaamatu. Kui te ei taha seda kasutada, keelake valik \"Kaasa juurdepääsmatud vahemälud\".</string>
     <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
+    <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Kustutada %d valitud rakenduse ühekordsed failid?</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d rakendus tuvastatud</item>
         <item quantity="other">%d rakendust kustutada</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Näita/peida rakendusi</string>
     <string name="appcontrol_toggle_app_enable_action">Luba rakendus</string>
     <string name="appcontrol_toggle_app_disable_action">Keela rakendused</string>
     <string name="appcontrol_toggle_app_enable_description">Rakenduse lubamine võimaldab sel töötada ja ilmuda kiirkäivitusse, kui see toimetab.</string>
@@ -338,12 +345,14 @@
     <string name="analyzer_storage_type_secondary_description">Teisejärguline hoiuruum, tavaliselt eemaldatav SD-kaart. Sisaldab seda toetavat meediafaile ja rakenduste andmeid.</string>
     <string name="analyzer_storage_content_title">Hoiustatav sisu</string>
     <string name="analyzer_storage_content_type_app_label">Rakendused</string>
+    <string name="analyzer_storage_content_type_app_description">Paigaldatud rakenduste ja nende andmete (nt rakenduse failid, andmed ja vahemälud) hoiuruum.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Pole lube</string>
     <string name="analyzer_storage_content_type_media_label">Kasutaja failid</string>
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
     <string name="analyzer_storage_content_type_system_description">Süsteemi andmed ja rakendused.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
+    <string name="analyzer_storage_content_app_code_description">Rakenduse failid, kogumid ja ressurssid. Selle hoiuruumi vabastamiseks tuleb rakendus eemaldada.</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>
     <string name="analyzer_storage_content_app_data_description">Andmed, seaded ja vahemälud.</string>
     <string name="analyzer_storage_content_app_media_label">Rakenduse meedia</string>
@@ -367,6 +376,7 @@
     <string name="exclusion_type_path">Asukoha erand</string>
     <string name="exclusion_type_segment">Segmendi erand</string>
     <string name="exclusion_tags_alltools">Kõik tööriistad</string>
+    <string name="exclusion_target_label">Erandite sihtkoht</string>
     <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
     <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>
     <string name="exclusion_editor_affected_tools_label">Mõjutatud tööriistad</string>
@@ -377,6 +387,10 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
     <string name="exclusion_create_pkg_hint">Looge rakenduste erandeid rakenduse kontrolliga.</string>
     <string name="exclusion_create_path_hint">Looge asukoha erandeid hoiustamisruumi analüüsijaga.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Loodi üks erand</item>
+        <item quantity="other">Loodi %d erandit</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja klõpsata sellel.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
     <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
     <string name="automation_active_title">SD Maid töötab</string>

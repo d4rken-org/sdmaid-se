@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Certains éléments peuvent être cliqués pour obtenir plus de détails.</string>
     <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
     <string name="dashboard_settings_category">Tableau de bord</string>
-    <string name="dashboard_settings_oneclick_title">Mode un-clic</string>
-    <string name="dashboard_settings_oneclick_summary">Lancez l\'analyse et la suppression pour tous les outils en cliquant sur le bouton d\'action du tableau de bord, sans confirmation supplémentaire.</string>
+    <string name="dashboard_settings_oneclick_title">Mode « un clic »</string>
+    <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
-    <string name="debug_notification_channel_label">Notification de débogage</string>
-    <string name="debug_debuglog_file_label">Fichier de log enregistré</string>
+    <string name="debug_notification_channel_label">Notifications de débogage</string>
+    <string name="debug_debuglog_file_label">Fichier journal enregistré</string>
     <string name="debug_debuglog_recording_progress">Enregistrement du journal de débogage</string>
-    <string name="debug_debuglog_record_action">Enregistrer le log de débogage</string>
-    <string name="debug_debuglog_stop_action">Arrêter l\'enregistrement</string>
-    <string name="debug_debuglog_sensitive_information_message">Le fichier généré contient des informations sensibles (par exemple, les noms de fichiers et les applications installées). Ne le partagez qu\'avec des personnes de confiance.</string>
-    <string name="settings_debuglog_explanation">Cette fonction enregistre tout ce que fait l\'application dans un fichier partageable. Le fichier généré contient des informations sensibles (par exemple, les noms de fichiers et les applications installées). Ne le partagez qu\'avec des personnes de confiance (par exemple, un développeur qui cherche à résoudre un problème).</string>
+    <string name="debug_debuglog_record_action">Enregistrer le journal de débogage</string>
+    <string name="debug_debuglog_stop_action">Arrêter l’enregistrement</string>
+    <string name="debug_debuglog_sensitive_information_message">Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance.</string>
+    <string name="settings_debuglog_explanation">Cette fonction enregistre tout ce que fait l’appli dans un fichier partageable. Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance (p. ex. un développeur qui cherche à résoudre un problème).</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
     <string name="tasks_activity_working_notification_title">SD Maid travaille</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -27,7 +26,7 @@
     <string name="tasks_result_notification_channel_label">Résultats de la tâche</string>
     <string name="tasks_result_subtext">Résultat de la tâche</string>
     <string name="onboarding_welcome_title">Bienvenue</string>
-    <string name="onboarding_welcome_body1">SD Maid SE gère les fichiers, les apps et le stockage.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gère les fichiers, les applis et la mémoire.</string>
     <string name="onboarding_welcome_body2">Gagnez de l\'espace de stockage en faisant le ménage derrière les autres applications. Supprimez les fichiers inutiles et les données restantes.</string>
     <string name="onboarding_welcome_body_beta">Il s\'agit d\'une version bêta (test). Procédez avec un certain sens de l\'humour et un plan de secours. Veuillez signaler les problèmes que vous rencontrez.</string>
     <string name="onboarding_welcome_continue_action">Continuer</string>
@@ -143,6 +142,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Suppression automatique</string>
     <string name="corpsefinder_watcher_autodelete_summary">Supprimer automatiquement tous les restes liés à l\'application désinstallée.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s reste(s) trouvé(s) après la désinstallation de %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Nettoyage réussi (%1$s) : %2$s libéré et %3$d élément supprimé.</item>
+        <item quantity="other">Nettoyage réussi (%1$s) : %2$s libérés et %3$d éléments supprimés.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Supprimer les restes</string>
     <string name="corpsefinder_filter_publicmedia_label">Médias publics</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fichiers multimédias publics, par ex. fichiers reçus via les applications de messagerie.</string>
@@ -342,12 +345,14 @@
     <string name="analyzer_storage_type_secondary_description">Un stockage secondaire, généralement une carte SD amovible. Comprends des fichiers multimédias et des données provenant d\'applications qui le prennent en charge.</string>
     <string name="analyzer_storage_content_title">Contenu du stockage</string>
     <string name="analyzer_storage_content_type_app_label">Applis</string>
+    <string name="analyzer_storage_content_type_app_description">Espace occupé par les applications installées et leurs données (c\'est-à-dire les fichiers d\'application, les données et les caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Permissions manquantes</string>
     <string name="analyzer_storage_content_type_media_label">Fichiers de l\'utilisateur</string>
     <string name="analyzer_storage_content_type_media_description">Captures d\'écran, vidéos enregistrées ou données téléchargées. Toutes les données qui n\'appartiennent pas à une application spécifique.</string>
     <string name="analyzer_storage_content_type_system_label">Données système</string>
     <string name="analyzer_storage_content_type_system_description">Données système et applications système.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l\'application</string>
+    <string name="analyzer_storage_content_app_code_description">Fichiers d\'application, bibliothèques et ressources. Cet espace ne peut être libéré qu\'en désinstallant l\'application.</string>
     <string name="analyzer_storage_content_app_data_label">Données de l\'application</string>
     <string name="analyzer_storage_content_app_data_description">Données, paramètres et caches.</string>
     <string name="analyzer_storage_content_app_media_label">Média de l\'application</string>

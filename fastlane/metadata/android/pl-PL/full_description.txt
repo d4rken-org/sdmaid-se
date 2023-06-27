@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> to zaufana pokojówka dla Twojego Androida, która utrzymuje go w czystości i porządku.
+<i>SD Maid SE</i> jest zaufanym asystentem Androida, aby zachować jego czystość i porządek.
 
 Nikt nie jest doskonały, podobnie jak Android.
 * Usunięte aplikacje pozostawiają coś za sobą.
 * Logi, raporty o awariach i inne niepotrzebne pliki są tworzone na bieżąco.
 * Na Twoim urządzeniu zgromadzone są pliki i katalogi, których nie rozpoznajesz.
 
-Nie będziemy się tu rozpisywać... Pozwól SD Maid SE pomóc sobie:
+Nie tędy droga… Niech SD Maid SE Ci pomoże:
 
 * Posprzątać dane z odinstalowanych już aplikacji
 * Znaleźć ukryte pamięci podręczne aplikacji

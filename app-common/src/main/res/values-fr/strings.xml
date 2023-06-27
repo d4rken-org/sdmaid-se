@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">À votre service.</string>
+    <string name="slogan_message_1">Propre et bien rangé.</string>
     <string name="slogan_message_2">Prévient le chaos.</string>
     <string name="slogan_message_3">Fait ce qui est nécessaire.</string>
     <string name="slogan_message_4">Tout est bien organisé.</string>
@@ -23,7 +24,7 @@
     <string name="general_thanks_action">Remerciements</string>
     <string name="general_gotit_action">J’ai compris</string>
     <string name="general_edit_action">Modifier</string>
-    <string name="general_na_label">N/A</string>
+    <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Vide</string>
     <string name="general_dismiss_action">Ignorer</string>
     <string name="general_maybe_later_action">Plus tard, peut-être</string>
@@ -31,7 +32,7 @@
     <string name="general_sync_action">Synchroniser</string>
     <string name="general_error_label">Erreur</string>
     <string name="general_tap_hint_msg">Toucher pour d’autres options</string>
-    <string name="general_upgrade_action">Mise à niveau</string>
+    <string name="general_upgrade_action">Mettre à niveau</string>
     <string name="general_donate_action">Faire un don</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_filter_action">Filtrer</string>
@@ -63,11 +64,11 @@
     <string name="general_tag_filter_label">Filtrer par étiquettes</string>
     <string name="general_result_success_message">L’opération est réussie</string>
     <string name="general_result_failure_message">Échec de l’opération</string>
-    <string name="general_result_x_space_freed">%s libéré</string>
+    <string name="general_result_x_space_freed">%s libérés</string>
     <string name="general_options_label">Options</string>
     <string name="general_details_label">Détails</string>
     <string name="general_view_action">Afficher</string>
-    <string name="general_update_action">Mise à jour</string>
+    <string name="general_update_action">Mettre à jour</string>
     <string name="general_scan_action">Analyser</string>
     <string name="general_delete_action">Supprimer</string>
     <string name="general_delete_selected_action">Supprimer la sélection</string>

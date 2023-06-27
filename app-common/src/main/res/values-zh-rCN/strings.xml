@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">为您效劳。</string>
+    <string name="slogan_message_1">干净整洁。</string>
     <string name="slogan_message_2">治之于未乱。</string>
     <string name="slogan_message_3">只做必行之事。</string>
     <string name="slogan_message_4">万物归整。</string>

@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Til tjeneste.</string>
+    <string name="slogan_message_1">Ren og ryddig.</string>
     <string name="slogan_message_2">Forhindrer kaos.</string>
     <string name="slogan_message_3">Gjør det nødvendige.</string>
     <string name="slogan_message_4">Orden i sysakene.</string>

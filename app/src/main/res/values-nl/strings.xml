@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Op sommige items kan worden geklikt om meer details te zien.</string>
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Eén-klik-modus</string>

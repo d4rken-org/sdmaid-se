@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Niektóre elementy można kliknąć, aby zobaczyć więcej szczegółów.</string>
     <string name="dashboard_delete_all_message">Czy na pewno chcesz usunąć wyniki we wszystkich narzędziach?</string>
     <string name="dashboard_settings_category">Panel główny</string>
     <string name="dashboard_settings_oneclick_title">Tryb jednego kliknięcia</string>
@@ -147,6 +146,12 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatycznie usuwa wszystkie pozostałe elementy związane z odinstalowaną aplikacją.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s zostało znalezionych po odinstalowaniu %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d element.</item>
+        <item quantity="few">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementy.</item>
+        <item quantity="many">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementów.</item>
+        <item quantity="other">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementów.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Usuń pozostałości</string>
     <string name="corpsefinder_filter_publicmedia_label">Publiczne pliki multimedialne</string>
     <string name="corpsefinder_filter_publicmedia_summary">Publiczne pliki multimedialne, np. pliki otrzymane za pośrednictwem aplikacji do przesyłania wiadomości.</string>
@@ -354,12 +359,14 @@
     <string name="analyzer_storage_type_secondary_description">Pamięć zewnętrzna, zazwyczaj usuwalna karta SD. Zawiera pliki multimedialne i dane z aplikacji, które je obsługują.</string>
     <string name="analyzer_storage_content_title">Zawartość pamięci</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacje</string>
+    <string name="analyzer_storage_content_type_app_description">Przestrzeń zajmowana przez zainstalowane aplikacje i ich dane (np. pliki, dane oraz pamięć podręczną aplikacji).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Brak uprawnień</string>
     <string name="analyzer_storage_content_type_media_label">Pliki użytkownika</string>
     <string name="analyzer_storage_content_type_media_description">Przechwycone zdjęcia, nagrane filmy lub pobrane dane. Wszelkie dane, które nie należą do konkretnej aplikacji.</string>
     <string name="analyzer_storage_content_type_system_label">Dane systemowe</string>
     <string name="analyzer_storage_content_type_system_description">Dane systemowe i aplikacje systemowe.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
+    <string name="analyzer_storage_content_app_code_description">Pliki, biblioteki i zasoby aplikacji. Ta przestrzeń może zostać zwolniona tylko przez odinstalowanie aplikacji.</string>
     <string name="analyzer_storage_content_app_data_label">Dane aplikacji</string>
     <string name="analyzer_storage_content_app_data_description">Dane, ustawienia i pamięci podręczne.</string>
     <string name="analyzer_storage_content_app_media_label">Multimedia aplikacji</string>

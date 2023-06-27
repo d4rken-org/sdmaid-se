@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">ზოგიერთ ჩანაწერზე შეიძლება დააწკაპუნოთ მეტი დეტალის სანახავად.</string>
     <string name="dashboard_delete_all_message">წაშალოთ შედეგები ყველა ხელსაწყოში?</string>
     <string name="dashboard_settings_category">ხელსაწყოთა დაფა</string>
     <string name="dashboard_settings_oneclick_title">ერთი დაწკაპუნებით რეჟიმი</string>

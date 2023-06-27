@@ -1,4 +1,4 @@
-L'<i>SD Maid SE</i> és un assistent de confiança per al vostre Android, per mantenir-lo net i ordenat.
+L'<i>SD Maid SE</i> és l'assistent de confiança del vostre Android per mantenir-lo net i ordenat.
 
 Ningú és perfecte i l'Android tampoc.
 * Les aplicacions que ja heu eliminat deixen alguna cosa enrere.

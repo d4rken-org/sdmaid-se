@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Algumas entradas podem ser clicadas para ver mais detalhes.</string>
     <string name="dashboard_delete_all_message">Excluir resultados em todas as ferramentas?</string>
     <string name="dashboard_settings_category">Painel</string>
-    <string name="dashboard_settings_oneclick_title">Modo de Um Clique</string>
+    <string name="dashboard_settings_oneclick_title">Modo de um clique</string>
     <string name="dashboard_settings_oneclick_summary">Inicie a verificação e exclusão em todas as ferramentas com um clique no botão de ação do painel, sem confirmações extras.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho compactado</string>
@@ -143,6 +142,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Exclusão automática</string>
     <string name="corpsefinder_watcher_autodelete_summary">Excluir automaticamente qualquer restante relacionado ao aplicativo desinstalado.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s resíduo(s) encontrado(s) após a desinstalação de %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Limpeza bem sucedida (%1$s): Liberado %2$s e removido %3$d item.</item>
+        <item quantity="other">Limpeza bem sucedida (%1$s): Liberado %2$s e removido %3$d itens.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Excluir resíduos</string>
     <string name="corpsefinder_filter_publicmedia_label">Mídia pública</string>
     <string name="corpsefinder_filter_publicmedia_summary">Arquivos de mídia públicos, por exemplo, arquivos recebidos via aplicativos de mensagens.</string>
@@ -180,7 +183,7 @@
     <string name="systemcleaner_explanation_short">Dados supérfluos que não pertencem a nenhum aplicativo específico.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filtro correspondente</item>
-        <item quantity="other">%d filtro correspondente</item>
+        <item quantity="other">%d filtros correspondentes</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Filtro personalizado</string>
     <string name="systemcleaner_filter_custom_manage_label">Gerenciar filtros personalizados</string>
@@ -342,12 +345,14 @@
     <string name="analyzer_storage_type_secondary_description">Um armazenamento secundário, geralmente um cartão SD removível. Contém arquivos de mídia e dados de aplicativos compatíveis com este tipo de armazenamento.</string>
     <string name="analyzer_storage_content_title">Conteúdo do armazenamento</string>
     <string name="analyzer_storage_content_type_app_label">Aplicativos</string>
+    <string name="analyzer_storage_content_type_app_description">Espaço ocupado por aplicativos instalados e seus dados (ou seja, arquivos de instalação, dados e caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Faltam algumas permissões</string>
     <string name="analyzer_storage_content_type_media_label">Arquivos do usuário</string>
     <string name="analyzer_storage_content_type_media_description">Imagens capturadas, vídeos gravados ou dados baixados. Quaisquer dados que não pertençam a um aplicativo específico.</string>
     <string name="analyzer_storage_content_type_system_label">Dados do sistema</string>
     <string name="analyzer_storage_content_type_system_description">Dados do sistema e aplicativos do sistema.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicação</string>
+    <string name="analyzer_storage_content_app_code_description">Arquivos de instalação, bibliotecas e recursos. Este espaço só pode ser liberado desinstalando o aplicativo.</string>
     <string name="analyzer_storage_content_app_data_label">Dados do aplicativo</string>
     <string name="analyzer_storage_content_app_data_description">Dados, configurações e caches.</string>
     <string name="analyzer_storage_content_app_media_label">Mídia da aplicação</string>

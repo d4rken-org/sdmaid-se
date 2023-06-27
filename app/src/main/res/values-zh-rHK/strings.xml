@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">部分項目在按下時可以檢視更多詳細資料。</string>
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_settings_category">儀表板</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
@@ -141,6 +140,9 @@
     <string name="corpsefinder_watcher_autodelete_title">自動刪除</string>
     <string name="corpsefinder_watcher_autodelete_summary">自動刪除與已解除安裝的應用程式相關的殘留。</string>
     <string name="corpsefinder_watcher_notification_scan_result">已在 %2$s 解除安裝後找到 %1$s 個殘留項目。</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">清理成功 (%1$s)：已釋出 %2$s 並移除 %3$d 個項目。</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">刪除殘留項目</string>
     <string name="corpsefinder_filter_publicmedia_label">公用媒體</string>
     <string name="corpsefinder_filter_publicmedia_summary">公用媒體檔案，例如透過訊息應用程式接收的檔案。</string>
@@ -336,12 +338,14 @@
     <string name="analyzer_storage_type_secondary_description">次要儲存空間，通常是卸除式 SD 卡。包含媒體檔案和受支援的應用程式資料。</string>
     <string name="analyzer_storage_content_title">儲存空間內容</string>
     <string name="analyzer_storage_content_type_app_label">應用程式</string>
+    <string name="analyzer_storage_content_type_app_description">已安裝的應用程式及其資料 (即應用程式檔案、資料和快取) 佔用的空間。</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">權限遺失</string>
     <string name="analyzer_storage_content_type_media_label">使用者檔案</string>
     <string name="analyzer_storage_content_type_media_description">擷取的圖片、錄製的影片或已下載的資料，任何不屬於特定應用程式的資料。</string>
     <string name="analyzer_storage_content_type_system_label">系統資料</string>
     <string name="analyzer_storage_content_type_system_description">系統資料和系統應用程式。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
+    <string name="analyzer_storage_content_app_code_description">應用程式檔案、程式庫和資源，此空間僅可透過解除安裝應用程式釋出。</string>
     <string name="analyzer_storage_content_app_data_label">應用程式資料</string>
     <string name="analyzer_storage_content_app_data_description">資料、設定和快取。</string>
     <string name="analyzer_storage_content_app_media_label">應用程式媒體</string>

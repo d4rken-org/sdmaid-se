@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Pwedeng pindutin ang ilang entry para sa higit pang detalye.</string>
     <string name="dashboard_delete_all_message">Burahin ang mga resulta sa lahat ng mga kagamitan?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Isahang-Pindot na Mode</string>

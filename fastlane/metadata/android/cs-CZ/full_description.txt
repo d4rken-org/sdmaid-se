@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> je věrná služebná pro váš Android, která jej udržuje v čistotě a pořádku.
+<i>SD Maid SE</i> je tvůj důvěryhodný asistent Androida, aby byl udržován čistý a uklizený.
 
 Nikdo není dokonalý, ani systém Android.
 * Aplikace, které jste již odstranili, po sobě něco zanechávají.
 * Neustále se vytvářejí záznamy, hlášení o pádech a další soubory, které ve skutečnosti nechcete.
 * Ve vašem úložišti se shromažďují soubory a adresáře, které neznáte.
 
-Nepokračujte v tom... SD Maid SE vám pomůže:
+Nepokračujme v tom… Nechte si od SD Maid SE pomoci s:
 
 * Vyčistit data z již odinstalovaných aplikací
 * Vyhledat skryté mezipaměti aplikací
