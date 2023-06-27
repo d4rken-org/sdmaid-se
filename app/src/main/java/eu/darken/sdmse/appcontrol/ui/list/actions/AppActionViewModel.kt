@@ -31,7 +31,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
@@ -56,6 +56,7 @@ class AppActionViewModel @Inject constructor(
     private val appControl: AppControl,
     private val taskManager: TaskManager,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -80,7 +81,9 @@ class AppActionViewModel @Inject constructor(
         exclusionManager.exclusions,
         appControl.data.mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } },
         appControl.progress,
-    ) { exclusions, appInfo, progress ->
+        rootManager.useRoot,
+        shizukuManager.useShizuku,
+    ) { exclusions, appInfo, progress, rootAvail, shizukuAvail ->
         val launchAction = context.packageManager
             .getLaunchIntentForPackage(appInfo.pkg.packageName)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
@@ -159,7 +162,7 @@ class AppActionViewModel @Inject constructor(
             }
         )
 
-        val disableAction = if (rootManager.canUseRootNow()) {
+        val disableAction = if (rootAvail || shizukuAvail) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {

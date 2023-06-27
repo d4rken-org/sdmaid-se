@@ -19,7 +19,7 @@ import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -39,6 +39,7 @@ class AppControlListViewModel @Inject constructor(
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -111,7 +112,9 @@ class AppControlListViewModel @Inject constructor(
         searchQuery,
         settings.listSort.flow,
         settings.listFilter.flow,
-    ) { data, progress, query, listSort, listFilter ->
+        rootManager.useRoot,
+        shizukuManager.useShizuku
+    ) { data, progress, query, listSort, listFilter, rootAvailable, shizukuAvailable ->
         val queryNormalized = query.lowercase()
         val appInfos = data?.apps
             ?.filter { appInfo ->
@@ -173,7 +176,7 @@ class AppControlListViewModel @Inject constructor(
             searchQuery = query,
             listSort = listSort,
             listFilter = listFilter,
-            showRootActions = rootManager.canUseRootNow(),
+            allowAppToggleActions = rootAvailable || shizukuAvailable,
         )
     }.asLiveData2()
 
@@ -262,7 +265,7 @@ class AppControlListViewModel @Inject constructor(
         val searchQuery: String,
         val listSort: SortSettings,
         val listFilter: FilterSettings,
-        val showRootActions: Boolean,
+        val allowAppToggleActions: Boolean,
     )
 
     companion object {

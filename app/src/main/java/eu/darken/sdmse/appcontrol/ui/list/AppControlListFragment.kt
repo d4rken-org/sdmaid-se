@@ -38,7 +38,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     override val vm: AppControlListViewModel by viewModels()
     override val ui: AppcontrolListFragmentBinding by viewBinding()
     private var searchView: SearchView? = null
-    private var showRootActions: Boolean = false
+    private var showAppToggleActions: Boolean = false
 
     val DrawerLayout.isDrawerOpen: Boolean
         get() = isDrawerOpen(GravityCompat.END)
@@ -118,7 +118,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             adapter = adapter,
             cabMenuRes = R.menu.menu_appcontrol_list_cab,
             onPrepare = { mode: ActionMode, menu: Menu ->
-                menu.findItem(R.id.action_toggle_selection)?.isVisible = showRootActions
+                menu.findItem(R.id.action_toggle_selection)?.isVisible = showAppToggleActions
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
@@ -195,7 +195,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         }
 
         vm.state.observe2(ui) { state ->
-            showRootActions = state.showRootActions
+            showAppToggleActions = state.allowAppToggleActions
 
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
