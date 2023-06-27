@@ -38,7 +38,7 @@ class PublicDataModule @Inject constructor(
                 val accessPath: APath? = when {
                     hasApiLevel(33) -> {
                         when {
-                            localGateway.hasRoot() -> {
+                            localGateway.hasRoot() || localGateway.hasShizuku() -> {
                                 // If we have root, we need to convert any SAFPath back
                                 when (val target = parentArea.path) {
                                     is LocalPath -> target
@@ -46,20 +46,23 @@ class PublicDataModule @Inject constructor(
                                     else -> null
                                 }
                             }
+
                             else -> {
                                 log(TAG, INFO) { "Skipping Android/data (API33 and no root): $parentArea" }
                                 null
                             }
                         }
                     }
+
                     hasApiLevel(30) -> {
                         val target = parentArea.path
                         // On API30 we can do the direct SAF grant workaround
                         when {
-                            localGateway.hasRoot() -> when (target) {
+                            localGateway.hasRoot() || localGateway.hasShizuku() -> when (target) {
                                 is SAFPath -> pathMapper.toLocalPath(target)
                                 else -> target
                             }
+
                             else -> when (target) {
                                 is LocalPath -> pathMapper.toSAFPath(target)
                                 is SAFPath -> target
@@ -67,6 +70,7 @@ class PublicDataModule @Inject constructor(
                             }
                         }
                     }
+
                     else -> parentArea.path
                 }
                 val childPath = accessPath?.child("Android", "data") ?: return@mapNotNull null

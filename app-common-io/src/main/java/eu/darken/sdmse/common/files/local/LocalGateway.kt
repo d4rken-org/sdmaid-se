@@ -13,9 +13,11 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
+import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
@@ -31,13 +33,13 @@ import javax.inject.Singleton
 @Suppress("BlockingMethodInNonBlockingContext")
 @Singleton
 class LocalGateway @Inject constructor(
-    private val rootServiceClient: RootServiceClient,
     private val ipcFunnel: IPCFunnel,
     private val libcoreTool: LibcoreTool,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val storageEnvironment: StorageEnvironment,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : APathGateway<LocalPath, LocalPathLookup, LocalPathLookupExtended> {
 
     // Represents the resource that keeps the gateway resources alive
@@ -45,10 +47,16 @@ class LocalGateway @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
-        return rootServiceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        return rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+    }
+
+    private suspend fun <T> adbOps(action: suspend (FileOpsClient) -> T): T {
+        return shizukuManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.canUseRootNow()
+
+    suspend fun hasShizuku(): Boolean = shizukuManager.canUseShizukuNow()
 
     private suspend fun <T> runIO(
         block: suspend CoroutineScope.() -> T
@@ -87,6 +95,20 @@ class LocalGateway @Inject constructor(
                 }
                 if (rootOps { it.exists(path) }) {
                     log(TAG, WARN) { "createDir(ROOT) failed, but dir does now exist: $path" }
+                    return@runIO
+                }
+            }
+
+            if (hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO)) {
+                if (adbOps { file.exists() && file.isFile }) {
+                    throw IOException("Path exists already, but it's a file.")
+                }
+                if (adbOps { it.mkdirs(path) }) {
+                    log(TAG, VERBOSE) { "createDir($mode->ADB): $path" }
+                    return@runIO
+                }
+                if (adbOps { it.exists(path) }) {
+                    log(TAG, WARN) { "createDir(ADB) failed, but dir does now exist: $path" }
                     return@runIO
                 }
             }
@@ -141,6 +163,20 @@ class LocalGateway @Inject constructor(
                 }
             }
 
+            if (hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO)) {
+                if (adbOps { it.exists(path) }) {
+                    throw IOException("Path exists already")
+                }
+                if (adbOps { it.createNewFile(path) }) {
+                    log(TAG, VERBOSE) { "createFile($mode->ADB): $path" }
+                    return@runIO
+                }
+                if (adbOps { it.createNewFile(path) }) {
+                    log(TAG, WARN) { "createFile(ADB) failed, but file does now exist: $path" }
+                    return@runIO
+                }
+            }
+
             throw IOException("No matching mode available.")
         } catch (e: IOException) {
             log(TAG, WARN) { "createFile(path=$path, mode=$mode) failed." }
@@ -169,6 +205,11 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookup($mode->ROOT): $path" }
                     rootOps { it.lookUp(path) }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookup($mode->ADB): $path" }
+                    adbOps { it.lookUp(path) }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -209,6 +250,11 @@ class LocalGateway @Inject constructor(
                     rootOps { it.listFilesStream(path) }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "listFiles($mode->ADB): $path" }
+                    adbOps { it.listFilesStream(path) }
+                }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -244,6 +290,11 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
                     rootOps { it.lookupFilesStream(path) }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupFiles($mode->ADB): $path" }
+                    adbOps { it.lookupFilesStream(path) }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -290,6 +341,11 @@ class LocalGateway @Inject constructor(
                         rootOps { it.lookupFilesExtendedStream(path) }
                     }
 
+                    hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->ADB): $path" }
+                        adbOps { it.lookupFilesExtendedStream(path) }
+                    }
+
                     else -> throw IOException("No matching mode available.")
                 }.also {
                     if (Bugs.isTrace) {
@@ -332,6 +388,11 @@ class LocalGateway @Inject constructor(
                     rootOps { it.exists(path) }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canAccessParent) -> {
+                    log(TAG, VERBOSE) { "exists($mode->ADB): $path" }
+                    adbOps { it.exists(path) }
+                }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -359,6 +420,11 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "canWrite($mode->ROOT): $path" }
                     rootOps { it.canWrite(path) }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "canWrite($mode->ADB): $path" }
+                    adbOps { it.canWrite(path) }
                 }
 
                 else -> false
@@ -390,6 +456,11 @@ class LocalGateway @Inject constructor(
                     rootOps { it.canRead(path) }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalOpen) -> {
+                    log(TAG, VERBOSE) { "canRead($mode->ADB): $path" }
+                    adbOps { it.canRead(path) }
+                }
+
                 else -> false
             }
 
@@ -418,10 +489,15 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
                     log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
-                    val resource = rootServiceClient.get()
-                    rootOps {
-                        it.readFile(path).callbacks { resource.close() }
-                    }
+                    val resource = rootManager.serviceClient.get()
+                    rootOps { it.readFile(path).callbacks { resource.close() } }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalOpen) -> {
+                    log(TAG, VERBOSE) { "read($mode->ADB): $path" }
+                    // We need to keep the resource alive until the caller is done with the Source object
+                    val resource = rootManager.serviceClient.get()
+                    adbOps { it.readFile(path).callbacks { resource.close() } }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -452,10 +528,15 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
                     log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
-                    val resource = rootServiceClient.get()
-                    rootOps {
-                        it.writeFile(path).callbacks { resource.close() }
-                    }
+                    val resource = rootManager.serviceClient.get()
+                    rootOps { it.writeFile(path).callbacks { resource.close() } }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canOpen) -> {
+                    log(TAG, VERBOSE) { "write($mode->ADB): $path" }
+                    // We need to keep the resource alive until the caller is done with the Sink object
+                    val resource = rootManager.serviceClient.get()
+                    adbOps { it.writeFile(path).callbacks { resource.close() } }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -523,6 +604,26 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
+                    adbOps {
+                        var success = if (Bugs.isDryRun) {
+                            log(TAG, WARN) { "DRYRUN: Not deleting (adb) $javaFile" }
+                            it.exists(path)
+                        } else {
+                            it.delete(path)
+                        }
+
+                        if (!success) {
+                            // TODO We could move this into the root service for better performance?
+                            success = !it.exists(path)
+                            if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                        }
+
+                        if (!success) throw IOException("Adb delete() call returned false")
+                    }
+                }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -554,6 +655,11 @@ class LocalGateway @Inject constructor(
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "createSymlink($mode->ADB): $linkPath -> $targetPath" }
+                    adbOps { it.createSymlink(linkPath, targetPath) }
+                }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -582,9 +688,12 @@ class LocalGateway @Inject constructor(
 
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "setModifiedAt($mode->ROOT): $path" }
-                    rootOps {
-                        it.setModifiedAt(path, modifiedAt)
-                    }
+                    rootOps { it.setModifiedAt(path, modifiedAt) }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setModifiedAt($mode->ADB): $path" }
+                    adbOps { it.setModifiedAt(path, modifiedAt) }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -614,6 +723,12 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
                     log(TAG, VERBOSE) { "setPermissions($mode->ROOT): $path" }
                     rootOps { it.setPermissions(path, permissions) }
+                }
+
+
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setPermissions($mode->ADB): $path" }
+                    adbOps { it.setPermissions(path, permissions) }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -648,6 +763,11 @@ class LocalGateway @Inject constructor(
                     rootOps { it.setOwnership(path, ownership) }
                 }
 
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                    log(TAG, VERBOSE) { "setOwnership($mode->ADB): $path" }
+                    adbOps { it.setOwnership(path, ownership) }
+                }
+
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
@@ -657,7 +777,7 @@ class LocalGateway @Inject constructor(
     }
 
     enum class Mode {
-        AUTO, NORMAL, ROOT
+        AUTO, NORMAL, ROOT, ADB
     }
 
     companion object {
