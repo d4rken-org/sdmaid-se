@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> Android'inizi temiz ve düzenli tutmak için güvenilir bir hizmetçidir.
+<i>SD Maid SE</i>, Android'inizin temiz ve düzenli kalmasını sağlayan güvenilir yardımcısıdır.
 
 Kimse mükemmel değildir ve Android de öyle.
 * Kaldırdığınız uygulamalar geride bir şeyler bırakır.
 * Günlükler, çökme raporları ve gerçekten istemediğiniz diğer dosyalar sürekli olarak oluşturulur.
 * Depolama alanınız tanımadığınız dosya ve dizinleri ile doluyor.
 
-Böyle devam etmesine izin vermeyelim... SD Maid SE size yardımcı olsun:
+Daha fazla uzatmayalım... Bırakın SD Maid SE size yardımcı olsun:
 
 * Önceden kaldırılmış uygulamaların verilerini temizleyin
 * Gizli uygulama önbelleklerini bulun

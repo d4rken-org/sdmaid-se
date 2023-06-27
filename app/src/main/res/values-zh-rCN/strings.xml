@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">部分条目可以点击以查看更多详细信息。</string>
     <string name="dashboard_delete_all_message">是否删除所有工具的结果？</string>
     <string name="dashboard_settings_category">控制面板</string>
     <string name="dashboard_settings_oneclick_title">一键模式</string>
@@ -141,6 +140,9 @@
     <string name="corpsefinder_watcher_autodelete_title">自动删除</string>
     <string name="corpsefinder_watcher_autodelete_summary">自动删除与已卸载应用相关的所有残留</string>
     <string name="corpsefinder_watcher_notification_scan_result">卸载“%2$s”后发现了 %1$s 项残留</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">清理成功（%1$s）：已释放 %2$s 并删除了 %3$d 个项目。</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">删除残留项</string>
     <string name="corpsefinder_filter_publicmedia_label">公共媒体</string>
     <string name="corpsefinder_filter_publicmedia_summary">公共媒体文件，例如通过通讯应用程序接收的文件。</string>
@@ -336,12 +338,14 @@
     <string name="analyzer_storage_type_secondary_description">辅助存储，通常为外置可移动的 SD 卡。包含媒体文件和受支持应用的数据</string>
     <string name="analyzer_storage_content_title">存储内容</string>
     <string name="analyzer_storage_content_type_app_label">应用</string>
+    <string name="analyzer_storage_content_type_app_description">已安装应用及其数据占用的空间（例如应用文件、数据和缓存）。</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">缺少权限</string>
     <string name="analyzer_storage_content_type_media_label">用户文件</string>
     <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
     <string name="analyzer_storage_content_type_system_description">系统数据和系统应用</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
+    <string name="analyzer_storage_content_app_code_description">应用的文件、库和资源。只有通过卸载应用程序才能释放此空间。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>
     <string name="analyzer_storage_content_app_data_description">数据、设置和缓存</string>
     <string name="analyzer_storage_content_app_media_label">应用媒体</string>

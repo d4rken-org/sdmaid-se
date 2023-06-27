@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Beberapa masukkan boleh diklik untuk melihat butiran lanjut.</string>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
     <string name="dashboard_settings_oneclick_title">Mod Satu Klik</string>

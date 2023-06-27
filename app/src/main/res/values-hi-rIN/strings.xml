@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">अधिक विवरण देखने के लिए कुछ प्रविष्टियों पर क्लिक किया जा सकता है।</string>
     <string name="dashboard_delete_all_message">सभी टूल में परिणाम मिटाएं?</string>
     <string name="dashboard_settings_category">डैशबोर्ड</string>
     <string name="dashboard_settings_oneclick_title">एक-क्लिक प्रणाली</string>

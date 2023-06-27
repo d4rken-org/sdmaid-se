@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">일부 항목의 경우 클릭하여 더 자세히 볼 수 있습니다.</string>
     <string name="dashboard_delete_all_message">모든 도구의 결과를 삭제할까요?</string>
     <string name="dashboard_settings_category">대시보드</string>
     <string name="dashboard_settings_oneclick_title">원클릭 모드</string>

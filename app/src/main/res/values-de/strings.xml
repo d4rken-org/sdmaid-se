@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Einige Einträge können angeklickt werden, um weitere Details anzuzeigen.</string>
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Einzel-Klick-Modus</string>
@@ -143,6 +142,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatisches Löschen</string>
     <string name="corpsefinder_watcher_autodelete_summary">Lösche automatisch alle Überreste der deinstallierten App.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s Überbleibsel nach Deinstallation von %2$s gefunden.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Element entfernt.</item>
+        <item quantity="other">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Elemente entfernt.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Reste löschen</string>
     <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
     <string name="corpsefinder_filter_publicmedia_summary">Öffentliche Mediendateien, z.B. Dateien, die über Messenger-Apps empfangen wurden.</string>
@@ -342,12 +345,14 @@
     <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine entfernbare SD-Karte. Enthält Mediendateien und Daten von Apps, die es unterstützen.</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
+    <string name="analyzer_storage_content_type_app_description">Von installierten Apps und ihren Daten (z.B. Anwendungsdateien, Daten und Caches) belegter Speicherplatz.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Berechtigungen fehlen</string>
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
     <string name="analyzer_storage_content_type_system_description">Systemdaten und System-Apps.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
+    <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
     <string name="analyzer_storage_content_app_data_description">Daten, Einstellungen und Caches.</string>
     <string name="analyzer_storage_content_app_media_label">App-Medien</string>

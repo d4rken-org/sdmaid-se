@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Hizmetinizde.</string>
+    <string name="slogan_message_1">Temiz ve düzenli.</string>
     <string name="slogan_message_2">Kaosu önleme.</string>
     <string name="slogan_message_3">Gerekeni yapmak.</string>
     <string name="slogan_message_4">Tüm işleriniz hazır ve organize.</string>

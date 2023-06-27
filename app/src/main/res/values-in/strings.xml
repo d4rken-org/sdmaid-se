@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Beberapa entri dapat diklik untuk melihat detail lebih lanjut.</string>
     <string name="dashboard_delete_all_message">Hapus hasil di semua alat?</string>
     <string name="dashboard_settings_category">Dasbor</string>
     <string name="dashboard_settings_oneclick_title">Mode Sekali Klik</string>
@@ -141,6 +140,9 @@
     <string name="corpsefinder_watcher_autodelete_title">Menghapus otomatis</string>
     <string name="corpsefinder_watcher_autodelete_summary">Secara otomatis menghapus sisa-sisa yang terkait dengan aplikasi yang dihapus.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s sisa ditemukan setelah mencopot %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">Pembersihan berhasil (%1$s): Membebaskan %2$s dan menghapus %3$d item.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Hapus sisa-sisa</string>
     <string name="corpsefinder_filter_publicmedia_label">Media umum</string>
     <string name="corpsefinder_filter_publicmedia_summary">Berkas media umum, cth. berkas yang diterima melalui aplikasi perpesanan.</string>
@@ -333,11 +335,13 @@
     <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>
     <string name="analyzer_storage_content_title">Isi penyimpanan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
+    <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Izin tidak ada</string>
     <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Data dan aplikasi sistem.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
+    <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini hanya dapat dibebaskan dengan mencopot pemasangan aplikasi.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
     <string name="analyzer_storage_content_app_data_description">Data, pengaturan, dan tembolok.</string>
     <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>

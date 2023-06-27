@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> adalah pelayan terpercaya untuk Android anda, untuk menjaganya tetap bersih & rapi.
+<i>SD Maid SE</i> adalah asisten tepercaya Android Anda, agar tetap bersih dan rapi.
 
 Tiada yang sempurna dan itu termasuk Android.
 * Aplikasi yang baru saja dihapus meninggalkan beberapa jejak.
 * Log, laporan galat dan file-file lainnya yang Anda tidak benar-benar butuhkan masih terus dibuat secara terus-menerus.
 * Penyimpanan anda mengumpulkan file-file dan direktori-direktori yang Anda tidak kenali.
 
-Kita tidak boleh membiarkan itu... Biarkan SD Maid SE membantu Anda:
+Jangan lanjutkan di sini… Biarkan SD Maid SE membantu Anda:
 
 *Bersihkan data dari aplikasi yang baru saja dihapus
 * Temukan cache aplikasi yang tersembunyi

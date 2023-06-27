@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Mejora SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. El desarrollo continuo solo es posible gracias a ti.</string>
     <string name="upgrade_screen_how_title">Como ayudar</string>
+    <string name="upgrade_screen_how_body">¡Conviértete en un patrocinador y patrocina el desarrollo! Haz clic en el botón de abajo para activar todas las funciones adicionales y abrir mi perfil de Patrocinador de GitHub.</string>
     <string name="upgrade_screen_why_title">Esto sugiere 🪄</string>
     <string name="upgrade_screen_why_body">• Funcionalidad de borrado de AppCleaner 💯\n• Operaciones programadas ⏰\n• Opciones extra para todas las herramientas ⚙️\n• Tus propias reglas de borrado ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
     <string name="upgrade_screen_sponsor_action">Patrocinadores</string>

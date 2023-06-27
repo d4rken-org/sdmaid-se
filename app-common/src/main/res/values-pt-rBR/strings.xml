@@ -2,15 +2,16 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A seu serviço.</string>
+    <string name="slogan_message_1">Limpo e arrumado.</string>
     <string name="slogan_message_2">Adeus bagunça</string>
     <string name="slogan_message_3">Fazendo o necessário</string>
     <string name="slogan_message_4">Tudo limpo e organizado</string>
     <string name="slogan_message_5">Maravilhoso</string>
-    <string name="general_thank_you_label">Gratidão </string>
-    <string name="general_error_type_mismatch_msg">Incompatibilidade: precisa %1$s, mas obteve %2$s.</string>
-    <string name="general_error_cant_access_msg">Acesso não permitido %s.</string>
-    <string name="general_error_root_unavailable">Acesso root indisponível </string>
-    <string name="general_error_empty_result_msg">Sem resultado encontrado </string>
+    <string name="general_thank_you_label">Obrigado</string>
+    <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: Procurado %1$s, mas obtive %2$s.</string>
+    <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
+    <string name="general_error_root_unavailable">Acesso root não disponível.</string>
+    <string name="general_error_empty_result_msg">Sem resultado.</string>
     <string name="general_todo_msg">Este recurso ainda está sendo trabalhado e atualmente não está disponível.</string>
     <string name="general_share_action">Compartilhar</string>
     <string name="general_done_action">Feito</string>
@@ -35,7 +36,7 @@
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_filter_action">Filtrar</string>
-    <string name="general_internal_not_available_msg">Sem conexao</string>
+    <string name="general_internal_not_available_msg">Internet não disponível</string>
     <string name="general_refresh_action">Recarregar</string>
     <string name="general_progress_searching">Procurando</string>
     <string name="general_progress_generating_searchpaths">Gerando caminhos de pesquisa</string>
@@ -83,7 +84,7 @@
     <string name="general_remove_selected_action">Remover selecionados</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Um item foi removido</item>
-        <item quantity="other">%d items foram removidos</item>
+        <item quantity="other">%d itens foram removidos</item>
     </plurals>
     <string name="general_root_required_label">Requer root</string>
     <string name="general_root_required_message">Requer dispositivo rooteado</string>

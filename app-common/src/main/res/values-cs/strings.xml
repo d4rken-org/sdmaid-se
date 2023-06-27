@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">K vašim službám.</string>
+    <string name="slogan_message_1">Čisto a uklizeno.</string>
     <string name="slogan_message_2">Předcházení chaosu.</string>
     <string name="slogan_message_3">Dělat to, co je nezbytné.</string>
     <string name="slogan_message_4">Všechny vaše karty jsou v pořádku.</string>

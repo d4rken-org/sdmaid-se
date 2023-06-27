@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Na niektoré položky je možné kliknúť a zobraziť ďalšie podrobnosti.</string>
     <string name="dashboard_delete_all_message">Odstrániť výsledky vo všetkých nástrojoch?</string>
     <string name="dashboard_settings_category">Ovládací panel</string>
     <string name="dashboard_settings_oneclick_title">Režim jedného kliknutia</string>
@@ -147,6 +146,12 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstráňte všetky zvyšky súvisiace s odinštalovanou aplikáciou.</string>
     <string name="corpsefinder_watcher_notification_scan_result">%1$s pozostatok(kov) nájdený(ch) po odinštalovaní %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránila sa %3$d položka.</item>
+        <item quantity="few">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránili sa %3$d položky.</item>
+        <item quantity="many">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
+        <item quantity="other">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Odstrániť pozostatky</string>
     <string name="corpsefinder_filter_publicmedia_label">Verejné médiá</string>
     <string name="corpsefinder_filter_publicmedia_summary">Súbory verejných médií, napr. súbory prijaté prostredníctvom aplikácií na odosielanie správ.</string>
@@ -354,12 +359,14 @@
     <string name="analyzer_storage_type_secondary_description">Sekundárne úložisko, zvyčajne vymeniteľná SDkarta. Obsahuje mediálne súbory a údaje z aplikácií, ktoré to podporujú.</string>
     <string name="analyzer_storage_content_title">Obsah úložiska</string>
     <string name="analyzer_storage_content_type_app_label">Aplikácie</string>
+    <string name="analyzer_storage_content_type_app_description">Priestor, ktorý zaberajú nainštalované aplikácie a ich údaje (t. j. súbory aplikácie, údaje a vyrovnávacie pamäte).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Chýbajú povolenia</string>
     <string name="analyzer_storage_content_type_media_label">Užívateľské súbory</string>
     <string name="analyzer_storage_content_type_media_description">Nasnímané obrázky, nahrané videá alebo stiahnuté dáta. Akékoľvek údaje, ktoré nepatria do konkrétnej aplikácie.</string>
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
     <string name="analyzer_storage_content_type_system_description">Systémové údaje a systémové aplikácie.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
+    <string name="analyzer_storage_content_app_code_description">Súbory aplikácie, knižnice a zdroje. Tento priestor je možné uvoľniť iba odinštalovaním aplikácie.</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
     <string name="analyzer_storage_content_app_data_description">Dáta, nastavenia a vyrovnávacie pamäte.</string>
     <string name="analyzer_storage_content_app_media_label">Médiá aplikácie</string>

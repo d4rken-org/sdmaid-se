@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Na neke unose možete kliknuti da biste vidjeli više pojedinosti.</string>
     <string name="dashboard_delete_all_message">Izbrisati rezultate u svim alatima?</string>
     <string name="dashboard_settings_category">Nadzorna ploča</string>
     <string name="dashboard_settings_oneclick_title">Način rada jednim klikom</string>
@@ -9,7 +8,9 @@
     <string name="debug_debuglog_size_compressed_label">Sažeta veličina</string>
     <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
     <string name="debug_debuglog_file_label">Snimljena datoteka dnevnika</string>
+    <string name="debug_debuglog_recording_progress">Snimanje dnevnika otklanjanja pogrešaka</string>
     <string name="debug_debuglog_record_action">Snimi dnevnik otklanjanja pogrešaka</string>
+    <string name="debug_debuglog_stop_action">Zaustavi snimanje</string>
     <string name="debug_debuglog_sensitive_information_message">Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama.</string>
     <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktivni zadaci</string>
@@ -62,7 +63,10 @@
     <string name="ui_theme_light_label">Svijetla</string>
     <string name="ui_theme_system_label">Sustav</string>
     <string name="ui_theme_setting_explanation">Promijeni trenutnu temu aplikacije i nadjačaj postavke sustava.</string>
+    <string name="ui_previews_title">Predpregledi datoteka</string>
+    <string name="ui_previews_summary">Prikaži predpreglede datoteka u svim alatima (npr. minijature slika i videa).</string>
     <string name="settings_support_label">Podrška</string>
+    <string name="settings_support_description">Čitajte dokumentaciju, prijavite probleme, razgovarajte s drugima ili snimajte zapise o otklanjanju pogrešaka.</string>
     <string name="documentation_label">Dokumentacija</string>
     <string name="issue_tracker_description">Javni alat za praćenje problema za izvješća o greškama i zahtjeve za značajkama.</string>
     <string name="issue_tracker_label">Praćenje problema</string>
@@ -122,8 +126,10 @@
     <string name="debug_mode_label">Način otklanjanja pogrešaka</string>
     <string name="debug_mode_explanation">Omogućite opcije testiranja i opširniji izlaz. Aplikacija će raditi sporije i drugačije.</string>
     <string name="debug_bugreporter_label">Automatska izvješća o greškama</string>
+    <string name="debug_bugreporter_summary">Automatski prijavljuje probleme, npr. pojedinosti o rušenju aplikacije kako bih mogao shvatiti zašto i popraviti to.</string>
     <string name="settings_category_tools_label">Alati</string>
     <string name="settings_category_filter">Filtar</string>
+    <string name="settings_category_risklevel">Razina rizika</string>
     <string name="corpsefinder_tool_name">Tragač ostataka</string>
     <string name="corpsefinder_explanation_short">Podaci koji pripadaju već uklonjenim aplikacijama.</string>
     <string name="corpsefinder_settings_summary">Podesite filtre skeniranja i razine rizika.</string>
@@ -133,12 +139,22 @@
     <string name="corpsefinder_settings_risk_common_summary">Podaci s previše čestim imenima, npr. mapa \"Bilješke\" u vlasništvu je previše nepoznatih aplikacija.</string>
     <string name="corpsefinder_watcher_title">Promatrač deinstalacije</string>
     <string name="corpsefinder_watcher_summary">Automatski skeniraj ostatke nakon uklanjanja aplikacije.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatsko brisanje</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatski briše sve ostatke povezane s deinstaliranom aplikacijom.</string>
+    <string name="corpsefinder_watcher_notification_scan_result">Pronađeno %1$s ostakak(a) nakon deinstalacije %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavka je uklonjena.</item>
+        <item quantity="few">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavke su uklonjene.</item>
+        <item quantity="other">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavki je uklonjeno.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Izbriši ostatke</string>
     <string name="corpsefinder_filter_publicmedia_label">Javni mediji</string>
     <string name="corpsefinder_filter_publicmedia_summary">Javne medijske datoteke, npr. datoteke primljene putem aplikacija za slanje poruka.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB resursi</string>
     <string name="corpsefinder_filter_publicobb_summary">Dodatni resursi aplikacije, npr. sredstva igre.</string>
     <string name="corpsefinder_filter_publicdata_label">Javni podaci aplikacije</string>
     <string name="corpsefinder_filter_publicdata_summary">Neosjetljivi podaci aplikacije, npr. spremišta karte.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kartica</string>
     <string name="corpsefinder_filter_sdcard_summary">Opća javna pohrana, unutarnja i vanjska (npr. SD kartice).</string>
     <string name="corpsefinder_filter_privatedata_label">Privatni podaci aplikacije</string>
     <string name="corpsefinder_filter_privatedata_summary">Privatni podaci aplikacije, npr. vjerodajnice, postavke aplikacije, ali i predmemorije preglednika.</string>
@@ -165,6 +181,7 @@
     <string name="corpsefinder_corpse_hint_keeper">Ova stavka može sadržavati podatke koje želite zadržati unatoč tome što je njen vlasnik deinstaliran, npr. fotografije ili sigurnosne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ova stavka ima vrlo uobičajeno ime i mogla bi pripadati još instaliranim aplikacijama koje SD Maid ne poznaje.</string>
     <string name="systemcleaner_tool_name">Čistač sustava</string>
+    <string name="systemcleaner_explanation_short">Suvišni podaci koji ne pripadaju nijednoj određenoj aplikaciji.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d podudaranje filtra</item>
         <item quantity="few">%d podudaranja filtra</item>
@@ -260,10 +277,12 @@
     <string name="appcleaner_filter_telegram_summary">Datoteke primljene ili poslane putem Telegrama.</string>
     <string name="appcleaner_filter_threema_summary">Datoteke primljene putem Threeme.</string>
     <string name="appcleaner_filter_wechat_summary">Poslane ili primljene datoteke u razgovorima i WeChat trenucima.</string>
+    <string name="appcleaner_filter_viber_summary">Predmemorirane medijske datoteke koje se ponovno preuzimaju kada se gledaju u razgovoru.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Izbrisati potrošne stavke za sve aplikacije?</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">Pronađen %d potrošni predmet</item>
-        <item quantity="few">Pronađena %d potrošna predmeta</item>
-        <item quantity="other">Pronađeno %d potrošnog predmeta</item>
+        <item quantity="one">Pronađen %d potrošna stavka</item>
+        <item quantity="few">Pronađena %d potrošne stavke</item>
+        <item quantity="other">Pronađeno %d potrošnih stavki</item>
     </plurals>
     <string name="appcleaner_automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>
     <string name="appcleaner_automation_title">Automatizacija čistača aplikacija</string>
@@ -273,6 +292,8 @@
     <string name="appcleaner_automation_unavailable_title">Usluga pristupačnosti nije dostupna</string>
     <string name="appcleaner_automation_unavailable_body">Za brisanje nedostupnih predmemorija potrebna je usluga pristupačnosti SD Maida, ali ona nije bila dostupna. Ako je ne želite koristiti: Isključite opciju \"Uključi nedostupne predmemorije\".</string>
     <string name="appcleaner_junk_userprofile_label">Korisnik</string>
+    <string name="appcleaner_delete_confirmation_message_x">Izbrisati potrošne datoteke za %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Izbrisati potrošne datoteke za %d odabrane aplikacije?</string>
     <string name="appcontrol_tool_name">Kontrola aplikacija</string>
     <string name="appcontrol_explanation_short">Aplikacije instalirane na vašem uređaju.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -280,6 +301,7 @@
         <item quantity="few">%d otkrivene aplikacije</item>
         <item quantity="other">%d otkrivenih aplikacija</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Uključi ili isključi aplikacije</string>
     <string name="appcontrol_toggle_app_enable_action">Omogući aplikaciju</string>
     <string name="appcontrol_toggle_app_disable_action">Onemogući aplikaciju</string>
     <string name="appcontrol_toggle_app_enable_description">Omogućavanje aplikacije omogućuje njeno pokretanje i može je učiniti vidljivom u vašem pokretaču ako ima aktivnost.</string>
@@ -289,6 +311,7 @@
     <string name="appcontrol_systemsettings_open_title">Prikaži postavke</string>
     <string name="appcontrol_systemsettings_open_description">Otvara postavke sustava vašeg uređaja za ovu aplikaciju.</string>
     <string name="appcontrol_app_launch_title">Pokreni aplikaciju</string>
+    <string name="appcontrol_app_uninstall_description">Deinstalirajte ovu aplikaciju sa svog uređaja.</string>
     <string name="appcontrol_app_launch_description">Pokreće primarnu aktivnost ove aplikacije.</string>
     <string name="appcontrol_app_exclude_add_title">Izuzmi aplikaciju</string>
     <string name="appcontrol_app_exclude_add_description">Izuzima ovu aplikaciju iz drugih operacija u SD Maidu.</string>
@@ -305,6 +328,38 @@
     <string name="appcontrol_list_sortmode_updated_label">Zadnje ažuriranje u</string>
     <string name="appcontrol_list_sortmode_installed_label">Prvi put instaliran na</string>
     <string name="appcontrol_list_sortmode_packagename_label">Naziv paketa</string>
+    <string name="appcontrol_progress_uninstalling_app">Deinstaliranje aplikacije</string>
+    <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
+    <string name="analyzer_progress_scanning_device">Traženje uređaja za pohranu</string>
+    <string name="analyzer_progress_scanning_storage">Skeniranje pohrane</string>
+    <string name="analyzer_progress_scanning_apps">Skeniranje aplikacija</string>
+    <string name="analyzer_progress_scanning_userfiles">Pretraživanje korisničkih datoteka</string>
+    <string name="analyzer_progress_scanning_system">Skeniranje sistemskih podataka</string>
+    <string name="analyzer_device_storage_title">Pohrana uređaja</string>
+    <string name="analyzer_space_available">Dostupno %s</string>
+    <string name="analyzer_space_used">Iskorišteno %s</string>
+    <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
+    <string name="analyzer_storage_type_primary_title">Primarna pohrana</string>
+    <string name="analyzer_storage_type_primary_description">Primarna pohrana vašeg uređaja. Sadrži internu \"sdcard\", privatnu pohranu za aplikacije i sistemske podatke.</string>
+    <string name="analyzer_storage_type_secondary_title">Sekundarna pohrana</string>
+    <string name="analyzer_storage_type_secondary_description">Sekundarna pohrana, obično uklonjiva sd kartica. Sadrži medijske datoteke i podatke iz aplikacija koje to podržavaju.</string>
+    <string name="analyzer_storage_content_title">Sadržaj pohrane</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikacije</string>
+    <string name="analyzer_storage_content_type_app_description">Prostor koji zauzimaju instalirane aplikacije i njihovi podaci (tj. datoteke aplikacija, podaci i predmemorije).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Nedostaju dopuštenja</string>
+    <string name="analyzer_storage_content_type_media_label">Korisničke datoteke</string>
+    <string name="analyzer_storage_content_type_media_description">Snimljene slike, snimljeni videozapisi ili preuzeti podaci. Svi podaci koji ne pripadaju određenoj aplikaciji.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistemski podaci</string>
+    <string name="analyzer_storage_content_type_system_description">Sistemski podaci i sistemske aplikacije.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
+    <string name="analyzer_storage_content_app_code_description">Aplikacijske datoteke, biblioteke i resursi. Ovaj se prostor može osloboditi samo deinstaliranjem aplikacije.</string>
+    <string name="analyzer_storage_content_app_data_label">Podaci aplikacije</string>
+    <string name="analyzer_storage_content_app_data_description">Podaci, postavke i predmemorije.</string>
+    <string name="analyzer_storage_content_app_media_label">Mediji aplikacije</string>
+    <string name="analyzer_storage_content_app_media_description">Medijske datoteke iz ove aplikacije, npr. primljene WhatsApp fotografije.</string>
+    <string name="analyzer_storage_content_app_extra_label">Dodatne datoteke aplikacije</string>
+    <string name="analyzer_storage_content_app_extra_description">Dodatni podaci koje je ova aplikacija postavila izvan zadanih putanja, npr. fotografije ili preuzimanja.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ova aplikacija zauzima %1$s na \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Zadani javni podaci aplikacije</string>
     <string name="data_area_public_storage_label">Javna pohrana</string>
     <string name="data_area_sdcard_label">SD kartica</string>
@@ -315,9 +370,28 @@
     <string name="exclusion_manager_desc">Upravljajte izuzećima datoteka i aplikacija.</string>
     <string name="exclusion_explanation_body1">Izuzmite datoteke i aplikacije iz operacija SD Maida.</string>
     <string name="exclusion_add_new_hint">Dodajte nove izuzetke tako da prvo pustite SD Maid da traži, a zatim koristite kontekstni izbornik na rezultatu koji želite izuzeti.</string>
+    <string name="exclusion_create_action">Stvori izuzimanje</string>
+    <string name="exclusion_edit_action">Uredii zuzetak</string>
     <string name="exclusion_type_package">Izuzimanje aplikacije</string>
     <string name="exclusion_type_path">Izuzimanje putanje</string>
+    <string name="exclusion_type_segment">Izuzimanje segmenta</string>
     <string name="exclusion_tags_alltools">Svi alati</string>
+    <string name="exclusion_target_label">Cilj izuzimanja</string>
+    <string name="exclusion_option_allow_partial">Dopusti djelimična podudaranja</string>
+    <string name="exclusion_option_ignore_casing">Zanemari kućište</string>
+    <string name="exclusion_editor_affected_tools_label">Pogođeni alati</string>
+    <string name="exclusion_editor_path_explanation">Izuzimanje putanje sprječava SD Maid da dalje obrađuje podudarne putanje. Ovo se odnosi na datoteke, direktorije i poddirektorije.</string>
+    <string name="exclusion_editor_pkg_explanation">Izuzimanje aplikacije sprječava SD Maid da obradi podudarne pakete.</string>
+    <string name="exclusion_editor_segment_explanation">Izuzimanje na temelju segmenta slično je izuzimanju putanje, ali dopušta djelomična podudaranja. Primjer: \"DCIM/Camera\" izuzima \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Ukloniti ovaj izuzetak?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Imate nespremljene promjene!</string>
+    <string name="exclusion_create_pkg_hint">Upotrijebite alat AppControl za stvaranje izuzetaka aplikacija.</string>
+    <string name="exclusion_create_path_hint">Upotrijebite alat StorageAnalyzer za stvaranje izuzetaka putanja.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Stvoren je jedan izuzetak</item>
+        <item quantity="few">Stvorena %d izuzetka</item>
+        <item quantity="other">Stvoreno %d izuzetaka</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Korisnici s posebnim potrebama pristupačnosti mogu omogućiti ovu uslugu kako bi SD Maidu omogućili automatizaciju zadataka koji bi inače zahtijevali zamornu ručnu korisničku interakciju (npr. brisanje predmemorije).\\n\\nPrimjer: ako SD Maidu naredite da zaustavi više aplikacija, SD Maid može koristiti ovu uslugu za otvaranje zaslona postavki svake aplikacije, pronalaženje gumba \'Prisilno zaustavi\' i klikanje na njega.\\n\\nSD Maid će se uvijek istaknuti kada koristi ovu uslugu i omogućiti korisniku jednostavan način da odmah otkaže bilo kakvu interakciju. \\n\\nNikakve radnje neće biti izvedene bez prethodnog odobrenja korisnika. Ova se usluga može ponovno onemogućiti u bilo kojem trenutku bez negativnih učinaka.</string>
     <string name="automation_screenoverlay_explanation">SD Maid je u interakciji s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Pričekajte dok operacija ne završi ili je otkažite.</string>
     <string name="automation_active_title">SD Maid radi</string>
@@ -355,6 +429,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Nema aktivnih rasporeda</string>
     <string name="scheduler_setting_nopowersaving_title">Preskoči pri niskoj bateriji</string>
     <string name="scheduler_setting_nopowersaving_summary">Ako je telefon u načinu rada za uštedu energije, planirano izvršenje će biti preskočeno.</string>
+    <string name="scheduler_setting_automation_title">Usluga pristupačnosti</string>
+    <string name="scheduler_setting_automation_summary">Uključi radnje koje koriste uslugu pristupačnosti. To zahtijeva da SD Maid može komunicirati s vašim zaslonom (tj. da je otključan) kada se zadaci izvršavaju.</string>
     <string name="updates_dashcard_title">Ažuriranje dostupno</string>
     <string name="updates_dashcard_body">Ažuriranje je dostupno. Imate %1$s, a najnovija verzija je %2$s.</string>
     <string name="translation_encourage_title">Prevedite SD Maid</string>

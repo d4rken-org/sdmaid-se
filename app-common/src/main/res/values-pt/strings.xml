@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Ao seu serviço.</string>
+    <string name="slogan_message_1">Limpo e arrumado.</string>
     <string name="slogan_message_2">A impedir o caos.</string>
     <string name="slogan_message_3">Fazendo o que é necessário.</string>
     <string name="slogan_message_4">Todos os seus patos numa fila.</string>

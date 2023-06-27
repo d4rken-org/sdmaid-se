@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> on usaldusväärne Androidi teenija, mis hoiab selle puhta ja korras.
+<i>SD Maid SE</i> on Androidi usaldusväärne abiline, mis hoiab puhkust ja korda.
 
 Mitte keegi pole täiuslik ja sama kehtib Androidile.
 * Juba eemaldatud rakendused jätavad midagi maha.
 * Sageli luuakse logisid, veaaruandeid ja muid faile.
 * Hoiustamisruum kogub tundmatuid faile ja kaustu.
 
-Hingame sügavalt sisse ja välja... Laske SD Maid SE-l end aidata:
+Aitab küll… Lase SD Maid SE-l end aidata:
 
 * Andmete tühjendamine juba eemaldatud rakendustest
 * Leidke peidetud rakenduse vahemälud

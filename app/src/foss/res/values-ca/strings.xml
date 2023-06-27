@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Millora l\'SD Maid</string>
     <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven dades d\'usuaris. El desenvolupament continuat només és possible gràcies a tots vosaltres.</string>
     <string name="upgrade_screen_how_title">Com ajudar</string>
+    <string name="upgrade_screen_how_body">Convertiu-vos en mecenes i patrocinadors del desenvolupament! Feu clic al botó següent per activar totes les funcions addicionals i obrir el meu perfil de patrocinadors del GitHub.</string>
     <string name="upgrade_screen_why_title">Això evoca 🪄</string>
     <string name="upgrade_screen_why_body">• Neteja d\'aplicacions 💯\n• Operacions programades ⏰\n• Opcions extres per a totes les eines ⚙️\n• Les vostres pròpies regles d\'eliminació ✍️\n• Un desenvolupador motivat 🧙\ni molt més…</string>
     <string name="upgrade_screen_sponsor_action">Desenvolupament del patrocinador</string>

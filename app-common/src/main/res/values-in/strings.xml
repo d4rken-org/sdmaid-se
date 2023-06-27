@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Siap melayani anda.</string>
+    <string name="slogan_message_1">Bersih dan rapi.</string>
     <string name="slogan_message_2">Menghindari kekacauan.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu dilakukan.</string>
     <string name="slogan_message_4">Membariskan bebek-bebek Anda.</string>

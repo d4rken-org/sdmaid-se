@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">К Вашим услугам.</string>
+    <string name="slogan_message_1">Чистота и порядок.</string>
     <string name="slogan_message_2">Предотвращение хаоса.</string>
     <string name="slogan_message_3">Только то, что необходимо.</string>
     <string name="slogan_message_4">Всё на своём месте.</string>
@@ -70,10 +71,25 @@
     <string name="general_update_action">Обновить</string>
     <string name="general_scan_action">Сканировать</string>
     <string name="general_delete_action">Удалить</string>
+    <string name="general_delete_selected_action">Удалить выбранные</string>
     <string name="general_show_details_action">Показать детали</string>
     <string name="general_delete_confirmation_title">Подтвердить удаление</string>
     <string name="general_delete_confirmation_message_x">Удалить \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Удалить %d выбранных элементов?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Удалено %1$d элем. и освобождено %2$s</item>
+        <item quantity="few">Удалено %1$d элем. и освобождено %2$s</item>
+        <item quantity="many">Удалено %1$d элем. и освобождено %2$s</item>
+        <item quantity="other">Удалено %1$d элем. и освобождено %2$s</item>
+    </plurals>
     <string name="general_remove_action">Удалить</string>
+    <string name="general_remove_selected_action">Убрать выбранные</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">%d элем. был убран</item>
+        <item quantity="few">%d элем. было убрано</item>
+        <item quantity="many">%d элем. было убрано</item>
+        <item quantity="other">%d элем. было убрано</item>
+    </plurals>
     <string name="general_root_required_label">Требуются рут-права</string>
     <string name="general_root_required_message">Требуется устройство с рутом</string>
     <string name="general_search_action">Поиск</string>
@@ -93,10 +109,12 @@
     <string name="general_grant_access_action">Предоставить доступ</string>
     <string name="general_enable_service_action">Включить службу</string>
     <string name="general_undo_action">Отменить</string>
+    <string name="general_list_select_all_action">Выбрать все</string>
     <string name="general_path_label">Путь</string>
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Размер</string>
     <string name="general_exclude_action">Исключить</string>
+    <string name="general_exclude_selected_action">Исключить выбранные</string>
     <string name="general_device_label">Устройство</string>
     <string name="general_settings_title">Настройки</string>
     <string name="general_help_title">Помощь</string>

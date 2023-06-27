@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_click_hint">Některé položky lze rozkliknout a zobrazit další podrobnosti.</string>
     <string name="dashboard_delete_all_message">Vymazat výsledky ve všech nástrojích?</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
     <string name="dashboard_settings_oneclick_title">Režim na jedno kliknutí</string>
@@ -353,12 +352,14 @@
     <string name="analyzer_storage_type_secondary_description">Sekundární úložiště, obvykle vyměnitelné SD karty. Obsahuje mediální soubory a data z aplikací, které jej podporují.</string>
     <string name="analyzer_storage_content_title">Obsah úložiště</string>
     <string name="analyzer_storage_content_type_app_label">Aplikace</string>
+    <string name="analyzer_storage_content_type_app_description">Prostor obsazený instalovanými aplikacemi a jejich daty (např. soubory aplikace, data a mezipaměť).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Chybí oprávnění</string>
     <string name="analyzer_storage_content_type_media_label">Soubory uživatele</string>
     <string name="analyzer_storage_content_type_media_description">Pořízené fotky, nahraná videa nebo stažená data. Jakákoliv data, která nepatří ke konkrétní aplikaci.</string>
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
     <string name="analyzer_storage_content_type_system_description">Systémová data a systémové aplikace.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
+    <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a prostředky. Tento prostor jde uvolnit pouze odinstalováním aplikace.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>
     <string name="analyzer_storage_content_app_data_description">Data, nastavení a mezipaměti.</string>
     <string name="analyzer_storage_content_app_media_label">Média aplikace</string>
