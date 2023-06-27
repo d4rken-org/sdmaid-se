@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation
 
-import eu.darken.sdmse.appcleaner.core.deleter.InaccessibleDeletionResult
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.common.pkgs.features.Installed
 
@@ -9,7 +8,7 @@ class ClearCacheTask(
 ) : AutomationTask {
 
     data class Result(
-        override val successful: Collection<Installed.InstallId>,
-        override val failed: Collection<Installed.InstallId>,
-    ) : AutomationTask.Result, InaccessibleDeletionResult
+        val successful: Collection<Installed.InstallId>,
+        val failed: Collection<Installed.InstallId>,
+    ) : AutomationTask.Result
 }

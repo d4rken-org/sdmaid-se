@@ -51,11 +51,11 @@ class PkgOps @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    private suspend fun <T> adbOps(action: (PkgOpsClient) -> T): T {
+    private suspend fun <T> adbOps(action: suspend (PkgOpsClient) -> T): T {
         return shizukuManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
-    private suspend fun <T> rootOps(action: (PkgOpsClient) -> T): T {
+    private suspend fun <T> rootOps(action: suspend (PkgOpsClient) -> T): T {
         return rootManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 

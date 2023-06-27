@@ -112,12 +112,49 @@ suspend fun PackageManager.freeStorageAndNotify(
                     object : IPackageDataObserver.Stub() {
                         @Throws(RemoteException::class)
                         override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
+                            log(VERBOSE) { "freeStorageAndNotify() $packageName -> $succeeded" }
                             continuation.resume(true)
                         }
                     }
                 )
             } catch (e: Exception) {
                 log(WARN) { "freeStorageAndNotify($desiredBytes,$storageId) failed: ${e.asLog()}" }
+                continuation.resume(false)
+            }
+        }
+    }
+}
+
+/**
+ * Requires android.permission.DELETE_CACHE_FILES
+ */
+suspend fun PackageManager.deleteApplicationCacheFiles(
+    packageName: String
+): Boolean {
+    val packageManager = this
+
+    val deleteApplicationCacheFilesMethod = packageManager.javaClass.getMethod(
+        "deleteApplicationCacheFiles",
+        String::class.java,
+        IPackageDataObserver::class.java
+    )
+
+    return withTimeout(20 * 1000L) {
+        suspendCancellableCoroutine { continuation ->
+            try {
+                deleteApplicationCacheFilesMethod.invoke(
+                    packageManager,
+                    packageName,
+                    object : IPackageDataObserver.Stub() {
+                        @Throws(RemoteException::class)
+                        override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
+                            log(VERBOSE) { "deleteApplicationCacheFiles() $packageName -> $succeeded" }
+                            continuation.resume(succeeded)
+                        }
+                    }
+                )
+            } catch (e: Exception) {
+                log(WARN) { "deleteApplicationCacheFiles($packageName) failed: ${e.asLog()}" }
                 continuation.resume(false)
             }
         }

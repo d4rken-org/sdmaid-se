@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.IpcHostModule
 import eu.darken.sdmse.common.ipc.RemoteInputStream
+import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFiles
 import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
@@ -54,11 +55,19 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
-    override fun clearCache(packageName: String, handleId: Int): Boolean = try {
+    override fun clearCacheAsUser(packageName: String, handleId: Int): Boolean = try {
         log(TAG, VERBOSE) { "clearCache(packageName=$packageName, handleId=$handleId)..." }
         runBlocking { pm.deleteApplicationCacheFilesAsUser(packageName, handleId) }
     } catch (e: Exception) {
         log(TAG, ERROR) { "clearCache(packageName=$packageName, handleId=$handleId) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun clearCache(packageName: String): Boolean = try {
+        log(TAG, VERBOSE) { "clearCache(packageName=$packageName)..." }
+        runBlocking { pm.deleteApplicationCacheFiles(packageName) }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(packageName=$packageName) failed." }
         throw wrapPropagating(e)
     }
 

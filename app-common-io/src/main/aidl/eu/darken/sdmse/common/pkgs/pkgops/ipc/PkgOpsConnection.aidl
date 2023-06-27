@@ -11,7 +11,9 @@ interface PkgOpsConnection {
 
     boolean forceStop(String packageName);
 
-    boolean clearCache(String packageName, int handleId);
+    boolean clearCacheAsUser(String packageName, int handleId);
+
+    boolean clearCache(String packageName);
 
     boolean trimCaches(long desiredBytes, String storageId);
 

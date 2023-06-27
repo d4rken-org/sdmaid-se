@@ -2,9 +2,11 @@ package eu.darken.sdmse.appcleaner.core.deleter
 
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.InaccessibleDeletionException
 import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
+import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
@@ -66,7 +68,7 @@ class AppJunkDeleter @Inject constructor(
     data class Result(
         val newSnapShot: AppCleaner.Data,
         val deletionMap: Map<Installed.InstallId, Set<APathLookup<*>>>,
-        val inaccessibleDeletionResult: InaccessibleDeletionResult?,
+        val inaccessibleDeletions: Collection<InaccessibleCache>,
     )
 
     suspend fun delete(
@@ -84,106 +86,24 @@ class AppJunkDeleter @Inject constructor(
 
         val deletionMap = mutableMapOf<Installed.InstallId, Set<APathLookup<*>>>()
 
-        val confirmedTargets = targetPkgs ?: snapshot.junks.map { it.identifier }
+        val targetJunk = targetPkgs
+            ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
+            ?: snapshot.junks
 
-        confirmedTargets.forEach { targetPkg ->
-            log(TAG) { "Processing $targetPkg" }
-            if (onlyInaccessible) return@forEach
-
-            val appJunk = snapshot.junks.single { it.identifier == targetPkg }
-            updateProgressPrimary(appJunk.label)
-
-            val targetFilters = targetFilters
-                ?: appJunk.expendables?.keys
-                ?: emptySet()
-
-            val targetFiles: Collection<APathLookup<*>> = targetContents
-                ?.map { tc ->
-                    val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
-                    allFiles.single { tc.matches(it) }
-                }
-                ?: appJunk.expendables?.filterKeys { targetFilters.contains(it) }?.values?.flatten()
-                ?: emptySet()
-
-            val deleted = mutableSetOf<APathLookup<*>>()
-
-            targetFiles.forEach { targetFile ->
-                log(TAG) { "Deleting $targetFile..." }
-                try {
-                    targetFile.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
-                    }
-                    log(TAG) { "Deleted $targetFile!" }
-                    deleted.add(targetFile)
-                } catch (e: WriteException) {
-                    log(TAG, WARN) { "Deletion failed for $targetFile" }
-                }
+        if (!onlyInaccessible) {
+            targetJunk.forEach { appJunk ->
+                val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
+                deletionMap[appJunk.identifier] = deleted
             }
-
-            deletionMap[appJunk.identifier] = deleted
         }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
-        val currentUser = userManager.currentUser()
-        val inaccessibleTargets = confirmedTargets
-            .filter { includeInaccessible }
-            .map { targetPkg -> snapshot.junks.single { it.identifier == targetPkg } }
-            .filter { junk -> junk.inaccessibleCache != null }
-            .filter {
-                // Without root, we shouldn't have inaccessible caches from other users
-                val isCurrentUser = it.identifier.userHandle == currentUser.handle
-                if (!isCurrentUser) {
-                    log(TAG, WARN) { "Unexpected inaccessible data from other users: $it" }
-                }
-                isCurrentUser
-            }
-            .takeIf { it.isNotEmpty() }
-
-        val automationResult: InaccessibleDeletionResult? = when {
-            inaccessibleTargets == null -> {
-                log(TAG) { "No inaccessible caches to delete." }
-                null
-            }
-
-            shizukuManager.canUseShizukuNow() && targetPkgs == null -> {
-                log(TAG) { "Using Shizuku to delete inaccessible caches" }
-                updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
-                updateProgressCount(Progress.Count.Indeterminate())
-
-                val success = inaccessibleTargets
-                    .filter { !it.pkg.isSystemApp }
-                    .map { it.identifier }
-
-                var failed = inaccessibleTargets
-                    .filter { !it.pkg.isSystemApp }
-                    .map { it.identifier }
-
-                try {
-                    pkgOps.trimCaches(Long.MAX_VALUE)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
-                    failed = failed + success
-                }
-
-                ShizukuDeletionResult(successful = success, failed = failed)
-            }
-
-            else -> {
-                log(TAG, WARN) { "Using accessibility service to delete inaccesible caches." }
-                updateProgressPrimary(R.string.appcleaner_automation_loading)
-                updateProgressSecondary(CaString.EMPTY)
-
-                try {
-                    automationManager.submit(
-                        ClearCacheTask(inaccessibleTargets.map { it.identifier })
-                    ) as InaccessibleDeletionResult
-                } catch (e: AutomationUnavailableException) {
-                    throw InaccessibleDeletionException(e)
-                }
-            }
+        val successTargets = if (includeInaccessible) {
+            deleteInaccessible(targetJunk, isAllApps = targetPkgs == null)
+        } else {
+            emptySet()
         }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
@@ -204,7 +124,7 @@ class AppJunkDeleter @Inject constructor(
                         ?.filterValues { it.isNotEmpty() }
 
                     val updatedInaccesible = when {
-                        automationResult?.successful?.contains(appJunk.identifier) == true -> null
+                        successTargets.contains(appJunk.inaccessibleCache) -> null
                         else -> appJunk.inaccessibleCache
                     }
 
@@ -219,8 +139,109 @@ class AppJunkDeleter @Inject constructor(
         return Result(
             newSnapshot,
             deletionMap,
-            automationResult
+            successTargets
         )
+    }
+
+    private suspend fun deleteDirectAccess(
+        appJunk: AppJunk,
+        _targetFilters: Set<KClass<out ExpendablesFilter>>?,
+        _targetContents: Set<APath>?,
+    ): Set<APathLookup<*>> {
+        log(TAG) { "Processing ${appJunk.identifier}" }
+
+        updateProgressPrimary(appJunk.label)
+
+        val targetFilters = _targetFilters
+            ?: appJunk.expendables?.keys
+            ?: emptySet()
+
+        val targetFiles: Collection<APathLookup<*>> = _targetContents
+            ?.map { tc ->
+                val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
+                allFiles.single { tc.matches(it) }
+            }
+            ?: appJunk.expendables?.filterKeys { targetFilters.contains(it) }?.values?.flatten()
+            ?: emptySet()
+
+        val deleted = mutableSetOf<APathLookup<*>>()
+
+        targetFiles.forEach { targetFile ->
+            log(TAG) { "Deleting $targetFile..." }
+            try {
+                targetFile.deleteAll(gatewaySwitch) {
+                    updateProgressSecondary(it.userReadablePath)
+                    true
+                }
+                log(TAG) { "Deleted $targetFile!" }
+                deleted.add(targetFile)
+            } catch (e: WriteException) {
+                log(TAG, WARN) { "Deletion failed for $targetFile" }
+            }
+        }
+
+        return deleted
+    }
+
+    private suspend fun deleteInaccessible(
+        targetJunks: Collection<AppJunk>,
+        isAllApps: Boolean,
+    ): Set<InaccessibleCache> {
+        val currentUser = userManager.currentUser()
+        val inaccessibleTargets = targetJunks
+            .filter { junk -> junk.inaccessibleCache != null }
+            .filter {
+                // Without root, we shouldn't have inaccessible caches from other users
+                val isCurrentUser = it.identifier.userHandle == currentUser.handle
+                if (!isCurrentUser) {
+                    log(TAG, WARN) { "Unexpected inaccessible data from other users: $it" }
+                }
+                isCurrentUser
+            }
+
+        log(TAG) { "${inaccessibleTargets.size} inaccessible caches to delete." }
+
+
+        val successTargets = mutableListOf<InaccessibleCache>()
+        val failedTargets = mutableListOf<InaccessibleCache>()
+
+        if (shizukuManager.canUseShizukuNow() && inaccessibleTargets.isNotEmpty() && isAllApps) {
+            log(TAG) { "Using Shizuku to delete inaccessible caches" }
+            updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
+            updateProgressCount(Progress.Count.Indeterminate())
+
+            val trimCandidates = inaccessibleTargets.filter { !it.pkg.isSystemApp }
+
+            try {
+                pkgOps.trimCaches(Long.MAX_VALUE)
+                successTargets.addAll(trimCandidates.map { it.inaccessibleCache!! })
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
+                failedTargets.addAll(trimCandidates.map { it.inaccessibleCache!! })
+            }
+        }
+
+
+        log(TAG, WARN) { "Using accessibility service to delete inaccesible caches." }
+        updateProgressPrimary(R.string.appcleaner_automation_loading)
+        updateProgressSecondary(CaString.EMPTY)
+
+        if (inaccessibleTargets.isNotEmpty() && inaccessibleTargets.size != successTargets.size) {
+            val remainingTargets = inaccessibleTargets
+                .filter { !successTargets.contains(it.inaccessibleCache) }
+                .mapNotNull { it.inaccessibleCache }
+
+            log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
+            val acsTask = ClearCacheTask(remainingTargets.map { it.identifier })
+            val result = try {
+                automationManager.submit(acsTask) as ClearCacheTask.Result
+            } catch (e: AutomationUnavailableException) {
+                throw InaccessibleDeletionException(e)
+            }
+            successTargets.addAll(remainingTargets.filter { result.successful.contains(it.identifier) })
+        }
+
+        return successTargets.toSet()
     }
 
     companion object {

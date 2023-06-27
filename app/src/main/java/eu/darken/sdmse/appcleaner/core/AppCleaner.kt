@@ -134,12 +134,8 @@ class AppCleaner @Inject constructor(
 
         internalData.value = result.newSnapShot
 
-        val automationCount = result.inaccessibleDeletionResult?.successful
-            ?.mapNotNull { installId -> snapshot.junks.single { it.identifier == installId }.inaccessibleCache?.itemCount }
-            ?.sum() ?: 0
-        val automationSize = result.inaccessibleDeletionResult?.successful
-            ?.mapNotNull { installId -> snapshot.junks.single { it.identifier == installId }.inaccessibleCache?.cacheBytes }
-            ?.sum() ?: 0L
+        val automationCount = result.inaccessibleDeletions.sumOf { it.itemCount }
+        val automationSize = result.inaccessibleDeletions.sumOf { it.cacheBytes }
 
         return AppCleanerDeleteTask.Success(
             deletedCount = result.deletionMap.values.sumOf { it.size } + automationCount,

@@ -81,7 +81,7 @@ class AutomationSetupModule @Inject constructor(
         log(TAG) { "useRoot: $useRoot" }
 
         State(
-            isNotRequired = useRoot || useShizuku,
+            isNotRequired = useRoot,
             hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
