@@ -7,7 +7,6 @@ import android.net.Uri
 import android.provider.DocumentsContract
 import dagger.Binds
 import dagger.Module
-import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
@@ -15,6 +14,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -25,18 +25,22 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.matchPermission
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@Reusable
+@Singleton
 class SAFSetupModule @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     private val contentResolver: ContentResolver,
     private val storageManager2: StorageManager2,
     private val storageEnvironment: StorageEnvironment,
@@ -46,11 +50,13 @@ class SAFSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger.mapLatest {
-        State(
-            paths = getAccessObjects(),
-        )
-    }
+    override val state = refreshTrigger
+        .mapLatest {
+            State(
+                paths = getAccessObjects(),
+            )
+        }
+        .replayingShare(appScope)
 
     private suspend fun getAccessObjects(): List<State.PathAccess> {
         val requestObjects = mutableListOf<State.PathAccess>()

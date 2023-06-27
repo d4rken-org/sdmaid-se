@@ -12,15 +12,12 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.common.DeviceDetective
-import eu.darken.sdmse.common.SystemSettingsProvider
 import eu.darken.sdmse.common.SystemSettingsProvider.*
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -28,22 +25,17 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AutomationSetupModule @Inject constructor(
-    @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val automationManager: AutomationManager,
     private val deviceDetective: DeviceDetective,
-    private val settingsProvider: SystemSettingsProvider,
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
 ) : SetupModule {
@@ -89,37 +81,7 @@ class AutomationSetupModule @Inject constructor(
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
         ).also { log(TAG) { "New ACS setup state: $it" } }
-    }
-
-    init {
-        state
-            .filter { !it.isComplete && it.hasConsent == true && !it.isServiceEnabled }
-            .onEach { currentState ->
-                log(TAG, VERBOSE) { "ACS should be enabled, but isn't: $currentState" }
-
-                val hasWriteSettings = settingsProvider.hasSecureWriteAccess()
-                if (!hasWriteSettings) return@onEach
-                else log(TAG, VERBOSE) { "We have secure settings access, let's troubleshoot" }
-
-                val beforeAcs: String? = settingsProvider.get(Type.SECURE, SETTINGS_KEY_ACS)
-                log(TAG) { "Before writing ACS settings: $beforeAcs" }
-
-                val splitAcs = beforeAcs
-                    ?.split(":")
-                    ?.filter { it.isNotBlank() }
-                    ?: emptySet()
-                if (splitAcs.contains(SETTINGS_VALUE_OUR_ACS)) {
-                    log(TAG, ERROR) { "Service isn't running but we are already enabled?" }
-                } else {
-                    val newAcsValue = splitAcs.plus(SETTINGS_VALUE_OUR_ACS).joinToString(":")
-                    settingsProvider.put(Type.SECURE, SETTINGS_KEY_ACS, newAcsValue)
-                    val afterAcs: String? = settingsProvider.get(Type.SECURE, SETTINGS_KEY_ACS)
-                    log(TAG) { "After writings ACS settings: $afterAcs" }
-                }
-            }
-            .catch { log(TAG) { "Automatic ACS recovery failed: ${it.asLog()}" } }
-            .launchIn(appScope)
-    }
+    }.replayingShare(appScope)
 
     suspend fun setAllow(allowed: Boolean) {
         log(TAG) { "setAllow($allowed)" }
@@ -160,8 +122,6 @@ class AutomationSetupModule @Inject constructor(
     }
 
     companion object {
-        private val SETTINGS_VALUE_OUR_ACS = "eu.darken.sdmse/${AutomationService::class.qualifiedName!!}"
-        private const val SETTINGS_KEY_ACS = "enabled_accessibility_services"
         private val TAG = logTag("Setup", "Automation", "Module")
     }
 }

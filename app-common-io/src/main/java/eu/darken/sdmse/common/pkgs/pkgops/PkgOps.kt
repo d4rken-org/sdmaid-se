@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.Permission.*
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
@@ -326,6 +327,67 @@ class PkgOps @Inject constructor(
         }
     }
 
+    suspend fun grantPermission(id: Installed.InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
+        try {
+            log(TAG) { "grantPermission($id, $permission, $mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("grantPermission($id, $permission) does not support mode=NORMAL")
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "grantPermission($id, $permission, $mode->ADB)" }
+                return adbOps { it.grantPermission(id, permission) }
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "grantPermission($id, $permission, $mode->ROOT)" }
+                return rootOps { it.grantPermission(id, permission) }
+
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "grantPermission($id, $permission, $mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "grantPermission($id, $permission, $mode) failed", cause = e)
+        }
+    }
+
+    suspend fun setAppOps(
+        id: Installed.InstallId,
+        key: AppOpsKey,
+        value: AppOpsValue,
+        mode: Mode = Mode.AUTO
+    ): Boolean {
+        try {
+            log(TAG) { "setAppOps($id, $key, $value, $mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("setAppOps($id, $key, $value) does not support mode=NORMAL")
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "setAppOps($id, $key, $value, $mode->ADB)" }
+                return adbOps { it.setAppOps(id, key.raw, value.raw) }
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "setAppOps($id, $key, $value, $mode->ROOT)" }
+                return rootOps { it.setAppOps(id, key.raw, value.raw) }
+
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG) { "setAppOps($id, $key, $value, $mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "setAppOps($id, $key, $value $mode) failed", cause = e)
+        }
+    }
+
+    enum class AppOpsKey(val raw: String) {
+        GET_USAGE_STATS("GET_USAGE_STATS"),
+        MANAGE_EXTERNAL_STORAGE("MANAGE_EXTERNAL_STORAGE"),
+        ;
+    }
+
+    enum class AppOpsValue(val raw: String) {
+        ALLOW("allow"),
+        ;
+    }
 
     enum class Mode {
         AUTO, NORMAL, ROOT, ADB

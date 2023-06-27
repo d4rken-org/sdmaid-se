@@ -18,22 +18,18 @@ class SetupManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val setupModules: Set<@JvmSuppressWildcards SetupModule>,
     private val generalSettings: GeneralSettings,
+    private val setupHealer: SetupHealer,
 ) {
-    data class SetupState(
-        val moduleStates: List<SetupModule.State>,
-        val isDismissed: Boolean,
-    ) {
 
-        val isComplete: Boolean = moduleStates.all { it.isComplete }
-    }
-
-    val state: Flow<SetupState> = combine(
+    val state: Flow<State> = combine(
         combine(setupModules.map { it.state }) { it.filterNotNull().toList() },
         generalSettings.isSetupDismissed.flow,
-    ) { moduleStates, isDismissed ->
-        SetupState(
+        setupHealer.state,
+    ) { moduleStates, isDismissed, healerState ->
+        State(
             moduleStates = moduleStates,
             isDismissed = isDismissed,
+            isHealerWorking = healerState.isWorking,
         )
     }
         .onEach { log(TAG) { "Setup state: $it" } }
@@ -47,6 +43,15 @@ class SetupManager @Inject constructor(
     fun setDismissed(dismissed: Boolean) {
         log(TAG) { "dismissSetup()" }
         generalSettings.isSetupDismissed.valueBlocking = dismissed
+    }
+
+    data class State(
+        val moduleStates: List<SetupModule.State>,
+        val isDismissed: Boolean,
+        val isHealerWorking: Boolean,
+    ) {
+
+        val isComplete: Boolean = moduleStates.all { it.isComplete }
     }
 
     companion object {

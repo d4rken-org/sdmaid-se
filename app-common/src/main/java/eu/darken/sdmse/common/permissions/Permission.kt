@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.DeviceDetective
+import kotlin.reflect.full.isSubclassOf
 
 @Suppress("ClassName")
 sealed class Permission(
@@ -91,6 +92,18 @@ sealed class Permission(
 
     object WRITE_SECURE_SETTINGS
         : Permission("android.permission.WRITE_SECURE_SETTINGS")
+
+    companion object {
+        // Without lazy there is an NPE: https://youtrack.jetbrains.com/issue/KT-25957
+        val values: List<Permission> by lazy {
+            Permission::class.nestedClasses
+                .filter { clazz -> clazz.isSubclassOf(Permission::class) }
+                .map { clazz -> clazz.objectInstance }
+                .filterIsInstance<Permission>()
+        }
+
+        fun fromId(rawId: String) = values.singleOrNull { it.permissionId == rawId }
+    }
 }
 
 interface RuntimePermission
