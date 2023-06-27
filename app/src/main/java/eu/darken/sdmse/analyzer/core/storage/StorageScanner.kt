@@ -42,6 +42,9 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.common.user.UserHandle2
@@ -59,6 +62,7 @@ class StorageScanner @Inject constructor(
     private val statsManager: StorageStatsManager2,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
@@ -208,6 +212,8 @@ class StorageScanner @Inject constructor(
                 }
             }
 
+        val canReadAndroidData = !hasApiLevel(33) || rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()
+
         // Android/data/<pkg>
         val dataDirPub = publicPath
             ?.let { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
@@ -215,7 +221,7 @@ class StorageScanner @Inject constructor(
                 try {
                     val lookup = gatewaySwitch.lookup(pubData, type = GatewaySwitch.Type.AUTO)
 
-                    if (lookup.fileType == FileType.DIRECTORY && !hasApiLevel(33)) {
+                    if (lookup.fileType == FileType.DIRECTORY && canReadAndroidData) {
                         val children = try {
                             lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
                         } catch (e: ReadException) {
