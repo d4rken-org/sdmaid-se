@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.ipc.IpcClientModule
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
@@ -127,6 +128,20 @@ class PkgOpsClient @AssistedInject constructor(
             else -> ""
         }
         return IOException(message, e.cause)
+    }
+
+    fun grantPermission(id: Installed.InstallId, permission: Permission): Boolean = try {
+        connection.grantPermission(id.pkgId.name, id.userHandle.handleId, permission.permissionId)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "grantPermission(id=$id, permission=$permission) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun setAppOps(id: Installed.InstallId, key: String, value: String): Boolean = try {
+        connection.setAppOps(id.pkgId.name, id.userHandle.handleId, key, value)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "setAppOps(id=$id, key=$key, value=$value) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
     }
 
     @AssistedFactory

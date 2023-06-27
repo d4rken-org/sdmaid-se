@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -54,7 +55,7 @@ class ShizukuSetupModule @Inject constructor(
             basicService = binder?.pingBinder() ?: false,
             ourService = shizukuManager.isShizukuServiceAvailable(),
         ).also { log(TAG) { "New Shizuku setup state: $it" } }
-    }
+    }.replayingShare(appScope)
 
     init {
         shizukuManager.permissionGrantEvents

@@ -3,7 +3,6 @@ package eu.darken.sdmse.setup.storage
 import android.content.Context
 import dagger.Binds
 import dagger.Module
-import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
@@ -13,20 +12,25 @@ import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@Reusable
+@Singleton
 class StorageSetupModule @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
     private val dataAreaManager: DataAreaManager,
@@ -34,32 +38,34 @@ class StorageSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger.mapLatest {
-        val requiredPermission = getRequiredPermission()
-        val missingPermission = requiredPermission.filter {
-            val isGranted = it.isGranted(context)
-            log(TAG) { "${it.permissionId} isGranted=$isGranted" }
-            !isGranted
-        }.toSet()
+    override val state = refreshTrigger
+        .mapLatest {
+            val requiredPermission = getRequiredPermission()
+            val missingPermission = requiredPermission.filter {
+                val isGranted = it.isGranted(context)
+                log(TAG) { "${it.permissionId} isGranted=$isGranted" }
+                !isGranted
+            }.toSet()
 
-        val affectedPaths = storageManager2.storageVolumes
-            .filter { it.directory != null }
-            .map { volume ->
-                State.PathAccess(
-                    label = when {
-                        volume.isPrimary || volume.isEmulated -> R.string.data_area_public_storage_label.toCaString()
-                        else -> R.string.data_area_sdcard_label.toCaString()
-                    },
-                    localPath = LocalPath.build(volume.directory!!),
-                    hasAccess = requiredPermission.all { it.isGranted(context) },
-                )
-            }
+            val affectedPaths = storageManager2.storageVolumes
+                .filter { it.directory != null }
+                .map { volume ->
+                    State.PathAccess(
+                        label = when {
+                            volume.isPrimary || volume.isEmulated -> R.string.data_area_public_storage_label.toCaString()
+                            else -> R.string.data_area_sdcard_label.toCaString()
+                        },
+                        localPath = LocalPath.build(volume.directory!!),
+                        hasAccess = requiredPermission.all { it.isGranted(context) },
+                    )
+                }
 
-        return@mapLatest State(
-            missingPermission = missingPermission,
-            paths = affectedPaths,
-        )
-    }
+            return@mapLatest State(
+                missingPermission = missingPermission,
+                paths = affectedPaths,
+            )
+        }
+        .replayingShare(appScope)
 
     private fun getRequiredPermission(): Set<Permission> {
         return when {

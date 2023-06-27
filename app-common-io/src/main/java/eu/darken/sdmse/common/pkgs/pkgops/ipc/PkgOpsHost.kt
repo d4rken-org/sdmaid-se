@@ -129,6 +129,32 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun grantPermission(packageName: String, handleId: Int, permissionId: String): Boolean = try {
+        log(TAG, VERBOSE) { "grantPermission($packageName, $handleId, $permissionId)..." }
+        val result = runBlocking {
+            sharedShell.useRes {
+                Cmd.builder("pm grant --user $handleId $packageName $permissionId").execute(it)
+            }
+        }
+        result.exitCode == Cmd.ExitCode.OK
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "grantPermission($packageName, $handleId, $permissionId) failed: $e" }
+        throw wrapPropagating(e)
+    }
+
+    override fun setAppOps(packageName: String, handleId: Int, key: String, value: String): Boolean = try {
+        log(TAG, VERBOSE) { "setAppOps($packageName, $handleId, $key, $value)..." }
+        val result = runBlocking {
+            sharedShell.useRes {
+                Cmd.builder("appops set --user $handleId $packageName $key $value ").execute(it)
+            }
+        }
+        result.exitCode == Cmd.ExitCode.OK
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "setAppOps($packageName, $handleId, $key, $value) failed: $e" }
+        throw wrapPropagating(e)
+    }
+
     private fun wrapPropagating(e: Exception): Exception {
         return if (e is UnsupportedOperationException) e
         else UnsupportedOperationException(e)

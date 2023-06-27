@@ -93,6 +93,7 @@
     <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid\'s setup to get better results.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid is trying to fix setup issues.</string>
     <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
     <string name="setup_incomplete_card_continue_action">Continue setup</string>
     <string name="setup_title">Setup</string>

@@ -291,7 +291,7 @@ class DashboardViewModel @Inject constructor(
         titleInfo: TitleCardVH.Item,
         upgradeInfo: UpgradeRepo.Info?,
         updateInfo: UpdateCardVH.Item?,
-        setupState: SetupManager.SetupState,
+        setupState: SetupManager.State,
         dataAreaInfo: DataAreaCardVH.Item?,
         corpseFinderItem: CorpseFinderDashCardVH.Item?,
         systemCleanerItem: SystemCleanerDashCardVH.Item?,

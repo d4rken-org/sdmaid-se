@@ -25,4 +25,7 @@ interface PkgOpsConnection {
 
     void setApplicationEnabledSetting (String packageName, int newState, int flags);
 
+    boolean grantPermission(String packageName, int handleId, String permissionId);
+
+    boolean setAppOps(String packageName, int handleId, String key, String value);
 }
