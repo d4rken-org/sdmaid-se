@@ -90,7 +90,7 @@ fun PackageManager.toggleSelfComponent(
 suspend fun PackageManager.freeStorageAndNotify(
     desiredBytes: Long = Long.MAX_VALUE - 1000L,
     storageId: String? = null,
-    timeout: Long = 20 * 1000L
+    timeout: Long = 30 * 1000L
 ): Boolean {
     val packageManager = this
 
@@ -101,7 +101,7 @@ suspend fun PackageManager.freeStorageAndNotify(
         IPackageDataObserver::class.java
     )
 
-    return withTimeout(1L) {
+    return withTimeout(timeout) {
         suspendCancellableCoroutine { continuation ->
             try {
 

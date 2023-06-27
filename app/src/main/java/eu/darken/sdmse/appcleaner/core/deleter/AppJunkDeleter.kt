@@ -197,7 +197,7 @@ class AppJunkDeleter @Inject constructor(
         }
 
 
-        log(TAG, WARN) { "Using accessibility service to delete inaccesible caches." }
+        log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
         updateProgressPrimary(R.string.appcleaner_automation_loading)
         updateProgressSecondary(CaString.EMPTY)
 

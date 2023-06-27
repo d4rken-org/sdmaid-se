@@ -167,14 +167,14 @@ class AppCleaner @Inject constructor(
                         }
                         ?.filterValues { it.isNotEmpty() }
 
-                    val updatedInaccesible = when {
+                    val updatedInaccessible = when {
                         inaccessibleSuccesses.contains(appJunk.inaccessibleCache) -> null
                         else -> appJunk.inaccessibleCache
                     }
 
                     appJunk.copy(
                         expendables = updatedExpendables,
-                        inaccessibleCache = updatedInaccesible,
+                        inaccessibleCache = updatedInaccessible,
                     )
                 }
                 .filter { !it.isEmpty() }
