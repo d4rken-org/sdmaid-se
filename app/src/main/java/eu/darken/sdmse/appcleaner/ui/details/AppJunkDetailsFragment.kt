@@ -19,7 +19,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
 
-    override val vm: AppJunkDetailsFragmentVM by viewModels()
+    override val vm: AppJunkDetailsViewModel by viewModels()
     override val ui: AppcleanerDetailsFragmentBinding by viewBinding()
 
     @Inject lateinit var dashAdapter: DashboardAdapter

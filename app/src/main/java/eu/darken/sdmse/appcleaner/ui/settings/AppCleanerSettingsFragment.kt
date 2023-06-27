@@ -19,7 +19,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class AppCleanerSettingsFragment : PreferenceFragment2() {
 
-    private val vm: AppCleanerSettingsFragmentVM by viewModels()
+    private val vm: AppCleanerSettingsViewModel by viewModels()
 
     @Inject override lateinit var settings: AppCleanerSettings
     override val preferenceFile: Int = R.xml.preferences_appcleaner

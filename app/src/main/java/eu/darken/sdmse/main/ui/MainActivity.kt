@@ -17,7 +17,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : Activity2() {
 
-    private val vm: MainActivityVM by viewModels()
+    private val vm: MainViewModel by viewModels()
     private lateinit var ui: MainActivityBinding
 
     @Suppress("unused")

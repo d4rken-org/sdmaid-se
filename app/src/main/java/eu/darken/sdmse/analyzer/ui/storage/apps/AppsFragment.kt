@@ -18,7 +18,7 @@ import eu.darken.sdmse.databinding.AnalyzerAppsFragmentBinding
 @AndroidEntryPoint
 class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
 
-    override val vm: AppsFragmentVM by viewModels()
+    override val vm: AppsViewModel by viewModels()
     override val ui: AnalyzerAppsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

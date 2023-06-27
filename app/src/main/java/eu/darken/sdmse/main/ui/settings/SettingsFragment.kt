@@ -18,7 +18,7 @@ import kotlinx.parcelize.Parcelize
 class SettingsFragment : Fragment2(R.layout.settings_fragment),
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
-    private val vm: SettingsFragmentVM by viewModels()
+    private val vm: SettingsViewModel by viewModels()
     private val ui: SettingsFragmentBinding by viewBinding()
 
     val toolbar: Toolbar

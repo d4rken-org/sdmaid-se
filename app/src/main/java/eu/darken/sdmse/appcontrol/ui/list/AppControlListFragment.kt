@@ -35,7 +35,7 @@ import eu.darken.sdmse.databinding.AppcontrolListFragmentBinding
 @AndroidEntryPoint
 class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
-    override val vm: AppControlListFragmentVM by viewModels()
+    override val vm: AppControlListViewModel by viewModels()
     override val ui: AppcontrolListFragmentBinding by viewBinding()
     private var searchView: SearchView? = null
     private var showRootActions: Boolean = false

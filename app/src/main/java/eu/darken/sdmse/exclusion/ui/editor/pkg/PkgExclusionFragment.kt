@@ -19,7 +19,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 @AndroidEntryPoint
 class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
 
-    override val vm: PkgExclusionVM by viewModels()
+    override val vm: PkgExclusionViewModel by viewModels()
     override val ui: ExclusionEditorPkgFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {

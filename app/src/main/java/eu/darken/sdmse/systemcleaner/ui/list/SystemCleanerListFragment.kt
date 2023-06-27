@@ -24,7 +24,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 @AndroidEntryPoint
 class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment) {
 
-    override val vm: SystemCleanerListFragmentVM by viewModels()
+    override val vm: SystemCleanerListViewModel by viewModels()
     override val ui: SystemcleanerListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

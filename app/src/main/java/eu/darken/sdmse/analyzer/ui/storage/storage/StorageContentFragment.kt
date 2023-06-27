@@ -18,7 +18,7 @@ import eu.darken.sdmse.databinding.AnalyzerStorageFragmentBinding
 @AndroidEntryPoint
 class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
 
-    override val vm: StorageContentFragmentVM by viewModels()
+    override val vm: StorageContentViewModel by viewModels()
     override val ui: AnalyzerStorageFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {

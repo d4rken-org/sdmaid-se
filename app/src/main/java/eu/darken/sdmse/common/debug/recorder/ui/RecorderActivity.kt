@@ -20,7 +20,7 @@ import eu.darken.sdmse.databinding.DebugRecorderActivityBinding
 class RecorderActivity : Activity2() {
 
     private lateinit var ui: DebugRecorderActivityBinding
-    private val vm: RecorderActivityVM by viewModels()
+    private val vm: RecorderViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

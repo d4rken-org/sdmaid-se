@@ -12,7 +12,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SchedulerSettingsFragment : PreferenceFragment2() {
 
-    private val vm: SchedulerSettingsFragmentVM by viewModels()
+    private val vm: SchedulerSettingsViewModel by viewModels()
 
     @Inject lateinit var _settings: SchedulerSettings
 

@@ -19,7 +19,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 @AndroidEntryPoint
 class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment) {
 
-    override val vm: PathExclusionVM by viewModels()
+    override val vm: PathExclusionViewModel by viewModels()
     override val ui: ExclusionEditorPathFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {

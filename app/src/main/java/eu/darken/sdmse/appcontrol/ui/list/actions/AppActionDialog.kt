@@ -20,7 +20,7 @@ import eu.darken.sdmse.databinding.AppcontrolActionDialogBinding
 
 @AndroidEntryPoint
 class AppActionDialog : BottomSheetDialogFragment2() {
-    override val vm: AppActionDialogVM by viewModels()
+    override val vm: AppActionViewModel by viewModels()
     override lateinit var ui: AppcontrolActionDialogBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

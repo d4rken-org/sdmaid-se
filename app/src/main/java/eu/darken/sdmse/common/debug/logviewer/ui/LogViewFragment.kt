@@ -18,7 +18,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LogViewFragment : Fragment3(R.layout.debug_logview_fragment) {
 
-    override val vm: LogViewFragmentVM by viewModels()
+    override val vm: LogViewViewModel by viewModels()
     override val ui: DebugLogviewFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 

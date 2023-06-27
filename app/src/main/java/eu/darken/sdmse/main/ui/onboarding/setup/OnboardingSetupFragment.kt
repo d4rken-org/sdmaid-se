@@ -12,7 +12,7 @@ import eu.darken.sdmse.databinding.OnboardingSetupFragmentBinding
 @AndroidEntryPoint
 class OnboardingSetupFragment : Fragment3(R.layout.onboarding_setup_fragment) {
 
-    override val vm: OnboardingSetupFragmentVM by viewModels()
+    override val vm: OnboardingSetupViewModel by viewModels()
     override val ui: OnboardingSetupFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

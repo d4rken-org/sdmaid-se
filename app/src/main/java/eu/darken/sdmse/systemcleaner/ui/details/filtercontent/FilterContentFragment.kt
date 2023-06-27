@@ -23,7 +23,7 @@ import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterCon
 @AndroidEntryPoint
 class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fragment) {
 
-    override val vm: FilterContentFragmentVM by viewModels()
+    override val vm: FilterContentViewModel by viewModels()
     override val ui: SystemcleanerFiltercontentFragmentBinding by viewBinding()
 
     private var selectionTracker: SelectionTracker<String>? = null

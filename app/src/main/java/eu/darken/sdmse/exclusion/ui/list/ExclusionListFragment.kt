@@ -27,7 +27,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
-    override val vm: ExclusionListFragmentVM by viewModels()
+    override val vm: ExclusionListViewModel by viewModels()
     override val ui: ExclusionListFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 

@@ -7,8 +7,12 @@ import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import eu.darken.sdmse.main.ui.MainActivity
-import eu.darken.sdmse.main.ui.MainActivityVM
-import io.mockk.*
+import eu.darken.sdmse.main.ui.MainViewModel
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -24,7 +28,7 @@ class MainActivityTest : BaseUITest() {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @BindValue
-    val mockViewModel = mockk<MainActivityVM>(relaxed = true)
+    val mockViewModel = mockk<MainViewModel>(relaxed = true)
 
     @Before fun init() {
         hiltRule.inject()

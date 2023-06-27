@@ -17,7 +17,7 @@ import eu.darken.sdmse.databinding.SystemcleanerDetailsFragmentBinding
 @AndroidEntryPoint
 class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fragment) {
 
-    override val vm: FilterContentDetailsFragmentVM by viewModels()
+    override val vm: FilterContentDetailsViewModel by viewModels()
     override val ui: SystemcleanerDetailsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

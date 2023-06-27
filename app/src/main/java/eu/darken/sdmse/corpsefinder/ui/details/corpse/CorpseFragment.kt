@@ -22,7 +22,7 @@ import eu.darken.sdmse.databinding.CorpsefinderCorpseFragmentBinding
 @AndroidEntryPoint
 class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
 
-    override val vm: CorpseFragmentVM by viewModels()
+    override val vm: CorpseViewModel by viewModels()
     override val ui: CorpsefinderCorpseFragmentBinding by viewBinding()
 
     private var selectionTracker: SelectionTracker<String>? = null

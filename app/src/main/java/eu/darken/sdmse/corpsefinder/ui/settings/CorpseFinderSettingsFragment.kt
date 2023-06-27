@@ -18,7 +18,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CorpseFinderSettingsFragment : PreferenceFragment2() {
 
-    private val vm: CorpseFinderSettingsFragmentVM by viewModels()
+    private val vm: CorpseFinderSettingsViewModel by viewModels()
 
     @Inject lateinit var cfSettings: CorpseFinderSettings
 

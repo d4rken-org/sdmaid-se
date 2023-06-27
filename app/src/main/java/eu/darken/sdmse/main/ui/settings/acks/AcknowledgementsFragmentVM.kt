@@ -12,6 +12,6 @@ class AcknowledgementsFragmentVM @AssistedInject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     companion object {
-        private val TAG = logTag("Settings", "Acknowledgements", "VM")
+        private val TAG = logTag("Settings", "Acknowledgements", "ViewModel")
     }
 }

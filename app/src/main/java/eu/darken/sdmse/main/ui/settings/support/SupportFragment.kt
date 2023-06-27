@@ -20,7 +20,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SupportFragment : PreferenceFragment2() {
 
-    private val vm: SupportFragmentVM by viewModels()
+    private val vm: SupportViewModel by viewModels()
 
     override val preferenceFile: Int = R.xml.preferences_support
     @Inject lateinit var generalSettings: GeneralSettings
