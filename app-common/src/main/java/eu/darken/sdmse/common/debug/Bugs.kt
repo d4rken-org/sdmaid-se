@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 
 object Bugs {
     var reporter: AutomaticBugReporter? = null
+
     fun report(exception: Exception) {
         log(TAG, VERBOSE) { "Reporting $exception" }
 

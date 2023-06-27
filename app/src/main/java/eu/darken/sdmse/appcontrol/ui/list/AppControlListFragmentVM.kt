@@ -19,7 +19,7 @@ import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -173,7 +173,7 @@ class AppControlListFragmentVM @Inject constructor(
             searchQuery = query,
             listSort = listSort,
             listFilter = listFilter,
-            showRootActions = rootManager.useRootNow(),
+            showRootActions = rootManager.canUseRootNow(),
         )
     }.asLiveData2()
 

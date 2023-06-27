@@ -2,8 +2,7 @@ package eu.darken.sdmse.common.root
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.shareLatest
@@ -22,15 +21,15 @@ import javax.inject.Singleton
 class RootManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val rootServiceClient: RootServiceClient,
-    private val rootSettings: RootSettings,
+    val serviceClient: RootServiceClient,
+    settings: RootSettings,
 ) {
 
     private var cachedState: Boolean? = null
     private val cacheLock = Mutex()
 
     init {
-        rootSettings.useRoot.flow
+        settings.useRoot.flow
             .mapLatest {
                 log(TAG) { "Root access state: $it" }
                 cacheLock.withLock {
@@ -48,9 +47,9 @@ class RootManager @Inject constructor(
             cachedState?.let { return@withContext it }
 
             val newState = try {
-                rootServiceClient.get().item.ipc.checkBase() != null
+                serviceClient.get().item.ipc.checkBase() != null
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Error while checking for root: ${e.asLog()}" }
+                log(TAG, WARN) { "Error while checking for root: $e" }
                 false
             }
 
@@ -61,7 +60,7 @@ class RootManager @Inject constructor(
     /**
      * Did the user consent to SD Maid using root and is root available?
      */
-    val useRoot: Flow<Boolean> = rootSettings.useRoot.flow
+    val useRoot: Flow<Boolean> = settings.useRoot.flow
         .mapLatest { (it ?: false) && isRooted() }
         .shareLatest(appScope)
 

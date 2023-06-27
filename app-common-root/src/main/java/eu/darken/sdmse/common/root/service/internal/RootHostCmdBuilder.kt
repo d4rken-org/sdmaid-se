@@ -28,7 +28,7 @@ import kotlin.reflect.KClass
  */
 
 @SuppressLint("PrivateApi")
-class RootHostCmdBuilder<Host : RootHost> constructor(
+class RootHostCmdBuilder<Host : BaseRootHost> constructor(
     private val context: Context,
     private val rootHost: KClass<Host>,
 ) {
@@ -204,7 +204,7 @@ class RootHostCmdBuilder<Host : RootHost> constructor(
             processPath = processPath
         )
         log(TAG) { "Launch command: $launchCmd" }
-        launchCmd += " ${RootHost.OPTIONS_KEY}=${hostOptions.toLaunchCmdFormat()}"
+        launchCmd += " ${BaseRootHost.OPTIONS_KEY}=${hostOptions.toLaunchCmdFormat()}"
         log(TAG) { "Launch command with options: $launchCmd" }
 
         cmds.add(launchCmd)

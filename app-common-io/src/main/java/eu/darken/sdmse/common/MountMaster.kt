@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -28,7 +28,7 @@ class MountMaster @Inject constructor(
     }
 
     private suspend fun determineStatus(): Boolean {
-        if (!rootManager.useRootNow()) {
+        if (!rootManager.canUseRootNow()) {
             log(TAG, INFO) { "We are not rooted, no need for mount-master." }
             return false
         }

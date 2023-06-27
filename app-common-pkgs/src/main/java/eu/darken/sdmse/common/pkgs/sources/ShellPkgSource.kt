@@ -15,9 +15,9 @@ import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.user.UserManager2
 import java.util.*
 import javax.inject.Inject
@@ -35,7 +35,7 @@ class ShellPkgSource @Inject constructor(
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
-        if (!rootManager.useRootNow()) return@useRes emptySet()
+        if (!rootManager.canUseRootNow()) return@useRes emptySet()
 
         userManager.allUsers()
             .mapNotNull { user ->

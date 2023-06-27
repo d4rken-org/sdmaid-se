@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -59,7 +59,7 @@ class DataLocalTmpFilter @Inject constructor(
 
         override suspend fun isEnabled(): Boolean {
             val enabled = settings.filterLocalTmpEnabled.value()
-            val useRoot = rootManager.useRootNow()
+            val useRoot = rootManager.canUseRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
         }

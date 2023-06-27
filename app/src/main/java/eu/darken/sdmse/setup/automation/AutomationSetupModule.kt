@@ -5,12 +5,11 @@ import android.content.Intent
 import android.provider.Settings
 import dagger.Binds
 import dagger.Module
-import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.SystemSettingsProvider
@@ -23,33 +22,42 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@Reusable
+@Singleton
 class AutomationSetupModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val generalSettings: GeneralSettings,
-    private val automationController: AutomationController,
+    private val automationManager: AutomationManager,
     private val deviceDetective: DeviceDetective,
     private val settingsProvider: SystemSettingsProvider,
+    rootManager: RootManager,
+    shizukuManager: ShizukuManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger.mapLatest {
-        val isServiceEnabled = automationController.isServiceEnabled()
+    override val state = combine(
+        rootManager.useRoot,
+        shizukuManager.useShizuku,
+        refreshTrigger
+    ) { useRoot, useShizuku, _ ->
+        val isServiceEnabled = automationManager.isServiceEnabled()
         log(TAG) { "isServiceEnabled=$isServiceEnabled" }
 
-        val isServiceRunning = automationController.isServiceLaunched()
+        val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()
@@ -69,14 +77,18 @@ class AutomationSetupModule @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
-        return@mapLatest State(
+        log(TAG) { "useShizuku: $useShizuku" }
+        log(TAG) { "useRoot: $useRoot" }
+
+        State(
+            isNotRequired = useRoot || useShizuku,
             hasConsent = generalSettings.hasAcsConsent.value(),
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
             needsAutostart = deviceDetective.isXiaomi(),
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
-        )
+        ).also { log(TAG) { "New ACS setup state: $it" } }
     }
 
     init {
@@ -128,6 +140,7 @@ class AutomationSetupModule @Inject constructor(
     }
 
     data class State(
+        val isNotRequired: Boolean,
         val hasConsent: Boolean?,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
@@ -137,7 +150,7 @@ class AutomationSetupModule @Inject constructor(
     ) : SetupModule.State {
 
         override val isComplete: Boolean =
-            (hasConsent == true && isServiceEnabled && isServiceRunning) || hasConsent == false
+            isNotRequired || (hasConsent == true && isServiceEnabled && isServiceRunning) || hasConsent == false
 
     }
 

@@ -1,11 +1,12 @@
 package eu.darken.sdmse.common.debug
 
-import eu.darken.sdmse.automation.core.AutomationController
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.navigation.navVia
@@ -14,8 +15,12 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.ShizukuSettings
+import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
@@ -33,24 +38,29 @@ class DebugCardProvider @Inject constructor(
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
+    private val shizukuSettings: ShizukuSettings,
+    private val shizukuManager: ShizukuManager,
     private val rootClient: RootServiceClient,
     private val pkgRepo: PkgRepo,
     private val dataAreaManager: DataAreaManager,
     private val pkgOps: PkgOps,
-    private val automationController: AutomationController,
+    private val automationManager: AutomationManager,
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
     private val shellOps: ShellOps,
+    private val shizukuClient: ShizukuServiceClient,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
+    private val shizukuTestState = MutableStateFlow<ShizukuTestResult?>(null)
 
     fun create(vm: ViewModel3) = combine(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
         debugSettings.isTraceMode.flow.distinctUntilChanged(),
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
-        rootTestState
-    ) { isDebug, isTrace, isDryRun, rootState ->
+        rootTestState,
+        shizukuTestState
+    ) { isDebug, isTrace, isDryRun, rootState, shizukuState ->
         if (!isDebug) return@combine null
         DebugCardVH.Item(
             isDryRunEnabled = isDryRun,
@@ -73,14 +83,18 @@ class DebugCardProvider @Inject constructor(
                 vm.launch {
                     rootTestState.value = RootTestResult(
                         testId = UUID.randomUUID().toString(),
-                        allowed = rootSettings.useRoot.value(),
+                        hasUserConsent = rootSettings.useRoot.value(),
                         magiskGranted = rootManager.isRooted(),
                         serviceLaunched = withTimeoutOrNull(10 * 1000) {
+                            val sb = StringBuilder()
+
                             val base = try {
                                 rootClient.runSessionAction { it.ipc.checkBase() }
                             } catch (e: Exception) {
                                 e.message
                             }
+                            sb.append("BaseCheck:\n$base")
+
                             var opsError: String? = null
                             val opsResult = try {
                                 shellOps.execute(ShellOpsCmd("whoami"), ShellOps.Mode.ROOT)
@@ -88,24 +102,68 @@ class DebugCardProvider @Inject constructor(
                                 opsError = e.message
                                 null
                             }
-                            val sb = StringBuilder()
-                            sb.append("BaseCheck:\n$base")
                             sb.append("ShellOps 'whoami':\n${opsResult ?: opsError}")
+
+                            sb.toString()
+                        }
+                    )
+                }
+            },
+            shizukuTestResult = shizukuState,
+            onTestShizuku = {
+                vm.launch {
+                    shizukuTestState.value = ShizukuTestResult(
+                        testId = UUID.randomUUID().toString(),
+                        hasUserConsent = shizukuSettings.isEnabled.value(),
+                        isInstalled = shizukuManager.isInstalled(),
+                        isGranted = shizukuManager.isGranted(),
+                        serviceLaunched = withTimeoutOrNull(10 * 1000) {
+                            val sb = StringBuilder()
+
+                            val base = try {
+                                shizukuClient.runSessionAction { it.ipc.checkBase() }
+                            } catch (e: Exception) {
+                                e
+                            }
+                            sb.append("BaseCheck:\n$base\n")
+
+                            var opsError: String? = null
+                            val opsResult = try {
+                                shellOps.execute(ShellOpsCmd("whoami"), ShellOps.Mode.ADB)
+                            } catch (e: Exception) {
+                                opsError = e.message
+                                null
+                            }
+                            sb.append("ShellOps 'whoami':\n${opsResult ?: opsError}")
+
                             sb.toString()
                         }
                     )
                 }
             },
             onRunTest = {
-
+                vm.launch {
+                    shizukuClient.useRes {
+                        val base = it.ipc.pkgOps.forceStop("com.android.vending")
+                        log(TAG) { "###BASE: $base" }
+                    }
+                }
             }
         )
     }
 
     data class RootTestResult(
         val testId: String,
-        val allowed: Boolean?,
+        val hasUserConsent: Boolean?,
         val magiskGranted: Boolean,
+        val serviceLaunched: String?,
+    )
+
+    data class ShizukuTestResult(
+        val testId: String,
+        val hasUserConsent: Boolean?,
+        val isInstalled: Boolean,
+        val isGranted: Boolean?,
         val serviceLaunched: String?,
     )
 

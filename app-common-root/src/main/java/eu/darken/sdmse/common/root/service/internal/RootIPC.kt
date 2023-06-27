@@ -30,7 +30,7 @@ import java.util.concurrent.TimeoutException
  * @param timeout           How long to wait for the other process to initiate the connection, 0 to wait forever
  * @throws TimeoutException If the connection times out
 
- * @see RootIPCReceiver
+ * @see RootConnectionReceiver
  */
 class RootIPC @AssistedInject constructor(
     @Assisted("packageName") private val packageName: String,
@@ -54,7 +54,7 @@ class RootIPC @AssistedInject constructor(
      * Our own wrapper around the supplied Binder interface, which allows us to keep track of
      * non-root process' state and connection state.
      */
-    private val internalBinder: IBinder = object : IRootIPC.Stub() {
+    private val internalBinder: IBinder = object : RootConnection.Stub() {
         override fun hello(_self: IBinder) {
             log(TAG) { "hello(self=$_self)" }
             // incoming connection from the non-root process
@@ -88,8 +88,8 @@ class RootIPC @AssistedInject constructor(
         }
 
         // this is the originally supplied Binder interface
-        override fun getUserIPC(): IBinder = this@RootIPC.userBinder.also {
-            log(TAG, VERBOSE) { "getUserIPC($it)" }
+        override fun getUserConnection(): IBinder = this@RootIPC.userBinder.also {
+            log(TAG, VERBOSE) { "getUserConnection($it)" }
         }
 
         override fun bye(self: IBinder) {
@@ -106,6 +106,10 @@ class RootIPC @AssistedInject constructor(
                 }
             }
             synchronized(byeWaiter) { byeWaiter.notifyAll() }
+        }
+
+        override fun updateHostOptions(options: RootHostOptions) {
+
         }
     }
 
@@ -164,15 +168,15 @@ class RootIPC @AssistedInject constructor(
      */
     private fun broadcastIPC() {
         val bundle = Bundle().apply {
-            putBinder(RootIPCReceiver.BROADCAST_BINDER, internalBinder)
-            putString(RootIPCReceiver.BROADCAST_CODE, pairingCode)
+            putBinder(RootConnectionReceiver.BROADCAST_BINDER, internalBinder)
+            putString(RootConnectionReceiver.BROADCAST_CODE, pairingCode)
         }
 
         val intent = Intent().apply {
             setPackage(packageName)
-            action = RootIPCReceiver.BROADCAST_ACTION
+            action = RootConnectionReceiver.BROADCAST_ACTION
             flags = Intent.FLAG_RECEIVER_FOREGROUND
-            putExtra(RootIPCReceiver.BROADCAST_EXTRA, bundle)
+            putExtra(RootConnectionReceiver.BROADCAST_EXTRA, bundle)
         }
 
         getUserIds().forEach {

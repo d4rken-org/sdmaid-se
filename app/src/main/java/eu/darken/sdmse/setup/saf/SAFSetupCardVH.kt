@@ -1,6 +1,7 @@
 package eu.darken.sdmse.setup.saf
 
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.differ.update
@@ -31,10 +32,13 @@ class SAFSetupCardVH(parent: ViewGroup) :
             )
         }.run { pathAdapter.update(this) }
 
-        grantAction.setOnClickListener {
-            item.state.paths
-                .firstOrNull { !it.hasAccess }
-                ?.let { item.onPathClicked(it) }
+        grantAction.apply {
+            isGone = item.state.isComplete
+            setOnClickListener {
+                item.state.paths
+                    .firstOrNull { !it.hasAccess }
+                    ?.let { item.onPathClicked(it) }
+            }
         }
 
         helpAction.setOnClickListener { item.onHelp() }

@@ -5,9 +5,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.root.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -24,9 +24,9 @@ class PkgPulseMonitor @Inject constructor(
     suspend fun isRunning(id: Installed.InstallId): Boolean {
         var running: Boolean? = null
 
-        if (rootManager.useRootNow()) {
+        if (rootManager.canUseRootNow()) {
             val cmd = ShellOpsCmd("pidof ${id.pkgId.name}")
-            val result = shellOps.execute(cmd, ShellOps.Mode.ELEVATED)
+            val result = shellOps.execute(cmd, ShellOps.Mode.ROOT)
             log(TAG) { "isRunning($id): $cmd -> $result" }
             running = result.isSuccess
         }

@@ -67,7 +67,6 @@
                 android:text="@string/setup_root_disable_root_use_label" />
         </RadioGroup>
 
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
             style="@style/TextAppearance.Material3.LabelMedium"

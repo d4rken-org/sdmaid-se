@@ -25,14 +25,14 @@ class RootModule {
     @Singleton
     @RootProcessShell
     fun rootShell(@AppScope scope: CoroutineScope, dispatcherProvider: DispatcherProvider): SharedShell {
-        return SharedShell(RootServiceHost.TAG + "-root", scope + dispatcherProvider.IO)
+        return SharedShell(RootHost.TAG + "-root", scope + dispatcherProvider.IO)
     }
 
     @Provides
     @Singleton
     @UserProcessShell
     fun userShell(@AppScope scope: CoroutineScope, dispatcherProvider: DispatcherProvider): SharedShell {
-        return SharedShell(RootServiceHost.TAG + "-user", scope + dispatcherProvider.IO)
+        return SharedShell(RootHost.TAG + "-user", scope + dispatcherProvider.IO)
     }
 
     @Provides

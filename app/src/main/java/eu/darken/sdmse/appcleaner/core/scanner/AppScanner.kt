@@ -53,7 +53,7 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
@@ -107,7 +107,7 @@ class AppScanner @Inject constructor(
             .onEach { it.initialize() }
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
         log(TAG) { "${enabledFilters.size} filter are enabled" }
-        useRoot = rootManager.useRootNow()
+        useRoot = rootManager.canUseRootNow()
         log(TAG) { "useRoot: $useRoot" }
     }
 
@@ -462,7 +462,7 @@ class AppScanner @Inject constructor(
     private suspend fun determineInaccessibleCaches(
         pkgs: Collection<Installed>,
     ): Collection<InaccessibleCache> {
-        if (!settings.includeInaccessibleEnabled.value() || rootManager.useRootNow()) return emptyList()
+        if (!settings.includeInaccessibleEnabled.value() || rootManager.canUseRootNow()) return emptyList()
         if (!settings.filterDefaultCachesPublicEnabled.value() || !settings.filterDefaultCachesPrivateEnabled.value()) {
             return emptyList()
         }

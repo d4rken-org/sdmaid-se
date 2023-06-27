@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.IllegalPkgDataException
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.useRootNow
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
 import java.util.*
 import javax.inject.Inject
@@ -36,7 +36,7 @@ class PackageManagerPkgSource @Inject constructor(
 
         pkgs.addAll(getCoreList())
 
-        if (rootManager.useRootNow()) {
+        if (rootManager.canUseRootNow()) {
             val extraPkgs = getUserSpecificPkgs()
                 .filter { pkg -> !pkgs.any { it.id == pkg.id && it.userHandle == pkg.userHandle } }
 
