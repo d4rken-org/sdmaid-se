@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.shizuku.service.internal.BaseShizukuHost
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostOptions
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,6 +31,7 @@ class ShizukuHost(
     private lateinit var component: ShizukuComponent
     private lateinit var keepAliveToken: Resource<*>
 
+    @Inject lateinit var sharedShell: SharedShell
     @Inject lateinit var serviceHost: Lazy<ShizukuServiceHost>
 
     private val logCatLogger = LogCatLogger()
@@ -78,6 +80,6 @@ class ShizukuHost(
     }
 
     companion object {
-        private val TAG = logTag("Shizuku", "Host")
+        internal val TAG = logTag("Shizuku", "Host")
     }
 }

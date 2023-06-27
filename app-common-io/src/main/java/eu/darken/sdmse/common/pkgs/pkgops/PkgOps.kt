@@ -1,11 +1,14 @@
 package eu.darken.sdmse.common.pkgs.pkgops
 
+import android.app.usage.UsageStatsManager
+import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.*
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -16,6 +19,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.permissions.Permission.*
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
@@ -43,10 +47,12 @@ import javax.inject.Singleton
 class PkgOps @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
     private val shizukuManager: ShizukuManager,
+    private val usageStatsManager: UsageStatsManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -269,11 +275,43 @@ class PkgOps @Inject constructor(
         }
     }
 
+
+    suspend fun isRunning(id: Installed.InstallId, mode: Mode = Mode.AUTO): Boolean {
+        try {
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "isRunning($id, $mode->ADB)" }
+                return adbOps { it.isRunning(id.pkgId) }
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "isRunning($id, $mode->ROOT)" }
+                return rootOps { it.isRunning(id.pkgId) }
+            }
+
+            if (PACKAGE_USAGE_STATS.isGranted(context) && (mode == Mode.AUTO || mode == Mode.NORMAL)) {
+                log(TAG) { "isRunning($id, $mode->NORMAL)" }
+                val now = System.currentTimeMillis()
+                val stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, now - 60 * 1000, now)
+                val stat = stats.find { it.packageName == id.pkgId.name }
+                val secondsSinceLastUse = stat?.let { (System.currentTimeMillis() - it.lastTimeUsed) / 1000L }
+                log(TAG) { "isRunning($id): ${secondsSinceLastUse}s" }
+                return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } ?: false
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "isRunning($id,$mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "isRunning($id, $mode) failed", cause = e)
+        }
+    }
+
+
     enum class Mode {
         AUTO, NORMAL, ROOT, ADB
     }
 
     companion object {
+        private const val PULSE_PERIOD_SECONDS = 10
         val TAG = logTag("PkgOps")
     }
 }

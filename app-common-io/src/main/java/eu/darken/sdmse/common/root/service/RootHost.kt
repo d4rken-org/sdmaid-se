@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
-import eu.darken.sdmse.common.shell.RootProcessShell
 import eu.darken.sdmse.common.shell.SharedShell
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
@@ -33,7 +32,7 @@ class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRo
 
     lateinit var component: RootComponent
 
-    @RootProcessShell @Inject lateinit var sharedShell: SharedShell
+    @Inject lateinit var sharedShell: SharedShell
     @Inject lateinit var serviceHost: Lazy<RootServiceHost>
     @Inject lateinit var rootIpcFactory: RootIPC.Factory
 
