@@ -13,7 +13,7 @@ import eu.darken.sdmse.databinding.OnboardingPrivacyFragmentBinding
 @AndroidEntryPoint
 class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment) {
 
-    override val vm: OnboardingPrivacyFragmentVM by viewModels()
+    override val vm: OnboardingPrivacyViewModel by viewModels()
     override val ui: OnboardingPrivacyFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

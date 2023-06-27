@@ -26,7 +26,7 @@ import eu.darken.sdmse.databinding.AppcleanerAppjunkFragmentBinding
 @AndroidEntryPoint
 class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
 
-    override val vm: AppJunkFragmentVM by viewModels()
+    override val vm: AppJunkViewModel by viewModels()
     override val ui: AppcleanerAppjunkFragmentBinding by viewBinding()
 
     private var selectionTracker: SelectionTracker<String>? = null

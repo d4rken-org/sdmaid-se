@@ -21,7 +21,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
-    override val vm: DashboardFragmentVM by viewModels()
+    override val vm: DashboardViewModel by viewModels()
     override val ui: DashboardFragmentBinding by viewBinding()
 
     @Inject lateinit var dashAdapter: DashboardAdapter
@@ -74,10 +74,10 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
 
-            mainAction.isEnabled = state.actionState != DashboardFragmentVM.BottomBarState.Action.WORKING
+            mainAction.isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
 
             mainAction.setOnClickListener {
-                if (state.actionState == DashboardFragmentVM.BottomBarState.Action.DELETE) {
+                if (state.actionState == DashboardViewModel.BottomBarState.Action.DELETE) {
                     MaterialAlertDialogBuilder(requireContext()).apply {
                         setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                         setMessage(R.string.dashboard_delete_all_message)
@@ -94,7 +94,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
 
             when (state.actionState) {
-                DashboardFragmentVM.BottomBarState.Action.SCAN -> {
+                DashboardViewModel.BottomBarState.Action.SCAN -> {
                     mainAction.setImageResource(R.drawable.ic_layer_search_24)
                     mainAction.imageTintList =
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnPrimaryContainer))
@@ -102,7 +102,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer))
                 }
 
-                DashboardFragmentVM.BottomBarState.Action.DELETE -> {
+                DashboardViewModel.BottomBarState.Action.DELETE -> {
                     mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
@@ -112,7 +112,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     )
                 }
 
-                DashboardFragmentVM.BottomBarState.Action.ONECLICK -> {
+                DashboardViewModel.BottomBarState.Action.ONECLICK -> {
                     mainAction.setImageResource(R.drawable.ic_delete_alert_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
@@ -122,7 +122,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     )
                 }
 
-                DashboardFragmentVM.BottomBarState.Action.WORKING -> {
+                DashboardViewModel.BottomBarState.Action.WORKING -> {
                     mainAction.setImageDrawable(null)
                     mainAction.imageTintList =
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnSecondaryContainer))
@@ -130,7 +130,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorSecondaryContainer))
                 }
 
-                DashboardFragmentVM.BottomBarState.Action.WORKING_CANCELABLE -> {
+                DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE -> {
                     mainAction.setImageResource(R.drawable.ic_cancel)
                     mainAction.imageTintList =
                         ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnTertiaryContainer))

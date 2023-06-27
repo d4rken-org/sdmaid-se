@@ -18,7 +18,7 @@ import eu.darken.sdmse.databinding.AnalyzerDeviceFragmentBinding
 @AndroidEntryPoint
 class DeviceStorageFragment : Fragment3(R.layout.analyzer_device_fragment) {
 
-    override val vm: DeviceStorageFragmentVM by viewModels()
+    override val vm: DeviceStorageViewModel by viewModels()
     override val ui: AnalyzerDeviceFragmentBinding by viewBinding()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {

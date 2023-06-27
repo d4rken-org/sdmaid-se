@@ -23,7 +23,7 @@ import eu.darken.sdmse.databinding.AppcleanerListFragmentBinding
 @AndroidEntryPoint
 class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
 
-    override val vm: AppCleanerListFragmentVM by viewModels()
+    override val vm: AppCleanerListViewModel by viewModels()
     override val ui: AppcleanerListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

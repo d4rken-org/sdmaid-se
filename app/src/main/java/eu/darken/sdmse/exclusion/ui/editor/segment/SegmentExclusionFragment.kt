@@ -22,7 +22,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 @AndroidEntryPoint
 class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fragment) {
 
-    override val vm: SegmentExclusionVM by viewModels()
+    override val vm: SegmentExclusionViewModel by viewModels()
     override val ui: ExclusionEditorSegmentFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {

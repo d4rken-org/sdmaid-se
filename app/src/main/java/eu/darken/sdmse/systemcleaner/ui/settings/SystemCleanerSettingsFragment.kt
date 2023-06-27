@@ -17,7 +17,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SystemCleanerSettingsFragment : PreferenceFragment2() {
 
-    private val vm: SystemCleanerSettingsFragmentVM by viewModels()
+    private val vm: SystemCleanerSettingsViewModel by viewModels()
 
     @Inject lateinit var _settings: SystemCleanerSettings
 

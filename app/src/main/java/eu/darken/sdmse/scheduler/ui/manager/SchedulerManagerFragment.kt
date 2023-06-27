@@ -19,7 +19,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) {
 
-    override val vm: SchedulerManagerFragmentVM by viewModels()
+    override val vm: SchedulerManagerViewModel by viewModels()
     override val ui: SchedulerManagerFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 

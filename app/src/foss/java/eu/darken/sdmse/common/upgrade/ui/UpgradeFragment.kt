@@ -15,7 +15,7 @@ import eu.darken.sdmse.databinding.UpgradeFragmentBinding
 @AndroidEntryPoint
 class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
 
-    override val vm: UpgradeFragmentVM by viewModels()
+    override val vm: UpgradeViewModel by viewModels()
     override val ui: UpgradeFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

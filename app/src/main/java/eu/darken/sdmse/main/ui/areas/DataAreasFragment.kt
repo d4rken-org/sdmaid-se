@@ -20,7 +20,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
 
-    override val vm: DataAreasFragmentVM by viewModels()
+    override val vm: DataAreasViewModel by viewModels()
     override val ui: DataAreasFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 

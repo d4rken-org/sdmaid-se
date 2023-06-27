@@ -26,7 +26,7 @@ import eu.darken.sdmse.databinding.AnalyzerContentFragmentBinding
 @AndroidEntryPoint
 class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
-    override val vm: ContentFragmentVM by viewModels()
+    override val vm: ContentViewModel by viewModels()
     override val ui: AnalyzerContentFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {

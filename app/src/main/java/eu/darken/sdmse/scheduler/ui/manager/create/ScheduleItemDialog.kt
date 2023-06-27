@@ -18,7 +18,7 @@ import eu.darken.sdmse.databinding.SchedulerManagerCreateDialogBinding
 
 @AndroidEntryPoint
 class ScheduleItemDialog : BottomSheetDialogFragment2() {
-    override val vm: ScheduleItemDialogVM by viewModels()
+    override val vm: ScheduleItemViewModel by viewModels()
     override lateinit var ui: SchedulerManagerCreateDialogBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

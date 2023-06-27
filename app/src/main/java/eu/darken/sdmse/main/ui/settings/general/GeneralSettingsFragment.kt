@@ -19,7 +19,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class GeneralSettingsFragment : PreferenceFragment2() {
 
-    private val vm: GeneralSettingsFragmentVM by viewModels()
+    private val vm: GeneralSettingsViewModel by viewModels()
 
     @Inject lateinit var generalSettings: GeneralSettings
 

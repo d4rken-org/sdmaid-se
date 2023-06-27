@@ -36,7 +36,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
-    override val vm: SetupFragmentVM by viewModels()
+    override val vm: SetupViewModel by viewModels()
     override val ui: SetupFragmentBinding by viewBinding()
 
     @Inject lateinit var setupAdapter: SetupAdapter

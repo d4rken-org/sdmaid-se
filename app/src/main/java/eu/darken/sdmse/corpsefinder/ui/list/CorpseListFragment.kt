@@ -23,7 +23,7 @@ import eu.darken.sdmse.databinding.CorpsefinderListFragmentBinding
 @AndroidEntryPoint
 class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
 
-    override val vm: CorpseListFragmentVM by viewModels()
+    override val vm: CorpseListViewModel by viewModels()
     override val ui: CorpsefinderListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
