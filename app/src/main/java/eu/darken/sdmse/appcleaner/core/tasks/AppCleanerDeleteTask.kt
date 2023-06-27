@@ -19,6 +19,7 @@ data class AppCleanerDeleteTask(
     val targetContents: Set<APath>? = null,
     val includeInaccessible: Boolean = true,
     val onlyInaccessible: Boolean = false,
+    val useAutomation: Boolean = true,
 ) : AppCleanerTask {
 
     sealed interface Result : AppCleanerTask.Result

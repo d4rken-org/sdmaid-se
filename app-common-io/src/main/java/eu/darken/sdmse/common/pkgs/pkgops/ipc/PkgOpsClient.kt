@@ -4,13 +4,18 @@ import android.content.pm.PackageInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.ipc.IpcClientModule
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
+import kotlinx.coroutines.delay
 import java.io.IOException
 
 class PkgOpsClient @AssistedInject constructor(
@@ -35,6 +40,45 @@ class PkgOpsClient @AssistedInject constructor(
         connection.forceStop(packageName)
     } catch (e: Exception) {
         log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    suspend fun clearCache(installId: Installed.InstallId): Boolean = try {
+        if (Bugs.isDryRun) {
+            log(TAG, WARN) { "DRYRUN: not executing clearCache($installId)" }
+            delay(50)
+            true
+        } else {
+            connection.clearCacheAsUser(installId.pkgId.name, installId.userHandle.handleId)
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(installId=$installId) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    suspend fun clearCache(pkgId: Pkg.Id): Boolean = try {
+        if (Bugs.isDryRun) {
+            log(TAG, WARN) { "DRYRUN: not executing clearCache($pkgId)" }
+            delay(50)
+            true
+        } else {
+            connection.clearCache(pkgId.name)
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(pkgId=$pkgId) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null): Boolean = try {
+        if (Bugs.isDryRun) {
+            log(TAG, WARN) { "DRYRUN: not executing trimCaches($desiredBytes, $storageId)" }
+            delay(2000)
+            true
+        } else {
+            connection.trimCaches(desiredBytes, storageId)
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 

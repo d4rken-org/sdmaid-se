@@ -11,6 +11,12 @@ interface PkgOpsConnection {
 
     boolean forceStop(String packageName);
 
+    boolean clearCacheAsUser(String packageName, int handleId);
+
+    boolean clearCache(String packageName);
+
+    boolean trimCaches(long desiredBytes, String storageId);
+
     List<PackageInfo> getInstalledPackagesAsUser(int flags, int handleId);
 
     RemoteInputStream getInstalledPackagesAsUserStream(int flags, int handleId);

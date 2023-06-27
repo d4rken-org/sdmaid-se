@@ -330,6 +330,7 @@
     <string name="appcleaner_junk_userprofile_label">User</string>
     <string name="appcleaner_delete_confirmation_message_x">Delete expendable files for %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Delete expendable files for %d selected apps?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Deleting caches by using Shizuku</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>

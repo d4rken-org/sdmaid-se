@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.pkgs.pkgops.ipc
 import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -10,10 +11,13 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.IpcHostModule
 import eu.darken.sdmse.common.ipc.RemoteInputStream
+import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFiles
+import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
+import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.user.UserHandle2
-import java.lang.reflect.Method
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 
@@ -21,6 +25,9 @@ class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
     private val libcoreTool: LibcoreTool,
 ) : PkgOpsConnection.Stub(), IpcHostModule {
+
+    private val pm: PackageManager
+        get() = context.packageManager
 
     override fun getUserNameForUID(uid: Int): String? = try {
         libcoreTool.getNameForUid(uid)
@@ -38,8 +45,9 @@ class PkgOpsHost @Inject constructor(
 
     override fun forceStop(packageName: String): Boolean = try {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val forceStopPackage: Method = am.javaClass.getDeclaredMethod("forceStopPackage", String::class.java)
-        forceStopPackage.isAccessible = true
+        val forceStopPackage = am.javaClass.getDeclaredMethod("forceStopPackage", String::class.java).apply {
+            isAccessible = true
+        }
         forceStopPackage.invoke(am, packageName)
         true
     } catch (e: Exception) {
@@ -47,10 +55,33 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun clearCacheAsUser(packageName: String, handleId: Int): Boolean = try {
+        log(TAG, VERBOSE) { "clearCache(packageName=$packageName, handleId=$handleId)..." }
+        runBlocking { pm.deleteApplicationCacheFilesAsUser(packageName, handleId) }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(packageName=$packageName, handleId=$handleId) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun clearCache(packageName: String): Boolean = try {
+        log(TAG, VERBOSE) { "clearCache(packageName=$packageName)..." }
+        runBlocking { pm.deleteApplicationCacheFiles(packageName) }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "clearCache(packageName=$packageName) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun trimCaches(desiredBytes: Long, storageId: String?): Boolean = try {
+        runBlocking { pm.freeStorageAndNotify(desiredBytes, storageId) }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed." }
+        throw wrapPropagating(e)
+    }
+
     override fun getInstalledPackagesAsUser(flags: Int, handleId: Int): List<PackageInfo> = try {
         log(TAG, VERBOSE) { "getInstalledPackagesAsUser($flags, $handleId)..." }
-        val packageManager = context.packageManager
-        val result = packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+
+        val result = pm.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
             log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
         }
         result + result + result + result + result

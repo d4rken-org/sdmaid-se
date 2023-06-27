@@ -42,11 +42,11 @@ class ShellOps @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    private suspend fun <T> rootOps(action: suspend ShellOpsClient.() -> T): T {
+    private suspend fun <T> rootOps(action: suspend (ShellOpsClient) -> T): T {
         return rootServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
     }
 
-    private suspend fun <T> shizukuOps(action: suspend ShellOpsClient.() -> T): T {
+    private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
         return shizukuServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
     }
 
@@ -68,12 +68,12 @@ class ShellOps @Inject constructor(
 
             if (result == null && rootManager.canUseRootNow() && mode == Mode.ROOT) {
                 log(TAG, VERBOSE) { "execute(mode->ROOT): $cmd" }
-                result = rootOps { execute(cmd) }
+                result = rootOps { it.execute(cmd) }
             }
 
             if (result == null && shizukuManager.canUseShizukuNow() && mode == Mode.ADB) {
                 log(TAG, VERBOSE) { "execute(mode->ADB): $cmd" }
-                result = shizukuOps { execute(cmd) }
+                result = adbOps { it.execute(cmd) }
             }
 
             if (Bugs.isTrace) {

@@ -25,13 +25,17 @@ import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
+import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.*
+import okio.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -39,16 +43,20 @@ import javax.inject.Singleton
 class PkgOps @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val rootServiceClient: RootServiceClient,
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    private suspend fun <T> rootOps(action: (PkgOpsClient) -> T): T {
-        return rootServiceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+    private suspend fun <T> adbOps(action: suspend (PkgOpsClient) -> T): T {
+        return shizukuManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+    }
+
+    private suspend fun <T> rootOps(action: suspend (PkgOpsClient) -> T): T {
+        return rootManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
     }
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
@@ -214,6 +222,55 @@ class PkgOps @Inject constructor(
                 }
             )
         }
+    }
+
+    suspend fun clearCache(installId: Installed.InstallId, mode: Mode = Mode.AUTO) {
+        try {
+            log(TAG) { "clearCache($installId, $mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($installId) does not support mode=NORMAL")
+
+            if (mode == Mode.ADB) throw PkgOpsException("clearCache($installId) does not support mode=ADB")
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "clearCache($installId, $mode->ROOT)" }
+                rootOps { it.clearCache(installId) }
+                return
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "clearCache($installId,$mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "clearCache($installId, $mode) failed", cause = e)
+        }
+    }
+
+    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, mode: Mode = Mode.AUTO) {
+        try {
+            log(TAG) { "trimCaches($desiredBytes, $storageId,$mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
+
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ADB)" }
+                adbOps { it.trimCaches(desiredBytes, storageId) }
+                return
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ROOT)" }
+                rootOps { it.trimCaches(desiredBytes, storageId) }
+                return
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "trimCaches($desiredBytes, $storageId,$mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "trimCaches($desiredBytes, $storageId, $mode) failed", cause = e)
+        }
+    }
+
+    enum class Mode {
+        AUTO, NORMAL, ROOT, ADB
     }
 
     companion object {
