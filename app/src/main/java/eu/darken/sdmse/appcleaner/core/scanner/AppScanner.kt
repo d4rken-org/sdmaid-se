@@ -40,13 +40,13 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgPulseMonitor
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -82,7 +82,7 @@ class AppScanner @Inject constructor(
     private val settings: AppCleanerSettings,
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val userManager: UserManager2,
-    private val pkgifecycleChecker: PkgPulseMonitor,
+    private val pkgOps: PkgOps,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -136,7 +136,7 @@ class AppScanner @Inject constructor(
         val allCurrentPkgs = pkgRepo.currentPkgs()
             .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
-            .filter { includeRunningApps || !pkgifecycleChecker.isRunning(it.installId) }
+            .filter { includeRunningApps || !pkgOps.isRunning(it.installId) }
             .filter { pkgFilter.isEmpty() || pkgFilter.contains(it.id) }
             .filter { pkg ->
                 val isExcluded = pkgExclusions.any { it.match(pkg.id) }

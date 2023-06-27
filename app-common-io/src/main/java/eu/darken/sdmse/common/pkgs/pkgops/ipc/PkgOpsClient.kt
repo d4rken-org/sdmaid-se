@@ -43,6 +43,13 @@ class PkgOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    fun isRunning(pkgId: Pkg.Id): Boolean = try {
+        connection.isRunning(pkgId.name)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "isRunning(pkgId=$pkgId) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
     suspend fun clearCache(installId: Installed.InstallId): Boolean = try {
         if (Bugs.isDryRun) {
             log(TAG, WARN) { "DRYRUN: not executing clearCache($installId)" }

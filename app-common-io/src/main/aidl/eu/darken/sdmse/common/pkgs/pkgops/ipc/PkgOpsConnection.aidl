@@ -9,6 +9,8 @@ interface PkgOpsConnection {
 
     String getGroupNameforGID(int gid);
 
+    boolean isRunning(String packageName);
+
     boolean forceStop(String packageName);
 
     boolean clearCacheAsUser(String packageName, int handleId);

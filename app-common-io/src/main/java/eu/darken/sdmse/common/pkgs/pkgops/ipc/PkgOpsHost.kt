@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.rxshell.cmd.Cmd
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -16,6 +17,7 @@ import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -24,6 +26,7 @@ import javax.inject.Inject
 class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
     private val libcoreTool: LibcoreTool,
+    private val sharedShell: SharedShell,
 ) : PkgOpsConnection.Stub(), IpcHostModule {
 
     private val pm: PackageManager
@@ -40,6 +43,19 @@ class PkgOpsHost @Inject constructor(
         libcoreTool.getNameForGid(gid)
     } catch (e: Exception) {
         log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed." }
+        throw wrapPropagating(e)
+    }
+
+    override fun isRunning(packageName: String): Boolean = try {
+        val result = runBlocking {
+            sharedShell.useRes {
+                Cmd.builder("pidof $packageName").execute(it)
+            }.exitCode == Cmd.ExitCode.OK
+        }
+        log(TAG, VERBOSE) { "isRunning(packageName=$packageName)=$result" }
+        result
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "isRunning(packageName=$packageName) failed." }
         throw wrapPropagating(e)
     }
 
