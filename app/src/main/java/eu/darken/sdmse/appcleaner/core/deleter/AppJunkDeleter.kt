@@ -9,9 +9,11 @@ import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -23,9 +25,9 @@ import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
@@ -82,9 +84,9 @@ class AppJunkDeleter @Inject constructor(
 
         val deletionMap = mutableMapOf<Installed.InstallId, Set<APathLookup<*>>>()
 
-        val targetPkgs = targetPkgs ?: snapshot.junks.map { it.identifier }
+        val confirmedTargets = targetPkgs ?: snapshot.junks.map { it.identifier }
 
-        targetPkgs.forEach { targetPkg ->
+        confirmedTargets.forEach { targetPkg ->
             log(TAG) { "Processing $targetPkg" }
             if (onlyInaccessible) return@forEach
 
@@ -126,14 +128,13 @@ class AppJunkDeleter @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
 
         val currentUser = userManager.currentUser()
-        val inaccessibleTargets = targetPkgs
+        val inaccessibleTargets = confirmedTargets
             .filter { includeInaccessible }
-            .filter { targetPkg ->
-                snapshot.junks.single { it.identifier == targetPkg }.inaccessibleCache != null
-            }
+            .map { targetPkg -> snapshot.junks.single { it.identifier == targetPkg } }
+            .filter { junk -> junk.inaccessibleCache != null }
             .filter {
                 // Without root, we shouldn't have inaccessible caches from other users
-                val isCurrentUser = it.userHandle == currentUser.handle
+                val isCurrentUser = it.identifier.userHandle == currentUser.handle
                 if (!isCurrentUser) {
                     log(TAG, WARN) { "Unexpected inaccessible data from other users: $it" }
                 }
@@ -147,17 +148,26 @@ class AppJunkDeleter @Inject constructor(
                 null
             }
 
-            shizukuManager.canUseShizukuNow() -> {
+            shizukuManager.canUseShizukuNow() && targetPkgs == null -> {
                 log(TAG) { "Using Shizuku to delete inaccessible caches" }
                 updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
-                updateProgressCount(Progress.Count.Counter(max = inaccessibleTargets.size))
-                val success = mutableListOf<Installed.InstallId>()
-                val failed = mutableListOf<Installed.InstallId>()
-                inaccessibleTargets.forEach {
-                    updateProgressSecondary(it.pkgId.name)
-                    pkgOps.clearCache(it)
-                    increaseProgress()
+                updateProgressCount(Progress.Count.Indeterminate())
+
+                val success = inaccessibleTargets
+                    .filter { !it.pkg.isSystemApp }
+                    .map { it.identifier }
+
+                var failed = inaccessibleTargets
+                    .filter { !it.pkg.isSystemApp }
+                    .map { it.identifier }
+
+                try {
+                    pkgOps.trimCaches(Long.MAX_VALUE)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
+                    failed = failed + success
                 }
+
                 ShizukuDeletionResult(successful = success, failed = failed)
             }
 
@@ -167,7 +177,9 @@ class AppJunkDeleter @Inject constructor(
                 updateProgressSecondary(CaString.EMPTY)
 
                 try {
-                    automationManager.submit(ClearCacheTask(inaccessibleTargets)) as InaccessibleDeletionResult
+                    automationManager.submit(
+                        ClearCacheTask(inaccessibleTargets.map { it.identifier })
+                    ) as InaccessibleDeletionResult
                 } catch (e: AutomationUnavailableException) {
                     throw InaccessibleDeletionException(e)
                 }

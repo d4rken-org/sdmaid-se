@@ -39,11 +39,17 @@ class PkgOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
-    fun clearCache(id: Installed.InstallId): Boolean = try {
-//        connection.clearCache(id)
-        TODO()
+    fun clearCache(installId: Installed.InstallId): Boolean = try {
+        connection.clearCache(installId.pkgId.name, installId.userHandle.handleId)
     } catch (e: Exception) {
-        log(TAG, ERROR) { "clearCache(id=$id) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "clearCache(installId=$installId) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
+    fun trimCaches(desiredBytes: Long, storageId: String? = null): Boolean = try {
+        connection.trimCaches(desiredBytes, storageId)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${e.asLog()}" }
         throw fakeIOException(e.getRootCause())
     }
 

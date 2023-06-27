@@ -224,28 +224,48 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun clearCache(id: Installed.InstallId, mode: Mode = Mode.AUTO) {
+    suspend fun clearCache(installId: Installed.InstallId, mode: Mode = Mode.AUTO) {
         try {
-            log(TAG) { "clearCache($id,$mode)" }
-            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($id) does not support mode=NORMAL")
+            log(TAG) { "clearCache($installId, $mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($installId) does not support mode=NORMAL")
 
-
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG) { "clearCache($id,$mode->ADB)" }
-                adbOps { it.clearCache(id) }
-                return
-            }
+            if (mode == Mode.ADB) throw PkgOpsException("clearCache($installId) does not support mode=ADB")
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "clearCache($id,$mode->ROOT)" }
-                rootOps { it.clearCache(id) }
+                log(TAG) { "clearCache($installId, $mode->ROOT)" }
+                rootOps { it.clearCache(installId) }
                 return
             }
 
             throw IOException("No matching mode found")
         } catch (e: Exception) {
-            log(TAG, WARN) { "clearCache($id,$mode) failed: ${e.asLog()}" }
-            throw PkgOpsException(message = "clearCache($id,$mode) failed", cause = e)
+            log(TAG, WARN) { "clearCache($installId,$mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "clearCache($installId, $mode) failed", cause = e)
+        }
+    }
+
+    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, mode: Mode = Mode.AUTO) {
+        try {
+            log(TAG) { "trimCaches($desiredBytes, $storageId,$mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
+
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ADB)" }
+                adbOps { it.trimCaches(desiredBytes, storageId) }
+                return
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ROOT)" }
+                rootOps { it.trimCaches(desiredBytes, storageId) }
+                return
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "trimCaches($desiredBytes, $storageId,$mode) failed: ${e.asLog()}" }
+            throw PkgOpsException(message = "trimCaches($desiredBytes, $storageId, $mode) failed", cause = e)
         }
     }
 

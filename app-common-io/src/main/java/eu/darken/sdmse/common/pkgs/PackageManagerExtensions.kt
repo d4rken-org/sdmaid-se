@@ -1,15 +1,23 @@
 package eu.darken.sdmse.common.pkgs
 
 import android.content.ComponentName
+import android.content.pm.IPackageDataObserver
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
+import android.os.RemoteException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserHandle2
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withTimeout
 import java.io.IOException
+import kotlin.coroutines.resume
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.memberFunctions
 import kotlin.reflect.jvm.jvmErasure
@@ -77,4 +85,80 @@ fun PackageManager.toggleSelfComponent(
         },
         PackageManager.DONT_KILL_APP
     )
+}
+
+suspend fun PackageManager.freeStorageAndNotify(
+    desiredBytes: Long = Long.MAX_VALUE - 1000L,
+    storageId: String? = null,
+    timeout: Long = 20 * 1000L
+): Boolean {
+    val packageManager = this
+
+    val freeStorageAndNotifyMethod = packageManager.javaClass.getMethod(
+        "freeStorageAndNotify",
+        String::class.java,
+        Long::class.javaPrimitiveType,
+        IPackageDataObserver::class.java
+    )
+
+    return withTimeout(1L) {
+        suspendCancellableCoroutine { continuation ->
+            try {
+
+                freeStorageAndNotifyMethod.invoke(
+                    packageManager,
+                    storageId,
+                    desiredBytes,
+                    object : IPackageDataObserver.Stub() {
+                        @Throws(RemoteException::class)
+                        override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
+                            continuation.resume(true)
+                        }
+                    }
+                )
+            } catch (e: Exception) {
+                log(WARN) { "freeStorageAndNotify($desiredBytes,$storageId) failed: ${e.asLog()}" }
+                continuation.resume(false)
+            }
+        }
+    }
+}
+
+/**
+ * Requires android.permission.INTERNAL_DELETE_CACHE_FILES
+ */
+suspend fun PackageManager.deleteApplicationCacheFilesAsUser(
+    packageName: String,
+    userId: Int,
+): Boolean {
+    val packageManager = this
+
+    val deleteApplicationCacheFilesAsUserMethod = packageManager.javaClass.getMethod(
+        "deleteApplicationCacheFilesAsUser",
+        String::class.java,
+        Int::class.javaPrimitiveType,
+        IPackageDataObserver::class.java
+    )
+
+    return withTimeout(20 * 1000L) {
+        suspendCancellableCoroutine { continuation ->
+            try {
+                deleteApplicationCacheFilesAsUserMethod.invoke(
+                    packageManager,
+                    packageName,
+                    userId,
+                    object : IPackageDataObserver.Stub() {
+                        @Throws(RemoteException::class)
+                        override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
+                            log(VERBOSE) { "deleteApplicationCacheFilesAsUser() $packageName -> $succeeded" }
+                            continuation.resume(succeeded)
+                        }
+                    }
+                )
+            } catch (e: Exception) {
+                log(WARN) { "deleteApplicationCacheFilesAsUser($packageName,$userId) failed: ${e.asLog()}" }
+                continuation.resume(false)
+            }
+        }
+    }
 }
