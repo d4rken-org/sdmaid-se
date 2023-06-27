@@ -20,6 +20,7 @@ Features include:
 * Scheduling actions (Scheduler)
 * Controling/disabling apps (AppControl)
 * Storage overview (StorageAnalyzer)
+* Root and Shizuku support
 
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor
 to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). A complete rewrite, optimized for newer
