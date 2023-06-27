@@ -23,7 +23,6 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.WriteException
 import eu.darken.sdmse.common.files.deleteAll
-import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -65,23 +64,18 @@ class AppJunkDeleter @Inject constructor(
         log(TAG, VERBOSE) { "initialize()" }
     }
 
-    data class Result(
-        val newSnapShot: AppCleaner.Data,
-        val deletionMap: Map<Installed.InstallId, Set<APathLookup<*>>>,
-        val inaccessibleDeletions: Collection<InaccessibleCache>,
-    )
-
-    suspend fun delete(
+    suspend fun deleteAccessible(
         snapshot: AppCleaner.Data,
-        targetPkgs: Set<Installed.InstallId>? = null,
-        targetFilters: Set<KClass<out ExpendablesFilter>>? = null,
-        targetContents: Set<APath>? = null,
-        includeInaccessible: Boolean = true,
-        onlyInaccessible: Boolean = false,
-    ): Result {
-        log(TAG, INFO) { "delete()..." }
+        targetPkgs: Set<Installed.InstallId>?,
+        targetFilters: Set<KClass<out ExpendablesFilter>>?,
+        targetContents: Set<APath>?,
+    ): Map<Installed.InstallId, Set<APathLookup<*>>> {
+        log(TAG, INFO) {
+            "deleteAccessible() pkgs=${targetPkgs?.size}, filters=${targetFilters?.size}, contents=${targetContents?.size}"
+        }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
+        updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val deletionMap = mutableMapOf<Installed.InstallId, Set<APathLookup<*>>>()
@@ -90,57 +84,12 @@ class AppJunkDeleter @Inject constructor(
             ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
             ?: snapshot.junks
 
-        if (!onlyInaccessible) {
-            targetJunk.forEach { appJunk ->
-                val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
-                deletionMap[appJunk.identifier] = deleted
-            }
+        targetJunk.forEach { appJunk ->
+            val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
+            deletionMap[appJunk.identifier] = deleted
         }
 
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressSecondary(CaString.EMPTY)
-
-        val successTargets = if (includeInaccessible) {
-            deleteInaccessible(targetJunk, isAllApps = targetPkgs == null)
-        } else {
-            emptySet()
-        }
-
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
-        updateProgressSecondary(CaString.EMPTY)
-
-        val newSnapshot = snapshot.copy(
-            junks = snapshot.junks
-                .map { appJunk ->
-                    updateProgressSecondary(appJunk.label)
-                    // Remove all files we deleted or children of deleted files
-                    val updatedExpendables = appJunk.expendables
-                        ?.mapValues { (type, typeFiles) ->
-                            typeFiles.filter { file ->
-                                val mapContent = deletionMap[appJunk.identifier]
-                                mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
-                            }
-                        }
-                        ?.filterValues { it.isNotEmpty() }
-
-                    val updatedInaccesible = when {
-                        successTargets.contains(appJunk.inaccessibleCache) -> null
-                        else -> appJunk.inaccessibleCache
-                    }
-
-                    appJunk.copy(
-                        expendables = updatedExpendables,
-                        inaccessibleCache = updatedInaccesible,
-                    )
-                }
-                .filter { !it.isEmpty() }
-        )
-
-        return Result(
-            newSnapshot,
-            deletionMap,
-            successTargets
-        )
+        return deletionMap
     }
 
     private suspend fun deleteDirectAccess(
@@ -183,9 +132,35 @@ class AppJunkDeleter @Inject constructor(
         return deleted
     }
 
+
+    suspend fun deleteInaccessible(
+        snapshot: AppCleaner.Data,
+        targetPkgs: Set<Installed.InstallId>?,
+        useAutomation: Boolean,
+    ): Set<InaccessibleCache> {
+        log(TAG, INFO) {
+            "deleteInaccessible() pkgs=${targetPkgs?.size}, $useAutomation"
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        val targetJunk = targetPkgs
+            ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
+            ?: snapshot.junks
+
+        return deleteInaccessible(
+            targetJunk,
+            isAllApps = targetPkgs == null,
+            useAutomation = useAutomation
+        )
+    }
+
     private suspend fun deleteInaccessible(
         targetJunks: Collection<AppJunk>,
         isAllApps: Boolean,
+        useAutomation: Boolean,
     ): Set<InaccessibleCache> {
         val currentUser = userManager.currentUser()
         val inaccessibleTargets = targetJunks
@@ -226,7 +201,9 @@ class AppJunkDeleter @Inject constructor(
         updateProgressPrimary(R.string.appcleaner_automation_loading)
         updateProgressSecondary(CaString.EMPTY)
 
-        if (inaccessibleTargets.isNotEmpty() && inaccessibleTargets.size != successTargets.size) {
+        if (!useAutomation) log(TAG, INFO) { "useAutomation=false" }
+
+        if (useAutomation && inaccessibleTargets.isNotEmpty() && inaccessibleTargets.size != successTargets.size) {
             val remainingTargets = inaccessibleTargets
                 .filter { !successTargets.contains(it.inaccessibleCache) }
                 .mapNotNull { it.inaccessibleCache }

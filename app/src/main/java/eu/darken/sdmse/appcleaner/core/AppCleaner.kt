@@ -11,6 +11,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -74,7 +75,7 @@ class AppCleaner @Inject constructor(
                     is AppCleanerDeleteTask -> performDelete(task)
                     is AppCleanerSchedulerTask -> {
                         performScan(AppCleanerScanTask())
-                        performDelete(AppCleanerDeleteTask(includeInaccessible = task.useAutomation))
+                        performDelete(AppCleanerDeleteTask(useAutomation = task.useAutomation))
                     }
                 }
             }
@@ -117,29 +118,74 @@ class AppCleaner @Inject constructor(
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
+        updateProgressSecondary(CaString.EMPTY)
+
         val deleter = appJunkDeleterProvider.get()
 
         deleter.initialize()
 
-        val result = deleter.withProgress(this) {
-            deleter.delete(
-                snapshot = snapshot,
-                targetPkgs = task.targetPkgs,
-                targetFilters = task.targetFilters,
-                targetContents = task.targetContents,
-                includeInaccessible = task.includeInaccessible,
-                onlyInaccessible = task.onlyInaccessible,
-            )
+        val accessibleDeletionMap = if (!task.onlyInaccessible) {
+            deleter.withProgress(this) {
+                deleter.deleteAccessible(
+                    snapshot = snapshot,
+                    targetPkgs = task.targetPkgs,
+                    targetFilters = task.targetFilters,
+                    targetContents = task.targetContents,
+                )
+            }
+        } else {
+            emptyMap()
         }
 
-        internalData.value = result.newSnapShot
+        val inaccessibleSuccesses = if (task.includeInaccessible) {
+            deleter.withProgress(this) {
+                deleter.deleteInaccessible(
+                    snapshot = snapshot,
+                    targetPkgs = task.targetPkgs,
+                    useAutomation = task.useAutomation,
+                )
+            }
+        } else {
+            emptySet()
+        }
 
-        val automationCount = result.inaccessibleDeletions.sumOf { it.itemCount }
-        val automationSize = result.inaccessibleDeletions.sumOf { it.cacheBytes }
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
+        updateProgressSecondary(CaString.EMPTY)
+
+        internalData.value = snapshot.copy(
+            junks = snapshot.junks
+                .map { appJunk ->
+                    updateProgressSecondary(appJunk.label)
+                    // Remove all files we deleted or children of deleted files
+                    val updatedExpendables = appJunk.expendables
+                        ?.mapValues { (type, typeFiles) ->
+                            typeFiles.filter { file ->
+                                val mapContent = accessibleDeletionMap[appJunk.identifier]
+                                mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
+                            }
+                        }
+                        ?.filterValues { it.isNotEmpty() }
+
+                    val updatedInaccesible = when {
+                        inaccessibleSuccesses.contains(appJunk.inaccessibleCache) -> null
+                        else -> appJunk.inaccessibleCache
+                    }
+
+                    appJunk.copy(
+                        expendables = updatedExpendables,
+                        inaccessibleCache = updatedInaccesible,
+                    )
+                }
+                .filter { !it.isEmpty() }
+        )
+
+        val automationCount = inaccessibleSuccesses.sumOf { it.itemCount }
+        val automationSize = inaccessibleSuccesses.sumOf { it.cacheBytes }
 
         return AppCleanerDeleteTask.Success(
-            deletedCount = result.deletionMap.values.sumOf { it.size } + automationCount,
-            recoveredSpace = result.deletionMap.values.sumOf { contents -> contents.sumOf { it.size } } + automationSize,
+            deletedCount = accessibleDeletionMap.values.sumOf { it.size } + automationCount,
+            recoveredSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.size } } + automationSize,
         )
     }
 
