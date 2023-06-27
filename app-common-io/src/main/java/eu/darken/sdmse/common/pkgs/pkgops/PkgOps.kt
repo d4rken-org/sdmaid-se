@@ -212,27 +212,49 @@ class PkgOps @Inject constructor(
         packageManager.getSharedLibraries2(flags)
     }
 
-    suspend fun changePackageState(id: Pkg.Id, enabled: Boolean) {
-        log(TAG, VERBOSE) { "changePackageState($id, enabled=$enabled)" }
-        val newState = when (enabled) {
-            true -> COMPONENT_ENABLED_STATE_ENABLED
-            false -> COMPONENT_ENABLED_STATE_DISABLED_USER
-        }
-        rootOps {
-            it.setApplicationEnabledSetting(
-                packageName = id.name,
-                newState = newState,
-                flags = kotlin.run {
-                    @Suppress("NewApi")
-                    if (hasApiLevel(30)) SYNCHRONOUS else 0
-                }
-            )
+    suspend fun changePackageState(id: Pkg.Id, enabled: Boolean, mode: Mode = Mode.AUTO) {
+        log(TAG, VERBOSE) { "changePackageState($id, enabled=$enabled, mode=$mode)" }
+        try {
+            if (mode == Mode.NORMAL) throw PkgOpsException("changePackageState($id,$enabled) does not support mode=NORMAL")
+
+            val newState = when (enabled) {
+                true -> COMPONENT_ENABLED_STATE_ENABLED
+                false -> COMPONENT_ENABLED_STATE_DISABLED_USER
+            }
+
+            val opsAction = { opsClient: PkgOpsClient ->
+                opsClient.setApplicationEnabledSetting(
+                    packageName = id.name,
+                    newState = newState,
+                    flags = run {
+                        @Suppress("NewApi")
+                        if (hasApiLevel(30)) SYNCHRONOUS else 0
+                    }
+                )
+            }
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "changePackageState($id, enabled=$enabled, $mode->ADB)" }
+                adbOps { opsAction(it) }
+                return
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "changePackageState($id, enabled=$enabled, $mode->ROOT)" }
+                rootOps { opsAction(it) }
+                return
+            }
+
+            throw IOException("No matching mode found")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "changePackageState($id, enabled=$enabled, mode=$mode) failed: $e" }
+            throw PkgOpsException(message = "changePackageState($id, $enabled, $mode) failed", cause = e)
         }
     }
 
     suspend fun clearCache(installId: Installed.InstallId, mode: Mode = Mode.AUTO) {
+        log(TAG) { "clearCache($installId, $mode)" }
         try {
-            log(TAG) { "clearCache($installId, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($installId) does not support mode=NORMAL")
 
             if (mode == Mode.ADB) throw PkgOpsException("clearCache($installId) does not support mode=ADB")
@@ -251,10 +273,9 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, mode: Mode = Mode.AUTO) {
+        log(TAG) { "trimCaches($desiredBytes, $storageId,$mode)" }
         try {
-            log(TAG) { "trimCaches($desiredBytes, $storageId,$mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
-
 
             if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ADB)" }
