@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.rxshell.cmd.Cmd
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -88,6 +89,7 @@ class PkgOpsHost @Inject constructor(
     }
 
     override fun trimCaches(desiredBytes: Long, storageId: String?): Boolean = try {
+        log(TAG, VERBOSE) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId)..." }
         runBlocking { pm.freeStorageAndNotify(desiredBytes, storageId) }
     } catch (e: Exception) {
         log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed." }
@@ -161,6 +163,6 @@ class PkgOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "PkgOps", "Host")
+        val TAG = logTag("PkgOps", "Service", "Host", Bugs.processTag)
     }
 }

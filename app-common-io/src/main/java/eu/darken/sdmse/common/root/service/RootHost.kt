@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.annotation.Keep
 import dagger.Lazy
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -16,6 +16,8 @@ import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.SharedShell
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
@@ -28,7 +30,7 @@ import javax.inject.Inject
 @SuppressLint("UnsafeDynamicallyLoadedCode")
 class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRootHost("$TAG#${hashCode()}", _args) {
 
-    override val sharedResource = SharedResource.createKeepAlive(iTag, rootHostScope)
+    override val sharedResource = SharedResource.createKeepAlive(iTag, hostScope)
 
     lateinit var component: RootComponent
 
@@ -37,25 +39,38 @@ class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRo
     @Inject lateinit var rootIpcFactory: RootIPC.Factory
 
     override suspend fun onInit() {
-        if (isDebug) {
-            Bugs.isDebug = true
-        }
-
         component = DaggerRootComponent.builder().application(systemContext).build().also {
             it.inject(this)
         }
-
-        log(iTag) { "Running on threadId=${Thread.currentThread().id}" }
     }
 
     override suspend fun onExecute() {
         log(iTag) { "Starting IPC connection via $rootIpcFactory" }
         val ipc = rootIpcFactory.create(
-            packageName = BuildConfigWrap.APPLICATION_ID,
+            initArgs = initOptions,
             userProvidedBinder = serviceHost.get(),
-            pairingCode = pairingCode,
         )
         log(iTag) { "IPC created: $ipc" }
+
+        ipc.hostOptions
+            .onEach { options ->
+                when {
+                    options.isDebug && Logging.loggers.none { it == logCatLogger } -> {
+                        Logging.install(logCatLogger)
+                        log(TAG) { "Logger installed!" }
+                    }
+
+                    !options.isDebug -> {
+                        log(TAG) { "Logger will be removed now!" }
+                        Logging.remove(logCatLogger)
+                    }
+                }
+
+                Bugs.isDebug = options.isDebug
+                Bugs.isTrace = options.isTrace
+                Bugs.isDryRun = options.isDryRun
+            }
+            .launchIn(hostScope)
 
         val keepAliveToken: Resource<*> = sharedResource.get()
 
@@ -79,6 +94,7 @@ class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRo
         @Keep
         @JvmStatic
         fun main(args: Array<String>) {
+            Bugs.processTag = "Root"
             Log.v(TAG, "main(args=$args)")
             RootHost(args.toList()).start()
         }

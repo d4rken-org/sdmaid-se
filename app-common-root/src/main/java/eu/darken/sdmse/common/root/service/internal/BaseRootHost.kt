@@ -23,16 +23,11 @@ abstract class BaseRootHost(
     private val _args: List<String>
 ) {
 
-    val rootHostScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    val hostScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-    lateinit var options: RootHostOptions
+    val logCatLogger = LogCatLogger()
 
-    val ourPkgName: String
-        get() = options.packageName
-    val pairingCode: String
-        get() = options.pairingCode
-    val isDebug: Boolean
-        get() = options.isDebug
+    lateinit var initOptions: RootHostInitArgs
 
     fun start() = try {
         Log.d(iTag, "start(): RootHost args=${_args}")
@@ -43,8 +38,18 @@ abstract class BaseRootHost(
         }
 
         Log.d(iTag, "start(): unmarshalling $optionsBase64")
-        options = Base64.decode(optionsBase64, 0).unmarshall()
-        Log.d(iTag, "start(): options=$options")
+        initOptions = Base64.decode(optionsBase64, 0).unmarshall()
+        Log.d(iTag, "start(): options=$initOptions")
+
+        Bugs.isDebug = initOptions.isDebug
+        Bugs.isTrace = initOptions.isTrace
+        Bugs.isDryRun = initOptions.isDryRun
+
+        if (initOptions.isDebug) {
+            Logging.install(logCatLogger)
+            Log.i(iTag, "Debug logger installed")
+            log(iTag, INFO) { "Debug logger installed" }
+        }
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
@@ -53,20 +58,11 @@ abstract class BaseRootHost(
             else exitProcess(1)
         }
 
-        Bugs.isDebug = options.isDebug
-        Bugs.isTrace = options.isTrace
-
-        if (isDebug) {
-            Logging.install(LogCatLogger())
-            Log.i(iTag, "Debug logger installed")
-            log(iTag, INFO) { "Debug logger installed" }
-        }
-
-        if (options.isDebug) {
-            setAppName("$ourPkgName:rootHost")
+        if (initOptions.isDebug) {
+            setAppName("${initOptions.packageName}:rootHost")
 
             val waitStart = System.currentTimeMillis()
-            while (options.waitForDebugger && !Debug.isDebuggerConnected()) {
+            while (initOptions.waitForDebugger && !Debug.isDebuggerConnected()) {
                 val elapsed = System.currentTimeMillis() - waitStart
                 log(iTag, VERBOSE) { "Waiting for debugger (${elapsed / 1000}s)" }
 
@@ -83,6 +79,7 @@ abstract class BaseRootHost(
         }
 
         runBlocking {
+            log(iTag) { "Running on threadId=${Thread.currentThread().id}" }
             onInit()
             onExecute()
         }
@@ -90,7 +87,7 @@ abstract class BaseRootHost(
         Log.e(iTag, "Failed to run RootHost.", e)
         throw e
     } finally {
-        rootHostScope.cancel()
+        hostScope.cancel()
         Log.v(iTag, "start() RootHost finished")
     }
 

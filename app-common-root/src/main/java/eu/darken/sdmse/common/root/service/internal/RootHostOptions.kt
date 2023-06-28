@@ -5,10 +5,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RootHostOptions(
-    val packageName: String,
-    val pairingCode: String,
     val isDebug: Boolean = false,
     val isTrace: Boolean = false,
     val isDryRun: Boolean = false,
-    val waitForDebugger: Boolean = false
-) : Parcelable
+) : Parcelable {
+    companion object {
+        fun fromInitArgs(initArgs: RootHostInitArgs) = RootHostOptions(
+            isDebug = initArgs.isDebug,
+            isTrace = initArgs.isTrace,
+            isDryRun = initArgs.isDryRun,
+        )
+    }
+}

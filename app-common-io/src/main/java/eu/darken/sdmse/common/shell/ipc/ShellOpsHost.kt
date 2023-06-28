@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.shell.ipc
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -43,7 +44,7 @@ class ShellOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "ShellOps", "Host")
+        val TAG = logTag("ShellOps", "Service", "Host", Bugs.processTag)
     }
 
 }

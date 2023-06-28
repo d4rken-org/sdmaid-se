@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.shizuku.service.internal
 import android.content.ComponentName
 import android.content.ServiceConnection
 import android.os.IBinder
+import android.os.IInterface
 import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.ipc.getInterface
 import eu.darken.sdmse.common.shizuku.ShizukuException
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import rikka.shizuku.Shizuku
 import rikka.shizuku.Shizuku.UserServiceArgs
@@ -19,16 +21,15 @@ import javax.inject.Inject
 import kotlin.reflect.KClass
 
 @Reusable
-class ShizukuHostLauncher @Inject constructor(
-) {
+class ShizukuHostLauncher @Inject constructor() {
 
-    fun <Binder : Any, Host : ShizukuConnection> createConnection(
-        binderClass: KClass<Binder>,
+    fun <Service : IInterface, Host : ShizukuConnection> createConnection(
+        serviceClass: KClass<Service>,
         hostClass: KClass<Host>,
         enableDebug: Boolean = BuildConfigWrap.DEBUG,
         enableTrace: Boolean = false,
         enableDryRun: Boolean = false,
-    ) = callbackFlow {
+    ): Flow<ConnectionWrapper<Service, Host>> = callbackFlow {
         if (Shizuku.getVersion() < 10) throw IllegalStateException("Shizuku API10+ required")
 
         val serviceArgs = UserServiceArgs(
@@ -55,6 +56,7 @@ class ShizukuHostLauncher @Inject constructor(
                 val baseConnection = ShizukuConnection.Stub.asInterface(binder)
                     ?: throw ShizukuException("Failed to get base connection")
 
+                // Initial options, Shizuku has no init arguments through which these can be supplied earlier
                 val newOptions = ShizukuHostOptions(
                     isDebug = enableDebug,
                     isTrace = enableTrace,
@@ -63,11 +65,11 @@ class ShizukuHostLauncher @Inject constructor(
                 log(TAG) { "Updating host options to $newOptions" }
                 baseConnection.updateHostOptions(newOptions)
 
-                val userConnection = baseConnection.userConnection.getInterface(binderClass)
+                val userConnection = baseConnection.userConnection.getInterface(serviceClass)
                     ?: throw ShizukuException("Failed to get user connection")
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
-                trySendBlocking(userConnection)
+                trySendBlocking(ConnectionWrapper(userConnection, baseConnection as Host))
             }
 
             override fun onServiceDisconnected(componentName: ComponentName) {
@@ -82,6 +84,12 @@ class ShizukuHostLauncher @Inject constructor(
             log(TAG) { "Flow closed." }
         }
     }
+
+    data class ConnectionWrapper<Service : IInterface, Host : ShizukuConnection>(
+        val service: Service,
+        val host: Host,
+    )
+
 
     companion object {
         private val TAG = logTag("Shizuku", "Host", "Launcher")

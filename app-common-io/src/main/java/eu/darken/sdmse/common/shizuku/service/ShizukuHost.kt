@@ -40,6 +40,7 @@ class ShizukuHost(
     private val currentOptions = MutableStateFlow(ShizukuHostOptions())
 
     init {
+        Bugs.processTag = "Shizuku"
         if (BuildConfigWrap.DEBUG) {
             Logging.install(logCatLogger)
             log(TAG) { "BuildConfigWrap.DEBUG=true" }
@@ -57,15 +58,22 @@ class ShizukuHost(
         keepAliveToken = sharedResource.get()
 
         currentOptions
-            .onEach {
-                Bugs.isDebug = it.isDebug
-                Bugs.isTrace = it.isTrace
-                Bugs.isDryRun = it.isDryRun
-
+            .onEach { options ->
                 when {
-                    it.isDebug && Logging.loggers.none { it == logCatLogger } -> Logging.install(logCatLogger)
-                    !it.isDebug -> Logging.remove(logCatLogger)
+                    options.isDebug && Logging.loggers.none { it == logCatLogger } -> {
+                        Logging.install(logCatLogger)
+                        log(TAG) { "Logger installed!" }
+                    }
+
+                    !options.isDebug -> {
+                        log(TAG) { "Logger will be removed now!" }
+                        Logging.remove(logCatLogger)
+                    }
                 }
+
+                Bugs.isDebug = options.isDebug
+                Bugs.isTrace = options.isTrace
+                Bugs.isDryRun = options.isDryRun
             }
             .launchIn(hostScope)
     }

@@ -245,6 +245,6 @@ class FileOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "FileOps", "Host")
+        val TAG = logTag("FileOps", "Service", "Host", Bugs.processTag)
     }
 }

@@ -150,6 +150,6 @@ class PkgOpsClient @AssistedInject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "PkgOps", "Client")
+        val TAG = logTag("PkgOps", "Service", "Client")
     }
 }

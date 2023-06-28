@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.debug.autoreport
+package eu.darken.sdmse.common.debug
 
 import android.content.Context
 import androidx.datastore.core.DataStore
