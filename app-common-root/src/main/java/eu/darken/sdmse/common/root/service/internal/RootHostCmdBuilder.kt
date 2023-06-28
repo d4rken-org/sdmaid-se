@@ -184,9 +184,9 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
 
     fun build(
         withRelocation: Boolean,
-        hostOptions: RootHostOptions,
+        initialOptions: RootHostInitArgs,
     ): Cmd.Builder {
-        log { "build(relocate=$withRelocation, ${hostOptions})" }
+        log { "build(relocate=$withRelocation, ${initialOptions})" }
         val cmds = mutableListOf<String>()
 
         val processPath: String = if (withRelocation) {
@@ -200,11 +200,11 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
         }
 
         var launchCmd = buildLaunchCmd(
-            isDebug = hostOptions.isDebug,
+            isDebug = initialOptions.isDebug,
             processPath = processPath
         )
         log(TAG) { "Launch command: $launchCmd" }
-        launchCmd += " ${BaseRootHost.OPTIONS_KEY}=${hostOptions.toLaunchCmdFormat()}"
+        launchCmd += " ${BaseRootHost.OPTIONS_KEY}=${initialOptions.toLaunchCmdFormat()}"
         log(TAG) { "Launch command with options: $launchCmd" }
 
         cmds.add(launchCmd)
@@ -233,12 +233,12 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
         return "CLASSPATH=$packageCodePath exec $processPath $debugParams /system/bin$extraParams $hostClass"
     }
 
-    private fun RootHostOptions.toLaunchCmdFormat(): String {
+    private fun RootHostInitArgs.toLaunchCmdFormat(): String {
         try {
             this.forceParcel()
         } catch (e: Throwable) {
             log(TAG, ERROR) { "forceParcel() check failed: ${e.asLog()}" }
-            throw RuntimeException("RootHostOptions parcelation failed", e)
+            throw RuntimeException("RootHostInitArgs parcelation failed", e)
         }
 
         return Base64.encodeToString(this.marshall(), Base64.NO_WRAP)

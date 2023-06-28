@@ -31,5 +31,7 @@ object Bugs {
     val isTraceDeepDive: Boolean
         get() = isTrace && isDeepDive
 
+    var processTag: String = "Default"
+
     private val TAG = logTag("Debug", "Bugs")
 }

@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.*
 import java.util.concurrent.TimeoutException
 
@@ -33,9 +34,8 @@ import java.util.concurrent.TimeoutException
  * @see RootConnectionReceiver
  */
 class RootIPC @AssistedInject constructor(
-    @Assisted("packageName") private val packageName: String,
+    @Assisted("initArgs") private val initArgs: RootHostInitArgs,
     @Assisted private val userBinder: IBinder,
-    @Assisted("pairingCode") private val pairingCode: String,
     @Assisted private val timeout: Long,
     @Assisted private val blocking: Boolean,
     private val reflectionBroadcast: ReflectionBroadcast,
@@ -47,6 +47,7 @@ class RootIPC @AssistedInject constructor(
     data class Connection(val binder: IBinder, val deathRecipient: DeathRecipient)
 
     val connections = mutableListOf<Connection>()
+    val hostOptions = MutableStateFlow(RootHostOptions.fromInitArgs(initArgs))
 
     @Volatile private var connectionSeen = false
 
@@ -109,12 +110,13 @@ class RootIPC @AssistedInject constructor(
         }
 
         override fun updateHostOptions(options: RootHostOptions) {
-
+            log(TAG) { "updateHostOptions(): $options" }
+            hostOptions.value = options
         }
     }
 
     init {
-        log(TAG) { "init(): $packageName, $userBinder, $pairingCode, $timeout, $reflectionBroadcast" }
+        log(TAG) { "init(): $initArgs, $userBinder, $timeout, $reflectionBroadcast" }
         require(timeout >= 0L) { "Timeout can't be negative: $timeout" }
     }
 
@@ -169,11 +171,11 @@ class RootIPC @AssistedInject constructor(
     private fun broadcastIPC() {
         val bundle = Bundle().apply {
             putBinder(RootConnectionReceiver.BROADCAST_BINDER, internalBinder)
-            putString(RootConnectionReceiver.BROADCAST_CODE, pairingCode)
+            putString(RootConnectionReceiver.BROADCAST_CODE, initArgs.pairingCode)
         }
 
         val intent = Intent().apply {
-            setPackage(packageName)
+            setPackage(initArgs.packageName)
             action = RootConnectionReceiver.BROADCAST_ACTION
             flags = Intent.FLAG_RECEIVER_FOREGROUND
             putExtra(RootConnectionReceiver.BROADCAST_EXTRA, bundle)
@@ -257,9 +259,8 @@ class RootIPC @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(
-            @Assisted("packageName") packageName: String,
+            @Assisted("initArgs") initArgs: RootHostInitArgs,
             userProvidedBinder: IBinder,
-            @Assisted("pairingCode") pairingCode: String,
             timeout: Long = 30 * 1000,
             blocking: Boolean = true,
         ): RootIPC

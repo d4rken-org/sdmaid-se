@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.shizuku.service
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -16,12 +17,15 @@ import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
 import eu.darken.sdmse.common.shizuku.ShizukuSettings
 import eu.darken.sdmse.common.shizuku.ShizukuUnavailableException
+import eu.darken.sdmse.common.shizuku.service.internal.ShizukuConnection
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostLauncher
+import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostOptions
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flattenConcat
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
@@ -34,20 +38,47 @@ class ShizukuServiceClient @Inject constructor(
     serviceLauncher: ShizukuHostLauncher,
     @AppScope coroutineScope: CoroutineScope,
     private val shizukuSettings: ShizukuSettings,
+    private val debugSettings: DebugSettings,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) : SharedResource<ShizukuServiceClient.Connection>(
     TAG,
     coroutineScope,
-    flow {
+    callbackFlow {
         log(TAG) { "Instantiating Shizuku launcher..." }
 
         if (shizukuSettings.isEnabled.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
 
-        emit(serviceLauncher.createServiceHostConnection())
+        var lastInternal: ShizukuConnection? = null
+        serviceLauncher.createServiceHostConnection()
+            .onEach { wrapper ->
+                lastInternal = wrapper.host
+                send(wrapper.service)
+            }
+            .launchIn(this)
+
+        combine(
+            debugSettings.isDebugMode.flow,
+            debugSettings.isTraceMode.flow,
+            debugSettings.isDryRunMode.flow,
+        ) { isDebug, isTrace, isDryRun ->
+            lastInternal?.let {
+                log(TAG) { "Updating debug settings: isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
+                val options = ShizukuHostOptions(
+                    isDebug = isDebug,
+                    isTrace = isTrace,
+                    isDryRun = isDryRun,
+                )
+                it.updateHostOptions(options)
+            }
+        }.launchIn(this)
+
+        log(TAG) { "awaitClose()..." }
+        awaitClose {
+            log(TAG) { "awaitClose() CLOSING" }
+        }
     }
-        .flattenConcat()
         .map {
             Connection(
                 ipc = it,
@@ -74,9 +105,9 @@ class ShizukuServiceClient @Inject constructor(
 
     companion object {
 
-        fun ShizukuHostLauncher.createServiceHostConnection(): Flow<ShizukuServiceConnection> = this
+        fun ShizukuHostLauncher.createServiceHostConnection() = this
             .createConnection(
-                binderClass = ShizukuServiceConnection::class,
+                serviceClass = ShizukuServiceConnection::class,
                 hostClass = ShizukuHost::class,
                 enableDebug = Bugs.isDebug,
                 enableTrace = Bugs.isTrace,

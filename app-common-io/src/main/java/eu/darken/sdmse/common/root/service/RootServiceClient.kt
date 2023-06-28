@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.root.service
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -13,14 +14,17 @@ import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.RootUnavailableException
+import eu.darken.sdmse.common.root.service.internal.RootConnection
 import eu.darken.sdmse.common.root.service.internal.RootHostLauncher
+import eu.darken.sdmse.common.root.service.internal.RootHostOptions
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flattenConcat
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
@@ -33,18 +37,46 @@ class RootServiceClient @Inject constructor(
     @AppScope coroutineScope: CoroutineScope,
     private val rootHostLauncher: RootHostLauncher,
     private val rootSettings: RootSettings,
+    private val debugSettings: DebugSettings,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) : SharedResource<RootServiceClient.Connection>(
     TAG,
     coroutineScope,
-    flow {
-        log(TAG) { "Instantiating RootHost launcher..." }
+    callbackFlow {
+        log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
-        emit(rootHostLauncher.createHostConnection())
+
+        var lastInternal: RootConnection? = null
+        rootHostLauncher.createHostConnection()
+            .onEach { wrapper ->
+                lastInternal = wrapper.host
+                send(wrapper.service)
+            }
+            .launchIn(this)
+
+        combine(
+            debugSettings.isDebugMode.flow,
+            debugSettings.isTraceMode.flow,
+            debugSettings.isDryRunMode.flow,
+        ) { isDebug, isTrace, isDryRun ->
+            lastInternal?.let {
+                log(TAG) { "Updating debug settings: isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
+                val options = RootHostOptions(
+                    isDebug = isDebug,
+                    isTrace = isTrace,
+                    isDryRun = isDryRun,
+                )
+                it.updateHostOptions(options)
+            }
+        }.launchIn(this)
+
+        log(TAG) { "awaitClose()..." }
+        awaitClose {
+            log(TAG) { "awaitClose() CLOSING" }
+        }
     }
-        .flattenConcat()
         .map {
             Connection(
                 ipc = it,
@@ -55,6 +87,7 @@ class RootServiceClient @Inject constructor(
                 )
             )
         }
+
 ) {
 
     data class Connection(
@@ -79,10 +112,10 @@ class RootServiceClient @Inject constructor(
              * Being able to work without mount-master is more reliable.
              */
             useMountMaster: Boolean = false
-        ): Flow<RootServiceConnection> = this
+        ) = this
             .createConnection(
-                binderClass = RootServiceConnection::class,
-                rootHostClass = RootHost::class,
+                serviceClass = RootServiceConnection::class,
+                hostClass = RootHost::class,
                 enableDebug = Bugs.isDebug,
                 enableTrace = Bugs.isTrace,
                 useMountMaster = useMountMaster,

@@ -1,5 +1,8 @@
 package eu.darken.sdmse.common.debug.logging
 
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -49,12 +52,18 @@ object Logging {
         }
 
     fun install(logger: Logger) {
-        synchronized(internalLoggers) { internalLoggers.add(logger) }
-        log { "Was installed $logger" }
+        synchronized(internalLoggers) {
+            if (loggers.contains(logger)) {
+                log(TAG, WARN) { "Logger already installed: $logger" }
+            } else {
+                internalLoggers.add(logger)
+                log(TAG, INFO) { "Was installed $logger" }
+            }
+        }
     }
 
     fun remove(logger: Logger) {
-        log { "Removing: $logger" }
+        log(TAG, INFO) { "Removing: $logger" }
         synchronized(internalLoggers) { internalLoggers.remove(logger) }
     }
 
@@ -78,7 +87,7 @@ object Logging {
     }
 
     fun clearAll() {
-        log { "Clearing all loggers" }
+        log(TAG) { "Clearing all loggers" }
         synchronized(internalLoggers) { internalLoggers.clear() }
     }
 }
@@ -134,3 +143,5 @@ internal fun Any.logTagViaCallSite(): String {
         simplerOuterClassName.removeSuffix("Kt")
     }
 }
+
+private val TAG = logTag("Logging", Bugs.processTag)

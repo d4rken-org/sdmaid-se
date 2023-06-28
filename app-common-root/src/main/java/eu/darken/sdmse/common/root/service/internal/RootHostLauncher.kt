@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.root.service.internal
 
 import android.content.Context
 import android.os.Debug
+import android.os.IInterface
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
@@ -32,16 +33,16 @@ class RootHostLauncher @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    fun <Binder : Any, Host : BaseRootHost> createConnection(
-        binderClass: KClass<Binder>,
-        rootHostClass: KClass<Host>,
+    fun <Service : IInterface, Host : BaseRootHost> createConnection(
+        serviceClass: KClass<Service>,
+        hostClass: KClass<Host>,
         enableDebug: Boolean = false,
         enableTrace: Boolean = false,
         enableDryRun: Boolean = false,
         useMountMaster: Boolean = false,
-    ): Flow<Binder> = callbackFlow {
-        log(TAG) { "createConnection($binderClass,$rootHostClass,$enableDebug,$useMountMaster)" }
-        log(TAG, INFO) { "Initiating connection to host($rootHostClass) via binder($binderClass)" }
+    ): Flow<ConnectionWrapper<Service>> = callbackFlow {
+        log(TAG) { "createConnection($serviceClass,$hostClass,$enableDebug,$useMountMaster)" }
+        log(TAG, INFO) { "Initiating connection to host($hostClass) via binder($serviceClass)" }
 
         val rootSession = try {
             RxCmdShell.builder().root(true).build().open().blockingGet()
@@ -51,27 +52,15 @@ class RootHostLauncher @Inject constructor(
 
         val pairingCode = UUID.randomUUID().toString()
 
-        val rootHostOptions = RootHostOptions(
-            pairingCode = pairingCode,
-            packageName = context.packageName,
-            isDebug = enableDebug,
-            isTrace = enableTrace,
-            isDryRun = enableDryRun,
-            waitForDebugger = enableTrace && Debug.isDebuggerConnected()
-        )
-
         val ipcReceiver = object : RootConnectionReceiver(pairingCode) {
             override fun onConnect(connection: RootConnection) {
                 log(TAG) { "onConnect(connection=$connection)" }
 
-                log(TAG) { "Updating host options to $rootHostOptions" }
-                connection.updateHostOptions(rootHostOptions)
-
-                val userConnection = connection.userConnection.getInterface(binderClass)
+                val userConnection = connection.userConnection.getInterface(serviceClass)
                     ?: throw RootException("Failed to get user connection")
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
-                trySendBlocking(userConnection)
+                trySendBlocking(ConnectionWrapper(userConnection, connection))
             }
 
             override fun onDisconnect(ipc: RootConnection) {
@@ -84,21 +73,29 @@ class RootHostLauncher @Inject constructor(
             log(TAG) { "Canceling!" }
             ipcReceiver.release()
             // TODO timeout until we CANCEL?
-            cleanUp()
             rootSession.close().subscribe()
         }
 
         ipcReceiver.connect(context)
 
         val result = try {
-            val cmdBuilder = RootHostCmdBuilder(context, rootHostClass)
+            val cmdBuilder = RootHostCmdBuilder(context, hostClass)
 
             if (useMountMaster) {
                 Cmd.builder("su --mount-master").submit(rootSession).observeOn(Schedulers.io()).blockingGet()
             }
 
+            val initArgs = RootHostInitArgs(
+                pairingCode = pairingCode,
+                packageName = context.packageName,
+                isDebug = enableDebug,
+                isTrace = enableTrace,
+                isDryRun = enableDryRun,
+                waitForDebugger = enableTrace && Debug.isDebuggerConnected()
+            )
+
             try {
-                val cmd = cmdBuilder.build(withRelocation = false, hostOptions = rootHostOptions)
+                val cmd = cmdBuilder.build(withRelocation = false, initialOptions = initArgs)
                 log { "RootHost launch command is $cmd" }
 
                 // Doesn't return until root host has quit
@@ -106,7 +103,7 @@ class RootHostLauncher @Inject constructor(
             } catch (e: Exception) {
                 log(TAG, WARN) { "Launch without relocation failed: ${e.asLog()}" }
 
-                val cmd = cmdBuilder.build(withRelocation = true, hostOptions = rootHostOptions)
+                val cmd = cmdBuilder.build(withRelocation = true, initialOptions = initArgs)
                 log { "RootHost launch command is $cmd" }
 
                 cmd.submit(rootSession).observeOn(Schedulers.io()).blockingGet()
@@ -123,9 +120,11 @@ class RootHostLauncher @Inject constructor(
         }
     }
 
-    private fun cleanUp() {
 
-    }
+    data class ConnectionWrapper<Service : IInterface>(
+        val service: Service,
+        val host: RootConnection,
+    )
 
     companion object {
         private val TAG = logTag("Root", "Host", "Launcher")

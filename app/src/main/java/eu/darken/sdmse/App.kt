@@ -47,7 +47,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var curriculumVitae: CurriculumVitae
     @Inject lateinit var updateChecker: UpdateChecker
 
-    val logCatLogger = LogCatLogger()
+    private val logCatLogger = LogCatLogger()
 
     override fun onCreate() {
         super.onCreate()
@@ -64,12 +64,11 @@ open class App : Application(), Configuration.Provider {
             recorderModule.state,
         ) { isDebug, isTrace, isDryRun, recorder ->
             log(TAG) { "isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun, recorder=$recorder" }
-            if (!BuildConfigWrap.DEBUG) {
-                if (isDebug) {
-                    Logging.install(logCatLogger)
-                } else {
-                    Logging.remove(logCatLogger)
-                }
+
+            if (isDebug) {
+                Logging.install(logCatLogger)
+            } else {
+                Logging.remove(logCatLogger)
             }
 
             Bugs.isDebug = isDebug || recorder.isRecording
