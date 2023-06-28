@@ -88,6 +88,7 @@
     <string name="setup_label">الإعداد</string>
     <string name="setup_incomplete_card_title">الإعداد غير مكتمل</string>
     <string name="setup_incomplete_card_body">أكمل إعداد SD Maid للحصول على نتائج جيدة.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid يحاول إصلاح مشاكل الإعداد.</string>
     <string name="setup_incomplete_card_dismiss_action">تجاهل</string>
     <string name="setup_incomplete_card_continue_action">متابعة الإعداد</string>
     <string name="setup_title">الإعداد</string>
@@ -105,6 +106,8 @@
     <string name="setup_root_enable_root_use_label">استخدم صَلاحِيَة الجذر عند توفرها</string>
     <string name="setup_root_disable_root_use_label">لا تستخدم صَلاحِيَة الجذر</string>
     <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">العربية </string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
     <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
     <string name="setup_usagestats_title">بيانات الاستخدام</string>

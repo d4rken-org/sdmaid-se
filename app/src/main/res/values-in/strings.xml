@@ -78,6 +78,7 @@
     <string name="setup_label">Pengaturan</string>
     <string name="setup_incomplete_card_title">Penyiapan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan penyiapan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sedang mencoba untuk memperbaiki masalah-masalah.</string>
     <string name="setup_incomplete_card_dismiss_action">Membubarkan</string>
     <string name="setup_incomplete_card_continue_action">Lanjutkan penyiapan</string>
     <string name="setup_title">Pengaturan</string>
@@ -95,6 +96,13 @@
     <string name="setup_root_enable_root_use_label">Gunakan akses root jika tersedia</string>
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada perangkat yang di-root. Jika Anda belum melakukan pengubahan, maka perangkat Anda belum di-root dan pengaturan ini tidak berpengaruh.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika diperlukan untuk mendapatkan hasil yang lebih baik dan menyalakan fitur-fitur tertentu.</string>
+    <string name="setup_shizuku_card_body2">Pengaturan ini tidak berpengaruh jika aplikasi Shizuku tidak dipasang pada perangkat Anda.</string>
+    <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
+    <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
     <string name="setup_permission_granted_label">Izin diberikan</string>
     <string name="setup_usagestats_title">Statistik penggunaan</string>
@@ -288,6 +296,7 @@
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Hapus berkas-berkas yang tidak penting di %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Hapus berkas-berkas yang tidak penting untuk %d aplikasi yang terpilih?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">

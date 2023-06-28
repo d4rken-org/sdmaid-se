@@ -78,6 +78,7 @@
     <string name="setup_label">Thiết lập</string>
     <string name="setup_incomplete_card_title">Thiết lập chưa hoàn tất</string>
     <string name="setup_incomplete_card_body">Kết thúc thiết lập của SD Maid để có kết quả tốt hơn.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid đang cố khắc phục sự cố thiết lập.</string>
     <string name="setup_incomplete_card_dismiss_action">Bỏ qua</string>
     <string name="setup_incomplete_card_continue_action">Tiếp tục thiết lập</string>
     <string name="setup_title">Thiết lập</string>
@@ -95,6 +96,13 @@
     <string name="setup_root_enable_root_use_label">Sử dụng quyền truy cập root nếu có</string>
     <string name="setup_root_disable_root_use_label">Không sử dụng quyền truy cập root</string>
     <string name="setup_root_card_body2">Chỉ khả dụng trên các thiết bị đã root. Nếu bạn không thực hiện sửa đổi này, thì thiết bị của bạn chưa được root và cài đặt này không có hiệu lực.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Cho phép SD Maid sử dụng Shizuku nếu có thể để cải thiện kết quả và kích hoạt các tính năng.</string>
+    <string name="setup_shizuku_card_body2">Cài đặt này không có hiệu lực nếu ứng dụng Shizuku không được thiết lập trên thiết bị của bạn.</string>
+    <string name="setup_shizuku_state_ready_label">Liên kết Shizuku đã sẵn sàng.</string>
+    <string name="setup_shizuku_state_waiting_label">Chờ liên kết với Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Sử dụng Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
     <string name="setup_permission_granted_label">Đã được cấp quyền</string>
     <string name="setup_usagestats_title">Thống kê sử dụng</string>
@@ -288,6 +296,7 @@
     <string name="appcleaner_junk_userprofile_label">Người dùng</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">
