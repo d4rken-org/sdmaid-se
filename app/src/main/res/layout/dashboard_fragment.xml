@@ -5,19 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/list_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="64dp"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_fallbackRes="@drawable/splash_mascot"
+        app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
+        app:lottie_loop="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="invisible"
         android:clipToPadding="false"
+        tools:visibility="visible"
         android:paddingBottom="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="1"
         tools:listitem="@layout/dashboard_preview_layout" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
+        android:id="@+id/bottom_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,9 +54,9 @@
                 android:textColor="?colorOnPrimarySurface"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/general_progress_loading"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.50"
-                tools:text="987 MB can be freed\n98 items asd asd as das d " />
+                app:layout_constraintWidth_percent="0.50" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -54,18 +68,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/general_scan_device_action"
-        app:layout_anchor="@id/bottomAppBar"
+        android:visibility="gone"
+        app:layout_anchor="@id/bottom_bar"
         app:shapeAppearance="@style/Widget.Material3.FloatingActionButton.Primary"
-        app:srcCompat="@drawable/ic_layer_search_24" />
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/main_action_progress"
-        style="@style/Widget.Material3.CircularProgressIndicator.Medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        app:layout_anchor="@+id/main_action"
-        app:layout_anchorGravity="center"
-        app:trackThickness="3.2dp" />
+        app:srcCompat="@drawable/ic_layer_search_24"
+        tools:visibility="invisible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

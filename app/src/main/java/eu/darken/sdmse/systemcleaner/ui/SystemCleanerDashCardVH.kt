@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.SystemcleanerDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import eu.darken.sdmse.main.ui.dashboard.MainActionItem
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 
@@ -87,7 +88,7 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         val onDelete: () -> Unit,
         val onViewDetails: () -> Unit,
         val onCancel: () -> Unit,
-    ) : DashboardAdapter.Item {
+    ) : DashboardAdapter.Item, MainActionItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 
