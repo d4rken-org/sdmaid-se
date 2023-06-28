@@ -161,6 +161,6 @@ class PkgOpsHost @Inject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "PkgOps", "Host")
+        val TAG = logTag("PkgOps", "Service", "Host")
     }
 }

@@ -43,6 +43,6 @@ class ShellOpsClient @AssistedInject constructor(
     }
 
     companion object {
-        val TAG = logTag("Root", "Service", "ShellOps", "Client")
+        val TAG = logTag("ShellOps", "Service", "Client")
     }
 }
