@@ -15,6 +15,8 @@ android {
     defaultConfig {
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
+
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     setupModuleBuildTypes()
