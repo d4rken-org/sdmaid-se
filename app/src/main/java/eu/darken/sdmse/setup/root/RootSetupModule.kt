@@ -12,11 +12,16 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,6 +29,7 @@ import javax.inject.Singleton
 class RootSetupModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val rootSettings: RootSettings,
+    private val rootManager: RootManager,
     private val dataAreaManager: DataAreaManager,
 ) : SetupModule {
 
@@ -44,7 +50,17 @@ class RootSetupModule @Inject constructor(
     suspend fun toggleUseRoot(useRoot: Boolean?) {
         log(TAG) { "toggleUseRoot(useRoot=$useRoot)" }
         rootSettings.useRoot.value(useRoot)
-        dataAreaManager.reload()
+
+        if (useRoot == true) {
+            // If we just allowed root, wait until the user has confirmed the pop-up
+            rootManager.useRoot
+                .filter { it }
+                .take(1)
+                .onEach { dataAreaManager.reload() }
+                .launchIn(appScope)
+        } else {
+            dataAreaManager.reload()
+        }
     }
 
     data class State(
