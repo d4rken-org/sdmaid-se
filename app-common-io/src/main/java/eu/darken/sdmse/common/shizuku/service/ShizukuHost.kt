@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.shizuku.service
 
 import android.content.Context
 import android.os.IBinder
+import androidx.annotation.Keep
 import dagger.Lazy
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.Bugs
@@ -22,6 +23,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
+@Keep
 class ShizukuHost(
     context: Context
 ) : BaseShizukuHost(TAG, context), HasSharedResource<Any> {
