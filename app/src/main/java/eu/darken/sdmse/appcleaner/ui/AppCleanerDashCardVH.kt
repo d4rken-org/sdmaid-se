@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.databinding.AppcleanerDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import eu.darken.sdmse.main.ui.dashboard.MainActionItem
 
 
 class AppCleanerDashCardVH(parent: ViewGroup) :
@@ -100,7 +101,7 @@ class AppCleanerDashCardVH(parent: ViewGroup) :
         val onDelete: () -> Unit,
         val onViewDetails: () -> Unit,
         val onCancel: () -> Unit,
-    ) : DashboardAdapter.Item {
+    ) : DashboardAdapter.Item, MainActionItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 

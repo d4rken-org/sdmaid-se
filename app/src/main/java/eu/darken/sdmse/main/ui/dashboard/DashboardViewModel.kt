@@ -1,7 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
@@ -271,7 +271,7 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    val listItems: LiveData<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
+    private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
         titleCardItem,
@@ -358,10 +358,13 @@ class DashboardViewModel @Inject constructor(
         items
     }
         .throttleLatest(500)
-        .asLiveData2()
+        .replayingShare(vmScope)
+
+    val listItems = listItemsInternal.asLiveData()
 
 
     data class BottomBarState(
+        val isReady: Boolean,
         val actionState: Action,
         val activeTasks: Int,
         val queuedTasks: Int,
@@ -385,12 +388,14 @@ class DashboardViewModel @Inject constructor(
         systemCleaner.data,
         appCleaner.data,
         generalSettings.enableDashboardOneClick.flow,
+        listItemsInternal.map { items -> items.any { it is MainActionItem } },
     ) { upgradeInfo,
         taskState,
         corpseData,
         filterData,
         junkData,
-        oneClickMode ->
+        oneClickMode,
+        listIsReady ->
 
         val actionState: BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
@@ -404,6 +409,7 @@ class DashboardViewModel @Inject constructor(
         val totalItems = (corpseData?.totalCount ?: 0) + (filterData?.totalCount ?: 0) + (junkData?.totalCount ?: 0)
         val totalSize = (corpseData?.totalSize ?: 0L) + (filterData?.totalSize ?: 0L) + (junkData?.totalSize ?: 0L)
         BottomBarState(
+            isReady = listIsReady,
             actionState = actionState,
             activeTasks = activeTasks,
             queuedTasks = queuedTasks,

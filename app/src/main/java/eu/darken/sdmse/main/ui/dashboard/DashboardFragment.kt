@@ -4,11 +4,14 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.format.Formatter
 import android.view.View
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -30,10 +33,12 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         ui.list.setupDefaults(dashAdapter, dividers = false, fastscroll = false)
 
         vm.listItems.observe2(ui) {
+            listProgress.isVisible = it.isEmpty()
+            list.isVisible = it.isNotEmpty()
             dashAdapter.update(it)
         }
 
-        ui.bottomAppBar.apply {
+        ui.bottomBar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_action_upgrade -> {
@@ -66,14 +71,17 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     append("\n")
                     append(getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.totalItems))
                 }
+            } else if (!state.isReady) {
+                bottomBarText.text = getString(easterEggProgressMsg)
             } else {
                 bottomBarText.text = ""
             }
 
-            bottomAppBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
+            bottomBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
 
+            mainAction.isInvisible = !state.isReady
             mainAction.isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
 
             mainAction.setOnClickListener {

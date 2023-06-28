@@ -12,6 +12,7 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.databinding.CorpsefinderDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import eu.darken.sdmse.main.ui.dashboard.MainActionItem
 
 
 class CorpseFinderDashCardVH(parent: ViewGroup) :
@@ -87,7 +88,7 @@ class CorpseFinderDashCardVH(parent: ViewGroup) :
         val onDelete: () -> Unit,
         val onViewDetails: () -> Unit,
         val onCancel: () -> Unit,
-    ) : DashboardAdapter.Item {
+    ) : DashboardAdapter.Item, MainActionItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 
