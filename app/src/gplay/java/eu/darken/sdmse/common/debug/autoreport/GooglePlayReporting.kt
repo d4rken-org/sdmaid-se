@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.autoreport.bugsnag.BugsnagErrorHandler
 import eu.darken.sdmse.common.debug.autoreport.bugsnag.BugsnagLogger
 import eu.darken.sdmse.common.debug.autoreport.bugsnag.NOPBugsnagErrorHandler

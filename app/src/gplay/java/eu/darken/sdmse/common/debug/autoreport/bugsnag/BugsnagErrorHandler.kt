@@ -10,7 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.autoreport.DebugSettings
+import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
