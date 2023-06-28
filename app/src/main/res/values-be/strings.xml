@@ -84,6 +84,7 @@
     <string name="setup_label">Наладжванне</string>
     <string name="setup_incomplete_card_title">Наладжванне не завершана</string>
     <string name="setup_incomplete_card_body">Каб дамагчыся лепшых рэзультатаў, завяршыце наладжванне SD Maid.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid спрабуе выправіць праблемы з наладамі.</string>
     <string name="setup_incomplete_card_dismiss_action">Адхіліць</string>
     <string name="setup_incomplete_card_continue_action">Працягнуць наладжванне</string>
     <string name="setup_title">Наладжванне</string>
@@ -101,6 +102,13 @@
     <string name="setup_root_enable_root_use_label">Выкарыстоўваць каранёвы доступ, калі ён даступны</string>
     <string name="setup_root_disable_root_use_label">Не выкарыстоўваць каранёвы доступ</string>
     <string name="setup_root_card_body2">Даступна толькі на прыладах з разблакіраваным каранёвым доступам. Калі вы не ўносілі гэтую мадыфікацыю, значыць, ваша прылада не мае каранёвага доступу, і гэты параметр не на што не паўплывае.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Дазвольце SD Maid выкарыстоўваць Shizuku, дзе гэта магчыма, каб палепшыць рэзультаты і ўключыць дадатковыя функцыі.</string>
+    <string name="setup_shizuku_card_body2">Гэтыя налады не дзейнічаюць, калі праграма Shizuku не наладжана на вашай прыладзе.</string>
+    <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
+    <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Выкарыстоўваць Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Не выкарыстоўваць Shizuku</string>
     <string name="setup_dismiss_hint">Вы можаце зноў знайсці экран наладжвання ў меню налад.</string>
     <string name="setup_permission_granted_label">Дазвол дадзены</string>
     <string name="setup_usagestats_title">Статыстыка выкарыстання</string>
@@ -306,6 +314,7 @@
     <string name="appcleaner_junk_userprofile_label">Карыстальнік</string>
     <string name="appcleaner_delete_confirmation_message_x">Выдаліць непатрэбныя файлы ў %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Выдаліць непатрэбныя файлы ў %d выбраных праграмах?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Выдаленне кэшу з дапамогай Shizuku</string>
     <string name="appcontrol_tool_name">Менеджар</string>
     <string name="appcontrol_explanation_short">Усталяваныя на вашай прыладзе праграмы.</string>
     <plurals name="appcontrol_x_apps_detected_label">

@@ -80,6 +80,7 @@
     <string name="setup_label">Configuración</string>
     <string name="setup_incomplete_card_title">La configuración está incompleta</string>
     <string name="setup_incomplete_card_body">Termina la configuración de SD Maid para obtener los mejores resultados.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid está tratando de solucionar los problemas de la configuración.</string>
     <string name="setup_incomplete_card_dismiss_action">Descartar</string>
     <string name="setup_incomplete_card_continue_action">Continúa con la configuración</string>
     <string name="setup_title">Configuración</string>
@@ -97,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Utiliza el acceso root si está disponible</string>
     <string name="setup_root_disable_root_use_label">No usar el acceso root</string>
     <string name="setup_root_card_body2">Solo disponible en dispositivos rooteados. Si no realizaste esta modificación, tu dispositivo no está rooteado y esta configuración no tiene ningún efecto.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Permite que SD Maid utilice Shizuku siempre que sea posible para mejorar los resultados y habilitar las funciones.</string>
+    <string name="setup_shizuku_card_body2">Este ajuste no tiene ningún efecto si la aplicación Shizuku no está configurada en tu dispositivo.</string>
+    <string name="setup_shizuku_state_ready_label">El enlace a Shizuku está listo.</string>
+    <string name="setup_shizuku_state_waiting_label">Esperando el enlace a Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utiliza a Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">No utilices a Shizuku</string>
     <string name="setup_dismiss_hint">Puedes volver a encontrar la pantalla de configuración a través del menú de la configuración.</string>
     <string name="setup_permission_granted_label">Permiso concedido</string>
     <string name="setup_usagestats_title">Estadísticas de uso</string>
@@ -294,6 +302,7 @@
     <string name="appcleaner_junk_userprofile_label">Usuario</string>
     <string name="appcleaner_delete_confirmation_message_x">¿Borrar los archivos innecesarios para %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">¿Borrar los archivos innecesarios para %d las aplicaciones seleccionadas?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Borrar las cachés mediante Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

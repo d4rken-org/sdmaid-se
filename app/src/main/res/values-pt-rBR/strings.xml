@@ -80,6 +80,7 @@
     <string name="setup_label">Configuração</string>
     <string name="setup_incomplete_card_title">A configuração está incompleta</string>
     <string name="setup_incomplete_card_body">Termine a configuração do SD Maid para obter melhores resultados.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid está tentando corrigir problemas de configuração.</string>
     <string name="setup_incomplete_card_dismiss_action">Ignorar</string>
     <string name="setup_incomplete_card_continue_action">Continue a configuração</string>
     <string name="setup_title">Configuração</string>
@@ -97,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Usar permissão root se disponível</string>
     <string name="setup_root_disable_root_use_label">Não utilizar permissão root</string>
     <string name="setup_root_card_body2">Apenas disponível em dispositivos com root. Se você não fez essa modificação, então seu dispositivo não tem root e essa configuração não tem efeito.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Permita que o SD Maid use Shizuku sempre que possível para melhorar os resultados e habilitar recursos.</string>
+    <string name="setup_shizuku_card_body2">Esta configuração não tem efeito se o aplicativo Shizuku não estiver configurado no seu dispositivo.</string>
+    <string name="setup_shizuku_state_ready_label">O link Shizuku está pronto.</string>
+    <string name="setup_shizuku_state_waiting_label">Aguardando o link com Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Usar Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Não use Shizuku</string>
     <string name="setup_dismiss_hint">Você pode encontrar a tela de configuração novamente através do menu de configurações.</string>
     <string name="setup_permission_granted_label">Permissão concedida</string>
     <string name="setup_usagestats_title">Estatísticas de uso</string>
@@ -294,6 +302,7 @@
     <string name="appcleaner_junk_userprofile_label">Usuário</string>
     <string name="appcleaner_delete_confirmation_message_x">Deletar arquivos desnecessários para %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Deletar arquivos desnecessários para %d aplicativos selecionados?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Excluindo caches usando Shizuku</string>
     <string name="appcontrol_tool_name">Gerenciamento de aplicativos</string>
     <string name="appcontrol_explanation_short">Aplicativos instalados no seu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

@@ -84,6 +84,7 @@
     <string name="setup_label">Установка</string>
     <string name="setup_incomplete_card_title">Установка не завершена</string>
     <string name="setup_incomplete_card_body">Завершите установку SD Maid, чтобы добиться лучших результатов.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid пытается исправить проблемы с установкой.</string>
     <string name="setup_incomplete_card_dismiss_action">Отклонить</string>
     <string name="setup_incomplete_card_continue_action">Продолжить установку</string>
     <string name="setup_title">Установка</string>
@@ -101,6 +102,13 @@
     <string name="setup_root_enable_root_use_label">Использовать рут-доступ, если он имеется</string>
     <string name="setup_root_disable_root_use_label">Не использовать рут-права</string>
     <string name="setup_root_card_body2">Доступно только на устройствах с рутом. Если Вы не делали эту модификацию, значит, Ваше устройство не имеет рут-прав и эта настройка не работает.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Разрешить SD Maid использовать Shizuku там где это возможно, чтобы улучшить результаты и включить дополнительные функции.</string>
+    <string name="setup_shizuku_card_body2">Эта настройка не работает, если приложение Shizuku не настроено на вашем устройстве.</string>
+    <string name="setup_shizuku_state_ready_label">Связь с Shizuku настроена.</string>
+    <string name="setup_shizuku_state_waiting_label">Ожидание связи с Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Использовать Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
     <string name="setup_permission_granted_label">Разрешение предоствлено</string>
     <string name="setup_usagestats_title">Статистика использования</string>
@@ -306,6 +314,7 @@
     <string name="appcleaner_junk_userprofile_label">Пользователь</string>
     <string name="appcleaner_delete_confirmation_message_x">Удалить ненужные данные для %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Удалить ненужные данные для %d выбранных приложений?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
     <plurals name="appcontrol_x_apps_detected_label">
