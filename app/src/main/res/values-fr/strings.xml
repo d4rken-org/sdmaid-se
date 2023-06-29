@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
     <string name="dashboard_settings_category">Tableau de bord</string>
-    <string name="dashboard_settings_oneclick_title">Mode « un clic »</string>
-    <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
+    <string name="dashboard_settings_oneclick_title">Mode un clic</string>
+    <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en un clic sur le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
@@ -260,7 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Rapports de bug</string>
     <string name="appcleaner_filter_bugreporting_summary">Données liées aux rapports de bug, par ex. journaux d\'erreurs ou vidages sur incident.</string>
     <string name="appcleaner_filter_analytics_label">Analytique</string>
-    <string name="appcleaner_filter_analytics_summary">Données liées à l\'analyse, par ex. statistiques mises en cache pour ce sur quoi vous cliquez dans une application.</string>
+    <string name="appcleaner_filter_analytics_summary">Données liées à l\'analyse, par ex. statistiques mises en cache pour les éléments sur lesquels vous cliquez dans une application.</string>
     <string name="appcleaner_filter_hiddencaches_label">Caches cachés</string>
     <string name="appcleaner_filter_hiddencaches_summary">Caches à usage général stockés hors de portée des systèmes.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatures des médias</string>

@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Apagar os resultados em todas as ferramentas?</string>
     <string name="dashboard_settings_category">Painel de Controlo</string>
-    <string name="dashboard_settings_oneclick_title">Modo de um clique</string>
-    <string name="dashboard_settings_oneclick_summary">Inicie a verificação e apagar para todas as ferramentas com um clique no botão de ação do painel, sem confirmações extras.</string>
+    <string name="dashboard_settings_oneclick_title">Modo de um toque</string>
+    <string name="dashboard_settings_oneclick_summary">Inicie a verificação e o apagar para todas as ferramentas com um clique no botão de ação do painel, sem confirmações extras.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
@@ -80,6 +80,7 @@
     <string name="setup_label">Configuração</string>
     <string name="setup_incomplete_card_title">Configuração incompleta</string>
     <string name="setup_incomplete_card_body">Termine a configuração do SD Maid para obter melhores resultados.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid está a tentar resolver erros de configuração.</string>
     <string name="setup_incomplete_card_dismiss_action">Dispensar</string>
     <string name="setup_incomplete_card_continue_action">Continuar configuração</string>
     <string name="setup_title">Configuração</string>
@@ -97,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Usar acesso root se disponível</string>
     <string name="setup_root_disable_root_use_label">Não usar acesso root</string>
     <string name="setup_root_card_body2">Apenas disponível em dispositivos com root. Se você não fez essa modificação, então seu dispositivo não tem root e esta configuração não tem efeito.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Permita que SD Maid use o Shizuku onde possível, para melhorar resultados e disponibilizar opções.</string>
+    <string name="setup_shizuku_card_body2">Esta configuração não tem efeito se o Shizuku não estiver disponível no seu equipamento.</string>
+    <string name="setup_shizuku_state_ready_label">Link para Shizuku está pronto.</string>
+    <string name="setup_shizuku_state_waiting_label">À espera de link para o Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Use o Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Não use o Shizuku</string>
     <string name="setup_dismiss_hint">Você pode encontrar a tela de configuração novamente através do menu de configurações.</string>
     <string name="setup_permission_granted_label">Permissão concedida</string>
     <string name="setup_usagestats_title">Estatísticas de uso</string>
@@ -106,7 +114,7 @@
     <string name="setup_notification_body">Permita que o SD Maid publique notificações para informá-lo sobre operações em curso ou eventos importantes.</string>
     <string name="setup_notification_hint">Notificações são usadas com moderação 🤞</string>
     <string name="setup_acs_card_title">Serviço de acessibilidade</string>
-    <string name="setup_acs_card_body">O serviço de acessibilidade permite que o SD Maid interaja com sua tela e automatize ações tediosas, por exemplo, clicando em \"Limpar cache\" em várias telas.</string>
+    <string name="setup_acs_card_body">O serviço de acessibilidade permite que o SD Maid interaja com sua tela e automatize ações tediosas, por exemplo, clicar no \"Limpar cache\" em várias telas.</string>
     <string name="setup_acs_card_body2">O SD Maid não usará o serviço de acessibilidade sem o seu consentimento, exibirá sempre um indicador proeminente (cancelável) enquanto ativo e não o usará para recolher informações.</string>
     <string name="setup_acs_state_enabled">Serviço de acessibilidade está activo</string>
     <string name="setup_acs_state_disabled">Serviço de Acessibilidade está desativo</string>
@@ -253,7 +261,7 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_bugreporting_label">Relatório de erros</string>
     <string name="appcleaner_filter_bugreporting_summary">Dados referentes a erros, por exemplo, logs de erro ou dumps de erro.</string>
     <string name="appcleaner_filter_analytics_label">Estatísticas</string>
-    <string name="appcleaner_filter_analytics_summary">Dados relacionados à análise, por exemplo, estatísticas em cache com o que você clica numa aplicação.</string>
+    <string name="appcleaner_filter_analytics_summary">Dados relacionados com análise, por exemplo, estatísticas em cache para a qual você clica numa aplicação.</string>
     <string name="appcleaner_filter_hiddencaches_label">Caches ocultas</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache de propósitos gerais armazenadas fora do alcance do sistema.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas de mídia</string>
@@ -295,6 +303,7 @@ Recursos dos jogos.</string>
     <string name="appcleaner_junk_userprofile_label">Utilizador</string>
     <string name="appcleaner_delete_confirmation_message_x">Apagar ficheiros dispensáveis para %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Apagar ficheiros dispensáveis para %d aplicativos selecionados?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Apagando caches usando o Shizuku</string>
     <string name="appcontrol_tool_name">Controlo de aplicações</string>
     <string name="appcontrol_explanation_short">Aplicações instaladas no seu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

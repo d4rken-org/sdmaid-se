@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Czy na pewno chcesz usunąć wyniki we wszystkich narzędziach?</string>
     <string name="dashboard_settings_category">Panel główny</string>
-    <string name="dashboard_settings_oneclick_title">Tryb jednego kliknięcia</string>
-    <string name="dashboard_settings_oneclick_summary">Uruchom skanowanie i usuwanie dla wszystkich narzędzi jednym kliknięciem przycisku akcji w panelu głównym, bez dodatkowych potwierdzeń.</string>
+    <string name="dashboard_settings_oneclick_title">Tryb jednego dotknięcia</string>
+    <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi, dotykając przycisku akcji na pulpicie nawigacyjnym, bez dodatkowych potwierdzeń.</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
@@ -84,6 +84,7 @@
     <string name="setup_label">Konfiguracja</string>
     <string name="setup_incomplete_card_title">Konfiguracja nie jest ukończona</string>
     <string name="setup_incomplete_card_body">Dokończ konfigurację SD Maid, aby uzyskać lepsze wyniki.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid próbuje naprawić problemy z konfiguracją.</string>
     <string name="setup_incomplete_card_dismiss_action">Odrzuć</string>
     <string name="setup_incomplete_card_continue_action">Kontynuuj konfigurację</string>
     <string name="setup_title">Konfiguracja</string>
@@ -101,6 +102,13 @@
     <string name="setup_root_enable_root_use_label">Użyj dostępu root, jeśli jest dostępny</string>
     <string name="setup_root_disable_root_use_label">Nie używaj dostępu root</string>
     <string name="setup_root_card_body2">Dostępne tylko na urządzeniach z uprawnieniami root. Jeśli nie dokonałeś tej modyfikacji, to Twoje urządzenie nie ma uprawnień root i wybór nie ma wpływu na działanie aplikacji.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Zezwól SD Maid na korzystanie z Shizuku, gdzie to możliwe, aby poprawić wyniki i aktywować funkcje.</string>
+    <string name="setup_shizuku_card_body2">To ustawienie nie będzie mieć zastosowania, jeśli aplikacja Shizuku nie jest skonfigurowana na urządzeniu.</string>
+    <string name="setup_shizuku_state_ready_label">Połączenie z Shizuku gotowe.</string>
+    <string name="setup_shizuku_state_waiting_label">Oczekiwanie na połączenie z Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Użyj Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Nie korzystaj z Shizuku</string>
     <string name="setup_dismiss_hint">Możesz ponownie otworzyć ekran ustawień poprzez menu ustawień.</string>
     <string name="setup_permission_granted_label">Uprawnienie przyznane</string>
     <string name="setup_usagestats_title">Statystyki używania</string>
@@ -110,7 +118,7 @@
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
     <string name="setup_acs_card_title">Usługa ułatwień</string>
-    <string name="setup_acs_card_body">Usługa ułatwień umożliwia SD Maid interakcję z Twoim ekranem i automatyzację żmudnych działań, np. kliknięcie \"Wyczyść pamięć podręczną\" po kolei dla wielu aplikacji.</string>
+    <string name="setup_acs_card_body">Usługa ułatwień dostępu umożliwia SD Maid interakcję z ekranem i automatyzację żmudnych czynności, np. dotykając „Wyczyść pamięć podręczną” na wielu ekranach.</string>
     <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi ułatwień bez Twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas działania i nie będzie jej używać do zbierania danych.</string>
     <string name="setup_acs_state_enabled">Usługa ułatwień jest włączona</string>
     <string name="setup_acs_state_disabled">Usługa ułatwień jest wyłączona</string>
@@ -240,9 +248,9 @@
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Zbędne dane należące do konkretnych aplikacji.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publiczne domyślne pamięci podręczne</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne w starszych wersjach Androida w folderze Android/data. Usuwane po kliknięciu \"Wyczyść pamięć podręczną\" w ustawieniach systemowych.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne pod Androidem/dane w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Prywatne domyślne pamięci podręczne</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Domyślne prywatne pamięci podręczne aplikacji. Usuwane po kliknięciu \"Wyczyść pamięć podręczną\" w ustawieniach systemowych.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Domyślne prywatne pamięci podręczne aplikacji. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
     <string name="appcleaner_include_systemapps_label">Uwzględnij aplikacje systemowe</string>
     <string name="appcleaner_include_systemapps_summary">Uwzględnij aplikacje systemowe podczas skanowania.</string>
     <string name="appcleaner_include_runningapps_label">Uwzględnij uruchomione aplikacje</string>
@@ -262,7 +270,7 @@
     <string name="appcleaner_filter_bugreporting_label">Raportowanie błędów</string>
     <string name="appcleaner_filter_bugreporting_summary">Dane związane z raportowaniem błędów, np. dzienniki błędów lub zrzuty awarii.</string>
     <string name="appcleaner_filter_analytics_label">Analityka</string>
-    <string name="appcleaner_filter_analytics_summary">Dane związane z analityką, np. buforowane statystyki dotyczące tego, co klikasz w aplikacji.</string>
+    <string name="appcleaner_filter_analytics_summary">Dane związane z analityką, np. buforowane statystyki dotyczące tego, co stukniesz w aplikacji.</string>
     <string name="appcleaner_filter_hiddencaches_label">Ukryte pamięci podręczne</string>
     <string name="appcleaner_filter_hiddencaches_summary">Pamięci podręczne o ogólnym zastosowaniu, przechowywane poza zasięgiem systemu.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatury multimediów</string>
@@ -306,6 +314,7 @@
     <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Usunąć zbędne pliki dla %d wybranych aplikacji?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -407,7 +416,7 @@
         <item quantity="many">Utworzono %d wykluczeń</item>
         <item quantity="other">Utworzono %d wykluczeń</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami ułatwień mogą włączyć tę usługę, aby pozwolić SD Maid automatyzować zadania, które w przeciwnym razie wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: Jeśli instruujesz SD Maid, aby zatrzymać wiele aplikacji, SD Maid może użyć tej usługi, aby otworzyć ekran ustawień każdej aplikacji, znaleźć przycisk \"Wymuś zatrzymanie\" i kliknąć go.\n\nSD Maid zawsze wyraźnie pokaże, kiedy korzysta z tej usługi, i zapewni użytkownikowi łatwy sposób na natychmiastowe anulowanie wszelkich interakcji.\n\nŻadne działania nie będą wykonywane bez wcześniejszej zgody użytkownika. Usługę można wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
+    <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami w zakresie ułatwień dostępu mogą włączyć tę usługę, aby umożliwić SD Maid automatyzację zadań, które w innym przypadku wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: jeśli poinstruujesz SD Maid, aby zatrzymywała wiele aplikacji, SD Maid może z tego korzystać aby otworzyć każdy ekran ustawień aplikacji, znajdź przycisk „Wymuś zatrzymanie” i dotknij go.\n\nSD Maid zawsze będzie wyraźnie widoczne podczas korzystania z tej usługi i zapewni użytkownikowi łatwy sposób natychmiastowego anulowania dowolnej interakcji.\n\nNie działania będą wykonywane bez uprzedniej zgody użytkownika. Usługę tę można ponownie wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
     <string name="automation_screenoverlay_explanation">SD Maid wchodzi w interakcję z Twoim urządzeniem. Nie jest możliwe jednoczesne korzystanie z ekranu. Poczekaj na zakończenie operacji lub anuluj ją.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Błąd automatyzacji</string>

@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
     <string name="dashboard_settings_category">Esileht</string>
-    <string name="dashboard_settings_oneclick_title">Üheklõpsuline režiim</string>
-    <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevale nupule klõpsates, ilma täiendavate nõusolekuteta.</string>
     <string name="debug_debuglog_size_label">Maht</string>
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Luba SD Maidil anda märku enda toimetustest või tähtsatest sündmustest.</string>
     <string name="setup_notification_hint">Saadame vaid olulisi teateid 🤞</string>
     <string name="setup_acs_card_title">Juurdepääsetavusteenus</string>
-    <string name="setup_acs_card_body">Juurdepääsetavusteenus lubab SD Maidil toimetada ekraanil ja teie eest ära teha tüütuid tegevusi, nt klõpsata mitu korda \"Tühjenda vahemälu\".</string>
     <string name="setup_acs_card_body2">SD Maid ei kasuta juurdepääsetavusteenust ilma loata, näitab toimetamise ajal alati märgatavat (tühistamisvõimalusega) teadet ja ei kogu sellega teavet.</string>
     <string name="setup_acs_state_enabled">Juurdepääsetavusteenus on lubatud</string>
     <string name="setup_acs_state_disabled">Juurdepääsetavusteenus on keelatud</string>
@@ -230,9 +227,7 @@
     <string name="appcleaner_tool_name">Rakendusepuhastaja</string>
     <string name="appcleaner_explanation_short">Kindlatele rakendustele kuuluvad ja suurenevad rakendused.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Avalikud tavalised vahemälud</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Vanematel Androidi versioonides pääseb juurde kaustast Android/data. Kustutatakse, kui klõpsatakse süsteemi sätetes \"Tühjenda vahemälu\".</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Isiklikud tavalised vahemälud</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Kustutatakse, kui klõpsatakse süsteemi sätetes \"Tühjenda vahemälu\".</string>
     <string name="appcleaner_include_systemapps_label">Kaasa süsteemi rakendused</string>
     <string name="appcleaner_include_systemapps_summary">Skanni ka süsteemi rakendusi.</string>
     <string name="appcleaner_include_runningapps_label">Hõlma töötavad rakendused</string>
@@ -252,7 +247,6 @@
     <string name="appcleaner_filter_bugreporting_label">Vigadest teatamine</string>
     <string name="appcleaner_filter_bugreporting_summary">Vigadest teatamisega seotud andmed, nt vealogid või kokkujooksmise tõmmised.</string>
     <string name="appcleaner_filter_analytics_label">Analüüs</string>
-    <string name="appcleaner_filter_analytics_summary">Analüüsiga seotud andmed, nt vahe mälus statistika rakenduses klõpsamise kohta.</string>
     <string name="appcleaner_filter_hiddencaches_label">Peidetud vahemälud</string>
     <string name="appcleaner_filter_hiddencaches_summary">Üldised vahemälud, kuhu süsteemid ei pääse juurde.</string>
     <string name="appcleaner_filter_thumbnails_label">Meedia pisipildid</string>
@@ -391,7 +385,6 @@
         <item quantity="one">Loodi üks erand</item>
         <item quantity="other">Loodi %d erandit</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja klõpsata sellel.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
     <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
     <string name="automation_active_title">SD Maid töötab</string>
     <string name="automation_error_no_consent_title">Automatiseerimise viga</string>

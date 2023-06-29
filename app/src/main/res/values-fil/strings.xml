@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Burahin ang mga resulta sa lahat ng mga kagamitan?</string>
     <string name="dashboard_settings_category">Dashboard</string>
-    <string name="dashboard_settings_oneclick_title">Isahang-Pindot na Mode</string>
-    <string name="dashboard_settings_oneclick_summary">Simulan ang pag-scan at pagbura para sa lahat ng mga kagamitan nang walang karagdagang kumpirmasyon sa pamamagitan lang ng isang pindot sa buton pang-askyon ng dashboard.</string>
     <string name="debug_debuglog_size_label">Laki</string>
     <string name="debug_debuglog_size_compressed_label">Laki pagka-compress</string>
     <string name="debug_notification_channel_label">Mga notipikasyon pang-debug</string>

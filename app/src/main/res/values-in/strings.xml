@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Hapus hasil di semua alat?</string>
     <string name="dashboard_settings_category">Dasbor</string>
-    <string name="dashboard_settings_oneclick_title">Mode Sekali Klik</string>
-    <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
+    <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
+    <string name="dashboard_settings_oneclick_summary">Mulai pindai dan hapus semua alat dengan ketukan pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompres</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
@@ -112,7 +112,7 @@
     <string name="setup_notification_body">Izinkan SD Maid untuk mengirim notifikasi untuk memberitahu Anda mengenai perintah yang sedang dijalankan atau peristiwa penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan hemat 🤞</string>
     <string name="setup_acs_card_title">Layanan aksesibilitas</string>
-    <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatisasi tindakan yang merepotkan, seperti mengklik \"Bersihkan Cache\" di banyak layar.</string>
+    <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatiskan tindakan yang membosankan, mis. mengetuk \"Hapus cache\" di beberapa layar.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan layanan aksesibilitas tanpa persetujuan Anda, akan selalu menampilkan indikator yang menonjol (dapat dibatalkan) saat aktif dan tidak akan menggunakannya untuk mengumpulkan informasi.</string>
     <string name="setup_acs_state_enabled">Layanan aksesibilitas diaktifkan</string>
     <string name="setup_acs_state_disabled">Layanan aksesibilitas dinonaktifkan</string>
@@ -233,9 +233,9 @@
     <string name="appcleaner_tool_name">Pembersih Aplikasi</string>
     <string name="appcleaner_explanation_short">Data yang bisa dihapus milik aplikasi tertentu.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache publik bawaan</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cache publik bawaan. Bisa diakses melalui Android/data pada perangkat Android versi lama. Akan dihapus saat menekan \"Hapus cache\" pada pengaturan sistem.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi publik default. Dapat diakses di bawah Android/data pada versi Android yang lebih lama. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache privat bawaan</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache privat bawaan. Dihapus saat menekan \"Hapus cache\" pada pengaturan sistem.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi pribadi default. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
@@ -255,7 +255,7 @@
     <string name="appcleaner_filter_bugreporting_label">Pelaporan bug</string>
     <string name="appcleaner_filter_bugreporting_summary">Data berkaitan dengan pelaporan bug, misalnya log eror atau crash dump.</string>
     <string name="appcleaner_filter_analytics_label">Analitik</string>
-    <string name="appcleaner_filter_analytics_summary">Data berkaitan dengan analitik, misalnya cache status mengenai yang Anda klik pada aplikasi.</string>
+    <string name="appcleaner_filter_analytics_summary">Data terkait Analytics, mis. statistik cache untuk apa yang Anda ketuk di aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache tersembunyi</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache tujuan umum yang disimpan di luar jangkauan sistem.</string>
     <string name="appcleaner_filter_thumbnails_label">Thumbnail media</string>
@@ -385,7 +385,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d pengecualian telah dibuat</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan SD Maid mengotomatisasi tugas manual yang cukup merepotkan (misalnya penghapusan cache).\n\nContoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi maka SD Maid dapat menggunakan layanan ini untuk membuka setiap layar pengaturan aplikasi, cari tombol \'Paksa Berhenti\' dan menekannya.\n\nSD Maid akan selalu terlihat jelas saat menggunakan layanan ini dan memberikan cara mudah bagi pengguna untuk membatalkan interaksi apa pun.\n\nTidak ada tindakan yang akan dilakukan tanpa persetujuan pengguna. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
+    <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan sd maid mengotomatiskan tugas yang jika tidak memerlukan interaksi pengguna manual yang membosankan (mis. penghapusan cache).\n\ncontoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi, maka SD Maid dapat menggunakan ini layanan untuk membuka setiap layar pengaturan aplikasi, temukan tombol \'Paksa Berhenti\' dan ketuk.\n\nSD Maid akan selalu ditampilkan dengan jelas saat menggunakan layanan ini dan menyediakan cara mudah bagi pengguna untuk segera membatalkan interaksi apa pun.\n\nTidak tindakan akan dilakukan tanpa persetujuan pengguna sebelumnya. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>
     <string name="automation_error_no_consent_title">Kesalahan otomatisasi</string>

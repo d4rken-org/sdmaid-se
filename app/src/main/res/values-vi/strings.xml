@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả các công cụ?</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
-    <string name="dashboard_settings_oneclick_title">Chế độ 1 chạm</string>
-    <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
@@ -112,7 +110,6 @@
     <string name="setup_notification_body">Cho phép SD Maid đăng thông báo cho bạn về các hoạt động đang diễn ra hoặc các sự kiện quan trọng.</string>
     <string name="setup_notification_hint">Thông báo được sử dụng một cách tiết kiệm 🤞</string>
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
-    <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấp vào \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>
     <string name="setup_acs_state_enabled">Dịch vụ trợ năng được bật</string>
     <string name="setup_acs_state_disabled">Dịch vụ trợ năng bị vô hiệu hóa</string>
@@ -233,9 +230,7 @@
     <string name="appcleaner_tool_name">Trình dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Bộ nhớ đệm ứng dụng công khai mặc định. Có thể truy cập trong Android/data trên các phiên bản Android cũ hơn. Đã xóa khi nhấp vào \"Xóa bộ nhớ đệm\" trong cài đặt hệ thống.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Bộ nhớ đệm mặc định riêng tư</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Bộ đệm ứng dụng riêng tư mặc định. Đã xóa khi nhấp vào \"Xóa bộ nhớ cache\" trong cài đặt hệ thống.</string>
     <string name="appcleaner_include_systemapps_label">Bao gồm các ứng dụng hệ thống</string>
     <string name="appcleaner_include_systemapps_summary">Bao gồm các ứng dụng hệ thống trong quá trình quét.</string>
     <string name="appcleaner_include_runningapps_label">Bao gồm các app đang chạy</string>
@@ -255,7 +250,6 @@
     <string name="appcleaner_filter_bugreporting_label">Báo cáo lỗi</string>
     <string name="appcleaner_filter_bugreporting_summary">Dữ liệu liên quan đến báo cáo lỗi, ví dụ: nhật ký lỗi hoặc sự cố kết xuất.</string>
     <string name="appcleaner_filter_analytics_label">Phân tích</string>
-    <string name="appcleaner_filter_analytics_summary">Dữ liệu liên quan đến phân tích, ví dụ: số liệu thống kê được lưu trong bộ nhớ đệm cho những gì bạn nhấp vào trong một ứng dụng.</string>
     <string name="appcleaner_filter_hiddencaches_label">Bộ nhớ đệm ẩn</string>
     <string name="appcleaner_filter_hiddencaches_summary">Bộ nhớ đệm mục đích chung được lưu trữ bên ngoài phạm vi tiếp cận của hệ thống.</string>
     <string name="appcleaner_filter_thumbnails_label">Hình ảnh thu nhỏ</string>
@@ -392,7 +386,6 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">Đã tạo %d loại trừ</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Người dùng có nhu cầu trợ năng đặc biệt có thể bật dịch vụ này để cho phép SD Maid tự động hóa các tác vụ mà nếu không sẽ yêu cầu tương tác thủ công tẻ nhạt của người dùng (ví dụ: xóa bộ nhớ cache).\n\nVí dụ: Nếu bạn hướng dẫn SD Maid dừng nhiều ứng dụng thì SD Maid có thể sử dụng dịch vụ này để mở từng màn hình cài đặt ứng dụng, hãy tìm nút \'Buộc dừng\' và nhấp vào nút đó.\n\nSD Maid sẽ luôn hiển thị nổi bật khi sử dụng dịch vụ này và cung cấp một cách dễ dàng để người dùng hủy mọi tương tác ngay lập tức.\n\nKhông các hành động sẽ được thực hiện mà không có sự chấp thuận trước của người dùng. Dịch vụ này có thể bị vô hiệu hóa lại bất cứ lúc nào mà không có tác dụng phụ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid đang tương tác với thiết bị của bạn. Không thể sử dụng màn hình cùng một lúc. Chờ cho đến khi hoạt động kết thúc hoặc hủy bỏ nó.</string>
     <string name="automation_active_title">SD Maid đang hoạt động</string>
     <string name="automation_error_no_consent_title">Lỗi tự động hoá</string>

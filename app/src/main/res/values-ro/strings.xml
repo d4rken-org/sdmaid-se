@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Ștergi toate rezultatele la toate instrumentele?</string>
     <string name="dashboard_settings_category">Tablou de bord</string>
-    <string name="dashboard_settings_oneclick_title">Mod cu un singur clic</string>
-    <string name="dashboard_settings_oneclick_summary">Începe scanarea and ștergerea pentru toate instrucțiunile cu un clic la butonul de acțiune din tabloul de bord, fără extra confirmații.</string>
     <string name="debug_debuglog_size_label">Dimensiune</string>
     <string name="debug_debuglog_size_compressed_label">Dimensiunea comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
@@ -93,7 +91,6 @@
     <string name="setup_notification_body">Acordă SD Maid de-a posta notificări pentru a te informa despre operații în curs de desfășurare sau evenimente importante.</string>
     <string name="setup_notification_hint">Notificările sunt folosite cu moderație 🤞</string>
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
-    <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interoga cu ecranul tău și a automatiza acțiuni tedioase, ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>
     <string name="setup_acs_state_enabled">Serviciul de accesibilitate este activată</string>
     <string name="setup_acs_state_disabled">Serviciul de accesibilitate este dezactivată</string>
@@ -197,9 +194,7 @@
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Date consumabile aparținând unor aplicații specifice.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache-uri implicite publice</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cache-uri implicite publice ale aplicației. Accesibil sub Android/data la versiuni vechi de Android. Șters când este apăsat pe \"Șterge cache\" în setările de sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache-uri implicite private</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache-uri implicite private a aplicației. Șters când este apăsat pe \"Șterge cache\" în setările de sistem.</string>
     <string name="appcleaner_include_systemapps_label">Include aplicații de sistem</string>
     <string name="appcleaner_include_systemapps_summary">Include aplicații de sistem la scanare.</string>
     <string name="appcleaner_include_runningapps_label">Include aplicații care rulează</string>
@@ -219,7 +214,6 @@
     <string name="appcleaner_filter_bugreporting_label">Rapoarte bug-uri</string>
     <string name="appcleaner_filter_bugreporting_summary">Date relatate la rapoarte de bug-uri, ex: jurnal de erori sau gropi de blocaj.</string>
     <string name="appcleaner_filter_analytics_label">Analize</string>
-    <string name="appcleaner_filter_analytics_summary">Date relatate la analize, ex: statistici stocate în cache pentru ceea ce faci clic într-o aplicație.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache ascunși</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache-urile de uz general stocate în afara accesului sistemelor.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturi media</string>
@@ -292,7 +286,6 @@
     <string name="exclusion_type_package">Excludere aplicație</string>
     <string name="exclusion_type_path">Excludere cale</string>
     <string name="exclusion_tags_alltools">Toate instrumentele</string>
-    <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot activa acest serviciu pentru a permite SD Maid să automatizeze sarcini care altfel ar necesita o interacțiune manuală obositoare a utilizatorului (ex: ștergerea memoriei cache).\n\nExemplu: Dacă instruți SD Maid să oprească mai multe aplicații, atunci SD Maid poate folosi acest serviciu pentru a deschide fiecare ecran de setări a aplicațiilor, găsește butonul „Oprire forțată” și fă clic pe el.\n\nSD Maid se va afișa întotdeauna în mod vizibil atunci când folosește acest serviciu și va oferi utilizatorului o modalitate ușoară de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interoghează cu dispozitivul tău. Nu este posibil să utilizezi ecranul în același timp. Așteaptă până când operația este terminată sau anulează-l.</string>
     <string name="automation_active_title">SD Maid funcționează</string>
     <string name="automation_error_no_consent_title">Automatizație eroare</string>

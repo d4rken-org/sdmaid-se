@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
-    <string name="dashboard_settings_oneclick_title">Einzel-Klick-Modus</string>
-    <string name="dashboard_settings_oneclick_summary">Starte den Scan und das Löschen für alle Tools mit einem Klick auf die Aktionsschaltfläche des Dashboards, schließt den Vorgang ohne zusätzliche Bestätigungen ab.</string>
+    <string name="dashboard_settings_oneclick_title">Ein-Tap Modus</string>
+    <string name="dashboard_settings_oneclick_summary">Starte das Scannen und Löschen aller Tools durch Tippen auf die Aktionsschaltfläche des Dashboards, ohne zusätzliche Bestätigungen.</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
@@ -114,7 +114,7 @@
     <string name="setup_notification_body">Erlaube SD Maid, Benachrichtigungen zu veröffentlichen, um Dich über laufende Vorgänge oder wichtige Ereignisse zu informieren.</string>
     <string name="setup_notification_hint">Benachrichtigungen werden sparsam eingesetzt 🤞</string>
     <string name="setup_acs_card_title">Barrierefreiheitsdienst</string>
-    <string name="setup_acs_card_body">Der Barrierefreiheitsdienst ermöglicht es SD Maid, mit Deinem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z.B. auf mehreren Seiten „Cache leeren“ anzuklicken.</string>
+    <string name="setup_acs_card_body">Der Barrierefreiheitsdienst ermöglicht es SD Maid, mit Ihrem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z. B. das Tippen auf „Cache leeren“ auf mehreren Bildschirmen.</string>
     <string name="setup_acs_card_body2">SD Maid verwendet den Barrierefreiheitsdienst nicht ohne deine Zustimmung, zeigt immer einen deutlichen (löschbaren) Indikator an, während er aktiv ist, und verwendet ihn nicht, um Informationen zu sammeln.</string>
     <string name="setup_acs_state_enabled">Der Barrierefreiheitsdienst ist aktiviert</string>
     <string name="setup_acs_state_disabled">Der Barrierefreiheitsdienst ist deaktiviert</string>
@@ -238,9 +238,9 @@
     <string name="appcleaner_tool_name">App-Reiniger</string>
     <string name="appcleaner_explanation_short">Überflüssige Daten, die zu bestimmten Apps gehören.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Öffentliche Standard-Caches</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Standardmäßige öffentliche App-Caches. Auf älteren Android-Versionen unter Android/data erreichbar. Wird gelöscht, wenn in den Systemeinstellungen auf \"Cache leeren\" geklickt wird.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Standardmäßige öffentliche App-Caches. Auf älteren Android-Versionen unter Android/Daten zugänglich. Wird gelöscht, wenn du in den Systemeinstellungen auf „Cache leeren“ tippst.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Private Standard-Caches</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Standardmäßige private App-Caches. Wird gelöscht, wenn in den Systemeinstellungen auf \"Cache leeren\" geklickt wird.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Standardmäßige private App-Caches. Wird gelöscht, wenn du in den Systemeinstellungen auf „Cache leeren“ tippst.</string>
     <string name="appcleaner_include_systemapps_label">System-Apps einbeziehen</string>
     <string name="appcleaner_include_systemapps_summary">System-Apps in den Scan einbeziehen.</string>
     <string name="appcleaner_include_runningapps_label">Laufende Apps einbeziehen</string>
@@ -260,7 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Fehlerberichte</string>
     <string name="appcleaner_filter_bugreporting_summary">Daten zum Melden von Fehlern, z.B. Fehlerprotokolle oder Crash-Dumps.</string>
     <string name="appcleaner_filter_analytics_label">Analytik</string>
-    <string name="appcleaner_filter_analytics_summary">Analytics-bezogene Daten, z.B. zwischengespeicherte Statistiken für das, was Du in einer App anklickst.</string>
+    <string name="appcleaner_filter_analytics_summary">Analysebezogene Daten, z. B. zwischengespeicherte Statistiken für das, was du in einer App antippst.</string>
     <string name="appcleaner_filter_hiddencaches_label">Versteckte Caches</string>
     <string name="appcleaner_filter_hiddencaches_summary">Allzweck-Caches, die außerhalb der Systemreichweite gespeichert sind.</string>
     <string name="appcleaner_filter_thumbnails_label">Medien-Thumbnails</string>
@@ -400,7 +400,7 @@
         <item quantity="one">Ein Ausschluss wurde erstellt</item>
         <item quantity="other">%d Ausschlüsse erstellt</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die andernfalls langwierige manuelle Benutzerinteraktionen erfordern würden (z.B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid diesen Dienst verwenden, um den Einstellungsbildschirm jeder App zu öffnen, die Schaltfläche \"Beenden erzwingen\" zu suchen und dann darauf zu klicken.\n\nSD Maid wird immer deutlich anzeigen, wenn es diesen Dienst verwendet, und bietet Dir eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nKeine Aktionen werden ohne vorherige Zustimmung des Benutzers ausgeführt. Dieser Dienst kann jederzeit ohne Beeinträchtigung wieder deaktiviert werden.</string>
+    <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten eine mühsame manuelle Benutzerinteraktion erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Sie SD Maid anweisen, mehrere Apps zu stoppen, kann SD Maid dies verwenden Um den Einstellungsbildschirm jeder App zu öffnen, such nach der Schaltfläche „Stoppen erzwingen“ und tippe darauf.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nNein Aktionen werden ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>

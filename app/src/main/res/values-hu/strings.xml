@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
-    <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
-    <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
     <string name="debug_debuglog_size_label">Méret</string>
     <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Engedélyezze az SD Maid számára, hogy értesítéseket tegyen közzé a folyamatban lévő műveletekről vagy fontos eseményekről.</string>
     <string name="setup_notification_hint">Az értesítéseket takarékosan használjuk 🤞</string>
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
-    <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>
     <string name="setup_acs_state_enabled">A kisegítő lehetőségek szolgáltatása engedélyezve van</string>
     <string name="setup_acs_state_disabled">A kisegítő lehetőségek szolgáltatása le van tiltva</string>
@@ -226,9 +223,7 @@
     <string name="appcleaner_tool_name">AlkalmazásTisztító</string>
     <string name="appcleaner_explanation_short">Felhasználható adatok, amelyek bizonyos alkalmazásokhoz tartoznak.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Nyilvános alapértelmezett gyorsítótárak</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Alapértelmezett nyilvános alkalmazások gyorsítótárai. Elérhető Android/data alatt a régebbi Android-verziókon. Törölve, amikor a rendszerbeállításokban a „Gyorsítótár törlése” gombra kattintott.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Privát alapértelmezett gyorsítótárak</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Alapértelmezett privát alkalmazások gyorsítótárai. Törölve, amikor a rendszerbeállításokban a „Gyorsítótár törlése” gombra kattintott.</string>
     <string name="appcleaner_include_systemapps_label">Tartalmazza a rendszeralkalmazásokat</string>
     <string name="appcleaner_include_systemapps_summary">Tartalmazza a rendszeralkalmazásokat a vizsgálatban.</string>
     <string name="appcleaner_include_runningapps_label">Tartalmazza a futó alkalmazásokat</string>
@@ -248,7 +243,6 @@
     <string name="appcleaner_filter_bugreporting_label">Hibabejelentés</string>
     <string name="appcleaner_filter_bugreporting_summary">Hibabejelentéssel kapcsolatos adatok, pl. hibanaplók vagy összeomlási kiírások.</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
-    <string name="appcleaner_filter_analytics_summary">Az elemzéssel kapcsolatos adatok, pl. gyorsítótárban tárolt statisztikák arra vonatkozóan, hogy mire kattint az alkalmazásban.</string>
     <string name="appcleaner_filter_hiddencaches_label">Rejtett gyorsítótárak</string>
     <string name="appcleaner_filter_hiddencaches_summary">A rendszer hatókörén kívül tárolt általános célú gyorsítótárak.</string>
     <string name="appcleaner_filter_thumbnails_label">Médiaképek miniatűrjei</string>
@@ -377,7 +371,6 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
     <string name="exclusion_create_pkg_hint">Használd az AppVezérlő eszközt az alkalmazások kizárásának létrehozásához.</string>
     <string name="exclusion_create_path_hint">Használd a TárhelyElemző eszközt az elérési útvonal-kizárások létrehozásához.</string>
-    <string name="automation_accessibility_service_description">A speciális kisegítő lehetőségeket igénylő felhasználók engedélyezhetik ezt a szolgáltatást, hogy az SD Maid automatizálja azokat a feladatokat, amelyek egyébként fárasztó manuális felhasználói beavatkozást igényelnének (pl. a gyorsítótár törlése).\n\nPélda: Ha utasítja az SD Maid szolgáltatást több alkalmazás leállítására, akkor az SD Maid ezt használhatja szolgáltatást az egyes alkalmazások beállítási képernyőjének megnyitásához, keresse meg a \"Kényszerített leállítás\" gombot, és kattintson rá.\n\nAz SD Maid mindig jól látható lesz, amikor ezt a szolgáltatást használja, és egyszerű módot kínál a felhasználónak az interakció azonnali megszakítására.\n\nNem műveleteket a felhasználó előzetes jóváhagyása nélkül hajtják végre. Ez a szolgáltatás bármikor újra letiltható káros hatások nélkül.</string>
     <string name="automation_screenoverlay_explanation">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik, vagy törölje azt.</string>
     <string name="automation_active_title">Az SD Maid működik</string>
     <string name="automation_error_no_consent_title">Automatizálási hiba</string>

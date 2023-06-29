@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Slette resultater i alle verktøy?</string>
     <string name="dashboard_settings_category">Kontrollpanel</string>
-    <string name="dashboard_settings_oneclick_title">Ett-trykk modus</string>
-    <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Tillat SD Maid å legge ut varsler for å informere deg om pågående operasjoner eller viktige hendelser.</string>
     <string name="setup_notification_hint">Varsler brukes sparsomt 🤞</string>
     <string name="setup_acs_card_title">Tilgjengelighetstjeneste</string>
-    <string name="setup_acs_card_body">Tilgjengelighetstjenesten lar SD Maid samhandle med skjermen din og automatisere kjedelige handlinger, f.eks. trykke \"Tøm hurtigbuffer\" på flere skjermer.</string>
     <string name="setup_acs_card_body2">SD Maid vil ikke bruke tilgjengelighetstjenesten uten ditt samtykke, vil alltid vise en fremtredende (kansellerbar) indikator mens den er aktiv og vil ikke bruke den for å hente informasjon.</string>
     <string name="setup_acs_state_enabled">Tilgjengelighetstjeneste er aktivert</string>
     <string name="setup_acs_state_disabled">Tilgjengelighetstjeneste er deaktivert</string>
@@ -230,9 +227,7 @@
     <string name="appcleaner_tool_name">Apprenser</string>
     <string name="appcleaner_explanation_short">Ubetydelig data tilhørende spesifikke apper.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Standard offentlige hurtigbuffere</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentlige hurtigbuffere til apper. Tilgjengelig under Android/data på eldre Android-versjoner. Slettes når du trykker \"Tøm hurtigbuffer\" i systeminnstillingene.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Standard private hurtigbuffere</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Standard private hurtigbuffere til apper. Slettes når du trykker \"Tøm hurtigbuffer\" i systeminnstillingene.</string>
     <string name="appcleaner_include_systemapps_label">Inkluder systemapper</string>
     <string name="appcleaner_include_systemapps_summary">Inkluder systemapper i skanningen.</string>
     <string name="appcleaner_include_runningapps_label">Inkluder kjørende apper</string>
@@ -252,7 +247,6 @@
     <string name="appcleaner_filter_bugreporting_label">Feilrapportering</string>
     <string name="appcleaner_filter_bugreporting_summary">Data relatert til feilrapportering, f.eks. feillogger eller krasjdumper.</string>
     <string name="appcleaner_filter_analytics_label">Statistikk</string>
-    <string name="appcleaner_filter_analytics_summary">Data relatert til statistikk, f.eks. bufret statistikk for det du trykker i en app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skjulte hurtigbuffere</string>
     <string name="appcleaner_filter_hiddencaches_summary">Generelle hurtigbuffere lagret utenfor systemets rekkevidde.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatyrbilder for medier</string>
@@ -391,7 +385,6 @@
         <item quantity="one">En ekskludering opprettet</item>
         <item quantity="other">%d ekskluderinger opprettet</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
     <string name="automation_active_title">SD Maid jobber</string>
     <string name="automation_error_no_consent_title">Automatiseringsfeil</string>

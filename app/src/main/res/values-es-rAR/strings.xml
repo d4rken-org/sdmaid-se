@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_settings_category">Panel de control</string>
-    <string name="dashboard_settings_oneclick_title">Modo de un solo clic</string>
-    <string name="dashboard_settings_oneclick_summary">Iniciá el análisis y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Permití a SD Maid enviarte notificaciones para informarte sobre operaciones en segundo plano o eventos importantes.</string>
     <string name="setup_notification_hint">Las notificaciones se usan poco 🤞</string>
     <string name="setup_acs_card_title">Servicio de accesibilidad</string>
-    <string name="setup_acs_card_body">El Servicio de accesibilidad permite a SD Maid a interactuar con tu pantalla y automatizar acciones tediosas, por ejemplo, cliqueando \"Limpiar caché\"\ en pantallas múltiples.</string>
     <string name="setup_acs_card_body2">SD Maid no usará el Servicio de accesibilidad sin tu consentimiento, siempre se mostrará un indicador (cancelable) prominente mientras está activo y no se usará para recolectar información.</string>
     <string name="setup_acs_state_enabled">El Servicio de accesibilidad está activado</string>
     <string name="setup_acs_state_disabled">El Servicio de accesibilidad está desactivado</string>
@@ -227,9 +224,7 @@
     <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
     <string name="appcleaner_explanation_short">Datos prescindibles pertenecientes a aplicaciones específicas.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cachés públicas por defecto</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cachés predeterminados de aplicaciones públicas. Accesibles bajo Android/data en versiones antiguas de Android. Se eliminan al hacer clic en \"Borrar caché\" en la configuración del sistema.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cachés privadas por defecto</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cachés de aplicaciones privadas por defecto. Se eliminan al hacer clic en \"Borrar caché\" en la configuración del sistema.</string>
     <string name="appcleaner_include_systemapps_label">Incluir aplicaciones del sistema</string>
     <string name="appcleaner_include_systemapps_summary">Incluye aplicaciones del sistema en el escaneo.</string>
     <string name="appcleaner_include_runningapps_label">Incluye aplicaciones en ejecución</string>
@@ -249,7 +244,6 @@
     <string name="appcleaner_filter_bugreporting_label">Informe de errores</string>
     <string name="appcleaner_filter_bugreporting_summary">Informar de errores de datos relacionados, por ejemplo, registros de errores o volcados de fallos.</string>
     <string name="appcleaner_filter_analytics_label">Estadísticas</string>
-    <string name="appcleaner_filter_analytics_summary">Datos analíticos relacionados, por ejemplo, estadísticas en caché para lo que haga clic en una aplicación.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cachés ocultas</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cachés de propósito general almacenadas fuera del alcance de los sistemas.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas multimedia</string>
@@ -386,7 +380,6 @@
         <item quantity="one">Una exclusión creada</item>
         <item quantity="other">Se han creado %d exclusiones</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir que SD Maid automatice tareas que, de otro modo, requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de caché).\n\nEjemplo: si le indica a SD Maid que detenga varias aplicaciones, entonces SD Maid puede usar esto servicio para abrir la pantalla de configuración de cada aplicación, encontrar el botón \'Forzar detención\' y hacer clic en él.\n\nSD Maid siempre se mostrará de forma destacada al usar este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción de inmediato.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio se puede desactivar de nuevo en cualquier momento sin efectos adversos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible usar la pantalla al mismo tiempo. Espere hasta que la operación esté terminada o cancele.</string>
     <string name="automation_active_title">SD Maid está andando</string>
     <string name="automation_error_no_consent_title">Error de automatización</string>

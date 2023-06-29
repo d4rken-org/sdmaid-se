@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">すべてのツールの結果を削除しますか？</string>
     <string name="dashboard_settings_category">ダッシュボード</string>
-    <string name="dashboard_settings_oneclick_title">ワンクリックモード</string>
-    <string name="dashboard_settings_oneclick_summary">ダッシュボードのアクションボタンをクリックすると、追加の確認を行わずにすべてのツールのスキャンと削除を開始します。</string>
     <string name="debug_debuglog_size_label">サイズ</string>
     <string name="debug_debuglog_size_compressed_label">圧縮サイズ</string>
     <string name="debug_notification_channel_label">デバッグの通知</string>

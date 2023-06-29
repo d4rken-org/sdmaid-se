@@ -2,7 +2,7 @@
 <resources>
     <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
     <string name="dashboard_settings_category">الرئيسية</string>
-    <string name="dashboard_settings_oneclick_title">وضع الضغطة الواحدة</string>
+    <string name="dashboard_settings_oneclick_title">وضع النقرة الواحدة</string>
     <string name="dashboard_settings_oneclick_summary">ابدأ الفحص والحذف لجميع الأدوات بنقرة واحدة على زر إجراء الرئيسية ، دون تأكيدات إضافية.</string>
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
@@ -108,6 +108,11 @@
     <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">العربية </string>
+    <string name="setup_shizuku_card_body2">هذا الإعداد ليس له أي تأثير إذا لم يتم إعداد تطبيق Shizuku على جهازك.</string>
+    <string name="setup_shizuku_state_ready_label">رابط Shizuku جاهز.</string>
+    <string name="setup_shizuku_state_waiting_label">في انتظار الرابط مع شيزوكو.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">استخدم Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم Shizuku</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
     <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
     <string name="setup_usagestats_title">بيانات الاستخدام</string>
@@ -275,7 +280,7 @@
     <string name="appcleaner_filter_bugreporting_label">الإبلاغ عن الأخطاء</string>
     <string name="appcleaner_filter_bugreporting_summary">البيانات ذات الصلة بالإبلاغ عن الأخطاء ، على سبيل المثال سجلات الخطأ أو تفريغ الأعطال.</string>
     <string name="appcleaner_filter_analytics_label">التحليلات</string>
-    <string name="appcleaner_filter_analytics_summary">البيانات ذات الصلة بالتحليلات ، على سبيل المثال احصائيات مخبأة لما تنقر عليه في التطبيق.</string>
+    <string name="appcleaner_filter_analytics_summary">البيانات ذات الصلة بالتحليلات ، على سبيل المثال إحصائيات مخبأة حتى يتم النقر عليه في التطبيق.</string>
     <string name="appcleaner_filter_hiddencaches_label">مخابئ مخفية</string>
     <string name="appcleaner_filter_hiddencaches_summary">مخابئ الأغراض العامة المخزنة خارج نطاق وصول النظام.</string>
     <string name="appcleaner_filter_thumbnails_label">الصور المصغرة للوسائط</string>
@@ -320,6 +325,7 @@
     <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
     <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcleaner_delete_confirmation_message_x">حذف الملفات المستهلكة لـ %s؟</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">حذف الملفات المؤقتة باستخدام شيزوكو</string>
     <string name="appcontrol_tool_name">إدارة التطبيق</string>
     <string name="appcontrol_explanation_short">التطبيقات المثبتة على جهازك.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -416,7 +422,7 @@
     <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
     <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
     <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
-    <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
+    <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
     <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
     <string name="automation_active_title">SD Maid يعمل</string>
     <string name="automation_error_no_consent_title">خطأ في الأتمتة</string>
