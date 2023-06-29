@@ -745,4 +745,32 @@ class APathExtensionTest : BaseTest() {
             prefix.removePrefix(pre, overlap = 1)
         }
     }
+
+
+    @Test fun `filterDistinctRoots operator - LocalPath`() {
+        val file1: APath = LocalPath.build("test", "file1")
+        val file1s: APath = LocalPath.build("test", "file1", "sub")
+        val file2: APath = LocalPath.build("test", "file2")
+        val file2s: APath = LocalPath.build("test", "file2", "sub")
+
+        setOf(file1, file1s, file2, file2s).filterDistinctRoots() shouldBe setOf(file1, file2)
+    }
+
+    @Test fun `filterDistinctRoots operator - SAFPath`() {
+        val file1: APath = SAFPath.build(treeUri, "test", "file1")
+        val file1s: APath = SAFPath.build(treeUri, "test", "file1", "sub")
+        val file2: APath = SAFPath.build(treeUri, "test", "file2")
+        val file2s: APath = SAFPath.build(treeUri, "test", "file2", "sub")
+
+        setOf(file1, file1s, file2, file2s).filterDistinctRoots() shouldBe setOf(file1, file2)
+    }
+
+    @Test fun `filterDistinctRoots operator - mixes types`() {
+        val file1: APath = LocalPath.build("test", "file1")
+        val file1s: APath = LocalPath.build("test", "file1", "sub")
+        val file2: APath = SAFPath.build(treeUri, "test", "file2")
+        val file2s: APath = SAFPath.build(treeUri, "test", "file2", "sub")
+
+        setOf(file1, file1s, file2, file2s).filterDistinctRoots() shouldBe setOf(file1, file2)
+    }
 }

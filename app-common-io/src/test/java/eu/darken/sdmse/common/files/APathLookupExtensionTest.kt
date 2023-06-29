@@ -61,4 +61,36 @@ class APathLookupExtensionTest : BaseTest() {
         lookup2.isFile shouldBe true
         lookup2.isDirectory shouldBe false
     }
+
+    @Test fun `filterDistinctRoots operator`() {
+        val lookup1: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("test", "file1"),
+            fileType = FileType.DIRECTORY,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+        val lookup1s: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("test", "file1", "sub"),
+            fileType = FileType.DIRECTORY,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+        val lookup2: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "test", "file2"),
+            docFile = mockk<SAFDocFile>().apply {
+                every { isFile } returns true
+                every { isDirectory } returns false
+            }
+        )
+        val lookup2s: APathLookup<*> = SAFPathLookup(
+            lookedUp = SAFPath.build(treeUri, "test", "file2", "sub"),
+            docFile = mockk<SAFDocFile>().apply {
+                every { isFile } returns true
+                every { isDirectory } returns false
+            }
+        )
+        setOf(lookup1, lookup1s, lookup2, lookup2s).filterDistinctRoots() shouldBe setOf(lookup1, lookup2)
+    }
 }
