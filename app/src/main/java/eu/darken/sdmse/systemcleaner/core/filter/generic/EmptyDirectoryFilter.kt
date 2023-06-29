@@ -92,7 +92,7 @@ class EmptyDirectoryFilter @Inject constructor(
         val prefixFreePath = areaInfo.prefixFreePath
         if (prefixFreePath.isEmpty()) return false
 
-        if (protectedBaseDirs.any { it.matches(prefixFreePath) }) return false
+        if (protectedBaseDirs.any { it.matches(prefixFreePath, ignoreCase = true) }) return false
 
         // Exclude toplvl package folders in Android/data
         if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 1) return false
