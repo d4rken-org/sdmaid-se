@@ -30,7 +30,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.listFiles
-import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.files.startsWith
@@ -44,6 +43,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -97,7 +97,6 @@ class AppScanner @Inject constructor(
     }
 
     private lateinit var enabledFilters: Collection<ExpendablesFilter>
-    private var useRoot: Boolean = false
 
     suspend fun initialize() {
         log(TAG, VERBOSE) { "initialize()" }
@@ -107,8 +106,6 @@ class AppScanner @Inject constructor(
             .onEach { it.initialize() }
             .onEach { log(TAG, VERBOSE) { "Filter enabled: $it" } }
         log(TAG) { "${enabledFilters.size} filter are enabled" }
-        useRoot = rootManager.canUseRootNow()
-        log(TAG) { "useRoot: $useRoot" }
     }
 
     suspend fun scan(
@@ -203,7 +200,8 @@ class AppScanner @Inject constructor(
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val dataAreaMap = createDataAreaMap()
+        val currentAreas = areaManager.currentAreas()
+        val dataAreaMap = createDataAreaMap(currentAreas)
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
@@ -216,11 +214,11 @@ class AppScanner @Inject constructor(
             val interestingPaths = mutableSetOf<AreaInfo>()
 
             // The default private app data
-            pkg.packageInfo.applicationInfo
-                ?.dataDir
-                ?.takeIf { it.isNotEmpty() && useRoot }
-                ?.let { fileForensics.identifyArea(LocalPath.build(it)) }
-                ?.let { interestingPaths.add(it) }
+            // Private data should only be available in currentAreas if we have root
+            pkg.getPrivateDataDirs(currentAreas)
+                .filter { it.exists(gatewaySwitch) }
+                .map { fileForensics.identifyArea(it)!! }
+                .forEach { interestingPaths.add(it) }
 
             val clutterMarkerForPkg = clutterRepo.getMarkerForPkg(pkg.id)
 
@@ -302,9 +300,7 @@ class AppScanner @Inject constructor(
      * First we determine all areas that we check,
      * i.e. public/priv storage and some levels of the root of the sdcard
      */
-    private suspend fun createDataAreaMap(): Map<DataArea.Type, Collection<AreaInfo>> {
-        val currentAreas = areaManager.currentAreas()
-
+    private suspend fun createDataAreaMap(currentAreas: Collection<DataArea>): Map<DataArea.Type, Collection<AreaInfo>> {
         val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
 
         val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
@@ -343,6 +339,7 @@ class AppScanner @Inject constructor(
             DataArea.Type.PUBLIC_MEDIA,
             DataArea.Type.SDCARD,
         )
+        val useRoot = rootManager.canUseRootNow()
 
         currentAreas
             .filter { supportedPublicAreas.contains(it.type) }
