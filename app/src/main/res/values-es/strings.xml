@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_settings_category">Panel de control</string>
-    <string name="dashboard_settings_oneclick_title">Modo un clic</string>
-    <string name="dashboard_settings_oneclick_summary">Inicia el análisis y la eliminación de todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
+    <string name="dashboard_settings_oneclick_title">Modo de un toque</string>
+    <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
@@ -80,7 +80,7 @@
     <string name="setup_label">Configuración</string>
     <string name="setup_incomplete_card_title">La configuración está incompleta</string>
     <string name="setup_incomplete_card_body">Termina la configuración de SD Maid para obtener los mejores resultados.</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid está tratando de solucionar los problemas de la configuración.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid está tratando de solucionar los problemas de configuración.</string>
     <string name="setup_incomplete_card_dismiss_action">Descartar</string>
     <string name="setup_incomplete_card_continue_action">Continúa con la configuración</string>
     <string name="setup_title">Configuración</string>
@@ -104,7 +104,7 @@
     <string name="setup_shizuku_state_ready_label">El enlace a Shizuku está listo.</string>
     <string name="setup_shizuku_state_waiting_label">Esperando el enlace a Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Utiliza a Shizuku</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">No utilices a Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">No utilizar Shizuku</string>
     <string name="setup_dismiss_hint">Puedes volver a encontrar la pantalla de configuración a través del menú de la configuración.</string>
     <string name="setup_permission_granted_label">Permiso concedido</string>
     <string name="setup_usagestats_title">Estadísticas de uso</string>
@@ -114,7 +114,7 @@
     <string name="setup_notification_body">Permite que SD Maid publique notificaciones para informarte sobre operaciones en curso o eventos importantes.</string>
     <string name="setup_notification_hint">Las notificaciones se usan poco 🤞</string>
     <string name="setup_acs_card_title">Servicio de accesibilidad</string>
-    <string name="setup_acs_card_body">El servicio de accesibilidad permite a SD Maid interactuar con tu pantalla y automatizar las acciones tediosas, por ejemplo, hacer clic en \"Borrar la caché\" en varias pantallas.</string>
+    <string name="setup_acs_card_body">El servicio de accesibilidad permite que SD Maid interactúe con su pantalla y automatice acciones tediosas como, por ejemplo, pulsar \"Borrar caché\" en varias pantallas.</string>
     <string name="setup_acs_card_body2">SD Maid no utilizará el servicio de accesibilidad sin tu consentimiento, mostrará siempre un indicador destacado (cancelable) mientras esté activo y no lo utilizará para recopilar información.</string>
     <string name="setup_acs_state_enabled">Servicio de accesibilidad activado</string>
     <string name="setup_acs_state_disabled">Servicio de accesibilidad desactivado</string>
@@ -238,9 +238,9 @@
     <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
     <string name="appcleaner_explanation_short">Datos prescindibles pertenecientes a aplicaciones específicas.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cachés públicas por defecto</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cachés predeterminados de aplicaciones públicas. Accesibles bajo Android/data en versiones antiguas de Android. Se eliminan al hacer clic en \"Borrar caché\" en la configuración del sistema.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Las memorias caché de las aplicaciones públicas predeterminadas de Android. Accesibles en Android/data para las versiones antiguas de Android. Se eliminan al pulsar \"Borrar caché\" en los ajustes del sistema.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cachés privadas por defecto</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cachés de aplicaciones privadas por defecto. Se elimina al hacer clic en \"Borrar caché\" en la configuración del sistema.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Cachés de aplicaciones privadas por defecto. Se eliminan al pulsar \"Borrar caché\" en la configuración del sistema.</string>
     <string name="appcleaner_include_systemapps_label">Incluir aplicaciones del sistema</string>
     <string name="appcleaner_include_systemapps_summary">Incluye las aplicaciones del sistema en el análisis.</string>
     <string name="appcleaner_include_runningapps_label">Incluir aplicaciones ejecutándose</string>
@@ -260,7 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Informe de errores</string>
     <string name="appcleaner_filter_bugreporting_summary">Datos relacionados con la notificación de errores, por ejemplo, registros de errores o volcados de fallos.</string>
     <string name="appcleaner_filter_analytics_label">Análisis</string>
-    <string name="appcleaner_filter_analytics_summary">Datos relacionados con los análisis, por ejemplo, estadísticas en caché de lo que se pulsa en una aplicación.</string>
+    <string name="appcleaner_filter_analytics_summary">Los datos relacionados con el análisis, por ejemplo, estadísticas almacenadas en la caché de lo que hace en una aplicación.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cachés ocultas</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cachés de propósito general almacenadas fuera del alcance de los sistemas.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas multimedia</string>
@@ -400,7 +400,7 @@
         <item quantity="one">Una exclusión creada</item>
         <item quantity="other">Se han creado %d excepciones</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir que SD Maid automatice tareas que, de otro modo, requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de caché).\n\nEjemplo: si le indica a SD Maid que detenga varias aplicaciones, entonces SD Maid puede usar esto servicio para abrir la pantalla de configuración de cada aplicación, encontrar el botón \'Forzar detención\' y hacer clic en él.\n\nSD Maid siempre se mostrará de forma destacada al usar este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción de inmediato.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio se puede desactivar de nuevo en cualquier momento sin efectos adversos.</string>
+    <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir a SD Maid automatizar las tareas que de otro modo requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de la caché).\n\nPor ejemplo: Si indicas a SD Maid que detenga varias aplicaciones, SD Maid puede usar este servicio para abrir la pantalla de configuración de cada aplicación, utilizar este servicio para abrir la pantalla de configuración de cada aplicación y encontrar el botón \'Forzar la detención de la aplicación\' y presionarlo.\n\nSD Maid siempre se mostrará de forma destacada cuando se utiliza este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción inmediatamente.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio puede ser desactivado de nuevo en cualquier momento sin efectos adversos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible utilizar la pantalla al mismo tiempo. Espere a que finalice la operación o cancélela.</string>
     <string name="automation_active_title">SD Maid está trabajando</string>
     <string name="automation_error_no_consent_title">Error de automatización</string>

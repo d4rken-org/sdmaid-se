@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Izbrisati rezultate u svim alatima?</string>
     <string name="dashboard_settings_category">Nadzorna ploča</string>
-    <string name="dashboard_settings_oneclick_title">Način rada jednim klikom</string>
-    <string name="dashboard_settings_oneclick_summary">Započnite skeniranje i brisanje za sve alate klikom na akcijski gumb na nadzornoj ploči, bez dodatnih potvrda.</string>
     <string name="debug_debuglog_size_label">Veličina</string>
     <string name="debug_debuglog_size_compressed_label">Sažeta veličina</string>
     <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Dopustite SD Maidu da postavlja obavijesti kako bi vas obavijestio o operacijama u tijeku ili važnim događajima.</string>
     <string name="setup_notification_hint">Obavijesti se štedljivo koriste 🤞</string>
     <string name="setup_acs_card_title">Usluga pristupačnosti</string>
-    <string name="setup_acs_card_body">Usluga pristupačnosti omogućuje SD Maidu interakciju s vašim zaslonom i automatiziranje zamornih radnji, npr. klikom na \"Izbriši predmemoriju\" na više zaslona.</string>
     <string name="setup_acs_card_body2">SD Maid neće koristiti uslugu pristupačnosti bez vašeg pristanka, uvijek će prikazati istaknuti (poništivi) indikator dok je aktivna i neće je koristiti za prikupljanje informacija.</string>
     <string name="setup_acs_state_enabled">Usluga pristupačnosti je omogućena</string>
     <string name="setup_acs_state_disabled">Usluga pristupačnosti je onemogućena</string>
@@ -232,9 +229,7 @@
     <string name="appcleaner_tool_name">Čistač aplikacija</string>
     <string name="appcleaner_explanation_short">Potrošni podaci koji pripadaju određenim aplikacijama.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Javne zadane predmemorije</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Zadane javne predmemorije aplikacija. Dostupno pod Android/Data na starijim verzijama Androida. Izbrisane su klikom na \"Izbriši predmemoriju\" u postavkama sustava.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Privatne zadane predmemorije</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Zadane privatne predmemorije aplikacija. Izbrisane su klikom na \"Izbriši predmemoriju\" u postavkama sustava.</string>
     <string name="appcleaner_include_systemapps_label">Uključi aplikacije sustava</string>
     <string name="appcleaner_include_systemapps_summary">Uključuje aplikacije sustava u skeniranje.</string>
     <string name="appcleaner_include_runningapps_label">Uključi pokrenute aplikacije</string>
@@ -254,7 +249,6 @@
     <string name="appcleaner_filter_bugreporting_label">Prijava bugova</string>
     <string name="appcleaner_filter_bugreporting_summary">Podaci koji se odnose na prijavu pogrešaka, npr. zapisnici pogrešaka ili izvješća o rušenju.</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
-    <string name="appcleaner_filter_analytics_summary">Podaci povezani s analitikom, npr. predmemorirana statistika za ono što kliknete u aplikaciji.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skrivene predmemorije</string>
     <string name="appcleaner_filter_hiddencaches_summary">Predmemorije opće namjene pohranjene izvan dosega sustava.</string>
     <string name="appcleaner_filter_thumbnails_label">Medijske sličice</string>
@@ -392,7 +386,6 @@
         <item quantity="few">Stvorena %d izuzetka</item>
         <item quantity="other">Stvoreno %d izuzetaka</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Korisnici s posebnim potrebama pristupačnosti mogu omogućiti ovu uslugu kako bi SD Maidu omogućili automatizaciju zadataka koji bi inače zahtijevali zamornu ručnu korisničku interakciju (npr. brisanje predmemorije).\\n\\nPrimjer: ako SD Maidu naredite da zaustavi više aplikacija, SD Maid može koristiti ovu uslugu za otvaranje zaslona postavki svake aplikacije, pronalaženje gumba \'Prisilno zaustavi\' i klikanje na njega.\\n\\nSD Maid će se uvijek istaknuti kada koristi ovu uslugu i omogućiti korisniku jednostavan način da odmah otkaže bilo kakvu interakciju. \\n\\nNikakve radnje neće biti izvedene bez prethodnog odobrenja korisnika. Ova se usluga može ponovno onemogućiti u bilo kojem trenutku bez negativnih učinaka.</string>
     <string name="automation_screenoverlay_explanation">SD Maid je u interakciji s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Pričekajte dok operacija ne završi ili je otkažite.</string>
     <string name="automation_active_title">SD Maid radi</string>
     <string name="automation_error_no_consent_title">Greška automatizacije</string>

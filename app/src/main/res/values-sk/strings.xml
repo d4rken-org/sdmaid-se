@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Odstrániť výsledky vo všetkých nástrojoch?</string>
     <string name="dashboard_settings_category">Ovládací panel</string>
-    <string name="dashboard_settings_oneclick_title">Režim jedného kliknutia</string>
-    <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov kliknutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia ladenia</string>
@@ -110,7 +108,6 @@
     <string name="setup_notification_body">Povoľte SD Maid uverejňovať upozornenia, ktoré vás budú informovať o prebiehajúcich operáciách alebo dôležitých udalostiach.</string>
     <string name="setup_notification_hint">Upozornenia sa používajú s mierou 🤞</string>
     <string name="setup_acs_card_title">Služba dostupnosti</string>
-    <string name="setup_acs_card_body">Služba dostupnosti umožňuje SD Maid interakciu s vašou obrazovkou a automatizáciu únavných akcií, napr. kliknutím na „Vymazať vyrovnávaciu pamäť“ na viacerých obrazovkách.</string>
     <string name="setup_acs_card_body2">SD Maid nebude používať službu dostupnosti bez vášho súhlasu, bude vždy zobrazovať výrazný (zrušiteľný) indikátor, keď je aktívny a nebude ho používať na zhromažďovanie informácií.</string>
     <string name="setup_acs_state_enabled">Služba dostupnosti je povolená</string>
     <string name="setup_acs_state_disabled">Služba dostupnosti je zakázaná</string>
@@ -240,9 +237,7 @@
     <string name="appcleaner_tool_name">Čistič aplikácií</string>
     <string name="appcleaner_explanation_short">Nepotrebné dáta patriace konkrétnym aplikáciám.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Verejné predvolené vyrovnávacie pamäte</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Predvolená verejná vyrovnávacia pamäť aplikácií. Dostupné v systéme Android/data na starších verziách systému Android. Odstráni sa po kliknutí na „Vymazať vyrovnávaciu pamäť“ v systémových nastaveniach.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Súkromné predvolené vyrovnávacie pamäte</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Predvolená vyrovnávacia pamäť súkromných aplikácií. Odstráni sa po kliknutí na „Vymazať vyrovnávaciu pamäť“ v systémových nastaveniach.</string>
     <string name="appcleaner_include_systemapps_label">Zahrnúť systémové aplikácie</string>
     <string name="appcleaner_include_systemapps_summary">Zahrnúť systémové aplikácie do kontroly.</string>
     <string name="appcleaner_include_runningapps_label">Zahrňte spustené aplikácie</string>
@@ -262,7 +257,6 @@
     <string name="appcleaner_filter_bugreporting_label">Hlásenie chýb</string>
     <string name="appcleaner_filter_bugreporting_summary">Údaje súvisiace s hlásením chýb, napr. protokoly chýb alebo výpisy zlyhaní.</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
-    <string name="appcleaner_filter_analytics_summary">Dáta súvisiace s analýzou, napr. štatistiky uložené vo vyrovnávacej pamäti pre to, na čo klikáte v aplikácii.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skrytá vyrovnávacia pamäť</string>
     <string name="appcleaner_filter_hiddencaches_summary">Univerzálne vyrovnávacie pamäte uložené mimo dosahu systému.</string>
     <string name="appcleaner_filter_thumbnails_label">Náhľady médií</string>
@@ -407,7 +401,6 @@
         <item quantity="many">%d vylúčení vytvorených</item>
         <item quantity="other">%d vylúčení vytvorených</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a kliknúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Chyba automatizácie</string>

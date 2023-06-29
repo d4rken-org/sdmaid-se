@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Vymazat výsledky ve všech nástrojích?</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
-    <string name="dashboard_settings_oneclick_title">Režim na jedno kliknutí</string>
-    <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje kliknutím na tlačítko akcí na panelu nástrojů.</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
@@ -118,7 +116,6 @@
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
     <string name="setup_acs_card_title">Služba přístupnosti</string>
-    <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. kliknutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>
     <string name="setup_acs_state_enabled">Služba přístupnosti je povolena</string>
     <string name="setup_acs_state_disabled">Služba přístupnosti je zakázána</string>
@@ -242,9 +239,7 @@
     <string name="appcleaner_tool_name">Čistič aplikací</string>
     <string name="appcleaner_explanation_short">Nepotřebná data patřící specifickým aplikacím.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Veřejné výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Výchozí veřejné mezipaměti aplikací. Ve starších verzích systému Android je přístupná pod položkou Android/data. Odstraní se po kliknutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Soukromé výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Výchozí soukromé mezipaměti aplikací. Odstraní se po kliknutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_include_systemapps_label">Zahrnout systémové aplikace</string>
     <string name="appcleaner_include_systemapps_summary">Zahrňte do skenování systémové aplikace.</string>
     <string name="appcleaner_include_runningapps_label">Zahrnout spuštěné aplikace</string>
@@ -264,7 +259,6 @@
     <string name="appcleaner_filter_bugreporting_label">Hlášení chyb</string>
     <string name="appcleaner_filter_bugreporting_summary">Data související s hlášením chyb, např. záznamy o chybách nebo výpisy chyb při pádu aplikace.</string>
     <string name="appcleaner_filter_analytics_label">Analytika</string>
-    <string name="appcleaner_filter_analytics_summary">Data související s analytikou, např. statistiky kliknutí v aplikaci, které jsou uložené v mezipaměti.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skryté mezipaměti</string>
     <string name="appcleaner_filter_hiddencaches_summary">Mezipaměti pro obecné účely uložené mimo dosah systému.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatury médií</string>
@@ -409,7 +403,6 @@
         <item quantity="many">Vytvořeno %d výjimek</item>
         <item quantity="other">Vytvořeno %d výjimek</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a kliknout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Chyba automatizace</string>

@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
-    <string name="dashboard_settings_oneclick_title">Eén-klik-modus</string>
-    <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
@@ -103,7 +101,6 @@
     <string name="setup_notification_body">Sta SD Maid toe om meldingen te plaatsen om je te informeren over lopende operaties of belangrijke gebeurtenissen.</string>
     <string name="setup_notification_hint">Meldingen worden spaarzaam gebruikt 🤞</string>
     <string name="setup_acs_card_title">Toegankelijkheidsdienst</string>
-    <string name="setup_acs_card_body">Met de toegankelijkheidsservice kan SD Maid communiceren met je scherm en vervelende acties automatiseren, bijv. klikken op \"Cache wissen\" op meerdere schermen.</string>
     <string name="setup_acs_card_body2">SD Maid zal de toegankelijkheidsservice niet gebruiken zonder je toestemming, zal altijd een prominente (annuleerbare) indicator weergeven wanneer deze actief is en zal deze niet gebruiken om informatie te verzamelen.</string>
     <string name="setup_acs_state_enabled">Toegankelijkheidsservice is ingeschakeld</string>
     <string name="setup_acs_state_disabled">Toegankelijkheidsservice is uitgeschakeld</string>
@@ -223,9 +220,7 @@
     <string name="appcleaner_tool_name">AppReiniger</string>
     <string name="appcleaner_explanation_short">Eenmalige gegevens van specifieke apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publieke standaard caches</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Standaard openbare app-caches. Toegankelijk onder Android/data op oudere Android-versies. Verwijderd door te klikken op \"Cache wissen\" in de systeeminstellingen.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Publieke standaard caches</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Standaard privé-app-caches. Verwijderd door te klikken op \"Cache wissen\" in de systeeminstellingen.</string>
     <string name="appcleaner_include_systemapps_label">Inclusief systeem-apps</string>
     <string name="appcleaner_include_systemapps_summary">Systeemapps opnemen in de scan.</string>
     <string name="appcleaner_include_runningapps_label">Inclusief actieve apps</string>
@@ -245,7 +240,6 @@
     <string name="appcleaner_filter_bugreporting_label">Foutrapportage</string>
     <string name="appcleaner_filter_bugreporting_summary">Foutrapportage gerelateerde gegevens, bijv. foutenlogboeken of crashdumps.</string>
     <string name="appcleaner_filter_analytics_label">Analyses</string>
-    <string name="appcleaner_filter_analytics_summary">Analytics-gerelateerde gegevens, bijv. in de cache opgeslagen statistieken voor waarop je in een app klikt.</string>
     <string name="appcleaner_filter_hiddencaches_label">Verborgen caches</string>
     <string name="appcleaner_filter_hiddencaches_summary">Caches voor algemene doeleinden die buiten het bereik van het systeem zijn opgeslagen.</string>
     <string name="appcleaner_filter_thumbnails_label">Media miniaturen</string>
@@ -361,7 +355,6 @@
     <string name="exclusion_type_package">App-uitsluiting</string>
     <string name="exclusion_type_path">Pad uitsluiting</string>
     <string name="exclusion_tags_alltools">Alle hulpmiddelen</string>
-    <string name="automation_accessibility_service_description">Gebruikers met speciale toegankelijkheidsbehoeften kunnen deze service inschakelen om SD Maid in staat te stellen taken te automatiseren waarvoor anders een vervelende handmatige gebruikersinteractie nodig zou zijn (bijv. het verwijderen van de cache).\n\nVoorbeeld: Als je SD Maid instrueert om meerdere apps te stoppen, dan kan SD Maid deze service gebruiken om elk app-instellingenscherm te openen, de knop \'Forceer Stop\' te vinden en erop te klikken.\n\nSD Maid wordt altijd prominent weergegeven wanneer deze service wordt gebruikt en biedt de gebruiker een gemakkelijke manier om elke interactie onmiddellijk te annuleren.\n\nNee acties worden uitgevoerd zonder voorafgaande toestemming van de gebruiker. Deze service kan op elk moment weer worden uitgeschakeld zonder nadelige gevolgen.</string>
     <string name="automation_screenoverlay_explanation">SD Maid communiceert met je apparaat. Het is niet mogelijk om tegelijkertijd het scherm te gebruiken. Wacht tot de bewerking voltooid is of annuleer deze.</string>
     <string name="automation_active_title">SD Maid is aan het werk</string>
     <string name="automation_error_no_consent_title">Automatiseringsfout</string>

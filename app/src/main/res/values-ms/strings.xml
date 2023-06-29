@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
-    <string name="dashboard_settings_oneclick_title">Mod Satu Klik</string>
-    <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu klik pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
@@ -99,7 +97,6 @@
     <string name="setup_notification_body">Benarkan SD Maid menyiarkan notifikasi untuk memaklumkan anda tentang operasi yang sedang berjalan atau acara penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan berhati-hati 🤞</string>
     <string name="setup_acs_card_title">Perkhidmatan aksesibiliti</string>
-    <string name="setup_acs_card_body">Perkhidmatan aksesibiliti membolehkan SD Maid berinteraksi dengan skrin anda dan mengautomasikan tindakan yang membosankan, mis. mengklik \"Kosongkan cache\" pada berbilang skrin.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan perkhidmatan aksesibiliti tanpa kebenaran anda, akan sentiasa memaparkan penunjuk yang menonjol (boleh dibatalkan) semasa aktif dan tidak akan menggunakannya untuk mengumpul maklumat.</string>
     <string name="setup_acs_state_enabled">Perkhidmatan aksesibiliti didayakan</string>
     <string name="setup_acs_state_disabled">Perkhidmatan aksesibiliti dilumpuhkan</string>
@@ -209,9 +206,7 @@
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Data boleh dibelanjakan dimiliki aplikasi spesifik.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache lalai awam</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cache apl awam lalai. Boleh diakses di bawah Android/data pada versi lama Android. Dipadamkan apabila mengklik \"Kosongkan cache\" dalam tetapan sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache lalai peribadi</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache apl peribadi lalai. Dipadamkan apabila mengklik \"Kosongkan cache\" dalam tetapan sistem.</string>
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Sertakan aplikasi sistem dalam imbasan.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
@@ -230,7 +225,6 @@
     <string name="appcleaner_filter_bugreporting_label">Pelaporan pepijat</string>
     <string name="appcleaner_filter_bugreporting_summary">Data berkaitan pelaporan pepijat, mis. log ralat atau pembuangan ranap.</string>
     <string name="appcleaner_filter_analytics_label">Analitis</string>
-    <string name="appcleaner_filter_analytics_summary">Data berkaitan analitis, mis. statistik cache untuk perkara yang anda klik dalam aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache kegunaan am yang disimpan di luar jangkauan sistem.</string>
     <string name="appcleaner_filter_thumbnails_label">Lakaran kecil media</string>
     <string name="appcleaner_filter_thumbnails_summary">Lakaran kecil pratonton imej, video dan audio.</string>
@@ -308,7 +302,6 @@
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
     <string name="exclusion_type_path">Pengecualian laluan</string>
     <string name="exclusion_tags_alltools">Semua alatan</string>
-    <string name="automation_accessibility_service_description">Pengguna yang mempunyai keperluan aksesibiliti khas boleh mendayakan perkhidmatan ini membenarkan SD Maid mengautomasikan tugasan yang memerlukan interaksi pengguna manual yang membosankan (cth. pemadaman cache).\n\nContoh: Jika anda mengarahkan SD Maid menghentikan berbilang aplikasi maka SD Maid boleh menggunakan perkhidmatan ini untuk membuka setiap skrin tetapan aplikasi, cari butang \'Henti Paksa\' dan klik padanya.\n\nSD Maid akan sentiasa ditunjukkan dengan jelas apabila menggunakan perkhidmatan ini dan menyediakan cara mudah untuk pengguna membatalkan sebarang interaksi dengan segera.\n\nTiada tindakan akan dilakukan tanpa kelulusan pengguna terlebih dahulu. Perkhidmatan ini boleh dinyahdayakan semula pada bila-bila masa tanpa kesan buruk.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan peranti anda. Ia tidak boleh menggunakan skrin pada masa yang sama. Tunggu sehingga operasi selesai atau batalkannya.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>
     <string name="automation_error_no_consent_title">Ralat automasi</string>

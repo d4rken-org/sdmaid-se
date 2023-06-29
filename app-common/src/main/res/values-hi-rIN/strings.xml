@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD मेड SE</string>
     <string name="slogan_message_0">आपकी सेवा में।</string>
+    <string name="slogan_message_1">स्वच्छ और व्यवस्थित।</string>
     <string name="slogan_message_2">अव्यवस्था पर रोक लगा रहा है।</string>
     <string name="slogan_message_3">जो आवश्यक है वह करती है।</string>
     <string name="slogan_message_4">सब कुछ सही हिसाब से।</string>
@@ -70,9 +71,11 @@
     <string name="general_update_action">अद्यतन</string>
     <string name="general_scan_action">स्कैन</string>
     <string name="general_delete_action">मिटाएं</string>
+    <string name="general_delete_selected_action">चयनित को मिटाएं</string>
     <string name="general_show_details_action">विवरण दिखाएं</string>
     <string name="general_delete_confirmation_title">मिटाने की पुष्टि</string>
     <string name="general_delete_confirmation_message_x">मिटाएं \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d चयनित आइटम मिटाएं?</string>
     <string name="general_remove_action">हटाएं</string>
     <string name="general_root_required_label">रूट की आवश्यकता है</string>
     <string name="general_root_required_message">रूटेड डिवाइस की आवश्यकता है</string>

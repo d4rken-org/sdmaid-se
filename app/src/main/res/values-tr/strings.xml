@@ -2,7 +2,7 @@
 <resources>
     <string name="dashboard_delete_all_message">Tüm sonuçlar silinsin mi?</string>
     <string name="dashboard_settings_category">Panel</string>
-    <string name="dashboard_settings_oneclick_title">Tek Tık Modu</string>
+    <string name="dashboard_settings_oneclick_title">Tek-Tık Modu</string>
     <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
@@ -238,9 +238,9 @@
     <string name="appcleaner_tool_name">Uygulama temizleyici</string>
     <string name="appcleaner_explanation_short">Belirli uygulamalara ait silinebilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Varsayılan genel uygulama önbellekleri. Eski Android sürümlerinde Android/data altından erişilebilir. Sistem ayarlarında \"Önbelleği temizle\" tıklandığında silinir.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Varsayılan genel uygulama önbellekleri. Eski Android sürümlerinde Android/data altından erişilebilir. Sistem ayarlarında \"Önbelleği temizle\" seçeneğine dokunulduğunda silinir.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Özel varsayılan önbellekler</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Varsayılan özel uygulama önbellekleri. Sistem ayarlarında \"Önbelleği temizle\" tıklandığında silinir.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Varsayılan özel uygulama önbellekleri. Sistem ayarlarında \"Önbelleği temizle\" seçeneğine dokunulduğunda silinir.</string>
     <string name="appcleaner_include_systemapps_label">Sistem uygulamalarını dahil et</string>
     <string name="appcleaner_include_systemapps_summary">Taramaya sistem uygulamalarını dahil edin.</string>
     <string name="appcleaner_include_runningapps_label">Çalışan uygulamaları dahil et</string>
@@ -401,7 +401,7 @@
         <item quantity="one">Bir hariç tutma oluşturuldu</item>
         <item quantity="other">%d hariç tutma oluşturuldu</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Özel erişilebilirlik ihtiyaçları olan kullanıcılar, normalde yoğun kullanıcı etkileşimi gerektirebilen, ancak SD Maid\'in bu işlemleri (ör. önbellek temizleme) otomatik yapmasına imkan sağlayacak bu hizmeti etkinleştirebilirler.\n\nÖrneğin: Eğer SD Maid\'in uygulamaları aynı anda durdurmasını isterseniz, SD Maid her bir uygulamanın ayarlar ekranını açmak, \"Zorla Durdur\" düğmesini bulmak ve tıklamak için bu hizmeti kullanabilir.\n\nSD Maid bu hizmeti kullandırken daima bir gösterge gösterecek ve etkileşimleri her an durdurabilmesi için kullanıcıya kolay bir yol sunacaktır.\n\nKullanıcı onayı olmadan hiçbir işlem gerçekleşmeyecektir. Bu hizmet istenmeyen etkiler olmadan istediğiniz an tekrar devre dışı bırakılabilir.</string>
+    <string name="automation_accessibility_service_description">Farklı uygulamaların önbelleklerini sırayla temizlemek gibi sıkıcı ve tekrarlayan işlemleri yapmak istemeyen veya kendine özel erişilebilirlik kuralı oluşturmak isteyen kullanıcılar için SD Maid erişilebilirlik hizmetini kullanarak bu işlemleri otomatikleştirebilir.\n\nÖrneğin birden fazla uygulamayı zorla durdurmak isterseniz bu hizmet sayesinde SD Maid\'e her bir uygulama için ayarlar ekranını açmasını ve ardından zorla durdurmasını öğretebilirsiniz.\n\nSD Maid bu hizmeti kullandığı her zaman ekranda bir uyarı ve istenildiği takdirde işlemin derhal iptal edilebilmesi için bir tuş gösterir.\n\nÖncesinde kullanıcı onayı olmaksızın hiçbir işlem yapılmayacaktır. Bu hizmeti istediğiniz zaman devre dışı bırakılabilirsiniz, olumsuz bir etkisi olmaz.</string>
     <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
     <string name="automation_active_title">SD Maid çalışıyor</string>
     <string name="automation_error_no_consent_title">Otomasyon hatası</string>

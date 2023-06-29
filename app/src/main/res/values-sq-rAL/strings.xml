@@ -2,8 +2,6 @@
 <resources>
     <string name="dashboard_delete_all_message">Të fshihen rezultatet në të gjitha mjetet?</string>
     <string name="dashboard_settings_category">Paneli</string>
-    <string name="dashboard_settings_oneclick_title">Modaliteti me një klikim</string>
-    <string name="dashboard_settings_oneclick_summary">Filloni skanimin dhe fshirjen për të gjitha mjetet me një klikim në butonin e veprimit të pultit, pa konfirmime shtesë.</string>
     <string name="debug_debuglog_size_label">Madhësia</string>
     <string name="debug_debuglog_size_compressed_label">Madhësia e ngjeshur</string>
     <string name="debug_notification_channel_label">Njoftime për rezultatet</string>
@@ -106,7 +104,6 @@
     <string name="setup_notification_body">Lejo SD Maid të postojë njoftime për t\'ju informuar për operacione në vazhdim ose ngjarje të rëndësishme.</string>
     <string name="setup_notification_hint">Njoftimet përdoren me masë 🤞</string>
     <string name="setup_acs_card_title">Shërbimi i aksesueshmërisë</string>
-    <string name="setup_acs_card_body">Shërbimi i aksesueshmërisë lejon SD Maid të ndërveprojë me ekranin tuaj dhe të automatizojë veprime të lodhshme, p.sh. duke klikuar \"Pastro cache\" në ekrane të shumta.</string>
     <string name="setup_acs_card_body2">SD Maid nuk do të përdorë shërbimin e aksesueshmërisë pa pëlqimin tuaj, do të shfaqë gjithmonë një tregues të spikatur (të anulueshëm) kur është aktiv dhe nuk do ta përdorë atë për të mbledhur informacion.</string>
     <string name="setup_acs_state_enabled">Shërbimi i aksesueshmërisë është aktivizuar</string>
     <string name="setup_acs_state_disabled">Shërbimi i aksesueshmërisë është i çaktivizuar</string>
@@ -170,9 +167,7 @@
     <string name="appcleaner_tool_name">Pastrues i aplikacioneve</string>
     <string name="appcleaner_explanation_short">Të dhëna të shpenzueshme që i përkasin aplikacioneve specifike.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Memoriet e paracaktuara publike</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Memoriet e paracaktuara të aplikacioneve publike. E aksesueshme nën Android/të dhënat në versionet më të vjetra të Android. Fshihet kur klikoni \"Pastro cache\" në cilësimet e sistemit.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Memoriet e paracaktuara private</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Memoria e paracaktuar e aplikacioneve private. Fshihet kur klikoni \"Pastro cache\" në cilësimet e sistemit.</string>
     <string name="appcleaner_include_systemapps_label">Përfshi aplikacionet e sistemit</string>
     <string name="appcleaner_include_systemapps_summary">Përfshini aplikacionet e sistemit në skanim.</string>
     <string name="appcleaner_include_runningapps_label">Përfshi aplikacionet e ekzekutimit</string>
@@ -192,7 +187,6 @@
     <string name="appcleaner_filter_bugreporting_label">Raportimi i gabimeve</string>
     <string name="appcleaner_filter_bugreporting_summary">Të dhënat e lidhura me raportimin e gabimeve, p.sh. regjistrat e gabimeve ose deponitë e përplasjeve.</string>
     <string name="appcleaner_filter_analytics_label">Analiza</string>
-    <string name="appcleaner_filter_analytics_summary">Të dhënat e lidhura me analitikën, p.sh. statistikat e ruajtura në memorie për atë që klikoni në një aplikacion.</string>
     <string name="appcleaner_filter_hiddencaches_label">Memoriet e fshehura</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache me qëllime të përgjithshme të ruajtura jashtë sistemeve arrijnë.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturat e medias</string>
@@ -321,7 +315,6 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
     <string name="exclusion_create_pkg_hint">Përdorni mjetin AppControl për të krijuar përjashtime të aplikacioneve.</string>
     <string name="exclusion_create_path_hint">Përdorni mjetin StorageAnalyzer për të krijuar përjashtime të shtigjeve.</string>
-    <string name="automation_accessibility_service_description">Përdoruesit me nevoja të veçanta aksesueshmërie mund ta mundësojnë këtë shërbim që të lejojë SD Maid të automatizojë detyra që përndryshe do të kërkonin ndërveprim manual të lodhshëm të përdoruesit (p.sh. fshirjen e memories së fshehtë).\n\nShembull: Nëse e udhëzon SD Maid të ndalojë shumë aplikacione, atëherë SD Maid mund ta përdorë këtë shërbimi për të hapur ekranin e cilësimeve të çdo aplikacioni, gjeni butonin \"Ndalo me forcë\" dhe kliko mbi të.\n\nShërbëtorja SD do të shfaqet gjithmonë në mënyrë të dukshme kur përdor këtë shërbim dhe do të ofrojë një mënyrë të thjeshtë që përdoruesi të anulojë çdo ndërveprim menjëherë.\n\nJo veprimet do të kryhen pa miratimin paraprak të përdoruesit. Ky shërbim mund të çaktivizohet përsëri në çdo kohë pa efekte negative.</string>
     <string name="automation_screenoverlay_explanation">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë ose anuloni atë.</string>
     <string name="automation_active_title">SD Maid po punon</string>
     <string name="automation_error_no_consent_title">Gabim automatizimi</string>
