@@ -31,7 +31,6 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -44,20 +43,23 @@ class SdcardCorpseFilter @Inject constructor(
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
-    private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
 
-    private val fileCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
+    private val markerThatExistCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
     override suspend fun doScan(): Collection<Corpse> {
         log(TAG) { "Scanning..." }
 
-        updateProgressPrimary("SDCARD")
+        updateProgressPrimary(R.string.corpsefinder_filter_sdcard_label)
+        updateProgressCount(Progress.Count.Indeterminate())
 
         val result = try {
-            doReverseCSI()
+            val potentialCorpses = findPotentialCorpses()
+            log(TAG) { "Got ${potentialCorpses.size} potential corpses to check" }
+
+            checkPotentialCorpses(potentialCorpses)
         } finally {
-            fileCache.clear()
+            markerThatExistCache.clear()
         }
         return result
     }
@@ -66,14 +68,149 @@ class SdcardCorpseFilter @Inject constructor(
      * We basically do a reverse CSI.
      * Instead of looking who owns a path, we look at all owners we know, and see if any exists.
      * This works because SDCARD is not a blacklist location, items have to be whitelisted via clutterdb.
+     * To improve performance, we only do this for the nested corpses, and not the top level,
+     * as there are usually more toplevel markers than actual toplevel folders/files.
      */
-    private suspend fun doReverseCSI(): Collection<Corpse> {
-        val potentialCorpses = findPotentialCorpses()
-        log(TAG) { "Got $potentialCorpses potential corpses to check" }
+    private suspend fun findPotentialCorpses(): Collection<OwnerInfo> {
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+        updateProgressCount(Progress.Count.Indeterminate())
 
+        val areas = areaManager.currentAreas().filter { it.type == DataArea.Type.SDCARD }
+
+        val topLevelContent = areas.associateWith { area ->
+            updateProgressSecondary {
+                it.getString(
+                    eu.darken.sdmse.common.R.string.general_progress_processing_x,
+                    area.path.userReadablePath.get(it)
+                )
+            }
+            updateProgressCount(Progress.Count.Indeterminate())
+            val content = area.path.listFiles(gatewaySwitch)
+
+            updateProgressCount(Progress.Count.Percent(content.size))
+            content.map {
+                fileForensics.findOwners(it)!!.also {
+                    increaseProgress()
+                }
+            }
+        }
+
+        val relevantMarkers = clutterRepo
+            .getMarkerForLocation(DataArea.Type.SDCARD)
+            .filter { it.isDirectMatch } // Can't reverse-match regex
+            .filter { it.segments.size > 1 } // We already looked up the top level content
+
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
+        updateProgressCount(Progress.Count.Percent(relevantMarkers.size))
+
+        val nestedUncleaned = relevantMarkers
+            .asFlow()
+            .map { marker ->
+                // Get files for this marker, based on it's basepath.
+                val existing = areas
+                    .filter { area ->
+                        // Only makes sense to process this nested marker if the parent actually exists
+                        val areaContent = topLevelContent[area]!!
+                        areaContent.any { it.item.segments.isAncestorOf(marker.segments) }
+                    }
+                    .map { determineNestedCandidates(it, marker) }
+                    .flatten()
+
+                marker to existing
+            }
+            .onEach { increaseProgress() }
+            .filter { it.second.isNotEmpty() }
+            .map { (marker, potentialCorpses) ->
+                log(TAG) { "Resolved $marker to existing $potentialCorpses" }
+                // marker + List<AreaInfo> --> areaInfo + List<Owner>
+                potentialCorpses.mapNotNull { areaInfo ->
+                    val match = marker.match(areaInfo.type, areaInfo.prefixFreePath) ?: return@mapNotNull null
+                    areaInfo to match.packageNames.map { Owner(it, areaInfo.userHandle, match.flags) }
+                }
+            }
+            .toList()
+            .flatten()
+            .groupBy { it.first }
+            .mapValues { (areaInfo, listOfOwnerLists) ->
+                // Get unique data
+                listOfOwnerLists.map { it.second }.flatten().toSet()
+            }
+            .map { (areaInfo, owners) ->
+                OwnerInfo(
+                    areaInfo = areaInfo,
+                    owners = owners,
+                    installedOwners = owners.filter {
+                        pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
+                    }.toSet(),
+                    hasUnknownOwner = false
+                )
+            }
+
+        // Multiple marker for the same path is possible, clean up dubs
+        val nestedCleaned = nestedUncleaned.toSet()
+        val duplicates = nestedUncleaned - nestedUncleaned.intersect(nestedCleaned)
+        if (duplicates.isNotEmpty()) log(TAG) { "Pruned duplicate entries: $duplicates" }
+
+        return topLevelContent.values.flatten() + nestedCleaned
+    }
+
+    private suspend fun determineNestedCandidates(area: DataArea, marker: Marker): Collection<AreaInfo> {
+        val cacheKey = CacheKey(
+            area = area,
+            path = marker.segments,
+            // If we have the same prefixFreeBasePath for two items one could be direct and one not.
+            direct = marker.isDirectMatch
+        )
+        val cachedData = markerThatExistCache[cacheKey]
+        if (cachedData != null) return cachedData
+
+        val candidateRaw = area.path.child(*marker.segments.toTypedArray())
+        if (!candidateRaw.exists(gatewaySwitch)) return emptyList()
+
+        // Sdcard names are case-insensitive, the marker name is fixed though..
+        // Actual name could be "MiBand" but by using the marker prefix we would end up with "miband"
+        val candidateResolved = (candidateRaw as? LocalPath)?.asFile()?.parentFile
+            ?.listFiles()
+            ?.singleOrNull { candidateRaw.path != it.path && candidateRaw.path.lowercase() == it.path.lowercase() }
+            ?.let {
+                log(TAG, WARN) { "Correcting casing on case-insensitive match: $it" }
+                it.toLocalPath()
+            }
+            ?: candidateRaw
+
+        val candidateExisting = mutableSetOf<APath>()
+
+        // We don't add the sdcard root as candidate.
+        if (marker.segments.isNotEmpty() && candidateResolved.canRead(gatewaySwitch)) {
+            candidateExisting.add(candidateResolved)
+        }
+        if (!marker.isDirectMatch) {
+            // <sdcard(level0|1)>/(level1|2)/(level2|3)/(level3|4)/corpse
+            val files = candidateResolved.walk(
+                gatewaySwitch,
+                filter = { item -> item.segments.size <= (4 + area.path.segments.size) }
+            )
+                .onEach { log(TAG, INFO) { "Walking: $it" } }
+                .toList()
+            candidateExisting.addAll(files.map { it.lookedUp })
+        }
+
+        return candidateExisting
+            .mapNotNull { fileForensics.identifyArea(it) }
+            .filter { it.type == DataArea.Type.SDCARD }
+            .also { markerThatExistCache[cacheKey] = it }
+    }
+
+    data class CacheKey(
+        val area: DataArea,
+        val path: List<String>,
+        val direct: Boolean
+    )
+
+    private suspend fun checkPotentialCorpses(potentialCorpses: Collection<OwnerInfo>): Collection<Corpse> {
         // Deep search each possible corpse
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
-        updateProgressCount(Progress.Count.Percent(0, potentialCorpses.size))
+        updateProgressCount(Progress.Count.Percent(potentialCorpses.size))
 
         val deadItems = mutableSetOf<OwnerInfo>()
         val aliveItems = mutableSetOf<OwnerInfo>()
@@ -87,14 +224,17 @@ class SdcardCorpseFilter @Inject constructor(
                     aliveItems.add(canidate)
                     log(TAG, VERBOSE) { "Alive item, owner installed (can block other corpses): ${canidate.item}" }
                 }
+
                 canidate.isKeeper && !includeRiskKeeper -> {
                     aliveItems.add(canidate)
                     log(TAG, VERBOSE) { "Alive: Excluded keepers (can block other corpses): ${canidate.item}" }
                 }
+
                 canidate.isCommon && !includeRiskCommon -> {
                     aliveItems.add(canidate)
                     log(TAG, VERBOSE) { "Alive: Excluded common items (can block other corpses): ${canidate.item}" }
                 }
+
                 canidate.isCorpse -> {
                     deadItems.add(canidate)
                     log(TAG, VERBOSE) { "Dead: Possible dead item (if not blocked): ${canidate.item}" }
@@ -104,7 +244,7 @@ class SdcardCorpseFilter @Inject constructor(
         }
 
         // Remove those that are blocked by a living item
-        updateProgressCount(Progress.Count.Percent(0, deadItems.size * 2))
+        updateProgressCount(Progress.Count.Percent(deadItems.size * 2))
         val itemBlockedIterator = deadItems.iterator()
         while (itemBlockedIterator.hasNext()) {
             val possibleCorpse = itemBlockedIterator.next()
@@ -139,7 +279,7 @@ class SdcardCorpseFilter @Inject constructor(
             deadItems.forEach { log(TAG) { "Final dead: ${it.item}" } }
         }
 
-        updateProgressCount(Progress.Count.Percent(0, deadItems.size))
+        updateProgressCount(Progress.Count.Percent(deadItems.size))
         return deadItems.map { ownerInfo ->
             val lookup = ownerInfo.item.lookup(gatewaySwitch)
             val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
@@ -162,108 +302,6 @@ class SdcardCorpseFilter @Inject constructor(
             corpse
         }
     }
-
-    private suspend fun findPotentialCorpses(): Collection<OwnerInfo> {
-        val clutterMarkerList = clutterRepo.getMarkerForLocation(DataArea.Type.SDCARD)
-
-        updateProgressCount(Progress.Count.Percent(0, clutterMarkerList.size))
-        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
-
-        val areas = areaManager.currentAreas().filter { it.type == DataArea.Type.SDCARD }
-
-        val uncleaned = clutterMarkerList
-            .asFlow()
-            .onEach { increaseProgress() }
-            .filter { it.isDirectMatch } // Can't reverse-match regex
-            .mapNotNull { marker ->
-                // Get files for this marker, based on it's basepath.
-                val existing = getMarkersThatExist(areas, marker)
-                if (existing.isEmpty()) return@mapNotNull null
-
-                log(TAG) { "Resolved $marker to existing $existing" }
-                marker to existing
-            }
-            .map { (marker, potentialCorpses) ->
-                // marker + List<AreaInfo> --> areaInfo + List<Owner>
-                potentialCorpses.mapNotNull { areaInfo ->
-                    val match = marker.match(areaInfo.type, areaInfo.prefixFreePath) ?: return@mapNotNull null
-                    areaInfo to match.packageNames.map { Owner(it, areaInfo.userHandle, match.flags) }
-                }
-            }
-            .toList()
-            .flatten()
-            .groupBy { it.first }
-            .mapValues { (areaInfo, listOfOwnerLists) ->
-                // Get unique data
-                listOfOwnerLists.map { it.second }.flatten().toSet()
-            }
-            .map { (areaInfo, owners) ->
-                OwnerInfo(
-                    areaInfo = areaInfo,
-                    owners = owners,
-                    installedOwners = owners.filter {
-                        pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
-                    }.toSet(),
-                    hasUnknownOwner = false
-                )
-            }
-
-
-        val cleaned = uncleaned.toSet()
-        val duplicates = uncleaned - uncleaned.intersect(cleaned)
-        if (duplicates.isNotEmpty()) {
-            log(TAG) { "Pruned duplicate entries: $duplicates" }
-        }
-        return cleaned
-    }
-
-    private suspend fun getMarkersThatExist(areas: Collection<DataArea>, marker: Marker): Collection<AreaInfo> {
-        // If we have the same prefixFreeBasePath for two items one could be direct and one not.
-        val cacheKey = CacheKey(marker.segments, marker.isDirectMatch)
-        val cachedData = fileCache[cacheKey]
-        if (cachedData != null) return cachedData
-
-        val candidatesThatExist = mutableSetOf<APath>()
-        areas
-            .map { it to it.path.child(*marker.segments.toTypedArray()) }
-            .filter { it.second.exists(gatewaySwitch) }
-            .map { (area, candidate) ->
-                // Sdcard names are case-insensitive, the marker name is fixed though..
-                // Actual name could be "MiBand" but by using the marker prefix we would end up with "miband"
-                val resolved = (candidate as? LocalPath)?.asFile()?.parentFile
-                    ?.listFiles()
-                    ?.singleOrNull { candidate.path != it.path && candidate.path.lowercase() == it.path.lowercase() }
-                    ?.let {
-                        log(TAG, WARN) { "Correcting casing on case-insensitive match: $it" }
-                        it.toLocalPath()
-                    }
-                    ?: candidate
-                area to resolved
-            }
-            .forEach { (area, candidate) ->
-                // We don't add the sdcard root as candidate.
-                if (marker.segments.isNotEmpty() && candidate.canRead(gatewaySwitch)) {
-                    candidatesThatExist.add(candidate)
-                }
-                if (!marker.isDirectMatch) {
-                    // <sdcard(level0|1)>/(level1|2)/(level2|3)/(level3|4)/corpse
-                    val files = candidate.walk(
-                        gatewaySwitch,
-                        filter = { item -> item.segments.size <= (4 + area.path.segments.size) }
-                    )
-                        .onEach { log(TAG, INFO) { "Walking: $it" } }
-                        .toList()
-                    candidatesThatExist.addAll(files.map { it.lookedUp })
-                }
-            }
-
-        return candidatesThatExist
-            .mapNotNull { fileForensics.identifyArea(it) }
-            .filter { it.type == DataArea.Type.SDCARD }
-            .also { fileCache[cacheKey] = it }
-    }
-
-    data class CacheKey(val path: List<String>, val direct: Boolean)
 
     @Reusable
     class Factory @Inject constructor(
