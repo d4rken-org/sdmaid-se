@@ -93,4 +93,53 @@ class APathLookupExtensionTest : BaseTest() {
         )
         setOf(lookup1, lookup1s, lookup2, lookup2s).filterDistinctRoots() shouldBe setOf(lookup1, lookup2)
     }
+
+    @Test fun `filterDistinctRoots operator - edge case`() {
+        /*
+        0 = {LocalPathLookup@31360} LocalPathLookup(lookedUp=LocalPath(/data/log/knoxsdk.log.0.lck), fileType=FILE, size=0, modifiedAt=2023-01-04T21:34:36Z, target=null)
+        1 = {LocalPathLookup@31361} LocalPathLookup(lookedUp=LocalPath(/data/log/knoxsdk.log.0), fileType=FILE, size=7920, modifiedAt=2023-06-27T05:53:04Z, target=null)
+        2 = {LocalPathLookup@31365} LocalPathLookup(lookedUp=LocalPath(/data/log/knoxsdk.log.0.1.lck), fileType=FILE, size=0, modifiedAt=2023-01-04T21:34:41Z, target=null)
+        3 = {LocalPathLookup@31366} LocalPathLookup(lookedUp=LocalPath(/data/log/knoxsdk.log.0.1), fileType=FILE, size=2660, modifiedAt=2023-06-27T05:53:09Z, target=null)
+         */
+        val lookup1: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("data", "log", "knoxsdk.log.0.lck"),
+            fileType = FileType.FILE,
+            size = 0,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+        val lookup2: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("data", "log", "knoxsdk.log.0"),
+            fileType = FileType.FILE,
+            size = 7920,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+        val lookup3: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("data", "log", "knoxsdk.log.0.1.lck"),
+            fileType = FileType.FILE,
+            size = 0,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+        val lookup4: APathLookup<*> = LocalPathLookup(
+            lookedUp = LocalPath.build("data", "log", "knoxsdk.log.0.1"),
+            fileType = FileType.FILE,
+            size = 2660,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        )
+
+        listOf(
+            lookup1,
+            lookup2,
+            lookup3,
+            lookup4
+        ).filterDistinctRoots() shouldBe setOf(
+            lookup1,
+            lookup2,
+            lookup3,
+            lookup4
+        )
+    }
 }

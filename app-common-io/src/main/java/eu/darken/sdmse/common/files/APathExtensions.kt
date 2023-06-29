@@ -264,7 +264,7 @@ fun APath.removePrefix(prefix: APath, overlap: Int = 0): Segments {
 fun Collection<APath>.filterDistinctRoots(): Set<APath> = this
     .sortedBy { it.segments.size }
     .fold<APath, Set<APath>>(emptySet()) { acc, path ->
-        if (acc.none { path.startsWith(it) }) {
+        if (acc.none { it.isAncestorOf(path) }) {
             acc + path
         } else {
             acc
