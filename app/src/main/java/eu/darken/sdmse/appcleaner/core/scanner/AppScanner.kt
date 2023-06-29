@@ -207,7 +207,7 @@ class AppScanner @Inject constructor(
 
         val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
-        updateProgressCount(Progress.Count.Percent(0, pkgsToCheck.size))
+        updateProgressCount(Progress.Count.Percent(pkgsToCheck.size))
 
         for (pkg in pkgsToCheck) {
             updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
@@ -392,7 +392,7 @@ class AppScanner @Inject constructor(
     ): Map<Installed.InstallId, Collection<FilterMatch>> {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
-        updateProgressCount(Progress.Count.Percent(0, searchPathsOfInterest.size))
+        updateProgressCount(Progress.Count.Percent(searchPathsOfInterest.size))
 
         val minCacheAgeMs = settings.minCacheAgeMs.value()
 

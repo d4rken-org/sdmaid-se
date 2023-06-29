@@ -18,6 +18,7 @@ interface Progress {
         val count: Count = Count.None(),
         val extra: Any? = null
     )
+
     interface Host {
         val progress: Flow<Data?>
     }
@@ -34,8 +35,8 @@ interface Progress {
         data class Percent(override val current: Long, override val max: Long) : Count {
 
             constructor(current: Int, max: Int) : this(current.toLong(), max.toLong())
-
-            constructor(current: Long) : this(current, 100)
+            constructor(max: Int) : this(0, max)
+            constructor(max: Long) : this(0, max)
 
             override fun displayValue(context: Context): String {
                 if (current == 0L && max == 0L) return "NaN"

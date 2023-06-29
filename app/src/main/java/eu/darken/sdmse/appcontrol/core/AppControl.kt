@@ -105,7 +105,7 @@ class AppControl @Inject constructor(
 
         val successful = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
-        updateProgressCount(Progress.Count.Percent(0, task.targets.size))
+        updateProgressCount(Progress.Count.Percent(task.targets.size))
 
         componentToggler.useRes {
             task.targets.forEach { targetId ->
@@ -157,7 +157,7 @@ class AppControl @Inject constructor(
 
     private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {
         log(TAG) { "performUninstall(): $task" }
-        updateProgressCount(Progress.Count.Percent(0, task.targets.size))
+        updateProgressCount(Progress.Count.Percent(task.targets.size))
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<Installed.InstallId>()

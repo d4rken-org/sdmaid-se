@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.core.filter
 
-import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -51,21 +50,18 @@ class AppLibCorpseFilter @Inject constructor(
             return emptySet()
         }
 
+        updateProgressPrimary(R.string.corpsefinder_filter_applib_label)
+
         val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
 
         return areaManager.currentAreas()
             .filter { it.type == DataArea.Type.APP_LIB }
             .map { area ->
-                updateProgressPrimary(
-                    { c: Context ->
-                        c.getString(
-                            eu.darken.sdmse.common.R.string.general_progress_processing_x,
-                            area.label
-                        )
-                    }.toCaString()
-                )
+                updateProgressSecondary {
+                    it.getString(eu.darken.sdmse.common.R.string.general_progress_processing_x, area.label.get(it))
+                }
+
                 log(TAG) { "Reading $area" }
-                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
                 val topLevelContents = area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
@@ -77,14 +73,13 @@ class AppLibCorpseFilter @Inject constructor(
                     }
 
                 log(TAG) { "Filtering $area" }
-                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_filtering)
                 doFilter(topLevelContents)
             }
             .flatten()
     }
 
     @Throws(IOException::class) private suspend fun doFilter(candidates: Collection<APath>): Collection<Corpse> {
-        updateProgressCount(Progress.Count.Percent(0, candidates.size))
+        updateProgressCount(Progress.Count.Percent(candidates.size))
 
         val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
