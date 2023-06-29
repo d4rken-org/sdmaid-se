@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Tot uw dienst.</string>
+    <string name="slogan_message_1">Schoon en netjes.</string>
     <string name="slogan_message_2">Chaos voorkomen.</string>
     <string name="slogan_message_3">Doen wat noodzakelijk is.</string>
     <string name="slogan_message_4">Al je eenden op een rij.</string>
@@ -17,6 +18,7 @@
     <string name="general_copy_action">Kopiëren</string>
     <string name="general_wipe_action">Vegen</string>
     <string name="general_cancel_action">Annuleren</string>
+    <string name="general_discard_action">Weggooien</string>
     <string name="general_reset_action">Resetten</string>
     <string name="general_save_action">Opslaan</string>
     <string name="general_thanks_action">Bedankt</string>
@@ -63,15 +65,27 @@
     <string name="general_result_success_message">Bewerking geslaagd</string>
     <string name="general_result_failure_message">Bewerking mislukt</string>
     <string name="general_result_x_space_freed">%s bevrijd</string>
+    <string name="general_options_label">Opties</string>
     <string name="general_details_label">Details</string>
     <string name="general_view_action">Weergave</string>
     <string name="general_update_action">Updaten</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_delete_action">Verwijderen</string>
+    <string name="general_delete_selected_action">Verwijder selectie</string>
     <string name="general_show_details_action">Toon details</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d geselecteerde items verwijderen?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">%1$d item verwijderd en %2$s vrijgegeven</item>
+        <item quantity="other">%1$d items verwijderd en %2$s vrijgegeven</item>
+    </plurals>
     <string name="general_remove_action">Verwijderen</string>
+    <string name="general_remove_selected_action">Selectie verwijderen</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Eén item is verwijderd</item>
+        <item quantity="other">%d items zijn verwijderd</item>
+    </plurals>
     <string name="general_root_required_label">Vereist root</string>
     <string name="general_root_required_message">Vereist een geroot apparaat</string>
     <string name="general_search_action">Zoeken</string>
@@ -89,10 +103,12 @@
     <string name="general_grant_access_action">Toegang verlenen</string>
     <string name="general_enable_service_action">Dienst inschakelen</string>
     <string name="general_undo_action">Ongedaan maken</string>
+    <string name="general_list_select_all_action">Selecteer alles</string>
     <string name="general_path_label">Pad</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Grootte</string>
     <string name="general_exclude_action">Uitsluiten</string>
+    <string name="general_exclude_selected_action">Geselecteerde uitsluiten</string>
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
     <string name="general_help_title">Help</string>
