@@ -110,7 +110,7 @@ class ClearCacheModule @AssistedInject constructor(
         val successful = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
 
-        updateProgressCount(Progress.Count.Percent(0, task.targets.size))
+        updateProgressCount(Progress.Count.Percent(task.targets.size))
 
         val currentUserHandle = userManager2.currentUser().handle
         for (target in task.targets) {

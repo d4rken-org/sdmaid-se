@@ -147,7 +147,7 @@ class StorageScanner @Inject constructor(
             .filter { it.packageName != "android" }
             .filter { it.packageInfo.applicationInfo != null }
 
-        updateProgressCount(Progress.Count.Percent(0, targetPkgs.size))
+        updateProgressCount(Progress.Count.Percent(targetPkgs.size))
 
         val pkgStats = targetPkgs
             .map {

@@ -54,6 +54,8 @@ class DalvikCorpseFilter @Inject constructor(
             return emptySet()
         }
 
+        updateProgressPrimary(R.string.corpsefinder_filter_dalvik_label)
+
         val includeRiskKeeper: Boolean = corpseFinderSettings.includeRiskKeeper.value()
         val includeRiskCommon: Boolean = corpseFinderSettings.includeRiskCommon.value()
 
@@ -64,18 +66,12 @@ class DalvikCorpseFilter @Inject constructor(
         val profileCorpses = areas
             .filter { it.type == DataArea.Type.DALVIK_PROFILE }
             .map { area ->
-                updateProgressPrimary(
-                    { c: Context ->
-                        c.getString(
-                            eu.darken.sdmse.common.R.string.general_progress_processing_x,
-                            area.label
-                        )
-                    }.toCaString()
-                )
-                log(TAG) { "Reading $area" }
-                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
+                updateProgressSecondary {
+                    it.getString(eu.darken.sdmse.common.R.string.general_progress_processing_x, area.label.get(it))
+                }
                 updateProgressCount(Progress.Count.Indeterminate())
 
+                log(TAG) { "Reading $area" }
                 area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
@@ -95,18 +91,12 @@ class DalvikCorpseFilter @Inject constructor(
         val dalvikCorpses = areas
             .filter { it.type == DataArea.Type.DALVIK_DEX }
             .map { area ->
-                updateProgressPrimary(
-                    { c: Context ->
-                        c.getString(
-                            eu.darken.sdmse.common.R.string.general_progress_processing_x,
-                            area.label
-                        )
-                    }.toCaString()
-                )
-                log(TAG) { "Reading $area" }
-                updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
+                updateProgressSecondary {
+                    it.getString(eu.darken.sdmse.common.R.string.general_progress_processing_x, area.label.get(it))
+                }
                 updateProgressCount(Progress.Count.Indeterminate())
 
+                log(TAG) { "Reading $area" }
                 area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
@@ -143,7 +133,7 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterDalvikProfiles(${profileItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Percent(current = 0, max = profileItems.size))
+        updateProgressCount(Progress.Count.Percent(profileItems.size))
 
         return profileItems
             .asFlow()
@@ -185,7 +175,7 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterOdex(${dalvikItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Percent(current = 0, max = dalvikItems.size))
+        updateProgressCount(Progress.Count.Percent(dalvikItems.size))
 
         return dalvikItems
             .asFlow()
