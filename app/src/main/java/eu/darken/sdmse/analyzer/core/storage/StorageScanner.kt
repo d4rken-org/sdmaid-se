@@ -254,7 +254,7 @@ class StorageScanner @Inject constructor(
             )
 
             else -> pkg
-                .getPrivateDataDirs(dataAreas, currentUser)
+                .getPrivateDataDirs(dataAreas)
                 .filter { it.exists(gatewaySwitch) }
                 .map { it.walkContentItem(gatewaySwitch) }
         }
