@@ -85,7 +85,10 @@ class SetupHealer @Inject constructor(
 
                 if (reloadDataAreas) dataAreaManager.reload()
             } finally {
-                internalState.value = internalState.value.copy(isWorking = false)
+                internalState.value = internalState.value.copy(
+                    healAttemptCount = internalState.value.healAttemptCount + 1,
+                    isWorking = false
+                )
             }
         }
             .catch { log(TAG, ERROR) { "Healing failed: ${it.asLog()}" } }
@@ -231,7 +234,8 @@ class SetupHealer @Inject constructor(
     }
 
     data class State(
-        val isWorking: Boolean = false
+        val healAttemptCount: Int = 0,
+        val isWorking: Boolean = false,
     )
 
     companion object {

@@ -18,10 +18,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.setup.SetupHealer
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
 
@@ -33,6 +38,7 @@ class SchedulerReceiver : BroadcastReceiver() {
     @Inject lateinit var schedulerSettings: SchedulerSettings
     @Inject lateinit var taskManager: TaskManager
     @Inject lateinit var powerManager: PowerManager
+    @Inject lateinit var setupHealer: SetupHealer
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
@@ -74,6 +80,14 @@ class SchedulerReceiver : BroadcastReceiver() {
                 tasks.add(AppCleanerSchedulerTask(schedule.id, useAutomation = useAutomation))
             }
 
+            delay(1000)
+            withTimeoutOrNull(2000) {
+                setupHealer.state
+                    .filter { it.healAttemptCount > 0 }
+                    .take(1)
+                    .first()
+            }
+
             tasks.forEach { task ->
                 appScope.launch {
                     try {
@@ -88,7 +102,7 @@ class SchedulerReceiver : BroadcastReceiver() {
         }
 
         appScope.launch {
-            delay(3000)
+            delay(5000)
             log(TAG) { "Finished processing schedule alarm" }
             asyncPi.finish()
         }
