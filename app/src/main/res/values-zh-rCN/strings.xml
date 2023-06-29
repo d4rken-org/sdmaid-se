@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">是否删除所有工具的结果？</string>
     <string name="dashboard_settings_category">控制面板</string>
+    <string name="dashboard_settings_oneclick_title">一键模式</string>
+    <string name="dashboard_settings_oneclick_summary">通过控制面板上的操作按钮轻松开始扫描和删除所有工具，无需额外确认。</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">压缩大小</string>
     <string name="debug_notification_channel_label">调试通知</string>
@@ -110,6 +112,7 @@
     <string name="setup_notification_body">允许 SD Maid 发布通知以告知您正在进行的操作或重要事件。</string>
     <string name="setup_notification_hint">我们不会滥用通知 🤞</string>
     <string name="setup_acs_card_title">无障碍服务</string>
+    <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
     <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。此过程可以随时取消，并且不会收集信息。</string>
     <string name="setup_acs_state_enabled">无障碍服务已启用</string>
     <string name="setup_acs_state_disabled">无障碍服务已禁用</string>
@@ -230,7 +233,9 @@
     <string name="appcleaner_tool_name">应用清理</string>
     <string name="appcleaner_explanation_short">某些应用的可删除数据。</string>
     <string name="appcleaner_filter_defaultcachespublic_label">公共默认缓存</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">默认公共应用程序缓存。在旧版本的 Android 系统中，可以在 Android/data 下访问。在系统设置中点击“清除缓存”即可删除。</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">私有默认缓存</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">默认私有应用程序缓存。在系统设置中点击“清除缓存”即可删除。</string>
     <string name="appcleaner_include_systemapps_label">包含系统应用</string>
     <string name="appcleaner_include_systemapps_summary">在扫描中包含系统应用。</string>
     <string name="appcleaner_include_runningapps_label">包含正在运行的应用</string>
@@ -250,6 +255,7 @@
     <string name="appcleaner_filter_bugreporting_label">Bug 反馈</string>
     <string name="appcleaner_filter_bugreporting_summary">与 Bug 反馈有关的数据，如错误日志或故障转储。</string>
     <string name="appcleaner_filter_analytics_label">分析</string>
+    <string name="appcleaner_filter_analytics_summary">分析相关数据，例如应用程序中缓存的您所轻敲的统计数据。</string>
     <string name="appcleaner_filter_hiddencaches_label">隐藏缓存</string>
     <string name="appcleaner_filter_hiddencaches_summary">储存在系统范围之外的通用缓存。</string>
     <string name="appcleaner_filter_thumbnails_label">媒体缩略图</string>
@@ -386,6 +392,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">已创建 %d 个排除项。</item>
     </plurals>
+    <string name="automation_accessibility_service_description">有特殊无障碍需求的用户可以启用此服务，SD Maid 可替您自动完成那些需要用户繁琐交互的任务（如清理缓存）。\n\n例如，如果您想批量停止应用，SD Maid 可以借助此服务打开每个应用的设置界面，自动找到“强制停止”按钮并点击。\n\nSD Maid 在运行此服务时会产生醒目提示，以便您随时取消任意操作。\n\n所有操作行为都需要用户事先批准才会实施。用户可以随时禁用此服务，且不会产生任何负面影响。</string>
     <string name="automation_screenoverlay_explanation">SD Maid 正在占用您的设备。此时无法使用屏幕，请等待操作完成或取消操作。</string>
     <string name="automation_active_title">SD Maid 正在运行</string>
     <string name="automation_error_no_consent_title">自动化错误</string>

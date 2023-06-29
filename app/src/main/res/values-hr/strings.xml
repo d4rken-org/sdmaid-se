@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Izbrisati rezultate u svim alatima?</string>
     <string name="dashboard_settings_category">Nadzorna ploča</string>
+    <string name="dashboard_settings_oneclick_title">Način rada jednim dodirom</string>
+    <string name="dashboard_settings_oneclick_summary">Započnite skeniranje i brisanje za sve alate dodirom akcijskog gumba na nadzornoj ploči, bez dodatnih potvrda.</string>
     <string name="debug_debuglog_size_label">Veličina</string>
     <string name="debug_debuglog_size_compressed_label">Sažeta veličina</string>
     <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
@@ -78,6 +80,7 @@
     <string name="setup_label">Postavljanje</string>
     <string name="setup_incomplete_card_title">Postavljanje nije dovršeno</string>
     <string name="setup_incomplete_card_body">Završite postavljanje SD Maida za bolje rezultate.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid pokušava riješiti probleme s postavkama.</string>
     <string name="setup_incomplete_card_dismiss_action">Odbaci</string>
     <string name="setup_incomplete_card_continue_action">Nastavi s postavljanjem</string>
     <string name="setup_title">Postavljanje</string>
@@ -95,6 +98,12 @@
     <string name="setup_root_enable_root_use_label">Koristi root pristup ako je dostupan</string>
     <string name="setup_root_disable_root_use_label">Ne koristi root pristup</string>
     <string name="setup_root_card_body2">Dostupno samo na rootanim uređajima. Ako niste izvršili ovu izmjenu, vaš uređaj nije rootan i ova postavka nema učinka.</string>
+    <string name="setup_shizuku_card_body">Dopustite SD Maidu da koristi Shizuku gdje je to moguće za poboljšanje rezultata i omogućavanje značajki.</string>
+    <string name="setup_shizuku_card_body2">Ova postavka nema učinka ako aplikacija Shizuku nije postavljena na vašem uređaju.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku veza je spremna.</string>
+    <string name="setup_shizuku_state_waiting_label">Čekanje veze sa Shizukuom.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Koristi Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Ne koristi Shizuku</string>
     <string name="setup_dismiss_hint">Zaslon za postavljanje možete ponovno pronaći putem izbornika postavki.</string>
     <string name="setup_permission_granted_label">Dopuštenje je odobreno</string>
     <string name="setup_usagestats_title">Statistika korištenja</string>
@@ -104,6 +113,7 @@
     <string name="setup_notification_body">Dopustite SD Maidu da postavlja obavijesti kako bi vas obavijestio o operacijama u tijeku ili važnim događajima.</string>
     <string name="setup_notification_hint">Obavijesti se štedljivo koriste 🤞</string>
     <string name="setup_acs_card_title">Usluga pristupačnosti</string>
+    <string name="setup_acs_card_body">Usluga pristupačnosti omogućuje SD Maidu interakciju s vašim zaslonom i automatiziranje zamornih radnji, npr. dodirom \"Izbriši predmemoriju\" na više ekrana.</string>
     <string name="setup_acs_card_body2">SD Maid neće koristiti uslugu pristupačnosti bez vašeg pristanka, uvijek će prikazati istaknuti (poništivi) indikator dok je aktivna i neće je koristiti za prikupljanje informacija.</string>
     <string name="setup_acs_state_enabled">Usluga pristupačnosti je omogućena</string>
     <string name="setup_acs_state_disabled">Usluga pristupačnosti je onemogućena</string>
@@ -229,7 +239,9 @@
     <string name="appcleaner_tool_name">Čistač aplikacija</string>
     <string name="appcleaner_explanation_short">Potrošni podaci koji pripadaju određenim aplikacijama.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Javne zadane predmemorije</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Zadane javne predmemorije aplikacija. Dostupno pod Android/Dana na starijim verzijama Androida. Izbrisano kada dodirnete \"Izbriši predmemoriju\" u postavkama sustava.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Privatne zadane predmemorije</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Zadane privatne predmemorije aplikacija. Izbrisano kada dodirnete \"Izbriši predmemoriju\" u postavkama sustava.</string>
     <string name="appcleaner_include_systemapps_label">Uključi aplikacije sustava</string>
     <string name="appcleaner_include_systemapps_summary">Uključuje aplikacije sustava u skeniranje.</string>
     <string name="appcleaner_include_runningapps_label">Uključi pokrenute aplikacije</string>
@@ -249,6 +261,7 @@
     <string name="appcleaner_filter_bugreporting_label">Prijava bugova</string>
     <string name="appcleaner_filter_bugreporting_summary">Podaci koji se odnose na prijavu pogrešaka, npr. zapisnici pogrešaka ili izvješća o rušenju.</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
+    <string name="appcleaner_filter_analytics_summary">Podaci povezani s analitikom, npr. predmemorirane statistike za ono što dodirnete u aplikaciji.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skrivene predmemorije</string>
     <string name="appcleaner_filter_hiddencaches_summary">Predmemorije opće namjene pohranjene izvan dosega sustava.</string>
     <string name="appcleaner_filter_thumbnails_label">Medijske sličice</string>
@@ -288,6 +301,7 @@
     <string name="appcleaner_junk_userprofile_label">Korisnik</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbrisati potrošne datoteke za %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Izbrisati potrošne datoteke za %d odabrane aplikacije?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje predmemorija pomoću Shizukua</string>
     <string name="appcontrol_tool_name">Kontrola aplikacija</string>
     <string name="appcontrol_explanation_short">Aplikacije instalirane na vašem uređaju.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -386,6 +400,7 @@
         <item quantity="few">Stvorena %d izuzetka</item>
         <item quantity="other">Stvoreno %d izuzetaka</item>
     </plurals>
+    <string name="automation_accessibility_service_description">Korisnici s posebnim potrebama pristupačnosti mogu omogućiti ovu uslugu kako bi SD Maidu omogućili automatizaciju zadataka koji bi inače zahtijevali zamornu ručnu korisničku interakciju (npr. brisanje predmemorije).\\n\\nPrimjer: ako SD Maidu naredite da zaustavi više aplikacija, SD Maid može koristiti ovu uslugu za otvaranje zaslona postavki svake aplikacije, pronalaženje gumba \'Prisilno zaustavi\' i na kraju ga aktivirati.\\n\\nSD Maid će se uvijek istaknuti kada koristite ovu uslugu i omogućiti korisniku jednostavan način da odmah otkaže bilo kakvu interakciju. \\n\\nNikakve radnje neće biti izvedene bez prethodnog odobrenja korisnika. Ova se usluga može ponovno onemogućiti u bilo kojem trenutku bez negativnih učinaka.</string>
     <string name="automation_screenoverlay_explanation">SD Maid je u interakciji s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Pričekajte dok operacija ne završi ili je otkažite.</string>
     <string name="automation_active_title">SD Maid radi</string>
     <string name="automation_error_no_consent_title">Greška automatizacije</string>

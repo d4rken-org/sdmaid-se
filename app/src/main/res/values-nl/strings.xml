@@ -2,11 +2,15 @@
 <resources>
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_settings_oneclick_title">Modus met één tik</string>
+    <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
     <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
+    <string name="debug_debuglog_recording_progress">Maak een foutopsporingslog</string>
     <string name="debug_debuglog_record_action">Sla het foutopsporingslogboek op</string>
+    <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
     <string name="settings_debuglog_explanation">Deze functie registreert alles wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die een probleem aan het oplossen is).</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
@@ -58,9 +62,10 @@
     <string name="ui_theme_light_label">Licht</string>
     <string name="ui_theme_system_label">Systeem</string>
     <string name="ui_theme_setting_explanation">Wijzig het huidige app-thema en overschrijf de systeeminstellingen.</string>
-    <string name="ui_previews_title">Bestandsvoorvertoningen</string>
+    <string name="ui_previews_title">Voorvertoningen van bestanden</string>
     <string name="ui_previews_summary">Toon bestandsvoorbeelden in alle tools (bijv. afbeeldings- en videominiaturen).</string>
     <string name="settings_support_label">Ondersteuning</string>
+    <string name="settings_support_description">Documentatie lezen, problemen melden, met anderen chatten of logboeken voor foutopsporing opnemen.</string>
     <string name="documentation_label">Documentatie</string>
     <string name="issue_tracker_description">Een openbare probleemtracker voor foutmeldingen en functie verzoeken.</string>
     <string name="issue_tracker_label">Probleemtracker</string>
@@ -75,6 +80,7 @@
     <string name="setup_label">Instelling</string>
     <string name="setup_incomplete_card_title">Installatie is onvolledig</string>
     <string name="setup_incomplete_card_body">Voltooi de installatie van SD Maid om betere resultaten te krijgen.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid probeert installatieproblemen op te lossen.</string>
     <string name="setup_incomplete_card_dismiss_action">Afwijzen</string>
     <string name="setup_incomplete_card_continue_action">Ga door met instellen</string>
     <string name="setup_title">Instelling</string>
@@ -92,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Gebruik root toegang indien beschikbaar</string>
     <string name="setup_root_disable_root_use_label">Gebruik geen root toegang</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Sta SD Maid toe om Shizuku waar mogelijk te gebruiken om de resultaten te verbeteren en functies in te schakelen.</string>
+    <string name="setup_shizuku_card_body2">Deze instelling heeft geen effect als de Shizuku-app niet is ingesteld op uw apparaat.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
+    <string name="setup_shizuku_state_waiting_label">Wachten op link met Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku gebruiken</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
     <string name="setup_permission_granted_label">Toestemming verleend</string>
     <string name="setup_usagestats_title">Gebruiksstatistieken</string>
@@ -101,6 +114,7 @@
     <string name="setup_notification_body">Sta SD Maid toe om meldingen te plaatsen om je te informeren over lopende operaties of belangrijke gebeurtenissen.</string>
     <string name="setup_notification_hint">Meldingen worden spaarzaam gebruikt 🤞</string>
     <string name="setup_acs_card_title">Toegankelijkheidsdienst</string>
+    <string name="setup_acs_card_body">Met de toegankelijkheidsservice kan SD Maid communiceren met je scherm en vervelende acties automatiseren, bijv. klikken op \"Cache wissen\" op meerdere schermen.</string>
     <string name="setup_acs_card_body2">SD Maid zal de toegankelijkheidsservice niet gebruiken zonder je toestemming, zal altijd een prominente (annuleerbare) indicator weergeven wanneer deze actief is en zal deze niet gebruiken om informatie te verzamelen.</string>
     <string name="setup_acs_state_enabled">Toegankelijkheidsservice is ingeschakeld</string>
     <string name="setup_acs_state_disabled">Toegankelijkheidsservice is uitgeschakeld</string>
@@ -136,6 +150,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatische verwijdering</string>
     <string name="corpsefinder_watcher_autodelete_summary">Verwijder automatisch eventuele overblijfselen van de verwijderde app.</string>
     <string name="corpsefinder_watcher_notification_scan_result">Er zijn nog %1$s gevonden na het verwijderen van %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d item verwijderd.</item>
+        <item quantity="other">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d items verwijderd.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Restanten verwijderen</string>
     <string name="corpsefinder_filter_publicmedia_label">Openbare media</string>
     <string name="corpsefinder_filter_publicmedia_summary">Openbare mediabestanden, bijv. bestanden ontvangen via messenger-apps.</string>
@@ -220,7 +238,9 @@
     <string name="appcleaner_tool_name">AppReiniger</string>
     <string name="appcleaner_explanation_short">Eenmalige gegevens van specifieke apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publieke standaard caches</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Standaard openbare app-caches. Toegankelijk onder Android/data op oudere Android-versies. Verwijderd door te klikken op \"Cache wissen\" in de systeeminstellingen.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Publieke standaard caches</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Standaard caches voor privé-apps. Verwijderd bij het tikken op \"Cache wissen\" in de systeeminstellingen.</string>
     <string name="appcleaner_include_systemapps_label">Inclusief systeem-apps</string>
     <string name="appcleaner_include_systemapps_summary">Systeemapps opnemen in de scan.</string>
     <string name="appcleaner_include_runningapps_label">Inclusief actieve apps</string>
@@ -240,6 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Foutrapportage</string>
     <string name="appcleaner_filter_bugreporting_summary">Foutrapportage gerelateerde gegevens, bijv. foutenlogboeken of crashdumps.</string>
     <string name="appcleaner_filter_analytics_label">Analyses</string>
+    <string name="appcleaner_filter_analytics_summary">Analytics-gerelateerde gegevens, bijv. in de cache opgeslagen statistieken voor waarop je in een app klikt.</string>
     <string name="appcleaner_filter_hiddencaches_label">Verborgen caches</string>
     <string name="appcleaner_filter_hiddencaches_summary">Caches voor algemene doeleinden die buiten het bereik van het systeem zijn opgeslagen.</string>
     <string name="appcleaner_filter_thumbnails_label">Media miniaturen</string>
@@ -266,6 +287,7 @@
     <string name="appcleaner_filter_wechat_summary">Verzonden of ontvangen bestanden in gesprekken en WeChat-momenten.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediabestanden in de cache die opnieuw worden gedownload wanneer ze in de chat worden bekeken.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Verbruiksartikelen voor alle apps verwijderen?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
         <item quantity="other">%d vervangbare items gevonden</item>
@@ -278,12 +300,16 @@
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
     <string name="appcleaner_automation_unavailable_body">Voor het verwijderen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid vereist, maar deze was niet beschikbaar. Als je er geen gebruik van wilt maken: Schakel de optie \"Inclusief ontoegankelijke caches\" uit.</string>
     <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
+    <string name="appcleaner_delete_confirmation_message_x">Verwijderbare bestanden voor %s verwijderen?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Verwijderbare bestanden voor %d geselecteerde apps verwijderen?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Cachegeheugens verwijderen met Shizuku</string>
     <string name="appcontrol_tool_name">AppControle</string>
     <string name="appcontrol_explanation_short">Apps die op je apparaat zijn geïnstalleerd.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d app gedetecteerd</item>
         <item quantity="other">%d apps gedetecteerd</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Schakel tussen apps</string>
     <string name="appcontrol_toggle_app_enable_action">App inschakelen</string>
     <string name="appcontrol_toggle_app_disable_action">App uitschakelen</string>
     <string name="appcontrol_toggle_app_enable_description">Als je een app inschakelt, kan deze worden uitgevoerd en kan deze zichtbaar worden in je opstartprogramma als er activiteit is.</string>
@@ -328,12 +354,14 @@
     <string name="analyzer_storage_type_secondary_description">Een secundaire opslag, meestal een verwijderbare sdcard. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
+    <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. installatiebestanden, gegevens en caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Machtigingen ontbreken</string>
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeemgegevens en systeem apps.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
+    <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
     <string name="analyzer_storage_content_app_data_description">Data, instellingen en caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>
@@ -352,9 +380,27 @@
     <string name="exclusion_explanation_body1">Sluit bestanden en apps uit van SD Maid\'s activiteiten.</string>
     <string name="exclusion_add_new_hint">Voeg nieuwe uitsluitingen toe door SD Maid eerst te laten zoeken en vervolgens het contextmenu te gebruiken op het resultaat dat je wilt uitsluiten.</string>
     <string name="exclusion_create_action">Creëer uitsluiting</string>
+    <string name="exclusion_edit_action">Uitsluiting bewerken</string>
     <string name="exclusion_type_package">App-uitsluiting</string>
     <string name="exclusion_type_path">Pad uitsluiting</string>
+    <string name="exclusion_type_segment">Segmentuitsluiting</string>
     <string name="exclusion_tags_alltools">Alle hulpmiddelen</string>
+    <string name="exclusion_target_label">Uitsluitingsdoel</string>
+    <string name="exclusion_option_allow_partial">Gedeeltelijke overeenkomsten toestaan</string>
+    <string name="exclusion_option_ignore_casing">Hoofd-/kleine letters negeren</string>
+    <string name="exclusion_editor_affected_tools_label">Betrokken gereedschap</string>
+    <string name="exclusion_editor_path_explanation">Een paduitsluiting verhindert dat SD Maid alle overeenkomende paden verder verwerkt. Dit geldt voor bestanden, mappen en submappen.</string>
+    <string name="exclusion_editor_pkg_explanation">Een app-uitsluiting voorkomt dat SD Maid overeenkomende pakketten verwerkt.</string>
+    <string name="exclusion_editor_segment_explanation">Een op segmenten gebaseerde uitsluiting is vergelijkbaar met een paduitsluiting, maar staat gedeeltelijke overeenkomsten toe. Voorbeeld: \"DCIM/Camera\" sluit \"/sdcard/DCIM/Camera/photo.png\" uit.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Deze uitsluiting verwijderen?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Je hebt niet-opgeslagen wijzigingen!</string>
+    <string name="exclusion_create_pkg_hint">Gebruik de AppControl-tool om app-uitsluitingen te maken.</string>
+    <string name="exclusion_create_path_hint">Gebruik het hulpprogramma StorageAnalyzer om paduitsluitingen te maken.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Eén uitsluiting is gemaakt</item>
+        <item quantity="other">%d uitsluitingen gemaakt</item>
+    </plurals>
+    <string name="automation_accessibility_service_description">Gebruikers met speciale toegankelijkheidsbehoeften kunnen deze service inschakelen om SD Maid in staat te stellen taken te automatiseren waarvoor anders een vervelende handmatige gebruikersinteractie nodig zou zijn (bijv. het verwijderen van de cache).\n\nVoorbeeld: Als je SD Maid instrueert om meerdere apps te stoppen, dan kan SD Maid deze service gebruiken om elk app-instellingenscherm te openen, de knop \'Forceer Stop\' te vinden en erop te klikken.\n\nSD Maid wordt altijd prominent weergegeven wanneer deze service wordt gebruikt en biedt de gebruiker een gemakkelijke manier om elke interactie onmiddellijk te annuleren.\n\nNee acties worden uitgevoerd zonder voorafgaande toestemming van de gebruiker. Deze service kan op elk moment weer worden uitgeschakeld zonder nadelige gevolgen.</string>
     <string name="automation_screenoverlay_explanation">SD Maid communiceert met je apparaat. Het is niet mogelijk om tegelijkertijd het scherm te gebruiken. Wacht tot de bewerking voltooid is of annuleer deze.</string>
     <string name="automation_active_title">SD Maid is aan het werk</string>
     <string name="automation_error_no_consent_title">Automatiseringsfout</string>
