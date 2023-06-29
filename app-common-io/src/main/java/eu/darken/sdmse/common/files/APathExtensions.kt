@@ -180,10 +180,6 @@ suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>,
     return gateway.listFiles(this)
 }
 
-suspend fun <T : APath> T.listFilesOrNull(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Collection<T>? {
-    return if (exists(gateway)) gateway.listFiles(this) else null
-}
-
 suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
     return gateway.canRead(this)
 }
