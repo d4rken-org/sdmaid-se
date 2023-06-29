@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.common.SystemSettingsProvider
+import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -46,6 +47,7 @@ class SetupHealer @Inject constructor(
     private val usageStatsSetupModule: UsageStatsSetupModule,
     private val notificationSetupModule: NotificationSetupModule,
     private val storageSetupModule: StorageSetupModule,
+    private val dataAreaManager: DataAreaManager,
 ) {
 
     private val internalState = MutableStateFlow(State())
@@ -71,11 +73,17 @@ class SetupHealer @Inject constructor(
                 internalState.value = internalState.value.copy(isWorking = true)
             }
 
+            var reloadDataAreas = false
             try {
                 if (acsState.tryHeal()) automationSetupModule.refresh()
                 if (usageState.tryHeal()) usageStatsSetupModule.refresh()
                 if (notifState.tryHeal()) notificationSetupModule.refresh()
-                if (storageState.tryHeal()) storageSetupModule.refresh()
+                if (storageState.tryHeal()) {
+                    storageSetupModule.refresh()
+                    reloadDataAreas = true
+                }
+
+                if (reloadDataAreas) dataAreaManager.reload()
             } finally {
                 internalState.value = internalState.value.copy(isWorking = false)
             }
