@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -144,7 +145,15 @@ class DebugCardProvider @Inject constructor(
                 vm.launch {
                     shizukuClient.useRes {
                         val base = it.ipc.pkgOps.forceStop("com.android.vending")
-                        log(TAG) { "###BASE: $base" }
+                        log(TAG) { "###BASE Shizuku: $base" }
+                        delay(10 * 60 * 1000L)
+                    }
+                }
+                vm.launch {
+                    rootClient.useRes {
+                        val base = it.ipc.pkgOps.forceStop("com.android.vending")
+                        log(TAG) { "###BASE Root: $base" }
+                        delay(10 * 60 * 1000L)
                     }
                 }
             }

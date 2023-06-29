@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.annotation.Keep
 import dagger.Lazy
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.FileLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
@@ -18,6 +19,7 @@ import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.SharedShell
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import java.io.File
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
@@ -52,18 +54,29 @@ class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRo
         )
         log(iTag) { "IPC created: $ipc" }
 
+        var currentFileLogger: FileLogger? = null
+
         ipc.hostOptions
             .onEach { options ->
-                when {
-                    options.isDebug && Logging.loggers.none { it == logCatLogger } -> {
-                        Logging.install(logCatLogger)
-                        log(TAG) { "Logger installed!" }
-                    }
+                if (options.isDebug && Logging.loggers.none { it == logCatLogger }) {
+                    Logging.install(logCatLogger)
+                    log(TAG) { "Logger installed!" }
+                } else if (!options.isDebug) {
+                    log(TAG) { "Logger will be removed now!" }
+                    Logging.remove(logCatLogger)
+                }
 
-                    !options.isDebug -> {
-                        log(TAG) { "Logger will be removed now!" }
-                        Logging.remove(logCatLogger)
+                if (options.recorderPath != null && currentFileLogger == null) {
+                    val logger = FileLogger(File(options.recorderPath + "_root")).also {
+                        currentFileLogger = it
+                        it.start()
                     }
+                    Logging.install(logger)
+                    log(TAG) { "FileLogger installed" }
+                } else if (options.recorderPath == null && currentFileLogger != null) {
+                    log(TAG) { "Removing FileLogger: $currentFileLogger" }
+                    currentFileLogger?.let { Logging.remove(it) }
+                    currentFileLogger = null
                 }
 
                 Bugs.isDebug = options.isDebug

@@ -37,7 +37,7 @@ class RecorderActivity : Activity2() {
             ui.loadingIndicator.isInvisible = !state.loading
             ui.shareAction.isInvisible = state.loading
 
-            ui.recordingPath.text = state.normalPath
+            ui.recordingPath.text = state.normalPath?.path
 
             if (state.normalSize != -1L) {
                 ui.recordingSize.text = Formatter.formatShortFileSize(this, state.normalSize)

@@ -48,8 +48,16 @@ class RootServiceClient @Inject constructor(
         log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
 
+        val options = RootHostOptions(
+            isDebug = debugSettings.isDebugMode.value(),
+            isTrace = debugSettings.isTraceMode.value(),
+            isDryRun = debugSettings.isDryRunMode.value(),
+            recorderPath = debugSettings.recorderPath.value(),
+        )
+
         var lastInternal: RootConnection? = null
-        rootHostLauncher.createHostConnection()
+        rootHostLauncher
+            .createHostConnection(options = options)
             .onEach { wrapper ->
                 lastInternal = wrapper.host
                 send(wrapper.service)
@@ -60,14 +68,16 @@ class RootServiceClient @Inject constructor(
             debugSettings.isDebugMode.flow,
             debugSettings.isTraceMode.flow,
             debugSettings.isDryRunMode.flow,
-        ) { isDebug, isTrace, isDryRun ->
+            debugSettings.recorderPath.flow
+        ) { isDebug, isTrace, isDryRun, recorderPath ->
             lastInternal?.let {
-                log(TAG) { "Updating debug settings: isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
                 val options = RootHostOptions(
                     isDebug = isDebug,
                     isTrace = isTrace,
                     isDryRun = isDryRun,
+                    recorderPath = recorderPath,
                 )
+                log(TAG) { "Updating debug settings: $options" }
                 it.updateHostOptions(options)
             }
         }.launchIn(this)
@@ -111,14 +121,14 @@ class RootServiceClient @Inject constructor(
              * Not needed unless [DataAreaManager] fails to get the altered paths or the rest of IO can't cope.
              * Being able to work without mount-master is more reliable.
              */
-            useMountMaster: Boolean = false
+            useMountMaster: Boolean = false,
+            options: RootHostOptions,
         ) = this
             .createConnection(
                 serviceClass = RootServiceConnection::class,
                 hostClass = RootHost::class,
-                enableDebug = Bugs.isDebug,
-                enableTrace = Bugs.isTrace,
                 useMountMaster = useMountMaster,
+                options = options,
             )
             .onStart { log(TAG) { "Initiating connection to host." } }
             .onEach { log(TAG) { "Connection available: $it" } }

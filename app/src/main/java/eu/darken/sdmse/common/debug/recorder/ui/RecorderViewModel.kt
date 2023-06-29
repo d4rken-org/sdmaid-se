@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
+import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.flow.onError
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -41,17 +42,44 @@ class RecorderViewModel @Inject constructor(
 
     private val recordedPath = handle.get<String>(RecorderActivity.RECORD_PATH)!!
     private val pathCache = MutableStateFlow(recordedPath)
-    private val resultCacheObs = pathCache
-        .map { path -> Pair(path, File(path).length()) }
-        .catch { log(TAG, ERROR) { "Failed to get normal log size: ${it.asLog()}" } }
+
+    data class LogData(
+        val file: File,
+        val size: Long,
+    )
+
+    private val logObsDefault = pathCache
+        .map { File(it) }
+        .map { LogData(it, it.length()) }
+        .catch { log(TAG, ERROR) { "Failed to get default log size: ${it.asLog()}" } }
         .replayingShare(vmScope)
 
-    private val resultCacheCompressedObs = resultCacheObs
-        .map { uncompressed ->
-            val zipped = "${uncompressed.first}.zip"
-            Zipper().zip(arrayOf(uncompressed.first), zipped)
-            Pair(zipped, File(zipped).length())
-        }
+    private val logObsShizuku = pathCache
+        .map { File(it + "_shizuku") }
+        .map { if (it.exists()) LogData(it, it.length()) else null }
+        .catch { log(TAG, ERROR) { "Failed to get Shizuku log size: ${it.asLog()}" } }
+        .replayingShare(vmScope)
+
+    private val logObsRoot = pathCache
+        .map { File(it + "_root") }
+        .map { if (it.exists()) LogData(it, it.length()) else null }
+        .catch { log(TAG, ERROR) { "Failed to get root log size: ${it.asLog()}" } }
+        .replayingShare(vmScope)
+
+    private val resultCacheCompressedObs = combine(
+        logObsDefault,
+        logObsShizuku,
+        logObsRoot,
+    ) { default, shizuku, root ->
+        val zipContent = listOfNotNull(
+            default.file.path,
+            shizuku?.file?.path,
+            root?.file?.path
+        )
+        val zipFile = File("${default.file.path}.zip")
+        Zipper().zip(zipContent, zipFile.path)
+        zipFile to zipFile.length()
+    }
         .catch { log(TAG, ERROR) { "Failed to compress log: ${it.asLog()}" } }
         .replayingShare(vmScope + dispatcherProvider.IO)
 
@@ -61,7 +89,7 @@ class RecorderViewModel @Inject constructor(
     val shareEvent = SingleLiveEvent<Intent>()
 
     init {
-        resultCacheObs
+        logObsDefault
             .onEach { (path, size) ->
                 stater.updateBlocking { copy(normalPath = path, normalSize = size) }
             }
@@ -83,13 +111,13 @@ class RecorderViewModel @Inject constructor(
     }
 
     fun share() = launch {
-        val (path, size) = resultCacheCompressedObs.first()
+        val (file, size) = resultCacheCompressedObs.first()
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             val uri = FileProvider.getUriForFile(
                 context,
                 BuildConfigWrap.APPLICATION_ID + ".provider",
-                File(path)
+                file
             )
 
             putExtra(Intent.EXTRA_STREAM, uri)
@@ -116,9 +144,9 @@ class RecorderViewModel @Inject constructor(
     }
 
     data class State(
-        val normalPath: String? = null,
+        val normalPath: File? = null,
         val normalSize: Long = -1L,
-        val compressedPath: String? = null,
+        val compressedPath: File? = null,
         val compressedSize: Long = -1L,
         val loading: Boolean = true
     )
