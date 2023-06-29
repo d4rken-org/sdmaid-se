@@ -6,6 +6,7 @@ import androidx.annotation.Keep
 import dagger.Lazy
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.FileLogger
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -21,6 +22,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
+import java.io.File
 import javax.inject.Inject
 
 @Keep
@@ -57,18 +59,29 @@ class ShizukuHost(
 
         keepAliveToken = sharedResource.get()
 
+        var currentFileLogger: FileLogger? = null
+
         currentOptions
             .onEach { options ->
-                when {
-                    options.isDebug && Logging.loggers.none { it == logCatLogger } -> {
-                        Logging.install(logCatLogger)
-                        log(TAG) { "Logger installed!" }
-                    }
+                if (options.isDebug && Logging.loggers.none { it == logCatLogger }) {
+                    Logging.install(logCatLogger)
+                    log(TAG) { "Logger installed!" }
+                } else if (!options.isDebug) {
+                    log(TAG) { "Logger will be removed now!" }
+                    Logging.remove(logCatLogger)
+                }
 
-                    !options.isDebug -> {
-                        log(TAG) { "Logger will be removed now!" }
-                        Logging.remove(logCatLogger)
+                if (options.recorderPath != null && currentFileLogger == null) {
+                    val logger = FileLogger(File(options.recorderPath + "_shizuku")).also {
+                        currentFileLogger = it
+                        it.start()
                     }
+                    Logging.install(logger)
+                    log(TAG) { "FileLogger installed" }
+                } else if (options.recorderPath == null && currentFileLogger != null) {
+                    log(TAG) { "Removing FileLogger: $currentFileLogger" }
+                    currentFileLogger?.let { Logging.remove(it) }
+                    currentFileLogger = null
                 }
 
                 Bugs.isDebug = options.isDebug

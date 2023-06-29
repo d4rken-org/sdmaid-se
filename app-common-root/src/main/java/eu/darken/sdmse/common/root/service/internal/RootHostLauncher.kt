@@ -36,12 +36,10 @@ class RootHostLauncher @Inject constructor(
     fun <Service : IInterface, Host : BaseRootHost> createConnection(
         serviceClass: KClass<Service>,
         hostClass: KClass<Host>,
-        enableDebug: Boolean = false,
-        enableTrace: Boolean = false,
-        enableDryRun: Boolean = false,
         useMountMaster: Boolean = false,
+        options: RootHostOptions,
     ): Flow<ConnectionWrapper<Service>> = callbackFlow {
-        log(TAG) { "createConnection($serviceClass,$hostClass,$enableDebug,$useMountMaster)" }
+        log(TAG) { "createConnection($serviceClass, $hostClass, $useMountMaster, $options)" }
         log(TAG, INFO) { "Initiating connection to host($hostClass) via binder($serviceClass)" }
 
         val rootSession = try {
@@ -88,10 +86,11 @@ class RootHostLauncher @Inject constructor(
             val initArgs = RootHostInitArgs(
                 pairingCode = pairingCode,
                 packageName = context.packageName,
-                isDebug = enableDebug,
-                isTrace = enableTrace,
-                isDryRun = enableDryRun,
-                waitForDebugger = enableTrace && Debug.isDebuggerConnected()
+                waitForDebugger = options.isTrace && Debug.isDebuggerConnected(),
+                isDebug = options.isDebug,
+                isTrace = options.isTrace,
+                isDryRun = options.isDryRun,
+                recorderPath = options.recorderPath
             )
 
             try {

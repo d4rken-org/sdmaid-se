@@ -14,7 +14,7 @@ import java.util.zip.ZipOutputStream
 class Zipper {
 
     @Throws(Exception::class)
-    fun zip(files: Array<String>, zipFile: String) {
+    fun zip(files: List<String>, zipFile: String) {
 
         var origin: BufferedInputStream?
         val out = ZipOutputStream(BufferedOutputStream(FileOutputStream(zipFile)))

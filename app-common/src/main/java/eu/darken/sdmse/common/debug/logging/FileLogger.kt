@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.debug.logging
 
 import android.annotation.SuppressLint
 import android.util.Log
+import eu.darken.sdmse.common.debug.Bugs
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -27,11 +28,12 @@ class FileLogger(private val logFile: File) : Logging.Logger {
 
         try {
             logWriter = OutputStreamWriter(FileOutputStream(logFile, true))
-            logWriter!!.write("=== BEGIN ===\n")
+            logWriter!!.write("=== BEGIN ${Bugs.processTag} ===\n")
             logWriter!!.write("Logfile: $logFile\n")
             logWriter!!.flush()
             Log.i(TAG, "File logger started.")
         } catch (e: IOException) {
+            Log.e(TAG, "Log writer failed to start", e)
             e.printStackTrace()
 
             logFile.delete()

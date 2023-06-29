@@ -6,7 +6,6 @@ import android.os.Debug
 import android.os.Looper
 import android.util.Base64
 import android.util.Log
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -40,10 +39,6 @@ abstract class BaseRootHost(
         Log.d(iTag, "start(): unmarshalling $optionsBase64")
         initOptions = Base64.decode(optionsBase64, 0).unmarshall()
         Log.d(iTag, "start(): options=$initOptions")
-
-        Bugs.isDebug = initOptions.isDebug
-        Bugs.isTrace = initOptions.isTrace
-        Bugs.isDryRun = initOptions.isDryRun
 
         if (initOptions.isDebug) {
             Logging.install(logCatLogger)

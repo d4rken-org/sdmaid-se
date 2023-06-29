@@ -26,9 +26,7 @@ class ShizukuHostLauncher @Inject constructor() {
     fun <Service : IInterface, Host : ShizukuConnection> createConnection(
         serviceClass: KClass<Service>,
         hostClass: KClass<Host>,
-        enableDebug: Boolean = BuildConfigWrap.DEBUG,
-        enableTrace: Boolean = false,
-        enableDryRun: Boolean = false,
+        options: ShizukuHostOptions,
     ): Flow<ConnectionWrapper<Service, Host>> = callbackFlow {
         if (Shizuku.getVersion() < 10) throw IllegalStateException("Shizuku API10+ required")
 
@@ -40,7 +38,7 @@ class ShizukuHostLauncher @Inject constructor() {
         ).apply {
             daemon(false)
             processNameSuffix(logTag("Shizuku"))
-            debuggable(enableDebug)
+            debuggable(options.isDebug)
             version(BuildConfigWrap.VERSION_CODE.toInt())
         }
 
@@ -57,13 +55,8 @@ class ShizukuHostLauncher @Inject constructor() {
                     ?: throw ShizukuException("Failed to get base connection")
 
                 // Initial options, Shizuku has no init arguments through which these can be supplied earlier
-                val newOptions = ShizukuHostOptions(
-                    isDebug = enableDebug,
-                    isTrace = enableTrace,
-                    isDryRun = enableDryRun,
-                )
-                log(TAG) { "Updating host options to $newOptions" }
-                baseConnection.updateHostOptions(newOptions)
+                log(TAG) { "Updating host options to $options" }
+                baseConnection.updateHostOptions(options)
 
                 val userConnection = baseConnection.userConnection.getInterface(serviceClass)
                     ?: throw ShizukuException("Failed to get user connection")

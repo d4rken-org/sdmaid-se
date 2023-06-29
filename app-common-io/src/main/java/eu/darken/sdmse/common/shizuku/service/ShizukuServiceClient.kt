@@ -50,8 +50,16 @@ class ShizukuServiceClient @Inject constructor(
 
         if (shizukuSettings.isEnabled.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
 
+        val options = ShizukuHostOptions(
+            isDebug = debugSettings.isDebugMode.value(),
+            isTrace = debugSettings.isTraceMode.value(),
+            isDryRun = debugSettings.isDryRunMode.value(),
+            recorderPath = debugSettings.recorderPath.value(),
+        )
+
         var lastInternal: ShizukuConnection? = null
-        serviceLauncher.createServiceHostConnection()
+        serviceLauncher
+            .createServiceHostConnection(options)
             .onEach { wrapper ->
                 lastInternal = wrapper.host
                 send(wrapper.service)
@@ -62,14 +70,16 @@ class ShizukuServiceClient @Inject constructor(
             debugSettings.isDebugMode.flow,
             debugSettings.isTraceMode.flow,
             debugSettings.isDryRunMode.flow,
-        ) { isDebug, isTrace, isDryRun ->
+            debugSettings.recorderPath.flow,
+        ) { isDebug, isTrace, isDryRun, recorderPath ->
             lastInternal?.let {
-                log(TAG) { "Updating debug settings: isDebug=$isDebug, isTrace=$isTrace, isDryRun=$isDryRun" }
                 val options = ShizukuHostOptions(
                     isDebug = isDebug,
                     isTrace = isTrace,
                     isDryRun = isDryRun,
+                    recorderPath = recorderPath,
                 )
+                log(TAG) { "Updating debug settings: $options" }
                 it.updateHostOptions(options)
             }
         }.launchIn(this)
@@ -105,12 +115,13 @@ class ShizukuServiceClient @Inject constructor(
 
     companion object {
 
-        fun ShizukuHostLauncher.createServiceHostConnection() = this
+        fun ShizukuHostLauncher.createServiceHostConnection(
+            options: ShizukuHostOptions,
+        ) = this
             .createConnection(
                 serviceClass = ShizukuServiceConnection::class,
                 hostClass = ShizukuHost::class,
-                enableDebug = Bugs.isDebug,
-                enableTrace = Bugs.isTrace,
+                options = options,
             )
             .onStart { log(TAG) { "Initiating connection to host." } }
             .onEach { log(TAG) { "Connection available: $it" } }
