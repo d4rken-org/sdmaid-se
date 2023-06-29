@@ -120,11 +120,9 @@ class AppJunkDeleter @Inject constructor(
             .filterDistinctRoots()
             .forEach { targetFile ->
                 log(TAG) { "Deleting $targetFile..." }
+                updateProgressSecondary(targetFile.userReadablePath)
                 try {
-                    targetFile.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
-                    }
+                    targetFile.deleteAll(gatewaySwitch)
                     log(TAG) { "Deleted $targetFile!" }
                     deleted.add(targetFile)
                 } catch (e: WriteException) {

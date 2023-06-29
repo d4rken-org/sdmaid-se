@@ -155,7 +155,6 @@ class Analyzer @Inject constructor(
             .forEach { target ->
                 log(TAG) { "Deleting $target" }
                 updateProgressSecondary(target.userReadablePath)
-
                 target.deleteAll(gatewaySwitch)
             }
 

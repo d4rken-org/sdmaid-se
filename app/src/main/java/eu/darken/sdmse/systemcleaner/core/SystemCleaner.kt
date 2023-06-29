@@ -131,12 +131,9 @@ class SystemCleaner @Inject constructor(
                 .filterDistinctRoots()
                 .forEach { targetContent ->
                     log(TAG) { "Deleting $targetContent..." }
-
+                    updateProgressSecondary(targetContent.userReadablePath)
                     try {
-                        targetContent.deleteAll(gatewaySwitch) {
-                            updateProgressSecondary(it.userReadablePath)
-                            true
-                        }
+                        targetContent.deleteAll(gatewaySwitch)
                         log(TAG) { "Deleted $targetContent!" }
                         deleted.add(targetContent)
                     } catch (e: WriteException) {

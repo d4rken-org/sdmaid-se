@@ -245,13 +245,10 @@ class CorpseFinder @Inject constructor(
                     )
                 })
                 log(TAG) { "Deleting $targetCorpse..." }
+                updateProgressSecondary(corpse.lookup.userReadablePath)
                 try {
-                    corpse.lookup.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
-                    }
+                    corpse.lookup.deleteAll(gatewaySwitch)
                     log(TAG) { "Deleted $targetCorpse!" }
-
                     deletedCorpses.add(corpse)
                 } catch (e: WriteException) {
                     log(TAG, WARN) { "Deletion failed for $targetCorpse: $e" }
