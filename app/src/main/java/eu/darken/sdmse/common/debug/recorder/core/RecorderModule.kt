@@ -137,6 +137,7 @@ class RecorderModule @Inject constructor(
 
     private suspend fun logInfos() {
         val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)!!
+        log(TAG, INFO) { "APILEVEL: ${BuildWrap.VERSION.SDK_INT}" }
         log(TAG, INFO) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
         val versionInfo = "${pkgInfo.versionName} (${pkgInfo.versionCode})"
         log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
