@@ -10,58 +10,45 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
-import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.PathMapper
+import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
 class PublicObbModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
+    private val shizukuManager: ShizukuManager,
+    private val rootManager: RootManager,
 ) : DataAreaModule {
 
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val sdcardAreas = firstPass.filter { it.type == DataArea.Type.SDCARD }
 
-        val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
-
         val areas = sdcardAreas
             .mapNotNull { parentArea ->
-                val accessPath: APath? = when {
-                    hasApiLevel(33) -> {
-                        when {
-                            localGateway.hasRoot() -> {
-                                when (val target = parentArea.path) {
-                                    is LocalPath -> target
-                                    is SAFPath -> pathMapper.toLocalPath(target)
-                                    else -> null
-                                }
-                            }
-                            else -> {
-                                log(TAG, INFO) { "Skipping Android/data (API33 and no root): $parentArea" }
-                                null
-                            }
-                        }
-                    }
-                    hasApiLevel(30) -> {
-                        when (val target = parentArea.path) {
-                            is LocalPath -> pathMapper.toSAFPath(target)
-                            is SAFPath -> target
-                            else -> null
-                        }
-                    }
-                    else -> parentArea.path
+                val accessPath = try {
+                    parentArea.determineAndroidObb()
+                } catch (e: IOException) {
+                    log(TAG, WARN) { "Failed to determine accessPath for $parentArea: ${e.asLog()}" }
+                    null
                 }
-                val dataAccessPath = accessPath?.child("Android", "obb") ?: return@mapNotNull null
-                parentArea to dataAccessPath
+
+                accessPath?.let { parentArea to it }
             }
             .filter {
                 val canRead = it.second.canRead(gatewaySwitch)
@@ -80,6 +67,49 @@ class PublicObbModule @Inject constructor(
         log(TAG, VERBOSE) { "secondPass(): $areas" }
 
         return areas
+    }
+
+    private suspend fun DataArea.determineAndroidObb(): APath? {
+        val parentArea = this
+        val target = this.path.child("Android", "obb")
+
+        return when {
+            hasApiLevel(33) -> {
+                when {
+                    // If we have root, we need to convert any SAFPath back
+                    rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow() -> {
+                        when (target) {
+                            is LocalPath -> target
+                            is SAFPath -> pathMapper.toLocalPath(target)
+                            else -> null
+                        }
+                    }
+
+                    else -> {
+                        log(TAG, INFO) { "Skipping Android/obb (API33, no root/Shizuku): $parentArea" }
+                        null
+                    }
+                }
+            }
+
+            hasApiLevel(30) -> {
+                when {
+                    // Can't use SAFPath with Shizuku or Root
+                    rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow() -> when (target) {
+                        is SAFPath -> pathMapper.toLocalPath(target)
+                        else -> target
+                    }
+                    // On API30 we can do the direct SAF grant workaround
+                    else -> when (target) {
+                        is LocalPath -> pathMapper.toSAFPath(target)
+                        is SAFPath -> target
+                        else -> null
+                    }
+                }
+            }
+
+            else -> target
+        }
     }
 
     @InstallIn(SingletonComponent::class)
