@@ -99,6 +99,7 @@
     <string name="setup_root_enable_root_use_label">Použite root prístup, ak je k dispozícii</string>
     <string name="setup_root_disable_root_use_label">Nepoužívajte root prístup</string>
     <string name="setup_root_card_body2">Dostupné iba na rootovaných zariadeniach. Ak ste túto úpravu nevykonali, vaše zariadenie nie je rootované a toto nastavenie nemá žiadny vplyv.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
     <string name="setup_permission_granted_label">Povolenie udelené</string>
     <string name="setup_usagestats_title">Štatistiky používania</string>
