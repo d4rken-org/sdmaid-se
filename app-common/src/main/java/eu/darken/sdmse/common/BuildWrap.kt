@@ -18,9 +18,16 @@ object BuildWrap {
             get() = Build.VERSION.SDK_INT
         val PREVIEW_SDK_INT
             get() = Build.VERSION.PREVIEW_SDK_INT
+        val CODENAME
+            get() = Build.VERSION.CODENAME
     }
 }
 
-fun hasApiLevel(level: Int): Boolean = BuildWrap.VERSION.SDK_INT >= level
+fun hasApiLevel(level: Int): Boolean = when {
+    BuildWrap.VERSION.SDK_INT >= level -> true
+    level == 34 && BuildWrap.VERSION.CODENAME == "UpsideDownCake" -> true
+    else -> false
+}
 
 inline fun <reified R> ifApiLevel(level: Int, block: () -> R): R? = if (hasApiLevel(level)) block() else null
+
