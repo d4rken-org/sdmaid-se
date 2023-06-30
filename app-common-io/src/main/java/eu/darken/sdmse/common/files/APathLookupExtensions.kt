@@ -88,3 +88,8 @@ fun APath.removePrefix(prefix: APathLookup<*>, overlap: Int = 0) =
 
 fun APathLookup<*>.removePrefix(prefix: APath, overlap: Int = 0) =
     lookedUp.removePrefix(prefix, overlap)
+
+fun Collection<APathLookup<*>>.filterDistinctRoots(): Set<APathLookup<*>> {
+    val lookupMap = this.associateBy { it.lookedUp }
+    return lookupMap.keys.filterDistinctRoots().map { lookupMap.getValue(it) }.toSet()
+}

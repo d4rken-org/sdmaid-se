@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.WriteException
 import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -115,19 +116,19 @@ class AppJunkDeleter @Inject constructor(
 
         val deleted = mutableSetOf<APathLookup<*>>()
 
-        targetFiles.forEach { targetFile ->
-            log(TAG) { "Deleting $targetFile..." }
-            try {
-                targetFile.deleteAll(gatewaySwitch) {
-                    updateProgressSecondary(it.userReadablePath)
-                    true
+        targetFiles
+            .filterDistinctRoots()
+            .forEach { targetFile ->
+                log(TAG) { "Deleting $targetFile..." }
+                updateProgressSecondary(targetFile.userReadablePath)
+                try {
+                    targetFile.deleteAll(gatewaySwitch)
+                    log(TAG) { "Deleted $targetFile!" }
+                    deleted.add(targetFile)
+                } catch (e: WriteException) {
+                    log(TAG, WARN) { "Deletion failed for $targetFile" }
                 }
-                log(TAG) { "Deleted $targetFile!" }
-                deleted.add(targetFile)
-            } catch (e: WriteException) {
-                log(TAG, WARN) { "Deletion failed for $targetFile" }
             }
-        }
 
         return deleted
     }

@@ -25,7 +25,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.deleteAll
-import eu.darken.sdmse.common.files.isDescendantOf
+import eu.darken.sdmse.common.files.filterDistinctRoots
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -148,12 +150,13 @@ class Analyzer @Inject constructor(
             )
         }
 
-        task.targets.forEach { target ->
-            log(TAG) { "Deleting $target" }
-            updateProgressSecondary(target.userReadablePath)
-
-            target.deleteAll(gatewaySwitch)
-        }
+        task.targets
+            .filterDistinctRoots()
+            .forEach { target ->
+                log(TAG) { "Deleting $target" }
+                updateProgressSecondary(target.userReadablePath)
+                target.deleteAll(gatewaySwitch)
+            }
 
         // TODO this seems convoluted, can we come up with a better data pattern?
         var _oldGroup: ContentGroup? = null
@@ -167,11 +170,9 @@ class Analyzer @Inject constructor(
         val newContents = oldGroup.contents
             .toFlatContent()
             .filter { item ->
-                val notDeleted = task.targets.none { target ->
-                    item.path == target || item.path.isDescendantOf(target)
-                }
-                if (!notDeleted) freedSpace += item.itemSize ?: 0L
-                notDeleted
+                val deleted = task.targets.any { it.isAncestorOf(item.path) || it.matches(item.path) }
+                if (deleted) freedSpace += item.itemSize ?: 0L
+                !deleted
             }
             .toNestedContent()
 

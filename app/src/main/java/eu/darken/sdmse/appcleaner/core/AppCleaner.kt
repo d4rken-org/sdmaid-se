@@ -161,8 +161,10 @@ class AppCleaner @Inject constructor(
                     val updatedExpendables = appJunk.expendables
                         ?.mapValues { (type, typeFiles) ->
                             typeFiles.filter { file ->
-                                val mapContent = accessibleDeletionMap[appJunk.identifier]
-                                mapContent?.none { it.matches(file) || it.isAncestorOf(file) } ?: true
+                                val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
+                                    it.isAncestorOf(file) || it.matches(file)
+                                }
+                                !isDeleted
                             }
                         }
                         ?.filterValues { it.isNotEmpty() }

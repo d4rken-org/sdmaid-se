@@ -118,32 +118,28 @@ class SystemCleaner @Inject constructor(
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val deletedContents = mutableMapOf<FilterContent, Set<APathLookup<*>>>()
+        val deletedContents = mutableMapOf<FilterContent, Set<APath>>()
 
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
         targetFilters.forEach { targetIdentifier ->
             val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
             updateProgressPrimary(caString { filterContent.identifier.getLabel(it) })
 
-            val deleted = mutableSetOf<APathLookup<*>>()
+            val deleted = mutableSetOf<APath>()
             val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }
-            targetContents.forEach { targetContent ->
-                log(TAG) { "Deleting $targetContent..." }
-
-                try {
-                    targetContent.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
+            targetContents
+                .filterDistinctRoots()
+                .forEach { targetContent ->
+                    log(TAG) { "Deleting $targetContent..." }
+                    updateProgressSecondary(targetContent.userReadablePath)
+                    try {
+                        targetContent.deleteAll(gatewaySwitch)
+                        log(TAG) { "Deleted $targetContent!" }
+                        deleted.add(targetContent)
+                    } catch (e: WriteException) {
+                        log(TAG, WARN) { "Deletion failed for $targetContent" }
                     }
-                    log(TAG) { "Deleted $targetContent!" }
-
-                    filterContent.items
-                        .filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
-                        .run { deleted.addAll(this) }
-                } catch (e: WriteException) {
-                    log(TAG, WARN) { "Deletion failed for $targetContent" }
                 }
-            }
 
             deletedContents[filterContent] = deleted
         }
@@ -151,13 +147,23 @@ class SystemCleaner @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
+        var deletedContentSize = 0L
+        var deletedContentCount = 0
+
         internalData.value = snapshot.copy(
             filterContents = snapshot.filterContents
                 .map { filterContent ->
                     when {
                         deletedContents.containsKey(filterContent) -> filterContent.copy(
-                            items = filterContent.items.filter { c ->
-                                deletedContents[filterContent]!!.none { it.matches(c) }
+                            items = filterContent.items.filter { contentItem ->
+                                val isDeleted = deletedContents[filterContent]!!.any { deleted ->
+                                    deleted.isAncestorOf(contentItem) || deleted.matches(contentItem)
+                                }
+                                if (isDeleted) {
+                                    deletedContentSize += contentItem.size
+                                    deletedContentCount++
+                                }
+                                !isDeleted
                             }
                         )
 
@@ -168,8 +174,8 @@ class SystemCleaner @Inject constructor(
         )
 
         return SystemCleanerDeleteTask.Success(
-            deletedItems = deletedContents.values.sumOf { it.size },
-            recoveredSpace = deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
+            deletedItems = deletedContentCount,
+            recoveredSpace = deletedContentSize
         )
     }
 

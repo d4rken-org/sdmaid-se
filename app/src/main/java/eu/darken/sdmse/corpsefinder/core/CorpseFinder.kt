@@ -203,7 +203,7 @@ class CorpseFinder @Inject constructor(
         log(TAG) { "deleteCorpses(): $task" }
 
         val deletedCorpses = mutableSetOf<Corpse>()
-        val deletedContents = mutableMapOf<Corpse, Set<APathLookup<*>>>()
+        val deletedContents = mutableMapOf<Corpse, Set<APath>>()
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
         val targetCorpses = task.targetCorpses ?: snapshot.corpses.map { it.identifier }
@@ -211,30 +211,30 @@ class CorpseFinder @Inject constructor(
             val corpse = snapshot.corpses.single { it.identifier == targetCorpse }
 
             if (!task.targetContent.isNullOrEmpty()) {
-                val deleted = mutableSetOf<APathLookup<*>>()
+                val deleted = mutableSetOf<APath>()
 
-                task.targetContent.forEach { targetContent ->
-                    updateProgressPrimary(caString {
-                        it.getString(
-                            eu.darken.sdmse.common.R.string.general_progress_deleting,
-                            targetContent.userReadableName.get(it)
-                        )
-                    })
-                    log(TAG) { "Deleting $targetContent..." }
-                    try {
-                        targetContent.deleteAll(gatewaySwitch) {
-                            updateProgressSecondary(it.userReadablePath)
-                            true
+                task.targetContent
+                    .filterDistinctRoots()
+                    .forEach { targetContent ->
+                        updateProgressPrimary(caString {
+                            it.getString(
+                                eu.darken.sdmse.common.R.string.general_progress_deleting,
+                                targetContent.userReadableName.get(it)
+                            )
+                        })
+                        log(TAG) { "Deleting $targetContent..." }
+                        try {
+                            targetContent.deleteAll(gatewaySwitch) {
+                                updateProgressSecondary(it.userReadablePath)
+                                true
+                            }
+                            log(TAG) { "Deleted $targetContent!" }
+
+                            deleted.add(targetContent)
+                        } catch (e: WriteException) {
+                            log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
                         }
-                        log(TAG) { "Deleted $targetContent!" }
-
-                        corpse.content
-                            .filter { targetContent.isAncestorOf(it) || targetContent.matches(it) }
-                            .run { deleted.addAll(this) }
-                    } catch (e: WriteException) {
-                        log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
                     }
-                }
 
                 deletedContents[corpse] = deleted
             } else {
@@ -245,13 +245,10 @@ class CorpseFinder @Inject constructor(
                     )
                 })
                 log(TAG) { "Deleting $targetCorpse..." }
+                updateProgressSecondary(corpse.lookup.userReadablePath)
                 try {
-                    corpse.lookup.deleteAll(gatewaySwitch) {
-                        updateProgressSecondary(it.userReadablePath)
-                        true
-                    }
+                    corpse.lookup.deleteAll(gatewaySwitch)
                     log(TAG) { "Deleted $targetCorpse!" }
-
                     deletedCorpses.add(corpse)
                 } catch (e: WriteException) {
                     log(TAG, WARN) { "Deletion failed for $targetCorpse: $e" }
@@ -262,13 +259,21 @@ class CorpseFinder @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
+        var deletedContentSize = 0L
+
         internalData.value = snapshot.copy(
             corpses = snapshot.corpses
                 .mapNotNull { corpse ->
                     when {
                         deletedCorpses.contains(corpse) -> null
                         deletedContents.containsKey(corpse) -> corpse.copy(
-                            content = corpse.content.filter { c -> deletedContents[corpse]!!.none { it.matches(c) } }
+                            content = corpse.content.filter { contentItem ->
+                                val isDeleted = deletedContents[corpse]!!.any { deleted ->
+                                    deleted.isAncestorOf(contentItem) || deleted.matches(contentItem)
+                                }
+                                if (isDeleted) deletedContentSize += contentItem.size
+                                !isDeleted
+                            }
                         )
 
                         else -> corpse
@@ -278,7 +283,7 @@ class CorpseFinder @Inject constructor(
 
         return CorpseFinderDeleteTask.Success(
             deletedItems = deletedCorpses.size + deletedContents.values.sumOf { it.size },
-            recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContents.values.sumOf { contents -> contents.sumOf { it.size } }
+            recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContentSize
         )
     }
 
