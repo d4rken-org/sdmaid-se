@@ -13,6 +13,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -101,10 +102,15 @@ class StorageScanner @Inject constructor(
         useRoot = rootManager.canUseRootNow()
         useShizuku = shizukuManager.canUseShizukuNow()
         currentUser = userManager2.currentUser().handle
-        dataAreas.clear()
-        dataAreas.addAll(dataAreaManager.currentAreas())
 
         val volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
+        dataAreaManager.currentAreas()
+            .filter { it.hasFlags(DataArea.Flag.PRIMARY) == volume?.isPrimary }
+            .let {
+                dataAreas.clear()
+                dataAreas.addAll(it)
+            }
+
         log(TAG) { "Target public volume: $volume" }
 
         return gatewaySwitch.useRes {
@@ -232,7 +238,7 @@ class StorageScanner @Inject constructor(
                 when {
                     hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
 
-                    pubData.exists(gatewaySwitch) -> try {
+                    gatewaySwitch.exists(pubData, GatewaySwitch.Type.AUTO) -> try {
                         pubData.walkContentItem(gatewaySwitch)
                     } catch (e: ReadException) {
                         ContentItem.fromInaccessible(pubData)
@@ -374,12 +380,15 @@ class StorageScanner @Inject constructor(
 
     private suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
         log(TAG, VERBOSE) { "Walking content items for $this" }
+
+        // What ever `this` is , the gatewaySwitch should make sure we end up with something usable
         val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)
 
         return if (lookup.fileType == FileType.DIRECTORY) {
             val children = try {
-                this.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
             } catch (e: ReadException) {
+                log(TAG, WARN) { "Failed to walk $this: ${e.asLog()}" }
                 emptySet()
             }
 
