@@ -380,12 +380,15 @@ class StorageScanner @Inject constructor(
 
     private suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
         log(TAG, VERBOSE) { "Walking content items for $this" }
+
+        // What ever `this` is , the gatewaySwitch should make sure we end up with something usable
         val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)
 
         return if (lookup.fileType == FileType.DIRECTORY) {
             val children = try {
-                this.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+                lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
             } catch (e: ReadException) {
+                log(TAG, WARN) { "Failed to walk $this: ${e.asLog()}" }
                 emptySet()
             }
 
