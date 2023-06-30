@@ -13,6 +13,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -101,10 +102,15 @@ class StorageScanner @Inject constructor(
         useRoot = rootManager.canUseRootNow()
         useShizuku = shizukuManager.canUseShizukuNow()
         currentUser = userManager2.currentUser().handle
-        dataAreas.clear()
-        dataAreas.addAll(dataAreaManager.currentAreas())
 
         val volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
+        dataAreaManager.currentAreas()
+            .filter { it.hasFlags(DataArea.Flag.PRIMARY) == volume?.isPrimary }
+            .let {
+                dataAreas.clear()
+                dataAreas.addAll(it)
+            }
+
         log(TAG) { "Target public volume: $volume" }
 
         return gatewaySwitch.useRes {
