@@ -238,7 +238,7 @@ class StorageScanner @Inject constructor(
                 when {
                     hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
 
-                    pubData.exists(gatewaySwitch) -> try {
+                    gatewaySwitch.exists(pubData, GatewaySwitch.Type.AUTO) -> try {
                         pubData.walkContentItem(gatewaySwitch)
                     } catch (e: ReadException) {
                         ContentItem.fromInaccessible(pubData)
