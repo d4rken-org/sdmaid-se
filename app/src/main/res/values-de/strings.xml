@@ -349,12 +349,12 @@
     <string name="analyzer_space_used">%s benutzt</string>
     <string name="analyzer_content_access_opaque">Kein direkter Zugriff möglich</string>
     <string name="analyzer_storage_type_primary_title">Hauptspeicher</string>
-    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne „SD-Karte“, privaten Speicher für Apps und Systemdaten.</string>
+    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne „SD-Karte“, nicht öffentlichen Speicher für Apps und Systemdaten.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundärer Speicher</string>
-    <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine entfernbare SD-Karte. Enthält Mediendateien und Daten von Apps, die es unterstützen.</string>
+    <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine herausnehmbare SD-Karte. Enthält Mediendateien und Daten von Apps, die ihn unterstützen.</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Von installierten Apps und ihren Daten (z.B. Anwendungsdateien, Daten und Caches) belegter Speicherplatz.</string>
+    <string name="analyzer_storage_content_type_app_description">Von installierten Apps und deren Daten (z.B. Anwendungsdateien, Daten und Caches) belegter Speicherplatz.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Berechtigungen fehlen</string>
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
