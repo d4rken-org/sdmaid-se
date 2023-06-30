@@ -245,18 +245,18 @@ class StorageScanner @Inject constructor(
 
         val dataDirPrivs = when {
             storage.type != DeviceStorage.Type.PRIMARY -> emptySet()
-            !useRoot -> setOf(
+            dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA } -> pkg
+                .getPrivateDataDirs(dataAreas)
+                .filter { it.exists(gatewaySwitch) }
+                .map { it.walkContentItem(gatewaySwitch) }
+
+            else -> setOf(
                 ContentItem.fromInaccessible(
                     LocalPath.build(pkg.packageInfo.applicationInfo.dataDir),
                     // This is a simplification, because storage stats don't provider more fine grained infos
                     appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
                 )
             )
-
-            else -> pkg
-                .getPrivateDataDirs(dataAreas)
-                .filter { it.exists(gatewaySwitch) }
-                .map { it.walkContentItem(gatewaySwitch) }
         }
 
         val appDataGroup = ContentGroup(

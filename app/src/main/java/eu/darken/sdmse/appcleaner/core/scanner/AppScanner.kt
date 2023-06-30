@@ -213,12 +213,14 @@ class AppScanner @Inject constructor(
 
             val interestingPaths = mutableSetOf<AreaInfo>()
 
-            // The default private app data
             // Private data should only be available in currentAreas if we have root
-            pkg.getPrivateDataDirs(currentAreas)
-                .filter { it.exists(gatewaySwitch) }
-                .map { fileForensics.identifyArea(it)!! }
-                .forEach { interestingPaths.add(it) }
+            currentAreas
+                .filter { it.type == DataArea.Type.PRIVATE_DATA }
+                .takeIf { it.isNotEmpty() }
+                ?.let { pkg.getPrivateDataDirs(it) }
+                ?.filter { it.exists(gatewaySwitch) }
+                ?.map { fileForensics.identifyArea(it)!! }
+                ?.forEach { interestingPaths.add(it) }
 
             val clutterMarkerForPkg = clutterRepo.getMarkerForPkg(pkg.id)
 
