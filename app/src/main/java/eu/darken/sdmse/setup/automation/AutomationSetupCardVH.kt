@@ -29,7 +29,11 @@ class AutomationSetupCardVH(parent: ViewGroup) :
             isVisible = state.hasConsent == true
             setCompoundDrawablesRelativeWithIntrinsicBounds(
                 ContextCompat.getDrawable(
-                    context, if (state.isServiceEnabled) R.drawable.ic_check_circle else R.drawable.ic_cancel
+                    context, when {
+                        state.isServiceEnabled -> R.drawable.ic_check_circle
+                        state.canSelfEnable -> R.drawable.ic_baseline_access_time_filled_24
+                        else -> R.drawable.ic_cancel
+                    }
                 ),
                 null,
                 null,
@@ -38,17 +42,30 @@ class AutomationSetupCardVH(parent: ViewGroup) :
             TextViewCompat.setCompoundDrawableTintList(
                 this,
                 ColorStateList.valueOf(
-                    context.getColorForAttr(if (state.isServiceEnabled) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError)
+                    context.getColorForAttr(
+                        when {
+                            state.isServiceEnabled -> androidx.appcompat.R.attr.colorPrimary
+                            state.canSelfEnable -> com.google.android.material.R.attr.colorSecondary
+                            else -> androidx.appcompat.R.attr.colorError
+                        }
+                    )
                 )
-            )
-            text = getString(
-                if (state.isServiceEnabled) R.string.setup_acs_state_enabled
-                else R.string.setup_acs_state_disabled
             )
             setTextColor(
                 context.getColorForAttr(
-                    if (state.isServiceEnabled) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError
+                    when {
+                        state.isServiceEnabled -> androidx.appcompat.R.attr.colorPrimary
+                        state.canSelfEnable -> com.google.android.material.R.attr.colorSecondary
+                        else -> androidx.appcompat.R.attr.colorError
+                    }
                 )
+            )
+            text = getString(
+                when {
+                    state.isServiceEnabled -> R.string.setup_acs_state_enabled
+                    state.canSelfEnable -> R.string.setup_acs_state_ondemand
+                    else -> R.string.setup_acs_state_disabled
+                }
             )
         }
         restrictionAppopsHintContainer.isVisible = state.showAppOpsRestrictionHint
@@ -56,9 +73,9 @@ class AutomationSetupCardVH(parent: ViewGroup) :
         restrictionAppopsHintShowAction.setOnClickListener { item.onRestrictionsShow() }
 
         enabledStateHint.apply {
-            isVisible = !state.isServiceEnabled && state.needsAutostart
+            isVisible = !state.isServiceEnabled && state.needsXiaomiAutostart
             when {
-                state.needsAutostart -> getString(R.string.setup_acs_state_stopped_hint_miui)
+                state.needsXiaomiAutostart -> getString(R.string.setup_acs_state_stopped_hint_miui)
                 else -> ""
             }
         }
@@ -79,30 +96,30 @@ class AutomationSetupCardVH(parent: ViewGroup) :
                     context.getColorForAttr(if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError)
                 )
             )
-            text = getString(
-                if (state.isServiceRunning) R.string.setup_acs_state_running
-                else R.string.setup_acs_state_stopped
-            )
             setTextColor(
                 context.getColorForAttr(
                     if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError
                 )
+            )
+            text = getString(
+                if (state.isServiceRunning) R.string.setup_acs_state_running
+                else R.string.setup_acs_state_stopped
             )
         }
 
         runningStateHint.isVisible = !state.isServiceRunning && state.isServiceEnabled
 
         allowAction.apply {
-            isVisible = state.hasConsent != true || (state.hasConsent == true && !state.isServiceRunning)
+            isVisible = state.hasConsent != true || (!state.isServiceRunning && !state.canSelfEnable)
             text = when {
                 state.hasConsent != true -> getString(R.string.setup_acs_consent_positive_action)
-                state.hasConsent == true && !state.isServiceRunning -> getString(eu.darken.sdmse.common.R.string.general_enable_service_action)
+                !state.isServiceRunning -> getString(eu.darken.sdmse.common.R.string.general_enable_service_action)
                 else -> getString(R.string.setup_acs_consent_positive_action)
             }
             setOnClickListener { item.onGrantAction() }
 
         }
-        shortcutHint.isVisible = state.hasConsent != true || (state.hasConsent == true && !state.isServiceRunning)
+        shortcutHint.isVisible = state.hasConsent != true || !state.isServiceRunning
 
         disallowAction.apply {
             isVisible = state.hasConsent != false

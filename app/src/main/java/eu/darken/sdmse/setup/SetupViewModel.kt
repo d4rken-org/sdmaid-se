@@ -117,7 +117,9 @@ class SetupViewModel @Inject constructor(
                                 launch {
                                     automationSetupModule.setAllow(true)
                                     automationSetupModule.refresh()
-                                    events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                    if (!state.canSelfEnable) {
+                                        events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                    }
                                 }
                             },
                             onDismiss = {
