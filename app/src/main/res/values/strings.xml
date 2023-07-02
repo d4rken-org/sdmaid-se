@@ -48,7 +48,7 @@
 
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
-    <string name="onboarding_setup_body2">What is accessible depends on your phone, Android version and granted permissions.</string>
+    <string name="onboarding_setup_body2">What is accessible depends on your device, Android version and granted permissions.</string>
     <string name="onboarding_setup_body3">Start using SD Maid by setting up access to areas that should be searched.</string>
     <string name="onboarding_setup_continue_action">Set up access</string>
 
