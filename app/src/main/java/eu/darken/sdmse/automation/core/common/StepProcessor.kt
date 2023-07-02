@@ -56,8 +56,7 @@ class StepProcessor @AssistedInject constructor(
                 }
                 return@withTimeout
             } catch (e: StepAbortException) {
-                log(TAG) { "ABORT Step! ${e.asLog()}" }
-                throw e
+                log(TAG) { "ABORT Step due to ${e.asLog()}" }
             } catch (e: Exception) {
                 log(TAG, WARN) { "crawl(): Attempt $attempts failed on $step:\n${e.asLog()}" }
                 delay(300)
