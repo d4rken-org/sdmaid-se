@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -63,11 +64,15 @@ class AutomationSetupModule @Inject constructor(
 
         // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java;l=520
         val showAppOpsRestrictionHint = !hasPassedRestrictions && hasTriggeredRestrictions && mightBeRestricted
+        log(TAG) { "showAppOpsRestrictionHint=$showAppOpsRestrictionHint" }
 
         // Settings details screen needs to have the system UID, not ours, otherwise the appops setting is invisible
         val liftRestrictionsIntent = Intent(Settings.ACTION_APPLICATION_SETTINGS).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
+
+        val canSelfEnable = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
+        log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         log(TAG) { "useShizuku: $useShizuku" }
         log(TAG) { "useRoot: $useRoot" }
@@ -75,9 +80,10 @@ class AutomationSetupModule @Inject constructor(
         State(
             isNotRequired = useRoot,
             hasConsent = generalSettings.hasAcsConsent.value(),
+            canSelfEnable = canSelfEnable,
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
-            needsAutostart = deviceDetective.isXiaomi(),
+            needsXiaomiAutostart = deviceDetective.isXiaomi() && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
         ).also { log(TAG) { "New ACS setup state: $it" } }
@@ -104,16 +110,26 @@ class AutomationSetupModule @Inject constructor(
     data class State(
         val isNotRequired: Boolean,
         val hasConsent: Boolean?,
+        val canSelfEnable: Boolean,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
-        val needsAutostart: Boolean,
+        val needsXiaomiAutostart: Boolean,
         val liftRestrictionsIntent: Intent,
         val showAppOpsRestrictionHint: Boolean,
     ) : SetupModule.State {
 
-        override val isComplete: Boolean =
-            isNotRequired || (hasConsent == true && isServiceEnabled && isServiceRunning) || hasConsent == false
+        override val isComplete: Boolean = when {
+            isNotRequired -> true // ACS not needed
 
+            hasConsent == true -> when { // User wants ACS
+                isServiceEnabled && isServiceRunning -> true // ACS is enabled and running
+                canSelfEnable -> true // Not running but can enable on-demand
+                else -> false // User action needed
+            }
+
+            hasConsent == false -> true // User doesn't want ACS
+            else -> false // Consent is NULL, need user decision
+        }
     }
 
     @Module @InstallIn(SingletonComponent::class)
