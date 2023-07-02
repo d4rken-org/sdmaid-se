@@ -56,6 +56,18 @@ class StorageEnvironment @Inject constructor(
                 root?.let { LocalPath.build(it) }
             }
 
+    val publicDataDirs: List<LocalPath>
+        get() = ContextCompat.getExternalFilesDirs(context, null)
+            .filter { it != null && it.isAbsolute }
+            .mapNotNull { base ->
+                var root = base
+                for (i in 0..1) {
+                    root = root.parentFile
+                    if (root == null) break
+                }
+                root?.let { LocalPath.build(it) }
+            }
+
     fun getPublicPrimaryStorage(userHandle: UserHandle2): LocalPath {
         val path = Environment.getExternalStorageDirectory()
         val volume = storageManager.getStorageVolume(path)

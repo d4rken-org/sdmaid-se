@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
@@ -364,31 +365,37 @@ class LocalGateway @Inject constructor(
     suspend fun exists(path: LocalPath, mode: Mode = Mode.AUTO): Boolean = runIO {
         try {
             val javaFile = path.asFile()
+            val javaFileParent = javaFile.parentFile
 
-            val canAccessParent = when (mode) {
+            val canCheckNormal = when (mode) {
                 Mode.ROOT -> false
                 else -> when {
+                    // exists() = true is never a false positive
                     javaFile.exists() -> true
-                    javaFile.parentFile?.exists() == true -> true
+                    // This is a bit iffy, but checking readability on the parent has proven reliable
+                    javaFileParent?.exists() == true && javaFileParent.canRead() -> true
+                    // On Android 12+ Android/data isn't accessible anymore via normal java file access.
+                    hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
+                    // If the file path is on public storage, and it wasn't Android/data then, assume true
                     else -> storageEnvironment.externalDirs
-                        .map { it.asFile() }
-                        .firstOrNull { javaFile.path.startsWith(it.path) }
+                        .firstOrNull { path.isAncestorOf(path) }
+                        ?.asFile()
                         ?.canRead() ?: false
                 }
             }
 
             when {
-                mode == Mode.NORMAL || mode == Mode.AUTO && canAccessParent -> {
+                mode == Mode.NORMAL || mode == Mode.AUTO && canCheckNormal -> {
                     log(TAG, VERBOSE) { "exists($mode->NORMAL): $path" }
                     javaFile.exists()
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canAccessParent) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "exists($mode->ROOT): $path" }
                     rootOps { it.exists(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canAccessParent) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "exists($mode->ADB): $path" }
                     adbOps { it.exists(path) }
                 }
