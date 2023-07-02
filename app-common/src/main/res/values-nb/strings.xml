@@ -67,7 +67,7 @@
     <string name="general_result_x_space_freed">%s frigjort</string>
     <string name="general_options_label">Alternativer</string>
     <string name="general_details_label">Detaljer</string>
-    <string name="general_view_action">Visning</string>
+    <string name="general_view_action">Se</string>
     <string name="general_update_action">Oppdater</string>
     <string name="general_scan_action">Skann</string>
     <string name="general_delete_action">Slett</string>

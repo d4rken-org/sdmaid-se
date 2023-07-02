@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Slette resultater i alle verktøy?</string>
     <string name="dashboard_settings_category">Kontrollpanel</string>
+    <string name="dashboard_settings_oneclick_title">Ett-trykks modus</string>
+    <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
@@ -78,6 +80,7 @@
     <string name="setup_label">Oppsett</string>
     <string name="setup_incomplete_card_title">Oppsettet er ufullstendig</string>
     <string name="setup_incomplete_card_body">Fullfør oppsettet av SD Maid for å få bedre resultater.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid prøver å fikse problemer med oppsettet.</string>
     <string name="setup_incomplete_card_dismiss_action">Lukk</string>
     <string name="setup_incomplete_card_continue_action">Fortsett oppsett</string>
     <string name="setup_title">Oppsett</string>
@@ -95,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Bruk root-tilgang hvis tilgjengelig</string>
     <string name="setup_root_disable_root_use_label">Ikke bruk root-tilgang</string>
     <string name="setup_root_card_body2">Kun tilgjengelig på enheter med root. Hvis du ikke gjorde denne modifikasjonen, har ikke enheten din root, og denne innstillingen har ingen effekt.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Tillat SD Maid å bruke Shizuku der det er mulig, for å forbedre resultatene og aktivere funksjoner.</string>
+    <string name="setup_shizuku_card_body2">Denne innstillingen har ingen effekt hvis Shizuku-appen ikke er konfigurert på enheten din.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku-lenken er klar.</string>
+    <string name="setup_shizuku_state_waiting_label">Venter på lenken med Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Bruk Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Ikke bruk Shizuku</string>
     <string name="setup_dismiss_hint">Du finner skjermen for oppsett igjen via innstillingsmenyen.</string>
     <string name="setup_permission_granted_label">Tillatelse gitt</string>
     <string name="setup_usagestats_title">Bruksstatistikk</string>
@@ -104,6 +114,7 @@
     <string name="setup_notification_body">Tillat SD Maid å legge ut varsler for å informere deg om pågående operasjoner eller viktige hendelser.</string>
     <string name="setup_notification_hint">Varsler brukes sparsomt 🤞</string>
     <string name="setup_acs_card_title">Tilgjengelighetstjeneste</string>
+    <string name="setup_acs_card_body">Tilgjengelighetstjenesten lar SD Maid samhandle med skjermen din og automatisere kjedelige handlinger, f.eks. trykke \"Tøm hurtigbuffer\" på flere skjermer.</string>
     <string name="setup_acs_card_body2">SD Maid vil ikke bruke tilgjengelighetstjenesten uten ditt samtykke, vil alltid vise en fremtredende (kansellerbar) indikator mens den er aktiv og vil ikke bruke den for å hente informasjon.</string>
     <string name="setup_acs_state_enabled">Tilgjengelighetstjeneste er aktivert</string>
     <string name="setup_acs_state_disabled">Tilgjengelighetstjeneste er deaktivert</string>
@@ -227,7 +238,9 @@
     <string name="appcleaner_tool_name">Apprenser</string>
     <string name="appcleaner_explanation_short">Ubetydelig data tilhørende spesifikke apper.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Standard offentlige hurtigbuffere</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentlige hurtigbuffere til apper. Tilgjengelig under Android/data på eldre Android-versjoner. Slettes når du trykker \"Tøm hurtigbuffer\" i systeminnstillingene.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Standard private hurtigbuffere</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Standard private hurtigbuffere til apper. Slettes når du trykker \"Tøm hurtigbuffer\" i systeminnstillingene.</string>
     <string name="appcleaner_include_systemapps_label">Inkluder systemapper</string>
     <string name="appcleaner_include_systemapps_summary">Inkluder systemapper i skanningen.</string>
     <string name="appcleaner_include_runningapps_label">Inkluder kjørende apper</string>
@@ -247,6 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Feilrapportering</string>
     <string name="appcleaner_filter_bugreporting_summary">Data relatert til feilrapportering, f.eks. feillogger eller krasjdumper.</string>
     <string name="appcleaner_filter_analytics_label">Statistikk</string>
+    <string name="appcleaner_filter_analytics_summary">Data relatert til statistikk, f.eks. bufret statistikk for det du trykker i en app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skjulte hurtigbuffere</string>
     <string name="appcleaner_filter_hiddencaches_summary">Generelle hurtigbuffere lagret utenfor systemets rekkevidde.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatyrbilder for medier</string>
@@ -288,6 +302,7 @@
     <string name="appcleaner_junk_userprofile_label">Bruker</string>
     <string name="appcleaner_delete_confirmation_message_x">Slette unødvendige filer for %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Slette unødvendige filer for %d valgte apper?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
     <string name="appcontrol_tool_name">Appkontroll</string>
     <string name="appcontrol_explanation_short">Apper installert på enheten din.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -385,6 +400,7 @@
         <item quantity="one">En ekskludering opprettet</item>
         <item quantity="other">%d ekskluderinger opprettet</item>
     </plurals>
+    <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
     <string name="automation_active_title">SD Maid jobber</string>
     <string name="automation_error_no_consent_title">Automatiseringsfeil</string>

@@ -1,1 +1,1 @@
-A trusted assistant for your Android, to keep it clean and tidy.
+안드로이드 기기를 깨끗이 청소하기 위한 신뢰할 수 있는 도우미입니다.

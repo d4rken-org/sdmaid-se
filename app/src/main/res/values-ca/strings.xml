@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Voleu suprimir els resultats de totes les eines?</string>
     <string name="dashboard_settings_category">Tauler</string>
+    <string name="dashboard_settings_oneclick_title">Mode d\'un toc</string>
+    <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler, sense confirmacions addicionals.</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
@@ -78,6 +80,7 @@
     <string name="setup_label">Configuració</string>
     <string name="setup_incomplete_card_title">La configuració no s\'ha completat</string>
     <string name="setup_incomplete_card_body">Acabeu la configuració de l\'SD Maid per obtenir millors resultats.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">L\'SD Maid està intentant solucionar problemes de configuració.</string>
     <string name="setup_incomplete_card_dismiss_action">Ignora</string>
     <string name="setup_incomplete_card_continue_action">Continua la configuració</string>
     <string name="setup_title">Configuració</string>
@@ -95,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Utilitza l\'accés «root» si està disponible</string>
     <string name="setup_root_disable_root_use_label">No utilitzis l\'accés «root»</string>
     <string name="setup_root_card_body2">Només disponible en dispositius amb «root». Si no heu fet aquesta modificació, el vostre dispositiu no té «root» i aquesta configuració no té cap efecte.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Permeteu que l\'SD Maid utilitzi Shizuku sempre que sigui possible per millorar els resultats i activar funcions.</string>
+    <string name="setup_shizuku_card_body2">Aquesta configuració no té cap efecte si l\'aplicació Shizuku no està configurat al vostre dispositiu.</string>
+    <string name="setup_shizuku_state_ready_label">L\'enllaç Shizuku està llest.</string>
+    <string name="setup_shizuku_state_waiting_label">Esperant l\'enllaç amb Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utilitza Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
     <string name="setup_permission_granted_label">Permís concedit</string>
     <string name="setup_usagestats_title">Estadístiques d\'ús</string>
@@ -104,6 +114,7 @@
     <string name="setup_notification_body">Permeteu que l\'SD Maid publiqui notificacions per informar-vos sobre operacions en curs o esdeveniments importants.</string>
     <string name="setup_notification_hint">Les notificacions s\'utilitzen amb moderació 🤞</string>
     <string name="setup_acs_card_title">Servei d\'accessibilitat</string>
+    <string name="setup_acs_card_body">El servei d\'accessibilitat permet a l\'SD Maid interactuar amb la vostra pantalla i automatitzar accions tedioses, p. ex. tocant «Esborra la memòria cau» a diverses pantalles.</string>
     <string name="setup_acs_card_body2">L\'SD Maid no utilitzarà el servei d\'accessibilitat sense el vostre consentiment, sempre mostrarà un indicador destacat (cancel·lable) mentre estigui actiu i no l\'utilitzarà per recollir informació.</string>
     <string name="setup_acs_state_enabled">El servei d\'accessibilitat està habilitat</string>
     <string name="setup_acs_state_disabled">El servei d\'accessibilitat està deshabilitat</string>
@@ -227,7 +238,9 @@
     <string name="appcleaner_tool_name">Netejador d\'aplicacions</string>
     <string name="appcleaner_explanation_short">Dades prescindibles que pertanyen a aplicacions específiques.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Memòries cau públiques per defecte</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Memòries cau d\'aplicacions públiques per defecte. Accessible a Android/dades en versions antigues d\'Android. S\'elimina tocant «Esborra la memòria cau» a la configuració del sistema.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Memòries cau provades per defecte</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Memòries cau d\'aplicacions privades per defecte. S\'elimina tocant «Esborra la memòria cau» a la configuració del sistema.</string>
     <string name="appcleaner_include_systemapps_label">Inclou aplicacions del sistema</string>
     <string name="appcleaner_include_systemapps_summary">Inclou les aplicacions del sistema a l\'escaneig.</string>
     <string name="appcleaner_include_runningapps_label">Inclou aplicacions en execució</string>
@@ -247,6 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Informe d\'errors</string>
     <string name="appcleaner_filter_bugreporting_summary">Dades relacionades amb informes d\'errors, p. ex. registres d\'errors o bolcats d\'errors.</string>
     <string name="appcleaner_filter_analytics_label">Analítica</string>
+    <string name="appcleaner_filter_analytics_summary">Dades relacionades amb l\'anàlisi, p. ex. estadístiques a la memòria cau del que toqueu en una aplicació.</string>
     <string name="appcleaner_filter_hiddencaches_label">Memòries cau ocultes</string>
     <string name="appcleaner_filter_hiddencaches_summary">Memòries cau de propòsit general emmagatzemades fora de l\'abast dels sistemes.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatura de l’objecte multimèdia</string>
@@ -288,6 +302,7 @@
     <string name="appcleaner_junk_userprofile_label">Usuari</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Voleu suprimir els fitxers prescindibles de %d aplicacions seleccionades?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -385,6 +400,7 @@
         <item quantity="one">S\'ha creat una exclusió</item>
         <item quantity="other">S\'han creat %d exclusions</item>
     </plurals>
+    <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i toqueu-lo. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>
     <string name="automation_error_no_consent_title">Error d\'automatització</string>

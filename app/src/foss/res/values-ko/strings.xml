@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">SD Maid 개선</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 사용자 데이터를 팔지 않습니다. 당신이 계속된 개발을 가능하게 합니다.</string>
     <string name="upgrade_screen_how_title">도움 주기</string>
+    <string name="upgrade_screen_how_body">후원자가 되어 개발을 지원하세요! 아래 버튼을 눌러 Github Sponsors 프로필을 열고 추가 기능을 잠금해제하세요.</string>
     <string name="upgrade_screen_why_title">추가 기능 🪄</string>
     <string name="upgrade_screen_why_body">• 앱 청소기 삭제 기능 💯\n• 작동 예약 ⏰\n• 모든 도구에서의 추가 설정 ⚙️\n• 사용자 지정 삭제 규칙 ✍️\n• 행복한 개발자 🧙\n 외 다수...</string>
     <string name="upgrade_screen_sponsor_action">개발 후원하기</string>
