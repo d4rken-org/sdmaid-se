@@ -163,7 +163,7 @@ class StorageScanner @Inject constructor(
 
         val targetPkgs = pkgRepo.currentPkgs()
             .filter { it.packageName != "android" }
-            .filter { it.packageInfo.applicationInfo != null }
+            .filter { it.applicationInfo != null }
 
         updateProgressCount(Progress.Count.Percent(targetPkgs.size))
 
@@ -192,7 +192,7 @@ class StorageScanner @Inject constructor(
             storage.type != DeviceStorage.Type.PRIMARY -> null
             pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
             else -> {
-                val appCode = pkg.packageInfo.applicationInfo.sourceDir
+                val appCode = pkg.applicationInfo?.sourceDir
                     ?.let {
                         when {
                             it.endsWith("base.apk") -> File(it).parent
@@ -256,13 +256,13 @@ class StorageScanner @Inject constructor(
                 .filter { it.exists(gatewaySwitch) }
                 .map { it.walkContentItem(gatewaySwitch) }
 
-            else -> setOf(
+            else -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
                 ContentItem.fromInaccessible(
-                    LocalPath.build(pkg.packageInfo.applicationInfo.dataDir),
+                    LocalPath.build(it),
                     // This is a simplification, because storage stats don't provider more fine grained infos
                     appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
                 )
-            )
+            }
         }
 
         val appDataGroup = ContentGroup(

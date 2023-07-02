@@ -1,15 +1,11 @@
 package eu.darken.sdmse.common.pkgs.features
 
-import android.content.pm.ApplicationInfo
 import android.content.pm.PermissionInfo
 import android.os.Build
 import eu.darken.sdmse.common.hasApiLevel
 
 // A Pkg where we have access to an APK
 interface ReadableApk : PkgInfo {
-
-    val applicationInfo: ApplicationInfo?
-        get() = packageInfo.applicationInfo
 
     val sharedUserId: String?
         get() = packageInfo.sharedUserId

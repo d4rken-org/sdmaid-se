@@ -22,7 +22,7 @@ class StorageStatsManager2 @Inject constructor(
     }
 
     suspend fun queryStatsForPkg(storageId: StorageId, pkg: Installed): StorageStats {
-        return osStatManager.queryStatsForUid(storageId.externalId, pkg.packageInfo.applicationInfo.uid)
+        return osStatManager.queryStatsForUid(storageId.externalId, pkg.applicationInfo!!.uid)
     }
 
     fun queryStatsForUser(storageId: StorageId, user: UserHandle2): Any {

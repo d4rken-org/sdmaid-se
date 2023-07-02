@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.forensics.csi.source
 
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageInfo
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -175,10 +174,8 @@ class AppSourceLibCSITest : BaseCSITest() {
 
             for (target in targets) {
                 mockPkg.apply {
-                    every { packageInfo } returns mockk<PackageInfo>().apply {
-                        applicationInfo = mockk<ApplicationInfo>().apply {
-                            nativeLibraryDir = "${base.path}/blabla"
-                        }
+                    every { applicationInfo } returns mockk<ApplicationInfo>().apply {
+                        nativeLibraryDir = "${base.path}/blabla"
                     }
                 }
                 val areaInfo = processor.identifyArea(target)!!
