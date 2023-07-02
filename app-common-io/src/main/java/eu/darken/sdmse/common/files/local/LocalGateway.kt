@@ -233,6 +233,7 @@ class LocalGateway @Inject constructor(
             val nonRootList: List<File>? = try {
                 when (mode) {
                     Mode.ROOT -> null
+                    Mode.ADB -> null
                     else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                 }
             } catch (e: Exception) {
@@ -273,6 +274,7 @@ class LocalGateway @Inject constructor(
             val nonRootList = try {
                 when (mode) {
                     Mode.ROOT -> null
+                    Mode.ADB -> null
                     else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                 }
             } catch (e: Exception) {
@@ -322,6 +324,7 @@ class LocalGateway @Inject constructor(
                 val nonRootList = try {
                     when (mode) {
                         Mode.ROOT -> null
+                        Mode.ADB -> null
                         else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                     }
                 } catch (e: Exception) {
@@ -369,6 +372,7 @@ class LocalGateway @Inject constructor(
 
             val canCheckNormal = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> when {
                     // exists() = true is never a false positive
                     javaFile.exists() -> true
@@ -415,6 +419,7 @@ class LocalGateway @Inject constructor(
             val file = path.asFile()
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> file.exists() && file.parentsInclusive.firstOrNull { it.exists() }?.canWrite() ?: false
             }
 
@@ -424,12 +429,12 @@ class LocalGateway @Inject constructor(
                     canNormalWrite
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canWrite($mode->ROOT): $path" }
                     rootOps { it.canWrite(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canWrite($mode->ADB): $path" }
                     adbOps { it.canWrite(path) }
                 }
@@ -449,6 +454,7 @@ class LocalGateway @Inject constructor(
             val file = path.asFile()
             val canNormalOpen = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> file.exists() && file.parentsInclusive.firstOrNull { it.exists() }?.isReadable() ?: false
             }
 
@@ -458,12 +464,12 @@ class LocalGateway @Inject constructor(
                     canNormalOpen
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canRead($mode->ROOT): $path" }
                     rootOps { it.canRead(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalOpen) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canRead($mode->ADB): $path" }
                     adbOps { it.canRead(path) }
                 }
@@ -484,6 +490,7 @@ class LocalGateway @Inject constructor(
             val javaFile = path.asFile()
             val canNormalOpen = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> javaFile.isReadable()
             }
 
@@ -493,14 +500,14 @@ class LocalGateway @Inject constructor(
                     javaFile.source()
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalOpen) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
                     val resource = rootManager.serviceClient.get()
                     rootOps { it.readFile(path).callbacks { resource.close() } }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalOpen) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "read($mode->ADB): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
                     val resource = rootManager.serviceClient.get()
@@ -523,6 +530,7 @@ class LocalGateway @Inject constructor(
 
             val canOpen = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> (file.exists() && file.canWrite()) || !file.exists() && file.parentFile?.canWrite() == true
             }
 
@@ -532,14 +540,14 @@ class LocalGateway @Inject constructor(
                     file.sink()
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canOpen) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
                     val resource = rootManager.serviceClient.get()
                     rootOps { it.writeFile(path).callbacks { resource.close() } }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canOpen) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "write($mode->ADB): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
                     val resource = rootManager.serviceClient.get()
@@ -561,6 +569,7 @@ class LocalGateway @Inject constructor(
             val javaFile = path.asFile()
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> javaFile.canWrite()
             }
 
@@ -591,7 +600,7 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
                         var success = if (Bugs.isDryRun) {
@@ -611,7 +620,7 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
                         var success = if (Bugs.isDryRun) {
@@ -648,6 +657,7 @@ class LocalGateway @Inject constructor(
             val targetPathJava = targetPath.asFile()
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> linkPathJava.canWrite()
             }
 
@@ -657,12 +667,12 @@ class LocalGateway @Inject constructor(
                     linkPathJava.createSymlink(targetPathJava)
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "createSymlink($mode->ROOT): $linkPath -> $targetPath" }
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "createSymlink($mode->ADB): $linkPath -> $targetPath" }
                     adbOps { it.createSymlink(linkPath, targetPath) }
                 }
@@ -685,6 +695,7 @@ class LocalGateway @Inject constructor(
         try {
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> path.file.canWrite()
             }
             when {
@@ -693,12 +704,12 @@ class LocalGateway @Inject constructor(
                     path.file.setLastModified(modifiedAt.toEpochMilli())
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setModifiedAt($mode->ROOT): $path" }
                     rootOps { it.setModifiedAt(path, modifiedAt) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setModifiedAt($mode->ADB): $path" }
                     adbOps { it.setModifiedAt(path, modifiedAt) }
                 }
@@ -718,6 +729,7 @@ class LocalGateway @Inject constructor(
         try {
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> path.file.canWrite()
             }
 
@@ -727,13 +739,13 @@ class LocalGateway @Inject constructor(
                     path.file.setPermissions(permissions)
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setPermissions($mode->ROOT): $path" }
                     rootOps { it.setPermissions(path, permissions) }
                 }
 
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setPermissions($mode->ADB): $path" }
                     adbOps { it.setPermissions(path, permissions) }
                 }
@@ -756,6 +768,7 @@ class LocalGateway @Inject constructor(
         try {
             val canNormalWrite = when (mode) {
                 Mode.ROOT -> false
+                Mode.ADB -> false
                 else -> path.file.canWrite()
             }
 
@@ -765,12 +778,12 @@ class LocalGateway @Inject constructor(
                     path.file.setOwnership(ownership)
                 }
 
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setOwnership($mode->ROOT): $path" }
                     rootOps { it.setOwnership(path, ownership) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO && !canNormalWrite) -> {
+                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setOwnership($mode->ADB): $path" }
                     adbOps { it.setOwnership(path, ownership) }
                 }
