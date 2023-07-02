@@ -101,7 +101,7 @@ object CrawlerCommon {
             }
             ?.let { candidates.add(it) }
 
-        pkgInfo.packageInfo.applicationInfo?.className
+        pkgInfo.applicationInfo?.className
             ?.let { candidates.add(it) }
 
         log(TAG, VERBOSE) { "Looking for window identifiers: $candidates" }
