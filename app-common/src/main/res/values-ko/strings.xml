@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">성심껏 돕겠습니다.</string>
+    <string name="slogan_message_1">정리 완료</string>
     <string name="slogan_message_2">혼돈을 막습니다.</string>
     <string name="slogan_message_3">필요한 일들을 합니다.</string>
     <string name="slogan_message_4">깨끗함을 유지합니다.</string>

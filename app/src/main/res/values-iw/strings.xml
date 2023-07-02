@@ -2,11 +2,15 @@
 <resources>
     <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
     <string name="dashboard_settings_category">לוח בקרה</string>
+    <string name="dashboard_settings_oneclick_title">מצב לחיצה אחת</string>
+    <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בדשבוארד, ללא אישורים נוספים.</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות דיבג</string>
     <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
+    <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>
     <string name="debug_debuglog_record_action">שמירת קובץ לוג</string>
+    <string name="debug_debuglog_stop_action">הפסקת הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים.</string>
     <string name="settings_debuglog_explanation">הפונקציה רושמת את כל מה שהאפליקציה עושה לתוך קובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים (למשל עם המפתח אשר אמור לפתור תקלות).</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
@@ -22,6 +26,7 @@
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
     <string name="onboarding_welcome_body1">SD Maid SE מנהלת קבצים, אפליקציות ואחסון.</string>
     <string name="onboarding_welcome_body2">הישג שטח אחסון בעזרת ניקוי שאריות של אפליקציות אחרות. מחק קבצים לא נחוצים להתכלות והסר שאריות של נתונים.</string>
+    <string name="onboarding_welcome_body_beta">זוהי גרסאת בטא (בדיקות), השתמשו בה עם חוש הומור ותכנית גיבוי. דווחו בבקשה על בעיות שנתקלתם בהן.</string>
     <string name="onboarding_welcome_continue_action">המשך</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ידוע גם כSD Maid 2) היא הממשיכה של SD Maid. אפליקציה חדשה, מותאמת לאנדרואיד מודרני.</string>
@@ -31,6 +36,7 @@
     <string name="onboarding_privacy_bugreport_toggle">אפשר דוחות קריסה אוטומטים</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">האופציות הללו ניתנות לשינוי בהגדרות.</string>
     <string name="onboarding_privacy_continue_action">המשך</string>
+    <string name="onboarding_setup_title">התקנה</string>
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_licenses_label">רשיונות</string>
     <string name="settings_category_other_label">אחר</string>
@@ -43,8 +49,11 @@
     <string name="ui_theme_dark_label">כהה</string>
     <string name="ui_theme_light_label">בהיר</string>
     <string name="ui_theme_system_label">מערכת</string>
+    <string name="ui_previews_title">תצוגה מקדימה לקובץ</string>
     <string name="settings_support_label">תמיכה</string>
+    <string name="settings_support_description">קראו מסמכי תיעוד, דווח7 על בעיות, שוחחו עם אחרים או הקליטו לוג דיבוג.</string>
     <string name="documentation_label">תיעוד</string>
+    <string name="issue_tracker_description">מעקב בעיות פומבי לדיווחי באגים ובקשת יכולות חדשות.</string>
     <string name="issue_tracker_label">מעקב בעיות</string>
     <string name="support_installid_label">מזהה התקנה</string>
     <string name="discord_label">דיסקורד</string>

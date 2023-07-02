@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
+    <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
+    <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu klik pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
