@@ -176,26 +176,6 @@ class MIUISpecs @Inject constructor(
         val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(lang, script, country)
         val dialogTitles = miuiLabels.getDialogTitles(lang, script, country)
 
-        val alternativeStep: StepProcessor.Step = StepProcessor.Step(
-            parentTag = TAG,
-            label = "BRANCH: Find & Click 'Clear cache' (targets=$clearCacheLabels)",
-            windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
-            nodeTest = when {
-                isMiui12Plus -> {
-                    { it.isTextView() && it.textMatchesAny(clearCacheLabels) }
-                }
-
-                else -> {
-                    { it.isClickyButton() && it.textMatchesAny(clearCacheLabels) }
-                }
-            },
-            nodeMapping = when {
-                isMiui12Plus -> CrawlerCommon.clickableParent()
-                else -> null
-            },
-            action = CrawlerCommon.defaultClick()
-        )
-
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }
         }
@@ -234,13 +214,34 @@ class MIUISpecs @Inject constructor(
         }
 
         if (useAlternativeStep) {
+            val alternativeStep: StepProcessor.Step = StepProcessor.Step(
+                parentTag = TAG,
+                label = "BRANCH: Find & Click 'Clear cache' (targets=$clearCacheLabels)",
+                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
+                nodeTest = when {
+                    isMiui12Plus -> {
+                        { it.isTextView() && it.textMatchesAny(clearCacheLabels) }
+                    }
+
+                    else -> {
+                        { it.isClickyButton() && it.textMatchesAny(clearCacheLabels) }
+                    }
+                },
+                nodeMapping = when {
+                    isMiui12Plus -> CrawlerCommon.clickableParent()
+                    else -> null
+                },
+                action = CrawlerCommon.defaultClick()
+            )
             stepper.withProgress(this) { process(alternativeStep) }
         } else {
+            // This may be skipped when MIUI just shows a 'Clear cache' option
+
+
             // Clear data
             // -> Clear data
             // -> Clear cache
             // -> Cancel
-            // This may be skipped when MIUI just shows a 'Clear cache' option
 
             val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
                 if (node.pkgId != SETTINGS_PKG_MIUI) return false
