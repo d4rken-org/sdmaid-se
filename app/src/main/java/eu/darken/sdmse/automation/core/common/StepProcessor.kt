@@ -116,16 +116,11 @@ class StepProcessor @AssistedInject constructor(
                     crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
                 }
 
-                try {
-                    if (step.windowNodeTest.invoke(currentRoot)) {
-                        break
-                    } else {
-                        log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
-                        delay(200)
-                    }
-                } catch (e: StepAbortException) {
-                    log(TAG) { "ABORT Step! ${e.asLog()}" }
-                    throw e
+                if (step.windowNodeTest.invoke(currentRoot)) {
+                    break
+                } else {
+                    log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
+                    delay(200)
                 }
             }
 
