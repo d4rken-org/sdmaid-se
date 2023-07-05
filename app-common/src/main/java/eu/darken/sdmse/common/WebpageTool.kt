@@ -22,7 +22,11 @@ class WebpageTool @Inject constructor(
         try {
             context.startActivity(intent)
         } catch (e: ActivityNotFoundException) {
-            log(ERROR) { "Failed to launch" }
+            log(ERROR) { "Failed to launch. No compatible activity!" }
+        } catch (e: SecurityException) {
+            // Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://github.com/...
+            // flg=0x10000000 cmp=com.mxtech.videoplayer.pro/com.mxtech.videoplayer.ActivityWebBrowser }
+            log(ERROR) { "Failed to launch activity due to $e" }
         }
     }
 
