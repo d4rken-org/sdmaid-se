@@ -48,21 +48,16 @@ fun Context.spToPx(sp: Float): Float {
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, resources.displayMetrics)
 }
 
-fun Context.getQuantityString2(@PluralsRes stringRes: Int, quantity: Int) = resources.getQuantityString(
-    stringRes,
-    quantity,
-    quantity
-)
+fun Context.getQuantityString2(
+    @PluralsRes stringRes: Int,
+    quantity: Int
+) = resources.getQuantityString(stringRes, quantity, quantity)
 
 fun Context.getQuantityString2(
     @PluralsRes stringRes: Int,
     quantity: Int,
     vararg formatArgs: Any
-) = resources.getQuantityString(
-    stringRes,
-    quantity,
-    formatArgs
-)
+) = resources.getQuantityString(stringRes, quantity, *formatArgs)
 
 fun Context.openAsset(path: String): Source {
     return assets.open(path).source()
