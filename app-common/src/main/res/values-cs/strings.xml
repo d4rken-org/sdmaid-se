@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">K vašim službám.</string>
-    <string name="slogan_message_1">Čisto a uklizeno.</string>
+    <string name="slogan_message_1">Čistota a pořádek.</string>
     <string name="slogan_message_2">Předcházení chaosu.</string>
     <string name="slogan_message_3">Dělat to, co je nezbytné.</string>
     <string name="slogan_message_4">Všechny vaše karty jsou v pořádku.</string>
@@ -75,6 +75,7 @@
     <string name="general_show_details_action">Zobrazit podrobnosti</string>
     <string name="general_delete_confirmation_title">Potvrdit vymazání</string>
     <string name="general_delete_confirmation_message_x">Vymazat \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Smazat %d vybraných položek?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
         <item quantity="one">Smazána %1$d položka a uvolněno %2$s</item>
         <item quantity="few">Smazány %1$d položky a uvolněno %2$s</item>

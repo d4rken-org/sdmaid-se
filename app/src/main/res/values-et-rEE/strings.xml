@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
     <string name="dashboard_settings_category">Esileht</string>
+    <string name="dashboard_settings_oneclick_title">Ühe puudutuse režiim</string>
+    <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevat nuppu puudutades, ilma täiendavate nõusolekuteta.</string>
     <string name="debug_debuglog_size_label">Maht</string>
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
@@ -78,6 +80,7 @@
     <string name="setup_label">Seadistamine</string>
     <string name="setup_incomplete_card_title">Seadistatud</string>
     <string name="setup_incomplete_card_body">Tulemuste täiustamiseks seadistage SD Maid.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid üritab parandada seadistuse vigu.</string>
     <string name="setup_incomplete_card_dismiss_action">Sulge</string>
     <string name="setup_incomplete_card_continue_action">Jätka seadistamist</string>
     <string name="setup_title">Seadistamine</string>
@@ -95,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Võimalusel kasutage juurpääsu</string>
     <string name="setup_root_disable_root_use_label">Ärge kasutage juurpääsu</string>
     <string name="setup_root_card_body2">Saadaval vaid juurpääsuga seadmetes. Kui te ei muutnud seda, siis seadmel pole juurpääsu ja sel seadmel pole mingit mõju.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Luba SD Maidil võimalusel täiustada tulemusi ja lubada veel võimalusi Shizukuga.</string>
+    <string name="setup_shizuku_card_body2">See säte ei toimi, kui seadmes pole seadistatud Shizuku rakendust.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku link on valmis.</string>
+    <string name="setup_shizuku_state_waiting_label">Shizuku lingi ootel.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Kasuta Shizukut</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
     <string name="setup_permission_granted_label">Lubatud</string>
     <string name="setup_usagestats_title">Kasutusstatistika</string>
@@ -104,6 +114,7 @@
     <string name="setup_notification_body">Luba SD Maidil anda märku enda toimetustest või tähtsatest sündmustest.</string>
     <string name="setup_notification_hint">Saadame vaid olulisi teateid 🤞</string>
     <string name="setup_acs_card_title">Juurdepääsetavusteenus</string>
+    <string name="setup_acs_card_body">Juurdepääsetavusteenus lubab SD Maidil toimetada ekraanil ja teie eest ära teha tüütuid tegevusi, nt puudutada mitu korda \"Tühjenda vahemälu\".</string>
     <string name="setup_acs_card_body2">SD Maid ei kasuta juurdepääsetavusteenust ilma loata, näitab toimetamise ajal alati märgatavat (tühistamisvõimalusega) teadet ja ei kogu sellega teavet.</string>
     <string name="setup_acs_state_enabled">Juurdepääsetavusteenus on lubatud</string>
     <string name="setup_acs_state_disabled">Juurdepääsetavusteenus on keelatud</string>
@@ -227,7 +238,9 @@
     <string name="appcleaner_tool_name">Rakendusepuhastaja</string>
     <string name="appcleaner_explanation_short">Kindlatele rakendustele kuuluvad ja suurenevad rakendused.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Avalikud tavalised vahemälud</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Vanematel Androidi versioonides pääseb juurde kaustast Android/data. Kustutatakse, kui puudutatakse süsteemi sätetes \"Tühjenda vahemälu\".</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Isiklikud tavalised vahemälud</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Kustutatakse, kui puudutatakse süsteemi sätetes \"Tühjenda vahemälu\".</string>
     <string name="appcleaner_include_systemapps_label">Kaasa süsteemi rakendused</string>
     <string name="appcleaner_include_systemapps_summary">Skanni ka süsteemi rakendusi.</string>
     <string name="appcleaner_include_runningapps_label">Hõlma töötavad rakendused</string>
@@ -247,6 +260,7 @@
     <string name="appcleaner_filter_bugreporting_label">Vigadest teatamine</string>
     <string name="appcleaner_filter_bugreporting_summary">Vigadest teatamisega seotud andmed, nt vealogid või kokkujooksmise tõmmised.</string>
     <string name="appcleaner_filter_analytics_label">Analüüs</string>
+    <string name="appcleaner_filter_analytics_summary">Analüüsiga seotud andmed, nt vahemälus statistika rakenduses puudutatava kohta.</string>
     <string name="appcleaner_filter_hiddencaches_label">Peidetud vahemälud</string>
     <string name="appcleaner_filter_hiddencaches_summary">Üldised vahemälud, kuhu süsteemid ei pääse juurde.</string>
     <string name="appcleaner_filter_thumbnails_label">Meedia pisipildid</string>
@@ -288,6 +302,7 @@
     <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
     <string name="appcleaner_delete_confirmation_message_selected_x_items">Kustutada %d valitud rakenduse ühekordsed failid?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -385,6 +400,7 @@
         <item quantity="one">Loodi üks erand</item>
         <item quantity="other">Loodi %d erandit</item>
     </plurals>
+    <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja puutuda seda.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
     <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
     <string name="automation_active_title">SD Maid töötab</string>
     <string name="automation_error_no_consent_title">Automatiseerimise viga</string>
