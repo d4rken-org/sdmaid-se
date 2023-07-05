@@ -63,6 +63,7 @@ class PkgRepo @Inject constructor(
         pkgEventListener.events
             .onEach {
                 log(TAG) { "Refreshing package cache due to event: $it" }
+                Bugs.leaveBreadCrumb("Installed package data has changed")
                 refresh()
             }
             .launchIn(appScope)
