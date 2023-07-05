@@ -2,8 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Vymazat výsledky ve všech nástrojích?</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
-    <string name="dashboard_settings_oneclick_title">Mód na jedno klepnutí</string>
-    <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje kliknutím na tlačítko akcí na panelu nástrojů.</string>
+    <string name="dashboard_settings_oneclick_title">Režim jedním klepnutím</string>
+    <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje klepnutím na tlačítko akcí na panelu nástrojů.</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
@@ -103,12 +103,12 @@
     <string name="setup_root_disable_root_use_label">Nepoužívat root přístup</string>
     <string name="setup_root_card_body2">K dispozici pouze na zařízeních s root přístupem. Pokud jste tuto úpravu neprovedli, vaše zařízení nemá root přístup a toto nastavení nemá žádný vliv.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Povolit SD Maid používat Shizuku kdekoliv to bude možné, pro zlepšení výsledků a povolení funkcí.</string>
-    <string name="setup_shizuku_card_body2">Toto nastavení nemá žádný účinek, pokud není aplikace Shizuku nastavena na vašem zařízení.</string>
-    <string name="setup_shizuku_state_ready_label">Propojení s Shizuku je připraveno.</string>
-    <string name="setup_shizuku_state_waiting_label">Čekání na propojení s Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Používat Shizuku</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">Nepoužívat Shizuku</string>
+    <string name="setup_shizuku_card_body">Povolte aplikaci SD Maid používat Shizuku, pokud je to možné, pro zlepšení výkonu a aktivaci funkcí.</string>
+    <string name="setup_shizuku_card_body2">Toto nastavení nemá žádný účinek, pokud v zařízení není nastavena aplikace Shizuku.</string>
+    <string name="setup_shizuku_state_ready_label">Propojení se Shizuku je připraveno.</string>
+    <string name="setup_shizuku_state_waiting_label">Čekání na propojení se Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Použít Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
     <string name="setup_permission_granted_label">Oprávnění uděleno</string>
     <string name="setup_usagestats_title">Statistiky používání</string>
@@ -118,7 +118,7 @@
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
     <string name="setup_acs_card_title">Služba přístupnosti</string>
-    <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. kliknutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
+    <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. klepnutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>
     <string name="setup_acs_state_enabled">Služba přístupnosti je povolena</string>
     <string name="setup_acs_state_disabled">Služba přístupnosti je zakázána</string>
@@ -154,6 +154,12 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstranění</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstranit všechny pozůstatky související s odinstalovanou aplikací.</string>
     <string name="corpsefinder_watcher_notification_scan_result">Po odinstalování aplikace %2$s nalezeno pozůstatků: %1$s</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněna %3$d položka.</item>
+        <item quantity="few">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněny %3$d položky.</item>
+        <item quantity="many">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněno %3$d položek.</item>
+        <item quantity="other">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněno %3$d položek.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Odstranit pozůstatky</string>
     <string name="corpsefinder_filter_publicmedia_label">Veřejná média</string>
     <string name="corpsefinder_filter_publicmedia_summary">Veřejné mediální soubory, např. soubory přijaté aplikacemi pro zasílání zpráv.</string>
@@ -242,9 +248,9 @@
     <string name="appcleaner_tool_name">Čistič aplikací</string>
     <string name="appcleaner_explanation_short">Nepotřebná data patřící specifickým aplikacím.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Veřejné výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Výchozí veřejné mezipaměti aplikací. Ve starších verzích systému Android je přístupná ve složce Android/data. Odstraní se po kliknutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Výchozí veřejné mezipaměti aplikací. Ve starších verzích systému Android je přístupná pod položkou Android/data. Odstraní se po klepnutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Soukromé výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Výchozí soukromé mezipaměti aplikací. Odstraní se po kliknutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Výchozí soukromé mezipaměti aplikací. Odstraní se po klepnutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_include_systemapps_label">Zahrnout systémové aplikace</string>
     <string name="appcleaner_include_systemapps_summary">Zahrňte do skenování systémové aplikace.</string>
     <string name="appcleaner_include_runningapps_label">Zahrnout spuštěné aplikace</string>
@@ -264,7 +270,7 @@
     <string name="appcleaner_filter_bugreporting_label">Hlášení chyb</string>
     <string name="appcleaner_filter_bugreporting_summary">Data související s hlášením chyb, např. záznamy o chybách nebo výpisy chyb při pádu aplikace.</string>
     <string name="appcleaner_filter_analytics_label">Analytika</string>
-    <string name="appcleaner_filter_analytics_summary">Data související s analytikou, např. statistiky kliknutí v aplikaci, které jsou uložené v mezipaměti.</string>
+    <string name="appcleaner_filter_analytics_summary">Data související s analytikou, např. statistiky klepnutí v aplikaci, které jsou uložené v mezipaměti.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skryté mezipaměti</string>
     <string name="appcleaner_filter_hiddencaches_summary">Mezipaměti pro obecné účely uložené mimo dosah systému.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatury médií</string>
@@ -307,7 +313,8 @@
     <string name="appcleaner_automation_unavailable_body">K vymazání nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
     <string name="appcleaner_junk_userprofile_label">Uživatel</string>
     <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné položky pro %s?</string>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Odstraňování mezipaměti pomocí Shizuku</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Smazat nepotřebné soubory pro %d vybraných aplikací?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Mazání mezipaměti pomocí Shizuku</string>
     <string name="appcontrol_tool_name">Správce aplikací</string>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -368,7 +375,7 @@
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
     <string name="analyzer_storage_content_type_system_description">Systémová data a systémové aplikace.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
-    <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a prostředky. Tento prostor jde uvolnit pouze odinstalováním aplikace.</string>
+    <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a zdroje. Tento prostor lze uvolnit pouze odinstalací aplikace.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>
     <string name="analyzer_storage_content_app_data_description">Data, nastavení a mezipaměti.</string>
     <string name="analyzer_storage_content_app_media_label">Média aplikace</string>
@@ -409,7 +416,7 @@
         <item quantity="many">Vytvořeno %d výjimek</item>
         <item quantity="other">Vytvořeno %d výjimek</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a kliknout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
+    <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a klepnout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Chyba automatizace</string>

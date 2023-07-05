@@ -99,12 +99,12 @@
     <string name="setup_root_disable_root_use_label">Root-Zugriff nicht verwenden</string>
     <string name="setup_root_card_body2">Nur auf gerooteten Geräten verfügbar. Wenn Du diese Änderung nicht vorgenommen hast, ist Dein Gerät nicht gerootet und diese Einstellung hat keine Auswirkung.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Erlauben Sie SD Maid, Shizuku nach Möglichkeit zu verwenden, um Ergebnisse zu verbessern und Funktionen zu aktivieren.</string>
-    <string name="setup_shizuku_card_body2">Diese Einstellung hat keine Auswirkung, wenn die Shizuku-App nicht auf Ihrem Gerät eingerichtet ist.</string>
+    <string name="setup_shizuku_card_body">Erlaube SD Maid, Shizuku nach Möglichkeit zu verwenden, um Ergebnisse zu verbessern und Funktionen zu aktivieren.</string>
+    <string name="setup_shizuku_card_body2">Diese Einstellung hat keine Auswirkung, wenn die Shizuku-App nicht auf Deinem Gerät eingerichtet ist.</string>
     <string name="setup_shizuku_state_ready_label">Der Shizuku-Link ist fertig.</string>
     <string name="setup_shizuku_state_waiting_label">Warte auf Verbindung mit Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Benutze Shizuku</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">Verwenden Sie kein Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Shizuku nicht verwenden</string>
     <string name="setup_dismiss_hint">Du kannst das Setup im Einstellungsmenü wiederfinden.</string>
     <string name="setup_permission_granted_label">Erlaubnis erteilt</string>
     <string name="setup_usagestats_title">Nutzungsstatistiken</string>
@@ -400,7 +400,7 @@
         <item quantity="one">Ein Ausschluss wurde erstellt</item>
         <item quantity="other">%d Ausschlüsse erstellt</item>
     </plurals>
-    <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten eine mühsame manuelle Benutzerinteraktion erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Sie SD Maid anweisen, mehrere Apps zu stoppen, kann SD Maid dies verwenden Um den Einstellungsbildschirm jeder App zu öffnen, such nach der Schaltfläche „Stoppen erzwingen“ und tippe darauf.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nNein Aktionen werden ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
+    <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten mühsame manuelle Benutzerinteraktionen erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid dies verwenden, um den Einstellungsbildschirm jeder App zu öffnen, nach der Schaltfläche „Stoppen erzwingen“ zu suchen und darauf zu tippen.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nEs werden keine Aktionen ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
