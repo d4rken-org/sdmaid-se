@@ -175,7 +175,10 @@
     <string name="corpsefinder_watcher_summary">Automatically scan for remains when an app removed.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatic deletion</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatically delete any remains related to the uninstalled app.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s remain(s) found after uninstalling %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d remain found after uninstalling %2$s.</item>
+        <item quantity="other">%1$d remains found after uninstalling %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Clean up successful (%1$s): Freed %2$s and removed %3$d item.</item>
         <item quantity="other">Clean up successful (%1$s): Freed %2$s and removed %3$d items.</item>
