@@ -13,6 +13,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.ui.MainActivity
 import javax.inject.Inject
@@ -80,9 +81,9 @@ class UninstallWatcherNotifications @Inject constructor(
 
     private fun forScanResult(result: ExternalWatcherResult.Scan): Notification = getBuilder(result).apply {
         setContentText(
-            context.getString(
-                R.string.corpsefinder_watcher_notification_scan_result,
-                result.foundItems.toString(),
+            context.getQuantityString2(
+                R.plurals.corpsefinder_watcher_notification_scan_result,
+                result.foundItems,
                 result.pkgId.name
             )
         )

@@ -54,6 +54,16 @@ fun Context.getQuantityString2(@PluralsRes stringRes: Int, quantity: Int) = reso
     quantity
 )
 
+fun Context.getQuantityString2(
+    @PluralsRes stringRes: Int,
+    quantity: Int,
+    vararg formatArgs: Any
+) = resources.getQuantityString(
+    stringRes,
+    quantity,
+    formatArgs
+)
+
 fun Context.openAsset(path: String): Source {
     return assets.open(path).source()
 }
