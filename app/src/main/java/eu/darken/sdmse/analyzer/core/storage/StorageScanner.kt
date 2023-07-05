@@ -186,7 +186,12 @@ class StorageScanner @Inject constructor(
         storage: DeviceStorage,
         pkg: Installed
     ): AppCategory.PkgStat {
-        val appStorStats = statsManager.queryStatsForPkg(storage.id, pkg)
+        val appStorStats = try {
+            statsManager.queryStatsForPkg(storage.id, pkg)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to query stats for ${pkg.id} due to $e" }
+            null
+        }
 
         val appCodeGroup = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
@@ -201,13 +206,14 @@ class StorageScanner @Inject constructor(
                     }
                     ?.let { LocalPath.build(it) }
                     ?.let { codeDir ->
-                        if (useRoot) {
-                            codeDir.walkContentItem(gatewaySwitch)
-                        } else {
-                            ContentItem.fromInaccessible(
+                        when {
+                            useRoot -> codeDir.walkContentItem(gatewaySwitch)
+                            appStorStats != null -> ContentItem.fromInaccessible(
                                 codeDir,
                                 if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
                             )
+
+                            else -> ContentItem.fromInaccessible(codeDir)
                         }
                     }
 
@@ -256,12 +262,16 @@ class StorageScanner @Inject constructor(
                 .filter { it.exists(gatewaySwitch) }
                 .map { it.walkContentItem(gatewaySwitch) }
 
-            else -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
+            appStorStats != null -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
                 ContentItem.fromInaccessible(
                     LocalPath.build(it),
                     // This is a simplification, because storage stats don't provider more fine grained infos
                     appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
                 )
+            }
+
+            else -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
+                ContentItem.fromInaccessible(LocalPath.build(it))
             }
         }
 
