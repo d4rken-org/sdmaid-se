@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -118,10 +119,11 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
                 is ContentItemEvents.ContentDeleted -> Snackbar.make(
                     requireView(),
-                    resources.getQuantityString(
+                    requireContext().getQuantityString2(
                         eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x_freed_y,
                         event.count,
-                        event.count, Formatter.formatShortFileSize(requireContext(), event.freedSpace)
+                        event.count,
+                        Formatter.formatShortFileSize(requireContext(), event.freedSpace)
                     ),
                     Snackbar.LENGTH_LONG
                 ).show()
