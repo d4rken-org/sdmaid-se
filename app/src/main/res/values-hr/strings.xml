@@ -44,7 +44,6 @@
     <string name="onboarding_privacy_continue_action">Nastavi</string>
     <string name="onboarding_setup_title">Postavljanje</string>
     <string name="onboarding_setup_body1">SD Maid će pretražiti sva dostupna područja podataka.</string>
-    <string name="onboarding_setup_body2">Što je dostupno ovisi o vašem telefonu, verziji Androida i odobrenim dozvolama.</string>
     <string name="onboarding_setup_body3">Počnite koristiti SD Maid postavljanjem pristupa područjima koja treba pretražiti.</string>
     <string name="onboarding_setup_continue_action">Postavite pristup</string>
     <string name="settings_privacy_policy_label">Politika privatnosti</string>
@@ -119,7 +118,6 @@
     <string name="setup_acs_state_disabled">Usluga pristupačnosti je onemogućena</string>
     <string name="setup_acs_state_running">Usluga pristupačnosti je pokrenuta</string>
     <string name="setup_acs_state_stopped">Usluga pristupačnosti je zaustavljena</string>
-    <string name="setup_acs_state_stopped_hint">Usluga je omogućena, ali nije pokrenuta. Uključivanje/isključivanje ili ponovno pokretanje uređaja moglo bi pomoći. Provjerite da sustav ne \"optimizira\" SD Maid.</string>
     <string name="setup_acs_state_stopped_hint_miui">Ako se usluga nakon nekog vremena nastavi onemogućavati, pokušajte omogućiti opciju \"Auto Start\" za SD Maid u postavkama sustava.</string>
     <string name="setup_acs_consent_positive_action">Omogući uslugu i odobri pristup</string>
     <string name="setup_acs_consent_negative_action">Nemoj koristiti uslugu pristupačnosti</string>
@@ -145,16 +143,12 @@
     <string name="corpsefinder_settings_risk_common_title">Uključi uobičajena imena</string>
     <string name="corpsefinder_settings_risk_common_summary">Podaci s previše čestim imenima, npr. mapa \"Bilješke\" u vlasništvu je previše nepoznatih aplikacija.</string>
     <string name="corpsefinder_watcher_title">Promatrač deinstalacije</string>
-    <string name="corpsefinder_watcher_summary">Automatski skeniraj ostatke nakon uklanjanja aplikacije.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatsko brisanje</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Automatski briše sve ostatke povezane s deinstaliranom aplikacijom.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">Pronađeno %1$s ostakak(a) nakon deinstalacije %2$s.</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavka je uklonjena.</item>
         <item quantity="few">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavke su uklonjene.</item>
         <item quantity="other">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavki je uklonjeno.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Izbriši ostatke</string>
     <string name="corpsefinder_filter_publicmedia_label">Javni mediji</string>
     <string name="corpsefinder_filter_publicmedia_summary">Javne medijske datoteke, npr. datoteke primljene putem aplikacija za slanje poruka.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB resursi</string>
@@ -176,12 +170,6 @@
     <string name="corpsefinder_filter_appasec_label">Šifrirani resursi aplikacije</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrirani resursi aplikacije, npr. sredstva igre.</string>
     <string name="corpsefinder_filter_app2sd_summary">Podaci premješteni u vanjsku pohranu putem App2SD modova.</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">Otkriven %d ostatak aplikacije</item>
-        <item quantity="few">Otkrivena %d ostatka aplikacije</item>
-        <item quantity="other">Otkriveno %d ostataka aplikacije</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Izbrisati sve ostatke aplikacije?</string>
     <string name="corpsefinder_owners_label">Vlasnici</string>
     <string name="corpsefinder_corpse_hints_label">Napomena</string>
     <string name="corpsefinder_owner_unknown">Nepoznat vlasnik</string>
@@ -231,7 +219,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">Područje u koje sustav ispušta datoteke zapisnika.</string>
     <string name="systemcleaner_filter_recenttasks_label">Nedavni zadaci</string>
     <string name="systemcleaner_filter_recenttasks_summary">Podaci koji se odnose na povijest zadataka u izmjenjivaču zadataka sustava.</string>
-    <string name="systemcleaner_filter_tombstones_label">Ostaci rušenja sustava</string>
     <string name="systemcleaner_filter_tombstones_summary">Ako se izvorni procesi ruše (npr. igre), ovdje se stvaraju datoteke.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistika korištenja</string>
     <string name="systemcleaner_filter_usagestats_summary">Datoteke povezane sa statistikom korištenja aplikacije.</string>

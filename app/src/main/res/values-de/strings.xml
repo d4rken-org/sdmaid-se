@@ -43,7 +43,7 @@
     <string name="onboarding_privacy_continue_action">Weiter</string>
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid durchsucht alle zugänglichen Datenbereiche.</string>
-    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von Deinem Telefon, Deiner Android-Version und den erteilten Berechtigungen ab.</string>
+    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von deinem Gerät, der Android-Version und den gewährten Berechtigungen ab.</string>
     <string name="onboarding_setup_body3">Beginne mit der Verwendung von SD Maid, indem Du Zugriff auf Bereiche einrichtest, die durchsucht werden sollen.</string>
     <string name="onboarding_setup_continue_action">Zugriff einrichten</string>
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
@@ -119,8 +119,9 @@
     <string name="setup_acs_state_enabled">Der Barrierefreiheitsdienst ist aktiviert</string>
     <string name="setup_acs_state_disabled">Der Barrierefreiheitsdienst ist deaktiviert</string>
     <string name="setup_acs_state_running">Der Barrierefreiheitsdienst wird ausgeführt</string>
+    <string name="setup_acs_state_ondemand">Der Dienst wird auf Anfrage gestartet</string>
     <string name="setup_acs_state_stopped">Der Barrierefreiheitsdienst wurde beendet</string>
-    <string name="setup_acs_state_stopped_hint">Der Dienst ist aktiviert, wird aber nicht ausgeführt. Schalte ihn aus/ein oder starte Dein Gerät neu. Stelle sicher, dass SD Maid nicht vom System \"optimiert\" wird.</string>
+    <string name="setup_acs_state_stopped_hint">Der Dienst ist aktiviert, wird jedoch nicht ausgeführt. Schalte es aus/ein oder starte das Gerät neu. Stelle sicher, dass SD Maid nicht vom System „optimiert“ wird.</string>
     <string name="setup_acs_state_stopped_hint_miui">Wenn der Dienst nach einer Weile immer wieder deaktiviert wird, versuche die Option „Auto Start“ für SD Maid in den Systemeinstellungen zu aktivieren.</string>
     <string name="setup_acs_consent_positive_action">Dienst aktivieren und Zugriff gewähren</string>
     <string name="setup_acs_consent_negative_action">Verwende keinen Barrierefreiheitsdienst</string>
@@ -149,7 +150,10 @@
     <string name="corpsefinder_watcher_summary">Automatische Suche nach Überresten, wenn eine App entfernt wird.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatisches Löschen</string>
     <string name="corpsefinder_watcher_autodelete_summary">Lösche automatisch alle Überreste der deinstallierten App.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s Überbleibsel nach Deinstallation von %2$s gefunden.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d Rest nach der Deinstallation von %2$s gefunden.</item>
+        <item quantity="other">Nach der Deinstallation von %2$s wurden %1$d Reste gefunden.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Element entfernt.</item>
         <item quantity="other">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Elemente entfernt.</item>
@@ -178,8 +182,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d App-Überbleibsel entdeckt</item>
-        <item quantity="other">%d App-Überreste entdeckt</item>
+        <item quantity="one">%d App-Rest entdeckt</item>
+        <item quantity="other">%d App-Reste entdeckt</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Alle App-Reste löschen?</string>
     <string name="corpsefinder_owners_label">Besitzer</string>
@@ -230,7 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Ein Bereich, in dem das System Protokolldateien ablegen kann.</string>
     <string name="systemcleaner_filter_recenttasks_label">Aktuelle Aufgaben</string>
     <string name="systemcleaner_filter_recenttasks_summary">Daten im Zusammenhang mit dem Aufgabenverlauf im Aufgabenumschalter des Systems.</string>
-    <string name="systemcleaner_filter_tombstones_label">Systemabsturz-Überreste</string>
+    <string name="systemcleaner_filter_tombstones_label">Rückstände eines Systemabsturzes</string>
     <string name="systemcleaner_filter_tombstones_summary">Wenn native Prozesse abstürzen (z.B. Spiele), werden hier Dateien erstellt.</string>
     <string name="systemcleaner_filter_usagestats_label">Nutzungsstatistiken</string>
     <string name="systemcleaner_filter_usagestats_summary">Dateien mit Bezug zu App-Nutzungsstatistiken.</string>

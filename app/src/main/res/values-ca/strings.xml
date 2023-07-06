@@ -43,7 +43,6 @@
     <string name="onboarding_privacy_continue_action">Continua</string>
     <string name="onboarding_setup_title">Configura</string>
     <string name="onboarding_setup_body1">L\'SD Maid cercarà totes les àrees de dades accessibles.</string>
-    <string name="onboarding_setup_body2">El que és accessible depèn del vostre telèfon, la versió d\'Android i els permisos concedits.</string>
     <string name="onboarding_setup_body3">Comenceu a utilitzar l\'SD Maid configurant l\'accés a les àrees que s\'han de cercar.</string>
     <string name="onboarding_setup_continue_action">Configura l\'accés</string>
     <string name="settings_privacy_policy_label">Política de privadesa</string>
@@ -120,7 +119,6 @@
     <string name="setup_acs_state_disabled">El servei d\'accessibilitat està deshabilitat</string>
     <string name="setup_acs_state_running">El servei d\'accessibilitat s\'està executant</string>
     <string name="setup_acs_state_stopped">El servei d\'accessibilitat està aturat</string>
-    <string name="setup_acs_state_stopped_hint">El servei està habilitat, però no s\'està executant. Proveu a activar-lo/desactivar-lo o reiniciar el dispositiu. Comproveu que l\'SD Maid no estigui «optimitzat» pel sistema.</string>
     <string name="setup_acs_state_stopped_hint_miui">Si el servei es continua desactivant al cap d\'un temps, proveu d\'activar l\'opció «Inici automàtic» per a l\'SD Maid a la configuració del sistema.</string>
     <string name="setup_acs_consent_positive_action">Habiliteu el servei i concediu l\'accés</string>
     <string name="setup_acs_consent_negative_action">No utilitzeu el servei d\'accessibilitat</string>
@@ -146,15 +144,11 @@
     <string name="corpsefinder_settings_risk_common_title">Inclou noms comuns</string>
     <string name="corpsefinder_settings_risk_common_summary">Dades amb noms massa comuns, p. ex. una carpeta «Notes» és propietat de massa aplicacions desconegudes.</string>
     <string name="corpsefinder_watcher_title">Desinstal·lació de l\'observador</string>
-    <string name="corpsefinder_watcher_summary">Explora automàticament les restes quan s\'elimina una aplicació.</string>
     <string name="corpsefinder_watcher_autodelete_title">Eliminació automàtica</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Suprimeix automàticament les restes relacionades amb l\'aplicació desinstal·lada.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">S\'han trobat %1$s restes després de desinstal·lar %2$s.</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Neteja correcta (%1$s): s\'ha alliberat %2$s i s\'ha eliminat %3$d element.</item>
         <item quantity="other">Neteja correcta (%1$s): s\'han alliberat %2$s i s\'han eliminat %3$d elements.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Elimina les restes</string>
     <string name="corpsefinder_filter_publicmedia_label">Mitjans públics</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fitxers multimèdia públics, p. ex. fitxers rebuts mitjançant aplicacions de missatgeria.</string>
     <string name="corpsefinder_filter_publicobb_label">Recursos OBB</string>
@@ -177,11 +171,6 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de l\'aplicació xifrats, p. ex. actius del joc.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dades mogudes a l\'emmagatzematge extern mitjançant modificacions d\'App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">S\'ha descobert %d aplicació</item>
-        <item quantity="other">S\'han descobert %d aplicacions</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Voleu suprimir totes les restes d\'aplicacions?</string>
     <string name="corpsefinder_owners_label">Propietaris</string>
     <string name="corpsefinder_corpse_hints_label">Avís</string>
     <string name="corpsefinder_owner_unknown">Propietari desconegut</string>
@@ -230,7 +219,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">Una àrea on el sistema desa fitxers de registre.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tasques recents</string>
     <string name="systemcleaner_filter_recenttasks_summary">Dades relacionades amb l\'historial de tasques al commutador de tasques del sistema.</string>
-    <string name="systemcleaner_filter_tombstones_label">Restes per fallades del sistema</string>
     <string name="systemcleaner_filter_tombstones_summary">Si els processos nadius es pengen (p. ex. els jocs), els fitxers és creen aquí.</string>
     <string name="systemcleaner_filter_usagestats_label">Estadístiques d\'ús</string>
     <string name="systemcleaner_filter_usagestats_summary">Fitxers relacionats amb les estadístiques d\'ús d\'aplicacions.</string>

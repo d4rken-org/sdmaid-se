@@ -119,6 +119,7 @@
     <string name="setup_acs_state_enabled">Erişilebilirlik hizmeti etkinleştirildi</string>
     <string name="setup_acs_state_disabled">Erişilebilirlik hizmeti devre dışı</string>
     <string name="setup_acs_state_running">Erişilebilirlik servisi çalışıyor</string>
+    <string name="setup_acs_state_ondemand">Hizmet, talebinize bağlı olarak başlatılacaktır</string>
     <string name="setup_acs_state_stopped">Erişilebilirlik servisi durduruldu</string>
     <string name="setup_acs_state_stopped_hint">Hizmet etkinleştirilmiş, ancak çalışmıyor. Erişilebilirlik iznini kapatıp-açın veya cihazınızı yeniden başlatın. SD Maid\'in sistem tarafından pil tasarrufu için \"optimize\" edilmediğini kontrol edin.</string>
     <string name="setup_acs_state_stopped_hint_miui">Hizmet bir süre sonra devre dışı kalmaya devam ederse, sistem ayarlarında SD Maid için \"Otomatik Başlat\" seçeneğini etkinleştirmeyi deneyin.</string>
@@ -149,7 +150,10 @@
     <string name="corpsefinder_watcher_summary">Bir uygulama kaldırıldığında otomatik olarak kalıntıları tarar.</string>
     <string name="corpsefinder_watcher_autodelete_title">Otomatik silme</string>
     <string name="corpsefinder_watcher_autodelete_summary">Kaldırılan uygulamayla ilgili tüm kalıntıları otomatik olarak silin.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%2$s kaldırıldıktan sonra %1$s kalıntı bulundu.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s kaldırıldıktan sonra %1$d kalıntı bulundu.</item>
+        <item quantity="other">%2$s kaldırıldıktan sonra %1$d kalıntı bulundu.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Temizlik başarılı (%1$s): %2$s yer açıldı ve %3$d öğe silindi.</item>
         <item quantity="other">Temizlik başarılı (%1$s): %2$s yer açıldı ve %3$d öğe silindi.</item>

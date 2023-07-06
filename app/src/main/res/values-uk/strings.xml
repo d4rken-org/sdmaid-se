@@ -43,7 +43,6 @@
     <string name="onboarding_privacy_continue_action">Продовжити</string>
     <string name="onboarding_setup_title">Налаштування</string>
     <string name="onboarding_setup_body1">SD Maid здійснить пошук у всіх доступних областях даних.</string>
-    <string name="onboarding_setup_body2">Доступність залежить від вашої моделі телефону, версії Android і наданих дозволів.</string>
     <string name="onboarding_setup_body3">Почніть використовувати SD Maid, надавши доступ до зон, в яких потрібно здійснити пошук.</string>
     <string name="onboarding_setup_continue_action">Налаштувати доступ</string>
     <string name="settings_privacy_policy_label">Політика конфіденційності</string>
@@ -108,7 +107,6 @@
     <string name="setup_acs_state_disabled">Служба спеціальних можливостей вимкнена</string>
     <string name="setup_acs_state_running">Служба спеціальних можливостей запущена</string>
     <string name="setup_acs_state_stopped">Служба спеціальних можливостей зупинено</string>
-    <string name="setup_acs_state_stopped_hint">Служба увімкнена, але не працює. Вимкніть/Увімкніть її, або перезавантажте пристрій. Переконайтеся, чи не \"оптимізовується\" SD Maid системою.</string>
     <string name="setup_acs_state_stopped_hint_miui">Якщо служба продовжує вимикатися через деякий час, спробуйте увімкнути опцію \"Автозапуск\" для SD Maid в системних налаштуваннях.</string>
     <string name="setup_acs_consent_positive_action">Увімкніть службу та надайте доступ</string>
     <string name="setup_acs_consent_negative_action">Не використовувати службу спеціальних можливостей</string>
@@ -132,7 +130,6 @@
     <string name="corpsefinder_settings_risk_common_title">Включити загальні назви</string>
     <string name="corpsefinder_settings_risk_common_summary">Дані з надто загальними іменами, наприклад, папка \"Notes\" належить надто багатьом невідомим додаткам.</string>
     <string name="corpsefinder_watcher_title">Контролер деінсталяції</string>
-    <string name="corpsefinder_watcher_summary">Автоматичне сканування на наявність залишків при видаленні додатка.</string>
     <string name="corpsefinder_filter_publicmedia_label">Публічні медіафайли</string>
     <string name="corpsefinder_filter_publicmedia_summary">Публічні медіафайли, наприклад, файли, отримані через месенджери.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB-файли ресурсів</string>
@@ -154,13 +151,6 @@
     <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад такі, як дані ігор.</string>
     <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">Виявлено залишків додатків: %d</item>
-        <item quantity="few">Виявлено залишків додатків: %d</item>
-        <item quantity="many">Виявлено залишків додатків: %d</item>
-        <item quantity="other">Виявлено %d залишків додатків</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Видалити всі залишки додатка?</string>
     <string name="corpsefinder_owners_label">Власники</string>
     <string name="corpsefinder_corpse_hints_label">Примітка</string>
     <string name="corpsefinder_owner_unknown">Невідомий власник</string>

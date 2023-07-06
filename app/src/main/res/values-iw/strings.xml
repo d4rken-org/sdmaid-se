@@ -87,7 +87,6 @@
     <string name="corpsefinder_settings_risk_common_title">לכלול שמות נפוצים</string>
     <string name="corpsefinder_settings_risk_common_summary">נתונים עם שמות נפוצים מאוד, למשל, תיקייה של \"פתקים\" נמצאת בבעלות גישה של אפליקציות לא ידועות רבות.</string>
     <string name="corpsefinder_watcher_title">מאזין להסרת אפליקציות</string>
-    <string name="corpsefinder_watcher_summary">סרוק אוטומטית אחר שאריות כאשר אפליקציה כבר הסרה.</string>
     <string name="corpsefinder_filter_publicmedia_label">מדיה ציבורית</string>
     <string name="corpsefinder_filter_publicmedia_summary">מדיה ציבורית, לדוגמה קבצים שהתקבלו דרך אפליקציות מסרים.</string>
     <string name="corpsefinder_filter_publicobb_label">משאבי OBB</string>
@@ -109,13 +108,6 @@
     <string name="corpsefinder_filter_appasec_summary">משאבי אפליקציה מוצפנים, למשל נכסי משחק.</string>
     <string name="corpsefinder_filter_app2sd_summary">נתונים הועברו לאחסון חיצוני על ידי מוד App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d אפליקציה נותרה לגילוי</item>
-        <item quantity="two">%d אפליקציות נותרו לגילוי</item>
-        <item quantity="many">%d אפליקציות נותרו לגילוי</item>
-        <item quantity="other">%d אפליקציות נותרו לגילוי</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">למחוק כל האפליקציות הנותרות?</string>
     <string name="corpsefinder_owners_label">בעלים</string>
     <string name="systemcleaner_filter_linuxfiles_label">קבצי לינוקס</string>
     <string name="systemcleaner_filter_macfiles_label">קבצי מאק</string>

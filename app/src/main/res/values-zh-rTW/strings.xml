@@ -41,7 +41,7 @@
     <string name="onboarding_privacy_continue_action">繼續</string>
     <string name="onboarding_setup_title">安裝程式</string>
     <string name="onboarding_setup_body1">SD 女僕將會搜尋所有可存取的資料區域。</string>
-    <string name="onboarding_setup_body2">可存取的內容依存於您的手機、Android 版本和授予的權限。</string>
+    <string name="onboarding_setup_body2">可存取的內容依存於您的裝置、Android 版本和授予的權限。</string>
     <string name="onboarding_setup_body3">透過設定對應搜尋區域的存取權，開始使用 SD 女僕。</string>
     <string name="onboarding_setup_continue_action">設定存取權</string>
     <string name="settings_privacy_policy_label">隱私權政策</string>
@@ -117,6 +117,7 @@
     <string name="setup_acs_state_enabled">無障礙服務已啟用</string>
     <string name="setup_acs_state_disabled">無障礙服務已停用</string>
     <string name="setup_acs_state_running">無障礙服務正在執行</string>
+    <string name="setup_acs_state_ondemand">服務會按需啟動</string>
     <string name="setup_acs_state_stopped">無障礙服務已停止</string>
     <string name="setup_acs_state_stopped_hint">服務已啟用，但未在執行。切換它的開關或重新啟動您的裝置，並檢查 SD 女僕是否被系統「最佳化」。</string>
     <string name="setup_acs_state_stopped_hint_miui">如果服務在一段時間後一直被停用，請嘗試在系統設定中為 SD 女僕啟用「自動啟動」選項。</string>
@@ -147,7 +148,9 @@
     <string name="corpsefinder_watcher_summary">在應用程式被移除時自動掃描殘留項目。</string>
     <string name="corpsefinder_watcher_autodelete_title">自動刪除</string>
     <string name="corpsefinder_watcher_autodelete_summary">自動刪除與已解除安裝的應用程式相關的殘留。</string>
-    <string name="corpsefinder_watcher_notification_scan_result">已在 %2$s 解除安裝後找到 %1$s 個殘留項目。</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">已在 %2$s 解除安裝後找到 %1$d 個殘留項目。</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">清理成功 (%1$s)：已釋出 %2$s 並移除 %3$d 個項目。</item>
     </plurals>

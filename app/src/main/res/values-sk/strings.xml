@@ -47,7 +47,6 @@
     <string name="onboarding_privacy_continue_action">Pokračovať</string>
     <string name="onboarding_setup_title">Nastavenia</string>
     <string name="onboarding_setup_body1">SD Maid prehľadá všetky dostupné dátové oblasti.</string>
-    <string name="onboarding_setup_body2">To, čo je dostupné, závisí od vášho telefónu, verzie Androidu a udelených povolení.</string>
     <string name="onboarding_setup_body3">Začnite používať SD Maid nastavením prístupu do oblastí, ktoré by sa mali prehľadávať.</string>
     <string name="onboarding_setup_continue_action">Nastavte prístup</string>
     <string name="settings_privacy_policy_label">Zásady ochrany osobných údajov</string>
@@ -124,7 +123,6 @@
     <string name="setup_acs_state_disabled">Služba dostupnosti je zakázaná</string>
     <string name="setup_acs_state_running">Služba dostupnosti je spustená</string>
     <string name="setup_acs_state_stopped">Služba dostupnosti je zastavená</string>
-    <string name="setup_acs_state_stopped_hint">Služba je povolená, ale nie je spustená. Vypnite/zapnite službu alebo reštartujte zariadenie. Skontrolujte, či SD Maid nie je „optimalizovaný“ systémom.</string>
     <string name="setup_acs_state_stopped_hint_miui">Ak sa služba po chvíli zakáže, skúste v systémových nastaveniach povoliť možnosť „Automatické spustenie“ pre SD Maid.</string>
     <string name="setup_acs_consent_positive_action">Povoliť službu a udeliť prístup</string>
     <string name="setup_acs_consent_negative_action">Nepoužívať službu dostupnosti</string>
@@ -150,17 +148,13 @@
     <string name="corpsefinder_settings_risk_common_title">Zahrnúť bežné názvy</string>
     <string name="corpsefinder_settings_risk_common_summary">Údaje s príliš bežnými názvami, napr. priečinok „Poznámky“ vlastní príliš veľa neznámych aplikácií.</string>
     <string name="corpsefinder_watcher_title">Sledovač odinštalácií</string>
-    <string name="corpsefinder_watcher_summary">Automaticky vyhľadať pozostatky po odstránení aplikácie.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstráňte všetky zvyšky súvisiace s odinštalovanou aplikáciou.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s pozostatok(kov) nájdený(ch) po odinštalovaní %2$s.</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránila sa %3$d položka.</item>
         <item quantity="few">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránili sa %3$d položky.</item>
         <item quantity="many">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
         <item quantity="other">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Odstrániť pozostatky</string>
     <string name="corpsefinder_filter_publicmedia_label">Verejné médiá</string>
     <string name="corpsefinder_filter_publicmedia_summary">Súbory verejných médií, napr. súbory prijaté prostredníctvom aplikácií na odosielanie správ.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB zdroje</string>
@@ -183,13 +177,6 @@
     <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikácií, napr. herné prostriedky.</string>
     <string name="corpsefinder_filter_app2sd_summary">Údaje presunuté do externého úložiska pomocou modov App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d nájdený pozostatok aplikácie</item>
-        <item quantity="few">%d nájdené pozostatky aplikácie</item>
-        <item quantity="many">%d nájdených pozostatkov aplikácie</item>
-        <item quantity="other">%d nájdených pozostatkov aplikácie</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Odstrániť všetky zvyšky aplikácie?</string>
     <string name="corpsefinder_owners_label">Vlastníci</string>
     <string name="corpsefinder_corpse_hints_label">Oznámenie</string>
     <string name="corpsefinder_owner_unknown">Neznámy vlastník</string>
@@ -240,7 +227,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">Oblasť, do ktorej má systém vkladať súbory denníka.</string>
     <string name="systemcleaner_filter_recenttasks_label">Nedávne úlohy</string>
     <string name="systemcleaner_filter_recenttasks_summary">Údaje súvisiace s históriou úloh v systémovom prepínači úloh.</string>
-    <string name="systemcleaner_filter_tombstones_label">Pozostatky zlyhania systému</string>
     <string name="systemcleaner_filter_tombstones_summary">Ak natívne procesy zlyhajú (napr. hry), súbory sa vytvoria tu.</string>
     <string name="systemcleaner_filter_usagestats_label">Štatistiky používania</string>
     <string name="systemcleaner_filter_usagestats_summary">Súbory súvisiace so štatistikami používania aplikácie.</string>

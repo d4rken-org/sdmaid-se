@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Az SD Maid fejlesztése</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A folyamatos fejlődést csak Ön teszi lehetővé.</string>
     <string name="upgrade_screen_how_title">Hogyan lehet segíteni</string>
+    <string name="upgrade_screen_how_body">Legyen patron támogató és szponzorálja a fejlesztést! Kattintson az alábbi gombra az összes extra funkció aktiválásához és a GitHub Sponsors profilom megnyitásához.</string>
     <string name="upgrade_screen_why_title">Ez varázsol 🪄</string>
     <string name="upgrade_screen_why_body">AlkalmazásTiszító törlési funkció 💯\n• Ütemezett műveletek ⏰\n• Extra lehetőségek minden eszközhöz ⚙️\n• Saját törlési szabályok ✍️\n• Motivált fejlesztő 🧙\nés több…</string>
     <string name="upgrade_screen_sponsor_action">Szponzori fejlesztés</string>

@@ -41,7 +41,6 @@
     <string name="onboarding_privacy_continue_action">Vazhdo</string>
     <string name="onboarding_setup_title">Konfigurim</string>
     <string name="onboarding_setup_body1">SD Maid do të kërkojë të gjitha zonat e aksesueshme të të dhënave.</string>
-    <string name="onboarding_setup_body2">Çfarë është e aksesueshme varet nga telefoni juaj, versioni i Android dhe lejet e dhëna.</string>
     <string name="onboarding_setup_body3">Filloni të përdorni SD Maid duke vendosur aksesin në zonat që duhen kërkuar.</string>
     <string name="onboarding_setup_continue_action">Konfiguro qasjen</string>
     <string name="settings_privacy_policy_label">Politika e privatësisë</string>
@@ -109,7 +108,6 @@
     <string name="setup_acs_state_disabled">Shërbimi i aksesueshmërisë është i çaktivizuar</string>
     <string name="setup_acs_state_running">Shërbimi i aksesueshmërisë po funksionon</string>
     <string name="setup_acs_state_stopped">Shërbimi i aksesueshmërisë është ndalur</string>
-    <string name="setup_acs_state_stopped_hint">Shërbimi është i aktivizuar, por nuk funksionon. Çaktivizimi/ndezja ose rinisja e pajisjes tuaj. Kontrolloni që SD Maid të mos \"optimizohet\" nga sistemi.</string>
     <string name="setup_acs_state_stopped_hint_miui">Nëse shërbimi vazhdon të çaktivizohet pas një kohe, provoni të aktivizoni opsionin \"Auto Start\" për SD Maid në cilësimet e sistemit.</string>
     <string name="setup_acs_consent_positive_action">Aktivizo shërbimin dhe jep qasje</string>
     <string name="setup_acs_consent_negative_action">Mos përdorni shërbimin e aksesueshmërisë</string>
@@ -135,11 +133,7 @@
     <string name="corpsefinder_settings_risk_common_title">Përfshini emra të zakonshëm</string>
     <string name="corpsefinder_settings_risk_common_summary">Të dhëna me emra shumë të zakonshëm, p.sh. një dosje \"Shënime\" është në pronësi të shumë aplikacioneve të panjohura.</string>
     <string name="corpsefinder_watcher_title">Kontrolluesi i çinstalimit</string>
-    <string name="corpsefinder_watcher_summary">Skano automatikisht për mbetjet kur hiqet një aplikacion.</string>
     <string name="corpsefinder_watcher_autodelete_title">Fshirje automatike</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Fshi automatikisht çdo mbetje që lidhet me aplikacionin e çinstaluar.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s mbetet(n) të gjetura pas çinstalimit të %2$s.</string>
-    <string name="corpsefinder_watcher_notification_delete_action">Fshij mbetjet</string>
     <string name="corpsefinder_filter_publicmedia_label">Media publike</string>
     <string name="corpsefinder_filter_publicmedia_summary">Skedarët e mediave publike, p.sh. skedarët e marrë përmes aplikacioneve të mesazheve.</string>
     <string name="corpsefinder_filter_publicobb_label">Burimet OBB</string>
@@ -159,7 +153,6 @@
     <string name="corpsefinder_filter_appsource_private_label">Burimet private të aplikacioneve</string>
     <string name="systemcleaner_explanation_short">Të dhëna të tepërta dhe të panevojshme që nuk i përkasin ndonjë aplikacioni specifik.</string>
     <string name="systemcleaner_filter_recenttasks_summary">Të dhëna që lidhen me historikun e detyrave në ndërruesin e detyrave të sistemit.</string>
-    <string name="systemcleaner_filter_tombstones_label">Dështimi i sistemit mbetet</string>
     <string name="systemcleaner_filter_tombstones_summary">Nëse proceset vendase prishen (p.sh. lojërat), atëherë skedarët krijohen këtu.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistikat e përdorimit</string>
     <string name="systemcleaner_filter_usagestats_summary">Skedarët që lidhen me statistikat e përdorimit të aplikacionit.</string>

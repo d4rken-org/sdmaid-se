@@ -29,7 +29,6 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Queste opzioni possono essere modificate nelle impostazioni.</string>
     <string name="onboarding_privacy_continue_action">Avanti</string>
     <string name="onboarding_setup_title">Configurazione</string>
-    <string name="onboarding_setup_body2">Ciò che è accessibile dipende dal tuo telefono, dalla versione Android e dalle autorizzazioni concesse.</string>
     <string name="onboarding_setup_body3">Inizia a utilizzare SD Maid configurando l\'accesso alle aree che dovrebbero essere scansionate.</string>
     <string name="onboarding_setup_continue_action">Imposta accesso</string>
     <string name="settings_privacy_policy_label">Informativa sulla privacy</string>
@@ -79,7 +78,6 @@
     <string name="setup_acs_state_disabled">Il servizio di accessibilità è disabilitato</string>
     <string name="setup_acs_state_running">Servizio di accessibilità in esecuzione</string>
     <string name="setup_acs_state_stopped">Il servizio di accessibilità è disabilitato</string>
-    <string name="setup_acs_state_stopped_hint">Il servizio è abilitato, ma non in esecuzione. Prova a riattivarlo o riavvia il tuo dispositivo. Controlla che SD Maid non venga \"ottimizzato\" dal sistema.</string>
     <string name="setup_acs_state_stopped_hint_miui">Se il servizio continua a disabilitarsi dopo un po\', prova ad attivare l\'opzione \"Avvio automatico\" per SD Maid nelle impostazioni di sistema.</string>
     <string name="setup_acs_consent_positive_action">Abilita il servizio e concedi l\'accesso</string>
     <string name="setup_acs_consent_negative_action">Non utilizzare il servizio di accessibilità</string>
@@ -94,7 +92,6 @@
     <string name="corpsefinder_explanation_short">Dati appartenenti ad app già eliminate.</string>
     <string name="corpsefinder_settings_summary">Regola filtri di scansione e livelli di rischio.</string>
     <string name="corpsefinder_settings_risk_common_title">Includi nomi comuni</string>
-    <string name="corpsefinder_watcher_summary">Scansiona automaticamente i residui quando un app viene eliminata.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media pubblici</string>
     <string name="corpsefinder_filter_publicmedia_summary">File multimediali pubblici, ad esempio file ricevuti tramite applicazioni di messaggistica.</string>
     <string name="corpsefinder_filter_publicobb_label">Risorse OBB</string>
@@ -106,7 +103,6 @@
     <string name="corpsefinder_filter_appsource_label">Sorgenti app</string>
     <string name="corpsefinder_filter_appsource_private_label">Sorgenti app private</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Eliminare tutte le app rimanenti?</string>
     <string name="corpsefinder_owners_label">Proprietari</string>
     <string name="corpsefinder_corpse_hints_label">Notifica</string>
     <string name="corpsefinder_owner_unknown">Proprietario sconosciuto</string>

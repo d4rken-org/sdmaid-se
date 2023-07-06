@@ -41,7 +41,6 @@
     <string name="onboarding_privacy_continue_action">जारी रखें</string>
     <string name="onboarding_setup_title">व्यवस्थित करें</string>
     <string name="onboarding_setup_body1">SD मेड सभी सुलभ डेटा क्षेत्रों की खोज करेगी।</string>
-    <string name="onboarding_setup_body2">आपके फोन में एंड्रॉयड संस्करण और दी गई अनुमतियों पर निर्भर करता है कि क्या इसकी पहुंच योग्य है।</string>
     <string name="onboarding_setup_body3">खोजे जाने वाले क्षेत्रों तक पहुंच स्थापित करके SD मेड का उपयोग करना प्रारंभ करें।</string>
     <string name="onboarding_setup_continue_action">पहुँच स्थापित करें</string>
     <string name="settings_privacy_policy_label">निजता नीति</string>
@@ -109,7 +108,6 @@
     <string name="setup_acs_state_disabled">अभिगम्यता सेवा अक्षम है</string>
     <string name="setup_acs_state_running">अभिगम्यता सेवा चालू है</string>
     <string name="setup_acs_state_stopped">अभिगम्यता सेवा रुकी हुई है</string>
-    <string name="setup_acs_state_stopped_hint">सेवा सक्षम है, लेकिन चल नहीं रही है। इसे बंद/चालू करना या अपने डिवाइस को रीबूट करना। जांचें कि SD मेड को सिस्टम द्वारा \"अनुकूलित\" नहीं किया जा रहा है।</string>
     <string name="setup_acs_state_stopped_hint_miui">यदि सेवा थोड़ी देर के बाद भी अक्षम होती रहती है, तो सिस्टम सेटिंग्स में SD मेड के लिए \"स्वत चालू करें\" विकल्प को सक्षम करने का प्रयास करें।</string>
     <string name="setup_acs_consent_positive_action">सेवा सक्षम करें और पहुंच प्रदान करें</string>
     <string name="setup_acs_consent_negative_action">अभिगम्यता सेवा का उपयोग न करें</string>
@@ -135,11 +133,7 @@
     <string name="corpsefinder_settings_risk_common_title">सामान्य नाम शामिल करें</string>
     <string name="corpsefinder_settings_risk_common_summary">बहुत सामान्य नामों वाला डेटा, उदाहरण के लिए एक फ़ोल्डर \"नोट्स\" नाम का स्वामित्व बहुत से अज्ञात ऐप्स के पास है।</string>
     <string name="corpsefinder_watcher_title">प्रहरी की स्थापना रद्द करें</string>
-    <string name="corpsefinder_watcher_summary">ऐप हटाए जाने पर अवशेष के लिए स्वचालित रूप से स्कैन करें।</string>
     <string name="corpsefinder_watcher_autodelete_title">स्वचालित हटाए</string>
-    <string name="corpsefinder_watcher_autodelete_summary">अनइंस्टॉल किए गए ऐप से संबंधित किसी भी अवशेष को स्वचालित रूप से हटा दें।</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%2$s को अनइंस्टॉल करने के बाद %1$s अवशेष(स) मिले।</string>
-    <string name="corpsefinder_watcher_notification_delete_action">अवशेष हटाएं</string>
     <string name="corpsefinder_filter_publicmedia_label">सार्वजनिक मीडिया</string>
     <string name="corpsefinder_filter_publicmedia_summary">सार्वजनिक मीडिया फ़ाइलें, उदाहरण के लिए मैसेंजर ऐप्स के माध्यम से प्राप्त फ़ाइलें।</string>
     <string name="corpsefinder_filter_publicobb_label">OBB संसाधन</string>
@@ -162,11 +156,6 @@
     <string name="corpsefinder_filter_appasec_summary">गूढकृत ऐप संसाधन, जैसे कि खेल संपत्ति।</string>
     <string name="corpsefinder_filter_app2sd_summary">डेटा को App2Sd मॉड द्वारा बाह्य संग्रहण में ले जाया गया।</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d ऐप खोजने रह गए है</item>
-        <item quantity="other">%d ऐप खोजने रह गए है</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">सभी ऐप्प अवशेष मिटाएं?</string>
     <string name="corpsefinder_owners_label">स्वामियों</string>
     <string name="corpsefinder_corpse_hints_label">सूचना</string>
     <string name="corpsefinder_owner_unknown">अज्ञात स्वामी</string>
@@ -215,7 +204,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">सिस्टम के लिए एक क्षेत्र जिसमें लॉग फाइल डाली जाती है।</string>
     <string name="systemcleaner_filter_recenttasks_label">हाल के कार्य</string>
     <string name="systemcleaner_filter_recenttasks_summary">सिस्टम के कार्य बदलाव में कार्य इतिहास से संबंधित डेटा।</string>
-    <string name="systemcleaner_filter_tombstones_label">सिस्टम अभी भी खराब है</string>
     <string name="systemcleaner_filter_tombstones_summary">यदि मूल कार्य क्रैश होता है (जैसे कि गेम्स), तब फाइलें यहां बनाई जाती हैं।</string>
     <string name="systemcleaner_filter_usagestats_label">उपयोग के आँकड़े</string>
     <string name="systemcleaner_filter_usagestats_summary">एप्लिकेशन उपयोग आंकड़ों से संबंधित फ़ाइलें।</string>

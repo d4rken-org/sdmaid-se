@@ -47,7 +47,7 @@
     <string name="onboarding_privacy_continue_action">Pokračovat</string>
     <string name="onboarding_setup_title">Nastavení</string>
     <string name="onboarding_setup_body1">SD Maid prohledá všechny dostupné oblasti dat.</string>
-    <string name="onboarding_setup_body2">Přístupnost závisí na telefonu, verzi systému Android a udělených oprávněních.</string>
+    <string name="onboarding_setup_body2">Přístupnost závisí na zařízení, verzi systému Android a udělených oprávněních.</string>
     <string name="onboarding_setup_body3">Začněte používat SD Maid nastavením přístupu k oblastem, které mají být prohledávány.</string>
     <string name="onboarding_setup_continue_action">Nastavit přístup</string>
     <string name="settings_privacy_policy_label">Zásady ochrany osobních údajů</string>
@@ -123,6 +123,7 @@
     <string name="setup_acs_state_enabled">Služba přístupnosti je povolena</string>
     <string name="setup_acs_state_disabled">Služba přístupnosti je zakázána</string>
     <string name="setup_acs_state_running">Služba přístupnosti je spuštěna</string>
+    <string name="setup_acs_state_ondemand">Služba bude spuštěna na vyžádání</string>
     <string name="setup_acs_state_stopped">Služba přístupnosti je zastavena</string>
     <string name="setup_acs_state_stopped_hint">Služba je povolena, ale není spuštěna. Vypněte/zapněte službu nebo restartujte zařízení. Zkontrolujte, zda není aplikace SD Maid \"optimalizována\" systémem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Pokud se služba po určité době stále vypíná, zkuste v nastavení systému povolit možnost \"Automatické spuštění\" pro aplikaci SD Maid.</string>
@@ -153,7 +154,12 @@
     <string name="corpsefinder_watcher_summary">Automaticky skenovat pozůstatky, když je nějaká aplikace odinstalována.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstranění</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstranit všechny pozůstatky související s odinstalovanou aplikací.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">Po odinstalování aplikace %2$s nalezeno pozůstatků: %1$s</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">Nalezen %1$d pozůstatek po odinstalaci %2$s.</item>
+        <item quantity="few">Nalezeny %1$d pozůstatky po odinstalaci %2$s.</item>
+        <item quantity="many">Nalezeno %1$d pozůstatků po odinstalaci %2$s.</item>
+        <item quantity="other">Nalezeno %1$d pozůstatků po odinstalaci %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněna %3$d položka.</item>
         <item quantity="few">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněny %3$d položky.</item>

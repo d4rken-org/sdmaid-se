@@ -13,7 +13,6 @@
     <string name="onboarding_privacy_bugreport_toggle_body">বাগ রিপোর্ট তখনই পাঠানো হয় যখন কোনো একটি ত্রুটি ঘটে এবং এটিতে আপনার ডিভাইস এর অ্যাপস এবং ফাইল সম্পর্কিত ডাটা থাকতে পারে। রিপোর্টগুলো আমাকে বাগফিক্স করতে এবং অ্যাপটির উন্নয়ন ঘটাতে সাহায্য করে।</string>
     <string name="onboarding_privacy_continue_action">চালিয়ে যান</string>
     <string name="onboarding_setup_title">সেটআপ</string>
-    <string name="onboarding_setup_body2">কী অ্যাক্সেসযোগ্য তা নির্ভর করে আপনার ফোন, অ্যান্ড্রয়েড ভার্সন এবং আপনার প্রদত্ত অনুমতির উপর।</string>
     <string name="onboarding_setup_continue_action">প্রবেশাধিকার সেটআপ করুন</string>
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_licenses_label">লাইসেন্সসমূহ</string>

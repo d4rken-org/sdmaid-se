@@ -43,7 +43,7 @@
     <string name="onboarding_privacy_continue_action">Jätka</string>
     <string name="onboarding_setup_title">Seadistamine</string>
     <string name="onboarding_setup_body1">SD Maid otsib kogu juurdepääsetavate andmete seast.</string>
-    <string name="onboarding_setup_body2">Juurdepääsetav sisu sõltub telefonist, Androidi versioonist ja antud lubadest.</string>
+    <string name="onboarding_setup_body2">Juurdepääsetav sisu sõltub seadmest, Androidi versioonist ja antud lubadest.</string>
     <string name="onboarding_setup_body3">Esmalt seadistage juurdepääsetavad kohad, kust otsida.</string>
     <string name="onboarding_setup_continue_action">Seadistage juurdepääs</string>
     <string name="settings_privacy_policy_label">Privaatsusteatis</string>
@@ -119,6 +119,7 @@
     <string name="setup_acs_state_enabled">Juurdepääsetavusteenus on lubatud</string>
     <string name="setup_acs_state_disabled">Juurdepääsetavusteenus on keelatud</string>
     <string name="setup_acs_state_running">Juurdepääsetavusteenus töötab</string>
+    <string name="setup_acs_state_ondemand">Teenus käivitatakse nõudmisel</string>
     <string name="setup_acs_state_stopped">Juurdepääsetavusteenus on peatatud</string>
     <string name="setup_acs_state_stopped_hint">Teenus on lubatud aga puhkab. Lülitage see välja/sisse või taaskäivitage seade. Kontrollige, ega süsteem ei optimeeri SD Maidi.</string>
     <string name="setup_acs_state_stopped_hint_miui">Kui teenus on mõne aja pärast keelatud, üritage lubada süsteemi seadetest SD Maidi valik \"Ise käivitub\" (Auto start).</string>
@@ -149,7 +150,10 @@
     <string name="corpsefinder_watcher_summary">Rakenduse eemaldamisel skannige jääke automaatselt.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ise kustuv</string>
     <string name="corpsefinder_watcher_autodelete_summary">Eemaldatud rakendusega seotud jäägid kustuvad ise.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%2$s eemaldamisest jäi järgi %1$s jääk(i).</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d jääk leiti pärast %2$s eemaldamist.</item>
+        <item quantity="other">%1$d jääki leiti pärast %2$s eemaldmist.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Puhastamine õnnestus (%1$s): vabastati %2$s ja eemaldati %3$d.</item>
         <item quantity="other">Puhastamine õnnestus (%1$s): vabastati %2$s ja eemaldati %3$d.</item>

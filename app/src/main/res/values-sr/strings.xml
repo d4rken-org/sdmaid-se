@@ -31,7 +31,6 @@
     <string name="onboarding_privacy_continue_action">Настави</string>
     <string name="onboarding_setup_title">Подешавање</string>
     <string name="onboarding_setup_body1">СД Чистач ће претражити све доступне области података.</string>
-    <string name="onboarding_setup_body2">Шта је доступно зависи од вашег телефона, верзије Андроида и одобрених дозвола.</string>
     <string name="onboarding_setup_body3">Почните користити СД Чистач тако што ћете подесити приступ областима које треба претраживати.</string>
     <string name="onboarding_setup_continue_action">Подесите приступ</string>
     <string name="settings_privacy_policy_label">Правила приватности</string>
@@ -97,7 +96,6 @@
     <string name="setup_acs_state_disabled">Услуга приступачности је онемогућена</string>
     <string name="setup_acs_state_running">Услуга приступачности је покренута</string>
     <string name="setup_acs_state_stopped">Услуга приступачности је заустављена</string>
-    <string name="setup_acs_state_stopped_hint">Услуга је омогућена, али не ради. Искључивање/укључивање или поновно покретање уређаја. Проверите да СД Чистач није \"оптимизован\" од система.</string>
     <string name="setup_acs_state_stopped_hint_miui">Ако услуга остане онемогућена након неког времена, покушајте омогућити опцију „Ауто Старт“ за СД Чистач у системским поставкама.</string>
     <string name="setup_acs_consent_positive_action">Омогућите услугу и одобрите приступ</string>
     <string name="setup_acs_consent_negative_action">Не користите услугу приступачности</string>
@@ -123,7 +121,6 @@
     <string name="corpsefinder_settings_risk_common_title">Укључите уобичајена имена</string>
     <string name="corpsefinder_settings_risk_common_summary">Подаци са превише уобичајеним називима, нпр. фасцикла „Белешке“ је у власништву превише непознатих апликација.</string>
     <string name="corpsefinder_watcher_title">Деинсталирај пратиоца</string>
-    <string name="corpsefinder_watcher_summary">Аутоматски скенирај остатке када се апликација уклони.</string>
     <string name="corpsefinder_filter_publicmedia_label">Јавни медији</string>
     <string name="corpsefinder_filter_publicmedia_summary">Јавни медијски фајлови, нпр. датотеке примљене преко апликација за слање порука.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB ресурси</string>

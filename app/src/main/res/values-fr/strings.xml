@@ -119,8 +119,9 @@
     <string name="setup_acs_state_enabled">Le service d’accessibilité est activé</string>
     <string name="setup_acs_state_disabled">Le service d’accessibilité est désactivé</string>
     <string name="setup_acs_state_running">Le service d’accessibilité est en cours d’exécution</string>
+    <string name="setup_acs_state_ondemand">Le service sera lancé sur demande</string>
     <string name="setup_acs_state_stopped">Le service d’accessibilité est arrêté</string>
-    <string name="setup_acs_state_stopped_hint">Le service est activé, mais ne s’exécute pas. Activez et désactivez-le ou redémarrez votre appareil. Vérifiez que SD Maid n’est pas « optimisée » par le système.</string>
+    <string name="setup_acs_state_stopped_hint">Le service est activé, mais ne s’exécute pas. Désactivez et réactivez-le ou redémarrez votre appareil. Vérifiez que SD Maid n’est pas « optimisée » par le système.</string>
     <string name="setup_acs_state_stopped_hint_miui">Si le service ne cesse d’être désactivé après un certain temps, essayez d’activer l’option « Démarrage automatique » pour SD Maid dans les paramètres du système.</string>
     <string name="setup_acs_consent_positive_action">Activer le service et accorder l’accès</string>
     <string name="setup_acs_consent_negative_action">Ne pas utiliser le service d’accessibilité</string>
@@ -149,7 +150,10 @@
     <string name="corpsefinder_watcher_summary">Recherchez automatiquement les résidus quand une appli est supprimée.</string>
     <string name="corpsefinder_watcher_autodelete_title">Suppression automatique</string>
     <string name="corpsefinder_watcher_autodelete_summary">Supprimez automatiquement tous les résidus associés à l\'appli désinstallée.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s résidu(s) trouvé(s) après la désinstallation de %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d résidu a été trouvé après désinstallation de %2$s.</item>
+        <item quantity="other">%1$d résidus ont été trouvés après désinstallation de %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Le nettoyage est réussi (%1$s) : %2$s libéré et %3$d élément supprimé.</item>
         <item quantity="other">Le nettoyage est réussi (%1$s) : %2$s libérés et %3$d éléments supprimés.</item>
@@ -188,22 +192,22 @@
     <string name="corpsefinder_corpse_hint_keeper">Cet élément pourrait contenir des données que vous souhaitez conserver malgré la désinstallation de l’appli propriétaire, p. ex. des photos ou des sauvegardes.</string>
     <string name="corpsefinder_corpse_hint_common">Le nom de cet élément est très courant et pourrait appartenir à des applis encore installées que SD Maid ne connaît pas.</string>
     <string name="systemcleaner_tool_name">Nettoyeur système</string>
-    <string name="systemcleaner_explanation_short">Données superflues qui n\'appartiennent à aucune application spécifique.</string>
+    <string name="systemcleaner_explanation_short">Données superflues qui n\'appartiennent à aucune application particulière.</string>
     <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d correspondance</item>
-        <item quantity="other">%d correspondances</item>
+        <item quantity="one">%d correspondance pour ce filtre</item>
+        <item quantity="other">%d correspondances pour ce filtre</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Filtre personnalisé</string>
     <string name="systemcleaner_filter_custom_manage_label">Gérer les filtres personnalisés</string>
     <string name="systemcleaner_filter_custom_manage_summary">Créez, supprimez, importez et exportez vos filtres personnalisés.</string>
     <string name="systemcleaner_filter_logfiles_label">Fichiers journaux</string>
-    <string name="systemcleaner_filter_logfiles_summary">Fichiers journaux (*.log) provenant de l\'ensemble de l\'appareil.</string>
-    <string name="systemcleaner_filter_advertisements_label">Fichiers publicitaires</string>
+    <string name="systemcleaner_filter_logfiles_summary">Fichiers journaux (*.log) de tout l’appareil.</string>
+    <string name="systemcleaner_filter_advertisements_label">Fichiers de publicités</string>
     <string name="systemcleaner_filter_advertisements_summary">Fichiers qui ont été créés pour ou par des publicités.</string>
     <string name="systemcleaner_filter_anr_label">Erreurs ANR</string>
-    <string name="systemcleaner_filter_anr_summary">Traces des événements « l\'application ne répond pas ».</string>
+    <string name="systemcleaner_filter_anr_summary">Traces des événements « L’appli ne répond pas ».</string>
     <string name="systemcleaner_filter_emptydirectories_label">Répertoires vides</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Répertoires vides de tout le périphérique. Les répertoires imbriqués peuvent nécessiter plusieurs passes.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Répertoires vides de tout l’appareil. Les répertoires imbriqués peuvent demander plusieurs opérations.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflus</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fichiers d\'installation plus anciens ou égaux aux versions d\'applications déjà installées.</string>
     <string name="systemcleaner_filter_lostdir_label">Dossiers LOST.DIR</string>
@@ -230,7 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Une zone dans laquelle le système va déposer les fichiers journaux.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tâches récentes</string>
     <string name="systemcleaner_filter_recenttasks_summary">Données relatives à l\'historique des tâches dans le sélecteur de tâches du système.</string>
-    <string name="systemcleaner_filter_tombstones_label">Le plantage du système demeure</string>
+    <string name="systemcleaner_filter_tombstones_label">Résidus de plantage du système</string>
     <string name="systemcleaner_filter_tombstones_summary">Si les processus natifs plantent (par ex. les jeux), alors les fichiers sont créés ici.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistiques d\'utilisation</string>
     <string name="systemcleaner_filter_usagestats_summary">Fichiers liés aux statistiques d\'utilisation des applications.</string>

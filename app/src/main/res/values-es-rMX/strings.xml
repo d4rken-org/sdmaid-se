@@ -39,7 +39,6 @@
     <string name="onboarding_privacy_continue_action">Continuar</string>
     <string name="onboarding_setup_title">Configuración</string>
     <string name="onboarding_setup_body1">SD maid buscará todas las áreas de datos accesibles.</string>
-    <string name="onboarding_setup_body2">Lo que es accesible depende de tu teléfono, versión de Android y permisos concedidos.</string>
     <string name="onboarding_setup_body3">Empieza a usar SD Maid configurando el acceso a las áreas en las que se debería buscar.</string>
     <string name="onboarding_setup_continue_action">Configurar acceso</string>
     <string name="settings_privacy_policy_label">Política de privacidad</string>

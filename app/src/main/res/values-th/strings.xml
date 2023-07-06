@@ -37,7 +37,6 @@
     <string name="onboarding_privacy_continue_action">ถัดไป</string>
     <string name="onboarding_setup_title">เริ่มต้น</string>
     <string name="onboarding_setup_body1">SD Maid จะค้นหาในพื้นที่ทั้งหมดที่เข้าถึงได้</string>
-    <string name="onboarding_setup_body2">แอพจะเข้าถึงได้มากแค่ไหนขึ้นอยู่กับอุปกรณ์ของคุณ, เวอร์ชันของแอนดรอยด์ และการอนุญาตที่ได้รับ</string>
     <string name="onboarding_setup_body3">เริ่มต้นใช้งาน SD Maid โดยอนุญาตให้แอพเข้าถึงพื้นที่ที่ต้องทำการค้นหา</string>
     <string name="onboarding_setup_continue_action">ตั้งค่าการเข้าถึง</string>
     <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
@@ -102,7 +101,6 @@
     <string name="setup_acs_state_disabled">ปิดบริการเพื่อการเข้าถึง</string>
     <string name="setup_acs_state_running">กำลังใช้งานบริการเพื่อการเข้าถึง</string>
     <string name="setup_acs_state_stopped">หยุดใช้งานบริการเพื่อการเข้าถึง</string>
-    <string name="setup_acs_state_stopped_hint">อนุญาตให้เปิดใช้บริการแล้วแต่ไม่ทำงาน โปรดเลื่อนสวิตช์เพื่อ ปิด/เปิด หรือรีบูธอุปกรณ์ของคุณ และเช็คว่า SD Maid ไม่ได้กำลังถูก \"ปรับให้เหมาะสม\" โดยระบบ</string>
     <string name="setup_acs_consent_positive_action">เปิดใช้บริการและอนุญาตให้เข้าถึง</string>
     <string name="setup_acs_consent_negative_action">ไม่ใช้บริการเพื่อการเข้าถึง</string>
     <string name="setup_acs_allow_hint">หากคุณเห็นไอคอนเล็กๆ ที่ขอบจอแสดงว่าคุณอาจเปิดใช้งาน \"ปุ่มลัด\" ไปแล้ว</string>
@@ -123,7 +121,6 @@
     <string name="corpsefinder_settings_risk_keeper_summary">ไฟล์ที่คุณอาจอยากเก็บไว้แม้ว่าลบแอพออกไปแล้ว เช่น รูปที่คุณถ่ายหรือข้อมูลที่คุณสำรองไว้</string>
     <string name="corpsefinder_settings_risk_common_title">รวมถึงไฟล์ที่มีชื่อแบบที่พบทั่วไป</string>
     <string name="corpsefinder_settings_risk_common_summary">ข้อมูลที่มีชื่อแบบที่พบได้บ่อย เช่น โฟลเดอร์ชื่อ \"Notes\" ไม่อาจบอกอย่างเจาะจงได้ว่าเป็นข้อมูลที่สร้างจากแอพใด</string>
-    <string name="corpsefinder_watcher_summary">สแกนหาซากที่เหลือโดยอัตโนมัติหลังจากลบแอพแล้ว</string>
     <string name="corpsefinder_filter_publicmedia_summary">ไฟล์สื่อสาธารณะ เช่น ไฟล์ที่ได้รับจากแอพสนทนาต่างๆ</string>
     <string name="corpsefinder_filter_sdcard_summary">พื้นที่เก็บข้อมูลสาธารณะทั้งภายในและภายนอก (เช่น SD cards)</string>
     <string name="corpsefinder_corpse_hint_common">ไฟล์นี้มีชื่อแบบที่พบได้ทั่วไปและอาจเป็นข้อมูลของแอพที่ยังติดตั้งอยู่ในเครื่องซึ่ง SD Maid ไม่รู้จัก</string>
