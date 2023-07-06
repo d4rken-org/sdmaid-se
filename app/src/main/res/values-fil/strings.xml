@@ -33,7 +33,6 @@
     <string name="onboarding_privacy_body1">Ang SD Maid ay walang patalastas at hindi nag bebenta ng datos ng mga gumagamit neto.</string>
     <string name="onboarding_privacy_continue_action">Pagpatuloy</string>
     <string name="onboarding_setup_body1">Hahanapin ng SD Maid ang lahat ng naa-access na lugar (storage) ng data.</string>
-    <string name="onboarding_setup_body2">Ang naa-access ay depende sa iyong telepono, bersyon ng Android at mga ibinigay na pahintulot.</string>
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_licenses_label">Mga Lisensya</string>

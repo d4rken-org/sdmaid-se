@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
+    <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
+    <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
     <string name="debug_debuglog_size_label">Méret</string>
     <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
@@ -41,7 +43,7 @@
     <string name="onboarding_privacy_continue_action">Folytatás</string>
     <string name="onboarding_setup_title">Beállítás</string>
     <string name="onboarding_setup_body1">Az SD Maid megkeresi az összes elérhető adatterületet.</string>
-    <string name="onboarding_setup_body2">Az elérhető funkciók attól függnek, hogy milyen telefonod van, milyen Android verzióval rendelkezel és milyen engedélyeket adtál meg az alkalmazásoknak.</string>
+    <string name="onboarding_setup_body2">Az elérhető funkciók attól függnek, hogy milyen eszközöd van, milyen Android verzióval rendelkezel és milyen engedélyeket adtál meg az alkalmazásoknak.</string>
     <string name="onboarding_setup_body3">Kezdje el az SD Maid használatát úgy, hogy beállítja a hozzáférést a keresendő területekhez.</string>
     <string name="onboarding_setup_continue_action">Hozzáférés beállítása</string>
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
@@ -78,6 +80,7 @@
     <string name="setup_label">Beállítás</string>
     <string name="setup_incomplete_card_title">A beállítás nem teljes</string>
     <string name="setup_incomplete_card_body">Fejezze be az SD Maid beállítását a jobb eredmények érdekében.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">Az SD Maid megpróbálja megoldani a beállítási problémákat.</string>
     <string name="setup_incomplete_card_dismiss_action">Elvetés</string>
     <string name="setup_incomplete_card_continue_action">Folytassa a beállítást</string>
     <string name="setup_title">Beállítás</string>
@@ -95,6 +98,13 @@
     <string name="setup_root_enable_root_use_label">Használjon root hozzáférést, ha elérhető</string>
     <string name="setup_root_disable_root_use_label">Ne használjon root hozzáférést</string>
     <string name="setup_root_card_body2">Csak rootolt eszközökön érhető el. Ha nem te végezted el ezt a módosítást, akkor az eszközöd nincs rootolva, és ennek a beállításnak nincs hatása.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Engedélyezd az SD Maid számára a Shizuku használatát, ahol lehetséges, az eredmények javítása és a funkciók engedélyezése érdekében.</string>
+    <string name="setup_shizuku_card_body2">Ez a beállítás nincs hatással, ha a Shizuku alkalmazás nincs beállítva a készüléken.</string>
+    <string name="setup_shizuku_state_ready_label">A Shizuku link készen áll.</string>
+    <string name="setup_shizuku_state_waiting_label">Várakozás a Shizuku-val való kapcsolatfelvételre.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Használon Shizuku-t</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
     <string name="setup_permission_granted_label">Hozzáférés megadva</string>
     <string name="setup_usagestats_title">Használati statisztikák</string>
@@ -104,12 +114,14 @@
     <string name="setup_notification_body">Engedélyezze az SD Maid számára, hogy értesítéseket tegyen közzé a folyamatban lévő műveletekről vagy fontos eseményekről.</string>
     <string name="setup_notification_hint">Az értesítéseket takarékosan használjuk 🤞</string>
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
+    <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>
     <string name="setup_acs_state_enabled">A kisegítő lehetőségek szolgáltatása engedélyezve van</string>
     <string name="setup_acs_state_disabled">A kisegítő lehetőségek szolgáltatása le van tiltva</string>
     <string name="setup_acs_state_running">A kisegítő lehetőségek szolgáltatás fut</string>
+    <string name="setup_acs_state_ondemand">A szolgáltatás igény szerint indul</string>
     <string name="setup_acs_state_stopped">A kisegítő lehetőségek szolgáltatás leállt</string>
-    <string name="setup_acs_state_stopped_hint">A szolgáltatás engedélyezve van, de nem fut. Kapcsolja ki/be, vagy indítsa újra az eszközt. Ellenőrizze, hogy az SD Maid-ot nem „optimalizálja” a rendszer.</string>
+    <string name="setup_acs_state_stopped_hint">A szolgáltatás engedélyezve van, de nem fut. Kapcsold ki/be, vagy indítsd újra a készüléket. Ellenőrizze, hogy az SD Maid-ot nem \" optimalizálja-e\" a rendszer.</string>
     <string name="setup_acs_state_stopped_hint_miui">Ha a szolgáltatás egy idő után továbbra is letiltásra kerül, próbálja meg engedélyezni az „Automatikus indítás” opciót az SD Maid számára a rendszerbeállításokban.</string>
     <string name="setup_acs_consent_positive_action">Engedélyezze a szolgáltatást és adjon hozzáférést</string>
     <string name="setup_acs_consent_negative_action">Ne használja a kisegítő lehetőségeket</string>
@@ -135,10 +147,17 @@
     <string name="corpsefinder_settings_risk_common_title">Tartalmazzon általános neveket</string>
     <string name="corpsefinder_settings_risk_common_summary">Túl gyakori elnevezésű adatok, pl. a „Jegyzetek” mappa túl sok ismeretlen alkalmazás tulajdonában van.</string>
     <string name="corpsefinder_watcher_title">Eltávolítás figyelő</string>
-    <string name="corpsefinder_watcher_summary">Maradványok automatikus keresése, amikor egy alkalmazást eltávolítanak.</string>
+    <string name="corpsefinder_watcher_summary">Automatikusan keresi a maradványokat, ha egy alkalmazást eltávolított.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatikus törlés</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Automatikusan törli az eltávolított alkalmazáshoz kapcsolódó maradványokat.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s maradvány(ok) található(ak) a(z) %2$s eltávolítása után.</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatikusan keresi a maradványokat, ha egy alkalmazást eltávolított.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d maradványt találtunk a(z) %2$s eltávolítása után.</item>
+        <item quantity="other">%1$d maradványokat találtunk a(z) %2$s eltávolítása után.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">A tisztítás sikeres (%1$s): %2$s felszabadítva és %3$d elem eltávolítva.</item>
+        <item quantity="other">A tisztítás sikeres (%1$s): %2$s felszabadítva és %3$d elem eltávolítva.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Maradványok törlése</string>
     <string name="corpsefinder_filter_publicmedia_label">Nyilvános média</string>
     <string name="corpsefinder_filter_publicmedia_summary">Nyilvános médiafájlok, pl. üzenetküldő alkalmazásokon keresztül kapott fájlok.</string>
@@ -163,8 +182,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Az adatokat az App2Sd modok külső tárolóra helyezték át.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d alkalmazás továbbra is felfedezve marad</item>
-        <item quantity="other">%d alkalmazások továbbra is felfedezve maradnak</item>
+        <item quantity="one">%d alkalmazás maradvány felfedezve</item>
+        <item quantity="other">%d alkalmazás maradványok felfedezve</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Törli az összes alkalmazás maradványt?</string>
     <string name="corpsefinder_owners_label">Tulajdonosok</string>
@@ -215,7 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Egy terület, ahová a rendszer bedobhatja a naplófájlokat.</string>
     <string name="systemcleaner_filter_recenttasks_label">Legutóbbi feladatok</string>
     <string name="systemcleaner_filter_recenttasks_summary">A feladatok előzményeivel kapcsolatos adatok a rendszer feladatváltójában.</string>
-    <string name="systemcleaner_filter_tombstones_label">A rendszer összeomlások megmaradnak</string>
+    <string name="systemcleaner_filter_tombstones_label">Rendszerösszeomlás maradványa</string>
     <string name="systemcleaner_filter_tombstones_summary">Ha a natív folyamatok összeomlanak (például játékok), akkor itt jönnek létre a fájlok.</string>
     <string name="systemcleaner_filter_usagestats_label">Használati statisztikák</string>
     <string name="systemcleaner_filter_usagestats_summary">Alkalmazáshasználati statisztikákkal kapcsolatos fájlok.</string>
@@ -223,7 +242,9 @@
     <string name="appcleaner_tool_name">AlkalmazásTisztító</string>
     <string name="appcleaner_explanation_short">Felhasználható adatok, amelyek bizonyos alkalmazásokhoz tartoznak.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Nyilvános alapértelmezett gyorsítótárak</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Alapértelmezett nyilvános alkalmazások gyorsítótárai. Régebbi Android verziókban az Android/data alatt volt elérhető. Törlődik, ha a rendszerbeállításokban rákattint a \"Cache törlése\" lehetőségre.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Privát alapértelmezett gyorsítótárak</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Alapértelmezett privát alkalmazás gyorsítótárak. Törlődik, ha a rendszerbeállításokban rákattintasz a \"Cache törlése\" lehetőségre.</string>
     <string name="appcleaner_include_systemapps_label">Tartalmazza a rendszeralkalmazásokat</string>
     <string name="appcleaner_include_systemapps_summary">Tartalmazza a rendszeralkalmazásokat a vizsgálatban.</string>
     <string name="appcleaner_include_runningapps_label">Tartalmazza a futó alkalmazásokat</string>
@@ -243,6 +264,7 @@
     <string name="appcleaner_filter_bugreporting_label">Hibabejelentés</string>
     <string name="appcleaner_filter_bugreporting_summary">Hibabejelentéssel kapcsolatos adatok, pl. hibanaplók vagy összeomlási kiírások.</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
+    <string name="appcleaner_filter_analytics_summary">Analitikával kapcsolatos adatok, pl. gyorsítótárazott statisztikák arról, hogy mit érintsen meg egy alkalmazásban.</string>
     <string name="appcleaner_filter_hiddencaches_label">Rejtett gyorsítótárak</string>
     <string name="appcleaner_filter_hiddencaches_summary">A rendszer hatókörén kívül tárolt általános célú gyorsítótárak.</string>
     <string name="appcleaner_filter_thumbnails_label">Médiaképek miniatűrjei</string>
@@ -269,6 +291,7 @@
     <string name="appcleaner_filter_wechat_summary">Küldött vagy fogadott fájlok a beszélgetésekben és WeChat moments-ekben.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Gyorsítótárazott médiafájlok, amelyek újra letöltődnek, amikor a csevegésben megtekintik őket.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Törölje az összes alkalmazásnál a felesleges elemeket?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d felhasználható elem található</item>
         <item quantity="other">%d elhasználható elemek találhatók</item>
@@ -281,12 +304,16 @@
     <string name="appcleaner_automation_unavailable_title">A kisegítő lehetőségek szolgáltatása nem érhető el</string>
     <string name="appcleaner_automation_unavailable_body">A hozzáférhetetlen gyorsítótárak törléséhez szükség van az SD Maid kisegítő szolgáltatására, de az nem volt elérhető. Ha nem szeretné használni: Tiltsa le a \"Hozzáférhetetlen gyorsítótárak szerepeltetése\" opciót.</string>
     <string name="appcleaner_junk_userprofile_label">Felhasználó</string>
+    <string name="appcleaner_delete_confirmation_message_x">Felesleges fájlok törlése %s számára?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Felesleges fájlok törlése %d kiválasztott alkalmazáshoz?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Cache-ek törlése Shizuku használatával</string>
     <string name="appcontrol_tool_name">AlkalmazásVezérlés</string>
     <string name="appcontrol_explanation_short">Az eszközre telepített alkalmazások.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d alkalmazás észlelve</item>
         <item quantity="other">%d alkalmazások észlelve</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Alkalmazások átkapcsolása</string>
     <string name="appcontrol_toggle_app_enable_action">Alkalmazás engedélyezése</string>
     <string name="appcontrol_toggle_app_disable_action">Alkalmazás letiltása</string>
     <string name="appcontrol_toggle_app_enable_description">Egy alkalmazás engedélyezése lehetővé teszi annak futtatását, és láthatóvá teheti az indítóban, ha tevékenységet folytat.</string>
@@ -331,12 +358,14 @@
     <string name="analyzer_storage_type_secondary_description">Másodlagos tároló, általában egy cserélhető SD kártya. Tartalmazza a médiafájlokat és az azt támogató alkalmazások adatait.</string>
     <string name="analyzer_storage_content_title">Tárhely tartalma</string>
     <string name="analyzer_storage_content_type_app_label">Appok</string>
+    <string name="analyzer_storage_content_type_app_description">A telepített alkalmazások és adataik (azaz az alkalmazásfájlok, adatok és gyorsítótárak) által elfoglalt hely.</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Hiányoznak az engedélyek</string>
     <string name="analyzer_storage_content_type_media_label">Felhasználói fájlok</string>
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
     <string name="analyzer_storage_content_type_system_description">Rendszeradatok és rendszeralkalmazások.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
+    <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
     <string name="analyzer_storage_content_app_data_description">Adatok, beállítások és gyorsítótárak.</string>
     <string name="analyzer_storage_content_app_media_label">App média</string>
@@ -371,6 +400,11 @@
     <string name="exclusion_editor_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
     <string name="exclusion_create_pkg_hint">Használd az AppVezérlő eszközt az alkalmazások kizárásának létrehozásához.</string>
     <string name="exclusion_create_path_hint">Használd a TárhelyElemző eszközt az elérési útvonal-kizárások létrehozásához.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Egy kizárás létrehozva</item>
+        <item quantity="other">%d kizárás létrehozva</item>
+    </plurals>
+    <string name="automation_accessibility_service_description">A speciális kisegítő lehetőségeket igénylő felhasználók engedélyezhetik ezt a szolgáltatást, hogy az SD Maid automatizálja azokat a feladatokat, amelyek egyébként fárasztó manuális felhasználói beavatkozást igényelnének (pl. a gyorsítótár törlése).\n\nPélda: Ha utasítja az SD Maid szolgáltatást több alkalmazás leállítására, akkor az SD Maid ezt használhatja szolgáltatást az egyes alkalmazások beállítási képernyőjének megnyitásához, keresse meg a \"Kényszerített leállítás\" gombot, és kattintson rá.\n\nAz SD Maid mindig jól látható lesz, amikor ezt a szolgáltatást használja, és egyszerű módot kínál a felhasználónak az interakció azonnali megszakítására.\n\nNem műveleteket a felhasználó előzetes jóváhagyása nélkül hajtják végre. Ez a szolgáltatás bármikor újra letiltható káros hatások nélkül.</string>
     <string name="automation_screenoverlay_explanation">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik, vagy törölje azt.</string>
     <string name="automation_active_title">Az SD Maid működik</string>
     <string name="automation_error_no_consent_title">Automatizálási hiba</string>

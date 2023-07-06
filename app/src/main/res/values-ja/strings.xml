@@ -37,7 +37,6 @@
     <string name="onboarding_privacy_continue_action">続ける</string>
     <string name="onboarding_setup_title">セットアップ</string>
     <string name="onboarding_setup_body1">SD Maidはアクセス可能なすべてのデータ領域を検索します。</string>
-    <string name="onboarding_setup_body2">アクセス可能な物は使用しているデバイス、Androidのバージョンと許可をされた権限によって異なります。</string>
     <string name="onboarding_setup_body3">検索する領域のアクセスを設定してSD Maidの使用を開始します。</string>
     <string name="onboarding_setup_continue_action">アクセスの設定</string>
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
@@ -120,10 +119,6 @@
     <string name="corpsefinder_filter_appasec_label">暗号化されたアプリのリソース</string>
     <string name="corpsefinder_filter_app2sd_summary">データは、App2Sd modsによって外部ストレージに移動しました。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">%d 個のアプリ残留ファイルを発見</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">すべてのアプリ残留ファイルを削除しますか？</string>
     <string name="corpsefinder_owners_label">所有者</string>
     <string name="corpsefinder_corpse_hints_label">通知</string>
     <string name="corpsefinder_owner_unknown">不明な所有者</string>
@@ -149,7 +144,6 @@
     <string name="systemcleaner_filter_datalogger_label">システムのログファイル</string>
     <string name="systemcleaner_filter_logdropbox_label">Drop boxのログ</string>
     <string name="systemcleaner_filter_recenttasks_label">最近のタスク</string>
-    <string name="systemcleaner_filter_tombstones_label">システムクラッシュでの残留ファイル</string>
     <string name="systemcleaner_delete_all_confirmation_message">すべてのフィルタの内容を削除しますか？</string>
     <string name="appcleaner_tool_name">アプリクリーナー</string>
     <string name="appcleaner_include_minimumsize_label">最小サイズ</string>

@@ -47,7 +47,7 @@
     <string name="onboarding_privacy_continue_action">Dalej</string>
     <string name="onboarding_setup_title">Konfiguracja</string>
     <string name="onboarding_setup_body1">SD Maid wyszuka wszystkie dostępne obszary danych.</string>
-    <string name="onboarding_setup_body2">To, co jest dostępne zależy od Twojego telefonu, wersji Androida i przyznanych uprawnień.</string>
+    <string name="onboarding_setup_body2">To, co jest dostępne zależy od Twojego urządzenia, wersji Androida i przyznanych uprawnień.</string>
     <string name="onboarding_setup_body3">Zacznij korzystać z SD Maid, konfigurując dostęp do obszarów, które powinny być przeszukane.</string>
     <string name="onboarding_setup_continue_action">Konfiguruj dostęp</string>
     <string name="settings_privacy_policy_label">Polityka prywatności</string>
@@ -123,6 +123,7 @@
     <string name="setup_acs_state_enabled">Usługa ułatwień jest włączona</string>
     <string name="setup_acs_state_disabled">Usługa ułatwień jest wyłączona</string>
     <string name="setup_acs_state_running">Usługa ułatwień jest uruchomiona</string>
+    <string name="setup_acs_state_ondemand">Usługa zostanie uruchomiona na żądanie</string>
     <string name="setup_acs_state_stopped">Usługa ułatwień jest zatrzymana</string>
     <string name="setup_acs_state_stopped_hint">Usługa jest włączona, ale nie jest uruchomiona. Spróbuj wyłączyć i włączyć lub zrestartować urządzenie. Upewnij się, że aplikacja SD Maid nie jest „optymalizowana” przez system.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jeśli usługa jest ciągle wyłączana po pewnym czasie, spróbuj włączyć opcję „Auto Start” dla SD Maid w ustawieniach systemowych.</string>
@@ -153,7 +154,12 @@
     <string name="corpsefinder_watcher_summary">Automatyczne skanowanie pozostałości po usunięciu aplikacji.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatycznie usuwa wszystkie pozostałe elementy związane z odinstalowaną aplikacją.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s zostało znalezionych po odinstalowaniu %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d pozostałość została znaleziona po odinstalowaniu %2$s.</item>
+        <item quantity="few">%1$d pozostałości zostały znalezione po odinstalowaniu %2$s.</item>
+        <item quantity="many">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
+        <item quantity="other">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d element.</item>
         <item quantity="few">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementy.</item>
@@ -186,8 +192,8 @@
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d pozostałość po aplikacji odkryta</item>
         <item quantity="few">%d pozostałości po aplikacji odkryte</item>
-        <item quantity="many">%d pozostałości po aplikacji odkryte</item>
-        <item quantity="other">%d pozostałości po aplikacji odkryte</item>
+        <item quantity="many">%d pozostałości po aplikacji odkryto</item>
+        <item quantity="other">%d pozostałości po aplikacji odkryto</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Usunąć wszystkie pozostałości po aplikacjach?</string>
     <string name="corpsefinder_owners_label">Właściciele</string>
@@ -240,7 +246,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Obszar, w którym system może umieszczać pliki dziennika.</string>
     <string name="systemcleaner_filter_recenttasks_label">Ostatnie zadania</string>
     <string name="systemcleaner_filter_recenttasks_summary">Dane związane z historią zadań w przełączniku zadań systemowych.</string>
-    <string name="systemcleaner_filter_tombstones_label">Pozostałości po awariach systemu</string>
+    <string name="systemcleaner_filter_tombstones_label">Pozostałość po awarii systemu</string>
     <string name="systemcleaner_filter_tombstones_summary">Jeśli natywne procesy ulegają awarii (np. gry), tutaj są tworzone pliki.</string>
     <string name="systemcleaner_filter_usagestats_label">Statystyki użytkowania</string>
     <string name="systemcleaner_filter_usagestats_summary">Pliki związane ze statystykami użytkowania aplikacji.</string>

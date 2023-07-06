@@ -43,7 +43,7 @@
     <string name="onboarding_privacy_continue_action">Continue</string>
     <string name="onboarding_setup_title">Configuração</string>
     <string name="onboarding_setup_body1">O SD Maid irá procurar todas as áreas de dados acessíveis.</string>
-    <string name="onboarding_setup_body2">O que é acessível depende do seu telefone, versão do Android e permissões concedidas.</string>
+    <string name="onboarding_setup_body2">O que é acessível depende do seu dispositivo, da versão do Android e das permissões concedidas.</string>
     <string name="onboarding_setup_body3">Comece a usar o SD Maid permitindo acesso a áreas que devem ser pesquisadas.</string>
     <string name="onboarding_setup_continue_action">Configurar acesso</string>
     <string name="settings_privacy_policy_label">Política de privacidade</string>
@@ -119,6 +119,7 @@
     <string name="setup_acs_state_enabled">Serviço de acessibilidade está activo</string>
     <string name="setup_acs_state_disabled">Serviço de Acessibilidade está desativo</string>
     <string name="setup_acs_state_running">Serviço de acessibilidade está activo</string>
+    <string name="setup_acs_state_ondemand">O serviço será iniciado sob pedido</string>
     <string name="setup_acs_state_stopped">Serviço de acessibilidade parou</string>
     <string name="setup_acs_state_stopped_hint">O serviço está ativo, mas não está a funcionar. Ligue/Desligue ou reinicie o seu dispositivo. Verifique se o SD Maid não está a ser \"otimizado\" pelo sistema.</string>
     <string name="setup_acs_state_stopped_hint_miui">Se o serviço continuar a ser desativado após um tempo, tente habilitar a opção \"Início automático\" para o SD Maid nas configurações do sistema.</string>
@@ -146,10 +147,13 @@
     <string name="corpsefinder_settings_risk_common_title">Incluir nomes comuns</string>
     <string name="corpsefinder_settings_risk_common_summary">Dados com nomes muito comuns, por exemplo, uma pasta \"Notas\" pertence a muitos aplicativos desconhecidos.</string>
     <string name="corpsefinder_watcher_title">Monitorizador de desinstalação</string>
-    <string name="corpsefinder_watcher_summary">A verificação automática de restos quando um aplicativo é removido.</string>
+    <string name="corpsefinder_watcher_summary">Procurar automaticamente resto quando um aplicativo for removido.</string>
     <string name="corpsefinder_watcher_autodelete_title">Apagar automaticamente</string>
     <string name="corpsefinder_watcher_autodelete_summary">Apagar automaticamente qualquer resto relacionado com o aplicativo desinstalado.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s restante(s) encontrado(s) após a desinstalação de %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d resto encontrado após a desinstalação %2$s.</item>
+        <item quantity="other">%1$d restos encontrados após a desinstalação %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Limpeza bem sucedida (%1$s): Liberto %2$s e removido %3$d item.</item>
         <item quantity="other">Limpeza bem sucedida (%1$s): Libertos %2$s e removidos%3$d itens.</item>
@@ -179,7 +183,7 @@ Recursos dos jogos.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dados movidos para armazenamento externo por mods App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d resto app descoberto</item>
+        <item quantity="one">%d resto de app descoberto</item>
         <item quantity="other">%d restos de apps descobertos</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Apagar todos os restos de apps?</string>
@@ -231,7 +235,7 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_logdropbox_summary">Uma área em que o sistema descarrega arquivos de log.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tarefas recentes</string>
     <string name="systemcleaner_filter_recenttasks_summary">Dados relacionados ao histórico de tarefas no alternador de tarefas do sistema.</string>
-    <string name="systemcleaner_filter_tombstones_label">Restos de falhas do sistema</string>
+    <string name="systemcleaner_filter_tombstones_label">Resíduo de falhas do sistema</string>
     <string name="systemcleaner_filter_tombstones_summary">Se processos nativos falharem (por exemplo, jogos), os arquivos serão criados aqui.</string>
     <string name="systemcleaner_filter_usagestats_label">Estatísticas de utilização</string>
     <string name="systemcleaner_filter_usagestats_summary">Arquivos relacionados com as estatísticas de uso do aplicativo.</string>

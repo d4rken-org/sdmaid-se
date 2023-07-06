@@ -1,11 +1,11 @@
-<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+A <i>SD Maid SE</i> az Ön Androidjának megbízható asszisztense, hogy tisztán és rendben tartsa azt.
 
 Senki sem tökéletes, és az Android sem.
 * A már eltávolított alkalmazások hagynak maguk után valamit.
 * Folyamatosan készülnek a naplók, összeomlási jelentések és más olyan fájlok, amelyeket nem igazán szeretne.
 * A tárhely olyan fájlokat és könyvtárakat gyűjt, amelyeket Ön nem ismer fel.
 
-Let’s not go on here… Let SD Maid SE help you:
+Ne folytassuk tovább... Hagyja, hogy az SD Maid SE segítsen Önnek:
 
 * Tisztítsa meg az adatokat a már eltávolított alkalmazásokból
 * Találja meg a rejtett alkalmazás-gyorsítótárakat

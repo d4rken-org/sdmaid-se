@@ -47,7 +47,7 @@
     <string name="onboarding_privacy_continue_action">Продолжить</string>
     <string name="onboarding_setup_title">Настройка</string>
     <string name="onboarding_setup_body1">SD Maid выполнит поиск во всех доступных областях данных.</string>
-    <string name="onboarding_setup_body2">Доступность зависит от Вашего телефона, версии Android и предоставленных разрешений.</string>
+    <string name="onboarding_setup_body2">Доступность зависит от Вашего устройства, версии Android и предоставленных разрешений.</string>
     <string name="onboarding_setup_body3">Начните использовать SD Maid, установив доступ к областям, в которых необходимо произвести поиск.</string>
     <string name="onboarding_setup_continue_action">Настроить доступ</string>
     <string name="settings_privacy_policy_label">Политика конфиденциальности</string>
@@ -123,8 +123,9 @@
     <string name="setup_acs_state_enabled">Служба специальных возможностей включена</string>
     <string name="setup_acs_state_disabled">Служба специальных возможностей отключена</string>
     <string name="setup_acs_state_running">Служба специальных возможностей запущена</string>
+    <string name="setup_acs_state_ondemand">Служба будет запущена по запросу</string>
     <string name="setup_acs_state_stopped">Служба специальных возможностей остановлена</string>
-    <string name="setup_acs_state_stopped_hint">Служба включена, но не работает. Выключите/включите её, или перезагрузите устройство. Проверьте, не \"оптимизируется\" ли SD Maid SE системой.</string>
+    <string name="setup_acs_state_stopped_hint">Служба включена, но не работает. Выключите/включите её, или перезагрузите устройство. Проверьте, не \"оптимизируется\" ли SD Maid системой.</string>
     <string name="setup_acs_state_stopped_hint_miui">Если служба продолжает отключаться через некоторое время, попробуйте включить автозапуск SD Maid SE в системных настройках.</string>
     <string name="setup_acs_consent_positive_action">Включить службу и предоставить доступ</string>
     <string name="setup_acs_consent_negative_action">Не использовать службу специальных возможностей</string>
@@ -153,7 +154,12 @@
     <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
     <string name="corpsefinder_watcher_autodelete_title">Автоудаление</string>
     <string name="corpsefinder_watcher_autodelete_summary">Автоматическое удаление всех остатков, связанных с удаленным приложением.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">После удаления %2$s найдено остатков: %1$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="few">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="many">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="other">После удаления %2$s найдено остатков: %1$d.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
         <item quantity="few">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
@@ -187,7 +193,7 @@
         <item quantity="one">Обнаружено остатков приложений: %d</item>
         <item quantity="few">Обнаружено остатков приложений: %d</item>
         <item quantity="many">Обнаружено остатков приложений: %d</item>
-        <item quantity="other">Обнаружено %d остатков приложений</item>
+        <item quantity="other">Обнаружено остатков приложений: %d</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Удалить все остатки приложения?</string>
     <string name="corpsefinder_owners_label">Владельцы</string>
@@ -240,7 +246,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Область, в которую система будет сбрасывать файлы журналов.</string>
     <string name="systemcleaner_filter_recenttasks_label">Недавние задачи</string>
     <string name="systemcleaner_filter_recenttasks_summary">Данные, связанные с историей задач в системном переключателе задач.</string>
-    <string name="systemcleaner_filter_tombstones_label">Остатки после системных сбоев</string>
+    <string name="systemcleaner_filter_tombstones_label">Остатки сбоя системы</string>
     <string name="systemcleaner_filter_tombstones_summary">Если внутренние процессы завершаются (например, игры), то здесь создаются файлы.</string>
     <string name="systemcleaner_filter_usagestats_label">Статистика использования</string>
     <string name="systemcleaner_filter_usagestats_summary">Файлы, связанные со статистикой использования приложений.</string>

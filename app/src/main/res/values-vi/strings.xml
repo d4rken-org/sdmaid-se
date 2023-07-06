@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả các công cụ?</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
+    <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
+    <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
@@ -39,7 +41,7 @@
     <string name="onboarding_privacy_continue_action">Tiếp tục</string>
     <string name="onboarding_setup_title">Cài đặt</string>
     <string name="onboarding_setup_body1">SD Maid sẽ tìm kiếm tất cả các vùng dữ liệu có thể truy cập.</string>
-    <string name="onboarding_setup_body2">Những gì có thể truy cập được tùy thuộc vào điện thoại, phiên bản Android và quyền được cấp.</string>
+    <string name="onboarding_setup_body2">Những gì có thể truy cập tùy thuộc vào thiết bị của bạn, phiên bản Android và quyền được cấp.</string>
     <string name="onboarding_setup_body3">Bắt đầu sử dụng SD Maid bằng cách thiết lập quyền truy cập vào các khu vực cần tìm kiếm.</string>
     <string name="onboarding_setup_continue_action">Thiết lập quyền truy cập</string>
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
@@ -110,12 +112,14 @@
     <string name="setup_notification_body">Cho phép SD Maid đăng thông báo cho bạn về các hoạt động đang diễn ra hoặc các sự kiện quan trọng.</string>
     <string name="setup_notification_hint">Thông báo được sử dụng một cách tiết kiệm 🤞</string>
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
+    <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấn \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>
     <string name="setup_acs_state_enabled">Dịch vụ trợ năng được bật</string>
     <string name="setup_acs_state_disabled">Dịch vụ trợ năng bị vô hiệu hóa</string>
     <string name="setup_acs_state_running">Dịch vụ trợ năng đang chạy</string>
+    <string name="setup_acs_state_ondemand">Dịch vụ sẽ được đưa ra theo yêu cầu</string>
     <string name="setup_acs_state_stopped">Dịch vụ trợ năng đã dừng</string>
-    <string name="setup_acs_state_stopped_hint">Dịch vụ được kích hoạt, nhưng không chạy. Tắt/bật hoặc khởi động lại thiết bị của bạn. Kiểm tra xem SD Maid có được \"tối ưu hóa\" bởi hệ thống không.</string>
+    <string name="setup_acs_state_stopped_hint">Dịch vụ được kích hoạt, nhưng không chạy. Tắt/bật hoặc khởi động lại thiết bị của bạn. Kiểm tra xem SD Maid có được hệ thống \"tối ưu hóa\" không.</string>
     <string name="setup_acs_state_stopped_hint_miui">Nếu dịch vụ tiếp tục bị tắt sau một thời gian, hãy thử bật tùy chọn \"Tự động bắt đầu\" cho SD Maid trong cài đặt hệ thống.</string>
     <string name="setup_acs_consent_positive_action">Kích hoạt dịch vụ và cấp quyền truy cập</string>
     <string name="setup_acs_consent_negative_action">Không sử dụng dịch vụ trợ năng</string>
@@ -141,10 +145,12 @@
     <string name="corpsefinder_settings_risk_common_title">Bao gồm tên phổ biến</string>
     <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên quá phổ biến, v.d. một thư mục \"Ghi chú\" thuộc sở hữu của quá nhiều ứng dụng không xác định.</string>
     <string name="corpsefinder_watcher_title">Trình theo dõi gỡ cài đặt</string>
-    <string name="corpsefinder_watcher_summary">Tự động quét tìm phần còn lại khi xóa ứng dụng.</string>
+    <string name="corpsefinder_watcher_summary">Tự động quét phần còn lại khi một ứng dụng bị xóa.</string>
     <string name="corpsefinder_watcher_autodelete_title">Tự động xóa</string>
     <string name="corpsefinder_watcher_autodelete_summary">Tự động xóa mọi phần còn lại liên quan đến ứng dụng đã gỡ cài đặt.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$ mục còn lại sau khi gỡ cài đặt %2$s.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">Đã tìm thấy %1$d phần còn lại sau khi gỡ cài đặt %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">Dọn dẹp thành công (%1$s): Giải phóng %2$s và xóa %3$d mục.</item>
     </plurals>
@@ -172,9 +178,9 @@
     <string name="corpsefinder_filter_app2sd_summary">Dữ liệu được chuyển sang bộ nhớ ngoài bằng chế độ App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">%d ứng dụng được phát hiện</item>
+        <item quantity="other">Đã phát hiện %d phần còn lại của ứng dụng</item>
     </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Xóa tất cả các ứng dụng còn lại?</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Xóa tất cả phần còn lại của ứng dụng?</string>
     <string name="corpsefinder_owners_label">Chủ sở hữu</string>
     <string name="corpsefinder_corpse_hints_label">Ghi chú</string>
     <string name="corpsefinder_owner_unknown">Chủ sở hữu không xác định</string>
@@ -222,7 +228,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Một khu vực để hệ thống thả các tệp nhật ký vào.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tác vụ gần đây</string>
     <string name="systemcleaner_filter_recenttasks_summary">Dữ liệu liên quan đến lịch sử nhiệm vụ trong trình chuyển đổi tác vụ của hệ thống.</string>
-    <string name="systemcleaner_filter_tombstones_label">Sự cố hệ thống còn lại</string>
+    <string name="systemcleaner_filter_tombstones_label">Dư lượng sự cố hệ thống</string>
     <string name="systemcleaner_filter_tombstones_summary">Nếu các tiến trình gốc gặp sự cố (ví dụ: trò chơi), thì các tệp sẽ được tạo tại đây.</string>
     <string name="systemcleaner_filter_usagestats_label">Thống kê sử dụng</string>
     <string name="systemcleaner_filter_usagestats_summary">Các tệp liên quan đến số liệu thống kê sử dụng ứng dụng.</string>
@@ -230,7 +236,9 @@
     <string name="appcleaner_tool_name">Trình dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Bộ nhớ đệm ứng dụng công khai mặc định. Có thể truy cập trong Android/data trên các phiên bản Android cũ hơn. Đã xóa khi nhấn \"Xóa bộ nhớ cache\" trong cài đặt hệ thống.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Bộ nhớ đệm mặc định riêng tư</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Bộ đệm ứng dụng riêng tư mặc định. Đã xóa khi nhấp vào \"Xóa bộ nhớ cache\" trong cài đặt hệ thống.</string>
     <string name="appcleaner_include_systemapps_label">Bao gồm các ứng dụng hệ thống</string>
     <string name="appcleaner_include_systemapps_summary">Bao gồm các ứng dụng hệ thống trong quá trình quét.</string>
     <string name="appcleaner_include_runningapps_label">Bao gồm các app đang chạy</string>
@@ -250,6 +258,7 @@
     <string name="appcleaner_filter_bugreporting_label">Báo cáo lỗi</string>
     <string name="appcleaner_filter_bugreporting_summary">Dữ liệu liên quan đến báo cáo lỗi, ví dụ: nhật ký lỗi hoặc sự cố kết xuất.</string>
     <string name="appcleaner_filter_analytics_label">Phân tích</string>
+    <string name="appcleaner_filter_analytics_summary">Dữ liệu liên quan đến phân tích, ví dụ: số liệu thống kê được lưu trong bộ nhớ đệm cho những gì bạn nhấp vào trong một ứng dụng.</string>
     <string name="appcleaner_filter_hiddencaches_label">Bộ nhớ đệm ẩn</string>
     <string name="appcleaner_filter_hiddencaches_summary">Bộ nhớ đệm mục đích chung được lưu trữ bên ngoài phạm vi tiếp cận của hệ thống.</string>
     <string name="appcleaner_filter_thumbnails_label">Hình ảnh thu nhỏ</string>
@@ -386,6 +395,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">Đã tạo %d loại trừ</item>
     </plurals>
+    <string name="automation_accessibility_service_description">Người dùng có nhu cầu trợ năng đặc biệt có thể kích hoạt dịch vụ này để cho phép SD Maid tự động hóa các tác vụ mà nếu không sẽ yêu cầu tương tác thủ công tẻ nhạt của người dùng (ví dụ: xóa bộ nhớ đệm).\n\nVí dụ: Nếu bạn hướng dẫn SD Maid dừng nhiều ứng dụng thì SD Maid có thể sử dụng dịch vụ này để mở từng màn hình cài đặt ứng dụng, hãy tìm nút \'Buộc dừng\' và nhấn vào nút đó.\n\nSD Maid sẽ luôn hiển thị nổi bật khi sử dụng dịch vụ này và cung cấp một cách dễ dàng để người dùng hủy mọi tương tác ngay lập tức.\n\nKhông các hành động sẽ được thực hiện mà không có sự chấp thuận trước của người dùng. Dịch vụ này có thể bị vô hiệu hóa lại bất cứ lúc nào mà không có tác dụng phụ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid đang tương tác với thiết bị của bạn. Không thể sử dụng màn hình cùng một lúc. Chờ cho đến khi hoạt động kết thúc hoặc hủy bỏ nó.</string>
     <string name="automation_active_title">SD Maid đang hoạt động</string>
     <string name="automation_error_no_consent_title">Lỗi tự động hoá</string>

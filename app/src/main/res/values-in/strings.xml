@@ -41,7 +41,6 @@
     <string name="onboarding_privacy_continue_action">Lanjut</string>
     <string name="onboarding_setup_title">Pengaturan</string>
     <string name="onboarding_setup_body1">SD Maid akan mencari semua area data yang dapat diakses.</string>
-    <string name="onboarding_setup_body2">Apa yang dapat diakses bergantung pada ponsel Anda, versi Android, dan izin yang diberikan.</string>
     <string name="onboarding_setup_body3">Mulailah menggunakan SD Maid dengan mengatur akses ke area yang harus dicari.</string>
     <string name="onboarding_setup_continue_action">Pengaturan akses</string>
     <string name="settings_privacy_policy_label">Kebijakan privasi</string>
@@ -118,7 +117,6 @@
     <string name="setup_acs_state_disabled">Layanan aksesibilitas dinonaktifkan</string>
     <string name="setup_acs_state_running">Layanan aksesibilitas sedang berjalan</string>
     <string name="setup_acs_state_stopped">Layanan aksesibilitas dihentikan</string>
-    <string name="setup_acs_state_stopped_hint">Layanan diaktifkan, tetapi tidak berjalan. aktifkan/matikan saklar atau mulai ulang perangkat Anda. Pastikan SD Maid tidak \"dioptimalkan\" oleh sistem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jika layanan terus dinonaktifkan setelah beberapa saat, coba aktifkan opsi \"Mulai Otomatis\" untuk SD Maid di pengaturan sistem.</string>
     <string name="setup_acs_consent_positive_action">Aktifkan layanan dan berikan akses</string>
     <string name="setup_acs_consent_negative_action">Jangan gunakan layanan aksesibilitas</string>
@@ -144,14 +142,10 @@
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama umum</string>
     <string name="corpsefinder_settings_risk_common_summary">Data-data dengan nama yang terlalu umum, contohnya folder \"Catatan\" dimiliki oleh aplikasi-aplikasi yang tidak dikenal yang terlalu banyak.</string>
     <string name="corpsefinder_watcher_title">Pemantau uninstall</string>
-    <string name="corpsefinder_watcher_summary">Pindai otomatis sisa-sisa aplikasi yang dihapus.</string>
     <string name="corpsefinder_watcher_autodelete_title">Menghapus otomatis</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Secara otomatis menghapus sisa-sisa yang terkait dengan aplikasi yang dihapus.</string>
-    <string name="corpsefinder_watcher_notification_scan_result">%1$s sisa ditemukan setelah mencopot %2$s.</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">Pembersihan berhasil (%1$s): Membebaskan %2$s dan menghapus %3$d item.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Hapus sisa-sisa</string>
     <string name="corpsefinder_filter_publicmedia_label">Media umum</string>
     <string name="corpsefinder_filter_publicmedia_summary">Berkas media umum, cth. berkas yang diterima melalui aplikasi perpesanan.</string>
     <string name="corpsefinder_filter_publicobb_label">Sumber OBB</string>
@@ -174,10 +168,6 @@
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi terenkripsi, cth. aset permainan.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data dipindah ke penyimpanan eksternal oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">%d sisa aplikasi ditemukan</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Hapus semua sisa aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
     <string name="corpsefinder_corpse_hints_label">Catatan</string>
     <string name="corpsefinder_owner_unknown">Pemilik tak dikenal</string>
@@ -225,7 +215,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">Tempat sistem untuk menyimpan berkas log.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tugas terkini</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data yang berhubungan dengan riwayat tugas pada pengalih tugas sistem.</string>
-    <string name="systemcleaner_filter_tombstones_label">Sisa crash sistem</string>
     <string name="systemcleaner_filter_tombstones_summary">Jika sebuah proses mengalami crash (misalnya permainan), maka berkasnya dibuat disini.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistik penggunaan</string>
     <string name="systemcleaner_filter_usagestats_summary">Berkas yang berhubungan dengan statistik penggunaan aplikasi.</string>

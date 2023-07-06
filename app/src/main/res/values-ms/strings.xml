@@ -39,7 +39,6 @@
     <string name="onboarding_privacy_continue_action">Teruskan</string>
     <string name="onboarding_setup_title">Persediaan</string>
     <string name="onboarding_setup_body1">SD Maid akan mencari semua kawasan data yang boleh diakses.</string>
-    <string name="onboarding_setup_body2">Perkara yang boleh diakses bergantung pada telefon anda, versi Android dan kebenaran yang diberikan.</string>
     <string name="onboarding_setup_body3">Mulalah gunakan SD Maid dengan menyediakan akses ke kawasan yang perlu dicari.</string>
     <string name="onboarding_setup_continue_action">Sediakan akses</string>
     <string name="settings_privacy_policy_label">Dasar privasi</string>
@@ -104,7 +103,6 @@
     <string name="setup_acs_state_disabled">Perkhidmatan aksesibiliti dilumpuhkan</string>
     <string name="setup_acs_state_running">Perkhidmatan aksesibiliti sedang berjalan</string>
     <string name="setup_acs_state_stopped">Perkhidmatan aksesibiliti dihentikan</string>
-    <string name="setup_acs_state_stopped_hint">Perkhidmatan ini didayakan, tetapi tidak berjalan. Matikan/hidupkannya atau boot semula peranti anda. Semak sama ada SD Maid tidak \"dioptimumkan\" oleh sistem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jika perkhidmatan terus dilumpuhkan selepas beberapa ketika, cuba dayakan pilihan \"Auto Start\" untuk SD Maid dalam tetapan sistem.</string>
     <string name="setup_acs_consent_positive_action">Dayakan perkhidmatan dan berikan akses</string>
     <string name="setup_acs_consent_negative_action">Jangan gunakan perkhidmatan aksesibiliti</string>
@@ -128,7 +126,6 @@
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
     <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, misalnya, folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
     <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
-    <string name="corpsefinder_watcher_summary">Imbas baki tinggalan secara automatik apabila aplikasi dialih keluar.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media awam</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fail media awam, cth. fail yang diterima melalui aplikasi messenger.</string>
     <string name="corpsefinder_filter_publicobb_label">Sumber OBB</string>
@@ -150,10 +147,6 @@
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi yang dipersulitkan, mis. aset permainan.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">%d sisa aplikasi ditemui</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Padamkan semua baki aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
     <string name="corpsefinder_corpse_hints_label">Notis</string>
     <string name="corpsefinder_owner_unknown">Pemilik tidak dikenali</string>
@@ -200,7 +193,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">Kawasan untuk sistem meletakkan fail log masuk.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tugas terkini</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data yang berkaitan dengan sejarah tugasan dalam penukar tugas sistem.</string>
-    <string name="systemcleaner_filter_tombstones_label">Ranap sistem kekal</string>
     <string name="systemcleaner_filter_tombstones_summary">Jika proses asli ranap (cth. permainan), maka fail dihasilkan di sini.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistik penggunaan</string>
     <string name="systemcleaner_filter_usagestats_summary">Fail yang berkaitan dengan statistik penggunaan aplikasi.</string>

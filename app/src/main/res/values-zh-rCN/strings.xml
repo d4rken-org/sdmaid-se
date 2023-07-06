@@ -41,7 +41,7 @@
     <string name="onboarding_privacy_continue_action">继续</string>
     <string name="onboarding_setup_title">设置</string>
     <string name="onboarding_setup_body1">SD Maid 将搜索所有可访问的数据区域。</string>
-    <string name="onboarding_setup_body2">可以访问的内容取决于您的手机型号、Android 版本和已授予权限。</string>
+    <string name="onboarding_setup_body2">可以访问的内容取决于您的手机型号、Android 版本和已授予的权限。</string>
     <string name="onboarding_setup_body3">通过设置访问区域来开始使用 SD Maid。</string>
     <string name="onboarding_setup_continue_action">设置访问</string>
     <string name="settings_privacy_policy_label">隐私政策</string>
@@ -117,8 +117,9 @@
     <string name="setup_acs_state_enabled">无障碍服务已启用</string>
     <string name="setup_acs_state_disabled">无障碍服务已禁用</string>
     <string name="setup_acs_state_running">无障碍服务正在运行</string>
+    <string name="setup_acs_state_ondemand">服务将按需启动</string>
     <string name="setup_acs_state_stopped">无障碍服务已停止</string>
-    <string name="setup_acs_state_stopped_hint">服务已启动，但并未运行。切换其开关状态或重启您的设备，并确保系统后台没有“优化” SD Maid。</string>
+    <string name="setup_acs_state_stopped_hint">服务已启动，但并未运行。请切换其开关状态或重启您的设备，并确保系统后台没有“优化” SD Maid。</string>
     <string name="setup_acs_state_stopped_hint_miui">如果一段时间后服务仍处于禁用状态，可以尝试在系统设置中启用 SD Maid 的“自启动”功能。</string>
     <string name="setup_acs_consent_positive_action">启用服务并获取权限</string>
     <string name="setup_acs_consent_negative_action">不要使用无障碍服务</string>
@@ -144,14 +145,16 @@
     <string name="corpsefinder_settings_risk_common_title">包含常见名称</string>
     <string name="corpsefinder_settings_risk_common_summary">名称过于常见的数据，例如很多未知应用都会有“Notes”文件夹。</string>
     <string name="corpsefinder_watcher_title">卸载监视器</string>
-    <string name="corpsefinder_watcher_summary">在应用被卸载时自动扫描残留数据。</string>
+    <string name="corpsefinder_watcher_summary">卸载应用时自动扫描残留数据。</string>
     <string name="corpsefinder_watcher_autodelete_title">自动删除</string>
-    <string name="corpsefinder_watcher_autodelete_summary">自动删除与已卸载应用相关的所有残留</string>
-    <string name="corpsefinder_watcher_notification_scan_result">卸载“%2$s”后发现了 %1$s 项残留</string>
+    <string name="corpsefinder_watcher_autodelete_summary">自动删除与已卸载应用相关的残留数据。</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">卸载%2$s后发现了 %1$d 项残留数据。</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">清理成功（%1$s）：已释放 %2$s 并删除了 %3$d 个项目。</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">删除残留项</string>
+    <string name="corpsefinder_watcher_notification_delete_action">删除残留数据</string>
     <string name="corpsefinder_filter_publicmedia_label">公共媒体</string>
     <string name="corpsefinder_filter_publicmedia_summary">公共媒体文件，例如通过通讯应用程序接收的文件。</string>
     <string name="corpsefinder_filter_publicobb_label">OBB 资源</string>
@@ -175,9 +178,9 @@
     <string name="corpsefinder_filter_app2sd_summary">通过 App2Sd 模组移动到外部储存的数据。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">发现 %d 个应用残留</item>
+        <item quantity="other">发现了 %d 项应用残留</item>
     </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">删除所有的残留吗？</string>
+    <string name="corpsefinder_delete_all_confirmation_message">要删除所有的应用残留吗？</string>
     <string name="corpsefinder_owners_label">所有者</string>
     <string name="corpsefinder_corpse_hints_label">注意</string>
     <string name="corpsefinder_owner_unknown">未知所有者</string>

@@ -31,7 +31,6 @@
     <string name="onboarding_privacy_continue_action">Continuă</string>
     <string name="onboarding_setup_title">Partea de configurare</string>
     <string name="onboarding_setup_body1">SD Maid va căuta toate zonele de date accesibile.</string>
-    <string name="onboarding_setup_body2">Ce este accesibil depinde de dispozitivul tău, versiunea Android și permisiuni permise.</string>
     <string name="onboarding_setup_body3">Începe folosirea SD Maid prin configurarea accesului la zonele pe care pot fi căutate.</string>
     <string name="onboarding_setup_continue_action">Configurează accesul</string>
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
@@ -96,7 +95,6 @@
     <string name="setup_acs_state_disabled">Serviciul de accesibilitate este dezactivată</string>
     <string name="setup_acs_state_running">Serviciul de accesibilitate rulează</string>
     <string name="setup_acs_state_stopped">Serviciul de accesibilitate este oprită</string>
-    <string name="setup_acs_state_stopped_hint">Serviciul este activat, dar nu rulează. Dezactivarea/activarea sau repornirea dispozitivului. Verifică că SD Maid nu este \"optimizat\" de către sistem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Dacă serviciul tot se dezactivează după o vreme, încearcă să activezi opțiunea \"Pornire automată\" pentru SD Maid în setările sistemului.</string>
     <string name="setup_acs_consent_positive_action">Activează serviciul și permite acces</string>
     <string name="setup_acs_consent_negative_action">Nu folosi serviciul de accesibilitate</string>
@@ -120,7 +118,6 @@
     <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
     <string name="corpsefinder_settings_risk_common_summary">Date cu nume prea comune, ex: un dosar \"Notes\" este aparținută de prea multe aplicații necunoscute.</string>
     <string name="corpsefinder_watcher_title">Urmăritor de dezinstalare</string>
-    <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
     <string name="corpsefinder_filter_publicmedia_label">Media public</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fișiere media publice, ex: fișiere primite prin aplicații de mesagerie.</string>
     <string name="corpsefinder_filter_publicobb_label">Resurse OBB</string>
@@ -142,7 +139,6 @@
     <string name="corpsefinder_filter_appasec_summary">Resurse criptate a aplicației, ex: activele jocului.</string>
     <string name="corpsefinder_filter_app2sd_summary">Date mutate în stocarea externă de modificările App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Ștergi toate aplicațiile rămase?</string>
     <string name="corpsefinder_owners_label">Proprietarii</string>
     <string name="corpsefinder_corpse_hints_label">Înștiințare</string>
     <string name="corpsefinder_owner_unknown">Propietar necunoscut</string>
@@ -186,7 +182,6 @@
     <string name="systemcleaner_filter_logdropbox_summary">O zonă pentru sistem pentru a arunca fișierele de jurnal în.</string>
     <string name="systemcleaner_filter_recenttasks_label">Sarcini recente</string>
     <string name="systemcleaner_filter_recenttasks_summary">Date legate de istoricul sarcinilor din comutatorul de sarcini al sistemului.</string>
-    <string name="systemcleaner_filter_tombstones_label">Oprirea neașteptată a sistemului rămâne</string>
     <string name="systemcleaner_filter_tombstones_summary">Dacă procesele native se blochează (ex: jocuri), atunci fișierele sunt create aici.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistici de utilizare</string>
     <string name="systemcleaner_filter_usagestats_summary">Fișiere relatate la statistici de utilizare a aplicației.</string>

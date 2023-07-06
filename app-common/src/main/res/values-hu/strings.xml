@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Az Ön szolgálatában.</string>
+    <string name="slogan_message_1">Tiszta és rendezett.</string>
     <string name="slogan_message_2">A káosz megelőzése.</string>
     <string name="slogan_message_3">Megteszem, amit szükséges.</string>
     <string name="slogan_message_4">Az összes kacsa egy sorban.</string>
@@ -70,10 +71,21 @@
     <string name="general_update_action">Frissítés</string>
     <string name="general_scan_action">Vizsgálás</string>
     <string name="general_delete_action">Törlés</string>
+    <string name="general_delete_selected_action">Kijelöltek törlése</string>
     <string name="general_show_details_action">Részletek mutatása</string>
     <string name="general_delete_confirmation_title">A törlés megerősítésére</string>
     <string name="general_delete_confirmation_message_x">Törli a \"%s\" fájlt?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Töröljük a kiválasztott %d tételt?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Törölt %1$d elemet és felszabadított %2$s-t</item>
+        <item quantity="other">Törölt %1$d elem és felszabadított %2$s</item>
+    </plurals>
     <string name="general_remove_action">Eltávolítás</string>
+    <string name="general_remove_selected_action">Kijelölt elemek eltávolítása</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Egy elemet eltávolítottunk</item>
+        <item quantity="other">%d elemet eltávolítottuk</item>
+    </plurals>
     <string name="general_root_required_label">Root szükséges</string>
     <string name="general_root_required_message">Rootolt eszköz szükséges</string>
     <string name="general_search_action">Keresés</string>
@@ -91,10 +103,12 @@
     <string name="general_grant_access_action">Hozzáférés megadása</string>
     <string name="general_enable_service_action">Szolgáltatás engedélyezése</string>
     <string name="general_undo_action">Visszavonás</string>
+    <string name="general_list_select_all_action">Összes kijelölése</string>
     <string name="general_path_label">Útvonal</string>
     <string name="general_type_label">Típus</string>
     <string name="general_size_label">Méret</string>
     <string name="general_exclude_action">Kizárás</string>
+    <string name="general_exclude_selected_action">Kiválasztott kizárása</string>
     <string name="general_device_label">Eszköz</string>
     <string name="general_settings_title">Beállítások</string>
     <string name="general_help_title">Segítség</string>
