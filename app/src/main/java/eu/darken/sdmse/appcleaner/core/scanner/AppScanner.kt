@@ -394,6 +394,8 @@ class AppScanner @Inject constructor(
         updateProgressCount(Progress.Count.Percent(searchPathsOfInterest.size))
 
         val minCacheAgeMs = settings.minCacheAgeMs.value()
+        val cutOffAge = Instant.now().minusMillis(minCacheAgeMs)
+        log(TAG) { "minCacheAgeMs=$minCacheAgeMs -> Cut off after $cutOffAge" }
 
         val results = HashMap<Installed.InstallId, Collection<FilterMatch>>()
 
@@ -425,7 +427,7 @@ class AppScanner @Inject constructor(
             }
 
             val pathsOfInterest: List<Pair<APathLookup<APath>, Segments>> = searchPathContents
-                .filter { minCacheAgeMs == 0L || it.modifiedAt >= Instant.now().minusMillis(minCacheAgeMs) }
+                .filter { minCacheAgeMs == 0L || it.modifiedAt < cutOffAge }
                 .filter { it.segments.startsWith(searchPath.file.segments) }
                 .map { it to it.removePrefix(searchPath.file, overlap = 1) }
 
