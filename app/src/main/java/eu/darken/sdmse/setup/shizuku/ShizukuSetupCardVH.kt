@@ -1,6 +1,7 @@
 package eu.darken.sdmse.setup.shizuku
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.binding
@@ -33,10 +34,10 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
                 item.onToggleUseShizuku(selection)
             }
         }
-        allowShizukuOptionsEnable.isEnabled = item.state.basicService && !item.state.pendingPermission
-        allowShizukuOptionsDisable.isEnabled = !item.state.pendingPermission
+        allowShizukuOptionsEnable.isEnabled = item.state.isInstalled
 
         shizukuState.apply {
+            isVisible = item.state.isInstalled && item.state.isEnabled == true
             text = getString(
                 if (item.state.ourService) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label

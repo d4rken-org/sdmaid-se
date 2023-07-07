@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -15,12 +14,13 @@ import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,25 +35,14 @@ class ShizukuManager @Inject constructor(
     val serviceClient: ShizukuServiceClient,
 ) {
 
-    val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = shizukuWrapper.baseServiceBinder
-        .setupCommonEventHandlers(TAG) { "binder" }
-        .replayingShare(appScope)
-
     val permissionGrantEvents: Flow<ShizukuWrapper.ShizukuPermissionRequest> = shizukuWrapper.permissionGrantEvents
         .setupCommonEventHandlers(TAG) { "grantEvents" }
         .replayingShare(appScope)
 
-    init {
-        appScope.launch {
-            delay(1 * 1000L)
-            val currentAccess = isGranted()
-            log(TAG) { "Shizuku access check: $currentAccess" }
-            if (currentAccess == false) {
-                log(TAG, WARN) { "Shizuku access was revoked!" }
-                settings.isEnabled.value(null)
-            }
-        }
-    }
+    val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = settings.isEnabled.flow
+        .flatMapLatest { if (it == true) shizukuWrapper.baseServiceBinder else emptyFlow() }
+        .setupCommonEventHandlers(TAG) { "binder" }
+        .replayingShare(appScope)
 
     /**
      * Is the device shizukud and we have access?
@@ -111,13 +100,16 @@ class ShizukuManager @Inject constructor(
     /**
      * Did the user consent to SD Maid using Shizuku and is Shizuku available?
      */
-    val useShizuku: Flow<Boolean> = combine(
-        settings.isEnabled.flow,
-        shizukuBinder,
-        permissionGrantEvents.map { }.onStart { emit(Unit) },
-    ) { isEnabled, _, _ ->
-        (isEnabled ?: false) && isShizukud()
-    }.shareLatest(appScope)
+    val useShizuku: Flow<Boolean> = settings.isEnabled.flow
+        .flatMapLatest { isEnabled ->
+            if (isEnabled != true) return@flatMapLatest flowOf(false)
+
+            combine(
+                shizukuBinder.map { }.onStart { emit(Unit) },
+                permissionGrantEvents.map { }.onStart { emit(Unit) },
+            ) { _, _ -> isShizukud() }
+        }
+        .shareLatest(appScope)
 
     companion object {
         private val TAG = logTag("Shizuku", "Manager")
