@@ -135,17 +135,21 @@ class HiddenFilter @Inject constructor(
             ".mediacache", ".mediacache", ".media-cache",
             "diskcache", "disk-cache", "disk_cache",
             ".diskcache", ".disk-cache", ".disk_cache",
-            "filescache"
-        )
+            "filescache",
+            "AVFSCache"
+        ).map { it.lowercase() }
+
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
             "cache.dat",
             "tmp.dat",
             "temp.dat",
             ".temp.jpg"
-        )
+        ).map { it.lowercase() }
+
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia"
-        )
+        ).map { it.lowercase() }
+
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "HiddenCaches")
     }
 }
