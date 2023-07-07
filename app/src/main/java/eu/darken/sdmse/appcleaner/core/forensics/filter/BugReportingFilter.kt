@@ -110,8 +110,9 @@ class BugReportingFilter @Inject constructor(
             "gslb_sdk_log",
             "klog",
             "mipushlog",
-            "xlog"
-        )
+            "xlog",
+            "tlog_v9"
+        ).map { it.lowercase() }
 
         private val FILES: Collection<String> = listOf(
             "log.txt",
@@ -122,7 +123,7 @@ class BugReportingFilter @Inject constructor(
             "gslb_log.txt",
             "usage_logs_v2.txt",
             "app_upgrade_log"
-        )
+        ).map { it.lowercase() }
 
         internal val LOGFILE_PATTERNS by lazy {
             listOf("\\d{4}-\\d{2}-\\d{2}\\.log\\.txt").map { it.toRegex() }
