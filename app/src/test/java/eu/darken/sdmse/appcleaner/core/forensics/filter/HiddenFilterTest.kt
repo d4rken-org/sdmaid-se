@@ -2163,4 +2163,12 @@ class HiddenFilterTest : BaseFilterTest() {
         )
         confirm(create())
     }
+
+    @Test fun `chinese shopping framework`() = runTest {
+        neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/.gs_fs0")
+        neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache")
+        pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache/laz_homepage_module")
+        pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache/some/random/file")
+        confirm(create())
+    }
 }
