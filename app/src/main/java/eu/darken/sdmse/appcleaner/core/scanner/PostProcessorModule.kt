@@ -23,7 +23,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -101,24 +100,14 @@ class PostProcessorModule @Inject constructor(
 
         var after = before.copy(
             expendables = before.expendables.mapValues { (type, paths) ->
-                paths.filterNot { path ->
-                    exclusions.any { it.match(path) }
-                }
-            }
-        )
-
-        after = after.copy(
-            expendables = after.expendables?.mapValues { (type, paths) ->
-                var temp = paths
-                exclusions.forEach { temp = it.excludeNestedLookups(temp) }
-                temp
+                exclusions.excludeNestedLookups(paths)
             }
         )
 
         after = after.copy(
             expendables = after.expendables?.mapValues { (type, paths) ->
                 val edges = edgeCaseMap[type] ?: emptySet()
-                if (edges.isNotEmpty()) log(TAG, VERBOSE) { "Readding edge cases: $edges" }
+                if (edges.isNotEmpty()) log(TAG, VERBOSE) { "Re-adding edge cases: $edges" }
                 paths.plus(edges)
             }
         )
