@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
-import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuSettings
@@ -19,10 +18,13 @@ import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -39,30 +41,31 @@ class ShizukuSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    private val permissionRequestPending = MutableStateFlow(false)
 
-    override val state = combine(
-        shizukuSettings.isEnabled.flow,
-        shizukuManager.shizukuBinder.onStart { emit(null) },
-        permissionRequestPending,
-        refreshTrigger
-    ) { isEnabled, binder, pendingPermission, _ ->
-        State(
-            isEnabled = isEnabled,
-            pendingPermission = pendingPermission,
-            isCompatible = shizukuManager.isCompatible(),
-            isInstalled = shizukuManager.isInstalled(),
-            basicService = binder?.pingBinder() ?: false,
-            ourService = shizukuManager.isShizukuServiceAvailable(),
-        ).also { log(TAG) { "New Shizuku setup state: $it" } }
-    }.replayingShare(appScope)
+    override val state: Flow<SetupModule.State> =
+        combine(refreshTrigger, shizukuSettings.isEnabled.flow) { _, isEnabled ->
 
-    init {
-        shizukuManager.permissionGrantEvents
-            .onEach { refresh() }
-            .setupCommonEventHandlers(TAG) { "grantEventsMonitor" }
-            .launchIn(appScope)
-    }
+            val baseState = State(
+                isEnabled = isEnabled,
+                isInstalled = shizukuManager.isInstalled(),
+                isCompatible = shizukuManager.isCompatible(),
+            )
+
+            if (isEnabled != true || !baseState.isInstalled) return@combine flowOf(baseState)
+
+            combine(
+                shizukuManager.shizukuBinder.onStart { emit(null) },
+                shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) }
+            ) { binder, _ ->
+                baseState.copy(
+                    basicService = binder?.pingBinder() ?: false,
+                    ourService = shizukuManager.isShizukuServiceAvailable(),
+                )
+            }
+        }
+            .flatMapLatest { it }
+            .onEach { log(TAG) { "New Shizuku setup state: $it" } }
+            .replayingShare(appScope)
 
     override suspend fun refresh() {
         log(TAG) { "refresh()" }
@@ -73,26 +76,21 @@ class ShizukuSetupModule @Inject constructor(
         log(TAG) { "toggleUseShizuku(useShizuku=$useShizuku)" }
 
         if (useShizuku == true && shizukuManager.isGranted() == false) {
-            permissionRequestPending.value = true
-            try {
-                val grantResult = coroutineScope {
-                    val eventResult = async {
-                        shizukuManager.permissionGrantEvents
-                            .mapLatest { shizukuManager.isGranted() }
-                            .first()
-                    }
-
-                    log(TAG) { "Requesting permission" }
-                    shizukuManager.requestPermission()
-
-                    withTimeoutOrNull(30 * 1000) { eventResult.await() }
+            val grantResult = coroutineScope {
+                val eventResult = async {
+                    shizukuManager.permissionGrantEvents
+                        .mapLatest { shizukuManager.isGranted() }
+                        .first()
                 }
 
-                log(TAG) { "Permission grant result was $grantResult" }
-                shizukuSettings.isEnabled.value(grantResult.takeIf { it == true })
-            } finally {
-                permissionRequestPending.value = false
+                log(TAG) { "Requesting permission" }
+                shizukuManager.requestPermission()
+
+                withTimeoutOrNull(30 * 1000) { eventResult.await() }
             }
+
+            log(TAG) { "Permission grant result was $grantResult" }
+            shizukuSettings.isEnabled.value(grantResult.takeIf { it == true })
         } else {
             shizukuSettings.isEnabled.value(useShizuku)
         }
@@ -102,11 +100,10 @@ class ShizukuSetupModule @Inject constructor(
 
     data class State(
         val isEnabled: Boolean?,
-        val pendingPermission: Boolean,
-        val isCompatible: Boolean,
         val isInstalled: Boolean,
-        val basicService: Boolean,
-        val ourService: Boolean,
+        val isCompatible: Boolean = false,
+        val basicService: Boolean = false,
+        val ourService: Boolean = false,
     ) : SetupModule.State {
 
         override val isComplete: Boolean =
