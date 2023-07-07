@@ -43,6 +43,7 @@
     <string name="onboarding_privacy_continue_action">Continuar</string>
     <string name="onboarding_setup_title">Ajustes</string>
     <string name="onboarding_setup_body1">SD Maid buscará en todas las áreas de datos accesibles.</string>
+    <string name="onboarding_setup_body2">Lo que es accesible depende de tu dispositivo, la versión de Android y los permisos otorgados.</string>
     <string name="onboarding_setup_body3">Comenzá a usar SD Maid configurando el acceso a áreas que deben ser buscadas.</string>
     <string name="onboarding_setup_continue_action">Configurar el acceso</string>
     <string name="settings_privacy_policy_label">Política de privacidad</string>
@@ -118,7 +119,9 @@
     <string name="setup_acs_state_enabled">El Servicio de accesibilidad está activado</string>
     <string name="setup_acs_state_disabled">El Servicio de accesibilidad está desactivado</string>
     <string name="setup_acs_state_running">El Servicio de accesibilidad se está ejecutando</string>
+    <string name="setup_acs_state_ondemand">El servicio se lanzará bajo demanda</string>
     <string name="setup_acs_state_stopped">El Servicio de accesibilidad está detenido</string>
+    <string name="setup_acs_state_stopped_hint">El servicio está activado, pero no se está ejecutando. Desactivalo/activalo o reinicia tu dispositivo. Comprueba que SD Maid no está siendo \"optimizado\" por el sistema.</string>
     <string name="setup_acs_state_stopped_hint_miui">Si el servicio sigue siendo detenido después de un tiempo, intentá activando la opción \"Inicio automático\"\ para SD Maid en los ajustes del sistema.</string>
     <string name="setup_acs_consent_positive_action">Activar servicio y permitir acceso</string>
     <string name="setup_acs_consent_negative_action">No usar el Servicio de accesibilidad</string>
@@ -144,11 +147,18 @@
     <string name="corpsefinder_settings_risk_common_title">Incluir nombres comunes</string>
     <string name="corpsefinder_settings_risk_common_summary">Datos con nombres muy comunes, por ejemplo, la carpeta \"Notes\"\ es creada por muchas apps desconocidas.</string>
     <string name="corpsefinder_watcher_title">Supervisor de desinstalación</string>
+    <string name="corpsefinder_watcher_summary">Escanea automáticamente en busca de los restos cuando se elimina una aplicación.</string>
     <string name="corpsefinder_watcher_autodelete_title">Eliminación automática</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Elimina automáticamente cualquier resto relacionado con la aplicación desinstalada.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">Se encontró %1$d resto después de desinstalar %2$s.</item>
+        <item quantity="other">Se encontraron %1$d remanentes después de desinstalar %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Limpieza realizada con éxito (%1$s): Liberado %2$s y eliminado %3$d elemento.</item>
         <item quantity="other">Limpieza realizada con éxito (%1$s): Liberados %2$s y eliminados %3$d elementos.</item>
     </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Eliminar restos</string>
     <string name="corpsefinder_filter_publicmedia_label">Multimedia pública</string>
     <string name="corpsefinder_filter_publicmedia_summary">Archivos multimedia públicos, por ejemplo, archivos recibidores mediante apps de mensajería.</string>
     <string name="corpsefinder_filter_publicobb_label">Recursos OBB</string>
@@ -171,6 +181,11 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicaciones cifradas, por ejemplo, assets de juegos.</string>
     <string name="corpsefinder_filter_app2sd_summary">Datos movidos al almacenamiento extermo por mods de App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d Resto de aplicación descubierto</item>
+        <item quantity="other">%d Restos de aplicaciones descubiertos</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">¿Borrar todos los restos de las aplicaciones?</string>
     <string name="corpsefinder_owners_label">Propietarios</string>
     <string name="corpsefinder_corpse_hints_label">Aviso</string>
     <string name="corpsefinder_owner_unknown">Dueño desconocido</string>
@@ -219,6 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Un lugar para que el sistema deposite los archivos del registro.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tareas recientes</string>
     <string name="systemcleaner_filter_recenttasks_summary">Datos relacionados con el historial de tareas en el interruptor de tareas del sistema.</string>
+    <string name="systemcleaner_filter_tombstones_label">Restos de los fallos del sistema</string>
     <string name="systemcleaner_filter_tombstones_summary">Si los procesos nativos fallan (por ejemplo, los juegos), los archivos se crean aquí.</string>
     <string name="systemcleaner_filter_usagestats_label">Estadísticas de uso</string>
     <string name="systemcleaner_filter_usagestats_summary">Archivos relacionados con las estadísticas de uso de la aplicación.</string>
