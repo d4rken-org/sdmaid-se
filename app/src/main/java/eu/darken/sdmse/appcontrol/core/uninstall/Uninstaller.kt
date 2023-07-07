@@ -9,7 +9,7 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.plus
@@ -36,31 +38,53 @@ class Uninstaller @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val shellOps: ShellOps,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     suspend fun uninstall(installId: Installed.InstallId) {
-        log(TAG, INFO) { "Uninstalling $installId" }
+        log(TAG, VERBOSE) { "uninstall($installId)" }
 
-        if (rootManager.canUseRootNow()) {
-            adoptChildResource(shellOps)
-            val userId = installId.userHandle.handleId
-            val pkgName = installId.pkgId.name
-            val shellCmd = ShellOpsCmd("pm uninstall --user $userId $pkgName")
-            val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ROOT)
-            log(TAG) { "Uninstall command result: $result" }
-            if (!result.isSuccess) {
-                throw UninstallException(
-                    installId,
-                    IllegalStateException(result.errors.joinToString())
-                )
+        when {
+            rootManager.canUseRootNow() -> {
+                log(TAG) { "Using ROOT to uninstall $installId" }
+
+                val userId = installId.userHandle.handleId
+                val pkgName = installId.pkgId.name
+                val shellCmd = ShellOpsCmd("pm uninstall --user $userId $pkgName")
+
+                adoptChildResource(shellOps)
+                val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ROOT)
+                log(TAG) { "Uninstall command via ROOT result: $result" }
+                if (!result.isSuccess) {
+                    throw UninstallException(installId, IllegalStateException(result.errors.joinToString()))
+                }
             }
-        } else {
-            val appSettingsIntent = Intent(Intent.ACTION_DELETE)
-            appSettingsIntent.data = Uri.parse("package:${installId.pkgId.name}")
-            appSettingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(appSettingsIntent)
+
+            shizukuManager.canUseShizukuNow() -> {
+                log(TAG) { "Using ADB to uninstall $installId" }
+
+                val userId = installId.userHandle.handleId
+                val pkgName = installId.pkgId.name
+                val shellCmd = ShellOpsCmd("pm uninstall --user $userId $pkgName")
+
+                adoptChildResource(shellOps)
+                val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ADB)
+                log(TAG) { "Uninstall command via ADB result: $result" }
+                if (!result.isSuccess) {
+                    throw UninstallException(installId, IllegalStateException(result.errors.joinToString()))
+                }
+            }
+
+            else -> {
+                log(TAG) { "Using normal instant to uninstall $installId" }
+                val appSettingsIntent = Intent(Intent.ACTION_DELETE).apply {
+                    data = Uri.parse("package:${installId.pkgId.name}")
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                context.startActivity(appSettingsIntent)
+            }
         }
 
         try {
