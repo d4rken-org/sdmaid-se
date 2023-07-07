@@ -22,7 +22,7 @@ import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
 import eu.darken.sdmse.automation.core.specs.SpecGenerator
 import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -57,7 +57,7 @@ class LGESpecs @Inject constructor(
     }
 
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
-        log(TAG, Logging.Priority.INFO) { "Executing plan for ${pkg.installId} with context $this" }
+        log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
         val lang = locale.language

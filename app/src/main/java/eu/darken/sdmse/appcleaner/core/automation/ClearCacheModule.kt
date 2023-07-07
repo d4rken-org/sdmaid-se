@@ -167,7 +167,7 @@ class ClearCacheModule @AssistedInject constructor(
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
             ?: throw createUnsupportedError("DeviceSpec")
-        log(TAG) { "Using spec generator: ${specGenerator.label}" }
+        log(TAG) { "Using spec generator: $specGenerator" }
 
 
         val spec = specGenerator.getSpec(pkg)

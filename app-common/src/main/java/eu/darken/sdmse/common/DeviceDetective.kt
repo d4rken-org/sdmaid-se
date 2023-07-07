@@ -7,7 +7,6 @@ import android.content.res.Configuration
 import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.Locale
 import javax.inject.Inject
 
 @Reusable
@@ -26,31 +25,35 @@ class DeviceDetective @Inject constructor(
         return false
     }
 
-    suspend fun checkManufactor(name: String): Boolean {
-        return Build.MANUFACTURER.lowercase(Locale.ROOT) == name
+    private suspend fun checkManufactor(name: String): Boolean {
+        return Build.MANUFACTURER.lowercase() == name.lowercase()
+    }
+
+    private suspend fun checkBrand(name: String): Boolean {
+        return Build.BRAND?.lowercase() == name.lowercase()
     }
 
     suspend fun isSamsungDevice(): Boolean = checkManufactor("samsung")
 
-    suspend fun isAlcatel(): Boolean = Build.BRAND?.lowercase() == "alcatel"
+    suspend fun isAlcatel(): Boolean = checkBrand("alcatel")
 
-    suspend fun isOppo(): Boolean = Build.MANUFACTURER.lowercase() == "oppo"
+    suspend fun isOppo(): Boolean = checkManufactor("oppo")
 
-    suspend fun isMeizu(): Boolean = Build.MANUFACTURER.lowercase() == "meizu"
+    suspend fun isMeizu(): Boolean = checkManufactor("meizu")
 
-    suspend fun isHuawei(): Boolean = Build.MANUFACTURER.lowercase() == "huawei"
+    suspend fun isHuawei(): Boolean = checkManufactor("huawei")
 
-    suspend fun isLGE(): Boolean = Build.MANUFACTURER.lowercase() == "lge"
+    suspend fun isLGE(): Boolean = checkManufactor("lge")
 
-    suspend fun isXiaomi(): Boolean = Build.MANUFACTURER.lowercase() == "Xiaomi".lowercase()
+    suspend fun isXiaomi(): Boolean = checkManufactor("Xiaomi")
 
-    suspend fun isPoco(): Boolean = Build.MANUFACTURER.lowercase() == "POCO".lowercase()
+    suspend fun isPoco(): Boolean = checkManufactor("POCO")
 
-    suspend fun isNubia(): Boolean = Build.MANUFACTURER.lowercase() == "nubia"
+    suspend fun isNubia(): Boolean = checkManufactor("nubia")
 
-    suspend fun isOnePlus(): Boolean = Build.MANUFACTURER.lowercase() == "OnePlus".lowercase()
+    suspend fun isOnePlus(): Boolean = checkManufactor("OnePlus")
 
-    suspend fun isVivo(): Boolean = Build.MANUFACTURER.lowercase() == "vivo"
+    suspend fun isVivo(): Boolean = checkManufactor("vivo")
 
     suspend fun isLineageROM(): Boolean = Build.DISPLAY.lowercase().contains("lineage")
             || Build.PRODUCT.lowercase().contains("lineage")
