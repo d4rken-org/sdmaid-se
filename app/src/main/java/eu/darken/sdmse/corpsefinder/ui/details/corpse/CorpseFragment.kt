@@ -62,12 +62,6 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                         true
                     }
 
-                    R.id.action_exclude_selected -> {
-                        vm.exclude(selected)
-                        tracker.clearSelection()
-                        true
-                    }
-
                     else -> false
                 }
             }

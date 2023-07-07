@@ -88,16 +88,8 @@ class CorpseViewModel @Inject constructor(
         log(TAG, INFO) { "exclude(): $items" }
         val corpse = corpseData.first()
 
-        val targets = items.mapNotNull {
-            when (it) {
-                is CorpseElementFileVH.Item -> it.lookup.lookedUp
-                else -> null
-            }
-        }.toSet()
-        if (targets.isEmpty()) {
+        if (items.singleOrNull() is CorpseElementHeaderVH.Item) {
             corpseFinder.exclude(setOf(corpse.identifier))
-        } else {
-            corpseFinder.exclude(corpse.identifier, targets)
         }
     }
 

@@ -33,7 +33,6 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -307,34 +306,6 @@ class CorpseFinder @Inject constructor(
             corpses = snapshot.corpses.filter { corpse ->
                 exclusions.none { it.match(corpse.lookup) }
             }
-        )
-    }
-
-    suspend fun exclude(identifier: CorpseIdentifier, paths: Set<APath>) = toolLock.withLock {
-        log(TAG) { "exclude(): $identifier $paths" }
-
-        val oldCorpse = data.first()!!.corpses.single { it.identifier == identifier }
-
-        val exclusions = oldCorpse.content
-            .filter { paths.contains(it.lookedUp) }
-            .map {
-                PathExclusion(
-                    path = it.lookedUp,
-                    tags = setOf(Exclusion.Tag.CORPSEFINDER),
-                )
-            }
-            .toSet()
-        exclusionManager.save(exclusions)
-
-        val newCorpse = oldCorpse.copy(
-            content = oldCorpse.content.filter { contentItem ->
-                exclusions.none { it.match(contentItem.lookedUp) }
-            }
-        )
-
-        val snapshot = internalData.value!!
-        internalData.value = snapshot.copy(
-            corpses = snapshot.corpses - oldCorpse + newCorpse
         )
     }
 
