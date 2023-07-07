@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.files.PathException
 import eu.darken.sdmse.common.files.deleteAll
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.matches
@@ -125,7 +125,7 @@ class AppJunkDeleter @Inject constructor(
                     targetFile.deleteAll(gatewaySwitch)
                     log(TAG) { "Deleted $targetFile!" }
                     deleted.add(targetFile)
-                } catch (e: WriteException) {
+                } catch (e: PathException) {
                     log(TAG, WARN) { "Deletion failed for $targetFile" }
                 }
             }
