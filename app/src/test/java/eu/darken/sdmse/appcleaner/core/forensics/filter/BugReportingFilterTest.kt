@@ -1267,4 +1267,18 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    /**
+     * https://github.com/FBlackBox/BlackBox/issues/89
+     * https://github.com/wangjintao/TLog
+     */
+    @Test fun `chinese logging library`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9")
+        neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9/.nomedia")
+        pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9/$rngString")
+
+        confirm(create())
+    }
 }
