@@ -382,7 +382,7 @@ class LocalGateway @Inject constructor(
                     hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
                     // If the file path is on public storage, and it wasn't Android/data then, assume true
                     else -> storageEnvironment.externalDirs
-                        .firstOrNull { path.isAncestorOf(path) }
+                        .firstOrNull { it.isAncestorOf(path) }
                         ?.asFile()
                         ?.canRead() ?: false
                 }
