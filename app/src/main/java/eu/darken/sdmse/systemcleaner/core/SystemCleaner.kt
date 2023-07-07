@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.getLabel
@@ -192,13 +193,7 @@ class SystemCleaner @Inject constructor(
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(
             filterContents = snapshot.filterContents
-                .map { fc ->
-                    fc.copy(items = fc.items.filter { filterItem ->
-                        val hit = exclusions.any { it.match(filterItem.lookedUp) }
-                        if (hit) log(TAG) { "exclude(): Excluded $filterItem" }
-                        !hit
-                    })
-                }
+                .map { it.copy(items = exclusions.excludeNestedLookups(it.items)) }
                 .filter { it.items.isNotEmpty() }
         )
     }

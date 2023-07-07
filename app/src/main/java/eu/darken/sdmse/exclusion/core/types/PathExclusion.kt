@@ -23,6 +23,7 @@ data class PathExclusion(
         get() = path.userReadablePath
 
     override suspend fun match(candidate: APath): Boolean {
+        // path = dirA/dirB excludes dirA/dirB and dirA/dirB/file
         val match = candidate.matches(path) || path.isAncestorOf(candidate)
         if (match) log(TAG, VERBOSE) { "Exclusion match: $candidate <- $this " }
         return match

@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -71,7 +72,7 @@ class SystemCrawler @Inject constructor(
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
+        val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
 
         val filters = filterFactories
             .asFlow()
@@ -116,14 +117,15 @@ class SystemCrawler @Inject constructor(
                     val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
                         DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
                             if (sdcardOverlaps.any { it.isAncestorOf(toCheck) }) return@filter false
-                            pathExclusions.none { it.match(toCheck) }
+                            exclusions.none { it.match(toCheck) }
                         }
+
                         else -> filter@{ toCheck: APathLookup<*> ->
                             if (skipSegments.any { toCheck.segments.startsWith(it) }) {
                                 log(TAG, WARN) { "Skipping: $toCheck" }
                                 return@filter false
                             }
-                            pathExclusions.none { it.match(toCheck) }
+                            exclusions.none { it.match(toCheck) }
                         }
                     }
                     area.path.walk(gatewaySwitch, filter).map { area to it }
@@ -155,13 +157,20 @@ class SystemCrawler @Inject constructor(
                 }
         }
 
-        return sieveContents.map { entry ->
-            log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches." }
+        val firstPass = sieveContents.map { entry ->
+            log(TAG, INFO) { "${entry.key.filterIdentifier} has ${entry.value.size} matches (first pass)." }
             FilterContent(
                 identifier = entry.key.filterIdentifier,
                 items = entry.value,
             )
         }
+
+        // With nested exclusions applied
+
+        return firstPass
+            .map { it.copy(items = exclusions.excludeNestedLookups(it.items)) }
+            .onEach { log(TAG, INFO) { "${it.identifier} has ${it.items.size} matches (second pass)." } }
+            .filter { it.items.isNotEmpty() }
     }
 
     companion object {

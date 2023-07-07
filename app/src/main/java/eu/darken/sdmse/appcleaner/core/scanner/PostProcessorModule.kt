@@ -21,8 +21,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

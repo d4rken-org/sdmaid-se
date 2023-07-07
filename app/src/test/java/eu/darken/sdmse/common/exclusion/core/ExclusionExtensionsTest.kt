@@ -3,9 +3,9 @@ package eu.darken.sdmse.common.exclusion.core
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.serialization.SerializationAppModule
-import eu.darken.sdmse.exclusion.core.excludeNested
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import eu.darken.sdmse.exclusion.core.types.excludeNested
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
