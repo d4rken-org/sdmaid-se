@@ -51,6 +51,7 @@
     <string name="onboarding_privacy_continue_action">متابعة</string>
     <string name="onboarding_setup_title">اعداد</string>
     <string name="onboarding_setup_body1">سيقوم SD Maid بالبحث في جميع اماكن البيانات التي يمكن الوصول إليها.</string>
+    <string name="onboarding_setup_body2">ما يمكن الوصول إليه يعتمد على جهازك، إصدار أندرويد والأذونات الممنوحة.</string>
     <string name="onboarding_setup_body3">ابدأ في استخدام SD Maid من خلال إعداد الوصول إلى المناطق التي يجب البحث فيها.</string>
     <string name="onboarding_setup_continue_action">اعداد الدخول</string>
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
@@ -126,7 +127,9 @@
     <string name="setup_acs_state_enabled">خدمة أمكانية الوصول مفعلة</string>
     <string name="setup_acs_state_disabled">خدمة أمكانية الوصول معطلة</string>
     <string name="setup_acs_state_running">خدمة أمكانية الوصول تعمل</string>
+    <string name="setup_acs_state_ondemand">ستبدأ الخدمة عند الطلب</string>
     <string name="setup_acs_state_stopped">خدمة أمكانية الوصول متوقفة</string>
+    <string name="setup_acs_state_stopped_hint">الخدمة مفعلة، ولكن لا تشغل. قم بتبديلها أو تشغيلها أو إعادة تشغيل جهازك. تأكد من أن SD Maid لا يتم \"تحسينها\" بواسطة النظام.</string>
     <string name="setup_acs_state_stopped_hint_miui">إذا استمر تعطيل الخدمة بعد فترة ، فحاول تمكين خيار \"البدء التلقائي\" لـ SD Maid في إعدادات النظام.</string>
     <string name="setup_acs_consent_positive_action">تمكين الخدمة ومنح الوصول</string>
     <string name="setup_acs_consent_negative_action">لا تستخدم خدمة الوصول</string>
@@ -152,7 +155,17 @@
     <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
     <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء الشائعة جدًا, على سبيل المثال مجلد \"ملاحظات\" يمتلكه عدد كبير من التطبيقات غير المعروفة.</string>
     <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
+    <string name="corpsefinder_watcher_summary">البحث تلقائياً عن بقايا عند إزالة التطبيق.</string>
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
+    <string name="corpsefinder_watcher_autodelete_summary">حذف أي بقايا ذات صلة بالتطبيق غير المثبت تلقائياً.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="zero">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="one">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="two">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="few">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="many">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="other">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="zero">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
         <item quantity="one">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
@@ -161,6 +174,7 @@
         <item quantity="many">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
         <item quantity="other">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
     </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">حذف الملفات المتبقية</string>
     <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
     <string name="corpsefinder_filter_publicmedia_summary">ملفات الوسائط العامة ، على سبيل المثال الملفات المستلمة عبر تطبيقات المراسلة.</string>
     <string name="corpsefinder_filter_publicobb_label">موارد OBB</string>
@@ -183,6 +197,15 @@
     <string name="corpsefinder_filter_appasec_summary">موارد التطبيق المشفرة ، على سبيل المثال أصول اللعبة.</string>
     <string name="corpsefinder_filter_app2sd_summary">تم نقل البيانات إلى وحدة التخزين الخارجية عن طريق تعديل App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">التطبيق إلى الذاكرة</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="zero">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="one">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="two">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="few">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="many">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="other">%d بقايا تطبيق اكتشفت</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">حذف جميع بقايا التطبيق؟</string>
     <string name="corpsefinder_owners_label">المالكون</string>
     <string name="corpsefinder_corpse_hints_label">ملاحظة</string>
     <string name="corpsefinder_owner_unknown">مالك غير معروف</string>
@@ -235,6 +258,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">مساحة للنظام لإسقاط ملفات السجل فيها.</string>
     <string name="systemcleaner_filter_recenttasks_label">المهام الأخيرة</string>
     <string name="systemcleaner_filter_recenttasks_summary">البيانات المتعلقة بسجل المهام في مبدل مهام النظام.</string>
+    <string name="systemcleaner_filter_tombstones_label">بقايا أخطاء النظام</string>
     <string name="systemcleaner_filter_tombstones_summary">إذا تعطلت العمليات الأصلية (مثل الألعاب) ، فسيتم إنشاء الملفات هنا.</string>
     <string name="systemcleaner_filter_usagestats_label">بيانات الاستخدام</string>
     <string name="systemcleaner_filter_usagestats_summary">الملفات المتعلقة بإحصائيات استخدام التطبيق.</string>
