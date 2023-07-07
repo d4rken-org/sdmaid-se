@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.debug.recorder.core
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.os.Build
 import android.os.Environment
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -138,7 +139,10 @@ class RecorderModule @Inject constructor(
     private suspend fun logInfos() {
         val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)!!
         log(TAG, INFO) { "APILEVEL: ${BuildWrap.VERSION.SDK_INT}" }
-        log(TAG, INFO) { "Fingerprint: ${BuildWrap.FINGERPRINT}" }
+        log(TAG, INFO) { "Build.FINGERPRINT: ${BuildWrap.FINGERPRINT}" }
+        log(TAG, INFO) { "Build.MANUFACTOR: ${Build.MANUFACTURER}" }
+        log(TAG, INFO) { "Build.BRAND: ${Build.BRAND}" }
+        log(TAG, INFO) { "Build.PRODUCT: ${Build.PRODUCT}" }
         val versionInfo = "${pkgInfo.versionName} (${pkgInfo.versionCode})"
         log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
         log(TAG, INFO) { "Build: ${BuildConfigWrap.FLAVOR}-${BuildConfigWrap.BUILD_TYPE}" }

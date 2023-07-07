@@ -2,7 +2,8 @@ package eu.darken.sdmse.automation.core.specs
 
 import android.content.Context
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -22,11 +23,11 @@ interface SpecGenerator {
             if (it != null) {
                 log { "Read ${pkgId.name}:${stringIdName} from settings APK: $it" }
             } else {
-                log(Logging.Priority.WARN) { "Failed to read ${pkgId.name}:${stringIdName} from settings APK." }
+                log(WARN) { "Failed to read ${pkgId.name}:${stringIdName} from settings APK." }
             }
         }
     } catch (e: Exception) {
-        log(Logging.Priority.ERROR) { "get3rdPartyString(${pkgId.name}, $stringIdName) failed: ${e.asLog()}" }
+        log(ERROR) { "get3rdPartyString(${pkgId.name}, $stringIdName) failed: ${e.asLog()}" }
         null
     }
 }
