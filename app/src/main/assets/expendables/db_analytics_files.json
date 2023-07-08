@@ -79,7 +79,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/beacon/"],
 		  "patterns": [
-			"^(?>tencent\\/beacon\\/)([\\W\\w]+?)$"
+			"^(?>tencent/beacon/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -89,7 +89,7 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["/Analytics/"],
 		  "patterns": [
-			"^.+?\\/files\\/Unity\\/[0-9a-f-]+?\\/Analytics\\/.+?$"
+			"^.+?/files/Unity/[0-9a-f-]+?/Analytics/.+?$"
 		  ]
 		}
 	  ]

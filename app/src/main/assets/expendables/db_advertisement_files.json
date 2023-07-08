@@ -34,7 +34,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/MicroMsg/"],
 		  "patterns": [
-			"^(?>tencent\\/MicroMsg\\/sns_ad_landingpages\\/)([\\W\\w]+?)$"
+			"^(?>tencent/MicroMsg/sns_ad_landingpages/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -44,7 +44,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["MidasOversea/"],
 		  "patterns": [
-			"^(?>MidasOversea\\/)([\\W\\w]+?)$"
+			"^(?>MidasOversea/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -54,7 +54,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".bmob/"],
 		  "patterns": [
-			"^(?>\\.bmob\\/)([\\W\\w]+?)$"
+			"^(?>\\.bmob/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]

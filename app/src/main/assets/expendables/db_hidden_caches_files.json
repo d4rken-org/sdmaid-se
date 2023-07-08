@@ -23,15 +23,15 @@
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["eu.thedarken.sdm.test/sdm_test_internal_hidden_cache_direct"],
-		  "patterns": ["^(?>eu\\.thedarken\\.sdm\\.test\\/sdm_test_internal_hidden_cache_direct)$"]
+		  "patterns": ["^(?>eu\\.thedarken\\.sdm\\.test/sdm_test_internal_hidden_cache_direct)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["eu.thedarken.sdm.test/sdm_test_internal_hidden_cache"],
-		  "patterns": ["^(?:eu\\.thedarken\\.sdm\\.test\\/sdm_test_internal_hidden_cache)([\\W\\w]+)$"]
+		  "patterns": ["^(?:eu\\.thedarken\\.sdm\\.test/sdm_test_internal_hidden_cache)([\\W\\w]+)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "contains": ["eu.thedarken.sdm.test/sdm_test_internal_hidden_cache"],
-		  "patterns": ["^(?:eu\\.thedarken\\.sdm\\.test\\/sdm_test_internal_hidden_cache)([\\W\\w]+)$"]
+		  "patterns": ["^(?:eu\\.thedarken\\.sdm\\.test/sdm_test_internal_hidden_cache)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -40,7 +40,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".aptoide/"],
-		  "patterns": ["^(?:\\.aptoide\\/icons\\/)(.+?)$", "^(?:\\.aptoide\\/apks\\/)(.+?\\.apk)$"]
+		  "patterns": ["^(?:\\.aptoide/icons/)(.+?)$", "^(?:\\.aptoide/apks/)(.+?\\.apk)$"]
 		}
 	  ]
 	}, {
@@ -49,7 +49,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.soundcloud.android/files/skippy/"],
-		  "patterns": ["^(?:com\\.soundcloud\\.android\\/files\\/skippy\\/)(.+?)$"]
+		  "patterns": ["^(?:com\\.soundcloud\\.android/files/skippy/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -59,16 +59,16 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.google.android.GoogleCamera/files/panorama_sessions/"],
 		  "patterns": [
-			"^(?:com\\.google\\.android\\.GoogleCamera\\/files\\/panorama_sessions\\/)(session_[0-9]+_[0-9]+)$"
+			"^(?:com\\.google\\.android\\.GoogleCamera/files/panorama_sessions/)(session_[0-9]+_[0-9]+)$"
 		  ]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.google.android.GoogleCamera/files/refocus/"],
-		  "patterns": ["^(?:com\\.google\\.android\\.GoogleCamera\\/files\\/refocus\\/)(IMG_[0-9]+_[0-9]+)$"]
+		  "patterns": ["^(?:com\\.google\\.android\\.GoogleCamera/files/refocus/)(IMG_[0-9]+_[0-9]+)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.google.android.GoogleCamera/files/TEMP_SESSIONS/"],
-		  "patterns": ["^(?:com\\.google\\.android\\.GoogleCamera\\/files\\/TEMP_SESSIONS\\/)(PANO_[0-9]+_[0-9]+)$"]
+		  "patterns": ["^(?:com\\.google\\.android\\.GoogleCamera/files/TEMP_SESSIONS/)(PANO_[0-9]+_[0-9]+)$"]
 		}
 	  ]
 	}, {
@@ -77,11 +77,11 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.firefox", "org.mozilla.firefox_beta"],
-		  "patterns": ["^(?:org\\.mozilla\\.firefox(?:_beta)?\\/files\\/mozilla\\/[\\w]+\\.default\\/Cache\\/)(.+?)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.firefox(?:_beta)?/files/mozilla/[\\w]+\\.default/Cache/)(.+?)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.firefox", "org.mozilla.firefox_beta"],
-		  "patterns": ["^(?:org\\.mozilla\\.firefox(?:_beta)?\\/app_tmpdir\\/)(.+?)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.firefox(?:_beta)?/app_tmpdir/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -90,7 +90,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.fenix"],
-		  "patterns": ["^(?:org\\.mozilla\\.fenix\\/app_tmpdir\\/)(.+?)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.fenix/app_tmpdir/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -100,8 +100,8 @@
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.google.android.apps.genie.geniewidget"],
 		  "patterns": [
-			"^(?:com\\.google\\.android\\.apps\\.genie\\.geniewidget\\/app_news_image_cache\\/)(index.txt)$",
-			"(?:com\\.google\\.android\\.apps\\.genie\\.geniewidget\\/app_news_image_cache\\/)([\\w]+)"
+			"^(?:com\\.google\\.android\\.apps\\.genie\\.geniewidget/app_news_image_cache/)(index.txt)$",
+			"(?:com\\.google\\.android\\.apps\\.genie\\.geniewidget/app_news_image_cache/)([\\w]+)"
 		  ]
 		}
 	  ]
@@ -112,8 +112,8 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.levelup.beautifulwidgets/files/Pictures/"],
 		  "patterns": [
-			"^(?:com\\.levelup\\.beautifulwidgets\\/files\\/Pictures\\/)([\\w]+_[0-9]+\\.jpg)$",
-			"^(?:com\\.levelup\\.beautifulwidgets\\/files\\/Pictures\\/)([\\w]+_[0-9]+_[\\w]+_[\\w]+\\.png)$"
+			"^(?:com\\.levelup\\.beautifulwidgets/files/Pictures/)([\\w]+_[0-9]+\\.jpg)$",
+			"^(?:com\\.levelup\\.beautifulwidgets/files/Pictures/)([\\w]+_[0-9]+_[\\w]+_[\\w]+\\.png)$"
 		  ]
 		}
 	  ]
@@ -123,7 +123,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["FrostWire/.image_cache/"],
-		  "patterns": ["^(?:FrostWire\\/\\.image_cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:FrostWire/\\.image_cache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -132,7 +132,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Wallbase/.WallbaseCache/"],
-		  "patterns": ["^(?:Wallbase\\/\\.WallbaseCache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:Wallbase/\\.WallbaseCache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -141,19 +141,19 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["com.facebook.katana/fb_temp/"],
-		  "patterns": ["^(?:com\\.facebook\\.katana\\/fb_temp\\/)(\\.facebook_[0-9]+\\.jpg)$"]
+		  "patterns": ["^(?:com\\.facebook\\.katana/fb_temp/)(\\.facebook_[0-9]+\\.jpg)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.facebook.katana/files/video-cache/"],
-		  "patterns": ["^(?:com\\.facebook\\.katana\\/files\\/video-cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.facebook\\.katana/files/video-cache/)([\\W\\w]+)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.facebook.katana/files/ExoPlayerCacheDir/"],
-		  "patterns": ["^(?:com\\.facebook\\.katana\\/files\\/ExoPlayerCacheDir\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.facebook\\.katana/files/ExoPlayerCacheDir/)([\\W\\w]+)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".facebook_cache/"],
-		  "patterns": ["^(?:\\.facebook_cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.facebook_cache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -162,15 +162,15 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["com.facebook.orca/fb_temp/"],
-		  "patterns": ["^(?:com\\.facebook\\.orca\\/fb_temp\\/)(\\.facebook_[0-9]+\\.jpg)$"]
+		  "patterns": ["^(?:com\\.facebook\\.orca/fb_temp/)(\\.facebook_[0-9]+\\.jpg)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".facebook_cache/"],
-		  "patterns": ["^(?:\\.facebook_cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.facebook_cache/)([\\W\\w]+)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.facebook.orca/files/ExoPlayerCacheDir/"],
-		  "patterns": ["^(?:com\\.facebook\\.orca\\/files\\/ExoPlayerCacheDir\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.facebook\\.orca/files/ExoPlayerCacheDir/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -179,7 +179,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.antutu.ABenchMark.GL2/files/shader/"],
-		  "patterns": ["^(?:com\\.antutu\\.ABenchMark\\.GL2\\/files\\/shader\\/)(.+?)$"]
+		  "patterns": ["^(?:com\\.antutu\\.ABenchMark\\.GL2/files/shader/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -188,7 +188,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".antutu/benchmark/avatars/"],
-		  "patterns": ["^(?:\\.antutu\\/benchmark\\/avatars\\/)(.+?)$"]
+		  "patterns": ["^(?:\\.antutu/benchmark/avatars/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -197,7 +197,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".antutu/benchmark/avatars/"],
-		  "patterns": ["^(?:\\.antutu\\/benchmark\\/avatars\\/)(.+?)$"]
+		  "patterns": ["^(?:\\.antutu/benchmark/avatars/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -206,7 +206,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Audials/temporary/"],
-		  "patterns": ["^(?:Audials\\/temporary\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:Audials/temporary/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -215,7 +215,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.magine.aliceoid/data/images/"],
-		  "patterns": ["^(?:com\\.magine\\.aliceoid\\/data\\/images\\/)([0-9-]+)$"]
+		  "patterns": ["^(?:com\\.magine\\.aliceoid/data/images/)([0-9-]+)$"]
 		}
 	  ]
 	}, {
@@ -224,7 +224,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["FlightRadar24/Alerts/"],
-		  "patterns": ["^(?:FlightRadar24\\/Alerts\\/)([0-9]{10})$"]
+		  "patterns": ["^(?:FlightRadar24/Alerts/)([0-9]{10})$"]
 		}
 	  ]
 	}, {
@@ -242,7 +242,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".polaris_temp"],
-		  "patterns": ["^(\\.polaris_temp\\/)(.+?)$"]
+		  "patterns": ["^(\\.polaris_temp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -251,7 +251,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Turbo Client/temp/"],
-		  "patterns": ["^(?:Turbo Client\\/temp\\/)(.+?)$"]
+		  "patterns": ["^(?:Turbo Client/temp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -260,7 +260,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["yahoo/mail/imgCache/"],
-		  "patterns": ["^(?:yahoo\\/mail\\/imgCache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:yahoo/mail/imgCache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -270,7 +270,7 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": [".cliptray"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:\\.cliptray\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.cliptray/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -279,7 +279,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".eFile_trash/"],
-		  "patterns": ["^(?:\\.eFile_trash\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.eFile_trash/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -288,7 +288,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".QQMovieTicket/.cache/"],
-		  "patterns": ["^(?:\\.QQMovieTicket\\/\\.cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.QQMovieTicket/\\.cache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -297,7 +297,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.sohu.sohuvideo/tempVideo/"],
-		  "patterns": ["^(?:com\\.sohu\\.sohuvideo\\/tempVideo\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.sohu\\.sohuvideo/tempVideo/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -306,7 +306,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".lbsGo/avatar_cache/"],
-		  "patterns": ["^(?:\\.lbsGo\\/avatar_cache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:\\.lbsGo/avatar_cache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -315,7 +315,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["wuba/jiaoyou/"],
-		  "patterns": ["^(?:wuba\\/jiaoyou\\/casheimage\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:wuba/jiaoyou/casheimage/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -324,7 +324,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Skitch/Temp/"],
-		  "patterns": ["^(?:Skitch\\/Temp\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:Skitch/Temp/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -333,7 +333,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.telenav.doudouyou.android.autonavi/cacheimage/"],
-		  "patterns": ["^(?:com\\.telenav\\.doudouyou\\.android\\.autonavi\\/cacheimage\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.telenav\\.doudouyou\\.android\\.autonavi/cacheimage/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -342,7 +342,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["yahoo/weather/imgCache/"],
-		  "patterns": ["^(?:yahoo\\/weather\\/imgCache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:yahoo/weather/imgCache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -351,7 +351,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "contains": ["cache/mc.json"],
-		  "patterns": ["^(?:cache\\/)(mc.json)$"]
+		  "patterns": ["^(?:cache/)(mc.json)$"]
 		}
 	  ]
 	}, {
@@ -361,7 +361,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Pictures/perfectscreenshot_tmp/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:Pictures\\/perfectscreenshot_tmp\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:Pictures/perfectscreenshot_tmp/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -370,7 +370,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.cleanmaster.mguard/files/iconcache/"],
-		  "patterns": ["^(?:com\\.cleanmaster\\.mguard\\/files\\/iconcache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.cleanmaster\\.mguard/files/iconcache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -379,7 +379,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Magix/.tmp/"],
-		  "patterns": ["^(?:Magix\\/\\.tmp\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:Magix/\\.tmp/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -390,14 +390,14 @@
 		  "startsWith": ["com.ninegag.android.app/files/"],
 		  "notContains": [".nomedia"],
 		  "patterns": [
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/images\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/gags\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/gags_thumb\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/gifs\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/mp4s\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/uploads\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/avatar\\/)([\\W\\w]+)$",
-			"^(?:com\\.ninegag\\.android\\.app\\/files\\/covers\\/)([\\W\\w]+)$"
+			"^(?:com\\.ninegag\\.android\\.app/files/images/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/gags/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/gags_thumb/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/gifs/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/mp4s/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/uploads/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/avatar/)([\\W\\w]+)$",
+			"^(?:com\\.ninegag\\.android\\.app/files/covers/)([\\W\\w]+)$"
 		  ]
 		}
 	  ]
@@ -407,7 +407,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["amazonmp3/temp/"],
-		  "patterns": ["^(?:amazonmp3\\/temp\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:amazonmp3/temp/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -425,7 +425,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".PolarisViewer4/polarisTemp/"],
-		  "patterns": ["^(?>\\.PolarisViewer4\\/polarisTemp\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.PolarisViewer4/polarisTemp/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -440,8 +440,8 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.slingmedia.slingPlayer"],
 		  "patterns": [
-			"^(?:com\\.slingmedia\\.slingPlayer[\\w]*?\\/files\\/tsDump\\/)([\\W\\w]+)$",
-			"^(?:com\\.slingmedia\\.slingPlayer[\\w]*?\\/files\\/logDump\\/)([\\W\\w]+)$"
+			"^(?:com\\.slingmedia\\.slingPlayer[\\w]*?/files/tsDump/)([\\W\\w]+)$",
+			"^(?:com\\.slingmedia\\.slingPlayer[\\w]*?/files/logDump/)([\\W\\w]+)$"
 		  ]
 		}
 	  ]
@@ -452,15 +452,15 @@
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.rover/files"],
 		  "patterns": [
-			"^(?:com\\.skype\\.rover\\/files\\/[\\w,._-]+?\\/media_messaging\\/emo_cache(?:_v[0-9])?\\/)([\\W\\w]+?)$",
-			"^(?:com\\.skype\\.rover\\/files\\/[\\w,._-]+?\\/media_messaging\\/media_cache(?:_v[0-9])?\\/)([\\W\\w]+?)$"
+			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)([\\W\\w]+?)$",
+			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)([\\W\\w]+?)$"
 		  ]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.raider/files"],
 		  "patterns": [
-			"^(?:com\\.skype\\.raider\\/files\\/[\\w,._-]+?\\/media_messaging\\/emo_cache(?:_v[0-9])?\\/)([\\W\\w]+?)$",
-			"^(?:com\\.skype\\.raider\\/files\\/[\\w,._-]+?\\/media_messaging\\/media_cache(?:_v[0-9])?\\/)([\\W\\w]+?)$"
+			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)([\\W\\w]+?)$",
+			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -475,19 +475,19 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".estrongs/dianxin/notify"],
-		  "patterns": ["^(?>\\.estrongs\\/dianxin\\/notify\\/.cache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.estrongs/dianxin/notify/.cache/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".estrongs/.app_icon_back"],
-		  "patterns": ["^(?>\\.estrongs\\/\\.app_icon_back\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.estrongs/\\.app_icon_back/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": ["dianxin/notify"],
-		  "patterns": ["^(?>dianxin\\/notify\\/.cache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>dianxin/notify/.cache/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".BD_SAPI_CACHE/"],
-		  "patterns": ["^(?>\\.BD_SAPI_CACHE\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.BD_SAPI_CACHE/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -496,7 +496,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.ksmobile.launcher/files/iconcache/"],
-		  "patterns": ["^(?>com\\.ksmobile\\.launcher\\/files\\/iconcache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.ksmobile\\.launcher/files/iconcache/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -505,7 +505,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.ecareme.asuswebstorage/folderBrowseCache/"],
-		  "patterns": ["^(?>com\\.ecareme\\.asuswebstorage\\/folderBrowseCache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.ecareme\\.asuswebstorage/folderBrowseCache/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -515,7 +515,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".EveryplayCache/images/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?>\\.EveryplayCache\\/images\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.EveryplayCache/images/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -529,11 +529,11 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".face/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?>\\.face\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.face/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.sec.android.gallery3d/Temp/"],
-		  "patterns": ["^(?:com\\.sec\\.android\\.gallery3d\\/Temp\\/)([0-9]+?)$"]
+		  "patterns": ["^(?:com\\.sec\\.android\\.gallery3d/Temp/)([0-9]+?)$"]
 		}
 	  ]
 	}, {
@@ -542,11 +542,11 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.amazon.mShop.android/files/update-"],
-		  "patterns": ["^(com\\.amazon\\.mShop\\.android\\/files\\/update-\\d+-\\d+\\.apk)$"]
+		  "patterns": ["^(com\\.amazon\\.mShop\\.android/files/update-\\d+-\\d+\\.apk)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.amazon.mShop.android/files/apks/update-"],
-		  "patterns": ["^(com\\.amazon\\.mShop\\.android\\/files\\/apks\\/update-\\d+-\\d+\\.apk)$"]
+		  "patterns": ["^(com\\.amazon\\.mShop\\.android/files/apks/update-\\d+-\\d+\\.apk)$"]
 		}
 	  ]
 	}, {
@@ -565,7 +565,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["motionstills/warp_grid_cache"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:motionstills\\/warp_grid_cache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:motionstills/warp_grid_cache/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -574,7 +574,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.plexapp.android/Plex Media Server/Cache"],
-		  "patterns": ["^(?:com.plexapp.android\\/Plex Media Server\\/Cache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com.plexapp.android/Plex Media Server/Cache/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -583,7 +583,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".fotadownload/"],
-		  "patterns": ["^(?:.fotadownload\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:.fotadownload/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -602,11 +602,11 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["UCDownloads/video/.apolloCache", "UCDownloadsPad/video/.apolloCache"],
-		  "patterns": ["^(?:UCDownloads(?:Pad)?\\/video\\/.apolloCache\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:UCDownloads(?:Pad)?/video/.apolloCache\/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.UCMobile.intl/files/UcDownloads/video/.apolloCache"],
-		  "patterns": ["^(?:com\\.UCMobile\\.intl\\/files\\/UcDownloads\\/video\\/\\.apolloCache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com\\.UCMobile\\.intl/files/UcDownloads/video/\\.apolloCache/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": ["supercache"],
@@ -619,7 +619,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Download/", ".crdownload"],
-		  "patterns": ["^(?:Download\\/)([\\W\\w]+?.crdownload)$"]
+		  "patterns": ["^(?:Download/)([\\W\\w]+?.crdownload)$"]
 		}
 	  ]
 	}, {
@@ -628,11 +628,11 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.zhiliaoapp.musically/files/frescocache/"],
-		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically\\/files\\/frescocache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/files/frescocache/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.zhiliaoapp.musically/Videos/"],
-		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically\\/Videos\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/Videos/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -641,7 +641,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Keerby/FormatFactory/tmp/"],
-		  "patterns": ["^(?>Keerby\\/FormatFactory\\/tmp\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>Keerby/FormatFactory/tmp/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -668,7 +668,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["LocalKingMapTempN5/"],
-		  "patterns": ["^(?>LocalKingMapTempN5\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>LocalKingMapTempN5/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -677,7 +677,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": [".fotaApps/"],
-		  "patterns": ["^(?>\\.fotaApps\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.fotaApps/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -686,7 +686,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["WhatsApp/.Shared/"],
-		  "patterns": ["^(?>WhatsApp/\\.Shared\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>WhatsApp/\\.Shared/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -695,7 +695,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.lonelycatgames.Xplore/files/Send Anywhere/.temp/"],
-		  "patterns": ["^(?>com\\.lonelycatgames\\.Xplore\\/files\\/Send Anywhere\\/\\.temp\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.lonelycatgames\\.Xplore/files/Send Anywhere/\\.temp/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -709,20 +709,20 @@
 			"tencent/assistant/"
 		  ],
 		  "patterns": [
-			"^(?>tencent\\/MicroMsg\\/CheckResUpdate\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/WebviewCache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/Cache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/wxacache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/.tmp\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/CDNTemp\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/FailMsgFileCache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/diskcache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/)([0-9a-z-]{32}temp[\\d]{13})$",
-			"^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\/brandicon\/)(?>.+)",
-			"^(?>tencent\\/assistant\\/cache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/assistant\\/tmp\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/assistant\\/thumbnailcache\\/)([\\W\\w]+?)$",
-			"^(?>VideoCache\\/com.tencent.mm\\/)([\\W\\w]+?)$"
+			"^(?>tencent/MicroMsg/CheckResUpdate/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/WebviewCache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/Cache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/wxacache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/.tmp/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/CDNTemp/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/FailMsgFileCache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/diskcache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/)([0-9a-z-]{32}temp[\\d]{13})$",
+			"^(?>tencent/MicroMsg/[0-9a-z-]{32}\/brandicon\/)(?>.+)",
+			"^(?>tencent/assistant/cache/)([\\W\\w]+?)$",
+			"^(?>tencent/assistant/tmp/)([\\W\\w]+?)$",
+			"^(?>tencent/assistant/thumbnailcache/)([\\W\\w]+?)$",
+			"^(?>VideoCache/com.tencent.mm/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -732,7 +732,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".newsbreak/image/"],
-		  "patterns": ["^(?>\\.newsbreak\/image\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.newsbreak\/image/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -741,7 +741,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".sems/"],
-		  "patterns": ["^(?>\\.sems\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.sems/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -754,8 +754,8 @@
 			"qpython/cache/"
 		  ],
 		  "patterns": [
-			"^(?>qpython\\/log\\/)([\\W\\w]+?)$",
-			"^(?>qpython\\/cache\\/)([\\W\\w]+?)$"
+			"^(?>qpython/log/)([\\W\\w]+?)$",
+			"^(?>qpython/cache/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -765,7 +765,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["VMOSfiletransferstation/"],
-		  "patterns": ["^(?>VMOSfiletransferstation\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>VMOSfiletransferstation/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -1059,8 +1059,8 @@
 			"FightBattle/.temp"
 		  ],
 		  "patterns": [
-			"^(?>FightBattle\\/.temp\\d*?\\.jpg)$",
-			"^(?>FightBattle\\/.smalltemp\\d*?\\.jpg)$"
+			"^(?>FightBattle/.temp\\d*?\\.jpg)$",
+			"^(?>FightBattle/.smalltemp\\d*?\\.jpg)$"
 		  ]
 		}
 	  ]

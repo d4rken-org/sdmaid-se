@@ -7,7 +7,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.spotify.music/files/spotifycache/"],
-		  "patterns": ["^(?>com\\.spotify\\.music\\/files\\/spotifycache\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.spotify\\.music/files/spotifycache/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -16,7 +16,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["LocalKingMapN5/"],
-		  "patterns": ["^(?>LocalKingMapN5\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>LocalKingMapN5/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {

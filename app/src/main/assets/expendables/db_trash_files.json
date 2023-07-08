@@ -20,7 +20,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": [".MeizuGalleryTrashBin/"],
-		  "patterns": ["^(?:\\.MeizuGalleryTrashBin\\/)(.+?)$"]
+		  "patterns": ["^(?:\\.MeizuGalleryTrashBin/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -29,7 +29,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["RecycleBin/"],
-		  "patterns": ["^(?:RecycleBin\\/)(.+?)$"]
+		  "patterns": ["^(?:RecycleBin/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -41,7 +41,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".$recycle_bin$"],
-		  "patterns": ["^(?:\\.\\$recycle_bin\\$\\/)(.+?)$"]
+		  "patterns": ["^(?:\\.\\$recycle_bin\\$/)(.+?)$"]
 		}
 	  ]
 	}, {

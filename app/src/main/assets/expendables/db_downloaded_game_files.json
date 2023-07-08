@@ -6,7 +6,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["files/Cache/"],
-		  "patterns": ["^(?>[\\w\\._]+\\/files\\/Cache\\/)(.+?\\.unity3d(?:&.+?)*)$"]
+		  "patterns": ["^(?>[\\w\\._]+/files/Cache/)(.+?\\.unity3d(?:&.+?)*)$"]
 		}
 	  ]
 	}, {

@@ -24,8 +24,8 @@
 		  "contains": ["/files/mozilla/"],
 		  "patterns": [
 			"^(?:.+?/files/mozilla/Crash Reports/)(.+?)$",
-			"^(?:.+?/files/mozilla/[\\w]+\\.default\\/minidumps/)(.+?)$",
-			"^(?:.+?/files/mozilla/[\\w]+\\.default\\/crashes/)(.+?)$"
+			"^(?:.+?/files/mozilla/[\\w]+\\.default/minidumps/)(.+?)$",
+			"^(?:.+?/files/mozilla/[\\w]+\\.default/crashes/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -53,11 +53,11 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.cleanmaster.mguard/files/logs/"],
-		  "patterns": ["^(?:com\\.cleanmaster\\.mguard\\/files\\/logs\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.cleanmaster\\.mguard/files/logs/)([\\W\\w]+)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.cleanmaster.mguard/files/minidump/"],
-		  "patterns": ["^(?:com\\.cleanmaster\\.mguard\\/files\\/minidump\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:com\\.cleanmaster\\.mguard/files/minidump/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -92,7 +92,7 @@
 			"yahoo/cricket/Debug/",
 			"yahoo/com.yahoo.mobile.client.android"
 		  ],
-		  "patterns": ["^(?:yahoo\\/[\\w.]+\\/Debug\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:yahoo/[\\w.]+/Debug/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -101,7 +101,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tapatalkLog/"],
-		  "patterns": ["^(?:tapatalkLog\\/)([0-9\\-]+?Log.txt)$"]
+		  "patterns": ["^(?:tapatalkLog/)([0-9\\-]+?Log.txt)$"]
 		}
 	  ]
 	}, {
@@ -111,8 +111,8 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["amazonmp3/temp/"],
 		  "patterns": [
-			"^(?:amazonmp3\\/temp\\/)(log.txt)$",
-			"^(?:amazonmp3\\/temp\\/)(AMPmetrics_v2.txt)$"
+			"^(?:amazonmp3/temp/)(log.txt)$",
+			"^(?:amazonmp3/temp/)(AMPmetrics_v2.txt)$"
 		  ]
 		}
 	  ]
@@ -134,8 +134,8 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["mobilecare/"],
 		  "patterns": [
-			"^(?:mobilecare\\/)(update.log)$",
-			"^(?:mobilecare\\/)(screen_shot.log)$"
+			"^(?:mobilecare/)(update.log)$",
+			"^(?:mobilecare/)(screen_shot.log)$"
 		  ]
 		}
 	  ]
@@ -146,8 +146,8 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["FrostWire/.azureus/logs/"],
 		  "patterns": [
-			"^(?:FrostWire\\/\\.azureus\\/logs\\/)(debug_.\\.log)$",
-			"^(?:FrostWire\\/\\.azureus\\/logs\\/)(UPnP_.\\.log)$"
+			"^(?:FrostWire/\\.azureus/logs/)(debug_.\\.log)$",
+			"^(?:FrostWire/\\.azureus/logs/)(UPnP_.\\.log)$"
 		  ]
 		}
 	  ]
@@ -157,7 +157,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.rover/files/", "com.skype.raider/files/"],
-		  "patterns": ["^(?:com\\.skype\\.(?:rover|raider)\\/files\\/[\\w,._-]+?\\/logs\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com\\.skype\\.(?:rover|raider)/files/[\\w,._-]+?/logs/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -175,7 +175,7 @@
 		{
 		  "locations": ["DATA"],
 		  "startsWith": ["apps2sd-log/apps2sd-mount-script.log"],
-		  "patterns": ["^(apps2sd-log\\/apps2sd-mount-script\\.log)$"]
+		  "patterns": ["^(apps2sd-log/apps2sd-mount-script\\.log)$"]
 		}
 	  ]
 	}, {
@@ -184,7 +184,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["MaleWorkout/crash/"],
-		  "patterns": ["^(?:MaleWorkout\\/crash\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:MaleWorkout/crash/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -198,7 +198,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["/.cache/KingsoftOffice/log/"],
-		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*\\/\\.cache\\/KingsoftOffice\\/log\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*/\\.cache/KingsoftOffice/log/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["/.cache/KingsoftOffice/.temp/"],
@@ -214,7 +214,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["archos_debug/"],
-		  "patterns": ["^(?:archos_debug\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:archos_debug/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -224,13 +224,13 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/MicroMsg/"],
 		  "patterns": [
-			"^(?>tencent\\/MicroMsg\\/crash\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/xlog\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/locallog\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/watchdog\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/failmsgfilecache\\/)([\\W\\w]+?)$",
-			"^(?>tencent\\/MicroMsg\\/)(FTS5IndexMicroMsgInfo.txt)$",
-			"^(?>tencent\/MicroMsg\/[0-9a-z-]{32}\/logcat\/)(?>.+)"
+			"^(?>tencent/MicroMsg/crash/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/xlog/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/locallog/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/watchdog/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/failmsgfilecache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/)(FTS5IndexMicroMsgInfo.txt)$",
+			"^(?>tencent/MicroMsg/[0-9a-z-]{32}\/logcat\/)(?>.+)"
 		  ]
 		}
 	  ]
@@ -240,7 +240,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["AirDroid"],
-		  "patterns": ["^(?>AirDroid\\/exception\\.log)$"]
+		  "patterns": ["^(?>AirDroid/exception\\.log)$"]
 		}
 	  ]
 	}, {
@@ -273,11 +273,11 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.fenix/"],
-		  "patterns": ["^(?:org\\.mozilla\\.fenix\\/)(gv_measurements(?:-\\d+)*.json)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.fenix/)(gv_measurements(?:-\\d+)*.json)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.fenix/glean_data/"],
-		  "patterns": ["^(?:org\\.mozilla\\.fenix\\/glean_data\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.fenix/glean_data/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -325,7 +325,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Pictures/Microsoft Edge feedback"],
-		  "patterns": ["^(?:Pictures\\/Microsoft Edge feedback(?: \\(\\d+\\))?.jpg)$"]
+		  "patterns": ["^(?:Pictures/Microsoft Edge feedback(?: \\(\\d+\\))?.jpg)$"]
 		}
 	  ]
 	}, {
