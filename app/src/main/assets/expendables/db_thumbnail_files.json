@@ -7,7 +7,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.quickoffice.android/files/"],
-		  "patterns": ["^(?:com\\.quickoffice\\.android\\/files\\/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
+		  "patterns": ["^(?:com\\.quickoffice\\.android/files/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
 		}
 	  ]
 	}, {
@@ -16,11 +16,11 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".FX/CloudThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/CloudThumbnail\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.FX/CloudThumbnail/)([\\W\\w]+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".FX/ImageThumbnail/"],
-		  "patterns": ["^(?:\\.FX\\/ImageThumbnail\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.FX/ImageThumbnail/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
@@ -29,7 +29,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["infzm/thumb_image/"],
-		  "patterns": ["^(?:infzm\\/thumb_image\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:infzm/thumb_image/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -38,7 +38,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["kascend/videoshow/.thumbcache/"],
-		  "patterns": ["^(?:kascend\\/videoshow\\/\\.thumbcache\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:kascend/videoshow/\\.thumbcache/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -47,7 +47,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Walloid/.Thumbnail/"],
-		  "patterns": ["^(?:Walloid\\/\\.Thumbnail\\/)([\\W\\w]+)$"]
+		  "patterns": ["^(?:Walloid/\\.Thumbnail/)([\\W\\w]+)$"]
 		}
 	  ]
 	}, {
@@ -57,7 +57,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".thumbnails/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:\\.thumbnails\\/.+?\\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.thumbnails/.+?/)([\\W\\w]+?)$"]
 		}
 	  ]
 	}, {
