@@ -9,6 +9,8 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
@@ -86,7 +88,7 @@ class EmptyDirectoryFilter @Inject constructor(
         val sieveResult = sieve.match(item)
         if (!sieveResult.matches) return false
 
-        log(TAG) { "Sieve match: ${item.path}" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "Sieve match: ${item.path}" }
 
         val areaInfo = sieveResult.areaInfo!!
         val prefixFreePath = areaInfo.prefixFreePath
@@ -109,7 +111,7 @@ class EmptyDirectoryFilter @Inject constructor(
         if (content.size > 2) return false
         if (content.any {
                 val match = matches(it)
-                if (!match) log(TAG) { "Failed sub sieve match: $it" }
+                if (!match && Bugs.isTrace) log(TAG, VERBOSE) { "Failed sub sieve match: $it" }
                 !match
             }) return false
 
