@@ -151,7 +151,7 @@ class SystemCrawler @Inject constructor(
                         }
 
                     if (matched != null) {
-                        log(TAG, INFO) { "$matched matched $item" }
+                        log(TAG, INFO) { "Filter match: $matched <- $item" }
                         sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)
                     }
                 }
