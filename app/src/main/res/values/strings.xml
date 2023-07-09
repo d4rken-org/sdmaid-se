@@ -34,9 +34,10 @@
     <string name="onboarding_welcome_continue_action">Continue</string>
 
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) is the successor to SD Maid. A new app, optimized for modern Android.</string>
+    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) is the successor to SD Maid (aka. SD Maid 1). A new app, optimized for modern Android.</string>
     <string name="onboarding_versus_body2">It\'s predecessor\'s architecture is over 7 years old and not designed for the challenges of newer Android versions. A complete redesign was necessary to continue development.</string>
     <string name="onboarding_versus_body3">Consider switching to SD Maid SE for improved results.</string>
+    <string name="onboarding_versus_body4">SD Maid 1\'s \"pro status\" is unfortunately not transferable to SD Maid 2/SE. After 12 years of free updates, a new purchase is required to sustain development (feed the developer).</string>
     <string name="onboarding_versus_continue_action">Continue</string>
 
     <string name="onboarding_privacy_title">Privacy</string>
