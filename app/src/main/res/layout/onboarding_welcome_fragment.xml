@@ -21,11 +21,11 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/mascot_animated"
-                android:layout_width="148dp"
-                android:layout_marginTop="32dp"
-                android:layout_height="148dp"
-                android:scaleType="centerCrop"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:scaleType="centerCrop"
                 app:lottie_autoPlay="true"
                 app:lottie_fallbackRes="@drawable/splash_mascot"
                 app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
