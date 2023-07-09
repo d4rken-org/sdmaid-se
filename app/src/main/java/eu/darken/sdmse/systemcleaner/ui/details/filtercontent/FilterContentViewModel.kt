@@ -46,13 +46,16 @@ class FilterContentViewModel @Inject constructor(
             onExcludeClicked = { exclude(setOf(it)) }
         ).run { elements.add(this) }
 
-        filterContent.items.map { item ->
-            FilterContentElementFileVH.Item(
-                filterContent = filterContent,
-                lookup = item,
-                onItemClick = { delete(setOf(it)) },
-            )
-        }.run { elements.addAll(this) }
+        filterContent.items
+            .sortedByDescending { it.size }
+            .map { item ->
+                FilterContentElementFileVH.Item(
+                    filterContent = filterContent,
+                    lookup = item,
+                    onItemClick = { delete(setOf(it)) },
+                )
+            }
+            .run { elements.addAll(this) }
 
         State(
             items = elements,
