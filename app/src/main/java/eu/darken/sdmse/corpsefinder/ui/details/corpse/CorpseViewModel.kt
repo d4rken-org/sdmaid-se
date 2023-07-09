@@ -46,13 +46,16 @@ class CorpseViewModel @Inject constructor(
             onExcludeClicked = { exclude(setOf(it)) },
         ).run { elements.add(this) }
 
-        corpse.content.map { lookup ->
-            CorpseElementFileVH.Item(
-                corpse = corpse,
-                lookup = lookup,
-                onItemClick = { delete(setOf(it)) },
-            )
-        }.run { elements.addAll(this) }
+        corpse.content
+            .sortedByDescending { it.size }
+            .map { lookup ->
+                CorpseElementFileVH.Item(
+                    corpse = corpse,
+                    lookup = lookup,
+                    onItemClick = { delete(setOf(it)) },
+                )
+            }
+            .run { elements.addAll(this) }
 
         State(elements, progress)
     }.asLiveData2()
