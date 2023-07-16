@@ -165,7 +165,6 @@
     <string name="appcleaner_filter_bugreporting_summary">ხარვეზების მოხსენების დაკავშირებული მონაცემები, მაგ. შეცდომების ჟურნალი ან ავარიის ნაგავსაყრელი.</string>
     <string name="appcleaner_filter_analytics_label">ანალიტიკები</string>
     <string name="appcleaner_filter_hiddencaches_label">დამალული ქეშები</string>
-    <string name="appcleaner_filter_hiddencaches_summary">ზოგადი დანიშნულების ქეშები, რომლებიც ინახება სისტემების გარეთ, აღწევს.</string>
     <string name="appcleaner_filter_thumbnails_label">მედიის ესკიზები</string>
     <string name="appcleaner_filter_thumbnails_summary">გამოსახულების, ვიდეო და აუდიო გადახედვისას მინიატურების სურათები.</string>
     <string name="appcleaner_filter_gamefiles_label">თამაშის ფაილები</string>
@@ -175,11 +174,9 @@
     <string name="appcleaner_filter_recyclebins_label">გადამუშავების ურნები</string>
     <string name="appcleaner_filter_recyclebins_summary">ფაილები, რომლებიც წაშლილია, მაგრამ მოთავსებულია სპეციალურ საქაღალდეში მათი აღდგენის საშუალებას.</string>
     <string name="appcleaner_filter_webview_label">Webview ფაილები</string>
-    <string name="appcleaner_filter_webview_summary">ფაილები, რომლებიც ქეშირებულია აპებში გამოყენებული ვებ ნახვის ინსტანციებით.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-ის სარეზერვო ასლები</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">წაშალეთ WhatsApp-ის სარეზერვო ასლების დამატებითი ასლები და შეინახეთ მხოლოდ უახლესი.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp-ში მიიღებული ფაილები</string>
-    <string name="appcleaner_filter_whatsapp_received_label">ფაილები, რომლებიც მიიღეთ რომელიმე ხალხისგან WhatsApp-ის საშუალებით.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp-ში გაგზავნილი ფაილები</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">ფაილები იგზავნება WhatsApp-დან სხვებისთვის.</string>
     <string name="appcleaner_filter_telegram_label">Telegram მედია ფაილები</string>

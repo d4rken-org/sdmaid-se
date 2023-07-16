@@ -41,6 +41,7 @@
     <string name="onboarding_privacy_continue_action">계속하기</string>
     <string name="onboarding_setup_title">설정하기</string>
     <string name="onboarding_setup_body1">SD Maid는 접근할 수 있는 모든 자료 영역을 검색할 것입니다.</string>
+    <string name="onboarding_setup_body2">접근할 수 있는 항목은 기기, 안드로이드 버전 및 부여한 권한에 따라 달라집니다.</string>
     <string name="onboarding_setup_body3">SD Maid 사용을 시작하기 위해, 저장공간에 대한 액세스 권한을 부여하세요.</string>
     <string name="onboarding_setup_continue_action">권한 설정</string>
     <string name="settings_privacy_policy_label">개인정보보호정책</string>
@@ -116,7 +117,9 @@
     <string name="setup_acs_state_enabled">접근성 서비스가 활성화되었습니다</string>
     <string name="setup_acs_state_disabled">접근성 서비스가 비활성화되었습니다</string>
     <string name="setup_acs_state_running">접근성 서비스가 작동 중입니다</string>
+    <string name="setup_acs_state_ondemand">서비스가 필요할 때 실행됩니다</string>
     <string name="setup_acs_state_stopped">접근성 서비스가 작동하지 않고 있습니다</string>
+    <string name="setup_acs_state_stopped_hint">접근성 서비스가 활성화되었으나 작동 중이지 않습니다. 기기에서 기능을 껐다 켜거나 기기를 재부팅해주세요. 또한 기기 설정에서 SD Maid가 절전되어 있지는 않은지 확인해보세요.</string>
     <string name="setup_acs_state_stopped_hint_miui">서비스가 자주 비활성화된다면, 기기 환경설정의 SD Maid에 대한 자동 실행을 활성화해보세요.</string>
     <string name="setup_acs_consent_positive_action">서비스 활성화 및 권한 부여</string>
     <string name="setup_acs_consent_negative_action">접근성 서비스 사용하지 않기</string>
@@ -142,10 +145,16 @@
     <string name="corpsefinder_settings_risk_common_title">흔한 이름 포함</string>
     <string name="corpsefinder_settings_risk_common_summary">흔한 이름을 가진 데이터입니다. 예를 들어 \"Notes\" 폴더는 여러 앱에서 동시에 사용할 수 있습니다.</string>
     <string name="corpsefinder_watcher_title">제거 감시</string>
+    <string name="corpsefinder_watcher_summary">앱이 삭제되면 자동으로 남는 파일을 스캔합니다.</string>
     <string name="corpsefinder_watcher_autodelete_title">자동 삭제</string>
+    <string name="corpsefinder_watcher_autodelete_summary">앱이 삭제되며 남긴 파일을 자동으로 삭제합니다.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">%2$s을 삭제하면서 %1$s개의 남겨진 파일을 찾았습니다.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">삭제를 완료했습니다(%1$s): 공간 확보 %2$s, 삭제 파일 %3$d개</item>
     </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">남겨진 파일 삭제</string>
     <string name="corpsefinder_filter_publicmedia_label">공개 미디어</string>
     <string name="corpsefinder_filter_publicmedia_summary">메신저를 통해 받은 파일 등 공개된 미디어 파일입니다.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB 리소스</string>
@@ -168,6 +177,10 @@
     <string name="corpsefinder_filter_appasec_summary">게임 애셋과 같은 앱 리소스 중 암호화된 것들입니다.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd mods에 의해 데이터를 외부 저장 공간으로 옮겼습니다.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">앱이 남긴 파일 %d개가 있습니다.</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">지워진 앱들이 남긴 파일을 모두 삭제할까요?</string>
     <string name="corpsefinder_owners_label">소유자</string>
     <string name="corpsefinder_corpse_hints_label">주의</string>
     <string name="corpsefinder_owner_unknown">소유자 알 수 없음</string>
@@ -194,9 +207,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
     <string name="systemcleaner_filter_lostdir_summary">안드로이드 기기간 데이터를 이동할 때 생기는 임시 파일입니다.</string>
     <string name="systemcleaner_filter_linuxfiles_label">리눅스 파일</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">리눅스 컴퓨터에 연결할 때 생성되는 파일과 폴더들입니다.</string>
     <string name="systemcleaner_filter_macfiles_label">맥 파일</string>
-    <string name="systemcleaner_filter_macfiles_summary">애플의 Finder 앱을 이용할 때 생성되는 파일 및 폴더입니다.</string>
     <string name="systemcleaner_filter_windowsfiles_label">윈도우 파일</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"윈도우 파일 탐색기가 연결된 기기에 생성하는 파일입니다. "</string>
     <string name="systemcleaner_filter_thumbnails_label">썸네일 이미지</string>
@@ -215,6 +226,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">시스템이 로그 파일을 저장하는 장소입니다.</string>
     <string name="systemcleaner_filter_recenttasks_label">최근 작업</string>
     <string name="systemcleaner_filter_recenttasks_summary">시스템 최근 앱 보기와 관련된 데이터입니다.</string>
+    <string name="systemcleaner_filter_tombstones_label">시스템 크래시 잔여물</string>
     <string name="systemcleaner_filter_tombstones_summary">게임 등과 같은 프로세스가 크래시했을 때 생성되는 파일입니다.</string>
     <string name="systemcleaner_filter_usagestats_label">사용 통계</string>
     <string name="systemcleaner_filter_usagestats_summary">사용 통계와 관련된 임시 파일.</string>
@@ -246,7 +258,6 @@
     <string name="appcleaner_filter_analytics_label">통계 파일</string>
     <string name="appcleaner_filter_analytics_summary">앱의 사용 통계를 분석하기 위해 만들어진 파일.</string>
     <string name="appcleaner_filter_hiddencaches_label">숨겨진 캐시</string>
-    <string name="appcleaner_filter_hiddencaches_summary">시스템이 접근하기 어려운 곳에 저장된 일반적인 캐시 파일.</string>
     <string name="appcleaner_filter_thumbnails_label">미디어 미리보기</string>
     <string name="appcleaner_filter_thumbnails_summary">사진, 영상, 오디오 파일의 미리보기.</string>
     <string name="appcleaner_filter_gamefiles_label">게임 파일</string>
@@ -256,11 +267,9 @@
     <string name="appcleaner_filter_recyclebins_label">휴지통</string>
     <string name="appcleaner_filter_recyclebins_summary">삭제되었지만 다시 복구할 때를 대비해 특수 폴더에 저장된 파일입니다.</string>
     <string name="appcleaner_filter_webview_label">웹뷰 파일</string>
-    <string name="appcleaner_filter_webview_summary">인앱 브라우저(웹뷰)에서 만들어진 캐시입니다.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 백업</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">오래된 WhatsApp 백업을 지우고 최신 버전만 남깁니다.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp에서 받은 파일</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp을 통해 받은 파일입니다.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp에서 보낸 파일</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp에서 다른 유저에게 보낸 파일입니다.</string>
     <string name="appcleaner_filter_telegram_label">텔레그램 미디어 파일</string>

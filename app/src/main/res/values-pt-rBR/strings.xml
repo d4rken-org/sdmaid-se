@@ -2,19 +2,19 @@
 <resources>
     <string name="dashboard_delete_all_message">Excluir resultados em todas as ferramentas?</string>
     <string name="dashboard_settings_category">Painel</string>
-    <string name="dashboard_settings_oneclick_title">Modo Um-Toque</string>
-    <string name="dashboard_settings_oneclick_summary">Inicie a verificação e exclusão para todas as ferramentas com um toque no botão de ação do painel, sem confirmações extras.</string>
+    <string name="dashboard_settings_oneclick_title">Modo apenas um toque</string>
+    <string name="dashboard_settings_oneclick_summary">Iniciar a busca e exclusão em todas as ferramentas com apenas um toque no botão de ação do painel, sem confirmações extras.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
-    <string name="debug_debuglog_size_compressed_label">Tamanho compactado</string>
+    <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Arquivo de log gravado</string>
     <string name="debug_debuglog_recording_progress">Gravando log de depuração</string>
     <string name="debug_debuglog_record_action">Gravar log de depuração</string>
     <string name="debug_debuglog_stop_action">Parar gravação</string>
     <string name="debug_debuglog_sensitive_information_message">O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com pessoas confiáveis.</string>
-    <string name="settings_debuglog_explanation">Esse recurso registra tudo o que o aplicativo está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com partes confiáveis ​​(por exemplo, um desenvolvedor que está solucionando um problema).</string>
+    <string name="settings_debuglog_explanation">Esse recurso registra tudo o que o aplicativo está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com pessoas confiáveis ​​(por exemplo, um desenvolvedor que está solucionando um problema).</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
-    <string name="tasks_activity_working_notification_title">SD Maid está trabalhando</string>
+    <string name="tasks_activity_working_notification_title">O SD Maid está trabalhando</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d tarefa ativa</item>
         <item quantity="other">%d tarefas ativas</item>
@@ -27,7 +27,7 @@
     <string name="tasks_result_subtext">Resultado da tarefa</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
     <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, apps e armazenamento.</string>
-    <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando atrás de outros aplicativos. Exclua arquivos descartáveis ​​e remova os dados restantes.</string>
+    <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando arquivos desnecessários deixados por aplicativos. Exclua arquivos descartáveis ​​e remova os dados restantes.</string>
     <string name="onboarding_welcome_body_beta">Esta é uma compilação beta (teste). Prossiga com senso de humor e um plano B. Relate os problemas que encontrar.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -150,6 +150,10 @@
     <string name="corpsefinder_watcher_summary">Procurar automaticamente vestígios quando um aplicativo for removido.</string>
     <string name="corpsefinder_watcher_autodelete_title">Exclusão automática</string>
     <string name="corpsefinder_watcher_autodelete_summary">Excluir automaticamente quaisquer restos relacionados ao aplicativo desinstalado.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d restante encontrado após a desinstalação de %2$s.</item>
+        <item quantity="other">%1$d resíduos encontrados após a desinstalação de %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Limpeza bem sucedida (%1$s): Liberado %2$s e removido %3$d item.</item>
         <item quantity="other">Limpeza bem sucedida (%1$s): Liberado %2$s e removido %3$d itens.</item>
@@ -177,6 +181,10 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicativos criptografados, por exemplo, recursos de jogo.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dados movidos para armazenamento externo pelos mods App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d resíduo de aplicativo encontrado</item>
+        <item quantity="other">%d resíduos de aplicativos encontrados</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Excluir todos os remanescentes do app?</string>
     <string name="corpsefinder_owners_label">Proprietários</string>
     <string name="corpsefinder_corpse_hints_label">Aviso</string>
@@ -205,9 +213,7 @@
     <string name="systemcleaner_filter_lostdir_label">Pastas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Arquivos temporários criados durante a transferência de dados entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Arquivos Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Arquivos &amp; pastas criadas quando o armazenamento foi conectado a um computador linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Arquivos Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Arquivos &amp; pastas criadas ao navegar no armazenamento com o aplicativo de busca da Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Arquivos Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de arquivos Windows pode criar no armazenamento conectado. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
@@ -258,7 +264,6 @@
     <string name="appcleaner_filter_analytics_label">Análises</string>
     <string name="appcleaner_filter_analytics_summary">Dados relacionados à análise, por exemplo, estatísticas em cache para o que você clica em uma aplicação.</string>
     <string name="appcleaner_filter_hiddencaches_label">Caches ocultos</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache de propósitos gerais armazenadas fora do alcance do sistema.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas de mídia</string>
     <string name="appcleaner_filter_thumbnails_summary">Imagens de pré-visualização de vídeo e áudio.</string>
     <string name="appcleaner_filter_gamefiles_label">Arquivos de jogos</string>
@@ -268,11 +273,9 @@
     <string name="appcleaner_filter_recyclebins_label">Lixeira</string>
     <string name="appcleaner_filter_recyclebins_summary">Arquivos apagados, mas colocados em uma pasta especial para permitir restaurá-los.</string>
     <string name="appcleaner_filter_webview_label">Arquivos do Webview</string>
-    <string name="appcleaner_filter_webview_summary">Arquivos armazenados em cache por instâncias de webview usados em apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Exclua cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Arquivos recebidos pelo WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Arquivos que você recebeu de qualquer pessoa via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Arquivos enviados pelo WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Arquivos enviados do WhatsApp para outros.</string>
     <string name="appcleaner_filter_telegram_label">Arquivos de mídia do Telegram</string>
@@ -438,6 +441,6 @@
     <string name="updates_dashcard_body">Uma atualização está disponível. Sua versão é %1$s e a última versão é %2$s.</string>
     <string name="translation_encourage_title">Traduzir o SD Maid</string>
     <string name="translation_encourage_body">O SD Maid é traduzido por voluntários. Tradução, revisão ou correção, sua ajuda é apreciada!</string>
-    <string name="translation_translators_title">Esta versão é traduzida por</string>
+    <string name="translation_translators_title">Esta versão foi traduzida por</string>
     <string name="translation_translators_people">Natanaelrj(natanael.caetano@gmail.com)</string>
 </resources>

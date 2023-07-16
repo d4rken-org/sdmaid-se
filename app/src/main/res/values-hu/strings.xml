@@ -213,9 +213,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR mappák</string>
     <string name="systemcleaner_filter_lostdir_summary">Ideiglenes fájlok, amelyek Android-eszközök közötti adatátvitel során jönnek létre.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux fájlok</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Fájlok és mappák, amelyek akkor jönnek létre, amikor a tárhelyet egy linuxos számítógéphez csatlakoztatták.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac fájlok</string>
-    <string name="systemcleaner_filter_macfiles_summary">Fájlok és mappák, amelyek akkor jönnek létre, amikor az Apple Finder alkalmazásával böngészik a tárhelyen.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows fájlok</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Adatok, amelyeket a Windows fájlkezelő létrehozhat a csatlakoztatott tárhelyen. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatűr képek</string>
@@ -266,7 +264,6 @@
     <string name="appcleaner_filter_analytics_label">Analitika</string>
     <string name="appcleaner_filter_analytics_summary">Analitikával kapcsolatos adatok, pl. gyorsítótárazott statisztikák arról, hogy mit érintsen meg egy alkalmazásban.</string>
     <string name="appcleaner_filter_hiddencaches_label">Rejtett gyorsítótárak</string>
-    <string name="appcleaner_filter_hiddencaches_summary">A rendszer hatókörén kívül tárolt általános célú gyorsítótárak.</string>
     <string name="appcleaner_filter_thumbnails_label">Médiaképek miniatűrjei</string>
     <string name="appcleaner_filter_thumbnails_summary">Kép, videó és audio előnézeti miniatűr képek.</string>
     <string name="appcleaner_filter_gamefiles_label">Játékfájlok</string>
@@ -276,11 +273,9 @@
     <string name="appcleaner_filter_recyclebins_label">Lomtárak</string>
     <string name="appcleaner_filter_recyclebins_summary">Törölt fájlok, amelyeket egy speciális mappába helyeztek, hogy vissza lehessen állítani őket.</string>
     <string name="appcleaner_filter_webview_label">Webview fájlok</string>
-    <string name="appcleaner_filter_webview_summary">Az alkalmazásokon belül használt webview-példányok által gyorsítótárazott fájlok.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp biztonsági mentések</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Törölje a WhatsApp biztonsági másolatainak extra másolatait, és csak a legfrissebbet tartsa meg.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp érkezett fájlok</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Fájlok, amelyeket bármelyik személytől kapott a WhatsApp-on keresztül.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp elküldött fájlok</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fájlok, amelyeket a WhatsApp-on keresztül küld másoknak.</string>
     <string name="appcleaner_filter_telegram_label">Telegram médiafájlok</string>

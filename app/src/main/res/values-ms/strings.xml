@@ -2,13 +2,15 @@
 <resources>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
-    <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
-    <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu klik pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
+    <string name="dashboard_settings_oneclick_title">Mod Satu Ketik</string>
+    <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
+    <string name="debug_debuglog_recording_progress">Merakam log nyahpepijat</string>
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
+    <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
     <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan oleh aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai (misalnya, pembangun yang sedang menyelesaikan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
@@ -39,6 +41,7 @@
     <string name="onboarding_privacy_continue_action">Teruskan</string>
     <string name="onboarding_setup_title">Persediaan</string>
     <string name="onboarding_setup_body1">SD Maid akan mencari semua kawasan data yang boleh diakses.</string>
+    <string name="onboarding_setup_body2">Perkara yang boleh diakses bergantung pada peranti anda, versi Android dan kebenaran yang diberikan.</string>
     <string name="onboarding_setup_body3">Mulalah gunakan SD Maid dengan menyediakan akses ke kawasan yang perlu dicari.</string>
     <string name="onboarding_setup_continue_action">Sediakan akses</string>
     <string name="settings_privacy_policy_label">Dasar privasi</string>
@@ -57,7 +60,10 @@
     <string name="ui_theme_light_label">Cerah</string>
     <string name="ui_theme_system_label">Sistem</string>
     <string name="ui_theme_setting_explanation">Ubah tema aplikasi semasa dan gantikan tetapan sistem.</string>
+    <string name="ui_previews_title">Pratonton fail</string>
+    <string name="ui_previews_summary">Paparkan pratonton fail dalam semua alatan (cth. imej kecil dan video).</string>
     <string name="settings_support_label">Sokongan</string>
+    <string name="settings_support_description">Baca dokumentasi, laporkan isu, sembang dengan orang lain atau rekod log nyahpepijat.</string>
     <string name="documentation_label">Dokumentasi</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri.</string>
     <string name="issue_tracker_label">Penjejak isu</string>
@@ -72,6 +78,7 @@
     <string name="setup_label">Persediaan</string>
     <string name="setup_incomplete_card_title">Persediaan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan persediaan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid cuba menyelesaikan isu persediaan.</string>
     <string name="setup_incomplete_card_dismiss_action">Bubar</string>
     <string name="setup_incomplete_card_continue_action">Teruskan persediaan</string>
     <string name="setup_title">Persediaan</string>
@@ -89,6 +96,13 @@
     <string name="setup_root_enable_root_use_label">Gunakan akses root jika tersedia</string>
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada peranti di root. Jika anda tidak membuat pengubahsuaian ini, maka peranti anda tidak di root dan tetapan ini tidak mempunyai kesan.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Benarkan SD Maid menggunakan Shizuku jika boleh untuk meningkatkan hasil dan mendayakan ciri.</string>
+    <string name="setup_shizuku_card_body2">Tetapan ini tidak memberi kesan jika aplikasi Shizuku tidak disediakan pada peranti anda.</string>
+    <string name="setup_shizuku_state_ready_label">Pautan Shizuku sudah bersedia.</string>
+    <string name="setup_shizuku_state_waiting_label">Menanti pautan dengan Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Anda boleh mencari skrin persediaan sekali lagi melalui menu tetapan.</string>
     <string name="setup_permission_granted_label">Kebenaran diberikan</string>
     <string name="setup_usagestats_title">Statistik penggunaan</string>
@@ -98,11 +112,14 @@
     <string name="setup_notification_body">Benarkan SD Maid menyiarkan notifikasi untuk memaklumkan anda tentang operasi yang sedang berjalan atau acara penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan berhati-hati 🤞</string>
     <string name="setup_acs_card_title">Perkhidmatan aksesibiliti</string>
+    <string name="setup_acs_card_body">Perkhidmatan kebolehaksesan membolehkan SD Maid berinteraksi dengan skrin anda dan mengautomasikan tindakan yang membosankan, cth. mengetik \"Kosongkan cache\" pada berbilang skrin.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan perkhidmatan aksesibiliti tanpa kebenaran anda, akan sentiasa memaparkan penunjuk yang menonjol (boleh dibatalkan) semasa aktif dan tidak akan menggunakannya untuk mengumpul maklumat.</string>
     <string name="setup_acs_state_enabled">Perkhidmatan aksesibiliti didayakan</string>
     <string name="setup_acs_state_disabled">Perkhidmatan aksesibiliti dilumpuhkan</string>
     <string name="setup_acs_state_running">Perkhidmatan aksesibiliti sedang berjalan</string>
+    <string name="setup_acs_state_ondemand">Perkhidmatan akan dilancarkan atas permintaan</string>
     <string name="setup_acs_state_stopped">Perkhidmatan aksesibiliti dihentikan</string>
+    <string name="setup_acs_state_stopped_hint">Perkhidmatan ini didayakan, tetapi tidak berjalan. Togol mati/hidupkannya atau but semula peranti anda. Semak sama ada SD Maid tidak \"dioptimumkan\" oleh sistem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jika perkhidmatan terus dilumpuhkan selepas beberapa ketika, cuba dayakan pilihan \"Auto Start\" untuk SD Maid dalam tetapan sistem.</string>
     <string name="setup_acs_consent_positive_action">Dayakan perkhidmatan dan berikan akses</string>
     <string name="setup_acs_consent_negative_action">Jangan gunakan perkhidmatan aksesibiliti</string>
@@ -116,8 +133,10 @@
     <string name="debug_mode_label">Mod nyahpepijat</string>
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
     <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
+    <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
     <string name="settings_category_tools_label">Alatan</string>
     <string name="settings_category_filter">Penyaring</string>
+    <string name="settings_category_risklevel">Tahap risiko</string>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Data milik aplikasi yang telah dialih keluar.</string>
     <string name="corpsefinder_settings_summary">Laraskan penapis imbasan dan tahap risiko.</string>
@@ -126,12 +145,27 @@
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
     <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, misalnya, folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
     <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
+    <string name="corpsefinder_watcher_summary">Imbas secara automatik untuk saki-baki apabila aplikasi dialih keluar.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Pemadaman automatik</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Pemadaman secara automatik mana-mana saki-baki yang berkaitan dengan aplikasi yang dinyahpasang.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">Satu
+%1$d saki-baki ditemui selepas menyahpasang %2$s.
+
+Lain-lain
+%1$d saki-baki ditemui selepas menyahpasang %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">Pembersihan berjaya (%1$s): Membebaskan %2$s dan mengalih keluar %3$d item.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Padamkan sisa</string>
     <string name="corpsefinder_filter_publicmedia_label">Media awam</string>
     <string name="corpsefinder_filter_publicmedia_summary">Fail media awam, cth. fail yang diterima melalui aplikasi messenger.</string>
     <string name="corpsefinder_filter_publicobb_label">Sumber OBB</string>
     <string name="corpsefinder_filter_publicobb_summary">Sumber aplikasi tambahan, mis. aset permainan.</string>
     <string name="corpsefinder_filter_publicdata_label">Data aplikasi awam</string>
     <string name="corpsefinder_filter_publicdata_summary">Data aplikasi tidak sensitif, mis. cache peta.</string>
+    <string name="corpsefinder_filter_sdcard_label">Kad SD</string>
     <string name="corpsefinder_filter_sdcard_summary">Storan awam umum, dalaman dan luaran (cth. kad SD).</string>
     <string name="corpsefinder_filter_privatedata_label">Data aplikasi peribadi</string>
     <string name="corpsefinder_filter_privatedata_summary">Data aplikasi peribadi, mis. kelayakan, tetapan apl tetapi juga cache pelayar.</string>
@@ -147,12 +181,21 @@
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi yang dipersulitkan, mis. aset permainan.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">Satu
+%d sisa aplikasi ditemui
+
+Lain-lain
+%d sisa aplikasi ditemui</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Padamkan semua sisa aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
     <string name="corpsefinder_corpse_hints_label">Notis</string>
     <string name="corpsefinder_owner_unknown">Pemilik tidak dikenali</string>
     <string name="corpsefinder_corpse_hint_keeper">Item ini mungkin mengandungi data yang anda ingin simpan walaupun pemiliknya dinyahpasang, mis. foto atau sandaran.</string>
     <string name="corpsefinder_corpse_hint_common">Item ini mempunyai nama yang sangat biasa dan mungkin tergolong dalam aplikasi yang masih dipasang yang tidak diketahui oleh SD Maid.</string>
     <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">Data berlebihan yang bukan milik kepada mana-mana aplikasi tertentu.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d padanan penapis</item>
     </plurals>
@@ -172,9 +215,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folder</string>
     <string name="systemcleaner_filter_lostdir_summary">Fail sementara yang dibuat apabila memindahkan data antara peranti Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fail Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Fail &amp; folder yang dicipta apabila storan telah disambungkan ke komputer linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Fail Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Fail &amp; folder yang dicipta semasa menyemak imbas storan dengan aplikasi pencari Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fail Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data yang boleh dibuat oleh penjelajah fail Windows pada storan yang disambungkan. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imej Thumbnail</string>
@@ -193,6 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Kawasan untuk sistem meletakkan fail log masuk.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tugas terkini</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data yang berkaitan dengan sejarah tugasan dalam penukar tugas sistem.</string>
+    <string name="systemcleaner_filter_tombstones_label">Sisa ranap sistem</string>
     <string name="systemcleaner_filter_tombstones_summary">Jika proses asli ranap (cth. permainan), maka fail dihasilkan di sini.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistik penggunaan</string>
     <string name="systemcleaner_filter_usagestats_summary">Fail yang berkaitan dengan statistik penggunaan aplikasi.</string>
@@ -200,7 +242,9 @@
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Data boleh dibelanjakan dimiliki aplikasi spesifik.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache lalai awam</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi awam lalai. Boleh diakses di bawah Android/data pada versi Android yang lebih lama. Dipadamkan apabila mengetik \"Kosongkan cache\" dalam tetapan sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache lalai peribadi</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi peribadi lalai. Dipadamkan apabila mengetik \"Kosongkan cache\" dalam tetapan sistem.</string>
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Sertakan aplikasi sistem dalam imbasan.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
@@ -211,6 +255,7 @@
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
     <string name="appcleaner_include_minimumsize_label">Saiz minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Langkau aplikasi di mana jumlah data boleh dibelanjakan berada di bawah minimum.</string>
+    <string name="appcleaner_include_minimumage_label">Umur minimum</string>
     <string name="appcleaner_include_minimumage_summary">Langkau fail yang usianya di bawah usia minimum.</string>
     <string name="appcleaner_filter_codecache_label">Cache kod</string>
     <string name="appcleaner_filter_codecache_summary">Cache kod JVM. Blok dari kod bait yang disusun menjadi kod asli.</string>
@@ -219,7 +264,8 @@
     <string name="appcleaner_filter_bugreporting_label">Pelaporan pepijat</string>
     <string name="appcleaner_filter_bugreporting_summary">Data berkaitan pelaporan pepijat, mis. log ralat atau pembuangan ranap.</string>
     <string name="appcleaner_filter_analytics_label">Analitis</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache kegunaan am yang disimpan di luar jangkauan sistem.</string>
+    <string name="appcleaner_filter_analytics_summary">Data berkaitan analitis, cth. statistik cache untuk perkara yang anda ketik dalam aplikasi.</string>
+    <string name="appcleaner_filter_hiddencaches_label">Cache tersembunyi</string>
     <string name="appcleaner_filter_thumbnails_label">Lakaran kecil media</string>
     <string name="appcleaner_filter_thumbnails_summary">Lakaran kecil pratonton imej, video dan audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Fail permainan</string>
@@ -229,11 +275,9 @@
     <string name="appcleaner_filter_recyclebins_label">Tong kitar semula</string>
     <string name="appcleaner_filter_recyclebins_summary">Fail yang telah dipadam tetapi dimasukkan ke dalam folder khas untuk membolehkannya dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Fail webview</string>
-    <string name="appcleaner_filter_webview_summary">Fail dicache oleh tika paparan web yang digunakan dalam aplikasi.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sandaran WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Padamkan salinan tambahan sandaran WhatsApp dan simpan yang terkini sahaja.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp menerima fail</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Fail yang anda terima daripada mana-mana orang melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp menghantar fail</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fail dihantar dari WhatsApp kepada orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Fail media Telegram</string>
@@ -242,6 +286,9 @@
     <string name="appcleaner_filter_threema_summary">Fail diterima melalui Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Menghantar atau menerima fail dalam perbualan dan detik WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Fail media cache yang dimuat turun semula apabila dilihat dalam sembang.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Padamkan item yang boleh dibelanjakan untuk semua aplikasi?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d item boleh dibelanjakan ditemui</item>
     </plurals>
@@ -253,11 +300,15 @@
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>
     <string name="appcleaner_automation_unavailable_body">Memadamkan cache yang tidak boleh diakses memerlukan perkhidmatan aksesibiliti SD Maid, tetapi ia tidak tersedia. Jika anda tidak mahu menggunakannya: Lumpuhkan pilihan \"Sertakan cache tidak boleh diakses\".</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
+    <string name="appcleaner_delete_confirmation_message_x">Padamkan fail boleh guna untuk %s?</string>
+    <string name="appcleaner_delete_confirmation_message_selected_x_items">Padamkan fail boleh guna untuk %d aplikasi terpilih?</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Memadam cache dengan menggunakan Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">%d aplikasi dikesan</item>
     </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Togol aplikasi</string>
     <string name="appcontrol_toggle_app_enable_action">Dayakan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nyahdayakan aplikasi</string>
     <string name="appcontrol_toggle_app_enable_description">Mendayakan aplikasi membolehkannya berjalan dan mungkin membuatkannya terlihat dalam pelancar anda jika ia mempunyai aktiviti.</string>
@@ -267,6 +318,7 @@
     <string name="appcontrol_systemsettings_open_title">Tunjukkan tetapan</string>
     <string name="appcontrol_systemsettings_open_description">Buka tetapan sistem peranti anda untuk aplikasi ini.</string>
     <string name="appcontrol_app_launch_title">Lancarkan aplikasi</string>
+    <string name="appcontrol_app_uninstall_description">Nyahpasang aplikasi ini daripada peranti anda.</string>
     <string name="appcontrol_app_launch_description">Lancarkan aktiviti utama aplikasi ini.</string>
     <string name="appcontrol_app_exclude_add_title">Singkir aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Asingkan aplikasi ini daripada operasi lain dalam SD Maid.</string>
@@ -283,6 +335,39 @@
     <string name="appcontrol_list_sortmode_updated_label">Kemas kini terakhir pada</string>
     <string name="appcontrol_list_sortmode_installed_label">Kali pertama dipasang di</string>
     <string name="appcontrol_list_sortmode_packagename_label">Packagename</string>
+    <string name="appcontrol_progress_uninstalling_app">Menyahpasang aplikasi</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">Ketahui apakah yang mengambil ruang pada peranti anda.</string>
+    <string name="analyzer_progress_scanning_device">Mencari peranti untuk storan</string>
+    <string name="analyzer_progress_scanning_storage">Mengimbas storan</string>
+    <string name="analyzer_progress_scanning_apps">Mengimbas aplikasi</string>
+    <string name="analyzer_progress_scanning_userfiles">Mencari fail pengguna</string>
+    <string name="analyzer_progress_scanning_system">Mengimbas data sistem</string>
+    <string name="analyzer_device_storage_title">Storan peranti</string>
+    <string name="analyzer_space_available">%s tersedia</string>
+    <string name="analyzer_space_used">%s digunakan</string>
+    <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
+    <string name="analyzer_storage_type_primary_title">Storan utama</string>
+    <string name="analyzer_storage_type_primary_description">Storan utama peranti anda. Mengandungi \"sdcard\" dalaman, storan peribadi untuk aplikasi dan data sistem.</string>
+    <string name="analyzer_storage_type_secondary_title">Storan sekunder</string>
+    <string name="analyzer_storage_type_secondary_description">Storan sekunder, biasanya kad sd boleh ubah. Mengandungi fail media dan data daripada aplikasi yang menyokongnya.</string>
+    <string name="analyzer_storage_content_title">Kandungan storan</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
+    <string name="analyzer_storage_content_type_app_description">Ruang yang diduduki oleh aplikasi yang dipasang dan datanya (iaitu fail aplikasi, data dan cache).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Kebenaran telah menghilang</string>
+    <string name="analyzer_storage_content_type_media_label">Fail pengguna</string>
+    <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
+    <string name="analyzer_storage_content_type_system_label">Data sistem</string>
+    <string name="analyzer_storage_content_type_system_description">Data sistem dan aplikasi sistem.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
+    <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini hanya boleh dikosongkan dengan menyahpasang aplikasi.</string>
+    <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
+    <string name="analyzer_storage_content_app_data_description">Data, tetapan dan cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>
+    <string name="analyzer_storage_content_app_media_description">Fail media daripada aplikasi ini, cth. menerima gambar WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Fail aplikasi tambahan</string>
+    <string name="analyzer_storage_content_app_extra_description">Data tambahan yang telah diletakkan oleh aplikasi ini di luar laluan lalai, cth. foto atau muat turun.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Data Aplikasi Awam Lalai</string>
     <string name="data_area_public_storage_label">Storan awam</string>
     <string name="data_area_sdcard_label">Kad-SD</string>
@@ -293,9 +378,31 @@
     <string name="exclusion_manager_desc">Urus pengecualian fail dan aplikasi.</string>
     <string name="exclusion_explanation_body1">Kecualikan fail dan aplikasi daripada operasi SD Maid.</string>
     <string name="exclusion_add_new_hint">Tambahkan pengecualian baharu dengan terlebih dahulu membenarkan SD Maid mencari dan kemudian menggunakan menu konteks pada hasil yang ingin anda kecualikan.</string>
+    <string name="exclusion_create_action">Buat pengecualian</string>
+    <string name="exclusion_edit_action">Edit pengecualian</string>
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
     <string name="exclusion_type_path">Pengecualian laluan</string>
+    <string name="exclusion_type_segment">Pengecualian segmen</string>
     <string name="exclusion_tags_alltools">Semua alatan</string>
+    <string name="exclusion_target_label">Sasaran pengecualian</string>
+    <string name="exclusion_option_allow_partial">Benarkan padanan separa</string>
+    <string name="exclusion_option_ignore_casing">Abaikan selongsong</string>
+    <string name="exclusion_editor_affected_tools_label">Alatan yang terjejas</string>
+    <string name="exclusion_editor_path_explanation">Pengecualian laluan menghalang SD Maid daripada melanjutkan proses sebarang laluan yang sepadan. Ini terpakai kepada fail, direktori dan sub-direktori.</string>
+    <string name="exclusion_editor_pkg_explanation">Pengecualian aplikasi menghalang SD Maid daripada memproses sebarang pakej yang sepadan.</string>
+    <string name="exclusion_editor_segment_explanation">Pengecualian berdasarkan segmen adalah serupa dengan pengecualian laluan tetapi membenarkan padanan separa. Contoh: \"DCIM/Camera\" tidak termasuk \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Alih keluar pengecualian ini?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
+    <string name="exclusion_create_pkg_hint">Gunakan alat AppControl untuk membuat pengecualian aplikasi.</string>
+    <string name="exclusion_create_path_hint">Gunakan alat StorageAnalyzer untuk membuat pengecualian laluan.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">Satu
+Satu pengecualian dibuat
+
+Lain-lain
+%d pengecualian dibuat</item>
+    </plurals>
+    <string name="automation_accessibility_service_description">Pengguna yang mempunyai keperluan kebolehaksesan khas boleh mendayakan perkhidmatan ini memberi kebenaran SD Maid mengautomasikan tugasan yang memerlukan interaksi pengguna manual yang membosankan (cth. pemadaman cache).\n\nContoh: Jika anda mengarahkan SD Maid menghentikan berbilang aplikasi maka SD Maid boleh menggunakan perkhidmatan ini untuk membuka setiap skrin tetapan aplikasi, cari butang \'Henti Paksa\' dan ketik padanya.\n\nSD Maid akan sentiasa ditunjukkan dengan jelas apabila menggunakan perkhidmatan ini dan menyediakan cara mudah untuk pengguna membatalkan sebarang interaksi dengan segera.\n\nTiada tindakan akan dilakukan tanpa kelulusan pengguna terlebih dahulu. Perkhidmatan ini boleh dilumpuhkan semula pada bila-bila masa tanpa kesan buruk.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan peranti anda. Ia tidak boleh menggunakan skrin pada masa yang sama. Tunggu sehingga operasi selesai atau batalkannya.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>
     <string name="automation_error_no_consent_title">Ralat automasi</string>
@@ -330,6 +437,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Tiada jadual aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Langkau pada bateri lemah</string>
     <string name="scheduler_setting_nopowersaving_summary">Jika telefon berada dalam mod penjimatan kuasa, pelaksanaan yang dijadualkan akan dilangkau.</string>
+    <string name="scheduler_setting_automation_title">Perkhidmatan kebolehcapaian</string>
+    <string name="scheduler_setting_automation_summary">Sertakan tindakan yang menggunakan perkhidmatan kebolehaksesan. Ini memerlukan SD Maid boleh berinteraksi dengan skrin anda (iaitu skrin dibuka) apabila tugasan dilaksanakan.</string>
     <string name="updates_dashcard_title">Kemaskini tersedia</string>
     <string name="updates_dashcard_body">Kemas kini tersedia. Anda memiliki %1$s dan versi terkini ialah %2$s.</string>
     <string name="translation_encourage_title">Alih bahasa SD Maid</string>

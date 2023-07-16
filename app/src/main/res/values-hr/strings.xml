@@ -198,9 +198,7 @@
     <string name="systemcleaner_filter_lostdir_label">Mape LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Privremene datoteke koje se stvaraju prilikom prijenosa podataka između Android uređaja.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux datoteke</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Datoteke i mape koje se stvaraju kada je pohrana povezana s linux računalom.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac datoteke</string>
-    <string name="systemcleaner_filter_macfiles_summary">Datoteke i mape koje se stvaraju prilikom pregledavanja pohrane pomoću Appleove aplikacije za traženje.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows datoteke</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Podaci koje Windows preglednik datoteka može stvoriti na povezanoj pohrani."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
@@ -250,7 +248,6 @@
     <string name="appcleaner_filter_analytics_label">Analitika</string>
     <string name="appcleaner_filter_analytics_summary">Podaci povezani s analitikom, npr. predmemorirane statistike za ono što dodirnete u aplikaciji.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skrivene predmemorije</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Predmemorije opće namjene pohranjene izvan dosega sustava.</string>
     <string name="appcleaner_filter_thumbnails_label">Medijske sličice</string>
     <string name="appcleaner_filter_thumbnails_summary">Sličice slika, videa i audia.</string>
     <string name="appcleaner_filter_gamefiles_label">v</string>
@@ -260,11 +257,9 @@
     <string name="appcleaner_filter_recyclebins_label">Kante za smeće</string>
     <string name="appcleaner_filter_recyclebins_summary">Datoteke koje su izbrisane, ali su stavljene u posebnu mapu kako bi se mogle vratiti.</string>
     <string name="appcleaner_filter_webview_label">Webview datoteke</string>
-    <string name="appcleaner_filter_webview_summary">Datoteke koje su predmemorirale instance webviewa koje se koriste unutar aplikacija.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sigurnosne kopije</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite dodatne kopije sigurnosnih kopija WhatsAppa i zadržite samo najnovije.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Datoteke primljene putem WhatsAppa</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Datoteke koje ste primili od bilo koje osobe putem WhatsAppa.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Datoteke poslane putem WhatsAppa</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Datoteke poslane drugima putem WhatsAppa.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medijske datoteke</string>

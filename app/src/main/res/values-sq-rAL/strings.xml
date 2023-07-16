@@ -181,7 +181,6 @@
     <string name="appcleaner_filter_bugreporting_summary">Të dhënat e lidhura me raportimin e gabimeve, p.sh. regjistrat e gabimeve ose deponitë e përplasjeve.</string>
     <string name="appcleaner_filter_analytics_label">Analiza</string>
     <string name="appcleaner_filter_hiddencaches_label">Memoriet e fshehura</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache me qëllime të përgjithshme të ruajtura jashtë sistemeve arrijnë.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturat e medias</string>
     <string name="appcleaner_filter_thumbnails_summary">Fotot e vogla të pamjes paraprake të imazhit, video dhe audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Skedarët e lojës</string>
@@ -191,11 +190,9 @@
     <string name="appcleaner_filter_recyclebins_label">Kosha riciklimi</string>
     <string name="appcleaner_filter_recyclebins_summary">Skedarët që janë fshirë, por të vendosur në një dosje të veçantë për të lejuar rikthimin e tyre.</string>
     <string name="appcleaner_filter_webview_label">Skedarët e shikimit në ueb</string>
-    <string name="appcleaner_filter_webview_summary">Skedarët e ruajtur në memorie nga shembujt e shikimit në ueb të përdorura brenda aplikacioneve.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp të dhëna të ruajtura</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Fshini kopjet shtesë të kopjeve rezervë të WhatsApp dhe mbani vetëm më të fundit.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mori skedarë</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Skedarët që keni marrë nga secili prej personave përmes WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp skedarë të dërguar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Skedarët që dërgohen nga WhatsApp te të tjerët.</string>
     <string name="appcleaner_filter_telegram_label">Skedarët mediatikë të Telegramit</string>

@@ -213,9 +213,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR klasörleri</string>
     <string name="systemcleaner_filter_lostdir_summary">Android cihazlar arasında veri aktarımı yapılırken oluşturulan geçici dosyalar.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux dosyaları</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Depolama alanı bir Linux bilgisayara bağlandığında oluşturulan dosyalar &amp; klasörler.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac dosyaları</string>
-    <string name="systemcleaner_filter_macfiles_summary">Apple\'ın Finder uygulamasıyla depolama alanına göz atarken oluşturulan dosyalar &amp; klasörler.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows dosyaları</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Windows dosya gezgininin bağlı depolama alanında oluşturabileceği veriler. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Önizleme resimleri</string>
@@ -266,7 +264,6 @@
     <string name="appcleaner_filter_analytics_label">Analiz</string>
     <string name="appcleaner_filter_analytics_summary">Analizle ilgili veriler, ör. bir uygulamada tıkladığınız şey için önbelleğe alınmış istatistikler.</string>
     <string name="appcleaner_filter_hiddencaches_label">Gizli önbellekler</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Sistemin erişiminin dışında depolanan genel amaçlı önbellekler.</string>
     <string name="appcleaner_filter_thumbnails_label">Medya küçük resimleri</string>
     <string name="appcleaner_filter_thumbnails_summary">Görüntü, video ve ses önizleme küçük resimleri.</string>
     <string name="appcleaner_filter_gamefiles_label">Oyun dosyaları</string>
@@ -276,11 +273,9 @@
     <string name="appcleaner_filter_recyclebins_label">Geri dönüşüm kutuları</string>
     <string name="appcleaner_filter_recyclebins_summary">Silinen ancak geri yüklenebilmesi için özel bir klasöre konulan dosyalar.</string>
     <string name="appcleaner_filter_webview_label">Web görünümü dosyaları</string>
-    <string name="appcleaner_filter_webview_summary">Uygulamalarda kullanılan web görünümü örnekleri tarafından önbelleğe alınan dosyalar.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp yedekleri</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp yedeklerinin fazladan kopyalarını silin ve yalnızca en yenisini saklayın.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp alınan dosyalar</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalar.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>

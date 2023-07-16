@@ -3,10 +3,10 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A seu serviço.</string>
     <string name="slogan_message_1">Limpo e arrumado.</string>
-    <string name="slogan_message_2">Adeus bagunça</string>
-    <string name="slogan_message_3">Fazendo o necessário</string>
-    <string name="slogan_message_4">Tudo limpo e organizado</string>
-    <string name="slogan_message_5">Maravilhoso</string>
+    <string name="slogan_message_2">Prevenindo o caos.</string>
+    <string name="slogan_message_3">Fazendo o necessário.</string>
+    <string name="slogan_message_4">Tudo limpo e organizado.</string>
+    <string name="slogan_message_5">Impecável.</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: Procurado %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
@@ -24,7 +24,7 @@
     <string name="general_thanks_action">Obrigado</string>
     <string name="general_gotit_action">Entendi</string>
     <string name="general_edit_action">Editar</string>
-    <string name="general_na_label">Não encontrado </string>
+    <string name="general_na_label">Não encontrado</string>
     <string name="general_empty_label">Vazio</string>
     <string name="general_dismiss_action">Liberar</string>
     <string name="general_maybe_later_action">Talvez mais tarde</string>
@@ -36,7 +36,7 @@
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_filter_action">Filtrar</string>
-    <string name="general_internal_not_available_msg">Internet não disponível</string>
+    <string name="general_internal_not_available_msg">Conexão não disponível</string>
     <string name="general_refresh_action">Recarregar</string>
     <string name="general_progress_searching">Procurando</string>
     <string name="general_progress_generating_searchpaths">Gerando caminhos de pesquisa</string>
@@ -51,10 +51,10 @@
     <string name="general_progress_loading_egg_2">Em breve™</string>
     <string name="general_progress_loading_egg_3">A CPU está em uma pausa para o café</string>
     <string name="general_progress_loading_egg_4">Aguardando dados de Pepe Silvia</string>
-    <string name="general_progress_loading_egg_5">Turbo encabulator está iniciando</string>
+    <string name="general_progress_loading_egg_5">O Turbo Encabulator está iniciando</string>
     <string name="general_progress_loading_egg_6">Passando a manteiga</string>
     <string name="general_progress_loading_egg_7">Então. Como você está indo?</string>
-    <string name="general_progress_loading_egg_8">Cheira a updog aqui</string>
+    <string name="general_progress_loading_egg_8">Isso tem cheiro de \"updog\"</string>
     <string name="general_help_action">Ajuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">Na fila</string>
@@ -87,7 +87,7 @@
         <item quantity="other">%d itens foram removidos</item>
     </plurals>
     <string name="general_root_required_label">Requer root</string>
-    <string name="general_root_required_message">Requer dispositivo rooteado</string>
+    <string name="general_root_required_message">Requer dispositivo com acesso root</string>
     <string name="general_search_action">Buscar</string>
     <string name="general_scan_device_action">Escanear dispositivo</string>
     <string name="general_open_system_settings_action">Abrir configurações do sistema</string>

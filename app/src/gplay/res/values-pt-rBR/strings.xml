@@ -13,7 +13,7 @@
     <string name="upgrade_screen_benefits_title">Vantagens</string>
     <string name="upgrade_screen_benefits_body">• Limpeza de aplicativos 💯\n• Operações agendadas ⏰\n• Opções extras para todas as ferramentas ⚙️\n• Suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
     <string name="upgrade_screen_how_title">Opções</string>
-    <string name="upgrade_screen_how_body">Você pode escolher entre uma compra única ou uma assinatura anual mais barata.\nA assinatura começa com um teste gratuito de 14 dias, após o qual você será cobrado uma vez por ano. Teste e assinatura são canceláveis a qualquer momento.\nMesmas funcionalidades, apenas diferentes modelos de preços.</string>
+    <string name="upgrade_screen_how_body">Você pode escolher entre uma compra única ou uma assinatura anual mais barata.\nA assinatura começa com um teste gratuito de 14 dias, após o qual você será cobrado uma vez por ano. Teste e assinatura são canceláveis a qualquer momento.\nAs mesmas funcionalidades, apenas diferentes modelos de preços.</string>
     <string name="upgrade_screen_subscription_trial_action">Iniciar teste gratuito de 14 dias</string>
     <string name="upgrade_screen_subscription_action">Se inscrever</string>
     <string name="upgrade_screen_subscription_action_hint">A assinatura custa %s por ano.</string>

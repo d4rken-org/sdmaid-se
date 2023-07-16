@@ -9,9 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Perkhidmatan Google Play tidak tersedia.</string>
     <string name="upgrades_no_purchases_found_check_account">Tiada pembelian ditemui. Adakah anda menggunakan akaun yang betul?</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Kelebihan</string>
     <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\dan banyak lagi…</string>
     <string name="upgrade_screen_how_title">Pilihan</string>
+    <string name="upgrade_screen_how_body">Anda boleh memilih antara pembelian sekali dan langganan tahunan yang lebih murah.\nLangganan bermula dengan percubaan 14 hari percuma, selepas itu anda akan dicaj sekali setahun. Percubaan dan langganan boleh dibatalkan pada bila-bila masa.\nCiri yang sama, cuma model harga yang berbeza.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan 14 hari percuma</string>
     <string name="upgrade_screen_subscription_action">Langgan</string>
     <string name="upgrade_screen_subscription_action_hint">Kos langganan %s setahun.</string>
     <string name="upgrade_screen_iap_action">Belian sekali</string>
