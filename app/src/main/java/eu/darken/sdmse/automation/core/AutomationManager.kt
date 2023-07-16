@@ -113,7 +113,16 @@ class AutomationManager @Inject constructor(
         log(TAG) { "startService(): Before writing ACS settings: $currentServices" }
 
         if (currentServices.contains(ourServiceComp)) {
-            log(TAG, WARN) { "startService(): Service isn't running but we are already enabled? We can wait a bit..." }
+            log(TAG, WARN) { "startService(): Service isn't running but we are already enabled? Let's re-toggle" }
+            setAutomationServices(currentServices.minus(ourServiceComp))
+
+            // Give the system some time
+            delay(3000)
+
+            val afterToggleOff = getAutomationServices()
+            if (afterToggleOff.contains(ourServiceComp)) throw IllegalStateException("Failed to remove our ACS service")
+
+            setAutomationServices(afterToggleOff.plus(ourServiceComp))
         } else {
             val newAcsValue = currentServices.plus(ourServiceComp)
             setAutomationServices(newAcsValue)
