@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Berkhidmat untuk anda.</string>
+    <string name="slogan_message_1">Bersih dan kemas.</string>
     <string name="slogan_message_2">Mencegah huru-hara.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu.</string>
     <string name="slogan_message_4">Semua itik anda dalam barisan.</string>
@@ -17,6 +18,7 @@
     <string name="general_copy_action">Salinan</string>
     <string name="general_wipe_action">Lap</string>
     <string name="general_cancel_action">Batal</string>
+    <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Tetapkan semula</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
@@ -58,19 +60,38 @@
     <string name="general_progress_queued">Dalam barisan</string>
     <string name="general_progress_deleting">Memadamkan %s</string>
     <string name="general_sort_options_label">Isih pilihan</string>
+    <string name="general_sort_reverse_action">Mod isihan terbalik</string>
     <string name="general_tag_filter_label">Tapis mengikut tag</string>
     <string name="general_result_success_message">Operasi berjaya</string>
     <string name="general_result_failure_message">Operasi gagal</string>
     <string name="general_result_x_space_freed">%s dibebaskan</string>
+    <string name="general_options_label">Pilihan</string>
     <string name="general_details_label">Butiran</string>
     <string name="general_view_action">Lihat</string>
     <string name="general_update_action">Kemas kini</string>
     <string name="general_scan_action">Imbas</string>
     <string name="general_delete_action">Padam</string>
+    <string name="general_delete_selected_action">Padam yang dipilih</string>
     <string name="general_show_details_action">Tunjukkan butiran</string>
     <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Padamkan %d item yang dipilih?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="other">Satu
+Memadamkan %1$d item dan membebaskan %2$s
+
+Lain-lain
+Memadamkan %1$d item dan membebaskan %2$s</item>
+    </plurals>
     <string name="general_remove_action">Alih keluar</string>
+    <string name="general_remove_selected_action">Buang yang dipilih</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="other">Satu
+Satu item telah dialih keluar
+
+Lain-lain
+%d item telah dialih keluar</item>
+    </plurals>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan peranti yang telah di root</string>
     <string name="general_search_action">Cari</string>
@@ -87,10 +108,12 @@
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Dayakan perkhidmatan</string>
     <string name="general_undo_action">Buat asal</string>
+    <string name="general_list_select_all_action">Pilih semua</string>
     <string name="general_path_label">Laluan</string>
     <string name="general_type_label">Taip</string>
     <string name="general_size_label">Saiz</string>
     <string name="general_exclude_action">Kecualikan</string>
+    <string name="general_exclude_selected_action">Kecualikan yang dipilih</string>
     <string name="general_device_label">Peranti</string>
     <string name="general_settings_title">Tetapan</string>
     <string name="general_help_title">Bantu</string>

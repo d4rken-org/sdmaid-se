@@ -117,7 +117,7 @@
     <string name="setup_acs_card_body">O serviço de acessibilidade permite que o SD Maid interaja com sua tela e automatize ações tediosas, por exemplo, clicar no \"Limpar cache\" em várias telas.</string>
     <string name="setup_acs_card_body2">O SD Maid não usará o serviço de acessibilidade sem o seu consentimento, exibirá sempre um indicador proeminente (cancelável) enquanto ativo e não o usará para recolher informações.</string>
     <string name="setup_acs_state_enabled">Serviço de acessibilidade está activo</string>
-    <string name="setup_acs_state_disabled">Serviço de Acessibilidade está desativo</string>
+    <string name="setup_acs_state_disabled">Serviço de Acessibilidade está inativo</string>
     <string name="setup_acs_state_running">Serviço de acessibilidade está activo</string>
     <string name="setup_acs_state_ondemand">O serviço será iniciado sob pedido</string>
     <string name="setup_acs_state_stopped">Serviço de acessibilidade parou</string>
@@ -139,7 +139,7 @@
     <string name="settings_category_tools_label">Ferramentas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nível de risco</string>
-    <string name="corpsefinder_tool_name">Limpeza de resíduos</string>
+    <string name="corpsefinder_tool_name">Encontrar resíduos</string>
     <string name="corpsefinder_explanation_short">Dados que pertencem a aplicativos já removidos.</string>
     <string name="corpsefinder_settings_summary">Ajustar filtros de verificação e níveis de risco.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Incluir vestígios desejáveis</string>
@@ -151,14 +151,14 @@
     <string name="corpsefinder_watcher_autodelete_title">Apagar automaticamente</string>
     <string name="corpsefinder_watcher_autodelete_summary">Apagar automaticamente qualquer resto relacionado com o aplicativo desinstalado.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d resto encontrado após a desinstalação %2$s.</item>
-        <item quantity="other">%1$d restos encontrados após a desinstalação %2$s.</item>
+        <item quantity="one">%1$d resíduo encontrado após a desinstalação %2$s.</item>
+        <item quantity="other">%1$d resíduos encontrados após a desinstalação %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Limpeza bem sucedida (%1$s): Liberto %2$s e removido %3$d item.</item>
         <item quantity="other">Limpeza bem sucedida (%1$s): Libertos %2$s e removidos%3$d itens.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Apagar restos</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Apagar resíduos</string>
     <string name="corpsefinder_filter_publicmedia_label">Mídia pública</string>
     <string name="corpsefinder_filter_publicmedia_summary">Arquivos de mídia públicos, por exemplo, arquivos recebidos via aplicativos do messenger.</string>
     <string name="corpsefinder_filter_publicobb_label">Recursos OBB</string>
@@ -183,10 +183,10 @@ Recursos dos jogos.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dados movidos para armazenamento externo por mods App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d resto de app descoberto</item>
-        <item quantity="other">%d restos de apps descobertos</item>
+        <item quantity="one">%d resto de app encontrado</item>
+        <item quantity="other">%d restos de apps encontrados</item>
     </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Apagar todos os restos de apps?</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Apagar todos os resíduos de apps?</string>
     <string name="corpsefinder_owners_label">Donos</string>
     <string name="corpsefinder_corpse_hints_label">Aviso</string>
     <string name="corpsefinder_owner_unknown">Proprietário desconhecido</string>
@@ -214,9 +214,7 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_lostdir_label">Pastas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Ficheiros temporários criados na transferência de dados entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Ficheiros Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Ficheiros &amp; pastas que são criadas quando o armazenamento foi conectado a um computador linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Ficheiros Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Ficheiros &amp; pastas que são criadas ao navegar no armazenamento com o aplicativo de busca da Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Ficheiros Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de ficheiros Windows pode criar no armazenamento conectado. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
@@ -267,7 +265,6 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_analytics_label">Estatísticas</string>
     <string name="appcleaner_filter_analytics_summary">Dados relacionados com análise, por exemplo, estatísticas em cache para a qual você clica numa aplicação.</string>
     <string name="appcleaner_filter_hiddencaches_label">Caches ocultas</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache de propósitos gerais armazenadas fora do alcance do sistema.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas de mídia</string>
     <string name="appcleaner_filter_thumbnails_summary">Imagens de pré-visualização de vídeo e áudio.</string>
     <string name="appcleaner_filter_gamefiles_label">Arquivos de jogo</string>
@@ -277,11 +274,9 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_recyclebins_label">Reciclagem</string>
     <string name="appcleaner_filter_recyclebins_summary">F8cheiros que foram apagados mas colocados numa pasta especial para permitir restaurá-los.</string>
     <string name="appcleaner_filter_webview_label">Arquivos do Webview</string>
-    <string name="appcleaner_filter_webview_summary">Arquivos armazenados em cache por instâncias de webview usados em apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Apague cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Ficheiros recebidos WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Ficheiros recebidos de qualquer pessoa via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Ficheiros enviados no WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Ficheiros enviados do WhatsApp para outros.</string>
     <string name="appcleaner_filter_telegram_label">Ficheiros de mídia do Telegram</string>

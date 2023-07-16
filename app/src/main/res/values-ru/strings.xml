@@ -225,9 +225,7 @@
     <string name="systemcleaner_filter_lostdir_label">Папки LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Временные файлы, которые создаются при передаче данных между устройствами Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Файлы Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Файлы и папки, которые создаются при подключении хранилища к компьютеру linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Файлы Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Файлы и папки, которые создаются при просмотре хранилища с помощью приложения Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Файлы Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Данные, которые проводник Windows может создавать на подключенном хранилище. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскизы изображений</string>
@@ -278,7 +276,6 @@
     <string name="appcleaner_filter_analytics_label">Аналитика</string>
     <string name="appcleaner_filter_analytics_summary">Данные, связанные с аналитикой, например, кэшированная статистика того, что Вы нажимаете в приложении.</string>
     <string name="appcleaner_filter_hiddencaches_label">Скрытый кэш</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Кэш общего назначения, хранящийся вне зоны доступа системы.</string>
     <string name="appcleaner_filter_thumbnails_label">Эскизы медиа</string>
     <string name="appcleaner_filter_thumbnails_summary">Файлы предпросмотра изображений, видео и аудио.</string>
     <string name="appcleaner_filter_gamefiles_label">Файлы игр</string>
@@ -288,11 +285,9 @@
     <string name="appcleaner_filter_recyclebins_label">Файлы корзины</string>
     <string name="appcleaner_filter_recyclebins_summary">Файлы, которые были удалены, но помещены в специальную папку, чтобы их можно было восстановить.</string>
     <string name="appcleaner_filter_webview_label">Файлы Webview</string>
-    <string name="appcleaner_filter_webview_summary">Файлы кэша webview, используемые в приложениях.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервные копии WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Удаление лишних резервных копий WhatsAp и сохранение только последней.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Полученные файлы WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Файлы, которые Вы получили от других пользователей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Отправленные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, отправленные из WhatsApp другим пользователям.</string>
     <string name="appcleaner_filter_telegram_label">Медиафайлы Telegram</string>

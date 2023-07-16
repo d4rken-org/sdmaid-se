@@ -8,11 +8,11 @@
     <string name="slogan_message_4">All Deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="general_thank_you_label">Danke</string>
-    <string name="general_error_type_mismatch_msg">Typ stimmt nicht überein: %1$s gewünscht, aber %2$s bekommen.</string>
+    <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
     <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>
     <string name="general_error_empty_result_msg">Das Ergebnis war leer.</string>
-    <string name="general_todo_msg">Diese Funktion wird noch bearbeitet und ist derzeit nicht verfügbar.</string>
+    <string name="general_todo_msg">An dieser Funktion wird noch gearbeitet und ist nicht verfügbar.</string>
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
     <string name="general_copy_action">Kopieren</string>

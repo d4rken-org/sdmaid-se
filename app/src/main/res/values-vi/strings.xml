@@ -207,9 +207,7 @@
     <string name="systemcleaner_filter_lostdir_label">Các thư mục LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Các tệp tạm thời được tạo khi truyền dữ liệu giữa các thiết bị Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Tệp Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Tệp &amp; các thư mục được tạo khi bộ lưu trữ đã được kết nối với máy tính linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac files</string>
-    <string name="systemcleaner_filter_macfiles_summary">Tệp &amp; các thư mục được tạo khi duyệt bộ nhớ bằng ứng dụng tìm kiếm của Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Tệp Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dữ liệu mà trình quản lý tệp Windows có thể tạo trên bộ lưu trữ được kết nối. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Hình thu nhỏ</string>
@@ -260,7 +258,6 @@
     <string name="appcleaner_filter_analytics_label">Phân tích</string>
     <string name="appcleaner_filter_analytics_summary">Dữ liệu liên quan đến phân tích, ví dụ: số liệu thống kê được lưu trong bộ nhớ đệm cho những gì bạn nhấp vào trong một ứng dụng.</string>
     <string name="appcleaner_filter_hiddencaches_label">Bộ nhớ đệm ẩn</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Bộ nhớ đệm mục đích chung được lưu trữ bên ngoài phạm vi tiếp cận của hệ thống.</string>
     <string name="appcleaner_filter_thumbnails_label">Hình ảnh thu nhỏ</string>
     <string name="appcleaner_filter_thumbnails_summary">Hình ảnh thu nhỏ của video và âm thanh.</string>
     <string name="appcleaner_filter_gamefiles_label">Tệp trò chơi</string>
@@ -270,11 +267,9 @@
     <string name="appcleaner_filter_recyclebins_label">Thùng rác</string>
     <string name="appcleaner_filter_recyclebins_summary">Các tệp đã bị xóa nhưng được đưa vào một thư mục đặc biệt để cho phép khôi phục chúng.</string>
     <string name="appcleaner_filter_webview_label">Tệp Webview</string>
-    <string name="appcleaner_filter_webview_summary">Các tệp được lưu trong bộ nhớ cache của các phiên bản chế độ xem web được sử dụng trong các ứng dụng.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sao lưu WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Xóa các bản sao lưu bổ sung của WhatsApp và chỉ giữ bản mới nhất.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Tệp WhatsApp đã nhận</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Tệp bạn nhận được từ một trong hai người qua WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Tệp WhatsApp đã gửi</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Tệp gửi từ WhatsApp cho người khác.</string>
     <string name="appcleaner_filter_telegram_label">Tệp phương tiện Telegram</string>

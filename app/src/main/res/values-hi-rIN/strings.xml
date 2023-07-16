@@ -183,9 +183,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डर</string>
     <string name="systemcleaner_filter_lostdir_summary">अस्थायी फ़ाइलें जो एंड्रॉयड उपकरणों के बीच डेटा स्थानांतरित करते समय बनाई जाती हैं।</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux फाइल</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">फ़ाइलें &amp; फ़ोल्डर्स जो तब बनाए जाते हैं जब स्टोरेज को linux कंप्यूटर से जोड़ा जाता है।</string>
     <string name="systemcleaner_filter_macfiles_label">Mac फाइल</string>
-    <string name="systemcleaner_filter_macfiles_summary">फ़ाइलें &amp; फ़ोल्डर जो Apple खोजक ऐप के साथ संग्रहण ब्राउज़ करते समय बनाए जाते हैं।</string>
     <string name="systemcleaner_filter_windowsfiles_label">विंडो फाइल</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"डेटा जो विंडोज़ फाइल एक्सप्लोरर जुड़ने से स्टोरेज पर बना सकता है। "</string>
     <string name="systemcleaner_filter_thumbnails_label">थंबनेल छवियां</string>
@@ -232,7 +230,6 @@
     <string name="appcleaner_filter_bugreporting_summary">बग रिपोर्टिंग संबंधी डेटा, जैसे कि त्रुटि लॉग या क्रैश डंप।</string>
     <string name="appcleaner_filter_analytics_label">वैश्लेषिकी</string>
     <string name="appcleaner_filter_hiddencaches_label">छिपे हुए कैश</string>
-    <string name="appcleaner_filter_hiddencaches_summary">सामान्य प्रयोजन के कैश सिस्टम के बाहर संग्रहीत होते हैं।</string>
     <string name="appcleaner_filter_thumbnails_label">मीडिया थंबनेल</string>
     <string name="appcleaner_filter_thumbnails_summary">छवि, वीडियो और ऑडियो पूर्वावलोकन थंबनेल चित्र।</string>
     <string name="appcleaner_filter_gamefiles_label">खेल की फ़ाइलें</string>
@@ -242,11 +239,9 @@
     <string name="appcleaner_filter_recyclebins_label">रिसाइकिल बिन</string>
     <string name="appcleaner_filter_recyclebins_summary">फ़ाइलें जो हटा दी गई थी लेकिन उन्हें पुनर्स्थापित करने की अनुमति देने के लिए एक विशेष फ़ोल्डर में डाल दी गई हैं।</string>
     <string name="appcleaner_filter_webview_label">Webview फ़ाइलें</string>
-    <string name="appcleaner_filter_webview_summary">ऐप्स के भीतर उपयोग की जाने वाली वेबव्यू उदाहरण द्वारा कैश की गई फ़ाइलें।</string>
     <string name="appcleaner_filter_whatsapp_backups_label">व्हाट्सएप का बैकअप</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">व्हाट्सएप बैकअप की अतिरिक्त प्रतियां हटाएं और केवल नवीनतम रखें।</string>
     <string name="appcleaner_filter_whatsapp_received_summary">व्हाट्सएप पर प्राप्त फाइलें</string>
-    <string name="appcleaner_filter_whatsapp_received_label">व्हाट्सएप के माध्यम से आपको दोनों ओर के लोगों से प्राप्त फाइलें।</string>
     <string name="appcleaner_filter_whatsapp_sent_label">व्हाट्सएप द्वारा भेजी गयी फाइलें</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">वो फाइलें जो व्हाट्सएप से दूसरों को भेजी गयी है</string>
     <string name="appcleaner_filter_telegram_label">टेलीग्राम की मीडिया फ़ाइलें</string>

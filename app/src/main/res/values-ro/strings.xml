@@ -161,9 +161,7 @@
     <string name="systemcleaner_filter_lostdir_label">Dosare LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fișiere temporare care sunt create când transferi date dintre dispozitive Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fișiere linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Fișiere &amp; dosare care sunt create când stocarea a fost conectată la un computer linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Fișiere Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Fișiere &amp; dosare care sunt create când navighezi stocarea cu aplicația de căutare Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fișiere Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Date pe care exploratorul de fișiere Windows creează la stocare conectată. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagini miniatură</string>
@@ -210,7 +208,6 @@
     <string name="appcleaner_filter_bugreporting_summary">Date relatate la rapoarte de bug-uri, ex: jurnal de erori sau gropi de blocaj.</string>
     <string name="appcleaner_filter_analytics_label">Analize</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache ascunși</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache-urile de uz general stocate în afara accesului sistemelor.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturi media</string>
     <string name="appcleaner_filter_thumbnails_summary">Imagini, imagini video şi imagini de previzualizare a imaginii.</string>
     <string name="appcleaner_filter_gamefiles_label">Fișiere de joc</string>
@@ -220,11 +217,9 @@
     <string name="appcleaner_filter_recyclebins_label">Coșuri de reciclare</string>
     <string name="appcleaner_filter_recyclebins_summary">Fișiere care sunt șterse, dar puse într-un dosar special pentru a permite să le restaureze.</string>
     <string name="appcleaner_filter_webview_label">Fișiere WebView</string>
-    <string name="appcleaner_filter_webview_summary">Fișiere cache de instanțe webview folosit în aplicații.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copii de rezervă WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Șterge extra copii al backup-urilor WhatsApp și păstrează numai cel de ultima dată.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fișiere WhatsApp primite</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Fișiere pe care le-ai primit de la oricare dintre persoane prin WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fișiere WhatsApp trimise</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fișiere pe care le-ai trimis de la WhatsApp la alții.</string>
     <string name="appcleaner_filter_telegram_label">Fișiere media Telegram</string>

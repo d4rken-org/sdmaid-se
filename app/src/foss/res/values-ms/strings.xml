@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Tingkatkan SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Pembangunan berterusan hanya boleh dilakukan oleh anda.</string>
     <string name="upgrade_screen_how_title">Bagaimana untuk membantu</string>
+    <string name="upgrade_screen_how_body">Menjadi penaung dan penaja pembangunan! Ketik butang di bawah untuk mengaktifkan semua ciri tambahan dan buka profil Penaja GitHub saya.</string>
     <string name="upgrade_screen_why_title">Ini menimbulkan 🪄</string>
     <string name="upgrade_screen_why_body">• Fungsi pemadaman AppCleaner 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\ndan banyak lagi…</string>
     <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>

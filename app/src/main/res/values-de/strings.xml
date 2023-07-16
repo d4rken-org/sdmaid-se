@@ -213,9 +213,7 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR Ordner</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporäre Dateien, die beim Übertragen von Daten zwischen Android-Geräten erstellt werden.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-Dateien</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Dateien &amp; Ordner, die erstellt werden, wenn der Speicher mit einem Linux-Computer verbunden wurde.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac-Dateien</string>
-    <string name="systemcleaner_filter_macfiles_summary">Dateien &amp; Ordner, die beim Durchsuchen des Speichers mit der Finder-App von Apple erstellt werden.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-Dateien</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Daten, die der Windows Datei-Explorer auf verbundenen Speichermedien erstellen kann. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturbilder</string>
@@ -224,7 +222,7 @@
     <string name="systemcleaner_filter_tempfiles_summary">Temporäre Dateien, normalerweise kurzlebige Caches für aktive Vorgänge.</string>
     <string name="systemcleaner_filter_analytics_label">Analytik-Dateien</string>
     <string name="systemcleaner_filter_analytics_summary">Daten im Zusammenhang mit Analysen und Fehlerverfolgung.</string>
-    <string name="systemcleaner_filter_downloadcache_label">Cache herunterladen</string>
+    <string name="systemcleaner_filter_downloadcache_label">Download-Cache</string>
     <string name="systemcleaner_filter_downloadcache_summary">System-Cache-Ordner, der für verschiedene Dinge verwendet wird (z.B. OTA-Updates).</string>
     <string name="systemcleaner_filter_localtmp_label">Lokale temporäre Dateien</string>
     <string name="systemcleaner_filter_localtmp_summary">Systembezogene temporäre Dateien (z.B. von Android Studio).</string>
@@ -266,7 +264,6 @@
     <string name="appcleaner_filter_analytics_label">Analytik</string>
     <string name="appcleaner_filter_analytics_summary">Analysebezogene Daten, z. B. zwischengespeicherte Statistiken für das, was du in einer App antippst.</string>
     <string name="appcleaner_filter_hiddencaches_label">Versteckte Caches</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Allzweck-Caches, die außerhalb der Systemreichweite gespeichert sind.</string>
     <string name="appcleaner_filter_thumbnails_label">Medien-Thumbnails</string>
     <string name="appcleaner_filter_thumbnails_summary">Bild-, Video- und Audiovorschau-Miniaturbilder.</string>
     <string name="appcleaner_filter_gamefiles_label">Spieldateien</string>
@@ -276,11 +273,9 @@
     <string name="appcleaner_filter_recyclebins_label">Mülleimer</string>
     <string name="appcleaner_filter_recyclebins_summary">Dateien, die gelöscht, aber in einem speziellen Ordner abgelegt wurden, damit sie wiederhergestellt werden können.</string>
     <string name="appcleaner_filter_webview_label">Webview-Dateien</string>
-    <string name="appcleaner_filter_webview_summary">Dateien, die von Webview-Instanzen zwischengespeichert werden, die in Apps verwendet werden.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp hat Dateien empfangen</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Dateien, die Du von anderen Personen über WhatsApp erhalten hast.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet werden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>

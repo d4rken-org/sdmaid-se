@@ -213,9 +213,7 @@
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Archivos &amp; carpetas que se crean cuando el almacenamiento se ha conectado a una computadora Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Archivos Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Archivos y &amp; carpetas que se crean al explorar el almacenamiento con la aplicación de búsqueda de Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Archivos de Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Datos que el explorador de archivos de Windows puede crear en el almacenamiento conectado. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturas</string>
@@ -266,7 +264,6 @@
     <string name="appcleaner_filter_analytics_label">Estadísticas</string>
     <string name="appcleaner_filter_analytics_summary">Los datos relacionados con el análisis, por ejemplo, estadísticas almacenadas en la caché de lo que hace en una aplicación.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cachés ocultas</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cachés de propósito general almacenadas fuera del alcance de los sistemas.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas multimedia</string>
     <string name="appcleaner_filter_thumbnails_summary">Vista previa de las imágenes, los vídeos y los audios en miniaturas.</string>
     <string name="appcleaner_filter_gamefiles_label">Archivos de juegos</string>
@@ -276,11 +273,9 @@
     <string name="appcleaner_filter_recyclebins_label">Papeleras de reciclaje</string>
     <string name="appcleaner_filter_recyclebins_summary">Archivos que se han eliminado pero se han colocado en una carpeta especial para permitir restaurarlos.</string>
     <string name="appcleaner_filter_webview_label">Archivos de Webview</string>
-    <string name="appcleaner_filter_webview_summary">Archivos almacenados en la caché por webview utilizados en las aplicaciones.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copias de seguridad de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Elimine las copias adicionales de las copias de seguridad de WhatsApp y conserve solo la más reciente.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Archivos recibidos de WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Archivos recibidos de cualquiera de las personas a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Archivos enviados de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Archivos enviados desde WhatsApp a otros.</string>
     <string name="appcleaner_filter_telegram_label">Archivos multimedia de Telegram</string>

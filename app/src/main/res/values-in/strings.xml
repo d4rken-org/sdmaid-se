@@ -207,9 +207,7 @@
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Berkas sementara yang dibuat sewaktu mengirim data antar perangkat Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Berkas Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Berkas &amp; folder yang dibuat ketika penyimpanan dihubungkan dengan komputer Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Berkas &amp; folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Finder Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data berkas yang dibuat Windows Explorer sewaktu perangkat terhubung. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
@@ -260,7 +258,6 @@
     <string name="appcleaner_filter_analytics_label">Analitik</string>
     <string name="appcleaner_filter_analytics_summary">Data terkait Analytics, mis. statistik cache untuk apa yang Anda ketuk di aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache tersembunyi</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Cache tujuan umum yang disimpan di luar jangkauan sistem.</string>
     <string name="appcleaner_filter_thumbnails_label">Thumbnail media</string>
     <string name="appcleaner_filter_thumbnails_summary">Thumbnail foto, video, dan suara.</string>
     <string name="appcleaner_filter_gamefiles_label">Berkas permainan</string>
@@ -270,11 +267,9 @@
     <string name="appcleaner_filter_recyclebins_label">Kotak sampah</string>
     <string name="appcleaner_filter_recyclebins_summary">Berkas yang telah dihapus namun disimpan di folder khusus agar bisa dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Berkas webview</string>
-    <string name="appcleaner_filter_webview_summary">Berkas yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Cadangan WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Hapus salinan ekstra dari cadangan WhatsApp dan hanya terbaru yang disimpan.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Berkas diterima WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Berkas yang Anda terima dari orang lain melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Berkas terkirim WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Berkas dikirim dari WhatsApp untuk orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Berkas media Telegram</string>
