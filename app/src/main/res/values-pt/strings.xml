@@ -214,7 +214,9 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_lostdir_label">Pastas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Ficheiros temporários criados na transferência de dados entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Ficheiros Linux</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Ficheiros e pastas que são criadas quando o armazenamento foi ligado a um computador linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Ficheiros Mac</string>
+    <string name="systemcleaner_filter_macfiles_summary">Ficheiros e pastas que são criados ao navegar no armazenamento com o aplicativo Finder da Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Ficheiros Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de ficheiros Windows pode criar no armazenamento conectado. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
@@ -265,6 +267,7 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_analytics_label">Estatísticas</string>
     <string name="appcleaner_filter_analytics_summary">Dados relacionados com análise, por exemplo, estatísticas em cache para a qual você clica numa aplicação.</string>
     <string name="appcleaner_filter_hiddencaches_label">Caches ocultas</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Cache geral armazenada fora do alcance do sistema.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturas de mídia</string>
     <string name="appcleaner_filter_thumbnails_summary">Imagens de pré-visualização de vídeo e áudio.</string>
     <string name="appcleaner_filter_gamefiles_label">Arquivos de jogo</string>
@@ -274,9 +277,11 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_recyclebins_label">Reciclagem</string>
     <string name="appcleaner_filter_recyclebins_summary">F8cheiros que foram apagados mas colocados numa pasta especial para permitir restaurá-los.</string>
     <string name="appcleaner_filter_webview_label">Arquivos do Webview</string>
+    <string name="appcleaner_filter_webview_summary">Arquivos armazenados na cache pelo webview dentro de apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Apague cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Ficheiros recebidos WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Ficheiros recebidos de pessoas via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Ficheiros enviados no WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Ficheiros enviados do WhatsApp para outros.</string>
     <string name="appcleaner_filter_telegram_label">Ficheiros de mídia do Telegram</string>

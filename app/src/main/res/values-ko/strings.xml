@@ -207,7 +207,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
     <string name="systemcleaner_filter_lostdir_summary">안드로이드 기기간 데이터를 이동할 때 생기는 임시 파일입니다.</string>
     <string name="systemcleaner_filter_linuxfiles_label">리눅스 파일</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">리눅스 컴퓨터에 연결할 때 생성되는 파일과 폴더들입니다.</string>
     <string name="systemcleaner_filter_macfiles_label">맥 파일</string>
+    <string name="systemcleaner_filter_macfiles_summary">애플의 Finder 앱을 이용할 때 생성되는 파일 및 폴더입니다.</string>
     <string name="systemcleaner_filter_windowsfiles_label">윈도우 파일</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"윈도우 파일 탐색기가 연결된 기기에 생성하는 파일입니다. "</string>
     <string name="systemcleaner_filter_thumbnails_label">썸네일 이미지</string>
@@ -258,6 +260,7 @@
     <string name="appcleaner_filter_analytics_label">통계 파일</string>
     <string name="appcleaner_filter_analytics_summary">앱의 사용 통계를 분석하기 위해 만들어진 파일.</string>
     <string name="appcleaner_filter_hiddencaches_label">숨겨진 캐시</string>
+    <string name="appcleaner_filter_hiddencaches_summary">시스템이 접근하기 어려운 곳에 저장된 일반적인 캐시 파일입니다.</string>
     <string name="appcleaner_filter_thumbnails_label">미디어 미리보기</string>
     <string name="appcleaner_filter_thumbnails_summary">사진, 영상, 오디오 파일의 미리보기.</string>
     <string name="appcleaner_filter_gamefiles_label">게임 파일</string>
@@ -267,9 +270,11 @@
     <string name="appcleaner_filter_recyclebins_label">휴지통</string>
     <string name="appcleaner_filter_recyclebins_summary">삭제되었지만 다시 복구할 때를 대비해 특수 폴더에 저장된 파일입니다.</string>
     <string name="appcleaner_filter_webview_label">웹뷰 파일</string>
+    <string name="appcleaner_filter_webview_summary">인앱 브라우저(웹뷰)에서 만들어진 캐시입니다.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 백업</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">오래된 WhatsApp 백업을 지우고 최신 버전만 남깁니다.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp에서 받은 파일</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp을 통해 받은 파일입니다.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp에서 보낸 파일</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp에서 다른 유저에게 보낸 파일입니다.</string>
     <string name="appcleaner_filter_telegram_label">텔레그램 미디어 파일</string>

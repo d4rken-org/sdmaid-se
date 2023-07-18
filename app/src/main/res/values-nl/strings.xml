@@ -43,6 +43,7 @@
     <string name="onboarding_privacy_continue_action">Doorgaan</string>
     <string name="onboarding_setup_title">Instelling</string>
     <string name="onboarding_setup_body1">SD Maid doorzoekt alle toegankelijke gegevens gebieden.</string>
+    <string name="onboarding_setup_body2">Wat toegankelijk is, is afhankelijk van je apparaat, Android-versie en verleende machtigingen.</string>
     <string name="onboarding_setup_body3">Begin SD Maid te gebruiken door toegang in te stellen tot gebieden die moeten worden doorzocht.</string>
     <string name="onboarding_setup_continue_action">Toegang instellen</string>
     <string name="settings_privacy_policy_label">Privacybeleid</string>
@@ -118,7 +119,9 @@
     <string name="setup_acs_state_enabled">Toegankelijkheidsservice is ingeschakeld</string>
     <string name="setup_acs_state_disabled">Toegankelijkheidsservice is uitgeschakeld</string>
     <string name="setup_acs_state_running">De toegankelijkheidsservice is actief</string>
+    <string name="setup_acs_state_ondemand">De service wordt op verzoek gelanceerd</string>
     <string name="setup_acs_state_stopped">De toegankelijkheidsservice is gestopt</string>
+    <string name="setup_acs_state_stopped_hint">De service is ingeschakeld, maar niet actief. Schakel het uit/aan of start je apparaat opnieuw op. Controleer of SD Maid niet wordt \"geoptimaliseerd\" door het systeem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Als de service na een tijdje steeds wordt uitgeschakeld, probeer dan de optie \"Auto Start\" voor SD Maid in de systeeminstellingen in te schakelen.</string>
     <string name="setup_acs_consent_positive_action">Service inschakelen en toegang verlenen</string>
     <string name="setup_acs_consent_negative_action">Gebruik geen toegankelijkheidsservice</string>
@@ -144,11 +147,18 @@
     <string name="corpsefinder_settings_risk_common_title">Voeg veelvoorkomende namen toe</string>
     <string name="corpsefinder_settings_risk_common_summary">Gegevens met te algemene namen, bijv. een map \"Notities\" is eigendom van te veel onbekende apps.</string>
     <string name="corpsefinder_watcher_title">Deïnstalleer bewaker</string>
+    <string name="corpsefinder_watcher_summary">Scan automatisch op restanten wanneer een app is verwijderd.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatische verwijdering</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Verwijder automatisch alle restanten van de verwijderde app.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">Restant %1$d gevonden na het verwijderen van %2$s.</item>
+        <item quantity="other">%1$d restanten gevonden na het verwijderen van %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d item verwijderd.</item>
         <item quantity="other">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d items verwijderd.</item>
     </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Verwijder restanten</string>
     <string name="corpsefinder_filter_publicmedia_label">Openbare media</string>
     <string name="corpsefinder_filter_publicmedia_summary">Openbare mediabestanden, bijv. bestanden ontvangen via messenger-apps.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB-bronnen</string>
@@ -171,6 +181,11 @@
     <string name="corpsefinder_filter_appasec_summary">Versleutelde app-bronnen, bijv. spelactiva.</string>
     <string name="corpsefinder_filter_app2sd_summary">Gegevens zijn verplaatst naar externe opslag door App2Sd-mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d restant van app ontdekt</item>
+        <item quantity="other">%d app-restanten ontdekt</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Alle app-restanten verwijderen?</string>
     <string name="corpsefinder_owners_label">Eigenaars</string>
     <string name="corpsefinder_corpse_hints_label">Kennisgeving</string>
     <string name="corpsefinder_owner_unknown">Onbekende eigenaar</string>
@@ -198,7 +213,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
     <string name="systemcleaner_filter_lostdir_summary">Tijdelijke bestanden die worden gemaakt bij de overdracht van gegevens tussen Android-apparaten.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux bestanden</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Bestanden en mappen die worden gemaakt wanneer opslag is aangesloten op een Linux-computer.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac bestanden</string>
+    <string name="systemcleaner_filter_macfiles_summary">Bestanden en mappen die worden gemaakt tijdens het bladeren door opslag met de zoeker-app van Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows bestanden</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Gegevens die de Windows-bestandsverkenner kan maken op verbonden opslag. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatuurafbeeldingen</string>
@@ -217,6 +234,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Een gebied waar het systeem logbestanden kan neerzetten.</string>
     <string name="systemcleaner_filter_recenttasks_label">Recente taken</string>
     <string name="systemcleaner_filter_recenttasks_summary">Gegevens met betrekking tot de takengeschiedenis in de taakwisselaar van het systeem.</string>
+    <string name="systemcleaner_filter_tombstones_label">Restanten van systeemcrash</string>
     <string name="systemcleaner_filter_tombstones_summary">Als systeemeigen processen vastlopen (bijv. spelletjes), worden hier bestanden aangemaakt.</string>
     <string name="systemcleaner_filter_usagestats_label">Gebruiksstatistieken</string>
     <string name="systemcleaner_filter_usagestats_summary">Bestanden met betrekking tot gebruiksstatistieken van applicaties.</string>
@@ -248,6 +266,7 @@
     <string name="appcleaner_filter_analytics_label">Analyses</string>
     <string name="appcleaner_filter_analytics_summary">Analytics-gerelateerde gegevens, bijv. in de cache opgeslagen statistieken voor waarop je in een app klikt.</string>
     <string name="appcleaner_filter_hiddencaches_label">Verborgen caches</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Caches voor algemeen gebruik die buiten het bereik van het systeem zijn opgeslagen.</string>
     <string name="appcleaner_filter_thumbnails_label">Media miniaturen</string>
     <string name="appcleaner_filter_thumbnails_summary">Afbeelding, video en audio voorbeeld van miniatuurafbeeldingen.</string>
     <string name="appcleaner_filter_gamefiles_label">Spel bestanden</string>
@@ -257,9 +276,11 @@
     <string name="appcleaner_filter_recyclebins_label">Recycleer vuilnisbakken</string>
     <string name="appcleaner_filter_recyclebins_summary">Bestanden die zijn verwijderd maar in een speciale map zijn geplaatst zodat ze kunnen worden hersteld.</string>
     <string name="appcleaner_filter_webview_label">Webview-bestanden</string>
+    <string name="appcleaner_filter_webview_summary">Bestanden die in de cache zijn opgeslagen door Webview-instanties die in apps worden gebruikt.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Back-ups van WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Verwijder extra exemplaren van WhatsApp-back-ups en bewaar alleen de nieuwste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp ontving bestanden</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Bestanden die je van mensen hebt gekregen via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp heeft bestanden verzonden</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Bestanden verzenden van WhatsApp naar anderen.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediabestanden</string>

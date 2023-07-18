@@ -17,6 +17,7 @@
     <string name="general_copy_action">Copia</string>
     <string name="general_wipe_action">Cancella</string>
     <string name="general_cancel_action">Annulla</string>
+    <string name="general_discard_action">Annulla</string>
     <string name="general_reset_action">Reimposta</string>
     <string name="general_save_action">Salva</string>
     <string name="general_thanks_action">Grazie</string>
@@ -49,24 +50,30 @@
     <string name="general_progress_loading_egg_2">Presto™</string>
     <string name="general_progress_loading_egg_3">La CPU è in pausa caffè</string>
     <string name="general_progress_loading_egg_4">In attesa di dati da Pepe Silvia</string>
+    <string name="general_progress_loading_egg_6">Passando il burro</string>
     <string name="general_help_action">Aiuto</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">In coda</string>
     <string name="general_progress_deleting">Eliminazione di %s</string>
     <string name="general_sort_options_label">Opzioni di ordinamento</string>
+    <string name="general_sort_reverse_action">Inverti modalità di ordinamento</string>
+    <string name="general_tag_filter_label">Filtra per tags</string>
     <string name="general_result_success_message">Operazione riuscita</string>
     <string name="general_result_failure_message">Operazione non riuscita</string>
+    <string name="general_result_x_space_freed">%s liberto</string>
     <string name="general_options_label">Opzioni</string>
     <string name="general_details_label">Dettagli</string>
     <string name="general_view_action">Visualizza</string>
     <string name="general_update_action">Aggiorna</string>
     <string name="general_scan_action">Scansiona</string>
     <string name="general_delete_action">Elimina</string>
+    <string name="general_delete_selected_action">Elimina selezionato</string>
     <string name="general_show_details_action">Mostra dettagli</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>
     <string name="general_remove_action">Elimina</string>
+    <string name="general_remove_selected_action">Rimuovi selezionato</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un elemento è stato rimosso</item>
         <item quantity="other">%d elementi sono stati rimossi</item>
@@ -80,6 +87,7 @@
         <item quantity="one">%s elemento</item>
         <item quantity="other">%s elementi</item>
     </plurals>
+    <string name="x_space_can_be_freed">%s può essere liberato</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Conteggio</string>
     <string name="general_app_label">App</string>
@@ -92,6 +100,7 @@
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Dimensione</string>
     <string name="general_exclude_action">Escludi</string>
+    <string name="general_exclude_selected_action">Escludi selezionato</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Impostazioni</string>
     <string name="general_help_title">Aiuto</string>

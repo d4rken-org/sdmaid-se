@@ -215,7 +215,9 @@ Lain-lain
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folder</string>
     <string name="systemcleaner_filter_lostdir_summary">Fail sementara yang dibuat apabila memindahkan data antara peranti Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fail Linux</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Fail dan folder yang dibuat apabila storan telah disambungkan ke komputer linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Fail Mac</string>
+    <string name="systemcleaner_filter_macfiles_summary">Fail dan folder yang dibuat semasa menyemak imbas storan dengan aplikasi pencari Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fail Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data yang boleh dibuat oleh penjelajah fail Windows pada storan yang disambungkan. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imej Thumbnail</string>
@@ -266,6 +268,7 @@ Lain-lain
     <string name="appcleaner_filter_analytics_label">Analitis</string>
     <string name="appcleaner_filter_analytics_summary">Data berkaitan analitis, cth. statistik cache untuk perkara yang anda ketik dalam aplikasi.</string>
     <string name="appcleaner_filter_hiddencaches_label">Cache tersembunyi</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Cache tujuan umum disimpan di luar jangkauan sistem.</string>
     <string name="appcleaner_filter_thumbnails_label">Lakaran kecil media</string>
     <string name="appcleaner_filter_thumbnails_summary">Lakaran kecil pratonton imej, video dan audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Fail permainan</string>
@@ -275,9 +278,11 @@ Lain-lain
     <string name="appcleaner_filter_recyclebins_label">Tong kitar semula</string>
     <string name="appcleaner_filter_recyclebins_summary">Fail yang telah dipadam tetapi dimasukkan ke dalam folder khas untuk membolehkannya dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Fail webview</string>
+    <string name="appcleaner_filter_webview_summary">Fail dicache oleh tika Webview yang digunakan dalam apl.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sandaran WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Padamkan salinan tambahan sandaran WhatsApp dan simpan yang terkini sahaja.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp menerima fail</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Fail yang anda terima daripada orang melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp menghantar fail</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fail dihantar dari WhatsApp kepada orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Fail media Telegram</string>

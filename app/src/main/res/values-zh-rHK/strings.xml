@@ -207,7 +207,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
     <string name="systemcleaner_filter_lostdir_summary">在 Android 裝置之間傳輸資料時建立的暫存檔案。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux 檔案</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">儲存裝置連接至 Linux 電腦時建立的檔案和資料夾。</string>
     <string name="systemcleaner_filter_macfiles_label">Mac 檔案</string>
+    <string name="systemcleaner_filter_macfiles_summary">使用 Apple 的 Finder 應用程式瀏覽儲存裝置時建立的檔案和資料夾。</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows 檔案</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Windows 檔案總管在已連接的儲存裝置中建立的資料。 "</string>
     <string name="systemcleaner_filter_thumbnails_label">縮圖影像</string>
@@ -258,6 +260,7 @@
     <string name="appcleaner_filter_analytics_label">分析</string>
     <string name="appcleaner_filter_analytics_summary">與分析相關的資料，例如您在一個應用程式中進行動作而快取的統計資料。</string>
     <string name="appcleaner_filter_hiddencaches_label">已隱藏的快取</string>
+    <string name="appcleaner_filter_hiddencaches_summary">儲存在系統可及範圍之外的一般用途快取。</string>
     <string name="appcleaner_filter_thumbnails_label">媒體縮圖</string>
     <string name="appcleaner_filter_thumbnails_summary">圖像、影片和音訊預覽縮圖圖片。</string>
     <string name="appcleaner_filter_gamefiles_label">遊戲檔案</string>
@@ -267,9 +270,11 @@
     <string name="appcleaner_filter_recyclebins_label">資源回收桶</string>
     <string name="appcleaner_filter_recyclebins_summary">已被刪除的檔案，但被存放在一個特殊的資料夾中，以允許將它們還原。</string>
     <string name="appcleaner_filter_webview_label">Webview 檔案</string>
+    <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 接收的檔案</string>
+    <string name="appcleaner_filter_whatsapp_received_label">您透過 WhatsApp 從其他人那裏接收的檔案。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 傳送的檔案</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">從 WhatsApp 向其他人傳送的檔案。</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒體檔案</string>

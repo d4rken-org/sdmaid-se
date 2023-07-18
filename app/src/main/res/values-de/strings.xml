@@ -213,7 +213,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR Ordner</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporäre Dateien, die beim Übertragen von Daten zwischen Android-Geräten erstellt werden.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-Dateien</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Dateien und Ordner, die erstellt werden, wenn der Speicher mit einem Linux-Computer verbunden wurde.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac-Dateien</string>
+    <string name="systemcleaner_filter_macfiles_summary">Dateien und Ordner, die beim Durchsuchen des Speichers mit der Finder-App von Apple erstellt werden.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-Dateien</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Daten, die der Windows Datei-Explorer auf verbundenen Speichermedien erstellen kann. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturbilder</string>
@@ -264,6 +266,7 @@
     <string name="appcleaner_filter_analytics_label">Analytik</string>
     <string name="appcleaner_filter_analytics_summary">Analysebezogene Daten, z. B. zwischengespeicherte Statistiken für das, was du in einer App antippst.</string>
     <string name="appcleaner_filter_hiddencaches_label">Versteckte Caches</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Allzweck-Caches, die außerhalb der Reichweite des Systems gespeichert werden.</string>
     <string name="appcleaner_filter_thumbnails_label">Medien-Thumbnails</string>
     <string name="appcleaner_filter_thumbnails_summary">Bild-, Video- und Audiovorschau-Miniaturbilder.</string>
     <string name="appcleaner_filter_gamefiles_label">Spieldateien</string>
@@ -273,9 +276,11 @@
     <string name="appcleaner_filter_recyclebins_label">Mülleimer</string>
     <string name="appcleaner_filter_recyclebins_summary">Dateien, die gelöscht, aber in einem speziellen Ordner abgelegt wurden, damit sie wiederhergestellt werden können.</string>
     <string name="appcleaner_filter_webview_label">Webview-Dateien</string>
+    <string name="appcleaner_filter_webview_summary">Von Webview-Instanzen zwischengespeicherte Dateien, die in Apps verwendet werden.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp hat Dateien empfangen</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Dateien, die du von Personen über WhatsApp erhalten haben.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet werden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>

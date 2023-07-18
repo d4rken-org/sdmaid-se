@@ -237,7 +237,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR مجلدات</string>
     <string name="systemcleaner_filter_lostdir_summary">الملفات المؤقتة التي يتم إنشاؤها عند نقل البيانات بين أجهزة Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">ملفات لينكس</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">الملفات والمجلدات التي يتم إنشاؤها عند توصيل وحدة التخزين بكمبيوتر لينيكس.</string>
     <string name="systemcleaner_filter_macfiles_label">ملفات ماك</string>
+    <string name="systemcleaner_filter_macfiles_summary">الملفات والمجلدات التي يتم إنشاؤها عند تصفح وحدة التخزين مع تطبيق آبل الباحث.</string>
     <string name="systemcleaner_filter_windowsfiles_label">ملفات ويندوز</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"البيانات التي يمكن أن ينشئها مستكشف ملفات Windows على التخزين المتصل. "</string>
     <string name="systemcleaner_filter_thumbnails_label">صور مصغرة</string>
@@ -288,6 +290,7 @@
     <string name="appcleaner_filter_analytics_label">التحليلات</string>
     <string name="appcleaner_filter_analytics_summary">البيانات ذات الصلة بالتحليلات ، على سبيل المثال إحصائيات مخبأة حتى يتم النقر عليه في التطبيق.</string>
     <string name="appcleaner_filter_hiddencaches_label">مخابئ مخفية</string>
+    <string name="appcleaner_filter_hiddencaches_summary">مخابئ التخزين العامة خارج نطاق النظام.</string>
     <string name="appcleaner_filter_thumbnails_label">الصور المصغرة للوسائط</string>
     <string name="appcleaner_filter_thumbnails_summary">الصور المصغرة للصورة والفيديو والصوت معاينة.</string>
     <string name="appcleaner_filter_gamefiles_label">ملفات ألعاب</string>
@@ -297,9 +300,11 @@
     <string name="appcleaner_filter_recyclebins_label">سلال المهملات</string>
     <string name="appcleaner_filter_recyclebins_summary">الملفات التي تم حذفها ولكن تم وضعها في مجلد خاص للسماح باستعادتها.</string>
     <string name="appcleaner_filter_webview_label">ملفات عارض الويب</string>
+    <string name="appcleaner_filter_webview_summary">الملفات المخزنة مؤقتًا بواسطة مثيلات عرض الويب المستخدمة داخل التطبيقات.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">نسخ وأتساب الاحتياطية</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">احذف النسخ الإضافية من نسخ WhatsApp الاحتياطية واحتفظ بالأحدث فقط.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">ملفات وأتساب المستلمة</string>
+    <string name="appcleaner_filter_whatsapp_received_label">الملفات التي استقبلتها من الناس عبر WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من WhatsApp إلى الآخرين.</string>
     <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
