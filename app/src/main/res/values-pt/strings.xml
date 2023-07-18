@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Esta é uma aplicação beta (teste). Prossiga com senso de humor e um plano de backup. Por favor, reporte os problemas que encontrar.</string>
     <string name="onboarding_welcome_continue_action">Continue</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (ou SD Maid 2) é o sucessor de SD Maid. Um novo app, otimizado para o Android moderno.</string>
     <string name="onboarding_versus_body2">A arquitetura do seu antecessor tem mais de 7 anos e não foi desenhada para os desafios de versões mais recentes do Android. Uma reformulação completa era necessária para continuar o desenvolvimento.</string>
     <string name="onboarding_versus_body3">Considere mudar para o SD Maid SE para resultados melhores.</string>
     <string name="onboarding_versus_continue_action">Continue</string>
@@ -303,10 +302,8 @@ Recursos dos jogos.</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão pública e privada. Não acessível diretamente, mas pode ser apagada indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>
-    <string name="appcleaner_automation_unavailable_body">Apagar caches inacessíveis requer o serviço de acessibilidade do SD Maid, mas não estava disponível. Se não quiser usá-lo: Desative a opção \"Incluir caches inacessíveis\".</string>
     <string name="appcleaner_junk_userprofile_label">Utilizador</string>
     <string name="appcleaner_delete_confirmation_message_x">Apagar ficheiros dispensáveis para %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Apagar ficheiros dispensáveis para %d aplicativos selecionados?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Apagando caches usando o Shizuku</string>
     <string name="appcontrol_tool_name">Controlo de aplicações</string>
     <string name="appcontrol_explanation_short">Aplicações instaladas no seu dispositivo.</string>

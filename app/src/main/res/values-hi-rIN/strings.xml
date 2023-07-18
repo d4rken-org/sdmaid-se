@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">यह एक बीटा (परीक्षण) निर्माण है। प्रसन्नता की भावना और एक बैकअप योजना के साथ आगे बढ़ें। कृपया आने वाली समस्याओं की रिपोर्ट करें।</string>
     <string name="onboarding_welcome_continue_action">जारी रखें</string>
     <string name="onboarding_versus_title">SD मेड/ SD मेड SE</string>
-    <string name="onboarding_versus_body1">SD मेड SE (अर्थात SD मेड 2) SD मेड का उत्तराधिकारी है। आधुनिक एंड्रॉयड के लिए अनुकूलित एक नया ऐप है।</string>
     <string name="onboarding_versus_body2">इसके पूर्ववर्ती की वास्तुकला 7 वर्ष से अधिक पुरानी है और नए एंड्रॉयड संस्करणों की चुनौतियों के लिए इसे नहीं रचा गया है। इसका विकास जारी रखने के लिए एक पूर्ण नया स्वरूप आवश्यक था।</string>
     <string name="onboarding_versus_body3">बेहतर परिणामों के लिए SD मेड SE के प्रयोग का विचार करें।</string>
     <string name="onboarding_versus_continue_action">जारी रखें</string>
@@ -262,7 +261,6 @@
     <string name="appcleaner_item_caches_inaccessible_title">डिफ़ॉल्ट कैश</string>
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>
-    <string name="appcleaner_automation_unavailable_body">अप्राप्य कैश को हटाने के लिए SD मेड की एक्सेसिबिलिटी सेवा की आवश्यकता होती है, लेकिन यह अनुपलब्ध थी। यदि आप इसका उपयोग नहीं करना चाहते हैं: इस \"पहुंच योग्य कैश शामिल करें\" विकल्प को अक्षम करें।</string>
     <string name="appcleaner_junk_userprofile_label">उपयोगकर्ता</string>
     <string name="appcontrol_tool_name">ऐप नियंत्रक</string>
     <string name="appcontrol_explanation_short">आपके डिवाइस पर स्थापित किए गए ऐप्स।</string>

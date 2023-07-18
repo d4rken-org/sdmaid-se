@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">このビルドはBeta(テスト)版です。ユーモアのセンスを持つ事とバックアップをしっかりと取ってくださいね。問題が発生した場合は報告をお願いします。</string>
     <string name="onboarding_welcome_continue_action">続ける</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (通称: SD Maid 2)は、SD Maidの後継アプリです。最新のAndroidに最適化されたバージョンになります。</string>
     <string name="onboarding_versus_body2">前のアーキテクチャは7年前の物であり、最新のAndroidに対応した設計ではありませんでした。開発を継続するためには、完全にアプリを再設計する必要がありました。</string>
     <string name="onboarding_versus_body3">SD Maid SEへの変更をご検討ください。</string>
     <string name="onboarding_versus_continue_action">続ける</string>
@@ -216,7 +215,6 @@
     <string name="appcleaner_item_caches_inaccessible_title">デフォルトキャッシュ</string>
     <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (アクセシビリティサービスなど)。</string>
     <string name="appcleaner_automation_unavailable_title">アクセシビリティサービスは無効です。</string>
-    <string name="appcleaner_automation_unavailable_body">アクセスできないキャッシュを削除するには、SD Maidのアクセシビリティサービスが必要ですが、利用できませんでした。使用したくない場合は、「アクセスできないキャッシュを含める」オプションを無効にします。</string>
     <string name="appcleaner_junk_userprofile_label">ユーザー</string>
     <string name="appcontrol_tool_name">アプリ管理</string>
     <string name="appcontrol_explanation_short">デバイスにインストールされたアプリ</string>

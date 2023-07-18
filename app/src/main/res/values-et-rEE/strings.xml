@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Seda katsetatakse. Võtke vabalt, samas läbimõeldult. Teavitage jamadest.</string>
     <string name="onboarding_welcome_continue_action">Jätka</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE ehk SD Maid 2) on rakenduse SD Maid edasiareng. Uus äpp, optimeeritud uusima Androidi jaoks.</string>
     <string name="onboarding_versus_body2">Eelmine rakendus oli vähemalt seitse aastat vana ja polnud arendatud uuemate Androidi versioonide jaoks. Arenduse jätkumiseks oli vaja alustada otsast peale.</string>
     <string name="onboarding_versus_body3">Paremad tulemused tagab SD Maid SE kasutusele võtmine.</string>
     <string name="onboarding_versus_continue_action">Jätka</string>
@@ -302,10 +301,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Tavavahemälud</string>
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
-    <string name="appcleaner_automation_unavailable_body">Juurdepääsmatute vahemälude kustutamine vajab SD Maidi juurdepääsetavusteenust, kuid see oli kättesaamatu. Kui te ei taha seda kasutada, keelake valik \"Kaasa juurdepääsmatud vahemälud\".</string>
     <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Kustutada %d valitud rakenduse ühekordsed failid?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>

@@ -19,7 +19,6 @@
     <string name="onboarding_welcome_body_beta">Ово је бета верзија (тестирање). Наставите са смислом за хумор и резервним планом. Пријавите проблеме на које наиђете.</string>
     <string name="onboarding_welcome_continue_action">Настави</string>
     <string name="onboarding_versus_title">СД Чистач / СД Чистач 2</string>
-    <string name="onboarding_versus_body1">СД Чистач 2 је наследник СД Чистача. Нова апликација, оптимизована за савремени Андроид.</string>
     <string name="onboarding_versus_body2">Архитектура његовог претходника је стара преко 7 година и није дизајнирана за изазове новијих верзија Андроид-а. За наставак развоја био је неопходан потпуни редизајн.</string>
     <string name="onboarding_versus_body3">Размислите о преласку на СД Чистач 2 за боље резултате.</string>
     <string name="onboarding_versus_continue_action">Настави</string>

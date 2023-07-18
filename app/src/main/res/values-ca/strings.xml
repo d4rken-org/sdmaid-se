@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Aquesta és una versió beta (de prova). Continueu amb sentit de l\'humor i un pla de seguretat. Informeu dels problemes que trobeu.</string>
     <string name="onboarding_welcome_continue_action">Continua</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">L\'SD Maid SE (també conegut com a SD Maid 2) és el successor de l\'SD Maid. Una nova aplicació, optimitzada per a versions modernes d\'Android.</string>
     <string name="onboarding_versus_body2">L\'arquitectura del seu predecessor té més de 7 anys i no està dissenyada per als reptes de les versions més actuals d\'Android. Va ser necessari un redisseny complet per continuar el desenvolupament.</string>
     <string name="onboarding_versus_body3">Penseu a canviar a l\'SD Maid SE per millorar els resultats.</string>
     <string name="onboarding_versus_continue_action">Continua</string>
@@ -302,10 +301,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Memòries cau per defecte</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
-    <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
     <string name="appcleaner_junk_userprofile_label">Usuari</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Voleu suprimir els fitxers prescindibles de %d aplicacions seleccionades?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>

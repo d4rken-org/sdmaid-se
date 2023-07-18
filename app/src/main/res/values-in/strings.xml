@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">Aplikasi ini dalam tahap beta (uji coba). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
     <string name="onboarding_welcome_continue_action">Lanjut</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid. Ini adalah aplikasi baru yang dioptimalkan untuk Android modern.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
@@ -295,10 +294,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Cache bawaan</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache bawaan privat dan publik. Tidak terakses secara langsung, namun bisa dihapus secara tidak langsung (cth. layanan aksesibilitas).</string>
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
-    <string name="appcleaner_automation_unavailable_body">Menghapus cache yang tidak dapat diakses membutuhkan layanan aksesibilitas SD Maid, namun tidak tersedia. Jika tidak ingin menggunakannya: Matikan pilihan \"Sertakan cache yang tidak bisa diakses\".</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Hapus berkas-berkas yang tidak penting di %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Hapus berkas-berkas yang tidak penting untuk %d aplikasi yang terpilih?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>

@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Bu bir beta (test) derlemesidir. Olası hatalara karşı anlayışlı ve hazırlıklı olun. Lütfen karşılaştığınız sorunları bildirin.</string>
     <string name="onboarding_welcome_continue_action">Devam et</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (ya da SD Maid 2) SD Maid\'in devamıdır. Modern Android için optimize edilmiş yeni bir uygulamadır.</string>
     <string name="onboarding_versus_body2">Eski versiyonun mimarisi 7 seneden daha eski olduğu için Android\'in daha yeni sürümlerinin özelliklerinin gerisinde kalmaktaydı. Bu sebeple geliştirmeye devam edebilmek için komple bir yeniden tasarıma gerek duyulmuştur.</string>
     <string name="onboarding_versus_body3">Daha gelişmiş sonuçlar için SD Maid SE\'ye geçiş yapın.</string>
     <string name="onboarding_versus_continue_action">Devam et</string>
@@ -302,10 +301,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Varsayılan önbellekler</string>
     <string name="appcleaner_item_caches_inaccessible_body">Genel ve özel varsayılan önbellekler. Doğrudan erişilemez, ancak dolaylı olarak silinebilir (ör. erişilebilirlik hizmeti aracılığıyla).</string>
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>
-    <string name="appcleaner_automation_unavailable_body">Erişilemeyen önbelleklerin silinmesi için SD Maid\'in erişilebilirlik hizmeti gerekiyor, ancak bu hizmet kullanılamıyor. Kullanmak istemiyorsanız: \"Erişilemez önbellekleri dahil et\" seçeneğini devre dışı bırakın.</string>
     <string name="appcleaner_junk_userprofile_label">Kullanıcı</string>
     <string name="appcleaner_delete_confirmation_message_x">%s\'a ait gereksiz dosyalar silinsin mi?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Seçilen %d uygulamanın gereksiz dosyaları silinsin mi?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku kullanılarak önbellekler siliniyor</string>
     <string name="appcontrol_tool_name">Uygulama Kontrolü</string>
     <string name="appcontrol_explanation_short">Cihazınızdaki yüklü uygulamalar.</string>

@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Ez egy béta (tesztelési) build. Légy kész humorral és biztonsági mentéssel. Kérjük, jelentse a felmerülő problémákat.</string>
     <string name="onboarding_welcome_continue_action">Folytatás</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">Az SD Maid SE (más néven SD Maid 2) az SD Maid utódja. Egy új alkalmazás, modern Androidra optimalizálva.</string>
     <string name="onboarding_versus_body2">Elődjének architektúrája több mint 7 éves, és nem az újabb Android-verziók kihívásaira tervezték. A fejlesztés folytatásához teljes átalakításra volt szükség.</string>
     <string name="onboarding_versus_body3">A jobb eredmények érdekében fontolja meg az SD Maid SE-re való váltást.</string>
     <string name="onboarding_versus_continue_action">Folytatás</string>
@@ -297,10 +296,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Alapértelmezett gyorsítótárak</string>
     <string name="appcleaner_item_caches_inaccessible_body">Nyilvános és privát alapértelmezett gyorsítótárak. Közvetlenül nem elérhető, de közvetve törölhető (pl. akadálymentesítési szolgáltatáson keresztül).</string>
     <string name="appcleaner_automation_unavailable_title">A kisegítő lehetőségek szolgáltatása nem érhető el</string>
-    <string name="appcleaner_automation_unavailable_body">A hozzáférhetetlen gyorsítótárak törléséhez szükség van az SD Maid kisegítő szolgáltatására, de az nem volt elérhető. Ha nem szeretné használni: Tiltsa le a \"Hozzáférhetetlen gyorsítótárak szerepeltetése\" opciót.</string>
     <string name="appcleaner_junk_userprofile_label">Felhasználó</string>
     <string name="appcleaner_delete_confirmation_message_x">Felesleges fájlok törlése %s számára?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Felesleges fájlok törlése %d kiválasztott alkalmazáshoz?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cache-ek törlése Shizuku használatával</string>
     <string name="appcontrol_tool_name">AlkalmazásVezérlés</string>
     <string name="appcontrol_explanation_short">Az eszközre telepített alkalmazások.</string>

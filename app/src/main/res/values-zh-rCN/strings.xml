@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">这是测试版本，所以在使用时请放轻松并保留备份，请及时报告您遇到的问题。</string>
     <string name="onboarding_welcome_continue_action">继续</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE（又名 SD Maid 2）是 SD Maid 的续作，是专门优化现代 Android 系统的全新应用。</string>
     <string name="onboarding_versus_body2">它的前身架构已经超过 7 年了，不适用于新版 Android 系统。为了继续开发，需要进行完全的重新设计。</string>
     <string name="onboarding_versus_body3">您可以考虑转用 SD Maid SE 以获得更好的效果。</string>
     <string name="onboarding_versus_continue_action">继续</string>
@@ -295,10 +294,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">默认缓存</string>
     <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除（如通过无障碍服务）。</string>
     <string name="appcleaner_automation_unavailable_title">无障碍服务无法使用</string>
-    <string name="appcleaner_automation_unavailable_body">无法访问的缓存需要 SD Maid 的无障碍服务来删除，但是删除失败。如果您不想使用这一功能，可关闭“包含无法访问的缓存”这一选项。</string>
     <string name="appcleaner_junk_userprofile_label">用户</string>
     <string name="appcleaner_delete_confirmation_message_x">删除 %s 的可删除文件？</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">删除 %d 个所选应用的可删除文件？</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">使用 Shizuku 删除缓存</string>
     <string name="appcontrol_tool_name">应用控制</string>
     <string name="appcontrol_explanation_short">安装在您的设备上的应用程序。</string>

@@ -25,7 +25,6 @@
     <string name="onboarding_welcome_body_beta">แอพนี้เป็นรุ่นเบต้า (รุ่นทดลอง) โปรดสำรองข้อมูลและใช้ด้วยความระมัดระวัง โปรดแจ้งเมื่อพบปัญหาในการใช้งาน</string>
     <string name="onboarding_welcome_continue_action">ถัดไป</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (หรือ SD Maid 2) คือโปรแกรมต่อยอดจาก SD Maid แต่ปรับปรุงและแปลงโฉมเพื่อแอนดรอยด์รุ่นใหม่</string>
     <string name="onboarding_versus_body2">โปรแกรมรุ่นก่อนมีอายุมากกว่า 7 ปีแล้วและไม่ได้ถูกออกแบบมาสำหรับแอนดรอยด์รุ่นใหม่ๆ ดังนั้น เพื่อให้มีการพัฒนาต่อไปจึงต้องปรับโฉมใหม่ทั้งหมด</string>
     <string name="onboarding_versus_body3">พิจารณาเปลี่ยนมาใช้ SD Maid SE เพื่อผลลัพธ์ที่ดีกว่า</string>
     <string name="onboarding_versus_continue_action">ถัดไป</string>

@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">현재 앱이 베타 버전입니다. 앱이 정상 작동하지 않을 수 있음을 유의하세요. 버그를 발견하실 경우 제보해 주세요.</string>
     <string name="onboarding_welcome_continue_action">계속하기</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE(SD Maid 2)는 SD Maid 앱의 후속작입니다. 최신 안드로이드 버전에 최적화된 새로운 앱입니다.</string>
     <string name="onboarding_versus_body2">이전 앱은 7년 전부터 개발되었으며, 최신 안드로이드 버전에서 구동되도록 설계되지 않았습니다. 지속적인 개발을 위해서 앱의 전체적 재개발을 진행했습니다.</string>
     <string name="onboarding_versus_body3">SD Maid SE를 사용하시면 더 좋은 결과를 확인하실 수 있습니다.</string>
     <string name="onboarding_versus_continue_action">계속하기</string>
@@ -295,10 +294,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">기본 캐시</string>
     <string name="appcleaner_item_caches_inaccessible_body">앱의 캐시 파일입니다. 직접적인 접근은 어렵지만, 접근성 서비스 등을 통해 간접적으로 지울 수 있습니다.</string>
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>
-    <string name="appcleaner_automation_unavailable_body">직접 접근할 수 없는 캐시를 지우려면 SD Maid의 접근성 서비스가 필요하지만, 사용할 수 없었습니다. 사용하고 싶지 않다면 \"접근할 수 없는 캐시 포함\" 옵션을 꺼주세요.</string>
     <string name="appcleaner_junk_userprofile_label">사용자</string>
     <string name="appcleaner_delete_confirmation_message_x">%s의 임시 파일을 제거할까요?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">%d 개의 선택된 앱의 임시 파일을 제거할까요?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku를 이용해 캐시 삭제 중</string>
     <string name="appcontrol_tool_name">앱제어</string>
     <string name="appcontrol_explanation_short">장치에 설치한 앱입니다.</string>

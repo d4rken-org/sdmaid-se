@@ -35,7 +35,6 @@
     <string name="onboarding_welcome_body_beta">To jest wersja beta (testowa). Działaj z poczuciem humoru i planem awaryjnym, a napotkane problemy zgłaszaj jak najszybciej.</string>
     <string name="onboarding_welcome_continue_action">Dalej</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (tj. SD Maid 2) to następca SD Maid. Jest to nowa aplikacja zoptymalizowana dla nowszych wersji Androida.</string>
     <string name="onboarding_versus_body2">Architektura poprzednika była przestarzała (ponad 7 lat) i nie była przystosowana do nowych wyzwań w nowszych wersjach Androida. Niezbędna była kompletna przebudowa, aby kontynuować dalszy rozwój.</string>
     <string name="onboarding_versus_body3">Rozważ przejście na SD Maid SE, aby uzyskać lepsze wyniki.</string>
     <string name="onboarding_versus_continue_action">Dalej</string>
@@ -311,10 +310,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień niedostępna</string>
-    <string name="appcleaner_automation_unavailable_body">Usuwanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
     <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Usunąć zbędne pliki dla %d wybranych aplikacji?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>

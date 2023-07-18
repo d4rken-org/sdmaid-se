@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Це бета (тестова версія). Дійте з почуттям гумору та планом «Б». Будь ласка, повідомляйте про проблеми, з якими ви зіткнулися.</string>
     <string name="onboarding_welcome_continue_action">Продовжити</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (він же SD Maid 2) є наступником SD Maid. Це новий додаток, оптимізований для сучасних версій Android.</string>
     <string name="onboarding_versus_body2">Архітектура попередника, якому вже більше ніж 7 років, не була розрахована під специфікації нових версій Android. Для продовження розробки додатка було необхідно повне перепроєктування.</string>
     <string name="onboarding_versus_body3">Розгляньте можливість переходу на SD Maid SE для покращення результатів.</string>
     <string name="onboarding_versus_continue_action">Продовжити</string>

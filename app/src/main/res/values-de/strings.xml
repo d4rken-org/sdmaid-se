@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Dies ist eine Beta (Test) Version. Fortfahren mit etwas Sinn für Humor und einem Backup-Plan. Bitte gib mir Bescheid, wenn Du Probleme findest.</string>
     <string name="onboarding_welcome_continue_action">Weiter</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) ist der Nachfolger von SD Maid. Eine neue App, optimiert für modernes Android.</string>
     <string name="onboarding_versus_body2">Die Architektur des Vorgängers ist über 7 Jahre alt und nicht für die Herausforderungen neuerer Android-Versionen ausgelegt. Eine komplette Neugestaltung war notwendig, um die Entwicklung fortzusetzen.</string>
     <string name="onboarding_versus_body3">Erwäge den Wechsel zu SD Maid SE, um bessere Ergebnisse zu erzielen.</string>
     <string name="onboarding_versus_continue_action">Weiter</string>
@@ -302,10 +301,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
-    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Zugänglichkeitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du es nicht verwenden möchtest: Deaktiviere die Option \"Unzugängliche Caches einbeziehen\".</string>
     <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcleaner_delete_confirmation_message_x">Überflüssige Dateien für %s löschen?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Überflüssige Dateien für %d ausgewählte Apps löschen?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
     <string name="appcontrol_tool_name">App-Kontrolle</string>
     <string name="appcontrol_explanation_short">Auf Deinem Gerät installierte Apps.</string>

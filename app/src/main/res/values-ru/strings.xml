@@ -35,7 +35,6 @@
     <string name="onboarding_welcome_body_beta">Это бета (тестовая версия). Работайте с чувством юмора и планом отхода. Пожалуйста, сообщайте о проблемах, с которыми Вы сталкиваетесь.</string>
     <string name="onboarding_welcome_continue_action">Продолжить</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (оно же SD Maid 2) является наследником SD Maid. Это новое приложение, оптимизированное для современных версий Android.</string>
     <string name="onboarding_versus_body2">Архитектуре предшественника более 7 лет, она не рассчитана на вызовы новых версий Android. Для продолжения разработки было необходимо полностью перепроектировать систему.</string>
     <string name="onboarding_versus_body3">Рассмотрите возможность перехода на SD Maid SE для улучшения результатов.</string>
     <string name="onboarding_versus_continue_action">Продолжить</string>
@@ -316,10 +315,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Кэш по умолчанию</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публичный и приватный кэш по умолчанию. Не имеют прямого доступа, но могут быть удалены косвенно (например, через службу специальных возможностей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба специальных возможностей недоступна</string>
-    <string name="appcleaner_automation_unavailable_body">Удаление недоступного кэша при невозможности использования службы специальных возможностей SD Maid. Если Вы не хотите использовать эту функцию, выключите опцию \"Включать недоступный кэш\".</string>
     <string name="appcleaner_junk_userprofile_label">Пользователь</string>
     <string name="appcleaner_delete_confirmation_message_x">Удалить ненужные данные для %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Удалить ненужные данные для %d выбранных приложений?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
