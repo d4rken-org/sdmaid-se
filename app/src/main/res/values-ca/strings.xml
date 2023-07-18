@@ -213,7 +213,9 @@
     <string name="systemcleaner_filter_lostdir_label">Carpetes LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fitxers temporals que es creen en transferir dades entre dispositius Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fitxers Linux</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Fitxers i carpetes que es creen quan l\'emmagatzematge s\'ha connectat a un ordinador Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Fitxers Mac</string>
+    <string name="systemcleaner_filter_macfiles_summary">Fitxers i carpetes que es creen en explorar l\'emmagatzematge amb l\'aplicació de cerca d\'Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fitxers de Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dades que l'explorador de fitxers de Windows pot crear a l'emmagatzematge connectat. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatures</string>
@@ -264,6 +266,7 @@
     <string name="appcleaner_filter_analytics_label">Analítica</string>
     <string name="appcleaner_filter_analytics_summary">Dades relacionades amb l\'anàlisi, p. ex. estadístiques a la memòria cau del que toqueu en una aplicació.</string>
     <string name="appcleaner_filter_hiddencaches_label">Memòries cau ocultes</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Memòries cau de propòsit general emmagatzemades fora de l\'abast del sistema.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatura de l’objecte multimèdia</string>
     <string name="appcleaner_filter_thumbnails_summary">Imatges en miniatura de previsualització d\'imatge, vídeo i àudio.</string>
     <string name="appcleaner_filter_gamefiles_label">Fitxers de jocs</string>
@@ -273,9 +276,11 @@
     <string name="appcleaner_filter_recyclebins_label">Papereres de reciclatge</string>
     <string name="appcleaner_filter_recyclebins_summary">Fitxers que s\'han suprimit però que s\'han posat en una carpeta especial per permetre restaurar-los.</string>
     <string name="appcleaner_filter_webview_label">Fitxers WebView</string>
+    <string name="appcleaner_filter_webview_summary">Fitxers desats a la memòria cau per les instàncies WebView utilitzades a les aplicacions.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Còpies de seguretat de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Suprimeix les còpies addicionals de les còpies de seguretat de WhatsApp i conserva només les més recents.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fitxers rebuts de WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Fitxers que has rebut de persones a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fitxers enviats de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fitxers enviats des de WhatsApp a altres persones.</string>
     <string name="appcleaner_filter_telegram_label">Fitxers multimèdia de Telegram</string>

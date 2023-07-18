@@ -2,6 +2,7 @@
 <resources>
     <string name="dashboard_delete_all_message">Eliminare i risultati in tutti gli strumenti?</string>
     <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>

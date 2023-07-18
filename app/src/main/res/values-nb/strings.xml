@@ -213,7 +213,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
     <string name="systemcleaner_filter_lostdir_summary">Midlertidige filer som opprettes ved overføring av data mellom Android-enheter.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Filer og mapper som opprettes når lagring har blitt koblet til en linux datamaskin.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac-filer</string>
+    <string name="systemcleaner_filter_macfiles_summary">Filer og mapper som opprettes når du blar gjennom lagringen med Apples finder-app.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-filer</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data som filutforskeren i Windows kan opprette når tilkoblet lagring. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatyrbilder</string>
@@ -264,6 +266,7 @@
     <string name="appcleaner_filter_analytics_label">Statistikk</string>
     <string name="appcleaner_filter_analytics_summary">Data relatert til statistikk, f.eks. bufret statistikk for det du trykker i en app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skjulte hurtigbuffere</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Generelle hurtigbuffere lagret utenfor systemets rekkevidde.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatyrbilder for medier</string>
     <string name="appcleaner_filter_thumbnails_summary">Miniatyrbilder som er en forhåndsvisning av bilde, video og lyd.</string>
     <string name="appcleaner_filter_gamefiles_label">Spillfiler</string>
@@ -273,9 +276,11 @@
     <string name="appcleaner_filter_recyclebins_label">Papirkurver</string>
     <string name="appcleaner_filter_recyclebins_summary">Filer som har blitt slettet, men lagt i en spesiell mappe slik at de kan gjenopprettes.</string>
     <string name="appcleaner_filter_webview_label">Webview-filer</string>
+    <string name="appcleaner_filter_webview_summary">Filer bufret av Webview-forekomster brukt i apper.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sikkerhetskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slett ekstra kopier av WhatsApp sikkerhetskopier og kun behold de nyeste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mottatte filer</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Filer mottatt fra personer i WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendte filer</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Filer sendt fra WhatsApp til andre.</string>
     <string name="appcleaner_filter_telegram_label">Telegram mediefiler</string>

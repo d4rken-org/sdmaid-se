@@ -213,7 +213,9 @@
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR priečinky</string>
     <string name="systemcleaner_filter_lostdir_summary">Dočasné súbory, ktoré sa vytvárajú pri prenose údajov medzi zariadeniami so systémom Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux súbory</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Súbory a priečinky, ktoré sa vytvoria po pripojení úložiska k počítaču so systémom Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac súbory</string>
+    <string name="systemcleaner_filter_macfiles_summary">Súbory a priečinky, ktoré sa vytvárajú pri prehliadaní úložiska pomocou aplikácie Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows súbory</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Údaje, ktoré môže prieskumník súborov systému Windows vytvoriť na pripojenom úložisku. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Náhľady obrázkov</string>
@@ -264,6 +266,7 @@
     <string name="appcleaner_filter_analytics_label">Analitika</string>
     <string name="appcleaner_filter_analytics_summary">Dáta súvisiace s analýzou, napr. štatistiky uložené vo vyrovnávacej pamäti pre to, na čo klepnete v aplikácii.</string>
     <string name="appcleaner_filter_hiddencaches_label">Skrytá vyrovnávacia pamäť</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Univerzálne vyrovnávacie pamäte uložené mimo dosahu systému.</string>
     <string name="appcleaner_filter_thumbnails_label">Náhľady médií</string>
     <string name="appcleaner_filter_thumbnails_summary">Náhľady obrázkov, videa a zvuku.</string>
     <string name="appcleaner_filter_gamefiles_label">Súbory hier</string>
@@ -273,9 +276,11 @@
     <string name="appcleaner_filter_recyclebins_label">Koše</string>
     <string name="appcleaner_filter_recyclebins_summary">Súbory, ktoré boli odstránené, ale vložené do špeciálneho priečinka, aby bolo možné ich obnoviť.</string>
     <string name="appcleaner_filter_webview_label">Súbory Webview</string>
+    <string name="appcleaner_filter_webview_summary">Súbory uložené vo vyrovnávacej pamäti inštanciami Webview používané v aplikáciách.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Odstráňte nadbytočné kópie záloh WhatsApp a ponechajte si iba najnovšie.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp prijaté súbory</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Súbory, ktoré ste dostali od ľudí cez WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp odoslané súbory</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Súbory odoslané z WhatsApp ostatným.</string>
     <string name="appcleaner_filter_telegram_label">Mediálne súbory Telegramu</string>
