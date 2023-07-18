@@ -199,6 +199,7 @@ class AppJunkDeleter @Inject constructor(
         if (shizukuManager.canUseShizukuNow() && isAllApps) {
             log(TAG) { "Using Shizuku to delete inaccessible caches" }
             updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
+            updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
             val trimCandidates = targets.filter { !it.pkg.isSystemApp }
             updateProgressCount(Progress.Count.Counter(trimCandidates.size))
