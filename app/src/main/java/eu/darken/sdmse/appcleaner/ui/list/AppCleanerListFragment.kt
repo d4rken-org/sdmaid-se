@@ -12,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -84,9 +85,10 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
                                 event.items.single().junk.label.get(context)
                             )
                         } else {
-                            getString(
-                                R.string.appcleaner_delete_confirmation_message_selected_x_items,
-                                event.items.size
+                            requireContext().getQuantityString2(
+                                R.plurals.appcleaner_delete_confirmation_message_selected_x_items,
+                                event.items.size,
+                                event.items.size,
                             )
                         }
                     )

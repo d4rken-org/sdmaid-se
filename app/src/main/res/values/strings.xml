@@ -331,10 +331,13 @@
     <string name="appcleaner_item_caches_inaccessible_title">Default caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Public and private default caches. Not directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility service unavailable</string>
-    <string name="appcleaner_automation_unavailable_body">Deleting inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: Disable the option "Include inaccessible caches".</string>
+    <string name="appcleaner_automation_unavailable_body">Clearing inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: Disable the option "Include inaccessible caches".</string>
     <string name="appcleaner_junk_userprofile_label">User</string>
     <string name="appcleaner_delete_confirmation_message_x">Delete expendable files for %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Delete expendable files for %d selected apps?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Delete expendable files for %d selected app?</item>
+        <item quantity="other">Delete expendable files for %d selected apps?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Deleting caches by using Shizuku</string>
 
     <string name="appcontrol_tool_name">AppControl</string>
