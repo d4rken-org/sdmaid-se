@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageStatsManager2
 import javax.inject.Inject
@@ -42,6 +43,7 @@ class InaccessibleCacheProvider @Inject constructor(
 
         return InaccessibleCache(
             pkg.installId,
+            isSystemApp = pkg.isSystemApp,
             itemCount = 1,
             cacheBytes = storageStats.cacheBytes,
             externalCacheBytes = if (hasApiLevel(31)) {

@@ -274,7 +274,7 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, mode: Mode = Mode.AUTO) {
-        log(TAG) { "trimCaches($desiredBytes, $storageId,$mode)" }
+        log(TAG) { "trimCaches($desiredBytes, $storageId, $mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
 

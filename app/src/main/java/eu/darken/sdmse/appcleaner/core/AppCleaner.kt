@@ -170,7 +170,7 @@ class AppCleaner @Inject constructor(
                         ?.filterValues { it.isNotEmpty() }
 
                     val updatedInaccessible = when {
-                        inaccessibleSuccesses.contains(appJunk.inaccessibleCache) -> null
+                        inaccessibleSuccesses.contains(appJunk.identifier) -> null
                         else -> appJunk.inaccessibleCache
                     }
 
@@ -182,8 +182,12 @@ class AppCleaner @Inject constructor(
                 .filter { !it.isEmpty() }
         )
 
-        val automationCount = inaccessibleSuccesses.sumOf { it.itemCount }
-        val automationSize = inaccessibleSuccesses.sumOf { it.cacheBytes }
+        val automationCount = inaccessibleSuccesses
+            .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
+            .sumOf { it.itemCount }
+        val automationSize = inaccessibleSuccesses
+            .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
+            .sumOf { it.cacheBytes }
 
         return AppCleanerDeleteTask.Success(
             deletedCount = accessibleDeletionMap.values.sumOf { it.size } + automationCount,
