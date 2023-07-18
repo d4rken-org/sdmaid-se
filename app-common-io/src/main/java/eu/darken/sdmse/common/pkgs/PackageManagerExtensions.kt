@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.RemoteException
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -104,6 +105,10 @@ suspend fun PackageManager.freeStorageAndNotify(
     return withTimeout(timeout) {
         suspendCancellableCoroutine { continuation ->
             try {
+                if (Bugs.isDryRun) {
+                    continuation.resume(true)
+                    return@suspendCancellableCoroutine
+                }
 
                 freeStorageAndNotifyMethod.invoke(
                     packageManager,

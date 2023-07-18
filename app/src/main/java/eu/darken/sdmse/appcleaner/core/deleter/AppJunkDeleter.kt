@@ -7,10 +7,12 @@ import eu.darken.sdmse.appcleaner.core.InaccessibleDeletionException
 import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
+import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -30,24 +32,38 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.timeout
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.isActive
 import javax.inject.Inject
 import kotlin.reflect.KClass
+import kotlin.time.Duration.Companion.seconds
 
 
 class AppJunkDeleter @Inject constructor(
+    private val dispatcherProvider: DispatcherProvider,
     private val gatewaySwitch: GatewaySwitch,
     private val userManager: UserManager2,
     private val automationManager: AutomationManager,
     private val shizukuManager: ShizukuManager,
     private val pkgOps: PkgOps,
+    private val inaccessibleCacheProvider: InaccessibleCacheProvider,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -138,7 +154,7 @@ class AppJunkDeleter @Inject constructor(
         snapshot: AppCleaner.Data,
         targetPkgs: Set<Installed.InstallId>?,
         useAutomation: Boolean,
-    ): Set<InaccessibleCache> {
+    ): Set<Installed.InstallId> {
         log(TAG, INFO) {
             "deleteInaccessible() pkgs=${targetPkgs?.size}, $useAutomation"
         }
@@ -147,25 +163,12 @@ class AppJunkDeleter @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val targetJunk = targetPkgs
-            ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
-            ?: snapshot.junks
-
-        return deleteInaccessible(
-            targetJunk,
-            isAllApps = targetPkgs == null,
-            useAutomation = useAutomation
-        )
-    }
-
-    private suspend fun deleteInaccessible(
-        targetJunks: Collection<AppJunk>,
-        isAllApps: Boolean,
-        useAutomation: Boolean,
-    ): Set<InaccessibleCache> {
         val currentUser = userManager.currentUser()
-        val inaccessibleTargets = targetJunks
-            .filter { junk -> junk.inaccessibleCache != null }
+        val targetInaccessible = targetPkgs
+            ?.mapNotNull { tp ->
+                snapshot.junks.singleOrNull { it.identifier == tp }
+            } ?: snapshot.junks
+            .filter { it.inaccessibleCache != null }
             .filter {
                 // Without root, we shouldn't have inaccessible caches from other users
                 val isCurrentUser = it.identifier.userHandle == currentUser.handle
@@ -175,39 +178,100 @@ class AppJunkDeleter @Inject constructor(
                 isCurrentUser
             }
 
-        log(TAG) { "${inaccessibleTargets.size} inaccessible caches to delete." }
+        return deleteInaccessible(
+            targetInaccessible,
+            isAllApps = targetPkgs == null,
+            useAutomation = useAutomation
+        )
+    }
 
+    private suspend fun deleteInaccessible(
+        targets: Collection<AppJunk>,
+        isAllApps: Boolean,
+        useAutomation: Boolean,
+    ): Set<Installed.InstallId> {
+        log(TAG) { "${targets.size} inaccessible caches to delete." }
+        if (targets.isEmpty()) return emptySet()
 
-        val successTargets = mutableListOf<InaccessibleCache>()
-        val failedTargets = mutableListOf<InaccessibleCache>()
+        val successTargets = mutableListOf<Installed.InstallId>()
+        val failedTargets = mutableListOf<Installed.InstallId>()
 
-        if (shizukuManager.canUseShizukuNow() && inaccessibleTargets.isNotEmpty() && isAllApps) {
+        if (shizukuManager.canUseShizukuNow() && isAllApps) {
             log(TAG) { "Using Shizuku to delete inaccessible caches" }
             updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
-            updateProgressCount(Progress.Count.Indeterminate())
 
-            val trimCandidates = inaccessibleTargets.filter { !it.pkg.isSystemApp }
+            val trimCandidates = targets.filter { !it.pkg.isSystemApp }
+            updateProgressCount(Progress.Count.Counter(trimCandidates.size))
 
             try {
                 pkgOps.trimCaches(Long.MAX_VALUE)
-                successTargets.addAll(trimCandidates.map { it.inaccessibleCache!! })
+
+                log(TAG) { "Waiting for trimCaches to take effect..." }
+                delay(3000)
+
+                val trimCacheResults = trimCandidates
+                    .asFlow()
+                    .flowOn(dispatcherProvider.IO)
+                    .flatMapMerge { junk: AppJunk ->
+                        val beforeInfo = junk.inaccessibleCache!!
+
+                        suspend {
+                            log(TAG) { "Observing status for ${junk.identifier}" }
+                            var newInfo: InaccessibleCache? = null
+
+                            while (currentCoroutineContext().isActive) {
+                                newInfo = inaccessibleCacheProvider.determineCache(junk.pkg)
+                                when {
+                                    newInfo == null -> {
+                                        log(TAG, WARN) { "Failed to query $beforeInfo" }
+                                        break
+                                    }
+
+                                    newInfo.cacheBytes != beforeInfo.cacheBytes -> {
+                                        log(TAG, VERBOSE) { "Size has changed $beforeInfo -> $newInfo" }
+                                        break
+                                    }
+
+                                    else -> {
+                                        log(TAG, VERBOSE) { "Size has not decreased yet for $newInfo" }
+                                        delay(500L + 100 * (0..10).random())
+                                    }
+                                }
+                            }
+
+                            junk to newInfo
+                        }.asFlow()
+                    }
+                    .onEach { increaseProgress() }
+                    .timeout(10.seconds)
+                    .catch { log(TAG, WARN) { "Size observations failed: $it" } }
+                    .toList()
+
+                log(TAG) { "Checking trimCaches result: $trimCacheResults" }
+                updateProgressCount(Progress.Count.Indeterminate())
+
+                trimCacheResults.forEach { (junk, result) ->
+                    if (result != null) {
+                        log(TAG) { "trimCache successful for ${junk.identifier}" }
+                        successTargets.add(junk.identifier)
+                    } else {
+                        log(TAG, WARN) { "trimCache failed for ${junk.identifier}" }
+                        failedTargets.add(junk.identifier)
+                    }
+                }
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
-                failedTargets.addAll(trimCandidates.map { it.inaccessibleCache!! })
+                failedTargets.addAll(trimCandidates.map { it.identifier })
             }
         }
 
+        if (useAutomation && targets.size != successTargets.size) {
+            log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
+            updateProgressPrimary(R.string.appcleaner_automation_loading)
+            updateProgressSecondary(CaString.EMPTY)
+            updateProgressCount(Progress.Count.Indeterminate())
 
-        log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
-        updateProgressPrimary(R.string.appcleaner_automation_loading)
-        updateProgressSecondary(CaString.EMPTY)
-
-        if (!useAutomation) log(TAG, INFO) { "useAutomation=false" }
-
-        if (useAutomation && inaccessibleTargets.isNotEmpty() && inaccessibleTargets.size != successTargets.size) {
-            val remainingTargets = inaccessibleTargets
-                .filter { !successTargets.contains(it.inaccessibleCache) }
-                .mapNotNull { it.inaccessibleCache }
+            val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
 
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
             val acsTask = ClearCacheTask(remainingTargets.map { it.identifier })
@@ -216,7 +280,10 @@ class AppJunkDeleter @Inject constructor(
             } catch (e: AutomationUnavailableException) {
                 throw InaccessibleDeletionException(e)
             }
-            successTargets.addAll(remainingTargets.filter { result.successful.contains(it.identifier) })
+
+            successTargets.addAll(result.successful)
+        } else if (!useAutomation) {
+            log(TAG, INFO) { "useAutomation=false" }
         }
 
         return successTargets.toSet()
