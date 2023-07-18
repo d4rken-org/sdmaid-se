@@ -31,7 +31,6 @@
     <string name="onboarding_welcome_body_beta">Dit is een bèta (test) versie. Ga verder met gevoel voor humor en een back-upplan. Meld problemen die je tegenkomt.</string>
     <string name="onboarding_welcome_continue_action">Doorgaan</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (ook bekend als SD Maid 2) is de opvolger van SD Maid. Een nieuwe app, geoptimaliseerd voor moderne Android.</string>
     <string name="onboarding_versus_body2">De architectuur van zijn voorganger is meer dan 7 jaar oud en niet ontworpen voor de uitdagingen van nieuwere Android-versies. Een volledig herontwerp was nodig om de ontwikkeling voort te zetten.</string>
     <string name="onboarding_versus_body3">Overweeg om over te schakelen naar SD Maid SE voor betere resultaten.</string>
     <string name="onboarding_versus_continue_action">Doorgaan</string>
@@ -302,10 +301,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
-    <string name="appcleaner_automation_unavailable_body">Voor het verwijderen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid vereist, maar deze was niet beschikbaar. Als je er geen gebruik van wilt maken: Schakel de optie \"Inclusief ontoegankelijke caches\" uit.</string>
     <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
     <string name="appcleaner_delete_confirmation_message_x">Verwijderbare bestanden voor %s verwijderen?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Verwijderbare bestanden voor %d geselecteerde apps verwijderen?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cachegeheugens verwijderen met Shizuku</string>
     <string name="appcontrol_tool_name">AppControle</string>
     <string name="appcontrol_explanation_short">Apps die op je apparaat zijn geïnstalleerd.</string>

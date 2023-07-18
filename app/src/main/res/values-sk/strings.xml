@@ -35,7 +35,6 @@
     <string name="onboarding_welcome_body_beta">Toto je beta (testovacia) zostava. Pokračujte so zmyslom pre humor a záložným plánom. Nahláste problémy, na ktoré narazíte.</string>
     <string name="onboarding_welcome_continue_action">Pokračovať</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (alias. SD Maid 2) je nástupca SD Maid. Nová aplikácia optimalizovaná pre moderný Android.</string>
     <string name="onboarding_versus_body2">Architektúra jeho predchodcu je stará viac ako 7 rokov a nie je navrhnutá pre výzvy novších verzií Androidu. Na pokračovanie vývoja bolo potrebné úplné prepracovanie.</string>
     <string name="onboarding_versus_body3">Pre lepšie výsledky zvážte prechod na SD Maid SE.</string>
     <string name="onboarding_versus_continue_action">Pokračovať</string>
@@ -304,10 +303,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">Predvolená vyrovnávacia pamäť</string>
     <string name="appcleaner_item_caches_inaccessible_body">Verejné a súkromné predvolené vyrovnávacie pamäte. Nie je priamo prístupné, ale možno ho vymazať nepriamo (napr. prostredníctvom služby dostupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba dostupnosti nie je k dispozícii</string>
-    <string name="appcleaner_automation_unavailable_body">Odstránenie nedostupných vyrovnávacích pamätí vyžaduje službu dostupnosti SD Maid, ktorá však bola nedostupná. Ak ju nechcete používať: Zakážte možnosť „Zahrnúť neprístupné vyrovnávacie pamäte“.</string>
     <string name="appcleaner_junk_userprofile_label">Užívateľ</string>
     <string name="appcleaner_delete_confirmation_message_x">Odstrániť nepotrebné položky pre %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Odstrániť nepotrebné položky pre %d zvolené aplikácie?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazanie vyrovnávacej pamäte pomocou Shizuku</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>

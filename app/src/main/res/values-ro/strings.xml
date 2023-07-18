@@ -19,7 +19,6 @@
     <string name="onboarding_welcome_body_beta">Acesta este o construcție beta (testare). Procedează cu sens de umor și un plan de rezervă. Vă rugăm raportează probleme pe care le vei întâlni.</string>
     <string name="onboarding_welcome_continue_action">Continuă</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) este succesorul aplicației SD Maid. O aplicație nouă, optimizat pentru o versiune modernă Android.</string>
     <string name="onboarding_versus_body2">Predecesorul său are peste 7 ani și nu este conceput pentru provocările versiunilor mai noi de Android. O reproiectare completă a fost necesară pentru a continua dezvoltarea.</string>
     <string name="onboarding_versus_body3">Consideră să treci la SD Maid SE pentru rezultatele îmbunătățite.</string>
     <string name="onboarding_versus_continue_action">Continuă</string>
@@ -234,7 +233,6 @@
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
     <string name="appcleaner_automation_unavailable_title">Serviciul de accesibilitate indisponibil</string>
-    <string name="appcleaner_automation_unavailable_body">Ștergerea cache-urilor inaccesibile necesită serviciul de accesibilitate SD Maid, dar acesta nu era disponibil. Dacă nu dorești să-l utilizezi: dezactivează opțiunea „Include cache inaccesibile”.</string>
     <string name="appcleaner_junk_userprofile_label">Utilizator</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicațiile instalate în dispozitivul tău.</string>

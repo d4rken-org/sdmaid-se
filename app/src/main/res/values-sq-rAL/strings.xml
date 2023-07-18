@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">Ky është një ndërtim beta (testues). Vazhdoni me një sens humori dhe një plan rezervë. Ju lutemi raportoni problemet që hasni.</string>
     <string name="onboarding_welcome_continue_action">Vazhdo</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) është pasardhësi i SD Maid. Një aplikacion i ri, i optimizuar për Android modern.</string>
     <string name="onboarding_versus_body2">Arkitektura e paraardhësit të tij është mbi 7 vjeç dhe nuk është projektuar për sfidat e versioneve më të reja Android. Një ridizajn i plotë ishte i nevojshëm për të vazhduar zhvillimin.</string>
     <string name="onboarding_versus_body3">Merrni parasysh kalimin në SD Maid SE për rezultate të përmirësuara.</string>
     <string name="onboarding_versus_continue_action">Vazhdo</string>
@@ -213,7 +212,6 @@
     <string name="appcleaner_item_caches_inaccessible_title">Cache të paracaktuar</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memoriet e paracaktuara publike dhe private. Jo i aksesueshëm drejtpërdrejt, por mund të fshihet në mënyrë indirekte (p.sh. nëpërmjet shërbimit të aksesueshmërisë).</string>
     <string name="appcleaner_automation_unavailable_title">Shërbimi i aksesueshmërisë është i çaktivizuar</string>
-    <string name="appcleaner_automation_unavailable_body">Fshirja e memories së paarritshme kërkon shërbimin e aksesueshmërisë së SD Maid, por ai nuk ishte i disponueshëm. Nëse nuk dëshironi ta përdorni: Çaktivizoni opsionin \"Përfshi cache të paarritshme\".</string>
     <string name="appcleaner_junk_userprofile_label">Përdoruesi</string>
     <string name="appcontrol_tool_name">Kontroll i aplikacionit</string>
     <string name="appcontrol_explanation_short">Aplikacionet e instaluara në pajisjen tuaj.</string>

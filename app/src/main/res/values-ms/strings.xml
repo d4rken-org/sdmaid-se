@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">Ini ialah binaan beta (ujian). Teruskan dengan rasa humor dan pelan sandaran. Sila laporkan isu yang anda hadapi.</string>
     <string name="onboarding_welcome_continue_action">Teruskan</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (dikenali juga, SD Maid 2) ialah pengganti SD Maid. Aplikasi baharu, dioptimumkan untuk Android moden.</string>
     <string name="onboarding_versus_body2">Seni bina pendahulunya berusia lebih 7 tahun dan tidak direka bentuk untuk cabaran versi Android yang lebih baharu. Reka bentuk semula yang lengkap diperlukan untuk meneruskan pembangunan.</string>
     <string name="onboarding_versus_body3">Pertimbangkan untuk bertukar kepada SD Maid SE untuk hasil yang lebih baik.</string>
     <string name="onboarding_versus_continue_action">Teruskan</string>
@@ -303,10 +302,8 @@ Lain-lain
     <string name="appcleaner_item_caches_inaccessible_title">Cache lalai</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache lalai awam dan peribadi. Tidak boleh diakses secara langsung, tetapi boleh dipadamkan secara tidak langsung (cth. melalui perkhidmatan aksesibiliti).</string>
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>
-    <string name="appcleaner_automation_unavailable_body">Memadamkan cache yang tidak boleh diakses memerlukan perkhidmatan aksesibiliti SD Maid, tetapi ia tidak tersedia. Jika anda tidak mahu menggunakannya: Lumpuhkan pilihan \"Sertakan cache tidak boleh diakses\".</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Padamkan fail boleh guna untuk %s?</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Padamkan fail boleh guna untuk %d aplikasi terpilih?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Memadam cache dengan menggunakan Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>

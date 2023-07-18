@@ -29,7 +29,6 @@
     <string name="onboarding_welcome_body_beta">這是一個測試版組建。您可以帶著幽默感和備份計畫繼續進行，請回報您遇到的問題。</string>
     <string name="onboarding_welcome_continue_action">繼續</string>
     <string name="onboarding_versus_title">SD 女僕 / SD 女僕 SE</string>
-    <string name="onboarding_versus_body1">SD 女僕 SE (又名：SD 女僕 2) 是 SD 女僕的後繼者。一個全新的應用程式，專為現代化 Android 最佳化。</string>
     <string name="onboarding_versus_body2">它的前身架構已經超過 7 年，同樣也並非為應對較新 Android 版本的挑戰而設計。為了繼續開發，有必要進行徹底的重新設計。</string>
     <string name="onboarding_versus_body3">考慮切換至 SD 女僕 SE 以取得改善的結果。</string>
     <string name="onboarding_versus_continue_action">繼續</string>
@@ -295,10 +294,8 @@
     <string name="appcleaner_item_caches_inaccessible_title">預設快取</string>
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
-    <string name="appcleaner_automation_unavailable_body">刪除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
     <string name="appcleaner_junk_userprofile_label">使用者</string>
     <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">為 %d 個已選取的應用程式刪除無關緊要的檔案？</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>

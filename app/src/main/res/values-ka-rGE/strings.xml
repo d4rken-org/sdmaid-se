@@ -19,7 +19,6 @@
     <string name="onboarding_welcome_body_beta">ეს არის ბეტა (სატესტო) კონსტრუქცია. განაგრძეთ იუმორის გრძნობით და სარეზერვო გეგმით. გთხოვთ, შეატყობინოთ თქვენს წინაშე არსებულ პრობლემებს.</string>
     <string name="onboarding_welcome_continue_action">გაგრძელება</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) არის SD Maid-ის მემკვიდრე. ახალი აპლიკაცია, ოპტიმიზებული თანამედროვე Android-ისთვის.</string>
     <string name="onboarding_versus_body2">მისი წინამორბედის არქიტექტურა 7 წელზე მეტია და არ არის შექმნილი Android-ის ახალი ვერსიების გამოწვევებისთვის. განვითარების გასაგრძელებლად აუცილებელი იყო სრული რედიზაინი.</string>
     <string name="onboarding_versus_body3">იფიქრეთ SD Maid SE-ზე გადასვლაზე გაუმჯობესებული შედეგებისთვის.</string>
     <string name="onboarding_versus_continue_action">გაგრძელება</string>

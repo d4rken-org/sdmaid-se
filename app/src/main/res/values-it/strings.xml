@@ -19,7 +19,6 @@
     <string name="onboarding_welcome_body_beta">Questa è una versione beta (di prova). Procedi con senso dell\'umorismo e un piano di backup. Ti prego di segnalare i problemi riscontrati.</string>
     <string name="onboarding_welcome_continue_action">Avanti</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (o SD Maid 2) è il successore di SD Maid. Una nuova app, ottimizzata per le versioni moderne di Android.</string>
     <string name="onboarding_versus_body2">L\'architettura del suo predecessore ha più di 7 anni e non è stata progettata per le sfide delle più recenti versioni di Android. Una riprogettazione completa era necessaria per continuare lo sviluppo.</string>
     <string name="onboarding_versus_body3">Valuta il passaggio a SD Maid SE per ottenere risultati migliori.</string>
     <string name="onboarding_versus_continue_action">Avanti</string>
