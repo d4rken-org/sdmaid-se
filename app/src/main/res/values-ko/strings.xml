@@ -242,7 +242,6 @@
     <string name="appcleaner_include_systemapps_summary">스캔에 시스템 앱을 포함합니다.</string>
     <string name="appcleaner_include_runningapps_label">실행 중인 앱 포함</string>
     <string name="appcleaner_include_runningapps_summary">스캔 과정에서 영향을 받을 수 있는 실행 중인 앱들을 포함합니다.</string>
-    <string name="appcleaner_include_inaccessible_label">접근 불가한 데이터 포함</string>
     <string name="appcleaner_include_inaccessible_summary">직접 접근할 수는 없지만 시스템 설정과 접근성 권한을 이용해 삭제를 자동화할 수 있는 데이터를 포함합니다. </string>
     <string name="appcleaner_include_multiuser_label">다른 유저 포함</string>
     <string name="appcleaner_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>

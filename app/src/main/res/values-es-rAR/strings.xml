@@ -248,7 +248,6 @@
     <string name="appcleaner_include_systemapps_summary">Incluye aplicaciones del sistema en el escaneo.</string>
     <string name="appcleaner_include_runningapps_label">Incluye aplicaciones en ejecución</string>
     <string name="appcleaner_include_runningapps_summary">Incluye las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
-    <string name="appcleaner_include_inaccessible_label">Incluye datos inaccesibles</string>
     <string name="appcleaner_include_inaccessible_summary">Incluye datos a los que no se puede acceder directamente, pero que pueden eliminarse a través de la configuración del sistema y automatizarse mediante un servicio de accesibilidad. </string>
     <string name="appcleaner_include_multiuser_label">Incluir a otros usuarios</string>
     <string name="appcleaner_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>

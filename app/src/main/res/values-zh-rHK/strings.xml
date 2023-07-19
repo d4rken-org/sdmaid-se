@@ -242,7 +242,6 @@
     <string name="appcleaner_include_systemapps_summary">掃描時包含系統應用程式。</string>
     <string name="appcleaner_include_runningapps_label">包含正在執行中的應用程式</string>
     <string name="appcleaner_include_runningapps_summary">包含目前正在執行的應用程式，可能會造成干擾。</string>
-    <string name="appcleaner_include_inaccessible_label">包含無法存取的資料</string>
     <string name="appcleaner_include_inaccessible_summary">包含無法直接存取但可以透過系統設定和自動使用無障礙服務刪除的資料。 </string>
     <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
     <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>

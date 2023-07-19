@@ -248,7 +248,6 @@
     <string name="appcleaner_include_systemapps_summary">Systeemapps opnemen in de scan.</string>
     <string name="appcleaner_include_runningapps_label">Inclusief actieve apps</string>
     <string name="appcleaner_include_runningapps_summary">Voeg apps toe die momenteel actief zijn en storing veroorzaken.</string>
-    <string name="appcleaner_include_inaccessible_label">Inclusief ontoegankelijke gegevens</string>
     <string name="appcleaner_include_inaccessible_summary">Voeg gegevens toe die niet direct toegankelijk zijn, maar wel kunnen worden verwijderd via systeeminstellingen en geautomatiseerd met behulp van een toegankelijkheidsservice. </string>
     <string name="appcleaner_include_multiuser_label">Inclusief andere gebruikers</string>
     <string name="appcleaner_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>

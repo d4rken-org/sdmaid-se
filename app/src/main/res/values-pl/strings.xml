@@ -35,8 +35,10 @@
     <string name="onboarding_welcome_body_beta">To jest wersja beta (testowa). Działaj z poczuciem humoru i planem awaryjnym, a napotkane problemy zgłaszaj jak najszybciej.</string>
     <string name="onboarding_welcome_continue_action">Dalej</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (tj. SD Maid 2) to następca SD Maid (tj. SD Maid 1). Jest to nowa aplikacja zoptymalizowana dla nowszych wersji Androida.</string>
     <string name="onboarding_versus_body2">Architektura poprzednika była przestarzała (ponad 7 lat) i nie była przystosowana do nowych wyzwań w nowszych wersjach Androida. Niezbędna była kompletna przebudowa, aby kontynuować dalszy rozwój.</string>
     <string name="onboarding_versus_body3">Rozważ przejście na SD Maid SE, aby uzyskać lepsze wyniki.</string>
+    <string name="onboarding_versus_body4">\"Status Pro\" SD Maid 1 nie jest możliwy do przeniesienia na SD Maid 2/SE. Po 12 latach darmowej aktualizacji wymagany jest nowy zakup dla podtrzymania rozwoju (na potrzeby twórcy).</string>
     <string name="onboarding_versus_continue_action">Dalej</string>
     <string name="onboarding_privacy_title">Prywatność</string>
     <string name="onboarding_privacy_body1">SD Maid nie ma reklam i nie sprzedaje danych użytkowników.</string>
@@ -258,7 +260,6 @@
     <string name="appcleaner_include_systemapps_summary">Uwzględnij aplikacje systemowe podczas skanowania.</string>
     <string name="appcleaner_include_runningapps_label">Uwzględnij uruchomione aplikacje</string>
     <string name="appcleaner_include_runningapps_summary">Uwzględnij uruchomione aplikacje, które mogą powodować zakłócenia.</string>
-    <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne dane</string>
     <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień. </string>
     <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
     <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
@@ -310,8 +311,15 @@
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień niedostępna</string>
+    <string name="appcleaner_automation_unavailable_body">Oczyszczanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
     <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Usunąć zbędne pliki dla %d wybranej aplikacji?</item>
+        <item quantity="few">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
+        <item quantity="many">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
+        <item quantity="other">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>

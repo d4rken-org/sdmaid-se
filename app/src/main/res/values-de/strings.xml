@@ -31,8 +31,10 @@
     <string name="onboarding_welcome_body_beta">Dies ist eine Beta (Test) Version. Fortfahren mit etwas Sinn für Humor und einem Backup-Plan. Bitte gib mir Bescheid, wenn Du Probleme findest.</string>
     <string name="onboarding_welcome_continue_action">Weiter</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) ist der Nachfolger von SD Maid (alias SD Maid 1). Eine neue App, optimiert für modernes Android.</string>
     <string name="onboarding_versus_body2">Die Architektur des Vorgängers ist über 7 Jahre alt und nicht für die Herausforderungen neuerer Android-Versionen ausgelegt. Eine komplette Neugestaltung war notwendig, um die Entwicklung fortzusetzen.</string>
     <string name="onboarding_versus_body3">Erwäge den Wechsel zu SD Maid SE, um bessere Ergebnisse zu erzielen.</string>
+    <string name="onboarding_versus_body4">Der „Pro-Status“ von SD Maid 1 ist leider nicht auf SD Maid 2/SE übertragbar. Nach 12 Jahren kostenloser Updates ist ein neuer Kauf erforderlich, um die Entwicklung aufrechtzuerhalten (den Entwickler zu ernähren).</string>
     <string name="onboarding_versus_continue_action">Weiter</string>
     <string name="onboarding_privacy_title">Privatsphäre</string>
     <string name="onboarding_privacy_body1">SD Maid hat keine Werbung und verkauft keine Benutzerdaten.</string>
@@ -248,7 +250,6 @@
     <string name="appcleaner_include_systemapps_summary">System-Apps in den Scan einbeziehen.</string>
     <string name="appcleaner_include_runningapps_label">Laufende Apps einbeziehen</string>
     <string name="appcleaner_include_runningapps_summary">Derzeit ausgeführte Apps einbeziehen. Kann Störungen verursachen.</string>
-    <string name="appcleaner_include_inaccessible_label">Unzugängliche Daten einbeziehen</string>
     <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht werde können, automatisiert mittels eines Bedienungshilfe-Services. </string>
     <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
     <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
@@ -301,8 +302,13 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
+    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Daten einbeziehen“.</string>
     <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcleaner_delete_confirmation_message_x">Überflüssige Dateien für %s löschen?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Überflüssige Dateien für %d ausgewählte App löschen?</item>
+        <item quantity="other">Überflüssige Dateien für %d ausgewählte Apps löschen?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
     <string name="appcontrol_tool_name">App-Kontrolle</string>
     <string name="appcontrol_explanation_short">Auf Deinem Gerät installierte Apps.</string>

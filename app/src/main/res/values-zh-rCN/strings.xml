@@ -29,8 +29,10 @@
     <string name="onboarding_welcome_body_beta">这是测试版本，所以在使用时请放轻松并保留备份，请及时报告您遇到的问题。</string>
     <string name="onboarding_welcome_continue_action">继续</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE（又名 SD Maid 2）是 SD Maid 的续作，是一款专门优化现代 Android 系统的全新应用。</string>
     <string name="onboarding_versus_body2">它的前身架构已经超过 7 年了，不适用于新版 Android 系统。为了继续开发，需要进行完全的重新设计。</string>
     <string name="onboarding_versus_body3">您可以考虑转用 SD Maid SE 以获得更好的效果。</string>
+    <string name="onboarding_versus_body4">很不幸，SD Maid 1 的“专业状态”无法转移到 SD Maid 2/SE。我们经过了 12 年的免费更新，请购买新的产品来维持我们的发展（支持开发者）。</string>
     <string name="onboarding_versus_continue_action">继续</string>
     <string name="onboarding_privacy_title">隐私</string>
     <string name="onboarding_privacy_body1">SD Maid 不含广告，也不会售卖用户信息。</string>
@@ -242,7 +244,6 @@
     <string name="appcleaner_include_systemapps_summary">在扫描中包含系统应用。</string>
     <string name="appcleaner_include_runningapps_label">包含正在运行的应用</string>
     <string name="appcleaner_include_runningapps_summary">包含正在运行的应用，这可能造成干扰。</string>
-    <string name="appcleaner_include_inaccessible_label">包含无法访问的数据</string>
     <string name="appcleaner_include_inaccessible_summary">包含无法被直接访问的数据，但是这些数据可以通过系统设置删除，也可以通过无障碍服务自动处理。 </string>
     <string name="appcleaner_include_multiuser_label">包含其他用户</string>
     <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
@@ -294,8 +295,12 @@
     <string name="appcleaner_item_caches_inaccessible_title">默认缓存</string>
     <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除（如通过无障碍服务）。</string>
     <string name="appcleaner_automation_unavailable_title">无障碍服务无法使用</string>
+    <string name="appcleaner_automation_unavailable_body">SD Maid 需要无障碍服务来删除无法访问的缓存，但是服务未启动。如果您不想使用这一功能，可关闭选项“包含无法访问的缓存”。</string>
     <string name="appcleaner_junk_userprofile_label">用户</string>
     <string name="appcleaner_delete_confirmation_message_x">删除 %s 的可删除文件？</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="other">删除 %d 个所选应用的可删除文件？</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">使用 Shizuku 删除缓存</string>
     <string name="appcontrol_tool_name">应用控制</string>
     <string name="appcontrol_explanation_short">安装在您的设备上的应用程序。</string>

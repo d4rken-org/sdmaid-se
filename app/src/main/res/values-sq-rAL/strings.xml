@@ -164,7 +164,6 @@
     <string name="appcleaner_include_systemapps_summary">Përfshini aplikacionet e sistemit në skanim.</string>
     <string name="appcleaner_include_runningapps_label">Përfshi aplikacionet e ekzekutimit</string>
     <string name="appcleaner_include_runningapps_summary">Përfshi aplikacionet që po ekzekutohen aktualisht, të cilat mund të shkaktojnë ndërhyrje.</string>
-    <string name="appcleaner_include_inaccessible_label">Përfshini të dhëna të paarritshme</string>
     <string name="appcleaner_include_inaccessible_summary">Përfshi të dhëna që nuk mund të aksesohen drejtpërdrejt, por që mund të fshihen nëpërmjet cilësimeve të sistemit dhe të automatizohen duke përdorur një shërbim aksesueshmërie. </string>
     <string name="appcleaner_include_multiuser_label">Përfshini përdorues të tjerë</string>
     <string name="appcleaner_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>

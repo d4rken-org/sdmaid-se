@@ -31,8 +31,10 @@
     <string name="onboarding_welcome_body_beta">Dette er en beta (test) versjon. Fortsett med godt humør og en sikkerhetskopi i bakhånd. Vennligst rapporter problemer som oppstår.</string>
     <string name="onboarding_welcome_continue_action">Fortsett</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) er etterfølgeren til SD Maid (eller SD Maid 1). En ny app, optimalisert for moderne Android.</string>
     <string name="onboarding_versus_body2">Dens forgjengers arkitektur er over 7 år gammel og ikke designet for utfordringene til nyere Android-versjoner. Et fullstendig redesign var nødvendig for å fortsette utviklingen.</string>
     <string name="onboarding_versus_body3">Vurder å bytte til SD Maid SE for bedre resultater.</string>
+    <string name="onboarding_versus_body4">SD Maid 1 sin \"pro status\" kan dessverre ikke overføres til SD Maid 2/SE. Etter 12 år med gratis oppdateringer kreves et nytt kjøp for å opprettholde utviklingen (gi mat til utvikleren).</string>
     <string name="onboarding_versus_continue_action">Fortsett</string>
     <string name="onboarding_privacy_title">Personvern</string>
     <string name="onboarding_privacy_body1">SD Maid har ingen annonser og selger ikke brukerdata.</string>
@@ -248,7 +250,6 @@
     <string name="appcleaner_include_systemapps_summary">Inkluder systemapper i skanningen.</string>
     <string name="appcleaner_include_runningapps_label">Inkluder kjørende apper</string>
     <string name="appcleaner_include_runningapps_summary">Inkluder apper som kjører nå og som kan forårsake forstyrrelser.</string>
-    <string name="appcleaner_include_inaccessible_label">Inkluder utilgjengelig data</string>
     <string name="appcleaner_include_inaccessible_summary">Inkluder data som ikke kan nås direkte, men som kan slettes via systeminnstillinger og automatiseres ved hjelp av en tilgjengelighetstjeneste. </string>
     <string name="appcleaner_include_multiuser_label">Inkluder andre brukere</string>
     <string name="appcleaner_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
@@ -301,8 +302,13 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standard hurtigbuffere</string>
     <string name="appcleaner_item_caches_inaccessible_body">Standard offentlige og private hurtigbuffere. Ikke direkte tilgjengelig, men kan slettes indirekte (f.eks. via tilgjengelighetstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>
+    <string name="appcleaner_automation_unavailable_body">Fjerning av utilgjengelige hurtigbuffere krever SD Maid sin tilgjengelighetstjeneste, men den var utilgjengelig. Hvis du ikke vil bruke den: Deaktiver alternativet \"Inkluder utilgjengelige hurtigbuffere\".</string>
     <string name="appcleaner_junk_userprofile_label">Bruker</string>
     <string name="appcleaner_delete_confirmation_message_x">Slette unødvendige filer for %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Slette unødvendige filer for %d valgt app?</item>
+        <item quantity="other">Slette unødvendige filer for %d valgte apper?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
     <string name="appcontrol_tool_name">Appkontroll</string>
     <string name="appcontrol_explanation_short">Apper installert på enheten din.</string>
