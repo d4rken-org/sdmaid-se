@@ -250,7 +250,6 @@ Lain-lain
     <string name="appcleaner_include_systemapps_summary">Sertakan aplikasi sistem dalam imbasan.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
     <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi yang sedang berjalan yang boleh menyebabkan gangguan.</string>
-    <string name="appcleaner_include_inaccessible_label">Sertakan data yang tidak boleh diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Sertakan data yang tidak boleh diakses secara langsung tetapi boleh dipadamkan melalui tetapan sistem dan diautomatikkan menggunakan perkhidmatan aksesibiliti. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>

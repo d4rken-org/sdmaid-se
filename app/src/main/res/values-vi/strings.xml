@@ -29,8 +29,10 @@
     <string name="onboarding_welcome_body_beta">Đây là bản dựng beta (thử nghiệm). Sao lưu trước khi tiến hành. Vui lòng báo cáo các vấn đề bạn gặp phải.</string>
     <string name="onboarding_welcome_continue_action">Tiếp tục</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (hay còn gọi là SD Maid 2) là sự kế thừa của SD Maid (hay còn gọi là SD Maid 1). Một ứng dụng mới, được tối ưu hóa cho Android hiện đại.</string>
     <string name="onboarding_versus_body2">Kiến trúc của người tiền nhiệm đã hơn 7 năm tuổi và không được thiết kế cho những thách thức của các phiên bản Android mới hơn. Một thiết kế lại hoàn toàn là cần thiết để tiếp tục phát triển.</string>
     <string name="onboarding_versus_body3">Hãy chuyển sang SD Maid SE để có kết quả tốt hơn.</string>
+    <string name="onboarding_versus_body4">Rất tiếc, \"trạng thái pro\" của SD Maid 1 không thể chuyển sang SD Maid 2/SE. Sau 12 năm cập nhật miễn phí, cần phải mua mới để duy trì sự phát triển (càn thiết cho nhà phát triển).</string>
     <string name="onboarding_versus_continue_action">Tiếp tục</string>
     <string name="onboarding_privacy_title">Riêng tư</string>
     <string name="onboarding_privacy_body1">SD Maid không có quảng cáo và không bán dữ liệu người dùng.</string>
@@ -242,7 +244,6 @@
     <string name="appcleaner_include_systemapps_summary">Bao gồm các ứng dụng hệ thống trong quá trình quét.</string>
     <string name="appcleaner_include_runningapps_label">Bao gồm các app đang chạy</string>
     <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy có thể gây nhiễu.</string>
-    <string name="appcleaner_include_inaccessible_label">Bao gồm dữ liệu không thể truy cập</string>
     <string name="appcleaner_include_inaccessible_summary">Bao gồm dữ liệu không thể truy cập trực tiếp nhưng có thể xóa thông qua cài đặt hệ thống và tự động hóa bằng dịch vụ trợ năng. </string>
     <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
     <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
@@ -294,8 +295,12 @@
     <string name="appcleaner_item_caches_inaccessible_title">Bộ nhớ đệm mặc định</string>
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
+    <string name="appcleaner_automation_unavailable_body">Xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
     <string name="appcleaner_junk_userprofile_label">Người dùng</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>

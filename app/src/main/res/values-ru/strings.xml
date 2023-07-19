@@ -35,8 +35,10 @@
     <string name="onboarding_welcome_body_beta">Это бета (тестовая версия). Работайте с чувством юмора и планом отхода. Пожалуйста, сообщайте о проблемах, с которыми Вы сталкиваетесь.</string>
     <string name="onboarding_welcome_continue_action">Продолжить</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (оно же SD Maid 2) является наследником SD Maid (оно же SD Maid 1). Это новое приложение, оптимизированное для современных версий Android.</string>
     <string name="onboarding_versus_body2">Архитектуре предшественника более 7 лет, она не рассчитана на вызовы новых версий Android. Для продолжения разработки было необходимо полностью перепроектировать систему.</string>
     <string name="onboarding_versus_body3">Рассмотрите возможность перехода на SD Maid SE для улучшения результатов.</string>
+    <string name="onboarding_versus_body4">К сожалению, \"pro status\" в SD Maid 1 не может быть перенесен на SD Maid 2/SE. После 12 лет бесплатных обновлений необходима новая покупка для поддержания разработки (пища разработчика).</string>
     <string name="onboarding_versus_continue_action">Продолжить</string>
     <string name="onboarding_privacy_title">Приватность</string>
     <string name="onboarding_privacy_body1">SD Maid не содержит рекламы и не продает данные пользователей.</string>
@@ -260,7 +262,6 @@
     <string name="appcleaner_include_systemapps_summary">Включение в проверку системных приложений.</string>
     <string name="appcleaner_include_runningapps_label">Включать работающие приложения</string>
     <string name="appcleaner_include_runningapps_summary">Включение в проверку работающих в данный момент приложений, это может создать помехи.</string>
-    <string name="appcleaner_include_inaccessible_label">Включать недоступные данные</string>
     <string name="appcleaner_include_inaccessible_summary">Включение данных, к которым нет прямого доступа, но их можно удалить в системных настройках и автоматизировать удаление с помощью службы специальных возможностей. </string>
     <string name="appcleaner_include_multiuser_label">Включать других пользователей</string>
     <string name="appcleaner_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>

@@ -29,6 +29,7 @@
     <string name="onboarding_welcome_body_beta">Aplikasi ini dalam tahap beta (uji coba). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
     <string name="onboarding_welcome_continue_action">Lanjut</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Ini adalah aplikasi baru yang dioptimalkan untuk Android modern.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
@@ -242,7 +243,6 @@
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
     <string name="appcleaner_include_runningapps_summary">Menyertakan aplikasi yang sedang berjalan dapat menyebabkan gangguan.</string>
-    <string name="appcleaner_include_inaccessible_label">Sertakan data yang tidak bisa diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Menyertakan data yang tidak bisa diakses langsung namun dapat dihapus melalui pengaturan sistem dan diotomatisasi menggunakan layanan aksesibilitas. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
@@ -296,6 +296,9 @@
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Hapus berkas-berkas yang tidak penting di %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="other">Hapus berkas-berkas yang tidak penting untuk %d aplikasi yang terpilih?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>

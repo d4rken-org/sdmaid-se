@@ -35,8 +35,10 @@
     <string name="onboarding_welcome_body_beta">Toto je Beta (testovací) verze. Postupujte se smyslem pro humor a záložním plánem. Nahlaste problémy, se kterými se setkáte.</string>
     <string name="onboarding_welcome_continue_action">Pokračovat</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">Aplikace SD Maid SE (SD Maid 2) je nástupcem SD Maid (SD Maid 1). Nová aplikace optimalizovaná pro moderní systém Android.</string>
     <string name="onboarding_versus_body2">Architektura jejího předchůdce je více než 7 let stará a není navržena pro výzvy novějších verzí systému Android. Aby bylo možné pokračovat ve vývoji, bylo nutné provést kompletní redesign.</string>
     <string name="onboarding_versus_body3">Zvažte přechod na SD Maid SE, abyste dosáhli lepších výsledků.</string>
+    <string name="onboarding_versus_body4">\"Profesionální status\" SD Maid 1 bohužel nelze přenést na SD Maid 2/SE. Po 12 letech bezplatných aktualizací je pro udržení vývoje nutný nový nákup (podpořit vývojáře).</string>
     <string name="onboarding_versus_continue_action">Pokračovat</string>
     <string name="onboarding_privacy_title">Ochrana osobních údajů</string>
     <string name="onboarding_privacy_body1">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů.</string>
@@ -260,7 +262,6 @@
     <string name="appcleaner_include_systemapps_summary">Zahrňte do skenování systémové aplikace.</string>
     <string name="appcleaner_include_runningapps_label">Zahrnout spuštěné aplikace</string>
     <string name="appcleaner_include_runningapps_summary">Zahrnout právě běžící aplikace, což může způsobit jejich přerušení.</string>
-    <string name="appcleaner_include_inaccessible_label">Zahrnout nepřístupná data</string>
     <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je odstranit prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
     <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
     <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
@@ -315,8 +316,15 @@
     <string name="appcleaner_item_caches_inaccessible_title">Výchozí mezipaměti</string>
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
+    <string name="appcleaner_automation_unavailable_body">K vyčištění nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
     <string name="appcleaner_junk_userprofile_label">Uživatel</string>
     <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné položky pro %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Smazat nepotřebné soubory pro %d vybranou aplikaci?</item>
+        <item quantity="few">Smazat nepotřebné soubory pro %d vybrané aplikace?</item>
+        <item quantity="many">Smazat nepotřebné soubory pro %d vybraných aplikací?</item>
+        <item quantity="other">Smazat nepotřebné soubory pro %d vybraných aplikací?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazání mezipaměti pomocí Shizuku</string>
     <string name="appcontrol_tool_name">Správce aplikací</string>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>

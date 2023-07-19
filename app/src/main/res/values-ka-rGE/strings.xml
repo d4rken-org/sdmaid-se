@@ -148,7 +148,6 @@
     <string name="appcleaner_include_systemapps_summary">ჩართეთ სისტემის აპლიკაციები სკანირებაში.</string>
     <string name="appcleaner_include_runningapps_label">ჩართეთ გაშვებული აპლიკაციები</string>
     <string name="appcleaner_include_runningapps_summary">ჩართეთ ამჟამად გაშვებული აპლიკაციები, რომლებმაც შეიძლება გამოიწვიოს ჩარევა.</string>
-    <string name="appcleaner_include_inaccessible_label">ჩართეთ მიუწვდომელი მონაცემები</string>
     <string name="appcleaner_include_inaccessible_summary">ჩართეთ მონაცემები, რომლებზეც პირდაპირ წვდომა შეუძლებელია, მაგრამ მათი წაშლა შესაძლებელია სისტემის პარამეტრების მეშვეობით და ავტომატიზირებული წვდომის სერვისის გამოყენებით. </string>
     <string name="appcleaner_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
     <string name="appcleaner_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>

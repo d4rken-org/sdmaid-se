@@ -230,7 +230,6 @@
     <string name="appcleaner_include_systemapps_summary">Uključuje aplikacije sustava u skeniranje.</string>
     <string name="appcleaner_include_runningapps_label">Uključi pokrenute aplikacije</string>
     <string name="appcleaner_include_runningapps_summary">Uključuje aplikacije koje su trenutačno pokrenute i mogu uzrokovati smetnje.</string>
-    <string name="appcleaner_include_inaccessible_label">Uključi nedostupne podatke</string>
     <string name="appcleaner_include_inaccessible_summary">Uključuje podatke kojima se ne može izravno pristupiti, ali ih je moguće izbrisati putem postavki sustava i automatizirati pomoću usluge pristupačnosti.</string>
     <string name="appcleaner_include_multiuser_label">Uključi druge korisnike</string>
     <string name="appcleaner_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>

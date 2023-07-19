@@ -31,8 +31,10 @@
     <string name="onboarding_welcome_body_beta">Seda katsetatakse. Võtke vabalt, samas läbimõeldult. Teavitage jamadest.</string>
     <string name="onboarding_welcome_continue_action">Jätka</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (ehk SD Maid 2) on rakenduse SD Maid (ehk SD Maid 1) edasiareng. Uus äpp, optimeeritud uusima Androidi jaoks.</string>
     <string name="onboarding_versus_body2">Eelmine rakendus oli vähemalt seitse aastat vana ja polnud arendatud uuemate Androidi versioonide jaoks. Arenduse jätkumiseks oli vaja alustada otsast peale.</string>
     <string name="onboarding_versus_body3">Paremad tulemused tagab SD Maid SE kasutusele võtmine.</string>
+    <string name="onboarding_versus_body4">SD Maid 1 tellimust ei saa kahjuks üle kanda rakendusse SD Maid 2/SE. Pärast 12 aastat tasuta uuendusi on arendamise jätkamiseks (arendajale palga maksmiseks) vaja osta uuesti.</string>
     <string name="onboarding_versus_continue_action">Jätka</string>
     <string name="onboarding_privacy_title">Privaatsus</string>
     <string name="onboarding_privacy_body1">SD Maidis pole reklaame ja see ei müü kasutaja andmeid.</string>
@@ -248,7 +250,6 @@
     <string name="appcleaner_include_systemapps_summary">Skanni ka süsteemi rakendusi.</string>
     <string name="appcleaner_include_runningapps_label">Hõlma töötavad rakendused</string>
     <string name="appcleaner_include_runningapps_summary">Kaasa praegu töötavad rakendused, mis võivad häirida.</string>
-    <string name="appcleaner_include_inaccessible_label">Kaasa juurdepääsmatud andmed</string>
     <string name="appcleaner_include_inaccessible_summary">Kaasa otseselt juurdepääsmatud, ent süsteemi sätetes kustutatavad ja juurdepääsetavusteenusega automatiseeritavad andmed.</string>
     <string name="appcleaner_include_multiuser_label">Sh teised kasutajad</string>
     <string name="appcleaner_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>
@@ -301,8 +302,13 @@
     <string name="appcleaner_item_caches_inaccessible_title">Tavavahemälud</string>
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
+    <string name="appcleaner_automation_unavailable_body">Juurdepääsmatute vahemälude tühjendamine vajab SD Maidi juurdepääsetavusteenust, kuid see oli kättesaamatu. Kui te ei taha seda kasutada, keelake valik \"Kaasa juurdepääsmatud vahemälud\".</string>
     <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Kustutada %d valitud rakenduse ühekordsed failid?</item>
+        <item quantity="other">Kustutada %d valitud rakenduse ühekordsed failid?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>

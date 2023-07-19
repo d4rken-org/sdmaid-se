@@ -248,7 +248,6 @@
     <string name="appcleaner_include_systemapps_summary">Inclou les aplicacions del sistema a l\'escaneig.</string>
     <string name="appcleaner_include_runningapps_label">Inclou aplicacions en execució</string>
     <string name="appcleaner_include_runningapps_summary">Inclou aplicacions que s\'estan executant actualment i que poden causar interferències.</string>
-    <string name="appcleaner_include_inaccessible_label">Inclou dades inaccessibles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclou dades a les quals no es pot accedir directament, però que es poden suprimir mitjançant la configuració del sistema i automatitzar-les mitjançant un servei d\'accessibilitat. </string>
     <string name="appcleaner_include_multiuser_label">Inclou altres usuaris</string>
     <string name="appcleaner_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>

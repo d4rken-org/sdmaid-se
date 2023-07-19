@@ -213,7 +213,6 @@
     <string name="appcleaner_include_systemapps_summary">स्कैन में सिस्टम ऐप्स शामिल करें।</string>
     <string name="appcleaner_include_runningapps_label">चल रहे ऐप्स शामिल करें</string>
     <string name="appcleaner_include_runningapps_summary">वर्तमान में चल रहे ऐप्‍स को शामिल करें जो हस्‍तक्षेप का कारण बनते हैं।</string>
-    <string name="appcleaner_include_inaccessible_label">अप्राप्य डेटा शामिल करें</string>
     <string name="appcleaner_include_inaccessible_summary">ऐसा डेटा शामिल करें जिस तक सीधे पहुंचा नहीं जा सकता है लेकिन सिस्टम सेटिंग्स के माध्यम से मिटाया जा सकता है और अभिगम्यता सेवा का उपयोग करके स्वचालित रूप से मिटाया जा सकता है। </string>
     <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
     <string name="appcleaner_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>

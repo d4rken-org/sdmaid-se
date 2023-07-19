@@ -246,7 +246,6 @@
     <string name="appcleaner_include_systemapps_summary">Tartalmazza a rendszeralkalmazásokat a vizsgálatban.</string>
     <string name="appcleaner_include_runningapps_label">Tartalmazza a futó alkalmazásokat</string>
     <string name="appcleaner_include_runningapps_summary">Tartalmazza a jelenleg futó alkalmazásokat, amelyek interferenciát okozhatnak.</string>
-    <string name="appcleaner_include_inaccessible_label">Tartalmazza a hozzáférhetetlen adatokat</string>
     <string name="appcleaner_include_inaccessible_summary">Tartalmazzon olyan adatokat, amelyek közvetlenül nem érhetők el, de a rendszerbeállításokon keresztül törölhetők, és egy kisegítő szolgáltatás segítségével automatizálhatók. </string>
     <string name="appcleaner_include_multiuser_label">Egyéb felhasználók bevonása</string>
     <string name="appcleaner_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>

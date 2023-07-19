@@ -272,7 +272,6 @@
     <string name="appcleaner_include_systemapps_summary">قم بتضمين تطبيقات النظام في الفحص.</string>
     <string name="appcleaner_include_runningapps_label">تضمين تطبيقات التي تعمل</string>
     <string name="appcleaner_include_runningapps_summary">تضمين التطبيقات التي تعمل حاليا والتي قد تسبب تدخلا.</string>
-    <string name="appcleaner_include_inaccessible_label">قم بتضمين البيانات التي يتعذر الوصول إليها</string>
     <string name="appcleaner_include_inaccessible_summary">قم بتضمين البيانات التي لا يمكن الوصول إليها مباشرة ولكن يمكن حذفها عبر إعدادات النظام وأتمتة باستخدام خدمة إمكانية الوصول. </string>
     <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
     <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
