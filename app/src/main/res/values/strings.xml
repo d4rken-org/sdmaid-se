@@ -68,7 +68,7 @@
     <string name="settings_category_ui_label">User interface</string>
 
     <string name="ui_theme_mode_setting_label">Theme mode</string>
-    <string name="ui_theme_mode_setting_explanation">Change the current theme mode and override system settings.</string>
+    <string name="ui_theme_mode_setting_explanation">The mode used when theming the app (e.g. night or day).</string>
     <string name="ui_theme_mode_dark_label">Dark</string>
     <string name="ui_theme_mode_light_label">Light</string>
     <string name="ui_theme_mode_system_label">System</string>
