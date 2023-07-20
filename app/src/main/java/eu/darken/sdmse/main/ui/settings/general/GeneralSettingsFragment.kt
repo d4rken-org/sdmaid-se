@@ -8,11 +8,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.preferences.setupWithEnum
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.main.core.ThemeType
-import eu.darken.sdmse.main.core.labelRes
 import javax.inject.Inject
 
 @Keep
@@ -26,14 +24,13 @@ class GeneralSettingsFragment : PreferenceFragment2() {
     override val settings: GeneralSettings by lazy { generalSettings }
     override val preferenceFile: Int = R.xml.preferences_general
 
-    private val themePref by lazy { findPreference<ListPreference>(settings.themeType.keyName)!! }
+    private val themeModePref by lazy { findPreference<ListPreference>(settings.themeMode.keyName)!! }
+    private val themeStylePref by lazy { findPreference<ListPreference>(settings.themeStyle.keyName)!! }
 
     override fun onPreferencesCreated() {
-        themePref.apply {
-            entries = ThemeType.values().map { getString(it.labelRes) }.toTypedArray()
-            entryValues = ThemeType.values().map { it.name }.toTypedArray()
-            setSummary(ThemeType.valueOf(settings.themeType.valueBlocking).labelRes)
-        }
+        themeModePref.setupWithEnum(settings.themeMode)
+        themeStylePref.setupWithEnum(settings.themeStyle)
+
         findPreference<Preference>(
             "core.bugreporter.enabled"
         )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
@@ -43,10 +40,4 @@ class GeneralSettingsFragment : PreferenceFragment2() {
         }
         super.onPreferencesCreated()
     }
-
-    override fun onPreferencesChanged() {
-        themePref.setSummary(ThemeType.valueOf(settings.themeType.valueBlocking).labelRes)
-        super.onPreferencesChanged()
-    }
-
 }
