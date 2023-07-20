@@ -12,11 +12,9 @@ inline fun <reified T> ListPreference.setupWithEnum(preference: DataStoreValue<T
     entryValues = enumValues<T>().map { it.name }.toTypedArray()
     value = (preference.writer(startValue) as String).removeSurrounding("\"")
 
-//    setSummary(startValue.labelRes)
     setOnPreferenceChangeListener { _, newValueRaw ->
         val newValue = preference.reader("\"${(newValueRaw)}\"")
         preference.valueBlocking = newValue
-//        setSummary(newValue.labelRes)
         true
     }
 }
