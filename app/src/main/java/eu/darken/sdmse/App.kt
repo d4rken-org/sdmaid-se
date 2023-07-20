@@ -1,7 +1,6 @@
 package eu.darken.sdmse
 
 import android.app.Application
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import coil.Coil
@@ -20,17 +19,14 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
-import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.main.core.ThemeType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -46,6 +42,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
     @Inject lateinit var updateChecker: UpdateChecker
+    @Inject lateinit var theming: Theming
 
     private val logCatLogger = LogCatLogger()
 
@@ -82,19 +79,7 @@ open class App : Application(), Configuration.Provider {
             .onEach { log(TAG) { "RecorderModule: $it" } }
             .launchIn(appScope)
 
-        generalSettings.themeType.flow
-            .map { ThemeType.valueOf(it) }
-            .onEach {
-                withContext(dispatcherProvider.Main) {
-                    when (it) {
-                        ThemeType.SYSTEM -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                        ThemeType.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                        ThemeType.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    }
-                }
-            }
-            .setupCommonEventHandlers(TAG) { "themeMode" }
-            .launchIn(appScope)
+        theming.setup()
 
         Coil.setImageLoader(imageLoaderFactory)
 

@@ -9,6 +9,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.navigation.findNavController
+import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Activity2
 import eu.darken.sdmse.databinding.MainActivityBinding
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -24,6 +25,7 @@ class MainActivity : Activity2() {
     private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     @Inject lateinit var curriculumVitae: CurriculumVitae
+    @Inject lateinit var theming: Theming
 
     var showSplashScreen = true
 
@@ -33,7 +35,7 @@ class MainActivity : Activity2() {
         super.onCreate(savedInstanceState)
 
         val splashScreen = installSplashScreen()
-
+        theming.notifySplashScreenDone(this)
         splashScreen.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
 
         ui = MainActivityBinding.inflate(layoutInflater)

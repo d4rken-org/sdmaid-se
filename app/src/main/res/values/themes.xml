@@ -1,5 +1,18 @@
 <resources>
 
+    <style name="Theme.Material3.DynamicColors.Light.NoActionBar" parent="Theme.Material3.DynamicColors.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Material3.DynamicColors.Light.Floating" parent="Theme.Material3.DynamicColors.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
     <style name="BaseAppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -27,6 +40,8 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+
+        <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Light.NoActionBar</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -48,6 +63,8 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
+
+        <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Light.Floating</item>
     </style>
 
 </resources>

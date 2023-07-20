@@ -15,9 +15,17 @@
 
         <ListPreference
             android:icon="@drawable/ic_theme_onsurface"
-            android:key="core.ui.theme.type"
-            android:title="@string/ui_theme_setting_label"
-            app:summary="@string/ui_theme_setting_explanation" />
+            android:key="core.ui.theme.mode"
+            app:persistent="false"
+            android:title="@string/ui_theme_mode_setting_label"
+            app:summary="@string/ui_theme_mode_setting_explanation" />
+
+        <ListPreference
+            android:icon="@drawable/baseline_palette_24"
+            android:key="core.ui.theme.style"
+            android:title="@string/ui_theme_style_setting_label"
+            app:persistent="false"
+            app:summary="@string/ui_theme_style_setting_explanation" />
 
         <CheckBoxPreference
             app:icon="@drawable/image_multiple"

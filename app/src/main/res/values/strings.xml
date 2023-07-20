@@ -67,11 +67,16 @@
     <string name="general_settings_desc">General tweaks that affect the whole app.</string>
     <string name="settings_category_ui_label">User interface</string>
 
-    <string name="ui_theme_setting_label">Theme</string>
-    <string name="ui_theme_dark_label">Dark</string>
-    <string name="ui_theme_light_label">Light</string>
-    <string name="ui_theme_system_label">System</string>
-    <string name="ui_theme_setting_explanation">Change the current app theme and override system settings.</string>
+    <string name="ui_theme_mode_setting_label">Theme mode</string>
+    <string name="ui_theme_mode_setting_explanation">Change the current theme mode and override system settings.</string>
+    <string name="ui_theme_mode_dark_label">Dark</string>
+    <string name="ui_theme_mode_light_label">Light</string>
+    <string name="ui_theme_mode_system_label">System</string>
+
+    <string name="ui_theme_style_setting_label">Theme style</string>
+    <string name="ui_theme_style_setting_explanation">The color style used when theming the app.</string>
+    <string name="ui_theme_style_default_label">Default</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
 
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>

@@ -11,8 +11,8 @@ import kotlinx.coroutines.runBlocking
 class DataStoreValue<T : Any?> constructor(
     private val dataStore: DataStore<Preferences>,
     private val key: Preferences.Key<*>,
-    private val reader: (Any?) -> T,
-    private val writer: (T) -> Any?
+    val reader: (Any?) -> T,
+    val writer: (T) -> Any?
 ) {
 
     val keyName: String
@@ -46,7 +46,6 @@ class DataStoreValue<T : Any?> constructor(
 
         return Updated(old = (values[0] as T), new = (values[1] as T))
     }
-
 }
 
 inline fun <reified T : Any?> DataStore<Preferences>.createValue(
