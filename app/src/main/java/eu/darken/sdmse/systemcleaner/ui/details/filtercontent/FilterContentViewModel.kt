@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.filter.filterIdentifier
+import eu.darken.sdmse.systemcleaner.core.filter.generic.EmptyDirectoryFilter
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
@@ -46,16 +48,18 @@ class FilterContentViewModel @Inject constructor(
             onExcludeClicked = { exclude(setOf(it)) }
         ).run { elements.add(this) }
 
-        filterContent.items
-            .sortedByDescending { it.size }
-            .map { item ->
-                FilterContentElementFileVH.Item(
-                    filterContent = filterContent,
-                    lookup = item,
-                    onItemClick = { delete(setOf(it)) },
-                )
-            }
-            .run { elements.addAll(this) }
+        val sorted = when (filterContent.identifier) {
+            EmptyDirectoryFilter::class.filterIdentifier -> filterContent.items.sortedBy { it.path }
+            else -> filterContent.items.sortedByDescending { it.size }
+        }
+
+        sorted.map { item ->
+            FilterContentElementFileVH.Item(
+                filterContent = filterContent,
+                lookup = item,
+                onItemClick = { delete(setOf(it)) },
+            )
+        }.run { elements.addAll(this) }
 
         State(
             items = elements,

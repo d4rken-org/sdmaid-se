@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.APathLookup
+import kotlin.reflect.KClass
 
 interface SystemCleanerFilter {
 
@@ -19,3 +20,6 @@ interface SystemCleanerFilter {
         suspend fun create(): SystemCleanerFilter
     }
 }
+
+val <T : SystemCleanerFilter> KClass<T>.filterIdentifier: FilterIdentifier
+    get() = this.qualifiedName!!
