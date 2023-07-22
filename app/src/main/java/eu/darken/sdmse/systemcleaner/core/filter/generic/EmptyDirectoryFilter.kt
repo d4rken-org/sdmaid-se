@@ -108,14 +108,11 @@ class EmptyDirectoryFilter @Inject constructor(
 
         // Check for nested empty directories
         val content = item.lookupFiles(gatewaySwitch)
-        if (content.size > 2) return false
-        if (content.any {
-                val match = matches(it)
-                if (!match && Bugs.isTrace) log(TAG, VERBOSE) { "Failed sub sieve match: $it" }
-                !match
-            }) return false
-
-        return content.isEmpty()
+        return when {
+            content.isEmpty() -> true
+            content.any { it.fileType != FileType.DIRECTORY } -> false
+            else -> content.all { matches(it) }
+        }
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
