@@ -49,8 +49,8 @@ fun FilterIdentifier.getLabel(context: Context) = when (this) {
 fun FilterIdentifier.getDescription(context: Context) = when (this) {
     LogFilesFilter::class.filterIdentifier -> R.string.systemcleaner_filter_logfiles_summary
     AdvertisementFilter::class.filterIdentifier -> R.string.systemcleaner_filter_advertisements_summary
-    EmptyDirectoryFilter::class.filterIdentifier -> R.string.systemcleaner_filter_emptydirectories_label
-    SuperfluousApksFilter::class.filterIdentifier -> R.string.systemcleaner_filter_emptydirectories_summary
+    EmptyDirectoryFilter::class.filterIdentifier -> R.string.systemcleaner_filter_emptydirectories_summary
+    SuperfluousApksFilter::class.filterIdentifier -> R.string.systemcleaner_filter_superfluosapks_summary
     LostDirFilter::class.filterIdentifier -> R.string.systemcleaner_filter_lostdir_summary
     LinuxFilesFilter::class.filterIdentifier -> R.string.systemcleaner_filter_linuxfiles_summary
     MacFilesFilter::class.filterIdentifier -> R.string.systemcleaner_filter_macfiles_summary
