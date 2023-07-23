@@ -39,8 +39,8 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        mockNegative(Type.DATA, "tombstones", Flags.DIR)
-        mockPositive(Type.DATA, "tombstones/$rngString", Flags.FILE)
+        neg(Type.DATA, "tombstones", Flag.Dir)
+        pos(Type.DATA, "tombstones/$rngString", Flag.File)
 
         confirm(create())
     }

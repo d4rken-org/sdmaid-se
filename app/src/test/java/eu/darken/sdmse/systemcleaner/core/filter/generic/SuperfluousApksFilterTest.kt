@@ -83,25 +83,25 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
                 }
             }
         }
-        mockNegative(SDCARD, "Download", Flags.DIR)
-        mockPositive(SDCARD, "Download/older.apk", Flags.FILE)
-        mockPositive(SDCARD, "Download/equal.apk", Flags.FILE)
-        mockNegative(SDCARD, "Download/newer.apk", Flags.FILE)
+        neg(SDCARD, "Download", Flag.Dir)
+        pos(SDCARD, "Download/older.apk", Flag.File)
+        pos(SDCARD, "Download/equal.apk", Flag.File)
+        neg(SDCARD, "Download/newer.apk", Flag.File)
 
-        mockPositive(SDCARD, "Download/honey.apk", Flags.FILE)
+        pos(SDCARD, "Download/honey.apk", Flag.File)
 
-        mockNegative(SDCARD, "Download/notafile.apk", Flags.DIR)
+        neg(SDCARD, "Download/notafile.apk", Flag.Dir)
 
-        mockNegative(SDCARD, randomFolder, Flags.DIR)
-        mockPositive(SDCARD, "$randomFolder/blabla.apk", Flags.FILE)
+        neg(SDCARD, randomFolder, Flag.Dir)
+        pos(SDCARD, "$randomFolder/blabla.apk", Flag.File)
 
-        mockNegative(SDCARD, "ABCBackupDEF", Flags.DIR)
-        mockNegative(SDCARD, "ABCBackupDEF/honey.apk", Flags.FILE)
+        neg(SDCARD, "ABCBackupDEF", Flag.Dir)
+        neg(SDCARD, "ABCBackupDEF/honey.apk", Flag.File)
 
         SuperfluousApksFilter.EXCLUSIONS.forEach { exclusionFolder ->
             val baseDir = exclusionFolder.segments.joinSegments()
-            mockNegative(SDCARD, baseDir, Flags.DIR)
-            mockNegative(SDCARD, "$baseDir/blabla.apk", Flags.FILE)
+            neg(SDCARD, baseDir, Flag.Dir)
+            neg(SDCARD, "$baseDir/blabla.apk", Flag.File)
         }
 
         confirm(create())

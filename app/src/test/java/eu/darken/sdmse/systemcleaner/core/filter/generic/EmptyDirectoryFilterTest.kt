@@ -1,6 +1,8 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
-import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -28,70 +30,70 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
     )
 
     @Test fun `test basic protected dirs`() = runTest {
-        mockNegative(Type.SDCARD, "afile", Flags.FILE)
-        mockPositive(Type.SDCARD, "SomethingelseSDCARD", Flags.DIR)
-        mockNegative(Type.PUBLIC_MEDIA, "afile", Flags.FILE)
-        mockNegative(Type.PUBLIC_MEDIA, "emptytopleveldir", Flags.DIR)
-        mockNegative(Type.PUBLIC_MEDIA, "topleveldir", Flags.DIR)
-        mockPositive(Type.PUBLIC_MEDIA, "topleveldir/emptybottomleveldir", Flags.DIR)
-        mockNegative(Type.PUBLIC_DATA, "afile", Flags.FILE)
-        mockNegative(Type.PUBLIC_DATA, "anotemptydir", Flags.DIR)
-        mockNegative(Type.PUBLIC_DATA, "com.some.package", Flags.DIR)
-        mockNegative(Type.PUBLIC_DATA, "com.some.package/files", Flags.DIR)
-        mockNegative(Type.PUBLIC_DATA, "com.some.package/cache", Flags.DIR)
-        mockNegative(Type.SDCARD, "DCIM", Flags.DIR)
-        mockPositive(Type.SDCARD, "DCIM/EmptyDir", Flags.DIR)
-        mockNegative(Type.SDCARD, "Camera", Flags.DIR)
-        mockPositive(Type.SDCARD, "Camera/EmptyDir", Flags.DIR)
-        mockNegative(Type.SDCARD, "Photos", Flags.DIR)
-        mockPositive(Type.SDCARD, "Photos/EmptyDir", Flags.DIR)
-        mockNegative(Type.SDCARD, "Music", Flags.DIR)
-        mockPositive(Type.SDCARD, "Music/EmptyDir", Flags.DIR)
-        mockNegative(Type.SDCARD, "Pictures", Flags.DIR)
-        mockPositive(Type.SDCARD, "Pictures/EmptyDir", Flags.DIR)
+        neg(SDCARD, "afile", Flag.File)
+        pos(SDCARD, "SomethingelseSDCARD", Flag.Dir)
+        neg(PUBLIC_MEDIA, "afile", Flag.File)
+        neg(PUBLIC_MEDIA, "emptytopleveldir", Flag.Dir)
+        neg(PUBLIC_MEDIA, "topleveldir", Flag.Dir)
+        pos(PUBLIC_MEDIA, "topleveldir/emptybottomleveldir", Flag.Dir)
+        neg(PUBLIC_DATA, "afile", Flag.File)
+        neg(PUBLIC_DATA, "anotemptydir", Flag.Dir)
+        neg(PUBLIC_DATA, "com.some.package", Flag.Dir)
+        neg(PUBLIC_DATA, "com.some.package/files", Flag.Dir)
+        neg(PUBLIC_DATA, "com.some.package/cache", Flag.Dir)
+        neg(SDCARD, "DCIM", Flag.Dir)
+        pos(SDCARD, "DCIM/EmptyDir", Flag.Dir)
+        neg(SDCARD, "Camera", Flag.Dir)
+        pos(SDCARD, "Camera/EmptyDir", Flag.Dir)
+        neg(SDCARD, "Photos", Flag.Dir)
+        pos(SDCARD, "Photos/EmptyDir", Flag.Dir)
+        neg(SDCARD, "Music", Flag.Dir)
+        pos(SDCARD, "Music/EmptyDir", Flag.Dir)
+        neg(SDCARD, "Pictures", Flag.Dir)
+        pos(SDCARD, "Pictures/EmptyDir", Flag.Dir)
 
 //        // https://github.com/d4rken/sdmaid-public/issues/1435
-        mockNegative(Type.SDCARD, ".stfolder", Flags.DIR)
+        neg(SDCARD, ".stfolder", Flag.Dir)
 
         confirm(create())
     }
 
     @Test fun `empty directories - basic`() = runTest {
-        mockNegative(Type.SDCARD, "1", Flags.DIR)
-        mockNegative(Type.SDCARD, "1/1", Flags.FILE)
-        mockPositive(Type.SDCARD, "2", Flags.DIR)
-        mockPositive(Type.SDCARD, "2/2", Flags.DIR)
+        neg(SDCARD, "1", Flag.Dir)
+        neg(SDCARD, "1/1", Flag.File)
+        pos(SDCARD, "2", Flag.Dir)
+        pos(SDCARD, "2/2", Flag.Dir)
 
         confirm(create())
     }
 
     @Test fun `empty directories - nested`() = runTest {
-        mockNegative(Type.SDCARD, "1", Flags.FILE)
-        mockNegative(Type.SDCARD, "2", Flags.DIR)
-        mockNegative(Type.SDCARD, "2/2", Flags.FILE)
+        neg(SDCARD, "1", Flag.File)
+        neg(SDCARD, "2", Flag.Dir)
+        neg(SDCARD, "2/2", Flag.File)
 
-        mockPositive(Type.SDCARD, "3", Flags.DIR)
-        mockPositive(Type.SDCARD, "3/3", Flags.DIR)
-        mockPositive(Type.SDCARD, "3/3/3", Flags.DIR)
+        pos(SDCARD, "3", Flag.Dir)
+        pos(SDCARD, "3/3", Flag.Dir)
+        pos(SDCARD, "3/3/3", Flag.Dir)
 
-        mockPositive(Type.SDCARD, "4", Flags.DIR)
-        mockPositive(Type.SDCARD, "4/5", Flags.DIR)
-        mockPositive(Type.SDCARD, "4/5/5", Flags.DIR)
-        mockPositive(Type.SDCARD, "4/6", Flags.DIR)
-        mockPositive(Type.SDCARD, "4/6/6", Flags.DIR)
+        pos(SDCARD, "4", Flag.Dir)
+        pos(SDCARD, "4/5", Flag.Dir)
+        pos(SDCARD, "4/5/5", Flag.Dir)
+        pos(SDCARD, "4/6", Flag.Dir)
+        pos(SDCARD, "4/6/6", Flag.Dir)
         confirm(create())
     }
 
     @Test fun `empty directories - nested but blocked`() = runTest {
-        mockNegative(Type.SDCARD, "4", Flags.DIR)
-        mockNegative(Type.SDCARD, "4/file", Flags.FILE)
+        neg(SDCARD, "4", Flag.Dir)
+        neg(SDCARD, "4/file", Flag.File)
 
-        mockPositive(Type.SDCARD, "4/5", Flags.DIR)
-        mockPositive(Type.SDCARD, "4/5/5", Flags.DIR)
+        pos(SDCARD, "4/5", Flag.Dir)
+        pos(SDCARD, "4/5/5", Flag.Dir)
 
-        mockNegative(Type.SDCARD, "4/6", Flags.DIR)
-        mockNegative(Type.SDCARD, "4/6/6", Flags.DIR)
-        mockNegative(Type.SDCARD, "4/6/6/file", Flags.FILE)
+        neg(SDCARD, "4/6", Flag.Dir)
+        neg(SDCARD, "4/6/6", Flag.Dir)
+        neg(SDCARD, "4/6/6/file", Flag.File)
 
         confirm(create())
     }

@@ -294,13 +294,13 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     suspend fun mockDefaults() {
-        mockNegative(Type.SDCARD, "DCIM", Flags.DIR)
-        mockNegative(Type.SDCARD, "DCIM/Camera", Flags.DIR)
-        mockNegative(Type.SDCARD, "Android", Flags.DIR)
-        mockNegative(Type.SDCARD, "Photos", Flags.DIR)
-        mockNegative(Type.SDCARD, "Pictures", Flags.DIR)
-        mockNegative(Type.SDCARD, "Camera", Flags.DIR)
-        mockNegative(Type.SDCARD, "Music", Flags.DIR)
+        neg(Type.SDCARD, "DCIM", Flag.Dir)
+        neg(Type.SDCARD, "DCIM/Camera", Flag.Dir)
+        neg(Type.SDCARD, "Android", Flag.Dir)
+        neg(Type.SDCARD, "Photos", Flag.Dir)
+        neg(Type.SDCARD, "Pictures", Flag.Dir)
+        neg(Type.SDCARD, "Camera", Flag.Dir)
+        neg(Type.SDCARD, "Music", Flag.Dir)
     }
 
     suspend fun confirm(filter: SystemCleanerFilter) {
@@ -314,7 +314,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         filter.initialize()
 
         withClue("No filter should just match a random file") {
-            doMock(Type.SDCARD, UUID.randomUUID().toString(), null, Flags.FILE).forEach {
+            doMock(Type.SDCARD, UUID.randomUUID().toString(), null, Flag.File).forEach {
                 filter.matches(it) shouldBe false
             }
         }
@@ -322,9 +322,9 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         withClue("No filter should just match a random folder") {
             val randoms = mutableListOf<APathLookup<*>>().apply {
                 val randomFolder = UUID.randomUUID().toString()
-                addAll(doMock(Type.SDCARD, randomFolder, null, Flags.DIR))
+                addAll(doMock(Type.SDCARD, randomFolder, null, Flag.Dir))
                 val randomFile = UUID.randomUUID().toString()
-                addAll(doMock(Type.SDCARD, "$randomFolder/$randomFile", null, Flags.FILE))
+                addAll(doMock(Type.SDCARD, "$randomFolder/$randomFile", null, Flag.File))
             }
 
             randoms.forEach { filter.matches(it) shouldBe false }
@@ -357,16 +357,22 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         }
     }
 
-    enum class Flags {
-        FILE, DIR, ONLY_PRIMARY, ONLY_SECONDARY
+    sealed interface Flag {
+        object File : Flag
+        object Dir : Flag
+
+        sealed interface Area : Flag {
+            object Primary : Area
+            object Secondary : Area
+        }
     }
 
-    suspend fun mockPositive(location: Type, path: String, vararg flags: Flags) {
+    suspend fun pos(location: Type, path: String, vararg flags: Flag) {
         val mockedFiles = doMock(location, path, null, *flags)
         positives.addAll(mockedFiles)
     }
 
-    suspend fun mockNegative(location: Type, path: String, vararg flags: Flags) {
+    suspend fun neg(location: Type, path: String, vararg flags: Flag) {
         val mockedFiles = doMock(location, path, null, *flags)
         negatives.addAll(mockedFiles)
     }
@@ -375,7 +381,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         areaType: Type,
         targetPath: String,
         callback: ((APathLookup<*>) -> Unit)?,
-        vararg flags: Flags
+        vararg flags: Flag
     ): Collection<APathLookup<*>> {
         val flagsCollection = listOf(*flags)
 
@@ -385,27 +391,27 @@ abstract class SystemCleanerFilterTest : BaseTest() {
             .currentAreas()
             .filter { it.type == areaType }
             .mapNotNull { area ->
-                if (flagsCollection.contains(Flags.ONLY_PRIMARY) && !area.hasFlags(DataArea.Flag.PRIMARY)) {
+                if (flagsCollection.any { it is Flag.Area.Primary } && !area.hasFlags(DataArea.Flag.PRIMARY)) {
                     return@mapNotNull null
                 }
-                if (flagsCollection.contains(Flags.ONLY_SECONDARY) && area.hasFlags(DataArea.Flag.PRIMARY)) {
+                if (flagsCollection.any { it is Flag.Area.Secondary } && area.hasFlags(DataArea.Flag.PRIMARY)) {
                     return@mapNotNull null
                 }
-                require(!(flagsCollection.contains(Flags.DIR) && flagsCollection.contains(Flags.FILE))) { "Can't be both file and dir." }
+                require(!(flagsCollection.contains(Flag.Dir) && flagsCollection.contains(Flag.File))) { "Can't be both file and dir." }
 
                 val mockPath = area.path.child(targetPath)
                 val mockLookup = when (area.path.pathType) {
                     APath.PathType.LOCAL -> LocalPathLookup(
                         lookedUp = mockPath as LocalPath,
-                        fileType = if (flagsCollection.contains(Flags.DIR)) {
+                        fileType = if (flagsCollection.contains(Flag.Dir)) {
                             FileType.DIRECTORY
-                        } else if (flagsCollection.contains(Flags.FILE)) {
+                        } else if (flagsCollection.contains(Flag.File)) {
                             FileType.FILE
                         } else {
                             throw IllegalArgumentException("Unknown file type")
                         },
                         size = when {
-                            flagsCollection.contains(Flags.DIR) -> 512L
+                            flagsCollection.contains(Flag.Dir) -> 512L
                             else -> 1024 * 1024L
                         },
                         modifiedAt = Instant.EPOCH,
@@ -415,11 +421,11 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     APath.PathType.SAF -> SAFPathLookup(
                         lookedUp = mockPath as SAFPath,
                         docFile = mockk<SAFDocFile>().apply {
-                            every { isDirectory } returns flagsCollection.contains(Flags.DIR)
-                            every { isFile } returns flagsCollection.contains(Flags.FILE)
+                            every { isDirectory } returns flagsCollection.contains(Flag.Dir)
+                            every { isFile } returns flagsCollection.contains(Flag.File)
 
                             every { length } returns when {
-                                flagsCollection.contains(Flags.DIR) -> 512L
+                                flagsCollection.contains(Flag.Dir) -> 512L
                                 else -> 1024 * 1024L
                             }
                             every { lastModified } returns Instant.EPOCH
@@ -437,7 +443,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
                 coEvery { gatewaySwitch.canRead(mockPath) } returns true
 
-                if (flagsCollection.contains(Flags.DIR)) {
+                if (flagsCollection.contains(Flag.Dir)) {
                     coEvery { gatewaySwitch.lookupFiles(mockPath) } returns emptyList()
                 }
 

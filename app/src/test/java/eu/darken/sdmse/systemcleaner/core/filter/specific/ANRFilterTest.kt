@@ -37,14 +37,14 @@ class ANRFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(Type.DATA, "anr", Flags.DIR)
-        mockNegative(Type.DATA, "anr/something.txt", Flags.FILE, Flags.ONLY_SECONDARY)
-        mockNegative(Type.DATA, "anr/something.bugreports", Flags.FILE, Flags.ONLY_SECONDARY)
-        mockPositive(Type.DATA, "anr/something.txt", Flags.FILE, Flags.ONLY_PRIMARY)
-        mockPositive(Type.DATA, "anr/something.bugreports", Flags.FILE, Flags.ONLY_PRIMARY)
-        mockPositive(Type.DATA, "anr/trace_00", Flags.FILE, Flags.ONLY_PRIMARY)
-        mockPositive(Type.DATA, "anr/anr_2021-11-05-07-26-10-770", Flags.FILE, Flags.ONLY_PRIMARY)
-        mockPositive(Type.DATA, "anr/anr_2021-11-05-12-43-35-418", Flags.FILE, Flags.ONLY_PRIMARY)
+        neg(Type.DATA, "anr", Flag.Dir)
+        neg(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Secondary)
+        neg(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Secondary)
+        pos(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Primary)
+        pos(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Primary)
+        pos(Type.DATA, "anr/trace_00", Flag.File, Flag.Area.Primary)
+        pos(Type.DATA, "anr/anr_2021-11-05-07-26-10-770", Flag.File, Flag.Area.Primary)
+        pos(Type.DATA, "anr/anr_2021-11-05-12-43-35-418", Flag.File, Flag.Area.Primary)
         confirm(create())
     }
 

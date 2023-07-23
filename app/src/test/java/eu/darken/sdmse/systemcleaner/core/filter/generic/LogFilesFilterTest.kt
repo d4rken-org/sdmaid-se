@@ -1,6 +1,8 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
-import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea.Type.DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.DATA_SYSTEM_CE
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
@@ -30,34 +32,34 @@ class LogFilesFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(Type.SDCARD, "$rngString.log", Flags.DIR)
-        mockNegative(Type.SDCARD, ".log", Flags.DIR)
+        neg(SDCARD, "$rngString.log", Flag.Dir)
+        neg(SDCARD, ".log", Flag.Dir)
 
-        mockNegative(Type.DATA, "/media", Flags.DIR)
-        mockNegative(Type.DATA, "/media/0", Flags.DIR)
-        mockNegative(Type.DATA, "/media/0/something.log", Flags.FILE)
-        mockNegative(Type.DATA, "/media/1", Flags.DIR)
-        mockNegative(Type.DATA, "/media/1/something.log", Flags.FILE)
+        neg(DATA, "/media", Flag.Dir)
+        neg(DATA, "/media/0", Flag.Dir)
+        neg(DATA, "/media/0/something.log", Flag.File)
+        neg(DATA, "/media/1", Flag.Dir)
+        neg(DATA, "/media/1/something.log", Flag.File)
 
-        mockPositive(Type.SDCARD, "$rngString.log", Flags.FILE)
-        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms/snet", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb/snet_sb_list_15", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb/snet_sb_list_15/000008.log", Flags.FILE)
-        mockNegative(Type.SDCARD, "something.indexeddb.leveldb", Flags.DIR)
-        mockNegative(Type.SDCARD, "something.indexeddb.leveldb/something.log", Flags.FILE)
-        mockNegative(Type.SDCARD, "/t", Flags.DIR)
-        mockNegative(Type.SDCARD, "/t/Paths", Flags.DIR)
-        mockNegative(Type.SDCARD, "/t/Paths/000003.log", Flags.FILE)
-        mockNegative(Type.SDCARD, "/app_chrome", Flags.DIR)
-        mockNegative(Type.SDCARD, "/app_chrome/Default", Flags.DIR)
-        mockNegative(Type.SDCARD, "/app_chrome/Default/previews_hint_cache_store", Flags.DIR)
-        mockNegative(Type.SDCARD, "/app_chrome/Default/previews_hint_cache_store/000003.log", Flags.FILE)
-        mockNegative(Type.SDCARD, "/app_chrome/000003.log", Flags.FILE)
-        mockNegative(Type.SDCARD, "/app_webview", Flags.DIR)
-        mockNegative(Type.SDCARD, "/app_webview/something", Flags.DIR)
-        mockNegative(Type.SDCARD, "/app_webview/something/000003.log", Flags.FILE)
+        pos(SDCARD, "$rngString.log", Flag.File)
+        neg(DATA_SYSTEM_CE, "com.google.android.gms", Flag.Dir)
+        neg(DATA_SYSTEM_CE, "com.google.android.gms/snet", Flag.Dir)
+        neg(DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb", Flag.Dir)
+        neg(DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb/snet_sb_list_15", Flag.Dir)
+        neg(DATA_SYSTEM_CE, "com.google.android.gms/snet/leveldb/snet_sb_list_15/000008.log", Flag.File)
+        neg(SDCARD, "something.indexeddb.leveldb", Flag.Dir)
+        neg(SDCARD, "something.indexeddb.leveldb/something.log", Flag.File)
+        neg(SDCARD, "/t", Flag.Dir)
+        neg(SDCARD, "/t/Paths", Flag.Dir)
+        neg(SDCARD, "/t/Paths/000003.log", Flag.File)
+        neg(SDCARD, "/app_chrome", Flag.Dir)
+        neg(SDCARD, "/app_chrome/Default", Flag.Dir)
+        neg(SDCARD, "/app_chrome/Default/previews_hint_cache_store", Flag.Dir)
+        neg(SDCARD, "/app_chrome/Default/previews_hint_cache_store/000003.log", Flag.File)
+        neg(SDCARD, "/app_chrome/000003.log", Flag.File)
+        neg(SDCARD, "/app_webview", Flag.Dir)
+        neg(SDCARD, "/app_webview/something", Flag.Dir)
+        neg(SDCARD, "/app_webview/something/000003.log", Flag.File)
         confirm(create())
     }
 
@@ -66,11 +68,11 @@ class LogFilesFilterTest : SystemCleanerFilterTest() {
      */
     @Test fun testTelegramXFalsePositive() = runTest {
         mockDefaults()
-        mockNegative(Type.SDCARD, "something", Flags.DIR)
-        mockNegative(Type.SDCARD, "something/pmc", Flags.DIR)
-        mockNegative(Type.SDCARD, "something/pmc/db", Flags.DIR)
-        mockNegative(Type.SDCARD, "something/pmc/db/123.log", Flags.FILE)
-        mockPositive(Type.SDCARD, "something/123.log", Flags.FILE)
+        neg(SDCARD, "something", Flag.Dir)
+        neg(SDCARD, "something/pmc", Flag.Dir)
+        neg(SDCARD, "something/pmc/db", Flag.Dir)
+        neg(SDCARD, "something/pmc/db/123.log", Flag.File)
+        pos(SDCARD, "something/123.log", Flag.File)
         confirm(create())
     }
 }

@@ -35,9 +35,9 @@ class AnalyticsFilterTest : SystemCleanerFilterTest() {
             .filter { areas.contains(it.type) }
             .distinctBy { it.type }
             .onEach {
-                mockNegative(it.type, "bugsense", Flags.DIR)
-                mockNegative(it.type, ".bugsense", Flags.DIR)
-                mockPositive(it.type, ".bugsense", Flags.FILE)
+                neg(it.type, "bugsense", Flag.Dir)
+                neg(it.type, ".bugsense", Flag.Dir)
+                pos(it.type, ".bugsense", Flag.File)
             }
         confirm(create())
     }

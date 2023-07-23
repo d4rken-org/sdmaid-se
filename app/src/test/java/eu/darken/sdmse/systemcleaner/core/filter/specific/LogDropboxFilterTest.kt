@@ -39,25 +39,25 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        mockNegative(Type.DATA, "dropbox", Flags.DIR)
-        mockNegative(Type.DATA, "dropbox/event_data@1483828487669.txt", Flags.FILE)
+        neg(Type.DATA, "dropbox", Flag.Dir)
+        neg(Type.DATA, "dropbox/event_data@1483828487669.txt", Flag.File)
 
-        mockNegative(Type.DATA, "system/dropbox", Flags.DIR)
-        mockNegative(Type.DATA, "system/dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
+        neg(Type.DATA, "system/dropbox", Flag.Dir)
+        neg(Type.DATA, "system/dropbox/$rngString", Flag.Dir)
+        neg(Type.DATA_SYSTEM, "dropbox/$rngString", Flag.Dir)
 
-        mockNegative(Type.DATA_SYSTEM_CE, "dropbox", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "dropbox/$rngString", Flags.FILE)
+        neg(Type.DATA_SYSTEM_CE, "dropbox", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "dropbox/$rngString", Flag.File)
 
-        mockNegative(Type.DATA_SYSTEM_DE, "dropbox", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_DE, "dropbox/$rngString", Flags.FILE)
+        neg(Type.DATA_SYSTEM_DE, "dropbox", Flag.Dir)
+        neg(Type.DATA_SYSTEM_DE, "dropbox/$rngString", Flag.File)
 
-        mockPositive(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.FILE)
+        pos(Type.DATA_SYSTEM, "dropbox/$rngString", Flag.File)
         val someDir = rngString
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$someDir", Flags.DIR)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/$someDir/something", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/event_data@1483828487660.txt", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/platform_stats_bookmark@1483690326366.txt", Flags.FILE)
+        neg(Type.DATA_SYSTEM, "dropbox/$someDir", Flag.Dir)
+        pos(Type.DATA_SYSTEM, "dropbox/$someDir/something", Flag.File)
+        pos(Type.DATA_SYSTEM, "dropbox/event_data@1483828487660.txt", Flag.File)
+        pos(Type.DATA_SYSTEM, "dropbox/platform_stats_bookmark@1483690326366.txt", Flag.File)
 
         confirm(create())
     }
