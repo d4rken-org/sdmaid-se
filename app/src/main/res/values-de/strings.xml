@@ -58,11 +58,6 @@
     <string name="general_settings_label">Allgemein</string>
     <string name="general_settings_desc">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_category_ui_label">Benutzeroberfläche</string>
-    <string name="ui_theme_setting_label">Design auswählen</string>
-    <string name="ui_theme_dark_label">Dunkel</string>
-    <string name="ui_theme_light_label">Hell</string>
-    <string name="ui_theme_system_label">Systemeinstellung</string>
-    <string name="ui_theme_setting_explanation">Ändere das aktuelle App-Design und überschreibe die Systemeinstellungen.</string>
     <string name="ui_previews_title">Dateivorschauen</string>
     <string name="ui_previews_summary">Dateivorschauen in allen Tools anzeigen (z. B. Bild- und Video-Miniaturansichten).</string>
     <string name="settings_support_label">Unterstützung</string>

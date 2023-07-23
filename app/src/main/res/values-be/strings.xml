@@ -62,11 +62,6 @@
     <string name="general_settings_label">Агульныя</string>
     <string name="general_settings_desc">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_category_ui_label">Карыстальніцкі інтэрфейс</string>
-    <string name="ui_theme_setting_label">Тэма</string>
-    <string name="ui_theme_dark_label">Цёмная</string>
-    <string name="ui_theme_light_label">Светлая</string>
-    <string name="ui_theme_system_label">Сістэмная</string>
-    <string name="ui_theme_setting_explanation">Змяненне бягучай тэмы праграмы і вызначэнне сістэмных налад.</string>
     <string name="ui_previews_title">Эскізы файлаў</string>
     <string name="ui_previews_summary">Адлюстраванне эскізаў файлаў ва ўсіх інструментах (напр., эскізы выяў і відэа).</string>
     <string name="settings_support_label">Падтрымка</string>

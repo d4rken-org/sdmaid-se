@@ -54,11 +54,6 @@
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">アプリ全体に影響を与える一般的な調整。</string>
     <string name="settings_category_ui_label">ユーザーインターフェース</string>
-    <string name="ui_theme_setting_label">テーマ</string>
-    <string name="ui_theme_dark_label">ダーク</string>
-    <string name="ui_theme_light_label">ライト</string>
-    <string name="ui_theme_system_label">システム</string>
-    <string name="ui_theme_setting_explanation">現在のアプリテーマを変更してシステム設定を上書きします。</string>
     <string name="ui_previews_title">ファイルのプレビュー</string>
     <string name="ui_previews_summary">すべてのツール (画像や動画のサムネイルなど) にファイルのプレビューを表示します。</string>
     <string name="settings_support_label">サポート</string>

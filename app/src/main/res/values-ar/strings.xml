@@ -66,11 +66,6 @@
     <string name="general_settings_label">عام</string>
     <string name="general_settings_desc">التعديلات العامة التي تؤثر على التطبيق بأكمله.</string>
     <string name="settings_category_ui_label">واجهة المستخدم</string>
-    <string name="ui_theme_setting_label">السمة</string>
-    <string name="ui_theme_dark_label">مظلم</string>
-    <string name="ui_theme_light_label">مضيء</string>
-    <string name="ui_theme_system_label">النظام</string>
-    <string name="ui_theme_setting_explanation">تغيير سمة التطبيق الحالية وتجاوز إعداد النظام.</string>
     <string name="ui_previews_title">معاينة الملفات</string>
     <string name="ui_previews_summary">عرض معاينات الملفات في جميع الأدوات (على سبيل المثال الصور المصغرة والصور الفيديو).</string>
     <string name="settings_support_label">الدعم</string>

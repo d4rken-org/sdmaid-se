@@ -55,11 +55,6 @@
     <string name="general_settings_label">Загальне</string>
     <string name="general_settings_desc">Налаштування, які впливають на весь додаток.</string>
     <string name="settings_category_ui_label">Інтерфейс користувача</string>
-    <string name="ui_theme_setting_label">Тема</string>
-    <string name="ui_theme_dark_label">Темна</string>
-    <string name="ui_theme_light_label">Світла</string>
-    <string name="ui_theme_system_label">Системна</string>
-    <string name="ui_theme_setting_explanation">Змінення поточної теми додатка та перевизначення системних налаштувань.</string>
     <string name="settings_support_label">Підтримка</string>
     <string name="documentation_label">Документація</string>
     <string name="issue_tracker_description">Публічний трекер для повідомлень про помилки та запитів нових можливостей.</string>

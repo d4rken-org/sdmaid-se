@@ -56,11 +56,6 @@
     <string name="general_settings_label">Općenito</string>
     <string name="general_settings_desc">Opća podešavanja koja utječu na cijelu aplikaciju.</string>
     <string name="settings_category_ui_label">Korisničko sučelje</string>
-    <string name="ui_theme_setting_label">Tema</string>
-    <string name="ui_theme_dark_label">Tamna</string>
-    <string name="ui_theme_light_label">Svijetla</string>
-    <string name="ui_theme_system_label">Sustav</string>
-    <string name="ui_theme_setting_explanation">Promijeni trenutnu temu aplikacije i nadjačaj postavke sustava.</string>
     <string name="ui_previews_title">Predpregledi datoteka</string>
     <string name="ui_previews_summary">Prikaži predpreglede datoteka u svim alatima (npr. minijature slika i videa).</string>
     <string name="settings_support_label">Podrška</string>

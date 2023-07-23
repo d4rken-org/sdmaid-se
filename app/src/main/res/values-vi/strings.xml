@@ -56,11 +56,6 @@
     <string name="general_settings_label">Tổng quan</string>
     <string name="general_settings_desc">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_category_ui_label">Giao diện người dùng</string>
-    <string name="ui_theme_setting_label">Chủ đề</string>
-    <string name="ui_theme_dark_label">Tối</string>
-    <string name="ui_theme_light_label">Sáng</string>
-    <string name="ui_theme_system_label">Hệ thống</string>
-    <string name="ui_theme_setting_explanation">Thay đổi chủ đề ứng dụng hiện tại và ghi đè cài đặt hệ thống.</string>
     <string name="ui_previews_title">Xem trước tệp</string>
     <string name="ui_previews_summary">Hiển thị xem trước tệp trong tất cả các công cụ (ví dụ: hình thu nhỏ của hình ảnh và video).</string>
     <string name="settings_support_label">Hỗ trợ</string>

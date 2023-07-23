@@ -20,10 +20,6 @@
     <string name="settings_category_other_label">بقیه</string>
     <string name="general_settings_label">عمومی</string>
     <string name="settings_category_ui_label">رابط کاربری</string>
-    <string name="ui_theme_setting_label">پوسته</string>
-    <string name="ui_theme_dark_label">تاریک</string>
-    <string name="ui_theme_light_label">روشن</string>
-    <string name="ui_theme_system_label">سیستم</string>
     <string name="settings_support_label">پشتیبانی</string>
     <string name="documentation_label">مستندات</string>
     <string name="issue_tracker_label">رهگیری مشکل</string>
