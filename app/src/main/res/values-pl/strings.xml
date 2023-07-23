@@ -62,11 +62,6 @@
     <string name="general_settings_label">Ogólne</string>
     <string name="general_settings_desc">Ogólne ustawienia wpływające na całą aplikację.</string>
     <string name="settings_category_ui_label">Interfejs użytkownika</string>
-    <string name="ui_theme_setting_label">Motyw</string>
-    <string name="ui_theme_dark_label">Ciemny</string>
-    <string name="ui_theme_light_label">Jasny</string>
-    <string name="ui_theme_system_label">Systemowy</string>
-    <string name="ui_theme_setting_explanation">Zmień motyw aplikacji i zastąp ustawienia systemowe.</string>
     <string name="ui_previews_title">Podgląd plików</string>
     <string name="ui_previews_summary">Wyświetla podgląd plików we wszystkich narzędziach (np. miniaturach obrazu i wideo).</string>
     <string name="settings_support_label">Wsparcie</string>

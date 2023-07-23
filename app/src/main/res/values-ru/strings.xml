@@ -62,11 +62,6 @@
     <string name="general_settings_label">Общее</string>
     <string name="general_settings_desc">Настройки, которые влияют на всё приложение.</string>
     <string name="settings_category_ui_label">Интерфейс пользователя</string>
-    <string name="ui_theme_setting_label">Тема</string>
-    <string name="ui_theme_dark_label">Тёмная</string>
-    <string name="ui_theme_light_label">Светлая</string>
-    <string name="ui_theme_system_label">Системная</string>
-    <string name="ui_theme_setting_explanation">Изменение текущей темы приложения и переопределение системных настроек.</string>
     <string name="ui_previews_title">Предпросмотр файлов</string>
     <string name="ui_previews_summary">Предварительный просмотр файлов во всех инструментах (например эскизы изображений и видео).</string>
     <string name="settings_support_label">Поддержка</string>

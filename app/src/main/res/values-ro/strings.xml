@@ -43,11 +43,6 @@
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_category_ui_label">Interfața utilizatorului</string>
-    <string name="ui_theme_setting_label">Temă</string>
-    <string name="ui_theme_dark_label">Întunecat</string>
-    <string name="ui_theme_light_label">Luminos</string>
-    <string name="ui_theme_system_label">Sistem</string>
-    <string name="ui_theme_setting_explanation">Schimbă tema aplicației curente și înlocuiește setările de sistem.</string>
     <string name="settings_support_label">Suport</string>
     <string name="documentation_label">Documentație</string>
     <string name="issue_tracker_description">Un tracker de probleme public pentru rapoarte de bug-uri și cereri (În engleză, dar folosirea Google Translate este acceptată).</string>

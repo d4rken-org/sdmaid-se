@@ -53,11 +53,6 @@
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सामान्य बदलाव जो पूरे ऐप को प्रभावित करते हैं।</string>
     <string name="settings_category_ui_label">उपयोगकर्ता अंतरपृष्‍ठ</string>
-    <string name="ui_theme_setting_label">थीम</string>
-    <string name="ui_theme_dark_label">अंधकारमय</string>
-    <string name="ui_theme_light_label">स्वेत</string>
-    <string name="ui_theme_system_label">सिस्टम</string>
-    <string name="ui_theme_setting_explanation">वर्तमान ऐप थीम बदलें और सिस्टम सेटिंग्स को बदले।</string>
     <string name="ui_previews_title">फ़ाइल पूर्वावलोकन</string>
     <string name="ui_previews_summary">सभी टूल्स (जैसे छवि और वीडियो थंबनेल) में फ़ाइल पूर्वावलोकन प्रदर्शित करें।</string>
     <string name="settings_support_label">समर्थन</string>

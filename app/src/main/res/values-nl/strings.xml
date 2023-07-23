@@ -58,11 +58,6 @@
     <string name="general_settings_label">Algemeen</string>
     <string name="general_settings_desc">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_category_ui_label">Gebruikersinterface</string>
-    <string name="ui_theme_setting_label">Thema</string>
-    <string name="ui_theme_dark_label">Donker</string>
-    <string name="ui_theme_light_label">Licht</string>
-    <string name="ui_theme_system_label">Systeem</string>
-    <string name="ui_theme_setting_explanation">Wijzig het huidige app-thema en overschrijf de systeeminstellingen.</string>
     <string name="ui_previews_title">Voorvertoningen van bestanden</string>
     <string name="ui_previews_summary">Toon bestandsvoorbeelden in alle tools (bijv. afbeeldings- en videominiaturen).</string>
     <string name="settings_support_label">Ondersteuning</string>

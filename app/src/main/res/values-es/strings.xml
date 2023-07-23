@@ -58,11 +58,6 @@
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustes generales que afectan a toda la aplicación.</string>
     <string name="settings_category_ui_label">Interfaz de usuario</string>
-    <string name="ui_theme_setting_label">Tema</string>
-    <string name="ui_theme_dark_label">Oscuro</string>
-    <string name="ui_theme_light_label">Claro</string>
-    <string name="ui_theme_system_label">Sistema</string>
-    <string name="ui_theme_setting_explanation">Cambia el tema actual de la aplicación y anula los ajustes del sistema.</string>
     <string name="ui_previews_title">Vistas previas de los archivos</string>
     <string name="ui_previews_summary">Muestra las vistas previas de los archivos en todas las herramientas (por ejemplo, miniaturas de las imágenes y los vídeos).</string>
     <string name="settings_support_label">Ayuda</string>

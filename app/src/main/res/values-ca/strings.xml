@@ -58,11 +58,6 @@
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Retocs generals que afecten tota l\'aplicació.</string>
     <string name="settings_category_ui_label">Interfície d\'usuari</string>
-    <string name="ui_theme_setting_label">Tema</string>
-    <string name="ui_theme_dark_label">Fosc</string>
-    <string name="ui_theme_light_label">Clar</string>
-    <string name="ui_theme_system_label">Sistema</string>
-    <string name="ui_theme_setting_explanation">Canvia el tema de l\'aplicació actual i substeix la configuració del sistema.</string>
     <string name="ui_previews_title">Previsualitzacions de fitxers</string>
     <string name="ui_previews_summary">Mostra previsualitzacions de fitxers a totes les eines (p. ex., miniatures d\'imatges i vídeos).</string>
     <string name="settings_support_label">Suport</string>

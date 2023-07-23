@@ -22,9 +22,6 @@
     <string name="settings_category_filter_specific">Arnawlı filtr</string>
     <string name="general_settings_label">Ulıwmalıq</string>
     <string name="settings_category_ui_label">Paydalanıwshı interfeysı</string>
-    <string name="ui_theme_setting_label">Tema</string>
-    <string name="ui_theme_dark_label">Qarańǵı</string>
-    <string name="ui_theme_light_label">Jaqtı</string>
     <string name="ui_previews_title">Fayllardı aldınnan kóriw</string>
     <string name="settings_support_label">Qollap-quwatlaw</string>
     <string name="documentation_label">Hújjetshilik</string>

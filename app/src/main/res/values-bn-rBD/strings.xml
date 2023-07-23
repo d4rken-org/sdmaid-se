@@ -20,10 +20,6 @@
     <string name="general_settings_label">সাধারণ</string>
     <string name="general_settings_desc">খুঁটিনাটি পরিবর্তন যা পুরো অ্যাপকে প্রভাবিত করে।</string>
     <string name="settings_category_ui_label">ব্যবহারকারীর ইন্টারফেস</string>
-    <string name="ui_theme_setting_label">থিম</string>
-    <string name="ui_theme_dark_label">গাঢ়</string>
-    <string name="ui_theme_light_label">হালকা</string>
-    <string name="ui_theme_system_label">সিস্টেম</string>
     <string name="settings_support_label">সমর্থন</string>
     <string name="documentation_label">নথিপত্রাদি</string>
     <string name="issue_tracker_label">সমস্যা শনাক্তকারী</string>

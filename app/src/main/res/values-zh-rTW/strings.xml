@@ -56,11 +56,6 @@
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">影響整個應用程式的一般調校。</string>
     <string name="settings_category_ui_label">使用者介面</string>
-    <string name="ui_theme_setting_label">主題</string>
-    <string name="ui_theme_dark_label">深色</string>
-    <string name="ui_theme_light_label">淺色</string>
-    <string name="ui_theme_system_label">系統</string>
-    <string name="ui_theme_setting_explanation">變更目前應用程式主題並覆寫系統設定。</string>
     <string name="ui_previews_title">檔案預覽</string>
     <string name="ui_previews_summary">在所有工具中顯示檔案預覽 (例如圖像和影片縮圖)</string>
     <string name="settings_support_label">支援</string>

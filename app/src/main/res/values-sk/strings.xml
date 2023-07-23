@@ -61,11 +61,6 @@
     <string name="general_settings_label">Všeobecné</string>
     <string name="general_settings_desc">Všeobecné vylepšenia, ktoré ovplyvňujú celú aplikáciu.</string>
     <string name="settings_category_ui_label">Používateľské rozhranie</string>
-    <string name="ui_theme_setting_label">Téma</string>
-    <string name="ui_theme_dark_label">Tmavá</string>
-    <string name="ui_theme_light_label">Svetlá</string>
-    <string name="ui_theme_system_label">Systém</string>
-    <string name="ui_theme_setting_explanation">Zmeňte aktuálnu tému aplikácie a prepíšte systémové nastavenia.</string>
     <string name="ui_previews_title">Náhľady súborov</string>
     <string name="ui_previews_summary">Zobrazte náhľady súborov vo všetkých nástrojoch (napr. miniatúry obrázkov a videí).</string>
     <string name="settings_support_label">Podpora</string>

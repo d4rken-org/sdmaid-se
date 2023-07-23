@@ -44,10 +44,6 @@
     <string name="general_settings_label">כללי</string>
     <string name="general_settings_desc">שינויים כללים המשפיעים על כל האפליקציה.</string>
     <string name="settings_category_ui_label">ממשק משתמש</string>
-    <string name="ui_theme_setting_label">ערכת נושא</string>
-    <string name="ui_theme_dark_label">כהה</string>
-    <string name="ui_theme_light_label">בהיר</string>
-    <string name="ui_theme_system_label">מערכת</string>
     <string name="ui_previews_title">תצוגה מקדימה לקובץ</string>
     <string name="settings_support_label">תמיכה</string>
     <string name="settings_support_description">קראו מסמכי תיעוד, דווח7 על בעיות, שוחחו עם אחרים או הקליטו לוג דיבוג.</string>

@@ -56,11 +56,6 @@
     <string name="general_settings_label">일반</string>
     <string name="general_settings_desc">전체 앱의 작동에 영향을 주는 일반적 설정입니다.</string>
     <string name="settings_category_ui_label">인터페이스</string>
-    <string name="ui_theme_setting_label">테마</string>
-    <string name="ui_theme_dark_label">다크</string>
-    <string name="ui_theme_light_label">라이트</string>
-    <string name="ui_theme_system_label">시스템</string>
-    <string name="ui_theme_setting_explanation">시스템 설정을 따르지 않고 테마를 선택합니다.</string>
     <string name="ui_previews_title">파일 미리보기</string>
     <string name="ui_previews_summary">모든 파일의 미리보기(영상 썸네일 등)를 표시합니다.</string>
     <string name="settings_support_label">지원</string>

@@ -51,11 +51,6 @@
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustes generales que afectan toda la aplicación.</string>
     <string name="settings_category_ui_label">Interfaz de usuario</string>
-    <string name="ui_theme_setting_label">Tema</string>
-    <string name="ui_theme_dark_label">Obscuro</string>
-    <string name="ui_theme_light_label">Claro</string>
-    <string name="ui_theme_system_label">Sistema</string>
-    <string name="ui_theme_setting_explanation">Cambia el tema actual de la aplicación y sobreescribe los ajustes del sistema.</string>
     <string name="settings_support_label">Soporte</string>
     <string name="documentation_label">Documentación</string>
     <string name="issue_tracker_description">Un rastreador de los problemas para informar de los errores y las solicitudes de nuevas funciones.</string>

@@ -58,11 +58,6 @@
     <string name="general_settings_label">Általános</string>
     <string name="general_settings_desc">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_category_ui_label">Felhasználói felület</string>
-    <string name="ui_theme_setting_label">Téma</string>
-    <string name="ui_theme_dark_label">Sötét</string>
-    <string name="ui_theme_light_label">Világos</string>
-    <string name="ui_theme_system_label">Rendszer</string>
-    <string name="ui_theme_setting_explanation">Módosítsa az aktuális alkalmazástémát, és írja felül a rendszerbeállításokat.</string>
     <string name="ui_previews_title">Fájl előnézetek</string>
     <string name="ui_previews_summary">Fájlelőnézetek megjelenítése minden eszközben (pl. kép- és videóképek miniatűrjei).</string>
     <string name="settings_support_label">Támogatás</string>

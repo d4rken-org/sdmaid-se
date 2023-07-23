@@ -43,11 +43,6 @@
     <string name="general_settings_label">ზოგადი</string>
     <string name="general_settings_desc">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_category_ui_label">Მომხმარებლის ინტერფეისი</string>
-    <string name="ui_theme_setting_label">თემა</string>
-    <string name="ui_theme_dark_label">მუქი</string>
-    <string name="ui_theme_light_label">ნათელი</string>
-    <string name="ui_theme_system_label">სისტემა</string>
-    <string name="ui_theme_setting_explanation">შეცვალეთ აპის მიმდინარე თემა და გადააცილეთ სისტემის პარამეტრები.</string>
     <string name="settings_support_label">მხარდაჭერა</string>
     <string name="documentation_label">დოკუმენტაცია</string>
     <string name="issue_tracker_description">საჯარო საკითხების ტრეკერი შეცდომების შესახებ მოხსენებებისა და მახასიათებლების მოთხოვნებისთვის.</string>

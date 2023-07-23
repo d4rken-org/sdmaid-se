@@ -62,11 +62,6 @@
     <string name="general_settings_label">Obecné</string>
     <string name="general_settings_desc">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
     <string name="settings_category_ui_label">Uživatelské rozhraní</string>
-    <string name="ui_theme_setting_label">Motiv</string>
-    <string name="ui_theme_dark_label">Tmavý</string>
-    <string name="ui_theme_light_label">Světlý</string>
-    <string name="ui_theme_system_label">Systémový</string>
-    <string name="ui_theme_setting_explanation">Změna aktuálního motivu aplikace a přepsání systémových nastavení.</string>
     <string name="ui_previews_title">Náhledy souboru</string>
     <string name="ui_previews_summary">Zobrazení náhledů souborů ve všech nástrojích (např. náhledy obrázků a videí).</string>
     <string name="settings_support_label">Podpora</string>

@@ -43,11 +43,6 @@
     <string name="general_settings_label">Oпште</string>
     <string name="general_settings_desc">Општа подешавања која утичу на целу апликацију.</string>
     <string name="settings_category_ui_label">Кориснички интерфејс</string>
-    <string name="ui_theme_setting_label">Тема</string>
-    <string name="ui_theme_dark_label">Тамна</string>
-    <string name="ui_theme_light_label">Светла</string>
-    <string name="ui_theme_system_label">Систем</string>
-    <string name="ui_theme_setting_explanation">Промените тренутну тему апликације и замените системске поставке.</string>
     <string name="settings_support_label">Подршка</string>
     <string name="documentation_label">Документација</string>
     <string name="issue_tracker_description">Јавно праћење проблема за извештаје о грешкама и будућим захтевима.</string>
