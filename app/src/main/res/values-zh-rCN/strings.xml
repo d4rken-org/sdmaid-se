@@ -244,6 +244,7 @@
     <string name="appcleaner_include_systemapps_summary">在扫描中包含系统应用。</string>
     <string name="appcleaner_include_runningapps_label">包含正在运行的应用</string>
     <string name="appcleaner_include_runningapps_summary">包含正在运行的应用，这可能造成干扰。</string>
+    <string name="appcleaner_include_inaccessible_label">包含无法访问的缓存</string>
     <string name="appcleaner_include_inaccessible_summary">包含无法被直接访问的数据，但是这些数据可以通过系统设置删除，也可以通过无障碍服务自动处理。 </string>
     <string name="appcleaner_include_multiuser_label">包含其他用户</string>
     <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>

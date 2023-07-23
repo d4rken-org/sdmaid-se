@@ -243,6 +243,7 @@
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
     <string name="appcleaner_include_runningapps_summary">Menyertakan aplikasi yang sedang berjalan dapat menyebabkan gangguan.</string>
+    <string name="appcleaner_include_inaccessible_label">Sertakan tembolok yang tidak bisa diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Menyertakan data yang tidak bisa diakses langsung namun dapat dihapus melalui pengaturan sistem dan diotomatisasi menggunakan layanan aksesibilitas. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>

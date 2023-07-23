@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Skanni ka süsteemi rakendusi.</string>
     <string name="appcleaner_include_runningapps_label">Hõlma töötavad rakendused</string>
     <string name="appcleaner_include_runningapps_summary">Kaasa praegu töötavad rakendused, mis võivad häirida.</string>
+    <string name="appcleaner_include_inaccessible_label">Kaasa juurdepääsmatud vahemälud</string>
     <string name="appcleaner_include_inaccessible_summary">Kaasa otseselt juurdepääsmatud, ent süsteemi sätetes kustutatavad ja juurdepääsetavusteenusega automatiseeritavad andmed.</string>
     <string name="appcleaner_include_multiuser_label">Sh teised kasutajad</string>
     <string name="appcleaner_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>

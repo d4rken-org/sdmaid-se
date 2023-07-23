@@ -262,6 +262,7 @@
     <string name="appcleaner_include_systemapps_summary">Zahrňte do skenování systémové aplikace.</string>
     <string name="appcleaner_include_runningapps_label">Zahrnout spuštěné aplikace</string>
     <string name="appcleaner_include_runningapps_summary">Zahrnout právě běžící aplikace, což může způsobit jejich přerušení.</string>
+    <string name="appcleaner_include_inaccessible_label">Zahrnout nepřístupné mezipaměti</string>
     <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je odstranit prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
     <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
     <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>

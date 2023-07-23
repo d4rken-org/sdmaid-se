@@ -38,7 +38,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (оно же SD Maid 2) является наследником SD Maid (оно же SD Maid 1). Это новое приложение, оптимизированное для современных версий Android.</string>
     <string name="onboarding_versus_body2">Архитектуре предшественника более 7 лет, она не рассчитана на вызовы новых версий Android. Для продолжения разработки было необходимо полностью перепроектировать систему.</string>
     <string name="onboarding_versus_body3">Рассмотрите возможность перехода на SD Maid SE для улучшения результатов.</string>
-    <string name="onboarding_versus_body4">К сожалению, \"pro status\" в SD Maid 1 не может быть перенесен на SD Maid 2/SE. После 12 лет бесплатных обновлений необходима новая покупка для поддержания разработки (пища разработчика).</string>
+    <string name="onboarding_versus_body4">К сожалению, статус \"pro \" в SD Maid 1 не может быть перенесен на SD Maid 2/SE. После 12 лет бесплатных обновлений необходима новая покупка для поддержания разработки (питания разработчика).</string>
     <string name="onboarding_versus_continue_action">Продолжить</string>
     <string name="onboarding_privacy_title">Приватность</string>
     <string name="onboarding_privacy_body1">SD Maid не содержит рекламы и не продает данные пользователей.</string>
@@ -262,6 +262,7 @@
     <string name="appcleaner_include_systemapps_summary">Включение в проверку системных приложений.</string>
     <string name="appcleaner_include_runningapps_label">Включать работающие приложения</string>
     <string name="appcleaner_include_runningapps_summary">Включение в проверку работающих в данный момент приложений, это может создать помехи.</string>
+    <string name="appcleaner_include_inaccessible_label">Включать недоступный кэш</string>
     <string name="appcleaner_include_inaccessible_summary">Включение данных, к которым нет прямого доступа, но их можно удалить в системных настройках и автоматизировать удаление с помощью службы специальных возможностей. </string>
     <string name="appcleaner_include_multiuser_label">Включать других пользователей</string>
     <string name="appcleaner_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
@@ -316,8 +317,15 @@
     <string name="appcleaner_item_caches_inaccessible_title">Кэш по умолчанию</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публичный и приватный кэш по умолчанию. Не имеют прямого доступа, но могут быть удалены косвенно (например, через службу специальных возможностей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба специальных возможностей недоступна</string>
+    <string name="appcleaner_automation_unavailable_body">Для очистки недоступного кэша необходима служба специальных возможностей SD Maid, которая была недоступна. Если Вы не хотите использовать эту функцию, выключите опцию \"Включать недоступный кэш\".</string>
     <string name="appcleaner_junk_userprofile_label">Пользователь</string>
     <string name="appcleaner_delete_confirmation_message_x">Удалить ненужные данные для %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Удалить ненужные данные для %d выбранного приложения?</item>
+        <item quantity="few">Удалить ненужные данные для %d выбранных приложений?</item>
+        <item quantity="many">Удалить ненужные данные для %d выбранных приложений?</item>
+        <item quantity="other">Удалить ненужные данные для %d выбранных приложений?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>

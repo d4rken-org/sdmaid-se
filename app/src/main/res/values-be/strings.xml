@@ -262,6 +262,7 @@
     <string name="appcleaner_include_systemapps_summary">Уключэнне сістэмных праграм у сканіраванне.</string>
     <string name="appcleaner_include_runningapps_label">Уключаць запушчаныя праграмы</string>
     <string name="appcleaner_include_runningapps_summary">Уключэнне ў сканіраванне запушчаных у цяперашні час праграм, гэта мода ствараць перашкоды.</string>
+    <string name="appcleaner_include_inaccessible_label">Уключаць недаступны кэш</string>
     <string name="appcleaner_include_inaccessible_summary">Уключна з данымі, да якіх нельга атрымаць прамы доступ, але якія можна выдаліць праз налады сістэмы і аўтаматызаваць з дапамогай службы спецыяльных магчымасцей. </string>
     <string name="appcleaner_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
     <string name="appcleaner_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
