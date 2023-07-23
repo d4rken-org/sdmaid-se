@@ -38,10 +38,10 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(DataArea.Type.DATA, "local", Flags.DIR)
-        mockNegative(DataArea.Type.DATA, "local/tmp", Flags.DIR)
-        mockPositive(DataArea.Type.DATA, "local/tmp/$rngString", Flags.DIR)
-        mockPositive(DataArea.Type.DATA, "local/tmp/$rngString", Flags.FILE)
+        neg(DataArea.Type.DATA, "local", Flag.Dir)
+        neg(DataArea.Type.DATA, "local/tmp", Flag.Dir)
+        pos(DataArea.Type.DATA, "local/tmp/$rngString", Flag.Dir)
+        pos(DataArea.Type.DATA, "local/tmp/$rngString", Flag.File)
         confirm(create())
     }
 

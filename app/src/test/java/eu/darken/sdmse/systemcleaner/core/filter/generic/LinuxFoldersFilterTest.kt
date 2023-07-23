@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
-import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import kotlinx.coroutines.test.runTest
@@ -29,14 +30,14 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        mockNegative(Type.PUBLIC_DATA, "/.Trash", Flags.DIR)
-        mockPositive(Type.SDCARD, "/.Trash", Flags.DIR)
-        mockNegative(Type.SDCARD, "/somedir", Flags.DIR)
-        mockPositive(Type.SDCARD, "/somedir/.Trash", Flags.DIR)
-        mockPositive(Type.SDCARD, "/.Trash-0", Flags.DIR)
-        mockPositive(Type.SDCARD, "/.Trash-11", Flags.DIR)
-        mockPositive(Type.SDCARD, "/.Trash-222", Flags.DIR)
-        mockPositive(Type.SDCARD, "/.Trash-1000", Flags.DIR)
+        neg(PUBLIC_DATA, "/.Trash", Flag.Dir)
+        pos(SDCARD, "/.Trash", Flag.Dir)
+        neg(SDCARD, "/somedir", Flag.Dir)
+        pos(SDCARD, "/somedir/.Trash", Flag.Dir)
+        pos(SDCARD, "/.Trash-0", Flag.Dir)
+        pos(SDCARD, "/.Trash-11", Flag.Dir)
+        pos(SDCARD, "/.Trash-222", Flag.Dir)
+        pos(SDCARD, "/.Trash-1000", Flag.Dir)
         confirm(create())
     }
 }

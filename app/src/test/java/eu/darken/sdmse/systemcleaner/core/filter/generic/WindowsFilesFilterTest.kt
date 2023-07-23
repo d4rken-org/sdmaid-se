@@ -39,14 +39,14 @@ class WindowsFilesFilterTest : SystemCleanerFilterTest() {
             .forEach {
                 log { "Creating mocks for ${it.path}" }
                 val loc = it.type
-                mockPositive(loc, "desktop.ini", Flags.FILE)
+                pos(loc, "desktop.ini", Flag.File)
                 val rngDir = rngString
-                mockNegative(loc, rngDir, Flags.DIR)
-                mockPositive(loc, "$rngDir/desktop.ini", Flags.FILE)
-                mockPositive(loc, "thumbs.db", Flags.FILE)
-                mockPositive(loc, "$rngDir/thumbs.db", Flags.FILE)
+                neg(loc, rngDir, Flag.Dir)
+                pos(loc, "$rngDir/desktop.ini", Flag.File)
+                pos(loc, "thumbs.db", Flag.File)
+                pos(loc, "$rngDir/thumbs.db", Flag.File)
             }
-        mockNegative(DataArea.Type.DATA, "._rollkuchen#,'Ä", Flags.FILE)
+        neg(DataArea.Type.DATA, "._rollkuchen#,'Ä", Flag.File)
         confirm(create())
     }
 }

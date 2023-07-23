@@ -36,17 +36,17 @@ class MacFilesFilterTest : SystemCleanerFilterTest() {
             .distinctBy { it.type }
             .forEach {
                 val loc = it.type
-                mockPositive(loc, "._something", Flags.FILE)
-                mockPositive(loc, "._rollkuchen#,'Ä", Flags.FILE)
-                mockPositive(loc, ".Trashes", Flags.FILE)
-                mockPositive(loc, "._.Trashes", Flags.FILE)
-                mockPositive(loc, ".spotlight", Flags.FILE)
-                mockPositive(loc, ".Spotlight-V100", Flags.FILE)
-                mockPositive(loc, ".DS_Store", Flags.FILE)
-                mockPositive(loc, ".fseventsd", Flags.FILE)
-                mockPositive(loc, ".TemporaryItems", Flags.FILE)
+                pos(loc, "._something", Flag.File)
+                pos(loc, "._rollkuchen#,'Ä", Flag.File)
+                pos(loc, ".Trashes", Flag.File)
+                pos(loc, "._.Trashes", Flag.File)
+                pos(loc, ".spotlight", Flag.File)
+                pos(loc, ".Spotlight-V100", Flag.File)
+                pos(loc, ".DS_Store", Flag.File)
+                pos(loc, ".fseventsd", Flag.File)
+                pos(loc, ".TemporaryItems", Flag.File)
             }
-        mockNegative(DataArea.Type.PUBLIC_DATA, "._rollkuchen#,'Ä", Flags.FILE)
+        neg(DataArea.Type.PUBLIC_DATA, "._rollkuchen#,'Ä", Flag.File)
         confirm(create())
     }
 }
