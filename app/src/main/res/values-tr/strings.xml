@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Taramaya sistem uygulamalarını dahil edin.</string>
     <string name="appcleaner_include_runningapps_label">Çalışan uygulamaları dahil et</string>
     <string name="appcleaner_include_runningapps_summary">Şu anda çalışan ve karışıklığa neden olabilecek uygulamaları dahil edin.</string>
+    <string name="appcleaner_include_inaccessible_label">Erişilemeyen önbellekleri dahil et</string>
     <string name="appcleaner_include_inaccessible_summary">Doğrudan erişilemeyen ancak sistem ayarları aracılığıyla silinebilen ve bir erişilebilirlik hizmeti kullanılarak otomatikleştirilebilen verileri dahil edin. </string>
     <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
     <string name="appcleaner_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>

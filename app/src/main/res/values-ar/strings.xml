@@ -39,8 +39,10 @@
     <string name="onboarding_welcome_body_beta">هذا إصدار تجريبي (تجريبي). انطلق بروح الدعابة وخطة احتياطية. الرجاء الإبلاغ عن المشاكل التي تواجهها.</string>
     <string name="onboarding_welcome_continue_action">متابعة</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (المعروف أيضًا باسم SD Maid 2) هو خليفة (SD Maid 1). تطبيق جديد مُحسّن لنظام Android الحديث.</string>
     <string name="onboarding_versus_body2">عمر التصميم السابق له أكثر من 7 سنوات ولم يتم تصميمه لمواجهة تحديات إصدارات Android الأحدث. كان من الضروري إعادة التصميم الكاملة لتطبيق لمواصلة التطوير.</string>
     <string name="onboarding_versus_body3">ضع في اعتبارك التبديل إلى SD Maid SE للحصول على نتائج أفضل.</string>
+    <string name="onboarding_versus_body4">ومن سوء الحظ أن حالة SD Maid1 لا يمكن تحويلها إلى SD Maid2/SE. وبعد 12 سنة من التحديثات المجانية، يلزمك الشراء من جديد لمواصلة التنمية (تغذية المطور).</string>
     <string name="onboarding_versus_continue_action">متابعة</string>
     <string name="onboarding_privacy_title">الخصوصية</string>
     <string name="onboarding_privacy_body1">لا تحتوي SD Maid على إعلانات ولا تبيع بيانات المستخدم.</string>
@@ -272,6 +274,7 @@
     <string name="appcleaner_include_systemapps_summary">قم بتضمين تطبيقات النظام في الفحص.</string>
     <string name="appcleaner_include_runningapps_label">تضمين تطبيقات التي تعمل</string>
     <string name="appcleaner_include_runningapps_summary">تضمين التطبيقات التي تعمل حاليا والتي قد تسبب تدخلا.</string>
+    <string name="appcleaner_include_inaccessible_label">قم بتضمين البيانات التي يتعذر الوصول إليها</string>
     <string name="appcleaner_include_inaccessible_summary">قم بتضمين البيانات التي لا يمكن الوصول إليها مباشرة ولكن يمكن حذفها عبر إعدادات النظام وأتمتة باستخدام خدمة إمكانية الوصول. </string>
     <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
     <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
@@ -328,8 +331,17 @@
     <string name="appcleaner_item_caches_inaccessible_title">ذاكرة التخزين المؤقت الافتراضية</string>
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
+    <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
     <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcleaner_delete_confirmation_message_x">حذف الملفات المستهلكة لـ %s؟</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="zero">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
+        <item quantity="one">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
+        <item quantity="two">حذف الملفات المستهلكة لـ %d تطبيق مختار؟</item>
+        <item quantity="few">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
+        <item quantity="many">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
+        <item quantity="other">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف الملفات المؤقتة باستخدام شيزوكو</string>
     <string name="appcontrol_tool_name">إدارة التطبيق</string>
     <string name="appcontrol_explanation_short">التطبيقات المثبتة على جهازك.</string>

@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">System-Apps in den Scan einbeziehen.</string>
     <string name="appcleaner_include_runningapps_label">Laufende Apps einbeziehen</string>
     <string name="appcleaner_include_runningapps_summary">Derzeit ausgeführte Apps einbeziehen. Kann Störungen verursachen.</string>
+    <string name="appcleaner_include_inaccessible_label">Unzugängliche Caches einbeziehen</string>
     <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht werde können, automatisiert mittels eines Bedienungshilfe-Services. </string>
     <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
     <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
@@ -302,7 +303,7 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
-    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Daten einbeziehen“.</string>
+    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
     <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcleaner_delete_confirmation_message_x">Überflüssige Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">

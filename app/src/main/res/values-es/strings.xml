@@ -34,7 +34,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (también conocido como SD Maid 2) es el sucesor de SD Maid (también conocido como SD Maid 1). Una nueva aplicación, optimizada para Android moderno.</string>
     <string name="onboarding_versus_body2">La arquitectura de su predecesor tiene más de 7 años y no está diseñada para los retos de las nuevas versiones de Android. Era necesario un rediseño completo para continuar con el desarrollo.</string>
     <string name="onboarding_versus_body3">Considera la posibilidad de cambiar a SD Maid SE para obtener los mejores resultados.</string>
-    <string name="onboarding_versus_body4">Desafortunadamente, el \"estado profesional\" de SD Maid 1 no es transferible a SD Maid 2/SE. Después de 12 años de actualizaciones gratuitas, se requiere una nueva compra para sostener el desarrollo (alimentar al desarrollador).</string>
+    <string name="onboarding_versus_body4">Lamentablemente, la \"versión pro\" de SD Maid 1 no es transferible a SD Maid 2/SE. Después de 12 años de actualizaciones gratuitas, se requiere de una nueva compra para mantener el desarrollo (para alimentar al desarrollador).</string>
     <string name="onboarding_versus_continue_action">Continúa</string>
     <string name="onboarding_privacy_title">Privacidad</string>
     <string name="onboarding_privacy_body1">SD Maid no tiene anuncios y no vende los datos de los usuarios.</string>
@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Incluye las aplicaciones del sistema en el análisis.</string>
     <string name="appcleaner_include_runningapps_label">Incluir aplicaciones ejecutándose</string>
     <string name="appcleaner_include_runningapps_summary">Incluye las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
+    <string name="appcleaner_include_inaccessible_label">Incluir las cachés inaccesibles</string>
     <string name="appcleaner_include_inaccessible_summary">Incluye datos a los que no se puede acceder directamente, pero que pueden eliminarse a través de la configuración del sistema y automatizarse mediante un servicio de accesibilidad. </string>
     <string name="appcleaner_include_multiuser_label">Incluir a otros usuarios</string>
     <string name="appcleaner_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>

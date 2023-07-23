@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Inclure les applis système dans l’analyse.</string>
     <string name="appcleaner_include_runningapps_label">Inclure les applis en cours d’exécution</string>
     <string name="appcleaner_include_runningapps_summary">Inclure les applis en cours d’exécution susceptibles de provoquer des interférences.</string>
+    <string name="appcleaner_include_inaccessible_label">Inclure les caches inaccessibles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclure les données qui ne sont pas accessibles directement, mais qui peuvent être supprimées dans les paramètres du système et dont la suppresion peut être automatisée grâce au service d’accessibilité. </string>
     <string name="appcleaner_include_multiuser_label">Inclure les autres utilisateurs</string>
     <string name="appcleaner_include_multiuser_summary">Inclure les applis d’autres profils d’utilisateurs sur cet appareil.</string>

@@ -31,8 +31,10 @@
     <string name="onboarding_welcome_body_beta">Aquesta és una versió beta (de prova). Continueu amb sentit de l\'humor i un pla de seguretat. Informeu dels problemes que trobeu.</string>
     <string name="onboarding_welcome_continue_action">Continua</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">L\'SD Maid SE (també conegut com SD Maid 2) és el successor de l\'SD Maid (també conegut com SD Maid 1). Una nova aplicació, optimitzada per a l\'Android modern.</string>
     <string name="onboarding_versus_body2">L\'arquitectura del seu predecessor té més de 7 anys i no està dissenyada per als reptes de les versions més actuals d\'Android. Va ser necessari un redisseny complet per continuar el desenvolupament.</string>
     <string name="onboarding_versus_body3">Penseu a canviar a l\'SD Maid SE per millorar els resultats.</string>
+    <string name="onboarding_versus_body4">Malauradament, l\'estat pro de l\'SD Maid 1 no es pot transferir a l\'SD Maid 2/SE. Després de 12 anys d\'actualitzacions gratuïtes, cal una nova compra per mantenir el desenvolupament (per alimentar al desenvolupador).</string>
     <string name="onboarding_versus_continue_action">Continua</string>
     <string name="onboarding_privacy_title">Privadesa</string>
     <string name="onboarding_privacy_body1">L\'SD Maid no té anuncis i no ven les dades d\'usuari.</string>
@@ -248,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Inclou les aplicacions del sistema a l\'escaneig.</string>
     <string name="appcleaner_include_runningapps_label">Inclou aplicacions en execució</string>
     <string name="appcleaner_include_runningapps_summary">Inclou aplicacions que s\'estan executant actualment i que poden causar interferències.</string>
+    <string name="appcleaner_include_inaccessible_label">Inclou memòries cau inaccessibles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclou dades a les quals no es pot accedir directament, però que es poden suprimir mitjançant la configuració del sistema i automatitzar-les mitjançant un servei d\'accessibilitat. </string>
     <string name="appcleaner_include_multiuser_label">Inclou altres usuaris</string>
     <string name="appcleaner_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
@@ -300,8 +303,13 @@
     <string name="appcleaner_item_caches_inaccessible_title">Memòries cau per defecte</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
+    <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
     <string name="appcleaner_junk_userprofile_label">Usuari</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Voleu suprimir els fitxers prescindibles d\'%d aplicacio selecciona?</item>
+        <item quantity="other">Voleu suprimir els fitxers prescindibles de %d aplicacions seleccionades?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>

@@ -250,6 +250,7 @@
     <string name="appcleaner_include_systemapps_summary">Inkluder systemapper i skanningen.</string>
     <string name="appcleaner_include_runningapps_label">Inkluder kjørende apper</string>
     <string name="appcleaner_include_runningapps_summary">Inkluder apper som kjører nå og som kan forårsake forstyrrelser.</string>
+    <string name="appcleaner_include_inaccessible_label">Inkluder utilgjengelige buffere</string>
     <string name="appcleaner_include_inaccessible_summary">Inkluder data som ikke kan nås direkte, men som kan slettes via systeminnstillinger og automatiseres ved hjelp av en tilgjengelighetstjeneste. </string>
     <string name="appcleaner_include_multiuser_label">Inkluder andre brukere</string>
     <string name="appcleaner_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>

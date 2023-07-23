@@ -244,6 +244,7 @@
     <string name="appcleaner_include_systemapps_summary">Bao gồm các ứng dụng hệ thống trong quá trình quét.</string>
     <string name="appcleaner_include_runningapps_label">Bao gồm các app đang chạy</string>
     <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy có thể gây nhiễu.</string>
+    <string name="appcleaner_include_inaccessible_label">Bao gồm các bộ đệm không thể truy cập</string>
     <string name="appcleaner_include_inaccessible_summary">Bao gồm dữ liệu không thể truy cập trực tiếp nhưng có thể xóa thông qua cài đặt hệ thống và tự động hóa bằng dịch vụ trợ năng. </string>
     <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
     <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>

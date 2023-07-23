@@ -251,6 +251,7 @@ Recursos dos jogos.</string>
     <string name="appcleaner_include_systemapps_summary">Incluir aplicativos do sistema na varredura.</string>
     <string name="appcleaner_include_runningapps_label">Incluir apps em execução</string>
     <string name="appcleaner_include_runningapps_summary">Incluir apps que estão atualmente em execução, o que pode causar interferência.</string>
+    <string name="appcleaner_include_inaccessible_label">Incluir caches inacessíveis</string>
     <string name="appcleaner_include_inaccessible_summary">Inclua dados que não podem ser acessados diretamente, mas podem ser apagados através das configurações do sistema e automatizados usando um serviço de acessibilidade. </string>
     <string name="appcleaner_include_multiuser_label">Incluir outros utilizadores</string>
     <string name="appcleaner_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>

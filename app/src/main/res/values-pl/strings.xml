@@ -191,8 +191,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d pozostałość po aplikacji odkryta</item>
-        <item quantity="few">%d pozostałości po aplikacji odkryte</item>
+        <item quantity="one">%d pozostałość po aplikacji wykryto</item>
+        <item quantity="few">%d pozostałości po aplikacji wykryto</item>
         <item quantity="many">%d pozostałości po aplikacji odkryto</item>
         <item quantity="other">%d pozostałości po aplikacji odkryto</item>
     </plurals>
@@ -226,7 +226,9 @@
     <string name="systemcleaner_filter_lostdir_label">Foldery LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Tymczasowe pliki, które są tworzone podczas przesyłania danych między urządzeniami z Androidem.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Pliki Linuxowe</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Pliki i foldery które są tworzone po podłączeniu pamięci masowej do komputera z systemem Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Pliki systemu MacOS</string>
+    <string name="systemcleaner_filter_macfiles_summary">Pliki i foldery które są tworzone podczas przeglądania pamięci masowej za pomocą aplikacji Finder firmy Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Pliki systemu Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dane, które eksplorator plików systemu Windows może tworzyć na podłączonym nośniku. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatury obrazów</string>
@@ -260,6 +262,7 @@
     <string name="appcleaner_include_systemapps_summary">Uwzględnij aplikacje systemowe podczas skanowania.</string>
     <string name="appcleaner_include_runningapps_label">Uwzględnij uruchomione aplikacje</string>
     <string name="appcleaner_include_runningapps_summary">Uwzględnij uruchomione aplikacje, które mogą powodować zakłócenia.</string>
+    <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne pamięci podręczne</string>
     <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień. </string>
     <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
     <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
@@ -276,6 +279,7 @@
     <string name="appcleaner_filter_analytics_label">Analityka</string>
     <string name="appcleaner_filter_analytics_summary">Dane związane z analityką, np. buforowane statystyki dotyczące tego, co stukniesz w aplikacji.</string>
     <string name="appcleaner_filter_hiddencaches_label">Ukryte pamięci podręczne</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Pamięć podręczna ogólnego przeznaczenia przechowywana poza zasięgiem systemu.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniatury multimediów</string>
     <string name="appcleaner_filter_thumbnails_summary">Miniatury podglądu obrazów, wideo i dźwięków.</string>
     <string name="appcleaner_filter_gamefiles_label">Pliki gier</string>
@@ -285,9 +289,11 @@
     <string name="appcleaner_filter_recyclebins_label">Kosze na śmieci</string>
     <string name="appcleaner_filter_recyclebins_summary">Pliki, które zostały usunięte, ale przeniesione do specjalnego folderu, aby można je było przywrócić.</string>
     <string name="appcleaner_filter_webview_label">Pliki Webview</string>
+    <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje Webview używane w aplikacjach.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Pliki wysłane przez WhatsApp do innych osób.</string>
     <string name="appcleaner_filter_telegram_label">Pliki multimedialne Telegram</string>
