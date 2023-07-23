@@ -33,6 +33,7 @@ class AnalyticsFilterTest : SystemCleanerFilterTest() {
         val areas = setOf(Type.SDCARD, Type.PUBLIC_DATA)
         areaManager.currentAreas()
             .filter { areas.contains(it.type) }
+            .distinctBy { it.type }
             .onEach {
                 mockNegative(it.type, "bugsense", Flags.DIR)
                 mockNegative(it.type, ".bugsense", Flags.DIR)

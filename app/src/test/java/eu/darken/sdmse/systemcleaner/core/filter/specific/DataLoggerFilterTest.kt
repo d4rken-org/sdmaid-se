@@ -51,6 +51,7 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
         mockPositive(Type.DATA, "logger/setup/something_thing", Flags.FILE)
         mockPositive(Type.DATA, "logger/setup/something_thing.log", Flags.FILE)
 
+        mockNegative(Type.DATA, "log", Flags.DIR)
         mockNegative(Type.DATA, "log/acore", Flags.DIR)
         mockNegative(Type.DATA, "log/batterystats", Flags.DIR)
         mockNegative(Type.DATA, "log/bt", Flags.DIR)
@@ -62,17 +63,15 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
         mockNegative(Type.DATA, "log/sepunion", Flags.DIR)
         mockNegative(Type.DATA, "log/wifi", Flags.DIR)
 
-        mockPositive(Type.DATA, "log/power_off_reset_reason.txt", Flags.FILE)
         mockPositive(Type.DATA, "log/0_com.samsung.android.bixby.service_bixbysearch_index.log", Flags.FILE)
         mockPositive(Type.DATA, "log/dark_mode_log0.txt", Flags.FILE)
         mockPositive(Type.DATA, "log/power_off_reset_reason.txt", Flags.FILE)
-
-        mockNegative(Type.DATA, "log", Flags.DIR)
         mockPositive(Type.DATA, "log/$rngString", Flags.FILE)
 
         mockNegative(Type.DATA, "log_other_mode", Flags.DIR)
         mockNegative(Type.DATA, "log_other_mode/$rngString", Flags.DIR)
         mockPositive(Type.DATA, "log_other_mode/$rngString", Flags.FILE)
+        mockNegative(Type.DATA, "log_other_mode/subfolder", Flags.DIR)
         mockPositive(Type.DATA, "log_other_mode/subfolder/$rngString", Flags.FILE)
 
         confirm(create())

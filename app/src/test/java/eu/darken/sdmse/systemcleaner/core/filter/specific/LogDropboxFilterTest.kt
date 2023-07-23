@@ -39,17 +39,23 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        mockNegative(Type.DATA, "system", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
+        mockNegative(Type.DATA, "dropbox", Flags.DIR)
+        mockNegative(Type.DATA, "dropbox/event_data@1483828487669.txt", Flags.FILE)
+
+        mockNegative(Type.DATA, "system/dropbox", Flags.DIR)
         mockNegative(Type.DATA, "system/dropbox/$rngString", Flags.DIR)
-        mockNegative(Type.DATA, "dropbox/event_data@1483828487660.txt", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.DIR)
+
+        mockNegative(Type.DATA_SYSTEM_CE, "dropbox", Flags.DIR)
         mockNegative(Type.DATA_SYSTEM_CE, "dropbox/$rngString", Flags.FILE)
+
+        mockNegative(Type.DATA_SYSTEM_DE, "dropbox", Flags.DIR)
         mockNegative(Type.DATA_SYSTEM_DE, "dropbox/$rngString", Flags.FILE)
+
         mockPositive(Type.DATA_SYSTEM, "dropbox/$rngString", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM, "dropbox/$rngString/something", Flags.FILE)
+        val someDir = rngString
+        mockNegative(Type.DATA_SYSTEM, "dropbox/$someDir", Flags.DIR)
+        mockPositive(Type.DATA_SYSTEM, "dropbox/$someDir/something", Flags.FILE)
         mockPositive(Type.DATA_SYSTEM, "dropbox/event_data@1483828487660.txt", Flags.FILE)
         mockPositive(Type.DATA_SYSTEM, "dropbox/platform_stats_bookmark@1483690326366.txt", Flags.FILE)
 

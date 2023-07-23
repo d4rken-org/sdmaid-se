@@ -38,12 +38,11 @@ class RecentTasksFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        mockNegative(Type.DATA_SYSTEM_CE, "test", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "test", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM_CE, "testdir", Flags.DIR)
+        mockNegative(Type.DATA_SYSTEM_CE, "testfile", Flags.FILE)
         mockNegative(Type.DATA_SYSTEM_CE, "recent_tasks", Flags.DIR)
-        mockNegative(Type.DATA_SYSTEM_CE, "recent_images", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM_CE, "recent_tasks/test", Flags.FILE)
-        mockPositive(Type.DATA_SYSTEM_CE, "recent_images/test", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM_CE, "recent_images", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM_CE, "recent_images/test", Flags.FILE)
 
         confirm(create())

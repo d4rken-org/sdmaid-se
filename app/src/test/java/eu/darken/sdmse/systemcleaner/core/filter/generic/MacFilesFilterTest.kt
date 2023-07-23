@@ -33,6 +33,7 @@ class MacFilesFilterTest : SystemCleanerFilterTest() {
         val areas = create().targetAreas()
         areaManager.currentAreas()
             .filter { areas.contains(it.type) }
+            .distinctBy { it.type }
             .forEach {
                 val loc = it.type
                 mockPositive(loc, "._something", Flags.FILE)

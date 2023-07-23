@@ -40,6 +40,7 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
         mockDefaults()
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "dalvik-cache", Flags.DIR)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "lost+found", Flags.DIR)
+        mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery", Flags.DIR)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_log", Flags.DIR)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flags.FILE)
         mockNegative(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flags.FILE)

@@ -39,17 +39,22 @@ class UsageStatsFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
+        mockNegative(Type.DATA_SYSTEM, "usagestats", Flags.DIR)
+
+        mockNegative(Type.DATA_SYSTEM, "usagestats/0", Flags.DIR)
         mockNegative(Type.DATA_SYSTEM, "usagestats/0/daily", Flags.DIR)
         mockNegative(Type.DATA_SYSTEM, "usagestats/0/daily/$rngString", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM, "usagestats/0/daily/$rngString", Flags.FILE)
-        mockNegative(Type.DATA_SYSTEM, "usagestats/13/daily", Flags.DIR)
-        mockPositive(Type.DATA_SYSTEM, "usagestats/13/daily/$rngString", Flags.FILE)
         mockNegative(Type.DATA_SYSTEM, "usagestats/0/weekly", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM, "usagestats/0/weekly/$rngString", Flags.FILE)
-        mockNegative(Type.DATA_SYSTEM, "usagestats/13/weekly", Flags.DIR)
-        mockPositive(Type.DATA_SYSTEM, "usagestats/13/weekly/$rngString", Flags.FILE)
         mockNegative(Type.DATA_SYSTEM, "usagestats/0/yearly", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM, "usagestats/0/yearly/$rngString", Flags.FILE)
+
+        mockNegative(Type.DATA_SYSTEM, "usagestats/13", Flags.DIR)
+        mockNegative(Type.DATA_SYSTEM, "usagestats/13/daily", Flags.DIR)
+        mockPositive(Type.DATA_SYSTEM, "usagestats/13/daily/$rngString", Flags.FILE)
+        mockNegative(Type.DATA_SYSTEM, "usagestats/13/weekly", Flags.DIR)
+        mockPositive(Type.DATA_SYSTEM, "usagestats/13/weekly/$rngString", Flags.FILE)
         mockNegative(Type.DATA_SYSTEM, "usagestats/13/yearly", Flags.DIR)
         mockPositive(Type.DATA_SYSTEM, "usagestats/13/yearly/$rngString", Flags.FILE)
         mockNegative(Type.DATA_SYSTEM, "usagestats/usage-$rngString", Flags.FILE)
