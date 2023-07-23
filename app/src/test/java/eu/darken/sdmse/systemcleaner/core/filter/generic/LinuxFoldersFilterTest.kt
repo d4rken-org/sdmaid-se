@@ -31,6 +31,7 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
         mockDefaults()
         mockNegative(Type.PUBLIC_DATA, "/.Trash", Flags.DIR)
         mockPositive(Type.SDCARD, "/.Trash", Flags.DIR)
+        mockNegative(Type.SDCARD, "/somedir", Flags.DIR)
         mockPositive(Type.SDCARD, "/somedir/.Trash", Flags.DIR)
         mockPositive(Type.SDCARD, "/.Trash-0", Flags.DIR)
         mockPositive(Type.SDCARD, "/.Trash-11", Flags.DIR)

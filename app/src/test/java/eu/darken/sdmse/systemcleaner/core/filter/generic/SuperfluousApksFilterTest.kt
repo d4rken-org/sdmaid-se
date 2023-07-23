@@ -1,7 +1,8 @@
 package eu.darken.sdmse.systemcleaner.core.filter.generic
 
-import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
@@ -82,20 +83,25 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
                 }
             }
         }
+        mockNegative(SDCARD, "Download", Flags.DIR)
+        mockPositive(SDCARD, "Download/older.apk", Flags.FILE)
+        mockPositive(SDCARD, "Download/equal.apk", Flags.FILE)
+        mockNegative(SDCARD, "Download/newer.apk", Flags.FILE)
 
-        mockPositive(DataArea.Type.SDCARD, "Download/older.apk", Flags.FILE)
-        mockPositive(DataArea.Type.SDCARD, "Download/equal.apk", Flags.FILE)
-        mockNegative(DataArea.Type.SDCARD, "Download/newer.apk", Flags.FILE)
+        mockPositive(SDCARD, "Download/honey.apk", Flags.FILE)
 
-        mockPositive(DataArea.Type.SDCARD, "Download/honey.apk", Flags.FILE)
+        mockNegative(SDCARD, "Download/notafile.apk", Flags.DIR)
 
-        mockNegative(DataArea.Type.SDCARD, "Download/notafile.apk", Flags.DIR)
+        mockNegative(SDCARD, randomFolder, Flags.DIR)
+        mockPositive(SDCARD, "$randomFolder/blabla.apk", Flags.FILE)
 
-        mockPositive(DataArea.Type.SDCARD, "$randomFolder/blabla.apk", Flags.FILE)
+        mockNegative(SDCARD, "ABCBackupDEF", Flags.DIR)
+        mockNegative(SDCARD, "ABCBackupDEF/honey.apk", Flags.FILE)
 
-        mockNegative(DataArea.Type.SDCARD, "ABCBackupDEF/honey.apk", Flags.FILE)
         SuperfluousApksFilter.EXCLUSIONS.forEach { exclusionFolder ->
-            mockNegative(DataArea.Type.SDCARD, "$exclusionFolder/blabla.apk", Flags.FILE)
+            val baseDir = exclusionFolder.segments.joinSegments()
+            mockNegative(SDCARD, baseDir, Flags.DIR)
+            mockNegative(SDCARD, "$baseDir/blabla.apk", Flags.FILE)
         }
 
         confirm(create())

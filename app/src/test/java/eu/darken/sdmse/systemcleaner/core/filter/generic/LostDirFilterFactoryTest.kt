@@ -31,6 +31,7 @@ class LostDirFilterFactoryTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
         mockNegative(Type.SDCARD, "LOST.DIR", Flags.DIR)
+        mockNegative(Type.SDCARD, "somedir", Flags.DIR)
         mockNegative(Type.SDCARD, "somedir/LOST.DIR", Flags.DIR)
         mockNegative(Type.SDCARD, "LOST.DIR/$rngString", Flags.DIR)
         mockPositive(Type.SDCARD, "LOST.DIR/$rngString", Flags.FILE)

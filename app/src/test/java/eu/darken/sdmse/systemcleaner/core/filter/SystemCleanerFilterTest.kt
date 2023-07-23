@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.StorageEnvironment
+import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
@@ -48,179 +49,201 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     @MockK lateinit var systemCleanerSettings: SystemCleanerSettings
 
 
-    val storageData1 = mockk<DataArea>().apply {
-        every { flags } returns setOf(DataArea.Flag.PRIMARY)
-        every { type } returns Type.DATA
-        every { path } returns LocalPath.build("/data")
-    }
+    val storageData1 = DataArea(
+        flags = setOf(DataArea.Flag.PRIMARY),
+        type = Type.DATA,
+        path = LocalPath.build("/data"),
+        userHandle = UserHandle2(-1)
+    )
 
-    val storageData2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns Type.DATA
-        every { path } returns LocalPath.build("/mnt/expand", rngString)
-    }
+    val storageData2 = DataArea(
+        flags = emptySet(),
+        type = Type.DATA,
+        path = LocalPath.build("/mnt/expand", rngString),
+        userHandle = UserHandle2(-1)
+    )
 
-    val storageDataApp1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.APP_APP
-        every { path } returns storageData1.path.child("app")
-    }
+    val storageDataApp1 = storageData1.copy(
+        type = Type.APP_APP,
+        path = storageData1.path.child("app"),
+    )
 
-    val storageDataApp2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.APP_APP
-        every { path } returns storageData2.path.child("app")
-    }
+    val storageDataApp2 = storageData2.copy(
+        type = Type.APP_APP,
+        path = storageData2.path.child("app"),
+    )
 
-    val storageDataAppAsec1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.APP_ASEC
-        every { path } returns storageData1.path.child("app-asec")
-    }
+    val storageDataAppAsec1 = storageData1.copy(
+        type = Type.APP_ASEC,
+        path = storageData1.path.child("app-asec"),
+    )
 
-    val storageDataAppAsec2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.APP_ASEC
-        every { path } returns storageData2.path.child("app-asec")
-    }
+    val storageDataAppAsec2 = storageData2.copy(
+        type = Type.APP_ASEC,
+        path = storageData2.path.child("app-asec"),
+    )
 
-    val storageDataAppPrivate1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.APP_APP_PRIVATE
-        every { path } returns storageData1.path.child("app-private")
-    }
+    val storageDataAppPrivate1 = storageData1.copy(
+        type = Type.APP_APP_PRIVATE,
+        path = storageData1.path.child("app-private"),
+    )
 
-    val storageDataAppPrivate2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.APP_APP_PRIVATE
-        every { path } returns storageData2.path.child("app-private")
-    }
+    val storageDataAppPrivate2 = storageData2.copy(
+        type = Type.APP_APP_PRIVATE,
+        path = storageData2.path.child("app-private"),
+    )
 
-    val storageDataAppLib1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.APP_LIB
-        every { path } returns storageData1.path.child("app-lib")
-    }
+    val storageDataAppLib1 = storageData1.copy(
+        type = Type.APP_LIB,
+        path = storageData1.path.child("app-lib"),
+    )
 
-    val storageDataAppLib2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.APP_LIB
-        every { path } returns storageData2.path.child("app-lib")
-    }
+    val storageDataAppLib2 = storageData2.copy(
+        type = Type.APP_LIB,
+        path = storageData2.path.child("app-lib"),
+    )
 
-    val storageDataSystem1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.DATA_SYSTEM
-        every { path } returns storageData1.path.child("system")
-    }
+    val storageDataSystem1 = storageData1.copy(
+        type = Type.DATA_SYSTEM,
+        path = storageData1.path.child("system"),
+    )
 
-    val storageDataSystem2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.DATA_SYSTEM
-        every { path } returns storageData2.path.child("system")
-    }
+    val storageDataSystem2 = storageData2.copy(
+        type = Type.DATA_SYSTEM,
+        path = storageData2.path.child("system"),
+    )
 
-    val storageDataSystemCE1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.DATA_SYSTEM_CE
-        every { path } returns storageData1.path.child("system_ce")
-    }
+    val storageDataSystemCE1 = storageData1.copy(
+        type = Type.DATA_SYSTEM_CE,
+        path = storageData1.path.child("system_ce"),
+    )
 
-    val storageDataSystemCE2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.DATA_SYSTEM_CE
-        every { path } returns storageData2.path.child("system_ce")
-    }
+    val storageDataSystemCE2 = storageData2.copy(
+        type = Type.DATA_SYSTEM_CE,
+        path = storageData2.path.child("system_ce"),
+    )
 
-    val storageDataSystemDE1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.DATA_SYSTEM_DE
-        every { path } returns storageData1.path.child("system_de")
-    }
+    val storageDataSystemDE1 = storageData1.copy(
+        type = Type.DATA_SYSTEM_DE,
+        path = storageData1.path.child("system_de"),
+    )
 
-    val storageDataSystemDE2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.DATA_SYSTEM_DE
-        every { path } returns storageData2.path.child("system_de")
-    }
+    val storageDataSystemDE2 = storageData2.copy(
+        type = Type.DATA_SYSTEM_DE,
+        path = storageData2.path.child("system_de"),
+    )
 
-    val storageDalvikDex1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.DALVIK_DEX
-        every { path } returns storageData1.path.child("dalvik-cache", "arm64")
-    }
+    val storageDalvikDex1 = storageData1.copy(
+        type = Type.DALVIK_DEX,
+        path = storageData1.path.child("dalvik-cache", "arm64"),
+    )
 
-    val storageDalvikDex2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.DALVIK_DEX
-        every { path } returns storageData2.path.child("dalvik-cache", "arm64")
-    }
+    val storageDalvikDex2 = storageData2.copy(
+        type = Type.DALVIK_DEX,
+        path = storageData2.path.child("dalvik-cache", "arm64"),
+    )
 
-    val storageDalvikProfile1 = mockk<DataArea>().apply {
-        every { flags } returns storageData1.flags
-        every { type } returns Type.DALVIK_PROFILE
-        every { path } returns storageData1.path.child("dalvik-cache", "profiles")
-    }
+    val storageDalvikProfile1 = storageData1.copy(
+        type = Type.DALVIK_PROFILE,
+        path = storageData1.path.child("dalvik-cache", "profiles"),
+    )
 
-    val storageDalvikProfile2 = mockk<DataArea>().apply {
-        every { flags } returns storageData2.flags
-        every { type } returns Type.DALVIK_PROFILE
-        every { path } returns storageData2.path.child("dalvik-cache", "profiles")
-    }
+    val storageDalvikProfile2 = storageData2.copy(
+        type = Type.DALVIK_PROFILE,
+        path = storageData2.path.child("dalvik-cache", "profiles"),
+    )
 
-    val storageSdcard1 = mockk<DataArea>().apply {
-        every { flags } returns setOf(DataArea.Flag.PRIMARY)
-        every { type } returns Type.SDCARD
-        every { path } returns LocalPath.build("/storage", "emulated", "0")
-    }
+    val storageSdcard1 = DataArea(
+        flags = setOf(DataArea.Flag.PRIMARY),
+        type = Type.SDCARD,
+        path = LocalPath.build("/storage", "emulated", "0"),
+        userHandle = UserHandle2(0),
+    )
 
-    val storageSdcard2 = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns Type.SDCARD
-        every { path } returns LocalPath.build("/storage", "ABCD-EFGH")
-    }
+    val storageSdcard2 = DataArea(
+        flags = emptySet(),
+        type = Type.SDCARD,
+        path = LocalPath.build("/storage", "ABCD-EFGH"),
+        userHandle = UserHandle2(1),
+    )
 
-    val storageAndroidData1 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard1.flags
-        every { type } returns Type.PUBLIC_DATA
-        every { path } returns storageSdcard1.path.child("Android", "data")
-    }
+    val storageAndroidData1 = storageSdcard1.copy(
+        type = Type.PUBLIC_DATA,
+        path = storageSdcard1.path.child("Android", "data"),
+    )
 
-    val storageAndroidData2 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard2.flags
-        every { type } returns Type.PUBLIC_DATA
-        every { path } returns storageSdcard2.path.child("Android", "data")
-    }
+    val storageAndroidData2 = storageSdcard2.copy(
+        type = Type.PUBLIC_DATA,
+        path = storageSdcard2.path.child("Android", "data"),
+    )
 
-    val storageAndroidObb1 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard1.flags
-        every { type } returns Type.PUBLIC_OBB
-        every { path } returns storageSdcard1.path.child("Android", "obb")
-    }
+    val storageAndroidObb1 = storageSdcard1.copy(
+        type = Type.PUBLIC_OBB,
+        path = storageSdcard1.path.child("Android", "obb"),
+    )
 
-    val storageAndroidObb2 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard2.flags
-        every { type } returns Type.PUBLIC_OBB
-        every { path } returns storageSdcard2.path.child("Android", "obb")
-    }
+    val storageAndroidObb2 = storageSdcard2.copy(
+        type = Type.PUBLIC_OBB,
+        path = storageSdcard2.path.child("Android", "obb"),
+    )
 
-    val storageAndroidMedia1 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard1.flags
-        every { type } returns Type.PUBLIC_MEDIA
-        every { path } returns storageSdcard1.path.child("Android", "media")
-    }
+    val storageAndroidMedia1 = storageSdcard1.copy(
+        type = Type.PUBLIC_MEDIA,
+        path = storageSdcard1.path.child("Android", "media"),
+    )
 
-    val storageAndroidMedia2 = mockk<DataArea>().apply {
-        every { flags } returns storageSdcard2.flags
-        every { type } returns Type.PUBLIC_MEDIA
-        every { path } returns storageSdcard2.path.child("Android", "media")
-    }
+    val storageAndroidMedia2 = storageSdcard2.copy(
+        type = Type.PUBLIC_MEDIA,
+        path = storageSdcard2.path.child("Android", "media"),
+    )
 
-    val storageCachePartition = mockk<DataArea>().apply {
-        every { flags } returns emptySet()
-        every { type } returns Type.DOWNLOAD_CACHE
-        every { path } returns LocalPath.build("cache")
-    }
+    val storageCachePartition = DataArea(
+        flags = emptySet(),
+        type = Type.DOWNLOAD_CACHE,
+        path = LocalPath.build("cache"),
+        userHandle = UserHandle2(-1)
+    )
+
+    private val dataAreas = setOf(
+        storageData1,
+        storageData2,
+        storageDataApp1,
+        storageDataApp2,
+        storageDataAppAsec1,
+        storageDataAppAsec2,
+        storageDataAppPrivate1,
+        storageDataAppPrivate2,
+        storageDataAppLib1,
+        storageDataAppLib2,
+        storageDataSystem1,
+        storageDataSystem2,
+        storageDataSystemCE1,
+        storageDataSystemCE2,
+        storageDataSystemDE1,
+        storageDataSystemDE2,
+        storageDalvikDex1,
+        storageDalvikDex2,
+        storageDalvikProfile1,
+        storageDalvikProfile2,
+        storageSdcard1,
+        storageSdcard2,
+        storageAndroidData1,
+        storageAndroidData2,
+        storageAndroidObb1,
+        storageAndroidObb2,
+        storageAndroidMedia1,
+        storageAndroidMedia2,
+        storageCachePartition,
+    )
+
+    private data class TreeKey(
+        val segments: Segments,
+        val fileType: FileType,
+    )
+
+    private val pathTree = mutableMapOf<TreeKey, APathLookup<*>>()
+    val positives = mutableListOf<APathLookup<*>>()
+    val negatives = mutableListOf<APathLookup<*>>()
 
     @BeforeEach
     open fun setup() {
@@ -230,37 +253,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         every { areaManager.state } returns flowOf(
             DataAreaManager.State(
-                areas = setOf(
-                    storageData1,
-                    storageData2,
-                    storageDataApp1,
-                    storageDataApp2,
-                    storageDataAppAsec1,
-                    storageDataAppAsec2,
-                    storageDataAppPrivate1,
-                    storageDataAppPrivate2,
-                    storageDataAppLib1,
-                    storageDataAppLib2,
-                    storageDataSystem1,
-                    storageDataSystem2,
-                    storageDataSystemCE1,
-                    storageDataSystemCE2,
-                    storageDataSystemDE1,
-                    storageDataSystemDE2,
-                    storageDalvikDex1,
-                    storageDalvikDex2,
-                    storageDalvikProfile1,
-                    storageDalvikProfile2,
-                    storageSdcard1,
-                    storageSdcard2,
-                    storageAndroidData1,
-                    storageAndroidData2,
-                    storageAndroidObb1,
-                    storageAndroidObb2,
-                    storageAndroidMedia1,
-                    storageAndroidMedia2,
-                    storageCachePartition,
-                )
+                areas = dataAreas
             )
         )
 
@@ -275,35 +268,80 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
 
         coEvery { pkgRepo.query(any(), any()) } returns emptySet()
+
+        coEvery { fileForensics.identifyArea(any()) } returns null
+
+        dataAreas.forEach { area ->
+            val mockedLockup = LocalPathLookup(
+                lookedUp = area.path as LocalPath,
+                fileType = FileType.DIRECTORY,
+                size = 512L,
+                modifiedAt = Instant.EPOCH,
+                target = null,
+            )
+            val treeKey = TreeKey(area.path.segments, mockedLockup.fileType)
+            pathTree[treeKey] = mockedLockup
+            val pathCopy = area.path.child()
+            coEvery { gatewaySwitch.lookupFiles(pathCopy) } returns emptyList()
+        }
     }
 
     @AfterEach
     open fun teardown() {
         pkgs.clear()
+        positives.clear()
+        negatives.clear()
     }
 
-    val positives = mutableListOf<APathLookup<*>>()
-    val negatives = mutableListOf<APathLookup<*>>()
-
     suspend fun mockDefaults() {
-        mockNegative(Type.SDCARD, UUID.randomUUID().toString(), Flags.FILE)
-        mockNegative(Type.SDCARD, UUID.randomUUID().toString(), Flags.DIR)
         mockNegative(Type.SDCARD, "DCIM", Flags.DIR)
         mockNegative(Type.SDCARD, "DCIM/Camera", Flags.DIR)
         mockNegative(Type.SDCARD, "Android", Flags.DIR)
-        mockNegative(Type.SDCARD, "Android/data", Flags.DIR)
         mockNegative(Type.SDCARD, "Photos", Flags.DIR)
         mockNegative(Type.SDCARD, "Pictures", Flags.DIR)
         mockNegative(Type.SDCARD, "Camera", Flags.DIR)
         mockNegative(Type.SDCARD, "Music", Flags.DIR)
-        mockNegative(Type.SDCARD, "", Flags.DIR)
     }
 
     suspend fun confirm(filter: SystemCleanerFilter) {
-        positives.isNotEmpty() shouldBe true
-        negatives.isNotEmpty() shouldBe true
+        withClue("Need at least one positive candidate") {
+            positives.isNotEmpty() shouldBe true
+        }
+        withClue("Need at least one negative candidate") {
+            negatives.isNotEmpty() shouldBe true
+        }
 
         filter.initialize()
+
+        withClue("No filter should just match a random file") {
+            doMock(Type.SDCARD, UUID.randomUUID().toString(), null, Flags.FILE).forEach {
+                filter.matches(it) shouldBe false
+            }
+        }
+
+        withClue("No filter should just match a random folder") {
+            val randoms = mutableListOf<APathLookup<*>>().apply {
+                val randomFolder = UUID.randomUUID().toString()
+                addAll(doMock(Type.SDCARD, randomFolder, null, Flags.DIR))
+                val randomFile = UUID.randomUUID().toString()
+                addAll(doMock(Type.SDCARD, "$randomFolder/$randomFile", null, Flags.FILE))
+            }
+
+            randoms.forEach { filter.matches(it) shouldBe false }
+        }
+
+        withClue("No filter should match the root of a data area") {
+            dataAreas.forEach { area ->
+                val lookup = LocalPathLookup(
+                    lookedUp = area.path as LocalPath,
+                    fileType = FileType.DIRECTORY,
+                    size = 512L,
+                    modifiedAt = Instant.EPOCH,
+                    target = null,
+                )
+                filter.matches(lookup) shouldBe false
+            }
+        }
 
         positives.forEach { canidate ->
             withClue("Should match ${canidate.path} (${canidate.fileType})") {
@@ -320,7 +358,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     enum class Flags {
-        FILE, DIR, EMPTY, ONLY_PRIMARY, ONLY_SECONDARY
+        FILE, DIR, ONLY_PRIMARY, ONLY_SECONDARY
     }
 
     suspend fun mockPositive(location: Type, path: String, vararg flags: Flags) {
@@ -366,20 +404,28 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                         } else {
                             throw IllegalArgumentException("Unknown file type")
                         },
-                        size = if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L,
+                        size = when {
+                            flagsCollection.contains(Flags.DIR) -> 512L
+                            else -> 1024 * 1024L
+                        },
                         modifiedAt = Instant.EPOCH,
                         target = null,
                     )
+
                     APath.PathType.SAF -> SAFPathLookup(
                         lookedUp = mockPath as SAFPath,
                         docFile = mockk<SAFDocFile>().apply {
                             every { isDirectory } returns flagsCollection.contains(Flags.DIR)
                             every { isFile } returns flagsCollection.contains(Flags.FILE)
 
-                            every { length } returns if (flagsCollection.contains(Flags.EMPTY)) 0L else 1024 * 1024L
+                            every { length } returns when {
+                                flagsCollection.contains(Flags.DIR) -> 512L
+                                else -> 1024 * 1024L
+                            }
                             every { lastModified } returns Instant.EPOCH
                         },
                     )
+
                     APath.PathType.RAW -> throw NotImplementedError()
                 }
 
@@ -388,10 +434,25 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     every { prefix } returns area.path
                     every { prefixFreePath } returns mockPath.segments.drop(prefix.segments.size)
                 }
+
                 coEvery { gatewaySwitch.canRead(mockPath) } returns true
+
                 if (flagsCollection.contains(Flags.DIR)) {
-                    coEvery { gatewaySwitch.lookupFiles(any()) } returns emptyList()
+                    coEvery { gatewaySwitch.lookupFiles(mockPath) } returns emptyList()
                 }
+
+                val treeKey = TreeKey(mockPath.segments, mockLookup.fileType)
+                val treeKeyParent = TreeKey(mockPath.segments.dropLast(1), FileType.DIRECTORY)
+
+                pathTree[treeKeyParent]?.let { parent ->
+                    val parentsChildren = gatewaySwitch.lookupFiles(parent.lookedUp)
+                    coEvery { gatewaySwitch.lookupFiles(parent.lookedUp) } returns parentsChildren + mockLookup
+                } ?: throw IllegalArgumentException("$mockPath has no mocked parent")
+
+                pathTree[treeKey]?.let {
+                    throw IllegalArgumentException("Duplicate $mockLookup overwrites $it")
+                }
+                pathTree[treeKey] = mockLookup
 
                 mockLookup
             }
