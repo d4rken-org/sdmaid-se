@@ -95,6 +95,22 @@ class TelegramFilter @Inject constructor(
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
 
+        DynamicSieve.MatchConfig(
+            pkgNames = setOf("org.telegram.messenger.web".toPkgId()),
+            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
+            startsWith = setOf(
+                "Telegram/Telegram Audio",
+                "Telegram/Telegram Documents",
+                "Telegram/Telegram Images",
+                "Telegram/Telegram Video",
+                "org.telegram.messenger.web/files/Telegram/Telegram Audio",
+                "org.telegram.messenger.web/files/Telegram/Telegram Documents",
+                "org.telegram.messenger.web/files/Telegram/Telegram Images",
+                "org.telegram.messenger.web/files/Telegram/Telegram Video",
+            ),
+            exclusions = setOf(".nomedia"),
+        ).let { configs.add(it) }
+
         sieve = dynamicSieveFactory.create(configs)
     }
 
