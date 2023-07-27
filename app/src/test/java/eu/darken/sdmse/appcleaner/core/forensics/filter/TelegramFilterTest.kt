@@ -193,4 +193,54 @@ class TelegramFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `telegram web variant`() = runTest {
+        addDefaultNegatives()
+        pos(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Audio/1213123123_123123123asdasd.ogg"
+        )
+        pos(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Documents/1_376646255079588440.mp4"
+        )
+        pos(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Images/425705794_239071.jpg"
+        )
+        pos(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Video/1_376646255079588440.mp4"
+        )
+
+        neg("org.telegram.messenger.web", PUBLIC_DATA, "org.telegram.messenger.web/files/Telegram")
+        neg("org.telegram.messenger.web", PUBLIC_DATA, "org.telegram.messenger.web/files/Telegram/.nomedia")
+        neg("org.telegram.messenger.web", PUBLIC_DATA, "org.telegram.messenger.web/files/Telegram/Telegram ")
+        neg(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Audio/.nomedia"
+        )
+        neg(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Documents/.nomedia"
+        )
+        neg(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Images/.nomedia"
+        )
+        neg(
+            "org.telegram.messenger.web",
+            PUBLIC_DATA,
+            "org.telegram.messenger.web/files/Telegram/Telegram Video/.nomedia"
+        )
+
+        confirm(create())
+    }
 }
