@@ -13,14 +13,14 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_category_ui_label">
 
-        <ListPreference
+        <eu.darken.sdmse.common.preferences.ListPreference2
             android:icon="@drawable/ic_theme_onsurface"
             android:key="core.ui.theme.mode"
-            app:persistent="false"
             android:title="@string/ui_theme_mode_setting_label"
+            app:persistent="false"
             app:summary="@string/ui_theme_mode_setting_explanation" />
 
-        <ListPreference
+        <eu.darken.sdmse.common.preferences.ListPreference2
             android:icon="@drawable/baseline_palette_24"
             android:key="core.ui.theme.style"
             android:title="@string/ui_theme_style_setting_label"
