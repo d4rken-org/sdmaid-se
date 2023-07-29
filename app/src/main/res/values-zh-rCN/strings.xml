@@ -56,6 +56,15 @@
     <string name="general_settings_label">常规</string>
     <string name="general_settings_desc">对整个应用适用的常规设置。</string>
     <string name="settings_category_ui_label">用户界面</string>
+    <string name="ui_theme_mode_setting_label">主题模式</string>
+    <string name="ui_theme_mode_setting_explanation">应用所使用的主题模式（例如夜间模式或日间模式）。</string>
+    <string name="ui_theme_mode_dark_label">深色模式</string>
+    <string name="ui_theme_mode_light_label">浅色模式</string>
+    <string name="ui_theme_mode_system_label">跟随系统</string>
+    <string name="ui_theme_style_setting_label">主题样式</string>
+    <string name="ui_theme_style_setting_explanation">应用所使用的颜色风格。</string>
+    <string name="ui_theme_style_default_label">默认</string>
+    <string name="ui_theme_style_materialyou_label">自定义</string>
     <string name="ui_previews_title">文件预览</string>
     <string name="ui_previews_summary">在所有工具中显示文件预览（例如图片和视频缩略图）</string>
     <string name="settings_support_label">支持</string>

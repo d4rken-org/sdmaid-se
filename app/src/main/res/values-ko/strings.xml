@@ -56,6 +56,15 @@
     <string name="general_settings_label">일반</string>
     <string name="general_settings_desc">전체 앱의 작동에 영향을 주는 일반적 설정입니다.</string>
     <string name="settings_category_ui_label">인터페이스</string>
+    <string name="ui_theme_mode_setting_label">테마 모드</string>
+    <string name="ui_theme_mode_setting_explanation">앱 테마를 설정했을 때 사용되는 모드(예: 어두운 테마 또는 밝은 테마)입니다.</string>
+    <string name="ui_theme_mode_dark_label">어두운 테마</string>
+    <string name="ui_theme_mode_light_label">밝은 테마</string>
+    <string name="ui_theme_mode_system_label">기기 테마 사용</string>
+    <string name="ui_theme_style_setting_label">테마 스타일</string>
+    <string name="ui_theme_style_setting_explanation">앱 테마를 설정했을 때 사용되는 색상 스타일입니다.</string>
+    <string name="ui_theme_style_default_label">기본</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">파일 미리보기</string>
     <string name="ui_previews_summary">모든 파일의 미리보기(영상 썸네일 등)를 표시합니다.</string>
     <string name="settings_support_label">지원</string>

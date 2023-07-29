@@ -58,6 +58,15 @@
     <string name="general_settings_label">Üldine</string>
     <string name="general_settings_desc">Üldseaded, mis mõjutavad kogu rakendust.</string>
     <string name="settings_category_ui_label">Kasutajaliides</string>
+    <string name="ui_theme_mode_setting_label">Teema režiim</string>
+    <string name="ui_theme_mode_setting_explanation">Rakenduse kujundamisel kasutatav teema (nt öö või päev).</string>
+    <string name="ui_theme_mode_dark_label">Tume</string>
+    <string name="ui_theme_mode_light_label">Hele</string>
+    <string name="ui_theme_mode_system_label">Süsteem</string>
+    <string name="ui_theme_style_setting_label">Teema stiil</string>
+    <string name="ui_theme_style_setting_explanation">Rakenduse kujundamisel kasutatud värvistiil.</string>
+    <string name="ui_theme_style_default_label">Tavaline</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Faili eelvaated</string>
     <string name="ui_previews_summary">Näita kõikides tööriistades faili eelvaateid (nt pildi ja video pisipilte).</string>
     <string name="settings_support_label">Klienditugi</string>
