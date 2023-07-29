@@ -56,6 +56,8 @@
     <string name="issue_tracker_description">Un rastreador de los problemas para informar de los errores y las solicitudes de nuevas funciones.</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="support_installid_label">Identificador de la instalación</string>
+    <string name="settings_acknowledgements_label">Agradecimientos</string>
+    <string name="setup_incomplete_card_dismiss_action">Descartar</string>
     <string name="corpsefinder_tool_name">Buscador de cadáveres</string>
     <string name="corpsefinder_explanation_short">Datos pertenecientes a aplicaciones ya eliminadas.</string>
 </resources>

@@ -58,6 +58,15 @@
     <string name="general_settings_label">Allgemein</string>
     <string name="general_settings_desc">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_category_ui_label">Benutzeroberfläche</string>
+    <string name="ui_theme_mode_setting_label">Design-Modus</string>
+    <string name="ui_theme_mode_setting_explanation">Der Modus, der beim Design der App verwendet wird (z.B. Nacht oder Tag).</string>
+    <string name="ui_theme_mode_dark_label">Dunkel</string>
+    <string name="ui_theme_mode_light_label">Hell</string>
+    <string name="ui_theme_mode_system_label">System</string>
+    <string name="ui_theme_style_setting_label">Designstil</string>
+    <string name="ui_theme_style_setting_explanation">Der Farbstil, der beim Design der App verwendet wird.</string>
+    <string name="ui_theme_style_default_label">Standard</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Dateivorschauen</string>
     <string name="ui_previews_summary">Dateivorschauen in allen Tools anzeigen (z. B. Bild- und Video-Miniaturansichten).</string>
     <string name="settings_support_label">Unterstützung</string>

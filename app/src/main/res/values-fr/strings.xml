@@ -58,6 +58,15 @@
     <string name="general_settings_label">Général</string>
     <string name="general_settings_desc">Ajustements généraux qui affectent l’ensemble de l’appli.</string>
     <string name="settings_category_ui_label">Interface utilisateur</string>
+    <string name="ui_theme_mode_setting_label">Mode du thème</string>
+    <string name="ui_theme_mode_setting_explanation">Le mode utilisé pour le thème de l\'application (par exemple nuit ou jour).</string>
+    <string name="ui_theme_mode_dark_label">Sombre</string>
+    <string name="ui_theme_mode_light_label">Clair</string>
+    <string name="ui_theme_mode_system_label">Système</string>
+    <string name="ui_theme_style_setting_label">Style de thème</string>
+    <string name="ui_theme_style_setting_explanation">Le style de couleur utilisé pour le thème de l\'application.</string>
+    <string name="ui_theme_style_default_label">Par défaut</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Aperçus de fichiers</string>
     <string name="ui_previews_summary">Affichez les aperçus de fichiers dans tous les outils (p. ex. les imagettes d’images et de vidéos).</string>
     <string name="settings_support_label">Assistance</string>
@@ -348,9 +357,9 @@
     <string name="analyzer_progress_scanning_userfiles">Recherche de fichiers utilisateur</string>
     <string name="analyzer_progress_scanning_system">Analyse des données système</string>
     <string name="analyzer_device_storage_title">Stockage de l’appareil</string>
-    <string name="analyzer_space_available">%s disponible</string>
+    <string name="analyzer_space_available">%s libre</string>
     <string name="analyzer_space_used">%s utilisé</string>
-    <string name="analyzer_content_access_opaque">Pas d\'accès direct disponible</string>
+    <string name="analyzer_content_access_opaque">Aucun accès direct n’est proposé</string>
     <string name="analyzer_storage_type_primary_title">Stockage principal</string>
     <string name="analyzer_storage_type_primary_description">Le stockage principal de votre appareil. Comprends la carte SD, le stockage privé pour les applications et les données système.</string>
     <string name="analyzer_storage_type_secondary_title">Stockage secondaire</string>
@@ -376,7 +385,7 @@
     <string name="data_area_public_storage_label">Stockage public</string>
     <string name="data_area_sdcard_label">Carte SD</string>
     <string name="data_areas_label">Emplacements des données</string>
-    <string name="data_areas_description">Les zones de données représentent des emplacements sur votre appareil qui sont accessibles à SD Maid. Différentes zones de données peuvent être disponibles en fonction de votre version d\'Android et des autorisations qui ont été accordées.</string>
+    <string name="data_areas_description">Les zones de données représentent les emplacements accessibles à SD Maid sur votre appareil. Différentes zones de données peuvent être accessibles selon votre version d’Android et les autorisations accordées.</string>
     <string name="data_areas_short_summary">Zones auxquelles SD Maid peut accéder en fonction des autorisations actuellement accordées.</string>
     <string name="exclusion_manager_title">Gestionnaire d\'exclusions</string>
     <string name="exclusion_manager_desc">Gérer les exclusions de fichiers et d\'applications.</string>
@@ -441,8 +450,8 @@
     <string name="scheduler_setting_nopowersaving_summary">Si le téléphone est en mode économie d\'énergie, l\'exécution programmée sera ignorée.</string>
     <string name="scheduler_setting_automation_title">Service d\'accessibilité</string>
     <string name="scheduler_setting_automation_summary">Inclure les actions qui utilisent un service d\'accessibilité. Cela nécessite que SD Maid puisse interagir avec votre écran (c\'est-à-dire qu\'il soit déverrouillé) lorsque les tâches sont exécutées.</string>
-    <string name="updates_dashcard_title">Mise à jour disponible</string>
-    <string name="updates_dashcard_body">Une mise à jour est disponible. Vous avez %1$s et la dernière version est %2$s.</string>
+    <string name="updates_dashcard_title">Une mise à jour est proposée</string>
+    <string name="updates_dashcard_body">Une mise à jour est proposée. Vous avez %1$s et %2$s est la version la plus récente.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>
     <string name="translation_encourage_body">SD Maid est traduit par des bénévoles. Traduction, révision ou correction, votre aide est précieuse.</string>
     <string name="translation_translators_title">Cette version est traduite par</string>

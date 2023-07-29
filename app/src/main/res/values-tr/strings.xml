@@ -58,6 +58,15 @@
     <string name="general_settings_label">Genel</string>
     <string name="general_settings_desc">Tüm uygulamayı etkileyen genel ince ayarlar.</string>
     <string name="settings_category_ui_label">Kullanıcı arayüzü</string>
+    <string name="ui_theme_mode_setting_label">Tema modu</string>
+    <string name="ui_theme_mode_setting_explanation">Uygulamanın temasını ayarlarken kullanılan mod (örneğin gece veya gündüz).</string>
+    <string name="ui_theme_mode_dark_label">Koyu</string>
+    <string name="ui_theme_mode_light_label">Açık</string>
+    <string name="ui_theme_mode_system_label">Sistem</string>
+    <string name="ui_theme_style_setting_label">Tema stili</string>
+    <string name="ui_theme_style_setting_explanation">Uygulamanın temasını ayarlarken kullanılan renk stili.</string>
+    <string name="ui_theme_style_default_label">Varsayılan</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Dosya önizlemeleri</string>
     <string name="ui_previews_summary">Tüm araçlarda dosya önizlemelerini görüntüle (örn. resim ve video küçük resimleri).</string>
     <string name="settings_support_label">Destek</string>

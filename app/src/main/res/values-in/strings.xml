@@ -55,6 +55,15 @@
     <string name="general_settings_label">Umum</string>
     <string name="general_settings_desc">Tweak umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_category_ui_label">Antarmuka pengguna</string>
+    <string name="ui_theme_mode_setting_label">Mode tema</string>
+    <string name="ui_theme_mode_setting_explanation">Mode yang digunakan untuk tema aplikasi (malam atau siang).</string>
+    <string name="ui_theme_mode_dark_label">Gelap</string>
+    <string name="ui_theme_mode_light_label">Terang</string>
+    <string name="ui_theme_mode_system_label">Sistem</string>
+    <string name="ui_theme_style_setting_label">Gaya tema</string>
+    <string name="ui_theme_style_setting_explanation">Gaya warna yang digunakan untuk tema aplikasi.</string>
+    <string name="ui_theme_style_default_label">Bawaan</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pratinjau berkas</string>
     <string name="ui_previews_summary">Tampilkan pratinjau berkas di semua peralatan (seperti pratinjau gambar dan video).</string>
     <string name="settings_support_label">Bantuan</string>

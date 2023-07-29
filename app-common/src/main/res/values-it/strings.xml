@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Al tuo servizio.</string>
+    <string name="slogan_message_1">Pulito e ordinato.</string>
     <string name="slogan_message_2">Prevenire il caos.</string>
     <string name="slogan_message_3">Fare ciò che è necessario.</string>
     <string name="slogan_message_4">Tutto il necessario a disposizione.</string>
@@ -50,7 +51,10 @@
     <string name="general_progress_loading_egg_2">Presto™</string>
     <string name="general_progress_loading_egg_3">La CPU è in pausa caffè</string>
     <string name="general_progress_loading_egg_4">In attesa di dati da Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Avviando il turbo encabulator</string>
     <string name="general_progress_loading_egg_6">Passando il burro</string>
+    <string name="general_progress_loading_egg_7">Dunque. Come te la passi?</string>
+    <string name="general_progress_loading_egg_8">Per me è la cipolla</string>
     <string name="general_help_action">Aiuto</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">In coda</string>
@@ -72,6 +76,10 @@
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Eliminato l\'elemento %1$d e liberato %2$s</item>
+        <item quantity="other">Eliminato gli elementi %1$d e liberato %2$s</item>
+    </plurals>
     <string name="general_remove_action">Elimina</string>
     <string name="general_remove_selected_action">Rimuovi selezionato</string>
     <plurals name="general_remove_success_x_items">

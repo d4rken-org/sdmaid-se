@@ -10,7 +10,7 @@
     <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
     <string name="debug_debuglog_recording_progress">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
-    <string name="debug_debuglog_stop_action">Ngừng ghi</string>
+    <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
     <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ mà ứng dụng đang thực hiện vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
@@ -56,6 +56,15 @@
     <string name="general_settings_label">Tổng quan</string>
     <string name="general_settings_desc">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_category_ui_label">Giao diện người dùng</string>
+    <string name="ui_theme_mode_setting_label">Giao diện</string>
+    <string name="ui_theme_mode_setting_explanation">Chế độ được sử dụng khi tạo chủ đề cho ứng dụng (ví dụ: ngày hoặc đêm).</string>
+    <string name="ui_theme_mode_dark_label">Tối</string>
+    <string name="ui_theme_mode_light_label">Sáng</string>
+    <string name="ui_theme_mode_system_label">Hệ thống</string>
+    <string name="ui_theme_style_setting_label">Kiểu giao diện</string>
+    <string name="ui_theme_style_setting_explanation">Kiểu màu được sử dụng khi tạo giao diện cho ứng dụng.</string>
+    <string name="ui_theme_style_default_label">Mặc định</string>
+    <string name="ui_theme_style_materialyou_label">Cá nhân</string>
     <string name="ui_previews_title">Xem trước tệp</string>
     <string name="ui_previews_summary">Hiển thị xem trước tệp trong tất cả các công cụ (ví dụ: hình thu nhỏ của hình ảnh và video).</string>
     <string name="settings_support_label">Hỗ trợ</string>

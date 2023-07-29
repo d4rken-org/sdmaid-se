@@ -62,6 +62,15 @@
     <string name="general_settings_label">Агульныя</string>
     <string name="general_settings_desc">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_category_ui_label">Карыстальніцкі інтэрфейс</string>
+    <string name="ui_theme_mode_setting_label">Рэжым тэмы</string>
+    <string name="ui_theme_mode_setting_explanation">Рэжым, які выкарыстоўваецца пры ўжыванні тэм афармлення праграмы (напр., цёмнай або светлай).</string>
+    <string name="ui_theme_mode_dark_label">Цёмная</string>
+    <string name="ui_theme_mode_light_label">Светлая</string>
+    <string name="ui_theme_mode_system_label">Сістэмная</string>
+    <string name="ui_theme_style_setting_label">Стыль тэмы</string>
+    <string name="ui_theme_style_setting_explanation">Каляровы стыль, які выкарыстоўваецца пры ўжыванні тэм афармлення праграмы.</string>
+    <string name="ui_theme_style_default_label">Па змаўчанні</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Эскізы файлаў</string>
     <string name="ui_previews_summary">Адлюстраванне эскізаў файлаў ва ўсіх інструментах (напр., эскізы выяў і відэа).</string>
     <string name="settings_support_label">Падтрымка</string>

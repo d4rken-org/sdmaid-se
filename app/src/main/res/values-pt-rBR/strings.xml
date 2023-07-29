@@ -58,6 +58,15 @@
     <string name="general_settings_label">Gerais</string>
     <string name="general_settings_desc">Ajustes gerais que afetam todo o aplicativo.</string>
     <string name="settings_category_ui_label">Interface de usuário</string>
+    <string name="ui_theme_mode_setting_label">Modo do tema</string>
+    <string name="ui_theme_mode_setting_explanation">O modo usado ao tematizar o aplicativo (por exemplo, noite ou dia).</string>
+    <string name="ui_theme_mode_dark_label">Escuro</string>
+    <string name="ui_theme_mode_light_label">Claro</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_style_setting_label">Estilo do tema</string>
+    <string name="ui_theme_style_setting_explanation">Estilo de cor usado ao tematizar o aplicativo.</string>
+    <string name="ui_theme_style_default_label">Padrão</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pré-visualização de arquivos</string>
     <string name="ui_previews_summary">Exibir pré-visualizações de arquivos em todas as ferramentas (por exemplo, miniaturas de imagens e vídeos).</string>
     <string name="settings_support_label">Suporte</string>
