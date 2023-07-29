@@ -109,7 +109,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             addDrawerListener(object : DrawerListener {
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-
+                    ui.refreshAction.isInvisible = true
                 }
 
                 override fun onDrawerStateChanged(newState: Int) {
@@ -121,9 +121,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }
 
                 override fun onDrawerClosed(drawerView: View) {
-
+                    ui.refreshAction.isInvisible = false
                 }
-
             })
         }
 
