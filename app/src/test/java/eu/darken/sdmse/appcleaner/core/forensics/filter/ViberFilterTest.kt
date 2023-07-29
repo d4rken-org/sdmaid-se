@@ -59,7 +59,7 @@ class ViberFilterTest : BaseFilterTest() {
 
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.vptt")
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.vptt/.nomedia")
-        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.ptt/$rngString")
+        pos("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.vptt/$rngString")
 
         confirm(create())
     }
