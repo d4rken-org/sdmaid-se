@@ -7,8 +7,10 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentAdapter
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerStorageVhAppsBinding
+import kotlin.math.roundToInt
 
 
 class AppCategoryVH(parent: ViewGroup) :
@@ -33,7 +35,11 @@ class AppCategoryVH(parent: ViewGroup) :
             text = if (content.setupIncomplete) {
                 getString(R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
             } else {
-                getString(R.string.analyzer_space_used, usedText)
+                getQuantityString(
+                    R.plurals.analyzer_space_used,
+                    ByteFormatter.stripSizeUnit(usedText)?.roundToInt() ?: 1,
+                    usedText
+                )
             }
         }
         progress.apply {
