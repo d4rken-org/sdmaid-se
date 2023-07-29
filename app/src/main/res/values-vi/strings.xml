@@ -348,8 +348,6 @@
     <string name="analyzer_progress_scanning_userfiles">Tìm kiếm tập tin người dùng</string>
     <string name="analyzer_progress_scanning_system">Đang quét dữ liệu hệ thống</string>
     <string name="analyzer_device_storage_title">Bộ nhớ thiết bị</string>
-    <string name="analyzer_space_available">%skhả dụng</string>
-    <string name="analyzer_space_used">%s đã dùng</string>
     <string name="analyzer_content_access_opaque">Không có quyền truy cập trực tiếp</string>
     <string name="analyzer_storage_type_primary_title">Bộ nhớ chính</string>
     <string name="analyzer_storage_type_primary_description">Bộ nhớ chính của thiết bị của bạn. Chứa \"sdcard\" nội bộ, bộ nhớ riêng cho ứng dụng và dữ liệu hệ thống.</string>

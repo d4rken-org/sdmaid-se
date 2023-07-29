@@ -357,8 +357,6 @@
     <string name="analyzer_progress_scanning_userfiles">Cerca de fitxers d\'usuari</string>
     <string name="analyzer_progress_scanning_system">Escaneig de dades del sistema</string>
     <string name="analyzer_device_storage_title">Emmagatzematge del dispositiu</string>
-    <string name="analyzer_space_available">%s disponible</string>
-    <string name="analyzer_space_used">%s usat</string>
     <string name="analyzer_content_access_opaque">No hi ha accés directe disponible</string>
     <string name="analyzer_storage_type_primary_title">Emmagatzematge primari</string>
     <string name="analyzer_storage_type_primary_description">L\'emmagatzematge principal del vostre dispositiu. Conté la targeta SD interna, emmagatzematge privat per a aplicacions i dades del sistema.</string>

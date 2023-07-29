@@ -59,14 +59,14 @@
     <string name="general_settings_desc">Ajustements généraux qui affectent l’ensemble de l’appli.</string>
     <string name="settings_category_ui_label">Interface utilisateur</string>
     <string name="ui_theme_mode_setting_label">Mode du thème</string>
-    <string name="ui_theme_mode_setting_explanation">Le mode utilisé pour le thème de l\'application (par exemple nuit ou jour).</string>
+    <string name="ui_theme_mode_setting_explanation">Le mode utilisé pour le thème de l’appli (p. ex. nuit ou jour).</string>
     <string name="ui_theme_mode_dark_label">Sombre</string>
     <string name="ui_theme_mode_light_label">Clair</string>
     <string name="ui_theme_mode_system_label">Système</string>
     <string name="ui_theme_style_setting_label">Style de thème</string>
-    <string name="ui_theme_style_setting_explanation">Le style de couleur utilisé pour le thème de l\'application.</string>
+    <string name="ui_theme_style_setting_explanation">Le style chromatique utilisé pour le thème de l’appli.</string>
     <string name="ui_theme_style_default_label">Par défaut</string>
-    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_materialyou_label">« Material You »</string>
     <string name="ui_previews_title">Aperçus de fichiers</string>
     <string name="ui_previews_summary">Affichez les aperçus de fichiers dans tous les outils (p. ex. les imagettes d’images et de vidéos).</string>
     <string name="settings_support_label">Assistance</string>
@@ -314,8 +314,8 @@
         <item quantity="one">Supprimer les fichiers superflus pour %d appli sélectionnée ?</item>
         <item quantity="other">Supprimer les fichiers superflus pour %d applis sélectionnées ?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches en utilisant Shizuku</string>
-    <string name="appcontrol_tool_name">Gestion des applications</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
+    <string name="appcontrol_tool_name">Vérificateur d’applis</string>
     <string name="appcontrol_explanation_short">Applications installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d application détectée</item>
@@ -357,8 +357,6 @@
     <string name="analyzer_progress_scanning_userfiles">Recherche de fichiers utilisateur</string>
     <string name="analyzer_progress_scanning_system">Analyse des données système</string>
     <string name="analyzer_device_storage_title">Stockage de l’appareil</string>
-    <string name="analyzer_space_available">%s libre</string>
-    <string name="analyzer_space_used">%s utilisé</string>
     <string name="analyzer_content_access_opaque">Aucun accès direct n’est proposé</string>
     <string name="analyzer_storage_type_primary_title">Stockage principal</string>
     <string name="analyzer_storage_type_primary_description">Le stockage principal de votre appareil. Comprends la carte SD, le stockage privé pour les applications et les données système.</string>

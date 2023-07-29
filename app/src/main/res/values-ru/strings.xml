@@ -375,8 +375,6 @@
     <string name="analyzer_progress_scanning_userfiles">Поиск пользовательских файлов</string>
     <string name="analyzer_progress_scanning_system">Анализ системных данных</string>
     <string name="analyzer_device_storage_title">Хранилище устройства</string>
-    <string name="analyzer_space_available">%s доступно</string>
-    <string name="analyzer_space_used">%s используется</string>
     <string name="analyzer_content_access_opaque">Отсутствует прямой доступ</string>
     <string name="analyzer_storage_type_primary_title">Основное хранилище</string>
     <string name="analyzer_storage_type_primary_description">Основное хранилище Вашего устройства. Включает в себя внутренний раздел \"sdcard\", данные приложений и системы.</string>

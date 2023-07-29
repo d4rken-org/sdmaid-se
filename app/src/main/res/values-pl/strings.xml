@@ -375,8 +375,6 @@
     <string name="analyzer_progress_scanning_userfiles">Wyszukiwanie plików użytkownika</string>
     <string name="analyzer_progress_scanning_system">Skanowanie danych systemu</string>
     <string name="analyzer_device_storage_title">Pamięć urządzenia</string>
-    <string name="analyzer_space_available">Dostępne: %s</string>
-    <string name="analyzer_space_used">Użyto: %s</string>
     <string name="analyzer_content_access_opaque">Brak bezpośredniego dostępu</string>
     <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>
     <string name="analyzer_storage_type_primary_description">Pamięć podstawowa Twojego urządzenia. Zawiera \"wewnętrzną kartę SD\", prywatną pamięć dla aplikacji i danych systemowych.</string>

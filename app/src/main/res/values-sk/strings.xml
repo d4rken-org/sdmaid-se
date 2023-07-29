@@ -346,8 +346,6 @@
     <string name="analyzer_progress_scanning_userfiles">Vyhľadávanie súborov užívateľa</string>
     <string name="analyzer_progress_scanning_system">Skenovanie systémových údajov</string>
     <string name="analyzer_device_storage_title">Úložisko zariadenia</string>
-    <string name="analyzer_space_available">Dostupné %s</string>
-    <string name="analyzer_space_used">Využité: %s</string>
     <string name="analyzer_content_access_opaque">Priamy prístup nie je k dispozícii</string>
     <string name="analyzer_storage_type_primary_title">Primárne úložisko</string>
     <string name="analyzer_storage_type_primary_description">Primárne úložisko vášho zariadenia. Obsahuje internú „sd kartu“, súkromné úložisko pre aplikácie a systémové dáta.</string>

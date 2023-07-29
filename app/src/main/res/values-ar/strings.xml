@@ -393,8 +393,6 @@
     <string name="analyzer_progress_scanning_userfiles">جاري البحث في ملفات المستخدم</string>
     <string name="analyzer_progress_scanning_system">جاري فحص بيانات النظام</string>
     <string name="analyzer_device_storage_title">تخزين الجهاز</string>
-    <string name="analyzer_space_available">%s متوفر</string>
-    <string name="analyzer_space_used">%s مستخدم</string>
     <string name="analyzer_content_access_opaque">لا يوجد وصول مباشر متاح</string>
     <string name="analyzer_storage_type_primary_title">التخزين الأساسي</string>
     <string name="analyzer_storage_type_primary_description">التخزين الأساسي لجهازك. يحتوي على \"ذاكرة\" داخلية للتخزين الخاص للتطبيقات وبيانات النظام.</string>

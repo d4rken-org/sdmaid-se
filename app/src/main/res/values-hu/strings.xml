@@ -348,8 +348,6 @@
     <string name="analyzer_progress_scanning_userfiles">Felhasználói fájlok keresése</string>
     <string name="analyzer_progress_scanning_system">Rendszeradatok ellenőrzése</string>
     <string name="analyzer_device_storage_title">Eszköztárhely</string>
-    <string name="analyzer_space_available">%s elérhető</string>
-    <string name="analyzer_space_used">%s felhasználva</string>
     <string name="analyzer_content_access_opaque">Nincs közvetlen hozzáférés</string>
     <string name="analyzer_storage_type_primary_title">Elsődleges tároló</string>
     <string name="analyzer_storage_type_primary_description">A készülék elsődleges tárhelye. Tartalmazza a belső \"sdcard\"-ot, az alkalmazások és a rendszeradatok privát tárhelyét.</string>

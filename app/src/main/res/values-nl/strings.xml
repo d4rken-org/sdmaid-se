@@ -357,8 +357,6 @@
     <string name="analyzer_progress_scanning_userfiles">Gebruikersbestanden zoeken</string>
     <string name="analyzer_progress_scanning_system">Systeemgegevens scannen</string>
     <string name="analyzer_device_storage_title">Apparaat opslag</string>
-    <string name="analyzer_space_available">%s beschikbaar</string>
-    <string name="analyzer_space_used">%s gebruikt</string>
     <string name="analyzer_content_access_opaque">Geen directe toegang beschikbaar</string>
     <string name="analyzer_storage_type_primary_title">Primaire opslag</string>
     <string name="analyzer_storage_type_primary_description">De primaire opslag van uw apparaat. Bevat de interne \"sdcard\", privé opslag voor apps en systeemgegevens.</string>

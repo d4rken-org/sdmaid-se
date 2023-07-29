@@ -248,8 +248,6 @@
     <string name="analyzer_progress_scanning_userfiles">Kërkimi i skedarëve të përdoruesit</string>
     <string name="analyzer_progress_scanning_system">Skanimi i të dhënave të sistemit</string>
     <string name="analyzer_device_storage_title">Hapësira ruajtëse e pajisjes</string>
-    <string name="analyzer_space_available">%s në dispozicion</string>
-    <string name="analyzer_space_used">%s përdorur</string>
     <string name="analyzer_content_access_opaque">Nuk ka qasje të drejtpërdrejtë</string>
     <string name="analyzer_storage_type_primary_title">Magazina primare</string>
     <string name="analyzer_storage_type_primary_description">Ruajtja kryesore e pajisjes suaj. Përmban \"sdcard\"-in e brendshëm, ruajtjen private për aplikacionet dhe të dhënat e sistemit.</string>
