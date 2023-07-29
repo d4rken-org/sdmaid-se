@@ -1,12 +1,15 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isInvisible
 import androidx.drawerlayout.widget.DrawerLayout
@@ -23,6 +26,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -73,7 +78,19 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             menu.findItem(R.id.action_search)?.actionView?.apply {
                 this as SearchView
                 searchView = this
-
+                findViewById<EditText>(androidx.appcompat.R.id.search_src_text)?.apply {
+                    val fixedTextColor = requireContext().getColorForAttr(
+                       com.google.android.material.R.attr.colorOnPrimary
+                    )
+                    setTextColor(fixedTextColor)
+                    setHintTextColor(fixedTextColor)
+                    if (hasApiLevel(29)) {
+                        @SuppressLint("NewApi")
+                        textCursorDrawable = textCursorDrawable?.apply {
+                            DrawableCompat.setTint(this, fixedTextColor)
+                        }
+                    }
+                }
                 queryHint = getString(eu.darken.sdmse.common.R.string.general_search_action)
                 setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String): Boolean {
