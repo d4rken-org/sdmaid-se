@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerDeviceVhBinding
+import kotlin.math.roundToInt
 
 
 class DeviceStorageItemVH(parent: ViewGroup) :
@@ -50,7 +52,11 @@ class DeviceStorageItemVH(parent: ViewGroup) :
 
         available.apply {
             val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
-            text = getString(R.string.analyzer_space_available, formattedFree)
+            text = getQuantityString(
+                R.plurals.analyzer_space_available,
+                ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1,
+                formattedFree
+            )
             setTextColor(
                 if (percentUsed > 95) {
                     getColorForAttr(android.R.attr.colorError)
