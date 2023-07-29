@@ -77,6 +77,7 @@
     <string name="general_delete_action">Delete</string>
     <string name="general_delete_selected_action">Delete selected</string>
     <string name="general_show_details_action">Show details</string>
+    <string name="general_show_all_action">Show all</string>
 
     <string name="general_delete_confirmation_title">Confirm deletion</string>
     <string name="general_delete_confirmation_message_x">Delete \"%s\"?</string>

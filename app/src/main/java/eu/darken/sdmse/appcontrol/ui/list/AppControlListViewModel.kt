@@ -255,6 +255,11 @@ class AppControlListViewModel @Inject constructor(
         }
     }
 
+    fun clearTags() = launch {
+        log(TAG) { "clearTags()" }
+        settings.listFilter.update { old -> old.copy(tags = emptySet()) }
+    }
+
     fun refresh() = launch {
         log(TAG) { "refresh()" }
         appControl.submit(AppControlScanTask())
