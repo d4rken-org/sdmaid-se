@@ -340,8 +340,6 @@ Lain-lain
     <string name="analyzer_progress_scanning_userfiles">Mencari fail pengguna</string>
     <string name="analyzer_progress_scanning_system">Mengimbas data sistem</string>
     <string name="analyzer_device_storage_title">Storan peranti</string>
-    <string name="analyzer_space_available">%s tersedia</string>
-    <string name="analyzer_space_used">%s digunakan</string>
     <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
     <string name="analyzer_storage_type_primary_title">Storan utama</string>
     <string name="analyzer_storage_type_primary_description">Storan utama peranti anda. Mengandungi \"sdcard\" dalaman, storan peribadi untuk aplikasi dan data sistem.</string>

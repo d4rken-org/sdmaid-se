@@ -357,8 +357,6 @@
     <string name="analyzer_progress_scanning_userfiles">Procurando arquivos de usuário</string>
     <string name="analyzer_progress_scanning_system">Verificando dados do sistema</string>
     <string name="analyzer_device_storage_title">Armazenamento do dispositivo</string>
-    <string name="analyzer_space_available">%s disponível</string>
-    <string name="analyzer_space_used">%s utilizado</string>
     <string name="analyzer_content_access_opaque">Nenhum acesso direto disponível</string>
     <string name="analyzer_storage_type_primary_title">Armazenamento Primário</string>
     <string name="analyzer_storage_type_primary_description">O armazenamento primário do seu dispositivo. Contém o \"sdcard\" interno, armazenamento privado para apps e dados do sistema.</string>

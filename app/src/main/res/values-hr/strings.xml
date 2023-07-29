@@ -317,8 +317,6 @@
     <string name="analyzer_progress_scanning_userfiles">Pretraživanje korisničkih datoteka</string>
     <string name="analyzer_progress_scanning_system">Skeniranje sistemskih podataka</string>
     <string name="analyzer_device_storage_title">Pohrana uređaja</string>
-    <string name="analyzer_space_available">Dostupno %s</string>
-    <string name="analyzer_space_used">Iskorišteno %s</string>
     <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
     <string name="analyzer_storage_type_primary_title">Primarna pohrana</string>
     <string name="analyzer_storage_type_primary_description">Primarna pohrana vašeg uređaja. Sadrži internu \"sdcard\", privatnu pohranu za aplikacije i sistemske podatke.</string>

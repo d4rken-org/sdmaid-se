@@ -345,8 +345,6 @@
     <string name="analyzer_progress_scanning_userfiles">Mencari berkas-berkas pengguna</string>
     <string name="analyzer_progress_scanning_system">Memindai data sistem</string>
     <string name="analyzer_device_storage_title">Penyimpanan perangkat</string>
-    <string name="analyzer_space_available">%s tersedia</string>
-    <string name="analyzer_space_used">%s digunakan</string>
     <string name="analyzer_content_access_opaque">Tidak ada akses langsung yang tersedia</string>
     <string name="analyzer_storage_type_primary_title">Penyimpanan utama</string>
     <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>

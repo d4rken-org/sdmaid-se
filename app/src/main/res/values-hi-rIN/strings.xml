@@ -297,8 +297,6 @@
     <string name="analyzer_progress_scanning_userfiles">उपयोगकर्ता फ़ाइलें खोज रहा है</string>
     <string name="analyzer_progress_scanning_system">स्कैनिंग सिस्टम डेटा</string>
     <string name="analyzer_device_storage_title">डिवाइस संग्रहण</string>
-    <string name="analyzer_space_available">%s उपलब्ध</string>
-    <string name="analyzer_space_used">%s प्रयुक्त</string>
     <string name="analyzer_content_access_opaque">कोई सीधी पहुँच उपलब्ध नहीं है</string>
     <string name="analyzer_storage_type_primary_title">प्रारंभिक संग्रहण</string>
     <string name="analyzer_storage_type_primary_description">आपके डिवाइस का प्राथमिक संग्रहण। आंतरिक \"sdcard\", ऐप्स और सिस्टम डेटा के लिए निजी संग्रहण शामिल है।</string>
