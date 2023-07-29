@@ -202,7 +202,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()
             refreshAction.isInvisible = state.progress != null
 
-            val checkedSortMode = when (state.listSort.mode) {
+            val checkedSortMode = when (state.options.listSort.mode) {
                 SortSettings.Mode.NAME -> R.id.sortmode_name
                 SortSettings.Mode.LAST_UPDATE -> R.id.sortmode_updated
                 SortSettings.Mode.INSTALLED_AT -> R.id.sortmode_installed
@@ -225,11 +225,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             }
 
             sortmodeDirection.setIconResource(
-                if (state.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
+                if (state.options.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
             )
-            currentSortMode = state.listSort.mode
+            currentSortMode = state.options.listSort.mode
 
-            val listFilter = state.listFilter
+            val listFilter = state.options.listFilter
             tagFilterUserSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.USER), animate = false)
             tagFilterSystemSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.SYSTEM), animate = false)
             tagFilterEnabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.ENABLED), animate = false)
@@ -240,6 +240,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     eu.darken.sdmse.common.R.plurals.result_x_items, state.appInfos.size
                 )
                 adapter.update(state.appInfos)
+            } else if (state.progress != null) {
+                toolbar.subtitle = getString(eu.darken.sdmse.common.R.string.general_progress_loading)
             } else {
                 toolbar.subtitle = null
             }
