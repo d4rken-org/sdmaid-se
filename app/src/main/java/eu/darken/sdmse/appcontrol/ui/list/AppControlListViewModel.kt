@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -24,6 +23,7 @@ import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import java.time.Instant
 import java.time.format.DateTimeFormatter
@@ -106,78 +106,101 @@ class AppControlListViewModel @Inject constructor(
                 ?: "?"
         }.also { lablrCacheInstalled[this.id] = it }
 
-    val state = combine(
-        appControl.data,
-        appControl.progress,
+    data class DisplayOptions(
+        val searchQuery: String,
+        val listSort: SortSettings,
+        val listFilter: FilterSettings
+    )
+
+    private val currentDisplayOptions = combine(
         searchQuery,
         settings.listSort.flow,
         settings.listFilter.flow,
-        rootManager.useRoot,
-        shizukuManager.useShizuku
-    ) { data, progress, query, listSort, listFilter, rootAvailable, shizukuAvailable ->
-        val queryNormalized = query.lowercase()
-        val appInfos = data?.apps
-            ?.filter { appInfo ->
-                if (queryNormalized.isEmpty()) return@filter true
+    ) { query, listSort, listFilter ->
+        DisplayOptions(searchQuery = query, listSort = listSort, listFilter = listFilter)
+    }
 
-                if (appInfo.normalizedPackageName.contains(queryNormalized)) return@filter true
-
-                if (appInfo.normalizedLabel.contains(queryNormalized)) return@filter true
-
-                return@filter false
-            }
-            ?.filter {
-                if (listFilter.tags.contains(FilterSettings.Tag.USER) && it.pkg.isSystemApp) return@filter false
-                if (listFilter.tags.contains(FilterSettings.Tag.SYSTEM) && !it.pkg.isSystemApp) return@filter false
-                if (listFilter.tags.contains(FilterSettings.Tag.ENABLED) && !it.pkg.isEnabled) return@filter false
-                if (listFilter.tags.contains(FilterSettings.Tag.DISABLED) && it.pkg.isEnabled) return@filter false
-
-                return@filter true
-            }
-            ?.sortedWith(
-                when (listSort.mode) {
-                    SortSettings.Mode.NAME -> compareBy {
-                        it.normalizedLabel
-                    }
-
-                    SortSettings.Mode.PACKAGENAME -> compareBy {
-                        it.normalizedPackageName
-                    }
-
-                    SortSettings.Mode.LAST_UPDATE -> compareBy {
-                        (it.pkg as? ExtendedInstallData)?.updatedAt ?: Instant.EPOCH
-                    }
-
-                    SortSettings.Mode.INSTALLED_AT -> compareBy {
-                        (it.pkg as? ExtendedInstallData)?.installedAt ?: Instant.EPOCH
-                    }
-                }
+    val state = currentDisplayOptions.flatMapLatest { displayOptions ->
+        combineTransform(
+            appControl.data,
+            appControl.progress,
+            rootManager.useRoot,
+            shizukuManager.useShizuku,
+        ) { data, progress, rootAvailable, shizukuAvailable ->
+            val initialState = State(
+                appInfos = null,
+                progressWorker = progress,
+                progressUI = Progress.DEFAULT_STATE,
+                options = displayOptions,
+                allowAppToggleActions = rootAvailable || shizukuAvailable,
             )
-            ?.let { if (listSort.reversed) it.reversed() else it }
-            ?.map { content ->
-                AppControlListRowVH.Item(
-                    appInfo = content,
-                    lablrName = if (listSort.mode == SortSettings.Mode.NAME) content.lablrLabel else null,
-                    lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
-                    lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
-                    lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
-                    onItemClicked = {
-                        AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
-                            content.pkg.id
-                        ).navigate()
-                    },
-                )
-            }
-            ?.toList()
+            emit(initialState)
 
-        State(
-            appInfos = appInfos,
-            progress = progress,
-            searchQuery = query,
-            listSort = listSort,
-            listFilter = listFilter,
-            allowAppToggleActions = rootAvailable || shizukuAvailable,
-        )
+            val queryNormalized = displayOptions.searchQuery.lowercase()
+            val listFilter = displayOptions.listFilter
+            val listSort = displayOptions.listSort
+            val appInfos = data?.apps
+                ?.filter { appInfo ->
+                    if (queryNormalized.isEmpty()) return@filter true
+
+                    if (appInfo.normalizedPackageName.contains(queryNormalized)) return@filter true
+
+                    if (appInfo.normalizedLabel.contains(queryNormalized)) return@filter true
+
+                    return@filter false
+                }
+                ?.filter {
+                    if (listFilter.tags.contains(FilterSettings.Tag.USER) && it.pkg.isSystemApp) return@filter false
+                    if (listFilter.tags.contains(FilterSettings.Tag.SYSTEM) && !it.pkg.isSystemApp) return@filter false
+                    if (listFilter.tags.contains(FilterSettings.Tag.ENABLED) && !it.pkg.isEnabled) return@filter false
+                    if (listFilter.tags.contains(FilterSettings.Tag.DISABLED) && it.pkg.isEnabled) return@filter false
+
+                    return@filter true
+                }
+                ?.sortedWith(
+                    when (listSort.mode) {
+                        SortSettings.Mode.NAME -> compareBy {
+                            it.normalizedLabel
+                        }
+
+                        SortSettings.Mode.PACKAGENAME -> compareBy {
+                            it.normalizedPackageName
+                        }
+
+                        SortSettings.Mode.LAST_UPDATE -> compareBy {
+                            (it.pkg as? ExtendedInstallData)?.updatedAt ?: Instant.EPOCH
+                        }
+
+                        SortSettings.Mode.INSTALLED_AT -> compareBy {
+                            (it.pkg as? ExtendedInstallData)?.installedAt ?: Instant.EPOCH
+                        }
+                    }
+                )
+                ?.let { if (listSort.reversed) it.reversed() else it }
+                ?.map { content ->
+                    AppControlListRowVH.Item(
+                        appInfo = content,
+                        lablrName = if (listSort.mode == SortSettings.Mode.NAME) content.lablrLabel else null,
+                        lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
+                        lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
+                        lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
+                        onItemClicked = {
+                            AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
+                                content.pkg.id
+                            ).navigate()
+                        },
+                    )
+                }
+                ?.toList()
+
+            delay(250)
+
+            val finalState = initialState.copy(
+                appInfos = appInfos,
+                progressUI = null,
+            )
+            emit(finalState)
+        }
     }.asLiveData2()
 
     fun updateSearchQuery(query: String) {
@@ -261,12 +284,14 @@ class AppControlListViewModel @Inject constructor(
 
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
-        val progress: Progress.Data?,
-        val searchQuery: String,
-        val listSort: SortSettings,
-        val listFilter: FilterSettings,
+        val progressWorker: Progress.Data?,
+        val progressUI: Progress.Data?,
+        val options: DisplayOptions,
         val allowAppToggleActions: Boolean,
-    )
+    ) {
+        val progress: Progress.Data?
+            get() = progressWorker ?: progressUI
+    }
 
     companion object {
         private val TAG = logTag("AppControl", "List", "ViewModel")
