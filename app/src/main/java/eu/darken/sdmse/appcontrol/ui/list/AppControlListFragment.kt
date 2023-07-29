@@ -188,6 +188,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         ui.sortmodeDirection.setOnClickListener { vm.toggleSortDirection() }
 
         ui.apply {
+            tagFilterClearAction.setOnClickListener { vm.clearTags() }
             tagFilterUserSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.USER) }
             tagFilterSystemSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.SYSTEM) }
             tagFilterEnabledSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.ENABLED) }
