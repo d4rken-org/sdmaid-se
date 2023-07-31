@@ -73,6 +73,7 @@
     <string name="general_delete_action">Kustuta</string>
     <string name="general_delete_selected_action">Kustuta märgitud</string>
     <string name="general_show_details_action">Näita andmeid</string>
+    <string name="general_show_all_action">Kuva kõik</string>
     <string name="general_delete_confirmation_title">Kinnita kustutamine</string>
     <string name="general_delete_confirmation_message_x">Kustuta \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Kustutada %d valitud asja?</string>

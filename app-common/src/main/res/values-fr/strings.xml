@@ -73,6 +73,7 @@
     <string name="general_delete_action">Supprimer</string>
     <string name="general_delete_selected_action">Supprimer la sélection</string>
     <string name="general_show_details_action">Afficher les détails</string>
+    <string name="general_show_all_action">Tout afficher</string>
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Supprimer les %d éléments sélectionnés ?</string>
