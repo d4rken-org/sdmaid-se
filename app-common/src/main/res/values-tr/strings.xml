@@ -73,6 +73,7 @@
     <string name="general_delete_action">Sil</string>
     <string name="general_delete_selected_action">Seçilenleri sil</string>
     <string name="general_show_details_action">Detayları göster</string>
+    <string name="general_show_all_action">Hepsini göster</string>
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>

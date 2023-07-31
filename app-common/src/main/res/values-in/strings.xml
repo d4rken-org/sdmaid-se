@@ -73,6 +73,7 @@
     <string name="general_delete_action">Hapus</string>
     <string name="general_delete_selected_action">Hapus yang dipilih</string>
     <string name="general_show_details_action">Tampilkan detail</string>
+    <string name="general_show_all_action">Tampilkan semua</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Hapus %d item terpilih?</string>
