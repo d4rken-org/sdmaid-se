@@ -357,6 +357,14 @@
     <string name="analyzer_progress_scanning_userfiles">Søker etter brukerfiler</string>
     <string name="analyzer_progress_scanning_system">Skanner systemdata</string>
     <string name="analyzer_device_storage_title">Enhetslagring</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s tilgjengelig</item>
+        <item quantity="other">%s tilgjengelig</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s brukt</item>
+        <item quantity="other">%s brukt</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Ingen direkte tilgang tilgjengelig</string>
     <string name="analyzer_storage_type_primary_title">Primærlagring</string>
     <string name="analyzer_storage_type_primary_description">Den primære lagringen til enheten din. Inneholder internt \"minnekort\", privat lagring for apper og systemdata.</string>

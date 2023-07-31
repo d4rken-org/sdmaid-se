@@ -375,6 +375,18 @@
     <string name="analyzer_progress_scanning_userfiles">Vyhledávání souborů uživatele</string>
     <string name="analyzer_progress_scanning_system">Skenování systémových dat</string>
     <string name="analyzer_device_storage_title">Úložiště zařízení</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">K dispozici: %s</item>
+        <item quantity="few">K dispozici: %s</item>
+        <item quantity="many">K dispozici: %s</item>
+        <item quantity="other">K dispozici: %s</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">Využito: %s</item>
+        <item quantity="few">Využito: %s</item>
+        <item quantity="many">Využito: %s</item>
+        <item quantity="other">Využito: %s</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Přímý přístup není k dispozici</string>
     <string name="analyzer_storage_type_primary_title">Primární úložiště</string>
     <string name="analyzer_storage_type_primary_description">Primární úložiště vašeho zařízení. Obsahuje interní \"sdcard\", soukromé úložiště pro aplikace a systémová data.</string>

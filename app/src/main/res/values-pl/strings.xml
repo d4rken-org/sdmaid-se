@@ -375,6 +375,18 @@
     <string name="analyzer_progress_scanning_userfiles">Wyszukiwanie plików użytkownika</string>
     <string name="analyzer_progress_scanning_system">Skanowanie danych systemu</string>
     <string name="analyzer_device_storage_title">Pamięć urządzenia</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s dostępny</item>
+        <item quantity="few">%s dostępne</item>
+        <item quantity="many">%s dostępnych</item>
+        <item quantity="other">%s dostępnych</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s używany</item>
+        <item quantity="few">%s używane</item>
+        <item quantity="many">%s używanych</item>
+        <item quantity="other">%s używanych</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Brak bezpośredniego dostępu</string>
     <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>
     <string name="analyzer_storage_type_primary_description">Pamięć podstawowa Twojego urządzenia. Zawiera \"wewnętrzną kartę SD\", prywatną pamięć dla aplikacji i danych systemowych.</string>

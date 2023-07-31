@@ -60,4 +60,12 @@
     <string name="setup_incomplete_card_dismiss_action">Descartar</string>
     <string name="corpsefinder_tool_name">Buscador de cadáveres</string>
     <string name="corpsefinder_explanation_short">Datos pertenecientes a aplicaciones ya eliminadas.</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s Disponible</item>
+        <item quantity="other">%s Disponible</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s En uso</item>
+        <item quantity="other">%s en uso</item>
+    </plurals>
 </resources>
