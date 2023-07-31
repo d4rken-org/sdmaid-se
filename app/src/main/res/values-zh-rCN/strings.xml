@@ -348,6 +348,12 @@
     <string name="analyzer_progress_scanning_userfiles">正在搜索用户文件</string>
     <string name="analyzer_progress_scanning_system">正在搜索系统数据</string>
     <string name="analyzer_device_storage_title">设备存储</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s 可用空间</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s 已用空间</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">无法直接访问</string>
     <string name="analyzer_storage_type_primary_title">内部存储</string>
     <string name="analyzer_storage_type_primary_description">您设备的主要存储空间。包含内部 SD 卡、应用和系统数据的私有存储</string>

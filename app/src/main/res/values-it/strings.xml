@@ -358,6 +358,14 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_progress_scanning_userfiles">Analisi dei file utente</string>
     <string name="analyzer_progress_scanning_system">Analisi dati di sistema</string>
     <string name="analyzer_device_storage_title">Archiviazione dispositivo</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s disponibile</item>
+        <item quantity="other">%s disponibili</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s utilizzato</item>
+        <item quantity="other">%s utilizzati</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Accesso non disponibile</string>
     <string name="analyzer_storage_type_primary_title">Archivio principale</string>
     <string name="analyzer_storage_type_primary_description">L\'archiviazione primaria del tuo dispositivo. Contiene la memoria di sistema e quella di applicazioni e dati dell\'utente.</string>

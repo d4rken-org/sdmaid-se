@@ -316,10 +316,10 @@
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
     <string name="appcontrol_tool_name">Vérificateur d’applis</string>
-    <string name="appcontrol_explanation_short">Applications installées sur votre appareil.</string>
+    <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d application détectée</item>
-        <item quantity="other">%d applications détectées</item>
+        <item quantity="one">%d appli a été détectée</item>
+        <item quantity="other">%d applis ont été détectées</item>
     </plurals>
     <string name="appcontrol_toggle_app_selection_action">Activer/désactiver les applications</string>
     <string name="appcontrol_toggle_app_enable_action">Activer l’appli</string>
@@ -357,6 +357,14 @@
     <string name="analyzer_progress_scanning_userfiles">Recherche de fichiers utilisateur</string>
     <string name="analyzer_progress_scanning_system">Analyse des données système</string>
     <string name="analyzer_device_storage_title">Stockage de l’appareil</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s libre</item>
+        <item quantity="other">%s libre</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s utilisé</item>
+        <item quantity="other">%s utilisés</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Aucun accès direct n’est proposé</string>
     <string name="analyzer_storage_type_primary_title">Stockage principal</string>
     <string name="analyzer_storage_type_primary_description">Le stockage principal de votre appareil. Comprends la carte SD, le stockage privé pour les applications et les données système.</string>

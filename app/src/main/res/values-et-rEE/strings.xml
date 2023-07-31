@@ -357,6 +357,14 @@
     <string name="analyzer_progress_scanning_userfiles">Kasutaja failide otsimine</string>
     <string name="analyzer_progress_scanning_system">Süsteemi andmete skannimine</string>
     <string name="analyzer_device_storage_title">Seadme hoiuruum</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s saadaval</item>
+        <item quantity="other">%s saadaval</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s kasutatud</item>
+        <item quantity="other">%s kasutatud</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Otsene juurdepääs puudub</string>
     <string name="analyzer_storage_type_primary_title">Peamine hoiuruum</string>
     <string name="analyzer_storage_type_primary_description">Seadme peamine hoiuruum. Sisaldab sisemälu ja isiklikku hoiuruumi rakenduste ning süsteemiandmete jaoks.</string>

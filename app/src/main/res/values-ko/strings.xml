@@ -348,6 +348,12 @@
     <string name="analyzer_progress_scanning_userfiles">사용자 생성 파일 스캔 중</string>
     <string name="analyzer_progress_scanning_system">시스템 데이터 스캔 중</string>
     <string name="analyzer_device_storage_title">기기 저장소</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s 사용 가능</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s 사용 중</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">직접 접근 권한 없음</string>
     <string name="analyzer_storage_type_primary_title">주 저장소</string>
     <string name="analyzer_storage_type_primary_description">기기의 주 저장공간입니다. 기기 내부의 \"sdcard\" 및 앱과 시스템 데이터를 저장하는 공간을 포함합니다.</string>

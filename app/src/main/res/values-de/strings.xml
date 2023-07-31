@@ -357,6 +357,14 @@
     <string name="analyzer_progress_scanning_userfiles">Durchsuche Benutzerdateien</string>
     <string name="analyzer_progress_scanning_system">Scanne Systemdaten</string>
     <string name="analyzer_device_storage_title">Gerätespeicher</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s verfügbar</item>
+        <item quantity="other">%s verfügbar</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s belegt</item>
+        <item quantity="other">%s belegt</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Kein direkter Zugriff möglich</string>
     <string name="analyzer_storage_type_primary_title">Hauptspeicher</string>
     <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne „SD-Karte“, nicht öffentlichen Speicher für Apps und Systemdaten.</string>
