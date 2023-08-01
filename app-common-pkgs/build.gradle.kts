@@ -48,6 +48,7 @@ dependencies {
     addAndroidCore()
     addDI()
     addCoroutines()
+    addIO()
 
     addTesting()
     testImplementation(project(":app-common-test"))
