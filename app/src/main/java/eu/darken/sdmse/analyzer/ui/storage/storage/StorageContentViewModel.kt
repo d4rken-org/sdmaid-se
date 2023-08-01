@@ -72,6 +72,7 @@ class StorageContentViewModel @Inject constructor(
                     storage = storage,
                     content = content,
                     onItemClicked = {
+                        if (content.groups.isEmpty()) return@Item
                         StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
                             storageId = targetStorageId,
                             groupId = content.groups.single().id,
@@ -83,6 +84,7 @@ class StorageContentViewModel @Inject constructor(
                     storage = storage,
                     content = content,
                     onItemClick = {
+                        if (content.groups.isEmpty()) return@Item
                         StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
                             storageId = targetStorageId,
                             groupId = content.groups.single().id,
