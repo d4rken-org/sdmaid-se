@@ -4,7 +4,10 @@ import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildConfigWrap.BuildType.RELEASE
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -37,10 +40,14 @@ class DataAreaFactory @Inject constructor(
         }
 
         if (BuildConfigWrap.BUILD_TYPE != RELEASE && firstPass.size + secondPass.size != newAreas.size) {
+            log(TAG, WARN) { "First pass: $firstPass" }
+            log(TAG, WARN) { "Second pass: $secondPass" }
+            log(TAG, WARN) { "Final areas: $newAreas" }
             throw IllegalStateException("Duplicate data areas")
         }
 
         if (BuildConfigWrap.BUILD_TYPE != RELEASE && newAreas.map { it.path }.toSet().size != newAreas.size) {
+            log(TAG, WARN) { "Final areas: $newAreas" }
             throw IllegalStateException("Duplicate data areas with overlapping paths")
         }
 
