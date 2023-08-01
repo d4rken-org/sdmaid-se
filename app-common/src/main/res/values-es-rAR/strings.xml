@@ -73,6 +73,7 @@
     <string name="general_delete_action">Borrar</string>
     <string name="general_delete_selected_action">Eliminar las selecciones</string>
     <string name="general_show_details_action">Mostrar detalles</string>
+    <string name="general_show_all_action">Mostrar todo</string>
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
