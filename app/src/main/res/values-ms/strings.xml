@@ -143,11 +143,7 @@
     <string name="corpsefinder_watcher_autodelete_title">Pemadaman automatik</string>
     <string name="corpsefinder_watcher_autodelete_summary">Pemadaman secara automatik mana-mana saki-baki yang berkaitan dengan aplikasi yang dinyahpasang.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="other">Satu
-%1$d saki-baki ditemui selepas menyahpasang %2$s.
-
-Lain-lain
-%1$d saki-baki ditemui selepas menyahpasang %2$s.</item>
+        <item quantity="other">%1$d saki-baki ditemui selepas menyahpasang %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">Pembersihan berjaya (%1$s): Membebaskan %2$s dan mengalih keluar %3$d item.</item>
@@ -176,11 +172,7 @@ Lain-lain
     <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="other">Satu
-%d sisa aplikasi ditemui
-
-Lain-lain
-%d sisa aplikasi ditemui</item>
+        <item quantity="other">%d sisa aplikasi ditemui</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Padamkan semua sisa aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
@@ -390,11 +382,7 @@ Lain-lain
     <string name="exclusion_create_pkg_hint">Gunakan alat AppControl untuk membuat pengecualian aplikasi.</string>
     <string name="exclusion_create_path_hint">Gunakan alat StorageAnalyzer untuk membuat pengecualian laluan.</string>
     <plurals name="exclusion_x_new_exclusions">
-        <item quantity="other">Satu
-Satu pengecualian dibuat
-
-Lain-lain
-%d pengecualian dibuat</item>
+        <item quantity="other">%d pengecualian dibuat</item>
     </plurals>
     <string name="automation_accessibility_service_description">Pengguna yang mempunyai keperluan kebolehaksesan khas boleh mendayakan perkhidmatan ini memberi kebenaran SD Maid mengautomasikan tugasan yang memerlukan interaksi pengguna manual yang membosankan (cth. pemadaman cache).\n\nContoh: Jika anda mengarahkan SD Maid menghentikan berbilang aplikasi maka SD Maid boleh menggunakan perkhidmatan ini untuk membuka setiap skrin tetapan aplikasi, cari butang \'Henti Paksa\' dan ketik padanya.\n\nSD Maid akan sentiasa ditunjukkan dengan jelas apabila menggunakan perkhidmatan ini dan menyediakan cara mudah untuk pengguna membatalkan sebarang interaksi dengan segera.\n\nTiada tindakan akan dilakukan tanpa kelulusan pengguna terlebih dahulu. Perkhidmatan ini boleh dilumpuhkan semula pada bila-bila masa tanpa kesan buruk.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan peranti anda. Ia tidak boleh menggunakan skrin pada masa yang sama. Tunggu sehingga operasi selesai atau batalkannya.</string>

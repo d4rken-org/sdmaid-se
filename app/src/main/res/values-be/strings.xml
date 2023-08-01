@@ -375,6 +375,18 @@
     <string name="analyzer_progress_scanning_userfiles">Пошук карыстальніцкіх файлаў</string>
     <string name="analyzer_progress_scanning_system">Сканіраванне сістэмных даных</string>
     <string name="analyzer_device_storage_title">Сховішча прылады</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">Даступны %s</item>
+        <item quantity="few">Даступна %s</item>
+        <item quantity="many">Даступна %s</item>
+        <item quantity="other">Даступна %s</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">Выкарыстаны %s</item>
+        <item quantity="few">Выкарыстана %s</item>
+        <item quantity="many">Выкарыстана %s</item>
+        <item quantity="other">Выкарыстана %s</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Адсутнічае прамы доступ</string>
     <string name="analyzer_storage_type_primary_title">Асноўнае сховішча</string>
     <string name="analyzer_storage_type_primary_description">Асноўнае сховішча вашай прылады. Змяшчае ўнутраную \"карту памяці\", прыватнае сховішча для праграм і сістэмных даных.</string>

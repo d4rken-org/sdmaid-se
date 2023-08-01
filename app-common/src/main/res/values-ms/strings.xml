@@ -77,20 +77,12 @@
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Padamkan %d item yang dipilih?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">Satu
-Memadamkan %1$d item dan membebaskan %2$s
-
-Lain-lain
-Memadamkan %1$d item dan membebaskan %2$s</item>
+        <item quantity="other">Memadamkan %1$d item dan membebaskan %2$s</item>
     </plurals>
     <string name="general_remove_action">Alih keluar</string>
     <string name="general_remove_selected_action">Buang yang dipilih</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="other">Satu
-Satu item telah dialih keluar
-
-Lain-lain
-%d item telah dialih keluar</item>
+        <item quantity="other">%d item telah dialih keluar</item>
     </plurals>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan peranti yang telah di root</string>
