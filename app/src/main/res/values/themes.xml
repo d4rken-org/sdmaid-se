@@ -3,6 +3,8 @@
     <style name="Theme.Material3.DynamicColors.Light.NoActionBar" parent="Theme.Material3.DynamicColors.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_baseline_close_24</item>
     </style>
 
     <style name="Theme.Material3.DynamicColors.Light.Floating" parent="Theme.Material3.DynamicColors.Light.NoActionBar">
