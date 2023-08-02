@@ -72,7 +72,7 @@
     <string name="settings_support_label">Assistance</string>
     <string name="settings_support_description">Consultez la documentation, signalez des problèmes, dialoguez avec d\'autres ou enregistrez les journaux de débogage.</string>
     <string name="documentation_label">Documentation</string>
-    <string name="issue_tracker_description">Un système public de suivi de problèmes et de demandes de fonctions.</string>
+    <string name="issue_tracker_description">Un système public de suivi des problèmes et des demandes de fonctions.</string>
     <string name="issue_tracker_label">Suivi des problèmes</string>
     <string name="support_installid_label">Identifiant d’installation</string>
     <string name="support_installid_desc">Les relevés d’erreur automatiques sont anonymes. Partagez votre identifiant d’installation si le développeur a besoin de trouver vos relevés d’erreur.</string>

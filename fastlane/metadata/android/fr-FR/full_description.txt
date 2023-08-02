@@ -2,7 +2,7 @@
 
 Personne n’est parfait et Android non plus.
 * Les applis que vous avez déjà supprimées laissent des traces.
-* Des journaux, des rapports de plantage et d’autres fichiers dont vous ne voulez pas vraiment sont créés en permanence.
+* Des journaux, des relevés de plantage et d’autres fichiers dont vous ne voulez pas vraiment sont créés en permanence.
 * Votre mémoire recueille des fichiers et des répertoires que vous ne reconnaissez pas.
 
 N’allons pas plus loin… Laissez SD Maid SE vous aider :
