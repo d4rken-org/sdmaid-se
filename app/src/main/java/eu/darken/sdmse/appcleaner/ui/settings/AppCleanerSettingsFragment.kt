@@ -12,7 +12,9 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.uix.PreferenceFragment2
+import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
 import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
+import java.time.Duration
 import javax.inject.Inject
 
 @Keep
@@ -71,23 +73,48 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
 
         findPreference<Preference>(settings.minCacheAgeMs.keyName)?.apply {
             setOnPreferenceClickListener {
-                val dialogLayout = ViewPreferenceSeekbarBinding.inflate(layoutInflater, null, false)
+                val dialogLayout = AppcontrolSettingsAgeSettingDialogBinding.inflate(layoutInflater, null, false)
+
+                var currentValue = settings.minCacheAgeMs.valueBlocking
+
+                var isDays = currentValue > Duration.ofDays(7).toMillis()
+                val getBaseUnit = {
+                    (if (isDays) Duration.ofDays(1) else Duration.ofHours(1)).toMillis()
+                }
+
                 dialogLayout.apply {
-                    slider.valueFrom = 0f
-                    slider.valueTo = 60 * 24 * 6f
-                    slider.value = (
-                            settings.minCacheAgeMs.valueBlocking / (60 * 1000L)
-                            ).toFloat().coerceAtMost(slider.valueTo)
+                    val updateSlider = {
+                        slider.valueFrom = 0f
+                        slider.valueTo = if (isDays) 182f else 24 * 6f
+                        slider.value = (currentValue / getBaseUnit()).toFloat().coerceAtMost(slider.valueTo)
+                    }
+                    updateSlider()
 
                     val updateSliderText = {
-                        val millis = slider.value.toLong() * 60 * 1000L
+                        currentValue = slider.value.toLong() * getBaseUnit()
                         sliderValue.text = DateUtils.getRelativeTimeSpanString(
-                            System.currentTimeMillis() - millis,
+                            System.currentTimeMillis() - currentValue,
                             System.currentTimeMillis(),
-                            DateUtils.HOUR_IN_MILLIS
+                            if (isDays) DateUtils.DAY_IN_MILLIS else DateUtils.HOUR_IN_MILLIS
                         )
                     }
                     updateSliderText()
+
+                    timeScaleDays.isChecked = isDays
+                    timeScaleHours.isChecked = !isDays
+                    timeScaleGroup.setOnCheckedChangeListener { _, checkedId ->
+                        when (checkedId) {
+                            R.id.time_scale_days -> {
+                                isDays = true
+                            }
+
+                            R.id.time_scale_hours -> {
+                                isDays = false
+                            }
+                        }
+                        updateSlider()
+                        updateSliderText()
+                    }
 
                     slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
                         override fun onStartTrackingTouch(slider: Slider) {
@@ -103,7 +130,7 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                     setTitle(R.string.appcleaner_include_minimumage_label)
                     setView(dialogLayout.root)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
-                        settings.minCacheAgeMs.valueBlocking = dialogLayout.slider.value.toLong() * 60 * 1000L
+                        settings.minCacheAgeMs.valueBlocking = currentValue
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
