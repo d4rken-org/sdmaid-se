@@ -11,6 +11,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -47,6 +48,7 @@ class SAFSetupModule @Inject constructor(
     private val pathMapper: PathMapper,
     private val dataAreaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
+    private val deviceDetective: DeviceDetective,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -60,6 +62,13 @@ class SAFSetupModule @Inject constructor(
 
     private suspend fun getAccessObjects(): List<State.PathAccess> {
         val requestObjects = mutableListOf<State.PathAccess>()
+
+        // Android TV doesn't have the DocumentsUI app necessary to grant us permissions
+        if (deviceDetective.isAndroidTV()) {
+            log(TAG) { "Skipping SAF setup as this is an Android TV device." }
+            return requestObjects
+        }
+
         val currentUriPerms = contentResolver.persistedUriPermissions
 
         if (!hasApiLevel(30)) {
