@@ -3,7 +3,7 @@
     <string name="dashboard_delete_all_message">Hapus hasil di semua alat?</string>
     <string name="dashboard_settings_category">Dasbor</string>
     <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
-    <string name="dashboard_settings_oneclick_summary">Mulai pindai dan hapus semua alat dengan ketukan pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
+    <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompres</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
