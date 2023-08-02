@@ -5,6 +5,7 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -15,6 +16,7 @@ import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.DeviceDetective
 import kotlin.reflect.full.isSubclassOf
+
 
 @Suppress("ClassName")
 sealed class Permission(
@@ -82,16 +84,23 @@ sealed class Permission(
         }
 
         override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent {
-            return if (deviceDetective.isAndroidTV()) {
-                Intent(Settings.ACTION_APPLICATION_SETTINGS)
-            } else {
-                Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+            val defaultIntent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+            return when {
+                defaultIntent.resolveActivities(context).isNotEmpty() -> return defaultIntent
+                deviceDetective.isAndroidTV() -> Intent(Settings.ACTION_APPLICATION_SETTINGS)
+                else -> Intent(Settings.ACTION_SETTINGS)
             }
         }
     }
 
     object WRITE_SECURE_SETTINGS
         : Permission("android.permission.WRITE_SECURE_SETTINGS")
+
+    fun Intent.resolveActivities(context: Context): Collection<ResolveInfo> =
+        context.packageManager.queryIntentActivities(
+            this,
+            PackageManager.MATCH_DEFAULT_ONLY
+        )
 
     companion object {
         // Without lazy there is an NPE: https://youtrack.jetbrains.com/issue/KT-25957
