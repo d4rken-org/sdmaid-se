@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -42,6 +43,14 @@ class SystemCleanerSettings @Inject constructor(
     val filterRecentTasksEnabled = dataStore.createValue("filter.recenttasks.enabled", false)
     val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", false)
     val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", false)
+
+    suspend fun isCustomFilterEnabled(filterId: FilterIdentifier): Boolean {
+        TODO()
+    }
+
+    suspend fun clearCustomFilter(filterId: FilterIdentifier) {
+        TODO()
+    }
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,

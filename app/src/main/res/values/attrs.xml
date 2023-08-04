@@ -9,4 +9,7 @@
         <attr name="spMax" format="integer" />
         <attr name="sliderText" format="reference" />
     </declare-styleable>
+    <declare-styleable name="TaggedInputView">
+        <attr name="tivTitle" format="reference" />
+    </declare-styleable>
 </resources>

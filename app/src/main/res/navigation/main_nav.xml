@@ -116,6 +116,9 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_customFilterListFragment"
+            app:destination="@id/customFilterListFragment" />
     </fragment>
 
     <action
@@ -346,8 +349,8 @@
         tools:layout="@layout/exclusion_editor_path_fragment">
         <argument
             android:name="exclusionId"
-            app:argType="string"
             android:defaultValue="@null"
+            app:argType="string"
             app:nullable="true" />
         <argument
             android:name="initial"
@@ -365,8 +368,8 @@
         tools:layout="@layout/exclusion_editor_pkg_fragment">
         <argument
             android:name="exclusionId"
-            app:argType="string"
             android:defaultValue="@null"
+            app:argType="string"
             app:nullable="true" />
         <argument
             android:name="initial"
@@ -384,13 +387,36 @@
         tools:layout="@layout/exclusion_editor_segment_fragment">
         <argument
             android:name="exclusionId"
-            app:argType="string"
             android:defaultValue="@null"
+            app:argType="string"
             app:nullable="true" />
         <argument
             android:name="initial"
             android:defaultValue="@null"
             app:argType="eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/customFilterListFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragment"
+        tools:layout="@layout/systemcleaner_customfilter_list_fragment">
+        <action
+            android:id="@+id/action_customFilterListFragment_to_customFilterEditorFragment"
+            app:destination="@id/customFilterEditorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customFilterEditorFragment"
+        android:name="eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment"
+        tools:layout="@layout/systemcleaner_customfilter_editor_fragment">
+        <argument
+            android:name="initial"
+            android:defaultValue="@null"
+            app:argType="eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions"
+            app:nullable="true" />
+        <argument
+            android:name="identifier"
+            android:defaultValue="@null"
+            app:argType="string"
             app:nullable="true" />
     </fragment>
 </navigation>

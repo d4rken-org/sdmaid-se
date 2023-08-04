@@ -32,12 +32,15 @@ import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
+import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterLoader
+import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -50,6 +53,8 @@ import javax.inject.Inject
 class SystemCrawler @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
+    private val customFilterRepo: CustomFilterRepo,
+    private val customFilterLoader: CustomFilterLoader.Factory,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
@@ -74,7 +79,7 @@ class SystemCrawler @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
 
-        val filters = filterFactories
+        val builtInFilters = filterFactories
             .asFlow()
             .filter { it.isEnabled() }
             .map { it.create() }
@@ -84,8 +89,21 @@ class SystemCrawler @Inject constructor(
             }
             .toList()
 
+        val customFilters = customFilterRepo.configs.first()
+            .asFlow()
+            .map { customFilterLoader.create(it) }
+            .filter { it.isEnabled() }
+            .map { it.create() }
+            .onEach {
+                log(TAG) { "Initializing $it" }
+                it.initialize()
+            }
+            .toList()
+
+        val allFilters = builtInFilters + customFilters
+
         val currentAreas = areaManager.currentAreas()
-        val targetAreas = filters
+        val targetAreas = allFilters
             .map { it.targetAreas() }
             .flatten()
             .toSet()
@@ -134,7 +152,7 @@ class SystemCrawler @Inject constructor(
                 .collect { (area, item) ->
                     if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
                     updateProgressSecondary(item.path)
-                    val matched = filters
+                    val matched = allFilters
                         .filter { it.targetAreas().contains(area.type) }
                         .firstOrNull {
                             try {
