@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_edit_selected"
+        android:icon="@drawable/filter_cog"
+        android:title="@string/general_edit_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/baseline_select_all_24"
         android:title="@string/general_list_select_all_action"

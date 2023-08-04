@@ -8,24 +8,24 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/ic_default_app_icon_24"
+        android:src="@drawable/air_filter"
         app:layout_constraintBottom_toBottomOf="@id/secondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/primary" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/primary"
-        style="@style/TextAppearance.Material3.BodyMedium"
+        style="@style/TextAppearance.Material3.TitleMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@id/secondary"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/toggle_action"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -33,18 +33,30 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.BodySmall"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="@string/exclusion_type_package"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintEnd_toStartOf="@id/toggle_action"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/systemcleaner_customfilter_editor_label_label" />
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/toggle_action"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

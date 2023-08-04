@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.types.CustomFilterDefaultVH
@@ -23,6 +24,7 @@ class CustomFilterListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val customFilterRepo: CustomFilterRepo,
+    private val systemCleanerSettings: SystemCleanerSettings,
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
@@ -30,14 +32,27 @@ class CustomFilterListViewModel @Inject constructor(
 
     val state = combine(
         customFilterRepo.configs,
-        upgradeRepo.upgradeInfo.map { it }.onStart { emit(null) },
-    ) { configs, upgradeInfo ->
+        upgradeRepo.upgradeInfo
+            .map {
+                @Suppress("USELESS_CAST")
+                it as UpgradeRepo.Info?
+            }
+            .onStart { emit(null) },
+        systemCleanerSettings.enabledCustomFilter.flow,
+    ) { configs, upgradeInfo, enabledFilters ->
         val items = configs.map { config ->
             CustomFilterDefaultVH.Item(
                 config = config,
+                isEnabled = enabledFilters.contains(config.identifier),
                 onItemClick = {
-                    // TODO go to edit screen
-                }
+                    launch {
+                        systemCleanerSettings.enabledCustomFilter.update {
+                            val newId = config.identifier
+                            if (it.contains(newId)) it - newId else it + newId
+                        }
+                    }
+                },
+                onEditClick = { edit(it) }
             )
         }
         val sortedItems = items.sortedBy { it.config.createdAt }
@@ -66,6 +81,13 @@ class CustomFilterListViewModel @Inject constructor(
         val configs = items.map { it.config }.toSet()
         customFilterRepo.remove(configs.map { it.identifier }.toSet())
         events.postValue(CustomFilterListEvents.UndoRemove(configs))
+    }
+
+    fun edit(item: CustomFilterListAdapter.Item) = launch {
+        log(TAG) { "edit($item)" }
+        CustomFilterListFragmentDirections.actionCustomFilterListFragmentToCustomFilterEditorFragment(
+            identifier = item.config.identifier
+        ).navigate()
     }
 
     companion object {

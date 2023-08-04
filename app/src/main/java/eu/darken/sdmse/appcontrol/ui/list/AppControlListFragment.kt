@@ -80,7 +80,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 searchView = this
                 findViewById<EditText>(androidx.appcompat.R.id.search_src_text)?.apply {
                     val fixedTextColor = requireContext().getColorForAttr(
-                       com.google.android.material.R.attr.colorOnPrimary
+                        com.google.android.material.R.attr.colorOnPrimary
                     )
                     setTextColor(fixedTextColor)
                     setHintTextColor(fixedTextColor)
@@ -133,7 +133,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         val tracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_appcontrol_list_cab,
-            onPrepare = { mode: ActionMode, menu: Menu ->
+            onPrepare = { _: SelectionTracker<String>, _: ActionMode, menu: Menu ->
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showAppToggleActions
                 true
             },

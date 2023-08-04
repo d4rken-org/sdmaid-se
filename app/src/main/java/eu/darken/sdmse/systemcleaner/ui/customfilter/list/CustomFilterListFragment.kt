@@ -50,10 +50,20 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_systemcleaner_customfilter_list_cab,
+            onPrepare = { tracker, _, menu ->
+                menu.findItem(R.id.action_edit_selected)?.isVisible = tracker.selection.size() == 1
+                true
+            },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CustomFilterListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_remove_selected -> {
                         vm.remove(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_edit_selected -> {
+                        vm.edit(selected.first())
                         tracker.clearSelection()
                         true
                     }

@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import javax.inject.Inject
@@ -17,6 +19,7 @@ import javax.inject.Singleton
 @Singleton
 class SystemCleanerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val moshi: Moshi,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_systemcleaner")
@@ -44,12 +47,15 @@ class SystemCleanerSettings @Inject constructor(
     val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", false)
     val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", false)
 
-    suspend fun isCustomFilterEnabled(filterId: FilterIdentifier): Boolean {
-        TODO()
-    }
+    val enabledCustomFilter = dataStore.createValue(
+        "filter.custom.enabled",
+        emptySet<FilterIdentifier>(),
+        moshi
+    )
 
     suspend fun clearCustomFilter(filterId: FilterIdentifier) {
-        TODO()
+        log(TAG) { "clearCustomFilter($filterId)" }
+        enabledCustomFilter.update { it - filterId }
     }
 
     override val mapper = PreferenceStoreMapper(

@@ -30,12 +30,21 @@ class CustomFilterDefaultVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         lastItem = item
 
+        icon.setOnClickListener { item.onEditClick(item) }
+
+        primary.text = item.config.label
+        secondary.text = item.config.identifier
+
+        toggleAction.isChecked = item.isEnabled
+
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val config: CustomFilterConfig,
+        val isEnabled: Boolean,
         val onItemClick: (Item) -> Unit,
+        val onEditClick: (Item) -> Unit,
     ) : CustomFilterListAdapter.Item {
         override val stableId: Long = config.identifier.hashCode().toLong()
         override val itemSelectionKey: String = config.identifier

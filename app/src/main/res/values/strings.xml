@@ -281,9 +281,10 @@
     <string name="systemcleaner_customfilter_editor_warning">Custom filters can dangerous. Check your scan results before deleting anything!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Data areas</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">If no area is selected then all accessible data areas will be scanned and matched.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">File types</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">File type restrictions</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Files</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directories</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, all types will be matched.</string>
     <string name="systemcleaner_customfilter_editor_path_contains_label">Path contains</string>
     <string name="systemcleaner_customfilter_editor_path_contains_explanation">Specify segments that the target path should contain (e.g. \"Downloads/oldapks/game-\").</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>

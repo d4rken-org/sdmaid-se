@@ -97,28 +97,10 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
-    fun toggleArea(type: DataArea.Type, checked: Boolean) {
-        log(TAG) { "toggleArea($type,$checked)" }
-    }
-
     fun updateLabel(label: String) = launch {
         log(TAG) { "updateLabel($label)" }
         currentState.updateBlocking {
             copy(current = this.current.copy(label = label))
-        }
-    }
-
-    fun toggleFileType(type: FileType) = launch {
-        log(TAG) { "toggleFileType($type)" }
-        currentState.updateBlocking {
-            val newFileTypes = if (current.fileTypes?.contains(type) == true) {
-                current.fileTypes - type
-            } else if (current.fileTypes?.contains(type) == false) {
-                current.fileTypes + type
-            } else {
-                setOf(type)
-            }
-            copy(current = current.copy(fileTypes = newFileTypes.takeIf { it.isNotEmpty() }))
         }
     }
 
@@ -206,13 +188,31 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
+    fun toggleArea(type: DataArea.Type, checked: Boolean) {
+        log(TAG) { "toggleArea($type,$checked)" }
+    }
+
+    fun toggleFileType(type: FileType) = launch {
+        log(TAG) { "toggleFileType($type)" }
+        currentState.updateBlocking {
+            val newFileTypes = if (current.fileTypes?.contains(type) == true) {
+                current.fileTypes - type
+            } else if (current.fileTypes?.contains(type) == false) {
+                current.fileTypes + type
+            } else {
+                setOf(type)
+            }
+            copy(current = current.copy(fileTypes = newFileTypes.takeIf { it.isNotEmpty() }))
+        }
+    }
+
     data class State(
         val original: CustomFilterConfig?,
         val current: CustomFilterConfig,
         val availableAreas: Set<DataArea.Type>? = null,
     ) {
         val canRemove: Boolean = original != null
-        val canSave: Boolean = original != current
+        val canSave: Boolean = original != current && !current.isUnderdefined
     }
 
     companion object {
