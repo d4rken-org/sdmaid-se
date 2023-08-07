@@ -55,7 +55,7 @@ class CustomFilterListViewModel @Inject constructor(
                 onEditClick = { edit(it) }
             )
         }
-        val sortedItems = items.sortedBy { it.config.createdAt }
+        val sortedItems = items.sortedBy { it.config.label }
         State(
             sortedItems,
             loading = false,

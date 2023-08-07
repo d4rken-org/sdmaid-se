@@ -14,6 +14,7 @@ data class CustomFilterConfig(
     @Json(name = "configVersion") val configVersion: Int = 1,
     @Json(name = "identifier") val identifier: FilterIdentifier,
     @Json(name = "createdAt") val createdAt: Instant = Instant.now(),
+    @Json(name = "modifiedAt") val modifiedAt: Instant = Instant.now(),
     @Json(name = "label") val label: String,
     @Json(name = "areas") val areas: Set<DataArea.Type>? = null,
     @Json(name = "fileTypes") val fileTypes: Set<FileType>? = null,

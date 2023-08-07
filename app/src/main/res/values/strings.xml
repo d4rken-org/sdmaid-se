@@ -293,6 +293,7 @@
     <string name="systemcleaner_customfilter_editor_name_contains_explanation">The file name must contain any at least one of the keywords (e.g. \"-receipt\").</string>
     <string name="systemcleaner_customfilter_editor_name_ending_label">Name ends with</string>
     <string name="systemcleaner_customfilter_editor_name_ending_explanation">The file name must end with one of the keywords (e.g. \".apk\")</string>
+    <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
