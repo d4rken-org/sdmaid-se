@@ -113,16 +113,6 @@ class CustomFilterRepo @Inject constructor(
         refresh()
     }
 
-    suspend fun importFilter(configsRaw: Set<ByteArray>) {
-        log(TAG) { "importFilter($configsRaw)" }
-        TODO()
-    }
-
-    suspend fun exportFilter(id: FilterIdentifier): ByteArray {
-        log(TAG) { "exportFilter($id)" }
-        TODO()
-    }
-
     fun generateIdentifier() = UUID.randomUUID().toString()
 
     companion object {

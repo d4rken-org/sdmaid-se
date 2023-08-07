@@ -126,8 +126,8 @@ class TaggedInputView @JvmOverloads constructor(
         id = ViewCompat.generateViewId()
         this.text = this@toChip.value
         chipIcon = ContextCompat.getDrawable(context, iconRes)
-        chipIconSize = context.dpToPx(20f).toFloat()
-        chipStartPadding = context.dpToPx(4f).toFloat()
+        chipIconSize = context.dpToPx(16f).toFloat()
+        chipStartPadding = context.dpToPx(8f).toFloat()
         isCloseIconVisible = true
         isClickable = true
         isCheckable = false

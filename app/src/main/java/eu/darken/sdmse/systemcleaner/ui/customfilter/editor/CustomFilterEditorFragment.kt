@@ -5,7 +5,6 @@ import android.text.Editable
 import android.text.InputFilter
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -16,7 +15,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -109,9 +107,9 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             ).apply {
                 id = ViewCompat.generateViewId()
                 this.text = type.raw
-                chipIcon = ContextCompat.getDrawable(context, R.drawable.ic_sd_storage)
-                chipIconSize = context.dpToPx(20f).toFloat()
-                chipStartPadding = context.dpToPx(4f).toFloat()
+//                chipIcon = ContextCompat.getDrawable(context, R.drawable.ic_sd_storage)
+//                chipIconSize = context.dpToPx(16f).toFloat()
+//                chipStartPadding = context.dpToPx(8f).toFloat()
                 isClickable = true
                 isCheckable = true
                 setOnCheckedChangeListener { _, isChecked -> vm.toggleArea(type, isChecked) }

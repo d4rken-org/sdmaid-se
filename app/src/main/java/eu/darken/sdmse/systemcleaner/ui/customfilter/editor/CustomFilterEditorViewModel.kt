@@ -21,6 +21,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import kotlinx.coroutines.flow.onEach
+import java.time.Instant
 import javax.inject.Inject
 
 
@@ -70,7 +71,8 @@ class CustomFilterEditorViewModel @Inject constructor(
 
     fun save() = launch {
         log(TAG) { "save()" }
-        filterRepo.save(setOf(currentState.value().current))
+        val toSave = currentState.value().current.copy(modifiedAt = Instant.now())
+        filterRepo.save(setOf(toSave))
         popNavStack()
     }
 

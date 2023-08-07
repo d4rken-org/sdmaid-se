@@ -39,7 +39,7 @@ class CustomFilterDefaultVH(parent: ViewGroup) :
 
         secondary.text = getString(
             R.string.systemcleaner_customfilter_last_edit,
-            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(item.config.createdAt.toSystemTimezone()),
+            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(item.config.modifiedAt.toSystemTimezone()),
         )
 
         toggleAction.isChecked = item.isEnabled
