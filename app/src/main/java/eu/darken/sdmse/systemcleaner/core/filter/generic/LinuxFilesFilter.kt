@@ -36,7 +36,7 @@ class LinuxFilesFilter @Inject constructor(
             Regex("^(?:[\\W\\w]+/\\.Trash-[0-9]{1,4})$".replace("/", "\\" + File.separator)),
         )
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.DIRECTORY,
+            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             regexes = regexes,
         )

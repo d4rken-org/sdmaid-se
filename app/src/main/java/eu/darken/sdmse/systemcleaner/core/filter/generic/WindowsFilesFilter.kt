@@ -39,7 +39,7 @@ class WindowsFilesFilter @Inject constructor(
             Regex("^[\\W\\w]+/thumbs\\.db$", RegexOption.IGNORE_CASE)
         )
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             regexes = regexes,
         )

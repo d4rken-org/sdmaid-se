@@ -35,7 +35,7 @@ class DownloadCacheFilter @Inject constructor(
 
     override suspend fun initialize() {
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             exclusions = setOf(
                 BaseSieve.Exclusion(segs("dalvik-cache")),

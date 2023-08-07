@@ -8,10 +8,17 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import java.time.Duration
 
 class BaseSieve @AssistedInject constructor(
     @Assisted private val config: Config,
@@ -32,11 +39,15 @@ class BaseSieve @AssistedInject constructor(
 
     suspend fun match(subject: APathLookup<*>): Result {
         // Directory or file?
-        config.targetType?.let {
-            if ((it == TargetType.DIRECTORY && !subject.isDirectory || it == TargetType.FILE && !subject.isFile)) {
-                return Result(matches = false)
+        config.targetTypes
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { types ->
+                if (subject.isFile && !types.contains(TargetType.FILE)) {
+                    return Result(matches = false)
+                } else if (subject.isDirectory && !types.contains(TargetType.DIRECTORY)) {
+                    return Result(matches = false)
+                }
             }
-        }
 
         config.isEmpty?.let {
             // Empty or not ?
@@ -54,11 +65,15 @@ class BaseSieve @AssistedInject constructor(
         }
 
         config.maximumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it) return Result(matches = false)
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it.toMillis()) {
+                return Result(matches = false)
+            }
         }
 
         config.minimumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it) return Result(matches = false)
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it.toMillis()) {
+                return Result(matches = false)
+            }
         }
 
         config.pathContains
@@ -68,11 +83,10 @@ class BaseSieve @AssistedInject constructor(
                 if (pathContains.none { subject.segments.containsSegments(it) }) return Result(matches = false)
             }
 
-        config.namePrefixes
+        config.nameContains
             ?.takeIf { it.isNotEmpty() }
-            ?.let { inits ->
-                // Check name starts with
-                if (inits.none { subject.name.startsWith(it) }) return Result(matches = false)
+            ?.let { namePartials ->
+                if (namePartials.none { subject.name.contains(it) }) return Result(matches = false)
             }
 
         config.nameSuffixes
@@ -133,9 +147,9 @@ class BaseSieve @AssistedInject constructor(
     data class Config(
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
-        val maximumAge: Long? = null,
-        val minimumAge: Long? = null,
-        val targetType: TargetType? = null,
+        val maximumAge: Duration? = null,
+        val minimumAge: Duration? = null,
+        val targetTypes: Set<TargetType>? = null,
         val isEmpty: Boolean? = null,
         val areaTypes: Set<DataArea.Type>? = null,
         val pathAncestors: Set<Segments>? = null,
@@ -143,7 +157,7 @@ class BaseSieve @AssistedInject constructor(
         val pathContains: Set<Segments>? = null,
         val regexes: Set<Regex>? = null,
         val exclusions: Set<Exclusion>? = null,
-        val namePrefixes: Set<String>? = null,
+        val nameContains: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,
     )
 

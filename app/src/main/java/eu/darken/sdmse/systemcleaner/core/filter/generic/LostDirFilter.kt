@@ -36,7 +36,7 @@ class LostDirFilter @Inject constructor(
             Regex("^(?:[\\W\\w]+/LOST\\.DIR/[\\W\\w]+)$".replace("/", "\\" + File.separator))
         )
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             regexes = regexes,
         )

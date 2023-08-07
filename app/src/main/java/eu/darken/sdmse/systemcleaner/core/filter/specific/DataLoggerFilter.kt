@@ -36,7 +36,7 @@ class DataLoggerFilter @Inject constructor(
     override suspend fun initialize() {
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             pathAncestors = setOf(
                 segs("logger"),
                 segs("log"),

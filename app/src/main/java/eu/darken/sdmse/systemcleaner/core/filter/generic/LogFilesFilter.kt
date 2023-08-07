@@ -49,7 +49,7 @@ class LogFilesFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             nameSuffixes = setOf(".log"),
             exclusions = setOf(
                 BaseSieve.Exclusion(segs(".indexeddb.leveldb"), allowPartial = true),

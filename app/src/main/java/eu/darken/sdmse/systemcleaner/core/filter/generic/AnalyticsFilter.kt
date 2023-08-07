@@ -43,7 +43,7 @@ class AnalyticsFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             pathContains = pathContains,
             regexes = regexes,
         )

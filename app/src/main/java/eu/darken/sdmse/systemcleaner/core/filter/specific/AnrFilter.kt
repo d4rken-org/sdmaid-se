@@ -52,7 +52,7 @@ class AnrFilter @Inject constructor(
         require(regexPairs.isNotEmpty()) { "Filter underdefined" }
 
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             regexes = regexPairs.map { Regex(it.second) }.toSet(),
         )

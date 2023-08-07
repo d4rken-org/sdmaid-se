@@ -68,7 +68,7 @@ class EmptyDirectoryFilter @Inject constructor(
 
     override suspend fun initialize() {
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.DIRECTORY,
+            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             exclusions = setOf(
                 BaseSieve.Exclusion(segs("mnt", "asec")),

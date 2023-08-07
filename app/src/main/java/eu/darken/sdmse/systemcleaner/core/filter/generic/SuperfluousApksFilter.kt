@@ -36,7 +36,7 @@ class SuperfluousApksFilter @Inject constructor(
 
     override suspend fun initialize() {
         val config = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE,
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             nameSuffixes = setOf(".apk"),
             exclusions = EXCLUSIONS

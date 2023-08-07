@@ -54,10 +54,10 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just filetypes`() = runTest {
         val configForFile = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE
+            targetTypes = setOf(BaseSieve.TargetType.FILE)
         )
         val configForDir = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.DIRECTORY
+            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY)
         )
         val aFile = baseLookup.copy(
             fileType = FileType.FILE
