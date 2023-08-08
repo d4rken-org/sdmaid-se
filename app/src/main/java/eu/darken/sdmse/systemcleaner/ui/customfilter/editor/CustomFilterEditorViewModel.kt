@@ -234,7 +234,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         val availableAreas: Set<DataArea.Type>? = null,
     ) {
         val canRemove: Boolean = original != null
-        val canSave: Boolean = original != current && !current.isUnderdefined
+        val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()
     }
 
     val liveSearch = currentState.flow
