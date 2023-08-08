@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -9,8 +9,6 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
-import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
@@ -20,52 +18,36 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.lang.String
 import javax.inject.Inject
 import javax.inject.Provider
 
-class AnrFilter @Inject constructor(
+class DataLocalTmpFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_running_with_errors_24.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_android_studio_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_anr_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_localtmp_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_anr_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_localtmp_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.DATA,
-        DataArea.Type.DOWNLOAD_CACHE,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexPairs = areaManager.currentAreas()
-            .filter { targetAreas().contains(it.type) }
-            .filter { it.hasFlags(DataArea.Flag.PRIMARY) }
-            .map { area ->
-                val path = area.path.child("anr")
-                val regex = String.format(
-                    "^(?:%s/anr/[\\W\\w]+)$".replace("/", "\\/"),
-                    area.path.path.replace("\\", "\\\\")
-                )
-                path to regex
-            }
-
-        require(regexPairs.isNotEmpty()) { "Filter underdefined" }
-
         val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            regexes = regexPairs.map { Regex(it.second) }.toSet(),
+            pathAncestors = setOf(segs("local", "tmp")),
         )
 
         sieve = baseSieveFactory.create(config)
@@ -77,17 +59,17 @@ class AnrFilter @Inject constructor(
         return sieve.match(item).matches
     }
 
-    override fun toString(): kotlin.String = "${this::class.simpleName}(${hashCode()})"
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<AnrFilter>,
+        private val filterProvider: Provider<DataLocalTmpFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
 
         override suspend fun isEnabled(): Boolean {
-            val enabled = settings.filterAnrEnabled.value()
+            val enabled = settings.filterLocalTmpEnabled.value()
             val useRoot = rootManager.canUseRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
@@ -103,6 +85,6 @@ class AnrFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "Anr")
+        private val TAG = logTag("SystemCleaner", "Filter", "LocalTmp")
     }
 }

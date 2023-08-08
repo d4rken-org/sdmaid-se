@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -24,20 +24,19 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class MacFilesFilter @Inject constructor(
+class LostDirFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_os_mac.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_usb_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_macfiles_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_lostdir_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_macfiles_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_lostdir_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
-        DataArea.Type.PUBLIC_MEDIA,
         DataArea.Type.PORTABLE,
     )
 
@@ -45,16 +44,10 @@ class MacFilesFilter @Inject constructor(
 
     override suspend fun initialize() {
         val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\._[^/]+)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\._\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.spotlight)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Spotlight-V100)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.DS_Store)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.fseventsd)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.TemporaryItems)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/LOST\\.DIR/[\\W\\w]+)$".replace("/", "\\" + File.separator))
         )
         val config = BaseSieve.Config(
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             regexes = regexes,
         )
@@ -72,9 +65,9 @@ class MacFilesFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<MacFilesFilter>
+        private val filterProvider: Provider<LostDirFilter>
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterMacFilesEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterLostDirEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 

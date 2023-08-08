@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
+import eu.darken.sdmse.systemcleaner.core.filter.stock.WindowsFilesFilter
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

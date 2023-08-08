@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -27,16 +27,16 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
 import javax.inject.Provider
 
-class TombstonesFilter @Inject constructor(
+class DataLoggerFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_tombstone.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_format_list_bulleted_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_tombstones_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_datalogger_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_tombstones_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_datalogger_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.DATA,
@@ -46,12 +46,15 @@ class TombstonesFilter @Inject constructor(
 
     override suspend fun initialize() {
         val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             pathAncestors = setOf(
-                segs("tombstones"),
+                segs("logger"),
+                segs("log"),
+                segs("log_other_mode"),
             ),
         )
+
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
@@ -66,12 +69,12 @@ class TombstonesFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<TombstonesFilter>,
+        private val filterProvider: Provider<DataLoggerFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
 
         override suspend fun isEnabled(): Boolean {
-            val enabled = settings.filterTombstonesEnabled.value()
+            val enabled = settings.filterDataLoggerEnabled.value()
             val useRoot = rootManager.canUseRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
@@ -87,6 +90,6 @@ class TombstonesFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "Tombstones")
+        private val TAG = logTag("SystemCleaner", "Filter", "DataLogger")
     }
 }

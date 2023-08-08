@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -14,42 +14,43 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class LinuxFilesFilter @Inject constructor(
+class LogDropboxFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_os_linux.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_format_list_bulleted_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_linuxfiles_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_logdropbox_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_linuxfiles_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_logdropbox_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.SDCARD,
+        DataArea.Type.DATA_SYSTEM,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\.Trash)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Trash-[0-9]{1,4})$".replace("/", "\\" + File.separator)),
-        )
         val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            regexes = regexes,
+            pathAncestors = setOf(
+                segs("dropbox"),
+            ),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -65,9 +66,17 @@ class LinuxFilesFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<LinuxFilesFilter>
+        private val filterProvider: Provider<LogDropboxFilter>,
+        private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterLinuxFilesEnabled.value()
+
+        override suspend fun isEnabled(): Boolean {
+            val enabled = settings.filterLogDropboxEnabled.value()
+            val useRoot = rootManager.canUseRootNow()
+            if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
+            return enabled && useRoot
+        }
+
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -78,6 +87,6 @@ class LinuxFilesFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "LinuxFiles")
+        private val TAG = logTag("SystemCleaner", "Filter", "LogDropbox")
     }
 }

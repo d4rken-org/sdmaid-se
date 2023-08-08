@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.filterIdentifier
-import eu.darken.sdmse.systemcleaner.core.filter.generic.EmptyDirectoryFilter
+import eu.darken.sdmse.systemcleaner.core.filter.stock.EmptyDirectoryFilter
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH

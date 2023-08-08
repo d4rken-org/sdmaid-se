@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -25,37 +24,38 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class AnalyticsFilter @Inject constructor(
+class MacFilesFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_analytics_onsurface.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_os_mac.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_analytics_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_macfiles_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_analytics_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_macfiles_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
-        DataArea.Type.PUBLIC_DATA,
-        DataArea.Type.PRIVATE_DATA,
+        DataArea.Type.PUBLIC_MEDIA,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val pathContains = setOf(
-            segs(".bugsense")
-        )
         val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))
+            Regex("^(?:[\\W\\w]+/\\._[^/]+)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.Trashes)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\._\\.Trashes)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.spotlight)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.Spotlight-V100)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.DS_Store)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.fseventsd)$".replace("/", "\\" + File.separator)),
+            Regex("^(?:[\\W\\w]+/\\.TemporaryItems)$".replace("/", "\\" + File.separator)),
         )
-
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
-            pathContains = pathContains,
             regexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
@@ -72,9 +72,9 @@ class AnalyticsFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<AnalyticsFilter>
+        private val filterProvider: Provider<MacFilesFilter>
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterAnalyticsEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterMacFilesEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -85,6 +85,6 @@ class AnalyticsFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "AnalyticsFiles")
+        private val TAG = logTag("SystemCleaner", "Filter", "LostDir")
     }
 }

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -27,19 +27,19 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
 import javax.inject.Provider
 
-class UsagestatsFilter @Inject constructor(
+class RecentTasksFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_chart_bar_stacked_24.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_task_onsurface.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_usagestats_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_recenttasks_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_usagestats_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_recenttasks_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.DATA_SYSTEM,
+        DataArea.Type.DATA_SYSTEM_CE,
     )
 
     private lateinit var sieve: BaseSieve
@@ -49,11 +49,9 @@ class UsagestatsFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             pathAncestors = setOf(
-                segs("usagestats"),
+                segs("recent_images"),
+                segs("recent_tasks"),
             ),
-            regexes = setOf(
-                Regex(".+/usagestats/[0-9]+/.+")
-            )
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -69,12 +67,12 @@ class UsagestatsFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<UsagestatsFilter>,
+        private val filterProvider: Provider<RecentTasksFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
 
         override suspend fun isEnabled(): Boolean {
-            val enabled = settings.filterUsageStatsEnabled.value()
+            val enabled = settings.filterRecentTasksEnabled.value()
             val useRoot = rootManager.canUseRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
@@ -90,6 +88,6 @@ class UsagestatsFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "UsageStats")
+        private val TAG = logTag("SystemCleaner", "Filter", "RecentTasks")
     }
 }

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -9,42 +9,37 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.modules.pub.SdcardsModule
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
-class TempFilesFilter @Inject constructor(
+class UsagestatsFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_access_time_filled_24.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_chart_bar_stacked_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_tempfiles_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_usagestats_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_tempfiles_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_usagestats_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.SDCARD,
-        DataArea.Type.PUBLIC_DATA,
-        DataArea.Type.PUBLIC_MEDIA,
-        DataArea.Type.DATA,
-        DataArea.Type.PRIVATE_DATA,
         DataArea.Type.DATA_SYSTEM,
-        DataArea.Type.DATA_SYSTEM_DE,
     )
 
     private lateinit var sieve: BaseSieve
@@ -53,43 +48,20 @@ class TempFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            exclusions = setOf(
-                BaseSieve.Exclusion(segs("backup", "pending")),
-                BaseSieve.Exclusion(segs("cache", "recovery")),
-                BaseSieve.Exclusion(
-                    segs(
-                        "com.drweb.pro.market",
-                        "files",
-                        "pro_settings"
-                    )
-                ), // TODO move to exclusion manager?
+            pathAncestors = setOf(
+                segs("usagestats"),
+            ),
+            regexes = setOf(
+                Regex(".+/usagestats/[0-9]+/.+")
             )
         )
-
-
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
 
-    private val tempSuffixes = setOf(
-        ".tmp",
-        ".temp",
-    )
-    private val sdmTempFileRegex = Regex(
-        "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
-    )
 
     override suspend fun matches(item: APathLookup<*>): Boolean {
-        val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
-
-        return when {
-            tempSuffixes.any { item.name.endsWith(it) } -> true
-            item.name == ".mmsyscache" -> true
-            item.name.startsWith("sdm_write_test-") && sdmTempFileRegex.matchEntire(item.name) != null -> true
-            item.name.startsWith(SdcardsModule.TEST_PREFIX) -> true
-            else -> false
-        }
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
@@ -97,9 +69,17 @@ class TempFilesFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<TempFilesFilter>
+        private val filterProvider: Provider<UsagestatsFilter>,
+        private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterTempFilesEnabled.value()
+
+        override suspend fun isEnabled(): Boolean {
+            val enabled = settings.filterUsageStatsEnabled.value()
+            val useRoot = rootManager.canUseRootNow()
+            if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
+            return enabled && useRoot
+        }
+
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -110,6 +90,6 @@ class TempFilesFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "TempFiles")
+        private val TAG = logTag("SystemCleaner", "Filter", "UsageStats")
     }
 }

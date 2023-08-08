@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -27,19 +27,19 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
 import javax.inject.Provider
 
-class RecentTasksFilter @Inject constructor(
+class DownloadCacheFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_task_onsurface.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_android_studio_24.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_recenttasks_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_downloadcache_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_recenttasks_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_downloadcache_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.DATA_SYSTEM_CE,
+        DataArea.Type.DOWNLOAD_CACHE,
     )
 
     private lateinit var sieve: BaseSieve
@@ -48,10 +48,15 @@ class RecentTasksFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            pathAncestors = setOf(
-                segs("recent_images"),
-                segs("recent_tasks"),
-            ),
+            exclusions = setOf(
+                BaseSieve.Exclusion(segs("dalvik-cache")),
+                BaseSieve.Exclusion(segs("lost+found")),
+                // Some apps use these logs to determine the type of recovery
+                BaseSieve.Exclusion(segs("recovery", "last_log")),
+                BaseSieve.Exclusion(segs("last_postrecovery")),
+                BaseSieve.Exclusion(segs("last_data_partition_info")),
+                BaseSieve.Exclusion(segs("last_dataresizing")),
+            )
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -67,12 +72,12 @@ class RecentTasksFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<RecentTasksFilter>,
+        private val filterProvider: Provider<DownloadCacheFilter>,
         private val rootManager: RootManager,
     ) : SystemCleanerFilter.Factory {
 
         override suspend fun isEnabled(): Boolean {
-            val enabled = settings.filterRecentTasksEnabled.value()
+            val enabled = settings.filterDownloadCacheEnabled.value()
             val useRoot = rootManager.canUseRootNow()
             if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
             return enabled && useRoot
@@ -88,6 +93,6 @@ class RecentTasksFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "RecentTasks")
+        private val TAG = logTag("SystemCleaner", "Filter", "DownloadCache")
     }
 }

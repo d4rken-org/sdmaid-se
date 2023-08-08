@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import dagger.Binds
 import dagger.Module
@@ -14,42 +14,46 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
 import javax.inject.Provider
 
-class DataLocalTmpFilter @Inject constructor(
+class WindowsFilesFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_android_studio_24.toCaDrawable()
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_os_windows.toCaDrawable()
 
-    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_localtmp_label.toCaString()
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_windowsfiles_label.toCaString()
 
-    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_localtmp_summary.toCaString()
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_windowsfiles_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.DATA,
+        DataArea.Type.SDCARD,
+        DataArea.Type.PUBLIC_DATA,
+        DataArea.Type.PUBLIC_MEDIA,
+        DataArea.Type.PUBLIC_OBB,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
-            areaTypes = targetAreas(),
-            pathAncestors = setOf(segs("local", "tmp")),
+        val regexes = setOf(
+            Regex("^[\\W\\w]+/desktop\\.ini$", RegexOption.IGNORE_CASE),
+            Regex("^[\\W\\w]+/thumbs\\.db$", RegexOption.IGNORE_CASE)
         )
-
+        val config = BaseSieve.Config(
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            areaTypes = targetAreas(),
+            regexes = regexes,
+        )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
@@ -64,17 +68,9 @@ class DataLocalTmpFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: SystemCleanerSettings,
-        private val filterProvider: Provider<DataLocalTmpFilter>,
-        private val rootManager: RootManager,
+        private val filterProvider: Provider<WindowsFilesFilter>
     ) : SystemCleanerFilter.Factory {
-
-        override suspend fun isEnabled(): Boolean {
-            val enabled = settings.filterLocalTmpEnabled.value()
-            val useRoot = rootManager.canUseRootNow()
-            if (enabled && !useRoot) log(TAG, INFO) { "Filter is enabled, but requires root, which is unavailable." }
-            return enabled && useRoot
-        }
-
+        override suspend fun isEnabled(): Boolean = settings.filterWindowsFilesEnabled.value()
         override suspend fun create(): SystemCleanerFilter = filterProvider.get()
     }
 
@@ -85,6 +81,6 @@ class DataLocalTmpFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "LocalTmp")
+        private val TAG = logTag("SystemCleaner", "Filter", "WindowsFiles")
     }
 }
