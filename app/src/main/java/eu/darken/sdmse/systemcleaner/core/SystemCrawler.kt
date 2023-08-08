@@ -33,29 +33,20 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
-import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterLoader
-import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.toList
 import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
 class SystemCrawler @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
-    private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
-    private val customFilterRepo: CustomFilterRepo,
-    private val customFilterLoader: CustomFilterLoader.Factory,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
@@ -64,15 +55,11 @@ class SystemCrawler @Inject constructor(
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
-    init {
-        filterFactories.forEach { log(TAG) { "Available filter: $it" } }
-    }
-
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun crawl(): Collection<FilterContent> {
+    suspend fun crawl(filters: Set<SystemCleanerFilter>): Collection<FilterContent> {
         log(TAG) { "crawl()" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
@@ -80,31 +67,9 @@ class SystemCrawler @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
 
-        val builtInFilters = filterFactories
-            .asFlow()
-            .filter { it.isEnabled() }
-            .map { it.create() }
-            .onEach {
-                log(TAG) { "Initializing $it" }
-                it.initialize()
-            }
-            .toList()
-
-        val customFilters = customFilterRepo.configs.first()
-            .asFlow()
-            .map { customFilterLoader.create(it) }
-            .filter { it.isEnabled() }
-            .map { it.create() }
-            .onEach {
-                log(TAG) { "Initializing $it" }
-                it.initialize()
-            }
-            .toList()
-
-        val allFilters = builtInFilters + customFilters
 
         val currentAreas = areaManager.currentAreas()
-        val targetAreas = allFilters
+        val targetAreas = filters
             .map { it.targetAreas() }
             .flatten()
             .toSet()
@@ -153,7 +118,7 @@ class SystemCrawler @Inject constructor(
                 .collect { (area, item) ->
                     if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
                     updateProgressSecondary(item.path)
-                    val matched = allFilters
+                    val matched = filters
                         .filter { it.targetAreas().contains(area.type) }
                         .firstOrNull {
                             try {
@@ -178,7 +143,7 @@ class SystemCrawler @Inject constructor(
 
         val firstPass = sieveContents.map { entry ->
             log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches (first pass)." }
-            val filter = allFilters.single { it.identifier == entry.key }
+            val filter = filters.single { it.identifier == entry.key }
             FilterContent(
                 identifier = entry.key,
                 icon = filter.getIcon(),
