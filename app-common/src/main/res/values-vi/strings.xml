@@ -114,4 +114,6 @@
     <string name="file_type_directory">Thư mục</string>
     <string name="file_type_file">Tệp</string>
     <string name="file_type_unknown">Không xác định</string>
+    <string name="general_timeunit_hours">Giờ</string>
+    <string name="general_timeunit_days">Ngày</string>
 </resources>

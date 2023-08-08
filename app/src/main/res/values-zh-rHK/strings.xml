@@ -348,6 +348,12 @@
     <string name="analyzer_progress_scanning_userfiles">正在搜尋使用者檔案</string>
     <string name="analyzer_progress_scanning_system">正在搜尋系統資料</string>
     <string name="analyzer_device_storage_title">裝置儲存空間</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s 可用</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s 已用</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">沒有可用的直接存取</string>
     <string name="analyzer_storage_type_primary_title">主要儲存空間</string>
     <string name="analyzer_storage_type_primary_description">您裝置的主要儲存空間，包含內部「SD 卡」、應用程式和系統資料的私人儲存空間。</string>

@@ -117,4 +117,6 @@
     <string name="file_type_directory">Répertoire</string>
     <string name="file_type_file">Fichier</string>
     <string name="file_type_unknown">Inconnu</string>
+    <string name="general_timeunit_hours">Heures</string>
+    <string name="general_timeunit_days">Jours</string>
 </resources>

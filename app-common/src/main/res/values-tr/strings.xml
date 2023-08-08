@@ -117,4 +117,6 @@
     <string name="file_type_directory">Dizin</string>
     <string name="file_type_file">Dosya</string>
     <string name="file_type_unknown">Bilinmeyen</string>
+    <string name="general_timeunit_hours">Saatler</string>
+    <string name="general_timeunit_days">Günler</string>
 </resources>

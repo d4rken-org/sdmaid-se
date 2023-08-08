@@ -48,8 +48,13 @@
     <string name="debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
     <string name="settings_category_tools_label">Εργαλεία</string>
     <string name="settings_category_filter">Φίλτρο</string>
+    <string name="corpsefinder_tool_name">Εύρεση υπολειμμάτων</string>
     <string name="corpsefinder_watcher_autodelete_title">Αυτόματη διαγραφή</string>
+    <string name="corpsefinder_filter_publicmedia_label">Δημόσια πολυμέσα</string>
     <string name="corpsefinder_filter_sdcard_label">Κάρτα SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Γενικός δημόσιος αποθηκευτικός χώρος, εσωτερικός και εξωτερικός (π.χ. κάρτες SD).</string>
+    <string name="corpsefinder_filter_applib_label">Βιβλιοθήκες εφαρμογών</string>
+    <string name="corpsefinder_filter_appasec_summary">Κρυπτογραφημένοι πόροι εφαρμογών, π.χ. στοιχεία παιχνιδιών.</string>
     <string name="corpsefinder_corpse_hints_label">Σημείωση</string>
     <string name="systemcleaner_tool_name">Εκκαθάριση συστήματος</string>
     <string name="systemcleaner_filter_custom_label">Προσαρμοσμένο φίλτρο</string>

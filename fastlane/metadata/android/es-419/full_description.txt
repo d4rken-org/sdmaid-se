@@ -1,7 +1,7 @@
-<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+SD Maid SE es tu asistente de confianza de tu dispositivo Android, para mantenerlo limpio y ordenado.
 
-Nadie es perfecto y tampoco Android.
-* Las aplicaciones que ya has eliminado dejan restos.
+Nada es perfecto, tal es el caso de Android.
+* Las aplicaciones que ya has eliminado dejan rastros de ellas.
 * Constantemente se crean registros, informes de fallos y otros archivos que realmente no necesitas.
 * Tu almacenamiento está preservando archivos y directorios que no reconoces.
 

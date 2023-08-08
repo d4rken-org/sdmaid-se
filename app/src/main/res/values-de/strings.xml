@@ -127,7 +127,7 @@
     <string name="setup_acs_state_ondemand">Der Dienst wird auf Anfrage gestartet</string>
     <string name="setup_acs_state_stopped">Der Barrierefreiheitsdienst wurde beendet</string>
     <string name="setup_acs_state_stopped_hint">Der Dienst ist aktiviert, wird jedoch nicht ausgeführt. Schalte es aus/ein oder starte das Gerät neu. Stelle sicher, dass SD Maid nicht vom System „optimiert“ wird.</string>
-    <string name="setup_acs_state_stopped_hint_miui">Wenn der Dienst nach einer Weile immer wieder deaktiviert wird, versuche die Option „Auto Start“ für SD Maid in den Systemeinstellungen zu aktivieren.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Wenn der Dienst nach einer Weile immer wieder deaktiviert wird, versuch die Option „Auto Start“ für SD Maid in den Systemeinstellungen zu aktivieren.</string>
     <string name="setup_acs_consent_positive_action">Dienst aktivieren und Zugriff gewähren</string>
     <string name="setup_acs_consent_negative_action">Verwende keinen Barrierefreiheitsdienst</string>
     <string name="setup_acs_allow_hint">Wenn Du am Bildschirmrand ein kleines Symbol siehst, hast Du versehentlich die Option \"Verknüpfung\" aktiviert.</string>

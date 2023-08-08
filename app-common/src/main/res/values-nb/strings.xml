@@ -117,4 +117,6 @@
     <string name="file_type_directory">Mappe</string>
     <string name="file_type_file">Fil</string>
     <string name="file_type_unknown">Ukjent</string>
+    <string name="general_timeunit_hours">Timer</string>
+    <string name="general_timeunit_days">Dager</string>
 </resources>

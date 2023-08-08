@@ -123,4 +123,6 @@
     <string name="file_type_directory">Katalog</string>
     <string name="file_type_file">Plik</string>
     <string name="file_type_unknown">Nieznany</string>
+    <string name="general_timeunit_hours">Godziny</string>
+    <string name="general_timeunit_days">Dni</string>
 </resources>

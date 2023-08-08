@@ -280,7 +280,7 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_offlinecache_label">Cache offline</string>
     <string name="appcleaner_filter_offlinecache_summary">Arquivos armazenados para uso quando offline, por exemplo, blocos de mapa.</string>
     <string name="appcleaner_filter_recyclebins_label">Reciclagem</string>
-    <string name="appcleaner_filter_recyclebins_summary">F8cheiros que foram apagados mas colocados numa pasta especial para permitir restaurá-los.</string>
+    <string name="appcleaner_filter_recyclebins_summary">Ficheiros que foram apagados mas colocados numa pasta especial para permitir restaurá-los.</string>
     <string name="appcleaner_filter_webview_label">Arquivos do Webview</string>
     <string name="appcleaner_filter_webview_summary">Arquivos armazenados na cache pelo webview dentro de apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
