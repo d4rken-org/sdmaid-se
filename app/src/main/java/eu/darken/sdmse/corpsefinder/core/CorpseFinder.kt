@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -91,6 +92,7 @@ class CorpseFinder @Inject constructor(
                         val internalDeleteResult = if (task.autoDelete) {
                             deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets)).also {
                                 val watcherResult = ExternalWatcherResult.Deletion(
+                                    appName = pkgOps.getLabel(task.target)?.toCaString(),
                                     pkgId = task.target,
                                     deletedItems = it.deletedItems,
                                     freedSpace = it.recoveredSpace,

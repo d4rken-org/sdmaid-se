@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.text.format.Formatter
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationCompat.BigTextStyle
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -68,26 +69,26 @@ class UninstallWatcherNotifications @Inject constructor(
     }
 
     private fun forDeletionResult(result: ExternalWatcherResult.Deletion): Notification = getBuilder(result).apply {
-        setContentText(
-            context.getQuantityString2(
-                R.plurals.corpsefinder_watcher_notification_delete_result,
-                result.deletedItems,
-                result.pkgId.name,
-                Formatter.formatShortFileSize(context, result.freedSpace),
-                result.deletedItems
-            )
+        val resultText = context.getQuantityString2(
+            R.plurals.corpsefinder_watcher_notification_delete_result,
+            result.deletedItems,
+            result.appName?.get(context) ?: result.pkgId.name,
+            Formatter.formatShortFileSize(context, result.freedSpace),
+            result.deletedItems
         )
+        setContentText(resultText)
+        setStyle(BigTextStyle().bigText(resultText))
     }.build()
 
     private fun forScanResult(result: ExternalWatcherResult.Scan): Notification = getBuilder(result).apply {
-        setContentText(
-            context.getQuantityString2(
-                R.plurals.corpsefinder_watcher_notification_scan_result,
-                result.foundItems,
-                result.foundItems,
-                result.pkgId.name
-            )
+        val resultText = context.getQuantityString2(
+            R.plurals.corpsefinder_watcher_notification_scan_result,
+            result.foundItems,
+            result.foundItems,
+            result.pkgId.name
         )
+        setContentText(resultText)
+        setStyle(BigTextStyle().bigText(resultText))
 
         val deleteIntent = Intent(context, ExternalWatcherTaskReceiver::class.java).apply {
             action = ExternalWatcherTaskReceiver.TASK_INTENT
