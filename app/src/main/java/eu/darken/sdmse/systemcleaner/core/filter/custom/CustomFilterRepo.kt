@@ -4,8 +4,8 @@ import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -75,7 +75,7 @@ class CustomFilterRepo @Inject constructor(
         }
 
     suspend fun refresh() {
-        log(TAG, Logging.Priority.VERBOSE) { "refresh()" }
+        log(TAG, VERBOSE) { "refresh()" }
         refreshTrigger.value = UUID.randomUUID()
     }
 
