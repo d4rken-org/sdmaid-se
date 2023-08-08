@@ -107,7 +107,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     fun cancel(confirmed: Boolean = false) = launch {
         log(TAG) { "cancel()" }
         val snap = currentState.value()
-        if (snap.canSave && !confirmed) {
+        if ((snap.canSave || snap.hasUnchanged) && !confirmed) {
             events.postValue(CustomFilterEditorEvents.UnsavedChangesConfirmation(snap.current))
         } else {
             popNavStack()
@@ -236,6 +236,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     ) {
         val canRemove: Boolean = original != null
         val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()
+        val hasUnchanged: Boolean = original != current
     }
 
     val liveSearch = currentState.flow
