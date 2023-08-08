@@ -114,4 +114,6 @@
     <string name="file_type_directory">目录</string>
     <string name="file_type_file">文件</string>
     <string name="file_type_unknown">未知</string>
+    <string name="general_timeunit_hours">小时</string>
+    <string name="general_timeunit_days">天</string>
 </resources>

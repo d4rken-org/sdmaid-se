@@ -129,4 +129,6 @@
     <string name="file_type_directory">مسار</string>
     <string name="file_type_file">ملف</string>
     <string name="file_type_unknown">غير معروف</string>
+    <string name="general_timeunit_hours">ساعات</string>
+    <string name="general_timeunit_days">أيام</string>
 </resources>

@@ -7,9 +7,9 @@
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
-    <string name="debug_debuglog_file_label">Archivo de log grabado</string>
+    <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando el registro de depuración</string>
-    <string name="debug_debuglog_record_action">Grabar un archivo log</string>
+    <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener la grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (por ejemplo, nombres de archivos y aplicaciones instaladas). Únicamente compartilo con personas de confianza.</string>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártelo solo con personas de confianza (por ejemplo, un desarrollador que esté solucionando un problema).</string>
@@ -25,7 +25,7 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Resultados de la tarea</string>
     <string name="tasks_result_subtext">Resultado de la tarea</string>
-    <string name="onboarding_welcome_title">Bienvenido/a</string>
+    <string name="onboarding_welcome_title">Bienvenido</string>
     <string name="onboarding_welcome_body1">SD Maid SE administra archivos, aplicaciones y almacenamiento.</string>
     <string name="onboarding_welcome_body2">Ahorrá espacio de almacenamiento limpiando detrás de otras aplicaciones. Eliminá los archivos innecesarios y los datos sobrantes.</string>
     <string name="onboarding_welcome_body_beta">Esta es una versión beta (de prueba). Procedé con sentido del humor y un plan de respaldar todo. Reportá cualquier problema que encuentres.</string>

@@ -117,4 +117,6 @@
     <string name="file_type_directory">Diretório</string>
     <string name="file_type_file">Ficheiro</string>
     <string name="file_type_unknown">Desconhecido</string>
+    <string name="general_timeunit_hours">Horas</string>
+    <string name="general_timeunit_days">Dias</string>
 </resources>

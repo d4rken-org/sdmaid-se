@@ -123,4 +123,6 @@
     <string name="file_type_directory">Adresář</string>
     <string name="file_type_file">Soubor</string>
     <string name="file_type_unknown">Neznámý</string>
+    <string name="general_timeunit_hours">Hodiny</string>
+    <string name="general_timeunit_days">Dny</string>
 </resources>

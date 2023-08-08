@@ -38,6 +38,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (alias. SD Maid 2) je nástupca SD Maid (alias. SD Maid 1). Nová aplikácia optimalizovaná pre moderný Android.</string>
     <string name="onboarding_versus_body2">Architektúra jeho predchodcu je stará viac ako 7 rokov a nie je navrhnutá pre výzvy novších verzií Androidu. Na pokračovanie vývoja bolo potrebné úplné prepracovanie.</string>
     <string name="onboarding_versus_body3">Pre lepšie výsledky zvážte prechod na SD Maid SE.</string>
+    <string name="onboarding_versus_body4">\"Pro status\" SD Maid 1 bohužiaľ nie je prenosný na SD Maid 2/SE. Po 12 rokoch bezplatných aktualizácií je na udržanie vývoja potrebný nový nákup (nakŕmte vývojára).</string>
     <string name="onboarding_versus_continue_action">Pokračovať</string>
     <string name="onboarding_privacy_title">Ochrana osobných údajov</string>
     <string name="onboarding_privacy_body1">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje.</string>
@@ -61,6 +62,15 @@
     <string name="general_settings_label">Všeobecné</string>
     <string name="general_settings_desc">Všeobecné vylepšenia, ktoré ovplyvňujú celú aplikáciu.</string>
     <string name="settings_category_ui_label">Používateľské rozhranie</string>
+    <string name="ui_theme_mode_setting_label">Režim témy</string>
+    <string name="ui_theme_mode_setting_explanation">Motív použitý v aplikácii (napr. noc alebo deň).</string>
+    <string name="ui_theme_mode_dark_label">Tmavý</string>
+    <string name="ui_theme_mode_light_label">Svetlý</string>
+    <string name="ui_theme_mode_system_label">Systém</string>
+    <string name="ui_theme_style_setting_label">Štýl témy</string>
+    <string name="ui_theme_style_setting_explanation">Farebný štýl použitý s motívom aplikácie.</string>
+    <string name="ui_theme_style_default_label">Predvolené</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Náhľady súborov</string>
     <string name="ui_previews_summary">Zobrazte náhľady súborov vo všetkých nástrojoch (napr. miniatúry obrázkov a videí).</string>
     <string name="settings_support_label">Podpora</string>
@@ -149,6 +159,12 @@
     <string name="corpsefinder_watcher_summary">Automaticky vyhľadať zvyšky po odstránení aplikácie.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstráňte všetky zvyšky súvisiace s odinštalovanou aplikáciou.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d pozostatok nájdený po odinštalovaní %2$s.</item>
+        <item quantity="few">%1$d pozostatky nájdené po odinštalovaní %2$s.</item>
+        <item quantity="many">%1$d pozostatkov nájdených po odinštalovaní %2$s.</item>
+        <item quantity="other">%1$d pozostatkov nájdených po odinštalovaní %2$s.</item>
+    </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránila sa %3$d položka.</item>
         <item quantity="few">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránili sa %3$d položky.</item>
@@ -178,6 +194,12 @@
     <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikácií, napr. herné prostriedky.</string>
     <string name="corpsefinder_filter_app2sd_summary">Údaje presunuté do externého úložiska pomocou modov App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d nájdený pozostatok aplikácie</item>
+        <item quantity="few">%d nájdené pozostatky aplikácie</item>
+        <item quantity="many">%d nájdených pozostatkov aplikácie</item>
+        <item quantity="other">%d nájdených pozostatkov aplikácie</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Odstrániť všetky zvyšky aplikácie?</string>
     <string name="corpsefinder_owners_label">Vlastníci</string>
     <string name="corpsefinder_corpse_hints_label">Oznámenie</string>
@@ -244,6 +266,7 @@
     <string name="appcleaner_include_systemapps_summary">Zahrnúť systémové aplikácie do kontroly.</string>
     <string name="appcleaner_include_runningapps_label">Zahrňte spustené aplikácie</string>
     <string name="appcleaner_include_runningapps_summary">Zahrňte aplikácie, ktoré sú momentálne spustené, to môže spôsobiť ich prerušenie.</string>
+    <string name="appcleaner_include_inaccessible_label">Zahrňte neprístupné vyrovnávacie pamäte</string>
     <string name="appcleaner_include_inaccessible_summary">Zahrňte údaje, ku ktorým nie je možné pristupovať priamo, ale je možné ich vymazať prostredníctvom systémových nastavení a automatizovať pomocou služby dostupnosti. </string>
     <string name="appcleaner_include_multiuser_label">Zahrnúť ďalších používateľov</string>
     <string name="appcleaner_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
@@ -301,6 +324,12 @@
     <string name="appcleaner_automation_unavailable_body">Odstránenie nedostupných vyrovnávacích pamätí vyžaduje službu dostupnosti SD Maid, ktorá však bola nedostupná. Ak ju nechcete používať: Zakážte možnosť „Zahrnúť neprístupné vyrovnávacie pamäte“.</string>
     <string name="appcleaner_junk_userprofile_label">Užívateľ</string>
     <string name="appcleaner_delete_confirmation_message_x">Odstrániť nepotrebné položky pre %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Odstrániť nepotrebné položky pre %d zvolenú aplikáciu?</item>
+        <item quantity="few">Odstrániť nepotrebné položky pre %d zvolené aplikácie?</item>
+        <item quantity="many">Odstrániť nepotrebné položky pre %d zvolených aplikácií?</item>
+        <item quantity="other">Odstrániť nepotrebné položky pre %d zvolených aplikácií?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazanie vyrovnávacej pamäte pomocou Shizuku</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
@@ -346,6 +375,18 @@
     <string name="analyzer_progress_scanning_userfiles">Vyhľadávanie súborov užívateľa</string>
     <string name="analyzer_progress_scanning_system">Skenovanie systémových údajov</string>
     <string name="analyzer_device_storage_title">Úložisko zariadenia</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s dostupná</item>
+        <item quantity="few">%s dostupné</item>
+        <item quantity="many">%s dostupných</item>
+        <item quantity="other">%s dostupných</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s použitá</item>
+        <item quantity="few">%s použité</item>
+        <item quantity="many">%s použitých</item>
+        <item quantity="other">%s použitých</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Priamy prístup nie je k dispozícii</string>
     <string name="analyzer_storage_type_primary_title">Primárne úložisko</string>
     <string name="analyzer_storage_type_primary_description">Primárne úložisko vášho zariadenia. Obsahuje internú „sd kartu“, súkromné úložisko pre aplikácie a systémové dáta.</string>

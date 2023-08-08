@@ -4,8 +4,8 @@
     <string name="slogan_message_0">До ваших послуг.</string>
     <string name="slogan_message_1">Чисто й охайно.</string>
     <string name="slogan_message_2">Запобігання хаосу.</string>
-    <string name="slogan_message_3">Робити те, що необхідно.</string>
-    <string name="slogan_message_4">Усі крапки над \"і\".</string>
+    <string name="slogan_message_3">Робити те, що потрібно.</string>
+    <string name="slogan_message_4">Всі качки в ряд.</string>
     <string name="slogan_message_5">Бездоганно.</string>
     <string name="general_thank_you_label">Дякую</string>
     <string name="general_error_type_mismatch_msg">Невідповідність типу: хотів %1$s, але отримав %2$s.</string>
@@ -44,7 +44,7 @@
     <string name="general_progress_preparing">Підготовка</string>
     <string name="general_progress_processing_x">Обробка %s</string>
     <string name="general_progress_loading">Завантаження</string>
-    <string name="general_progress_loading_app_data">Завантаження даних програми</string>
+    <string name="general_progress_loading_app_data">Завантаження даних додатку</string>
     <string name="general_progress_loading_data_areas">Завантаження даних...</string>
     <string name="general_progress_loading_egg_0">Все ще швидше, ніж iPhone</string>
     <string name="general_progress_loading_egg_1">Завантаження додаткової оперативної пам’яті</string>
@@ -79,7 +79,7 @@
     <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>
     <string name="general_remove_action">Видалити</string>
     <string name="general_remove_selected_action">Видалити вибране</string>
-    <string name="general_root_required_label">Потрібні Root-права</string>
+    <string name="general_root_required_label">Потрібні Root права</string>
     <string name="general_root_required_message">Потрібен рутований пристрій</string>
     <string name="general_search_action">Пошук</string>
     <string name="general_scan_device_action">Сканувати пристрій</string>
@@ -111,4 +111,6 @@
     <string name="file_type_directory">Каталог</string>
     <string name="file_type_file">Файл</string>
     <string name="file_type_unknown">Невідомо</string>
+    <string name="general_timeunit_hours">Години</string>
+    <string name="general_timeunit_days">Дні</string>
 </resources>
