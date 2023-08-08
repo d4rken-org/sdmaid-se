@@ -78,6 +78,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         ui.pathContainsInput.apply {
             onUserAddedTag = { tag -> vm.addPath(tag) }
             onUserRemovedTag = { tag -> vm.removePath(tag) }
+            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         val nonPathInputFilter = InputFilter { source, start, end, dest, dstart, dend ->
@@ -91,17 +92,20 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             inputFilter = nonPathInputFilter
             onUserAddedTag = { tag -> vm.addNameContains(tag) }
             onUserRemovedTag = { tag -> vm.removeNameContains(tag) }
+            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         ui.nameEndsWithInput.apply {
             inputFilter = nonPathInputFilter
             onUserAddedTag = { tag -> vm.addNameEndsWith(tag) }
             onUserRemovedTag = { tag -> vm.removeNameEndsWith(tag) }
+            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         ui.exclusionsInput.apply {
             onUserAddedTag = { tag -> vm.addExclusion(tag) }
             onUserRemovedTag = { tag -> vm.removeExclusion(tag) }
+            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         val areaChips = mutableMapOf<DataArea.Type, Chip>()
@@ -222,5 +226,9 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun closeLiveSearch() {
+        liveSearchBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 }

@@ -42,6 +42,7 @@ class TaggedInputView @JvmOverloads constructor(
             } else {
                 if (input.text.isNullOrEmpty() && container.childCount > 0) input.setText(" ")
             }
+            onFocusChange?.invoke(this, hasFocus)
         }
         input.setOnKeyListener { _, _, event ->
             when {
@@ -110,6 +111,8 @@ class TaggedInputView @JvmOverloads constructor(
         set(value) {
             input.filters = arrayOf(value)
         }
+
+    var onFocusChange: ((TaggedInputView, Boolean) -> Unit)? = null
 
     fun setTags(tags: List<Tag>) {
         container.children.filterIsInstance<Chip>().toList().forEach { container.removeView(it) }
