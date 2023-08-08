@@ -279,13 +279,13 @@
     <string name="systemcleaner_editor_remove_confirmation_message">Remove this filter?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">You have unsaved changes!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
-    <string name="systemcleaner_customfilter_editor_warning">Custom filters can be dangerous. Check your scan results before deleting!</string>
+    <string name="systemcleaner_customfilter_editor_warning">Custom filters can be risky. Check your scan results before deleting!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Data areas</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">If no area is selected then all accessible data areas will be scanned and matched.</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">If no area is selected, then all accessible data areas will be scanned and matched.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">File type restrictions</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Files</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directories</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, all types will be matched.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, then all types will be matched.</string>
     <string name="systemcleaner_customfilter_editor_path_contains_label">Path contains</string>
     <string name="systemcleaner_customfilter_editor_path_contains_explanation">Specify segments that the target path should contain (e.g. \"Downloads/oldapks/game-\").</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
