@@ -31,11 +31,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         super.onViewCreated(view, savedInstanceState)
 
         vm.state.observe2(this) { state ->
-            findPreference<Preference>("filter.custom")?.apply {
-                setSummary(R.string.systemcleaner_filter_custom_manage_summary)
-                isPro = state.isPro
-                if (!state.isPro) appendSummary("\n${getString(R.string.upgrade_feature_requires_pro)}")
-            }
+            isPro = state.isPro
         }
     }
 
