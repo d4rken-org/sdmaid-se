@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
+import eu.darken.sdmse.systemcleaner.core.filter.stock.DataLoggerFilter
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every

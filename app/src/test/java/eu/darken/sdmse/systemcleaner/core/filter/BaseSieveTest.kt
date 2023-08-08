@@ -54,10 +54,10 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just filetypes`() = runTest {
         val configForFile = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.FILE
+            targetTypes = setOf(BaseSieve.TargetType.FILE)
         )
         val configForDir = BaseSieve.Config(
-            targetType = BaseSieve.TargetType.DIRECTORY
+            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY)
         )
         val aFile = baseLookup.copy(
             fileType = FileType.FILE
@@ -70,6 +70,34 @@ class BaseSieveTest : BaseTest() {
         )
         create(configForFile).match(aDirectory).matches shouldBe false
         create(configForDir).match(aDirectory).matches shouldBe true
+    }
+
+    @Test
+    fun `just path contains`() = runTest {
+        create(BaseSieve.Config(pathContains = setOf(segs("bc/12")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        create(BaseSieve.Config(pathContains = setOf(segs("123")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("/123")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("/sdcard")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        create(BaseSieve.Config(pathContains = setOf(segs("123/")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe false
+
+        create(BaseSieve.Config(pathContains = setOf(segs("abc")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("abc")), ignoreCase = false)).match(
+            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
+        ).matches shouldBe false
     }
 
     @Test

@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core
 
-import dagger.Reusable
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -30,26 +29,23 @@ import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.toList
 import java.io.IOException
 import javax.inject.Inject
 
-@Reusable
 class SystemCrawler @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
-    private val filterFactories: Set<@JvmSuppressWildcards SystemCleanerFilter.Factory>,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
@@ -58,15 +54,14 @@ class SystemCrawler @Inject constructor(
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
-    init {
-        filterFactories.forEach { log(TAG) { "Available filter: $it" } }
-    }
-
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun crawl(): Collection<FilterContent> {
+    private val matchesInternal = MutableSharedFlow<MatchEvent>(extraBufferCapacity = 1024)
+    val matchEvents: Flow<MatchEvent> = matchesInternal
+
+    suspend fun crawl(filters: Set<SystemCleanerFilter>): Collection<FilterContent> {
         log(TAG) { "crawl()" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
@@ -74,15 +69,6 @@ class SystemCrawler @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
 
-        val filters = filterFactories
-            .asFlow()
-            .filter { it.isEnabled() }
-            .map { it.create() }
-            .onEach {
-                log(TAG) { "Initializing $it" }
-                it.initialize()
-            }
-            .toList()
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
@@ -107,7 +93,7 @@ class SystemCrawler @Inject constructor(
         skipSegments.add(segs("", "data", "media", "0"))
         log(TAG) { "Skip segments: $skipSegments" }
 
-        val sieveContents = mutableMapOf<SystemCleanerFilter, Set<APathLookup<*>>>()
+        val sieveContents = mutableMapOf<FilterIdentifier, Set<APathLookup<*>>>()
 
         gatewaySwitch.useRes {
             targetAreas
@@ -152,15 +138,20 @@ class SystemCrawler @Inject constructor(
 
                     if (matched != null) {
                         log(TAG, INFO) { "Filter match: $matched <- $item" }
-                        sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)
+                        sieveContents[matched.identifier] = (sieveContents[matched.identifier] ?: emptySet()).plus(item)
+                        matchesInternal.emit(MatchEvent(matched, item))
                     }
                 }
         }
 
         val firstPass = sieveContents.map { entry ->
-            log(TAG, INFO) { "${entry.key.filterIdentifier} has ${entry.value.size} matches (first pass)." }
+            log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches (first pass)." }
+            val filter = filters.single { it.identifier == entry.key }
             FilterContent(
-                identifier = entry.key.filterIdentifier,
+                identifier = entry.key,
+                icon = filter.getIcon(),
+                label = filter.getLabel(),
+                description = filter.getDescription(),
                 items = entry.value,
             )
         }
@@ -172,6 +163,11 @@ class SystemCrawler @Inject constructor(
             .onEach { log(TAG, INFO) { "${it.identifier} has ${it.items.size} matches (second pass)." } }
             .filter { it.items.isNotEmpty() }
     }
+
+    data class MatchEvent(
+        val filter: SystemCleanerFilter,
+        val match: APathLookup<*>,
+    )
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Crawler")

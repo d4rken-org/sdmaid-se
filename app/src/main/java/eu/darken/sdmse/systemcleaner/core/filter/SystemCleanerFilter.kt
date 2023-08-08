@@ -1,13 +1,21 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APathLookup
 import kotlin.reflect.KClass
 
 interface SystemCleanerFilter {
 
-    val filterIdentifier: FilterIdentifier
+    val identifier: FilterIdentifier
         get() = this::class.qualifiedName!!
+
+    suspend fun getIcon(): CaDrawable
+
+    suspend fun getLabel(): CaString
+
+    suspend fun getDescription(): CaString
 
     suspend fun targetAreas(): Set<DataArea.Type>
 

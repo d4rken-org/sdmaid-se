@@ -24,7 +24,7 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
+import eu.darken.sdmse.systemcleaner.core.filter.FilterSource
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
@@ -34,7 +34,6 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
-import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -42,8 +41,9 @@ class SystemCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
-    private val crawlerProvider: Provider<SystemCrawler>,
+    private val crawler: SystemCrawler,
     private val exclusionManager: ExclusionManager,
+    private val filterSource: FilterSource,
     pkgOps: PkgOps,
 ) : SDMTool, Progress.Client {
 
@@ -94,10 +94,8 @@ class SystemCleaner @Inject constructor(
 
         internalData.value = null
 
-        val crawler = crawlerProvider.get()
-
         val results = crawler.withProgress(this) {
-            crawl()
+            crawl(filterSource.create())
         }
 
         log(TAG) { "Warming up fields..." }
@@ -124,7 +122,7 @@ class SystemCleaner @Inject constructor(
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
         targetFilters.forEach { targetIdentifier ->
             val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
-            updateProgressPrimary(caString { filterContent.identifier.getLabel(it) })
+            updateProgressPrimary(caString { filterContent.label.get(it) })
 
             val deleted = mutableSetOf<APath>()
             val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }

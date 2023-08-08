@@ -273,6 +273,30 @@
     <string name="systemcleaner_filter_usagestats_summary">Files related to application usage stats.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Delete all filter contents?</string>
 
+    <string name="systemcleaner_customfilter_label">Custom filter</string>
+    <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
+    <string name="systemcleaner_customfilter_create_hint">Create a custom filter to delete extra files that are unique to your device and use-cases.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Remove this filter?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">You have unsaved changes!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
+    <string name="systemcleaner_customfilter_editor_warning">Custom filters can be risky. Check your scan results before deleting!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Data areas</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">If no area is selected, then all accessible data areas will be scanned and matched.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">File type restrictions</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Files</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directories</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, then all types will be matched.</string>
+    <string name="systemcleaner_customfilter_editor_path_contains_label">Path contains</string>
+    <string name="systemcleaner_customfilter_editor_path_contains_explanation">Specify segments that the target path should contain (e.g. \"Downloads/oldapks/game-\").</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">The result will be excluded if the path contains any of the keywords (e.g. \"DCIM\").</string>
+    <string name="systemcleaner_customfilter_editor_name_contains_label">Name contains</string>
+    <string name="systemcleaner_customfilter_editor_name_contains_explanation">The file name must contain any at least one of the keywords (e.g. \"-receipt\").</string>
+    <string name="systemcleaner_customfilter_editor_name_ending_label">Name ends with</string>
+    <string name="systemcleaner_customfilter_editor_name_ending_explanation">The file name must end with one of the keywords (e.g. \".apk\")</string>
+    <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
+
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Public default caches</string>

@@ -8,10 +8,17 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import java.time.Duration
 
 class BaseSieve @AssistedInject constructor(
     @Assisted private val config: Config,
@@ -32,11 +39,15 @@ class BaseSieve @AssistedInject constructor(
 
     suspend fun match(subject: APathLookup<*>): Result {
         // Directory or file?
-        config.targetType?.let {
-            if ((it == TargetType.DIRECTORY && !subject.isDirectory || it == TargetType.FILE && !subject.isFile)) {
-                return Result(matches = false)
+        config.targetTypes
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { types ->
+                if (subject.isFile && !types.contains(TargetType.FILE)) {
+                    return Result(matches = false)
+                } else if (subject.isDirectory && !types.contains(TargetType.DIRECTORY)) {
+                    return Result(matches = false)
+                }
             }
-        }
 
         config.isEmpty?.let {
             // Empty or not ?
@@ -54,31 +65,44 @@ class BaseSieve @AssistedInject constructor(
         }
 
         config.maximumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it) return Result(matches = false)
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it.toMillis()) {
+                return Result(matches = false)
+            }
         }
 
         config.minimumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it) return Result(matches = false)
+            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it.toMillis()) {
+                return Result(matches = false)
+            }
         }
 
         config.pathContains
             ?.takeIf { it.isNotEmpty() }
             ?.let { pathContains ->
-                // Path contains
-                if (pathContains.none { subject.segments.containsSegments(it) }) return Result(matches = false)
+                val noMatch = pathContains.none {
+                    subject.segments.containsSegments(
+                        it,
+                        allowPartial = true,
+                        ignoreCase = config.ignoreCase
+                    )
+                }
+                if (noMatch) return Result(matches = false)
             }
 
-        config.namePrefixes
+        config.nameContains
             ?.takeIf { it.isNotEmpty() }
-            ?.let { inits ->
-                // Check name starts with
-                if (inits.none { subject.name.startsWith(it) }) return Result(matches = false)
+            ?.let { namePartials ->
+                if (namePartials.none { subject.name.contains(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.nameSuffixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { ends ->
-                if (ends.none { subject.name.endsWith(it) }) return Result(matches = false)
+                if (ends.none { subject.name.endsWith(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.exclusions
@@ -86,7 +110,11 @@ class BaseSieve @AssistedInject constructor(
             ?.let { exclusions ->
                 // Check what the path should not contain
                 val match = exclusions.any {
-                    subject.segments.containsSegments(it.segments, allowPartial = it.allowPartial)
+                    subject.segments.containsSegments(
+                        it.segments,
+                        allowPartial = it.allowPartial,
+                        ignoreCase = config.ignoreCase
+                    )
                 }
                 if (match) return Result(matches = false)
             }
@@ -107,21 +135,27 @@ class BaseSieve @AssistedInject constructor(
         config.areaTypes
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
-                if (!types.contains(areaInfo.type)) return Result(matches = false)
+                if (!types.contains(areaInfo.type)) {
+                    return Result(matches = false)
+                }
             }
 
         config.pathAncestors
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
-                if (basePaths.none { it.isAncestorOf(subjectSegments) }) return Result(matches = false)
+                if (basePaths.none { it.isAncestorOf(subjectSegments, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.pathPrefixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Like basepath, but allows for partial matches
-                if (basePaths.none { subjectSegments.startsWith(it) }) return Result(matches = false)
+                if (basePaths.none { subjectSegments.startsWith(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         return Result(
@@ -133,9 +167,9 @@ class BaseSieve @AssistedInject constructor(
     data class Config(
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
-        val maximumAge: Long? = null,
-        val minimumAge: Long? = null,
-        val targetType: TargetType? = null,
+        val maximumAge: Duration? = null,
+        val minimumAge: Duration? = null,
+        val targetTypes: Set<TargetType>? = null,
         val isEmpty: Boolean? = null,
         val areaTypes: Set<DataArea.Type>? = null,
         val pathAncestors: Set<Segments>? = null,
@@ -143,8 +177,9 @@ class BaseSieve @AssistedInject constructor(
         val pathContains: Set<Segments>? = null,
         val regexes: Set<Regex>? = null,
         val exclusions: Set<Exclusion>? = null,
-        val namePrefixes: Set<String>? = null,
+        val nameContains: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,
+        val ignoreCase: Boolean = true,
     )
 
     data class Exclusion(

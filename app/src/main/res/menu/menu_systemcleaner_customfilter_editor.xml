@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.darken.sdmse.main.ui.MainActivity">
+
+    <item
+        android:id="@+id/menu_action_save_exclusion"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:orderInCategory="80"
+        android:visible="false"
+        tools:visible="true"
+        android:title="@string/general_remove_action"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_action_remove_exclusion"
+        android:icon="@drawable/ic_delete"
+        android:orderInCategory="90"
+        android:visible="false"
+        tools:visible="true"
+        android:title="@string/general_remove_action"
+        app:showAsAction="ifRoom" />
+
+</menu>

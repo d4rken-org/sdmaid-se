@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
+import eu.darken.sdmse.systemcleaner.core.filter.stock.LogFilesFilter
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

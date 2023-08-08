@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
+import eu.darken.sdmse.systemcleaner.core.filter.stock.SuperfluousApksFilter
 import io.mockk.every
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach

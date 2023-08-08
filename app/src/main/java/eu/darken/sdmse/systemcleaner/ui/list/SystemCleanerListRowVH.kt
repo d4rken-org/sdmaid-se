@@ -8,9 +8,6 @@ import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.SystemcleanerListItemBinding
 import eu.darken.sdmse.systemcleaner.core.FilterContent
-import eu.darken.sdmse.systemcleaner.core.filter.getDescription
-import eu.darken.sdmse.systemcleaner.core.filter.getIcon
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 
 
 class SystemCleanerListRowVH(parent: ViewGroup) :
@@ -35,9 +32,9 @@ class SystemCleanerListRowVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         lastItem = item
         val content = item.content
-        icon.setImageDrawable(content.identifier.getIcon(context))
-        primary.text = content.identifier.getLabel(context)
-        secondary.text = content.identifier.getDescription(context)
+        icon.setImageDrawable(content.icon.get(context))
+        primary.text = content.label.get(context)
+        secondary.text = content.description.get(context)
 
         items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, content.items.size)
         size.text = Formatter.formatShortFileSize(context, content.size)
