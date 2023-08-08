@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -27,8 +28,8 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -241,7 +242,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         .flatMapLatest { state ->
             if (state.current.isUnderdefined) {
                 log(TAG) { "Live search: Skipping due to under defined config" }
-                return@flatMapLatest emptyFlow()
+                return@flatMapLatest flowOf(LiveSearchState())
             }
             val config = state.current
 
@@ -262,7 +263,9 @@ class CustomFilterEditorViewModel @Inject constructor(
                     .scan(listOf<LiveSearchListRow.Item>()) { list, event -> list.plus(event) },
                 crawler.progress,
                 crawlerJobFlow,
-            ) { matches, progress, isWorking -> LiveSearchState(matches, if (isWorking) progress else null) }
+            ) { matches, progress, isWorking ->
+                LiveSearchState(matches, if (isWorking) progress else null)
+            }.throttleLatest(200)
         }
         .onStart { emit(LiveSearchState(firstInit = true)) }
         .asLiveData2()
