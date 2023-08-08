@@ -190,8 +190,14 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
-    fun toggleArea(type: DataArea.Type, checked: Boolean) {
+    fun toggleArea(type: DataArea.Type, checked: Boolean) = launch {
         log(TAG) { "toggleArea($type,$checked)" }
+        currentState.updateBlocking {
+            val new = (current.areas ?: emptySet()).toMutableSet().apply {
+                if (checked) add(type) else remove(type)
+            }
+            copy(current = current.copy(areas = new.takeIf { it.isNotEmpty() }))
+        }
     }
 
     fun toggleFileType(type: FileType) = launch {

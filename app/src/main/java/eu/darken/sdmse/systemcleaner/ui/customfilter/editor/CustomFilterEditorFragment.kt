@@ -93,6 +93,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             onUserRemovedTag = { tag -> vm.removeExclusion(tag) }
         }
 
+        val areaChips = mutableMapOf<DataArea.Type, Chip>()
         setOf(
             DataArea.Type.SDCARD,
             DataArea.Type.PUBLIC_DATA,
@@ -107,12 +108,10 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             ).apply {
                 id = ViewCompat.generateViewId()
                 this.text = type.raw
-//                chipIcon = ContextCompat.getDrawable(context, R.drawable.ic_sd_storage)
-//                chipIconSize = context.dpToPx(16f).toFloat()
-//                chipStartPadding = context.dpToPx(8f).toFloat()
                 isClickable = true
                 isCheckable = true
                 setOnCheckedChangeListener { _, isChecked -> vm.toggleArea(type, isChecked) }
+                areaChips[type] = this
             }
             ui.dataAreasContainer.addView(chip)
         }
@@ -135,6 +134,10 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             nameContainInput.setTags(config.nameContains?.map { vm.nameToTag(it) } ?: emptyList())
             nameEndsWithInput.setTags(config.nameEndsWith?.map { vm.nameToTag(it) } ?: emptyList())
             exclusionsInput.setTags(config.exclusion?.map { vm.pathToTag(it) } ?: emptyList())
+
+            areaChips.entries.forEach { (type, chip) ->
+                chip.isChecked = config.areas?.contains(type) == true
+            }
 
             filetypesOptionFiles.isChecked = config.fileTypes?.contains(FileType.FILE) == true
             filetypesOptionDirectories.isChecked = config.fileTypes?.contains(FileType.DIRECTORY) == true
