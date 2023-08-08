@@ -8823,7 +8823,8 @@
 	{"loc": "SDCARD", "path": ".vivo"},
 	{"loc": "SDCARD", "path": "Android/obj/.um"},
 	{"loc": "PUBLIC_DATA", "path": ".um"},
-	{"loc": "SDCARD", "path": "Tencent", "flags": ["common"]}
+	{"loc": "SDCARD", "path": "Tencent", "flags": ["common"]},
+	{"loc": "SDCARD", "path": "citra-emu", "flags": ["keeper"]}
   ]
 }, {
   "pkgs": ["com.boldbeast.recorder"],
@@ -12555,10 +12556,13 @@
   "pkgs": ["com.hidex.vaultlocker"],
   "mrks": [{"loc": "SDCARD", "path": ".hidex_dont_delete_me", "flags": ["keeper"]}]
 }, {
-  "pkgs": ["com.karin.idTech4Amm"],
-  "mrks": [{"loc": "SDCARD", "path": "diii4a"}]
-}, {
   "pkgs": ["com.android.dialer"],
   "mrks": [{"loc": "SDCARD", "path": "Recordings", "flags": ["common", "keeper"]}]
+}, {
+  "pkgs": ["com.karin.idTech4Amm"],
+  "mrks": [{"loc": "SDCARD", "path": "diii4a", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["md.obsidian"],
+  "mrks": [{"loc": "SDCARD", "path": "obsidian", "flags": ["common", "keeper"]}]
 }
 ]
