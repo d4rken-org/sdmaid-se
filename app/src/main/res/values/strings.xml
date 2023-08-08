@@ -273,6 +273,7 @@
     <string name="systemcleaner_filter_usagestats_summary">Files related to application usage stats.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Delete all filter contents?</string>
 
+    <string name="systemcleaner_customfilter_label">Custom filter</string>
     <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
     <string name="systemcleaner_customfilter_create_hint">Create a custom filter to delete extra files that are unique to your device and use-cases.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Remove this filter?</string>

@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 import eu.darken.sdmse.systemcleaner.core.FilterContent
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragmentArgs
 
@@ -18,7 +17,7 @@ class FilterContentDetailsPagerAdapter(
         arguments = FilterContentFragmentArgs(item.identifier).toBundle()
     }
 
-    override fun getPageTitle(position: Int): CharSequence = data[position].identifier.getLabel(activity)
+    override fun getPageTitle(position: Int): CharSequence = data[position].label.get(activity)
 
     override fun getItemPosition(obj: Any): Int = data
         .firstOrNull { set ->

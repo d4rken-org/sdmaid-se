@@ -6,8 +6,13 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaDrawable
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -24,6 +29,12 @@ class AnalyticsFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
 ) : SystemCleanerFilter {
+
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_analytics_onsurface.toCaDrawable()
+
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_analytics_label.toCaString()
+
+    override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_analytics_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,

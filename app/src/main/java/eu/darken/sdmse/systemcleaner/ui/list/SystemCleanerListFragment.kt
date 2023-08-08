@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerListFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 
 @AndroidEntryPoint
 class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment) {
@@ -76,7 +75,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
                         if (event.items.size == 1) {
                             getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                event.items.single().content.identifier.getLabel(context)
+                                event.items.single().content.label.get(context)
                             )
                         } else {
                             getString(

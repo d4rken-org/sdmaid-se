@@ -6,8 +6,13 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaDrawable
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -26,6 +31,13 @@ class EmptyDirectoryFilter @Inject constructor(
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
 ) : SystemCleanerFilter {
+
+    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_folder_open_24.toCaDrawable()
+
+    override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_emptydirectories_label.toCaString()
+
+    override suspend fun getDescription(): CaString =
+        R.string.systemcleaner_filter_emptydirectories_summary.toCaString()
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,

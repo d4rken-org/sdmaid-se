@@ -24,7 +24,6 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
@@ -124,7 +123,7 @@ class SystemCleaner @Inject constructor(
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
         targetFilters.forEach { targetIdentifier ->
             val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
-            updateProgressPrimary(caString { filterContent.identifier.getLabel(it) })
+            updateProgressPrimary(caString { filterContent.label.get(it) })
 
             val deleted = mutableSetOf<APath>()
             val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }

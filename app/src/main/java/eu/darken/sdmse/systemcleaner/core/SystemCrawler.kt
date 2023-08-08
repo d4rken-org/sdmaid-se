@@ -30,6 +30,7 @@ import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterLoader
@@ -125,7 +126,7 @@ class SystemCrawler @Inject constructor(
         skipSegments.add(segs("", "data", "media", "0"))
         log(TAG) { "Skip segments: $skipSegments" }
 
-        val sieveContents = mutableMapOf<SystemCleanerFilter, Set<APathLookup<*>>>()
+        val sieveContents = mutableMapOf<FilterIdentifier, Set<APathLookup<*>>>()
 
         gatewaySwitch.useRes {
             targetAreas
@@ -170,15 +171,19 @@ class SystemCrawler @Inject constructor(
 
                     if (matched != null) {
                         log(TAG, INFO) { "Filter match: $matched <- $item" }
-                        sieveContents[matched] = (sieveContents[matched] ?: emptySet()).plus(item)
+                        sieveContents[matched.identifier] = (sieveContents[matched.identifier] ?: emptySet()).plus(item)
                     }
                 }
         }
 
         val firstPass = sieveContents.map { entry ->
-            log(TAG, INFO) { "${entry.key.filterIdentifier} has ${entry.value.size} matches (first pass)." }
+            log(TAG, INFO) { "${entry.key} has ${entry.value.size} matches (first pass)." }
+            val filter = allFilters.single { it.identifier == entry.key }
             FilterContent(
-                identifier = entry.key.filterIdentifier,
+                identifier = entry.key,
+                icon = filter.getIcon(),
+                label = filter.getLabel(),
+                description = filter.getDescription(),
                 items = entry.value,
             )
         }

@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.filter.getLabel
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 
@@ -89,7 +88,7 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
                             event.items.singleOrNull() is FilterContentElementHeaderVH.Item -> getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                                 (event.items.single() as FilterContentElementHeaderVH.Item)
-                                    .filterContent.identifier.getLabel(context)
+                                    .filterContent.label.get(context)
                             )
 
                             event.items.singleOrNull() is FilterContentElementFileVH.Item -> getString(
