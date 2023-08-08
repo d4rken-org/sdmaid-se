@@ -115,6 +115,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             DataArea.Type.PUBLIC_MEDIA,
             DataArea.Type.PUBLIC_OBB,
             DataArea.Type.PRIVATE_DATA,
+            DataArea.Type.PORTABLE,
         ).forEach { type ->
             val chip = Chip(
                 context,
