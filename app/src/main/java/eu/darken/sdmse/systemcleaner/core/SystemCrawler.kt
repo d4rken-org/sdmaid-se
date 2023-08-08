@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core
 
-import dagger.Reusable
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -35,6 +34,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
@@ -44,7 +44,6 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 
-@Reusable
 class SystemCrawler @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
@@ -58,6 +57,9 @@ class SystemCrawler @Inject constructor(
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
     }
+
+    private val matchesInternal = MutableSharedFlow<MatchEvent>(extraBufferCapacity = 1024)
+    val matchEvents: Flow<MatchEvent> = matchesInternal
 
     suspend fun crawl(filters: Set<SystemCleanerFilter>): Collection<FilterContent> {
         log(TAG) { "crawl()" }
@@ -137,6 +139,7 @@ class SystemCrawler @Inject constructor(
                     if (matched != null) {
                         log(TAG, INFO) { "Filter match: $matched <- $item" }
                         sieveContents[matched.identifier] = (sieveContents[matched.identifier] ?: emptySet()).plus(item)
+                        matchesInternal.emit(MatchEvent(matched, item))
                     }
                 }
         }
@@ -160,6 +163,11 @@ class SystemCrawler @Inject constructor(
             .onEach { log(TAG, INFO) { "${it.identifier} has ${it.items.size} matches (second pass)." } }
             .filter { it.items.isNotEmpty() }
     }
+
+    data class MatchEvent(
+        val filter: SystemCleanerFilter,
+        val match: APathLookup<*>,
+    )
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Crawler")

@@ -134,4 +134,6 @@
 
     <string name="general_timeunit_hours">Hours</string>
     <string name="general_timeunit_days">Days</string>
+    <string name="general_progress_ready">Ready</string>
+    <string name="general_progress_done">Done</string>
 </resources>

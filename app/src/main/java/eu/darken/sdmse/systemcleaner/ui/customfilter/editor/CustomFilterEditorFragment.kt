@@ -4,22 +4,31 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.view.View
+import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.ViewCompat
+import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
+import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
 import java.io.File
+import kotlin.math.roundToInt
 
 
 @AndroidEntryPoint
@@ -27,6 +36,8 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
     override val vm: CustomFilterEditorViewModel by viewModels()
     override val ui: SystemcleanerCustomfilterEditorFragmentBinding by viewBinding()
+
+    private lateinit var liveSearchBehavior: BottomSheetBehavior<LinearLayout>
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -162,6 +173,51 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                     }
                 }.show()
+            }
+        }
+
+        // Initialize the bottom sheet behavior
+        liveSearchBehavior = BottomSheetBehavior.from(ui.liveSearchContainer).apply {
+            isHideable = false
+            state = BottomSheetBehavior.STATE_COLLAPSED
+            peekHeight = requireContext().dpToPx(64f)
+            ui.root.post {
+                maxHeight = ((ui.root.height - ui.toolbar.height) * 0.7f).roundToInt()
+            }
+        }
+
+        val liveSearchAdapter = LiveSearchListAdapter().apply {
+            ui.liveSearchResults.setupDefaults(this, dividers = false)
+        }
+
+        vm.liveSearch.observe2(ui) { state ->
+            liveSearchPrimary.text = when (state.firstInit) {
+                true -> getString(R.string.systemcleaner_customfilter_editor_livesearch_label)
+                false -> getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.result_x_items,
+                    state.matches.size
+                )
+            }
+            liveSearchSecondary.apply {
+                text = when {
+                    state.firstInit -> getString(eu.darken.sdmse.common.R.string.general_progress_ready)
+                    state.progress == null -> getString(eu.darken.sdmse.common.R.string.general_progress_done)
+                    else -> state.progress.primary.get(requireContext())
+                }
+                isGone = text.isEmpty()
+            }
+
+            liveSearchProgress.isGone = state.progress == null
+
+            liveSearchAdapter.update(state.matches)
+
+            liveSearchBehavior.apply {
+                isDraggable = !state.firstInit
+                peekHeight = when {
+                    state.progress != null -> requireContext().dpToPx(96f)
+                    state.matches.isNotEmpty() -> requireContext().dpToPx(128f)
+                    else -> requireContext().dpToPx(64f)
+                }
             }
         }
 

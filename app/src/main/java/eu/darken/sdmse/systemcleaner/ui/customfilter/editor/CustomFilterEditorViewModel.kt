@@ -14,13 +14,25 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
+import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.systemcleaner.core.SystemCrawler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
+import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.scan
 import java.time.Instant
 import javax.inject.Inject
 
@@ -31,6 +43,8 @@ class CustomFilterEditorViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val filterRepo: CustomFilterRepo,
     private val dataAreaManager: DataAreaManager,
+    private val crawler: SystemCrawler,
+    private val filterFactory: CustomFilter.Factory,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<CustomFilterEditorFragmentArgs>()
@@ -222,6 +236,42 @@ class CustomFilterEditorViewModel @Inject constructor(
         val canRemove: Boolean = original != null
         val canSave: Boolean = original != current && !current.isUnderdefined
     }
+
+    val liveSearch = currentState.flow
+        .flatMapLatest { state ->
+            if (state.current.isUnderdefined) {
+                log(TAG) { "Live search: Skipping due to under defined config" }
+                return@flatMapLatest emptyFlow()
+            }
+            val config = state.current
+
+            val crawlerJobFlow = callbackFlow {
+                log(TAG) { "Crawler is starting for $config" }
+
+                val filter = filterFactory.create(config).apply { initialize() }
+                send(true)
+                crawler.crawl(setOf(filter))
+                send(false)
+
+                awaitClose { log(TAG) { "Crawler finished search" } }
+            }
+
+            combine(
+                crawler.matchEvents
+                    .map { LiveSearchListRow.Item(lookup = it.match) }
+                    .scan(listOf<LiveSearchListRow.Item>()) { list, event -> list.plus(event) },
+                crawler.progress,
+                crawlerJobFlow,
+            ) { matches, progress, isWorking -> LiveSearchState(matches, if (isWorking) progress else null) }
+        }
+        .onStart { emit(LiveSearchState(firstInit = true)) }
+        .asLiveData2()
+
+    data class LiveSearchState(
+        val matches: List<LiveSearchListRow.Item> = emptyList(),
+        val progress: Progress.Data? = null,
+        val firstInit: Boolean = false,
+    )
 
     companion object {
         private val TAG = logTag("SystemCleaner", "CustomFilter", "Editor", "ViewModel")
