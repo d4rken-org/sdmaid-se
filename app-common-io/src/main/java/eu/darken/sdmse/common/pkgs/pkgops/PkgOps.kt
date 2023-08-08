@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
+import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -159,14 +160,13 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun getLabel(packageName: String): String? = ipcFunnel.use {
+    suspend fun getLabel(pkgId: Pkg.Id): String? = ipcFunnel.use {
         try {
-            packageManager
-                .getApplicationInfo(packageName, GET_UNINSTALLED_PACKAGES)
-                .loadLabel(packageManager)
-                .toString()
+            ipcFunnel.use {
+                packageManager.getLabel2(pkgId)
+            }
         } catch (e: NameNotFoundException) {
-            log(TAG, WARN) { "getLabel(packageName=$packageName) packageName not found." }
+            log(TAG, WARN) { "getLabel(packageName=$pkgId) packageName not found." }
             null
         }
     }
