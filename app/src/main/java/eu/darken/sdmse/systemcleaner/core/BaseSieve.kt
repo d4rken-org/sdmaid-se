@@ -79,20 +79,30 @@ class BaseSieve @AssistedInject constructor(
         config.pathContains
             ?.takeIf { it.isNotEmpty() }
             ?.let { pathContains ->
-                // Path contains
-                if (pathContains.none { subject.segments.containsSegments(it) }) return Result(matches = false)
+                val noMatch = pathContains.none {
+                    subject.segments.containsSegments(
+                        it,
+                        allowPartial = true,
+                        ignoreCase = config.ignoreCase
+                    )
+                }
+                if (noMatch) return Result(matches = false)
             }
 
         config.nameContains
             ?.takeIf { it.isNotEmpty() }
             ?.let { namePartials ->
-                if (namePartials.none { subject.name.contains(it) }) return Result(matches = false)
+                if (namePartials.none { subject.name.contains(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.nameSuffixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { ends ->
-                if (ends.none { subject.name.endsWith(it) }) return Result(matches = false)
+                if (ends.none { subject.name.endsWith(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.exclusions
@@ -100,7 +110,11 @@ class BaseSieve @AssistedInject constructor(
             ?.let { exclusions ->
                 // Check what the path should not contain
                 val match = exclusions.any {
-                    subject.segments.containsSegments(it.segments, allowPartial = it.allowPartial)
+                    subject.segments.containsSegments(
+                        it.segments,
+                        allowPartial = it.allowPartial,
+                        ignoreCase = config.ignoreCase
+                    )
                 }
                 if (match) return Result(matches = false)
             }
@@ -121,21 +135,27 @@ class BaseSieve @AssistedInject constructor(
         config.areaTypes
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
-                if (!types.contains(areaInfo.type)) return Result(matches = false)
+                if (!types.contains(areaInfo.type)) {
+                    return Result(matches = false)
+                }
             }
 
         config.pathAncestors
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Check path starts with
-                if (basePaths.none { it.isAncestorOf(subjectSegments) }) return Result(matches = false)
+                if (basePaths.none { it.isAncestorOf(subjectSegments, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         config.pathPrefixes
             ?.takeIf { it.isNotEmpty() }
             ?.let { basePaths ->
                 // Like basepath, but allows for partial matches
-                if (basePaths.none { subjectSegments.startsWith(it) }) return Result(matches = false)
+                if (basePaths.none { subjectSegments.startsWith(it, ignoreCase = config.ignoreCase) }) {
+                    return Result(matches = false)
+                }
             }
 
         return Result(
@@ -159,6 +179,7 @@ class BaseSieve @AssistedInject constructor(
         val exclusions: Set<Exclusion>? = null,
         val nameContains: Set<String>? = null,
         val nameSuffixes: Set<String>? = null,
+        val ignoreCase: Boolean = true,
     )
 
     data class Exclusion(

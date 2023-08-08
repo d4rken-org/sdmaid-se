@@ -73,6 +73,34 @@ class BaseSieveTest : BaseTest() {
     }
 
     @Test
+    fun `just path contains`() = runTest {
+        create(BaseSieve.Config(pathContains = setOf(segs("bc/12")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        create(BaseSieve.Config(pathContains = setOf(segs("123")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("/123")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("/sdcard")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        create(BaseSieve.Config(pathContains = setOf(segs("123/")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe false
+
+        create(BaseSieve.Config(pathContains = setOf(segs("abc")))).match(
+            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
+        ).matches shouldBe true
+        create(BaseSieve.Config(pathContains = setOf(segs("abc")), ignoreCase = false)).match(
+            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
+        ).matches shouldBe false
+    }
+
+    @Test
     fun `just path ancestors`() = runTest {
         val config = BaseSieve.Config(
             pathAncestors = setOf(segs("abc"))
