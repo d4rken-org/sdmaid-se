@@ -69,7 +69,7 @@ class GatewaySwitch @Inject constructor(
     }
 
     override suspend fun lookup(path: APath): APathLookup<APath> {
-        return useGateway(path) { lookup(path) }
+        return lookup(path, Type.CURRENT)
     }
 
     suspend fun lookup(path: APath, type: Type): APathLookup<APath> {
@@ -85,7 +85,7 @@ class GatewaySwitch @Inject constructor(
     }
 
     override suspend fun lookupFiles(path: APath): Collection<APathLookup<APath>> {
-        return useGateway(path) { lookupFiles(path) }
+        return lookupFiles(path, Type.CURRENT)
     }
 
     suspend fun lookupFiles(path: APath, type: Type): Collection<APathLookup<APath>> {
@@ -109,7 +109,7 @@ class GatewaySwitch @Inject constructor(
     }
 
     override suspend fun exists(path: APath): Boolean {
-        return useGateway(path) { exists(path) }
+        return exists(path, Type.CURRENT)
     }
 
     suspend fun exists(path: APath, type: Type): Boolean {

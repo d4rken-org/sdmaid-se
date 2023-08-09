@@ -27,7 +27,6 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -239,12 +238,12 @@ class StorageScanner @Inject constructor(
 
         // Android/data/<pkg>
         val dataDirPubs = setOfNotNull(publicPath)
-            .map { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
+            .map { it.child("Android", "data", pkg.packageName) }
             .mapNotNull { pubData ->
                 when {
                     hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
 
-                    gatewaySwitch.exists(pubData, GatewaySwitch.Type.AUTO) -> try {
+                    gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
                         pubData.walkContentItem(gatewaySwitch)
                     } catch (e: ReadException) {
                         ContentItem.fromInaccessible(pubData)
@@ -259,7 +258,7 @@ class StorageScanner @Inject constructor(
             storage.type != DeviceStorage.Type.PRIMARY -> emptySet()
             dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA } -> pkg
                 .getPrivateDataDirs(dataAreas)
-                .filter { it.exists(gatewaySwitch) }
+                .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
                 .map { it.walkContentItem(gatewaySwitch) }
 
             appStorStats != null -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
@@ -281,9 +280,8 @@ class StorageScanner @Inject constructor(
         )
 
         // Android/media/<pkg>
-        val appMediaGroup = publicPath
-            ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
-            ?.takeIf { it.exists(gatewaySwitch) }
+        val appMediaGroup = publicPath?.child("Android", "media", pkg.packageName)
+            ?.takeIf { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
             ?.walkContentItem(gatewaySwitch)
             ?.let {
                 ContentGroup(
