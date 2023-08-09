@@ -281,9 +281,8 @@ class StorageScanner @Inject constructor(
         )
 
         // Android/media/<pkg>
-        val appMediaGroup = publicPath
-            ?.let { LocalPath.build(it.path, "Android", "media", pkg.packageName) }
-            ?.takeIf { it.exists(gatewaySwitch) }
+        val appMediaGroup = publicPath?.child("Android", "media", pkg.packageName)
+            ?.takeIf { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
             ?.walkContentItem(gatewaySwitch)
             ?.let {
                 ContentGroup(
