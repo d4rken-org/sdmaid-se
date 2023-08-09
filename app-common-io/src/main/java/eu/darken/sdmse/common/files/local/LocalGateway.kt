@@ -158,7 +158,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "createFile($mode->ROOT): $path" }
                     return@runIO
                 }
-                if (rootOps { it.createNewFile(path) }) {
+                if (rootOps { it.exists(path) }) {
                     log(TAG, WARN) { "createFile(ROOT) failed, but file does now exist: $path" }
                     return@runIO
                 }
@@ -172,7 +172,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "createFile($mode->ADB): $path" }
                     return@runIO
                 }
-                if (adbOps { it.createNewFile(path) }) {
+                if (adbOps { it.exists(path) }) {
                     log(TAG, WARN) { "createFile(ADB) failed, but file does now exist: $path" }
                     return@runIO
                 }
