@@ -15,33 +15,22 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.listFiles
-import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
-import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
-import eu.darken.sdmse.common.pkgs.isSystemApp
-import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -52,20 +41,16 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.StorageManager2
-import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 
 class StorageScanner @Inject constructor(
     @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
-    private val statsManager: StorageStatsManager2,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
     private val shizukuManager: ShizukuManager,
@@ -73,6 +58,7 @@ class StorageScanner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
     private val dataAreaManager: DataAreaManager,
+    private val appScannerFactory: AppStorageScanner.Factory,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -166,10 +152,21 @@ class StorageScanner @Inject constructor(
 
         updateProgressCount(Progress.Count.Percent(targetPkgs.size))
 
+        val appScanner = appScannerFactory.create(
+            useRoot = useRoot,
+            useShizuku = useShizuku,
+            currentUser = currentUser,
+            dataAreas = dataAreas,
+            storage = storage,
+        )
+
         val pkgStats = targetPkgs
-            .map {
-                updateProgressSecondary(it.label ?: it.packageName.toCaString())
-                processPkg(storage, it).also { increaseProgress() }
+            .map { pkg ->
+                updateProgressSecondary(pkg.label ?: pkg.packageName.toCaString())
+                val result = appScanner.processPkg(pkg, topLevelDirs)
+                increaseProgress()
+                topLevelDirs.removeAll(result.consumedTopLevelDirs)
+                result.pkgStat
             }
             .filter { it.totalSize > 0L }
             .associateBy { it.id }
@@ -179,148 +176,6 @@ class StorageScanner @Inject constructor(
         } else {
             null
         }
-    }
-
-    private suspend fun processPkg(
-        storage: DeviceStorage,
-        pkg: Installed
-    ): AppCategory.PkgStat {
-        val appStorStats = try {
-            statsManager.queryStatsForPkg(storage.id, pkg)
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to query stats for ${pkg.id} due to $e" }
-            null
-        }
-
-        val appCodeGroup = when {
-            storage.type != DeviceStorage.Type.PRIMARY -> null
-            pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
-            else -> {
-                val appCode = pkg.applicationInfo?.sourceDir
-                    ?.let {
-                        when {
-                            it.endsWith("base.apk") -> File(it).parent
-                            else -> it
-                        }
-                    }
-                    ?.let { LocalPath.build(it) }
-                    ?.let { codeDir ->
-                        when {
-                            useRoot -> codeDir.walkContentItem(gatewaySwitch)
-                            appStorStats != null -> ContentItem.fromInaccessible(
-                                codeDir,
-                                if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
-                            )
-
-                            else -> ContentItem.fromInaccessible(codeDir)
-                        }
-                    }
-
-                ContentGroup(
-                    label = R.string.analyzer_storage_content_app_code_label.toCaString(),
-                    contents = setOfNotNull(appCode),
-                )
-            }
-        }
-
-        // TODO: For root we look up /data/media?
-        val publicPath = storageManager2.volumes
-            ?.filter { !it.isPrivate }
-            ?.singleOrNull { it.fsUuid == storage.id.internalId }
-            ?.path
-            ?.let { LocalPath.build(it) }
-            ?.let {
-                when {
-                    it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
-                    else -> it
-                }
-            }
-
-        // Android/data/<pkg>
-        val dataDirPubs = setOfNotNull(publicPath)
-            .map { it.child("Android", "data", pkg.packageName) }
-            .mapNotNull { pubData ->
-                when {
-                    hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
-
-                    gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
-                        pubData.walkContentItem(gatewaySwitch)
-                    } catch (e: ReadException) {
-                        ContentItem.fromInaccessible(pubData)
-                    }
-
-                    else -> null
-                }
-            }
-            .toSet()
-
-        val dataDirPrivs = when {
-            storage.type != DeviceStorage.Type.PRIMARY -> emptySet()
-            dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA } -> pkg
-                .getPrivateDataDirs(dataAreas)
-                .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
-                .map { it.walkContentItem(gatewaySwitch) }
-
-            appStorStats != null -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
-                ContentItem.fromInaccessible(
-                    LocalPath.build(it),
-                    // This is a simplification, because storage stats don't provider more fine grained infos
-                    appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
-                )
-            }
-
-            else -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
-                ContentItem.fromInaccessible(LocalPath.build(it))
-            }
-        }
-
-        val appDataGroup = ContentGroup(
-            label = R.string.analyzer_storage_content_app_data_label.toCaString(),
-            contents = dataDirPrivs + dataDirPubs,
-        )
-
-        // Android/media/<pkg>
-        val appMediaGroup = publicPath?.child("Android", "media", pkg.packageName)
-            ?.takeIf { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
-            ?.walkContentItem(gatewaySwitch)
-            ?.let {
-                ContentGroup(
-                    label = R.string.analyzer_storage_content_app_media_label.toCaString(),
-                    contents = setOf(it),
-                )
-            }
-
-        val consumed = mutableSetOf<OwnerInfo>()
-        val extraData = topLevelDirs
-            .filter {
-                val owner = it.getOwner(pkg.id) ?: return@filter false
-                !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
-            }
-            .mapNotNull { ownerInfo ->
-                try {
-                    ownerInfo.areaInfo.file.walkContentItem(gatewaySwitch).also {
-                        consumed.add(ownerInfo)
-                    }
-                } catch (e: ReadException) {
-                    null
-                }
-            }
-            .takeIf { it.isNotEmpty() }
-            ?.let {
-                ContentGroup(
-                    label = R.string.analyzer_storage_content_app_extra_label.toCaString(),
-                    contents = it,
-                )
-            }
-        topLevelDirs.removeAll(consumed)
-
-        return AppCategory.PkgStat(
-            pkg = pkg,
-            appCode = appCodeGroup,
-            appData = appDataGroup,
-            appMedia = appMediaGroup,
-            extraData = extraData,
-        )
     }
 
     private suspend fun scanForMedia(storage: DeviceStorage, mediaDir: APathLookup<*>): MediaCategory {
@@ -384,26 +239,6 @@ class StorageScanner @Inject constructor(
             groups = groups,
             spaceUsedOverride = unaccountedFor,
         )
-    }
-
-    private suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
-        log(TAG, VERBOSE) { "Walking content items for $this" }
-
-        // What ever `this` is , the gatewaySwitch should make sure we end up with something usable
-        val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)
-
-        return if (lookup.fileType == FileType.DIRECTORY) {
-            val children = try {
-                lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "Failed to walk $this: ${e.asLog()}" }
-                emptySet()
-            }
-
-            children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
-        } else {
-            ContentItem.fromLookup(lookup)
-        }
     }
 
     companion object {
