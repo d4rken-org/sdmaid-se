@@ -238,7 +238,7 @@ class StorageScanner @Inject constructor(
 
         // Android/data/<pkg>
         val dataDirPubs = setOfNotNull(publicPath)
-            .map { LocalPath.build(it.path, "Android", "data", pkg.packageName) }
+            .map { it.child("Android", "data", pkg.packageName) }
             .mapNotNull { pubData ->
                 when {
                     hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
