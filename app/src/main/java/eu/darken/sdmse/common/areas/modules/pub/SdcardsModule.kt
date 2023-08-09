@@ -9,6 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
@@ -70,23 +71,27 @@ class SdcardsModule @Inject constructor(
     private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
         // Normal
         targetPath.let { localPath ->
-            val testFileLocal = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
+            val testFile = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
+            var fileCreated = false
+
             try {
-                require(!testFileLocal.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileLocal)" }
+                testFile.createFile(gatewaySwitch)
 
-                testFileLocal.createFile(gatewaySwitch)
+                fileCreated = testFile.exists(gatewaySwitch)
 
-                if (testFileLocal.exists(gatewaySwitch)) {
+                if (fileCreated) {
                     log(TAG) { "Original targetPath is accessible $targetPath" }
                     return localPath
+                } else {
+                    log(TAG) { "Failed to create test file $testFile" }
                 }
             } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create $testFileLocal: $e" }
+                log(TAG, WARN) { "Couldn't create $testFile: ${e.asLog()}" }
             } finally {
                 try {
-                    if (testFileLocal.exists(gatewaySwitch)) testFileLocal.delete(gatewaySwitch)
+                    if (fileCreated) testFile.delete(gatewaySwitch)
                 } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFileLocal failed: $e" }
+                    log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
                 }
             }
         }
@@ -97,27 +102,27 @@ class SdcardsModule @Inject constructor(
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-            val testFileLocal = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
+            val testFile = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
+            var fileCreated = false
+
             try {
-                require(!localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
-                    "Our 'random' testfile already exists? ($testFileLocal)"
-                }
+                localGateway.createFile(testFile, mode = LocalGateway.Mode.ROOT)
 
-                localGateway.createFile(testFileLocal, mode = LocalGateway.Mode.ROOT)
+                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.ROOT)
 
-                if (localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
+                if (fileCreated) {
                     log(TAG) { "Original targetPath is accessible via ROOT $targetPath" }
                     return localPath
+                } else {
+                    log(TAG) { "Failed to create test file via ROOT $testFile" }
                 }
             } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create with ROOT $testFileLocal: $e" }
+                log(TAG, WARN) { "Couldn't create with ROOT $testFile: $e" }
             } finally {
                 try {
-                    if (localGateway.exists(testFileLocal, mode = LocalGateway.Mode.ROOT)) {
-                        localGateway.delete(testFileLocal, mode = LocalGateway.Mode.ROOT)
-                    }
+                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.ROOT)
                 } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFileLocal with ROOT failed: $e" }
+                    log(TAG, ERROR) { "Clean up of $testFile with ROOT failed: $e" }
                 }
             }
         }
@@ -125,23 +130,27 @@ class SdcardsModule @Inject constructor(
         // SAF
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
         pathMapper.toSAFPath(targetPath)?.let { safPath ->
-            val testFileSaf = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
+            val testFile = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
+            var fileCreated = false
+
             try {
-                require(!testFileSaf.exists(gatewaySwitch)) { "Our 'random' testfile already exists? ($testFileSaf)" }
+                testFile.createFile(gatewaySwitch)
 
-                testFileSaf.createFile(gatewaySwitch)
+                fileCreated = testFile.exists(gatewaySwitch)
 
-                if (testFileSaf.exists(gatewaySwitch)) {
+                if (fileCreated) {
                     log(TAG) { "Switching from $targetPath to $safPath" }
                     return safPath
+                } else {
+                    log(TAG) { "Failed to create test file via SAF $testFile" }
                 }
             } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create $testFileSaf: $e" }
+                log(TAG, WARN) { "Couldn't create $testFile: $e" }
             } finally {
                 try {
-                    if (testFileSaf.exists(gatewaySwitch)) testFileSaf.delete(gatewaySwitch)
+                    if (fileCreated) testFile.delete(gatewaySwitch)
                 } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFileSaf failed: $e" }
+                    log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
                 }
             }
         }
