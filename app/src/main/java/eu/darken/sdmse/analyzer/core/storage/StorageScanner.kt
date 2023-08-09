@@ -27,7 +27,6 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -244,7 +243,7 @@ class StorageScanner @Inject constructor(
                 when {
                     hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
 
-                    gatewaySwitch.exists(pubData, GatewaySwitch.Type.AUTO) -> try {
+                    gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
                         pubData.walkContentItem(gatewaySwitch)
                     } catch (e: ReadException) {
                         ContentItem.fromInaccessible(pubData)
@@ -259,7 +258,7 @@ class StorageScanner @Inject constructor(
             storage.type != DeviceStorage.Type.PRIMARY -> emptySet()
             dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA } -> pkg
                 .getPrivateDataDirs(dataAreas)
-                .filter { it.exists(gatewaySwitch) }
+                .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
                 .map { it.walkContentItem(gatewaySwitch) }
 
             appStorStats != null -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
