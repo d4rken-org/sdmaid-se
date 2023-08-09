@@ -19,6 +19,8 @@ import eu.darken.sdmse.common.files.saf.SAFGateway
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
@@ -32,6 +34,7 @@ class SdcardsModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : DataAreaModule {
 
     @Suppress("ComplexRedundantLet")
@@ -99,6 +102,37 @@ class SdcardsModule @Inject constructor(
             }
         }
 
+        // ADB
+        targetPath.let { localPath ->
+            if (!shizukuManager.canUseShizukuNow()) return@let
+
+            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+
+            val testFile = localPath.child("$TEST_FILE_PREFIX-adb-$rngString")
+            var fileCreated = false
+
+            try {
+                localGateway.createFile(testFile, mode = LocalGateway.Mode.ADB)
+
+                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.ADB)
+
+                if (fileCreated) {
+                    log(TAG) { "Original targetPath is accessible via ADB $targetPath" }
+                    return localPath
+                } else {
+                    log(TAG) { "Failed to create test file via ADB $testFile" }
+                }
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Couldn't create with ADB $testFile: $e" }
+            } finally {
+                try {
+                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.ADB)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Clean up of $testFile with ADB failed: $e" }
+                }
+            }
+        }
+
         // Root
         targetPath.let { localPath ->
             if (!rootManager.canUseRootNow()) return@let
@@ -155,7 +189,7 @@ class SdcardsModule @Inject constructor(
                 try {
                     if (fileCreated) safGateway.delete(testFile)
                 } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
+                    log(TAG, ERROR) { "Clean up of $testFile with SAF failed: $e" }
                 }
             }
         }
