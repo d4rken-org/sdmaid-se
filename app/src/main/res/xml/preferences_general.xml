@@ -49,11 +49,6 @@
             app:key="debug.enabled"
             app:summary="@string/debug_mode_explanation"
             app:title="@string/debug_mode_label" />
-
-        <Preference
-            app:icon="@drawable/ic_baseline_stars_24"
-            app:key="upgrade"
-            app:title="@string/upgrade_screen_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

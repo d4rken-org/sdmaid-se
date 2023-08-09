@@ -40,11 +40,6 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             "core.bugreporter.enabled"
         )?.isVisible = BuildConfigWrap.FLAVOR != BuildConfigWrap.Flavor.FOSS
 
-        findPreference<Preference>("upgrade")?.setOnPreferenceClickListener {
-            MainDirections.goToUpgradeFragment(forced = true).navigate()
-            true
-        }
-
         super.onPreferencesCreated()
     }
 
