@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.saf.SAFGateway
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
@@ -71,13 +72,15 @@ class SdcardsModule @Inject constructor(
     private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
         // Normal
         targetPath.let { localPath ->
+            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+
             val testFile = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
             var fileCreated = false
 
             try {
-                testFile.createFile(gatewaySwitch)
+                localGateway.createFile(testFile, mode = LocalGateway.Mode.NORMAL)
 
-                fileCreated = testFile.exists(gatewaySwitch)
+                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.NORMAL)
 
                 if (fileCreated) {
                     log(TAG) { "Original targetPath is accessible $targetPath" }
@@ -89,7 +92,7 @@ class SdcardsModule @Inject constructor(
                 log(TAG, WARN) { "Couldn't create $testFile: ${e.asLog()}" }
             } finally {
                 try {
-                    if (fileCreated) testFile.delete(gatewaySwitch)
+                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.NORMAL)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
                 }
@@ -102,7 +105,7 @@ class SdcardsModule @Inject constructor(
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-            val testFile = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
+            val testFile = localPath.child("$TEST_FILE_PREFIX-root-$rngString")
             var fileCreated = false
 
             try {
@@ -130,13 +133,15 @@ class SdcardsModule @Inject constructor(
         // SAF
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
         pathMapper.toSAFPath(targetPath)?.let { safPath ->
+            val safGateway = gatewaySwitch.getGateway(APath.PathType.SAF) as SAFGateway
+
             val testFile = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
             var fileCreated = false
 
             try {
-                testFile.createFile(gatewaySwitch)
+                safGateway.createFile(testFile)
 
-                fileCreated = testFile.exists(gatewaySwitch)
+                fileCreated = safGateway.exists(testFile)
 
                 if (fileCreated) {
                     log(TAG) { "Switching from $targetPath to $safPath" }
@@ -148,7 +153,7 @@ class SdcardsModule @Inject constructor(
                 log(TAG, WARN) { "Couldn't create $testFile: $e" }
             } finally {
                 try {
-                    if (fileCreated) testFile.delete(gatewaySwitch)
+                    if (fileCreated) safGateway.delete(testFile)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
                 }
