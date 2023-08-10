@@ -22,6 +22,10 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.NameCriterium.Type.*
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import java.util.*
@@ -61,14 +65,14 @@ class LogFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            nameSuffixes = setOf(".log"),
+            nameCriteria = setOf(NameCriterium(".log", type = ENDS_WITH)),
             exclusions = setOf(
-                BaseSieve.Exclusion(segs(".indexeddb.leveldb"), allowPartial = true),
-                BaseSieve.Exclusion(segs("t", "Paths")),
-                BaseSieve.Exclusion(segs("app_chrome")),
-                BaseSieve.Exclusion(segs("app_webview")),
-                BaseSieve.Exclusion(segs("leveldb")),
-                BaseSieve.Exclusion(segs("shared_proto_db")),
+                SegmentCriterium(segs(".indexeddb.leveldb"), type = Type.ANCESTOR, allowPartial = true),
+                SegmentCriterium(segs("t", "Paths"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("app_chrome"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("app_webview"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("leveldb"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("shared_proto_db"), type = Type.ANCESTOR),
             )
         )
         sieve = baseSieveFactory.create(config)

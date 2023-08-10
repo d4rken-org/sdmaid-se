@@ -18,7 +18,7 @@ class SimilarityFilter @Inject constructor(
 
     suspend fun filterFalsePositives(areaInfo: AreaInfo, toCheck: Collection<Owner>): Collection<Owner> {
         // com.mxtech.ffmpeg.x86-3 || com.mxtech.ffmpeg.x86-tmEGrx2zM5CeRFI72KWLSA==
-        val firstDirName = areaInfo.prefixFreePath.first()
+        val firstDirName = areaInfo.prefixFreeSegments.first()
         val firstDirPath = areaInfo.prefix.child(firstDirName)
 
         val firstDirHyphenPath = run {

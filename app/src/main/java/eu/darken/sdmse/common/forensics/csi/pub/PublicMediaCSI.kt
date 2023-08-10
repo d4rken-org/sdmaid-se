@@ -52,7 +52,7 @@ class PublicMediaCSI @Inject constructor(
         val owners = mutableSetOf<Owner>()
 
         val userHandle = areaInfo.userHandle
-        val dirNameAsPkg = areaInfo.prefixFreePath.first()
+        val dirNameAsPkg = areaInfo.prefixFreeSegments.first()
         var hiddenDirAsPkg: String? = null
 
         if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId(), userHandle)) {

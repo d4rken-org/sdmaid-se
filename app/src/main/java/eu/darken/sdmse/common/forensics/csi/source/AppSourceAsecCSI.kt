@@ -50,7 +50,7 @@ class AppSourceAsecCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
         val userHandle = areaInfo.userHandle
-        val dirName = areaInfo.prefixFreePath.first()
+        val dirName = areaInfo.prefixFreeSegments.first()
         dirName
             .let { ASEC_FILE.matchEntire(it) }
             ?.let { it.groupValues[1].toPkgId() }

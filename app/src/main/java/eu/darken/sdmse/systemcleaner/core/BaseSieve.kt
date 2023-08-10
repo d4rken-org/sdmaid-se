@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.core
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -14,10 +15,12 @@ import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import kotlinx.parcelize.Parcelize
 import java.time.Duration
 
 class BaseSieve @AssistedInject constructor(
@@ -76,33 +79,59 @@ class BaseSieve @AssistedInject constructor(
             }
         }
 
-        config.pathContains
+        config.pathCriteria
             ?.takeIf { it.isNotEmpty() }
-            ?.let { pathContains ->
-                val noMatch = pathContains.none {
-                    subject.segments.containsSegments(
-                        it,
-                        allowPartial = true,
-                        ignoreCase = config.ignoreCase
-                    )
+            ?.let { criteria ->
+                val hasMatch = criteria.any { crit ->
+                    when (crit.type) {
+                        SegmentCriterium.Type.ANCESTOR -> when {
+                            crit.allowPartial -> subject.segments.startsWith(
+                                crit.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
+
+                            else -> crit.segments.isAncestorOf(
+                                subject.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
+                        }
+
+                        SegmentCriterium.Type.CONTAINS -> subject.segments.containsSegments(
+                            crit.segments,
+                            allowPartial = crit.allowPartial,
+                            ignoreCase = crit.ignoreCase
+                        )
+
+                        SegmentCriterium.Type.MATCHES -> subject.segments.matches(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase
+                        )
+                    }
+
                 }
-                if (noMatch) return Result(matches = false)
+                if (!hasMatch) return Result(matches = false)
             }
 
-        config.nameContains
+        config.nameCriteria
             ?.takeIf { it.isNotEmpty() }
-            ?.let { namePartials ->
-                if (namePartials.none { subject.name.contains(it, ignoreCase = config.ignoreCase) }) {
-                    return Result(matches = false)
-                }
-            }
+            ?.let { criteria ->
+                val hasMatch = criteria.any { crit ->
+                    when (crit.type) {
+                        NameCriterium.Type.STARTS_WITH -> {
+                            subject.name.startsWith(crit.name, ignoreCase = crit.ignoreCase)
+                        }
 
-        config.nameSuffixes
-            ?.takeIf { it.isNotEmpty() }
-            ?.let { ends ->
-                if (ends.none { subject.name.endsWith(it, ignoreCase = config.ignoreCase) }) {
-                    return Result(matches = false)
+                        NameCriterium.Type.ENDS_WITH -> {
+                            subject.name.endsWith(crit.name, ignoreCase = crit.ignoreCase)
+                        }
+
+                        NameCriterium.Type.CONTAINS -> {
+                            subject.name.contains(crit.name, ignoreCase = crit.ignoreCase)
+                        }
+                    }
                 }
+
+                if (!hasMatch) return Result(matches = false)
             }
 
         config.exclusions
@@ -113,7 +142,7 @@ class BaseSieve @AssistedInject constructor(
                     subject.segments.containsSegments(
                         it.segments,
                         allowPartial = it.allowPartial,
-                        ignoreCase = config.ignoreCase
+                        ignoreCase = it.ignoreCase
                     )
                 }
                 if (match) return Result(matches = false)
@@ -130,7 +159,7 @@ class BaseSieve @AssistedInject constructor(
             log(TAG, WARN) { "Couldn't identify area for $subject" }
             return Result(matches = false)
         }
-        val subjectSegments = areaInfo.prefixFreePath
+        val pfpSegments = areaInfo.prefixFreeSegments
 
         config.areaTypes
             ?.takeIf { it.isNotEmpty() }
@@ -140,22 +169,39 @@ class BaseSieve @AssistedInject constructor(
                 }
             }
 
-        config.pathAncestors
+        // Now working on the prefix-free-path!
+        // Check pfp startsWith/ancestorOf
+        config.pfpCriteria
             ?.takeIf { it.isNotEmpty() }
-            ?.let { basePaths ->
-                // Check path starts with
-                if (basePaths.none { it.isAncestorOf(subjectSegments, ignoreCase = config.ignoreCase) }) {
-                    return Result(matches = false)
-                }
-            }
+            ?.let { criteria ->
+                val hasMatch = criteria.any { crit ->
+                    when (crit.type) {
+                        SegmentCriterium.Type.ANCESTOR -> when {
+                            crit.allowPartial -> pfpSegments.startsWith(
+                                crit.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
 
-        config.pathPrefixes
-            ?.takeIf { it.isNotEmpty() }
-            ?.let { basePaths ->
-                // Like basepath, but allows for partial matches
-                if (basePaths.none { subjectSegments.startsWith(it, ignoreCase = config.ignoreCase) }) {
-                    return Result(matches = false)
+                            else -> crit.segments.isAncestorOf(
+                                pfpSegments,
+                                ignoreCase = crit.ignoreCase
+                            )
+                        }
+
+                        SegmentCriterium.Type.CONTAINS -> pfpSegments.containsSegments(
+                            crit.segments,
+                            allowPartial = crit.allowPartial,
+                            ignoreCase = crit.ignoreCase
+                        )
+
+                        SegmentCriterium.Type.MATCHES -> pfpSegments.matches(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase
+                        )
+                    }
+
                 }
+                if (!hasMatch) return Result(matches = false)
             }
 
         return Result(
@@ -165,27 +211,46 @@ class BaseSieve @AssistedInject constructor(
     }
 
     data class Config(
+        val targetTypes: Set<TargetType>? = null,
+        val areaTypes: Set<DataArea.Type>? = null,
+        val pathCriteria: Set<SegmentCriterium>? = null,
+        val pfpCriteria: Set<SegmentCriterium>? = null,
+        val nameCriteria: Set<NameCriterium>? = null,
+        val exclusions: Set<SegmentCriterium>? = null,
+        val isEmpty: Boolean? = null,
+        val regexes: Set<Regex>? = null,
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
         val maximumAge: Duration? = null,
         val minimumAge: Duration? = null,
-        val targetTypes: Set<TargetType>? = null,
-        val isEmpty: Boolean? = null,
-        val areaTypes: Set<DataArea.Type>? = null,
-        val pathAncestors: Set<Segments>? = null,
-        val pathPrefixes: Set<Segments>? = null,
-        val pathContains: Set<Segments>? = null,
-        val regexes: Set<Regex>? = null,
-        val exclusions: Set<Exclusion>? = null,
-        val nameContains: Set<String>? = null,
-        val nameSuffixes: Set<String>? = null,
-        val ignoreCase: Boolean = true,
     )
 
-    data class Exclusion(
+    @Parcelize
+    data class NameCriterium(
+        val name: String,
+        val type: Type,
+        val ignoreCase: Boolean = true,
+    ) : Parcelable {
+        enum class Type {
+            STARTS_WITH,
+            ENDS_WITH,
+            CONTAINS
+        }
+    }
+
+    @Parcelize
+    data class SegmentCriterium(
         val segments: Segments,
-        val allowPartial: Boolean = true,
-    )
+        val type: Type,
+        val allowPartial: Boolean = false,
+        val ignoreCase: Boolean = true,
+    ) : Parcelable {
+        enum class Type {
+            ANCESTOR,
+            CONTAINS,
+            MATCHES
+        }
+    }
 
     @AssistedFactory
     interface Factory {
@@ -195,4 +260,5 @@ class BaseSieve @AssistedInject constructor(
     companion object {
         private val TAG = logTag("SystemCleaner", "SystemCrawler", "BaseSieve")
     }
+
 }

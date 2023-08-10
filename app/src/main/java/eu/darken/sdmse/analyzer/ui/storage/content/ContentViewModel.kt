@@ -30,9 +30,12 @@ import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
+import eu.darken.sdmse.systemcleaner.core.filter.custom.EditorOptionsCreator
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -44,6 +47,8 @@ class ContentViewModel @Inject constructor(
     private val analyzer: Analyzer,
     private val mimeTypeTool: MimeTypeTool,
     private val exclusionManager: ExclusionManager,
+    private val editorOptionsCreator: EditorOptionsCreator,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<ContentFragmentArgs>()
@@ -223,6 +228,31 @@ class ContentViewModel @Inject constructor(
             .toSet()
         val createdExclusions = exclusionManager.save(targets)
         events.postValue(ContentItemEvents.ExclusionsCreated(createdExclusions.size))
+    }
+
+    fun createFilter(items: List<ContentAdapter.Item>) = launch {
+        log(TAG) { "createFilter(${items.size})" }
+
+        if (!upgradeRepo.isPro()) {
+            log(TAG) { "Not PRO, redirecting to upgrade screen." }
+            ContentFragmentDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        val targets = items
+            .map {
+                when (it) {
+                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentGroupVH.Item -> it.contentGroup.contents
+                    else -> throw IllegalArgumentException("Unknown type $it")
+                }
+            }
+            .flatten()
+            .mapNotNull { it.lookup }
+            .toSet()
+
+        val options = editorOptionsCreator.createOptions(targets)
+        ContentFragmentDirections.goToCustomFilterEditor(initial = options).navigate()
     }
 
     data class State(

@@ -19,6 +19,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import java.io.File
@@ -44,7 +46,7 @@ class AdvertisementFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val startsWith = mutableSetOf<Segments>()
+        val pfpCriteria = mutableSetOf<SegmentCriterium>()
         val rawRegexes = mutableSetOf<String>()
 
         // TODO this doesn't work on SAFPath files
@@ -53,56 +55,63 @@ class AdvertisementFilter @Inject constructor(
             .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .forEach { toCheck ->
-                startsWith.add(segs("ppy_cross"))
+                pfpCriteria.add(SegmentCriterium(segs("ppy_cross"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/ppy_cross)$".replace("/", "\\${File.separator}"),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs(".mologiq"))
+                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mologiq|\\.mologiq/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs(".Adcenix"))
+                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.Adcenix|\\.Adcenix/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs("ApplifierVideoCache"))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierVideoCache|ApplifierVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs("burstlyVideoCache"))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyVideoCache|burstlyVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs("UnityAdsVideoCache"))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsVideoCache|UnityAdsVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs("ApplifierImageCache"))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierImageCache|ApplifierImageCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs("burstlyImageCache"))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyImageCache|burstlyImageCache/.+)".replace("/", "\\" + File.separator),
@@ -110,7 +119,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                startsWith.add(segs("UnityAdsImageCache"))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsImageCache|UnityAdsImageCache/.+)".replace("/", "\\" + File.separator),
@@ -118,7 +128,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                startsWith.add(segs("__chartboost"))
+                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:__chartboost|__chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -126,7 +137,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                startsWith.add(segs(".chartboost"))
+                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.chartboost|\\.chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -134,28 +146,31 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                startsWith.add(segs("adhub"))
+                pfpCriteria.add(SegmentCriterium(segs("adhub"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs("adhub"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:adhub|adhub/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs(".mobvista"))
+                pfpCriteria.add(SegmentCriterium(segs(".mobvista"), type = Type.ANCESTOR, allowPartial = true))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mobvista\\d+|\\.mobvista\\d+/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs(".goadsdk"))
+                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.goadsdk|\\.goadsdk/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                startsWith.add(segs(".goproduct"))
+                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), type = Type.ANCESTOR))
+                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), type = Type.MATCHES))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.goproduct|\\.goproduct/.+)$".replace("/", "\\" + File.separator),
@@ -166,7 +181,7 @@ class AdvertisementFilter @Inject constructor(
 
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            pathPrefixes = startsWith,
+            pfpCriteria = pfpCriteria,
             regexes = rawRegexes.map { Regex(it) }.toSet()
         )
         sieve = baseSieveFactory.create(config)

@@ -106,7 +106,7 @@ class PublicDataCSITest : BaseCSITest() {
             val testFile1 = base.child(rngString)
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PUBLIC_DATA
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 prefix shouldBe base
                 isBlackListLocation shouldBe true
             }

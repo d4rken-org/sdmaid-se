@@ -20,6 +20,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
@@ -83,12 +85,12 @@ class EmptyDirectoryFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                BaseSieve.Exclusion(segs("mnt", "asec")),
-                BaseSieve.Exclusion(segs("mnt", "obb")),
-                BaseSieve.Exclusion(segs("mnt", "secure")),
-                BaseSieve.Exclusion(segs("mnt", "shell")),
-                BaseSieve.Exclusion(segs("Android", "obb")),
-                BaseSieve.Exclusion(segs(".stfolder")),
+                SegmentCriterium(segs("mnt", "asec"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("mnt", "obb"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("mnt", "secure"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("mnt", "shell"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("Android", "obb"), type = Type.ANCESTOR),
+                SegmentCriterium(segs(".stfolder"), type = Type.ANCESTOR),
             ),
         )
         sieve = baseSieveFactory.create(config)
@@ -103,7 +105,7 @@ class EmptyDirectoryFilter @Inject constructor(
         if (Bugs.isTrace) log(TAG, VERBOSE) { "Sieve match: ${item.path}" }
 
         val areaInfo = sieveResult.areaInfo!!
-        val prefixFreePath = areaInfo.prefixFreePath
+        val prefixFreePath = areaInfo.prefixFreeSegments
         if (prefixFreePath.isEmpty()) return false
 
         if (protectedBaseDirs.any { it.matches(prefixFreePath, ignoreCase = true) }) return false

@@ -27,7 +27,7 @@ class DirToPkgCheck @Inject constructor(
 ) : AppSourceCheck {
 
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
-        val potPkgNames = areaInfo.prefixFreePath
+        val potPkgNames = areaInfo.prefixFreeSegments
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
         val userHandle = areaInfo.userHandle
         val owners = listOf(CODESOURCE_DIR, APPDIR_ANDROIDO)

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
@@ -8,6 +9,9 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Config
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.TargetType
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -33,14 +37,14 @@ class BaseSieveTest : BaseTest() {
         }
     }
 
-    private fun create(config: BaseSieve.Config) = BaseSieve(
-        config = config,
+    private suspend fun Config.match(subject: APathLookup<*>) = BaseSieve(
+        config = this,
         fileForensics = fileForensics
-    )
+    ).match(subject)
 
     @Test
     fun `matching nothing`() = runTest {
-        create(BaseSieve.Config()).match(baseLookup).matches shouldBe true
+        Config().match(baseLookup).matches shouldBe true
     }
 
     private val baseLookup = LocalPathLookup(
@@ -53,108 +57,165 @@ class BaseSieveTest : BaseTest() {
 
     @Test
     fun `just filetypes`() = runTest {
-        val configForFile = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE)
+        val configForFile = Config(
+            targetTypes = setOf(TargetType.FILE)
         )
-        val configForDir = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY)
+        val configForDir = Config(
+            targetTypes = setOf(TargetType.DIRECTORY)
         )
         val aFile = baseLookup.copy(
             fileType = FileType.FILE
         )
-        create(configForFile).match(aFile).matches shouldBe true
-        create(configForDir).match(aFile).matches shouldBe false
+        configForFile.match(aFile).matches shouldBe true
+        configForDir.match(aFile).matches shouldBe false
 
         val aDirectory = baseLookup.copy(
             fileType = FileType.DIRECTORY
         )
-        create(configForFile).match(aDirectory).matches shouldBe false
-        create(configForDir).match(aDirectory).matches shouldBe true
+        configForFile.match(aDirectory).matches shouldBe false
+        configForDir.match(aDirectory).matches shouldBe true
     }
 
     @Test
     fun `just path contains`() = runTest {
-        create(BaseSieve.Config(pathContains = setOf(segs("bc/12")))).match(
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("bc/12"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
 
-        create(BaseSieve.Config(pathContains = setOf(segs("123")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("/123")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("/sdcard")))).match(
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("123"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
 
-        create(BaseSieve.Config(pathContains = setOf(segs("123/")))).match(
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("/123"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("/sdcard"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("123/"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe false
 
-        create(BaseSieve.Config(pathContains = setOf(segs("abc")))).match(
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
+        ).match(
             baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
         ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("abc")), ignoreCase = false)).match(
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    type = SegmentCriterium.Type.CONTAINS,
+                    allowPartial = true,
+                    ignoreCase = false
+                )
+            )
+        ).match(
             baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
         ).matches shouldBe false
     }
 
     @Test
-    fun `just path ancestors`() = runTest {
-        val config = BaseSieve.Config(
-            pathAncestors = setOf(segs("abc"))
+    fun `just pfp ancestors`() = runTest {
+        val config = Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.ANCESTOR, allowPartial = false)
+            )
         )
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc"))
         ).matches shouldBe false
-        create(config).match(
+        config.match(
+            baseLookup.copy(lookedUp = basePath.child("abc"))
+        ).matches shouldBe false
+
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/def"))
         ).matches shouldBe false
-    }
 
-    @Test
-    fun `just path prefixes`() = runTest {
-        val config = BaseSieve.Config(
-            pathPrefixes = setOf(segs("abc", "12"))
-        )
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123/456"))
-        ).matches shouldBe true
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc"))
         ).matches shouldBe false
-        create(config).match(
+    }
+
+
+    @Test
+    fun `just pfp prefixes`() = runTest {
+        val config = Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(segs("abc", "12"), type = SegmentCriterium.Type.ANCESTOR, allowPartial = true)
+            )
+        )
+        config.match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
+        ).matches shouldBe true
+        config.match(
+            baseLookup.copy(lookedUp = basePath.child("/abc/123/456"))
+        ).matches shouldBe true
+        config.match(
+            baseLookup.copy(lookedUp = basePath.child("/abc"))
+        ).matches shouldBe false
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/def"))
         ).matches shouldBe false
     }
 
     @Test
     fun `just exclusions`() = runTest {
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = true)))
+        Config(
+            exclusions = setOf(
+                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/def"))
         ).matches shouldBe true
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("abc"), allowPartial = false)))
+        Config(
+            exclusions = setOf(
+                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = false)
+            )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe false
 
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = false)))
+        Config(
+            exclusions = setOf(
+                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = false)
+            )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = true)))
+        Config(
+            exclusions = setOf(
+                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+            )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe false
@@ -162,14 +223,14 @@ class BaseSieveTest : BaseTest() {
 
     @Test
     fun `just regex`() = runTest {
-        val config = BaseSieve.Config(
+        val config = Config(
             regexes = setOf(Regex(".+/a.c/[0-9]+$"))
         )
 
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/ac/123"))
         ).matches shouldBe false
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
     }

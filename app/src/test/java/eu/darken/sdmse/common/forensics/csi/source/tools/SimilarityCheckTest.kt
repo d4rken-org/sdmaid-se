@@ -21,7 +21,7 @@ class SimilarityCheckTest : BaseTest() {
     private val handle = UserHandle2(0)
     private val areaInfo = mockk<AreaInfo>().apply {
         every { prefix } returns LocalPath.build("/abc")
-        every { prefixFreePath } returns listOf("testdir-1")
+        every { prefixFreeSegments } returns listOf("testdir-1")
         every { userHandle } returns handle
     }
 

@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
@@ -47,7 +48,7 @@ class DataLocalTmpFilter @Inject constructor(
     override suspend fun initialize() {
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            pathAncestors = setOf(segs("local", "tmp")),
+            pfpCriteria = setOf(BaseSieve.SegmentCriterium(segs("local", "tmp"), type = Type.ANCESTOR)),
         )
 
         sieve = baseSieveFactory.create(config)

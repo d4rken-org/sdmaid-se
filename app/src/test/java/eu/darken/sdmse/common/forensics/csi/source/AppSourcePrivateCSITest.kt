@@ -5,7 +5,14 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.forensics.csi.source.tools.*
+import eu.darken.sdmse.common.forensics.csi.source.tools.ApkDirCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.AppSourceClutterCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.DirToPkgCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.DirectApkCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.FileToPkgCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.LuckyPatcherCheck
+import eu.darken.sdmse.common.forensics.csi.source.tools.SimilarityFilter
+import eu.darken.sdmse.common.forensics.csi.source.tools.SubDirToPkgCheck
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
@@ -68,7 +75,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_APP_PRIVATE
                 prefix shouldBe base
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }
@@ -213,7 +220,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
             val toHit = base.child(suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
                 prefix shouldBe base
-                prefixFreePath shouldBe listOf(suffix)
+                prefixFreeSegments shouldBe listOf(suffix)
             }
 
             processor.findOwners(locationInfo).apply {

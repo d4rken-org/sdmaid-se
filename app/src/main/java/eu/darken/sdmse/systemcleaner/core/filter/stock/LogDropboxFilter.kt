@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.*
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
@@ -45,11 +47,11 @@ class LogDropboxFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
+        val config = Config(
+            targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
-            pathAncestors = setOf(
-                segs("dropbox"),
+            pfpCriteria = setOf(
+                SegmentCriterium(segs("dropbox"), type = Type.ANCESTOR),
             ),
         )
         sieve = baseSieveFactory.create(config)

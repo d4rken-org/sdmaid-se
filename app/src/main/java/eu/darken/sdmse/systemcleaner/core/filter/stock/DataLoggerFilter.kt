@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import javax.inject.Inject
@@ -48,10 +50,10 @@ class DataLoggerFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            pathAncestors = setOf(
-                segs("logger"),
-                segs("log"),
-                segs("log_other_mode"),
+            pfpCriteria = setOf(
+                SegmentCriterium(segs("logger"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("log"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("log_other_mode"), type = Type.ANCESTOR),
             ),
         )
 

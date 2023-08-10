@@ -66,7 +66,7 @@ class AppSourceLibCSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.APP_LIB
                 prefix shouldBe base
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }
@@ -150,7 +150,7 @@ class AppSourceLibCSITest : BaseCSITest() {
             val toHit = base.child(suffix)
             val locationInfo = processor.identifyArea(toHit)!!.apply {
                 prefix shouldBe base
-                prefixFreePath shouldBe listOf(suffix)
+                prefixFreeSegments shouldBe listOf(suffix)
             }
 
             processor.findOwners(locationInfo).apply {

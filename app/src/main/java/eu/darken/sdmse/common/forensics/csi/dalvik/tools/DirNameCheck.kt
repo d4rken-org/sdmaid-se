@@ -15,7 +15,7 @@ class DirNameCheck @Inject constructor(
 ) : DalvikCheck {
 
     suspend fun process(areaInfo: AreaInfo): DalvikCheck.Result {
-        val potPkg = areaInfo.prefixFreePath.first().toPkgId()
+        val potPkg = areaInfo.prefixFreeSegments.first().toPkgId()
         return if (pkgRepo.isInstalled(potPkg, areaInfo.userHandle)) {
             DalvikCheck.Result(setOf(Owner(potPkg, areaInfo.userHandle)))
         } else {
