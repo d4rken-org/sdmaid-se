@@ -286,14 +286,17 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Files</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directories</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, then all types will be matched.</string>
-    <string name="systemcleaner_customfilter_editor_path_contains_label">Path contains</string>
-    <string name="systemcleaner_customfilter_editor_path_contains_explanation">Specify segments that the target path should contain (e.g. \"Downloads/oldapks/game-\").</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Path criteria</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">The target path needs to match at least one entry (e.g. \"Downloads/oldapks/game-\"). Long press chips for more options.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Name criteria</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">The target name must contain at least one of the keywords (e.g. \"-receipt\"). Long press chips for more options.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">The result will be excluded if the path contains any of the keywords (e.g. \"DCIM\").</string>
-    <string name="systemcleaner_customfilter_editor_name_contains_label">Name contains</string>
-    <string name="systemcleaner_customfilter_editor_name_contains_explanation">The file name must contain any at least one of the keywords (e.g. \"-receipt\").</string>
-    <string name="systemcleaner_customfilter_editor_name_ending_label">Name ends with</string>
-    <string name="systemcleaner_customfilter_editor_name_ending_explanation">The file name must end with one of the keywords (e.g. \".apk\")</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">The result will be excluded if the path matches any entry (e.g. \"DCIM\"). Long press chips for more options.</string>
+    <string name="systemcleaner_customfilter_editor_matching_mode_label">Matching mode</string>
+    <string name="systemcleaner_customfilter_editor_matching_mode_start_label">Target starts with keywords</string>
+    <string name="systemcleaner_customfilter_editor_matching_mode_contains_label">Target contains keywords</string>
+    <string name="systemcleaner_customfilter_editor_matching_mode_end_label">Target ends with keywords</string>
+    <string name="systemcleaner_customfilter_editor_matching_mode_match_label">Target is equal to keywords</string>
     <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
 

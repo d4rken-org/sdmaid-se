@@ -22,8 +22,8 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.NameCriterium.Type.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -65,14 +65,14 @@ class LogFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            nameCriteria = setOf(NameCriterium(".log", type = ENDS_WITH)),
+            nameCriteria = setOf(NameCriterium(".log", mode = Mode.ENDS)),
             exclusions = setOf(
-                SegmentCriterium(segs(".indexeddb.leveldb"), type = Type.ANCESTOR, allowPartial = true),
-                SegmentCriterium(segs("t", "Paths"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("app_chrome"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("app_webview"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("leveldb"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("shared_proto_db"), type = Type.ANCESTOR),
+                SegmentCriterium(segs(".indexeddb.leveldb"), mode = Mode.STARTS, allowPartial = true),
+                SegmentCriterium(segs("t", "Paths"), mode = Mode.STARTS),
+                SegmentCriterium(segs("app_chrome"), mode = Mode.STARTS),
+                SegmentCriterium(segs("app_webview"), mode = Mode.STARTS),
+                SegmentCriterium(segs("leveldb"), mode = Mode.STARTS),
+                SegmentCriterium(segs("shared_proto_db"), mode = Mode.STARTS),
             )
         )
         sieve = baseSieveFactory.create(config)

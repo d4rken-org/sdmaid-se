@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core
 
-import android.os.Parcelable
 import androidx.annotation.Keep
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -12,7 +11,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.endsWith
 import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.isDescendentOf
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.matches
@@ -20,7 +21,6 @@ import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
-import kotlinx.parcelize.Parcelize
 import java.time.Duration
 
 class BaseSieve @AssistedInject constructor(
@@ -83,8 +83,8 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
-                    when (crit.type) {
-                        SegmentCriterium.Type.ANCESTOR -> when {
+                    when (crit.mode) {
+                        Criterium.Mode.STARTS -> when {
                             crit.allowPartial -> subject.segments.startsWith(
                                 crit.segments,
                                 ignoreCase = crit.ignoreCase
@@ -96,13 +96,25 @@ class BaseSieve @AssistedInject constructor(
                             )
                         }
 
-                        SegmentCriterium.Type.CONTAINS -> subject.segments.containsSegments(
+                        Criterium.Mode.ENDS -> when {
+                            crit.allowPartial -> subject.segments.endsWith(
+                                crit.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
+
+                            else -> crit.segments.isDescendentOf(
+                                subject.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
+                        }
+
+                        Criterium.Mode.CONTAINS -> subject.segments.containsSegments(
                             crit.segments,
                             allowPartial = crit.allowPartial,
                             ignoreCase = crit.ignoreCase
                         )
 
-                        SegmentCriterium.Type.MATCHES -> subject.segments.matches(
+                        Criterium.Mode.MATCHES -> subject.segments.matches(
                             crit.segments,
                             ignoreCase = crit.ignoreCase
                         )
@@ -116,18 +128,20 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
-                    when (crit.type) {
-                        NameCriterium.Type.STARTS_WITH -> {
+                    when (crit.mode) {
+                        Criterium.Mode.STARTS -> {
                             subject.name.startsWith(crit.name, ignoreCase = crit.ignoreCase)
                         }
 
-                        NameCriterium.Type.ENDS_WITH -> {
+                        Criterium.Mode.ENDS -> {
                             subject.name.endsWith(crit.name, ignoreCase = crit.ignoreCase)
                         }
 
-                        NameCriterium.Type.CONTAINS -> {
+                        Criterium.Mode.CONTAINS -> {
                             subject.name.contains(crit.name, ignoreCase = crit.ignoreCase)
                         }
+
+                        Criterium.Mode.MATCHES -> subject.name.equals(crit.name, ignoreCase = crit.ignoreCase)
                     }
                 }
 
@@ -175,8 +189,8 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
-                    when (crit.type) {
-                        SegmentCriterium.Type.ANCESTOR -> when {
+                    when (crit.mode) {
+                        Criterium.Mode.STARTS -> when {
                             crit.allowPartial -> pfpSegments.startsWith(
                                 crit.segments,
                                 ignoreCase = crit.ignoreCase
@@ -188,16 +202,29 @@ class BaseSieve @AssistedInject constructor(
                             )
                         }
 
-                        SegmentCriterium.Type.CONTAINS -> pfpSegments.containsSegments(
+                        Criterium.Mode.ENDS -> when {
+                            crit.allowPartial -> pfpSegments.endsWith(
+                                crit.segments,
+                                ignoreCase = crit.ignoreCase
+                            )
+
+                            else -> crit.segments.isDescendentOf(
+                                pfpSegments,
+                                ignoreCase = crit.ignoreCase
+                            )
+                        }
+
+                        Criterium.Mode.CONTAINS -> pfpSegments.containsSegments(
                             crit.segments,
                             allowPartial = crit.allowPartial,
                             ignoreCase = crit.ignoreCase
                         )
 
-                        SegmentCriterium.Type.MATCHES -> pfpSegments.matches(
+                        Criterium.Mode.MATCHES -> pfpSegments.matches(
                             crit.segments,
                             ignoreCase = crit.ignoreCase
                         )
+
                     }
 
                 }
@@ -225,30 +252,28 @@ class BaseSieve @AssistedInject constructor(
         val minimumAge: Duration? = null,
     )
 
-    @Parcelize
     data class NameCriterium(
         val name: String,
-        val type: Type,
+        override val mode: Criterium.Mode,
         val ignoreCase: Boolean = true,
-    ) : Parcelable {
-        enum class Type {
-            STARTS_WITH,
-            ENDS_WITH,
-            CONTAINS
-        }
-    }
+    ) : Criterium
 
-    @Parcelize
     data class SegmentCriterium(
         val segments: Segments,
-        val type: Type,
+        override val mode: Criterium.Mode,
         val allowPartial: Boolean = false,
         val ignoreCase: Boolean = true,
-    ) : Parcelable {
-        enum class Type {
-            ANCESTOR,
+    ) : Criterium
+
+    interface Criterium {
+        val mode: Mode
+
+        enum class Mode {
+            STARTS,
             CONTAINS,
-            MATCHES
+            ENDS,
+            MATCHES,
+            ;
         }
     }
 

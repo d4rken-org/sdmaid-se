@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.*
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -51,7 +52,7 @@ class LogDropboxFilter @Inject constructor(
             targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("dropbox"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("dropbox"), mode = Mode.STARTS),
             ),
         )
         sieve = baseSieveFactory.create(config)

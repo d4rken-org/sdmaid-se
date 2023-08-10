@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -51,13 +52,13 @@ class DownloadCacheFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                SegmentCriterium(segs("dalvik-cache"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("lost+found"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("dalvik-cache"), mode = Mode.STARTS),
+                SegmentCriterium(segs("lost+found"), mode = Mode.STARTS),
                 // Some apps use these logs to determine the type of recovery
-                SegmentCriterium(segs("recovery", "last_log"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("last_postrecovery"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("last_data_partition_info"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("last_dataresizing"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("recovery", "last_log"), mode = Mode.STARTS),
+                SegmentCriterium(segs("last_postrecovery"), mode = Mode.STARTS),
+                SegmentCriterium(segs("last_data_partition_info"), mode = Mode.STARTS),
+                SegmentCriterium(segs("last_dataresizing"), mode = Mode.STARTS),
             )
         )
         sieve = baseSieveFactory.create(config)

@@ -24,6 +24,36 @@ class SegmentsExtensionTest : BaseTest() {
         segs("ABC").isAncestorOf(segs("abc", "def"), ignoreCase = true) shouldBe true
     }
 
+    @Test fun `segment isParentOf`() {
+        emptyList<String>().isParentOf(emptyList()) shouldBe false
+        null.isParentOf(segs("abc", "def", "ghi")) shouldBe false
+        segs("abc", "def", "ghi").isParentOf(null) shouldBe false
+        segs("abc", "def").isParentOf(segs("abc", "def", "ghi")) shouldBe true
+        segs("abc").isParentOf(segs("abc", "def", "ghi")) shouldBe false
+        segs("ABC").isParentOf(segs("abc", "def")) shouldBe false
+        segs("ABC").isParentOf(segs("abc", "def"), ignoreCase = true) shouldBe true
+    }
+
+    @Test fun `segment isDescendentOf`() {
+        emptyList<String>().isDescendentOf(emptyList()) shouldBe false
+        null.isDescendentOf(segs("abc", "def")) shouldBe false
+        segs("abc", "def").isDescendentOf(null) shouldBe false
+        segs("abc", "def").isDescendentOf(segs("abc")) shouldBe true
+        segs("ABC", "def").isDescendentOf(segs("abc")) shouldBe false
+        segs("ABC", "def").isDescendentOf(segs("abc"), ignoreCase = true) shouldBe true
+    }
+
+    @Test fun `segment isChildOf`() {
+        emptyList<String>().isChildOf(emptyList()) shouldBe false
+        null.isChildOf(segs("abc", "def", "ghi")) shouldBe false
+        segs("abc", "def", "ghi").isChildOf(null) shouldBe false
+        segs("abc", "def").isChildOf(segs("abc")) shouldBe true
+        segs("abc", "def", "ghi").isChildOf(segs("abc")) shouldBe false
+        segs("abc", "def", "ghi").isChildOf(segs("abc", "def")) shouldBe true
+        segs("ABC", "def").isChildOf(segs("abc")) shouldBe false
+        segs("ABC", "def").isChildOf(segs("abc"), ignoreCase = true) shouldBe true
+    }
+
     @Test fun `segment contains`() {
         emptyList<String>().containsSegments(emptyList()) shouldBe true
         segs("abc", "def", "ghi").containsSegments(segs("abc", "def", "ghi")) shouldBe true
@@ -53,6 +83,7 @@ class SegmentsExtensionTest : BaseTest() {
             allowPartial = true
         ) shouldBe true
 
+        segs("abc", "def", "ghi").containsSegments(segs("def"), allowPartial = false) shouldBe true
         segs("abc", "def", "ghi").containsSegments(segs("ef"), allowPartial = false) shouldBe false
         segs("abc", "def", "ghi").containsSegments(segs("ef"), allowPartial = true) shouldBe true
     }

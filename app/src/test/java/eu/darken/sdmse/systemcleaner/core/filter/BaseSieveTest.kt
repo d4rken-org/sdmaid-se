@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.Config
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.TargetType
 import io.kotest.matchers.shouldBe
@@ -80,7 +81,7 @@ class BaseSieveTest : BaseTest() {
     fun `just path contains`() = runTest {
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("bc/12"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("bc/12"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -88,7 +89,7 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("123"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("123"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -96,7 +97,7 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("/123"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("/123"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -104,7 +105,7 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("/sdcard"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("/sdcard"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -112,7 +113,7 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("123/"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("123/"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -120,7 +121,7 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("abc"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
@@ -130,7 +131,7 @@ class BaseSieveTest : BaseTest() {
             pathCriteria = setOf(
                 SegmentCriterium(
                     segs("abc"),
-                    type = SegmentCriterium.Type.CONTAINS,
+                    mode = Criterium.Mode.CONTAINS,
                     allowPartial = true,
                     ignoreCase = false
                 )
@@ -144,7 +145,7 @@ class BaseSieveTest : BaseTest() {
     fun `just pfp ancestors`() = runTest {
         val config = Config(
             pfpCriteria = setOf(
-                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.ANCESTOR, allowPartial = false)
+                SegmentCriterium(segs("abc"), mode = Criterium.Mode.STARTS, allowPartial = false)
             )
         )
         config.match(
@@ -171,7 +172,7 @@ class BaseSieveTest : BaseTest() {
     fun `just pfp prefixes`() = runTest {
         val config = Config(
             pfpCriteria = setOf(
-                SegmentCriterium(segs("abc", "12"), type = SegmentCriterium.Type.ANCESTOR, allowPartial = true)
+                SegmentCriterium(segs("abc", "12"), mode = Criterium.Mode.STARTS, allowPartial = true)
             )
         )
         config.match(
@@ -192,14 +193,14 @@ class BaseSieveTest : BaseTest() {
     fun `just exclusions`() = runTest {
         Config(
             exclusions = setOf(
-                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("bc"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/def"))
         ).matches shouldBe true
         Config(
             exclusions = setOf(
-                SegmentCriterium(segs("abc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = false)
+                SegmentCriterium(segs("abc"), mode = Criterium.Mode.CONTAINS, allowPartial = false)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -207,14 +208,14 @@ class BaseSieveTest : BaseTest() {
 
         Config(
             exclusions = setOf(
-                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = false)
+                SegmentCriterium(segs("bc"), mode = Criterium.Mode.CONTAINS, allowPartial = false)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
         Config(
             exclusions = setOf(
-                SegmentCriterium(segs("bc"), type = SegmentCriterium.Type.CONTAINS, allowPartial = true)
+                SegmentCriterium(segs("bc"), mode = Criterium.Mode.CONTAINS, allowPartial = true)
             )
         ).match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
@@ -233,5 +234,71 @@ class BaseSieveTest : BaseTest() {
         config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria STARTS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `path criteria CONTAINS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `path criteria ENDS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `path criteria MATCHES`() {
+        TODO()
+    }
+
+    @Test
+    fun `pfp criteria STARTS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `pfp criteria CONTAINS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `pfp criteria ENDS`() {
+        TODO()
+        // partial too
+    }
+
+    @Test
+    fun `pfp criteria MATCHES`() {
+        TODO()
+    }
+
+    @Test
+    fun `name criteria STARTS`() {
+        TODO()
+    }
+
+    @Test
+    fun `name criteria CONTAINS`() {
+        TODO()
+    }
+
+    @Test
+    fun `name criteria ENDS`() {
+        TODO()
+    }
+
+    @Test
+    fun `name criteria MATCHES`() {
+        TODO()
     }
 }

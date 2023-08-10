@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -56,11 +57,11 @@ class TempFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                SegmentCriterium(segs("backup", "pending"), type = Type.CONTAINS),
-                SegmentCriterium(segs("cache", "recovery"), type = Type.CONTAINS),
+                SegmentCriterium(segs("backup", "pending"), mode = Mode.CONTAINS),
+                SegmentCriterium(segs("cache", "recovery"), mode = Mode.CONTAINS),
                 SegmentCriterium(
                     segs("com.drweb.pro.market", "files", "pro_settings"),
-                    type = Type.CONTAINS
+                    mode = Mode.CONTAINS
                 ), // TODO move to exclusion manager?
             )
         )

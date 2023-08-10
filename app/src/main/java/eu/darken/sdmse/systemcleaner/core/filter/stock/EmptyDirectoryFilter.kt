@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -85,12 +86,12 @@ class EmptyDirectoryFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                SegmentCriterium(segs("mnt", "asec"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("mnt", "obb"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("mnt", "secure"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("mnt", "shell"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("Android", "obb"), type = Type.ANCESTOR),
-                SegmentCriterium(segs(".stfolder"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("mnt", "asec"), mode = Mode.STARTS),
+                SegmentCriterium(segs("mnt", "obb"), mode = Mode.STARTS),
+                SegmentCriterium(segs("mnt", "secure"), mode = Mode.STARTS),
+                SegmentCriterium(segs("mnt", "shell"), mode = Mode.STARTS),
+                SegmentCriterium(segs("Android", "obb"), mode = Mode.STARTS),
+                SegmentCriterium(segs(".stfolder"), mode = Mode.STARTS),
             ),
         )
         sieve = baseSieveFactory.create(config)

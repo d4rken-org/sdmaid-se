@@ -75,7 +75,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             vm.updateLabel(text?.toString() ?: "")
         }
 
-        ui.pathContainsInput.apply {
+        ui.pathInput.apply {
             onUserAddedTag = { tag -> vm.addPath(tag) }
             onUserRemovedTag = { tag -> vm.removePath(tag) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
@@ -88,18 +88,12 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             null
         }
 
-        ui.nameContainInput.apply {
+        ui.nameInput.apply {
             inputFilter = nonPathInputFilter
             onUserAddedTag = { tag -> vm.addNameContains(tag) }
             onUserRemovedTag = { tag -> vm.removeNameContains(tag) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
-        }
 
-        ui.nameEndsWithInput.apply {
-            inputFilter = nonPathInputFilter
-            onUserAddedTag = { tag -> vm.addNameEndsWith(tag) }
-            onUserRemovedTag = { tag -> vm.removeNameEndsWith(tag) }
-            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         ui.exclusionsInput.apply {
@@ -146,10 +140,15 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             toolbar.subtitle = config.label
             if (labelInput.text.isNullOrEmpty()) labelInput.setText(config.label)
 
-            pathContainsInput.setTags(config.pathContains?.map { vm.pathToTag(it) } ?: emptyList())
-            nameContainInput.setTags(config.nameContains?.map { vm.nameToTag(it) } ?: emptyList())
-            nameEndsWithInput.setTags(config.nameEndsWith?.map { vm.nameToTag(it) } ?: emptyList())
-            exclusionsInput.setTags(config.exclusion?.map { vm.pathToTag(it) } ?: emptyList())
+            pathInput.setTags(
+                config.pathCriteria?.map { vm.pathToTag(it) } ?: emptyList()
+            )
+            nameInput.setTags(
+                config.nameCriteria?.map { vm.nameToTag(it) } ?: emptyList()
+            )
+            exclusionsInput.setTags(
+                config.exclusion?.map { vm.pathToTag(it) } ?: emptyList()
+            )
 
             areaChips.entries.forEach { (type, chip) ->
                 chip.isChecked = config.areas?.contains(type) == true

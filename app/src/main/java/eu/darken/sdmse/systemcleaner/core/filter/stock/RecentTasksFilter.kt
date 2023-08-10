@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.*
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -51,8 +52,8 @@ class RecentTasksFilter @Inject constructor(
             targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("recent_images"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("recent_tasks"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("recent_images"), mode = Mode.STARTS),
+                SegmentCriterium(segs("recent_tasks"), mode = Mode.STARTS),
             ),
         )
         sieve = baseSieveFactory.create(config)

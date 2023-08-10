@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions
 import javax.inject.Inject
 
@@ -40,16 +39,17 @@ class EditorOptionsCreator @Inject constructor(
 
         val pathCriteria = targets.map {
             when (it.fileType) {
-                FileType.DIRECTORY -> BaseSieve.SegmentCriterium(
+                FileType.DIRECTORY -> CustomFilterConfig.SegmentCriterium(
                     it.segments,
-                    type = BaseSieve.SegmentCriterium.Type.ANCESTOR
+                    mode = CustomFilterConfig.Criterium.Mode.ENDS,
+                    allowPartial = false,
                 )
 
                 FileType.SYMBOLIC_LINK,
                 FileType.FILE,
-                FileType.UNKNOWN -> BaseSieve.SegmentCriterium(
+                FileType.UNKNOWN -> CustomFilterConfig.SegmentCriterium(
                     it.segments,
-                    type = BaseSieve.SegmentCriterium.Type.MATCHES
+                    mode = CustomFilterConfig.Criterium.Mode.MATCHES
                 )
             }
         }.toSet()

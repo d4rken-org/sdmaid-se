@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.NameCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
@@ -52,7 +53,7 @@ class SuperfluousApksFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            nameCriteria = setOf(NameCriterium(".apk", type = NameCriterium.Type.ENDS_WITH)),
+            nameCriteria = setOf(NameCriterium(".apk", mode = Mode.ENDS)),
             exclusions = EXCLUSIONS
         )
         sieve = baseSieveFactory.create(config)
@@ -98,11 +99,11 @@ class SuperfluousApksFilter @Inject constructor(
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "SuperfluousApks")
         val EXCLUSIONS = setOf(
-            SegmentCriterium(segs("Backup"), type = Type.CONTAINS),
-            SegmentCriterium(segs("Backups"), type = Type.CONTAINS),
-            SegmentCriterium(segs("Recover"), type = Type.CONTAINS),
-            SegmentCriterium(segs("Recovery"), type = Type.CONTAINS),
-            SegmentCriterium(segs("TWRP"), type = Type.CONTAINS),
+            SegmentCriterium(segs("Backup"), mode = Mode.CONTAINS),
+            SegmentCriterium(segs("Backups"), mode = Mode.CONTAINS),
+            SegmentCriterium(segs("Recover"), mode = Mode.CONTAINS),
+            SegmentCriterium(segs("Recovery"), mode = Mode.CONTAINS),
+            SegmentCriterium(segs("TWRP"), mode = Mode.CONTAINS),
         )
     }
 }

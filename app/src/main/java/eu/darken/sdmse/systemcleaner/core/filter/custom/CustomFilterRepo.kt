@@ -35,7 +35,7 @@ class CustomFilterRepo @Inject constructor(
     private val lock = Mutex()
     private val configAdapter = moshi.adapter<CustomFilterConfig>()
     private val filterDir by lazy {
-        File(context.filesDir, "systemcleaner/customfilter").apply {
+        File(context.filesDir, "systemcleaner/customfilter2").apply {
             if (!exists() && mkdirs()) log(TAG) { "Created $this" }
         }
     }

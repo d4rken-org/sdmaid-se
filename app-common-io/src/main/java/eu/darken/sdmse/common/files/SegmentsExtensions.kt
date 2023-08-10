@@ -31,7 +31,21 @@ fun Segments?.isParentOf(other: Segments?, ignoreCase: Boolean = false): Boolean
     if (this == null || other == null) return false
     if (this.size >= other.size) return false
 
-    return isAncestorOf(other, ignoreCase) && matches(other.dropLast(1))
+    return isAncestorOf(other, ignoreCase) && matches(other.dropLast(1), ignoreCase = ignoreCase)
+}
+
+fun Segments?.isDescendentOf(other: Segments?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size <= other.size) return false
+
+    return other.indices.all { this[it].equals(other[it], ignoreCase) }
+}
+
+fun Segments?.isChildOf(other: Segments?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size <= other.size) return false
+
+    return isDescendentOf(other, ignoreCase) && this.dropLast(1).matches(other, ignoreCase = ignoreCase)
 }
 
 fun Segments?.containsSegments(

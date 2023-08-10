@@ -45,10 +45,9 @@ class CustomFilter @AssistedInject constructor(
                     FileType.UNKNOWN -> BaseSieve.TargetType.FILE
                 }
             }?.toSet(),
-            pathContains = filterConfig.pathContains,
-            exclusions = filterConfig.exclusion?.map { BaseSieve.Exclusion(it, allowPartial = true) }?.toSet(),
-            nameContains = filterConfig.nameContains,
-            nameSuffixes = filterConfig.nameEndsWith,
+            pathCriteria = filterConfig.pathCriteria?.map { it.toSieveCriterium() }?.toSet(),
+            nameCriteria = filterConfig.nameCriteria?.map { it.toSieveCriterium() }?.toSet(),
+            exclusions = filterConfig.exclusion?.map { it.toSieveCriterium() }?.toSet(),
             minimumAge = filterConfig.ageMinimum,
             maximumAge = filterConfig.ageMaximum,
             minimumSize = filterConfig.sizeMinimum,

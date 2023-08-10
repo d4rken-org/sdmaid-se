@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
@@ -51,9 +52,9 @@ class DataLoggerFilter @Inject constructor(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("logger"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("log"), type = Type.ANCESTOR),
-                SegmentCriterium(segs("log_other_mode"), type = Type.ANCESTOR),
+                SegmentCriterium(segs("logger"), mode = Mode.STARTS),
+                SegmentCriterium(segs("log"), mode = Mode.STARTS),
+                SegmentCriterium(segs("log_other_mode"), mode = Mode.STARTS),
             ),
         )
 

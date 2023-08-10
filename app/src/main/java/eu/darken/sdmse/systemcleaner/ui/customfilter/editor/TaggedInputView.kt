@@ -9,14 +9,17 @@ import android.view.View.OnFocusChangeListener
 import android.view.inputmethod.EditorInfo
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.children
 import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.dpToPx
+import eu.darken.sdmse.common.ui.getString
 import eu.darken.sdmse.databinding.ViewTaggedInputBinding
 
 class TaggedInputView @JvmOverloads constructor(
@@ -41,7 +44,7 @@ class TaggedInputView @JvmOverloads constructor(
                 if (input.text.toString() == " ") input.text.clear()
             } else {
                 if (input.text.isNotEmpty()) {
-                    addChip(Tag(input.text.toString()).toChip())
+                    addChip(ChipTag(input.text.toString()).toChip())
                     input.text.clear()
                 }
                 if (input.text.isNullOrEmpty() && container.childCount > 0) {
@@ -70,7 +73,7 @@ class TaggedInputView @JvmOverloads constructor(
                         || event?.action == KeyEvent.ACTION_DOWN && event.keyCode == KeyEvent.KEYCODE_ENTER -> {
                     val newText = input.text.toString()
                     if (newText.isEmpty()) return@setOnEditorActionListener true
-                    addChip(Tag(newText).toChip())
+                    addChip(ChipTag(newText).toChip())
                     input.text.clear()
                     true
                 }
@@ -88,29 +91,35 @@ class TaggedInputView @JvmOverloads constructor(
         }
 
         if (isInEditMode) {
-            (1..3).forEach { addChip(Tag(value = "Test Chip $it").toChip()) }
+            (1..3).forEach { addChip(ChipTag(value = "Test Chip $it").toChip()) }
         }
     }
 
-    val currentTags: Collection<Tag>
+    val currentChipTags: Collection<ChipTag>
         get() = container.children
             .filterIsInstance<Chip>()
-            .map { Tag(it.text.toString()) }
+            .map { it.tag as ChipTag }
             .toList()
 
-    private fun addChip(chip: Chip) {
-        container.addView(chip)
-        onUserAddedTag?.invoke(chip.toTag())
+    private fun addChip(chip: Chip, position: Int? = null, silent: Boolean = false) {
+        if (position != null) {
+            container.addView(chip, position)
+        } else {
+            container.addView(chip)
+        }
+        if (!silent) onUserAddedTag?.invoke(chip.toTag())
     }
 
-    private fun removeChip(chip: Chip) {
+    private fun removeChip(chip: Chip, silent: Boolean = false): Int {
+        val oldPosition = container.indexOfChild(chip)
         container.removeView(chip)
-        onUserRemovedTag?.invoke(chip.toTag())
+        if (!silent) onUserRemovedTag?.invoke(chip.toTag())
+        return oldPosition
     }
 
-    var onUserAddedTag: ((Tag) -> Unit)? = null
+    var onUserAddedTag: ((ChipTag) -> Unit)? = null
 
-    var onUserRemovedTag: ((Tag) -> Unit)? = null
+    var onUserRemovedTag: ((ChipTag) -> Unit)? = null
 
     var inputFilter: InputFilter?
         get() = input.filters.firstOrNull()
@@ -120,20 +129,25 @@ class TaggedInputView @JvmOverloads constructor(
 
     var onFocusChange: ((TaggedInputView, Boolean) -> Unit)? = null
 
-    fun setTags(tags: List<Tag>) {
-        container.children.filterIsInstance<Chip>().toList().forEach { container.removeView(it) }
-        tags.forEach { addChip(it.toChip()) }
+    var allowedChipTagTypes: Set<ChipTag.Type> = ChipTag.Type.values().toSet()
+
+    fun setTags(chipTags: List<ChipTag>) {
+        container.children.filterIsInstance<Chip>().toList().forEach { removeChip(it, silent = true) }
+        chipTags.forEach { addChip(it.toChip(), silent = true) }
     }
 
-    private fun Chip.toTag() = Tag(value = text.toString())
+    private fun Chip.toTag(): ChipTag = this.tag as ChipTag
 
-    private fun Tag.toChip() = Chip(
+    private fun ChipTag.toChip(): Chip = Chip(
         context,
         null,
         com.google.android.material.R.style.Widget_Material3_Chip_Input_Icon_Elevated
     ).apply {
+        val chip = this
+        val chipTag = this@toChip
+        tag = chipTag
         id = ViewCompat.generateViewId()
-        this.text = this@toChip.value
+        this.text = chipTag.value
         chipIcon = ContextCompat.getDrawable(context, iconRes)
         chipIconSize = context.dpToPx(16f).toFloat()
         chipStartPadding = context.dpToPx(8f).toFloat()
@@ -141,11 +155,43 @@ class TaggedInputView @JvmOverloads constructor(
         isClickable = true
         isCheckable = false
         setOnCloseIconClickListener { removeChip(this) }
+        setOnLongClickListener {
+            MaterialAlertDialogBuilder(context).apply {
+                setTitle(R.string.systemcleaner_customfilter_editor_matching_mode_label)
+                val tagTypes = allowedChipTagTypes.sorted()
+                setSingleChoiceItems(
+                    tagTypes.map { getString(it.labelRes) }.toTypedArray(),
+                    tagTypes.indexOf(chipTag.type),
+                ) { _, which ->
+                    val newType = tagTypes[which]
+                    val oldPosition = removeChip(chip)
+                    addChip(chipTag.copy(type = newType).toChip(), position = oldPosition)
+                }
+
+                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+            }.show()
+            true
+        }
     }
 
-    data class Tag(
+    data class ChipTag(
         val value: String,
-        @DrawableRes val iconRes: Int = R.drawable.ic_folder_search_24
-    )
+        val type: Type = Type.CONTAINS,
+    ) {
+        @DrawableRes val iconRes: Int = when (type) {
+            Type.START -> R.drawable.ic_contain_start_24
+            Type.CONTAINS -> R.drawable.ic_contain_24
+            Type.END -> R.drawable.ic_contain_end_24
+            Type.MATCH -> R.drawable.ic_approximately_equal_24
+        }
+
+        enum class Type(@StringRes val labelRes: Int) {
+            START(R.string.systemcleaner_customfilter_editor_matching_mode_start_label),
+            CONTAINS(R.string.systemcleaner_customfilter_editor_matching_mode_contains_label),
+            END(R.string.systemcleaner_customfilter_editor_matching_mode_end_label),
+            MATCH(R.string.systemcleaner_customfilter_editor_matching_mode_match_label),
+            ;
+        }
+    }
 
 }
