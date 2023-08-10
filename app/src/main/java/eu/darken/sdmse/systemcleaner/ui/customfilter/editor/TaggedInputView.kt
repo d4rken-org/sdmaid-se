@@ -40,7 +40,13 @@ class TaggedInputView @JvmOverloads constructor(
             if (hasFocus) {
                 if (input.text.toString() == " ") input.text.clear()
             } else {
-                if (input.text.isNullOrEmpty() && container.childCount > 0) input.setText(" ")
+                if (input.text.isNotEmpty()) {
+                    addChip(Tag(input.text.toString()).toChip())
+                    input.text.clear()
+                }
+                if (input.text.isNullOrEmpty() && container.childCount > 0) {
+                    input.setText(" ")
+                }
             }
             onFocusChange?.invoke(this, hasFocus)
         }
