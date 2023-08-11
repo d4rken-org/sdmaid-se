@@ -79,4 +79,28 @@ class SegmentsExtensionTest : BaseTest() {
         segs("ABc", "def").startsWith(segs("ab")) shouldBe false
         segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true) shouldBe true
     }
+
+
+    @Test fun `segment endsWith`() {
+        emptyList<String>().endsWith(emptyList()) shouldBe true
+        null.endsWith(segs("abc", "def")) shouldBe false
+        segs("abc", "def").endsWith(null) shouldBe false
+
+        segs("abc", "def").endsWith(segs("abc", "def")) shouldBe true
+        segs("abc", "def").endsWith(segs("bc", "def")) shouldBe true
+        segs("abc", "def").endsWith(segs("def")) shouldBe true
+        segs("abc", "def").endsWith(segs("ef")) shouldBe true
+
+        segs("abc", "dEF").endsWith(segs("abc", "def")) shouldBe false
+        segs("abc", "dEF").endsWith(segs("abc", "def"), ignoreCase = true) shouldBe true
+
+        segs("abc", "dEF").endsWith(segs("bc", "def")) shouldBe false
+        segs("abc", "dEF").endsWith(segs("bc", "def"), ignoreCase = true) shouldBe true
+
+        segs("abc", "dEF").endsWith(segs("def")) shouldBe false
+        segs("abc", "dEF").endsWith(segs("def"), ignoreCase = true) shouldBe true
+
+        segs("abc", "dEF").endsWith(segs("ef")) shouldBe false
+        segs("abc", "dEF").endsWith(segs("ef"), ignoreCase = true) shouldBe true
+    }
 }

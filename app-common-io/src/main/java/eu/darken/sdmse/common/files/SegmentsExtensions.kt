@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.files
 
-import java.util.*
+import java.util.Collections
 
 typealias Segments = List<String>
 
@@ -67,16 +67,53 @@ fun Segments?.startsWith(other: Segments?, ignoreCase: Boolean = false): Boolean
         thisCase.isEmpty() -> {
             otherCase.isEmpty()
         }
+
         otherCase.size == 1 -> {
             thisCase.first().startsWith(otherCase.first())
         }
+
         thisCase.size == otherCase.size -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(1)
+            val match = thisCase.dropLast(1) == otherCase.dropLast(1)
             match && thisCase.last().startsWith(otherCase.last())
         }
+
         else -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(thisCase.size - otherCase.size + 1)
+            val match = thisCase.dropLast(thisCase.size - otherCase.size + 1) == otherCase.dropLast(1)
             match && thisCase[otherCase.size - 1].startsWith(otherCase.last())
+        }
+    }
+}
+
+fun Segments?.endsWith(other: Segments?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size < other.size) return false
+
+    val thisCase = if (ignoreCase) this.map { it.lowercase() } else this
+    val otherCase = if (ignoreCase) other.map { it.lowercase() } else other
+
+    return when {
+        thisCase.isEmpty() -> {
+            otherCase.isEmpty()
+        }
+
+        otherCase.size == 1 -> {
+            thisCase.last().endsWith(otherCase.last())
+        }
+
+        thisCase.size == otherCase.size -> {
+            // abc/def/ghi <> c/def/ghi
+            // def/ghi <> def/ghi
+            val match = thisCase.drop(1) == otherCase.drop(1)
+            // abc <> c
+            match && thisCase.first().endsWith(otherCase.first())
+        }
+
+        else -> {
+            // abc/def/ghi <> ef/ghi
+            // ghi <> ghi
+            val match = thisCase.drop(thisCase.size - otherCase.size + 1) == otherCase.drop(1)
+            // def <> ef
+            match && thisCase[otherCase.size - 1].endsWith(otherCase.first())
         }
     }
 }
