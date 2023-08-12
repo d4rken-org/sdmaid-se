@@ -4,10 +4,14 @@ import android.content.Context
 import android.os.Environment
 import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
+import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,6 +19,7 @@ import javax.inject.Singleton
 class StorageEnvironment @Inject constructor(
     @ApplicationContext private val context: Context,
     private val storageManager: StorageManager2,
+    private val userManager: UserManager2,
 ) {
 
     fun getVariable(variableName: String): String? = System.getenv(variableName)
@@ -68,33 +73,68 @@ class StorageEnvironment @Inject constructor(
                 root?.let { LocalPath.build(it) }
             }
 
-    fun getPublicPrimaryStorage(userHandle: UserHandle2): LocalPath {
-        val path = Environment.getExternalStorageDirectory()
-        val volume = storageManager.getStorageVolume(path)
-        requireNotNull(volume) { "Can't find volume for $path" }
-        return LocalPath.build(path)
+    suspend fun getPublicPrimaryStorage(userHandle: UserHandle2): LocalPath? {
+        val userPath = Environment.getExternalStorageDirectory().let { path ->
+            if (path.name.toIntOrNull() == userManager.currentUser().handle.handleId) {
+                // If this matches, then we can make assumptions on the path
+                File(path.parentFile!!, userHandle.handleId.toString())
+            } else {
+                path
+            }
+        }
+
+        val volume = storageManager.getStorageVolume(userPath)
+        if (volume == null) {
+            log(TAG, WARN) { "Can't find volume for $userPath" }
+            return null
+        }
+
+        return LocalPath.build(userPath)
     }
 
     // http://androidxref.com/5.1.1_r6/xref/frameworks/base/core/java/android/os/Environment.java#136
-    fun getPublicSecondaryStorage(userHandle: UserHandle2): Collection<LocalPath> {
-        val pathResult = mutableListOf<LocalPath>()
-        for (extMyDir in ContextCompat.getExternalFilesDirs(context, null)) {
-            if (extMyDir == null) continue
-            if (!extMyDir.isAbsolute) continue
-            var findRoot = extMyDir
-            for (i in 0..3) {
-                findRoot = findRoot.parentFile
-                if (findRoot == null) break
-            }
-            if (findRoot == null) continue
-            pathResult.add(LocalPath.build(findRoot))
-        }
+    suspend fun getPublicSecondaryStorage(userHandle: UserHandle2): Set<LocalPath> {
         val primary = getPublicPrimaryStorage(userHandle)
-        return pathResult.filter { it != primary }
+        if (primary == null) {
+            log(TAG, WARN) { "No primary storage? No secondary storage!" }
+            return emptySet()
+        }
+
+        val pathResult = mutableListOf<LocalPath>()
+
+        ContextCompat.getExternalFilesDirs(context, null)
+            .filterNotNull()
+            .filter { it.isAbsolute }
+            .mapNotNull { extMyDir ->
+                var findRoot: File? = extMyDir
+                for (i in 0..3) { // Android/data/pkg
+                    findRoot = findRoot?.parentFile
+                    if (findRoot == null) break
+                }
+                findRoot
+            }
+            .map { root ->
+                if (root.name.toIntOrNull() == userManager.currentUser().handle.handleId) {
+                    // If this matches, then we can make assumptions on the path
+                    File(root.parentFile!!, userHandle.handleId.toString())
+                } else {
+                    root
+                }
+            }
+            .map { LocalPath.build(it) }
+            .forEach {
+                log(TAG) { "Secondary public storage: $it" }
+                pathResult.add(it)
+            }
+
+        return pathResult.filter { it != primary }.toSet()
     }
 
-    fun getPublicStorage(userHandle: UserHandle2): Collection<LocalPath> {
-        return listOf(getPublicPrimaryStorage(userHandle)).plus(getPublicSecondaryStorage(userHandle))
+    suspend fun getPublicStorage(userHandle: UserHandle2): Collection<LocalPath> {
+        val paths = mutableListOf<LocalPath>()
+        getPublicPrimaryStorage(userHandle)?.let { paths.add(it) }
+        paths.addAll(getPublicSecondaryStorage(userHandle))
+        return paths
     }
 
     companion object {

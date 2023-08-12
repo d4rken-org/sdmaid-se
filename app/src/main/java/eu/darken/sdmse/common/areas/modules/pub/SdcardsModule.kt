@@ -43,7 +43,7 @@ class SdcardsModule @Inject constructor(
 
         // TODO we are not getting multiuser sdcards
         storageEnvironment.getPublicPrimaryStorage(userManager2.currentUser().handle)
-            .let { determineAreaAccessPath(it) }
+            ?.let { determineAreaAccessPath(it) }
             ?.let {
                 DataArea(
                     path = it,
