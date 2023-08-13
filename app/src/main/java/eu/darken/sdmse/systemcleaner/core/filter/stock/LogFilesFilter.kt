@@ -65,14 +65,14 @@ class LogFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            nameCriteria = setOf(NameCriterium(".log", mode = Mode.ENDS)),
+            nameCriteria = setOf(NameCriterium(".log", mode = Mode.END)),
             exclusions = setOf(
-                SegmentCriterium(segs(".indexeddb.leveldb"), mode = Mode.STARTS, allowPartial = true),
-                SegmentCriterium(segs("t", "Paths"), mode = Mode.STARTS),
-                SegmentCriterium(segs("app_chrome"), mode = Mode.STARTS),
-                SegmentCriterium(segs("app_webview"), mode = Mode.STARTS),
-                SegmentCriterium(segs("leveldb"), mode = Mode.STARTS),
-                SegmentCriterium(segs("shared_proto_db"), mode = Mode.STARTS),
+                SegmentCriterium(segs(".indexeddb.leveldb"), mode = Mode.START, allowPartial = true),
+                SegmentCriterium(segs("t", "Paths"), mode = Mode.CONTAIN),
+                SegmentCriterium(segs("app_chrome"), mode = Mode.CONTAIN),
+                SegmentCriterium(segs("app_webview"), mode = Mode.CONTAIN),
+                SegmentCriterium(segs("leveldb"), mode = Mode.CONTAIN),
+                SegmentCriterium(segs("shared_proto_db"), mode = Mode.CONTAIN),
             )
         )
         sieve = baseSieveFactory.create(config)

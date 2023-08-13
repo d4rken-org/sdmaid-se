@@ -52,7 +52,7 @@ class LogDropboxFilter @Inject constructor(
             targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("dropbox"), mode = Mode.STARTS),
+                SegmentCriterium(segs("dropbox"), mode = Mode.ANCESTOR),
             ),
         )
         sieve = baseSieveFactory.create(config)

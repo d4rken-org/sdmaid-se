@@ -48,6 +48,9 @@ class WindowsFilesFilterTest : SystemCleanerFilterTest() {
                 pos(loc, "$rngDir/thumbs.db", Flag.File)
             }
         neg(DataArea.Type.DATA, "._rollkuchen#,'Ä", Flag.File)
+        neg(DataArea.Type.DATA, "folder", Flag.Dir)
+        neg(DataArea.Type.DATA, "folder/._rollkuchen#,'Ä", Flag.File)
+        neg(DataArea.Type.DATA, "thumbs.db", Flag.File)
         confirm(create())
     }
 }

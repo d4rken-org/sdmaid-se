@@ -52,9 +52,9 @@ class DataLoggerFilter @Inject constructor(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("logger"), mode = Mode.STARTS),
-                SegmentCriterium(segs("log"), mode = Mode.STARTS),
-                SegmentCriterium(segs("log_other_mode"), mode = Mode.STARTS),
+                SegmentCriterium(segs("logger"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("log"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("log_other_mode"), mode = Mode.ANCESTOR),
             ),
         )
 

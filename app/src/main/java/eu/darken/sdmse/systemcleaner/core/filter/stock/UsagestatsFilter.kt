@@ -52,7 +52,7 @@ class UsagestatsFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("usagestats"), mode = Mode.STARTS),
+                SegmentCriterium(segs("usagestats"), mode = Mode.ANCESTOR),
             ),
             regexes = setOf(
                 Regex(".+/usagestats/[0-9]+/.+")

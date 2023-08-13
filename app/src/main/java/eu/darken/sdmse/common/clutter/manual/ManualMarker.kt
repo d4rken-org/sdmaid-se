@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.restrictedCharset
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.files.startsWith
@@ -38,7 +39,7 @@ data class ManualMarker(
     override val isDirectMatch: Boolean
         get() = regex == null
 
-    override fun match(otherAreaType: DataArea.Type, otherSegments: List<String>): Marker.Match? {
+    override fun match(otherAreaType: DataArea.Type, otherSegments: Segments): Marker.Match? {
         if (this.areaType !== otherAreaType) return null
         if (otherSegments.isEmpty()) return null
         require(otherSegments[0] != "") { "Not prefixFree: $otherSegments" }
@@ -47,8 +48,10 @@ data class ManualMarker(
             path != null && regex == null -> {
                 otherSegments.matches(path, ignoreCase)
             }
+
             regex != null -> {
-                if (path != null && !otherSegments.startsWith(path, ignoreCase)) {
+                // TODO improve clutter conditions, can we use "ancestor" or "descendent" criteria here
+                if (path != null && !otherSegments.startsWith(path, ignoreCase, allowPartial = true)) {
                     false
                 } else if (contains != null && !otherSegments.joinSegments().contains(contains, ignoreCase)) {
                     false

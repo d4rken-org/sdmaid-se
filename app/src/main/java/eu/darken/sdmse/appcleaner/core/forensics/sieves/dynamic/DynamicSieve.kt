@@ -85,7 +85,7 @@ class DynamicSieve @AssistedInject constructor(
         val startsWithCondition = startsWith
             ?.takeIf { it.isNotEmpty() }
             ?.let { starters ->
-                starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase) }
+                starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase, allowPartial = true) }
             }
             ?: true
 

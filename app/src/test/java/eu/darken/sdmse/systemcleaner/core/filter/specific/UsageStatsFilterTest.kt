@@ -41,6 +41,7 @@ class UsageStatsFilterTest : SystemCleanerFilterTest() {
         mockDefaults()
 
         neg(Type.DATA_SYSTEM, "usagestats", Flag.Dir)
+        neg(Type.DATA_SYSTEM, "usagestats", Flag.File)
 
         neg(Type.DATA_SYSTEM, "usagestats/0", Flag.Dir)
         neg(Type.DATA_SYSTEM, "usagestats/0/daily", Flag.Dir)

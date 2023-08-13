@@ -42,8 +42,10 @@ class RecentTasksFilterTest : SystemCleanerFilterTest() {
         neg(Type.DATA_SYSTEM_CE, "testdir", Flag.Dir)
         neg(Type.DATA_SYSTEM_CE, "testfile", Flag.File)
         neg(Type.DATA_SYSTEM_CE, "recent_tasks", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "recent_tasks", Flag.File)
         pos(Type.DATA_SYSTEM_CE, "recent_tasks/test", Flag.File)
         neg(Type.DATA_SYSTEM_CE, "recent_images", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "recent_images", Flag.File)
         pos(Type.DATA_SYSTEM_CE, "recent_images/test", Flag.File)
 
         confirm(create())

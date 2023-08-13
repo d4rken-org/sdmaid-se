@@ -20,7 +20,6 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -44,19 +43,18 @@ class MacFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\._[^/]+)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\._\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.spotlight)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Spotlight-V100)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.DS_Store)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.fseventsd)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.TemporaryItems)$".replace("/", "\\" + File.separator)),
-        )
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            regexes = regexes,
+            nameCriteria = setOf(
+                BaseSieve.NameCriterium("._", mode = BaseSieve.Criterium.Mode.START),
+                BaseSieve.NameCriterium(".Trashes", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium("._.Trashes", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium(".spotlight", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium(".Spotlight-V100", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium(".DS_Store", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium(".fseventsd", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium(".TemporaryItems", mode = BaseSieve.Criterium.Mode.MATCH),
+            ),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

@@ -41,6 +41,7 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
         mockDefaults()
 
         neg(Type.DATA, "tombstones", Flag.Dir)
+        neg(Type.DATA, "tombstones", Flag.File)
         pos(Type.DATA, "tombstones/$rngString", Flag.File)
 
         confirm(create())

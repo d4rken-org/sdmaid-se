@@ -86,12 +86,12 @@ class EmptyDirectoryFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                SegmentCriterium(segs("mnt", "asec"), mode = Mode.STARTS),
-                SegmentCriterium(segs("mnt", "obb"), mode = Mode.STARTS),
-                SegmentCriterium(segs("mnt", "secure"), mode = Mode.STARTS),
-                SegmentCriterium(segs("mnt", "shell"), mode = Mode.STARTS),
-                SegmentCriterium(segs("Android", "obb"), mode = Mode.STARTS),
-                SegmentCriterium(segs(".stfolder"), mode = Mode.STARTS),
+                SegmentCriterium(segs("mnt", "asec"), mode = Mode.START),
+                SegmentCriterium(segs("mnt", "obb"), mode = Mode.START),
+                SegmentCriterium(segs("mnt", "secure"), mode = Mode.START),
+                SegmentCriterium(segs("mnt", "shell"), mode = Mode.START),
+                SegmentCriterium(segs("Android", "obb"), mode = Mode.START),
+                SegmentCriterium(segs(".stfolder"), mode = Mode.START),
             ),
         )
         sieve = baseSieveFactory.create(config)

@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.endsWith
 import eu.darken.sdmse.common.files.isAncestorOf
-import eu.darken.sdmse.common.files.isDescendentOf
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.matches
@@ -84,37 +83,30 @@ class BaseSieve @AssistedInject constructor(
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.STARTS -> when {
-                            crit.allowPartial -> subject.segments.startsWith(
-                                crit.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
+                        Criterium.Mode.ANCESTOR -> crit.segments.isAncestorOf(
+                            subject.segments,
+                            ignoreCase = crit.ignoreCase,
+                        )
 
-                            else -> crit.segments.isAncestorOf(
-                                subject.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
-                        }
+                        Criterium.Mode.START -> subject.segments.startsWith(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase,
+                            allowPartial = crit.allowPartial
+                        )
 
-                        Criterium.Mode.ENDS -> when {
-                            crit.allowPartial -> subject.segments.endsWith(
-                                crit.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
+                        Criterium.Mode.END -> subject.segments.endsWith(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase,
+                            allowPartial = crit.allowPartial
+                        )
 
-                            else -> crit.segments.isDescendentOf(
-                                subject.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
-                        }
-
-                        Criterium.Mode.CONTAINS -> subject.segments.containsSegments(
+                        Criterium.Mode.CONTAIN -> subject.segments.containsSegments(
                             crit.segments,
                             allowPartial = crit.allowPartial,
                             ignoreCase = crit.ignoreCase
                         )
 
-                        Criterium.Mode.MATCHES -> subject.segments.matches(
+                        Criterium.Mode.MATCH -> subject.segments.matches(
                             crit.segments,
                             ignoreCase = crit.ignoreCase
                         )
@@ -129,19 +121,21 @@ class BaseSieve @AssistedInject constructor(
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.STARTS -> {
+                        Criterium.Mode.ANCESTOR -> throw IllegalStateException("Name does node support MODE.ANCESTOR")
+
+                        Criterium.Mode.START -> {
                             subject.name.startsWith(crit.name, ignoreCase = crit.ignoreCase)
                         }
 
-                        Criterium.Mode.ENDS -> {
+                        Criterium.Mode.END -> {
                             subject.name.endsWith(crit.name, ignoreCase = crit.ignoreCase)
                         }
 
-                        Criterium.Mode.CONTAINS -> {
+                        Criterium.Mode.CONTAIN -> {
                             subject.name.contains(crit.name, ignoreCase = crit.ignoreCase)
                         }
 
-                        Criterium.Mode.MATCHES -> subject.name.equals(crit.name, ignoreCase = crit.ignoreCase)
+                        Criterium.Mode.MATCH -> subject.name.equals(crit.name, ignoreCase = crit.ignoreCase)
                     }
                 }
 
@@ -190,37 +184,30 @@ class BaseSieve @AssistedInject constructor(
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.STARTS -> when {
-                            crit.allowPartial -> pfpSegments.startsWith(
-                                crit.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
+                        Criterium.Mode.ANCESTOR -> crit.segments.isAncestorOf(
+                            pfpSegments,
+                            ignoreCase = crit.ignoreCase,
+                        )
 
-                            else -> crit.segments.isAncestorOf(
-                                pfpSegments,
-                                ignoreCase = crit.ignoreCase
-                            )
-                        }
+                        Criterium.Mode.START -> pfpSegments.startsWith(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase,
+                            allowPartial = crit.allowPartial,
+                        )
 
-                        Criterium.Mode.ENDS -> when {
-                            crit.allowPartial -> pfpSegments.endsWith(
-                                crit.segments,
-                                ignoreCase = crit.ignoreCase
-                            )
+                        Criterium.Mode.END -> pfpSegments.endsWith(
+                            crit.segments,
+                            ignoreCase = crit.ignoreCase,
+                            allowPartial = crit.allowPartial,
+                        )
 
-                            else -> crit.segments.isDescendentOf(
-                                pfpSegments,
-                                ignoreCase = crit.ignoreCase
-                            )
-                        }
-
-                        Criterium.Mode.CONTAINS -> pfpSegments.containsSegments(
+                        Criterium.Mode.CONTAIN -> pfpSegments.containsSegments(
                             crit.segments,
                             allowPartial = crit.allowPartial,
                             ignoreCase = crit.ignoreCase
                         )
 
-                        Criterium.Mode.MATCHES -> pfpSegments.matches(
+                        Criterium.Mode.MATCH -> pfpSegments.matches(
                             crit.segments,
                             ignoreCase = crit.ignoreCase
                         )
@@ -269,10 +256,11 @@ class BaseSieve @AssistedInject constructor(
         val mode: Mode
 
         enum class Mode {
-            STARTS,
-            CONTAINS,
-            ENDS,
-            MATCHES,
+            ANCESTOR,
+            START,
+            CONTAIN,
+            END,
+            MATCH,
             ;
         }
     }

@@ -40,6 +40,7 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
         neg(Type.DATA, "logger", Flag.Dir)
+        neg(Type.DATA, "logger", Flag.File)
         neg(Type.DATA, "logger/adir", Flag.Dir)
         neg(Type.DATA, "logger/setup", Flag.Dir)
         neg(Type.DATA, "logger/setup/adir", Flag.Dir)
@@ -53,6 +54,7 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
         pos(Type.DATA, "logger/setup/something_thing.log", Flag.File)
 
         neg(Type.DATA, "log", Flag.Dir)
+        neg(Type.DATA, "log", Flag.File)
         neg(Type.DATA, "log/acore", Flag.Dir)
         neg(Type.DATA, "log/batterystats", Flag.Dir)
         neg(Type.DATA, "log/bt", Flag.Dir)
@@ -70,6 +72,7 @@ class DataLoggerFilterTest : SystemCleanerFilterTest() {
         pos(Type.DATA, "log/$rngString", Flag.File)
 
         neg(Type.DATA, "log_other_mode", Flag.Dir)
+        neg(Type.DATA, "log_other_mode", Flag.File)
         neg(Type.DATA, "log_other_mode/$rngString", Flag.Dir)
         pos(Type.DATA, "log_other_mode/$rngString", Flag.File)
         neg(Type.DATA, "log_other_mode/subfolder", Flag.Dir)

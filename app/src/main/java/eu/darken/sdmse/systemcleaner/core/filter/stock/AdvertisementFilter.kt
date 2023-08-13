@@ -56,63 +56,63 @@ class AdvertisementFilter @Inject constructor(
             .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .forEach { toCheck ->
-                pfpCriteria.add(SegmentCriterium(segs("ppy_cross"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("ppy_cross"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/ppy_cross)$".replace("/", "\\${File.separator}"),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), mode = Mode.START, allowPartial = true))
+                pfpCriteria.add(SegmentCriterium(segs(".mologiq"), mode = Mode.MATCH, allowPartial = true))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mologiq|\\.mologiq/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs(".Adcenix"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.Adcenix|\\.Adcenix/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierVideoCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierVideoCache|ApplifierVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyVideoCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyVideoCache|burstlyVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsVideoCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsVideoCache|UnityAdsVideoCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("ApplifierImageCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:ApplifierImageCache|ApplifierImageCache/.+)".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("burstlyImageCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:burstlyImageCache|burstlyImageCache/.+)".replace("/", "\\" + File.separator),
@@ -120,8 +120,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("UnityAdsImageCache"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:UnityAdsImageCache|UnityAdsImageCache/.+)".replace("/", "\\" + File.separator),
@@ -129,8 +129,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("__chartboost"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:__chartboost|__chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -138,8 +138,8 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs(".chartboost"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.chartboost|\\.chartboost/.+)$".replace("/", "\\" + File.separator),
@@ -147,31 +147,31 @@ class AdvertisementFilter @Inject constructor(
                     )
 
                 )
-                pfpCriteria.add(SegmentCriterium(segs("adhub"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs("adhub"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs("adhub"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs("adhub"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:adhub|adhub/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".mobvista"), mode = Mode.STARTS, allowPartial = true))
+                pfpCriteria.add(SegmentCriterium(segs(".mobvista"), mode = Mode.START, allowPartial = true))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.mobvista\\d+|\\.mobvista\\d+/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs(".goadsdk"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.goadsdk|\\.goadsdk/.+)$".replace("/", "\\" + File.separator),
                         toCheck.path.replace("\\", "\\\\")
                     )
                 )
-                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), mode = Mode.STARTS))
-                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), mode = Mode.MATCHES))
+                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), mode = Mode.START))
+                pfpCriteria.add(SegmentCriterium(segs(".goproduct"), mode = Mode.MATCH))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/)(?:\\.goproduct|\\.goproduct/.+)$".replace("/", "\\" + File.separator),

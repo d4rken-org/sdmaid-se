@@ -48,7 +48,7 @@ class AnalyticsFilter @Inject constructor(
 
     override suspend fun initialize() {
         val pathContains = setOf(
-            SegmentCriterium(segs(".bugsense"), mode = Mode.CONTAINS)
+            SegmentCriterium(segs(".bugsense"), mode = Mode.CONTAIN)
         )
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))

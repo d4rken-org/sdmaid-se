@@ -53,7 +53,7 @@ class SuperfluousApksFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            nameCriteria = setOf(NameCriterium(".apk", mode = Mode.ENDS)),
+            nameCriteria = setOf(NameCriterium(".apk", mode = Mode.END)),
             exclusions = EXCLUSIONS
         )
         sieve = baseSieveFactory.create(config)
@@ -99,11 +99,11 @@ class SuperfluousApksFilter @Inject constructor(
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "SuperfluousApks")
         val EXCLUSIONS = setOf(
-            SegmentCriterium(segs("Backup"), mode = Mode.CONTAINS),
-            SegmentCriterium(segs("Backups"), mode = Mode.CONTAINS),
-            SegmentCriterium(segs("Recover"), mode = Mode.CONTAINS),
-            SegmentCriterium(segs("Recovery"), mode = Mode.CONTAINS),
-            SegmentCriterium(segs("TWRP"), mode = Mode.CONTAINS),
+            SegmentCriterium(segs("Backup"), mode = Mode.CONTAIN),
+            SegmentCriterium(segs("Backups"), mode = Mode.CONTAIN),
+            SegmentCriterium(segs("Recover"), mode = Mode.CONTAIN),
+            SegmentCriterium(segs("Recovery"), mode = Mode.CONTAIN),
+            SegmentCriterium(segs("TWRP"), mode = Mode.CONTAIN),
         )
     }
 }

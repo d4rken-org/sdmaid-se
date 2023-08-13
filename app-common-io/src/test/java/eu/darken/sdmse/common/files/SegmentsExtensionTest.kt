@@ -39,8 +39,13 @@ class SegmentsExtensionTest : BaseTest() {
         null.isDescendentOf(segs("abc", "def")) shouldBe false
         segs("abc", "def").isDescendentOf(null) shouldBe false
         segs("abc", "def").isDescendentOf(segs("abc")) shouldBe true
+        segs("abc", "def").isDescendentOf(segs("def")) shouldBe false
         segs("ABC", "def").isDescendentOf(segs("abc")) shouldBe false
         segs("ABC", "def").isDescendentOf(segs("abc"), ignoreCase = true) shouldBe true
+        segs("def").isDescendentOf(segs("abc"), ignoreCase = true) shouldBe false
+        segs("def").isDescendentOf(segs("abc", "def"), ignoreCase = true) shouldBe false
+        segs("def").isDescendentOf(segs("abc"), ignoreCase = true) shouldBe false
+        segs("def").isDescendentOf(segs("def"), ignoreCase = true) shouldBe false
     }
 
     @Test fun `segment isChildOf`() {
@@ -94,23 +99,26 @@ class SegmentsExtensionTest : BaseTest() {
         segs("abc", "def").startsWith(null) shouldBe false
 
         segs("abc", "def").startsWith(segs("abc", "def")) shouldBe true
-        segs("abc", "def").startsWith(segs("abc", "de")) shouldBe true
+        segs("abc", "def").startsWith(segs("abc", "de"), allowPartial = false) shouldBe false
+        segs("abc", "def").startsWith(segs("abc", "de"), allowPartial = true) shouldBe true
         segs("abc", "def").startsWith(segs("abc")) shouldBe true
-        segs("abc", "def").startsWith(segs("ab")) shouldBe true
+        segs("abc", "def").startsWith(segs("ab"), allowPartial = false) shouldBe false
+        segs("abc", "def").startsWith(segs("ab"), allowPartial = true) shouldBe true
 
         segs("ABc", "def").startsWith(segs("abc", "def")) shouldBe false
         segs("ABc", "def").startsWith(segs("abc", "def"), ignoreCase = true) shouldBe true
 
         segs("ABc", "def").startsWith(segs("abc", "de")) shouldBe false
-        segs("ABc", "def").startsWith(segs("abc", "de"), ignoreCase = true) shouldBe true
+        segs("ABc", "def").startsWith(segs("abc", "de"), ignoreCase = true, allowPartial = false) shouldBe false
+        segs("ABc", "def").startsWith(segs("abc", "de"), ignoreCase = true, allowPartial = true) shouldBe true
 
         segs("ABc", "def").startsWith(segs("abc")) shouldBe false
         segs("ABc", "def").startsWith(segs("abc"), ignoreCase = true) shouldBe true
 
         segs("ABc", "def").startsWith(segs("ab")) shouldBe false
-        segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true) shouldBe true
+        segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true, allowPartial = false) shouldBe false
+        segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true, allowPartial = true) shouldBe true
     }
-
 
     @Test fun `segment endsWith`() {
         emptyList<String>().endsWith(emptyList()) shouldBe true
@@ -118,20 +126,24 @@ class SegmentsExtensionTest : BaseTest() {
         segs("abc", "def").endsWith(null) shouldBe false
 
         segs("abc", "def").endsWith(segs("abc", "def")) shouldBe true
-        segs("abc", "def").endsWith(segs("bc", "def")) shouldBe true
+        segs("abc", "def").endsWith(segs("bc", "def"), allowPartial = false) shouldBe false
+        segs("abc", "def").endsWith(segs("bc", "def"), allowPartial = true) shouldBe true
         segs("abc", "def").endsWith(segs("def")) shouldBe true
-        segs("abc", "def").endsWith(segs("ef")) shouldBe true
+        segs("abc", "def").endsWith(segs("ef"), allowPartial = false) shouldBe false
+        segs("abc", "def").endsWith(segs("ef"), allowPartial = true) shouldBe true
 
         segs("abc", "dEF").endsWith(segs("abc", "def")) shouldBe false
         segs("abc", "dEF").endsWith(segs("abc", "def"), ignoreCase = true) shouldBe true
 
         segs("abc", "dEF").endsWith(segs("bc", "def")) shouldBe false
-        segs("abc", "dEF").endsWith(segs("bc", "def"), ignoreCase = true) shouldBe true
+        segs("abc", "dEF").endsWith(segs("def"), ignoreCase = true) shouldBe true
 
         segs("abc", "dEF").endsWith(segs("def")) shouldBe false
         segs("abc", "dEF").endsWith(segs("def"), ignoreCase = true) shouldBe true
 
         segs("abc", "dEF").endsWith(segs("ef")) shouldBe false
-        segs("abc", "dEF").endsWith(segs("ef"), ignoreCase = true) shouldBe true
+        segs("abc", "dEF").endsWith(segs("ef"), ignoreCase = true) shouldBe false
+        segs("abc", "dEF").endsWith(segs("ef"), allowPartial = true) shouldBe false
+        segs("abc", "dEF").endsWith(segs("ef"), ignoreCase = true, allowPartial = true) shouldBe true
     }
 }

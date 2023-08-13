@@ -41,6 +41,7 @@ class LogDropboxFilterTest : SystemCleanerFilterTest() {
         mockDefaults()
 
         neg(Type.DATA, "dropbox", Flag.Dir)
+        neg(Type.DATA, "dropbox", Flag.File)
         neg(Type.DATA, "dropbox/event_data@1483828487669.txt", Flag.File)
 
         neg(Type.DATA, "system/dropbox", Flag.Dir)

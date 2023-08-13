@@ -45,19 +45,17 @@ class WindowsFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^[\\W\\w]+/desktop\\.ini$", RegexOption.IGNORE_CASE),
-            Regex("^[\\W\\w]+/thumbs\\.db$", RegexOption.IGNORE_CASE)
-        )
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            regexes = regexes,
+            nameCriteria = setOf(
+                BaseSieve.NameCriterium("desktop.ini", mode = BaseSieve.Criterium.Mode.MATCH),
+                BaseSieve.NameCriterium("thumbs.db", mode = BaseSieve.Criterium.Mode.MATCH),
+            ),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
-
 
     override suspend fun matches(item: APathLookup<*>): Boolean {
         return sieve.match(item).matches

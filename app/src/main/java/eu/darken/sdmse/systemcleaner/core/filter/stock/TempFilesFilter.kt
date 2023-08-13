@@ -56,12 +56,19 @@ class TempFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
+            nameCriteria = setOf(
+                BaseSieve.NameCriterium(".tmp", mode = Mode.END),
+                BaseSieve.NameCriterium(".temp", mode = Mode.END),
+                BaseSieve.NameCriterium(".mmsyscache", mode = Mode.MATCH),
+                BaseSieve.NameCriterium("sdm_write_test-", mode = Mode.START),
+                BaseSieve.NameCriterium(SdcardsModule.TEST_PREFIX, mode = Mode.START),
+            ),
             exclusions = setOf(
-                SegmentCriterium(segs("backup", "pending"), mode = Mode.CONTAINS),
-                SegmentCriterium(segs("cache", "recovery"), mode = Mode.CONTAINS),
+                SegmentCriterium(segs("backup", "pending"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("cache", "recovery"), mode = Mode.ANCESTOR),
                 SegmentCriterium(
                     segs("com.drweb.pro.market", "files", "pro_settings"),
-                    mode = Mode.CONTAINS
+                    mode = Mode.ANCESTOR
                 ), // TODO move to exclusion manager?
             )
         )
@@ -71,25 +78,12 @@ class TempFilesFilter @Inject constructor(
         log(TAG) { "initialized()" }
     }
 
-    private val tempSuffixes = setOf(
-        ".tmp",
-        ".temp",
-    )
     private val sdmTempFileRegex = Regex(
         "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
     )
 
     override suspend fun matches(item: APathLookup<*>): Boolean {
-        val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
-
-        return when {
-            tempSuffixes.any { item.name.endsWith(it) } -> true
-            item.name == ".mmsyscache" -> true
-            item.name.startsWith("sdm_write_test-") && sdmTempFileRegex.matchEntire(item.name) != null -> true
-            item.name.startsWith(SdcardsModule.TEST_PREFIX) -> true
-            else -> false
-        }
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

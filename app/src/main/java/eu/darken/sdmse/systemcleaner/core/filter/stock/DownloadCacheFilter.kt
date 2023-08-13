@@ -52,13 +52,13 @@ class DownloadCacheFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             exclusions = setOf(
-                SegmentCriterium(segs("dalvik-cache"), mode = Mode.STARTS),
-                SegmentCriterium(segs("lost+found"), mode = Mode.STARTS),
+                SegmentCriterium(segs("dalvik-cache"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("lost+found"), mode = Mode.ANCESTOR),
                 // Some apps use these logs to determine the type of recovery
-                SegmentCriterium(segs("recovery", "last_log"), mode = Mode.STARTS),
-                SegmentCriterium(segs("last_postrecovery"), mode = Mode.STARTS),
-                SegmentCriterium(segs("last_data_partition_info"), mode = Mode.STARTS),
-                SegmentCriterium(segs("last_dataresizing"), mode = Mode.STARTS),
+                SegmentCriterium(segs("recovery", "last_log"), mode = Mode.START),
+                SegmentCriterium(segs("last_postrecovery"), mode = Mode.START),
+                SegmentCriterium(segs("last_data_partition_info"), mode = Mode.START),
+                SegmentCriterium(segs("last_dataresizing"), mode = Mode.START),
             )
         )
         sieve = baseSieveFactory.create(config)

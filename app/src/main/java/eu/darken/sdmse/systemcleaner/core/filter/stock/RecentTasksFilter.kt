@@ -52,8 +52,8 @@ class RecentTasksFilter @Inject constructor(
             targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("recent_images"), mode = Mode.STARTS),
-                SegmentCriterium(segs("recent_tasks"), mode = Mode.STARTS),
+                SegmentCriterium(segs("recent_images"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("recent_tasks"), mode = Mode.ANCESTOR),
             ),
         )
         sieve = baseSieveFactory.create(config)

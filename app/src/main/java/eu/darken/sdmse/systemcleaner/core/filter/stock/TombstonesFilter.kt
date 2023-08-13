@@ -52,7 +52,7 @@ class TombstonesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("tombstones"), mode = Mode.STARTS),
+                SegmentCriterium(segs("tombstones"), mode = Mode.ANCESTOR),
             ),
         )
         sieve = baseSieveFactory.create(config)

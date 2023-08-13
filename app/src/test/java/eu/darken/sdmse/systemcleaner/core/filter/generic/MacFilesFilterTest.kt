@@ -37,17 +37,29 @@ class MacFilesFilterTest : SystemCleanerFilterTest() {
             .distinctBy { it.type }
             .forEach {
                 val loc = it.type
+                neg(loc, "folder", Flag.Dir)
                 pos(loc, "._something", Flag.File)
+                pos(loc, "folder/._something", Flag.File)
                 pos(loc, "._rollkuchen#,'Ä", Flag.File)
+                pos(loc, "folder/._rollkuchen#,'Ä", Flag.File)
                 pos(loc, ".Trashes", Flag.File)
+                pos(loc, "folder/.Trashes", Flag.File)
                 pos(loc, "._.Trashes", Flag.File)
+                pos(loc, "folder/._.Trashes", Flag.File)
                 pos(loc, ".spotlight", Flag.File)
+                pos(loc, "folder/.spotlight", Flag.File)
                 pos(loc, ".Spotlight-V100", Flag.File)
+                pos(loc, "folder/.Spotlight-V100", Flag.File)
                 pos(loc, ".DS_Store", Flag.File)
+                pos(loc, "folder/.DS_Store", Flag.File)
                 pos(loc, ".fseventsd", Flag.File)
+                pos(loc, "folder/.fseventsd", Flag.File)
                 pos(loc, ".TemporaryItems", Flag.File)
+                pos(loc, "folder/.TemporaryItems", Flag.File)
             }
         neg(DataArea.Type.PUBLIC_DATA, "._rollkuchen#,'Ä", Flag.File)
+        neg(DataArea.Type.PUBLIC_DATA, "some.pkg", Flag.Dir)
+        neg(DataArea.Type.PUBLIC_DATA, "some.pkg/._rollkuchen#,'Ä", Flag.File)
         confirm(create())
     }
 }

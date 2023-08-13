@@ -9,7 +9,11 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.isCaseInsensitive
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.containsSegments
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.files.startsWith
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.openAsset
 import eu.darken.sdmse.common.pkgs.Pkg
 import okio.BufferedSource
@@ -62,7 +66,7 @@ class JsonBasedSieve @AssistedInject constructor(
             val startsWithCondition = fileFilter.startsWith
                 ?.takeIf { it.isNotEmpty() }
                 ?.let { starters ->
-                    starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase) }
+                    starters.any { target.startsWith(it.toSegs(), ignoreCase = ignoreCase, allowPartial = true) }
                 }
                 ?: true
 

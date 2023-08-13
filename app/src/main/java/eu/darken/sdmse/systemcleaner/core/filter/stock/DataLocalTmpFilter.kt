@@ -49,7 +49,9 @@ class DataLocalTmpFilter @Inject constructor(
     override suspend fun initialize() {
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            pfpCriteria = setOf(BaseSieve.SegmentCriterium(segs("local", "tmp"), mode = Mode.STARTS)),
+            pfpCriteria = setOf(
+                BaseSieve.SegmentCriterium(segs("local", "tmp"), mode = Mode.ANCESTOR)
+            ),
         )
 
         sieve = baseSieveFactory.create(config)
