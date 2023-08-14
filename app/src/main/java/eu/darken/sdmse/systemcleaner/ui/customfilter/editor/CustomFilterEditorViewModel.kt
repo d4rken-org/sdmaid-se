@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.combine
@@ -26,6 +25,8 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
@@ -126,46 +127,45 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
-    private fun CustomFilterConfig.Criterium.Mode.toChipTagType() = when (this) {
-        CustomFilterConfig.Criterium.Mode.STARTS -> TaggedInputView.ChipTag.Type.START
-        CustomFilterConfig.Criterium.Mode.CONTAINS -> TaggedInputView.ChipTag.Type.CONTAINS
-        CustomFilterConfig.Criterium.Mode.ENDS -> TaggedInputView.ChipTag.Type.END
-        CustomFilterConfig.Criterium.Mode.MATCHES -> TaggedInputView.ChipTag.Type.MATCH
-    }
-
-    private fun TaggedInputView.ChipTag.Type.toCriteriumMode() = when (this) {
-        TaggedInputView.ChipTag.Type.START -> CustomFilterConfig.Criterium.Mode.STARTS
-        TaggedInputView.ChipTag.Type.CONTAINS -> CustomFilterConfig.Criterium.Mode.CONTAINS
-        TaggedInputView.ChipTag.Type.END -> CustomFilterConfig.Criterium.Mode.ENDS
-        TaggedInputView.ChipTag.Type.MATCH -> CustomFilterConfig.Criterium.Mode.MATCHES
-    }
-
-    fun pathToTag(crit: CustomFilterConfig.SegmentCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
-        value = if (!crit.allowPartial && crit.segments.lastOrNull() != "") {
-            var delimited = crit.segments
-            if (delimited.lastOrNull() != "") delimited = delimited.plus(segs(""))
-            if (delimited.firstOrNull() != "") delimited = segs("").plus(delimited)
-            delimited.joinSegments()
-        } else {
-            crit.segments.joinSegments()
+    fun pathToTag(crit: SegmentCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
+        value = crit.segments.joinSegments(),
+        mode = when (crit.mode) {
+            is SegmentCriterium.Mode.Ancestor -> TODO()
+            is SegmentCriterium.Mode.Contain -> TaggedInputView.ChipTag.Mode.CONTAINS
+            is SegmentCriterium.Mode.End -> TaggedInputView.ChipTag.Mode.END
+            is SegmentCriterium.Mode.Match -> TaggedInputView.ChipTag.Mode.MATCH
+            is SegmentCriterium.Mode.Start -> TaggedInputView.ChipTag.Mode.START
         },
-        type = crit.mode.toChipTagType(),
     )
 
-    private fun TaggedInputView.ChipTag.toPath() = CustomFilterConfig.SegmentCriterium(
-        segments = value.removePrefix("/").removeSuffix("/").toSegs(),
-        mode = type.toCriteriumMode(),
-        allowPartial = value.toSegs().let { it.firstOrNull() != "" && it.lastOrNull() != "" }
+    private fun TaggedInputView.ChipTag.toPath() = SegmentCriterium(
+        segments = value.toSegs(),
+        mode = when (mode) {
+            TaggedInputView.ChipTag.Mode.START -> SegmentCriterium.Mode.Start(allowPartial = true)
+            TaggedInputView.ChipTag.Mode.CONTAINS -> SegmentCriterium.Mode.Contain(allowPartial = true)
+            TaggedInputView.ChipTag.Mode.END -> SegmentCriterium.Mode.End(allowPartial = true)
+            TaggedInputView.ChipTag.Mode.MATCH -> SegmentCriterium.Mode.Match()
+        },
     )
 
-    fun nameToTag(crit: CustomFilterConfig.NameCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
+    fun nameToTag(crit: NameCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
         value = crit.name,
-        type = crit.mode.toChipTagType(),
+        mode = when (crit.mode) {
+            is NameCriterium.Mode.Contain -> TaggedInputView.ChipTag.Mode.CONTAINS
+            is NameCriterium.Mode.End -> TaggedInputView.ChipTag.Mode.END
+            is NameCriterium.Mode.Match -> TaggedInputView.ChipTag.Mode.MATCH
+            is NameCriterium.Mode.Start -> TaggedInputView.ChipTag.Mode.START
+        },
     )
 
-    private fun TaggedInputView.ChipTag.toName() = CustomFilterConfig.NameCriterium(
+    private fun TaggedInputView.ChipTag.toName() = NameCriterium(
         name = value,
-        mode = type.toCriteriumMode(),
+        mode = when (mode) {
+            TaggedInputView.ChipTag.Mode.START -> NameCriterium.Mode.Start()
+            TaggedInputView.ChipTag.Mode.CONTAINS -> NameCriterium.Mode.Contain()
+            TaggedInputView.ChipTag.Mode.END -> NameCriterium.Mode.End()
+            TaggedInputView.ChipTag.Mode.MATCH -> NameCriterium.Mode.Match()
+        },
     )
 
     fun addPath(chipTag: TaggedInputView.ChipTag) = launch {

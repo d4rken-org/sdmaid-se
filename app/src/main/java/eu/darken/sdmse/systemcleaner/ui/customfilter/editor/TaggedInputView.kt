@@ -9,7 +9,6 @@ import android.view.View.OnFocusChangeListener
 import android.view.inputmethod.EditorInfo
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -21,6 +20,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.ui.getString
 import eu.darken.sdmse.databinding.ViewTaggedInputBinding
+import java.io.File
 
 class TaggedInputView @JvmOverloads constructor(
     context: Context,
@@ -95,6 +95,14 @@ class TaggedInputView @JvmOverloads constructor(
         }
     }
 
+    var type: Type = Type.SEGMENTS
+        set(value) {
+            inputFilter = when (value) {
+                Type.SEGMENTS -> NAME_INPUT_FILTER
+                Type.NAME -> null
+            }
+            field = value
+        }
     val currentChipTags: Collection<ChipTag>
         get() = container.children
             .filterIsInstance<Chip>()
@@ -124,12 +132,12 @@ class TaggedInputView @JvmOverloads constructor(
     var inputFilter: InputFilter?
         get() = input.filters.firstOrNull()
         set(value) {
-            input.filters = arrayOf(value)
+            input.filters = value?.let { arrayOf(it) } ?: emptyArray()
         }
 
     var onFocusChange: ((TaggedInputView, Boolean) -> Unit)? = null
 
-    var allowedChipTagTypes: Set<ChipTag.Type> = ChipTag.Type.values().toSet()
+    var allowedChipTagTypes: Set<ChipTag.Mode> = ChipTag.Mode.values().toSet()
 
     fun setTags(chipTags: List<ChipTag>) {
         container.children.filterIsInstance<Chip>().toList().forEach { removeChip(it, silent = true) }
@@ -157,15 +165,37 @@ class TaggedInputView @JvmOverloads constructor(
         setOnCloseIconClickListener { removeChip(this) }
         setOnLongClickListener {
             MaterialAlertDialogBuilder(context).apply {
-                setTitle(R.string.systemcleaner_customfilter_editor_matching_mode_label)
+                setTitle(
+                    when (type) {
+                        Type.SEGMENTS -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_label
+                        Type.NAME -> R.string.systemcleaner_customfilter_editor_name_matching_mode_label
+                    }
+                )
                 val tagTypes = allowedChipTagTypes.sorted()
                 setSingleChoiceItems(
-                    tagTypes.map { getString(it.labelRes) }.toTypedArray(),
-                    tagTypes.indexOf(chipTag.type),
-                ) { _, which ->
+                    tagTypes.map { mode ->
+                        when (type) {
+                            Type.SEGMENTS -> when (mode) {
+                                ChipTag.Mode.START -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label
+                                ChipTag.Mode.CONTAINS -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label
+                                ChipTag.Mode.END -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label
+                                ChipTag.Mode.MATCH -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_match_label
+                            }
+
+                            Type.NAME -> when (mode) {
+                                ChipTag.Mode.START -> R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label
+                                ChipTag.Mode.CONTAINS -> R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label
+                                ChipTag.Mode.END -> R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label
+                                ChipTag.Mode.MATCH -> R.string.systemcleaner_customfilter_editor_name_matching_mode_match_label
+                            }
+                        }.let { getString(it) }
+                    }.toTypedArray(),
+                    tagTypes.indexOf(chipTag.mode),
+                ) { dialog, which ->
                     val newType = tagTypes[which]
                     val oldPosition = removeChip(chip)
-                    addChip(chipTag.copy(type = newType).toChip(), position = oldPosition)
+                    addChip(chipTag.copy(mode = newType).toChip(), position = oldPosition)
+                    dialog.dismiss()
                 }
 
                 setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
@@ -174,23 +204,38 @@ class TaggedInputView @JvmOverloads constructor(
         }
     }
 
+    enum class Type {
+        SEGMENTS,
+        NAME,
+        ;
+    }
+
     data class ChipTag(
         val value: String,
-        val type: Type = Type.CONTAINS,
+        val mode: Mode = Mode.CONTAINS,
     ) {
-        @DrawableRes val iconRes: Int = when (type) {
-            Type.START -> R.drawable.ic_contain_start_24
-            Type.CONTAINS -> R.drawable.ic_contain_24
-            Type.END -> R.drawable.ic_contain_end_24
-            Type.MATCH -> R.drawable.ic_approximately_equal_24
+        @DrawableRes val iconRes: Int = when (mode) {
+            Mode.START -> R.drawable.ic_contain_start_24
+            Mode.CONTAINS -> R.drawable.ic_contain_24
+            Mode.END -> R.drawable.ic_contain_end_24
+            Mode.MATCH -> R.drawable.ic_approximately_equal_24
         }
 
-        enum class Type(@StringRes val labelRes: Int) {
-            START(R.string.systemcleaner_customfilter_editor_matching_mode_start_label),
-            CONTAINS(R.string.systemcleaner_customfilter_editor_matching_mode_contains_label),
-            END(R.string.systemcleaner_customfilter_editor_matching_mode_end_label),
-            MATCH(R.string.systemcleaner_customfilter_editor_matching_mode_match_label),
+        enum class Mode {
+            START,
+            CONTAINS,
+            END,
+            MATCH,
             ;
+        }
+    }
+
+    companion object {
+        private val NAME_INPUT_FILTER = InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (source[i] == File.separatorChar) return@InputFilter ""
+            }
+            null
         }
     }
 

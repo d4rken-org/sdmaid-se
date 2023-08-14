@@ -10,8 +10,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions
 import javax.inject.Inject
 
@@ -39,17 +41,16 @@ class EditorOptionsCreator @Inject constructor(
 
         val pathCriteria = targets.map {
             when (it.fileType) {
-                FileType.DIRECTORY -> CustomFilterConfig.SegmentCriterium(
-                    it.segments,
-                    mode = CustomFilterConfig.Criterium.Mode.ENDS,
-                    allowPartial = false,
+                FileType.DIRECTORY -> SegmentCriterium(
+                    it.segments + segs(""),
+                    mode = SegmentCriterium.Mode.Start(),
                 )
 
                 FileType.SYMBOLIC_LINK,
                 FileType.FILE,
-                FileType.UNKNOWN -> CustomFilterConfig.SegmentCriterium(
+                FileType.UNKNOWN -> SegmentCriterium(
                     it.segments,
-                    mode = CustomFilterConfig.Criterium.Mode.MATCHES
+                    mode = SegmentCriterium.Mode.Match(),
                 )
             }
         }.toSet()

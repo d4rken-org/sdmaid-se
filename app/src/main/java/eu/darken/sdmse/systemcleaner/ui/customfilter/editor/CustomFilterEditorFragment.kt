@@ -2,7 +2,6 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
@@ -27,7 +26,6 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
-import java.io.File
 import kotlin.math.roundToInt
 
 
@@ -76,20 +74,14 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         }
 
         ui.pathInput.apply {
+            type = TaggedInputView.Type.SEGMENTS
             onUserAddedTag = { tag -> vm.addPath(tag) }
             onUserRemovedTag = { tag -> vm.removePath(tag) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
-        val nonPathInputFilter = InputFilter { source, start, end, dest, dstart, dend ->
-            for (i in start until end) {
-                if (source[i] == File.separatorChar) return@InputFilter ""
-            }
-            null
-        }
-
         ui.nameInput.apply {
-            inputFilter = nonPathInputFilter
+            type = TaggedInputView.Type.NAME
             onUserAddedTag = { tag -> vm.addNameContains(tag) }
             onUserRemovedTag = { tag -> vm.removeNameContains(tag) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
@@ -97,6 +89,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         }
 
         ui.exclusionsInput.apply {
+            type = TaggedInputView.Type.SEGMENTS
             onUserAddedTag = { tag -> vm.addExclusion(tag) }
             onUserRemovedTag = { tag -> vm.removeExclusion(tag) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
