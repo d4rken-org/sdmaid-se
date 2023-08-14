@@ -17,9 +17,10 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -46,14 +47,14 @@ class MacFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             nameCriteria = setOf(
-                BaseSieve.NameCriterium("._", mode = BaseSieve.Criterium.Mode.START),
-                BaseSieve.NameCriterium(".Trashes", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium("._.Trashes", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium(".spotlight", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium(".Spotlight-V100", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium(".DS_Store", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium(".fseventsd", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium(".TemporaryItems", mode = BaseSieve.Criterium.Mode.MATCH),
+                NameCriterium("._", mode = NameCriterium.Mode.Start()),
+                NameCriterium(".Trashes", mode = NameCriterium.Mode.Match()),
+                NameCriterium("._.Trashes", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".spotlight", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".Spotlight-V100", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".DS_Store", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".fseventsd", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".TemporaryItems", mode = NameCriterium.Mode.Match()),
             ),
         )
         sieve = baseSieveFactory.create(config)

@@ -150,10 +150,10 @@ fun Segments?.endsWith(
                 // ghi <> ghi
                 val match = thisCase.drop(thisCase.size - otherCase.size + 1) == otherCase.drop(1)
                 // def <> ef
-                match && thisCase[otherCase.size - 1].endsWith(otherCase.first())
+                match && thisCase[thisCase.size - otherCase.size].endsWith(otherCase.first())
             }
 
-            false -> other.indices.reversed().all { this[it].equals(other[it], ignoreCase) }
+            false -> thisCase.subList(thisCase.size - otherCase.size, thisCase.size) == otherCase
         }
     }
 }

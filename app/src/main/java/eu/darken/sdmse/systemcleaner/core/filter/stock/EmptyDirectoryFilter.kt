@@ -19,12 +19,11 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -85,13 +84,13 @@ class EmptyDirectoryFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
-            exclusions = setOf(
-                SegmentCriterium(segs("mnt", "asec"), mode = Mode.START),
-                SegmentCriterium(segs("mnt", "obb"), mode = Mode.START),
-                SegmentCriterium(segs("mnt", "secure"), mode = Mode.START),
-                SegmentCriterium(segs("mnt", "shell"), mode = Mode.START),
-                SegmentCriterium(segs("Android", "obb"), mode = Mode.START),
-                SegmentCriterium(segs(".stfolder"), mode = Mode.START),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("mnt", "asec"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "obb"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "secure"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "shell"), mode = Mode.Contain()),
+                SegmentCriterium(segs("Android", "obb"), mode = Mode.Contain()),
+                SegmentCriterium(segs(".stfolder"), mode = Mode.Contain()),
             ),
         )
         sieve = baseSieveFactory.create(config)

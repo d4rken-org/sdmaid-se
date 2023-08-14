@@ -1,12 +1,11 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
-import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.TombstonesFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -18,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
+class DownloadCacheFiltertest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -30,7 +29,7 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = TombstonesFilter(
+    private fun create() = DownloadCacheFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -39,18 +38,25 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-
-        neg(Type.DATA, "tombstones", Flag.Dir)
-        neg(Type.DATA, "tombstones", Flag.File)
-        pos(Type.DATA, "tombstones/$rngString", Flag.File)
-
+        neg(DataArea.Type.DOWNLOAD_CACHE, "dalvik-cache", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "lost+found", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_log", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.Dir)
+        pos(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "recovery/$rngString", Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log", Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log.bak", Flag.File)
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        TombstonesFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -58,9 +64,9 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        TombstonesFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

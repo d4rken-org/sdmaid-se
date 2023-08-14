@@ -21,12 +21,12 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.*
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -52,7 +52,7 @@ class LogDropboxFilter @Inject constructor(
             targetTypes = setOf(TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("dropbox"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("dropbox"), mode = Mode.Ancestor()),
             ),
         )
         sieve = baseSieveFactory.create(config)

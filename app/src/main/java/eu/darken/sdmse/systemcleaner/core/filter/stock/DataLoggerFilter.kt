@@ -21,12 +21,11 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -52,9 +51,9 @@ class DataLoggerFilter @Inject constructor(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             pfpCriteria = setOf(
-                SegmentCriterium(segs("logger"), mode = Mode.ANCESTOR),
-                SegmentCriterium(segs("log"), mode = Mode.ANCESTOR),
-                SegmentCriterium(segs("log_other_mode"), mode = Mode.ANCESTOR),
+                SegmentCriterium(segs("logger"), mode = Mode.Ancestor()),
+                SegmentCriterium(segs("log"), mode = Mode.Ancestor()),
+                SegmentCriterium(segs("log_other_mode"), mode = Mode.Ancestor()),
             ),
         )
 

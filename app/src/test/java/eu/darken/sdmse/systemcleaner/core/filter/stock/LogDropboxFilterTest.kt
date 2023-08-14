@@ -1,11 +1,11 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.AnrFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class ANRFilterTest : SystemCleanerFilterTest() {
+class LogDropboxFilterTest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -29,7 +29,7 @@ class ANRFilterTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = AnrFilter(
+    private fun create() = LogDropboxFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -38,21 +38,35 @@ class ANRFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        neg(Type.DATA, "anr", Flag.Dir)
-        neg(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Secondary)
-        neg(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Secondary)
-        pos(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/trace_00", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/anr_2021-11-05-07-26-10-770", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/anr_2021-11-05-12-43-35-418", Flag.File, Flag.Area.Primary)
+
+        neg(Type.DATA, "dropbox", Flag.Dir)
+        neg(Type.DATA, "dropbox", Flag.File)
+        neg(Type.DATA, "dropbox/event_data@1483828487669.txt", Flag.File)
+
+        neg(Type.DATA, "system/dropbox", Flag.Dir)
+        neg(Type.DATA, "system/dropbox/$rngString", Flag.Dir)
+        neg(Type.DATA_SYSTEM, "dropbox/$rngString", Flag.Dir)
+
+        neg(Type.DATA_SYSTEM_CE, "dropbox", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "dropbox/$rngString", Flag.File)
+
+        neg(Type.DATA_SYSTEM_DE, "dropbox", Flag.Dir)
+        neg(Type.DATA_SYSTEM_DE, "dropbox/$rngString", Flag.File)
+
+        pos(Type.DATA_SYSTEM, "dropbox/$rngString", Flag.File)
+        val someDir = rngString
+        neg(Type.DATA_SYSTEM, "dropbox/$someDir", Flag.Dir)
+        pos(Type.DATA_SYSTEM, "dropbox/$someDir/something", Flag.File)
+        pos(Type.DATA_SYSTEM, "dropbox/event_data@1483828487660.txt", Flag.File)
+        pos(Type.DATA_SYSTEM, "dropbox/platform_stats_bookmark@1483690326366.txt", Flag.File)
+
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        AnrFilter.Factory(
+        LogDropboxFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterAnrEnabled } returns mockDataStoreValue(true)
+                coEvery { filterLogDropboxEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -60,9 +74,9 @@ class ANRFilterTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        AnrFilter.Factory(
+        LogDropboxFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterAnrEnabled } returns mockDataStoreValue(true)
+                coEvery { filterLogDropboxEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

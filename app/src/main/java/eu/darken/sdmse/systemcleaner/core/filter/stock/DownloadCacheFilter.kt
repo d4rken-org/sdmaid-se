@@ -21,12 +21,11 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -51,14 +50,14 @@ class DownloadCacheFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            exclusions = setOf(
-                SegmentCriterium(segs("dalvik-cache"), mode = Mode.ANCESTOR),
-                SegmentCriterium(segs("lost+found"), mode = Mode.ANCESTOR),
+            pfpExclusions = setOf(
+                SegmentCriterium(segs("dalvik-cache"), mode = Mode.Ancestor()),
+                SegmentCriterium(segs("lost+found"), mode = Mode.Ancestor()),
                 // Some apps use these logs to determine the type of recovery
-                SegmentCriterium(segs("recovery", "last_log"), mode = Mode.START),
-                SegmentCriterium(segs("last_postrecovery"), mode = Mode.START),
-                SegmentCriterium(segs("last_data_partition_info"), mode = Mode.START),
-                SegmentCriterium(segs("last_dataresizing"), mode = Mode.START),
+                SegmentCriterium(segs("recovery", "last_log"), mode = Mode.Start()),
+                SegmentCriterium(segs("last_postrecovery"), mode = Mode.Contain()),
+                SegmentCriterium(segs("last_data_partition_info"), mode = Mode.Contain()),
+                SegmentCriterium(segs("last_dataresizing"), mode = Mode.Contain()),
             )
         )
         sieve = baseSieveFactory.create(config)

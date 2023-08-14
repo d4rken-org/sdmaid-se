@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core
+package eu.darken.sdmse.systemcleaner.core.sieve
 
 import androidx.annotation.Keep
 import dagger.assisted.Assisted
@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.endsWith
 import eu.darken.sdmse.common.files.isAncestorOf
@@ -83,35 +82,34 @@ class BaseSieve @AssistedInject constructor(
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.ANCESTOR -> crit.segments.isAncestorOf(
+                        is SegmentCriterium.Mode.Ancestor -> crit.segments.isAncestorOf(
                             subject.segments,
-                            ignoreCase = crit.ignoreCase,
+                            ignoreCase = crit.mode.ignoreCase,
                         )
 
-                        Criterium.Mode.START -> subject.segments.startsWith(
+                        is SegmentCriterium.Mode.Start -> subject.segments.startsWith(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase,
-                            allowPartial = crit.allowPartial
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial
                         )
 
-                        Criterium.Mode.END -> subject.segments.endsWith(
+                        is SegmentCriterium.Mode.End -> subject.segments.endsWith(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase,
-                            allowPartial = crit.allowPartial
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial
                         )
 
-                        Criterium.Mode.CONTAIN -> subject.segments.containsSegments(
+                        is SegmentCriterium.Mode.Contain -> subject.segments.containsSegments(
                             crit.segments,
-                            allowPartial = crit.allowPartial,
-                            ignoreCase = crit.ignoreCase
+                            allowPartial = crit.mode.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase
                         )
 
-                        Criterium.Mode.MATCH -> subject.segments.matches(
+                        is SegmentCriterium.Mode.Match -> subject.segments.matches(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase
+                            ignoreCase = crit.mode.ignoreCase
                         )
                     }
-
                 }
                 if (!hasMatch) return Result(matches = false)
             }
@@ -121,39 +119,68 @@ class BaseSieve @AssistedInject constructor(
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.ANCESTOR -> throw IllegalStateException("Name does node support MODE.ANCESTOR")
+                        is NameCriterium.Mode.Start -> subject.name.startsWith(
+                            crit.name,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
 
-                        Criterium.Mode.START -> {
-                            subject.name.startsWith(crit.name, ignoreCase = crit.ignoreCase)
-                        }
+                        is NameCriterium.Mode.End -> subject.name.endsWith(
+                            crit.name,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
 
-                        Criterium.Mode.END -> {
-                            subject.name.endsWith(crit.name, ignoreCase = crit.ignoreCase)
-                        }
+                        is NameCriterium.Mode.Contain -> subject.name.contains(
+                            crit.name,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
 
-                        Criterium.Mode.CONTAIN -> {
-                            subject.name.contains(crit.name, ignoreCase = crit.ignoreCase)
-                        }
+                        is NameCriterium.Mode.Match -> subject.name.equals(
+                            crit.name,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
 
-                        Criterium.Mode.MATCH -> subject.name.equals(crit.name, ignoreCase = crit.ignoreCase)
                     }
                 }
 
                 if (!hasMatch) return Result(matches = false)
             }
 
-        config.exclusions
+        config.pathExclusions
             ?.takeIf { it.isNotEmpty() }
             ?.let { exclusions ->
                 // Check what the path should not contain
-                val match = exclusions.any {
-                    subject.segments.containsSegments(
-                        it.segments,
-                        allowPartial = it.allowPartial,
-                        ignoreCase = it.ignoreCase
-                    )
+                val isExcluded = exclusions.any { crit ->
+                    when (crit.mode) {
+                        is SegmentCriterium.Mode.Ancestor -> crit.segments.isAncestorOf(
+                            subject.segments,
+                            ignoreCase = crit.mode.ignoreCase,
+                        )
+
+                        is SegmentCriterium.Mode.Start -> subject.segments.startsWith(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial
+                        )
+
+                        is SegmentCriterium.Mode.End -> subject.segments.endsWith(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial
+                        )
+
+                        is SegmentCriterium.Mode.Contain -> subject.segments.containsSegments(
+                            crit.segments,
+                            allowPartial = crit.mode.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
+
+                        is SegmentCriterium.Mode.Match -> subject.segments.matches(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
+                    }
                 }
-                if (match) return Result(matches = false)
+                if (isExcluded) return Result(matches = false)
             }
 
         config.regexes
@@ -179,41 +206,77 @@ class BaseSieve @AssistedInject constructor(
 
         // Now working on the prefix-free-path!
         // Check pfp startsWith/ancestorOf
+
+        config.pfpExclusions
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { criteria ->
+                val isExcluded = criteria.any { crit ->
+                    when (crit.mode) {
+                        is SegmentCriterium.Mode.Ancestor -> crit.segments.isAncestorOf(
+                            pfpSegments,
+                            ignoreCase = crit.mode.ignoreCase,
+                        )
+
+                        is SegmentCriterium.Mode.Start -> pfpSegments.startsWith(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial,
+                        )
+
+                        is SegmentCriterium.Mode.End -> pfpSegments.endsWith(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial,
+                        )
+
+                        is SegmentCriterium.Mode.Contain -> pfpSegments.containsSegments(
+                            crit.segments,
+                            allowPartial = crit.mode.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
+
+                        is SegmentCriterium.Mode.Match -> pfpSegments.matches(
+                            crit.segments,
+                            ignoreCase = crit.mode.ignoreCase
+                        )
+                    }
+                }
+                if (isExcluded) return Result(matches = false)
+            }
+
         config.pfpCriteria
             ?.takeIf { it.isNotEmpty() }
             ?.let { criteria ->
                 val hasMatch = criteria.any { crit ->
                     when (crit.mode) {
-                        Criterium.Mode.ANCESTOR -> crit.segments.isAncestorOf(
+                        is SegmentCriterium.Mode.Ancestor -> crit.segments.isAncestorOf(
                             pfpSegments,
-                            ignoreCase = crit.ignoreCase,
+                            ignoreCase = crit.mode.ignoreCase,
                         )
 
-                        Criterium.Mode.START -> pfpSegments.startsWith(
+                        is SegmentCriterium.Mode.Start -> pfpSegments.startsWith(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase,
-                            allowPartial = crit.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial,
                         )
 
-                        Criterium.Mode.END -> pfpSegments.endsWith(
+                        is SegmentCriterium.Mode.End -> pfpSegments.endsWith(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase,
-                            allowPartial = crit.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase,
+                            allowPartial = crit.mode.allowPartial,
                         )
 
-                        Criterium.Mode.CONTAIN -> pfpSegments.containsSegments(
+                        is SegmentCriterium.Mode.Contain -> pfpSegments.containsSegments(
                             crit.segments,
-                            allowPartial = crit.allowPartial,
-                            ignoreCase = crit.ignoreCase
+                            allowPartial = crit.mode.allowPartial,
+                            ignoreCase = crit.mode.ignoreCase
                         )
 
-                        Criterium.Mode.MATCH -> pfpSegments.matches(
+                        is SegmentCriterium.Mode.Match -> pfpSegments.matches(
                             crit.segments,
-                            ignoreCase = crit.ignoreCase
+                            ignoreCase = crit.mode.ignoreCase
                         )
-
                     }
-
                 }
                 if (!hasMatch) return Result(matches = false)
             }
@@ -230,7 +293,8 @@ class BaseSieve @AssistedInject constructor(
         val pathCriteria: Set<SegmentCriterium>? = null,
         val pfpCriteria: Set<SegmentCriterium>? = null,
         val nameCriteria: Set<NameCriterium>? = null,
-        val exclusions: Set<SegmentCriterium>? = null,
+        val pathExclusions: Set<SegmentCriterium>? = null,
+        val pfpExclusions: Set<SegmentCriterium>? = null,
         val isEmpty: Boolean? = null,
         val regexes: Set<Regex>? = null,
         val maximumSize: Long? = null,
@@ -238,32 +302,6 @@ class BaseSieve @AssistedInject constructor(
         val maximumAge: Duration? = null,
         val minimumAge: Duration? = null,
     )
-
-    data class NameCriterium(
-        val name: String,
-        override val mode: Criterium.Mode,
-        val ignoreCase: Boolean = true,
-    ) : Criterium
-
-    data class SegmentCriterium(
-        val segments: Segments,
-        override val mode: Criterium.Mode,
-        val allowPartial: Boolean = false,
-        val ignoreCase: Boolean = true,
-    ) : Criterium
-
-    interface Criterium {
-        val mode: Mode
-
-        enum class Mode {
-            ANCESTOR,
-            START,
-            CONTAIN,
-            END,
-            MATCH,
-            ;
-        }
-    }
 
     @AssistedFactory
     interface Factory {

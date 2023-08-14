@@ -23,9 +23,10 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import java.lang.String
 import javax.inject.Inject
 import javax.inject.Provider
@@ -67,7 +68,7 @@ class AnrFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                BaseSieve.SegmentCriterium(segs("anr"), mode = BaseSieve.Criterium.Mode.ANCESTOR)
+                SegmentCriterium(segs("anr"), mode = SegmentCriterium.Mode.Ancestor())
             ),
             regexes = regexPairs.map { Regex(it.second) }.toSet(),
         )

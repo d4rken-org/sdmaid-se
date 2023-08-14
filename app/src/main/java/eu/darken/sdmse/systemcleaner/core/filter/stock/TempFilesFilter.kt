@@ -19,12 +19,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -57,18 +56,20 @@ class TempFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             nameCriteria = setOf(
-                BaseSieve.NameCriterium(".tmp", mode = Mode.END),
-                BaseSieve.NameCriterium(".temp", mode = Mode.END),
-                BaseSieve.NameCriterium(".mmsyscache", mode = Mode.MATCH),
-                BaseSieve.NameCriterium("sdm_write_test-", mode = Mode.START),
-                BaseSieve.NameCriterium(SdcardsModule.TEST_PREFIX, mode = Mode.START),
+                NameCriterium(".tmp", mode = NameCriterium.Mode.End()),
+                NameCriterium(".temp", mode = NameCriterium.Mode.End()),
+                NameCriterium(".mmsyscache", mode = NameCriterium.Mode.Match()),
+                NameCriterium("sdm_write_test-", mode = NameCriterium.Mode.Start()),
+                NameCriterium(SdcardsModule.TEST_PREFIX, mode = NameCriterium.Mode.Start()),
             ),
-            exclusions = setOf(
-                SegmentCriterium(segs("backup", "pending"), mode = Mode.ANCESTOR),
-                SegmentCriterium(segs("cache", "recovery"), mode = Mode.ANCESTOR),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("backup", "pending"), mode = SegmentCriterium.Mode.Ancestor()),
+                SegmentCriterium(segs("cache", "recovery"), mode = SegmentCriterium.Mode.Ancestor()),
+            ),
+            pfpExclusions = setOf(
                 SegmentCriterium(
                     segs("com.drweb.pro.market", "files", "pro_settings"),
-                    mode = Mode.ANCESTOR
+                    mode = SegmentCriterium.Mode.Ancestor()
                 ), // TODO move to exclusion manager?
             )
         )

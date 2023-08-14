@@ -17,9 +17,10 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -49,8 +50,8 @@ class WindowsFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             nameCriteria = setOf(
-                BaseSieve.NameCriterium("desktop.ini", mode = BaseSieve.Criterium.Mode.MATCH),
-                BaseSieve.NameCriterium("thumbs.db", mode = BaseSieve.Criterium.Mode.MATCH),
+                NameCriterium("desktop.ini", mode = NameCriterium.Mode.Match()),
+                NameCriterium("thumbs.db", mode = NameCriterium.Mode.Match()),
             ),
         )
         sieve = baseSieveFactory.create(config)

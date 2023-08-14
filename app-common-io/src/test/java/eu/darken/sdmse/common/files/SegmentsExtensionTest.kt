@@ -126,11 +126,17 @@ class SegmentsExtensionTest : BaseTest() {
         segs("abc", "def").endsWith(null) shouldBe false
 
         segs("abc", "def").endsWith(segs("abc", "def")) shouldBe true
+        segs("123", "abc", "def").endsWith(segs("abc", "def")) shouldBe true
+        segs("", "abc", "def").endsWith(segs("abc", "def")) shouldBe true
+        segs("", "123", "abc", "def").endsWith(segs("abc", "def")) shouldBe true
+        segs("", "sdcard", "abc", "def").endsWith(segs("abc", "def")) shouldBe true
+
         segs("abc", "def").endsWith(segs("bc", "def"), allowPartial = false) shouldBe false
         segs("abc", "def").endsWith(segs("bc", "def"), allowPartial = true) shouldBe true
         segs("abc", "def").endsWith(segs("def")) shouldBe true
         segs("abc", "def").endsWith(segs("ef"), allowPartial = false) shouldBe false
         segs("abc", "def").endsWith(segs("ef"), allowPartial = true) shouldBe true
+        segs("", "123", "abc", "def").endsWith(segs("c", "def"), allowPartial = true) shouldBe true
 
         segs("abc", "dEF").endsWith(segs("abc", "def")) shouldBe false
         segs("abc", "dEF").endsWith(segs("abc", "def"), ignoreCase = true) shouldBe true

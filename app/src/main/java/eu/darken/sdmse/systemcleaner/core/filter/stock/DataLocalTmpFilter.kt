@@ -21,11 +21,11 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.Criterium.Mode
-import eu.darken.sdmse.systemcleaner.core.BaseSieve.SegmentCriterium.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -50,7 +50,7 @@ class DataLocalTmpFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                BaseSieve.SegmentCriterium(segs("local", "tmp"), mode = Mode.ANCESTOR)
+                SegmentCriterium(segs("local", "tmp"), mode = Mode.Ancestor())
             ),
         )
 
