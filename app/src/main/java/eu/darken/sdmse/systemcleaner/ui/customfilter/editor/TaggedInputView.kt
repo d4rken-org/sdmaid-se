@@ -234,6 +234,10 @@ class TaggedInputView @JvmOverloads constructor(
         isClickable = true
         isCheckable = false
 
+        setOnClickListener {
+            removeChip(chip, silent = true)
+            addChip(chipTag, silent = true)
+        }
         setOnLongClickListener {
             chipTag.showModeSwitcher { newChipTag ->
                 val oldPosition = removeChip(chip)
