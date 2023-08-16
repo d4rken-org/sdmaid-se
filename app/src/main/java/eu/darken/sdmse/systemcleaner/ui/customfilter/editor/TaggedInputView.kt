@@ -222,7 +222,7 @@ class TaggedInputView @JvmOverloads constructor(
                 is SegmentCriterium.Mode.Contain -> TruncateAt.MIDDLE
                 is SegmentCriterium.Mode.End -> TruncateAt.START
                 is SegmentCriterium.Mode.Equal -> TruncateAt.MIDDLE
-                is SegmentCriterium.Mode.Start -> TruncateAt.END
+                is SegmentCriterium.Mode.Start -> TruncateAt.START
             }
         }
 
