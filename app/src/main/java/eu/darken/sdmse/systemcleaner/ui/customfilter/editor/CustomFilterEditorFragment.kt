@@ -25,6 +25,8 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
 import kotlin.math.roundToInt
 
@@ -75,23 +77,23 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
         ui.pathInput.apply {
             type = TaggedInputView.Type.SEGMENTS
-            onUserAddedTag = { tag -> vm.addPath(tag) }
-            onUserRemovedTag = { tag -> vm.removePath(tag) }
+            onUserAddedTag = { tag -> vm.addPath(tag as SegmentCriterium) }
+            onUserRemovedTag = { tag -> vm.removePath(tag as SegmentCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         ui.nameInput.apply {
             type = TaggedInputView.Type.NAME
-            onUserAddedTag = { tag -> vm.addNameContains(tag) }
-            onUserRemovedTag = { tag -> vm.removeNameContains(tag) }
+            onUserAddedTag = { tag -> vm.addNameContains(tag as NameCriterium) }
+            onUserRemovedTag = { tag -> vm.removeNameContains(tag as NameCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
 
         }
 
         ui.exclusionsInput.apply {
             type = TaggedInputView.Type.SEGMENTS
-            onUserAddedTag = { tag -> vm.addExclusion(tag) }
-            onUserRemovedTag = { tag -> vm.removeExclusion(tag) }
+            onUserAddedTag = { tag -> vm.addExclusion(tag as SegmentCriterium) }
+            onUserRemovedTag = { tag -> vm.removeExclusion(tag as SegmentCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
@@ -134,13 +136,13 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             if (labelInput.text.isNullOrEmpty()) labelInput.setText(config.label)
 
             pathInput.setTags(
-                config.pathCriteria?.map { vm.pathToTag(it) } ?: emptyList()
+                config.pathCriteria?.toList() ?: emptyList()
             )
             nameInput.setTags(
-                config.nameCriteria?.map { vm.nameToTag(it) } ?: emptyList()
+                config.nameCriteria?.toList() ?: emptyList()
             )
             exclusionsInput.setTags(
-                config.exclusion?.map { vm.pathToTag(it) } ?: emptyList()
+                config.exclusion?.toList() ?: emptyList()
             )
 
             areaChips.entries.forEach { (type, chip) ->

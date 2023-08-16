@@ -18,7 +18,7 @@ class NameCriteriumTest : BaseTest() {
     fun `match serialization`() {
         val original = NameCriterium(
             name = "some.apk",
-            mode = NameCriterium.Mode.Match(ignoreCase = false)
+            mode = NameCriterium.Mode.Equal(ignoreCase = false)
         )
         val rawJson = adapter.toJson(original)
         rawJson.toComparableJson() shouldBe """

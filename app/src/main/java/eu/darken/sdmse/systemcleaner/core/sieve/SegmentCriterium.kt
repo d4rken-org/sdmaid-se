@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class SegmentCriterium(
     val segments: Segments,
-    val mode: Mode,
+    override val mode: Mode,
 ) : SieveCriterium {
 
     sealed interface Mode : SieveCriterium.Mode {
@@ -44,7 +44,7 @@ data class SegmentCriterium(
 
         @JsonClass(generateAdapter = true)
         @Parcelize
-        data class Match(
+        data class Equal(
             val ignoreCase: Boolean = true,
         ) : Mode
     }
@@ -55,6 +55,6 @@ data class SegmentCriterium(
             .withSubtype(Mode.Start::class.java, "START")
             .withSubtype(Mode.Contain::class.java, "CONTAIN")
             .withSubtype(Mode.End::class.java, "END")
-            .withSubtype(Mode.Match::class.java, "MATCH")!!
+            .withSubtype(Mode.Equal::class.java, "MATCH")!!
     }
 }

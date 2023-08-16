@@ -105,7 +105,7 @@ class BaseSieve @AssistedInject constructor(
                             ignoreCase = crit.mode.ignoreCase
                         )
 
-                        is SegmentCriterium.Mode.Match -> subject.segments.matches(
+                        is SegmentCriterium.Mode.Equal -> subject.segments.matches(
                             crit.segments,
                             ignoreCase = crit.mode.ignoreCase
                         )
@@ -134,7 +134,7 @@ class BaseSieve @AssistedInject constructor(
                             ignoreCase = crit.mode.ignoreCase
                         )
 
-                        is NameCriterium.Mode.Match -> subject.name.equals(
+                        is NameCriterium.Mode.Equal -> subject.name.equals(
                             crit.name,
                             ignoreCase = crit.mode.ignoreCase
                         )
@@ -174,7 +174,7 @@ class BaseSieve @AssistedInject constructor(
                             ignoreCase = crit.mode.ignoreCase
                         )
 
-                        is SegmentCriterium.Mode.Match -> subject.segments.matches(
+                        is SegmentCriterium.Mode.Equal -> subject.segments.matches(
                             crit.segments,
                             ignoreCase = crit.mode.ignoreCase
                         )
@@ -235,7 +235,7 @@ class BaseSieve @AssistedInject constructor(
                             ignoreCase = crit.mode.ignoreCase
                         )
 
-                        is SegmentCriterium.Mode.Match -> pfpSegments.matches(
+                        is SegmentCriterium.Mode.Equal -> pfpSegments.matches(
                             crit.segments,
                             ignoreCase = crit.mode.ignoreCase
                         )
@@ -272,7 +272,7 @@ class BaseSieve @AssistedInject constructor(
                             ignoreCase = crit.mode.ignoreCase
                         )
 
-                        is SegmentCriterium.Mode.Match -> pfpSegments.matches(
+                        is SegmentCriterium.Mode.Equal -> pfpSegments.matches(
                             crit.segments,
                             ignoreCase = crit.mode.ignoreCase
                         )

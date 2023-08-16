@@ -55,7 +55,7 @@ class AdvertisementFilter @Inject constructor(
             .filter { targetAreas().contains(it.type) }
             .map { it.path }
             .forEach { toCheck ->
-                pfpCriteria.add(SegmentCriterium(segs("ppy_cross"), mode = Mode.Match()))
+                pfpCriteria.add(SegmentCriterium(segs("ppy_cross"), mode = Mode.Equal()))
                 rawRegexes.add(
                     String.format(
                         "^(?:%s/ppy_cross)$".replace("/", "\\${File.separator}"),

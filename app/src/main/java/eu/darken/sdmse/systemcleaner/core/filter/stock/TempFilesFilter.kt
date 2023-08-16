@@ -58,7 +58,7 @@ class TempFilesFilter @Inject constructor(
             nameCriteria = setOf(
                 NameCriterium(".tmp", mode = NameCriterium.Mode.End()),
                 NameCriterium(".temp", mode = NameCriterium.Mode.End()),
-                NameCriterium(".mmsyscache", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".mmsyscache", mode = NameCriterium.Mode.Equal()),
                 NameCriterium("sdm_write_test-", mode = NameCriterium.Mode.Start()),
                 NameCriterium(SdcardsModule.TEST_PREFIX, mode = NameCriterium.Mode.Start()),
             ),

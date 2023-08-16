@@ -94,7 +94,7 @@ class BaseSieveTest : BaseTest() {
             allowPartial shouldBe false
             ignoreCase shouldBe true
         }
-        SegmentCriterium.Mode.Match().apply {
+        SegmentCriterium.Mode.Equal().apply {
             ignoreCase shouldBe true
         }
     }
@@ -110,7 +110,7 @@ class BaseSieveTest : BaseTest() {
         NameCriterium.Mode.End().apply {
             ignoreCase shouldBe true
         }
-        NameCriterium.Mode.Match().apply {
+        NameCriterium.Mode.Equal().apply {
             ignoreCase shouldBe true
         }
     }
@@ -418,17 +418,17 @@ class BaseSieveTest : BaseTest() {
     fun `path criteria MATCH - basic`() = runTest {
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Match())
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Match())
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "de"))).matches shouldBe false
         Config(
             pathCriteria = setOf(
-                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Match())
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Equal())
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
     }
@@ -439,7 +439,7 @@ class BaseSieveTest : BaseTest() {
             pathCriteria = setOf(
                 SegmentCriterium(
                     segs("", "sdcard", "abc", "def"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = false)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
@@ -447,7 +447,7 @@ class BaseSieveTest : BaseTest() {
             pathCriteria = setOf(
                 SegmentCriterium(
                     segs("", "sdcard", "abc", "def"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = true)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
@@ -703,7 +703,7 @@ class BaseSieveTest : BaseTest() {
             pfpCriteria = setOf(
                 SegmentCriterium(
                     segs("abc", "def", ""),
-                    mode = SegmentCriterium.Mode.Match()
+                    mode = SegmentCriterium.Mode.Equal()
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
@@ -711,7 +711,7 @@ class BaseSieveTest : BaseTest() {
             pfpCriteria = setOf(
                 SegmentCriterium(
                     segs("abc", "def"),
-                    mode = SegmentCriterium.Mode.Match()
+                    mode = SegmentCriterium.Mode.Equal()
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
@@ -723,7 +723,7 @@ class BaseSieveTest : BaseTest() {
             pfpCriteria = setOf(
                 SegmentCriterium(
                     segs("abc", "def"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = false)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe false
@@ -731,7 +731,7 @@ class BaseSieveTest : BaseTest() {
             pfpCriteria = setOf(
                 SegmentCriterium(
                     segs("abc", "def"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = true)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe true
@@ -904,13 +904,13 @@ class BaseSieveTest : BaseTest() {
         Config(
             pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
             pathExclusions = setOf(
-                SegmentCriterium(segs("sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Match())
+                SegmentCriterium(segs("sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
         Config(
             pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
             pathExclusions = setOf(
-                SegmentCriterium(segs("", "sdcard", "abc", "def", "ghi"), mode = SegmentCriterium.Mode.Match())
+                SegmentCriterium(segs("", "sdcard", "abc", "def", "ghi"), mode = SegmentCriterium.Mode.Equal())
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
     }
@@ -922,7 +922,7 @@ class BaseSieveTest : BaseTest() {
             pathExclusions = setOf(
                 SegmentCriterium(
                     segs("", "SDCARD", "abc", "def"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = false)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
@@ -931,7 +931,7 @@ class BaseSieveTest : BaseTest() {
             pathExclusions = setOf(
                 SegmentCriterium(
                     segs("", "SDCARD", "abc", "def", "ghi"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = true)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
@@ -1142,7 +1142,7 @@ class BaseSieveTest : BaseTest() {
             pfpExclusions = setOf(
                 SegmentCriterium(
                     segs("def", "ghi"),
-                    mode = SegmentCriterium.Mode.Match()
+                    mode = SegmentCriterium.Mode.Equal()
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
@@ -1151,7 +1151,7 @@ class BaseSieveTest : BaseTest() {
             pfpExclusions = setOf(
                 SegmentCriterium(
                     segs("abc", "def", "ghi"),
-                    mode = SegmentCriterium.Mode.Match()
+                    mode = SegmentCriterium.Mode.Equal()
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
@@ -1164,7 +1164,7 @@ class BaseSieveTest : BaseTest() {
             pfpExclusions = setOf(
                 SegmentCriterium(
                     segs("ABC", "def", "GHI"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = false)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
@@ -1173,7 +1173,7 @@ class BaseSieveTest : BaseTest() {
             pfpExclusions = setOf(
                 SegmentCriterium(
                     segs("ABC", "def", "GHI"),
-                    mode = SegmentCriterium.Mode.Match(ignoreCase = true)
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
                 )
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false

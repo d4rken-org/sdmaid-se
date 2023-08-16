@@ -43,14 +43,14 @@ class EditorOptionsCreator @Inject constructor(
             when (it.fileType) {
                 FileType.DIRECTORY -> SegmentCriterium(
                     it.segments + segs(""),
-                    mode = SegmentCriterium.Mode.Start(),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = true),
                 )
 
                 FileType.SYMBOLIC_LINK,
                 FileType.FILE,
                 FileType.UNKNOWN -> SegmentCriterium(
                     it.segments,
-                    mode = SegmentCriterium.Mode.Match(),
+                    mode = SegmentCriterium.Mode.Equal(),
                 )
             }
         }.toSet()

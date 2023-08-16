@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class NameCriterium(
     val name: String,
-    val mode: Mode,
+    override val mode: Mode,
 ) : SieveCriterium {
 
     sealed interface Mode : SieveCriterium.Mode {
@@ -33,7 +33,7 @@ data class NameCriterium(
 
         @JsonClass(generateAdapter = true)
         @Parcelize
-        data class Match(
+        data class Equal(
             val ignoreCase: Boolean = true,
         ) : Mode
     }
@@ -43,6 +43,6 @@ data class NameCriterium(
             .withSubtype(Mode.Start::class.java, "START")
             .withSubtype(Mode.Contain::class.java, "CONTAIN")
             .withSubtype(Mode.End::class.java, "END")
-            .withSubtype(Mode.Match::class.java, "MATCH")!!
+            .withSubtype(Mode.Equal::class.java, "MATCH")!!
     }
 }

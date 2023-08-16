@@ -296,12 +296,12 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Path starts with keywords</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Path contains keywords</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Path ends with keywords</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_match_label">Path is equal to keywords</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Path is equal to keywords</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Name comparison mode</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Name starts with keyword</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Name contains keyword</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Name ends with keyword</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_match_label">Name is equal to keyword</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name is equal to keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
 

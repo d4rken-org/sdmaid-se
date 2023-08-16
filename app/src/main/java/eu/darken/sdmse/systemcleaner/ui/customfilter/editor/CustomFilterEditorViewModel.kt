@@ -10,8 +10,6 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -127,97 +125,50 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
-    fun pathToTag(crit: SegmentCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
-        value = crit.segments.joinSegments(),
-        mode = when (crit.mode) {
-            is SegmentCriterium.Mode.Ancestor -> TODO()
-            is SegmentCriterium.Mode.Contain -> TaggedInputView.ChipTag.Mode.CONTAINS
-            is SegmentCriterium.Mode.End -> TaggedInputView.ChipTag.Mode.END
-            is SegmentCriterium.Mode.Match -> TaggedInputView.ChipTag.Mode.MATCH
-            is SegmentCriterium.Mode.Start -> TaggedInputView.ChipTag.Mode.START
-        },
-    )
-
-    private fun TaggedInputView.ChipTag.toPath() = SegmentCriterium(
-        segments = value.toSegs(),
-        mode = when (mode) {
-            TaggedInputView.ChipTag.Mode.START -> SegmentCriterium.Mode.Start(allowPartial = true)
-            TaggedInputView.ChipTag.Mode.CONTAINS -> SegmentCriterium.Mode.Contain(allowPartial = true)
-            TaggedInputView.ChipTag.Mode.END -> SegmentCriterium.Mode.End(allowPartial = true)
-            TaggedInputView.ChipTag.Mode.MATCH -> SegmentCriterium.Mode.Match()
-        },
-    )
-
-    fun nameToTag(crit: NameCriterium): TaggedInputView.ChipTag = TaggedInputView.ChipTag(
-        value = crit.name,
-        mode = when (crit.mode) {
-            is NameCriterium.Mode.Contain -> TaggedInputView.ChipTag.Mode.CONTAINS
-            is NameCriterium.Mode.End -> TaggedInputView.ChipTag.Mode.END
-            is NameCriterium.Mode.Match -> TaggedInputView.ChipTag.Mode.MATCH
-            is NameCriterium.Mode.Start -> TaggedInputView.ChipTag.Mode.START
-        },
-    )
-
-    private fun TaggedInputView.ChipTag.toName() = NameCriterium(
-        name = value,
-        mode = when (mode) {
-            TaggedInputView.ChipTag.Mode.START -> NameCriterium.Mode.Start()
-            TaggedInputView.ChipTag.Mode.CONTAINS -> NameCriterium.Mode.Contain()
-            TaggedInputView.ChipTag.Mode.END -> NameCriterium.Mode.End()
-            TaggedInputView.ChipTag.Mode.MATCH -> NameCriterium.Mode.Match()
-        },
-    )
-
-    fun addPath(chipTag: TaggedInputView.ChipTag) = launch {
-        val path = chipTag.toPath()
-        log(TAG) { "addPath($chipTag) -> $path" }
+    fun addPath(criterium: SegmentCriterium) = launch {
+        log(TAG) { "addPath($criterium)" }
         currentState.updateBlocking {
-            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { add(path) }
+            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { add(criterium) }
             copy(current = current.copy(pathCriteria = new))
         }
     }
 
-    fun removePath(chipTag: TaggedInputView.ChipTag) = launch {
-        val path = chipTag.toPath()
-        log(TAG) { "removePath($chipTag) -> $path" }
+    fun removePath(criterium: SegmentCriterium) = launch {
+        log(TAG) { "removePath($criterium)" }
         currentState.updateBlocking {
-            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { remove(path) }
+            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { remove(criterium) }
             copy(current = current.copy(pathCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
-    fun addNameContains(chipTag: TaggedInputView.ChipTag) = launch {
-        val name = chipTag.toName()
-        log(TAG) { "addNameContains($chipTag) -> $name" }
+    fun addNameContains(criterium: NameCriterium) = launch {
+        log(TAG) { "addNameContains($criterium)" }
         currentState.updateBlocking {
-            val new = (current.nameCriteria ?: emptySet()) + name
+            val new = (current.nameCriteria ?: emptySet()) + criterium
             copy(current = current.copy(nameCriteria = new))
         }
     }
 
-    fun removeNameContains(chipTag: TaggedInputView.ChipTag) = launch {
-        val name = chipTag.toName()
-        log(TAG) { "removeNameContains($chipTag) -> $name" }
+    fun removeNameContains(criterium: NameCriterium) = launch {
+        log(TAG) { "removeNameContains($criterium)" }
         currentState.updateBlocking {
-            val new = (current.nameCriteria ?: emptySet()) - name
+            val new = (current.nameCriteria ?: emptySet()) - criterium
             copy(current = current.copy(nameCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
-    fun addExclusion(chipTag: TaggedInputView.ChipTag) = launch {
-        val path = chipTag.toPath()
-        log(TAG) { "addExclusion($chipTag) -> $path" }
+    fun addExclusion(criterium: SegmentCriterium) = launch {
+        log(TAG) { "addExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { add(path) }
+            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { add(criterium) }
             copy(current = current.copy(exclusion = new))
         }
     }
 
-    fun removeExclusion(chipTag: TaggedInputView.ChipTag) = launch {
-        val path = chipTag.toPath()
-        log(TAG) { "removeExclusion($chipTag) -> $path" }
+    fun removeExclusion(criterium: SegmentCriterium) = launch {
+        log(TAG) { "removeExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { remove(path) }
+            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { remove(criterium) }
             copy(current = current.copy(exclusion = new.takeIf { it.isNotEmpty() }))
         }
     }

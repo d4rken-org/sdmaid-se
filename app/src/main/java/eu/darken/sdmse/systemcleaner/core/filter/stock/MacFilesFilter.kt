@@ -48,13 +48,13 @@ class MacFilesFilter @Inject constructor(
             areaTypes = targetAreas(),
             nameCriteria = setOf(
                 NameCriterium("._", mode = NameCriterium.Mode.Start()),
-                NameCriterium(".Trashes", mode = NameCriterium.Mode.Match()),
-                NameCriterium("._.Trashes", mode = NameCriterium.Mode.Match()),
-                NameCriterium(".spotlight", mode = NameCriterium.Mode.Match()),
-                NameCriterium(".Spotlight-V100", mode = NameCriterium.Mode.Match()),
-                NameCriterium(".DS_Store", mode = NameCriterium.Mode.Match()),
-                NameCriterium(".fseventsd", mode = NameCriterium.Mode.Match()),
-                NameCriterium(".TemporaryItems", mode = NameCriterium.Mode.Match()),
+                NameCriterium(".Trashes", mode = NameCriterium.Mode.Equal()),
+                NameCriterium("._.Trashes", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".spotlight", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".Spotlight-V100", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".DS_Store", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".fseventsd", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".TemporaryItems", mode = NameCriterium.Mode.Equal()),
             ),
         )
         sieve = baseSieveFactory.create(config)

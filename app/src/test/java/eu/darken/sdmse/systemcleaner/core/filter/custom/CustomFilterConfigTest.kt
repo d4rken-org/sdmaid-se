@@ -34,7 +34,7 @@ class CustomFilterConfigTest : BaseTest() {
             nameCriteria = setOf(
                 NameCriterium(
                     name = "some.apk",
-                    mode = NameCriterium.Mode.Match(ignoreCase = false)
+                    mode = NameCriterium.Mode.Equal(ignoreCase = false)
                 )
             )
         )

@@ -50,8 +50,8 @@ class WindowsFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
             nameCriteria = setOf(
-                NameCriterium("desktop.ini", mode = NameCriterium.Mode.Match()),
-                NameCriterium("thumbs.db", mode = NameCriterium.Mode.Match()),
+                NameCriterium("desktop.ini", mode = NameCriterium.Mode.Equal()),
+                NameCriterium("thumbs.db", mode = NameCriterium.Mode.Equal()),
             ),
         )
         sieve = baseSieveFactory.create(config)

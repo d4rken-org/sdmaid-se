@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.serialization.fromFile
 import eu.darken.sdmse.common.serialization.toFile
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -28,10 +30,16 @@ import javax.inject.Singleton
 @Singleton
 class CustomFilterRepo @Inject constructor(
     private val context: Context,
-    private val moshi: Moshi,
+    private val baseMoshi: Moshi,
     private val settings: SystemCleanerSettings,
 ) {
 
+    private val moshi by lazy {
+        baseMoshi.newBuilder().apply {
+            add(NameCriterium.MOSHI_ADAPTER_FACTORY)
+            add(SegmentCriterium.MOSHI_ADAPTER_FACTORY)
+        }.build()
+    }
     private val lock = Mutex()
     private val configAdapter by lazy { moshi.adapter<CustomFilterConfig>() }
     private val filterDir by lazy {
