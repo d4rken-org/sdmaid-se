@@ -41,6 +41,10 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
+            if (liveSearchBehavior.state != BottomSheetBehavior.STATE_COLLAPSED) {
+                liveSearchBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                return
+            }
             vm.cancel()
         }
     }
