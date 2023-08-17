@@ -67,6 +67,7 @@ class EditorOptionsCreator @Inject constructor(
             label = label,
             areas = targetAreas,
             pathCriteria = pathCriteria,
+            saveAsEnabled = true,
         ).also { log(TAG, INFO) { "Editor options are : $it" } }
     }
 

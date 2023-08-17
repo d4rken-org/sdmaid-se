@@ -94,8 +94,6 @@ class CustomFilterRepo @Inject constructor(
                 val path = config.identifier.configPath
                 configAdapter.toFile(config, path)
                 log(TAG) { "Saved to $path" }
-                // Reset any previous state
-                settings.clearCustomFilter(config.identifier)
             }
         }
         refresh()

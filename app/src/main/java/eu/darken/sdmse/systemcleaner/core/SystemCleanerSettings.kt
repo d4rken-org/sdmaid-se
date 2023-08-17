@@ -9,7 +9,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import javax.inject.Inject
@@ -52,11 +51,6 @@ class SystemCleanerSettings @Inject constructor(
         emptySet<FilterIdentifier>(),
         moshi
     )
-
-    suspend fun clearCustomFilter(filterId: FilterIdentifier) {
-        log(TAG) { "clearCustomFilter($filterId)" }
-        enabledCustomFilter.update { it - filterId }
-    }
 
     override val mapper = PreferenceStoreMapper(
         filterLogFilesEnabled,

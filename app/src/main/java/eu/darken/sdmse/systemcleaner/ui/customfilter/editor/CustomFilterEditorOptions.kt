@@ -12,4 +12,5 @@ data class CustomFilterEditorOptions(
     val label: String? = null,
     val pathCriteria: Set<SegmentCriterium>? = null,
     val nameCriteria: Set<NameCriterium>? = null,
+    val saveAsEnabled: Boolean = false,
 ) : Parcelable

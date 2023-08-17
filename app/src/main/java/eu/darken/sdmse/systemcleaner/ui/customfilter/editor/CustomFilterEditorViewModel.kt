@@ -17,12 +17,14 @@ import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.SystemCrawler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
+import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
@@ -47,6 +49,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     private val dataAreaManager: DataAreaManager,
     private val crawler: SystemCrawler,
     private val filterFactory: CustomFilter.Factory,
+    private val settings: SystemCleanerSettings,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<CustomFilterEditorFragmentArgs>()
@@ -92,6 +95,9 @@ class CustomFilterEditorViewModel @Inject constructor(
         log(TAG) { "save()" }
         val toSave = currentState.value().current.copy(modifiedAt = Instant.now())
         filterRepo.save(setOf(toSave))
+        if (initialOptions?.saveAsEnabled == true) {
+            settings.toggleCustomFilter(toSave.identifier, true)
+        }
         popNavStack()
     }
 
