@@ -1,12 +1,10 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import eu.darken.sdmse.common.areas.DataArea.Type
-import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.TombstonesFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -18,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
+class RecentTasksFilterTest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -30,7 +28,7 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = TombstonesFilter(
+    private fun create() = RecentTasksFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -40,16 +38,22 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
 
-        neg(Type.DATA, "tombstones", Flag.Dir)
-        pos(Type.DATA, "tombstones/$rngString", Flag.File)
+        neg(Type.DATA_SYSTEM_CE, "testdir", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "testfile", Flag.File)
+        neg(Type.DATA_SYSTEM_CE, "recent_tasks", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "recent_tasks", Flag.File)
+        pos(Type.DATA_SYSTEM_CE, "recent_tasks/test", Flag.File)
+        neg(Type.DATA_SYSTEM_CE, "recent_images", Flag.Dir)
+        neg(Type.DATA_SYSTEM_CE, "recent_images", Flag.File)
+        pos(Type.DATA_SYSTEM_CE, "recent_images/test", Flag.File)
 
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        TombstonesFilter.Factory(
+        RecentTasksFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
+                coEvery { filterRecentTasksEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -57,9 +61,9 @@ class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        TombstonesFilter.Factory(
+        RecentTasksFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
+                coEvery { filterRecentTasksEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

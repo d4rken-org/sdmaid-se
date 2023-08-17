@@ -19,7 +19,7 @@ class DirNameCheckTest : BaseTest() {
     private val testPkgId = "com.mxtech.ffmpeg.x86".toPkgId()
     private val areaInfo: AreaInfo = mockk<AreaInfo>().apply {
         every { type } returns DataArea.Type.DALVIK_PROFILE
-        every { prefixFreePath } returns listOf(testPkgId.name)
+        every { prefixFreeSegments } returns listOf(testPkgId.name)
         every { userHandle } returns UserHandle2(0)
     }
     private val pkgRepo: PkgRepo = mockk<PkgRepo>().apply {

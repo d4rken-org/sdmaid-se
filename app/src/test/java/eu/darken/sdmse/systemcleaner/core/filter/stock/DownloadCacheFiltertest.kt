@@ -1,11 +1,11 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
-import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.AnrFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class ANRFilterTest : SystemCleanerFilterTest() {
+class DownloadCacheFiltertest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -29,7 +29,7 @@ class ANRFilterTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = AnrFilter(
+    private fun create() = DownloadCacheFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -38,21 +38,25 @@ class ANRFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        neg(Type.DATA, "anr", Flag.Dir)
-        neg(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Secondary)
-        neg(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Secondary)
-        pos(Type.DATA, "anr/something.txt", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/something.bugreports", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/trace_00", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/anr_2021-11-05-07-26-10-770", Flag.File, Flag.Area.Primary)
-        pos(Type.DATA, "anr/anr_2021-11-05-12-43-35-418", Flag.File, Flag.Area.Primary)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "dalvik-cache", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "lost+found", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_log", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.Dir)
+        pos(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "recovery/$rngString", Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log", Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log.bak", Flag.File)
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        AnrFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterAnrEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -60,9 +64,9 @@ class ANRFilterTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        AnrFilter.Factory(
+        DownloadCacheFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterAnrEnabled } returns mockDataStoreValue(true)
+                coEvery { filterDownloadCacheEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

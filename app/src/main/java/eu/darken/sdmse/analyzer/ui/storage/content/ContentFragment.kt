@@ -84,6 +84,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         true
                     }
 
+                    R.id.action_create_filter_selected -> {
+                        vm.createFilter(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }

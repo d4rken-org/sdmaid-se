@@ -71,7 +71,7 @@ class DalvikProfileCSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_PROFILE
                 prefix shouldBe profilePath
-                prefixFreePath shouldBe testFile1.removePrefix(profilePath)
+                prefixFreeSegments shouldBe testFile1.removePrefix(profilePath)
                 isBlackListLocation shouldBe true
             }
         }

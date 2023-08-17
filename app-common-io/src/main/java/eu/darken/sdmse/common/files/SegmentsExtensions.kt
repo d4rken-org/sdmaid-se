@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.files
 
-import java.util.*
+import java.util.Collections
 
 typealias Segments = List<String>
 
@@ -24,14 +24,28 @@ fun Segments?.isAncestorOf(other: Segments?, ignoreCase: Boolean = false): Boole
     if (this == null || other == null) return false
     if (this.size >= other.size) return false
 
-    return indices.all { this[it].equals(other[it], ignoreCase) }
+    return other.startsWith(this, ignoreCase = ignoreCase, allowPartial = false)
 }
 
 fun Segments?.isParentOf(other: Segments?, ignoreCase: Boolean = false): Boolean {
     if (this == null || other == null) return false
     if (this.size >= other.size) return false
 
-    return isAncestorOf(other, ignoreCase) && matches(other.dropLast(1))
+    return isAncestorOf(other, ignoreCase) && matches(other.dropLast(1), ignoreCase = ignoreCase)
+}
+
+fun Segments?.isDescendentOf(other: Segments?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size <= other.size) return false
+
+    return startsWith(other, ignoreCase = ignoreCase, allowPartial = false)
+}
+
+fun Segments?.isChildOf(other: Segments?, ignoreCase: Boolean = false): Boolean {
+    if (this == null || other == null) return false
+    if (this.size <= other.size) return false
+
+    return isDescendentOf(other, ignoreCase) && this.dropLast(1).matches(other, ignoreCase = ignoreCase)
 }
 
 fun Segments?.containsSegments(
@@ -56,7 +70,11 @@ fun Segments?.containsSegments(
     }
 }
 
-fun Segments?.startsWith(other: Segments?, ignoreCase: Boolean = false): Boolean {
+fun Segments?.startsWith(
+    other: Segments?,
+    ignoreCase: Boolean = false,
+    allowPartial: Boolean = false,
+): Boolean {
     if (this == null || other == null) return false
     if (this.size < other.size) return false
 
@@ -67,16 +85,75 @@ fun Segments?.startsWith(other: Segments?, ignoreCase: Boolean = false): Boolean
         thisCase.isEmpty() -> {
             otherCase.isEmpty()
         }
-        otherCase.size == 1 -> {
-            thisCase.first().startsWith(otherCase.first())
+
+        otherCase.size == 1 -> when (allowPartial) {
+            true -> thisCase.first().startsWith(otherCase.first())
+            false -> thisCase.first() == otherCase.first()
         }
-        thisCase.size == otherCase.size -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(1)
-            match && thisCase.last().startsWith(otherCase.last())
+
+        thisCase.size == otherCase.size -> when (allowPartial) {
+            true -> {
+                val match = thisCase.dropLast(1) == otherCase.dropLast(1)
+                match && thisCase.last().startsWith(otherCase.last())
+            }
+
+            false -> thisCase == otherCase
         }
-        else -> {
-            val match = otherCase.dropLast(1) == thisCase.dropLast(thisCase.size - otherCase.size + 1)
-            match && thisCase[otherCase.size - 1].startsWith(otherCase.last())
+
+        else -> when (allowPartial) {
+            true -> {
+                val match = thisCase.dropLast(thisCase.size - otherCase.size + 1) == otherCase.dropLast(1)
+                match && thisCase[otherCase.size - 1].startsWith(otherCase.last())
+            }
+
+            false -> other.indices.all { this[it].equals(other[it], ignoreCase) }
+        }
+    }
+}
+
+fun Segments?.endsWith(
+    other: Segments?,
+    ignoreCase: Boolean = false,
+    allowPartial: Boolean = false,
+): Boolean {
+    if (this == null || other == null) return false
+    if (this.size < other.size) return false
+
+    val thisCase = if (ignoreCase) this.map { it.lowercase() } else this
+    val otherCase = if (ignoreCase) other.map { it.lowercase() } else other
+
+    return when {
+        thisCase.isEmpty() -> {
+            otherCase.isEmpty()
+        }
+
+        otherCase.size == 1 -> when (allowPartial) {
+            true -> thisCase.last().endsWith(otherCase.last())
+            false -> thisCase.last() == otherCase.last()
+        }
+
+        thisCase.size == otherCase.size -> when (allowPartial) {
+            true -> {
+                // abc/def/ghi <> c/def/ghi
+                // def/ghi <> def/ghi
+                val match = thisCase.drop(1) == otherCase.drop(1)
+                // abc <> c
+                match && thisCase.first().endsWith(otherCase.first())
+            }
+
+            false -> thisCase == otherCase
+        }
+
+        else -> when (allowPartial) {
+            true -> {
+                // abc/def/ghi <> ef/ghi
+                // ghi <> ghi
+                val match = thisCase.drop(thisCase.size - otherCase.size + 1) == otherCase.drop(1)
+                // def <> ef
+                match && thisCase[thisCase.size - otherCase.size].endsWith(otherCase.first())
+            }
+
+            false -> thisCase.subList(thisCase.size - otherCase.size, thisCase.size) == otherCase
         }
     }
 }

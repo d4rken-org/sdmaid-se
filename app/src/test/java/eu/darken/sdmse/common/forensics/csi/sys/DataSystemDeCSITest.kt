@@ -164,7 +164,7 @@ class DataSystemDeCSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SYSTEM_DE
                 prefix shouldBe base
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe false
             }
         }

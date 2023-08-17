@@ -59,7 +59,7 @@ class PublicObbCSI @Inject constructor(
         var hasKnownUnknownOwner = false
 
         val userHandle = areaInfo.userHandle
-        val dirNameAsPkg = areaInfo.prefixFreePath.first()
+        val dirNameAsPkg = areaInfo.prefixFreeSegments.first()
 
         if (pkgRepo.isInstalled(dirNameAsPkg.toPkgId(), userHandle)) {
             owners.add(Owner(dirNameAsPkg.toPkgId(), userHandle))

@@ -68,10 +68,10 @@
                     android:padding="16dp">
 
                     <eu.darken.sdmse.systemcleaner.ui.customfilter.editor.TaggedInputView
-                        android:id="@+id/path_contains_input"
+                        android:id="@+id/path_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:tivTitle="@string/systemcleaner_customfilter_editor_path_contains_label" />
+                        app:tivTitle="@string/systemcleaner_customfilter_editor_path_label" />
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodySmall"
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="@string/systemcleaner_customfilter_editor_path_contains_explanation"
+                        android:text="@string/systemcleaner_customfilter_editor_path_explanation"
                         app:layout_constraintTop_toBottomOf="@id/label_layout" />
 
                 </LinearLayout>
@@ -99,10 +99,10 @@
                     android:padding="16dp">
 
                     <eu.darken.sdmse.systemcleaner.ui.customfilter.editor.TaggedInputView
-                        android:id="@+id/name_contain_input"
+                        android:id="@+id/name_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:tivTitle="@string/systemcleaner_customfilter_editor_name_contains_label" />
+                        app:tivTitle="@string/systemcleaner_customfilter_editor_name_label" />
 
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/TextAppearance.Material3.BodySmall"
@@ -110,38 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="@string/systemcleaner_customfilter_editor_name_contains_explanation"
-                        app:layout_constraintTop_toBottomOf="@id/label_layout" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                style="@style/Widget.Material3.CardView.Filled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="8dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <eu.darken.sdmse.systemcleaner.ui.customfilter.editor.TaggedInputView
-                        android:id="@+id/name_ends_with_input"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:tivTitle="@string/systemcleaner_customfilter_editor_name_ending_label" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/TextAppearance.Material3.BodySmall"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/systemcleaner_customfilter_editor_name_ending_explanation"
+                        android:text="@string/systemcleaner_customfilter_editor_name_explanation"
                         app:layout_constraintTop_toBottomOf="@id/label_layout" />
 
                 </LinearLayout>

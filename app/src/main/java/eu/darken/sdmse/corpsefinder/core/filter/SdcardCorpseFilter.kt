@@ -124,7 +124,7 @@ class SdcardCorpseFilter @Inject constructor(
                 log(TAG) { "Resolved $marker to existing $potentialCorpses" }
                 // marker + List<AreaInfo> --> areaInfo + List<Owner>
                 potentialCorpses.mapNotNull { areaInfo ->
-                    val match = marker.match(areaInfo.type, areaInfo.prefixFreePath) ?: return@mapNotNull null
+                    val match = marker.match(areaInfo.type, areaInfo.prefixFreeSegments) ?: return@mapNotNull null
                     areaInfo to match.packageNames.map { Owner(it, areaInfo.userHandle, match.flags) }
                 }
             }

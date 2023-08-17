@@ -19,9 +19,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -53,15 +55,21 @@ class TempFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            exclusions = setOf(
-                BaseSieve.Exclusion(segs("backup", "pending")),
-                BaseSieve.Exclusion(segs("cache", "recovery")),
-                BaseSieve.Exclusion(
-                    segs(
-                        "com.drweb.pro.market",
-                        "files",
-                        "pro_settings"
-                    )
+            nameCriteria = setOf(
+                NameCriterium(".tmp", mode = NameCriterium.Mode.End()),
+                NameCriterium(".temp", mode = NameCriterium.Mode.End()),
+                NameCriterium(".mmsyscache", mode = NameCriterium.Mode.Equal()),
+                NameCriterium("sdm_write_test-", mode = NameCriterium.Mode.Start()),
+                NameCriterium(SdcardsModule.TEST_PREFIX, mode = NameCriterium.Mode.Start()),
+            ),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("backup", "pending"), mode = SegmentCriterium.Mode.Ancestor()),
+                SegmentCriterium(segs("cache", "recovery"), mode = SegmentCriterium.Mode.Ancestor()),
+            ),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("com.drweb.pro.market", "files", "pro_settings"),
+                    mode = SegmentCriterium.Mode.Ancestor()
                 ), // TODO move to exclusion manager?
             )
         )
@@ -71,25 +79,12 @@ class TempFilesFilter @Inject constructor(
         log(TAG) { "initialized()" }
     }
 
-    private val tempSuffixes = setOf(
-        ".tmp",
-        ".temp",
-    )
     private val sdmTempFileRegex = Regex(
         "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
     )
 
     override suspend fun matches(item: APathLookup<*>): Boolean {
-        val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
-
-        return when {
-            tempSuffixes.any { item.name.endsWith(it) } -> true
-            item.name == ".mmsyscache" -> true
-            item.name.startsWith("sdm_write_test-") && sdmTempFileRegex.matchEntire(item.name) != null -> true
-            item.name.startsWith(SdcardsModule.TEST_PREFIX) -> true
-            else -> false
-        }
+        return sieve.match(item).matches
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

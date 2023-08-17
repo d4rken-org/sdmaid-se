@@ -237,7 +237,7 @@ class AppScanner @Inject constructor(
                     val indirectMatch = clutterMarkerForPkg
                         .filter { it.areaType == candidate.type }
                         .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
-                        .any { it.match(candidate.type, candidate.prefixFreePath) != null }
+                        .any { it.match(candidate.type, candidate.prefixFreeSegments) != null }
                     if (indirectMatch) interestingPaths.add(candidate)
                 }
 
@@ -248,7 +248,7 @@ class AppScanner @Inject constructor(
                         .filter { it.areaType == topLevelArea.type }
                         .filter { !it.hasFlags(Marker.Flag.CUSTODIAN) }
                         .filter { it.isDirectMatch } // Can't reverse lookup regex markers
-                        .filter { it.segments.startsWith(topLevelArea.prefixFreePath, ignoreCase = true) }
+                        .filter { it.segments.startsWith(topLevelArea.prefixFreeSegments, ignoreCase = true) }
                         .map { topLevelArea.prefix.child(*it.segments.toTypedArray()) }
                         .filter { it.exists(gatewaySwitch) }
                         .onEach { log(TAG) { "Nested marker target exists: $it" } }
@@ -364,8 +364,8 @@ class AppScanner @Inject constructor(
                     .filter { areaInfo ->
                         val excluded = pathExclusions.any { it.match(areaInfo.file) }
                         val edgeCase = !useRoot && area.type == DataArea.Type.PUBLIC_DATA
-                                && areaInfo.prefixFreePath.size >= 2
-                                && areaInfo.prefixFreePath[1] == "cache"
+                                && areaInfo.prefixFreeSegments.size >= 2
+                                && areaInfo.prefixFreeSegments[1] == "cache"
                         if (excluded && edgeCase) {
                             log(TAG, WARN) { "Exclusion skipped to do default cache coverage: $areaInfo" }
                         } else if (excluded) {

@@ -13,9 +13,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 
 class CustomFilter @AssistedInject constructor(
     @Assisted private val filterConfig: CustomFilterConfig,
@@ -45,14 +45,9 @@ class CustomFilter @AssistedInject constructor(
                     FileType.UNKNOWN -> BaseSieve.TargetType.FILE
                 }
             }?.toSet(),
-            pathContains = filterConfig.pathContains,
-            exclusions = filterConfig.exclusion?.map { BaseSieve.Exclusion(it, allowPartial = true) }?.toSet(),
-            nameContains = filterConfig.nameContains,
-            nameSuffixes = filterConfig.nameEndsWith,
-            minimumAge = filterConfig.ageMinimum,
-            maximumAge = filterConfig.ageMaximum,
-            minimumSize = filterConfig.sizeMinimum,
-            maximumSize = filterConfig.sizeMaximum,
+            pathCriteria = filterConfig.pathCriteria,
+            nameCriteria = filterConfig.nameCriteria,
+            pathExclusions = filterConfig.exclusion,
         )
         sieve = baseSieveFactory.create(sieveConfig)
         log(TAG) { "initialized()" }

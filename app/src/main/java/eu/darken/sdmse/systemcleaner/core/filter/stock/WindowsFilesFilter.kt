@@ -17,9 +17,10 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -45,19 +46,17 @@ class WindowsFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^[\\W\\w]+/desktop\\.ini$", RegexOption.IGNORE_CASE),
-            Regex("^[\\W\\w]+/thumbs\\.db$", RegexOption.IGNORE_CASE)
-        )
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            regexes = regexes,
+            nameCriteria = setOf(
+                NameCriterium("desktop.ini", mode = NameCriterium.Mode.Equal()),
+                NameCriterium("thumbs.db", mode = NameCriterium.Mode.Equal()),
+            ),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
-
 
     override suspend fun matches(item: APathLookup<*>): Boolean {
         return sieve.match(item).matches

@@ -10,24 +10,27 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.Segments
-import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.SystemCrawler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
+import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
@@ -46,6 +49,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     private val dataAreaManager: DataAreaManager,
     private val crawler: SystemCrawler,
     private val filterFactory: CustomFilter.Factory,
+    private val settings: SystemCleanerSettings,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<CustomFilterEditorFragmentArgs>()
@@ -63,7 +67,10 @@ class CustomFilterEditorViewModel @Inject constructor(
 
         val newConfig = originalConfig ?: CustomFilterConfig(
             identifier = identifier,
-            label = "",
+            label = initialOptions!!.label ?: "",
+            areas = initialOptions.areas,
+            pathCriteria = initialOptions.pathCriteria,
+            nameCriteria = initialOptions.nameCriteria,
         )
 
         State(
@@ -88,6 +95,9 @@ class CustomFilterEditorViewModel @Inject constructor(
         log(TAG) { "save()" }
         val toSave = currentState.value().current.copy(modifiedAt = Instant.now())
         filterRepo.save(setOf(toSave))
+        if (initialOptions?.saveAsEnabled == true) {
+            settings.toggleCustomFilter(toSave.identifier, true)
+        }
         popNavStack()
     }
 
@@ -121,86 +131,50 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
     }
 
-    fun pathToTag(segments: Segments): TaggedInputView.Tag = TaggedInputView.Tag(
-        value = segments.joinSegments()
-    )
-
-    private fun TaggedInputView.Tag.toPath(): Segments = value.toSegs()
-
-    fun nameToTag(name: String): TaggedInputView.Tag = TaggedInputView.Tag(
-        value = name
-    )
-
-    private fun TaggedInputView.Tag.toName(): String = value
-
-    fun addPath(tag: TaggedInputView.Tag) = launch {
-        val path: Segments = tag.toPath()
-        log(TAG) { "addPath($tag) -> $path" }
+    fun addPath(criterium: SegmentCriterium) = launch {
+        log(TAG) { "addPath($criterium)" }
         currentState.updateBlocking {
-            val new = (current.pathContains ?: emptySet()).toMutableSet().apply { add(path) }
-            copy(current = current.copy(pathContains = new))
+            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { add(criterium) }
+            copy(current = current.copy(pathCriteria = new))
         }
     }
 
-    fun removePath(tag: TaggedInputView.Tag) = launch {
-        val path: Segments = tag.toPath()
-        log(TAG) { "removePath($tag) -> $path" }
+    fun removePath(criterium: SegmentCriterium) = launch {
+        log(TAG) { "removePath($criterium)" }
         currentState.updateBlocking {
-            val new = (current.pathContains ?: emptySet()).toMutableSet().apply { remove(path) }
-            copy(current = current.copy(pathContains = new.takeIf { it.isNotEmpty() }))
+            val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { remove(criterium) }
+            copy(current = current.copy(pathCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
-    fun addNameContains(tag: TaggedInputView.Tag) = launch {
-        val name = tag.toName()
-        log(TAG) { "addNameContains($tag) -> $name" }
+    fun addNameContains(criterium: NameCriterium) = launch {
+        log(TAG) { "addNameContains($criterium)" }
         currentState.updateBlocking {
-            val new = (current.nameContains ?: emptySet()) + name
-            copy(current = current.copy(nameContains = new))
+            val new = (current.nameCriteria ?: emptySet()) + criterium
+            copy(current = current.copy(nameCriteria = new))
         }
     }
 
-    fun removeNameContains(tag: TaggedInputView.Tag) = launch {
-        val name = tag.toName()
-        log(TAG) { "removeNameContains($tag) -> $name" }
+    fun removeNameContains(criterium: NameCriterium) = launch {
+        log(TAG) { "removeNameContains($criterium)" }
         currentState.updateBlocking {
-            val new = (current.nameContains ?: emptySet()) - name
-            copy(current = current.copy(nameContains = new.takeIf { it.isNotEmpty() }))
+            val new = (current.nameCriteria ?: emptySet()) - criterium
+            copy(current = current.copy(nameCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
-    fun addNameEndsWith(tag: TaggedInputView.Tag) = launch {
-        val ending = tag.toName()
-        log(TAG) { "addNameEndsWith($tag) -> $ending" }
+    fun addExclusion(criterium: SegmentCriterium) = launch {
+        log(TAG) { "addExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.nameEndsWith ?: emptySet()) + ending
-            copy(current = current.copy(nameEndsWith = new))
-        }
-    }
-
-    fun removeNameEndsWith(tag: TaggedInputView.Tag) = launch {
-        val ending = tag.toName()
-        log(TAG) { "removeNameEndsWith($tag) -> $ending" }
-        currentState.updateBlocking {
-            val new = (current.nameEndsWith ?: emptySet()) - ending
-            copy(current = current.copy(nameEndsWith = new.takeIf { it.isNotEmpty() }))
-        }
-    }
-
-    fun addExclusion(tag: TaggedInputView.Tag) = launch {
-        val path: Segments = tag.toPath()
-        log(TAG) { "addExclusion($tag) -> $path" }
-        currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { add(path) }
+            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { add(criterium) }
             copy(current = current.copy(exclusion = new))
         }
     }
 
-    fun removeExclusion(tag: TaggedInputView.Tag) = launch {
-        val path: Segments = tag.toPath()
-        log(TAG) { "removeExclusion($tag) -> $path" }
+    fun removeExclusion(criterium: SegmentCriterium) = launch {
+        log(TAG) { "removeExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { remove(path) }
+            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { remove(criterium) }
             copy(current = current.copy(exclusion = new.takeIf { it.isNotEmpty() }))
         }
     }
@@ -240,6 +214,15 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     val liveSearch = currentState.flow
+        .withPrevious()
+        .filter { (old, new) ->
+            if (old == null) return@filter true
+            // Don't restart live search if just the label changes
+            val old2 = old.copy(current = old.current.copy(label = ""))
+            val new2 = new.copy(current = new.current.copy(label = ""))
+            old2 != new2
+        }
+        .map { it.second }
         .flatMapLatest { state ->
             if (state.current.isUnderdefined) {
                 log(TAG) { "Live search: Skipping due to under defined config" }

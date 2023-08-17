@@ -30,7 +30,7 @@ class SubDirToPkgCheck @Inject constructor(
     override suspend fun process(areaInfo: AreaInfo): AppSourceCheck.Result {
         if (!hasApiLevel(30)) return AppSourceCheck.Result()
 
-        val potPkgNames = areaInfo.prefixFreePath
+        val potPkgNames = areaInfo.prefixFreeSegments
         if (potPkgNames.isEmpty()) return AppSourceCheck.Result()
 
         val topDir = potPkgNames[0]

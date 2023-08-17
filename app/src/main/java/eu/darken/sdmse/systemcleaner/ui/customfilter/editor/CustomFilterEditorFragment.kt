@@ -2,7 +2,6 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
@@ -26,8 +25,9 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
-import java.io.File
 import kotlin.math.roundToInt
 
 
@@ -41,6 +41,10 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
+            if (liveSearchBehavior.state != BottomSheetBehavior.STATE_COLLAPSED) {
+                liveSearchBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                return
+            }
             vm.cancel()
         }
     }
@@ -75,36 +79,25 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             vm.updateLabel(text?.toString() ?: "")
         }
 
-        ui.pathContainsInput.apply {
-            onUserAddedTag = { tag -> vm.addPath(tag) }
-            onUserRemovedTag = { tag -> vm.removePath(tag) }
+        ui.pathInput.apply {
+            type = TaggedInputView.Type.SEGMENTS
+            onUserAddedTag = { tag -> vm.addPath(tag as SegmentCriterium) }
+            onUserRemovedTag = { tag -> vm.removePath(tag as SegmentCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
-        val nonPathInputFilter = InputFilter { source, start, end, dest, dstart, dend ->
-            for (i in start until end) {
-                if (source[i] == File.separatorChar) return@InputFilter ""
-            }
-            null
-        }
-
-        ui.nameContainInput.apply {
-            inputFilter = nonPathInputFilter
-            onUserAddedTag = { tag -> vm.addNameContains(tag) }
-            onUserRemovedTag = { tag -> vm.removeNameContains(tag) }
+        ui.nameInput.apply {
+            type = TaggedInputView.Type.NAME
+            onUserAddedTag = { tag -> vm.addNameContains(tag as NameCriterium) }
+            onUserRemovedTag = { tag -> vm.removeNameContains(tag as NameCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
-        }
 
-        ui.nameEndsWithInput.apply {
-            inputFilter = nonPathInputFilter
-            onUserAddedTag = { tag -> vm.addNameEndsWith(tag) }
-            onUserRemovedTag = { tag -> vm.removeNameEndsWith(tag) }
-            onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
         ui.exclusionsInput.apply {
-            onUserAddedTag = { tag -> vm.addExclusion(tag) }
-            onUserRemovedTag = { tag -> vm.removeExclusion(tag) }
+            type = TaggedInputView.Type.SEGMENTS
+            onUserAddedTag = { tag -> vm.addExclusion(tag as SegmentCriterium) }
+            onUserRemovedTag = { tag -> vm.removeExclusion(tag as SegmentCriterium) }
             onFocusChange = { _, hasFocus -> if (hasFocus) closeLiveSearch() }
         }
 
@@ -146,10 +139,15 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             toolbar.subtitle = config.label
             if (labelInput.text.isNullOrEmpty()) labelInput.setText(config.label)
 
-            pathContainsInput.setTags(config.pathContains?.map { vm.pathToTag(it) } ?: emptyList())
-            nameContainInput.setTags(config.nameContains?.map { vm.nameToTag(it) } ?: emptyList())
-            nameEndsWithInput.setTags(config.nameEndsWith?.map { vm.nameToTag(it) } ?: emptyList())
-            exclusionsInput.setTags(config.exclusion?.map { vm.pathToTag(it) } ?: emptyList())
+            pathInput.setTags(
+                config.pathCriteria?.toList() ?: emptyList()
+            )
+            nameInput.setTags(
+                config.nameCriteria?.toList() ?: emptyList()
+            )
+            exclusionsInput.setTags(
+                config.exclusion?.toList() ?: emptyList()
+            )
 
             areaChips.entries.forEach { (type, chip) ->
                 chip.isChecked = config.areas?.contains(type) == true

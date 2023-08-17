@@ -22,9 +22,11 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -49,8 +51,8 @@ class SuperfluousApksFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            nameSuffixes = setOf(".apk"),
-            exclusions = EXCLUSIONS
+            nameCriteria = setOf(NameCriterium(".apk", mode = NameCriterium.Mode.End())),
+            pathExclusions = EXCLUSIONS
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
@@ -95,11 +97,11 @@ class SuperfluousApksFilter @Inject constructor(
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "SuperfluousApks")
         val EXCLUSIONS = setOf(
-            BaseSieve.Exclusion(segs("Backup")),
-            BaseSieve.Exclusion(segs("Backups")),
-            BaseSieve.Exclusion(segs("Recover")),
-            BaseSieve.Exclusion(segs("Recovery")),
-            BaseSieve.Exclusion(segs("TWRP")),
+            SegmentCriterium(segs("Backup"), mode = SegmentCriterium.Mode.Contain()),
+            SegmentCriterium(segs("Backups"), mode = SegmentCriterium.Mode.Contain()),
+            SegmentCriterium(segs("Recover"), mode = SegmentCriterium.Mode.Contain()),
+            SegmentCriterium(segs("Recovery"), mode = SegmentCriterium.Mode.Contain()),
+            SegmentCriterium(segs("TWRP"), mode = SegmentCriterium.Mode.Contain()),
         )
     }
 }

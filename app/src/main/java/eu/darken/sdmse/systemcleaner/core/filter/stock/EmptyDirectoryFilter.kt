@@ -19,9 +19,11 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -82,13 +84,13 @@ class EmptyDirectoryFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
-            exclusions = setOf(
-                BaseSieve.Exclusion(segs("mnt", "asec")),
-                BaseSieve.Exclusion(segs("mnt", "obb")),
-                BaseSieve.Exclusion(segs("mnt", "secure")),
-                BaseSieve.Exclusion(segs("mnt", "shell")),
-                BaseSieve.Exclusion(segs("Android", "obb")),
-                BaseSieve.Exclusion(segs(".stfolder")),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("mnt", "asec"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "obb"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "secure"), mode = Mode.Contain()),
+                SegmentCriterium(segs("mnt", "shell"), mode = Mode.Contain()),
+                SegmentCriterium(segs("Android", "obb"), mode = Mode.Contain()),
+                SegmentCriterium(segs(".stfolder"), mode = Mode.Contain()),
             ),
         )
         sieve = baseSieveFactory.create(config)
@@ -103,7 +105,7 @@ class EmptyDirectoryFilter @Inject constructor(
         if (Bugs.isTrace) log(TAG, VERBOSE) { "Sieve match: ${item.path}" }
 
         val areaInfo = sieveResult.areaInfo!!
-        val prefixFreePath = areaInfo.prefixFreePath
+        val prefixFreePath = areaInfo.prefixFreeSegments
         if (prefixFreePath.isEmpty()) return false
 
         if (protectedBaseDirs.any { it.matches(prefixFreePath, ignoreCase = true) }) return false

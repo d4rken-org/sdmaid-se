@@ -6,7 +6,14 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ApkCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.CustomDexOptCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikCandidateGenerator
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ExistCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.OddOnesCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.RuntimeTool
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.SourceDirCheck
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
@@ -149,7 +156,7 @@ class CSIDalvikDexTest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DALVIK_DEX
                 prefix shouldBe path
-                prefixFreePath shouldBe testFile1.removePrefix(path)
+                prefixFreeSegments shouldBe testFile1.removePrefix(path)
                 isBlackListLocation shouldBe true
             }
         }

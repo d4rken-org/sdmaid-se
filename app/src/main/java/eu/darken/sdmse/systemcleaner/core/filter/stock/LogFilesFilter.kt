@@ -21,9 +21,12 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SieveCriterium.*
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -61,14 +64,14 @@ class LogFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            nameSuffixes = setOf(".log"),
-            exclusions = setOf(
-                BaseSieve.Exclusion(segs(".indexeddb.leveldb"), allowPartial = true),
-                BaseSieve.Exclusion(segs("t", "Paths")),
-                BaseSieve.Exclusion(segs("app_chrome")),
-                BaseSieve.Exclusion(segs("app_webview")),
-                BaseSieve.Exclusion(segs("leveldb")),
-                BaseSieve.Exclusion(segs("shared_proto_db")),
+            nameCriteria = setOf(NameCriterium(".log", mode = NameCriterium.Mode.End())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs(".indexeddb.leveldb"), mode = SegmentCriterium.Mode.Contain(allowPartial = true)),
+                SegmentCriterium(segs("t", "Paths"), mode = SegmentCriterium.Mode.Contain()),
+                SegmentCriterium(segs("app_chrome"), mode = SegmentCriterium.Mode.Contain()),
+                SegmentCriterium(segs("app_webview"), mode = SegmentCriterium.Mode.Contain()),
+                SegmentCriterium(segs("leveldb"), mode = SegmentCriterium.Mode.Contain()),
+                SegmentCriterium(segs("shared_proto_db"), mode = SegmentCriterium.Mode.Contain()),
             )
         )
         sieve = baseSieveFactory.create(config)

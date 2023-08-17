@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.util.*
+import java.util.UUID
 
 class PrivateDataCSITest : BaseCSITest() {
 
@@ -113,7 +113,7 @@ class PrivateDataCSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.PRIVATE_DATA
                 prefix shouldBe base
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe true
             }
         }

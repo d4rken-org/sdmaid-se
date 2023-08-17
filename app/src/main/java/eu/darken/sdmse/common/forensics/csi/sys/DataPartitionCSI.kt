@@ -56,7 +56,7 @@ class DataPartitionCSI @Inject constructor(
 
         val owners = mutableSetOf<Owner>()
 
-        var bestBet = areaInfo.prefixFreePath
+        var bestBet = areaInfo.prefixFreeSegments
 
         while (bestBet.isNotEmpty()) {
             val matches = clutterRepo.match(areaInfo.type, bestBet)

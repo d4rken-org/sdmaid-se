@@ -88,7 +88,7 @@ class DataSDExt2CSITest : BaseCSITest() {
             processor.identifyArea(testFile1)!!.apply {
                 type shouldBe DataArea.Type.DATA_SDEXT2
                 prefix shouldBe base
-                prefixFreePath shouldBe testFile1.removePrefix(base)
+                prefixFreeSegments shouldBe testFile1.removePrefix(base)
                 isBlackListLocation shouldBe false
             }
         }

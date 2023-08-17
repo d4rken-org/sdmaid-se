@@ -15,6 +15,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_create_filter_selected"
+        android:icon="@drawable/filter_plus"
+        android:title="@string/systemcleaner_customfilter_create_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/baseline_select_all_24"
         android:title="@string/general_list_select_all_action"

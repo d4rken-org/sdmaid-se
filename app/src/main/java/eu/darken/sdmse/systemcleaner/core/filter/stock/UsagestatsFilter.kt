@@ -21,9 +21,10 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -48,8 +49,8 @@ class UsagestatsFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            pathAncestors = setOf(
-                segs("usagestats"),
+            pfpCriteria = setOf(
+                SegmentCriterium(segs("usagestats"), mode = SegmentCriterium.Mode.Ancestor()),
             ),
             regexes = setOf(
                 Regex(".+/usagestats/[0-9]+/.+")

@@ -438,7 +438,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 coEvery { fileForensics.identifyArea(mockPath) } returns mockk<AreaInfo>().apply {
                     every { type } returns areaType
                     every { prefix } returns area.path
-                    every { prefixFreePath } returns mockPath.segments.drop(prefix.segments.size)
+                    every { prefixFreeSegments } returns mockPath.segments.drop(prefix.segments.size)
                 }
 
                 coEvery { gatewaySwitch.canRead(mockPath) } returns true

@@ -18,9 +18,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -46,16 +48,16 @@ class AnalyticsFilter @Inject constructor(
 
     override suspend fun initialize() {
         val pathContains = setOf(
-            segs(".bugsense")
+            SegmentCriterium(segs(".bugsense"), mode = SegmentCriterium.Mode.Contain())
         )
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))
         )
 
-        val config = BaseSieve.Config(
+        val config = Config(
             areaTypes = targetAreas(),
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
-            pathContains = pathContains,
+            targetTypes = setOf(TargetType.FILE),
+            pathCriteria = pathContains,
             regexes = regexes,
         )
         sieve = baseSieveFactory.create(config)

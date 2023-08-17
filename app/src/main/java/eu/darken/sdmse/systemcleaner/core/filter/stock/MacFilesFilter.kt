@@ -17,10 +17,10 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import java.io.File
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -44,19 +44,18 @@ class MacFilesFilter @Inject constructor(
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\._[^/]+)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\._\\.Trashes)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.spotlight)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Spotlight-V100)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.DS_Store)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.fseventsd)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.TemporaryItems)$".replace("/", "\\" + File.separator)),
-        )
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
-            regexes = regexes,
+            nameCriteria = setOf(
+                NameCriterium("._", mode = NameCriterium.Mode.Start()),
+                NameCriterium(".Trashes", mode = NameCriterium.Mode.Equal()),
+                NameCriterium("._.Trashes", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".spotlight", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".Spotlight-V100", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".DS_Store", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".fseventsd", mode = NameCriterium.Mode.Equal()),
+                NameCriterium(".TemporaryItems", mode = NameCriterium.Mode.Equal()),
+            ),
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

@@ -76,7 +76,7 @@ class PrivateDataCSI @Inject constructor(
         val owners = mutableSetOf<Owner>()
 
         val userHandle = areaInfo.userHandle
-        val dirName = areaInfo.prefixFreePath.first()
+        val dirName = areaInfo.prefixFreeSegments.first()
 
         if (pkgRepo.isInstalled(dirName.toPkgId(), userHandle)) {
             owners.add(Owner(dirName.toPkgId(), userHandle))

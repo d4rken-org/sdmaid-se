@@ -22,7 +22,7 @@ data class AreaInfo(
     // TODO would subList have noticeably better performance?
     @IgnoredOnParcel internal var prefixCache: Segments? = null
 
-    val prefixFreePath: Segments
+    val prefixFreeSegments: Segments
         //        get() = file.segments.drop(prefix.segments.size)
         get() = prefixCache
             ?: run {

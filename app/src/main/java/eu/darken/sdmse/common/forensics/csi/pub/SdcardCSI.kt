@@ -59,7 +59,7 @@ class SdcardCSI @Inject constructor(
         require(hasJurisdiction(areaInfo.type)) { "Wrong jurisdiction: ${areaInfo.type}" }
 
         // Chop down path till we get a hit
-        var bestBet = areaInfo.prefixFreePath
+        var bestBet = areaInfo.prefixFreeSegments
         val owners = mutableSetOf<Owner>()
         while (bestBet.isNotEmpty()) {
             val matches = clutterRepo.match(areaInfo.type, bestBet)

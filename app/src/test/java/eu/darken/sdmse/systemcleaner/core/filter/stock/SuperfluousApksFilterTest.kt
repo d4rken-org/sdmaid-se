@@ -1,13 +1,12 @@
-package eu.darken.sdmse.systemcleaner.core.filter.generic
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.SuperfluousApksFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.mockk.every
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach

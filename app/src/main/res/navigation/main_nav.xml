@@ -404,6 +404,10 @@
             android:id="@+id/action_customFilterListFragment_to_customFilterEditorFragment"
             app:destination="@id/customFilterEditorFragment" />
     </fragment>
+
+    <action
+        android:id="@+id/goToCustomFilterEditor"
+        app:destination="@id/customFilterEditorFragment" />
     <fragment
         android:id="@+id/customFilterEditorFragment"
         android:name="eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment"

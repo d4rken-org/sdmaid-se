@@ -1,12 +1,11 @@
-package eu.darken.sdmse.systemcleaner.core.filter.specific
+package eu.darken.sdmse.systemcleaner.core.filter.stock
 
-import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.filter.stock.DataLocalTmpFilter
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -18,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.mockDataStoreValue
 
-class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
+class TombstonesFilterFactoryTest : SystemCleanerFilterTest() {
 
     @BeforeEach
     override fun setup() {
@@ -30,7 +29,7 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = DataLocalTmpFilter(
+    private fun create() = TombstonesFilter(
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
@@ -39,17 +38,18 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        neg(DataArea.Type.DATA, "local", Flag.Dir)
-        neg(DataArea.Type.DATA, "local/tmp", Flag.Dir)
-        pos(DataArea.Type.DATA, "local/tmp/$rngString", Flag.Dir)
-        pos(DataArea.Type.DATA, "local/tmp/$rngString", Flag.File)
+
+        neg(Type.DATA, "tombstones", Flag.Dir)
+        neg(Type.DATA, "tombstones", Flag.File)
+        pos(Type.DATA, "tombstones/$rngString", Flag.File)
+
         confirm(create())
     }
 
     @Test fun `only with root`() = runTest {
-        DataLocalTmpFilter.Factory(
+        TombstonesFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterLocalTmpEnabled } returns mockDataStoreValue(true)
+                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {
@@ -57,9 +57,9 @@ class DataLocalTmpFilterFactoryTest : SystemCleanerFilterTest() {
             }
         ).isEnabled() shouldBe true
 
-        DataLocalTmpFilter.Factory(
+        TombstonesFilter.Factory(
             settings = mockk<SystemCleanerSettings>().apply {
-                coEvery { filterLocalTmpEnabled } returns mockDataStoreValue(true)
+                coEvery { filterTombstonesEnabled } returns mockDataStoreValue(true)
             },
             filterProvider = mockk(),
             rootManager = mockk<RootManager>().apply {

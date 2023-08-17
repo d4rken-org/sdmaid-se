@@ -14,6 +14,7 @@ import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
+import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.types.CustomFilterDefaultVH
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -46,10 +47,7 @@ class CustomFilterListViewModel @Inject constructor(
                 isEnabled = enabledFilters.contains(config.identifier),
                 onItemClick = {
                     launch {
-                        systemCleanerSettings.enabledCustomFilter.update {
-                            val newId = config.identifier
-                            if (it.contains(newId)) it - newId else it + newId
-                        }
+                        systemCleanerSettings.toggleCustomFilter(config.identifier)
                     }
                 },
                 onEditClick = { edit(it) }

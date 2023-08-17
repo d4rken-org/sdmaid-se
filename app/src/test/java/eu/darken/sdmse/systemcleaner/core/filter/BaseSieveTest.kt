@@ -1,13 +1,18 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.systemcleaner.core.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.Config
+import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.TargetType
+import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -33,14 +38,14 @@ class BaseSieveTest : BaseTest() {
         }
     }
 
-    private fun create(config: BaseSieve.Config) = BaseSieve(
-        config = config,
+    private suspend fun Config.match(subject: APathLookup<*>) = BaseSieve(
+        config = this,
         fileForensics = fileForensics
-    )
+    ).match(subject)
 
     @Test
     fun `matching nothing`() = runTest {
-        create(BaseSieve.Config()).match(baseLookup).matches shouldBe true
+        Config().match(baseLookup).matches shouldBe true
     }
 
     private val baseLookup = LocalPathLookup(
@@ -53,124 +58,1204 @@ class BaseSieveTest : BaseTest() {
 
     @Test
     fun `just filetypes`() = runTest {
-        val configForFile = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE)
+        val configForFile = Config(
+            targetTypes = setOf(TargetType.FILE)
         )
-        val configForDir = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY)
+        val configForDir = Config(
+            targetTypes = setOf(TargetType.DIRECTORY)
         )
         val aFile = baseLookup.copy(
             fileType = FileType.FILE
         )
-        create(configForFile).match(aFile).matches shouldBe true
-        create(configForDir).match(aFile).matches shouldBe false
+        configForFile.match(aFile).matches shouldBe true
+        configForDir.match(aFile).matches shouldBe false
 
         val aDirectory = baseLookup.copy(
             fileType = FileType.DIRECTORY
         )
-        create(configForFile).match(aDirectory).matches shouldBe false
-        create(configForDir).match(aDirectory).matches shouldBe true
+        configForFile.match(aDirectory).matches shouldBe false
+        configForDir.match(aDirectory).matches shouldBe true
     }
 
     @Test
-    fun `just path contains`() = runTest {
-        create(BaseSieve.Config(pathContains = setOf(segs("bc/12")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-
-        create(BaseSieve.Config(pathContains = setOf(segs("123")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("/123")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("/sdcard")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-
-        create(BaseSieve.Config(pathContains = setOf(segs("123/")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe false
-
-        create(BaseSieve.Config(pathContains = setOf(segs("abc")))).match(
-            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
-        ).matches shouldBe true
-        create(BaseSieve.Config(pathContains = setOf(segs("abc")), ignoreCase = false)).match(
-            baseLookup.copy(lookedUp = basePath.child("/ABC/123"))
-        ).matches shouldBe false
+    fun `SegmentCriterium default values`() {
+        SegmentCriterium.Mode.Ancestor().apply {
+            ignoreCase shouldBe true
+        }
+        SegmentCriterium.Mode.Start().apply {
+            allowPartial shouldBe false
+            ignoreCase shouldBe true
+        }
+        SegmentCriterium.Mode.Contain().apply {
+            allowPartial shouldBe false
+            ignoreCase shouldBe true
+        }
+        SegmentCriterium.Mode.End().apply {
+            allowPartial shouldBe false
+            ignoreCase shouldBe true
+        }
+        SegmentCriterium.Mode.Equal().apply {
+            ignoreCase shouldBe true
+        }
     }
 
     @Test
-    fun `just path ancestors`() = runTest {
-        val config = BaseSieve.Config(
-            pathAncestors = setOf(segs("abc"))
-        )
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc"))
-        ).matches shouldBe false
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/def"))
-        ).matches shouldBe false
-    }
-
-    @Test
-    fun `just path prefixes`() = runTest {
-        val config = BaseSieve.Config(
-            pathPrefixes = setOf(segs("abc", "12"))
-        )
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123/456"))
-        ).matches shouldBe true
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc"))
-        ).matches shouldBe false
-        create(config).match(
-            baseLookup.copy(lookedUp = basePath.child("/def"))
-        ).matches shouldBe false
-    }
-
-    @Test
-    fun `just exclusions`() = runTest {
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = true)))
-        ).match(
-            baseLookup.copy(lookedUp = basePath.child("/def"))
-        ).matches shouldBe true
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("abc"), allowPartial = false)))
-        ).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe false
-
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = false)))
-        ).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe true
-        create(
-            BaseSieve.Config(exclusions = setOf(BaseSieve.Exclusion(segs("bc"), allowPartial = true)))
-        ).match(
-            baseLookup.copy(lookedUp = basePath.child("/abc/123"))
-        ).matches shouldBe false
+    fun `NameCriterium default values`() {
+        NameCriterium.Mode.Start().apply {
+            ignoreCase shouldBe true
+        }
+        NameCriterium.Mode.Contain().apply {
+            ignoreCase shouldBe true
+        }
+        NameCriterium.Mode.End().apply {
+            ignoreCase shouldBe true
+        }
+        NameCriterium.Mode.Equal().apply {
+            ignoreCase shouldBe true
+        }
     }
 
     @Test
     fun `just regex`() = runTest {
-        val config = BaseSieve.Config(
+        val config = Config(
             regexes = setOf(Regex(".+/a.c/[0-9]+$"))
         )
 
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/ac/123"))
         ).matches shouldBe false
-        create(config).match(
+        config.match(
             baseLookup.copy(lookedUp = basePath.child("/abc/123"))
         ).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria ANCESTOR - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Ancestor())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "ab"), mode = SegmentCriterium.Mode.Ancestor())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("sdcard", "abc"), mode = SegmentCriterium.Mode.Ancestor())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Ancestor())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123", "def"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path criteria ANCESTOR - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Ancestor(ignoreCase = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Ancestor(ignoreCase = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria START - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Start())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Start())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria START - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", ""), mode = SegmentCriterium.Mode.Start(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", ""), mode = SegmentCriterium.Mode.Start(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "/"))).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", ""))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", ""))).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abcdef"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abcdef"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abcdef", "123"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Start(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abcdef", "123"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria START - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "ABC"), mode = SegmentCriterium.Mode.Start(ignoreCase = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "ABC"), mode = SegmentCriterium.Mode.Start(ignoreCase = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria CONTAIN - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123"))).matches shouldBe false
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("sdcard"), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs(""), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("123"), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("123"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria CONTAIN - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "ab"), mode = SegmentCriterium.Mode.Contain(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "ab"), mode = SegmentCriterium.Mode.Contain(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sd"), mode = SegmentCriterium.Mode.Contain(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ab"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sd"), mode = SegmentCriterium.Mode.Contain(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ab"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria CONTAIN - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "ABC", "def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "ABC", "def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria END - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("abc", "def"), mode = SegmentCriterium.Mode.End())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.End())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.End())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path criteria END - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("c", "def"), mode = SegmentCriterium.Mode.End(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("c", "def"), mode = SegmentCriterium.Mode.End(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("c", "def"), mode = SegmentCriterium.Mode.End(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "de"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path criteria END - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("abc", "def"), mode = SegmentCriterium.Mode.End(ignoreCase = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("abc", "def"), mode = SegmentCriterium.Mode.End(ignoreCase = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("ABC", "def"), mode = SegmentCriterium.Mode.End(ignoreCase = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path criteria MATCH - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "de"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc"), mode = SegmentCriterium.Mode.Equal())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path criteria MATCH - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pathCriteria = setOf(
+                SegmentCriterium(
+                    segs("", "sdcard", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria ANCESTOR - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Ancestor()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Ancestor()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def"),
+                    mode = SegmentCriterium.Mode.Ancestor()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp criteria ANCESTOR - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Ancestor(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Ancestor(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria START - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria START - partial`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ab"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ab"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "d"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "d"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria START - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria CONTAIN - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("123"),
+                    mode = SegmentCriterium.Mode.Contain()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Contain()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria CONTAIN - partial`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("bc", "de"),
+                    mode = SegmentCriterium.Mode.Contain(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("bc", "de"),
+                    mode = SegmentCriterium.Mode.Contain(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria CONTAIN - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria END - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def"),
+                    mode = SegmentCriterium.Mode.End()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def", "ghi"),
+                    mode = SegmentCriterium.Mode.End()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria END - partial`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ef", "ghi"),
+                    mode = SegmentCriterium.Mode.End(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ef", "ghi"),
+                    mode = SegmentCriterium.Mode.End(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria END - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def", "ghi"),
+                    mode = SegmentCriterium.Mode.End(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def", "ghi"),
+                    mode = SegmentCriterium.Mode.End(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria MATCH - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def", ""),
+                    mode = SegmentCriterium.Mode.Equal()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria MATCH - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path exclusion criteria START - basic`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path exclusion criteria START - partial`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "d"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("abc", "d"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path exclusion criteria START - casing`() = runTest {
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ABC", "def"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            pfpCriteria = setOf(
+                SegmentCriterium(
+                    segs("ABC", "def"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `path exclusion criteria CONTAIN - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain()))
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard"), mode = SegmentCriterium.Mode.Contain())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria CONTAIN - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain()))
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "ab"), mode = SegmentCriterium.Mode.Contain(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "ab"), mode = SegmentCriterium.Mode.Contain(allowPartial = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria CONTAIN - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "abc"), mode = SegmentCriterium.Mode.Contain(ignoreCase = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "abc"), mode = SegmentCriterium.Mode.Contain(ignoreCase = true))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("ABC", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria END - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "abc", "def"), mode = SegmentCriterium.Mode.End())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "abc", "def", "ghi"), mode = SegmentCriterium.Mode.End())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria END - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("ard", "abc", "def"), mode = SegmentCriterium.Mode.End(allowPartial = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(
+                    segs("card", "abc", "def", "ghi"),
+                    mode = SegmentCriterium.Mode.End(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria END - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("SDCARD", "abc", "def"), mode = SegmentCriterium.Mode.End(ignoreCase = false))
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(
+                    segs("SDCARD", "abc", "def", "ghi"),
+                    mode = SegmentCriterium.Mode.End(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria MATCH - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("sdcard", "abc", "def"), mode = SegmentCriterium.Mode.Equal())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(segs("", "sdcard", "abc", "def", "ghi"), mode = SegmentCriterium.Mode.Equal())
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `path exclusion criteria MATCH - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(
+                    segs("", "SDCARD", "abc", "def"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pathExclusions = setOf(
+                SegmentCriterium(
+                    segs("", "SDCARD", "abc", "def", "ghi"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria START - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.Start()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria START - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc", "de"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc", "de"),
+                    mode = SegmentCriterium.Mode.Start(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria START - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc", "DEF"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc", "DEF"),
+                    mode = SegmentCriterium.Mode.Start(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria CONTAIN - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("sdcard"),
+                    mode = SegmentCriterium.Mode.Contain()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Contain()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria CONTAIN - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("c", "def", "g"),
+                    mode = SegmentCriterium.Mode.Contain(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("c", "def", "g"),
+                    mode = SegmentCriterium.Mode.Contain(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria CONTAIN - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def"),
+                    mode = SegmentCriterium.Mode.Contain(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "DEF", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria END - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc"),
+                    mode = SegmentCriterium.Mode.End()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def", "ghi"),
+                    mode = SegmentCriterium.Mode.End()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria END - partial`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("ef", "ghi"),
+                    mode = SegmentCriterium.Mode.End(allowPartial = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("ef", "ghi"),
+                    mode = SegmentCriterium.Mode.End(allowPartial = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria END - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("DEF", "ghi"),
+                    mode = SegmentCriterium.Mode.End(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("DEF", "ghi"),
+                    mode = SegmentCriterium.Mode.End(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria MATCH - basic`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("def", "ghi"),
+                    mode = SegmentCriterium.Mode.Equal()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("abc", "def", "ghi"),
+                    mode = SegmentCriterium.Mode.Equal()
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `pfp exclusion criteria MATCH - casing`() = runTest {
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("ABC", "def", "GHI"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = false)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+        Config(
+            pathCriteria = setOf(SegmentCriterium(segs("abc"), mode = SegmentCriterium.Mode.Contain())),
+            pfpExclusions = setOf(
+                SegmentCriterium(
+                    segs("ABC", "def", "GHI"),
+                    mode = SegmentCriterium.Mode.Equal(ignoreCase = true)
+                )
+            )
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+    }
+
+    @Test
+    fun `name criteria START - basic`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("abc", mode = NameCriterium.Mode.Start())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.Start())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria START - casing`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.Start(ignoreCase = false))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "GHI"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.Start(ignoreCase = true))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria CONTAIN - basic`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("e", mode = NameCriterium.Mode.Contain())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("h", mode = NameCriterium.Mode.Contain())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria CONTAIN - casing`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("h", mode = NameCriterium.Mode.Contain(ignoreCase = false))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "GHI"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("h", mode = NameCriterium.Mode.Contain(ignoreCase = true))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "GHI"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria END - basic`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("h", mode = NameCriterium.Mode.End())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("hi", mode = NameCriterium.Mode.End())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria END - casing`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("h", mode = NameCriterium.Mode.End(ignoreCase = false))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "gHI"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("hi", mode = NameCriterium.Mode.End(ignoreCase = true))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "gHI"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria MATCH - basic`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("def", mode = NameCriterium.Mode.End())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.End())),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "ghi"))).matches shouldBe true
+    }
+
+    @Test
+    fun `name criteria MATCH - casing`() = runTest {
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.End(ignoreCase = false))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "GHI"))).matches shouldBe false
+        Config(
+            nameCriteria = setOf(NameCriterium("ghi", mode = NameCriterium.Mode.End(ignoreCase = true))),
+        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "def", "GHI"))).matches shouldBe true
     }
 }
