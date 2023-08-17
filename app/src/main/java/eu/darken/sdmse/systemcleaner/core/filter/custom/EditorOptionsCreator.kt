@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions
 import javax.inject.Inject
@@ -35,7 +36,14 @@ class EditorOptionsCreator @Inject constructor(
         val label = areaInfos
             .map { it.prefix }
             .toSet().singleOrNull()
-            ?.let { "${it.userReadablePath.get(context)}/*" }
+            ?.let {
+                val pathPrefix = it.userReadablePath.get(context)
+                val itemCount = context.getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.result_x_items,
+                    targets.size
+                )
+                "$pathPrefix - $itemCount"
+            }
 
         val targetAreas = areaInfos.map { it.dataArea.type }.toSet()
 
