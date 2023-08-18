@@ -304,6 +304,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name is equal to keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
+    <string name="systemcleaner_customfilter_import_action">Import new filter</string>
+    <string name="systemcleaner_customfilter_export_action">Export selected filter</string>
 
     <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>

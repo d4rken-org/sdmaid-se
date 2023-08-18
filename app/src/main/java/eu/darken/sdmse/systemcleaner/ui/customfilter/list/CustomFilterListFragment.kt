@@ -1,8 +1,13 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.list
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -13,6 +18,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -30,13 +38,58 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
     override val ui: SystemcleanerCustomfilterListFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 
+    private lateinit var importPickerLauncher: ActivityResultLauncher<Intent>
+    private lateinit var exportPickerLauncher: ActivityResultLauncher<Intent>
+
+    private var currentSnackbar: Snackbar? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        importPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                log(TAG, WARN) { "importPickerLauncher returned ${result.resultCode}: ${result.data}" }
+                return@registerForActivityResult
+            }
+
+            val uriList = mutableListOf<Uri>()
+
+            val clipData = result.data?.clipData
+            if (clipData != null) {
+                (0 until clipData.itemCount).forEach {
+                    uriList.add(clipData.getItemAt(it).uri)
+                }
+            } else {
+                result.data?.data?.let { uriList.add(it) }
+            }
+
+            vm.importFilter(uriList)
+        }
+
+        exportPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                log(TAG, WARN) { "exportPickerLauncher returned ${result.resultCode}: ${result.data}" }
+                return@registerForActivityResult
+            }
+
+            result.data?.data?.let { uri ->
+                vm.performExport(uri)
+            }
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
-            setOnMenuItemClickListener {
-                when (it.itemId) {
+            setOnMenuItemClickListener { menuItem ->
+                currentSnackbar?.let {
+                    it.dismiss()
+                    currentSnackbar = null
+                }
+                when (menuItem.itemId) {
                     R.id.menu_action_help -> {
                         webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/SystemCleaner#custom-filter")
+                        true
+                    }
+
+                    R.id.menu_action_import -> {
+                        vm.importFilter()
                         true
                     }
 
@@ -52,6 +105,10 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
             cabMenuRes = R.menu.menu_systemcleaner_customfilter_list_cab,
             onPrepare = { tracker, _, menu ->
                 menu.findItem(R.id.action_edit_selected)?.isVisible = tracker.selection.size() == 1
+                currentSnackbar?.let {
+                    it.dismiss()
+                    currentSnackbar = null
+                }
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CustomFilterListAdapter.Item> ->
@@ -64,6 +121,12 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
 
                     R.id.action_edit_selected -> {
                         vm.edit(selected.first())
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.menu_action_export -> {
+                        vm.exportFilter(selected)
                         tracker.clearSelection()
                         true
                     }
@@ -110,11 +173,23 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
                     .setAction(eu.darken.sdmse.common.R.string.general_undo_action) {
                         vm.restore(event.exclusions)
                     }
+                    .also { currentSnackbar = it }
                     .show()
+
+                is CustomFilterListEvents.ImportEvent -> {
+                    importPickerLauncher.launch(event.intent)
+                }
+
+                is CustomFilterListEvents.ExportEvent -> {
+                    exportPickerLauncher.launch(event.intent)
+                }
             }
         }
 
         super.onViewCreated(view, savedInstanceState)
     }
 
+    companion object {
+        private val TAG = logTag("SystemCleaner", "CustomFilter", "List")
+    }
 }

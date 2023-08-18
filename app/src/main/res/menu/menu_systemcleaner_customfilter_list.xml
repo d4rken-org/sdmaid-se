@@ -4,6 +4,13 @@
     tools:context="eu.darken.sdmse.main.ui.MainActivity">
 
     <item
+        android:id="@+id/menu_action_import"
+        android:icon="@drawable/ic_file_import_outline_24"
+        android:orderInCategory="100"
+        android:title="@string/systemcleaner_customfilter_import_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_action_help"
         android:icon="@drawable/ic_help_outline"
         android:orderInCategory="100"
