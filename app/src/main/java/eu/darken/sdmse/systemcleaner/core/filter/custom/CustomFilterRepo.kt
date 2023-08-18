@@ -121,6 +121,29 @@ class CustomFilterRepo @Inject constructor(
 
     fun generateIdentifier() = UUID.randomUUID().toString()
 
+    suspend fun importFilter(rawFilters: List<RawFilter>) {
+        log(TAG) { "importFilter($rawFilters)" }
+        val configs = rawFilters.mapNotNull {
+            try {
+                configAdapter.fromJson(it.payload)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to import $it" }
+                null
+            }
+        }.toSet()
+        save(configs)
+    }
+
+    suspend fun exportFilters(identifiers: Collection<FilterIdentifier>): Collection<RawFilter> {
+        log(TAG) { "exportFilters($identifiers)" }
+        val configs = currentConfigs().filter { identifiers.contains(it.identifier) }
+
+        return configs.map {
+            val rawJson = configAdapter.toJson(it)
+            RawFilter("${it.label} - ${it.identifier.takeLast(10)}.json", rawJson)
+        }
+    }
+
     companion object {
         private val TAG = logTag("SystemCleaner", "CustomFilter", "Repo")
     }

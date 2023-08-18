@@ -15,6 +15,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_action_export"
+        android:icon="@drawable/ic_file_export_outline_24"
+        android:orderInCategory="100"
+        android:title="@string/systemcleaner_customfilter_export_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/baseline_select_all_24"
         android:title="@string/general_list_select_all_action"
