@@ -146,7 +146,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
                 config.nameCriteria?.toList() ?: emptyList()
             )
             exclusionsInput.setTags(
-                config.exclusion?.toList() ?: emptyList()
+                config.exclusionCriteria?.toList() ?: emptyList()
             )
 
             areaChips.entries.forEach { (type, chip) ->

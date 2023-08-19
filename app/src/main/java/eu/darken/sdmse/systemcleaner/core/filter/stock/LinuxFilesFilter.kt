@@ -49,7 +49,7 @@ class LinuxFilesFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
-            regexes = regexes,
+            pathRegexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

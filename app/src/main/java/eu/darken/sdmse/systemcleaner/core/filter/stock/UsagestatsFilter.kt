@@ -52,7 +52,7 @@ class UsagestatsFilter @Inject constructor(
             pfpCriteria = setOf(
                 SegmentCriterium(segs("usagestats"), mode = SegmentCriterium.Mode.Ancestor()),
             ),
-            regexes = setOf(
+            pathRegexes = setOf(
                 Regex(".+/usagestats/[0-9]+/.+")
             )
         )

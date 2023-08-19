@@ -42,7 +42,7 @@ class CustomFilterConfigTest : BaseTest() {
         rawJson.toComparableJson() shouldBe """
             {
                 "configVersion": 1.0,
-                "identifier": "some-id",
+                "id": "some-id",
                 "createdAt": "2023-08-14T19:55:42.921588Z",
                 "modifiedAt": "2023-08-14T19:55:42.921591Z",
                 "label": "My label",

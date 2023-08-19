@@ -124,7 +124,11 @@ class CustomFilterListViewModel @Inject constructor(
             }
             .map { RawFilter(it.first.toString(), it.second) }
 
-        customFilterRepo.importFilter(rawFilter)
+        try {
+            customFilterRepo.importFilter(rawFilter)
+        } catch (e: Exception) {
+            errorEvents.postValue(e)
+        }
     }
 
     private var stagedExport: Collection<RawFilter>? = null

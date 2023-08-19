@@ -58,7 +58,7 @@ class AnalyticsFilter @Inject constructor(
             areaTypes = targetAreas(),
             targetTypes = setOf(TargetType.FILE),
             pathCriteria = pathContains,
-            regexes = regexes,
+            pathRegexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

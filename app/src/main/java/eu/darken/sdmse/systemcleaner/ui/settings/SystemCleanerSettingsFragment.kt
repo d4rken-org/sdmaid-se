@@ -2,7 +2,6 @@ package eu.darken.sdmse.systemcleaner.ui.settings
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
@@ -38,9 +37,6 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
         findPreference<Preference>("filter.custom")!!.setOnPreferenceClickListener {
-            if (isPro == false) {
-                Toast.makeText(requireContext(), R.string.upgrade_feature_requires_pro, Toast.LENGTH_SHORT).show()
-            }
             SettingsFragmentDirections.actionSettingsContainerFragmentToCustomFilterListFragment().navigate()
             true
         }
