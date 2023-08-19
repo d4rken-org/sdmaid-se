@@ -50,11 +50,6 @@ class BaseSieve @AssistedInject constructor(
                 }
             }
 
-        config.isEmpty?.let {
-            // Empty or not ?
-            if (it && subject.size > 0 || !it && subject.size == 0L) return Result(matches = false)
-        }
-
         config.maximumSize?.let {
             // Is our subject too large?
             if (subject.size > it) return Result(matches = false)
@@ -296,7 +291,6 @@ class BaseSieve @AssistedInject constructor(
         val pathExclusions: Set<SegmentCriterium>? = null,
         val pfpExclusions: Set<SegmentCriterium>? = null,
         val pathRegexes: Set<Regex>? = null,
-        val isEmpty: Boolean? = null,
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
         val maximumAge: Duration? = null,
