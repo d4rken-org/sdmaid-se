@@ -166,16 +166,16 @@ class CustomFilterEditorViewModel @Inject constructor(
     fun addExclusion(criterium: SegmentCriterium) = launch {
         log(TAG) { "addExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { add(criterium) }
-            copy(current = current.copy(exclusion = new))
+            val new = (current.exclusionCriteria ?: emptySet()).toMutableSet().apply { add(criterium) }
+            copy(current = current.copy(exclusionCriteria = new))
         }
     }
 
     fun removeExclusion(criterium: SegmentCriterium) = launch {
         log(TAG) { "removeExclusion($criterium)" }
         currentState.updateBlocking {
-            val new = (current.exclusion ?: emptySet()).toMutableSet().apply { remove(criterium) }
-            copy(current = current.copy(exclusion = new.takeIf { it.isNotEmpty() }))
+            val new = (current.exclusionCriteria ?: emptySet()).toMutableSet().apply { remove(criterium) }
+            copy(current = current.copy(exclusionCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 

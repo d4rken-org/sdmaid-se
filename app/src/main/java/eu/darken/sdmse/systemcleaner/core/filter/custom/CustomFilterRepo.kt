@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.serialization.fromFile
@@ -32,6 +33,7 @@ class CustomFilterRepo @Inject constructor(
     private val context: Context,
     private val baseMoshi: Moshi,
     private val settings: SystemCleanerSettings,
+    private val legacyImporter: LegacyFilterSupport,
 ) {
 
     private val moshi by lazy {
@@ -123,12 +125,16 @@ class CustomFilterRepo @Inject constructor(
 
     suspend fun importFilter(rawFilters: List<RawFilter>) {
         log(TAG) { "importFilter($rawFilters)" }
-        val configs = rawFilters.mapNotNull {
+        val configs = rawFilters.map { rawFilter ->
             try {
-                configAdapter.fromJson(it.payload)
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to import $it" }
-                null
+                configAdapter.fromJson(rawFilter.payload)!!
+            } catch (ogError: Exception) {
+                try {
+                    legacyImporter.import(rawFilter.payload)!!
+                } catch (_: Exception) {
+                    log(TAG, ERROR) { "Failed to import $rawFilter: ${ogError.asLog()}" }
+                    throw ogError
+                }
             }
         }.toSet()
         save(configs)

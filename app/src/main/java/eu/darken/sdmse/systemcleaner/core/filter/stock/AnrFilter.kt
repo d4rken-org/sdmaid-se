@@ -70,7 +70,7 @@ class AnrFilter @Inject constructor(
             pfpCriteria = setOf(
                 SegmentCriterium(segs("anr"), mode = SegmentCriterium.Mode.Ancestor())
             ),
-            regexes = regexPairs.map { Regex(it.second) }.toSet(),
+            pathRegexes = regexPairs.map { Regex(it.second) }.toSet(),
         )
 
         sieve = baseSieveFactory.create(config)

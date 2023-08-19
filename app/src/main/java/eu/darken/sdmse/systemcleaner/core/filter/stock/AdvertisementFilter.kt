@@ -169,7 +169,7 @@ class AdvertisementFilter @Inject constructor(
         val config = BaseSieve.Config(
             areaTypes = targetAreas(),
             pfpCriteria = pfpCriteria,
-            regexes = rawRegexes.map { Regex(it) }.toSet()
+            pathRegexes = rawRegexes.map { Regex(it) }.toSet()
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

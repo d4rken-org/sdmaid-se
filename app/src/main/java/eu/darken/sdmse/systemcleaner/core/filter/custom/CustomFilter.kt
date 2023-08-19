@@ -47,7 +47,12 @@ class CustomFilter @AssistedInject constructor(
             }?.toSet(),
             pathCriteria = filterConfig.pathCriteria,
             nameCriteria = filterConfig.nameCriteria,
-            pathExclusions = filterConfig.exclusion,
+            pathExclusions = filterConfig.exclusionCriteria,
+            minimumSize = filterConfig.sizeMinimum,
+            maximumSize = filterConfig.sizeMaximum,
+            minimumAge = filterConfig.ageMinimum,
+            maximumAge = filterConfig.ageMaximum,
+            pathRegexes = filterConfig.pathRegexes,
         )
         sieve = baseSieveFactory.create(sieveConfig)
         log(TAG) { "initialized()" }

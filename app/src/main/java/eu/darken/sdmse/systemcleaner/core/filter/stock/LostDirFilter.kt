@@ -49,7 +49,7 @@ class LostDirFilter @Inject constructor(
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            regexes = regexes,
+            pathRegexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

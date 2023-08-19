@@ -183,7 +183,7 @@ class BaseSieve @AssistedInject constructor(
                 if (isExcluded) return Result(matches = false)
             }
 
-        config.regexes
+        config.pathRegexes
             ?.takeIf { it.isNotEmpty() }
             ?.let { regexes ->
                 if (regexes.none { it.matches(subject.path) }) return Result(matches = false)
@@ -295,8 +295,8 @@ class BaseSieve @AssistedInject constructor(
         val nameCriteria: Set<NameCriterium>? = null,
         val pathExclusions: Set<SegmentCriterium>? = null,
         val pfpExclusions: Set<SegmentCriterium>? = null,
+        val pathRegexes: Set<Regex>? = null,
         val isEmpty: Boolean? = null,
-        val regexes: Set<Regex>? = null,
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
         val maximumAge: Duration? = null,

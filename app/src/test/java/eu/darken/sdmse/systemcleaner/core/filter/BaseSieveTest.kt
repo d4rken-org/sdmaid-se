@@ -118,7 +118,7 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just regex`() = runTest {
         val config = Config(
-            regexes = setOf(Regex(".+/a.c/[0-9]+$"))
+            pathRegexes = setOf(Regex(".+/a.c/[0-9]+$"))
         )
 
         config.match(
