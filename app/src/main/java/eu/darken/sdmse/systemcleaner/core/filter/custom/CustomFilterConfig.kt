@@ -15,7 +15,7 @@ import java.time.Instant
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class CustomFilterConfig(
-    @Json(name = "configVersion") val configVersion: Int = 6,
+    @Json(name = "configVersion") val configVersion: Long = 6L,
     @Json(name = "id") val identifier: FilterIdentifier,
     @Json(name = "createdAt") val createdAt: Instant = Instant.now(),
     @Json(name = "modifiedAt") val modifiedAt: Instant = Instant.now(),
