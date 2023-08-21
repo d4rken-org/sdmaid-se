@@ -1,0 +1,21 @@
+<i>SD Maid SE</i> är din Androids betrodda assistent, för att hålla det rent och snyggt.
+
+Ingen är perfekt och inte Android heller.
+* Appar som du redan har tagit bort lämnar något bakom sig.
+* Loggar, kraschrapporter och andra filer du egentligen inte vill ha skapas ständigt.
+* Ditt minne samlar in filer och kataloger som du inte känner igen.
+
+Låt oss inte fortsätta här... Låt SD Maid SE hjälpa dig:
+
+* Rensa upp data från redan avinstallerade appar
+* Hitta dolda appcacher
+* Ta bort överflödiga systemfiler
+
+SD Maid SE är annonsfritt. Vissa funktioner kräver en betald uppgradering.
+
+SD Maid 2/SE är efterträdaren till SD Maid 1/Legacy.
+Optimerad för nyare Android-versioner och fokuserad på att städa upp.
+
+SD Maid SE har valfria funktioner som använder AccessibilityService API för att automatisera tråkiga åtgärder.
+Med hjälp av AccessibilityService API kan SD Maid SE klicka på knappar så att du kan utföra operationer på flera appar, t.ex. radera cacher.
+SD Maid SE använder inte AccessibilityService API för att samla in information.
