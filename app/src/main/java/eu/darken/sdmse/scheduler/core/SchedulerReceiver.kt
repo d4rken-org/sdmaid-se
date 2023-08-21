@@ -72,7 +72,7 @@ class SchedulerReceiver : BroadcastReceiver() {
                 return@launch
             }
 
-            if (schedulerSettings.skipWhenNotCharging.value() && !batteryManager.isCharging())  {
+            if (schedulerSettings.skipWhenNotCharging.value() && !batteryManager.isCharging()) {
                 log(TAG, WARN) { "Phone is not charging, skipping execution." }
                 return@launch
             }
