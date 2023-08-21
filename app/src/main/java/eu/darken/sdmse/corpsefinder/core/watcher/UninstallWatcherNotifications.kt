@@ -102,7 +102,7 @@ class UninstallWatcherNotifications @Inject constructor(
             context,
             0,
             deleteIntent,
-            PendingIntentCompat.FLAG_IMMUTABLE
+            PendingIntentCompat.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
         val deleteAction = NotificationCompat.Action(
