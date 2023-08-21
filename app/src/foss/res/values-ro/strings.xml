@@ -9,6 +9,7 @@
     <string name="upgrade_screen_title">Îmbunătățește SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Dezvoltarea continuată este numai posibilă făcută de tine.</string>
     <string name="upgrade_screen_how_title">Cum să ajuți</string>
+    <string name="upgrade_screen_how_body">Deveniți un patron și o dezvoltare a sponsorului! Apăsați butonul de mai jos pentru a activa toate caracteristicile suplimentare și deschideți profilul meu GitHub Sponsors.</string>
     <string name="upgrade_screen_why_title">Acesta evocă 🪄</string>
     <string name="upgrade_screen_why_body">• Funcția Curățare Aplicații 💯\n• Operații programate ⏰\n• Opțiuni extra pentru toate opțiunile ⚙️\n• Regulile tale pentru ștergere ✍️\n• Un dezvoltator motivat 🧙\nși multe altele...</string>
     <string name="upgrade_screen_sponsor_action">Sponsorizează dezvoltarea</string>

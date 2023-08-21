@@ -119,4 +119,6 @@
     <string name="file_type_unknown">Unbekannt</string>
     <string name="general_timeunit_hours">Stunden</string>
     <string name="general_timeunit_days">Tage</string>
+    <string name="general_progress_ready">Bereit</string>
+    <string name="general_progress_done">Fertig</string>
 </resources>

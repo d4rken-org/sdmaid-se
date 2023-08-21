@@ -2,11 +2,15 @@
 <resources>
     <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
     <string name="dashboard_settings_category">Πίνακας εργαλείων</string>
+    <string name="dashboard_settings_oneclick_title">Λειτουργία Μιας Αφής</string>
+    <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_file_label">Αρχείο καταγραφής</string>
+    <string name="debug_debuglog_recording_progress">Καταγραφή αρχεία εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_record_action">Καταγραφή αποσφαλμάτωσης</string>
+    <string name="debug_debuglog_stop_action">Διακοπή εγγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύστε.</string>
     <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. ένας προγραμματιστής που αντιμετωπίζει προβλήματα σε ένα ζήτημα).</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές εργασίες</string>
@@ -19,15 +23,27 @@
         <item quantity="one">%d εργασία στην ουρά</item>
         <item quantity="other">%d εργασίες στην ουρά</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">Αποτελέσματα εργασιών</string>
+    <string name="tasks_result_subtext">Αποτέλεσμα εργασίας</string>
     <string name="onboarding_welcome_title">Καλώς ορίσατε</string>
     <string name="onboarding_welcome_body1">Το SD Maid SE διαχειρίζεται αρχεία, εφαρμογές και χώρο αποθήκευσης.</string>
+    <string name="onboarding_welcome_body2">Αποκτήστε αποθηκευτικό χώρο με τον καθαρισμό πίσω από άλλες εφαρμογές. Διαγράψτε τα εξαντλημένα αρχεία και αφαιρέστε τα δεδομένα που έχουν απομείνει.</string>
+    <string name="onboarding_welcome_body_beta">Αυτή είναι μια έκδοση beta (δοκιμή). Συνεχίστε με την αίσθηση του χιούμορ και ένα εφεδρικό σχέδιο. Παρακαλώ αναφέρετε τα ζητήματα που αντιμετωπίζετε.</string>
     <string name="onboarding_welcome_continue_action">Συνέχεια</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (άλλως SD Maid 2) είναι ο διάδοχος του SD Maid (επίσης SD Maid 1). Μια νέα εφαρμογή, βελτιστοποιημένη για το σύγχρονο Android.</string>
+    <string name="onboarding_versus_body2">Είναι αρχιτεκτονική του προκατόχου είναι πάνω από 7 ετών και δεν έχει σχεδιαστεί για τις προκλήσεις της νεότερες εκδόσεις Android. Ένας πλήρης επανασχεδιασμός ήταν απαραίτητος για να συνεχιστεί η ανάπτυξη.</string>
+    <string name="onboarding_versus_body3">Σκεφτείτε τη μετάβαση στην SD Maid SE για βελτιωμένα αποτελέσματα.</string>
+    <string name="onboarding_versus_body4">Η \"pro status\" του SD Maid 1 δεν είναι δυστυχώς μεταβιβάσιμη στην SD Maid 2/SE. Μετά από 12 χρόνια δωρεάν ενημερώσεων, απαιτείται μια νέα αγορά για τη διατήρηση της ανάπτυξης (τροφοδοτούν τον προγραμματιστή).</string>
     <string name="onboarding_versus_continue_action">Συνέχεια</string>
     <string name="onboarding_privacy_title">Απόρρητο</string>
+    <string name="onboarding_privacy_body1">Το SD Maid δεν έχει διαφημίσεις και δεν πωλεί δεδομένα χρηστών.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Οι αναφορές σφαλμάτων αποστέλλονται όταν εμφανιστούν σφάλματα και μπορεί να περιέχουν λεπτομέρειες σχετικά με εφαρμογές και αρχεία στη συσκευή σας. Οι αναφορές με βοηθούν να διορθώσω σφάλματα και να βελτιώσω την εφαρμογή.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Αυτόματη αναφορά σφαλμάτων</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Αυτές οι επιλογές μπορούν να αλλάξουν στις ρυθμίσεις.</string>
     <string name="onboarding_privacy_continue_action">Συνέχεια</string>
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
+    <string name="settings_licenses_label">Άδειες</string>
     <string name="settings_category_filter_generic">Γενικό φίλτρο</string>
     <string name="general_settings_label">Γενικά</string>
     <string name="settings_category_ui_label">Περιβάλλον χρήστη</string>
@@ -45,6 +61,8 @@
     <string name="setup_manage_storage_card_title">Διαχείριση αποθηκευτικού χώρου</string>
     <string name="setup_usagestats_title">Στατιστικά χρήσης</string>
     <string name="setup_notification_title">Ειδοποιήσεις</string>
+    <string name="dataarea_warningcard_label">Περιοχές δεδομένων</string>
+    <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
     <string name="debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
     <string name="settings_category_tools_label">Εργαλεία</string>
     <string name="settings_category_filter">Φίλτρο</string>
@@ -72,6 +90,15 @@
     <string name="systemcleaner_filter_datalogger_label">Αρχεία καταγραφής συστήματος</string>
     <string name="systemcleaner_filter_recenttasks_label">Πρόσφατες εργασίες</string>
     <string name="systemcleaner_filter_usagestats_label">Στατιστικά χρήσης</string>
+    <string name="systemcleaner_customfilter_label">Προσαρμοσμένο φίλτρο</string>
+    <string name="systemcleaner_customfilter_create_action">Δημιουργία προσαρμοσμένου φίλτρου</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Αφαίρεση αυτού του φίλτρου;</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Περιοχές δεδομένων</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Αρχεία</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Κατάλογοι</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Εξαιρέσεις</string>
+    <string name="systemcleaner_customfilter_last_edit">Τελευταία επεξεργασία: %s</string>
     <string name="appcleaner_tool_name">Εκκαθάριση εφαρμογών</string>
     <string name="appcleaner_include_systemapps_label">Συμπερίληψη εφαρμογών συστήματος</string>
     <string name="appcleaner_include_systemapps_summary">Συμπερίληψη εφαρμογών συστήματος στη σάρωση.</string>
@@ -85,7 +112,7 @@
     <string name="appcleaner_filter_whatsapp_received_label">Αρχεία που λάβατε από άτομα μέσω του WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Απεσταλμένα αρχεία WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Αρχεία που στείλατε από το WhatsApp σε αλλους.</string>
-    <string name="appcleaner_filter_telegram_label">Αρχεία πολυμέσων στο Telegram</string>
+    <string name="appcleaner_filter_telegram_label">Αρχεία πολυμέσων Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Αρχεία που λήφθηκαν ή στάλθηκαν μέσω του Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Αρχεία που λήφθηκαν μέσω του Threema.</string>
@@ -94,6 +121,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_junk_userprofile_label">Χρήστη</string>
     <string name="appcontrol_tool_name">Έλεγχος εφαρμογών</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d εφαρμογή εντοπίστηκε</item>
+        <item quantity="other">%d εφαρμογές εντοπίστηκαν</item>
+    </plurals>
     <string name="appcontrol_toggle_app_enable_action">Ενεργοποίηση εφαρμογής</string>
     <string name="appcontrol_toggle_app_disable_action">Απενεργοποίηση εφαρμογής</string>
     <string name="appcontrol_appstore_open_title">Άνοιγμα στο app store</string>
@@ -108,12 +139,16 @@
     <string name="appcontrol_progress_disabling_package">Απενεργοποίηση εφαρμογής</string>
     <string name="appcontrol_list_filteroptions_label">Επιλογές φίλτρου</string>
     <string name="appcontrol_list_sortmode_name_label">Όνομα εφαρμογής</string>
-    <string name="appcontrol_list_sortmode_updated_label">Τελευταία ενημέρωση στις</string>
-    <string name="appcontrol_list_sortmode_installed_label">Πρώτη εγκατάσταση στις</string>
+    <string name="appcontrol_list_sortmode_updated_label">Τελευταία ενημέρωση</string>
+    <string name="appcontrol_list_sortmode_installed_label">Πρώτη εγκατάσταση</string>
     <string name="appcontrol_list_sortmode_packagename_label">Όνομα πακέτου</string>
+    <string name="appcontrol_progress_uninstalling_app">Απεγκατάσταση εφαρμογής</string>
     <string name="analyzer_tool_name">Ανάλυση αποθηκευτικού χώρου</string>
     <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>
     <string name="analyzer_progress_scanning_storage">Σάρωση αποθηκευτικού χώρου</string>
+    <string name="analyzer_progress_scanning_apps">Σάρωση εφαρμογών</string>
+    <string name="analyzer_progress_scanning_userfiles">Αναζήτηση αρχείων χρήστη</string>
+    <string name="analyzer_progress_scanning_system">Σάρωση δεδομένων συστήματος</string>
     <string name="analyzer_device_storage_title">Αποθηκευτικός χώρος συσκευής</string>
     <plurals name="analyzer_space_used">
         <item quantity="one">%s χρησιμοποιείται</item>
@@ -125,15 +160,14 @@
     <string name="analyzer_storage_content_type_app_label">Εφαρμογές</string>
     <string name="analyzer_storage_content_type_media_label">Αρχεία χρήστη</string>
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
-    <string name="analyzer_storage_content_type_system_description">Δεδομένα συστήματος και εφαρμογές συστήματος.</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
-    <string name="data_area_public_storage_label">Δημόσιος αποθηκευτικός χώρος</string>
-    <string name="data_area_sdcard_label">Κάρτα SD</string>
+    <string name="data_areas_label">Περιοχές δεδομένων</string>
     <string name="exclusion_manager_title">Διαχείριση εξαιρέσεων</string>
     <string name="exclusion_manager_desc">Διαχείριση εξαιρέσεων αρχείων και εφαρμογών.</string>
     <string name="exclusion_create_action">Δημιουργία εξαίρεσης</string>
     <string name="exclusion_tags_alltools">Όλα τα εργαλεία</string>
     <string name="exclusion_option_ignore_casing">Παράβλεψη πεζών-κεφαλαίων</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
     <string name="automation_active_title">Το SD Maid λειτουργεί</string>
     <string name="automation_error_not_enabled_title">Η υπηρεσία δεν είναι ενεργοποιημένη</string>
     <string name="automation_error_not_running_title">Η υπηρεσία δεν εκτελείται</string>
@@ -155,5 +189,5 @@
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
-    <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com)</string>
+    <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com); Vagelis1608;iplayradio</string>
 </resources>

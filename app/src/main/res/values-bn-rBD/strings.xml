@@ -89,10 +89,7 @@
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
     <string name="appcontrol_list_sortmode_name_label">অ্যাপের নাম</string>
-    <string name="appcontrol_list_sortmode_updated_label">-এ সর্বশেষ হালনাগাদকৃত</string>
-    <string name="appcontrol_list_sortmode_installed_label">-এ প্রথমবার ইনস্টল করা হয়েছিল</string>
     <string name="appcontrol_list_sortmode_packagename_label">প্যাকেজের নাম</string>
-    <string name="data_area_sdcard_label">এসডি কার্ড</string>
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="one">দৈনিক</item>
         <item quantity="other">প্রতি %d দিনে</item>

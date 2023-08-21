@@ -9,9 +9,12 @@
     <string name="upgrades_gplay_unavailable_error">Serviciile Google Play nu sunt disponibile.</string>
     <string name="upgrades_no_purchases_found_check_account">Nu s-a găsit nicio achiziție. Ești sigur că folosești contul corect?</string>
     <string name="upgrade_screen_title">Obține SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>
     <string name="upgrade_screen_benefits_title">Avantaje</string>
     <string name="upgrade_screen_benefits_body">• Curățare Aplicații 💯\n• Programator Operații ⏰\n• Opțiuni extra pentru toate opțiunile ⚙️\n• Regulile tale pentru ștergere ✍️\n• Un dezvoltator motivat 🧙\nși multe altele...</string>
     <string name="upgrade_screen_how_title">Opțiuni</string>
+    <string name="upgrade_screen_how_body">Poți alege între o achiziție unică și un abonament anual mai ieftin.\nAbonamentul începe cu o probă gratuită de 14 zile, după care vei fi taxat o dată pe an. Încercarea şi abonamentul pot fi anulate în orice moment.\nAceleaşi caracteristici, doar modele de preţuri diferite.</string>
+    <string name="upgrade_screen_subscription_trial_action">Începeți trial-ul gratuit 14 zile</string>
     <string name="upgrade_screen_subscription_action">Abonează-te</string>
     <string name="upgrade_screen_subscription_action_hint">Abonamentul costă %s pe an.</string>
     <string name="upgrade_screen_iap_action">Achiziție unică</string>

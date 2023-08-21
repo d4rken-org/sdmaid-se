@@ -73,6 +73,7 @@
     <string name="general_delete_action">Suprimeix</string>
     <string name="general_delete_selected_action">Suprimeix els seleccionats</string>
     <string name="general_show_details_action">Mostra els detalls</string>
+    <string name="general_show_all_action">Mostra-ho tot</string>
     <string name="general_delete_confirmation_title">Confirmeu la supressió</string>
     <string name="general_delete_confirmation_message_x">Voleu suprimir «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Voleu suprimir els %d elements seleccionats?</string>
@@ -116,4 +117,8 @@
     <string name="file_type_directory">Directori</string>
     <string name="file_type_file">Fitxer</string>
     <string name="file_type_unknown">Desconegut</string>
+    <string name="general_timeunit_hours">Hores</string>
+    <string name="general_timeunit_days">Dies</string>
+    <string name="general_progress_ready">A punt</string>
+    <string name="general_progress_done">Fet</string>
 </resources>

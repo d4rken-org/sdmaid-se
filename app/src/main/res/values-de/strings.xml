@@ -244,6 +244,39 @@
     <string name="systemcleaner_filter_usagestats_label">Nutzungsstatistiken</string>
     <string name="systemcleaner_filter_usagestats_summary">Dateien mit Bezug zu App-Nutzungsstatistiken.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle Filterinhalte löschen?</string>
+    <string name="systemcleaner_customfilter_label">Benutzerdefinierter Filter</string>
+    <string name="systemcleaner_customfilter_create_action">Benutzerdefinierten Filter erstellen</string>
+    <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die einzigartig für dein Gerät und deine Anwendungsfälle sind.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Diesen Filter entfernen?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Du hast ungespeicherte Änderungen!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Filterbezeichnung</string>
+    <string name="systemcleaner_customfilter_editor_warning">Benutzerdefinierte Filter können riskant sein. Überprüfe Deine Suchergebnisse vor dem Löschen!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Datenbereiche</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Wenn kein Bereich ausgewählt ist, werden alle zugänglichen Datenbereiche gescannt und abgeglichen.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Dateityp-Einschränkungen</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dateien</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Verzeichnisse</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Wenn kein Typ ausgewählt ist, werden alle Typen abgeglichen.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag (z.B. \"Downloads/oldapks/game-\") übereinstimmen. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Namenskriterien</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter (z.B. \"-Quittung\") enthalten. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad einen Eintrag (z.B. \"DCIM\") enthält. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwörtern</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwörter</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pfad endet mit Schlüsselwörtern</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pfad ist mit Schlüsselwörtern identisch</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Namensvergleichsmodus</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Name beginnt mit Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Name enthält Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Name endet mit Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name ist mit Schlüsselwort identisch</string>
+    <string name="systemcleaner_customfilter_last_edit">Letzte Bearbeitung: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Live-Suche</string>
+    <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
+    <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
     <string name="appcleaner_tool_name">App-Reiniger</string>
     <string name="appcleaner_explanation_short">Überflüssige Daten, die zu bestimmten Apps gehören.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Öffentliche Standard-Caches</string>
@@ -345,8 +378,8 @@
     <string name="appcontrol_progress_disabling_package">App deaktivieren</string>
     <string name="appcontrol_list_filteroptions_label">Filteroptionen</string>
     <string name="appcontrol_list_sortmode_name_label">App-Name</string>
-    <string name="appcontrol_list_sortmode_updated_label">Zuletzt aktualisiert</string>
-    <string name="appcontrol_list_sortmode_installed_label">Erstinstallation</string>
+    <string name="appcontrol_list_sortmode_updated_label">Letzte Aktualisierung</string>
+    <string name="appcontrol_list_sortmode_installed_label">Erstmals installiert</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paketname</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstalliert App</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
@@ -367,7 +400,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Kein direkter Zugriff möglich</string>
     <string name="analyzer_storage_type_primary_title">Hauptspeicher</string>
-    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne „SD-Karte“, nicht öffentlichen Speicher für Apps und Systemdaten.</string>
+    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne SD-Karte, nicht-öffentlichen Speicher für Apps und Systemdaten.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundärer Speicher</string>
     <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine herausnehmbare SD-Karte. Enthält Mediendateien und Daten von Apps, die ihn unterstützen.</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
@@ -377,7 +410,7 @@
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
-    <string name="analyzer_storage_content_type_system_description">Systemdaten und System-Apps.</string>
+    <string name="analyzer_storage_content_type_system_description">System-Apps und Systemdaten. Apps und Daten anderer Benutzer, falls dieses Gerät mehr als einen Benutzer hat.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
     <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
@@ -387,7 +420,7 @@
     <string name="analyzer_storage_content_app_extra_label">Zusätzliche App-Dateien</string>
     <string name="analyzer_storage_content_app_extra_description">Zusätzliche Daten, die diese App außerhalb der Standardpfade platziert hat, z.B. Fotos oder Downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Diese App belegt %1$s auf \"%2$s\".</string>
-    <string name="data_area_public_app_data_official_label">Standarddaten für öffentliche Apps</string>
+    <string name="data_area_public_app_data_official_label">Standardmäßige öffentliche App-Daten</string>
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>
     <string name="data_area_sdcard_label">SD-Karte</string>
     <string name="data_areas_label">Datenbereiche</string>
@@ -453,7 +486,7 @@
     <string name="scheduler_inaccurate_execution_hint">Die voraussichtichen Ausführungszeiten sind Näherungswerte. Zeitpläne können verschoben oder vorgezogen werden, wenn dies die Batterie schont.</string>
     <string name="scheduler_no_active_schedules_subtitle">Keine aktiven Zeitpläne</string>
     <string name="scheduler_setting_nopowersaving_title">Bei schwacher Batterie überspringen</string>
-    <string name="scheduler_setting_nopowersaving_summary">Wenn sich das Telefon im Energiesparmodus befindet, wird die geplante Ausführung übersprungen.</string>
+    <string name="scheduler_setting_nopowersaving_summary">Befindet sich das Gerät im Energiesparmodus, wird die geplante Ausführung übersprungen.</string>
     <string name="scheduler_setting_automation_title">Barrierefreiheitsdienst</string>
     <string name="scheduler_setting_automation_summary">Schließen Sie Aktionen ein, die einen Barrierefreiheitsdienst nutzen. Dies erfordert, dass SD Maid mit Ihrem Bildschirm interagieren kann (d.h. er ist entsperrt), wenn die Aufgaben ausgeführt werden.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
@@ -461,5 +494,5 @@
     <string name="translation_encourage_title">Übersetze SD Maid</string>
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
-    <string name="translation_translators_people">Gamechanger181;Darken;uli</string>
+    <string name="translation_translators_people">Gamechanger181;Darken;uli;derPacifist</string>
 </resources>

@@ -285,8 +285,6 @@
     <string name="appcontrol_progress_disabling_package">ऐप अक्षम हो रहा है</string>
     <string name="appcontrol_list_filteroptions_label">फ़िल्टर विकल्प</string>
     <string name="appcontrol_list_sortmode_name_label">ऐप का नाम</string>
-    <string name="appcontrol_list_sortmode_updated_label">अंतिम बार अद्यतन किया गया</string>
-    <string name="appcontrol_list_sortmode_installed_label">सर्वप्रथम स्थापित किया गया</string>
     <string name="appcontrol_list_sortmode_packagename_label">पैकेज का नाम</string>
     <string name="appcontrol_progress_uninstalling_app">ऐप्लिकेशन अनइंस्टॉल किया जा रहा है</string>
     <string name="analyzer_tool_name">संग्रहणविश्लेषक</string>
@@ -299,16 +297,13 @@
     <string name="analyzer_device_storage_title">डिवाइस संग्रहण</string>
     <string name="analyzer_content_access_opaque">कोई सीधी पहुँच उपलब्ध नहीं है</string>
     <string name="analyzer_storage_type_primary_title">प्रारंभिक संग्रहण</string>
-    <string name="analyzer_storage_type_primary_description">आपके डिवाइस का प्राथमिक संग्रहण। आंतरिक \"sdcard\", ऐप्स और सिस्टम डेटा के लिए निजी संग्रहण शामिल है।</string>
     <string name="analyzer_storage_type_secondary_title">माध्यमिक संग्रहण</string>
-    <string name="analyzer_storage_type_secondary_description">एक माध्यमिक संग्रहण, आमतौर पर एक हटाने योग्य एसडीकार्ड। मीडिया फ़ाइलें और इसका समर्थन करने वाले ऐप्स के डेटा शामिल हैं।</string>
     <string name="analyzer_storage_content_title">संग्रहण सामग्री</string>
     <string name="analyzer_storage_content_type_app_label">ऐप्स</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">अनुमतियाँ गुम हैं</string>
     <string name="analyzer_storage_content_type_media_label">उपयोगकर्ता फ़ाइलें</string>
     <string name="analyzer_storage_content_type_media_description">कैप्चर की गई तस्वीरें, रिकॉर्ड किए गए वीडियो या डाउनलोड किए गए डेटा है। कोई भी डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <string name="analyzer_storage_content_type_system_label">सिस्टम डेटा</string>
-    <string name="analyzer_storage_content_type_system_description">सिस्टम डेटा और सिस्टम ऐप्स।</string>
     <string name="analyzer_storage_content_app_code_label">ऐप कोड</string>
     <string name="analyzer_storage_content_app_data_label">ऐप डेटा</string>
     <string name="analyzer_storage_content_app_data_description">डेटा, सेटिंग्स और कैशेस।</string>
@@ -317,9 +312,6 @@
     <string name="analyzer_storage_content_app_extra_label">अतिरिक्त ऐप फ़ाइलें</string>
     <string name="analyzer_storage_content_app_extra_description">अतिरिक्त डेटा जिसे इस ऐप ने डिफ़ॉल्ट पथों के बाहर रखा है, जैसे तस्वीरें या डाउनलोडस।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">यह ऐप \"%2$s\" पर %1$s में रहता है।</string>
-    <string name="data_area_public_app_data_official_label">डिफ़ॉल्ट सार्वजनिक ऐप डेटा</string>
-    <string name="data_area_public_storage_label">सार्वजनिक भंडारण</string>
-    <string name="data_area_sdcard_label">SD-कार्ड</string>
     <string name="data_areas_label">भंडारण क्षेत्र</string>
     <string name="data_areas_description">डेटा क्षेत्र आपके डिवाइस पर उन स्थानों का प्रतिनिधित्व करते हैं जो SD मैड के लिए सुलभ हैं। आपके एंड्रॉयड संस्करण और प्रदान की गई अनुमतियों के आधार पर विभिन्न डेटा क्षेत्र उपलब्ध हो सकते हैं।</string>
     <string name="data_areas_short_summary">वर्तमान में दी गई अनुमतियों के आधार पर SD मेड जिन क्षेत्रों तक पहुंच सकती है।</string>
@@ -378,7 +370,6 @@
     <string name="scheduler_inaccurate_execution_hint">अपेक्षित निष्पादन समय अनुमानित हैं। यदि यह बैटरी की बचत करता है तब परिसंख्या में देरी हो सकती है या उसमें तेजी आ सकती है।</string>
     <string name="scheduler_no_active_schedules_subtitle">कोई सक्रिय कार्यक्रम नहीं है</string>
     <string name="scheduler_setting_nopowersaving_title">कम बैटरी पर रहने दें</string>
-    <string name="scheduler_setting_nopowersaving_summary">यदि फोन पावर-बचत मोड में है, तो निर्धारित निष्पादन को छोड़ दिया जाएगा।</string>
     <string name="scheduler_setting_automation_title">अभिगम्यता सेवा</string>
     <string name="scheduler_setting_automation_summary">उन कार्रवाइयों को शामिल करें जो एक्सेसिबिलिटी सेवा का उपयोग करती हैं। इसके लिए आवश्यक है कि कार्य निष्पादित होने पर SD Maid आपकी स्क्रीन से बातचीत कर सके (यानी यह अनलॉक है)।</string>
     <string name="updates_dashcard_title">अद्यतन उपलब्ध है</string>

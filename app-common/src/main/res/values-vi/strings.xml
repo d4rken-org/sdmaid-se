@@ -116,4 +116,6 @@
     <string name="file_type_unknown">Không xác định</string>
     <string name="general_timeunit_hours">Giờ</string>
     <string name="general_timeunit_days">Ngày</string>
+    <string name="general_progress_ready">Sẵn sàng</string>
+    <string name="general_progress_done">Xong</string>
 </resources>

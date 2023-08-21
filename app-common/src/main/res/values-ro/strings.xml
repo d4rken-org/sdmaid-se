@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">La servirea dvs.</string>
+    <string name="slogan_message_1">Curat şi maree.</string>
     <string name="slogan_message_2">Previne haosul.</string>
     <string name="slogan_message_3">Face ceea ce este necesar.</string>
     <string name="slogan_message_4">Toate rațele tale la rând.</string>
@@ -17,6 +18,7 @@
     <string name="general_copy_action">Copiază</string>
     <string name="general_wipe_action">Șterge</string>
     <string name="general_cancel_action">Anulează</string>
+    <string name="general_discard_action">Anulează</string>
     <string name="general_reset_action">Resetează</string>
     <string name="general_save_action">Salvează</string>
     <string name="general_thanks_action">Mulțumiri</string>
@@ -58,19 +60,35 @@
     <string name="general_progress_queued">În coadă</string>
     <string name="general_progress_deleting">Se șterge %s</string>
     <string name="general_sort_options_label">Opțiuni pentru sortare</string>
+    <string name="general_sort_reverse_action">Modul de sortare inversă</string>
     <string name="general_tag_filter_label">Filtrează după etichete</string>
     <string name="general_result_success_message">Operațiune cu succes</string>
     <string name="general_result_failure_message">Operațiune eșuată</string>
     <string name="general_result_x_space_freed">%s eliberat</string>
+    <string name="general_options_label">Opțiuni</string>
     <string name="general_details_label">Detalii</string>
     <string name="general_view_action">Vezi</string>
     <string name="general_update_action">Actualizează</string>
     <string name="general_scan_action">Scanează</string>
     <string name="general_delete_action">Șterge</string>
+    <string name="general_delete_selected_action">Ştergeţi selecţia</string>
     <string name="general_show_details_action">Vezi detalii</string>
+    <string name="general_show_all_action">Arată tot</string>
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Ștergi %d elemente selectate?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">%1$d element șters și eliberat %2$s</item>
+        <item quantity="few">%1$d element șters și eliberat %2$s</item>
+        <item quantity="other">S-au șters %1$d elemente și au eliberat %2$s</item>
+    </plurals>
     <string name="general_remove_action">Elimină</string>
+    <string name="general_remove_selected_action">Elimină selecția</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Un element a fost eliminat</item>
+        <item quantity="few">%d elemente au fost eliminate</item>
+        <item quantity="other">%d elemente au fost eliminate</item>
+    </plurals>
     <string name="general_root_required_label">Necesită root</string>
     <string name="general_root_required_message">Necesită un dispozitiv rootat</string>
     <string name="general_search_action">Caută</string>
@@ -89,10 +107,12 @@
     <string name="general_grant_access_action">Acordă accesul</string>
     <string name="general_enable_service_action">Activează serviciul</string>
     <string name="general_undo_action">Anulă</string>
+    <string name="general_list_select_all_action">Selectare tot</string>
     <string name="general_path_label">Cale</string>
     <string name="general_type_label">Tip</string>
     <string name="general_size_label">Dimensiune</string>
     <string name="general_exclude_action">Exclude</string>
+    <string name="general_exclude_selected_action">Exclude selectia</string>
     <string name="general_device_label">Dispozitiv</string>
     <string name="general_settings_title">Setări</string>
     <string name="general_help_title">Ajutor</string>
@@ -100,4 +120,8 @@
     <string name="file_type_directory">Director</string>
     <string name="file_type_file">Fișier</string>
     <string name="file_type_unknown">Necunoscut</string>
+    <string name="general_timeunit_hours">Ore</string>
+    <string name="general_timeunit_days">Zile</string>
+    <string name="general_progress_ready">Pregătit</string>
+    <string name="general_progress_done">Terminat</string>
 </resources>

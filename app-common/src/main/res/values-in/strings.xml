@@ -60,7 +60,7 @@
     <string name="general_progress_queued">Dalam antrean</string>
     <string name="general_progress_deleting">Menghapus %s</string>
     <string name="general_sort_options_label">Pilihan pengurutan</string>
-    <string name="general_sort_reverse_action">Mode pengurutan terbalik</string>
+    <string name="general_sort_reverse_action">Mode penyortiran terbalik</string>
     <string name="general_tag_filter_label">Saring berdasarkan tag</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <string name="general_result_failure_message">Pekerjaan gagal</string>
@@ -76,7 +76,7 @@
     <string name="general_show_all_action">Tampilkan semua</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d item terpilih?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d butir terpilih?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
         <item quantity="other">Menghapus %1$d item dan membebaskan %2$s</item>
     </plurals>
@@ -114,4 +114,8 @@
     <string name="file_type_directory">Direktori</string>
     <string name="file_type_file">Berkas</string>
     <string name="file_type_unknown">Tidak diketahui</string>
+    <string name="general_timeunit_hours">Jam</string>
+    <string name="general_timeunit_days">Hari</string>
+    <string name="general_progress_ready">Siap</string>
+    <string name="general_progress_done">Selesai</string>
 </resources>

@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Απαιτεί το SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Αναβάθμιση SD Maid</string>
+    <string name="upgrades_dashcard_body">Το SD Maid Pro προσφέρει καλύτερα αποτελέσματα, περισσότερες δυνατότητες, και επιλογές για τους εξειδικευμένους χρήστες.</string>
+    <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
+    <string name="upgrades_gplay_unavailable_error">Οι υπηρεσίες του Google Play δεν είναι διαθέσιμες.</string>
+    <string name="upgrades_no_purchases_found_check_account">Δε βρέθηκαν αγορές. Χρησιμοποιείτε το σωστό λογαριασμό;</string>
+    <string name="upgrade_screen_title">Απόκτησε το SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid δεν έχει διαφημίσεις και δεν πωλεί τα δεδομένα των χρηστών. Η εργασία μου χρηματοδοτείται από εσάς ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Πλεονεκτήματα</string>
+    <string name="upgrade_screen_benefits_body">• Καθαρισμός εφαρμογών 💯\n• Προγραμματισμένες λειτουργίες ⏰\n• Επιπλέον επιλογές για όλα τα εργαλεία ⚙️\n• Οι κανόνες διαγραφής σας ✍️\n• Ένας προγραμματιστής με κίνητρο 🧙\nκαι περισσότερα…</string>
+    <string name="upgrade_screen_how_title">Επιλογές</string>
+    <string name="upgrade_screen_how_body">Μπορείτε να επιλέξετε μεταξύ μιας εφάπαξ αγοράς και μιας φθηνότερης ετήσιας συνδρομής.\nΗ συνδρομή ξεκινά με δωρεάν δοκιμή 14 ημερών, μετά την οποία θα χρεωθείτε μία φορά το χρόνο. Η δοκιμή και η συνδρομή ακυρώνονται ανά πάσα στιγμή.\nΊδια χαρακτηριστικά, απλά διαφορετικά μοντέλα τιμών.</string>
+    <string name="upgrade_screen_subscription_trial_action">Ξεκινήστε δωρεάν δοκιμή 14 ημερών</string>
+    <string name="upgrade_screen_subscription_action_hint">Η συνδρομή κοστίζει %s κάθε χρόνο.</string>
+    <string name="upgrade_screen_iap_action">Εφάπαξ αγορά</string>
+    <string name="upgrade_screen_iap_action_hint">Το κόστος της εφάπαξ αγοράς είναι %s.</string>
+    <string name="upgrade_screen_thanks_toast">Είστε οι καλύτεροι! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Μαζί, τα καταφέραμε να φτάσουμε στην πρώτη κυκλοφορία! Σας ευχαριστώ που με βοηθήσατε! Η ανάπτυξη θα συνεχιστεί, αλλά τώρα μπορείτε να μεταβείτε σε πιο σταθερές εκδόσεις, αν θέλετε. Κάντε αυτό επιλέγοντας να απεγραφείτε στο Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Μικρή σημείωση: Οι αξιολογήσεις που δόθηκαν κατά τη διάρκεια της δοκιμής είναι ορατές μόνο σε μένα, Θα το εκτιμούσα αν θα μπορούσατε να δώσετε SD Maid μια δημόσια βαθμολογία αν είστε ευχαριστημένοι.</string>
+</resources>

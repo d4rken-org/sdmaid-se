@@ -234,12 +234,7 @@
     <string name="appcontrol_progress_disabling_package">アプリを無効化</string>
     <string name="appcontrol_list_filteroptions_label">フィルタオプション</string>
     <string name="appcontrol_list_sortmode_name_label">アプリ名</string>
-    <string name="appcontrol_list_sortmode_updated_label">最終更新日：</string>
-    <string name="appcontrol_list_sortmode_installed_label">最初のインストール日時</string>
     <string name="appcontrol_list_sortmode_packagename_label">パッケージ名</string>
-    <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
-    <string name="data_area_public_storage_label">一般ストレージ</string>
-    <string name="data_area_sdcard_label">SDカード</string>
     <string name="data_areas_label">データ領域</string>
     <string name="data_areas_description">データエリアは、SDMaidがアクセス可能なデバイス上の場所を表します。 Android のバージョンと許可された権限によって、異なるデータエリアが利用可能になる場合があります。</string>
     <string name="data_areas_short_summary">現在付与されている権限に基づいてSDメイドがアクセスできるエリア。</string>
@@ -265,7 +260,6 @@
     <string name="scheduler_schedule_repeat_interval">リピートの間隔</string>
     <string name="scheduler_no_active_schedules_subtitle">アクティブなスケジュールはありません</string>
     <string name="scheduler_setting_nopowersaving_title">低バッテリー時はスキップする</string>
-    <string name="scheduler_setting_nopowersaving_summary">スマートフォンが省電力モードの場合、スケジュールされた実行はスキップされます。</string>
     <string name="updates_dashcard_title">アップデートが利用可能です</string>
     <string name="updates_dashcard_body">アップデートが利用可能です。今のあなたのバージョンは%1$sで最新バージョンが%2$sです。</string>
     <string name="translation_encourage_title">SD Maidを翻訳</string>

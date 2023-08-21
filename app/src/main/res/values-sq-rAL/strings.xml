@@ -236,8 +236,6 @@
     <string name="appcontrol_progress_disabling_package">Çaktivizimi i aplikacionit</string>
     <string name="appcontrol_list_filteroptions_label">Opsionet e filtrit</string>
     <string name="appcontrol_list_sortmode_name_label">Emri i aplikacionit</string>
-    <string name="appcontrol_list_sortmode_updated_label">Përditësimi i fundit në</string>
-    <string name="appcontrol_list_sortmode_installed_label">Instaluar për herë të parë në</string>
     <string name="appcontrol_list_sortmode_packagename_label">Emri i paketës</string>
     <string name="appcontrol_progress_uninstalling_app">Po çinstalon aplikacionin</string>
     <string name="analyzer_tool_name">Analizuesi i magazinës</string>
@@ -250,16 +248,13 @@
     <string name="analyzer_device_storage_title">Hapësira ruajtëse e pajisjes</string>
     <string name="analyzer_content_access_opaque">Nuk ka qasje të drejtpërdrejtë</string>
     <string name="analyzer_storage_type_primary_title">Magazina primare</string>
-    <string name="analyzer_storage_type_primary_description">Ruajtja kryesore e pajisjes suaj. Përmban \"sdcard\"-in e brendshëm, ruajtjen private për aplikacionet dhe të dhënat e sistemit.</string>
     <string name="analyzer_storage_type_secondary_title">Magazina sekondare</string>
-    <string name="analyzer_storage_type_secondary_description">Një ruajtje dytësore, zakonisht një kartë sd e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
     <string name="analyzer_storage_content_title">Përmbajtja e magazinës</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacionet</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Mungojnë lejet</string>
     <string name="analyzer_storage_content_type_media_label">Skedarët e përdoruesit</string>
     <string name="analyzer_storage_content_type_media_description">Fotografi të shkrepura, video të regjistruara ose të dhëna të shkarkuara. Çdo të dhënë që nuk i përket një aplikacioni specifik.</string>
     <string name="analyzer_storage_content_type_system_label">Të dhënat e sistemit</string>
-    <string name="analyzer_storage_content_type_system_description">Të dhënat e sistemit dhe aplikacionet e sistemit.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
     <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>
     <string name="analyzer_storage_content_app_data_description">Të dhënat, cilësimet dhe cache.</string>
@@ -268,9 +263,6 @@
     <string name="analyzer_storage_content_app_extra_label">Skedarët shtesë të aplikacionit</string>
     <string name="analyzer_storage_content_app_extra_description">Të dhëna shtesë që ky aplikacion ka vendosur jashtë shtigjeve të paracaktuara, p.sh. foto ose shkarkime.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ky aplikacion zë %1$s në \"%2$s\".</string>
-    <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
-    <string name="data_area_public_storage_label">Magazinimi Publik</string>
-    <string name="data_area_sdcard_label">Kartela SD</string>
     <string name="data_areas_label">Zonat e të dhënave</string>
     <string name="data_areas_description">Zonat e të dhënave përfaqësojnë vendndodhje në pajisjen tuaj që janë të aksesueshme për SD Maid. Zona të ndryshme të të dhënave mund të jenë të disponueshme në varësi të versionit tuaj të Android dhe lejeve që janë dhënë.</string>
     <string name="data_areas_short_summary">Zonat ku SD Maid mund të qaset bazuar në lejet e dhëna aktualisht.</string>

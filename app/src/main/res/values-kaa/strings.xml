@@ -76,7 +76,6 @@
     <string name="appcontrol_tag_enabled">Qosılǵan</string>
     <string name="appcontrol_tag_disabled">Óshirilgen</string>
     <string name="appcontrol_list_sortmode_name_label">Baǵdarlama ataması</string>
-    <string name="appcontrol_list_sortmode_installed_label">Birinshi ornatıw</string>
     <string name="analyzer_storage_content_type_app_label">Qosımshalar</string>
     <string name="analyzer_storage_content_app_code_label">Qosımsha kodı</string>
     <string name="analyzer_storage_content_app_data_label">Qosımsha maǵlıwmatları</string>

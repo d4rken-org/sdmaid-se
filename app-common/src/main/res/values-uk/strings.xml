@@ -67,7 +67,7 @@
     <string name="general_result_x_space_freed">%s звільнено</string>
     <string name="general_options_label">Параметри</string>
     <string name="general_details_label">Подробиці</string>
-    <string name="general_view_action">Вигляд</string>
+    <string name="general_view_action">Дивитися</string>
     <string name="general_update_action">Оновити</string>
     <string name="general_scan_action">Сканувати</string>
     <string name="general_delete_action">Видалити</string>
@@ -86,8 +86,8 @@
     <string name="general_open_system_settings_action">Відкрийте налаштування системи</string>
     <plurals name="result_x_items">
         <item quantity="one">%s елемент</item>
-        <item quantity="few">%s елемент</item>
-        <item quantity="many">%s елем.</item>
+        <item quantity="few">%s елементів</item>
+        <item quantity="many">%s елементів</item>
         <item quantity="other">%s елементів</item>
     </plurals>
     <string name="x_space_can_be_freed">%s можна звільнити</string>
@@ -113,4 +113,6 @@
     <string name="file_type_unknown">Невідомо</string>
     <string name="general_timeunit_hours">Години</string>
     <string name="general_timeunit_days">Дні</string>
+    <string name="general_progress_ready">Готово</string>
+    <string name="general_progress_done">Виконано</string>
 </resources>

@@ -244,6 +244,22 @@
     <string name="systemcleaner_filter_usagestats_label">Gebruiksstatistieken</string>
     <string name="systemcleaner_filter_usagestats_summary">Bestanden met betrekking tot gebruiksstatistieken van applicaties.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle filterinhoud verwijderen?</string>
+    <string name="systemcleaner_customfilter_label">Aangepast filter</string>
+    <string name="systemcleaner_customfilter_create_action">Maak een aangepast filter</string>
+    <string name="systemcleaner_customfilter_create_hint">Maak een aangepast filter om extra bestanden te verwijderen die uniek zijn voor je apparaat en gebruiksscenario\'s.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Dit filter verwijderen?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Je hebt niet-opgeslagen wijzigingen!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Filter op labels</string>
+    <string name="systemcleaner_customfilter_editor_warning">Aangepaste filters kunnen gevaarlijk zijn. Controleer je scanresultaten voordat je ze verwijdert!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Data zones</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Als er geen gebied is geselecteerd, worden alle toegankelijke gegevensgebieden gescand en vergeleken.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Beperkingen voor het bestandstype</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Bestanden</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mappen</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Als er geen type is geselecteerd, worden alle typen vergeleken.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Uitsluitingen</string>
+    <string name="systemcleaner_customfilter_last_edit">Laatste bewerking: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Live zoeken</string>
     <string name="appcleaner_tool_name">AppReiniger</string>
     <string name="appcleaner_explanation_short">Eenmalige gegevens van specifieke apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publieke standaard caches</string>
@@ -345,8 +361,8 @@
     <string name="appcontrol_progress_disabling_package">App uitschakelen</string>
     <string name="appcontrol_list_filteroptions_label">Filter opties</string>
     <string name="appcontrol_list_sortmode_name_label">App-naam</string>
-    <string name="appcontrol_list_sortmode_updated_label">Laatst bijgewerkt op</string>
-    <string name="appcontrol_list_sortmode_installed_label">Voor het eerst geïnstalleerd op</string>
+    <string name="appcontrol_list_sortmode_updated_label">Laatst bijgewerkt</string>
+    <string name="appcontrol_list_sortmode_installed_label">Eerst geïnstalleerd</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakketnaam</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
@@ -367,9 +383,9 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Geen directe toegang beschikbaar</string>
     <string name="analyzer_storage_type_primary_title">Primaire opslag</string>
-    <string name="analyzer_storage_type_primary_description">De primaire opslag van uw apparaat. Bevat de interne \"sdcard\", privé opslag voor apps en systeemgegevens.</string>
+    <string name="analyzer_storage_type_primary_description">De primaire opslag van je apparaat. Bevat de interne SD-kaart, privéopslag voor apps en systeemgegevens.</string>
     <string name="analyzer_storage_type_secondary_title">Secundaire opslag</string>
-    <string name="analyzer_storage_type_secondary_description">Een secundaire opslag, meestal een verwijderbare sdcard. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
+    <string name="analyzer_storage_type_secondary_description">Een tweede opslag, meestal een verwisselbare SD-kaart. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. installatiebestanden, gegevens en caches).</string>
@@ -377,7 +393,6 @@
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
-    <string name="analyzer_storage_content_type_system_description">Systeemgegevens en systeem apps.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
@@ -453,7 +468,7 @@
     <string name="scheduler_inaccurate_execution_hint">Verwachte uitvoeringstijden zijn bij benadering. Schema\'s kunnen worden vertraagd of versneld als dit de batterij spaart.</string>
     <string name="scheduler_no_active_schedules_subtitle">Geen actieve planningen</string>
     <string name="scheduler_setting_nopowersaving_title">Overslaan bij bijna lege batterij</string>
-    <string name="scheduler_setting_nopowersaving_summary">Als de telefoon in de energiebesparende modus staat, wordt de geplande uitvoering overgeslagen.</string>
+    <string name="scheduler_setting_nopowersaving_summary">Als het apparaat in de energiebesparende modus staat, wordt de geplande uitvoering overgeslagen.</string>
     <string name="scheduler_setting_automation_title">Toegankelijkheidsdienst</string>
     <string name="scheduler_setting_automation_summary">Voeg acties toe die een toegankelijkheidsservice gebruiken. Dit vereist dat SD Maid kan communiceren met je scherm (dat wil zeggen dat het ontgrendeld is) wanneer de taken worden uitgevoerd.</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
