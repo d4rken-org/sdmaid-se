@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class SortSettings(
     @Json(name = "mode") val mode: Mode = Mode.LAST_UPDATE,
-    @Json(name = "reversed") val reversed: Boolean = false,
+    @Json(name = "reversed") val reversed: Boolean = true,
 ) {
     @JsonClass(generateAdapter = false)
     enum class Mode {
