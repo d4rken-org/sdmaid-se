@@ -24,12 +24,14 @@ class SchedulerSettings @Inject constructor(
         get() = context.dataStore
 
     val skipWhenPowerSaving = dataStore.createValue("requirement.notpowersaving.enabled", true)
+    val skipWhenNotCharging = dataStore.createValue("requirement.charging.enabled", true)
     val useAutomation = dataStore.createValue("option.automation.enabled", false)
 
     val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
 
     override val mapper = PreferenceStoreMapper(
         skipWhenPowerSaving,
+        skipWhenNotCharging,
         useAutomation
     )
 

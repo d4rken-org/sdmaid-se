@@ -9,6 +9,13 @@
         app:title="@string/scheduler_setting_nopowersaving_title" />
 
     <CheckBoxPreference
+        app:icon="@drawable/ic_baseline_power_plug_off_24"
+        app:key="requirement.charging.enabled"
+        app:singleLineTitle="false"
+        app:summary="@string/scheduler_setting_charging_summary"
+        app:title="@string/scheduler_setting_charging_title" />
+
+    <CheckBoxPreference
         app:icon="@drawable/ic_baseline_accessibility_new_24"
         app:key="option.automation.enabled"
         app:singleLineTitle="false"

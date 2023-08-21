@@ -525,6 +525,8 @@
     <string name="scheduler_no_active_schedules_subtitle">No active schedules</string>
     <string name="scheduler_setting_nopowersaving_title">Skip on low battery</string>
     <string name="scheduler_setting_nopowersaving_summary">If the device is in power-saving mode, the scheduled execution will be skipped.</string>
+    <string name="scheduler_setting_charging_title">Skip when not charging</string>
+    <string name="scheduler_setting_charging_summary">If the device is not charging, the scheduled execution will be skipped.</string>
     <string name="scheduler_setting_automation_title">Accessibility service</string>
     <string name="scheduler_setting_automation_summary">Include actions that use an accessibility service. This requires that SD Maid can interact with your screen (i.e. it\'s unlocked) when the tasks are executed.</string>
 
