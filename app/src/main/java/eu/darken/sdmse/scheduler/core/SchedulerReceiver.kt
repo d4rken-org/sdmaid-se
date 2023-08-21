@@ -3,6 +3,7 @@ package eu.darken.sdmse.scheduler.core
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.BatteryManager
 import android.os.PowerManager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
@@ -37,6 +38,7 @@ class SchedulerReceiver : BroadcastReceiver() {
     @Inject lateinit var schedulerManager: SchedulerManager
     @Inject lateinit var schedulerSettings: SchedulerSettings
     @Inject lateinit var taskManager: TaskManager
+    @Inject lateinit var batteryManager: BatteryManager
     @Inject lateinit var powerManager: PowerManager
     @Inject lateinit var setupHealer: SetupHealer
 
@@ -67,6 +69,11 @@ class SchedulerReceiver : BroadcastReceiver() {
 
             if (schedulerSettings.skipWhenPowerSaving.value() && powerManager.isPowerSaveMode) {
                 log(TAG, WARN) { "Phone is in power-saving mode, skipping execution." }
+                return@launch
+            }
+
+            if (schedulerSettings.skipWhenNotCharging.value() && !batteryManager.isCharging())  {
+                log(TAG, WARN) { "Phone is not charging, skipping execution." }
                 return@launch
             }
 
