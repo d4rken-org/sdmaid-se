@@ -9,13 +9,16 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.canWrite
+import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
@@ -37,10 +40,19 @@ class PublicMediaModule @Inject constructor(
             .map { parentArea ->
                 parentArea to parentArea.path.child("Android", "media")
             }
-            .filter {
-                val canRead = it.second.canRead(gatewaySwitch)
-                if (!canRead) log(TAG) { "Can't read ${it.second}" }
-                canRead
+            .filter { (area, path) ->
+                if (!path.canRead(gatewaySwitch)) {
+                    log(TAG) { "Can't read $area" }
+                    return@filter false
+                }
+
+                try {
+                    path.lookup(gatewaySwitch)
+                    true
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    false
+                }
             }
             .map { (parentArea, path) ->
                 DataArea(
