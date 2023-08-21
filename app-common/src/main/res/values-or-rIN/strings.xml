@@ -79,4 +79,6 @@
     <string name="file_type_directory">ଡାଇରେକ୍ଟୋରୀ</string>
     <string name="file_type_file">ଫାଇଲ୍</string>
     <string name="file_type_unknown">ଅଜ୍ଞାତ</string>
+    <string name="general_progress_ready">ପ୍ରସ୍ତୁତ</string>
+    <string name="general_progress_done">ହୋଇଗଲା</string>
 </resources>

@@ -32,7 +32,7 @@
     <string name="general_sync_action">Synchroniser</string>
     <string name="general_error_label">Erreur</string>
     <string name="general_tap_hint_msg">Toucher pour d’autres options</string>
-    <string name="general_upgrade_action">Mettre à niveau</string>
+    <string name="general_upgrade_action">Passer Pro</string>
     <string name="general_donate_action">Faire un don</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_filter_action">Filtrer</string>
@@ -119,4 +119,6 @@
     <string name="file_type_unknown">Inconnu</string>
     <string name="general_timeunit_hours">Heures</string>
     <string name="general_timeunit_days">Jours</string>
+    <string name="general_progress_ready">Prêt</string>
+    <string name="general_progress_done">Terminé</string>
 </resources>

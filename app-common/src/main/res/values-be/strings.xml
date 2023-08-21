@@ -125,4 +125,6 @@
     <string name="file_type_unknown">Невядома</string>
     <string name="general_timeunit_hours">Гадзіны</string>
     <string name="general_timeunit_days">Дні</string>
+    <string name="general_progress_ready">Гатова</string>
+    <string name="general_progress_done">Выканана</string>
 </resources>

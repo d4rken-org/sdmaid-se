@@ -238,6 +238,22 @@
     <string name="systemcleaner_filter_usagestats_label">Thống kê sử dụng</string>
     <string name="systemcleaner_filter_usagestats_summary">Các tệp liên quan đến số liệu thống kê sử dụng ứng dụng.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Xóa tất cả nội dung bộ lọc?</string>
+    <string name="systemcleaner_customfilter_label">Bộ lọc tùy chỉnh</string>
+    <string name="systemcleaner_customfilter_create_action">Tạo bộ lọc tùy chỉnh</string>
+    <string name="systemcleaner_customfilter_create_hint">Tạo bộ lọc tùy chỉnh để xóa các tệp bổ sung dành riêng cho thiết bị và các trường hợp sử dụng của bạn.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Xóa bộ lọc này?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Bạn có thay đổi chưa lưu!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Nhãn bộ lọc</string>
+    <string name="systemcleaner_customfilter_editor_warning">Bộ lọc tùy chỉnh có thể gặp rủi ro. Kiểm tra kết quả quét của bạn trước khi xóa!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Vùng dữ liệu</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Nếu không có khu vực nào được chọn, thì tất cả các khu vực dữ liệu có thể truy cập sẽ được quét và so khớp.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Hạn chế loại tập tin</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Tập tin</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Nếu không có loại nào được chọn, thì tất cả các loại sẽ được khớp.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Loại trừ</string>
+    <string name="systemcleaner_customfilter_last_edit">Chỉnh sửa lần cuối: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Tìm kiếm trực tiếp</string>
     <string name="appcleaner_tool_name">Trình dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
@@ -356,9 +372,9 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Không có quyền truy cập trực tiếp</string>
     <string name="analyzer_storage_type_primary_title">Bộ nhớ chính</string>
-    <string name="analyzer_storage_type_primary_description">Bộ nhớ chính của thiết bị của bạn. Chứa \"sdcard\" nội bộ, bộ nhớ riêng cho ứng dụng và dữ liệu hệ thống.</string>
+    <string name="analyzer_storage_type_primary_description">Bộ nhớ chính của thiết bị của bạn. Chứa thẻ SD bên trong, bộ nhớ riêng cho ứng dụng và dữ liệu hệ thống.</string>
     <string name="analyzer_storage_type_secondary_title">Bộ nhớ thứ cấp</string>
-    <string name="analyzer_storage_type_secondary_description">Bộ nhớ thứ cấp, thường là thẻ sdcard có thể tháo rời. Chứa các tệp phương tiện và dữ liệu từ các ứng dụng hỗ trợ nó.</string>
+    <string name="analyzer_storage_type_secondary_description">Bộ lưu trữ thứ cấp, thường là thẻ SD có thể tháo rời. Chứa các tệp phương tiện và dữ liệu từ các ứng dụng hỗ trợ nó.</string>
     <string name="analyzer_storage_content_title">Nội dung lưu trữ</string>
     <string name="analyzer_storage_content_type_app_label">Ứng Dụng</string>
     <string name="analyzer_storage_content_type_app_description">Không gian bị chiếm bởi các ứng dụng đã cài đặt và dữ liệu của chúng (tức là tệp ứng dụng, dữ liệu và bộ nhớ đệm).</string>
@@ -366,7 +382,6 @@
     <string name="analyzer_storage_content_type_media_label">Tập tin người dùng</string>
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
-    <string name="analyzer_storage_content_type_system_description">Dữ liệu hệ thống và ứng dụng hệ thống.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tệp ứng dụng, thư viện và tài nguyên. Không gian này chỉ có thể được giải phóng bằng cách gỡ cài đặt ứng dụng.</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
@@ -378,7 +393,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ứng dụng này chiếm %1$s trên \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
     <string name="data_area_public_storage_label">Lưu trữ công khai</string>
-    <string name="data_area_sdcard_label">SD-Card</string>
+    <string name="data_area_sdcard_label">Thẻ SD</string>
     <string name="data_areas_label">Vùng dữ liệu</string>
     <string name="data_areas_description">Vùng dữ liệu đại diện cho các vị trí trên thiết bị của bạn mà SD Maid có thể truy cập được. Các vùng dữ liệu khác nhau có thể khả dụng tùy thuộc vào phiên bản Android của bạn và các quyền đã được cấp.</string>
     <string name="data_areas_short_summary">Các khu vực mà SD Maid có thể truy cập dựa trên các quyền hiện được cấp.</string>
@@ -440,7 +455,7 @@
     <string name="scheduler_inaccurate_execution_hint">Thời gian thực hiện dự kiến ​​là xấp xỉ. Lịch trình có thể bị trì hoãn hoặc tăng tốc nếu nó tiết kiệm pin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Không có lịch trình hoạt động</string>
     <string name="scheduler_setting_nopowersaving_title">Bỏ qua khi pin yếu</string>
-    <string name="scheduler_setting_nopowersaving_summary">Nếu điện thoại ở chế độ tiết kiệm năng lượng, quá trình thực hiện theo lịch trình sẽ bị bỏ qua.</string>
+    <string name="scheduler_setting_nopowersaving_summary">Nếu thiết bị ở chế độ tiết kiệm năng lượng, quá trình thực hiện theo lịch trình sẽ bị bỏ qua.</string>
     <string name="scheduler_setting_automation_title">Dịch vụ trợ năng</string>
     <string name="scheduler_setting_automation_summary">Bao gồm các hành động sử dụng dịch vụ trợ năng. Điều này yêu cầu SD Maid có thể tương tác với màn hình của bạn (tức là màn hình đã được mở khóa) khi các tác vụ được thực thi.</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>

@@ -320,8 +320,6 @@
     <string name="appcontrol_progress_disabling_package">Menyahdayakan aplikasi</string>
     <string name="appcontrol_list_filteroptions_label">Pilihan penapis</string>
     <string name="appcontrol_list_sortmode_name_label">Nama aplikasi</string>
-    <string name="appcontrol_list_sortmode_updated_label">Kemas kini terakhir pada</string>
-    <string name="appcontrol_list_sortmode_installed_label">Kali pertama dipasang di</string>
     <string name="appcontrol_list_sortmode_packagename_label">Packagename</string>
     <string name="appcontrol_progress_uninstalling_app">Menyahpasang aplikasi</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
@@ -334,9 +332,7 @@
     <string name="analyzer_device_storage_title">Storan peranti</string>
     <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
     <string name="analyzer_storage_type_primary_title">Storan utama</string>
-    <string name="analyzer_storage_type_primary_description">Storan utama peranti anda. Mengandungi \"sdcard\" dalaman, storan peribadi untuk aplikasi dan data sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Storan sekunder</string>
-    <string name="analyzer_storage_type_secondary_description">Storan sekunder, biasanya kad sd boleh ubah. Mengandungi fail media dan data daripada aplikasi yang menyokongnya.</string>
     <string name="analyzer_storage_content_title">Kandungan storan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
     <string name="analyzer_storage_content_type_app_description">Ruang yang diduduki oleh aplikasi yang dipasang dan datanya (iaitu fail aplikasi, data dan cache).</string>
@@ -344,7 +340,6 @@
     <string name="analyzer_storage_content_type_media_label">Fail pengguna</string>
     <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
-    <string name="analyzer_storage_content_type_system_description">Data sistem dan aplikasi sistem.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini hanya boleh dikosongkan dengan menyahpasang aplikasi.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
@@ -354,9 +349,6 @@
     <string name="analyzer_storage_content_app_extra_label">Fail aplikasi tambahan</string>
     <string name="analyzer_storage_content_app_extra_description">Data tambahan yang telah diletakkan oleh aplikasi ini di luar laluan lalai, cth. foto atau muat turun.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
-    <string name="data_area_public_app_data_official_label">Data Aplikasi Awam Lalai</string>
-    <string name="data_area_public_storage_label">Storan awam</string>
-    <string name="data_area_sdcard_label">Kad-SD</string>
     <string name="data_areas_label">Kawasan data</string>
     <string name="data_areas_description">Kawasan data mewakili lokasi pada peranti anda yang boleh diakses oleh SD Maid. Kawasan data yang berbeza mungkin tersedia bergantung pada versi Android anda dan kebenaran yang telah diberikan.</string>
     <string name="data_areas_short_summary">Kawasan yang boleh diakses oleh SD Maid berdasarkan kebenaran yang diberikan pada masa ini.</string>
@@ -418,7 +410,6 @@
     <string name="scheduler_inaccurate_execution_hint">Jangkaan masa pelaksanaan adalah anggaran. Jadual mungkin ditangguhkan atau dipercepatkan jika ia menjimatkan bateri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Tiada jadual aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Langkau pada bateri lemah</string>
-    <string name="scheduler_setting_nopowersaving_summary">Jika telefon berada dalam mod penjimatan kuasa, pelaksanaan yang dijadualkan akan dilangkau.</string>
     <string name="scheduler_setting_automation_title">Perkhidmatan kebolehcapaian</string>
     <string name="scheduler_setting_automation_summary">Sertakan tindakan yang menggunakan perkhidmatan kebolehaksesan. Ini memerlukan SD Maid boleh berinteraksi dengan skrin anda (iaitu skrin dibuka) apabila tugasan dilaksanakan.</string>
     <string name="updates_dashcard_title">Kemaskini tersedia</string>

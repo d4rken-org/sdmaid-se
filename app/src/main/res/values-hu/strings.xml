@@ -244,6 +244,8 @@
     <string name="systemcleaner_filter_usagestats_label">Használati statisztikák</string>
     <string name="systemcleaner_filter_usagestats_summary">Alkalmazáshasználati statisztikákkal kapcsolatos fájlok.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Az összes szűrőtartalom törlése?</string>
+    <string name="systemcleaner_customfilter_label">Egyedi szűrő</string>
+    <string name="systemcleaner_customfilter_create_action">Egyedi szűrő létrehozása</string>
     <string name="appcleaner_tool_name">AlkalmazásTisztító</string>
     <string name="appcleaner_explanation_short">Felhasználható adatok, amelyek bizonyos alkalmazásokhoz tartoznak.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Nyilvános alapértelmezett gyorsítótárak</string>
@@ -345,8 +347,6 @@
     <string name="appcontrol_progress_disabling_package">Alkalmazás letiltása</string>
     <string name="appcontrol_list_filteroptions_label">Szűrési lehetőségek</string>
     <string name="appcontrol_list_sortmode_name_label">Alkalmazás név</string>
-    <string name="appcontrol_list_sortmode_updated_label">Utoljára frissítve</string>
-    <string name="appcontrol_list_sortmode_installed_label">Először telepítve</string>
     <string name="appcontrol_list_sortmode_packagename_label">Csomag név</string>
     <string name="appcontrol_progress_uninstalling_app">App eltávolítása...</string>
     <string name="analyzer_tool_name">TárhelyElemző</string>
@@ -367,9 +367,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Nincs közvetlen hozzáférés</string>
     <string name="analyzer_storage_type_primary_title">Elsődleges tároló</string>
-    <string name="analyzer_storage_type_primary_description">A készülék elsődleges tárhelye. Tartalmazza a belső \"sdcard\"-ot, az alkalmazások és a rendszeradatok privát tárhelyét.</string>
     <string name="analyzer_storage_type_secondary_title">Másodlagos tároló</string>
-    <string name="analyzer_storage_type_secondary_description">Másodlagos tároló, általában egy cserélhető SD kártya. Tartalmazza a médiafájlokat és az azt támogató alkalmazások adatait.</string>
     <string name="analyzer_storage_content_title">Tárhely tartalma</string>
     <string name="analyzer_storage_content_type_app_label">Appok</string>
     <string name="analyzer_storage_content_type_app_description">A telepített alkalmazások és adataik (azaz az alkalmazásfájlok, adatok és gyorsítótárak) által elfoglalt hely.</string>
@@ -377,7 +375,6 @@
     <string name="analyzer_storage_content_type_media_label">Felhasználói fájlok</string>
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
-    <string name="analyzer_storage_content_type_system_description">Rendszeradatok és rendszeralkalmazások.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
     <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
@@ -387,9 +384,6 @@
     <string name="analyzer_storage_content_app_extra_label">Extra alkalmazásfájlok</string>
     <string name="analyzer_storage_content_app_extra_description">Extra adatok, amelyeket ez az alkalmazás az alapértelmezett elérési útvonalakon kívül helyezett el, pl. fényképek vagy letöltések.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ez az alkalmazás %1$s-t foglal el a \"%2$s\"-on.</string>
-    <string name="data_area_public_app_data_official_label">Alapértelmezett nyilvános alkalmazásadatok</string>
-    <string name="data_area_public_storage_label">Nyilvános Tároló</string>
-    <string name="data_area_sdcard_label">SD kártya</string>
     <string name="data_areas_label">Adatterületek</string>
     <string name="data_areas_description">Az adatterületek az eszköz azon helyeit jelentik, amelyek elérhetők az SD Maid számára. Az Android-verziótól és a megadott engedélyektől függően különböző adatterületek állnak rendelkezésre.</string>
     <string name="data_areas_short_summary">Azok a területek, amelyekhez az SD Maid hozzáférhet a jelenleg megadott engedélyek alapján.</string>
@@ -453,7 +447,6 @@
     <string name="scheduler_inaccurate_execution_hint">A várható végrehajtási idők hozzávetőlegesek. Az ütemezések késhetnek vagy felgyorsulhatnak, ha kíméli az akkumulátort.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nincs aktív ütemezés</string>
     <string name="scheduler_setting_nopowersaving_title">Ugrás alacsony akkumulátor töltöttségi szint esetén</string>
-    <string name="scheduler_setting_nopowersaving_summary">Ha a telefon energiatakarékos módban van, az ütemezett végrehajtás kimarad.</string>
     <string name="scheduler_setting_automation_title">Kisegítő lehetőségek</string>
     <string name="scheduler_setting_automation_summary">Tartalmazza az akadálymentesítési szolgáltatást használó műveleteket. Ehhez az szükséges, hogy az SD Maid a feladatok végrehajtásakor interakcióba léphessen a képernyővel (azaz az fel legyen oldva).</string>
     <string name="updates_dashcard_title">Frissítés elérhető</string>

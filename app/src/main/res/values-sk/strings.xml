@@ -256,6 +256,11 @@
     <string name="systemcleaner_filter_usagestats_label">Štatistiky používania</string>
     <string name="systemcleaner_filter_usagestats_summary">Súbory súvisiace so štatistikami používania aplikácie.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Vymazať celý obsah filtra?</string>
+    <string name="systemcleaner_customfilter_label">Vlastný filter</string>
+    <string name="systemcleaner_customfilter_create_action">Vytvoriť vlastný filter</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Dátové oblasti</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Súbory</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Adresáre</string>
     <string name="appcleaner_tool_name">Čistič aplikácií</string>
     <string name="appcleaner_explanation_short">Nepotrebné dáta patriace konkrétnym aplikáciám.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Verejné predvolené vyrovnávacie pamäte</string>
@@ -363,7 +368,7 @@
     <string name="appcontrol_progress_disabling_package">Deaktivácia aplikácie</string>
     <string name="appcontrol_list_filteroptions_label">Možnosti filtrovania</string>
     <string name="appcontrol_list_sortmode_name_label">Názov aplikácie</string>
-    <string name="appcontrol_list_sortmode_updated_label">Posledná aktualizácia</string>
+    <string name="appcontrol_list_sortmode_updated_label">Naposledy aktualizované</string>
     <string name="appcontrol_list_sortmode_installed_label">Prvá inštalácia</string>
     <string name="appcontrol_list_sortmode_packagename_label">Názov balíka</string>
     <string name="appcontrol_progress_uninstalling_app">Odinštaluje sa</string>
@@ -389,9 +394,9 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Priamy prístup nie je k dispozícii</string>
     <string name="analyzer_storage_type_primary_title">Primárne úložisko</string>
-    <string name="analyzer_storage_type_primary_description">Primárne úložisko vášho zariadenia. Obsahuje internú „sd kartu“, súkromné úložisko pre aplikácie a systémové dáta.</string>
+    <string name="analyzer_storage_type_primary_description">Primárne úložisko vášho zariadenia. Obsahuje internú SD kartu, súkromné úložisko pre aplikácie a systémové dáta.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundárne úložisko</string>
-    <string name="analyzer_storage_type_secondary_description">Sekundárne úložisko, zvyčajne vymeniteľná SDkarta. Obsahuje mediálne súbory a údaje z aplikácií, ktoré to podporujú.</string>
+    <string name="analyzer_storage_type_secondary_description">Sekundárne úložisko, zvyčajne vymeniteľná SD karta. Obsahuje mediálne súbory a údaje z aplikácií, ktoré to podporujú.</string>
     <string name="analyzer_storage_content_title">Obsah úložiska</string>
     <string name="analyzer_storage_content_type_app_label">Aplikácie</string>
     <string name="analyzer_storage_content_type_app_description">Priestor, ktorý zaberajú nainštalované aplikácie a ich údaje (t. j. súbory aplikácie, údaje a vyrovnávacie pamäte).</string>
@@ -399,7 +404,6 @@
     <string name="analyzer_storage_content_type_media_label">Užívateľské súbory</string>
     <string name="analyzer_storage_content_type_media_description">Nasnímané obrázky, nahrané videá alebo stiahnuté dáta. Akékoľvek údaje, ktoré nepatria do konkrétnej aplikácie.</string>
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
-    <string name="analyzer_storage_content_type_system_description">Systémové údaje a systémové aplikácie.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
     <string name="analyzer_storage_content_app_code_description">Súbory aplikácie, knižnice a zdroje. Tento priestor je možné uvoľniť iba odinštalovaním aplikácie.</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
@@ -479,7 +483,7 @@
     <string name="scheduler_inaccurate_execution_hint">Očakávané časy spustenia sú približné. Plány sa môžu oneskoriť alebo urýchliť, ak sa tým šetrí batéria.</string>
     <string name="scheduler_no_active_schedules_subtitle">Žiadne aktívne plány</string>
     <string name="scheduler_setting_nopowersaving_title">Preskočiť pri nízkom stave batérie</string>
-    <string name="scheduler_setting_nopowersaving_summary">Ak je telefón v režime úspory energie, naplánované spustenie sa preskočí.</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ak je zariadenie v režime úspory energie, naplánované spustenie sa preskočí.</string>
     <string name="scheduler_setting_automation_title">Služba dostupnosti</string>
     <string name="scheduler_setting_automation_summary">Zahrňte akcie, ktoré používajú službu dostupnosti. To si vyžaduje, aby SD Maid mohla interagovať s vašou obrazovkou (je odomknutá) pri vykonávaní úloh.</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>

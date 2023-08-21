@@ -244,6 +244,25 @@
     <string name="systemcleaner_filter_usagestats_label">Kullanım istatistikleri</string>
     <string name="systemcleaner_filter_usagestats_summary">Uygulama kullanım istatistikleriyle ilgili dosyalar.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Filtrelenen tüm içerikler silinsin mi?</string>
+    <string name="systemcleaner_customfilter_label">Özel filtre</string>
+    <string name="systemcleaner_customfilter_create_action">Özel filtre oluştur</string>
+    <string name="systemcleaner_customfilter_create_hint">Cihazınıza ve kullanım durumlarınıza özgü ekstra dosyaları silmek için özel bir filtre oluştur.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Bu filtreyi sil?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Etiket filtrele</string>
+    <string name="systemcleaner_customfilter_editor_warning">Özel filtreler riskli olabilir. Silmeden önce tarama sonuçlarınızı kontrol edin!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Veri alanları</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Eğer herhangi bir alan seçilmezse, erişilebilir olan tüm veri alanları taranacak ve eşleştirilecektir.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Dosya türü kısıtlamaları</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dosyalar</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dizinler</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Eğer herhangi bir tür seçilmezse, tüm türler eşleştirilecektir.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">İsim kriterleri</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">İstisnalar</string>
+    <string name="systemcleaner_customfilter_last_edit">Son düzenleme: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Canlı arama</string>
+    <string name="systemcleaner_customfilter_import_action">Yeni filtreyi içe aktar</string>
+    <string name="systemcleaner_customfilter_export_action">Seçili filtreyi dışa aktar</string>
     <string name="appcleaner_tool_name">Uygulama temizleyici</string>
     <string name="appcleaner_explanation_short">Belirli uygulamalara ait silinebilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
@@ -346,7 +365,7 @@
     <string name="appcontrol_list_filteroptions_label">Filtre seçenekleri</string>
     <string name="appcontrol_list_sortmode_name_label">Uygulama ismi</string>
     <string name="appcontrol_list_sortmode_updated_label">Son güncelleme</string>
-    <string name="appcontrol_list_sortmode_installed_label">İlk indirilme</string>
+    <string name="appcontrol_list_sortmode_installed_label">İlk kurulum</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paket adı</string>
     <string name="appcontrol_progress_uninstalling_app">Uygulama kaldırılıyor</string>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
@@ -367,9 +386,9 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Doğrudan erişim mevcut değil</string>
     <string name="analyzer_storage_type_primary_title">Birincil depolama</string>
-    <string name="analyzer_storage_type_primary_description">Cihazınızın birincil depolama alanı. Dahili \"sdcard\", uygulamalar ve sistem verileri için özel depolama alanı içerir.</string>
+    <string name="analyzer_storage_type_primary_description">Cihazınızın birincil depolama alanı. Dahili hafıza kartı, uygulamalar için özel depolama alanını ve sistem verilerini içerir.</string>
     <string name="analyzer_storage_type_secondary_title">İkincil depolama</string>
-    <string name="analyzer_storage_type_secondary_description">Genellikle çıkarılabilir bir hafıza kartı olan ikincil bir depolama alanı. Medya dosyalarını ve destekleyen uygulamaların verilerini içerir.</string>
+    <string name="analyzer_storage_type_secondary_description">Genellikle çıkarılabilir bir hafıza kartı olan ikincil bir depolama alanı. Medya dosyalarını ve onu destekleyen uygulamalardan gelen verileri içerir.</string>
     <string name="analyzer_storage_content_title">Depolama içeriği</string>
     <string name="analyzer_storage_content_type_app_label">Uygulamalar</string>
     <string name="analyzer_storage_content_type_app_description">Yüklü uygulamalar ve verileri (yani uygulama dosyaları, veriler ve önbellekler) tarafından kaplanan alan.</string>
@@ -377,7 +396,7 @@
     <string name="analyzer_storage_content_type_media_label">Kullanıcı dosyaları</string>
     <string name="analyzer_storage_content_type_media_description">Çekilen resimler, kaydedilen videolar veya indirilen veriler. Belirli bir uygulamaya ait olmayan tüm veriler.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
-    <string name="analyzer_storage_content_type_system_description">Sistem verileri ve sistem uygulamaları.</string>
+    <string name="analyzer_storage_content_type_system_description">Sistem uygulamaları ve sistem verileri. Bu cihazın birden fazla kullanıcısı varsa, diğer kullanıcıların uygulamaları ve verileri.</string>
     <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
     <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan yalnızca uygulama kaldırılarak boşaltılabilir.</string>
     <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>
@@ -387,7 +406,7 @@
     <string name="analyzer_storage_content_app_extra_label">Ek uygulama dosyaları</string>
     <string name="analyzer_storage_content_app_extra_description">Bu uygulamanın varsayılan dizinler dışındaki verileri, örneğin fotoğraflar veya indirmeler.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Bu uygulama \"%2$s\"de %1$s yer kaplıyor.</string>
-    <string name="data_area_public_app_data_official_label">Varsayılan Genel Uygulama Verileri</string>
+    <string name="data_area_public_app_data_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_storage_label">Genel Depolama</string>
     <string name="data_area_sdcard_label">Hafıza kartı</string>
     <string name="data_areas_label">Veri alanları</string>

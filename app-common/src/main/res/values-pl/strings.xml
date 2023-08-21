@@ -125,4 +125,6 @@
     <string name="file_type_unknown">Nieznany</string>
     <string name="general_timeunit_hours">Godziny</string>
     <string name="general_timeunit_days">Dni</string>
+    <string name="general_progress_ready">Gotowe</string>
+    <string name="general_progress_done">Wykonano</string>
 </resources>
