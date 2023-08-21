@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -18,6 +19,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.root.RootManager
@@ -50,10 +52,19 @@ class PublicObbModule @Inject constructor(
 
                 accessPath?.let { parentArea to it }
             }
-            .filter {
-                val canRead = it.second.canRead(gatewaySwitch)
-                if (!canRead) log(TAG) { "Can't read ${it.second}" }
-                canRead
+            .filter { (area, path) ->
+                if (!path.canRead(gatewaySwitch)) {
+                    log(TAG) { "Can't read $area" }
+                    return@filter false
+                }
+
+                try {
+                    path.lookup(gatewaySwitch)
+                    true
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    false
+                }
             }
             .map { (parentArea, path) ->
                 DataArea(
