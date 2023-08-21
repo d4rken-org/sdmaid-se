@@ -3,9 +3,9 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Nécessite SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Mise à niveau de SD Maid</string>
+    <string name="upgrades_dashcard_title">Passer à SD Maid Pro</string>
     <string name="upgrades_dashcard_body">SD Maid Pro offre de meilleurs résultats, plus de fonctions et d’options pour les utilisateurs expérimentés.</string>
-    <string name="upgrades_dashcard_upgrade_action">Mise à niveau</string>
+    <string name="upgrades_dashcard_upgrade_action">Passer Pro</string>
     <string name="upgrades_gplay_unavailable_error">Les services Google Play sont inaccessibles.</string>
     <string name="upgrades_no_purchases_found_check_account">Aucun achat n’a été trouvé. Utilisez-vous le bon compte?</string>
     <string name="upgrade_screen_title">Obtenir SD Maid SE Pro</string>

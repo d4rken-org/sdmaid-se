@@ -268,6 +268,22 @@
     <string name="systemcleaner_filter_usagestats_label">بيانات الاستخدام</string>
     <string name="systemcleaner_filter_usagestats_summary">الملفات المتعلقة بإحصائيات استخدام التطبيق.</string>
     <string name="systemcleaner_delete_all_confirmation_message">هل تريد حذف كافة محتويات المرشح؟</string>
+    <string name="systemcleaner_customfilter_label">فلتر خاص</string>
+    <string name="systemcleaner_customfilter_create_action">إنشاء فلتر مخصص</string>
+    <string name="systemcleaner_customfilter_create_hint">إنشاء فلتر مخصص لحذف الملفات الإضافية التي تختص بجهازك وحالات الاستخدام.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">إزالة هذا الفلتر ؟</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">تسمية الفلتر</string>
+    <string name="systemcleaner_customfilter_editor_warning">الفلاتر المخصصة يمكن أن تكون محفوفة بالمخاطر. تحقق من نتائج الفحص الخاص بك قبل الحذف!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">مناطق البيانات</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">وإذا لم يتم اختيار أي منطقة، سيتم مسح جميع مجالات البيانات التي يمكن الوصول إليها ومطابقتها.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">قيود نوع الملف</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">الملفات</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">المسارات</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">إذا لم يتم تحديد أي نوع، سيتم مطابقة جميع الأنواع.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">الاستثناءات</string>
+    <string name="systemcleaner_customfilter_last_edit">آخر تعديل: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">البحث المباشر</string>
     <string name="appcleaner_tool_name">منظف التطبيقات</string>
     <string name="appcleaner_explanation_short">بيانات قابلة للاستهلاك تنتمي إلى تطبيقات محددة.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">مخابئ افتراضية عامة</string>
@@ -381,7 +397,7 @@
     <string name="appcontrol_progress_disabling_package">تعطيل التطبيق</string>
     <string name="appcontrol_list_filteroptions_label">خيارات المرشح</string>
     <string name="appcontrol_list_sortmode_name_label">اسم التطبيق</string>
-    <string name="appcontrol_list_sortmode_updated_label">أخز تحديث له في</string>
+    <string name="appcontrol_list_sortmode_updated_label">آخر تحديث</string>
     <string name="appcontrol_list_sortmode_installed_label">وقت التثبيت الأول</string>
     <string name="appcontrol_list_sortmode_packagename_label">اسم الحُزْمَة</string>
     <string name="appcontrol_progress_uninstalling_app">إلغاء تثبيت التطبيق</string>
@@ -393,11 +409,27 @@
     <string name="analyzer_progress_scanning_userfiles">جاري البحث في ملفات المستخدم</string>
     <string name="analyzer_progress_scanning_system">جاري فحص بيانات النظام</string>
     <string name="analyzer_device_storage_title">تخزين الجهاز</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="zero">%s متوفر</item>
+        <item quantity="one">%s متوفر</item>
+        <item quantity="two">%s متوفر</item>
+        <item quantity="few">%s متوفر</item>
+        <item quantity="many">%s متوفر</item>
+        <item quantity="other">%s متوفر</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="zero">%s مستخدم</item>
+        <item quantity="one">%s مستخدم</item>
+        <item quantity="two">%s مستخدم</item>
+        <item quantity="few">%s مستخدم</item>
+        <item quantity="many">%s مستخدم</item>
+        <item quantity="other">%s مستخدم</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">لا يوجد وصول مباشر متاح</string>
     <string name="analyzer_storage_type_primary_title">التخزين الأساسي</string>
-    <string name="analyzer_storage_type_primary_description">التخزين الأساسي لجهازك. يحتوي على \"ذاكرة\" داخلية للتخزين الخاص للتطبيقات وبيانات النظام.</string>
+    <string name="analyzer_storage_type_primary_description">التخزين الأساسي لجهازك. يحتوي على بطاقة SD الداخلية، تخزين خاص للتطبيقات وبيانات النظام.</string>
     <string name="analyzer_storage_type_secondary_title">التخزين الثانوي</string>
-    <string name="analyzer_storage_type_secondary_description">وحدة تخزين ثانوية، عادة بطاقة ذاكرة قابلة للإزالة. تحتوي على ملفات الوسائط والبيانات من التطبيقات التي تدعمها.</string>
+    <string name="analyzer_storage_type_secondary_description">وحدة تخزين ثانوية، عادة بطاقة SD قابلة للإزالة. تحتوي على ملفات الوسائط والبيانات من التطبيقات التي تدعمها.</string>
     <string name="analyzer_storage_content_title">محتوى التخزين</string>
     <string name="analyzer_storage_content_type_app_label">التطبيقات</string>
     <string name="analyzer_storage_content_type_app_description">المساحة التي تشغلها التطبيقات المثبتة وبياناتها (أي ملفات التطبيقات، والبيانات والمخابئ).</string>
@@ -405,7 +437,6 @@
     <string name="analyzer_storage_content_type_media_label">ملفات المستخدم</string>
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
-    <string name="analyzer_storage_content_type_system_description">بيانات النظام وتطبيقات النظام.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. لا يمكن تحرير هذه المساحة إلا بإلغاء تثبيت التطبيق.</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>
@@ -417,7 +448,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>
-    <string name="data_area_sdcard_label">ذاكرة تخزين خارجية</string>
+    <string name="data_area_sdcard_label">بطاقة الذاكرة SD</string>
     <string name="data_areas_label">مناطق البيانات</string>
     <string name="data_areas_description">تمثل مناطق البيانات المواقع الموجودة على جهازك والتي يمكن الوصول إليها بواسطة SD Maid. قد تتوفر مناطق بيانات مختلفة بناءً على إصدار Android الخاص بك والأذونات التي تم منحها.</string>
     <string name="data_areas_short_summary">المناطق التي يمكن لـ SD Maid الوصول إليها بناءً على الأذونات الممنوحة حاليًا.</string>
@@ -489,7 +520,7 @@
     <string name="scheduler_inaccurate_execution_hint">أوقات التنفيذ المتوقعة تقريبية. قد تتأخر الجداول الزمنية أو تسريعها إذا كان ذلك يحافظ على البطارية.</string>
     <string name="scheduler_no_active_schedules_subtitle">لايوجد جدول زمني فعال</string>
     <string name="scheduler_setting_nopowersaving_title">تخط في حالة البطارية ضعيفة</string>
-    <string name="scheduler_setting_nopowersaving_summary">إذا كان الهاتف في وضع توفير الطاقة ، فسيتم تخطي التنفيذ المجدول.</string>
+    <string name="scheduler_setting_nopowersaving_summary">إذا كان الجهاز في وضع توفير الطاقة، سيتم تخطي التنفيذ المقرر.</string>
     <string name="scheduler_setting_automation_title">خدمة إمكانية الوصول</string>
     <string name="scheduler_setting_automation_summary">تشمل الإجراءات التي تستخدم خدمة الوصول. وهذا يتطلب أن SD Maidيمكن أن تتفاعل مع الشاشة الخاصة بك (أي أنها غير مقفلة) عند تنفيذ المهام.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>

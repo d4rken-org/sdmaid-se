@@ -116,4 +116,6 @@
     <string name="file_type_unknown">알 수 없음</string>
     <string name="general_timeunit_hours">시</string>
     <string name="general_timeunit_days">일</string>
+    <string name="general_progress_ready">준비</string>
+    <string name="general_progress_done">완료</string>
 </resources>

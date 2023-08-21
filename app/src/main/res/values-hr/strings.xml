@@ -306,8 +306,6 @@
     <string name="appcontrol_progress_disabling_package">Onemogućavanje aplikacije</string>
     <string name="appcontrol_list_filteroptions_label">Opcije filtra</string>
     <string name="appcontrol_list_sortmode_name_label">Naziv aplikacije</string>
-    <string name="appcontrol_list_sortmode_updated_label">Zadnje ažuriranje u</string>
-    <string name="appcontrol_list_sortmode_installed_label">Prvi put instaliran na</string>
     <string name="appcontrol_list_sortmode_packagename_label">Naziv paketa</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstaliranje aplikacije</string>
     <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
@@ -319,9 +317,7 @@
     <string name="analyzer_device_storage_title">Pohrana uređaja</string>
     <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
     <string name="analyzer_storage_type_primary_title">Primarna pohrana</string>
-    <string name="analyzer_storage_type_primary_description">Primarna pohrana vašeg uređaja. Sadrži internu \"sdcard\", privatnu pohranu za aplikacije i sistemske podatke.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundarna pohrana</string>
-    <string name="analyzer_storage_type_secondary_description">Sekundarna pohrana, obično uklonjiva sd kartica. Sadrži medijske datoteke i podatke iz aplikacija koje to podržavaju.</string>
     <string name="analyzer_storage_content_title">Sadržaj pohrane</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacije</string>
     <string name="analyzer_storage_content_type_app_description">Prostor koji zauzimaju instalirane aplikacije i njihovi podaci (tj. datoteke aplikacija, podaci i predmemorije).</string>
@@ -329,7 +325,6 @@
     <string name="analyzer_storage_content_type_media_label">Korisničke datoteke</string>
     <string name="analyzer_storage_content_type_media_description">Snimljene slike, snimljeni videozapisi ili preuzeti podaci. Svi podaci koji ne pripadaju određenoj aplikaciji.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemski podaci</string>
-    <string name="analyzer_storage_content_type_system_description">Sistemski podaci i sistemske aplikacije.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
     <string name="analyzer_storage_content_app_code_description">Aplikacijske datoteke, biblioteke i resursi. Ovaj se prostor može osloboditi samo deinstaliranjem aplikacije.</string>
     <string name="analyzer_storage_content_app_data_label">Podaci aplikacije</string>
@@ -339,9 +334,6 @@
     <string name="analyzer_storage_content_app_extra_label">Dodatne datoteke aplikacije</string>
     <string name="analyzer_storage_content_app_extra_description">Dodatni podaci koje je ova aplikacija postavila izvan zadanih putanja, npr. fotografije ili preuzimanja.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ova aplikacija zauzima %1$s na \"%2$s\".</string>
-    <string name="data_area_public_app_data_official_label">Zadani javni podaci aplikacije</string>
-    <string name="data_area_public_storage_label">Javna pohrana</string>
-    <string name="data_area_sdcard_label">SD kartica</string>
     <string name="data_areas_label">Područja podataka</string>
     <string name="data_areas_description">Područja podataka predstavljaju lokacije na vašem uređaju koje su dostupne SD Maidu. Mogu biti dostupna različita područja podataka, ovisno o vašoj verziji Androida i odobrenjima koja su vam dodijeljena.</string>
     <string name="data_areas_short_summary">Područja kojima SD Maid može pristupiti na temelju trenutno dodijeljenih dozvola.</string>
@@ -407,7 +399,6 @@
     <string name="scheduler_inaccurate_execution_hint">Očekivana vremena izvršenja su približna. Rasporedi se mogu odgoditi ili ubrzati ako štede bateriju.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nema aktivnih rasporeda</string>
     <string name="scheduler_setting_nopowersaving_title">Preskoči pri niskoj bateriji</string>
-    <string name="scheduler_setting_nopowersaving_summary">Ako je telefon u načinu rada za uštedu energije, planirano izvršenje će biti preskočeno.</string>
     <string name="scheduler_setting_automation_title">Usluga pristupačnosti</string>
     <string name="scheduler_setting_automation_summary">Uključi radnje koje koriste uslugu pristupačnosti. To zahtijeva da SD Maid može komunicirati s vašim zaslonom (tj. da je otključan) kada se zadaci izvršavaju.</string>
     <string name="updates_dashcard_title">Ažuriranje dostupno</string>

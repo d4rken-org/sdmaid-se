@@ -2,10 +2,13 @@
 <resources>
     <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
     <string name="dashboard_settings_category">แดชบอร์ด</string>
+    <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
+    <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
     <string name="debug_debuglog_size_label">ขนาด</string>
     <string name="debug_debuglog_size_compressed_label">ขนาดที่ถูกบีบอัด</string>
     <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
     <string name="debug_debuglog_file_label">ไฟล์บันทึกที่จัดเก็บไว้</string>
+    <string name="debug_debuglog_recording_progress">จัดเก็บบันทึกการดีบัค</string>
     <string name="debug_debuglog_record_action">จัดเก็บบันทึกการดีบัค</string>
     <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่เพิ่งสร้างมีข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น</string>
     <string name="settings_debuglog_explanation">ฟีเจอร์นี้จะบันทึกการทำงานทุกอย่างของแอพลงในไฟล์ที่แชร์ได้ ซึ่งจะประกอบด้วยข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น (เช่น ส่งให้นักพัฒนาโปรแกรมเพื่อแก้ไขปัญหา)</string>
@@ -121,4 +124,5 @@
     <string name="appcleaner_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
     <string name="appcleaner_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
     <string name="appcleaner_junk_userprofile_label">ผู้ใช้</string>
+    <string name="appcontrol_list_sortmode_updated_label">อัปเดตล่าสุด</string>
 </resources>

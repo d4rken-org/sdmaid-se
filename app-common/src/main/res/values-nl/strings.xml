@@ -119,4 +119,6 @@
     <string name="file_type_unknown">Onbekend</string>
     <string name="general_timeunit_hours">Uren</string>
     <string name="general_timeunit_days">Dagen</string>
+    <string name="general_progress_ready">Klaar</string>
+    <string name="general_progress_done">Klaar</string>
 </resources>

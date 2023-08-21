@@ -125,4 +125,6 @@
     <string name="file_type_unknown">Neznámý</string>
     <string name="general_timeunit_hours">Hodiny</string>
     <string name="general_timeunit_days">Dny</string>
+    <string name="general_progress_ready">Připraveno</string>
+    <string name="general_progress_done">Hotovo</string>
 </resources>

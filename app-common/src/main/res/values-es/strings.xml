@@ -119,4 +119,6 @@
     <string name="file_type_unknown">Desconocido</string>
     <string name="general_timeunit_hours">Horas</string>
     <string name="general_timeunit_days">Días</string>
+    <string name="general_progress_ready">Preparado</string>
+    <string name="general_progress_done">Hecho</string>
 </resources>

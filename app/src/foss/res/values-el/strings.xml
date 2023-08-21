@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Απαιτεί το SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Αναβάθμιση SD Maid</string>
+    <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+</resources>
