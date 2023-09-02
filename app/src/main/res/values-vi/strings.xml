@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả các công cụ?</string>
+    <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả công cụ?</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
     <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
@@ -251,9 +251,26 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Tập tin</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Đường dẫn</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nếu không có loại nào được chọn, thì tất cả các loại sẽ được khớp.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Tiêu chí đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Đường dẫn đích cần khớp với ít nhất một mục (ví dụ: \"Download/oldapks/game-\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Tiêu chí tên</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Tên mục tiêu phải chứa ít nhất một trong các từ khóa (ví dụ: \"-receipt\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Loại trừ</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Kết quả sẽ bị loại trừ nếu đường dẫn khớp với bất kỳ mục nhập nào (ví dụ: \"DCIM\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Chế độ so sánh đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Đường dẫn bắt đầu bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Đường dẫn chứa từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Đường dẫn kết thúc bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Đường dẫn trùng với từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Chế độ so sánh tên</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Tên bắt đầu bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Tên chứa từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Tên kết thúc bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Tên trùng với từ khóa</string>
     <string name="systemcleaner_customfilter_last_edit">Chỉnh sửa lần cuối: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Tìm kiếm trực tiếp</string>
+    <string name="systemcleaner_customfilter_import_action">Nhập bộ lọc mới</string>
+    <string name="systemcleaner_customfilter_export_action">Xuất bộ lọc đã chọn</string>
     <string name="appcleaner_tool_name">Trình dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
@@ -382,6 +399,7 @@
     <string name="analyzer_storage_content_type_media_label">Tập tin người dùng</string>
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
+    <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác, nếu thiết bị này có nhiều người dùng.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tệp ứng dụng, thư viện và tài nguyên. Không gian này chỉ có thể được giải phóng bằng cách gỡ cài đặt ứng dụng.</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
