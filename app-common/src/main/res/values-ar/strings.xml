@@ -9,10 +9,10 @@
     <string name="slogan_message_5">نظيف.</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_error_type_mismatch_msg">نوع عدم المطابقة: المطلوب %1$s، ولكن حصلت على %2$s.</string>
-    <string name="general_error_cant_access_msg">لايمكن الوصول %s.</string>
-    <string name="general_error_root_unavailable">صلاحية الروت غير متوفرة.</string>
+    <string name="general_error_cant_access_msg">لا يمكن الوصول %s.</string>
+    <string name="general_error_root_unavailable">صَلاحِيَة الجذر غير متوفرة.</string>
     <string name="general_error_empty_result_msg">كانت النتيجة فارغة.</string>
-    <string name="general_todo_msg">لا تزال هذه الميزة قيد العمل وهي غير متوفرة حاليًا.</string>
+    <string name="general_todo_msg">ما زالت هذه المَيزية قيد العمل وهي غير متوفرة حاليًا.</string>
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
     <string name="general_copy_action">نسخ</string>

@@ -78,8 +78,8 @@
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Foi deletado %1$d item e liberado %2$s de espaço</item>
-        <item quantity="other">Foram deletados %1$d itens e liberado %2$s de espaço</item>
+        <item quantity="one">%1$d item excluído e liberado %2$s</item>
+        <item quantity="other">%1$d itens excluídos e liberados %2$s</item>
     </plurals>
     <string name="general_remove_action">Remover</string>
     <string name="general_remove_selected_action">Remover selecionados</string>

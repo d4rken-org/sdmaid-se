@@ -260,9 +260,9 @@
     <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag (z.B. \"Downloads/oldapks/game-\") übereinstimmen. Einträge für mehr Optionen gedrückt halten.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Namenskriterien</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter (z.B. \"-Quittung\") enthalten. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter (z.B. \"-Quittung\") enthalten. Einträge für weitere Optionen gedrückt halten.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad einen Eintrag (z.B. \"DCIM\") enthält. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit irgendeinem Eintrag (z.B. \"DCIM\") übereinstimmt. Einträge für weitere Optionen gedrückt halten.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwörtern</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwörter</string>
