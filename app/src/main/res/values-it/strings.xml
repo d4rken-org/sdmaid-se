@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Eliminare i risultati in tutti gli strumenti?</string>
-    <string name="dashboard_settings_category">Cruscotto</string>
+    <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
     <string name="dashboard_settings_oneclick_summary">Avvia la scansione e l\'eliminazione per tutti gli strumenti con un tocco del bottone principale della dashboard, nessuna richiesta di conferma aggiuntiva.</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
@@ -257,20 +257,20 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">File</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Cartelle</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se nessuna estensione viene selezionata, allora tutte le estensioni di file verranno verificate.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Criteri percorso</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Criteri di percorso</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Il percorso di destinazione deve corrispondere ad almeno una voce (es. \"Downloads/oldapks/game-\"). Premi a lungo le voci per più opzioni.</string>
-    <string name="systemcleaner_customfilter_editor_name_label">Criterio nome</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Il nome di destinazione deve contenere almeno una delle parole chiave (ad esempio \"-receipt\"). Premi a lungo le voci per più opzioni.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Criteri di denominazione</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Il nome di destinazione deve contenere almeno una delle parole chiavi (ad esempio \"-receipt\"). Premi a lungo le voci per più opzioni.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esclusioni</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato sarà escluso se il percorso corrisponde a qualsiasi voce (ad esempio \"DCIM\"). Premi a lungo le voci per ulteriori opzioni.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modalità confronto percorsi</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Il percorso inizia con parole chiave</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Il percorso contiene parole chiave</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Il percorso termina con parole chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Il percorso inizia con la parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Il percorso contiene la parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Il percorso termina con la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Il percorso è uguale alle parole chiave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modalità confronto nomi</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Il nome inizia con la parola chiave</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Il nome contiene parole chiave</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Il nome contiene la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Il nome termina con la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Il nome è uguale alla parola chiave</string>
     <string name="systemcleaner_customfilter_last_edit">Ultima modifica: %s</string>

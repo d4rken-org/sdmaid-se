@@ -257,13 +257,13 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Arquivos</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Diretórios</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se nenhum tipo for selecionado, todos os tipos serão correspondidos.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Critério do caminho</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Critério de diretório</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">O caminho de destino precisa corresponder pelo menos a uma entrada (por exemplo, \"Downloads/oldapks/jogo\"). Mantenha pressionado para mais opções.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Critério do nome</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">O nome de destino deve conter pelo menos uma das palavras-chave (por exemplo, \"-recibo\"). Mantenha pressionado para mais opções.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusões</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">O resultado será excluído se o caminho corresponder a qualquer entrada (ex: \"DCIM\"). Mantenha pressionado para mais opções.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparação dos caminhos</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">O resultado será ignorado se o caminho corresponder a qualquer entrada (ex: \"DCIM\"). Mantenha pressionado para mais opções.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparação de diretórios</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">O caminho começa com as palavras-chave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">O caminho contém as palavras-chave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">O caminho termina com as palavras-chave</string>

@@ -49,6 +49,7 @@
     <string name="systemcleaner_filter_downloadcache_label">ଦ୍ରୁତିକା ଡାଉନଲୋଡ୍ କର</string>
     <string name="systemcleaner_filter_downloadcache_summary">ବିଭିନ୍ନ ଜିନିଷ (ଯଥା OTA ଅଦ୍ୟତନ) ପାଇଁ ବ୍ୟବହୃତ ସିଷ୍ଟମ୍ ଦ୍ରୁତିକା ଫୋଲ୍ଡର୍।</string>
     <string name="systemcleaner_filter_usagestats_label">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ</string>
+    <string name="systemcleaner_customfilter_editor_path_label">ପଥ ମାନଦଣ୍ଡ</string>
     <string name="systemcleaner_customfilter_last_edit">ଗତ ସମ୍ପାଦନ: %s</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ସାର୍ବଜନୀନ ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ଦ୍ରୁତିକା। ପୁରାତନ ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ Android/data ଅଧୀନରେ ଉପଲବ୍ଧ। ସିଷ୍ଟମ୍ ସେଟିଂରେ \"ଦ୍ରୁତିକା ସଫା କର\" ଟିପିବାବେଳେ ବିଲୋପ ହେଲା।</string>

@@ -117,4 +117,8 @@
     <string name="file_type_directory">Könyvtár</string>
     <string name="file_type_file">Fájl</string>
     <string name="file_type_unknown">Ismeretlen</string>
+    <string name="general_timeunit_hours">Órák</string>
+    <string name="general_timeunit_days">Napok</string>
+    <string name="general_progress_ready">Készen áll</string>
+    <string name="general_progress_done">Kész</string>
 </resources>

@@ -257,8 +257,8 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Archivos</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directorios</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si no se selecciona ningún tipo, se compararán todos los tipos.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Criterios de la ruta</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">La ruta de destino debe coincidir al menos con una entrada (por ejemplo, \"Downloads/oldapks/juego-\"). Mantén pulsadas las entradas para obtener más opciones.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Criterios de ruta</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">La ruta de destino debe coincidir al menos con una entrada (por ejemplo, \"Descargas/oldapks/juego-\"). Mantén pulsadas las entradas para obtener más opciones.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criterios para el nombre</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">El nombre del destino debe contener al menos una de las palabras clave (por ejemplo, \"-recibo\"). Mantén pulsadas las entradas para ver más opciones.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusiones</string>
