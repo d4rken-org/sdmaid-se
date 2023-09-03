@@ -3,6 +3,7 @@
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
     <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a tap on the dashboard\'s action button, no extra confirmations.</string>
+    <string name="dashboard_motd_title">A message from the developer</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
