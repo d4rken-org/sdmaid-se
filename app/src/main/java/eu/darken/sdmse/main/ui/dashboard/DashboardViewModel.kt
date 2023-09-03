@@ -44,6 +44,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.SchedulerManager
@@ -79,6 +80,7 @@ class DashboardViewModel @Inject constructor(
     private val schedulerManager: SchedulerManager,
     private val updateChecker: UpdateChecker,
     private val recorderModule: RecorderModule,
+    private val motdRepo: MotdRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -271,6 +273,22 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
+    private val motdItem: Flow<MotdCardVH.Item?> = motdRepo.motd
+        .map {
+            if (it == null) return@map null
+            MotdCardVH.Item(
+                motd = it,
+                onPrimary = {
+                    launch {
+                        it.primaryLink?.let { webpageTool.open(it) }
+                    }
+                },
+                onDismiss = {
+                    launch { motdRepo.dismiss(it) }
+                }
+            )
+        }
+
     private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
@@ -285,6 +303,7 @@ class DashboardViewModel @Inject constructor(
         appControlItem,
         analyzerItem,
         schedulerItem,
+        motdItem,
         refreshTrigger,
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
@@ -299,8 +318,11 @@ class DashboardViewModel @Inject constructor(
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
+        motdItem: MotdCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
+
+        motdItem?.let { items.add(it) }
 
         updateInfo?.let { items.add(it) }
 

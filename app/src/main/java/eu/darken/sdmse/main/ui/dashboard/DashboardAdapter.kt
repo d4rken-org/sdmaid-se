@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
@@ -50,6 +51,7 @@ class DashboardAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DebugRecorderCardVH.Item }) { DebugRecorderCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
