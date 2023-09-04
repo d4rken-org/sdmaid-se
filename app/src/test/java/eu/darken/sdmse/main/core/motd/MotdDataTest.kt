@@ -58,7 +58,7 @@ class MotdDataTest : BaseTest() {
         flavor: String,
         type: String,
     ) {
-        File("../motd/$flavor/$type").listFiles()!!.forEach { motdFile ->
+        File("../motd/$flavor/$type").listFiles()?.forEach { motdFile ->
             mockListingResponse(flavor, type, Locale.ENGLISH)
             webServer.enqueue(MockResponse().setBody(motdFile.readText()))
             motdEndpoint.getMotd(Locale.ENGLISH)!!.apply {
