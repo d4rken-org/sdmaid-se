@@ -23,7 +23,7 @@ class MotdSettings @Inject constructor(
     private val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val lastMotd = dataStore.createValue<Motd?>("motd.last.cache", null, moshi)
+    val lastMotd = dataStore.createValue<MotdState?>("motd.state.cache", null, moshi)
     val lastDismissedMotd = dataStore.createValue<UUID?>("motd.last.dismissed", null, moshi)
 
 

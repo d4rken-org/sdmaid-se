@@ -33,7 +33,7 @@ class MotdEndpoint @Inject constructor(
         }.build().create(MotdApi::class.java)
     }
 
-    suspend fun getMotd(locale: Locale): Motd? {
+    suspend fun getMotd(locale: Locale): MotdState? {
         log(TAG, VERBOSE) { "getMotd(locale=$locale)..." }
         return try {
             getMotd(BuildConfigWrap.FLAVOR, BuildConfigWrap.BUILD_TYPE, locale)
@@ -47,7 +47,7 @@ class MotdEndpoint @Inject constructor(
         flavor: BuildConfigWrap.Flavor,
         buildType: BuildConfigWrap.BuildType,
         locale: Locale,
-    ): Motd? = withContext(dispatcherProvider.IO) {
+    ): MotdState? = withContext(dispatcherProvider.IO) {
         log(TAG, VERBOSE) { "getMotd($flavor, $buildType, $locale)..." }
 
         val branch = when (BuildConfigWrap.BUILD_TYPE) {
@@ -74,13 +74,26 @@ class MotdEndpoint @Inject constructor(
 
         val filteredMotds = motds.filter { it.type == "file" }
 
-        val languageRaw = locale.language
+        var usedLocale = locale
+        var localizedMotd = filteredMotds.singleOrNull { it.name.endsWith("-${locale.language}.json") }
 
-        var localizedMotd = filteredMotds.singleOrNull { it.name.endsWith("-$languageRaw.json") }
-        if (localizedMotd == null) localizedMotd = filteredMotds.singleOrNull { it.name.endsWith("-en.json") }
-        if (localizedMotd == null) localizedMotd = filteredMotds.singleOrNull { it.name.endsWith(".json") }
+        if (localizedMotd == null) {
+            localizedMotd = filteredMotds.singleOrNull { it.name.endsWith("-en.json") }
+            usedLocale = Locale.ENGLISH
+        }
+        if (localizedMotd == null) {
+            localizedMotd = filteredMotds.singleOrNull { it.name.endsWith(".json") }
+            usedLocale = Locale.ENGLISH
+        }
 
-        return@withContext localizedMotd?.downloadUrl?.let { api.getMotd(it) }
+        val motd = localizedMotd?.downloadUrl?.let { api.getMotd(it) }
+
+        return@withContext motd?.let {
+            MotdState(
+                motd = it,
+                locale = usedLocale,
+            )
+        }
     }
 
     companion object {

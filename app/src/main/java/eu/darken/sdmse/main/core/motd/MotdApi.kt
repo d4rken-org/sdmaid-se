@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 import retrofit2.http.Url
+import java.util.UUID
 
 interface MotdApi {
 
@@ -22,6 +23,14 @@ interface MotdApi {
         @Path("path") path: String,
         @Query("ref") branch: String,
     ): List<DirectoryContent>
+
+    @JsonClass(generateAdapter = true)
+    data class Motd(
+        @Json(name = "id") val id: UUID,
+        @Json(name = "message") val message: String,
+        @Json(name = "primaryLink") val primaryLink: String?,
+        @Json(name = "versionMinimum") val minimumVersion: Long?,
+    )
 
     @GET
     suspend fun getMotd(@Url url: String): Motd

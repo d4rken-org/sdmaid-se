@@ -9,14 +9,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/dashboard_motd_title"
             android:textColor="?colorOnTertiaryContainer"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,9 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:maxLines="24"
             android:textColor="?colorOnTertiaryContainer"
@@ -39,10 +42,24 @@
             tools:text="@tools:sample/lorem/random" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/translate_action"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:visibility="gone"
+            app:icon="@drawable/baseline_g_translate_24"
+            app:iconTint="?colorOnTertiaryContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/primary_action"
             style="@style/DashboardCardButton.Filled.Tonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/general_show_details_action"
             android:textColor="?colorOnTertiaryContainer"
@@ -58,6 +75,7 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/general_dismiss_action"
             android:textColor="?colorOnTertiaryContainer"
