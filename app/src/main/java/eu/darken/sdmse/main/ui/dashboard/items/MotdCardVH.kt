@@ -4,10 +4,11 @@ import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DashboardMotdItemBinding
-import eu.darken.sdmse.main.core.motd.Motd
+import eu.darken.sdmse.main.core.motd.MotdState
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 
 
@@ -25,21 +26,26 @@ class MotdCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
 
         body.apply {
-            text = item.motd.message
+            text = item.state.motd.message
             autoLinkMask = Linkify.ALL
             movementMethod = LinkMovementMethod.getInstance()
         }
 
         primaryAction.apply {
             setOnClickListener { item.onPrimary() }
-            isGone = item.motd.primaryLink == null
+            isGone = item.state.motd.primaryLink == null
         }
         dismissAction.setOnClickListener { item.onDismiss() }
+        translateAction.apply {
+            setOnClickListener { item.onTranslate() }
+            isVisible = item.state.allowTranslation
+        }
     }
 
     data class Item(
-        val motd: Motd,
+        val state: MotdState,
         val onPrimary: () -> Unit,
+        val onTranslate: () -> Unit,
         val onDismiss: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

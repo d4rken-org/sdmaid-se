@@ -277,14 +277,19 @@ class DashboardViewModel @Inject constructor(
         .map {
             if (it == null) return@map null
             MotdCardVH.Item(
-                motd = it,
+                state = it,
                 onPrimary = {
                     launch {
-                        it.primaryLink?.let { webpageTool.open(it) }
+                        it.motd.primaryLink?.let { webpageTool.open(it) }
+                    }
+                },
+                onTranslate = {
+                    launch {
+                        webpageTool.open(it.translationUrl)
                     }
                 },
                 onDismiss = {
-                    launch { motdRepo.dismiss(it) }
+                    launch { motdRepo.dismiss(it.id) }
                 }
             )
         }

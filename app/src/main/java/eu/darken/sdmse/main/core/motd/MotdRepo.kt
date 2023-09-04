@@ -26,11 +26,11 @@ class MotdRepo @Inject constructor(
 ) {
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
-    val motd: Flow<Motd?> = refreshTrigger
+    val motd: Flow<MotdState?> = refreshTrigger
         .map {
             try {
                 endpoint.getMotd(Locale.getDefault())
-                    ?.takeIf { it.minimumVersion != null && it.minimumVersion <= BuildConfigWrap.VERSION_CODE }
+                    ?.takeIf { it.motd.minimumVersion != null && it.motd.minimumVersion <= BuildConfigWrap.VERSION_CODE }
                     .also { settings.lastMotd.value(it) }
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to retrieve MOTD" }
@@ -45,9 +45,9 @@ class MotdRepo @Inject constructor(
         }
         .replayingShare(scope)
 
-    suspend fun dismiss(motd: Motd) {
-        log(TAG) { "dismiss(${motd.id})" }
-        settings.lastDismissedMotd.value(motd.id)
+    suspend fun dismiss(id: UUID) {
+        log(TAG) { "dismiss(${id})" }
+        settings.lastDismissedMotd.value(id)
     }
 
     companion object {

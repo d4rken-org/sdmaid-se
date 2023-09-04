@@ -25,6 +25,7 @@ class SerializationCommonModule {
         add(UriAdapter())
         add(OffsetDateTimeAdapter())
         add(RegexAdapter())
+        add(LocaleAdapter())
     }.build()
 }
 
