@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
     implementation(project(":app-common"))
 
     addAndroidCore()
@@ -51,6 +51,6 @@ dependencies {
 
     addTesting()
 
-    implementation("dev.rikka.shizuku:api:13.1.2")
-    implementation("dev.rikka.shizuku:provider:13.1.2")
+    implementation("dev.rikka.shizuku:api:13.1.4")
+    implementation("dev.rikka.shizuku:provider:13.1.4")
 }

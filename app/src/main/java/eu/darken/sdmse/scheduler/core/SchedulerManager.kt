@@ -84,12 +84,14 @@ class SchedulerManager @Inject constructor(
 
         val triggerTime = firstExecution!!
 
-        alarmManager.setInexactRepeating(
-            AlarmManager.RTC_WAKEUP,
-            triggerTime.toEpochMilli(),
-            repeatInterval.toMillis(),
-            createPendingIntent(PendingIntent.FLAG_UPDATE_CURRENT)
-        )
+        createPendingIntent(PendingIntent.FLAG_UPDATE_CURRENT)?.let {
+            alarmManager.setInexactRepeating(
+                AlarmManager.RTC_WAKEUP,
+                triggerTime.toEpochMilli(),
+                repeatInterval.toMillis(),
+                it
+            )
+        }
 
         if (isScheduled()) log(TAG) { "Scheduled for $triggerTime : $this" }
         else log(TAG, WARN) { "Failed to schedule $this" }

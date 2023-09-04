@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
     testImplementation(project(":app-common-test"))
 
     addAndroidCore()
@@ -50,9 +50,9 @@ dependencies {
     addIO()
     addTesting()
 
-    implementation("io.coil-kt:coil:2.0.0-rc02")
+    implementation("io.coil-kt:coil:2.4.0")
 
-    implementation("com.airbnb.android:lottie:3.5.0")
+    implementation("com.airbnb.android:lottie:6.1.0")
 
     implementation("com.github.d4rken.rxshell:core:v3.0.0")
 }

@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
     implementation(project(":app-common"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-shizuku"))
@@ -57,6 +57,6 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
-    testImplementation("org.robolectric:robolectric:4.9.1")
-    testImplementation("androidx.test.ext:junit:1.1.4")
+    testImplementation("org.robolectric:robolectric:4.10.3")
+    testImplementation("androidx.test.ext:junit:1.1.5")
 }

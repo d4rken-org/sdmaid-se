@@ -15,8 +15,8 @@ bugsnag {
 }
 
 android {
-    compileSdk = ProjectConfig.compileSdk
 
+    compileSdk = 34
     defaultConfig {
         namespace = ProjectConfig.packageName
 
@@ -139,7 +139,7 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 
     implementation(project(":app-common"))
     testImplementation(project(":app-common-test"))
@@ -154,11 +154,11 @@ dependencies {
     addIO()
     addRetrofit()
 
-    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
-    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.4")
+    "gplayImplementation"("com.bugsnag:bugsnag-android:5.31.1")
+    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.5")
 
-    "gplayImplementation"("com.android.billingclient:billing:5.1.0")
-    "gplayImplementation"("com.android.billingclient:billing-ktx:5.1.0")
+    "gplayImplementation"("com.android.billingclient:billing:6.0.1")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:6.0.1")
 
     addAndroidCore()
     addAndroidUI()
@@ -168,23 +168,23 @@ dependencies {
 
     implementation("io.github.z4kn4fein:semver:1.4.2")
 
-    implementation("com.airbnb.android:lottie:3.5.0")
+    implementation("com.airbnb.android:lottie:6.1.0")
 
     implementation("io.coil-kt:coil:2.4.0")
     implementation("io.coil-kt:coil-video:2.4.0")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
-    implementation("me.zhanghai.android.fastscroll:library:1.2.0")
+    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
 
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.1")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.1")
 
 
-    testImplementation("org.robolectric:robolectric:4.9.1")
-    testImplementation("androidx.test.ext:junit:1.1.4")
+    testImplementation("org.robolectric:robolectric:4.10.3")
+    testImplementation("androidx.test.ext:junit:1.1.5")
 }
