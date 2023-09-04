@@ -36,8 +36,8 @@ class HttpModule {
     @Singleton
     @Provides
     fun baseHttpClient(
-        @BaseCache cache: Cache,
-        loggingInterceptor: HttpLoggingInterceptor,
+        @BaseCache cache: Cache? = null,
+        loggingInterceptor: HttpLoggingInterceptor = loggingInterceptor(),
     ): OkHttpClient = OkHttpClient().newBuilder().apply {
         cache(cache)
         connectTimeout(20L, TimeUnit.SECONDS)

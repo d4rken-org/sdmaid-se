@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
+import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -24,9 +25,11 @@ class MotdEndpoint @Inject constructor(
     private val baseMoshi: Moshi,
 ) {
 
+    var endpointUrlOverride: String? = null
+
     private val api: MotdApi by lazy {
         Retrofit.Builder().apply {
-            baseUrl("https://api.github.com")
+            baseUrl(endpointUrlOverride ?: "https://api.github.com")
             client(baseHttpClient)
             addConverterFactory(ScalarsConverterFactory.create())
             addConverterFactory(MoshiConverterFactory.create(baseMoshi).asLenient())
@@ -37,9 +40,9 @@ class MotdEndpoint @Inject constructor(
         log(TAG, VERBOSE) { "getMotd(locale=$locale)..." }
         return try {
             getMotd(BuildConfigWrap.FLAVOR, BuildConfigWrap.BUILD_TYPE, locale)
-        } catch (e: Exception) {
+        } catch (e: HttpException) {
             log(TAG, ERROR) { "getMotd($locale) error: ${e.asLog()}" }
-            throw e
+            if (e.code() == 404) null else throw e
         }
     }
 

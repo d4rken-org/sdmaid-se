@@ -13,7 +13,6 @@ interface MotdApi {
     @JsonClass(generateAdapter = true)
     data class DirectoryContent(
         @Json(name = "name") val name: String,
-        @Json(name = "path") val path: String,
         @Json(name = "type") val type: String,
         @Json(name = "download_url") val downloadUrl: String?,
     )
