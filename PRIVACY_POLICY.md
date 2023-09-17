@@ -32,6 +32,17 @@ SD Maid contains optional features that utilize Android's AccessibilityService A
 the AccessibilityService API is optional, opt-in and can be disabled at any time. SD Maid does not use the
 AccessibilityService API to collect or send or information.
 
+### Message of the day
+
+SD Maid contains a "Message of the day" (MOTD) system that can show the user one-time dismissable messages.
+Data for the messages is hosted on GitHub within SD Maid's respository.
+SD Maid sends HTTP GET requests (similar to visiting a link with a web browser) to GitHub's servers to check for new
+MOTDs.
+A GitHub account is not required.
+
+GitHubs privacy policy can be found here:
+https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+
 ## Automatic error reports
 
 Anonymous device information may be collected in the event of an app crash or an error.
