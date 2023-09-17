@@ -25,6 +25,7 @@ class MotdSettings @Inject constructor(
 
     val lastMotd = dataStore.createValue<MotdState?>("motd.state.cache", null, moshi)
     val lastDismissedMotd = dataStore.createValue<UUID?>("motd.last.dismissed", null, moshi)
+    val isMotdEnabled = dataStore.createValue("motd.enabled", true)
 
 
     companion object {

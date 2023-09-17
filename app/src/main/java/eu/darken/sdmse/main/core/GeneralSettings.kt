@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
+import eu.darken.sdmse.main.core.motd.MotdSettings
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,6 +23,7 @@ class GeneralSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     private val debugSettings: DebugSettings,
     private val moshi: Moshi,
+    private val motdSettings: MotdSettings,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_core")
@@ -56,7 +58,8 @@ class GeneralSettings @Inject constructor(
         themeStyle,
         usePreviews,
         isBugReporterEnabled,
-        enableDashboardOneClick
+        enableDashboardOneClick,
+        motdSettings.isMotdEnabled,
     )
 
     companion object {

@@ -8,8 +8,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -26,22 +28,33 @@ class MotdRepo @Inject constructor(
 ) {
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
-    val motd: Flow<MotdState?> = refreshTrigger
-        .map {
-            try {
-                endpoint.getMotd(Locale.getDefault())
-                    ?.takeIf { it.motd.minimumVersion != null && it.motd.minimumVersion <= BuildConfigWrap.VERSION_CODE }
-                    .also { settings.lastMotd.value(it) }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to retrieve MOTD" }
-                null
-            }
+    val motd: Flow<MotdState?> = combine(
+        refreshTrigger,
+        settings.isMotdEnabled.flow
+    ) { _, isEnabled ->
+        if (!isEnabled) {
+            log(TAG) { "MOTD is disabled." }
+            return@combine null
         }
-        .onStart { emit(settings.lastMotd.value()) }
+        delay(10 * 1000L)
+        try {
+            val newMotd = endpoint.getMotd(Locale.getDefault())?.takeIf {
+                it.motd.minimumVersion != null && it.motd.minimumVersion <= BuildConfigWrap.VERSION_CODE
+            }
+            settings.lastMotd.value(newMotd)
+            log(TAG) { "New MOTD is $newMotd" }
+            newMotd
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to retrieve MOTD" }
+            null
+        }
+    }
+        .onStart {
+            emit(if (settings.isMotdEnabled.value()) settings.lastMotd.value() else null)
+        }
         .flatMapLatest { motd -> settings.lastDismissedMotd.flow.map { motd to it } }
         .map { (motd, dismissedId) ->
-            if (motd == null || motd.id == dismissedId) return@map null
-            else motd
+            if (motd != null && motd.id != dismissedId) motd else null
         }
         .replayingShare(scope)
 

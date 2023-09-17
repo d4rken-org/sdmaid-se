@@ -536,4 +536,7 @@
     <string name="translation_encourage_body">SD Maid is translated by volunteers. Translation, review or proofreading, your help is appreciated!</string>
     <string name="translation_translators_title">This version is translated by</string>
     <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+
+    <string name="motd_setting_enabled_label">Message of the day</string>
+    <string name="motd_setting_enabled_explanation">Allow SD Maid to check for important messages from the developer.</string>
 </resources>
