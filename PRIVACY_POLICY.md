@@ -37,8 +37,9 @@ AccessibilityService API to collect or send or information.
 SD Maid contains a "Message of the day" (MOTD) system that can show the user one-time dismissable messages.
 Data for the messages is hosted on GitHub within SD Maid's respository.
 SD Maid sends HTTP GET requests (similar to visiting a link with a web browser) to GitHub's servers to check for new
-MOTDs.
-A GitHub account is not required.
+MOTDs. A GitHub account is not required.
+
+The MOTD check is optional and can be disabled in settings.
 
 GitHubs privacy policy can be found here:
 https://docs.github.com/site-policy/privacy-policies/github-privacy-statement

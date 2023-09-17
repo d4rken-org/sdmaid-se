@@ -45,10 +45,17 @@
             app:title="@string/debug_bugreporter_label" />
 
         <CheckBoxPreference
+            app:icon="@drawable/baseline_message_24"
+            app:key="motd.enabled"
+            app:summary="@string/motd_setting_enabled_explanation"
+            app:title="@string/motd_setting_enabled_label" />
+
+        <CheckBoxPreference
             app:icon="@drawable/ic_baseline_bug_report_24"
             app:key="debug.enabled"
             app:summary="@string/debug_mode_explanation"
             app:title="@string/debug_mode_label" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
