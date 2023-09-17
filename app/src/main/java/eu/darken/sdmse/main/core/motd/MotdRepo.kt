@@ -8,7 +8,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -36,10 +35,9 @@ class MotdRepo @Inject constructor(
             log(TAG) { "MOTD is disabled." }
             return@combine null
         }
-        delay(10 * 1000L)
         try {
             val newMotd = endpoint.getMotd(Locale.getDefault())?.takeIf {
-                it.motd.minimumVersion != null && it.motd.minimumVersion <= BuildConfigWrap.VERSION_CODE
+                it.motd.minimumVersion == null || BuildConfigWrap.VERSION_CODE >= it.motd.minimumVersion
             }
             settings.lastMotd.value(newMotd)
             log(TAG) { "New MOTD is $newMotd" }
