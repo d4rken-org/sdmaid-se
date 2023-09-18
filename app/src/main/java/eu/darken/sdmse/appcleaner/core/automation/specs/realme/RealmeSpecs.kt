@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -71,7 +72,8 @@ class RealmeSpecs @Inject constructor(
                 ?: realmeLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isTextView() || !node.idContains("android:id/title")) return false
+                if (!node.isTextView()) return false
+                if (!hasApiLevel(33) && !node.idContains("android:id/title")) return false
                 return node.textMatchesAny(storageEntryLabels)
             }
 

@@ -35,6 +35,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -128,7 +129,8 @@ class MIUISpecs @Inject constructor(
                 ?: aospLabels14Plus.getStorageEntryStatic(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isTextView() || !node.idContains("android:id/title")) return false
+                if (!node.isTextView()) return false
+                if (!hasApiLevel(33) && !node.idContains("android:id/title")) return false
                 return node.textMatchesAny(storageEntryLabels)
             }
 
