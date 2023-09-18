@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Fichiers utilisateur</string>
     <string name="analyzer_storage_content_type_media_description">Captation d’images, vidéos enregistrées et données téléchargées. Toutes les données qui n\'appartiennent pas à une appli particulière.</string>
     <string name="analyzer_storage_content_type_system_label">Données système</string>
-    <string name="analyzer_storage_content_type_system_description">Applis et données système. Les applis et données d’autres utilisateurs, si plusieurs comptes utilisateur existent sur cet appareil.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l’appli</string>
     <string name="analyzer_storage_content_app_code_description">Fichiers, bibliothèques et ressources d’applications. Cet espace ne peut être libéré qu\'en désinstallant l\'application.</string>
     <string name="analyzer_storage_content_app_data_label">Données de l’appli</string>

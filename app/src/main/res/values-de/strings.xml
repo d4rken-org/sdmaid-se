@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
-    <string name="analyzer_storage_content_type_system_description">System-Apps und Systemdaten. Apps und Daten anderer Benutzer, falls dieses Gerät mehr als einen Benutzer hat.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
     <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>

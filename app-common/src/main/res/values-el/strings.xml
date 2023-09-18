@@ -3,7 +3,7 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Στη διάθεσή σας.</string>
     <string name="slogan_message_1">Καθαρό και τακτοποιημένο.</string>
-    <string name="slogan_message_2">Αποτροπή του Χάους.</string>
+    <string name="slogan_message_2">Αποτροπή χάους.</string>
     <string name="slogan_message_3">Κάνουμε ότι είναι αναγκαίο.</string>
     <string name="slogan_message_4">Όλα τα παπάκια στη σειρά.</string>
     <string name="slogan_message_5">Πεντακάθαρο.</string>
@@ -33,7 +33,7 @@
     <string name="general_error_label">Σφάλμα</string>
     <string name="general_tap_hint_msg">Πατήστε για περισσότερες επιλογές</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
-    <string name="general_donate_action">Συνεισφορά</string>
+    <string name="general_donate_action">Δωρεά</string>
     <string name="general_check_action">Έλεγχος</string>
     <string name="general_filter_action">Φίλτρο</string>
     <string name="general_internal_not_available_msg">Η σύνδεση στο διαδίκτυο δεν είναι διαθέσιμη</string>
@@ -48,12 +48,23 @@
     <string name="general_progress_loading_data_areas">Φόρτωση περιοχών δεδομένων</string>
     <string name="general_progress_loading_egg_0">Ακόμα πιο γρήγορο από ένα iPhone</string>
     <string name="general_progress_loading_egg_1">Φόρτωση περισσότερης μνήμης</string>
+    <string name="general_progress_loading_egg_2">Σύντομα™</string>
+    <string name="general_progress_loading_egg_3">Ο πυρήνας είναι σε διάλειμμα</string>
+    <string name="general_progress_loading_egg_4">Αναμονή δεδομένων από Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Εκκίνηση Turbo encabulator</string>
+    <string name="general_progress_loading_egg_6">Μοιράζοντας το βούτυρο</string>
+    <string name="general_progress_loading_egg_7">Πώς πας;</string>
+    <string name="general_progress_loading_egg_8">Μυρίζει σαν updog εδώ</string>
     <string name="general_help_action">Βοήθεια</string>
     <string name="general_continue">Συνέχεια</string>
+    <string name="general_progress_queued">Σε ουρά</string>
     <string name="general_progress_deleting">Διαγραφή %s</string>
     <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
+    <string name="general_sort_reverse_action">Λειτουργία αντίστροφης ταξινόμησης</string>
+    <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
     <string name="general_result_failure_message">Η λειτουργία απέτυχε</string>
+    <string name="general_result_x_space_freed">%s απελευθερώθηκαν</string>
     <string name="general_options_label">Επιλογές</string>
     <string name="general_details_label">Λεπτομέρειες</string>
     <string name="general_view_action">Προβολή</string>
@@ -66,6 +77,10 @@
     <string name="general_delete_confirmation_title">Επιβεβαίωση διαγραφής</string>
     <string name="general_delete_confirmation_message_x">Διαγραφή \"%s\";</string>
     <string name="general_delete_confirmation_message_selected_x_items">Διαγραφή %d επιλεγμένων στοιχείων;</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Διαγράφηκε %1$d και απελευθερώθηκαν %2$s</item>
+        <item quantity="other">Διαγράφηκαν %1$d και απελευθερώθηκαν %2$s</item>
+    </plurals>
     <string name="general_remove_action">Αφαίρεση</string>
     <string name="general_remove_selected_action">Αφαίρεση επιλεγμένου</string>
     <plurals name="general_remove_success_x_items">
@@ -81,9 +96,12 @@
         <item quantity="one">%s στοιχείο</item>
         <item quantity="other">%s στοιχεία</item>
     </plurals>
+    <string name="x_space_can_be_freed">%s μπορούν να απελευθερωθούν</string>
     <string name="general_info_label">Πληροφορίες</string>
+    <string name="general_count_label">Πλήθος</string>
     <string name="general_app_label">Εφαρμογή</string>
     <string name="general_more_info_action">Περισσότερες πληροφορίες</string>
+    <string name="general_grant_access_action">Παραχώρηση πρόσβασης</string>
     <string name="general_enable_service_action">Ενεργοποίηση υπηρεσίας</string>
     <string name="general_undo_action">Αναίρεση</string>
     <string name="general_list_select_all_action">Επιλογή όλων</string>

@@ -432,7 +432,6 @@
     <string name="analyzer_storage_content_type_media_label">Soubory uživatele</string>
     <string name="analyzer_storage_content_type_media_description">Pořízené fotky, nahraná videa nebo stažená data. Jakákoliv data, která nepatří ke konkrétní aplikaci.</string>
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
-    <string name="analyzer_storage_content_type_system_description">Systémové aplikace a systémová data. Aplikace a data ostatních uživatelů, pokud má toto zařízení více než jednoho uživatele.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
     <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a zdroje. Tento prostor lze uvolnit pouze odinstalací aplikace.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>

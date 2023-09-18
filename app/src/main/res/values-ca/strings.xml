@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Fitxers d\'usuari</string>
     <string name="analyzer_storage_content_type_media_description">Imatges capturades, vídeos gravats o dades baixades. Qualsevol dada que no pertanyi a una aplicació específica.</string>
     <string name="analyzer_storage_content_type_system_label">Dades del sistema</string>
-    <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si aquest dispositiu té més d\'un usuari.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
     <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai només es pot alliberar desinstal·lant l\'aplicació.</string>
     <string name="analyzer_storage_content_app_data_label">Dades de l\'aplicació</string>

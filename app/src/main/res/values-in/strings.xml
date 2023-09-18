@@ -399,7 +399,6 @@
     <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
     <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atay data yang diunduh. Semua data yang bukan milik suatu aplikasi.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
-    <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika perangkat ini memiliki lebih dari satu pengguna.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini hanya dapat dibebaskan dengan mencopot pemasangan aplikasi.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>

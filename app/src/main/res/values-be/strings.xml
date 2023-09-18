@@ -432,7 +432,6 @@
     <string name="analyzer_storage_content_type_media_label">Карыстальніцкія файлы</string>
     <string name="analyzer_storage_content_type_media_description">Фатаграфіі, відэа ці спампаваныя даныя. Любыя даныя, якія не адносяцца да пэўных праграм.</string>
     <string name="analyzer_storage_content_type_system_label">Сістэмныя даныя</string>
-    <string name="analyzer_storage_content_type_system_description">Сістэмныя праграмы і сістэмныя даныя. Праграмы і даныя ад іншых карыстальнікаў, калі на гэтай прыладзе больш за аднаго карыстальніка.</string>
     <string name="analyzer_storage_content_app_code_label">Праграмы код</string>
     <string name="analyzer_storage_content_app_code_description">Праграмныя файлы, бібліятэкі і рэсурсы. Гэта месца можна вызваліць толькі пры выдаленні праграмы.</string>
     <string name="analyzer_storage_content_app_data_label">Праграмныя даныя</string>

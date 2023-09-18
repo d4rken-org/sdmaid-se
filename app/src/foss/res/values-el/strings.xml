@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Απαιτεί το SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Αναβάθμιση SD Maid</string>
+    <string name="upgrades_dashcard_body">Ξεκλειδώστε πρόσθετες λειτουργίες και γίνετε μέρος του patron μας για να υποστηρίξετε τη συνεχή ανάπτυξη!</string>
     <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
+    <string name="upgrade_screen_title">Βελτιώστε το SD Maid</string>
+    <string name="upgrade_screen_preamble">Το SD Maid δεν έχει διαφημίσεις και δεν πωλεί δεδομένα χρήστη. Η συνεχής ανάπτυξη γίνεται δυνατή μόνο από εσάς.</string>
+    <string name="upgrade_screen_how_title">Πώς να βοηθήσω</string>
+    <string name="upgrade_screen_how_body">Γίνετε μέρος του patron μας και χορηγός ανάπτυξης! Πατήστε το παρακάτω κουμπί για να ενεργοποιήσετε όλες τις επιπλέον λειτουργίες και να ανοίξετε το προφίλ χορηγών GitHub.</string>
+    <string name="upgrade_screen_why_title">Αυτό δημιουργεί 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner διαγραφή λειτουργικότητα 💯\n• Προγραμματισμένες εργασία ⏰\n• Επιπλέον επιλογές για όλα τα εργαλεία ️⚙️\n• Οι δικοί σας κανόνες διαγραφής ️✍️\n• Ένας προγραμματιστής με κίνητρο🧙\nΚαι περισσότερα…</string>
+    <string name="upgrade_screen_sponsor_action">Χορήγησε τη δημιουργία</string>
+    <string name="upgrade_screen_sponsor_action_hint">Η εναλλακτική λύση είναι οι διαφημίσεις, τα αναλυτικά στοιχεία και το Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Σας ευχαριστούμε που υποστηρίξατε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Μαζί, φτάσαμε στην πρώτη κυκλοφορία! Σας ευχαριστώ που με βοηθήσατε να δοκιμάσω! Η ανάπτυξη φυσικά θα συνεχιστεί, αλλά τώρα μπορείτε να μεταβείτε σε μη δοκιμαστικές εκδόσεις. Κάνετε αυτό κατεβάζοντας την τελευταία σταθερή έκδοση.</string>
+    <string name="nudge_betagoodbye_hint">Μικρή σημείωση: Οι βαθμολογίες που δίνονται κατά τη διάρκεια των δοκιμών είναι ορατές μόνο σε μένα, θα το εκτιμούσα αν θα μπορούσατε να δώσετε στο SD Maid μια δημόσια βαθμολογία εάν είστε ευχαριστημένοι.</string>
+    <string name="nudge_betagoodbye_positive_action">Απεγγραφή</string>
+    <string name="nudge_betagoodbye_negative_action">Συνεχίστε τη δοκιμή</string>
 </resources>
