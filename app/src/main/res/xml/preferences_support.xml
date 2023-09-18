@@ -30,6 +30,7 @@
         <Preference
             android:icon="@drawable/ic_id_onsurface"
             android:key="support.installid"
+            app:isPreferenceVisible="false"
             android:summary="@string/support_installid_desc"
             android:title="@string/support_installid_label" />
         <Preference
