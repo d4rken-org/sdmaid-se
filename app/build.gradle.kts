@@ -3,16 +3,11 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
-    id("com.bugsnag.android.gradle")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
-
-bugsnag {
-    overwrite.set(true)
-}
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -33,9 +28,6 @@ android {
         buildConfigField("String", "VERSION_CODE", "\"${ProjectConfig.Version.code}\"")
         buildConfigField("String", "VERSION_NAME", "\"${ProjectConfig.Version.name}\"")
 
-        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
-            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
-        ) ?: "fake"
     }
 
     signingConfigs {
@@ -153,9 +145,6 @@ dependencies {
     addSerialization()
     addIO()
     addRetrofit()
-
-    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
-    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.4")
 
     "gplayImplementation"("com.android.billingclient:billing:5.1.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:5.1.0")

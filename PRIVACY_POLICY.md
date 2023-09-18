@@ -46,6 +46,8 @@ https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
 
 ## Automatic error reports
 
+*Removed in v0.12.0*
+
 Anonymous device information may be collected in the event of an app crash or an error.
 
 To do this the app uses the service "Bugsnag":
@@ -54,7 +56,8 @@ https://www.bugsnag.com/
 Bugsnag's privacy policy can be found here:
 https://docs.bugsnag.com/legal/privacy-policy/
 
-Error reports contain information related to the error that occured. This can include information about your device (type, versions, state), installed apps and file paths that were processed when the error occured.
+Error reports contain information related to the error that occured. This can include information about your device (
+type, versions, state), installed apps and file paths that were processed when the error occured.
 
 You can disable automatic reports in the app's settings.
 

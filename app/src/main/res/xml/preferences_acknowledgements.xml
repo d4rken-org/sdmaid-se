@@ -63,15 +63,6 @@
                 android:data="https://github.com/RikkaApps/Shizuku" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
         <eu.darken.sdmse.common.preferences.IntentPreference
-            android:key="license.bugsnag"
-            android:summary="Client side library for crash monitoring via bugsnag.com. (MIT)"
-            android:title="Bugsnag"
-            app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/bugsnag/bugsnag-android" />
-        </eu.darken.sdmse.common.preferences.IntentPreference>
-        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.materialdesignicons"
             android:summary="materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)"
             android:title="Material Design Icons"

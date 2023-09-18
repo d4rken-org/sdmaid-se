@@ -47,6 +47,7 @@ class GeneralSettings @Inject constructor(
 
     val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.enabled", false)
 
+    // Unused at the moment, but we keep this to remember the setting should we add this again in the future
     val isBugReporterEnabled = dataStore.createValue(
         "core.bugreporter.enabled",
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
