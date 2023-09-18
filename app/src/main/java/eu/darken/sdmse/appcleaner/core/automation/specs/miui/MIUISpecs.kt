@@ -10,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels14Plus
+import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.common.CrawlerCommon
 import eu.darken.sdmse.automation.core.common.StepAbortException
 import eu.darken.sdmse.automation.core.common.StepProcessor
@@ -51,7 +51,7 @@ class MIUISpecs @Inject constructor(
     private val deviceDetective: DeviceDetective,
     private val pkgRepo: PkgRepo,
     private val miuiLabels: MIUILabels,
-    private val aospLabels14Plus: AOSPLabels14Plus,
+    private val aospLabels: AOSPLabels,
     private val deviceAdminManager: DeviceAdminManager,
 ) : ExplorerSpecGenerator() {
 
@@ -124,8 +124,8 @@ class MIUISpecs @Inject constructor(
         val script = locale.script
 
         run {
-            val storageEntryLabels = aospLabels14Plus.getStorageEntryDynamic()
-                ?: aospLabels14Plus.getStorageEntryStatic(lang, script)
+            val storageEntryLabels = aospLabels.getStorageEntryDynamic()
+                ?: aospLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView() || !node.idContains("android:id/title")) return false
@@ -144,8 +144,8 @@ class MIUISpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = aospLabels14Plus.getClearCacheDynamic()
-                ?: aospLabels14Plus.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels = aospLabels.getClearCacheDynamic()
+                ?: aospLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false
