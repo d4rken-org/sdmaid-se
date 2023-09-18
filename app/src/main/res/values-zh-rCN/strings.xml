@@ -399,7 +399,6 @@
     <string name="analyzer_storage_content_type_media_label">用户文件</string>
     <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
-    <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果此设备有多个用户，则也包含其他用户的应用和数据。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
     <string name="analyzer_storage_content_app_code_description">应用的文件、库和资源。只有通过卸载应用程序才能释放此空间。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>

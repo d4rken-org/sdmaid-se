@@ -432,7 +432,6 @@
     <string name="analyzer_storage_content_type_media_label">Пользовательские файлы</string>
     <string name="analyzer_storage_content_type_media_description">Сохраненные изображения, видео или загруженные данные. Любые данные, которые не принадлежат определенному приложению.</string>
     <string name="analyzer_storage_content_type_system_label">Системные данные</string>
-    <string name="analyzer_storage_content_type_system_description">Системные приложения и системные данные. Приложения и данные других пользователей, если на этом устройстве более одного пользователя.</string>
     <string name="analyzer_storage_content_app_code_label">Код приложения</string>
     <string name="analyzer_storage_content_app_code_description">Файлы приложения, библиотеки и ресурсы. Это место может быть освобождено только при удалении приложения.</string>
     <string name="analyzer_storage_content_app_data_label">Данные приложений</string>

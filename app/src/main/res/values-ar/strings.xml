@@ -454,7 +454,6 @@
     <string name="analyzer_storage_content_type_media_label">ملفات المستخدم</string>
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
-    <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا كان لهذا الجهاز أكثر من مستخدم واحد.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. لا يمكن تحرير هذه المساحة إلا بإلغاء تثبيت التطبيق.</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>

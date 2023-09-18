@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
-    <string name="analyzer_storage_content_type_system_description">Systeemapps en systeemgegevens. Apps en gegevens van andere gebruikers, als dit apparaat meer dan één gebruiker heeft.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>

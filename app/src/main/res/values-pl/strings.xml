@@ -432,7 +432,6 @@
     <string name="analyzer_storage_content_type_media_label">Pliki użytkownika</string>
     <string name="analyzer_storage_content_type_media_description">Przechwycone zdjęcia, nagrane filmy lub pobrane dane. Wszelkie dane, które nie należą do konkretnej aplikacji.</string>
     <string name="analyzer_storage_content_type_system_label">Dane systemowe</string>
-    <string name="analyzer_storage_content_type_system_description">Aplikacje systemowe i dane systemowe. Aplikacje i dane od innych użytkowników, jeśli to urządzenie ma więcej niż jednego użytkownika.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
     <string name="analyzer_storage_content_app_code_description">Pliki, biblioteki i zasoby aplikacji. Ta przestrzeń może zostać zwolniona tylko przez odinstalowanie aplikacji.</string>
     <string name="analyzer_storage_content_app_data_label">Dane aplikacji</string>

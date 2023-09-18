@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Felhasználói fájlok</string>
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
-    <string name="analyzer_storage_content_type_system_description">Rendszeralkalmazások és rendszeradatok. Más felhasználók alkalmazásai és adatai, ha a készüléknek egynél több felhasználója van.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
     <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>

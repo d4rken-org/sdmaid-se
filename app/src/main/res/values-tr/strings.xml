@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Kullanıcı dosyaları</string>
     <string name="analyzer_storage_content_type_media_description">Çekilen resimler, kaydedilen videolar veya indirilen veriler. Belirli bir uygulamaya ait olmayan tüm veriler.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
-    <string name="analyzer_storage_content_type_system_description">Sistem uygulamaları ve sistem verileri. Bu cihazın birden fazla kullanıcısı varsa, diğer kullanıcıların uygulamaları ve verileri.</string>
     <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
     <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan yalnızca uygulama kaldırılarak boşaltılabilir.</string>
     <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>

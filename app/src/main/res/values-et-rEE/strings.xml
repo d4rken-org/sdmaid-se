@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Kasutaja failid</string>
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
-    <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Teiste kasutajate rakendused ja andmed, kui seadmed on mitu kasutajat.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
     <string name="analyzer_storage_content_app_code_description">Rakenduse failid, kogumid ja ressurssid. Selle hoiuruumi vabastamiseks tuleb rakendus eemaldada.</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>

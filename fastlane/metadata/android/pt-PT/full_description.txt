@@ -1,21 +1,21 @@
-<i>SD Maid SE</i> é seu assistente confiável do Android, para mantê-lo limpo e arrumado.
+<i>SD Maid SE</i> é o seu assistente para sistemas Android, para os manter limpos e arrumados.
 
 Ninguém é perfeito e o Android também não.
-As aplicações removidas deixam sempre vestígios.
-Os registos, relatórios de erros e outros ficheiros desnecessários estão a ser criados constantemente.
-O cartão Sd acumula ficheiros e pastas que você não reconhece.
+* As aplicações removidas deixam sempre vestígios.
+* Os registos, relatórios de erros e outros ficheiros desnecessários estão, constantemente, a serem criados.
+* O seu armazenamento acumula ficheiros e pastas que não reconhece.
 
-Não vamos por aí… Deixe o SD Maid SE ajudar:
+Não o deixe continuar… SD Maid SE está aqui para ajudar:
 
-* Limpar dados de apps já desinstalados
-* Encontrar caches ocultas de aplicativos
-* Remover arquivos supérfluos do sistema
+* Limpar dados de aplicações desinstaladas
+* Encontrar caches ocultas
+* Remover ficheiros supérfluos do sistema
 
-O SD Maid SE não tem publicidade. Alguns recursos requerem uma atualização paga.
+SD Maid SE não tem publicidade. Algumas funcionalidades requerem uma versão paga.
 
-O SD Maid 2/SE é o sucessor do SD Maid 1/Legacy.
+SD Maid 2 SE é o sucessor do SD Maid 1/Legacy.
 Otimizado para versões mais recentes do Android e focado na limpeza.
 
-SD Maid possui recursos opcionais que utilizam a API AccessibilityService para automatizar ações tediosas.
-Usando a API AccessibilityService, o SD Maid pode clicar em botões para você realizar operações em várias apps, por exemplo. a apagar caches.
-O SD Maid SE não usa a API Accessibility Service para recolher informações.
+SD Maid possui funcionalidades, opcionais, que utilizam a API Accessibility Service para automatizar ações tediosas.
+Através da API Accessibility Service, SD Maid pode clicar em botões por si e realizar operações em várias aplicações, por exemplo. a apagar caches.
+SD Maid SE não usa a API Accessibility Service para recolher informações.

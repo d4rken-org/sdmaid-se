@@ -411,7 +411,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_storage_content_type_media_label">File Utente</string>
     <string name="analyzer_storage_content_type_media_description">Foto e video dalla fotocamera o dati scaricati. Tutti i dati che non appartengono a una specifica app.</string>
     <string name="analyzer_storage_content_type_system_label">Dati di sistema</string>
-    <string name="analyzer_storage_content_type_system_description">App di sistema e dati di sistema. Applicazioni e dati da altri utenti, se questo dispositivo ha più di un utente.</string>
     <string name="analyzer_storage_content_app_code_label">Codice app</string>
     <string name="analyzer_storage_content_app_code_description">File delle applicazioni, librerie e risorse. Questo spazio può essere liberato solo disinstallando l\'app.</string>
     <string name="analyzer_storage_content_app_data_label">Dati app</string>

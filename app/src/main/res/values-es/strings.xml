@@ -410,7 +410,6 @@
     <string name="analyzer_storage_content_type_media_label">Archivos del usuario</string>
     <string name="analyzer_storage_content_type_media_description">Imágenes capturadas, videos grabados o datos descargados. Cualquier dato que no pertenezca a una aplicación específica.</string>
     <string name="analyzer_storage_content_type_system_label">Datos del sistema</string>
-    <string name="analyzer_storage_content_type_system_description">Aplicaciones y datos del sistema. Aplicaciones y datos de otros usuarios, si este dispositivo tiene más de un usuario.</string>
     <string name="analyzer_storage_content_app_code_label">Código de la aplicación</string>
     <string name="analyzer_storage_content_app_code_description">Archivos, bibliotecas y recursos de la aplicación. Este espacio solo puede liberarse desinstalando la aplicación.</string>
     <string name="analyzer_storage_content_app_data_label">Datos de la aplicación</string>
