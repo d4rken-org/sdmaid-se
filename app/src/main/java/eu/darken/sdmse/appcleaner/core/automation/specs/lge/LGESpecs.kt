@@ -70,7 +70,8 @@ class LGESpecs @Inject constructor(
                 ?: lgeLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isTextView() || !node.idContains("android:id/title")) return false
+                if (!node.isTextView()) return false
+                if (!hasApiLevel(33) && !node.idContains("android:id/title")) return false
                 return node.textMatchesAny(storageEntryLabels)
             }
 
