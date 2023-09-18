@@ -47,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?colorSecondaryContainer"
+            android:background="@drawable/dashboard_progress_row_bg"
             app:layout_constraintBottom_toTopOf="@id/action_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
