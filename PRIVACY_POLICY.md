@@ -32,7 +32,7 @@ SD Maid contains optional features that utilize Android's AccessibilityService A
 the AccessibilityService API is optional, opt-in and can be disabled at any time. SD Maid does not use the
 AccessibilityService API to collect or send or information.
 
-### Message of the day
+## Message of the day
 
 SD Maid contains a "Message of the day" (MOTD) system that can show the user one-time dismissable messages.
 Data for the messages is hosted on GitHub within SD Maid's respository.
@@ -43,23 +43,6 @@ The MOTD check is optional and can be disabled in settings.
 
 GitHubs privacy policy can be found here:
 https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
-
-## Automatic error reports
-
-*Removed in v0.12.0*
-
-Anonymous device information may be collected in the event of an app crash or an error.
-
-To do this the app uses the service "Bugsnag":
-https://www.bugsnag.com/
-
-Bugsnag's privacy policy can be found here:
-https://docs.bugsnag.com/legal/privacy-policy/
-
-Error reports contain information related to the error that occured. This can include information about your device (
-type, versions, state), installed apps and file paths that were processed when the error occured.
-
-You can disable automatic reports in the app's settings.
 
 ## Debug log
 
