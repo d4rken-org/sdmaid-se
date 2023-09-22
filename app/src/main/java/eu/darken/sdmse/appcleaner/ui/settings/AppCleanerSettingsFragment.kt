@@ -1,7 +1,9 @@
 package eu.darken.sdmse.appcleaner.ui.settings
 
+import android.os.Bundle
 import android.text.format.DateUtils
 import android.text.format.Formatter
+import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
@@ -11,9 +13,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.observe2
+import eu.darken.sdmse.common.preferences.CaveatPreferenceGroup
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
 import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
+import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import java.time.Duration
 import javax.inject.Inject
 
@@ -26,12 +31,14 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     @Inject override lateinit var settings: AppCleanerSettings
     override val preferenceFile: Int = R.xml.preferences_appcleaner
 
+    private val includeRunningCaveat: CaveatPreferenceGroup
+        get() = findPreference("include.runningapps.enabled.caveat")!!
+    private val includeInaccessibleCaveat: CaveatPreferenceGroup
+        get() = findPreference("include.inaccessible.enabled.caveat")!!
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
-        findPreference<Preference>(settings.includeOtherUsersEnabled.keyName)?.apply {
-            summary =
-                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
-        }
+
         findPreference<Preference>(settings.minCacheSizeBytes.keyName)?.apply {
             setOnPreferenceClickListener {
                 val dialogLayout = ViewPreferenceSeekbarBinding.inflate(layoutInflater, null, false)
@@ -139,6 +146,44 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 }.show()
                 true
             }
+        }
+
+        findPreference<Preference>(settings.includeOtherUsersEnabled.keyName)?.apply {
+            summary =
+                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
+        }
+
+        includeRunningCaveat.apply {
+            caveatMessage = getString(
+                R.string.setup_feature_requires_x_setup,
+                getString(R.string.setup_usagestats_title)
+            )
+            caveatAction = getString(eu.darken.sdmse.common.R.string.general_fix_action)
+            caveatClickListener = {
+                SettingsFragmentDirections.goToSetup(showCompleted = true).navigate()
+                true
+            }
+        }
+
+        includeInaccessibleCaveat.apply {
+            caveatMessage = getString(
+                R.string.setup_feature_requires_x_setup,
+                getString(R.string.setup_usagestats_title)
+            )
+            caveatAction = getString(eu.darken.sdmse.common.R.string.general_fix_action)
+            caveatClickListener = {
+                SettingsFragmentDirections.goToSetup(showCompleted = true).navigate()
+                true
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        vm.state.observe2(this) { state ->
+            includeRunningCaveat.showCaveat = !state.hasUsageStats
+            includeInaccessibleCaveat.showCaveat = !state.hasUsageStats
         }
     }
 }

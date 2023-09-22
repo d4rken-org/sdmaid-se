@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.preferences
 
 import androidx.preference.ListPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceGroup
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.datastore.valueBlocking
 
@@ -20,3 +22,10 @@ inline fun <reified T> ListPreference.setupWithEnum(preference: DataStoreValue<T
         true
     }
 }
+
+val PreferenceGroup.children: Sequence<Preference>
+    get() = sequence {
+        for (i in 0 until preferenceCount) {
+            yield(getPreference(i))
+        }
+    }
