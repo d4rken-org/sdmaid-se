@@ -32,8 +32,11 @@ class InaccessibleCacheProvider @Inject constructor(
                 StorageId(internalId = null, externalId = applicationInfo.storageUuid),
                 pkg,
             )
+        } catch (e: SecurityException) {
+            log(TAG, WARN) { "Don't have permission to query app size for ${pkg.id}: $e" }
+            return null
         } catch (e: Exception) {
-            log(TAG, ERROR) { "Failed to query app size for ${pkg.id}: ${e.asLog()}" }
+            log(TAG, ERROR) { "Unexpected error when querying app size for ${pkg.id}: ${e.asLog()}" }
             return null
         }
 
