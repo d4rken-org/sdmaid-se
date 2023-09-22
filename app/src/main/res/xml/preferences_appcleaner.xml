@@ -10,30 +10,39 @@
         app:title="@string/appcleaner_include_systemapps_label" />
 
     <CheckBoxPreference
-        app:singleLineTitle="false"
         app:icon="@drawable/ic_account_group_24"
         app:key="include.multiuser.enabled"
+        app:singleLineTitle="false"
         app:summary="@string/appcleaner_include_multiuser_summary"
         app:title="@string/appcleaner_include_multiuser_label" />
+    <eu.darken.sdmse.common.preferences.CaveatPreferenceGroup app:key="include.runningapps.enabled.caveat">
 
-    <CheckBoxPreference
-        app:singleLineTitle="false"
-        app:icon="@drawable/ic_skip_over_24"
-        app:key="include.runningapps.enabled"
-        app:summary="@string/appcleaner_include_runningapps_summary"
-        app:title="@string/appcleaner_include_runningapps_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_skip_over_24"
+            app:key="include.runningapps.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/appcleaner_include_runningapps_summary"
+            app:title="@string/appcleaner_include_runningapps_label" />
 
-    <CheckBoxPreference
-        app:singleLineTitle="false"
-        app:icon="@drawable/ic_folder_hidden_24"
-        app:key="include.inaccessible.enabled"
-        app:summary="@string/appcleaner_include_inaccessible_summary"
-        app:title="@string/appcleaner_include_inaccessible_label" />
+        <eu.darken.sdmse.common.preferences.CaveatPreferenceView />
+    </eu.darken.sdmse.common.preferences.CaveatPreferenceGroup>
+
+    <eu.darken.sdmse.common.preferences.CaveatPreferenceGroup app:key="include.inaccessible.enabled.caveat">
+
+        <CheckBoxPreference
+            app:icon="@drawable/ic_folder_hidden_24"
+            app:key="include.inaccessible.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/appcleaner_include_inaccessible_summary"
+            app:title="@string/appcleaner_include_inaccessible_label" />
+
+        <eu.darken.sdmse.common.preferences.CaveatPreferenceView />
+    </eu.darken.sdmse.common.preferences.CaveatPreferenceGroup>
 
     <Preference
         app:icon="@drawable/ic_file_chart_outline_24"
-        app:singleLineTitle="false"
         app:key="skip.mincachesize.bytes"
+        app:singleLineTitle="false"
         app:summary="@string/appcleaner_include_minimumsize_summary"
         app:title="@string/appcleaner_include_minimumsize_label" />
 
@@ -101,20 +110,20 @@
             app:title="@string/appcleaner_filter_gamefiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_signal_off_24"
-            app:singleLineTitle="false"
             app:key="filter.offlinecache.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_offlinecache_summary"
             app:title="@string/appcleaner_filter_offlinecache_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_recycle_bin_24"
-            app:singleLineTitle="false"
             app:key="filter.recyclebins.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_recyclebins_summary"
             app:title="@string/appcleaner_filter_recyclebins_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_chrome_24"
-            app:singleLineTitle="false"
             app:key="filter.webview.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_webview_summary"
             app:title="@string/appcleaner_filter_webview_label" />
     </PreferenceCategory>
@@ -122,14 +131,14 @@
     <PreferenceCategory android:title="@string/settings_category_filter_specific">
         <CheckBoxPreference
             app:icon="@drawable/ic_whatsapp_24"
-            app:singleLineTitle="false"
             app:key="filter.whatsapp.backups.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_whatsapp_backups_summary"
             app:title="@string/appcleaner_filter_whatsapp_backups_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_whatsapp_24"
-            app:singleLineTitle="false"
             app:key="filter.whatsapp.received.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_whatsapp_received_label"
             app:title="@string/appcleaner_filter_whatsapp_received_summary" />
         <CheckBoxPreference
@@ -140,8 +149,8 @@
             app:title="@string/appcleaner_filter_whatsapp_sent_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_chat_24"
-            app:singleLineTitle="false"
             app:key="filter.telegram.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_telegram_summary"
             app:title="@string/appcleaner_filter_telegram_label" />
         <CheckBoxPreference
@@ -152,14 +161,14 @@
             app:title="@string/appcleaner_filter_threema_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_wechat_24"
-            app:singleLineTitle="false"
             app:key="filter.wechat.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_wechat_summary"
             app:title="@string/appcleaner_filter_wechat_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_chat_24"
-            app:singleLineTitle="false"
             app:key="filter.viber.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_viber_summary"
             app:title="@string/appcleaner_filter_viber_label" />
     </PreferenceCategory>
