@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Πίνακας εργαλείων</string>
     <string name="dashboard_settings_oneclick_title">Λειτουργία Μιας Αφής</string>
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
+    <string name="dashboard_motd_title">Μήνυμα από τον προγραμματιστή</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Αρχεία χρήστη</string>
     <string name="analyzer_storage_content_type_media_description">Συλληφθείσες εικόνες, εγγεγραμμένα βίντεο ή ληφθέντα δεδομένα. Οποιαδήποτε δεδομένα που δεν ανήκουν σε μια συγκεκριμένη εφαρμογή.</string>
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
+    <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
     <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, libraries και πόροι. Αυτός ο χώρος μπορεί να απελευθερωθεί μόνο με την απεγκατάσταση της εφαρμογής.</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Δεν υπάρχουν ενεργά χρονοδιαγράμματα</string>
     <string name="scheduler_setting_nopowersaving_title">Παράληψη όταν η μπαταρία είναι χαμηλή</string>
     <string name="scheduler_setting_nopowersaving_summary">Εάν η συσκευή βρίσκεται σε λειτουργία εξοικονόμησης ενέργειας, η προγραμματισμένη εκτέλεση θα παραλειφθεί.</string>
+    <string name="scheduler_setting_charging_title">Παράλειψη όταν δεν φορτίζει</string>
+    <string name="scheduler_setting_charging_summary">Εάν η συσκευή δεν φορτίζει, η προγραμματισμένη εκτέλεση θα παραλειφθεί.</string>
     <string name="scheduler_setting_automation_title">Υπηρεσία προσβασιμότητας</string>
     <string name="scheduler_setting_automation_summary">Συμπεριλάβετε ενέργειες που χρησιμοποιούν μια υπηρεσία προσβασιμότητας. Αυτό απαιτεί ότι το SD Maid μπορεί να αλληλεπιδράσει με την οθόνη σας (δηλαδή ξεκλειδώνεται) όταν εκτελούνται οι εργασίες.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
     <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com);iplayradio;gogoboss_stampolidis;Vagelis1608;Nick Komninos</string>
+    <string name="motd_setting_enabled_label">Μήνυμα της ημέρας</string>
+    <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
 </resources>

@@ -181,15 +181,19 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                             R.string.setup_dismiss_hint,
                             Snackbar.LENGTH_LONG
                         )
+                        .setAnchorView(ui.mainAction)
                         .setAction(eu.darken.sdmse.common.R.string.general_undo_action) { _ -> vm.undoSetupHide() }
                         .show()
                 }
 
-                is DashboardEvents.TaskResult -> Snackbar.make(
-                    requireView(),
-                    event.result.primaryInfo.get(requireContext()),
-                    Snackbar.LENGTH_LONG
-                ).show()
+                is DashboardEvents.TaskResult -> Snackbar
+                    .make(
+                        requireView(),
+                        event.result.primaryInfo.get(requireContext()),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAnchorView(ui.mainAction)
+                    .show()
 
                 DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)

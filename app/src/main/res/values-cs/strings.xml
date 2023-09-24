@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Panel nástrojů</string>
     <string name="dashboard_settings_oneclick_title">Režim jedním klepnutím</string>
     <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje klepnutím na tlačítko akcí na panelu nástrojů.</string>
+    <string name="dashboard_motd_title">Zpráva od vývojáře</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
@@ -432,6 +433,7 @@
     <string name="analyzer_storage_content_type_media_label">Soubory uživatele</string>
     <string name="analyzer_storage_content_type_media_description">Pořízené fotky, nahraná videa nebo stažená data. Jakákoliv data, která nepatří ke konkrétní aplikaci.</string>
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
+    <string name="analyzer_storage_content_type_system_description">Systémové aplikace a systémová data. Aplikace a data od jiných uživatelů, pokud je v tomto zařízení nastaveno více uživatelských účtů.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
     <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a zdroje. Tento prostor lze uvolnit pouze odinstalací aplikace.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>
@@ -512,6 +514,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Žádné aktivní plány</string>
     <string name="scheduler_setting_nopowersaving_title">Přeskočit při nízkém stavu baterie</string>
     <string name="scheduler_setting_nopowersaving_summary">Pokud je telefon v úsporném režimu, spuštění plánu bude přeskočeno.</string>
+    <string name="scheduler_setting_charging_title">Přeskočit, pokud se nenabíjí</string>
+    <string name="scheduler_setting_charging_summary">Pokud se zařízení nenabíjí, spuštění plánu bude přeskočeno.</string>
     <string name="scheduler_setting_automation_title">Služba přístupnosti</string>
     <string name="scheduler_setting_automation_summary">Zahrnout akce, které používají službu přístupnosti. To vyžaduje, aby aplikace SD Maid mohla při provádění úloh interagovat s obrazovkou (tj. aby byla odemčená).</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
@@ -520,4 +524,6 @@
     <string name="translation_encourage_body">SD Maid překládají dobrovolníci. Překlad, revize nebo korektury, vaše pomoc je vítána!</string>
     <string name="translation_translators_title">Tuto verzi přeložili</string>
     <string name="translation_translators_people">novas78@xda;OndraVa;Woytazzer</string>
+    <string name="motd_setting_enabled_label">Zpráva dne</string>
+    <string name="motd_setting_enabled_explanation">Povolit aplikaci SD Maid kontrolu důležitých zpráv od vývojáře.</string>
 </resources>

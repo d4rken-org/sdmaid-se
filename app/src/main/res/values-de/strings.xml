@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Ein-Tap Modus</string>
     <string name="dashboard_settings_oneclick_summary">Starte das Scannen und Löschen aller Tools durch Tippen auf die Aktionsschaltfläche des Dashboards, ohne zusätzliche Bestätigungen.</string>
+    <string name="dashboard_motd_title">Nachricht vom Entwickler</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Benutzerdateien</string>
     <string name="analyzer_storage_content_type_media_description">Aufgenommene Bilder und Videos oder heruntergeladene Daten. Alle Daten, die nicht zu einer bestimmten App gehören.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
+    <string name="analyzer_storage_content_type_system_description">System-Apps und Systemdaten. Apps und Daten von anderen Benutzern, falls mehrere Benutzerkonten auf diesem Gerät eingerichtet sind.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
     <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Keine aktiven Zeitpläne</string>
     <string name="scheduler_setting_nopowersaving_title">Bei schwacher Batterie überspringen</string>
     <string name="scheduler_setting_nopowersaving_summary">Befindet sich das Gerät im Energiesparmodus, wird die geplante Ausführung übersprungen.</string>
+    <string name="scheduler_setting_charging_title">Auslassen, wenn nicht geladen wird</string>
+    <string name="scheduler_setting_charging_summary">Wenn das Gerät nicht aufgeladen wird, wird die geplante Ausführung übersprungen.</string>
     <string name="scheduler_setting_automation_title">Barrierefreiheitsdienst</string>
     <string name="scheduler_setting_automation_summary">Schließen Sie Aktionen ein, die einen Barrierefreiheitsdienst nutzen. Dies erfordert, dass SD Maid mit Ihrem Bildschirm interagieren kann (d.h. er ist entsperrt), wenn die Aufgaben ausgeführt werden.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
     <string name="translation_translators_people">Gamechanger181;Darken;uli;derPacifist</string>
+    <string name="motd_setting_enabled_label">Mitteilung des Tages</string>
+    <string name="motd_setting_enabled_explanation">Erlaube SD Maid nach wichtigen Mitteilungen des Entwicklers zu suchen.</string>
 </resources>

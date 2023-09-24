@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Tauler</string>
     <string name="dashboard_settings_oneclick_title">Mode d\'un toc</string>
     <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler, sense confirmacions addicionals.</string>
+    <string name="dashboard_motd_title">Un missatge del desenvolupador</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Fitxers d\'usuari</string>
     <string name="analyzer_storage_content_type_media_description">Imatges capturades, vídeos gravats o dades baixades. Qualsevol dada que no pertanyi a una aplicació específica.</string>
     <string name="analyzer_storage_content_type_system_label">Dades del sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si hi ha diversos comptes d\'usuari configurats en aquest dispositiu.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
     <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai només es pot alliberar desinstal·lant l\'aplicació.</string>
     <string name="analyzer_storage_content_app_data_label">Dades de l\'aplicació</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">No hi ha programacions activades</string>
     <string name="scheduler_setting_nopowersaving_title">Omet amb bateria baixa</string>
     <string name="scheduler_setting_nopowersaving_summary">Si el dispositiu està en mode d\'estalvi d\'energia, s\'ignorarà l\'execució programada.</string>
+    <string name="scheduler_setting_charging_title">Omet quan no es carrega</string>
+    <string name="scheduler_setting_charging_summary">Si el dispositiu no s\'està carregant, s\'ignorarà l\'execució programada.</string>
     <string name="scheduler_setting_automation_title">Servei d\'accessibilitat</string>
     <string name="scheduler_setting_automation_summary">Inclou accions que utilitzen un servei d\'accessibilitat. Això requereix que l\'SD Maid pugui interactuar amb la vostra pantalla (p. ex. està desbloquejada) quan s\'executen les tasques.</string>
     <string name="updates_dashcard_title">Actualització disponible</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">L\'SD Maid és traduït per voluntaris. S\'agraeix la vostra ajuda en tasques de traducció, revisió o correcció de proves!</string>
     <string name="translation_translators_title">Aquesta versió està traduïda per</string>
     <string name="translation_translators_people">Jaime Muñoz</string>
+    <string name="motd_setting_enabled_label">Missatge del dia</string>
+    <string name="motd_setting_enabled_explanation">Permeteu que l\'SD Maid comprovi si hi ha missatges importants del desenvolupador.</string>
 </resources>

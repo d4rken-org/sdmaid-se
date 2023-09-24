@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">대시보드</string>
     <string name="dashboard_settings_oneclick_title">원클릭 모드</string>
     <string name="dashboard_settings_oneclick_summary">대시보드의 버튼을 눌러 스캔과 삭제를 모두 진행할 수 있습니다. 추가로 확인이 필요하지 않습니다.</string>
+    <string name="dashboard_motd_title">개발자의 메시지</string>
     <string name="debug_debuglog_size_label">크기</string>
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
@@ -399,6 +400,7 @@
     <string name="analyzer_storage_content_type_media_label">사용자 파일</string>
     <string name="analyzer_storage_content_type_media_description">스크린샷, 녹화한 영상, 다운로드 파일 등의 특정 앱에 속하지 않은 파일이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
+    <string name="analyzer_storage_content_type_system_description">시스템 앱 및 데이터. 여러 유저가 추가되어 있다면 다른 유저의 앱과 데이터를 포함합니다.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
     <string name="analyzer_storage_content_app_code_description">앱의 파일이나 라이브러리 등이 차지하는 공간입니다. 해당 앱을 삭제해야 공간을 확보할 수 있습니다.</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>
@@ -473,6 +475,8 @@
     <string name="scheduler_no_active_schedules_subtitle">활성 일정이 없습니다</string>
     <string name="scheduler_setting_nopowersaving_title">배터리 낮을 때 스킵하기</string>
     <string name="scheduler_setting_nopowersaving_summary">기기가 절전 모드이면, 예약 실행을 건너뛸 것입니다.</string>
+    <string name="scheduler_setting_charging_title">충전 중이 아닐 때 건너뛰기</string>
+    <string name="scheduler_setting_charging_summary">기기가 충전 중이 아니라면, 예약 실행을 건너뛸 것입니다.</string>
     <string name="scheduler_setting_automation_title">접근성 서비스</string>
     <string name="scheduler_setting_automation_summary">SD Maid에서 화면 터치와 같은 활동을 통해 자동으로 청소를 진행하도록 접근성 서비스 권한을 부여할 수 있습니다.</string>
     <string name="updates_dashcard_title">사용할 수 있는 업데이트</string>
@@ -481,4 +485,6 @@
     <string name="translation_encourage_body">SD Maid는 자원 봉사자가 번역했습니다. 번역, 검토 또는 교정, 도와주셔서 감사합니다!</string>
     <string name="translation_translators_title">이 버전을 번역한 사람</string>
     <string name="translation_translators_people">Annyeong1(yoon0421@hotmail.com)</string>
+    <string name="motd_setting_enabled_label">오늘의 메시지</string>
+    <string name="motd_setting_enabled_explanation">SD Maid가 개발자의 중요한 메시지를 확인하도록 하용합니다.</string>
 </resources>

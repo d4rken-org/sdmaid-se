@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Vezérlőpult</string>
     <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
     <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
+    <string name="dashboard_motd_title">Üzenet a fejlesztőtől</string>
     <string name="debug_debuglog_size_label">Méret</string>
     <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Felhasználói fájlok</string>
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
+    <string name="analyzer_storage_content_type_system_description">Rendszeralkalmazások és rendszeradatok.  Alkalmazások és adatok más felhasználóktól, ha több felhasználói fiók van beállítva ezen az eszközön.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
     <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Nincs aktív ütemezés</string>
     <string name="scheduler_setting_nopowersaving_title">Ugrás alacsony akkumulátor töltöttségi szint esetén</string>
     <string name="scheduler_setting_nopowersaving_summary">Ha az eszköz energiatakarékos módban van, az ütemezett végrehajtás kimarad.</string>
+    <string name="scheduler_setting_charging_title">Kihagyás, ha nem tölt</string>
+    <string name="scheduler_setting_charging_summary">Ha az eszköz nem töltődik, az ütemezett végrehajtás kimarad.</string>
     <string name="scheduler_setting_automation_title">Kisegítő lehetőségek</string>
     <string name="scheduler_setting_automation_summary">Tartalmazza az akadálymentesítési szolgáltatást használó műveleteket. Ehhez az szükséges, hogy az SD Maid a feladatok végrehajtásakor interakcióba léphessen a képernyővel (azaz az fel legyen oldva).</string>
     <string name="updates_dashcard_title">Frissítés elérhető</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">Az SD Maid-et önkéntesek fordítják. Fordítás, áttekintés vagy lektorálás, segítségét köszönjük!</string>
     <string name="translation_translators_title">Ezt a verziót fordította</string>
     <string name="translation_translators_people">Cubebanyasz (misimisimisi25@gmail.com)</string>
+    <string name="motd_setting_enabled_label">A nap üzenete</string>
+    <string name="motd_setting_enabled_explanation">Engedélyezze az SD Maid számára, hogy ellenőrizze a fejlesztőtől érkező fontos üzeneteket.</string>
 </resources>

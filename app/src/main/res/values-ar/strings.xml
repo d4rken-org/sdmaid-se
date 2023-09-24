@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">الرئيسية</string>
     <string name="dashboard_settings_oneclick_title">وضع النقرة الواحدة</string>
     <string name="dashboard_settings_oneclick_summary">ابدأ الفحص والحذف لجميع الأدوات بنقرة واحدة على زر إجراء الرئيسية ، دون تأكيدات إضافية.</string>
+    <string name="dashboard_motd_title">رسالة من المطور</string>
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
     <string name="debug_notification_channel_label">إشعار التطوير</string>
@@ -454,6 +455,7 @@
     <string name="analyzer_storage_content_type_media_label">ملفات المستخدم</string>
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
+    <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا تم تعيين عدة حسابات للمستخدمين على هذا الجهاز.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. لا يمكن تحرير هذه المساحة إلا بإلغاء تثبيت التطبيق.</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>
@@ -538,6 +540,8 @@
     <string name="scheduler_no_active_schedules_subtitle">لايوجد جدول زمني فعال</string>
     <string name="scheduler_setting_nopowersaving_title">تخط في حالة البطارية ضعيفة</string>
     <string name="scheduler_setting_nopowersaving_summary">إذا كان الجهاز في وضع توفير الطاقة، سيتم تخطي التنفيذ المقرر.</string>
+    <string name="scheduler_setting_charging_title">تخطي عند عدم الشحن</string>
+    <string name="scheduler_setting_charging_summary">إذا لم يتم شحن الجهاز، سيتم تخطي التنفيذ المجدول.</string>
     <string name="scheduler_setting_automation_title">خدمة إمكانية الوصول</string>
     <string name="scheduler_setting_automation_summary">تشمل الإجراءات التي تستخدم خدمة الوصول. وهذا يتطلب أن SD Maidيمكن أن تتفاعل مع الشاشة الخاصة بك (أي أنها غير مقفلة) عند تنفيذ المهام.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
@@ -546,4 +550,6 @@
     <string name="translation_encourage_body">SD Maid تمت ترجمته بواسطة متطوعين. الترجمة أو المراجعة أو التدقيق اللغوي ، نقدر مساعدتك!</string>
     <string name="translation_translators_title">تمت ترجمة هذا الإصدار بواسطة</string>
     <string name="translation_translators_people">Rex_sa</string>
+    <string name="motd_setting_enabled_label">رسالة اليوم</string>
+    <string name="motd_setting_enabled_explanation">السماح لـ SD Maid بالتحقق من الرسائل الهامة من المطور.</string>
 </resources>

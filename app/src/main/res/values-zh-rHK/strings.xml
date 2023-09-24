@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">儀表板</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
+    <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
@@ -391,6 +392,7 @@
     <string name="analyzer_storage_content_type_media_label">使用者檔案</string>
     <string name="analyzer_storage_content_type_media_description">擷取的圖片、錄製的影片或已下載的資料，任何不屬於特定應用程式的資料。</string>
     <string name="analyzer_storage_content_type_system_label">系統資料</string>
+    <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
     <string name="analyzer_storage_content_app_code_description">應用程式檔案、程式庫和資源，此空間僅可透過解除安裝應用程式釋出。</string>
     <string name="analyzer_storage_content_app_data_label">應用程式資料</string>
@@ -465,6 +467,8 @@
     <string name="scheduler_no_active_schedules_subtitle">沒有已啟用的編排</string>
     <string name="scheduler_setting_nopowersaving_title">低電量時跳過</string>
     <string name="scheduler_setting_nopowersaving_summary">如果裝置處於電力節省模式，已排程的執行項目將會被跳過。</string>
+    <string name="scheduler_setting_charging_title">未充時跳過</string>
+    <string name="scheduler_setting_charging_summary">如果裝置未在充電，已排程的執行項目將會被跳過。</string>
     <string name="scheduler_setting_automation_title">無障礙服務</string>
     <string name="scheduler_setting_automation_summary">包含使用無障礙服務的動作。這需要在執行工作時 SD 女僕可以與您的畫面進行互動 (即它被解鎖)。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
@@ -473,4 +477,6 @@
     <string name="translation_encourage_body">SD 女僕由義工翻譯，無論是翻譯、審閱、還是校對，都非常感謝您的協助！</string>
     <string name="translation_translators_title">此版本的翻譯人員：</string>
     <string name="translation_translators_people">Adeptus2</string>
+    <string name="motd_setting_enabled_label">本日訊息</string>
+    <string name="motd_setting_enabled_explanation">允許 SD 女僕檢查來自開發人員的重要訊息。</string>
 </resources>
