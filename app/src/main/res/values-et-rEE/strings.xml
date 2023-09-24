@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Esileht</string>
     <string name="dashboard_settings_oneclick_title">Ühe puudutuse režiim</string>
     <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevat nuppu puudutades, ilma täiendavate nõusolekuteta.</string>
+    <string name="dashboard_motd_title">Kiri arendajalt</string>
     <string name="debug_debuglog_size_label">Maht</string>
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Kasutaja failid</string>
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
+    <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Muude kasutajate rakendused ja andmed, kui seadmes on seadistatud mitu kasutajakontot.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
     <string name="analyzer_storage_content_app_code_description">Rakenduse failid, kogumid ja ressurssid. Selle hoiuruumi vabastamiseks tuleb rakendus eemaldada.</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Ajastatut pole</string>
     <string name="scheduler_setting_nopowersaving_title">Eira vähese akutasemega</string>
     <string name="scheduler_setting_nopowersaving_summary">Kui seade on voolusäästmisrežiimil, jäetakse ajakava vahele.</string>
+    <string name="scheduler_setting_charging_title">Eira, kui ei lae</string>
+    <string name="scheduler_setting_charging_summary">Kui seade ei lae, jäetakse ajakava vahele.</string>
     <string name="scheduler_setting_automation_title">Juurdepääsetavusteenus</string>
     <string name="scheduler_setting_automation_summary">Juurdepääsetavusteenust kasutavad toimingud. See nõuab, et SD Maid saaks ülesandeid täita iseseisvalt (nt avatud ekraaniga).</string>
     <string name="updates_dashcard_title">Uuendus saadaval</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">SD Maidi tõlgivad vabatahtlikud. Tõlkimine, toimetamine, täname!</string>
     <string name="translation_translators_title">Selle versiooni tõlkis</string>
     <string name="translation_translators_people">Olav Mägi(olav.magi@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Päeva sõnum</string>
+    <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
 </resources>

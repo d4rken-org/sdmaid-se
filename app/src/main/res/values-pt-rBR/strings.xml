@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Painel</string>
     <string name="dashboard_settings_oneclick_title">Modo apenas um toque</string>
     <string name="dashboard_settings_oneclick_summary">Iniciar a busca e exclusão em todas as ferramentas com apenas um toque no botão de ação do painel, sem confirmações extras.</string>
+    <string name="dashboard_motd_title">Uma mensagem do desenvolvedor</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Arquivos do usuário</string>
     <string name="analyzer_storage_content_type_media_description">Imagens capturadas, vídeos gravados ou dados baixados. Quaisquer dados que não pertençam a um aplicativo específico.</string>
     <string name="analyzer_storage_content_type_system_label">Dados do sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Apps do sistema e dados do sistema. Apps e dados de outros usuários, se várias contas de usuário estiverem definidas neste dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicação</string>
     <string name="analyzer_storage_content_app_code_description">Arquivos de instalação, bibliotecas e recursos. Este espaço só pode ser liberado desinstalando o aplicativo.</string>
     <string name="analyzer_storage_content_app_data_label">Dados do aplicativo</string>
@@ -486,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Não há agendamentos ativos</string>
     <string name="scheduler_setting_nopowersaving_title">Suspender quando a bateria estiver baixa</string>
     <string name="scheduler_setting_nopowersaving_summary">Se o dispositivo estiver no modo de economia de energia, a execução programada será ignorada.</string>
+    <string name="scheduler_setting_charging_title">Pular quando não estiver carregando</string>
+    <string name="scheduler_setting_charging_summary">Se o dispositivo não estiver carregando, a execução programada será ignorada.</string>
     <string name="scheduler_setting_automation_title">Serviço de acessibilidade</string>
     <string name="scheduler_setting_automation_summary">Inclua ações que utilizem um serviço de acessibilidade. Isso requer que o SD Maid possa interagir com sua tela (ou seja, estar desbloqueado) quando as tarefas são executadas.</string>
     <string name="updates_dashcard_title">Atualização disponível</string>
@@ -494,4 +498,6 @@
     <string name="translation_encourage_body">O SD Maid é traduzido por voluntários. Tradução, revisão ou correção, sua ajuda é apreciada!</string>
     <string name="translation_translators_title">Esta versão foi traduzida por</string>
     <string name="translation_translators_people">Natanaelrj(natanael.caetano@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Mensagem do dia</string>
+    <string name="motd_setting_enabled_explanation">Permitir que o SD Maid verifique mensagens importantes do desenvolvedor.</string>
 </resources>

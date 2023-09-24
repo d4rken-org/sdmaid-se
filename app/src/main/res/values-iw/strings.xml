@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">לוח בקרה</string>
     <string name="dashboard_settings_oneclick_title">מצב לחיצה אחת</string>
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בדשבוארד, ללא אישורים נוספים.</string>
+    <string name="dashboard_motd_title">הודעה מהמפתח</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות דיבג</string>
@@ -116,8 +117,13 @@
     <string name="appcontrol_tag_disabled">מושבת</string>
     <string name="appcontrol_progress_enabling_package">מפעיל אפליקציה</string>
     <string name="appcontrol_progress_disabling_package">משבית אפליקציה</string>
+    <string name="analyzer_storage_content_type_system_description">אפליקציות מערכת ונתוני מערכת. אפליקציות ונתונים ממשתמשים אחרים, אם מוגדרים מספר חשבונות משתמש במכשיר זה.</string>
     <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>
+    <string name="scheduler_setting_charging_title">דלג אם אין שינוי</string>
+    <string name="scheduler_setting_charging_summary">אם המכשיר אינו נטען, ידלג על הביצוע המתוכנן.</string>
     <string name="updates_dashcard_title">קיים עדכון</string>
     <string name="translation_encourage_title">תרגם את SD Maid</string>
     <string name="translation_translators_title">המתגרמים של גרסה זו</string>
+    <string name="motd_setting_enabled_label">הודעת היום</string>
+    <string name="motd_setting_enabled_explanation">אפשר ל-SD Maid לבדוק אם יש הודעות חשובות מהמפתח.</string>
 </resources>

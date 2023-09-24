@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Panel</string>
     <string name="dashboard_settings_oneclick_title">Tek-Tık Modu</string>
     <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
+    <string name="dashboard_motd_title">Geliştiriciden bir mesaj</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
@@ -410,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Kullanıcı dosyaları</string>
     <string name="analyzer_storage_content_type_media_description">Çekilen resimler, kaydedilen videolar veya indirilen veriler. Belirli bir uygulamaya ait olmayan tüm veriler.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
+    <string name="analyzer_storage_content_type_system_description">Sistem uygulamaları ve sistem verileri. Bu cihazda birden fazla kullanıcı hesabı ayarlanmışsa, diğer kullanıcılara ait uygulamalar ve veriler.</string>
     <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
     <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan yalnızca uygulama kaldırılarak boşaltılabilir.</string>
     <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>
@@ -487,6 +489,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Etkin program yok</string>
     <string name="scheduler_setting_nopowersaving_title">Düşük pilde atla</string>
     <string name="scheduler_setting_nopowersaving_summary">Telefon güç tasarrufu modundaysa programlanan yürütme atlanır.</string>
+    <string name="scheduler_setting_charging_title">Şarj olmazken atla</string>
+    <string name="scheduler_setting_charging_summary">Cihaz şarj olmuyorsa, zamanlanmış yürütme atlanacaktır.</string>
     <string name="scheduler_setting_automation_title">Erişilebilirlik hizmeti</string>
     <string name="scheduler_setting_automation_summary">Erişilebilirlik hizmetini kullanan eylemleri dahil edin. Bu, görevler yürütüldüğünde SD Maid\'in ekranınızla etkileşime girebilmesini (yani ekran kilidinin açık olmasını) gerektirir.</string>
     <string name="updates_dashcard_title">Güncelleme mevcut</string>
@@ -495,4 +499,6 @@
     <string name="translation_encourage_body">SD Maid gönüllüler tarafından tercüme edilmektedir. Tercüme, gözden geçirme veya redaksiyon olsun, her türlü yardımınızı takdir ederiz!</string>
     <string name="translation_translators_title">Bu sürümün tercümanları</string>
     <string name="translation_translators_people">Buğra Güngöz(gungozb@gmail.com);GheoLei(gheolei@gmail.com);Mustafa Şahin(3mustafasahin@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Günün mesajı</string>
+    <string name="motd_setting_enabled_explanation">SD Maid\'in geliştiriciden gelen önemli mesajları kontrol etmesine izin verin.</string>
 </resources>

@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
     <string name="dashboard_settings_oneclick_summary">Avvia la scansione e l\'eliminazione per tutti gli strumenti con un tocco del bottone principale della dashboard, nessuna richiesta di conferma aggiuntiva.</string>
+    <string name="dashboard_motd_title">Un messaggio dallo sviluppatore</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>
@@ -411,6 +412,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_storage_content_type_media_label">File Utente</string>
     <string name="analyzer_storage_content_type_media_description">Foto e video dalla fotocamera o dati scaricati. Tutti i dati che non appartengono a una specifica app.</string>
     <string name="analyzer_storage_content_type_system_label">Dati di sistema</string>
+    <string name="analyzer_storage_content_type_system_description">App di sistema e dati di sistema. Applicazioni e dati di altri utenti, se ci sono più account utente in questo dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Codice app</string>
     <string name="analyzer_storage_content_app_code_description">File delle applicazioni, librerie e risorse. Questo spazio può essere liberato solo disinstallando l\'app.</string>
     <string name="analyzer_storage_content_app_data_label">Dati app</string>
@@ -488,6 +490,8 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="scheduler_no_active_schedules_subtitle">Nessuna pianificazione attiva</string>
     <string name="scheduler_setting_nopowersaving_title">Salta se la batteria è scarica</string>
     <string name="scheduler_setting_nopowersaving_summary">Se il risparmio energetico è attivo, la pianificazione non verrà eseguita.</string>
+    <string name="scheduler_setting_charging_title">Salta quando non in carica</string>
+    <string name="scheduler_setting_charging_summary">Se il dispositivo non è in carica, la pianificazione non verrà eseguita.</string>
     <string name="scheduler_setting_automation_title">Servizio di accessibilità</string>
     <string name="scheduler_setting_automation_summary">Includi le azioni che utilizzano un servizio di accessibilità. Ciò richiede che SD Maid possa interagire con lo schermo (cioè che sia sbloccato) quando le attività vengono eseguite.</string>
     <string name="updates_dashcard_title">Aggiornamento disponibile</string>
@@ -496,4 +500,6 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="translation_encourage_body">SD Maid è tradotto da volontari. Traduzioni, revisioni o correzioni di bozze, il vostro aiuto è apprezzato!</string>
     <string name="translation_translators_title">Questa versione è tradotta da</string>
     <string name="translation_translators_people">Lolli Filippo</string>
+    <string name="motd_setting_enabled_label">Messaggio del giorno</string>
+    <string name="motd_setting_enabled_explanation">Consenti a SD Maid di controllare la presenza di messaggi importanti dallo sviluppatore.</string>
 </resources>

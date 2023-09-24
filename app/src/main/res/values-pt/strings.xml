@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Apagar os resultados em todas as ferramentas?</string>
-    <string name="dashboard_settings_category">Painel de controlo</string>
-    <string name="dashboard_settings_oneclick_title">Modo de um toque</string>
+    <string name="dashboard_settings_category">Painel</string>
+    <string name="dashboard_settings_oneclick_title">Modo um toque</string>
     <string name="dashboard_settings_oneclick_summary">Iniciar verificação e eliminação para todas as ferramentas, com um toque no botão de ação do painel, sem confirmações extras.</string>
+    <string name="dashboard_motd_title">Uma mensagem do desenvolvedor</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
-    <string name="debug_debuglog_file_label">Ficheiro de registo gravado</string>
-    <string name="debug_debuglog_recording_progress">A gravar registo de depuração</string>
+    <string name="debug_debuglog_file_label">Arquivo de registo gravado</string>
+    <string name="debug_debuglog_recording_progress">Gravando registo de depuração</string>
     <string name="debug_debuglog_record_action">Gravar registo de depuração</string>
-    <string name="debug_debuglog_stop_action">Parar de gravar</string>
-    <string name="debug_debuglog_sensitive_information_message">O ficheiro criado contém informações confidenciais (por exemplo, nomes de ficheiros e aplicações instaladas). Partilhe apenas com destinatários confiáveis.</string>
-    <string name="settings_debuglog_explanation">Esta funcionalidade grava tudo o que a aplicação está a fazer. O ficheiro criado contém informações confidenciais (por exemplo,. nome dos ficheiros e aplicações instaladas). Partilhe apenas com destinatários confiáveis (por exemplo, um programador que possa resolver problemas).</string>
+    <string name="debug_debuglog_stop_action">Parar de gravar o registro de depuração</string>
+    <string name="debug_debuglog_sensitive_information_message">O arquivo criado contém informações confidenciais (por exemplo, nomes de arquivos e aplicações instaladas). Compartilhe apenas com destinatários confiáveis.</string>
+    <string name="settings_debuglog_explanation">Este recurso grava tudo o que a aplicação está fazendo em um arquivo compartilhavel. O arquivo criado contém informações confidenciais (por exemplo,. nome dos arquivos e aplicações instaladas). Compartilhe apenas com destinatários confiáveis (por exemplo, um programador que possa resolver problemas).</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
-    <string name="tasks_activity_working_notification_title">SD Maid está a execução</string>
+    <string name="tasks_activity_working_notification_title">SD Maid está em execução</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d tarefa ativa</item>
         <item quantity="other">%d tarefas ativas</item>
@@ -26,7 +27,7 @@
     <string name="tasks_result_notification_channel_label">Resultados da tarefa</string>
     <string name="tasks_result_subtext">Resultado da tarefa</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
-    <string name="onboarding_welcome_body1">SD Maid SE gere ficheiros, aplicações e armazenamento.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, aplicações e armazenamento.</string>
     <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando o sistema. Apague ficheiros dispensáveis e remova restos de dados.</string>
     <string name="onboarding_welcome_body_beta">Esta é uma versão beta (teste). Prossiga com cuidado e um plano de backup. Por favor, reporte os problemas que encontrar.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
@@ -411,6 +412,7 @@ Recursos dos jogos.</string>
     <string name="analyzer_storage_content_type_media_label">Ficheiros do Utilizador</string>
     <string name="analyzer_storage_content_type_media_description">Imagens capturadas, vídeos gravados ou dados baixados. Quaisquer dados que não pertençam a um aplicativo específico.</string>
     <string name="analyzer_storage_content_type_system_label">Dados de sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Apps do sistema e dados do sistema. Apps e dados de outros utilizadores, se várias contas de utilizador estiverem definidas neste dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicação</string>
     <string name="analyzer_storage_content_app_code_description">Ficheiros de aplicativos, bibliotecas e recursos. Este espaço só pode ser liberado desinstalando o aplicativo.</string>
     <string name="analyzer_storage_content_app_data_label">Dados das aplicações</string>
@@ -487,6 +489,8 @@ Recursos dos jogos.</string>
     <string name="scheduler_no_active_schedules_subtitle">Não há agendamentos ativos</string>
     <string name="scheduler_setting_nopowersaving_title">Ignorar se com bateria fraca</string>
     <string name="scheduler_setting_nopowersaving_summary">Se o dispositivo estiver no modo de poupança de bateria, a execução programada será ignorada.</string>
+    <string name="scheduler_setting_charging_title">Ignorar quando não estiver a carregar</string>
+    <string name="scheduler_setting_charging_summary">Se o dispositivo não estiver a carregar, a execução programada será ignorada.</string>
     <string name="scheduler_setting_automation_title">Serviço de acessibilidade</string>
     <string name="scheduler_setting_automation_summary">Inclua ações que utilizem um serviço de acessibilidade. Isso requer que o SD Maid possa interagir com sua tela (ou seja, está desbloqueada) quando as tarefas são executadas.</string>
     <string name="updates_dashcard_title">Atualização disponível</string>
@@ -495,4 +499,6 @@ Recursos dos jogos.</string>
     <string name="translation_encourage_body">O SD Maid é traduzido por voluntários. Tradução, revisão ou teste de leitura, sua ajuda é apreciada!</string>
     <string name="translation_translators_title">Esta versão é traduzida por</string>
     <string name="translation_translators_people">SirMoura(crestuma@duck.com)</string>
+    <string name="motd_setting_enabled_label">Mensagem do dia</string>
+    <string name="motd_setting_enabled_explanation">Permitir que o SD Maid verifique mensagens importantes do desenvolvedor.</string>
 </resources>

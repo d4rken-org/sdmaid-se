@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Tablou de bord</string>
     <string name="dashboard_settings_oneclick_title">Mod o singură apăsare</string>
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
+    <string name="dashboard_motd_title">Un mesaj de la dezvoltator</string>
     <string name="debug_debuglog_size_label">Dimensiune</string>
     <string name="debug_debuglog_size_compressed_label">Dimensiunea comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
@@ -421,6 +422,7 @@
     <string name="analyzer_storage_content_type_media_label">Fisiere Utilizator</string>
     <string name="analyzer_storage_content_type_media_description">Fotografii înregistrate, videoclipuri înregistrate sau date descărcate. Orice date care nu aparțin unei anumite aplicații.</string>
     <string name="analyzer_storage_content_type_system_label">Date de sistem</string>
+    <string name="analyzer_storage_content_type_system_description">Aplicații de sistem și date de sistem. Aplicații și date de la alți utilizatori, dacă pe acest dispozitiv sunt setate mai multe conturi de utilizatori.</string>
     <string name="analyzer_storage_content_app_code_label">Codul aplicației</string>
     <string name="analyzer_storage_content_app_code_description">Fișiere, biblioteci și resurse ale aplicației. Acest spațiu poate fi eliberat doar prin dezinstalarea aplicației.</string>
     <string name="analyzer_storage_content_app_data_label">Date aplicație</string>
@@ -499,6 +501,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Niciun program activ</string>
     <string name="scheduler_setting_nopowersaving_title">Treci peste când este bateria scăzută</string>
     <string name="scheduler_setting_nopowersaving_summary">În cazul în care dispozitivul este în modul de economisire a energiei, execuția programată va fi omisă.</string>
+    <string name="scheduler_setting_charging_title">Omite când nu se încarcă</string>
+    <string name="scheduler_setting_charging_summary">Dacă dispozitivul nu se încarcă, execuția programată va fi omisă.</string>
     <string name="scheduler_setting_automation_title">Serviciul de accesibilitate</string>
     <string name="scheduler_setting_automation_summary">Include acțiuni care utilizează un serviciu de accesibilitate. Acest lucru necesită ca ajutorul SD să poată interacționa cu ecranul (adică, este deblocat) atunci când sarcinile sunt executate.</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
@@ -507,4 +511,6 @@
     <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducerea, revizuire sau corectare, ajutorul tău este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
     <string name="translation_translators_people">Alexandru51 (Alexandru9035 pe crowdin)</string>
+    <string name="motd_setting_enabled_label">Mesajul zilei</string>
+    <string name="motd_setting_enabled_explanation">Permiteți ca Maid SD să verifice pentru mesaje importante de la dezvoltator.</string>
 </resources>

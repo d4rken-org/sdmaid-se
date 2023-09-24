@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Ovládací panel</string>
     <string name="dashboard_settings_oneclick_title">Režim jedným klepnutím</string>
     <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov klepnutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
+    <string name="dashboard_motd_title">Správa od vývojára</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia ladenia</string>
@@ -432,6 +433,7 @@
     <string name="analyzer_storage_content_type_media_label">Užívateľské súbory</string>
     <string name="analyzer_storage_content_type_media_description">Nasnímané obrázky, nahrané videá alebo stiahnuté dáta. Akékoľvek údaje, ktoré nepatria do konkrétnej aplikácie.</string>
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
+    <string name="analyzer_storage_content_type_system_description">Systémové aplikácie a systémové údaje. Aplikácie a údaje od iných používateľov, ak je na tomto zariadení nastavených niekoľko používateľských účtov.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
     <string name="analyzer_storage_content_app_code_description">Súbory aplikácie, knižnice a zdroje. Tento priestor je možné uvoľniť iba odinštalovaním aplikácie.</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
@@ -512,6 +514,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Žiadne aktívne plány</string>
     <string name="scheduler_setting_nopowersaving_title">Preskočiť pri nízkom stave batérie</string>
     <string name="scheduler_setting_nopowersaving_summary">Ak je zariadenie v režime úspory energie, naplánované spustenie sa preskočí.</string>
+    <string name="scheduler_setting_charging_title">Preskočiť, keď sa nenabíja</string>
+    <string name="scheduler_setting_charging_summary">Ak sa zariadenie nenabíja, naplánované spustenie sa preskočí.</string>
     <string name="scheduler_setting_automation_title">Služba dostupnosti</string>
     <string name="scheduler_setting_automation_summary">Zahrňte akcie, ktoré používajú službu dostupnosti. To si vyžaduje, aby SD Maid mohla interagovať s vašou obrazovkou (je odomknutá) pri vykonávaní úloh.</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>
@@ -520,4 +524,6 @@
     <string name="translation_encourage_body">SD Maid prekladajú dobrovoľníci. Preklad, recenzia alebo korektúra, vašu pomoc si ceníme!</string>
     <string name="translation_translators_title">Túto verziu preložil</string>
     <string name="translation_translators_people">dukelc</string>
+    <string name="motd_setting_enabled_label">Správa dňa</string>
+    <string name="motd_setting_enabled_explanation">Povoľte SD Maid kontrolovať dôležité správy od vývojára.</string>
 </resources>

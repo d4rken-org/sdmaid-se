@@ -4,6 +4,8 @@
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_settings_oneclick_title">Modus met één tik</string>
     <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
+    <string name="dashboard_motd_title">Sleutel: dashboard_motd_titel
+dashboard_motd_titel</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
@@ -410,6 +412,7 @@
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
+    <string name="analyzer_storage_content_type_system_description">Systeemapps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
@@ -486,6 +489,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Geen actieve planningen</string>
     <string name="scheduler_setting_nopowersaving_title">Overslaan bij bijna lege batterij</string>
     <string name="scheduler_setting_nopowersaving_summary">Als het apparaat in de energiebesparende modus staat, wordt de geplande uitvoering overgeslagen.</string>
+    <string name="scheduler_setting_charging_title">Overslaan wanneer niet wordt opgeladen</string>
+    <string name="scheduler_setting_charging_summary">Als het apparaat niet aan het opladen is, wordt de geplande uitvoering overgeslagen.</string>
     <string name="scheduler_setting_automation_title">Toegankelijkheidsdienst</string>
     <string name="scheduler_setting_automation_summary">Voeg acties toe die een toegankelijkheidsservice gebruiken. Dit vereist dat SD Maid kan communiceren met je scherm (dat wil zeggen dat het ontgrendeld is) wanneer de taken worden uitgevoerd.</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
@@ -494,4 +499,6 @@
     <string name="translation_encourage_body">SD Maid wordt vertaald door vrijwilligers. Vertalen, beoordelen of proeflezen, je hulp wordt op prijs gesteld!</string>
     <string name="translation_translators_title">Deze versie wordt vertaald door:</string>
     <string name="translation_translators_people">Erik Paelman</string>
+    <string name="motd_setting_enabled_label">Bericht van de dag</string>
+    <string name="motd_setting_enabled_explanation">Sta SD Maid toe om te controleren op belangrijke berichten van de ontwikkelaar.</string>
 </resources>
