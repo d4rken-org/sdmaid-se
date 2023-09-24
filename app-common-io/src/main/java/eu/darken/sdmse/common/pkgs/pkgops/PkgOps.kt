@@ -9,6 +9,7 @@ import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -41,7 +42,6 @@ import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.*
-import okio.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -246,30 +246,38 @@ class PkgOps @Inject constructor(
                 return
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG, WARN) { "changePackageState($id, enabled=$enabled, mode=$mode) failed: $e" }
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "changePackageState(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "changePackageState($id, enabled=$enabled, mode=$mode) failed: $e" }
+            }
             throw PkgOpsException(message = "changePackageState($id, $enabled, $mode) failed", cause = e)
         }
     }
 
-    suspend fun clearCache(installId: Installed.InstallId, mode: Mode = Mode.AUTO) {
-        log(TAG) { "clearCache($installId, $mode)" }
+    suspend fun clearCache(id: Installed.InstallId, mode: Mode = Mode.AUTO) {
+        log(TAG) { "clearCache($id, $mode)" }
         try {
-            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($installId) does not support mode=NORMAL")
+            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($id) does not support mode=NORMAL")
 
-            if (mode == Mode.ADB) throw PkgOpsException("clearCache($installId) does not support mode=ADB")
+            if (mode == Mode.ADB) throw PkgOpsException("clearCache($id) does not support mode=ADB")
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "clearCache($installId, $mode->ROOT)" }
-                rootOps { it.clearCache(installId) }
+                log(TAG) { "clearCache($id, $mode->ROOT)" }
+                rootOps { it.clearCache(id) }
                 return
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG, WARN) { "clearCache($installId,$mode) failed: ${e.asLog()}" }
-            throw PkgOpsException(message = "clearCache($installId, $mode) failed", cause = e)
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "clearCache(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "clearCache($id,$mode) failed: ${e.asLog()}" }
+            }
+            throw PkgOpsException(message = "clearCache($id, $mode) failed", cause = e)
         }
     }
 
@@ -290,9 +298,13 @@ class PkgOps @Inject constructor(
                 return
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG, WARN) { "trimCaches($desiredBytes, $storageId,$mode) failed: ${e.asLog()}" }
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "trimCaches(...): $mode unavailable" }
+            } else {
+                log(TAG, WARN) { "trimCaches($desiredBytes, $storageId,$mode) failed: ${e.asLog()}" }
+            }
             throw PkgOpsException(message = "trimCaches($desiredBytes, $storageId, $mode) failed", cause = e)
         }
     }
@@ -320,9 +332,13 @@ class PkgOps @Inject constructor(
                 return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } ?: false
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG, WARN) { "isRunning($id,$mode) failed: ${e.asLog()}" }
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "isRunning(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "isRunning($id,$mode) failed: ${e.asLog()}" }
+            }
             throw PkgOpsException(message = "isRunning($id, $mode) failed", cause = e)
         }
     }
@@ -343,9 +359,13 @@ class PkgOps @Inject constructor(
 
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG, WARN) { "grantPermission($id, $permission, $mode) failed: ${e.asLog()}" }
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "grantPermission(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "grantPermission($id, $permission, $mode) failed: ${e.asLog()}" }
+            }
             throw PkgOpsException(message = "grantPermission($id, $permission, $mode) failed", cause = e)
         }
     }
@@ -371,9 +391,13 @@ class PkgOps @Inject constructor(
 
             }
 
-            throw IOException("No matching mode found")
+            throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
-            log(TAG) { "setAppOps($id, $key, $value, $mode) failed: ${e.asLog()}" }
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "setAppOps(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "setAppOps($id, $key, $value, $mode) failed: ${e.asLog()}" }
+            }
             throw PkgOpsException(message = "setAppOps($id, $key, $value $mode) failed", cause = e)
         }
     }

@@ -219,13 +219,10 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val appControlItem: Flow<AppControlDashCardVH.Item?> = combine(
-        appControl.data,
-        appControl.progress,
-    ) { data, progress ->
+    private val appControlItem: Flow<AppControlDashCardVH.Item?> = appControl.state.mapLatest { state ->
         AppControlDashCardVH.Item(
-            data = data,
-            progress = progress,
+            data = state.data,
+            progress = state.progress,
             onViewDetails = {
                 DashboardFragmentDirections.actionDashboardFragmentToAppControlListFragment().navigate()
             }
@@ -244,7 +241,6 @@ class DashboardViewModel @Inject constructor(
             }
         )
     }
-
 
     private val schedulerItem: Flow<SchedulerDashCardVH.Item?> = combine(
         schedulerManager.state,

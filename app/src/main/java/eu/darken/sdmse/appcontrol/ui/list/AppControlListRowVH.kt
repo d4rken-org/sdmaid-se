@@ -46,6 +46,7 @@ class AppControlListRowVH(parent: ViewGroup) :
 
         tagSystem.tagSystem.isInvisible = !appInfo.pkg.isSystemApp
         tagDisabled.tagDisabled.isInvisible = appInfo.pkg.isEnabled
+        tagActive.tagActive.isInvisible = !(appInfo.isActive ?: false)
         tagContainer.isGone = tagContainer.children.none { it.isVisible }
 
         itemView.setOnClickListener { item.onItemClicked(appInfo) }

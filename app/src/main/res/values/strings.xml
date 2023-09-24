@@ -405,6 +405,7 @@
     <string name="appcontrol_app_exclude_edit_title">Edit exclusion</string>
     <string name="appcontrol_app_exclude_edit_description">This app is currently excluded from one or more tools.</string>
     <string name="appcontrol_tag_user">User</string>
+    <string name="appcontrol_tag_active">Recently active</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
     <string name="appcontrol_tag_disabled">Disabled</string>

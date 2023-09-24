@@ -16,19 +16,25 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -38,10 +44,13 @@ import javax.inject.Singleton
 class AppControl @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val pkgRepo: PkgRepo,
-    private val rootManager: RootManager,
     private val userManager: UserManager2,
     private val componentToggler: ComponentToggler,
     private val uninstaller: Uninstaller,
+    private val pkgOps: PkgOps,
+    usageStatsSetupModule: UsageStatsSetupModule,
+    rootManager: RootManager,
+    shizukuManager: ShizukuManager,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -53,9 +62,23 @@ class AppControl @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-    val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.APPCONTROL
+
+    val state: Flow<State> = combine(
+        usageStatsSetupModule.state,
+        rootManager.useRoot,
+        shizukuManager.useShizuku,
+        internalData,
+        progress,
+    ) { usageState, useRoot, useShizuku, data, progress ->
+        State(
+            data = data,
+            progress = progress,
+            isActiveInfoAvailable = usageState.isComplete || useRoot || useShizuku,
+            isAppToggleAvailable = useRoot || useShizuku,
+        )
+    }.replayingShare(appScope)
 
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
@@ -90,7 +113,7 @@ class AppControl @Inject constructor(
             .map { it.toAppInfo() }
 
         internalData.value = Data(
-            apps = appInfos,
+            apps = appInfos
         )
 
         return AppControlScanTask.Result(
@@ -204,10 +227,19 @@ class AppControl @Inject constructor(
     }
 
     private suspend fun Installed.toAppInfo(): AppInfo {
+        val determineActive = state.first().isActiveInfoAvailable
         return AppInfo(
-            pkg = this
+            pkg = this,
+            isActive = if (determineActive) pkgOps.isRunning(installId) else null,
         )
     }
+
+    data class State(
+        val isActiveInfoAvailable: Boolean,
+        val isAppToggleAvailable: Boolean,
+        val data: Data?,
+        val progress: Progress.Data?,
+    )
 
     data class Data(
         val apps: Collection<AppInfo>,
