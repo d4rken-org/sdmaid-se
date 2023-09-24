@@ -16,6 +16,7 @@ data class FilterSettings(
         @Json(name = "SYSTEM") SYSTEM,
         @Json(name = "ENABLED") ENABLED,
         @Json(name = "DISABLED") DISABLED,
+        @Json(name = "ACTIVE") ACTIVE,
         ;
     }
 }

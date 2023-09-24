@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 
 data class AppInfo(
     val pkg: Installed,
+    val isActive: Boolean?,
 ) {
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()

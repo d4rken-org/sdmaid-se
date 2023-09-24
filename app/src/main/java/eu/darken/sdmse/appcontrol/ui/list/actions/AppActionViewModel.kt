@@ -30,8 +30,6 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.currentExclusions
@@ -55,8 +53,6 @@ class AppActionViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
     private val taskManager: TaskManager,
-    private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -64,8 +60,8 @@ class AppActionViewModel @Inject constructor(
     private val pkgId: Pkg.Id = navArgs.pkgId
 
     init {
-        appControl.data
-            .map { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } }
+        appControl.state
+            .map { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } }
             .filter { it == null }
             .take(1)
             .onEach {
@@ -79,11 +75,10 @@ class AppActionViewModel @Inject constructor(
 
     val state = combine(
         exclusionManager.exclusions,
-        appControl.data.mapNotNull { data -> data?.apps?.singleOrNull { it.pkg.id == pkgId } },
+        appControl.state,
+        appControl.state.mapNotNull { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } },
         appControl.progress,
-        rootManager.useRoot,
-        shizukuManager.useShizuku,
-    ) { exclusions, appInfo, progress, rootAvail, shizukuAvail ->
+    ) { exclusions, state, appInfo, progress ->
         val launchAction = context.packageManager
             .getLaunchIntentForPackage(appInfo.pkg.packageName)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
@@ -162,7 +157,7 @@ class AppActionViewModel @Inject constructor(
             }
         )
 
-        val disableAction = if (rootAvail || shizukuAvail) {
+        val disableAction = if (state.isAppToggleAvailable) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {

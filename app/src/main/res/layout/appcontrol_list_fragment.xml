@@ -274,6 +274,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
                 app:layout_constraintTop_toBottomOf="@id/tag_filter_enabled_switch" />
+
+            <ImageView
+                android:id="@+id/tag_filter_active_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_app_extra_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_active_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_active_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_active_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_active"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_active_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_disabled_switch" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

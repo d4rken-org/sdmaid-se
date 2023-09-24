@@ -43,9 +43,9 @@ class AppControlListViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        appControl.data
+        appControl.state
             .take(1)
-            .filter { it == null }
+            .filter { it.data == null }
             .onEach { appControl.submit(AppControlScanTask()) }
             .launchInViewModel()
     }
@@ -121,25 +121,21 @@ class AppControlListViewModel @Inject constructor(
     }
 
     val state = currentDisplayOptions.flatMapLatest { displayOptions ->
-        combineTransform(
-            appControl.data,
-            appControl.progress,
-            rootManager.useRoot,
-            shizukuManager.useShizuku,
-        ) { data, progress, rootAvailable, shizukuAvailable ->
+        appControl.state.transformLatest { state ->
             val initialState = State(
                 appInfos = null,
-                progressWorker = progress,
+                progressWorker = state.progress,
                 progressUI = Progress.DEFAULT_STATE,
                 options = displayOptions,
-                allowAppToggleActions = rootAvailable || shizukuAvailable,
+                allowAppToggleActions = state.isAppToggleAvailable,
+                hasActiveInfo = state.isActiveInfoAvailable,
             )
             emit(initialState)
 
             val queryNormalized = displayOptions.searchQuery.lowercase()
             val listFilter = displayOptions.listFilter
             val listSort = displayOptions.listSort
-            val appInfos = data?.apps
+            val appInfos = state.data?.apps
                 ?.filter { appInfo ->
                     if (queryNormalized.isEmpty()) return@filter true
 
@@ -154,6 +150,7 @@ class AppControlListViewModel @Inject constructor(
                     if (listFilter.tags.contains(FilterSettings.Tag.SYSTEM) && !it.pkg.isSystemApp) return@filter false
                     if (listFilter.tags.contains(FilterSettings.Tag.ENABLED) && !it.pkg.isEnabled) return@filter false
                     if (listFilter.tags.contains(FilterSettings.Tag.DISABLED) && it.pkg.isEnabled) return@filter false
+                    if (listFilter.tags.contains(FilterSettings.Tag.ACTIVE) && it.isActive == false) return@filter false
 
                     return@filter true
                 }
@@ -250,6 +247,12 @@ class AppControlListViewModel @Inject constructor(
                 } else {
                     old.tags.plus(tag).minus(FilterSettings.Tag.ENABLED)
                 }
+
+                FilterSettings.Tag.ACTIVE -> if (existing) {
+                    old.tags.minus(tag)
+                } else {
+                    old.tags.plus(tag)
+                }
             }
             old.copy(tags = newTags)
         }
@@ -293,6 +296,7 @@ class AppControlListViewModel @Inject constructor(
         val progressUI: Progress.Data?,
         val options: DisplayOptions,
         val allowAppToggleActions: Boolean,
+        val hasActiveInfo: Boolean = false,
     ) {
         val progress: Progress.Data?
             get() = progressWorker ?: progressUI

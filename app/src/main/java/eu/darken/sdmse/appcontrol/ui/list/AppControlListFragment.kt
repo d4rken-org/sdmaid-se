@@ -209,6 +209,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             tagFilterSystemSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.SYSTEM) }
             tagFilterEnabledSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.ENABLED) }
             tagFilterDisabledSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.DISABLED) }
+            tagFilterActiveSwitch.setOnClickListener { vm.toggleTag(FilterSettings.Tag.ACTIVE) }
         }
 
         vm.state.observe2(ui) { state ->
@@ -251,6 +252,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             tagFilterSystemSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.SYSTEM), animate = false)
             tagFilterEnabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.ENABLED), animate = false)
             tagFilterDisabledSwitch.setChecked2(listFilter.tags.contains(FilterSettings.Tag.DISABLED), animate = false)
+
+            tagFilterActiveSwitch.apply {
+                setChecked2(listFilter.tags.contains(FilterSettings.Tag.ACTIVE), animate = false)
+                isEnabled = state.hasActiveInfo
+            }
 
             if (state.appInfos != null) {
                 toolbar.subtitle = getQuantityString2(
