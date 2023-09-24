@@ -9,6 +9,7 @@ import eu.darken.rxshell.cmd.Cmd
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.IpcHostModule
@@ -33,6 +34,9 @@ class PkgOpsHost @Inject constructor(
     private val pm: PackageManager
         get() = context.packageManager
 
+    private val am: ActivityManager
+        get() = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+
     override fun getUserNameForUID(uid: Int): String? = try {
         libcoreTool.getNameForUid(uid)
     } catch (e: Exception) {
@@ -48,10 +52,19 @@ class PkgOpsHost @Inject constructor(
     }
 
     override fun isRunning(packageName: String): Boolean = try {
-        val result = runBlocking {
-            sharedShell.useRes {
-                Cmd.builder("pidof $packageName").execute(it)
-            }.exitCode == Cmd.ExitCode.OK
+        val result = try {
+            val runningAppProcesses = am.runningAppProcesses
+                ?.flatMap { it.pkgList.toList() }
+                ?.distinct()
+                ?: emptyList()
+            runningAppProcesses.any { it == packageName }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "isRunning($packageName): runningAppProcesses failed due to ${e.asLog()} " }
+            runBlocking {
+                sharedShell.useRes {
+                    Cmd.builder("pidof $packageName").execute(it)
+                }.exitCode == Cmd.ExitCode.OK
+            }
         }
         log(TAG, VERBOSE) { "isRunning(packageName=$packageName)=$result" }
         result
