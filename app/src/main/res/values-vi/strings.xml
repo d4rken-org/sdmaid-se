@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Bảng điều khiển</string>
     <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
+    <string name="dashboard_motd_title">Tin nhắn từ nhà phát triển</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
@@ -399,6 +400,7 @@
     <string name="analyzer_storage_content_type_media_label">Tập tin người dùng</string>
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
+    <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác nếu có nhiều tài khoản người dùng được đặt trên thiết bị này.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tệp ứng dụng, thư viện và tài nguyên. Không gian này chỉ có thể được giải phóng bằng cách gỡ cài đặt ứng dụng.</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
@@ -473,6 +475,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Không có lịch trình hoạt động</string>
     <string name="scheduler_setting_nopowersaving_title">Bỏ qua khi pin yếu</string>
     <string name="scheduler_setting_nopowersaving_summary">Nếu thiết bị ở chế độ tiết kiệm năng lượng, quá trình thực hiện theo lịch trình sẽ bị bỏ qua.</string>
+    <string name="scheduler_setting_charging_title">Bỏ qua khi không sạc</string>
+    <string name="scheduler_setting_charging_summary">Nếu thiết bị không sạc, việc thực hiện theo lịch trình sẽ bị bỏ qua.</string>
     <string name="scheduler_setting_automation_title">Dịch vụ trợ năng</string>
     <string name="scheduler_setting_automation_summary">Bao gồm các hành động sử dụng dịch vụ trợ năng. Điều này yêu cầu SD Maid có thể tương tác với màn hình của bạn (tức là màn hình đã được mở khóa) khi các tác vụ được thực thi.</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>
@@ -481,4 +485,6 @@
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
     <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau)</string>
+    <string name="motd_setting_enabled_label">Tin nhắn mỗi ngày</string>
+    <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
 </resources>

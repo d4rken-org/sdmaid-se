@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">控制面板</string>
     <string name="dashboard_settings_oneclick_title">一键模式</string>
     <string name="dashboard_settings_oneclick_summary">通过控制面板上的操作按钮轻松开始扫描和删除所有工具，无需额外确认。</string>
+    <string name="dashboard_motd_title">来自开发者的消息</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">压缩大小</string>
     <string name="debug_notification_channel_label">调试通知</string>
@@ -399,6 +400,7 @@
     <string name="analyzer_storage_content_type_media_label">用户文件</string>
     <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
+    <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
     <string name="analyzer_storage_content_app_code_description">应用的文件、库和资源。只有通过卸载应用程序才能释放此空间。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>
@@ -473,6 +475,8 @@
     <string name="scheduler_no_active_schedules_subtitle">无活动计划</string>
     <string name="scheduler_setting_nopowersaving_title">低电量时跳过</string>
     <string name="scheduler_setting_nopowersaving_summary">如果您的设备处于省电模式，那么计划的操作将不会被执行。</string>
+    <string name="scheduler_setting_charging_title">仅在充电时执行</string>
+    <string name="scheduler_setting_charging_summary">如果设备不在充电，计划的任务将会不会被执行。</string>
     <string name="scheduler_setting_automation_title">无障碍服务</string>
     <string name="scheduler_setting_automation_summary">包含使用无障碍服务的操作，这需要在执行任务时 SD Maid 可以与您的屏幕交互（即它被解锁）</string>
     <string name="updates_dashcard_title">有可用的更新</string>
@@ -481,4 +485,6 @@
     <string name="translation_encourage_body">SD Maid 由志愿者贡献翻译。无论是翻译、审核还是校对，我们都非常感谢您的帮助！</string>
     <string name="translation_translators_title">此版本的翻译贡献者：</string>
     <string name="translation_translators_people">FrzHrzn</string>
+    <string name="motd_setting_enabled_label">今日消息</string>
+    <string name="motd_setting_enabled_explanation">允许SD Maid接收来自开发者的重要消息。</string>
 </resources>

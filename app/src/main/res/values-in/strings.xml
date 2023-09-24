@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Dasbor</string>
     <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
     <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
+    <string name="dashboard_motd_title">Pesan dari pengembang</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompres</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
@@ -29,7 +30,7 @@
     <string name="onboarding_welcome_body_beta">Aplikasi ini dalam tahap beta (uji coba). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
     <string name="onboarding_welcome_continue_action">Lanjut</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Ini adalah aplikasi baru, dioptimalkan untuk Android modern.</string>
+    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Ini adalah aplikasi baru, yang dioptimalkan untuk versi Android terbaru.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
     <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat ditransfer ke SD Maid 2/SE. Setelah 12 tahun update gratis, diperlukan pembelian baru untuk mendukung pengembangan aplikasi (membiayai developer).</string>
@@ -399,6 +400,7 @@
     <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
     <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atay data yang diunduh. Semua data yang bukan milik suatu aplikasi.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini hanya dapat dibebaskan dengan mencopot pemasangan aplikasi.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
@@ -472,7 +474,9 @@
     <string name="scheduler_inaccurate_execution_hint">Waktu eksekusi yang diharapkan adalah perkiraan. Jadwal dapat ditunda atau dipercepat untuk menghemat baterai.</string>
     <string name="scheduler_no_active_schedules_subtitle">Tidak ada jadwal aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Lewati saat baterai lemah</string>
-    <string name="scheduler_setting_nopowersaving_summary">Jika perangkat dalam mode hemat daya, jadwal eksekusi akan dilewati.</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jika perangkat dalam mode hemat daya, jadwal pelaksanaan akan dilewati.</string>
+    <string name="scheduler_setting_charging_title">Lewati ketika tidak mengisi daya</string>
+    <string name="scheduler_setting_charging_summary">Jika perangkat tidak mengisi daya, jadwal tugas akan dilewati.</string>
     <string name="scheduler_setting_automation_title">Layanan aksesibilitas</string>
     <string name="scheduler_setting_automation_summary">Menyertakan tindakan yang menggunakan layanan aksesibilitas. Ini mengharuskan SD Maid untuk dapat berinteraksi dengan layar anda (pada saat itu terbuka) saat tugas-tugas telah tereksekusi.</string>
     <string name="updates_dashcard_title">Pembaruan tersedia</string>
@@ -481,4 +485,6 @@
     <string name="translation_encourage_body">SD Maid diterjemahkan oleh sukarelawan. Saya menghargai bantuan terjemahan, peninjauan, maupun pengoreksian Anda!</string>
     <string name="translation_translators_title">Versi ini diterjemahkan oleh</string>
     <string name="translation_translators_people">M. Arif Majidi(m.arif.majidi@gmail.com);NekoSam395(newsamcool939@gmail.com);Muhammad Bintang</string>
+    <string name="motd_setting_enabled_label">Pesan hari ini</string>
+    <string name="motd_setting_enabled_explanation">Izinkan SD Maid memeriksa pesan penting dari pengembang.</string>
 </resources>

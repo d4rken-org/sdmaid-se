@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Panel główny</string>
     <string name="dashboard_settings_oneclick_title">Tryb jednego dotknięcia</string>
     <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi, dotykając przycisku akcji na pulpicie nawigacyjnym, bez dodatkowych potwierdzeń.</string>
+    <string name="dashboard_motd_title">Wiadomość od twórcy</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
@@ -432,6 +433,7 @@
     <string name="analyzer_storage_content_type_media_label">Pliki użytkownika</string>
     <string name="analyzer_storage_content_type_media_description">Przechwycone zdjęcia, nagrane filmy lub pobrane dane. Wszelkie dane, które nie należą do konkretnej aplikacji.</string>
     <string name="analyzer_storage_content_type_system_label">Dane systemowe</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikacje systemowe i dane systemowe. Aplikacje i dane od innych użytkowników, jeśli na tym urządzeniu ustawiono kilka kont użytkowników.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
     <string name="analyzer_storage_content_app_code_description">Pliki, biblioteki i zasoby aplikacji. Ta przestrzeń może zostać zwolniona tylko przez odinstalowanie aplikacji.</string>
     <string name="analyzer_storage_content_app_data_label">Dane aplikacji</string>
@@ -512,6 +514,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Brak aktywnych harmonogramów</string>
     <string name="scheduler_setting_nopowersaving_title">Pomiń przy niskim stanie baterii</string>
     <string name="scheduler_setting_nopowersaving_summary">Jeśli telefon jest w trybie oszczędzania energii, zaplanowane wykonanie zostanie pominięte.</string>
+    <string name="scheduler_setting_charging_title">Pomiń, jeśli nie trwa ładowanie</string>
+    <string name="scheduler_setting_charging_summary">Jeśli urządzenie nie jest ładowane, zaplanowane wykonanie zostanie pominięte.</string>
     <string name="scheduler_setting_automation_title">Usługa ułatwień</string>
     <string name="scheduler_setting_automation_summary">Dołącz akcje, które używają usługi ułatwień. Wymaga to, aby SD Maid mógł wchodzić w interakcje z Twoim ekranem (tzn. gdy jest odblokowany), gdy zadania są wykonywane.</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
@@ -520,4 +524,6 @@
     <string name="translation_encourage_body">Aplikacja SD Maid jest tłumaczona przez wolontariuszy. Tłumaczenie, recenzowanie lub korekta, każda pomoc jest mile widziana!</string>
     <string name="translation_translators_title">Ta wersja została przetłumaczona przez</string>
     <string name="translation_translators_people">Damian Stasik (sd@coded.pl);K4r0lSz</string>
+    <string name="motd_setting_enabled_label">Wiadomość dnia</string>
+    <string name="motd_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie ważnych wiadomości od twórcy.</string>
 </resources>

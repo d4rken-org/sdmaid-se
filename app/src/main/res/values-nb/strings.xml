@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Kontrollpanel</string>
     <string name="dashboard_settings_oneclick_title">Ett-trykks modus</string>
     <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
+    <string name="dashboard_motd_title">En melding fra utvikleren</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
@@ -257,9 +258,26 @@
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Filer</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapper</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dersom ingen type er valgt, vil alle typer sammenlignes.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Kriterier for bane</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Målbanen må samsvare med minst én oppføring (f.eks. \"Download/oldapks/spill-\"). Hold inne på oppføringer for flere alternativer.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Kriterier for navn</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Målnavnet må inneholde minst ett av søkeordene (f.eks. \"-kvittering\"). Hold inne på oppføringer for flere alternativer.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ekskludering</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet vil bli ekskludert hvis banen samsvarer med en oppføring (f.eks. \"DCIM\"). Hold inne på oppføringer for flere alternativer.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus for banesammenligning</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Banen starter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Banen inneholder nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Banen slutter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Bane er lik søkeord</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus for navnesammenligning</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Navn starter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Navn inneholder nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Navn slutter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Navn er lik nøkkelord</string>
     <string name="systemcleaner_customfilter_last_edit">Siste endring: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live søk</string>
+    <string name="systemcleaner_customfilter_import_action">Importer nytt filter</string>
+    <string name="systemcleaner_customfilter_export_action">Eksporter valgt filter</string>
     <string name="appcleaner_tool_name">Apprenser</string>
     <string name="appcleaner_explanation_short">Ubetydelig data tilhørende spesifikke apper.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Standard offentlige hurtigbuffere</string>
@@ -393,6 +411,7 @@
     <string name="analyzer_storage_content_type_media_label">Brukerfiler</string>
     <string name="analyzer_storage_content_type_media_description">Tatt bilder, innspilte videoer eller nedlastet data. Alle data som ikke tilhører en bestemt app.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
+    <string name="analyzer_storage_content_type_system_description">Systemapper og systemdata. Apper og data fra andre brukere, hvis flere brukerkontoer er angitt på denne enheten.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
     <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan bare frigjøres ved å avinstallere appen.</string>
     <string name="analyzer_storage_content_app_data_label">App-data</string>
@@ -469,6 +488,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Ingen aktive tidsplaner</string>
     <string name="scheduler_setting_nopowersaving_title">Hopp over ved lavt batterinivå</string>
     <string name="scheduler_setting_nopowersaving_summary">Hvis enheten er i strømsparingsmodus, vil den planlagte utførelsen hoppes over.</string>
+    <string name="scheduler_setting_charging_title">Hopp over når du ikke lader</string>
+    <string name="scheduler_setting_charging_summary">Hvis enheten ikke lader, vil den planlagte utførelsen bli hoppet over.</string>
     <string name="scheduler_setting_automation_title">Tilgjengelighetstjeneste</string>
     <string name="scheduler_setting_automation_summary">Inkluder handlinger som bruker en tilgjengelighetstjeneste. Dette krever at SD Maid kan samhandle med skjermen din (altså at den ikke er låst) når oppgavene utføres.</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
@@ -477,4 +498,6 @@
     <string name="translation_encourage_body">SD Maid er oversatt av frivillige. Oversettelse, gjennomgang eller korrekturlesing, din hjelp er verdsatt!</string>
     <string name="translation_translators_title">Denne versjonen er oversatt av</string>
     <string name="translation_translators_people">Kristoffer Vassbø (kristoffer@vassbo.net)</string>
+    <string name="motd_setting_enabled_label">Dagens melding</string>
+    <string name="motd_setting_enabled_explanation">La SD Maid se etter viktige meldinger fra utvikleren.</string>
 </resources>

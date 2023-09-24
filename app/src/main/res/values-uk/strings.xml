@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Панель керування</string>
     <string name="dashboard_settings_oneclick_title">Режим одним дотиком</string>
     <string name="dashboard_settings_oneclick_summary">Почніть сканування та видалення для всіх інструментів, натиснувши кнопку дії на інформаційній панелі, без додаткових підтверджень.</string>
+    <string name="dashboard_motd_title">Повідомлення від розробника</string>
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
     <string name="debug_notification_channel_label">Сповіщення про налагодження</string>
@@ -378,6 +379,7 @@
     <string name="analyzer_storage_content_type_media_label">Файли користувача</string>
     <string name="analyzer_storage_content_type_media_description">Зроблені фотографії, записані відео або завантажені дані. Будь-які дані, що не належать конкретній програмі.</string>
     <string name="analyzer_storage_content_type_system_label">Системні дані</string>
+    <string name="analyzer_storage_content_type_system_description">Системні додатки та системні дані. Додатки та дані інших користувачів, якщо на пристрої встановлено кілька облікових записів.</string>
     <string name="analyzer_storage_content_app_code_label">Код додатка</string>
     <string name="analyzer_storage_content_app_code_description">Файли додатка, бібліотеки та ресурси. Звільнити цей простір можна лише видаливши додаток.</string>
     <string name="analyzer_storage_content_app_data_label">Дані додатка</string>
@@ -445,6 +447,8 @@
     <string name="scheduler_no_active_schedules_subtitle">Немає активних розкладів</string>
     <string name="scheduler_setting_nopowersaving_title">Пропуск при низькому заряді батареї</string>
     <string name="scheduler_setting_nopowersaving_summary">Якщо пристрій перебуває в режимі енергозбереження, заплановане виконання буде пропущено.</string>
+    <string name="scheduler_setting_charging_title">Пропуск, коли не заряджається</string>
+    <string name="scheduler_setting_charging_summary">Якщо пристрій не заряджається, заплановане виконання буде пропущено.</string>
     <string name="scheduler_setting_automation_title">Сервіс спеціальних можливостей</string>
     <string name="scheduler_setting_automation_summary">Включіть дії, які використовують сервіс спеціальних можливостей. Для цього потрібно, щоб SD Maid могла взаємодіяти з вашим екраном (тобто була розблокована) під час виконання завдань.</string>
     <string name="updates_dashcard_title">Доступно оновлення</string>
@@ -453,4 +457,6 @@
     <string name="translation_encourage_body">SD Maid перекладено волонтерами. Переклад, рецензування чи коректура - ваша допомога буде вдячна!</string>
     <string name="translation_translators_title">Цю версію переклали</string>
     <string name="translation_translators_people">Особа 1;Особа 2 (optional@email.com)</string>
+    <string name="motd_setting_enabled_label">Повідомлення дня</string>
+    <string name="motd_setting_enabled_explanation">Дозвольте SD Maid перевіряти важливі повідомлення від розробника.</string>
 </resources>
