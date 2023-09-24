@@ -4,5 +4,6 @@ It is still a very young app and not yet feature complete.
 I'm working on new features every day.
 If you have some good ideas, please let me know 😊!
 
-A detailed changelog is available on GitHub:
-https://github.com/d4rken-org/sdmaid-se/releases/latest
+Update contain bugfixes, performance improvements and maybe new features.
+
+A detailed changelog is always available on GitHub.
