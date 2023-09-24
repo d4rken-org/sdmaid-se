@@ -34,10 +34,9 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
                 item.onToggleUseShizuku(selection)
             }
         }
-        allowShizukuOptionsEnable.isEnabled = item.state.isInstalled
 
         shizukuState.apply {
-            isVisible = item.state.isInstalled && item.state.isEnabled == true
+            isVisible = item.state.isEnabled == true
             text = getString(
                 if (item.state.ourService) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label

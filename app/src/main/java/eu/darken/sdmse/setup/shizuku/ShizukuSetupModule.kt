@@ -47,11 +47,10 @@ class ShizukuSetupModule @Inject constructor(
 
             val baseState = State(
                 isEnabled = isEnabled,
-                isInstalled = shizukuManager.isInstalled(),
                 isCompatible = shizukuManager.isCompatible(),
             )
 
-            if (isEnabled != true || !baseState.isInstalled) return@combine flowOf(baseState)
+            if (isEnabled != true) return@combine flowOf(baseState)
 
             combine(
                 shizukuManager.shizukuBinder.onStart { emit(null) },
@@ -100,14 +99,13 @@ class ShizukuSetupModule @Inject constructor(
 
     data class State(
         val isEnabled: Boolean?,
-        val isInstalled: Boolean,
         val isCompatible: Boolean = false,
         val basicService: Boolean = false,
         val ourService: Boolean = false,
     ) : SetupModule.State {
 
         override val isComplete: Boolean =
-            isEnabled == false || !isCompatible || !isInstalled || (ourService && isEnabled == true)
+            isEnabled == false || !isCompatible || (ourService && isEnabled == true)
     }
 
     @Module @InstallIn(SingletonComponent::class)
