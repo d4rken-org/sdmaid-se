@@ -54,6 +54,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
+
+        <Preference
+            android:icon="@drawable/ic_baseline_stars_24"
+            android:key="core.sponsor.development"
+            app:singleLineTitle="false"
+            app:isPreferenceVisible="false"
+            app:summary="@string/settings_sponsor_development_summary"
+            app:title="@string/settings_sponsor_development_title"
+            tools:isPreferenceVisible="true" />
+
+        <Preference
+            android:icon="@drawable/ic_baseline_contact_support_24"
+            app:fragment="eu.darken.sdmse.main.ui.settings.support.SupportFragment"
+            app:summary="@string/settings_support_description"
+            app:title="@string/settings_support_label" />
+
         <eu.darken.sdmse.common.preferences.IntentPreference
             android:icon="@drawable/ic_changelog_onsurface"
             android:key="core.changelog"
@@ -63,12 +79,6 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/d4rken-org/sdmaid-se/releases" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
-
-        <Preference
-            android:icon="@drawable/ic_baseline_contact_support_24"
-            app:fragment="eu.darken.sdmse.main.ui.settings.support.SupportFragment"
-            app:summary="@string/settings_support_description"
-            app:title="@string/settings_support_label" />
 
         <Preference
             android:icon="@drawable/ic_heart"
@@ -81,15 +91,6 @@
             android:key="core.privacy"
             app:summary="@string/settings_privacy_policy_desc"
             app:title="@string/settings_privacy_policy_label" />
-
-        <Preference
-            android:icon="@drawable/ic_baseline_stars_24"
-            android:key="core.sponsor.development"
-            app:singleLineTitle="false"
-            app:isPreferenceVisible="false"
-            app:summary="@string/settings_sponsor_development_summary"
-            app:title="@string/settings_sponsor_development_title"
-            tools:isPreferenceVisible="true" />
 
     </PreferenceCategory>
 </PreferenceScreen>
