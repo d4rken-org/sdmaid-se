@@ -13,9 +13,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -45,6 +47,7 @@ class SystemCleaner @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val filterSource: FilterSource,
     pkgOps: PkgOps,
+    private val rootManager: RootManager,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -61,6 +64,18 @@ class SystemCleaner @Inject constructor(
     val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.SYSTEMCLEANER
+
+    val state: Flow<State> = combine(
+        internalData,
+        progress,
+        rootManager.useRoot,
+    ) { data, progress, useRoot ->
+        State(
+            data = data,
+            progress = progress,
+            areSystemFilterAvailable = useRoot,
+        )
+    }.replayingShare(appScope)
 
     private val toolLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
@@ -195,6 +210,12 @@ class SystemCleaner @Inject constructor(
                 .filter { it.items.isNotEmpty() }
         )
     }
+
+    data class State(
+        val data: Data?,
+        val progress: Progress.Data?,
+        val areSystemFilterAvailable: Boolean,
+    )
 
     data class Data(
         val filterContents: Collection<FilterContent>
