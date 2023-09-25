@@ -14,11 +14,12 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.observe2
-import eu.darken.sdmse.common.preferences.CaveatPreferenceGroup
+import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
 import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
-import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.showFixSetupHint
 import java.time.Duration
 import javax.inject.Inject
 
@@ -31,10 +32,14 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     @Inject override lateinit var settings: AppCleanerSettings
     override val preferenceFile: Int = R.xml.preferences_appcleaner
 
-    private val includeRunningCaveat: CaveatPreferenceGroup
-        get() = findPreference("include.runningapps.enabled.caveat")!!
-    private val includeInaccessibleCaveat: CaveatPreferenceGroup
-        get() = findPreference("include.inaccessible.enabled.caveat")!!
+    private val includeOtherUsers: BadgedCheckboxPreference
+        get() = findPreference("include.multiuser.enabled")!!
+
+    private val includeRunningApps: BadgedCheckboxPreference
+        get() = findPreference("include.runningapps.enabled")!!
+
+    private val includeInaccessibleCaches: BadgedCheckboxPreference
+        get() = findPreference("include.inaccessible.enabled")!!
 
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
@@ -153,28 +158,14 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
 
-        includeRunningCaveat.apply {
-            caveatMessage = getString(
-                R.string.setup_feature_requires_x_setup,
-                getString(R.string.setup_usagestats_title)
-            )
-            caveatAction = getString(eu.darken.sdmse.common.R.string.general_fix_action)
-            caveatClickListener = {
-                SettingsFragmentDirections.goToSetup(showCompleted = true).navigate()
-                true
-            }
+        includeOtherUsers.badgedAction = {
+            listOf(SetupModule.Type.ROOT).showFixSetupHint(this)
         }
-
-        includeInaccessibleCaveat.apply {
-            caveatMessage = getString(
-                R.string.setup_feature_requires_x_setup,
-                getString(R.string.setup_usagestats_title)
-            )
-            caveatAction = getString(eu.darken.sdmse.common.R.string.general_fix_action)
-            caveatClickListener = {
-                SettingsFragmentDirections.goToSetup(showCompleted = true).navigate()
-                true
-            }
+        includeRunningApps.badgedAction = {
+            listOf(SetupModule.Type.USAGE_STATS).showFixSetupHint(this)
+        }
+        includeInaccessibleCaches.badgedAction = {
+            listOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.AUTOMATION).showFixSetupHint(this)
         }
     }
 
@@ -182,8 +173,12 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
         super.onViewCreated(view, savedInstanceState)
 
         vm.state.observe2(this) { state ->
-            includeRunningCaveat.showCaveat = !state.hasUsageStats
-            includeInaccessibleCaveat.showCaveat = !state.hasUsageStats
+            includeOtherUsers.isRestricted = !state.isOtherUsersAvailable
+            includeRunningApps.isRestricted = !state.isRunningAppsDetectionAvailable
+            includeInaccessibleCaches.apply {
+                isRestricted = !state.isInaccessibleCacheAvailable
+                isVisible = state.isAcsRequired
+            }
         }
     }
 }

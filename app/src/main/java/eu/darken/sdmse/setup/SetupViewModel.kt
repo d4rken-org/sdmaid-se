@@ -50,7 +50,8 @@ class SetupViewModel @Inject constructor(
         setupManager.setDismissed(false)
     }
 
-    val isOnboarding = navArgs.isOnboarding
+    // TODO support filtering based on screenOptions.filterTypes
+    val screenOptions = navArgs.options ?: SetupScreenOptions()
 
     val events = SingleLiveEvent<SetupEvents>()
 
@@ -59,7 +60,7 @@ class SetupViewModel @Inject constructor(
             val items = mutableListOf<SetupAdapter.Item>()
 
             setupState.moduleStates
-                .filter { !it.isComplete || navArgs.showCompleted }
+                .filter { !it.isComplete || screenOptions.showCompleted }
                 .mapNotNull { state ->
                     when (state) {
                         is SAFSetupModule.State -> SAFSetupCardVH.Item(
@@ -165,7 +166,7 @@ class SetupViewModel @Inject constructor(
                     }
                 }
                 .sortedBy { item ->
-                    if (navArgs.showCompleted && !item.state.isComplete) {
+                    if (screenOptions.showCompleted && !item.state.isComplete) {
                         Int.MIN_VALUE
                     } else {
                         DISPLAY_ORDER.indexOfFirst { it.isInstance(item) }
@@ -176,7 +177,7 @@ class SetupViewModel @Inject constructor(
             items
         }
         .onEach {
-            if (it.isEmpty() && !navArgs.showCompleted) {
+            if (it.isEmpty() && !screenOptions.showCompleted) {
                 navback()
             }
         }
@@ -219,7 +220,7 @@ class SetupViewModel @Inject constructor(
     }
 
     fun navback() {
-        if (navArgs.isOnboarding) {
+        if (screenOptions.isOnboarding) {
             SetupFragmentDirections.actionSetupFragmentToDashboardFragment().navigate()
         } else {
             popNavStack()

@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.setup.SetupScreenOptions
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -50,7 +51,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
         }
 
         findPreference<Preference>("setup.show.forced")!!.setOnPreferenceClickListener {
-            MainDirections.goToSetup(showCompleted = true).navigate()
+            MainDirections.goToSetup(options = SetupScreenOptions(showCompleted = true)).navigate()
             true
         }
 
