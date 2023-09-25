@@ -68,7 +68,6 @@ class CorpseFinder @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-//    val data: Flow<Data?> = internalData
 
     override val state: Flow<State> = combine(
         internalData,

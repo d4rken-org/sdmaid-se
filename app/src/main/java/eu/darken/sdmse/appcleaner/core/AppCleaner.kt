@@ -67,7 +67,6 @@ class AppCleaner @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-//    val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.APPCLEANER
 
