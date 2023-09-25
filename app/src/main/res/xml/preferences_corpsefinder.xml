@@ -11,10 +11,10 @@
             app:title="@string/corpsefinder_watcher_title" />
 
         <CheckBoxPreference
-            app:icon="@drawable/ic_delete_alert_24"
-            app:singleLineTitle="false"
-            app:key="watcher.uninstall.autodelete.enabled"
             android:enabled="false"
+            app:icon="@drawable/ic_delete_alert_24"
+            app:key="watcher.uninstall.autodelete.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/corpsefinder_watcher_autodelete_summary"
             app:title="@string/corpsefinder_watcher_autodelete_title" />
     </PreferenceCategory>
@@ -28,8 +28,8 @@
             app:title="@string/corpsefinder_settings_risk_keeper_title" />
         <CheckBoxPreference
             app:icon="@drawable/file_question"
-            app:singleLineTitle="false"
             app:key="risk.include.common"
+            app:singleLineTitle="false"
             app:summary="@string/corpsefinder_settings_risk_common_summary"
             app:title="@string/corpsefinder_settings_risk_common_title" />
     </PreferenceCategory>
@@ -49,8 +49,8 @@
             app:title="@string/corpsefinder_filter_publicmedia_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_sd_storage"
-            app:singleLineTitle="false"
             app:key="filter.publicdata.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_publicdata_summary"
             app:title="@string/corpsefinder_filter_publicdata_label" />
         <CheckBoxPreference
@@ -59,48 +59,48 @@
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_publicobb_summary"
             app:title="@string/corpsefinder_filter_publicobb_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_incognito_circle_24"
             app:key="filter.privatedata.enabled"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_privatedata_summary"
             app:title="@string/corpsefinder_filter_privatedata_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_turbine_24"
             app:key="filter.dalvikcache.enabled"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_dalvik_summary"
             app:title="@string/corpsefinder_filter_dalvik_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_baseline_local_library_24"
             app:key="filter.applib.enabled"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_applib_summary"
             app:title="@string/corpsefinder_filter_applib_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_app_extra_24"
             app:key="filter.appsource.enabled"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_appsource_summary"
             app:title="@string/corpsefinder_filter_appsource_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_folder_key_24"
-            app:singleLineTitle="false"
             app:key="filter.appsourceprivate.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_appsource_private_summary"
             app:title="@string/corpsefinder_filter_appsource_private_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_folder_key_24"
-            app:singleLineTitle="false"
             app:key="filter.appasec.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/corpsefinder_filter_appasec_summary"
             app:title="@string/corpsefinder_filter_appasec_label" />
-
-        <!--        <CheckBoxPreference-->
-        <!--            app:icon="@drawable/air_filter"-->
-        <!--            app:key="filter.apptosd.enabled"-->
-        <!--            app:summary="@string/corpsefinder_filter_app2sd_summary"-->
-        <!--            app:title="@string/corpsefinder_filter_app2sd_label" />-->
 
     </PreferenceCategory>
 

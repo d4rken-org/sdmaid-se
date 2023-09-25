@@ -11,9 +11,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toggleSelfComponent
-import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherReceiver
 import kotlinx.coroutines.flow.combine
@@ -30,8 +30,8 @@ class CorpseFinderSettingsViewModel @Inject constructor(
     private val packageManager: PackageManager,
     dispatcherProvider: DispatcherProvider,
     settings: CorpseFinderSettings,
-    rootManager: RootManager,
     upgradeRepo: UpgradeRepo,
+    corpseFinder: CorpseFinder,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -48,19 +48,19 @@ class CorpseFinderSettingsViewModel @Inject constructor(
     }
 
     val state = combine(
-        rootManager.useRoot,
+        corpseFinder.state,
         upgradeRepo.upgradeInfo.map { it.isPro },
         settings.isWatcherEnabled.flow,
-    ) { isRooted, isPro, watcherEnabled ->
+    ) { state, isPro, isWatcherEnabled ->
         State(
-            isRooted = isRooted,
             isPro = isPro,
-            isWatcherEnabled = watcherEnabled,
+            isWatcherEnabled = isWatcherEnabled,
+            state = state,
         )
     }.asLiveData2()
 
     data class State(
-        val isRooted: Boolean,
+        val state: CorpseFinder.State,
         val isPro: Boolean,
         val isWatcherEnabled: Boolean,
     )

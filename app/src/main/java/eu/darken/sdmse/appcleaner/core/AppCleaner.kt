@@ -273,7 +273,6 @@ class AppCleaner @Inject constructor(
         )
     }
 
-
     data class State(
         val data: Data?,
         val progress: Progress.Data?,

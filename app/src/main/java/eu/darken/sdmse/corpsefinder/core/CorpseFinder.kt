@@ -15,9 +15,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
@@ -34,6 +36,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -49,6 +52,8 @@ class CorpseFinder @Inject constructor(
     private val userManager: UserManager2,
     private val pkgOps: PkgOps,
     private val watcherNotifications: UninstallWatcherNotifications,
+    rootManager: RootManager,
+    settings: CorpseFinderSettings,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
@@ -64,6 +69,24 @@ class CorpseFinder @Inject constructor(
 
     private val internalData = MutableStateFlow(null as Data?)
     val data: Flow<Data?> = internalData
+
+    val state: Flow<State> = combine(
+        internalData,
+        progress,
+        rootManager.useRoot,
+        settings.isWatcherEnabled.flow
+    ) { data, progress, useRoot, isWatcherEnabled ->
+        State(
+            data = data,
+            progress = progress,
+            isFilterPrivateDataAvailable = useRoot,
+            isFilterDalvikCacheAvailable = useRoot,
+            isFilterAppLibrariesAvailable = useRoot,
+            isFilterAppSourcesAvailable = useRoot,
+            isFilterPrivateAppSourcesAvailable = useRoot,
+            isFilterEncryptedAppResourcesAvailable = useRoot,
+        )
+    }.replayingShare(appScope)
 
     private val toolLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
@@ -310,6 +333,17 @@ class CorpseFinder @Inject constructor(
             }
         )
     }
+
+    data class State(
+        val data: Data?,
+        val progress: Progress.Data?,
+        val isFilterPrivateDataAvailable: Boolean,
+        val isFilterDalvikCacheAvailable: Boolean,
+        val isFilterAppLibrariesAvailable: Boolean,
+        val isFilterAppSourcesAvailable: Boolean,
+        val isFilterPrivateAppSourcesAvailable: Boolean,
+        val isFilterEncryptedAppResourcesAvailable: Boolean,
+    )
 
     data class Data(
         val corpses: Collection<Corpse>,

@@ -34,9 +34,15 @@ class BadgedCheckboxPreference @JvmOverloads constructor(
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
 
+        if (!isRestricted) return
+
         val ogParent = holder.itemView as LinearLayout
 
         val newParent = LinearLayout(context).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
             minimumHeight = ogParent.minimumHeight
             ogParent.minimumHeight = 0
 
@@ -54,18 +60,21 @@ class BadgedCheckboxPreference @JvmOverloads constructor(
         }
 
         val grandparent = FrameLayout(context).apply {
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
+            )
             addView(newParent)
         }
 
         ViewPreferenceCheckboxBadgeOverlayBinding.inflate(LayoutInflater.from(context), grandparent, true).apply {
-            root.isVisible = !isEnabled
+            root.isVisible = isRestricted
             root.setOnClickListener { badgedAction?.invoke() }
         }
 
         ogParent.apply {
             addView(grandparent)
         }
-
     }
 
     companion object {

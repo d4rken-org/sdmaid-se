@@ -33,13 +33,13 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     override val preferenceFile: Int = R.xml.preferences_appcleaner
 
     private val includeOtherUsers: BadgedCheckboxPreference
-        get() = findPreference("include.multiuser.enabled")!!
+        get() = findPreference(settings.includeOtherUsersEnabled.keyName)!!
 
     private val includeRunningApps: BadgedCheckboxPreference
-        get() = findPreference("include.runningapps.enabled")!!
+        get() = findPreference(settings.includeRunningAppsEnabled.keyName)!!
 
     private val includeInaccessibleCaches: BadgedCheckboxPreference
-        get() = findPreference("include.inaccessible.enabled")!!
+        get() = findPreference(settings.includeInaccessibleEnabled.keyName)!!
 
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
@@ -151,11 +151,6 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                 }.show()
                 true
             }
-        }
-
-        findPreference<Preference>(settings.includeOtherUsersEnabled.keyName)?.apply {
-            summary =
-                summary.toString() + "\n" + getString(eu.darken.sdmse.common.R.string.general_root_required_message)
         }
 
         includeOtherUsers.badgedAction = {
