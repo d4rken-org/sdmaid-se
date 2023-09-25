@@ -62,10 +62,11 @@ class AppControl @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
+//    val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.APPCONTROL
 
-    val state: Flow<State> = combine(
+    override val state: Flow<State> = combine(
         usageStatsSetupModule.state,
         rootManager.useRoot,
         shizukuManager.useShizuku,
@@ -239,7 +240,7 @@ class AppControl @Inject constructor(
         val progress: Progress.Data?,
         val isAppToggleAvailable: Boolean,
         val isActiveInfoAvailable: Boolean,
-    )
+    ) : SDMTool.State
 
     data class Data(
         val apps: Collection<AppInfo>,

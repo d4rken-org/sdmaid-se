@@ -67,11 +67,11 @@ class AppCleaner @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-    val data: Flow<Data?> = internalData
+//    val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.APPCLEANER
 
-    val state: Flow<State> = combine(
+    override val state: Flow<State> = combine(
         usageStatsSetupModule.state,
         rootManager.useRoot,
         shizukuManager.useShizuku,
@@ -280,7 +280,7 @@ class AppCleaner @Inject constructor(
         val isRunningAppsDetectionAvailable: Boolean,
         val isInaccessibleCacheAvailable: Boolean,
         val isAcsRequired: Boolean,
-    )
+    ) : SDMTool.State
 
     data class Data(
         val junks: Collection<AppJunk>

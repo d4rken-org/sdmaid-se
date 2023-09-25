@@ -32,7 +32,8 @@ class FilterContentViewModel @Inject constructor(
     val events = SingleLiveEvent<FilterContentEvents>()
 
     val state = combine(
-        systemCleaner.data
+        systemCleaner.state
+            .map { it.data }
             .filterNotNull()
             .map { data ->
                 data.filterContents.singleOrNull { it.identifier == args.identifier }

@@ -61,11 +61,11 @@ class SystemCleaner @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-    val data: Flow<Data?> = internalData
+//    val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.SYSTEMCLEANER
 
-    val state: Flow<State> = combine(
+    override val state: Flow<State> = combine(
         internalData,
         progress,
         rootManager.useRoot,
@@ -215,7 +215,7 @@ class SystemCleaner @Inject constructor(
         val data: Data?,
         val progress: Progress.Data?,
         val areSystemFilterAvailable: Boolean,
-    )
+    ) : SDMTool.State
 
     data class Data(
         val filterContents: Collection<FilterContent>

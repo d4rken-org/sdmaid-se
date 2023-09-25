@@ -35,7 +35,8 @@ class AppJunkViewModel @Inject constructor(
 
     val events = SingleLiveEvent<AppJunkEvents>()
 
-    private val currentAppJunk = appCleaner.data
+    private val currentAppJunk = appCleaner.state
+        .map { it.data }
         .filterNotNull()
         .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
         .filterNotNull()

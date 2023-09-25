@@ -16,6 +16,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -29,7 +30,8 @@ class CorpseListViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        corpseFinder.data
+        corpseFinder.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
@@ -39,7 +41,7 @@ class CorpseListViewModel @Inject constructor(
     val events = SingleLiveEvent<CorpseListEvents>()
 
     val state = combine(
-        corpseFinder.data.filterNotNull(),
+        corpseFinder.state.map { it.data }.filterNotNull(),
         corpseFinder.progress
     ) { data, progress ->
         val rows = data.corpses.map { corpse ->

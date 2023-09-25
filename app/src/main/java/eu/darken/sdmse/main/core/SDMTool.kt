@@ -4,10 +4,15 @@ import android.os.Parcelable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
+import kotlinx.coroutines.flow.Flow
 
 interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
 
     val type: Type
+
+    val state: Flow<State>
+
+    interface State
 
     suspend fun submit(task: Task): Task.Result
 
