@@ -67,6 +67,9 @@ class RootSetupModule @Inject constructor(
         val useRoot: Boolean?,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.ROOT
+
         override val isComplete: Boolean = useRoot != null
     }
 

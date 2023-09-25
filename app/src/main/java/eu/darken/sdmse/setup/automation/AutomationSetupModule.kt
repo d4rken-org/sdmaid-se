@@ -118,6 +118,9 @@ class AutomationSetupModule @Inject constructor(
         val showAppOpsRestrictionHint: Boolean,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.AUTOMATION
+
         override val isComplete: Boolean = when {
             isNotRequired -> true // ACS not needed
 

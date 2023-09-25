@@ -104,6 +104,9 @@ class ShizukuSetupModule @Inject constructor(
         val ourService: Boolean = false,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.SHIZUKU
+
         override val isComplete: Boolean =
             isEnabled == false || !isCompatible || (ourService && isEnabled == true)
     }

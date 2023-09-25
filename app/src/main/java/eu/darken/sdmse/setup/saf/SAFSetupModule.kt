@@ -209,6 +209,9 @@ class SAFSetupModule @Inject constructor(
         val paths: List<PathAccess>,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.SAF
+
         override val isComplete: Boolean = paths.all { it.hasAccess }
 
         data class PathAccess(
