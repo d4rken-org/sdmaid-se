@@ -52,19 +52,20 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                     slider.valueTo = 100 * 1024f
                     slider.value = (settings.minCacheSizeBytes.valueBlocking / 1024f).coerceAtMost(slider.valueTo)
 
-                    val updateSliderText = {
-                        val size = slider.value.toLong() * 1024L
-                        sliderValue.text = Formatter.formatShortFileSize(requireContext(), size)
+                    val getSliderText = { value: Float ->
+                        val size = value.toLong() * 1024L
+                        Formatter.formatShortFileSize(requireContext(), size)
                     }
-                    updateSliderText()
+                    slider.setLabelFormatter { getSliderText(it) }
+                    sliderValue.text = getSliderText(slider.value)
 
                     slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
                         override fun onStartTrackingTouch(slider: Slider) {
-                            updateSliderText()
+                            sliderValue.text = getSliderText(slider.value)
                         }
 
                         override fun onStopTrackingTouch(slider: Slider) {
-                            updateSliderText()
+                            sliderValue.text = getSliderText(slider.value)
                         }
                     })
                 }
@@ -100,17 +101,28 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                         slider.valueTo = if (isDays) 182f else 24 * 6f
                         slider.value = (currentValue / getBaseUnit()).toFloat().coerceAtMost(slider.valueTo)
                     }
+
                     updateSlider()
 
-                    val updateSliderText = {
-                        currentValue = slider.value.toLong() * getBaseUnit()
-                        sliderValue.text = DateUtils.getRelativeTimeSpanString(
-                            System.currentTimeMillis() - currentValue,
-                            System.currentTimeMillis(),
-                            if (isDays) DateUtils.DAY_IN_MILLIS else DateUtils.HOUR_IN_MILLIS
-                        )
+                    val formatSliderText = { value: Float ->
+                        val timeNow = System.currentTimeMillis()
+                        val timeSpan = timeNow - value.toLong() * getBaseUnit()
+                        val flags = when {
+                            isDays -> when {
+                                Duration.ofMillis(timeNow - timeSpan).toDays() < 7 -> DateUtils.DAY_IN_MILLIS
+                                else -> DateUtils.WEEK_IN_MILLIS
+                            }
+
+                            else -> DateUtils.HOUR_IN_MILLIS
+                        }
+                        DateUtils.getRelativeTimeSpanString(timeSpan, timeNow, flags).toString()
                     }
-                    updateSliderText()
+
+                    val updateValue = {
+                        currentValue = slider.value.toLong() * getBaseUnit()
+                        sliderValue.text = formatSliderText(slider.value)
+                    }
+                    updateValue()
 
                     timeScaleDays.isChecked = isDays
                     timeScaleHours.isChecked = !isDays
@@ -125,18 +137,19 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
                             }
                         }
                         updateSlider()
-                        updateSliderText()
+                        updateValue()
                     }
 
                     slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
                         override fun onStartTrackingTouch(slider: Slider) {
-                            updateSliderText()
+                            updateValue()
                         }
 
                         override fun onStopTrackingTouch(slider: Slider) {
-                            updateSliderText()
+                            updateValue()
                         }
                     })
+                    slider.setLabelFormatter { formatSliderText(it) }
                 }
                 MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.appcleaner_include_minimumage_label)
