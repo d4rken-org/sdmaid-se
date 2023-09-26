@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.files.deleteAll
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -50,6 +51,8 @@ class Analyzer @Inject constructor(
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
 ) : SDMTool, Progress.Client {
+
+    override val type: SDMTool.Type = SDMTool.Type.ANALYZER
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
@@ -83,7 +86,15 @@ class Analyzer @Inject constructor(
         )
     }
 
-    override val type: SDMTool.Type = SDMTool.Type.ANALYZER
+    override val state: Flow<State> = combine(
+        data,
+        progress,
+    ) { data, progress ->
+        State(
+            data = data,
+            progress = progress,
+        )
+    }.replayingShare(appScope)
 
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
@@ -212,6 +223,11 @@ class Analyzer @Inject constructor(
             freedSpace = freedSpace,
         )
     }
+
+    data class State(
+        val data: Data,
+        val progress: Progress.Data?,
+    ) : SDMTool.State
 
     data class Data(
         val storages: Set<DeviceStorage> = emptySet(),

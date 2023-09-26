@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.first
 
 suspend fun SetupModule.isComplete() = state.first()?.isComplete ?: false
 
-
 fun Collection<SetupModule.Type>.showFixSetupHint(fragment: Fragment) = Snackbar
     .make(
         fragment.requireView(),

@@ -60,6 +60,7 @@ class SetupViewModel @Inject constructor(
             val items = mutableListOf<SetupAdapter.Item>()
 
             setupState.moduleStates
+                .filter { screenOptions.typeFilter == null || screenOptions.typeFilter.contains(it.type) }
                 .filter { !it.isComplete || screenOptions.showCompleted }
                 .mapNotNull { state ->
                     when (state) {

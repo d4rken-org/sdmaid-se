@@ -26,7 +26,8 @@ class FilterContentDetailsViewModel @Inject constructor(
     private var currentTarget: FilterIdentifier? = null
 
     init {
-        systemCleaner.data
+        systemCleaner.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach {
@@ -39,7 +40,8 @@ class FilterContentDetailsViewModel @Inject constructor(
 
     val state = combine(
         systemCleaner.progress,
-        systemCleaner.data
+        systemCleaner.state
+            .map { it.data }
             .filterNotNull()
             .distinctUntilChangedBy { data ->
                 data.filterContents.map { it.identifier }.toSet()

@@ -156,13 +156,10 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = combine(
-        corpseFinder.data,
-        corpseFinder.progress,
-    ) { data, progress ->
+    private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = corpseFinder.state.map { state ->
         CorpseFinderDashCardVH.Item(
-            data = data,
-            progress = progress,
+            data = state.data,
+            progress = state.progress,
             onScan = {
                 launch { submitTask(CorpseFinderScanTask()) }
             },
@@ -176,13 +173,10 @@ class DashboardViewModel @Inject constructor(
             onViewDetails = { showCorpseFinderDetails() }
         )
     }
-    private val systemCleanerItem: Flow<SystemCleanerDashCardVH.Item> = combine(
-        systemCleaner.data,
-        systemCleaner.progress,
-    ) { data, progress ->
+    private val systemCleanerItem: Flow<SystemCleanerDashCardVH.Item> = systemCleaner.state.map { state ->
         SystemCleanerDashCardVH.Item(
-            data = data,
-            progress = progress,
+            data = state.data,
+            progress = state.progress,
             onScan = {
                 launch { submitTask(SystemCleanerScanTask()) }
             },
@@ -197,13 +191,12 @@ class DashboardViewModel @Inject constructor(
         )
     }
     private val appCleanerItem: Flow<AppCleanerDashCardVH.Item> = combine(
-        appCleaner.data,
-        appCleaner.progress,
+        appCleaner.state,
         upgradeInfo.map { it?.isPro ?: false },
-    ) { data, progress, isPro ->
+    ) { state, isPro ->
         AppCleanerDashCardVH.Item(
-            data = data,
-            progress = progress,
+            data = state.data,
+            progress = state.progress,
             isPro = isPro,
             onScan = {
                 launch { submitTask(AppCleanerScanTask()) }
@@ -407,30 +400,34 @@ class DashboardViewModel @Inject constructor(
     val bottomBarState = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
-        corpseFinder.data,
-        systemCleaner.data,
-        appCleaner.data,
+        corpseFinder.state,
+        systemCleaner.state,
+        appCleaner.state,
         generalSettings.enableDashboardOneClick.flow,
         listItemsInternal.map { items -> items.any { it is MainActionItem } },
     ) { upgradeInfo,
         taskState,
-        corpseData,
-        filterData,
-        junkData,
+        corpseState,
+        filterState,
+        junkState,
         oneClickMode,
         listIsReady ->
 
         val actionState: BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
             !taskState.isIdle -> BottomBarState.Action.WORKING
-            corpseData.hasData || filterData.hasData || junkData.hasData -> BottomBarState.Action.DELETE
+            corpseState.data.hasData || filterState.data.hasData || junkState.data.hasData -> BottomBarState.Action.DELETE
             oneClickMode -> BottomBarState.Action.ONECLICK
             else -> BottomBarState.Action.SCAN
         }
         val activeTasks = taskState.tasks.filter { it.isActive }.size
         val queuedTasks = taskState.tasks.filter { it.isQueued }.size
-        val totalItems = (corpseData?.totalCount ?: 0) + (filterData?.totalCount ?: 0) + (junkData?.totalCount ?: 0)
-        val totalSize = (corpseData?.totalSize ?: 0L) + (filterData?.totalSize ?: 0L) + (junkData?.totalSize ?: 0L)
+        val totalItems =
+            (corpseState.data?.totalCount ?: 0) + (filterState.data?.totalCount ?: 0) + (junkState.data?.totalCount
+                ?: 0)
+        val totalSize =
+            (corpseState.data?.totalSize ?: 0L) + (filterState.data?.totalSize ?: 0L) + (junkState.data?.totalSize
+                ?: 0L)
         BottomBarState(
             isReady = listIsReady,
             actionState = actionState,
@@ -450,7 +447,7 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(CorpseFinderScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> if (corpseFinder.data.first() != null) {
+                BottomBarState.Action.DELETE -> if (corpseFinder.state.first().data != null) {
                     submitTask(CorpseFinderDeleteTask())
                 }
 
@@ -465,7 +462,7 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(SystemCleanerScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> if (systemCleaner.data.first() != null) {
+                BottomBarState.Action.DELETE -> if (systemCleaner.state.first().data != null) {
                     submitTask(SystemCleanerDeleteTask())
                 }
 
@@ -481,9 +478,9 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
-                    if (appCleaner.data.first() != null && upgradeRepo.isPro()) {
+                    if (appCleaner.state.first().data != null && upgradeRepo.isPro()) {
                         submitTask(AppCleanerDeleteTask())
-                    } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
+                    } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
                 }
@@ -492,7 +489,7 @@ class DashboardViewModel @Inject constructor(
                     if (upgradeRepo.isPro()) {
                         submitTask(AppCleanerScanTask())
                         submitTask(AppCleanerDeleteTask())
-                    } else if (appCleaner.data.first().hasData && !corpseFinder.data.first().hasData && !systemCleaner.data.first().hasData) {
+                    } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
                 }

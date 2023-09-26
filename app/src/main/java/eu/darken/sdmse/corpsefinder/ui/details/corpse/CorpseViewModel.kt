@@ -29,7 +29,8 @@ class CorpseViewModel @Inject constructor(
 
     val events = SingleLiveEvent<CorpseEvents>()
 
-    private val corpseData = corpseFinder.data
+    private val corpseData = corpseFinder.state
+        .map { it.data }
         .filterNotNull()
         .map { data -> data.corpses.singleOrNull { it.identifier == args.identifier } }
         .filterNotNull()

@@ -19,6 +19,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -33,7 +34,8 @@ class AppCleanerListViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        appCleaner.data
+        appCleaner.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
@@ -43,7 +45,7 @@ class AppCleanerListViewModel @Inject constructor(
     val events = SingleLiveEvent<AppCleanerListEvents>()
 
     val state = combine(
-        appCleaner.data.filterNotNull(),
+        appCleaner.state.map { it.data }.filterNotNull(),
         appCleaner.progress,
     ) { data, progress ->
         val items = data.junks

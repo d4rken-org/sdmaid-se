@@ -58,6 +58,9 @@ class NotificationSetupModule @Inject constructor(
         val missingPermission: Set<Permission>,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.NOTIFICATION
+
         override val isComplete: Boolean = missingPermission.isEmpty()
 
     }

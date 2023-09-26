@@ -27,7 +27,8 @@ class CorpseDetailsViewModel @Inject constructor(
     private var currentTarget: CorpseIdentifier? = null
 
     init {
-        corpseFinder.data
+        corpseFinder.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
@@ -38,7 +39,8 @@ class CorpseDetailsViewModel @Inject constructor(
 
     val state = combine(
         corpseFinder.progress,
-        corpseFinder.data
+        corpseFinder.state
+            .map { it.data }
             .filterNotNull()
             .distinctUntilChangedBy { data -> data.corpses.map { it.identifier }.toSet() },
     ) { progress, data ->

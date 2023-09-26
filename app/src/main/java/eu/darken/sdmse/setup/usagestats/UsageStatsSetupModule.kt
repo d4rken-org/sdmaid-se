@@ -54,6 +54,9 @@ class UsageStatsSetupModule @Inject constructor(
         val missingPermission: Set<Permission>,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.USAGE_STATS
+
         override val isComplete: Boolean = missingPermission.isEmpty()
 
     }

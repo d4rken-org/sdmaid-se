@@ -92,6 +92,9 @@ class StorageSetupModule @Inject constructor(
         val missingPermission: Set<Permission>,
     ) : SetupModule.State {
 
+        override val type: SetupModule.Type
+            get() = SetupModule.Type.STORAGE
+
         override val isComplete: Boolean = missingPermission.isEmpty() && paths.all { it.hasAccess }
 
         data class PathAccess(

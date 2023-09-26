@@ -16,6 +16,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -29,7 +30,8 @@ class SystemCleanerListViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        systemCleaner.data
+        systemCleaner.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
@@ -39,7 +41,7 @@ class SystemCleanerListViewModel @Inject constructor(
     val events = SingleLiveEvent<SystemCleanerListEvents>()
 
     val state = combine(
-        systemCleaner.data.filterNotNull(),
+        systemCleaner.state.map { it.data }.filterNotNull(),
         systemCleaner.progress,
     ) { data, progress ->
         val items = data.filterContents.map { content ->

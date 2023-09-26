@@ -38,7 +38,8 @@ class AppJunkDetailsViewModel @Inject constructor(
         }
 
     init {
-        appCleaner.data
+        appCleaner.state
+            .map { it.data }
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
@@ -49,7 +50,8 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     val state = combine(
         appCleaner.progress,
-        appCleaner.data
+        appCleaner.state
+            .map { it.data }
             .filterNotNull()
             .distinctUntilChangedBy { junks -> junks.junks.map { it.identifier }.toSet() },
     ) { progress, newData ->

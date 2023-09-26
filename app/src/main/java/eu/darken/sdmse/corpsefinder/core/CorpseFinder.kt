@@ -68,9 +68,8 @@ class CorpseFinder @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
-    val data: Flow<Data?> = internalData
 
-    val state: Flow<State> = combine(
+    override val state: Flow<State> = combine(
         internalData,
         progress,
         rootManager.useRoot,
@@ -343,7 +342,7 @@ class CorpseFinder @Inject constructor(
         val isFilterAppSourcesAvailable: Boolean,
         val isFilterPrivateAppSourcesAvailable: Boolean,
         val isFilterEncryptedAppResourcesAvailable: Boolean,
-    )
+    ) : SDMTool.State
 
     data class Data(
         val corpses: Collection<Corpse>,
