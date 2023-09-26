@@ -21,9 +21,7 @@ fun Collection<SetupModule.Type>.showFixSetupHint(fragment: Fragment) = Snackbar
         Snackbar.LENGTH_LONG
     )
     .enableBigText()
-    .apply {
-        duration = 6000
-    }
+    .apply { duration = 5000 }
     .setAction(eu.darken.sdmse.common.R.string.general_set_up_action) {
         val direction = SettingsFragmentDirections.goToSetup(
             options = SetupScreenOptions(

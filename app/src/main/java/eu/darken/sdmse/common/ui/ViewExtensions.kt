@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.ui
 import android.content.res.TypedArray
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -46,4 +47,13 @@ fun View.performClickWithRipple() {
     isPressed = true
     isPressed = false
     performClick()
+}
+
+fun View.setEnabledStateRecursive(enabled: Boolean) {
+    this.isEnabled = enabled
+    if (this !is ViewGroup) return
+
+    for (i in childCount - 1 downTo 0) {
+        getChildAt(i).setEnabledStateRecursive(enabled)
+    }
 }

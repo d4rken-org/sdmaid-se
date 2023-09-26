@@ -12,7 +12,6 @@
     <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
         app:icon="@drawable/ic_account_group_24"
         app:key="include.multiuser.enabled"
-        android:enabled="false"
         app:singleLineTitle="false"
         app:summary="@string/appcleaner_include_multiuser_summary"
         app:title="@string/appcleaner_include_multiuser_label" />
@@ -20,7 +19,7 @@
     <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
         app:icon="@drawable/ic_skip_over_24"
         app:key="include.runningapps.enabled"
-        android:enabled="false"
+        app:enabled="false"
         app:singleLineTitle="false"
         app:summary="@string/appcleaner_include_runningapps_summary"
         app:title="@string/appcleaner_include_runningapps_label" />
@@ -29,7 +28,7 @@
         app:icon="@drawable/ic_folder_hidden_24"
         app:key="include.inaccessible.enabled"
         app:singleLineTitle="false"
-        android:enabled="false"
+        app:enabled="false"
         app:summary="@string/appcleaner_include_inaccessible_summary"
         app:title="@string/appcleaner_include_inaccessible_label" />
 
