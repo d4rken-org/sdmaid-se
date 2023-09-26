@@ -92,13 +92,10 @@
         android:name="eu.darken.sdmse.setup.SetupFragment"
         tools:layout="@layout/setup_fragment">
         <argument
-            android:name="showCompleted"
-            android:defaultValue="false"
-            app:argType="boolean" />
-        <argument
-            android:name="isOnboarding"
-            android:defaultValue="false"
-            app:argType="boolean" />
+            android:name="options"
+            app:argType="eu.darken.sdmse.setup.SetupScreenOptions"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_setupFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"

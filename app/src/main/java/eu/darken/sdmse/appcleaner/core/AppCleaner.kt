@@ -17,20 +17,25 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -46,6 +51,9 @@ class AppCleaner @Inject constructor(
     private val exclusionManager: ExclusionManager,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
+    usageStatsSetupModule: UsageStatsSetupModule,
+    rootManager: RootManager,
+    shizukuManager: ShizukuManager,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -62,6 +70,23 @@ class AppCleaner @Inject constructor(
     val data: Flow<Data?> = internalData
 
     override val type: SDMTool.Type = SDMTool.Type.APPCLEANER
+
+    val state: Flow<State> = combine(
+        usageStatsSetupModule.state,
+        rootManager.useRoot,
+        shizukuManager.useShizuku,
+        internalData,
+        progress,
+    ) { usageState, useRoot, useShizuku, data, progress ->
+        State(
+            data = data,
+            progress = progress,
+            isRunningAppsDetectionAvailable = usageState.isComplete || useRoot || useShizuku,
+            isOtherUsersAvailable = useRoot,
+            isInaccessibleCacheAvailable = usageState.isComplete || useRoot || useShizuku,
+            isAcsRequired = !useRoot
+        )
+    }.replayingShare(appScope)
 
     private val toolLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
@@ -247,6 +272,15 @@ class AppCleaner @Inject constructor(
             }
         )
     }
+
+    data class State(
+        val data: Data?,
+        val progress: Progress.Data?,
+        val isOtherUsersAvailable: Boolean,
+        val isRunningAppsDetectionAvailable: Boolean,
+        val isInaccessibleCacheAvailable: Boolean,
+        val isAcsRequired: Boolean,
+    )
 
     data class Data(
         val junks: Collection<AppJunk>

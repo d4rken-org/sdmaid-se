@@ -72,7 +72,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
-            if (vm.isOnboarding) setNavigationIcon(R.drawable.ic_baseline_close_24)
+            if (vm.screenOptions.isOnboarding) setNavigationIcon(R.drawable.ic_baseline_close_24)
             setNavigationOnClickListener { vm.navback() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
@@ -89,7 +89,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     else -> false
                 }
             }
-            menu?.findItem(R.id.action_show_areas)?.isVisible = !vm.isOnboarding
+            menu?.findItem(R.id.action_show_areas)?.isVisible = !vm.screenOptions.isOnboarding
         }
 
         ui.list.setupDefaults(setupAdapter, dividers = false)

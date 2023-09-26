@@ -74,48 +74,56 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_filter_specific">
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_baseline_running_with_errors_24"
             app:key="filter.anr.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_anr_summary"
             app:title="@string/systemcleaner_filter_anr_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_android_studio_24"
             app:key="filter.localtmp.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_localtmp_summary"
             app:title="@string/systemcleaner_filter_localtmp_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_android_studio_24"
             app:key="filter.downloadcache.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_downloadcache_summary"
             app:title="@string/systemcleaner_filter_downloadcache_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.datalogger.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_datalogger_summary"
             app:title="@string/systemcleaner_filter_datalogger_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
             app:key="filter.logdropbox.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_logdropbox_summary"
             app:title="@string/systemcleaner_filter_logdropbox_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_task_onsurface"
             app:key="filter.recenttasks.enabled"
             app:summary="@string/systemcleaner_filter_recenttasks_summary"
             app:title="@string/systemcleaner_filter_recenttasks_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_tombstone"
             app:key="filter.tombstones.enabled"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_tombstones_summary"
             app:title="@string/systemcleaner_filter_tombstones_label" />
-        <CheckBoxPreference
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_chart_bar_stacked_24"
             app:key="filter.usagestats.enabled"
             app:singleLineTitle="false"

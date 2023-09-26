@@ -26,6 +26,7 @@
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>
     <string name="general_fix_action">Fix</string>
+    <string name="general_set_up_action">Set up</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Empty</string>

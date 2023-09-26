@@ -235,10 +235,10 @@ class AppControl @Inject constructor(
     }
 
     data class State(
-        val isActiveInfoAvailable: Boolean,
-        val isAppToggleAvailable: Boolean,
         val data: Data?,
         val progress: Progress.Data?,
+        val isAppToggleAvailable: Boolean,
+        val isActiveInfoAvailable: Boolean,
     )
 
     data class Data(
