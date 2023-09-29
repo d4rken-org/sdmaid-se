@@ -2,5 +2,6 @@
   "id": "5f9d6b61-3bd4-4c8a-978c-4314829450f0",
   "message": "Dies ist eine Test-Nachricht (GPLAY DE BETA).",
   "primaryLink": null,
-  "versionMinimum": 1100001
+  "versionMinimum": 1100001,
+  "versionMaximum": 1100001
 }

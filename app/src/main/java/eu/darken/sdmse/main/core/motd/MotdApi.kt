@@ -29,6 +29,7 @@ interface MotdApi {
         @Json(name = "message") val message: String,
         @Json(name = "primaryLink") val primaryLink: String?,
         @Json(name = "versionMinimum") val minimumVersion: Long?,
+        @Json(name = "versionMaximum") val maximumVersion: Long?,
     )
 
     @GET
