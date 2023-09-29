@@ -83,10 +83,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:name="eu.darken.sdmse.scheduler.core.SchedulerReceiver"
-            android:exported="false" />
-
         <service
             android:name=".automation.core.AutomationService"
             android:exported="false"

@@ -517,7 +517,7 @@
     <string name="scheduler_schedule_time_label">Approximate time</string>
     <string name="scheduler_schedule_repeat_label">Repeat interval in days</string>
     <string name="scheduler_schedule_default_name">Default schedule</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s at %2$s</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s around %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planned for %s</string>
     <string name="scheduler_schedule_last_at_x">Last executed at %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -533,6 +533,9 @@
     <string name="scheduler_setting_charging_summary">If the device is not charging, the scheduled execution will be skipped.</string>
     <string name="scheduler_setting_automation_title">Accessibility service</string>
     <string name="scheduler_setting_automation_summary">Include actions that use an accessibility service. This requires that SD Maid can interact with your screen (i.e. it\'s unlocked) when the tasks are executed.</string>
+    <string name="scheduler_notification_channel_label">Scheduler</string>
+    <string name="scheduler_notification_title">Scheduled task</string>
+    <string name="scheduler_notification_message">Executing: \"%s\"</string>
 
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>
