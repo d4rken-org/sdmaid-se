@@ -26,19 +26,20 @@ class SchedulerRestoreReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
-        if (intent.action != Intent.ACTION_PACKAGE_FULLY_REMOVED && intent.action != Intent.ACTION_BOOT_COMPLETED) {
+        if (!ALLOWED_INTENTS.contains(intent.action)) {
             log(TAG, ERROR) { "Unknown intent: $intent" }
             return
         }
 
-        log(TAG, INFO) { "Rechecking scheduler states (${intent.data})" }
+        log(TAG, INFO) { "Rechecking scheduler states (intent.data=${intent.data})" }
 
         val asyncPi = goAsync()
 
-        Bugs.leaveBreadCrumb("Scheduler restored")
+        Bugs.leaveBreadCrumb("Scheduler restore")
 
         appScope.launch {
             schedulerManager.state.take(1).first()
+            // The manager checks the scheduling states automatically when initialised, so just give it some time
             delay(3000)
 
             log(TAG) { "Finished scheduler checks" }
@@ -47,7 +48,11 @@ class SchedulerRestoreReceiver : BroadcastReceiver() {
     }
 
     companion object {
+        private val ALLOWED_INTENTS = setOf(
+            Intent.ACTION_MY_PACKAGE_REPLACED,
+            Intent.ACTION_PACKAGE_FULLY_REMOVED,
+            Intent.ACTION_BOOT_COMPLETED
+        )
         internal val TAG = logTag("Scheduler", "Receiver", "Restore")
-
     }
 }
