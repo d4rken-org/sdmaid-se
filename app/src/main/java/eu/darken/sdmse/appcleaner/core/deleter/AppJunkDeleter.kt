@@ -101,10 +101,12 @@ class AppJunkDeleter @Inject constructor(
             ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
             ?: snapshot.junks
 
-        targetJunk.forEach { appJunk ->
-            val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
-            deletionMap[appJunk.identifier] = deleted
-        }
+        targetJunk
+            .sortedByDescending { it.size }
+            .forEach { appJunk ->
+                val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
+                deletionMap[appJunk.identifier] = deleted
+            }
 
         return deletionMap
     }
@@ -152,7 +154,7 @@ class AppJunkDeleter @Inject constructor(
 
     suspend fun deleteInaccessible(
         snapshot: AppCleaner.Data,
-        targetPkgs: Set<Installed.InstallId>?,
+        targetPkgs: Collection<Installed.InstallId>?,
         useAutomation: Boolean,
     ): Set<Installed.InstallId> {
         log(TAG, INFO) {
@@ -177,6 +179,7 @@ class AppJunkDeleter @Inject constructor(
                 }
                 isCurrentUser
             }
+            .sortedByDescending { it.inaccessibleCache?.totalBytes }
 
         return deleteInaccessible(
             targetInaccessible,
