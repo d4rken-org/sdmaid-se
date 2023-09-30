@@ -23,6 +23,7 @@
     <string name="general_save_action">저장</string>
     <string name="general_thanks_action">감사의 말씀</string>
     <string name="general_gotit_action">확인</string>
+    <string name="general_fix_action">해결</string>
     <string name="general_edit_action">수정</string>
     <string name="general_na_label">해당 없음</string>
     <string name="general_empty_label">비어 있음</string>

@@ -23,6 +23,7 @@
     <string name="general_save_action">Сохранить</string>
     <string name="general_thanks_action">Спасибо</string>
     <string name="general_gotit_action">Понятно</string>
+    <string name="general_fix_action">Исправить</string>
     <string name="general_edit_action">Редактировать</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Пусто</string>

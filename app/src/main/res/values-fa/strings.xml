@@ -69,7 +69,6 @@
     <string name="appcleaner_filter_hiddencaches_label">کش های مخفی</string>
     <string name="appcleaner_filter_offlinecache_label">حافظه پنهان آفلاین</string>
     <string name="appcleaner_filter_whatsapp_sent_label">فایل‌های ارسالی واتس‌اپ</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">فایل ها از واتس اپ برای دیگران ارسال می شود.</string>
     <string name="appcleaner_filter_telegram_label">فایل های رسانه ای تلگرام</string>
     <string name="appcleaner_filter_telegram_summary">فایل های دریافتی یا ارسالی از طریق تلگرام.</string>
     <string name="appcleaner_filter_threema_label">تریما</string>

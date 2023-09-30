@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Shizuku uygulaması cihazınızda kurulu değilse bu ayarın hiçbir etkisi yoktur.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku bağlantısı hazır.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku\'ya bağlanmak için bekleniyor.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku\'yu kullan</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Varsa Shizuku\'yu kullanın</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku\'yu kullanma</string>
     <string name="setup_dismiss_hint">Ayarlar menüsünden kurulum ekranına tekrar ulaşabilirsiniz.</string>
     <string name="setup_permission_granted_label">İzin verildi</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp alınan dosyalar</string>
     <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalardır.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>
     <string name="appcleaner_filter_telegram_summary">Telegram aracılığıyla alınan veya gönderilen dosyalar.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Hariç tutmayı düzenle</string>
     <string name="appcontrol_app_exclude_edit_description">Bu uygulama şu anda bir veya daha fazla araçtan hariç tutulmaktadır.</string>
     <string name="appcontrol_tag_user">Kullanıcı</string>
+    <string name="appcontrol_tag_active">Yakın zamanda aktif</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Etkin</string>
     <string name="appcontrol_tag_disabled">Devre dışı</string>
@@ -477,7 +477,6 @@
     <string name="scheduler_schedule_time_label">Yaklaşık zaman</string>
     <string name="scheduler_schedule_repeat_label">Gün cinsinden tekrar aralığı</string>
     <string name="scheduler_schedule_default_name">Varsayılan program</string>
-    <string name="scheduler_current_schedule_x_at_x">%2$s\'de %1$s</string>
     <string name="scheduler_schedule_next_at_x">%s için planlandı</string>
     <string name="scheduler_schedule_last_at_x">Son çalıştırma %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

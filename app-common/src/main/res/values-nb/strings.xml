@@ -23,6 +23,7 @@
     <string name="general_save_action">Lagre</string>
     <string name="general_thanks_action">Takk</string>
     <string name="general_gotit_action">Forstått</string>
+    <string name="general_fix_action">Reparer</string>
     <string name="general_edit_action">Rediger</string>
     <string name="general_na_label">Ikke tilgjengelig</string>
     <string name="general_empty_label">Tom</string>

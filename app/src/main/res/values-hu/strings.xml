@@ -109,7 +109,6 @@
     <string name="setup_shizuku_card_body2">Ez a beállítás nincs hatással, ha a Shizuku alkalmazás nincs beállítva a készüléken.</string>
     <string name="setup_shizuku_state_ready_label">A Shizuku link készen áll.</string>
     <string name="setup_shizuku_state_waiting_label">Várakozás a Shizuku-val való kapcsolatfelvételre.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Használon Shizuku-t</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
     <string name="setup_permission_granted_label">Hozzáférés megadva</string>
@@ -321,7 +320,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp érkezett fájlok</string>
     <string name="appcleaner_filter_whatsapp_received_label">Az emberektől WhatsAppon keresztül kapott fájlok.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp elküldött fájlok</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Fájlok, amelyeket a WhatsApp-on keresztül küld másoknak.</string>
     <string name="appcleaner_filter_telegram_label">Telegram médiafájlok</string>
     <string name="appcleaner_filter_telegram_summary">Telegramon keresztül fogadott vagy elküldött fájlok.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,7 +474,6 @@
     <string name="scheduler_schedule_time_label">Hozzávetőleges idő</string>
     <string name="scheduler_schedule_repeat_label">Ismétlődési időköz napokban mérve</string>
     <string name="scheduler_schedule_default_name">Alapértelmezett ütemezés</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s itt: %2$s</string>
     <string name="scheduler_schedule_next_at_x">A tervezett időpont: %s</string>
     <string name="scheduler_schedule_last_at_x">Utoljára végrehajtva: %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

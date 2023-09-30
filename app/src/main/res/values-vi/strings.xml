@@ -107,7 +107,7 @@
     <string name="setup_shizuku_card_body2">Cài đặt này không có hiệu lực nếu ứng dụng Shizuku không được thiết lập trên thiết bị của bạn.</string>
     <string name="setup_shizuku_state_ready_label">Liên kết Shizuku đã sẵn sàng.</string>
     <string name="setup_shizuku_state_waiting_label">Chờ liên kết với Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Sử dụng Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Sử dụng Shizuku nếu có</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
     <string name="setup_permission_granted_label">Đã được cấp quyền</string>
@@ -315,7 +315,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Tệp WhatsApp đã nhận</string>
     <string name="appcleaner_filter_whatsapp_received_label">Tệp bạn nhận được từ mọi người qua WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Tệp WhatsApp đã gửi</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Tệp gửi từ WhatsApp cho người khác.</string>
     <string name="appcleaner_filter_telegram_label">Tệp phương tiện Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Các tệp đã nhận hoặc gửi qua Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -363,6 +362,7 @@
     <string name="appcontrol_app_exclude_edit_title">Chỉnh sửa loại trừ</string>
     <string name="appcontrol_app_exclude_edit_description">Ứng dụng này hiện bị loại trừ khỏi một hoặc nhiều công cụ.</string>
     <string name="appcontrol_tag_user">Người dùng</string>
+    <string name="appcontrol_tag_active">Hoạt động gần đây</string>
     <string name="appcontrol_tag_system">Hệ thống</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
     <string name="appcontrol_tag_disabled">Đã tắt</string>
@@ -464,7 +464,6 @@
     <string name="scheduler_schedule_time_label">Thời gian xấp xỉ</string>
     <string name="scheduler_schedule_repeat_label">Lặp lại khoảng thời gian trong ngày</string>
     <string name="scheduler_schedule_default_name">Lịch trình mặc định</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s vào %2$s</string>
     <string name="scheduler_schedule_next_at_x">Đã đặt lịch vào %s</string>
     <string name="scheduler_schedule_last_at_x">Lần thực thi cuối vào %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

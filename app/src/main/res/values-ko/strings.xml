@@ -107,7 +107,7 @@
     <string name="setup_shizuku_card_body2">기기에 Shizuku 앱이 없다면 설정을 활성화할 때 효과가 없습니다.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 연결이 준비되었습니다.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku의 연결을 기다리고 있습니다.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku 사용</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">가능하다면 Shizuku 사용하기</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku 사용하지 않음</string>
     <string name="setup_dismiss_hint">본 초기 설정은 앱 내 설정 메뉴에서 다시 볼 수 있습니다.</string>
     <string name="setup_permission_granted_label">권한 부여 완료</string>
@@ -315,7 +315,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp에서 받은 파일</string>
     <string name="appcleaner_filter_whatsapp_received_label">WhatsApp을 통해 받은 파일입니다.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp에서 보낸 파일</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp에서 다른 유저에게 보낸 파일입니다.</string>
     <string name="appcleaner_filter_telegram_label">텔레그램 미디어 파일</string>
     <string name="appcleaner_filter_telegram_summary">텔레그램에서 보내거나 받은 파일입니다.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -363,6 +362,7 @@
     <string name="appcontrol_app_exclude_edit_title">예외 편집</string>
     <string name="appcontrol_app_exclude_edit_description">이 앱은 한 개 이상의 도구의 기능에서 제외되어 있습니다.</string>
     <string name="appcontrol_tag_user">사용자</string>
+    <string name="appcontrol_tag_active">최근에 사용됨</string>
     <string name="appcontrol_tag_system">시스템</string>
     <string name="appcontrol_tag_enabled">사용하고 있습니다</string>
     <string name="appcontrol_tag_disabled">사용하지 않고 있습니다</string>
@@ -464,7 +464,6 @@
     <string name="scheduler_schedule_time_label">근사치 시간</string>
     <string name="scheduler_schedule_repeat_label">일단위 반복 간격</string>
     <string name="scheduler_schedule_default_name">기본 예약</string>
-    <string name="scheduler_current_schedule_x_at_x">%2$s의 %1$s</string>
     <string name="scheduler_schedule_next_at_x">%s 예정</string>
     <string name="scheduler_schedule_last_at_x">%s에 마지막으로 실행했습니다</string>
     <plurals name="scheduler_schedule_repeat_x_days">

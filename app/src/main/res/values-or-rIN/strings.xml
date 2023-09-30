@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_motd_title">ବିକାଶକଙ୍କ ଠାରୁ ଏକ ସନ୍ଦେଶ</string>
     <string name="debug_debuglog_size_label">ଆକାର</string>
     <string name="tasks_activity_working_notification_title">SD Maid କାମ କରୁଅଛି</string>
     <string name="onboarding_welcome_title">ସ୍ୱାଗତ</string>
@@ -23,10 +24,10 @@
     <string name="setup_manage_storage_card_title">ଷ୍ଟୋରେଜ୍ ପରିଚାଳନା</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ଫଳାଫଳକୁ ଉନ୍ନତ କରିବା ଏବଂ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ସକ୍ଷମ କରିବା ପାଇଁ SD Maidକୁ Shizuku ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
-    <string name="setup_shizuku_card_body2">ଯଦି ଆପଣଙ୍କ ଡିଵାଇସରେ Sizuku ଆପ୍ ଉଦ୍ୟତ ହୋଇନାହିଁ ତେବେ ଏହି ସେଟିଂର କୌଣସି ପ୍ରଭାବ ପଡ଼ିବ ନାହିଁ।</string>
+    <string name="setup_shizuku_card_body2">ଯଦି ଆପଣଙ୍କ ଡିଵାଇସରେ Shizuku ଆପ୍ ଉଦ୍ୟତ ହୋଇନାହିଁ ତେବେ ଏହି ସେଟିଂର କୌଣସି ପ୍ରଭାବ ପଡ଼ିବ ନାହିଁ।</string>
     <string name="setup_shizuku_state_ready_label">Shizuku ଲିଙ୍କ୍ ପ୍ରସ୍ତୁତ ହୋଇଅଛି।</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku ସହିତ ଲିଙ୍କ୍ ପାଇଁ ଅପେକ୍ଷାରତ।</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ବ୍ୟବହାର କରିବା</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ଉପଲବ୍ଧ ଥିଲେ ତା\'ର ବ୍ୟବହାର କରିବା</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ବ୍ୟବହାର କରିବାନି</string>
     <string name="setup_usagestats_title">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ</string>
     <string name="setup_notification_title">ଵିଜ୍ଞପ୍ତି</string>
@@ -37,6 +38,7 @@
     <string name="setup_acs_state_stopped">ଅଭିଗମ୍ୟତା ସେଵା ବନ୍ଦ ହୋଇଛି</string>
     <string name="settings_category_filter">ଶୋଧକ</string>
     <string name="corpsefinder_tool_name">ଶଵ ସନ୍ଧାନକାରୀ</string>
+    <string name="corpsefinder_explanation_short">ଆଗରୁ ଅପସାରିତ ହୋଇଥିବା ଆପ୍‌ଗୁଡ଼ିକର ତଥ୍ୟ।</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">ପରିଷ୍କାର ସଫଳ ହୋଇଛି (%1$s): %2$s ମୁକ୍ତ କରାଯାଇ %3$dଟିଏ ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା।</item>
         <item quantity="other">ପରିଷ୍କାର ସଫଳ ହୋଇଛି (%1$s): %2$s ମୁକ୍ତ କରାଯାଇ %3$dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା।</item>
@@ -44,6 +46,7 @@
     <string name="corpsefinder_filter_publicmedia_label">ସାର୍ଵଜନୀନ ମିଡ଼ିଆ</string>
     <string name="corpsefinder_filter_publicmedia_summary">ସାର୍ଵଜନୀନ ମିଡ଼ିଆ ଫାଇଲ୍, ଯଥା ମେସେଞ୍ଜର ଆପ୍ ମାଧ୍ୟମରେ ପ୍ରାପ୍ତ ଫାଇଲ୍‌ଗୁଡ଼ା।</string>
     <string name="corpsefinder_filter_dalvik_summary">ଦ୍ରୁତିକା କରି ସାଇତିଥିବା ଆପ୍ ନିଷ୍ପାଦନ ତଥ୍ୟ।</string>
+    <string name="systemcleaner_explanation_short">ଅତିରିକ୍ତ ତଥ୍ୟ ଯାହା କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍‌ର ନୁହଁ।</string>
     <string name="systemcleaner_filter_linuxfiles_summary">ଏକ linux କମ୍ପ୍ୟୁଟର୍ ସହିତ ଷ୍ଟୋରେଜ୍ ସଂଯୁକ୍ତ ଥିବା ବେଳେ ସୃଷ୍ଟି ହୋଇଥିବା ଫାଇଲ୍ ଏବଂ ଫୋଲ୍ଡର୍।</string>
     <string name="systemcleaner_filter_macfiles_summary">Appleର finder ଆପ୍ ସହିତ ଷ୍ଟୋରେଜ୍ ବ୍ରାଉଜ୍ କରିବା ବେଳେ ସୃଷ୍ଟି ହୋଇଥିବା ଫାଇଲ୍ ଏବଂ ଫୋଲ୍ଡର୍।</string>
     <string name="systemcleaner_filter_downloadcache_label">ଦ୍ରୁତିକା ଡାଉନଲୋଡ୍ କର</string>
@@ -51,6 +54,7 @@
     <string name="systemcleaner_filter_usagestats_label">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ</string>
     <string name="systemcleaner_customfilter_editor_path_label">ପଥ ମାନଦଣ୍ଡ</string>
     <string name="systemcleaner_customfilter_last_edit">ଗତ ସମ୍ପାଦନ: %s</string>
+    <string name="appcleaner_explanation_short">ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍‌ଗୁଡ଼ିକର ସମ୍ବନ୍ଧୀୟ ବ୍ୟୟଯୋଗ୍ୟ ତଥ୍ୟ।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ସାର୍ବଜନୀନ ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ଦ୍ରୁତିକା। ପୁରାତନ ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ Android/data ଅଧୀନରେ ଉପଲବ୍ଧ। ସିଷ୍ଟମ୍ ସେଟିଂରେ \"ଦ୍ରୁତିକା ସଫା କର\" ଟିପିବାବେଳେ ବିଲୋପ ହେଲା।</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">ଘରୋଇ ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
@@ -67,13 +71,16 @@
     <string name="appcleaner_automation_unavailable_title">ଅଭିଗମ୍ୟତା ସେଵା ଅନୁପଲବ୍ଧ</string>
     <string name="appcleaner_junk_userprofile_label">ଉପଭୋକ୍ତା</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ବ୍ୟବହାର କରି ଦ୍ରୁତିକା ବିଲୋପ ଚାଲିଛି</string>
+    <string name="appcontrol_explanation_short">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ ଅଧିସ୍ଥାପିତ ଆପ୍‌ସବୁ।</string>
     <string name="appcontrol_toggle_app_disable_action">ଆପ୍ ଅକ୍ଷମ କରିବା</string>
     <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
     <string name="appcontrol_tag_user">ଉପଭୋକ୍ତା</string>
+    <string name="appcontrol_tag_active">ସମ୍ପ୍ରତି ସକ୍ରିୟ</string>
     <string name="appcontrol_tag_system">ସିଷ୍ଟମ୍</string>
     <string name="appcontrol_list_sortmode_name_label">ଆପ୍ ନାମ</string>
     <string name="appcontrol_list_sortmode_updated_label">ଗତ ଅଦ୍ୟତନ</string>
     <string name="appcontrol_list_sortmode_installed_label">ପ୍ରଥମେ ଅଧିସ୍ଥାପିତ</string>
+    <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
     <string name="analyzer_device_storage_title">ଡିଵାଇସ୍ ଷ୍ଟୋରେଜ୍</string>
     <string name="analyzer_storage_type_primary_title">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="analyzer_storage_type_primary_description">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ର ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍। ଯହିଁରେ ଅନ୍ତଃ SD card, ଆପ୍ ଏବଂ ସିଷ୍ଟମ୍ ତଥ୍ୟ ପାଇଁ ଘରୋଇ ଷ୍ଟୋରେଜ୍ ରହିଥାଏ।</string>

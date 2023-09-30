@@ -23,6 +23,7 @@
     <string name="general_save_action">保存</string>
     <string name="general_thanks_action">致谢</string>
     <string name="general_gotit_action">明白</string>
+    <string name="general_fix_action">修复</string>
     <string name="general_edit_action">编辑</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空的</string>

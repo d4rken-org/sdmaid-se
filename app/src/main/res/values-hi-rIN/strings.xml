@@ -236,7 +236,6 @@
     <string name="appcleaner_filter_whatsapp_backups_summary">व्हाट्सएप बैकअप की अतिरिक्त प्रतियां हटाएं और केवल नवीनतम रखें।</string>
     <string name="appcleaner_filter_whatsapp_received_summary">व्हाट्सएप पर प्राप्त फाइलें</string>
     <string name="appcleaner_filter_whatsapp_sent_label">व्हाट्सएप द्वारा भेजी गयी फाइलें</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">वो फाइलें जो व्हाट्सएप से दूसरों को भेजी गयी है</string>
     <string name="appcleaner_filter_telegram_label">टेलीग्राम की मीडिया फ़ाइलें</string>
     <string name="appcleaner_filter_telegram_summary">फ़ाइलें जो टेलीग्राम के माध्यम से प्राप्त या भेजी गई हैं।</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -359,7 +358,6 @@
     <string name="scheduler_schedule_time_label">लगभग समय</string>
     <string name="scheduler_schedule_repeat_label">अंतराल को इतने दिनों में दोहराएं</string>
     <string name="scheduler_schedule_default_name">मूल सारणी</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s पर %2$s</string>
     <string name="scheduler_schedule_next_at_x">%s के लिए योजनाबद्ध</string>
     <string name="scheduler_schedule_last_at_x">अंतिम बार %s पर निष्पादित किया गया</string>
     <plurals name="scheduler_schedule_repeat_x_days">

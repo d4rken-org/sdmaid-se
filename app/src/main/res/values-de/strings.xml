@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Diese Einstellung hat keine Auswirkung, wenn die Shizuku-App nicht auf Deinem Gerät eingerichtet ist.</string>
     <string name="setup_shizuku_state_ready_label">Der Shizuku-Link ist fertig.</string>
     <string name="setup_shizuku_state_waiting_label">Warte auf Verbindung mit Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Benutze Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Verwende Shizuku, falls verfügbar</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku nicht verwenden</string>
     <string name="setup_dismiss_hint">Du kannst das Setup im Einstellungsmenü wiederfinden.</string>
     <string name="setup_permission_granted_label">Erlaubnis erteilt</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp hat Dateien empfangen</string>
     <string name="appcleaner_filter_whatsapp_received_label">Dateien, die du von Personen über WhatsApp erhalten haben.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet werden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>
     <string name="appcleaner_filter_telegram_summary">Über Telegram empfangene oder gesendete Dateien.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Ausnahme bearbeiten</string>
     <string name="appcontrol_app_exclude_edit_description">Diese App ist derzeit von einem oder mehreren Tools ausgeschlossen.</string>
     <string name="appcontrol_tag_user">Benutzer</string>
+    <string name="appcontrol_tag_active">Kürzlich aktiv</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Aktiviert</string>
     <string name="appcontrol_tag_disabled">Deaktiviert</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">Ungefähre Zeit</string>
     <string name="scheduler_schedule_repeat_label">Wiederholungsintervall in Tagen</string>
     <string name="scheduler_schedule_default_name">Standardzeitplan</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s um %2$s</string>
     <string name="scheduler_schedule_next_at_x">Geplant für %s</string>
     <string name="scheduler_schedule_last_at_x">Zuletzt ausgeführt um %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

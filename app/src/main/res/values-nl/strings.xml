@@ -110,7 +110,6 @@ dashboard_motd_titel</string>
     <string name="setup_shizuku_card_body2">Deze instelling heeft geen effect als de Shizuku-app niet is ingesteld op uw apparaat.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wachten op link met Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku gebruiken</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
     <string name="setup_permission_granted_label">Toestemming verleend</string>
@@ -322,7 +321,6 @@ dashboard_motd_titel</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp ontving bestanden</string>
     <string name="appcleaner_filter_whatsapp_received_label">Bestanden die je van mensen hebt gekregen via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp heeft bestanden verzonden</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Bestanden verzenden van WhatsApp naar anderen.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediabestanden</string>
     <string name="appcleaner_filter_telegram_summary">Bestanden ontvangen of verzonden via Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -477,7 +475,6 @@ dashboard_motd_titel</string>
     <string name="scheduler_schedule_time_label">Geschatte tijd</string>
     <string name="scheduler_schedule_repeat_label">Herhaal interval in dagen</string>
     <string name="scheduler_schedule_default_name">Standaard planning</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s op %2$s</string>
     <string name="scheduler_schedule_next_at_x">Gepland voor %s</string>
     <string name="scheduler_schedule_last_at_x">Laatst uitgevoerd op %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

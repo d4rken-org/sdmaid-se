@@ -107,7 +107,7 @@
     <string name="setup_shizuku_card_body2">Pengaturan ini tidak berpengaruh jika aplikasi Shizuku tidak dipasang pada perangkat Anda.</string>
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Pakai Shizuku jika tersedia</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
     <string name="setup_permission_granted_label">Izin diberikan</string>
@@ -315,7 +315,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Berkas diterima WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Berkas yang Anda terima dari orang lain melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Berkas terkirim WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Berkas dikirim dari WhatsApp untuk orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Berkas media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Berkas yang diterima atau dikirim melalui Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -363,6 +362,7 @@
     <string name="appcontrol_app_exclude_edit_title">Ubah pengecualian</string>
     <string name="appcontrol_app_exclude_edit_description">Aplikasi ini dikecualikan dari satu atau lebih peralatan.</string>
     <string name="appcontrol_tag_user">Pengguna</string>
+    <string name="appcontrol_tag_active">Baru-baru ini aktif</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Diaktifkan</string>
     <string name="appcontrol_tag_disabled">Dinonaktifkan</string>
@@ -464,7 +464,6 @@
     <string name="scheduler_schedule_time_label">Waktu kisaran</string>
     <string name="scheduler_schedule_repeat_label">Interval pengulangan dalam hari</string>
     <string name="scheduler_schedule_default_name">Jadwal default</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s pada %2$s</string>
     <string name="scheduler_schedule_next_at_x">Direncanakan untuk %s</string>
     <string name="scheduler_schedule_last_at_x">Terakhir diekskusi pada %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
