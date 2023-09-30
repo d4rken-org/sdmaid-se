@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Denne innstillingen har ingen effekt hvis Shizuku-appen ikke er konfigurert på enheten din.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-lenken er klar.</string>
     <string name="setup_shizuku_state_waiting_label">Venter på lenken med Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Bruk Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Bruk Shizuku hvis tilgjengelig</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ikke bruk Shizuku</string>
     <string name="setup_dismiss_hint">Du finner skjermen for oppsett igjen via innstillingsmenyen.</string>
     <string name="setup_permission_granted_label">Tillatelse gitt</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mottatte filer</string>
     <string name="appcleaner_filter_whatsapp_received_label">Filer mottatt fra personer i WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendte filer</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Filer sendt fra WhatsApp til andre.</string>
     <string name="appcleaner_filter_telegram_label">Telegram mediefiler</string>
     <string name="appcleaner_filter_telegram_summary">Filer mottatt eller sendt gjennom Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Rediger ekskludering</string>
     <string name="appcontrol_app_exclude_edit_description">Denne appen er ekskludert fra ett eller flere verktøy.</string>
     <string name="appcontrol_tag_user">Bruker</string>
+    <string name="appcontrol_tag_active">Nylig aktiv</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Aktivert</string>
     <string name="appcontrol_tag_disabled">Deaktivert</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">Omtrentlig tid</string>
     <string name="scheduler_schedule_repeat_label">Intervall for gjentakelse i dager</string>
     <string name="scheduler_schedule_default_name">Standard tidsplan</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s kl %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planlagt %s</string>
     <string name="scheduler_schedule_last_at_x">Sist utført kl %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

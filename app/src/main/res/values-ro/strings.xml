@@ -111,7 +111,6 @@
     <string name="setup_shizuku_card_body2">Această setare nu are efect dacă aplicația Shizuku nu este configurată pe dispozitivul dvs.</string>
     <string name="setup_shizuku_state_ready_label">Link-ul Shizuku este gata.</string>
     <string name="setup_shizuku_state_waiting_label">Se așteaptă legătura cu Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Folosește Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nu utiliza Shizuku</string>
     <string name="setup_dismiss_hint">Poți căuta partea de configurare din nou în meniul de setări.</string>
     <string name="setup_permission_granted_label">Permisiune acordată</string>
@@ -327,7 +326,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fișiere WhatsApp primite</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fişiere primite de la persoane prin WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fișiere WhatsApp trimise</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Fișiere pe care le-ai trimis de la WhatsApp la alții.</string>
     <string name="appcleaner_filter_telegram_label">Fișiere media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fișiere primite sau trimise prin Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -488,7 +486,6 @@
     <string name="scheduler_schedule_time_label">Timp aproximativ</string>
     <string name="scheduler_schedule_repeat_label">Repetă intervalul în zile</string>
     <string name="scheduler_schedule_default_name">Program implicit</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s la %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planificat pentru %s</string>
     <string name="scheduler_schedule_last_at_x">Ultimul executat la %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

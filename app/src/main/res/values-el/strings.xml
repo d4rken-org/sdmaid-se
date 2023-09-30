@@ -2,7 +2,7 @@
 <resources>
     <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
     <string name="dashboard_settings_category">Πίνακας εργαλείων</string>
-    <string name="dashboard_settings_oneclick_title">Λειτουργία Μιας Αφής</string>
+    <string name="dashboard_settings_oneclick_title">Λειτουργία με ένα πάτημα</string>
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
     <string name="dashboard_motd_title">Μήνυμα από τον προγραμματιστή</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
@@ -109,7 +109,6 @@
     <string name="setup_shizuku_card_body2">Αυτή η ρύθμιση δεν έχει καμία επίδραση εάν η εφαρμογή Shizuku δεν έχει ρυθμιστεί στη συσκευή σας.</string>
     <string name="setup_shizuku_state_ready_label">Ο σύνδεσμος Shizuku είναι έτοιμος.</string>
     <string name="setup_shizuku_state_waiting_label">Αναμονή για σύνδεση με Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Χρησιμοποιήστε το Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη ρύθμισης μέσω του μενού ρυθμίσεων.</string>
     <string name="setup_permission_granted_label">Δόθηκαν δικαιώματα</string>
@@ -321,7 +320,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Ληφθέντα αρχεία WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Αρχεία που λάβατε από άτομα μέσω του WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Απεσταλμένα αρχεία WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Αρχεία που στείλατε από το WhatsApp σε αλλους.</string>
     <string name="appcleaner_filter_telegram_label">Αρχεία πολυμέσων Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Αρχεία που λήφθηκαν ή στάλθηκαν μέσω του Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,7 +474,6 @@
     <string name="scheduler_schedule_time_label">Κατά προσέγγιση χρόνος</string>
     <string name="scheduler_schedule_repeat_label">Διάστημα επανάληψης σε ημέρες</string>
     <string name="scheduler_schedule_default_name">Προεπιλεγμένο χρονοδιάγραμμα</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s στις %2$s</string>
     <string name="scheduler_schedule_next_at_x">Προγραμματισμένο για %s</string>
     <string name="scheduler_schedule_last_at_x">Τελευταία εκτέλεση στις %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

@@ -95,7 +95,6 @@
     <string name="setup_shizuku_card_body2">Ova postavka nema učinka ako aplikacija Shizuku nije postavljena na vašem uređaju.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku veza je spremna.</string>
     <string name="setup_shizuku_state_waiting_label">Čekanje veze sa Shizukuom.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Koristi Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne koristi Shizuku</string>
     <string name="setup_dismiss_hint">Zaslon za postavljanje možete ponovno pronaći putem izbornika postavki.</string>
     <string name="setup_permission_granted_label">Dopuštenje je odobreno</string>
@@ -254,7 +253,6 @@
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite dodatne kopije sigurnosnih kopija WhatsAppa i zadržite samo najnovije.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Datoteke primljene putem WhatsAppa</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Datoteke poslane putem WhatsAppa</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Datoteke poslane drugima putem WhatsAppa.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medijske datoteke</string>
     <string name="appcleaner_filter_telegram_summary">Datoteke primljene ili poslane putem Telegrama.</string>
     <string name="appcleaner_filter_threema_summary">Datoteke primljene putem Threeme.</string>
@@ -387,7 +385,6 @@
     <string name="scheduler_schedule_time_label">Približno vrijeme</string>
     <string name="scheduler_schedule_repeat_label">Interval ponavljanja u danima</string>
     <string name="scheduler_schedule_default_name">Zadani raspored</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s u %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planirano za %s</string>
     <string name="scheduler_schedule_last_at_x">Zadnji put izvršeno u %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

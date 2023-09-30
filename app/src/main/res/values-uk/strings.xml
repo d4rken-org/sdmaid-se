@@ -113,7 +113,7 @@
     <string name="setup_shizuku_card_body2">Цей параметр не діє, якщо на вашому пристрої не встановлено програму Shizuku.</string>
     <string name="setup_shizuku_state_ready_label">Посилання на Shizuku готове.</string>
     <string name="setup_shizuku_state_waiting_label">Чекаємо на зв\'язок з Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Використовувати Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Використовуйте Shizuku, якщо це можливо</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не використовувати Shizuku</string>
     <string name="setup_dismiss_hint">Ви можете знову знайти екран налаштувань через меню налаштувань.</string>
     <string name="setup_permission_granted_label">Дозвіл надано</string>
@@ -309,7 +309,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Отримані файли WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файли, які ви отримали від людей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Відправлені файли з WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Файли, що надсилаються з WhatsApp іншим.</string>
     <string name="appcleaner_filter_telegram_label">Медіафайли Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файли, отримані або надіслані через Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -348,6 +347,7 @@
     <string name="appcontrol_app_exclude_edit_title">Редагувати виключення</string>
     <string name="appcontrol_app_exclude_edit_description">Наразі цей додаток виключено з одного або декількох інструментів.</string>
     <string name="appcontrol_tag_user">Користувач</string>
+    <string name="appcontrol_tag_active">Нещодавно активний</string>
     <string name="appcontrol_tag_system">Системна</string>
     <string name="appcontrol_tag_enabled">Увімкнено</string>
     <string name="appcontrol_tag_disabled">Вимкнено</string>
@@ -439,7 +439,6 @@
     <string name="scheduler_schedule_time_label">Орієнтовний час</string>
     <string name="scheduler_schedule_repeat_label">Інтервал повторення у днях</string>
     <string name="scheduler_schedule_default_name">Розклад за умовчанням</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s в %2$s</string>
     <string name="scheduler_schedule_next_at_x">Заплановано на %s</string>
     <string name="scheduler_schedule_last_at_x">Останнє виконання в %s</string>
     <string name="scheduler_schedule_repeat_interval">Інтервал повторення</string>

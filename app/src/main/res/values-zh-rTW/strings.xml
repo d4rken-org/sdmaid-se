@@ -107,7 +107,7 @@
     <string name="setup_shizuku_card_body2">如果 Shizuku 應用程式尚未在您的裝置上安裝，此設定將會無效。</string>
     <string name="setup_shizuku_state_ready_label">Shizku 連結已就緒。</string>
     <string name="setup_shizuku_state_waiting_label">正在等候 Shizuku 連結。</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">使用 Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">使用 Shizuku (如果可用)</string>
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
     <string name="setup_permission_granted_label">權限已授予</string>
@@ -315,7 +315,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 接收的檔案</string>
     <string name="appcleaner_filter_whatsapp_received_label">您透過 WhatsApp 從其他人那裡接收的檔案。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 傳送的檔案</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">從 WhatsApp 向其他人傳送的檔案。</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒體檔案</string>
     <string name="appcleaner_filter_telegram_summary">透過 Telegram 接收或傳送的檔案。</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -363,6 +362,7 @@
     <string name="appcontrol_app_exclude_edit_title">編輯排除</string>
     <string name="appcontrol_app_exclude_edit_description">這個應用程式目前已從一個或多個工具中排除。</string>
     <string name="appcontrol_tag_user">使用者</string>
+    <string name="appcontrol_tag_active">最近使用</string>
     <string name="appcontrol_tag_system">系統</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
@@ -464,7 +464,6 @@
     <string name="scheduler_schedule_time_label">大約時間</string>
     <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
     <string name="scheduler_schedule_default_name">預設排程</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s 於 %2$s</string>
     <string name="scheduler_schedule_next_at_x">計畫於 %s</string>
     <string name="scheduler_schedule_last_at_x">上次執行於 %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

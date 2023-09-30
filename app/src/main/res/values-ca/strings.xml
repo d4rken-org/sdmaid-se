@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Aquesta configuració no té cap efecte si l\'aplicació Shizuku no està configurat al vostre dispositiu.</string>
     <string name="setup_shizuku_state_ready_label">L\'enllaç Shizuku està llest.</string>
     <string name="setup_shizuku_state_waiting_label">Esperant l\'enllaç amb Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Utilitza Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utilitza el Shizuku si està disponible</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
     <string name="setup_permission_granted_label">Permís concedit</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fitxers rebuts de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fitxers que has rebut de persones a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fitxers enviats de WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Fitxers enviats des de WhatsApp a altres persones.</string>
     <string name="appcleaner_filter_telegram_label">Fitxers multimèdia de Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Arxius rebuts o enviats a través de Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Edita l\'exclusió</string>
     <string name="appcontrol_app_exclude_edit_description">Actualment aquesta aplicació està exclosa d\'una o més eines.</string>
     <string name="appcontrol_tag_user">Usuari</string>
+    <string name="appcontrol_tag_active">Actiu recentment</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Habilitat</string>
     <string name="appcontrol_tag_disabled">Inhabilitat</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">Temps aproximat</string>
     <string name="scheduler_schedule_repeat_label">Repeteix l\'interval en dies</string>
     <string name="scheduler_schedule_default_name">Programació per defecte</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s a les %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planificat per a %s</string>
     <string name="scheduler_schedule_last_at_x">Última execució a les %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

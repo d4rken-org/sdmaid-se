@@ -107,7 +107,7 @@
     <string name="setup_shizuku_card_body2">若您的设备未设置 Shizuku 应用，则此设置无效。</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 链接已就绪。</string>
     <string name="setup_shizuku_state_waiting_label">正在等待与 Shizuku 链接。</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">使用 Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">允许使用Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">不使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以在设置菜单中再次找到初始设置页面。</string>
     <string name="setup_permission_granted_label">已授予权限</string>
@@ -315,7 +315,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 收到的文件</string>
     <string name="appcleaner_filter_whatsapp_received_label">您通过 WhatsApp 从其他人那里收到的文件。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 发出的文件</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">您通过 WhatsApp 发送给其他人的文件</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒体文件</string>
     <string name="appcleaner_filter_telegram_summary">通过Telegram接收或发送的文件。</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -363,6 +362,7 @@
     <string name="appcontrol_app_exclude_edit_title">编辑排除</string>
     <string name="appcontrol_app_exclude_edit_description">此应用目前被排除在一个或多个工具之外。</string>
     <string name="appcontrol_tag_user">用户</string>
+    <string name="appcontrol_tag_active">最近的活动</string>
     <string name="appcontrol_tag_system">系统</string>
     <string name="appcontrol_tag_enabled">已启用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
@@ -464,7 +464,6 @@
     <string name="scheduler_schedule_time_label">大约时间</string>
     <string name="scheduler_schedule_repeat_label">重复间隔（天）</string>
     <string name="scheduler_schedule_default_name">默认计划</string>
-    <string name="scheduler_current_schedule_x_at_x">%2$s 的 %1$s</string>
     <string name="scheduler_schedule_next_at_x">计划为 %s</string>
     <string name="scheduler_schedule_last_at_x">上次执行时间：%s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

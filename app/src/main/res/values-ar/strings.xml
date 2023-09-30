@@ -49,7 +49,7 @@
     <string name="onboarding_privacy_body1">لا تحتوي SD Maid على إعلانات ولا تبيع بيانات المستخدم.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">يتم إرسال تقارير الأخطاء عند حدوث أخطاء وقد تحتوي على تفاصيل حول التطبيقات والملفات الموجودة على جهازك. تساعدني التقارير في إصلاح الأخطاء وتحسين التطبيق.</string>
     <string name="onboarding_privacy_bugreport_toggle">السماح بتقارير الأخطاء التلقائية</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">هذه الخيارات يمكن تغيرها في الاعدادات.</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">هذه الخيارات يمكن تغيرها في الإعدادات.</string>
     <string name="onboarding_privacy_continue_action">متابعة</string>
     <string name="onboarding_setup_title">إعداد</string>
     <string name="onboarding_setup_body1">سيقوم SD Maid بالبحث في جميع أماكن البيانات التي يمكن الوصول إليها.</string>
@@ -62,7 +62,7 @@
     <string name="settings_category_other_label">أخرى</string>
     <string name="settings_category_filter_generic">مرشح عام</string>
     <string name="settings_category_filter_specific">مرشح خاص</string>
-    <string name="settings_sponsor_development_title">أدعم التطوير</string>
+    <string name="settings_sponsor_development_title">ادعم التطوير</string>
     <string name="settings_sponsor_development_summary">كن راعيًا واجعل التطوير المستمر ممكنًا.</string>
     <string name="general_settings_label">عام</string>
     <string name="general_settings_desc">التعديلات العامة التي تؤثر على التطبيق بأكمله.</string>
@@ -72,7 +72,7 @@
     <string name="ui_theme_mode_dark_label">مظلم</string>
     <string name="ui_theme_mode_light_label">مضيء</string>
     <string name="ui_theme_mode_system_label">النظام</string>
-    <string name="ui_theme_style_setting_label">نمط الموضوع</string>
+    <string name="ui_theme_style_setting_label">نمط السمة</string>
     <string name="ui_theme_style_setting_explanation">نمط اللون المستخدم عند تصميم التطبيق.</string>
     <string name="ui_theme_style_default_label">الافتراضي</string>
     <string name="ui_theme_style_materialyou_label">تصميم Material You</string>
@@ -107,7 +107,7 @@
     <string name="setup_manage_storage_card_title">إدارة التخزين</string>
     <string name="setup_manage_storage_card_body">السماح لـ SD Maid بإدارة التخزين لديك.</string>
     <string name="setup_manage_storage_card_body2">الوصول الأساسي إلى التخزين العام ، على سبيل المثال \"Download /\" و \"DCIM /\" ، ولكن ليس دائمًا \"Android / data\".</string>
-    <string name="setup_root_card_title">صَلاحِيَة الجذر</string>
+    <string name="setup_root_card_title">صلاحيّة الجذر</string>
     <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid استخدام صلاحيات الروت إذا كان متاحاً؟ يمكن استخدام صلاحيات الروت للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>
     <string name="setup_root_enable_root_use_label">استخدم صَلاحِيَة الجذر عند توفرها</string>
     <string name="setup_root_disable_root_use_label">لا تستخدم صَلاحِيَة الجذر</string>
@@ -117,7 +117,7 @@
     <string name="setup_shizuku_card_body2">هذا الإعداد ليس له أي تأثير إذا لم يتم إعداد تطبيق شيزوكو على جهازك.</string>
     <string name="setup_shizuku_state_ready_label">رابط شيزوكو جاهز.</string>
     <string name="setup_shizuku_state_waiting_label">في انتظار الرابط مع شيزوكو.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">استخدم شيزوكو</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">استخدم Shizuku ان كانت متوفرة</string>
     <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم شيزوكو</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
     <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
@@ -345,7 +345,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">ملفات وأتساب المستلمة</string>
     <string name="appcleaner_filter_whatsapp_received_label">الملفات التي استقبلتها من الناس عبر WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من WhatsApp إلى الآخرين.</string>
     <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
     <string name="appcleaner_filter_telegram_summary">الملفات التي تم استلامها أو إرسالها عبر Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -408,6 +407,7 @@
     <string name="appcontrol_app_exclude_edit_title">تعديل الاستبعاد</string>
     <string name="appcontrol_app_exclude_edit_description">هذا التطبيق مستبعد حالياً من أداة واحدة أو أكثر.</string>
     <string name="appcontrol_tag_user">المستخدم</string>
+    <string name="appcontrol_tag_active">نشط مؤخراً</string>
     <string name="appcontrol_tag_system">النظام</string>
     <string name="appcontrol_tag_enabled">مفعل</string>
     <string name="appcontrol_tag_disabled">معطل</string>
@@ -524,7 +524,6 @@
     <string name="scheduler_schedule_time_label">وقت تقريبي</string>
     <string name="scheduler_schedule_repeat_label">كرر الفاصل في أيام</string>
     <string name="scheduler_schedule_default_name">الجدول الزمني الافتراضي</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s في %2$s</string>
     <string name="scheduler_schedule_next_at_x">مجدول لـ %s</string>
     <string name="scheduler_schedule_last_at_x">أخز تنفيذ له في %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

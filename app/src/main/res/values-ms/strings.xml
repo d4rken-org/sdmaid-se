@@ -95,7 +95,6 @@
     <string name="setup_shizuku_card_body2">Tetapan ini tidak memberi kesan jika aplikasi Shizuku tidak disediakan pada peranti anda.</string>
     <string name="setup_shizuku_state_ready_label">Pautan Shizuku sudah bersedia.</string>
     <string name="setup_shizuku_state_waiting_label">Menanti pautan dengan Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Anda boleh mencari skrin persediaan sekali lagi melalui menu tetapan.</string>
     <string name="setup_permission_granted_label">Kebenaran diberikan</string>
@@ -269,7 +268,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp menerima fail</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fail yang anda terima daripada orang melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp menghantar fail</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Fail dihantar dari WhatsApp kepada orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Fail media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fail diterima atau dihantar melalui Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -400,7 +398,6 @@
     <string name="scheduler_schedule_time_label">Anggaran masa</string>
     <string name="scheduler_schedule_repeat_label">Ulangi selang dalam beberapa hari</string>
     <string name="scheduler_schedule_default_name">Jadual lalai</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s pada %2$s</string>
     <string name="scheduler_schedule_next_at_x">Dirancang untuk %s</string>
     <string name="scheduler_schedule_last_at_x">Terakhir dilaksanakan pada %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

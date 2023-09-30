@@ -113,7 +113,7 @@
     <string name="setup_shizuku_card_body2">Гэтыя налады не дзейнічаюць, калі праграма Shizuku не наладжана на вашай прыладзе.</string>
     <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
     <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Выкарыстоўваць Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Пры даступнасці выкарыстоўваць Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не выкарыстоўваць Shizuku</string>
     <string name="setup_dismiss_hint">Вы можаце зноў знайсці экран наладжвання ў меню налад.</string>
     <string name="setup_permission_granted_label">Дазвол дадзены</string>
@@ -333,7 +333,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Атрыманыя файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файлы, якія вы атрымалі ад карыстальнікаў у WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Адпраўленыя файлы WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, адпраўленыя іншым карыстальнікам у WhatsApp.</string>
     <string name="appcleaner_filter_telegram_label">Медыяфайлы Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файлы, атрыманыя або адпраўленыя праз Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -390,6 +389,7 @@
     <string name="appcontrol_app_exclude_edit_title">Рэдагаваць выключэнне</string>
     <string name="appcontrol_app_exclude_edit_description">Цяпер гэта праграма выключана з аднаго або некалькіх інструментаў.</string>
     <string name="appcontrol_tag_user">Карыстальнік</string>
+    <string name="appcontrol_tag_active">Апошнія актыўныя</string>
     <string name="appcontrol_tag_system">Сістэма</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
     <string name="appcontrol_tag_disabled">Адключана</string>
@@ -500,7 +500,6 @@
     <string name="scheduler_schedule_time_label">Прыблізны час</string>
     <string name="scheduler_schedule_repeat_label">Інтэрвал паўтарэння ў днях</string>
     <string name="scheduler_schedule_default_name">Стандартны расклад</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s а %2$s</string>
     <string name="scheduler_schedule_next_at_x">Запланавана на %s</string>
     <string name="scheduler_schedule_last_at_x">Апошняе выкананне %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

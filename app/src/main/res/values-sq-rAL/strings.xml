@@ -187,7 +187,6 @@
     <string name="appcleaner_filter_whatsapp_backups_summary">Fshini kopjet shtesë të kopjeve rezervë të WhatsApp dhe mbani vetëm më të fundit.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mori skedarë</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp skedarë të dërguar</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Skedarët që dërgohen nga WhatsApp te të tjerët.</string>
     <string name="appcleaner_filter_telegram_label">Skedarët mediatikë të Telegramit</string>
     <string name="appcleaner_filter_telegram_summary">Skedarët e pranuar ose dërguar përmes Telegramit.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>

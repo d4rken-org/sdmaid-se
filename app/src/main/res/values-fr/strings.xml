@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Ce paramètre n\'a aucun effet si l\'appli Shizuku n\'est pas configurée sur votre appareil.</string>
     <string name="setup_shizuku_state_ready_label">Le lien Shizuku est prêt.</string>
     <string name="setup_shizuku_state_waiting_label">En attente de lien avec Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Utiliser Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utiliser Shizuku s’il est proposé</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne pas utiliser Shizuku</string>
     <string name="setup_dismiss_hint">Vous pouvez retrouver l’écran de configuration dans le menu des paramètres.</string>
     <string name="setup_permission_granted_label">L’autorisation a été accordée</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fichiers reçus dans WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fichiers que vous avez reçus de différentes personnes dans WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fichiers envoyés avec WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Fichiers envoyés à d’autres dans WhatsApp .</string>
     <string name="appcleaner_filter_telegram_label">Fichiers multimédias de Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fichiers reçus ou envoyés dans Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Modifier l’exclusion</string>
     <string name="appcontrol_app_exclude_edit_description">Cette appli est actuellement exclue d\'un ou plusieurs outils.</string>
     <string name="appcontrol_tag_user">Utilisateur</string>
+    <string name="appcontrol_tag_active">Active récemment</string>
     <string name="appcontrol_tag_system">Système</string>
     <string name="appcontrol_tag_enabled">Activée</string>
     <string name="appcontrol_tag_disabled">Désactivée</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">Temps approximatif</string>
     <string name="scheduler_schedule_repeat_label">Intervalle de répétition en jours</string>
     <string name="scheduler_schedule_default_name">Programme par défaut</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s à %2$s</string>
     <string name="scheduler_schedule_next_at_x">Programmé pour %s</string>
     <string name="scheduler_schedule_last_at_x">Dernière exécution à %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

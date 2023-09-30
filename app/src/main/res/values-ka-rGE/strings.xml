@@ -171,7 +171,6 @@
     <string name="appcleaner_filter_whatsapp_backups_summary">წაშალეთ WhatsApp-ის სარეზერვო ასლების დამატებითი ასლები და შეინახეთ მხოლოდ უახლესი.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp-ში მიიღებული ფაილები</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp-ში გაგზავნილი ფაილები</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">ფაილები იგზავნება WhatsApp-დან სხვებისთვის.</string>
     <string name="appcleaner_filter_telegram_label">Telegram მედია ფაილები</string>
     <string name="appcleaner_filter_telegram_summary">ფაილები მიღებული ან გაგზავნილი Telegram-ის საშუალებით.</string>
     <string name="appcleaner_filter_threema_label">სამიმა</string>

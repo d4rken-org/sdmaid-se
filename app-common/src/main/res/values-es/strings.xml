@@ -23,6 +23,7 @@
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
     <string name="general_gotit_action">Entiendo</string>
+    <string name="general_fix_action">Reparar</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">No disponible</string>
     <string name="general_empty_label">Vacío</string>

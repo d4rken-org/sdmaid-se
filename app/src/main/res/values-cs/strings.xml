@@ -113,7 +113,7 @@
     <string name="setup_shizuku_card_body2">Toto nastavení nemá žádný účinek, pokud v zařízení není nastavena aplikace Shizuku.</string>
     <string name="setup_shizuku_state_ready_label">Propojení se Shizuku je připraveno.</string>
     <string name="setup_shizuku_state_waiting_label">Čekání na propojení se Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Použít Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Použít Shizuku, pokud je k dispozici</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
     <string name="setup_permission_granted_label">Oprávnění uděleno</string>
@@ -333,7 +333,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Přijaté soubory WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Soubory, které jste obdrželi od osob prostřednictvím aplikace WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Odeslané soubory WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Soubory odeslané z aplikace WhatsApp ostatním.</string>
     <string name="appcleaner_filter_telegram_label">Soubory médií Telegramu</string>
     <string name="appcleaner_filter_telegram_summary">Soubory přijaté nebo odeslané prostřednictvím aplikace Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -390,6 +389,7 @@
     <string name="appcontrol_app_exclude_edit_title">Upravit výjimku</string>
     <string name="appcontrol_app_exclude_edit_description">Tato aplikace je nyní vyloučena z jednoho nebo více nástrojů.</string>
     <string name="appcontrol_tag_user">Uživatel</string>
+    <string name="appcontrol_tag_active">Nedávná aktivita</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
@@ -500,7 +500,6 @@
     <string name="scheduler_schedule_time_label">Přibližný čas</string>
     <string name="scheduler_schedule_repeat_label">Interval opakování ve dnech</string>
     <string name="scheduler_schedule_default_name">Výchozí plán</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s v/ve %2$s</string>
     <string name="scheduler_schedule_next_at_x">Naplánováno na %s</string>
     <string name="scheduler_schedule_last_at_x">Poslední spuštění v/ve %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

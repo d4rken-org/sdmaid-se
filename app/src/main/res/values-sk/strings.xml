@@ -113,7 +113,6 @@
     <string name="setup_shizuku_card_body2">Toto nastavenie nemá žiadny vplyv, ak na vašom zariadení nie je nastavená aplikácia Shizuku.</string>
     <string name="setup_shizuku_state_ready_label">Prepojenie na Shizuku je pripravené.</string>
     <string name="setup_shizuku_state_waiting_label">Čaká sa na spojenie so Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Použiť Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužiť Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
     <string name="setup_permission_granted_label">Povolenie udelené</string>
@@ -333,7 +332,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp prijaté súbory</string>
     <string name="appcleaner_filter_whatsapp_received_label">Súbory, ktoré ste dostali od ľudí cez WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp odoslané súbory</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Súbory odoslané z WhatsApp ostatným.</string>
     <string name="appcleaner_filter_telegram_label">Mediálne súbory Telegramu</string>
     <string name="appcleaner_filter_telegram_summary">Súbory prijaté alebo odoslané prostredníctvom Telegramu.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -500,7 +498,6 @@
     <string name="scheduler_schedule_time_label">Približný čas</string>
     <string name="scheduler_schedule_repeat_label">Interval opakovania v dňoch</string>
     <string name="scheduler_schedule_default_name">Predvolený plán</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s o %2$s</string>
     <string name="scheduler_schedule_next_at_x">Plánované na %s</string>
     <string name="scheduler_schedule_last_at_x">Naposledy spustené o %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

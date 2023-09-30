@@ -23,6 +23,7 @@
     <string name="general_save_action">حفظ</string>
     <string name="general_thanks_action">شكراً</string>
     <string name="general_gotit_action">عُلم</string>
+    <string name="general_fix_action">إصلاح</string>
     <string name="general_edit_action">تعديل</string>
     <string name="general_na_label">غير متاح</string>
     <string name="general_empty_label">فارغ</string>

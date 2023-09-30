@@ -113,7 +113,7 @@
     <string name="setup_shizuku_card_body2">Эта настройка не работает, если приложение Shizuku не установлено на Вашем устройстве.</string>
     <string name="setup_shizuku_state_ready_label">Связь с Shizuku настроена.</string>
     <string name="setup_shizuku_state_waiting_label">Ожидание связи с Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Использовать Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Использовать Shizuku, если доступно</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
     <string name="setup_permission_granted_label">Разрешение предоствлено</string>
@@ -333,7 +333,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Полученные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Отправленные файлы WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, отправленные из WhatsApp другим пользователям.</string>
     <string name="appcleaner_filter_telegram_label">Медиафайлы Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файлы, полученные или отправленные через Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -390,6 +389,7 @@
     <string name="appcontrol_app_exclude_edit_title">Редактировать исключение</string>
     <string name="appcontrol_app_exclude_edit_description">Это приложение в настоящее время исключено из одного или нескольких инструментов.</string>
     <string name="appcontrol_tag_user">Пользователь</string>
+    <string name="appcontrol_tag_active">Последние активные</string>
     <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_enabled">Включено</string>
     <string name="appcontrol_tag_disabled">Отключено</string>
@@ -500,7 +500,6 @@
     <string name="scheduler_schedule_time_label">Приблизительное время</string>
     <string name="scheduler_schedule_repeat_label">Интервал повторения в днях</string>
     <string name="scheduler_schedule_default_name">Расписание по умолчанию</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s в %2$s</string>
     <string name="scheduler_schedule_next_at_x">Запланировано на %s</string>
     <string name="scheduler_schedule_last_at_x">Последний раз выполнялось в %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

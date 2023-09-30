@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">Questa impostazione non ha alcun effetto se l\'app Shizuku non è impostata nel tuo dispositivo.</string>
     <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
     <string name="setup_shizuku_state_waiting_label">Attendere il collegamento con Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Usa Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Usa Shizuku se disponibile</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
     <string name="setup_permission_granted_label">Permesso concesso</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">File ricevuti su WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">File ricevuti da persone tramite WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">File inviati su WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">File inviati alle persone tramite WhatsApp.</string>
     <string name="appcleaner_filter_telegram_label">File multimediali di Telegram</string>
     <string name="appcleaner_filter_telegram_summary">File inviati e ricevuti su Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -373,6 +372,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_app_exclude_edit_title">Modifica app escluse</string>
     <string name="appcontrol_app_exclude_edit_description">Questa app è attualmente esclusa da uno o più strumenti.</string>
     <string name="appcontrol_tag_user">Utente</string>
+    <string name="appcontrol_tag_active">Recentemente attivo</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Attivo</string>
     <string name="appcontrol_tag_disabled">Disabilitato</string>
@@ -478,7 +478,6 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="scheduler_schedule_time_label">Tempo approssimativo</string>
     <string name="scheduler_schedule_repeat_label">Ripeti tra quanti giorni</string>
     <string name="scheduler_schedule_default_name">Pianificazione predefinita</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s alle %2$s</string>
     <string name="scheduler_schedule_next_at_x">Pianificato per %s</string>
     <string name="scheduler_schedule_last_at_x">Ultima esecuzione %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

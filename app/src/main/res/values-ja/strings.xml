@@ -95,7 +95,6 @@
     <string name="setup_shizuku_card_body2">この設定は、お使いの端末でShizukuアプリが設定されていない場合には影響しません。</string>
     <string name="setup_shizuku_state_ready_label">Shizukuリンクの準備完了。</string>
     <string name="setup_shizuku_state_waiting_label">Shizukuとのリンクを待機しています。</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizukuを使用</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizukuを使用しない</string>
     <string name="setup_dismiss_hint">設定メニューから再度設定画面を確認できます。</string>
     <string name="setup_permission_granted_label">権限は許可されています</string>

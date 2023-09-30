@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">See säte ei toimi, kui seadmes pole seadistatud Shizuku rakendust.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link on valmis.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku lingi ootel.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Kasuta Shizukut</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Saadavusel kasuta Shizukut</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
     <string name="setup_permission_granted_label">Lubatud</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppi kaudu saadud failid</string>
     <string name="appcleaner_filter_whatsapp_received_label">WhatsAppi kasutajatelt saadud failid.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsAppiga saadetud failid</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppist teistele saadetud failid.</string>
     <string name="appcleaner_filter_telegram_label">Telegrami meediafailid</string>
     <string name="appcleaner_filter_telegram_summary">Telegrami kaudu saadud või saadetud failid.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">Muuda erandit</string>
     <string name="appcontrol_app_exclude_edit_description">Selle rakendusega ei toimeta vähemalt üks tööriist.</string>
     <string name="appcontrol_tag_user">Kasutaja</string>
+    <string name="appcontrol_tag_active">Hiljuti aktiivne</string>
     <string name="appcontrol_tag_system">Süsteem</string>
     <string name="appcontrol_tag_enabled">Lubatud</string>
     <string name="appcontrol_tag_disabled">Keelatud</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">Umbmäärane kellaaeg</string>
     <string name="scheduler_schedule_repeat_label">Kordamisintervall päevades</string>
     <string name="scheduler_schedule_default_name">Vaikimisi ajakava</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s kell %2$s</string>
     <string name="scheduler_schedule_next_at_x">Ajastatud %s-ks</string>
     <string name="scheduler_schedule_last_at_x">Viimati käivitatud %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

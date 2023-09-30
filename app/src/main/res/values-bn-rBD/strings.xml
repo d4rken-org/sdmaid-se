@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">সমস্ত টুল এর ফলাফল মুছুন?</string>
+    <string name="dashboard_delete_all_message">সমস্ত টুল এর ফলাফল মুছবেন?</string>
     <string name="dashboard_settings_category">ড্যাশবোর্ড</string>
     <string name="dashboard_settings_oneclick_title">এক-ট্যাপ মোড</string>
-    <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণ করার প্রয়োজন নেই।</string>
+    <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
     <string name="dashboard_motd_title">ডেভলপার থেকে একটি বার্তা</string>
     <string name="debug_debuglog_size_label">আকার</string>
     <string name="debug_debuglog_size_compressed_label">সংকুচিত আকার</string>
@@ -100,7 +100,7 @@
     <string name="setup_manage_storage_card_body">SD Maid কে আপনার স্টোরেজ পরিচালনা করার অনুমতি দিন।</string>
     <string name="setup_manage_storage_card_body2">পাবলিক স্টোরেজের প্রাথমিক অ্যাক্সেস, যেমন \"Download/\" এবং \"DCIM/\", কিন্তু সবসময় \"Android/data\" নয়।</string>
     <string name="setup_root_card_title">রুট প্রবেশাধিকার</string>
-    <string name="setup_root_card_body">SD Maid রুট অ্যাক্সেস ব্যবহার করবে যদি ফোন রুটেড হয়? অতিরিক্ত সিস্টেম ফোল্ডার এবং ব্যক্তিগত অ্যাপ্লিকেশন ডেটা চেক করতে রুট অ্যাক্সেস ব্যবহার করা হবে।</string>
+    <string name="setup_root_card_body">SD Maid রুট প্রবেশাধিকার ব্যবহার করবে যদি ফোন রুটেড হয়? অতিরিক্ত সিস্টেম ফোল্ডার এবং ব্যক্তিগত অ্যাপ্লিকেশন ডেটা চেক করতে রুট প্রবেশাধিকার ব্যবহার করা হবে।</string>
     <string name="setup_root_enable_root_use_label">রুট প্রবেশাধিকার থাকলে ব্যবহার করুন</string>
     <string name="setup_root_disable_root_use_label">রুট প্রবেশাধিকার ব্যবহার করবেন না</string>
     <string name="setup_root_card_body2">শুধুমাত্র রুটেড ডিভাইসে জন্য। আপনি যদি এই পরিবর্তন না করে থাকেন, তাহলে আপনার ডিভাইস রুট করা নেই এবং এই সেটিংটির কোনো প্রভাব নেই।</string>
@@ -109,7 +109,7 @@
     <string name="setup_shizuku_card_body2">আপনার ডিভাইসে Shizuku অ্যাপ সেট আপ না থাকলে এই সেটিংটির কোনো প্রভাব নেই।</string>
     <string name="setup_shizuku_state_ready_label">Shizuku লিঙ্ক প্রস্তুত।</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku সাথে লিঙ্কের জন্য অপেক্ষা করছে।</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ব্যবহার করুন</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">শিজুকু থাকলে ব্যবহার করুন</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ব্যবহার করবেন না।</string>
     <string name="setup_dismiss_hint">আপনি সেটিংস মেনুর মাধ্যমে আবার সেটআপ স্ক্রীনটি খুঁজে পেতে পারেন।</string>
     <string name="setup_permission_granted_label">অনুমতি মঞ্জুর করা হয়েছে</string>
@@ -130,11 +130,11 @@
     <string name="setup_acs_state_stopped_hint">পরিষেবা সক্রিয় করা হয়েছে, কিন্তু চলমান নায়। এটি বন্ধ/চালু করুন বা আপনার ডিভাইস রিবুট করুন। চেক করুন যে SD Maid সিস্টেম দ্বারা \"অপ্টিমাইজ করা\" হচ্ছে না।</string>
     <string name="setup_acs_state_stopped_hint_miui">যদি এই পরিষেবাটি কিছুক্ষণ পরপর নিষ্ক্রিয় হতে থাকে, তাহলে সিস্টেম সেটিংসে SD Maid-এর জন্য \"অটো স্টার্ট\" সেটিং চালু করে আবার চেষ্টা করুন৷</string>
     <string name="setup_acs_consent_positive_action">সার্ভিস চালু করুন এবং অনুমতি প্রদান করুন৷</string>
-    <string name="setup_acs_consent_negative_action">অ্যাক্সেসিবিলিটি সার্ভিস ব্যবহার করবেন না</string>
+    <string name="setup_acs_consent_negative_action">অ্যাক্সেসিবিলিটি পরিষেবা ব্যবহার করবেন না</string>
     <string name="setup_acs_allow_hint">আপনি যদি স্ক্রিনের প্রান্তে একটি ছোট আইকন দেখতে পান, তাহলে আপনি ভুলক্রমে \"শর্টকাট\" বিকল্পটি চালু করে ফেলেছেন৷</string>
     <string name="setup_acs_disallow_hint">আপনি যদি আপনার মন পরিবর্তন করেন, আপনি সেটিংসে গিয়ে সেটআপ পুনরায় চালু করে এই অপশনটি আবার পরিবর্তন করতে পারেন।</string>
     <string name="setup_acs_appops_restriction_title">সীমাবদ্ধ সেটিংস</string>
-    <string name="setup_acs_appops_restriction_body">SD Maids অ্যাক্সেসিবিলিটি সার্ভিস চালু করতে পারছেন না? Android 13+ ডিভাইসের ক্ষেত্রে Google Play এর মাধ্যমে ইনস্টল করা হয়নি এমন অ্যাপগুলিতে বিধিনিষেধ প্রয়োগ করতে পারে। SD Maid এর জন্য সিস্টেমের বিস্তারিত পেজ থেকে এই সীমাবদ্ধতাগুলি তুলে নিন। অপশনটি উপরের ডানদিকে কোণায় কন্মেটেক্স মেনুতে রয়েছে।</string>
+    <string name="setup_acs_appops_restriction_body">SD Maids অ্যাক্সেসিবিলিটি পরিষেবা চালু করতে পারছে না? Android 13+ ডিভাইসের ক্ষেত্রে Google Play এর মাধ্যমে ইনস্টল করা হয়নি এমন অ্যাপগুলিতে বিধিনিষেধ প্রয়োগ করতে পারে। SD Maid এর জন্য সিস্টেমের বিস্তারিত পেজ থেকে এই সীমাবদ্ধতাগুলি তুলে নিন। অপশনটি উপরের ডানদিকে কোণায় কন্টেক্সট মেনুতে রয়েছে।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid স্ক্যান করাতে পারে এমন কোনো ডেটা এরিয়া খুঁজে পায়নি। আপনি সেটআপ সম্পূর্ণ করেছেন?</string>
     <string name="dataarea_warningcard_label">ডেটা এরিয়া</string>
     <string name="dataarea_warningcard_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
@@ -168,18 +168,18 @@
     <string name="corpsefinder_filter_publicmedia_label">পাবলিক মিডিয়া</string>
     <string name="corpsefinder_filter_publicmedia_summary">পাবলিক মিডিয়া ফাইল, যেমন মেসেঞ্জার অ্যাপের মাধ্যমে প্রাপ্ত ফাইল।</string>
     <string name="corpsefinder_filter_publicobb_label">OBB রিসোর্স</string>
-    <string name="corpsefinder_filter_publicobb_summary">অতিরিক্ত অ্যাপ রিসোর্স, যেমন খেলা অ্যাসেট।</string>
+    <string name="corpsefinder_filter_publicobb_summary">অতিরিক্ত অ্যাপ রিসোর্স, যেমন- গেম অ্যাসেট।</string>
     <string name="corpsefinder_filter_publicdata_label">পাবলিক অ্যাপ ডেটা</string>
     <string name="corpsefinder_filter_publicdata_summary">অ-সংবেদনশীল অ্যাপ ডেটা, যেমন ম্যাপ ক্যাশ</string>
     <string name="corpsefinder_filter_sdcard_label">SD কার্ড</string>
-    <string name="corpsefinder_filter_sdcard_summary">সাধারণ পাবলিক স্টোরেজ, ইন্টার্নাল এবং এক্সরানাল (যেমন SD কার্ড)।</string>
+    <string name="corpsefinder_filter_sdcard_summary">সাধারণ পাবলিক স্টোরেজ, ইন্টার্নাল এবং এক্সটার্নাল (যেমন- SD কার্ড)।</string>
     <string name="corpsefinder_filter_privatedata_label">প্রাইভেট অ্যাপ ডেটা</string>
     <string name="corpsefinder_filter_privatedata_summary">প্রাইভেট অ্যাপ ডেটা, যেমন শংসাপত্র, অ্যাপ সেটিংস বা ব্রাউজার ক্যাশ।</string>
     <string name="corpsefinder_filter_dalvik_label">ডালভিক ক্যাশ</string>
     <string name="corpsefinder_filter_dalvik_summary">ক্যাশেড অ্যাপ এক্সিকিউশন ডেটা।</string>
     <string name="corpsefinder_filter_applib_label">অ্যাপ লাইব্রেরি</string>
     <string name="corpsefinder_filter_applib_summary">অ্যাপ সম্পর্কিত লাইব্রেরি ডেটা।</string>
-    <string name="corpsefinder_filter_appsource_label">অ্যাপ সোর্চ</string>
+    <string name="corpsefinder_filter_appsource_label">অ্যাপ সোর্স</string>
     <string name="corpsefinder_filter_appsource_summary">অ্যাপ ইনস্টলেশন ডেটা, যেমন APKগুলি কোথায় যায়৷</string>
     <string name="corpsefinder_filter_appsource_private_label">ব্যক্তিগত অ্যাপ সোর্স</string>
     <string name="corpsefinder_filter_appsource_private_summary">সীমাবদ্ধ অ্যাপ ইনস্টলেশন ডেটা, যেমন সুরক্ষিত তৃতীয় পক্ষের অ্যাপ।</string>
@@ -214,7 +214,7 @@
     <string name="systemcleaner_filter_anr_summary">\'application not responding\' ইভেন্ট থেকে ট্রেস করুন।</string>
     <string name="systemcleaner_filter_emptydirectories_label">খালি ফোল্ডারসমূহ</string>
     <string name="systemcleaner_filter_emptydirectories_summary">সমস্ত ডিভাইস থেকে খালি ডিরেক্টরি. নেস্টেড ডিরেক্টরির একাধিক পাসের প্রয়োজন হতে পারে।</string>
-    <string name="systemcleaner_filter_superfluosapks_label">অনাবশ্যক এপিকে-সমূহ</string>
+    <string name="systemcleaner_filter_superfluosapks_label">অনাবশ্যক APK-সমূহ</string>
     <string name="systemcleaner_filter_superfluosapks_summary">ইতিমধ্যে ইনস্টল করা অ্যাপ সংস্করণের তুলনায় পুরানো বা সমান ফাইল সেটআপ করুন৷</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ফোল্ডার</string>
     <string name="systemcleaner_filter_lostdir_summary">অ্যান্ড্রয়েড ডিভাইসের মধ্যে ডেটা স্থানান্তর করার সময় তৈরি করা অস্থায়ী ফাইল।</string>
@@ -223,7 +223,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac ফাইল</string>
     <string name="systemcleaner_filter_macfiles_summary">অ্যাপলের ফাইন্ডার অ্যাপের মাধ্যমে স্টোরেজ ব্রাউজ করার সময় তৈরি করা ফাইল এবং ফোল্ডার।</string>
     <string name="systemcleaner_filter_windowsfiles_label">উইন্ডোজের ফাইলসমূহ</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"উইন্ডোজ ফাইল এক্সপ্লোরার সংযুক্ত সঞ্চয়স্থানে তৈরি করতে পারে এমন ডেটা৷ "</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"সংযুক্ত স্টোরেজে উইন্ডোজ ফাইল এক্সপ্লোরার তৈরি করতে পারে এমন ডেটা৷ "</string>
     <string name="systemcleaner_filter_thumbnails_label">থাম্বনেল ছবি</string>
     <string name="systemcleaner_filter_thumbnails_summary">ছবি এবং ভিডিওর জন্য ক্যাশ প্রিভিউ।</string>
     <string name="systemcleaner_filter_tempfiles_label">অস্থায়ী ফাইল</string>
@@ -251,7 +251,7 @@
     <string name="systemcleaner_editor_remove_confirmation_message">এই ফিল্টার সরান?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ফিল্টার লেবেল</string>
-    <string name="systemcleaner_customfilter_editor_warning">কাস্টম ফিল্টার ঝুঁকিপূর্ণ হতে পারে. মুছে ফেলার আগে আপনার স্ক্যান ফলাফল চেক করে নিন!</string>
+    <string name="systemcleaner_customfilter_editor_warning">কাস্টম ফিল্টার ঝুঁকিপূর্ণ হতে পারে। মুছে ফেলার আগে আপনার স্ক্যানের ফলাফল যাচাই করে নিন!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ডেটা এরিয়া</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">যদি কোন এরিয়া নির্বাচন না করা হয়, তাহলে সমস্ত অ্যাক্সেসযোগ্য ডেটা এরিয়া স্ক্যান করা হবে এবং মিলিয়ে দেখা হবে।</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">ফাইল টাইপ সীমাবদ্ধতা</string>
@@ -321,7 +321,6 @@
     <string name="appcleaner_filter_whatsapp_received_summary">হোয়াটসঅ্যাপে আসা ফাইল</string>
     <string name="appcleaner_filter_whatsapp_received_label">আপনি হোয়াটসঅ্যাপের মাধ্যমে লোকেদের কাছ থেকে প্রাপ্ত ফাইলগুলি।</string>
     <string name="appcleaner_filter_whatsapp_sent_label">হোয়াটসঅ্যাপে পাঠানো ফাইল</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">ফাইলগুলি হোয়াটসঅ্যাপ থেকে অন্যদের কাছে পাঠানো হয়।</string>
     <string name="appcleaner_filter_telegram_label">টেলিগ্রাম মিডিয়া ফাইল</string>
     <string name="appcleaner_filter_telegram_summary">ফাইল গৃহীত বা টেলিগ্রাম মাধ্যমে পাঠান.</string>
     <string name="appcleaner_filter_threema_label">থ্রিমা</string>
@@ -372,6 +371,7 @@
     <string name="appcontrol_app_exclude_edit_title">বর্জন সম্পাদনা করুন</string>
     <string name="appcontrol_app_exclude_edit_description">এই অ্যাপটি বর্তমানে এক বা একাধিক টুল থেকে বাদ দেওয়া হয়েছে।</string>
     <string name="appcontrol_tag_user">ব্যবহারকারী</string>
+    <string name="appcontrol_tag_active">সম্প্রতি সক্রিয়</string>
     <string name="appcontrol_tag_system">সিস্টেম</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
@@ -384,10 +384,10 @@
     <string name="appcontrol_list_sortmode_packagename_label">প্যাকেজের নাম</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
     <string name="analyzer_tool_name">স্টোরেজ অ্যানালাইজার</string>
-    <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা খাচ্ছে তা খুঁজে বের করুন।</string>
+    <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>
     <string name="analyzer_progress_scanning_storage">স্টোরেজ স্ক্যান করা হচ্ছে</string>
-    <string name="analyzer_progress_scanning_apps">স্ক্যানিং অ্যাপস</string>
+    <string name="analyzer_progress_scanning_apps">অ্যাপস স্ক্যান করা হচ্ছে</string>
     <string name="analyzer_progress_scanning_userfiles">ব্যবহারকারী ফাইল অনুসন্ধান করা হচ্ছে</string>
     <string name="analyzer_progress_scanning_system">সিস্টেম ডেটা স্ক্যান করা হচ্ছে</string>
     <string name="analyzer_device_storage_title">ডিভাইসের স্টোরেজ</string>
@@ -400,11 +400,11 @@
         <item quantity="other">%s ব্যবহার করা হয়েছে</item>
     </plurals>
     <string name="analyzer_content_access_opaque">কোন সরাসরি অ্যাক্সেস উপলব্ধ নয়</string>
-    <string name="analyzer_storage_type_primary_title">প্রাইমারী স্টোরেজ</string>
+    <string name="analyzer_storage_type_primary_title">প্রাথমিক স্টোরেজ</string>
     <string name="analyzer_storage_type_primary_description">আপনার ডিভাইসের প্রাথমিক স্টোরেজ। অভ্যন্তরীণ SD কার্ড, অ্যাপগুলির জন্য ব্যক্তিগত স্টোরেজ এবং সিস্টেম ডেটা রয়েছে৷</string>
     <string name="analyzer_storage_type_secondary_title">সেকেন্ডারি স্টোরেজ</string>
     <string name="analyzer_storage_type_secondary_description">একটি সেকেন্ডারি স্টোরেজ, সাধারণত একটি অপসারণযোগ্য SD কার্ড৷ এটি সমর্থন করে এমন অ্যাপ থেকে মিডিয়া ফাইল এবং ডেটা রয়েছে।</string>
-    <string name="analyzer_storage_content_title">স্টোরেজ সামগ্রী</string>
+    <string name="analyzer_storage_content_title">স্টোরেজ উপাদান</string>
     <string name="analyzer_storage_content_type_app_label">অ্যাপ</string>
     <string name="analyzer_storage_content_type_app_description">ইনস্টল করা অ্যাপ এবং তাদের ডেটা (যেমন অ্যাপ্লিকেশন ফাইল, ডেটা এবং ক্যাশে) দ্বারা স্থান দখল করা।</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">অনুমতি অনুপস্থিত</string>
@@ -476,7 +476,6 @@
     <string name="scheduler_schedule_time_label">আনুমানিক সময়</string>
     <string name="scheduler_schedule_repeat_label">দিনের মধ্যে বিরতি পুনরাবৃত্তি করুন</string>
     <string name="scheduler_schedule_default_name">ডিফল্ট সময়সূচী</string>
-    <string name="scheduler_current_schedule_x_at_x">%2$s এ %1$s</string>
     <string name="scheduler_schedule_next_at_x">%s এর জন্য পরিকল্পনা করা হয়েছে</string>
     <string name="scheduler_schedule_last_at_x">শেষবার %s-এ কার্যকর করা হয়েছে</string>
     <plurals name="scheduler_schedule_repeat_x_days">
