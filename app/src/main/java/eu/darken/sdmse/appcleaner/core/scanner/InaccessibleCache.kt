@@ -20,5 +20,8 @@ data class InaccessibleCache(
 
     val privateCacheSize: Long = cacheBytes - (externalCacheBytes ?: 0L)
 
+    val totalBytes: Long
+        get() = cacheBytes + (externalCacheBytes ?: 0L)
+
     val isEmpty: Boolean = privateCacheSize == 0L
 }
