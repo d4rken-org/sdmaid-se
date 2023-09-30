@@ -21,9 +21,9 @@ import javax.inject.Singleton
 @Singleton
 class GeneralSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val debugSettings: DebugSettings,
-    private val moshi: Moshi,
-    private val motdSettings: MotdSettings,
+    debugSettings: DebugSettings,
+    moshi: Moshi,
+    motdSettings: MotdSettings,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_core")

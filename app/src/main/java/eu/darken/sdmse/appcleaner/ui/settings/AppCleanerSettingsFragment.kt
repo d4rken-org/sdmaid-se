@@ -15,6 +15,8 @@ import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+import eu.darken.sdmse.common.preferences.ListPreference2
+import eu.darken.sdmse.common.preferences.setupWithEnum
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
 import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
@@ -41,8 +43,12 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     private val includeInaccessibleCaches: BadgedCheckboxPreference
         get() = findPreference(settings.includeInaccessibleEnabled.keyName)!!
 
+    private val romTypeOverride: ListPreference2
+        get() = findPreference(settings.romTypeDetection.keyName)!!
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
+        romTypeOverride.setupWithEnum(settings.romTypeDetection)
 
         findPreference<Preference>(settings.minCacheSizeBytes.keyName)?.apply {
             setOnPreferenceClickListener {

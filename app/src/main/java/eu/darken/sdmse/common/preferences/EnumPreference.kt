@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.preferences
 
-import androidx.annotation.StringRes
+import eu.darken.sdmse.common.ca.CaString
 
 interface EnumPreference<T : Enum<T>> {
-    @get:StringRes val labelRes: Int
+    val label: CaString
 }
