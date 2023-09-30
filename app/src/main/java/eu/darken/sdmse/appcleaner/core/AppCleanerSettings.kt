@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
@@ -58,6 +59,8 @@ class AppCleanerSettings @Inject constructor(
     // Amounts to common folders created by default
     val minCacheSizeBytes = dataStore.createValue<Long>("skip.mincachesize.bytes", MIN_CACHE_SIZE_DEFAULT)
 
+    val romTypeDetection = dataStore.createValue("automation.romtype.detection", SpecRomType.AUTO, moshi)
+
     override val mapper = PreferenceStoreMapper(
         includeSystemAppsEnabled,
         includeRunningAppsEnabled,
@@ -84,11 +87,12 @@ class AppCleanerSettings @Inject constructor(
         filterWhatsAppSentEnabled,
         filterWeChatEnabled,
         filterViberEnabled,
+        romTypeDetection,
     )
 
     companion object {
-        val MIN_CACHE_SIZE_DEFAULT = 48 * 1024L
-        val MIN_CACHE_AGE_DEFAULT = 0L
+        const val MIN_CACHE_SIZE_DEFAULT = 48 * 1024L
+        const val MIN_CACHE_AGE_DEFAULT = 0L
         internal val TAG = logTag("AppCleaner", "Settings")
     }
 }
