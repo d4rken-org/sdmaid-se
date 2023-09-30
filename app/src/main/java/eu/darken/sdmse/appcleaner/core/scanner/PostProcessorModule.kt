@@ -20,6 +20,8 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
@@ -33,6 +35,7 @@ import kotlin.reflect.KClass
 class PostProcessorModule @Inject constructor(
     @ApplicationContext private val context: Context,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
     private val exclusionManager: ExclusionManager,
     private val settings: AppCleanerSettings,
 ) : Progress.Host, Progress.Client {
@@ -84,7 +87,7 @@ class PostProcessorModule @Inject constructor(
         if (before.expendables.isNullOrEmpty()) return before
 
         val useRoot = rootManager.canUseRootNow()
-        val useShizuku = settings.useShizuku.value()
+        val useShizuku = shizukuManager.canUseShizukuNow()
 
         val edgeCaseMap = mutableMapOf<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>()
 
