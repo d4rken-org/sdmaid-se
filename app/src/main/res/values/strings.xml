@@ -141,7 +141,7 @@
     <string name="setup_notification_body">Allow SD Maid to post notifications to inform you about on-going operations or important events.</string>
     <string name="setup_notification_hint">Notifications are used sparingly 🤞</string>
 
-    <string name="setup_feature_requires_additional_setup_x">This feature requires completion additional setup items: %s</string>
+    <string name="setup_feature_requires_additional_setup_x">This feature requires completing additional setup items: %s</string>
 
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. tapping \"Clear cache\" on multiple screens.</string>
@@ -329,7 +329,7 @@
     <string name="appcleaner_include_minimumage_label">Minimum age</string>
     <string name="appcleaner_include_minimumage_summary">Skip files that are younger than the minimum age.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operating system detection</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Accessibility based automation may fail if SD Maid doesn\'t detect your OS correctly. Use this setting to override the detected type.</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Accessibility based automation may fail if SD Maid doesn\'t detect your OS correctly. Use this setting to override the detected OS.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automatic (default)</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Blocks of bytecode compiled into native code.</string>
