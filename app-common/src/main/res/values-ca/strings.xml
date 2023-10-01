@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Gràcies</string>
     <string name="general_gotit_action">Entesos</string>
     <string name="general_fix_action">Arregla</string>
+    <string name="general_set_up_action">Configura</string>
     <string name="general_edit_action">Edita</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Buit</string>

@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Notifications</string>
     <string name="setup_notification_body">Permettre à SD Maid d’afficher des notifications pour vous informer sur les opérations en cours ou les événements importants.</string>
     <string name="setup_notification_hint">Les notifications sont utilisées avec parcimonie 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Cette fonction nécessite de configurer des éléments supplémentaires : %s</string>
     <string name="setup_acs_card_title">Service d’accessibilité</string>
     <string name="setup_acs_card_body">Le service d’accessibilité permet à SD Maid d’interagir avec votre écran et d’automatiser les actions fastidieuses, p. ex. toucher « Effacer le cache » sur plusieurs écrans.</string>
     <string name="setup_acs_card_body2">SD Maid n’utilisera pas le service d’accessibilité sans votre consentement, affichera toujours un indicateur bien visible (annulable) si actif et ne l’utilisera pas pour recueillir des renseignements.</string>
@@ -296,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Ignorer les applis dont la somme des données superflues est inférieure au minimum.</string>
     <string name="appcleaner_include_minimumage_label">Âge minimum</string>
     <string name="appcleaner_include_minimumage_summary">Ignorer les fichiers dont l’âge est inférieur à l’âge minimum.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Détection du système d’exploitation</string>
+    <string name="appcleaner_automation_romtype_detection_summary">L’automatisation fondée sur l’accessibilité peut échouer si SD Maid ne détecte pas correctement votre système d’exploitation. Utilisez ce paramètre pour remplacer le système d’exploitation détecté.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automatique (par défaut)</string>
     <string name="appcleaner_filter_codecache_label">Cache du code</string>
     <string name="appcleaner_filter_codecache_summary">Cache du code de la MVJ. Blocs de pseudo-code compilé en code natif.</string>
     <string name="appcleaner_filter_advertisement_label">Données de publicités</string>
@@ -321,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fichiers reçus dans WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fichiers que vous avez reçus de différentes personnes dans WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fichiers envoyés avec WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Fichiers envoyés de WhatsApp à d’autres.</string>
     <string name="appcleaner_filter_telegram_label">Fichiers multimédias de Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fichiers reçus ou envoyés dans Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Temps approximatif</string>
     <string name="scheduler_schedule_repeat_label">Intervalle de répétition en jours</string>
     <string name="scheduler_schedule_default_name">Programme par défaut</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s vers %2$s</string>
     <string name="scheduler_schedule_next_at_x">Programmé pour %s</string>
     <string name="scheduler_schedule_last_at_x">Dernière exécution à %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -491,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Si l’appareil n’est pas en charge l’exécution programmée sera ignorée.</string>
     <string name="scheduler_setting_automation_title">Service d’accessibilité</string>
     <string name="scheduler_setting_automation_summary">Inclure les actions qui utilisent un service d’accessibilité. Quand les tâches sont exécutées, SD Maid doit pouvoir interagir avec votre écran (il doit être déverrouillé).</string>
+    <string name="scheduler_notification_channel_label">Programmateur</string>
+    <string name="scheduler_notification_title">Tâche programmée</string>
+    <string name="scheduler_notification_message">Exécution : %s</string>
     <string name="updates_dashcard_title">Une mise à jour est proposée</string>
     <string name="updates_dashcard_body">Une mise à jour est proposée. Vous avez %1$s et %2$s est la version la plus récente.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>

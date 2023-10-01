@@ -117,6 +117,7 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允許 SD 女僕張貼通知以通知您正在進行的作業和重要活動。</string>
     <string name="setup_notification_hint">儘量不會使用通知 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
     <string name="setup_acs_card_title">無障礙服務</string>
     <string name="setup_acs_card_body">無障礙服務允許 SD 女僕與您的畫面進行互動，並使乏味的動作自動化，例如在多個畫面上輕觸「清除快取」。</string>
     <string name="setup_acs_card_body2">未經您同意之下，SD 女僕不會使用無障礙服務，在啟用時將一律顯示為一個顯著的 (可取消) 指示器，並且不會用它來收集資訊。</string>
@@ -290,6 +291,9 @@
     <string name="appcleaner_include_minimumsize_summary">跳過無關緊要的資料總和低於最小大小的應用程式。</string>
     <string name="appcleaner_include_minimumage_label">最小期限</string>
     <string name="appcleaner_include_minimumage_summary">跳過存在時間低於最小期限的檔案。</string>
+    <string name="appcleaner_automation_romtype_detection_label">作業系統偵測</string>
+    <string name="appcleaner_automation_romtype_detection_summary">如果無法正確辨識您的作業系統，SD 女僕以無障礙服務為基礎的自動化動作可能會失敗。使用此設定來覆寫偵測類型。</string>
+    <string name="appcleaner_automation_romtype_auto_label">自動 (預設)</string>
     <string name="appcleaner_filter_codecache_label">程式碼快取</string>
     <string name="appcleaner_filter_codecache_summary">JVM 程式碼快取，被編譯為機器碼的位元組程式碼區塊。</string>
     <string name="appcleaner_filter_advertisement_label">廣告資料</string>
@@ -315,6 +319,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 接收的檔案</string>
     <string name="appcleaner_filter_whatsapp_received_label">您透過 WhatsApp 從其他人那裡接收的檔案。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 傳送的檔案</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">從 WhatsApp 向其他人傳送的檔案。</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒體檔案</string>
     <string name="appcleaner_filter_telegram_summary">透過 Telegram 接收或傳送的檔案。</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -464,6 +469,7 @@
     <string name="scheduler_schedule_time_label">大約時間</string>
     <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
     <string name="scheduler_schedule_default_name">預設排程</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s 於 %2$s</string>
     <string name="scheduler_schedule_next_at_x">計畫於 %s</string>
     <string name="scheduler_schedule_last_at_x">上次執行於 %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -478,6 +484,9 @@
     <string name="scheduler_setting_charging_summary">如果裝置未在充電，已排程的執行項目將會被跳過。</string>
     <string name="scheduler_setting_automation_title">無障礙服務</string>
     <string name="scheduler_setting_automation_summary">包含使用無障礙服務的動作。這需要在執行工作時 SD 女僕可以與您的畫面進行互動 (即它被解鎖)。</string>
+    <string name="scheduler_notification_channel_label">排程器</string>
+    <string name="scheduler_notification_title">已排程的工作</string>
+    <string name="scheduler_notification_message">正在執行：%s</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用的更新項目。您已安裝 %1$s，而最新版本為 %2$s。</string>
     <string name="translation_encourage_title">翻譯 SD 女僕</string>

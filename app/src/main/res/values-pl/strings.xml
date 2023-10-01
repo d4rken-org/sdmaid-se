@@ -123,6 +123,7 @@
     <string name="setup_notification_title">Powiadomienia</string>
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Ta funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
     <string name="setup_acs_card_title">Usługa ułatwień</string>
     <string name="setup_acs_card_body">Usługa ułatwień dostępu umożliwia SD Maid interakcję z ekranem i automatyzację żmudnych czynności, np. dotykając „Wyczyść pamięć podręczną” na wielu ekranach.</string>
     <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi ułatwień bez Twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas działania i nie będzie jej używać do zbierania danych.</string>
@@ -308,6 +309,9 @@
     <string name="appcleaner_include_minimumsize_summary">Pomiń aplikacje, gdzie suma danych jest poniżej minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimalny wiek</string>
     <string name="appcleaner_include_minimumage_summary">Pomiń pliki, które są młodsze niż minimalny wiek.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Wykrywanie systemu operacyjnego</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatyzacja oparta na dostępności może się nie powieść jeśli SD Maid nie wykryje poprawnie systemu operacyjnego. Użyj tego ustawienia aby zastąpić wykryty typ.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automatyczny (domyślny)</string>
     <string name="appcleaner_filter_codecache_label">Pamięć podręczna kodu</string>
     <string name="appcleaner_filter_codecache_summary">Pamięć podręczna kodu JVM. Bloki kodu bajtowego kompilowane w kod natywny.</string>
     <string name="appcleaner_filter_advertisement_label">Dane reklam</string>
@@ -333,6 +337,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Pliki wysłane z WhatsApp do innych osób.</string>
     <string name="appcleaner_filter_telegram_label">Pliki multimedialne Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Pliki otrzymane lub wysłane za pomocą Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -500,6 +505,7 @@
     <string name="scheduler_schedule_time_label">Przybliżony czas</string>
     <string name="scheduler_schedule_repeat_label">Powtarzaj interwał w dniach</string>
     <string name="scheduler_schedule_default_name">Domyślny harmonogram</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s około %2$s</string>
     <string name="scheduler_schedule_next_at_x">Zaplanowane na %s</string>
     <string name="scheduler_schedule_last_at_x">Ostatnio wykonane o %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -517,6 +523,9 @@
     <string name="scheduler_setting_charging_summary">Jeśli urządzenie nie jest ładowane, zaplanowane wykonanie zostanie pominięte.</string>
     <string name="scheduler_setting_automation_title">Usługa ułatwień</string>
     <string name="scheduler_setting_automation_summary">Dołącz akcje, które używają usługi ułatwień. Wymaga to, aby SD Maid mógł wchodzić w interakcje z Twoim ekranem (tzn. gdy jest odblokowany), gdy zadania są wykonywane.</string>
+    <string name="scheduler_notification_channel_label">Harmonogram</string>
+    <string name="scheduler_notification_title">Zaplanowane zadanie</string>
+    <string name="scheduler_notification_message">Wykonywanie: „%s”</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
     <string name="updates_dashcard_body">Dostępna jest aktualizacja. Masz %1$s, a najnowsza wersja to %2$s.</string>
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>

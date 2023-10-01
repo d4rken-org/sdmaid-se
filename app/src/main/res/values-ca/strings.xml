@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Notificacions</string>
     <string name="setup_notification_body">Permeteu que l\'SD Maid publiqui notificacions per informar-vos sobre operacions en curs o esdeveniments importants.</string>
     <string name="setup_notification_hint">Les notificacions s\'utilitzen amb moderació 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Aquesta característica requereix completar elements de configuració addicionals: %s</string>
     <string name="setup_acs_card_title">Servei d\'accessibilitat</string>
     <string name="setup_acs_card_body">El servei d\'accessibilitat permet a l\'SD Maid interactuar amb la vostra pantalla i automatitzar accions tedioses, p. ex. tocant «Esborra la memòria cau» a diverses pantalles.</string>
     <string name="setup_acs_card_body2">L\'SD Maid no utilitzarà el servei d\'accessibilitat sense el vostre consentiment, sempre mostrarà un indicador destacat (cancel·lable) mentre estigui actiu i no l\'utilitzarà per recollir informació.</string>
@@ -296,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Omet les aplicacions on la suma de dades prescindibles sigui inferior al mínim.</string>
     <string name="appcleaner_include_minimumage_label">Edat mínima</string>
     <string name="appcleaner_include_minimumage_summary">Omet els fitxers que siguin menors a l\'edat mínima.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Detecció del sistema operatiu</string>
+    <string name="appcleaner_automation_romtype_detection_summary">L\'automatització basada en l\'accessibilitat pot fallar si l\'SD Maid no detecta correctament el vostre sistema operatiu. Utilitzeu aquesta configuració per corregir el tipus detectat.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automàtic (per defecte)</string>
     <string name="appcleaner_filter_codecache_label">Memòria cau de codi</string>
     <string name="appcleaner_filter_codecache_summary">Memòria cau de codi JVM. Blocs de «bytecode» compilats en codi natiu.</string>
     <string name="appcleaner_filter_advertisement_label">Dades de publicitat</string>
@@ -321,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fitxers rebuts de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fitxers que has rebut de persones a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fitxers enviats de WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Fitxers enviats des de WhatsApp a altres persones.</string>
     <string name="appcleaner_filter_telegram_label">Fitxers multimèdia de Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Arxius rebuts o enviats a través de Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Temps aproximat</string>
     <string name="scheduler_schedule_repeat_label">Repeteix l\'interval en dies</string>
     <string name="scheduler_schedule_default_name">Programació per defecte</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s al voltant %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planificat per a %s</string>
     <string name="scheduler_schedule_last_at_x">Última execució a les %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -491,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Si el dispositiu no s\'està carregant, s\'ignorarà l\'execució programada.</string>
     <string name="scheduler_setting_automation_title">Servei d\'accessibilitat</string>
     <string name="scheduler_setting_automation_summary">Inclou accions que utilitzen un servei d\'accessibilitat. Això requereix que l\'SD Maid pugui interactuar amb la vostra pantalla (p. ex. està desbloquejada) quan s\'executen les tasques.</string>
+    <string name="scheduler_notification_channel_label">Programador</string>
+    <string name="scheduler_notification_title">Tasca programada</string>
+    <string name="scheduler_notification_message">Executant: «%s»</string>
     <string name="updates_dashcard_title">Actualització disponible</string>
     <string name="updates_dashcard_body">Hi ha una actualització disponible. Teniu la versió %1$s i la darrera és %2$s.</string>
     <string name="translation_encourage_title">Traducció de l\'SD Maid</string>

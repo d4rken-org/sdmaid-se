@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Teşekkürler</string>
     <string name="general_gotit_action">Anladım</string>
     <string name="general_fix_action">Onar</string>
+    <string name="general_set_up_action">Kur</string>
     <string name="general_edit_action">Düzenle</string>
     <string name="general_na_label">Yok</string>
     <string name="general_empty_label">Boş</string>

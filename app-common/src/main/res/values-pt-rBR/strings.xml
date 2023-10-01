@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Obrigado</string>
     <string name="general_gotit_action">Entendi</string>
     <string name="general_fix_action">Corrigir</string>
+    <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">Não encontrado</string>
     <string name="general_empty_label">Vazio</string>

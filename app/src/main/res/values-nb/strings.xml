@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Varsler</string>
     <string name="setup_notification_body">Tillat SD Maid å legge ut varsler for å informere deg om pågående operasjoner eller viktige hendelser.</string>
     <string name="setup_notification_hint">Varsler brukes sparsomt 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
     <string name="setup_acs_card_title">Tilgjengelighetstjeneste</string>
     <string name="setup_acs_card_body">Tilgjengelighetstjenesten lar SD Maid samhandle med skjermen din og automatisere kjedelige handlinger, f.eks. trykke \"Tøm hurtigbuffer\" på flere skjermer.</string>
     <string name="setup_acs_card_body2">SD Maid vil ikke bruke tilgjengelighetstjenesten uten ditt samtykke, vil alltid vise en fremtredende (kansellerbar) indikator mens den er aktiv og vil ikke bruke den for å hente informasjon.</string>
@@ -296,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Hopp over apper der summen av ubetydelig data er under minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minste alder</string>
     <string name="appcleaner_include_minimumage_summary">Hopp over filer som er yngre enn minste alder.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Deteksjon av operativsystem</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Tilgjengelighetsbasert automatisering kan mislykkes hvis SD Maid ikke oppdager operativsystemet ditt på riktig måte. Bruk denne innstillingen for å overstyre oppdaget type.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automatisk (standard)</string>
     <string name="appcleaner_filter_codecache_label">Kodebuffer</string>
     <string name="appcleaner_filter_codecache_summary">JVM kodebuffer. Blokker med byte-kode kompilert til systemkode.</string>
     <string name="appcleaner_filter_advertisement_label">Reklamedata</string>
@@ -321,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mottatte filer</string>
     <string name="appcleaner_filter_whatsapp_received_label">Filer mottatt fra personer i WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendte filer</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Filer sendt fra WhatsApp til andre.</string>
     <string name="appcleaner_filter_telegram_label">Telegram mediefiler</string>
     <string name="appcleaner_filter_telegram_summary">Filer mottatt eller sendt gjennom Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Omtrentlig tid</string>
     <string name="scheduler_schedule_repeat_label">Intervall for gjentakelse i dager</string>
     <string name="scheduler_schedule_default_name">Standard tidsplan</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s rundt %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planlagt %s</string>
     <string name="scheduler_schedule_last_at_x">Sist utført kl %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -491,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Hvis enheten ikke lader, vil den planlagte utførelsen bli hoppet over.</string>
     <string name="scheduler_setting_automation_title">Tilgjengelighetstjeneste</string>
     <string name="scheduler_setting_automation_summary">Inkluder handlinger som bruker en tilgjengelighetstjeneste. Dette krever at SD Maid kan samhandle med skjermen din (altså at den ikke er låst) når oppgavene utføres.</string>
+    <string name="scheduler_notification_channel_label">Planlegger</string>
+    <string name="scheduler_notification_title">Planlagt oppgave</string>
+    <string name="scheduler_notification_message">Utfører: \"%s\"</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
     <string name="updates_dashcard_body">En oppdatering er tilgjengelig. Du har %1$s og den nyeste versjonen er %2$s.</string>
     <string name="translation_encourage_title">Oversett SD Maid</string>
