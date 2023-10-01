@@ -92,6 +92,7 @@ fun com.android.build.api.dsl.CommonExtension<
         com.android.build.api.dsl.LibraryBuildType,
         com.android.build.api.dsl.LibraryDefaultConfig,
         com.android.build.api.dsl.LibraryProductFlavor,
+        *
         >.setupModuleBuildTypes() {
     buildTypes {
         debug {
