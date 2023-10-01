@@ -296,6 +296,8 @@
     <string name="appcleaner_include_minimumsize_summary">যেখানে বাদ দেওয়া যাবে এমন ডেটার সমষ্টি ন্যূনতম থেকে কম হয় এমন অ্যাপগুলি এড়িয়ে যান৷</string>
     <string name="appcleaner_include_minimumage_label">ন্যূনতম বয়স</string>
     <string name="appcleaner_include_minimumage_summary">ন্যূনতম বয়সের চেয়ে কম সময়ের ফাইলগুলো এড়িয়ে যান৷</string>
+    <string name="appcleaner_automation_romtype_detection_summary">SD Maid আপনার OS সঠিকভাবে সনাক্ত না করলে অ্যাক্সেসিবিলিটি ভিত্তিক অটোমেশন ব্যর্থ হতে পারে। শনাক্তের ধরন ওভাররাইড করতে এই সেটিং ব্যবহার করুন।</string>
+    <string name="appcleaner_automation_romtype_auto_label">স্বয়ংক্রিয় (ডিফল্ট)</string>
     <string name="appcleaner_filter_codecache_label">কোড ক্যাশ</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Bytecode ব্লকগুলি নেটিভ কোডে কম্পাইল করা হয়েছে।</string>
     <string name="appcleaner_filter_advertisement_label">বিজ্ঞাপনী উপাত্তসমূহ</string>

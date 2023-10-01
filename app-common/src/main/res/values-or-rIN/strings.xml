@@ -43,6 +43,7 @@
     <string name="general_result_x_space_freed">%s ମୁକ୍ତ କରାଗଲା</string>
     <string name="general_options_label">ବିକଳ୍ପ</string>
     <string name="general_details_label">ବିବରଣୀ</string>
+    <string name="general_view_action">ଦେଖିବା</string>
     <string name="general_update_action">ଅଦ୍ୟତନ କରିବା</string>
     <string name="general_scan_action">ସ୍କେନ୍ କରିବା</string>
     <string name="general_delete_action">ବିଲୋପ କର</string>

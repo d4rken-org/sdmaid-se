@@ -123,6 +123,7 @@
     <string name="setup_notification_title">Уведомления</string>
     <string name="setup_notification_body">Разрешите SD Maid присылать уведомления, чтобы информировать Вас о текущих операциях или важных событиях.</string>
     <string name="setup_notification_hint">Уведомления используются редко 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Эта функция требует завершения дополнительных настроек: %s</string>
     <string name="setup_acs_card_title">Служба специальных возможностей</string>
     <string name="setup_acs_card_body">Служба специальных возможностей позволяет SD Maid взаимодействовать с Вашим экраном и автоматизировать утомительные действия, например, нажатие кнопки \"Очистить кэш\" на нескольких экранах.</string>
     <string name="setup_acs_card_body2">SD Maid не будет использовать службу специальных возможностей без Вашего согласия, всегда будет отображать её работу с возможностью отмены и не будет использовать её для сбора информации.</string>
@@ -308,6 +309,9 @@
     <string name="appcleaner_include_minimumsize_summary">Пропускать приложения с потреблением данных ниже минимума.</string>
     <string name="appcleaner_include_minimumage_label">Минимальный возраст</string>
     <string name="appcleaner_include_minimumage_summary">Пропускать файлы, которые не достигли минимального возраста.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Определение операционной системы</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Автоматизация на основе специальных возможностей может завершиться ошибкой, если SD Maid некорректно определит ОС. Используйте этот параметр, чтобы переопределить обнаруженный тип.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Автоматически (по умолчанию)</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блоки байткода, скомпилированные в нативный код.</string>
     <string name="appcleaner_filter_advertisement_label">Данные рекламы</string>
@@ -333,6 +337,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Полученные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Отправленные файлы WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, отправленные из WhatsApp другим пользователям.</string>
     <string name="appcleaner_filter_telegram_label">Медиафайлы Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файлы, полученные или отправленные через Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -500,6 +505,7 @@
     <string name="scheduler_schedule_time_label">Приблизительное время</string>
     <string name="scheduler_schedule_repeat_label">Интервал повторения в днях</string>
     <string name="scheduler_schedule_default_name">Расписание по умолчанию</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s около %2$s</string>
     <string name="scheduler_schedule_next_at_x">Запланировано на %s</string>
     <string name="scheduler_schedule_last_at_x">Последний раз выполнялось в %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -517,6 +523,9 @@
     <string name="scheduler_setting_charging_summary">Если устройство не заряжается, запланированное выполнение будет пропущено.</string>
     <string name="scheduler_setting_automation_title">Служба специальных возможностей</string>
     <string name="scheduler_setting_automation_summary">Включение действий, использующих службу специальных возможностей. Необходимо, чтобы SD Maid могло работать с Вашим экраном в процессе выполнения задач (т.е. он должен быть разблокированным).</string>
+    <string name="scheduler_notification_channel_label">Расписание</string>
+    <string name="scheduler_notification_title">Запланированное задание</string>
+    <string name="scheduler_notification_message">Выполнение: \"%s\"</string>
     <string name="updates_dashcard_title">Доступно обновление</string>
     <string name="updates_dashcard_body">Доступно обновление. У Вас версия %1$s, а последняя - %2$s.</string>
     <string name="translation_encourage_title">Перевод SD Maid</string>

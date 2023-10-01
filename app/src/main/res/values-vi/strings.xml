@@ -117,6 +117,7 @@
     <string name="setup_notification_title">Thông báo</string>
     <string name="setup_notification_body">Cho phép SD Maid đăng thông báo cho bạn về các hoạt động đang diễn ra hoặc các sự kiện quan trọng.</string>
     <string name="setup_notification_hint">Thông báo được sử dụng một cách tiết kiệm 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
     <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấn \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>
@@ -290,6 +291,9 @@
     <string name="appcleaner_include_minimumsize_summary">Bỏ qua các ứng dụng có dữ liệu nhỏ hơn kích thước tối thiểu.</string>
     <string name="appcleaner_include_minimumage_label">Thời gian tối thiểu</string>
     <string name="appcleaner_include_minimumage_summary">Bỏ qua các tệp cũ hơn thời gian tối thiểu.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Phát hiện hệ điều hành</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Tự động hóa dựa trên khả năng truy cập có thể không thành công nếu SD Maid không phát hiện chính xác hệ điều hành của bạn. Sử dụng cài đặt này để ghi đè loại được phát hiện.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Tự động (mặc định)</string>
     <string name="appcleaner_filter_codecache_label">Mã bộ nhớ đệm</string>
     <string name="appcleaner_filter_codecache_summary">Bộ đệm mã JVM. Các khối mã byte được biên dịch thành mã gốc.</string>
     <string name="appcleaner_filter_advertisement_label">Dữ liệu quảng cáo</string>
@@ -315,6 +319,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Tệp WhatsApp đã nhận</string>
     <string name="appcleaner_filter_whatsapp_received_label">Tệp bạn nhận được từ mọi người qua WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Tệp WhatsApp đã gửi</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Các tập tin được gửi từ WhatsApp cho người khác.</string>
     <string name="appcleaner_filter_telegram_label">Tệp phương tiện Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Các tệp đã nhận hoặc gửi qua Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -464,6 +469,7 @@
     <string name="scheduler_schedule_time_label">Thời gian xấp xỉ</string>
     <string name="scheduler_schedule_repeat_label">Lặp lại khoảng thời gian trong ngày</string>
     <string name="scheduler_schedule_default_name">Lịch trình mặc định</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s khoảng %2$s</string>
     <string name="scheduler_schedule_next_at_x">Đã đặt lịch vào %s</string>
     <string name="scheduler_schedule_last_at_x">Lần thực thi cuối vào %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -478,6 +484,9 @@
     <string name="scheduler_setting_charging_summary">Nếu thiết bị không sạc, việc thực hiện theo lịch trình sẽ bị bỏ qua.</string>
     <string name="scheduler_setting_automation_title">Dịch vụ trợ năng</string>
     <string name="scheduler_setting_automation_summary">Bao gồm các hành động sử dụng dịch vụ trợ năng. Điều này yêu cầu SD Maid có thể tương tác với màn hình của bạn (tức là màn hình đã được mở khóa) khi các tác vụ được thực thi.</string>
+    <string name="scheduler_notification_channel_label">Lịch trình</string>
+    <string name="scheduler_notification_title">Hoạt động theo lịch trình</string>
+    <string name="scheduler_notification_message">Đang thực thi: \"%s\"</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>
     <string name="updates_dashcard_body">Một bản cập nhật khả dụng. Bạn có %1$s và phiên bản mới nhất là %2$s.</string>
     <string name="translation_encourage_title">Dịch SD Maid</string>

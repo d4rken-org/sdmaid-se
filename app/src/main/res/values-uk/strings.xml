@@ -123,6 +123,7 @@
     <string name="setup_notification_title">Сповіщення</string>
     <string name="setup_notification_body">Дозвольте SD Maid надсилати сповіщення, щоб інформувати вас про поточні операції або важливі події.</string>
     <string name="setup_notification_hint">Сповіщення використовуються рідко 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Ця функція вимагає заповнення додаткових пунктів налаштування: %s</string>
     <string name="setup_acs_card_title">Сервіс спеціальних можливостей</string>
     <string name="setup_acs_card_body">Сервіс спеціальних можливостей дозволяє SD Maid взаємодіяти з вашим екраном і автоматизовувати нудні дії, наприклад, натискання кнопки \"Очистити кеш\" на декількох екранах.</string>
     <string name="setup_acs_card_body2">SD Maid не буде використовувати сервіс спеціальних можливостей без вашої згоди, завжди показувати її роботу з можливістю скасування і не буде використовувати її для збору інформації.</string>
@@ -284,6 +285,7 @@
     <string name="appcleaner_include_minimumsize_summary">Пропускати додатки, де сума витратних даних менша за мінімальну.</string>
     <string name="appcleaner_include_minimumage_label">Мінімальний вік</string>
     <string name="appcleaner_include_minimumage_summary">Пропустити файли, менші за мінімальний вік.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Автоматично (за замовчуванням)</string>
     <string name="appcleaner_filter_codecache_label">Кеш коду</string>
     <string name="appcleaner_filter_codecache_summary">Кеш коду JVM. Блоки байт коду, скомпільовані в нативний код.</string>
     <string name="appcleaner_filter_advertisement_label">Рекламні дані</string>
@@ -309,6 +311,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Отримані файли WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файли, які ви отримали від людей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Відправлені файли з WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Файли, надіслані з WhatsApp іншим.</string>
     <string name="appcleaner_filter_telegram_label">Медіафайли Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файли, отримані або надіслані через Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -450,6 +453,9 @@
     <string name="scheduler_setting_charging_summary">Якщо пристрій не заряджається, заплановане виконання буде пропущено.</string>
     <string name="scheduler_setting_automation_title">Сервіс спеціальних можливостей</string>
     <string name="scheduler_setting_automation_summary">Включіть дії, які використовують сервіс спеціальних можливостей. Для цього потрібно, щоб SD Maid могла взаємодіяти з вашим екраном (тобто була розблокована) під час виконання завдань.</string>
+    <string name="scheduler_notification_channel_label">Планувальник</string>
+    <string name="scheduler_notification_title">Заплановане завдання</string>
+    <string name="scheduler_notification_message">Виконую: \"%s\"</string>
     <string name="updates_dashcard_title">Доступно оновлення</string>
     <string name="updates_dashcard_body">Доступно оновлення. У вас %1$s, а остання версія - %2$s.</string>
     <string name="translation_encourage_title">Переклад SD Maid</string>

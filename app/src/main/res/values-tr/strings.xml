@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Bildirimler</string>
     <string name="setup_notification_body">SD Maid\'in devam eden işlemler veya önemli etkinlikler hakkında sizi bilgilendirmek için bildirimler yayınlamasına izin verin.</string>
     <string name="setup_notification_hint">Nadiren bildirim gösterilir 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Bu özellik için ek kurulum öğelerinin tamamlanması gerekir: %s</string>
     <string name="setup_acs_card_title">Erişilebilirlik hizmeti</string>
     <string name="setup_acs_card_body">Erişilebilirlik hizmeti, SD Maid\'in ekranınızla etkileşime girmesine ve birden fazla ekranda \"Önbelleği temizle\" seçeneğine tıklamak gibi sıkıcı eylemleri otomatikleştirmesine olanak tanır.</string>
     <string name="setup_acs_card_body2">SD Maid, izniniz olmadan erişilebilirlik hizmetini kullanmayacak, aktifken her zaman belirgin (iptal edilebilir) bir gösterge gösterecek ve bilgi toplamak için kullanmayacaktır.</string>
@@ -296,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Gereksiz veri toplamının minimum değerin altında olduğu uygulamaları atlayın.</string>
     <string name="appcleaner_include_minimumage_label">Asgari dosya yaşı</string>
     <string name="appcleaner_include_minimumage_summary">Asgari sınırdan daha yeni dosyaları atlayın.</string>
+    <string name="appcleaner_automation_romtype_detection_label">İşletim sistemi algılama</string>
+    <string name="appcleaner_automation_romtype_detection_summary">SD Maid işletim sisteminizi doğru algılamazsa erişilebilirlik tabanlı otomasyon başarısız olabilir. Algılanan türü geçersiz kılmak için bu ayarı kullanın.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Otomatik (varsayılan)</string>
     <string name="appcleaner_filter_codecache_label">Kod önbelleği</string>
     <string name="appcleaner_filter_codecache_summary">JVM kod önbelleği. Yerel kodda derlenen bayt kodu blokları.</string>
     <string name="appcleaner_filter_advertisement_label">Reklam verileri</string>
@@ -321,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp alınan dosyalar</string>
     <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalardır.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>
     <string name="appcleaner_filter_telegram_summary">Telegram aracılığıyla alınan veya gönderilen dosyalar.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -477,6 +482,7 @@
     <string name="scheduler_schedule_time_label">Yaklaşık zaman</string>
     <string name="scheduler_schedule_repeat_label">Gün cinsinden tekrar aralığı</string>
     <string name="scheduler_schedule_default_name">Varsayılan program</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s civarında %2$s</string>
     <string name="scheduler_schedule_next_at_x">%s için planlandı</string>
     <string name="scheduler_schedule_last_at_x">Son çalıştırma %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -492,6 +498,9 @@
     <string name="scheduler_setting_charging_summary">Cihaz şarj olmuyorsa, zamanlanmış yürütme atlanacaktır.</string>
     <string name="scheduler_setting_automation_title">Erişilebilirlik hizmeti</string>
     <string name="scheduler_setting_automation_summary">Erişilebilirlik hizmetini kullanan eylemleri dahil edin. Bu, görevler yürütüldüğünde SD Maid\'in ekranınızla etkileşime girebilmesini (yani ekran kilidinin açık olmasını) gerektirir.</string>
+    <string name="scheduler_notification_channel_label">Zamanlayıcı</string>
+    <string name="scheduler_notification_title">Planlanmış görev</string>
+    <string name="scheduler_notification_message">Yürütülüyor: \"%s\"</string>
     <string name="updates_dashcard_title">Güncelleme mevcut</string>
     <string name="updates_dashcard_body">Güncelleme mevcut. Cihazınızda %1$s sürümü var. En son sürüm: %2$s.</string>
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>

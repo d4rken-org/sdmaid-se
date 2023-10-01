@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Aitäh</string>
     <string name="general_gotit_action">Selge!</string>
     <string name="general_fix_action">Paranda</string>
+    <string name="general_set_up_action">Seadista</string>
     <string name="general_edit_action">Muuda</string>
     <string name="general_na_label">Puudub</string>
     <string name="general_empty_label">Tühi</string>

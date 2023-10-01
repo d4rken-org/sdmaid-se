@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Mengerti</string>
     <string name="general_fix_action">Perbaiki</string>
+    <string name="general_set_up_action">Atur</string>
     <string name="general_edit_action">Ubah</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>

@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Teated</string>
     <string name="setup_notification_body">Luba SD Maidil anda märku enda toimetustest või tähtsatest sündmustest.</string>
     <string name="setup_notification_hint">Saadame vaid olulisi teateid 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Selleks on vaja seadistada põhjalikumalt: %s</string>
     <string name="setup_acs_card_title">Juurdepääsetavusteenus</string>
     <string name="setup_acs_card_body">Juurdepääsetavusteenus lubab SD Maidil toimetada ekraanil ja teie eest ära teha tüütuid tegevusi, nt puudutada mitu korda \"Tühjenda vahemälu\".</string>
     <string name="setup_acs_card_body2">SD Maid ei kasuta juurdepääsetavusteenust ilma loata, näitab toimetamise ajal alati märgatavat (tühistamisvõimalusega) teadet ja ei kogu sellega teavet.</string>
@@ -296,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Eira rakendusi, mille järelejäänud andmete kogumaht jääb alla väikseimat määra.</string>
     <string name="appcleaner_include_minimumage_label">Väikseim vanus</string>
     <string name="appcleaner_include_minimumage_summary">Eira faile, mis varasemad kui väikseim vanus.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Operatsioonisüsteemi tuvastamine</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Juurdepääsul põhinev automatiseerimine võib nurjuda, kui SD Maid ei tuvasta operatsioonisüsteemi korralikult. Selle seadega asendate tuvastatud tüübi.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automaatne (tavaline)</string>
     <string name="appcleaner_filter_codecache_label">Koodi vahemälu</string>
     <string name="appcleaner_filter_codecache_summary">JVM-i koodi vahemälu. Baidikoodi plokid kompileeritud lähtekoodi.</string>
     <string name="appcleaner_filter_advertisement_label">Reklaamiandmed</string>
@@ -321,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppi kaudu saadud failid</string>
     <string name="appcleaner_filter_whatsapp_received_label">WhatsAppi kasutajatelt saadud failid.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsAppiga saadetud failid</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppist teistele saadetud failid.</string>
     <string name="appcleaner_filter_telegram_label">Telegrami meediafailid</string>
     <string name="appcleaner_filter_telegram_summary">Telegrami kaudu saadud või saadetud failid.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -476,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Umbmäärane kellaaeg</string>
     <string name="scheduler_schedule_repeat_label">Kordamisintervall päevades</string>
     <string name="scheduler_schedule_default_name">Vaikimisi ajakava</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s umbes %2$s</string>
     <string name="scheduler_schedule_next_at_x">Ajastatud %s-ks</string>
     <string name="scheduler_schedule_last_at_x">Viimati käivitatud %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -491,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Kui seade ei lae, jäetakse ajakava vahele.</string>
     <string name="scheduler_setting_automation_title">Juurdepääsetavusteenus</string>
     <string name="scheduler_setting_automation_summary">Juurdepääsetavusteenust kasutavad toimingud. See nõuab, et SD Maid saaks ülesandeid täita iseseisvalt (nt avatud ekraaniga).</string>
+    <string name="scheduler_notification_channel_label">Ajastaja</string>
+    <string name="scheduler_notification_title">Ajastatud ülesanne</string>
+    <string name="scheduler_notification_message">Käivitub: \"%s\"</string>
     <string name="updates_dashcard_title">Uuendus saadaval</string>
     <string name="updates_dashcard_body">Saadaval on uuendus. Teil on %1$s ja uusim versioon on %2$s.</string>
     <string name="translation_encourage_title">Tõlkige SD Maidi</string>

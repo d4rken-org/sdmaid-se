@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Cảm ơn</string>
     <string name="general_gotit_action">Đã hiểu</string>
     <string name="general_fix_action">Sửa lỗi</string>
+    <string name="general_set_up_action">Thiết lập</string>
     <string name="general_edit_action">Sửa</string>
     <string name="general_na_label">Không có sẵn</string>
     <string name="general_empty_label">Trống</string>
