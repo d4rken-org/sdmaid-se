@@ -36,7 +36,7 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
         }
 
         shizukuState.apply {
-            isVisible = item.state.isEnabled == true
+            isVisible = item.state.isEnabled == true && item.state.isInstalled
             text = getString(
                 if (item.state.ourService) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label
