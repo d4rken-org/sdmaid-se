@@ -20,7 +20,7 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         allowShizukuOptions.apply {
             setOnCheckedChangeListener(null)
-            when (item.state.isEnabled) {
+            when (item.state.useShizuku) {
                 true -> check(R.id.allow_shizuku_options_enable)
                 false -> check(R.id.allow_shizuku_options_disable)
                 null -> check(-1)
@@ -36,7 +36,7 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
         }
 
         shizukuState.apply {
-            isVisible = item.state.isEnabled == true && item.state.isInstalled
+            isVisible = item.state.useShizuku == true && item.state.isInstalled
             text = getString(
                 if (item.state.ourService) R.string.setup_shizuku_state_ready_label
                 else R.string.setup_shizuku_state_waiting_label
