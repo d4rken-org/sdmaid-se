@@ -2,6 +2,7 @@ package eu.darken.sdmse.common
 
 import android.app.AlarmManager
 import android.app.Application
+import android.app.KeyguardManager
 import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
 import android.app.usage.StorageStatsManager
@@ -92,4 +93,9 @@ class AndroidModule {
     @Singleton
     fun usageStatsManager(@ApplicationContext context: Context): UsageStatsManager =
         context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
+
+    @Provides
+    @Singleton
+    fun keyguardManager(@ApplicationContext context: Context): KeyguardManager =
+        context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 }
