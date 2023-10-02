@@ -179,7 +179,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Include desirable remnants</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Files that you might want to keep, even if the app is uninstalled, e.g. photos you took or backups you created.</string>
     <string name="corpsefinder_settings_risk_common_title">Include common names</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data with too common names, e.g. a folder \"Notes\" is owned by too many unknown apps.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data with commonly used names, e.g. a folder \"Notes\" is owned by too many unknown apps.</string>
     <string name="corpsefinder_watcher_title">Uninstall watcher</string>
     <string name="corpsefinder_watcher_summary">Automatically scan for remnants when an app removed.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatic deletion</string>
