@@ -100,6 +100,7 @@ class ShizukuSetupModule @Inject constructor(
     data class State(
         val isEnabled: Boolean?,
         val isCompatible: Boolean = false,
+        val isInstalled: Boolean = false,
         val basicService: Boolean = false,
         val ourService: Boolean = false,
     ) : SetupModule.State {
@@ -108,7 +109,7 @@ class ShizukuSetupModule @Inject constructor(
             get() = SetupModule.Type.SHIZUKU
 
         override val isComplete: Boolean =
-            isEnabled == false || !isCompatible || (ourService && isEnabled == true)
+            isEnabled == false || !isCompatible || (isEnabled == true && (!isInstalled || ourService))
     }
 
     @Module @InstallIn(SingletonComponent::class)
