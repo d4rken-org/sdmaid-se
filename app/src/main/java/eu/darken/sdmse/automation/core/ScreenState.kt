@@ -53,7 +53,7 @@ class ScreenState @Inject constructor(
 
                     Intent.ACTION_USER_PRESENT -> {
                         runBlocking {
-                            trySend(State(isScreenOn = false, isUnlocked = true))
+                            trySend(State(isScreenOn = isScreenOn(), isUnlocked = true))
                         }
                     }
 
@@ -68,7 +68,8 @@ class ScreenState @Inject constructor(
             addAction(Intent.ACTION_USER_PRESENT)
         }
 
-        ContextCompat.registerReceiver(context, receiver, intentFilter, ContextCompat.RECEIVER_NOT_EXPORTED)
+        // ACTION_USER_PRESENT is not being send without RECEIVER_EXPORTED, seems like a bug?
+        ContextCompat.registerReceiver(context, receiver, intentFilter, ContextCompat.RECEIVER_EXPORTED)
 
         awaitClose {
             log(TAG) { "unregisterReceiver($receiver)" }
