@@ -43,14 +43,14 @@ class ShizukuSetupModule @Inject constructor(
     private val refreshTrigger = MutableStateFlow(rngString)
 
     override val state: Flow<SetupModule.State> =
-        combine(refreshTrigger, shizukuSettings.isEnabled.flow) { _, isEnabled ->
+        combine(refreshTrigger, shizukuSettings.useShizuku.flow) { _, useShizuku ->
 
             val baseState = State(
-                isEnabled = isEnabled,
+                useShizuku = useShizuku,
                 isCompatible = shizukuManager.isCompatible(),
             )
 
-            if (isEnabled != true) return@combine flowOf(baseState)
+            if (useShizuku != true) return@combine flowOf(baseState)
 
             combine(
                 shizukuManager.shizukuBinder.onStart { emit(null) },
@@ -89,16 +89,16 @@ class ShizukuSetupModule @Inject constructor(
             }
 
             log(TAG) { "Permission grant result was $grantResult" }
-            shizukuSettings.isEnabled.value(grantResult.takeIf { it == true })
+            shizukuSettings.useShizuku.value(grantResult.takeIf { it == true })
         } else {
-            shizukuSettings.isEnabled.value(useShizuku)
+            shizukuSettings.useShizuku.value(useShizuku)
         }
 
         dataAreaManager.reload()
     }
 
     data class State(
-        val isEnabled: Boolean?,
+        val useShizuku: Boolean?,
         val isCompatible: Boolean = false,
         val isInstalled: Boolean = false,
         val basicService: Boolean = false,
@@ -109,7 +109,7 @@ class ShizukuSetupModule @Inject constructor(
             get() = SetupModule.Type.SHIZUKU
 
         override val isComplete: Boolean =
-            isEnabled == false || !isCompatible || (isEnabled == true && (!isInstalled || ourService))
+            useShizuku == false || !isCompatible || (useShizuku == true && (!isInstalled || ourService))
     }
 
     @Module @InstallIn(SingletonComponent::class)

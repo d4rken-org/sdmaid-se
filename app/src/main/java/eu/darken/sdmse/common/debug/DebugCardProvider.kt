@@ -114,7 +114,7 @@ class DebugCardProvider @Inject constructor(
                 vm.launch {
                     shizukuTestState.value = ShizukuTestResult(
                         testId = UUID.randomUUID().toString(),
-                        hasUserConsent = shizukuSettings.isEnabled.value(),
+                        hasUserConsent = shizukuSettings.useShizuku.value(),
                         isInstalled = shizukuManager.isInstalled(),
                         isGranted = shizukuManager.isGranted(),
                         serviceLaunched = withTimeoutOrNull(10 * 1000) {

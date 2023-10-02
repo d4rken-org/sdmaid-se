@@ -29,7 +29,7 @@ import javax.inject.Singleton
 class ShizukuManager @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    private val settings: ShizukuSettings,
+    settings: ShizukuSettings,
     private val dispatcherProvider: DispatcherProvider,
     private val shizukuWrapper: ShizukuWrapper,
     val serviceClient: ShizukuServiceClient,
@@ -39,7 +39,7 @@ class ShizukuManager @Inject constructor(
         .setupCommonEventHandlers(TAG) { "grantEvents" }
         .replayingShare(appScope)
 
-    val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = settings.isEnabled.flow
+    val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = settings.useShizuku.flow
         .flatMapLatest { if (it == true) shizukuWrapper.baseServiceBinder else emptyFlow() }
         .setupCommonEventHandlers(TAG) { "binder" }
         .replayingShare(appScope)
@@ -100,7 +100,7 @@ class ShizukuManager @Inject constructor(
     /**
      * Did the user consent to SD Maid using Shizuku and is Shizuku available?
      */
-    val useShizuku: Flow<Boolean> = settings.isEnabled.flow
+    val useShizuku: Flow<Boolean> = settings.useShizuku.flow
         .flatMapLatest { isEnabled ->
             if (isEnabled != true) return@flatMapLatest flowOf(false)
 

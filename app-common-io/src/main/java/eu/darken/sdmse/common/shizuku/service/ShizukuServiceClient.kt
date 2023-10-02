@@ -48,9 +48,9 @@ class ShizukuServiceClient @Inject constructor(
     callbackFlow {
         log(TAG) { "Instantiating Shizuku launcher..." }
 
-        if (shizukuSettings.isEnabled.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
+        if (shizukuSettings.useShizuku.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
 
-        val options = ShizukuHostOptions(
+        val optionsInitial = ShizukuHostOptions(
             isDebug = debugSettings.isDebugMode.value(),
             isTrace = debugSettings.isTraceMode.value(),
             isDryRun = debugSettings.isDryRunMode.value(),
@@ -59,7 +59,7 @@ class ShizukuServiceClient @Inject constructor(
 
         var lastInternal: ShizukuConnection? = null
         serviceLauncher
-            .createServiceHostConnection(options)
+            .createServiceHostConnection(optionsInitial)
             .onEach { wrapper ->
                 lastInternal = wrapper.host
                 send(wrapper.service)
@@ -73,14 +73,14 @@ class ShizukuServiceClient @Inject constructor(
             debugSettings.recorderPath.flow,
         ) { isDebug, isTrace, isDryRun, recorderPath ->
             lastInternal?.let {
-                val options = ShizukuHostOptions(
+                val optionsDynamic = ShizukuHostOptions(
                     isDebug = isDebug,
                     isTrace = isTrace,
                     isDryRun = isDryRun,
                     recorderPath = recorderPath,
                 )
-                log(TAG) { "Updating debug settings: $options" }
-                it.updateHostOptions(options)
+                log(TAG) { "Updating debug settings: $optionsDynamic" }
+                it.updateHostOptions(optionsDynamic)
             }
         }.launchIn(this)
 

@@ -22,10 +22,10 @@ class ShizukuSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val isEnabled = dataStore.createValue("core.shizuku.enabled", null as Boolean?)
+    val useShizuku = dataStore.createValue("core.shizuku.enabled", null as Boolean?)
 
     override val mapper = PreferenceStoreMapper(
-        isEnabled
+        useShizuku
     )
 
     companion object {
