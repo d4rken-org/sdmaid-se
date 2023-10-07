@@ -42,8 +42,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
@@ -70,6 +70,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var automationSetupModule: AutomationSetupModule
+    @Inject lateinit var screenState: ScreenState
 
     private var currentOptions = AutomationHost.Options()
     private lateinit var windowManager: WindowManager
@@ -96,51 +97,55 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             automationSetupModule.refresh()
         }
 
-        progress
-            .mapLatest { progressData ->
-                mainThread.post {
-                    val acv = controlView
-                    when {
-                        progressData == null && acv != null -> {
-                            log(TAG) { "Removing controlview: $acv" }
-                            try {
-                                windowManager.removeView(acv)
-                            } catch (e: Exception) {
-                                log(TAG, WARN) { "Failed to remove controlview, not added? $acv" }
-                            }
-                            controlView = null
+        combine(
+            progress,
+            screenState.state
+        ) { progressData, screenState ->
+            mainThread.post {
+                val acv = controlView
+                when {
+                    progressData == null && acv != null -> {
+                        log(TAG) { "Removing controlview: $acv" }
+                        try {
+                            windowManager.removeView(acv)
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed to remove controlview, not added? $acv" }
+                        }
+                        controlView = null
+                    }
+
+                    progressData != null && acv == null -> {
+                        log(TAG) { "Adding controlview" }
+                        val view = AutomationControlView(ContextThemeWrapper(this, R.style.AppTheme))
+                        log(TAG) { "Adding new controlview: $view" }
+                        view.setCancelListener {
+                            view.showOverlay(false)
+                            currentTaskJob?.cancel()
                         }
 
-                        progressData != null && acv == null -> {
-                            log(TAG) { "Adding controlview" }
-                            val view = AutomationControlView(ContextThemeWrapper(this, R.style.AppTheme))
-                            log(TAG) { "Adding new controlview: $view" }
-                            view.setCancelListener {
-                                view.showOverlay(false)
-                                currentTaskJob?.cancel()
-                            }
-
-                            try {
-                                windowManager.addView(view, controlLp)
-                                controlView = view
-                            } catch (e: Exception) {
-                                log(TAG, ERROR) { "Failed to add control view to window: ${e.asLog()}" }
-                            }
+                        try {
+                            windowManager.addView(view, controlLp)
+                            controlView = view
+                        } catch (e: Exception) {
+                            log(TAG, ERROR) { "Failed to add control view to window: ${e.asLog()}" }
                         }
+                    }
 
-                        acv != null -> {
-                            log(TAG, VERBOSE) { "Updating control view" }
-                            log(TAG, VERBOSE) { "Updating progress $progress" }
-                            acv.setProgress(progressData)
-                        }
+                    acv != null -> {
+                        log(
+                            TAG,
+                            VERBOSE
+                        ) { "Updating control view (isScreenAvailable=${screenState.isScreenAvailable})" }
+                        log(TAG, VERBOSE) { "Updating progress $progress" }
+                        acv.setProgress(if (screenState.isScreenAvailable) progressData else null)
+                    }
 
-                        else -> {
-                            log(TAG, VERBOSE) { "ControlView is $acv and progress is $progressData" }
-                        }
+                    else -> {
+                        log(TAG, VERBOSE) { "ControlView is $acv and progress is $progressData" }
                     }
                 }
             }
-            .launchIn(serviceScope)
+        }.launchIn(serviceScope)
     }
 
     override fun onInterrupt() {
