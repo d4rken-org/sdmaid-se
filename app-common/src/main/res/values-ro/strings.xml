@@ -23,6 +23,8 @@
     <string name="general_save_action">Salvează</string>
     <string name="general_thanks_action">Mulțumiri</string>
     <string name="general_gotit_action">Am înțeles</string>
+    <string name="general_fix_action">Repară</string>
+    <string name="general_set_up_action">Configurare</string>
     <string name="general_edit_action">Editează</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Gol</string>

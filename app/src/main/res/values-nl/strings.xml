@@ -110,6 +110,7 @@ dashboard_motd_titel</string>
     <string name="setup_shizuku_card_body2">Deze instelling heeft geen effect als de Shizuku-app niet is ingesteld op uw apparaat.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wachten op link met Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Gebruik Shizuku indien beschikbaar</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
     <string name="setup_permission_granted_label">Toestemming verleend</string>
@@ -119,6 +120,7 @@ dashboard_motd_titel</string>
     <string name="setup_notification_title">Meldingen</string>
     <string name="setup_notification_body">Sta SD Maid toe om meldingen te plaatsen om je te informeren over lopende operaties of belangrijke gebeurtenissen.</string>
     <string name="setup_notification_hint">Meldingen worden spaarzaam gebruikt 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Deze functie vereist voltooiing van extra installatie-items: %s</string>
     <string name="setup_acs_card_title">Toegankelijkheidsdienst</string>
     <string name="setup_acs_card_body">Met de toegankelijkheidsservice kan SD Maid communiceren met je scherm en vervelende acties automatiseren, bijv. klikken op \"Cache wissen\" op meerdere schermen.</string>
     <string name="setup_acs_card_body2">SD Maid zal de toegankelijkheidsservice niet gebruiken zonder je toestemming, zal altijd een prominente (annuleerbare) indicator weergeven wanneer deze actief is en zal deze niet gebruiken om informatie te verzamelen.</string>
@@ -296,6 +298,9 @@ dashboard_motd_titel</string>
     <string name="appcleaner_include_minimumsize_summary">Sla apps over waarbij de som van verbruiksgegevens onder het minimum ligt.</string>
     <string name="appcleaner_include_minimumage_label">Minimum leeftijd</string>
     <string name="appcleaner_include_minimumage_summary">Bestanden overslaan die jonger zijn dan de minimum leeftijd.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Detectie van besturingssysteem</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatisering op basis van toegankelijkheid kan mislukken als SD Maid je besturingssysteem niet correct herkent. Gebruik deze instelling om het gedetecteerde type te overschrijven.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automatisch (standaard)</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM-codecache. Blokken bytecode gecompileerd in native code.</string>
     <string name="appcleaner_filter_advertisement_label">Advertentie gegevens</string>
@@ -321,6 +326,7 @@ dashboard_motd_titel</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp ontving bestanden</string>
     <string name="appcleaner_filter_whatsapp_received_label">Bestanden die je van mensen hebt gekregen via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp heeft bestanden verzonden</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Bestanden verzonden vanuit WhatsApp naar anderen.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediabestanden</string>
     <string name="appcleaner_filter_telegram_summary">Bestanden ontvangen of verzonden via Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -371,6 +377,7 @@ dashboard_motd_titel</string>
     <string name="appcontrol_app_exclude_edit_title">Uitsluiting bewerken</string>
     <string name="appcontrol_app_exclude_edit_description">Deze app is momenteel uitgesloten van één of meer hulpprogramma\'s.</string>
     <string name="appcontrol_tag_user">Gebruiker</string>
+    <string name="appcontrol_tag_active">Sinds kort actief</string>
     <string name="appcontrol_tag_system">Systeem</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
@@ -475,6 +482,7 @@ dashboard_motd_titel</string>
     <string name="scheduler_schedule_time_label">Geschatte tijd</string>
     <string name="scheduler_schedule_repeat_label">Herhaal interval in dagen</string>
     <string name="scheduler_schedule_default_name">Standaard planning</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s rond %2$s</string>
     <string name="scheduler_schedule_next_at_x">Gepland voor %s</string>
     <string name="scheduler_schedule_last_at_x">Laatst uitgevoerd op %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -490,6 +498,9 @@ dashboard_motd_titel</string>
     <string name="scheduler_setting_charging_summary">Als het apparaat niet aan het opladen is, wordt de geplande uitvoering overgeslagen.</string>
     <string name="scheduler_setting_automation_title">Toegankelijkheidsdienst</string>
     <string name="scheduler_setting_automation_summary">Voeg acties toe die een toegankelijkheidsservice gebruiken. Dit vereist dat SD Maid kan communiceren met je scherm (dat wil zeggen dat het ontgrendeld is) wanneer de taken worden uitgevoerd.</string>
+    <string name="scheduler_notification_channel_label">Planner</string>
+    <string name="scheduler_notification_title">Geplande taak</string>
+    <string name="scheduler_notification_message">Wordt uitgevoerd: \"%s\"</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
     <string name="updates_dashcard_body">Een update is beschikbaar. Je hebt %1$s en de nieuwste versie is %2$s.</string>
     <string name="translation_encourage_title">Vertaal SD Maid</string>

@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Zahteva SD Maid SE Pro.</string>
+    <string name="upgrades_dashcard_title">Nadgradi SD Maid</string>
+    <string name="upgrades_dashcard_body">Odklenite dodatne funkcije in postanite pokrovitelj, da podprete nadaljnji razvoj!</string>
+    <string name="upgrades_dashcard_upgrade_action">Nadgradi</string>
+    <string name="upgrade_screen_title">Izboljšaj SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid ne vsebuje oglasov in ne prodaja uporabniških podatkov.  Nadaljnji razvoj omogočajo samo uporabniki, kot ste vi.</string>
+    <string name="upgrade_screen_how_title">Kako pomagati.</string>
+    <string name="upgrade_screen_how_body">Postanite pokrovitelj in prispevajte k razvoju!  Dotaknite se spodnjega gumba, da omogočite dodatne funkcije in odprete moj pokroviteljski profil na GitHubu.</string>
+    <string name="upgrade_screen_why_title">To pričara 🪄</string>
+    <string name="upgrade_screen_why_body">• Možnost brisanja v čistilcu programov 💯\n• opravila po urniku ⏰\n• dodatne možnosti v vseh orodjih ⚙️\n• lastna pravila brisanja ✍️\n• motiviran razvijalec 🧙\nin več …</string>
+    <string name="upgrade_screen_sponsor_action">Podpri razvoj</string>
+    <string name="upgrade_screen_sponsor_action_hint">Druga možnost so oglasi, analitika in Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Hvala, ker podpirate odprtokodni razvoj. ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Skupaj smo dosegli prvo izdajo!  Hvala, ker mi pomagate pri preizkušanju!  Razvoj se bo seveda nadaljeval, vendar sedaj lahko preklopite na običajne izgradnje.  To lahko naredite tako, da si prenesete najnovejšo stabilno izdajo.</string>
+    <string name="nudge_betagoodbye_hint">Majhna opomba: ocene, ki so bile podane med preizkušanjem, vidim samo jaz.  Če vam je SD Maid všeč, bi bil hvaležen, če bi mu dali javno oceno.</string>
+    <string name="nudge_betagoodbye_positive_action">Prenehaj s preizkušanjem</string>
+    <string name="nudge_betagoodbye_negative_action">Preizkušaj še naprej</string>
+</resources>

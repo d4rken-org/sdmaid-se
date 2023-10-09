@@ -127,6 +127,7 @@
     <string name="setup_notification_title">الإشعارات</string>
     <string name="setup_notification_body">اسمح لـ SD Maid بنشر إشعارات لإبلاغك بالعمليات الجارية أو الأحداث المهمة.</string>
     <string name="setup_notification_hint">يتم استخدام الإخطارات باعتدال 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
     <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
     <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
     <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>
@@ -320,6 +321,9 @@
     <string name="appcleaner_include_minimumsize_summary">تخطي التطبيقات التي يقل فيها مجموع البيانات المستهلكة عن الحد الأدنى.</string>
     <string name="appcleaner_include_minimumage_label">الحد الأدنى للسن</string>
     <string name="appcleaner_include_minimumage_summary">تخطي الملفات التي هي أصغر من الحد الأدنى للعمر.</string>
+    <string name="appcleaner_automation_romtype_detection_label">كشف نظام التشغيل</string>
+    <string name="appcleaner_automation_romtype_detection_summary">قد تفشل الأتمتة القائمة على إمكانية الوصول إذا لم يكتشف SD Maid نظام التشغيل الخاص بك بشكل صحيح. استخدم هذا الإعداد لتجاوز النوع المكتشف.</string>
+    <string name="appcleaner_automation_romtype_auto_label">تلقائي (افتراضي)</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
     <string name="appcleaner_filter_advertisement_label">بيانات الإعلان</string>
@@ -345,6 +349,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">ملفات وأتساب المستلمة</string>
     <string name="appcleaner_filter_whatsapp_received_label">الملفات التي استقبلتها من الناس عبر WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من واتساب للآخرين.</string>
     <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
     <string name="appcleaner_filter_telegram_summary">الملفات التي تم استلامها أو إرسالها عبر Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -524,6 +529,7 @@
     <string name="scheduler_schedule_time_label">وقت تقريبي</string>
     <string name="scheduler_schedule_repeat_label">كرر الفاصل في أيام</string>
     <string name="scheduler_schedule_default_name">الجدول الزمني الافتراضي</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s حول %2$s</string>
     <string name="scheduler_schedule_next_at_x">مجدول لـ %s</string>
     <string name="scheduler_schedule_last_at_x">أخز تنفيذ له في %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -543,6 +549,9 @@
     <string name="scheduler_setting_charging_summary">إذا لم يتم شحن الجهاز، سيتم تخطي التنفيذ المجدول.</string>
     <string name="scheduler_setting_automation_title">خدمة إمكانية الوصول</string>
     <string name="scheduler_setting_automation_summary">تشمل الإجراءات التي تستخدم خدمة الوصول. وهذا يتطلب أن SD Maidيمكن أن تتفاعل مع الشاشة الخاصة بك (أي أنها غير مقفلة) عند تنفيذ المهام.</string>
+    <string name="scheduler_notification_channel_label">الجدولة</string>
+    <string name="scheduler_notification_title">المهام المجدولة</string>
+    <string name="scheduler_notification_message">جارٍ التنفيذ: \"%s\"</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
     <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
     <string name="translation_encourage_title">ترجمة SD Maid</string>

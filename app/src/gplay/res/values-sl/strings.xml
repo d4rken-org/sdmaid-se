@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Zahteva SD Maid SE Pro.</string>
+    <string name="upgrades_dashcard_title">Nadgradi SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro nudi boljše rezultate, več funkcij in možnosti za napredne uporabnike.</string>
+    <string name="upgrades_dashcard_upgrade_action">Nadgradi</string>
+    <string name="upgrades_gplay_unavailable_error">Storitve Google Play niso na voljo.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nakup ni bil najden.  Ali uporabljate pravi račun?</string>
+    <string name="upgrade_screen_title">Dobi SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid je brez oglasov in ne prodaja uporabniških podatkov.  Moje delo financirajo uporabniki. ❤️</string>
+    <string name="upgrade_screen_benefits_title">Prednosti</string>
+    <string name="upgrade_screen_benefits_body">• Čiščenje programov 💯\n• opravila po urniku ⏰\n• dodatne možnosti v vseh orodjih ⚙️\n• lastna pravila brisanja ✍️\n• motiviran razvijalec 🧙\nin več …</string>
+    <string name="upgrade_screen_how_title">Možnosti</string>
+    <string name="upgrade_screen_how_body">Izbirate lahko med enkratnim nakupom in cenejšo letno naročnino.\nNaročnina se začne z brezplačnim 14-dnevnim preizkusom, nakar vam zaračunam enkrat na leto.  Preizkus in naročnino lahko kadarkoli prekličete.\nIste funkcije, samo različni načini plačevanja.</string>
+    <string name="upgrade_screen_subscription_trial_action">Začni 14-dnevni preizkus</string>
+    <string name="upgrade_screen_subscription_action">Naroči se</string>
+    <string name="upgrade_screen_subscription_action_hint">Naročnina stane %s na leto.</string>
+    <string name="upgrade_screen_iap_action">Enkratni nakup</string>
+    <string name="upgrade_screen_iap_action_hint">Enkratni nakup stane %s.</string>
+    <string name="upgrade_screen_thanks_toast">Hvala! ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Skupaj smo dosegli prvo izdajo!  Hvala, ker mi pomagate!  Razvoj se bo seveda nadaljeval, vendar sedaj lahko preklopite, če želite, na bolj stabilne izgradnje.  To lahko naredite tako, da zapustite preizkušanje na Googlu Play.</string>
+    <string name="nudge_betagoodbye_hint">Majhna opomba: ocene, ki so bile podane med preizkušanjem, vidim samo jaz.  Če vam je SD Maid všeč, bi bil hvaležen, če bi mu dali javno oceno.</string>
+    <string name="nudge_betagoodbye_positive_action">Prenehaj s preizkušanjem</string>
+    <string name="nudge_betagoodbye_negative_action">Preizkušaj še naprej</string>
+</resources>

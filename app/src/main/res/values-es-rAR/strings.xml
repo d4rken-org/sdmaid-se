@@ -109,6 +109,7 @@
     <string name="setup_shizuku_card_body2">Este ajuste no tiene ningún efecto si la aplicación Shizuku no está configurada en tu dispositivo.</string>
     <string name="setup_shizuku_state_ready_label">La vinculación a Shizuku está lista.</string>
     <string name="setup_shizuku_state_waiting_label">Esperando la vinculación a Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Usar Shizuku si está disponible</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No usar Shizuku</string>
     <string name="setup_dismiss_hint">Podés volver a encontrar la pantalla de configuración mediante el menú de la configuración.</string>
     <string name="setup_permission_granted_label">Permiso concedido</string>
@@ -118,6 +119,7 @@
     <string name="setup_notification_title">Notificaciones</string>
     <string name="setup_notification_body">Permití a SD Maid enviarte notificaciones para informarte sobre operaciones en segundo plano o eventos importantes.</string>
     <string name="setup_notification_hint">Las notificaciones se usan poco 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Esta característica requiere completar elementos de instalación adicionales: %s</string>
     <string name="setup_acs_card_title">Servicio de accesibilidad</string>
     <string name="setup_acs_card_body">El servicio de accesibilidad permite que SD Maid interactúe con su pantalla y automatice acciones tediosas como, por ejemplo, pulsar \"Borrar caché\" en varias pantallas.</string>
     <string name="setup_acs_card_body2">SD Maid no usará el Servicio de accesibilidad sin tu consentimiento, siempre se mostrará un indicador (cancelable) prominente mientras está activo y no se usará para recolectar información.</string>
@@ -295,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Omite las aplicaciones cuya suma de datos prescindibles esté por debajo del mínimo.</string>
     <string name="appcleaner_include_minimumage_label">Edad mínima</string>
     <string name="appcleaner_include_minimumage_summary">Omitir archivos que sean menores de la edad mínima.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Detección del sistema operativo</string>
+    <string name="appcleaner_automation_romtype_detection_summary">La automatización basada en la accesibilidad puede fallar si SD Maid no detecta tu sistema operativo correctamente. Usa este ajuste para invalidar el detectado.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automático (por defecto)</string>
     <string name="appcleaner_filter_codecache_label">Caché de código</string>
     <string name="appcleaner_filter_codecache_summary">Caché de código JVM. Bloques de bytecode compilados en código nativo.</string>
     <string name="appcleaner_filter_advertisement_label">Datos de publicidad</string>
@@ -320,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Archivos recibidos de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Archivos que recibiste de otras personas a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Archivos enviados de WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Archivos enviados desde WhatsApp a otros.</string>
     <string name="appcleaner_filter_telegram_label">Archivos multimedia de Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Archivos recibidos o enviados a través de Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -370,6 +376,7 @@
     <string name="appcontrol_app_exclude_edit_title">Editar exclusión</string>
     <string name="appcontrol_app_exclude_edit_description">Esta aplicación actualmente está excluida de una o más herramientas.</string>
     <string name="appcontrol_tag_user">Usuario</string>
+    <string name="appcontrol_tag_active">Activo recientemente</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Activado</string>
     <string name="appcontrol_tag_disabled">Desactivado</string>
@@ -474,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Tiempo aproximado</string>
     <string name="scheduler_schedule_repeat_label">Intervalo de repetición en días</string>
     <string name="scheduler_schedule_default_name">Horario por defecto</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s alrededor de %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planeado por %s</string>
     <string name="scheduler_schedule_last_at_x">Última ejecución a las %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -489,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Si el dispositivo no está cargando, la ejecución planeada se va a saltear.</string>
     <string name="scheduler_setting_automation_title">Servicio de accesibilidad</string>
     <string name="scheduler_setting_automation_summary">Incluye acciones que utilicen un servicio de accesibilidad. Esto requiere que SD Maid pueda interactuar con tu pantalla (es decir, que esté desbloqueada) cuando se ejecuten las tareas.</string>
+    <string name="scheduler_notification_channel_label">Planificador</string>
+    <string name="scheduler_notification_title">Tarea programada</string>
+    <string name="scheduler_notification_message">Ejecutando: \"%s\"</string>
     <string name="updates_dashcard_title">Actualización disponible</string>
     <string name="updates_dashcard_body">Una actualización está disponible. Tenés la versión %1$s y la última versión es %2$s.</string>
     <string name="translation_encourage_title">Traducí SD Maid</string>

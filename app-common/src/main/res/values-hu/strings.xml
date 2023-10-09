@@ -23,6 +23,8 @@
     <string name="general_save_action">Mentés</string>
     <string name="general_thanks_action">Köszönöm</string>
     <string name="general_gotit_action">Megvan</string>
+    <string name="general_fix_action">Javítás</string>
+    <string name="general_set_up_action">Beállítás</string>
     <string name="general_edit_action">Szerkesztés</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Üres</string>
