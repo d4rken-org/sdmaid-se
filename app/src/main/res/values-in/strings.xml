@@ -30,10 +30,10 @@
     <string name="onboarding_welcome_body_beta">Aplikasi ini dalam tahap beta (uji coba). Jangan terlalu serius saat memakainya dan buatlah cadangan. Laporkan masalah-masalah yang Anda temui.</string>
     <string name="onboarding_welcome_continue_action">Lanjut</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Ini adalah aplikasi baru, yang dioptimalkan untuk versi Android terbaru.</string>
+    <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Sebuah aplikasi baru, yang dioptimalkan untuk versi Android terbaru.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
-    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat ditransfer ke SD Maid 2/SE. Setelah 12 tahun update gratis, diperlukan pembelian baru untuk mendukung pengembangan aplikasi (membiayai developer).</string>
+    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat dipindah ke SD Maid 2/SE. Setelah 12 tahun update gratis, diperlukan pembelian baru untuk mendukung pengembangan aplikasi (membiayai developer).</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
     <string name="onboarding_privacy_title">Privasi</string>
     <string name="onboarding_privacy_body1">SD Maid tidak memiliki iklan dan tidak menjual data pengguna.</string>
@@ -67,9 +67,9 @@
     <string name="ui_theme_style_default_label">Bawaan</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pratinjau berkas</string>
-    <string name="ui_previews_summary">Tampilkan tinjauan berkas di semua peralatan (seperti tinjauan gambar dan video).</string>
+    <string name="ui_previews_summary">Tampilkan pratinjau berkas di semua peralatan (seperti pratinjau gambar dan video).</string>
     <string name="settings_support_label">Bantuan</string>
-    <string name="settings_support_description">Baca dokumentasi, isu laporan, chat dengan orang lain atau riwayat rekaman debug.</string>
+    <string name="settings_support_description">Baca dokumentasi, laporan masalah, mengobrol dengan orang lain atau merekam debug logs.</string>
     <string name="documentation_label">Dokumentasi</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug dan permintaan fitur.</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
@@ -103,11 +103,11 @@
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada perangkat yang di-root. Jika Anda belum melakukan pengubahan, maka perangkat Anda belum di-root dan pengaturan ini tidak berpengaruh.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika diperlukan untuk mendapatkan hasil yang lebih baik dan menyalakan fitur-fitur tertentu.</string>
+    <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika memungkinkan untuk mendapatkan hasil yang lebih baik dan menyalakan fitur-fitur tertentu.</string>
     <string name="setup_shizuku_card_body2">Pengaturan ini tidak berpengaruh jika aplikasi Shizuku tidak dipasang pada perangkat Anda.</string>
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Pakai Shizuku jika tersedia</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku jika tersedia</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
     <string name="setup_permission_granted_label">Izin diberikan</string>
@@ -140,7 +140,7 @@
     <string name="debug_mode_label">Mode debug</string>
     <string name="debug_mode_explanation">Aktifkan opsi pengujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih lambat dan bekerja secara berbeda.</string>
     <string name="debug_bugreporter_label">Laporan bug otomatis</string>
-    <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti rincian aplikasi saat tidak merespons sehingga saya bisa cepat menemukan masalahnya dan memperbaikinya.</string>
+    <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti detail aplikasi saat tidak merespons sehingga saya bisa cepat menemukan masalahnya dan memperbaikinya.</string>
     <string name="settings_category_tools_label">Peralatan</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Tingkat risiko</string>
@@ -156,10 +156,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Menghapus otomatis</string>
     <string name="corpsefinder_watcher_autodelete_summary">Secara otomatis menghapus sisa-sisa yang terkait dengan aplikasi yang dihapus.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="other">%1$d sisa ditemukan setelah mencopot %2$s.</item>
+        <item quantity="other">%1$d sisa ditemukan setelah menghapus %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="other">Pembersihan berhasil (%1$s): Membebaskan %2$s dan menghapus %3$d item.</item>
+        <item quantity="other">Pembersihan berhasil dilakukan (%1$s): Membebaskan %2$s dan menghapus %3$d objek.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Hapus sisa-sisa</string>
     <string name="corpsefinder_filter_publicmedia_label">Media umum</string>
@@ -216,7 +216,7 @@
     <string name="systemcleaner_filter_linuxfiles_label">Berkas Linux</string>
     <string name="systemcleaner_filter_linuxfiles_summary">Berkas dan folder yang dibuat ketika penyimpanan dihubungkan dengan komputer Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Berkas dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Finder Apple.</string>
+    <string name="systemcleaner_filter_macfiles_summary">Berkas dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data berkas yang dibuat Windows Explorer sewaktu perangkat terhubung. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
@@ -235,7 +235,7 @@
     <string name="systemcleaner_filter_logdropbox_summary">Tempat sistem untuk menyimpan berkas log.</string>
     <string name="systemcleaner_filter_recenttasks_label">Tugas terkini</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data yang berhubungan dengan riwayat tugas pada pengalih tugas sistem.</string>
-    <string name="systemcleaner_filter_tombstones_label">Sisa crash sistem</string>
+    <string name="systemcleaner_filter_tombstones_label">Sisa kerusakan sistem</string>
     <string name="systemcleaner_filter_tombstones_summary">Jika sebuah proses mengalami crash (misalnya permainan), maka berkasnya dibuat disini.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistik penggunaan</string>
     <string name="systemcleaner_filter_usagestats_summary">Berkas yang berhubungan dengan statistik penggunaan aplikasi.</string>
@@ -246,7 +246,7 @@
     <string name="systemcleaner_editor_remove_confirmation_message">Hapus filter ini?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">Anda punya perubahan yang belum tersimpan!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
-    <string name="systemcleaner_customfilter_editor_warning">Filter khusus bisa berisiko. Periksa hasil pemindaian sebelum menghapus!</string>
+    <string name="systemcleaner_customfilter_editor_warning">Filter khusus bisa berisiko. Periksa hasil pemindaian sebelum dihapus!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Area data</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Jika tidak ada area yang dipilih, maka semua area data yang bisa diakses akan dipindai dan dicocokkan.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Batasan tipe berkas</string>
@@ -258,7 +258,7 @@
     <string name="systemcleaner_customfilter_editor_name_label">Kriteria nama</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">Nama target harus mengandung setidaknya satu kata kunci (seperti \"-resep\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasilnya akan dikecualikan jika jalur berkasnya cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entrinya untuk melihat lebih banyak pilihan.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur berkas cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode perbandingan jalur</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jalur dimulai dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jalur mengandung kata kunci</string>
@@ -271,23 +271,23 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nama sama dengan kata kunci</string>
     <string name="systemcleaner_customfilter_last_edit">Terakhir disunting: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Pencarian Langsung</string>
-    <string name="systemcleaner_customfilter_import_action">Impor penyaring baru</string>
-    <string name="systemcleaner_customfilter_export_action">Ekspor penyaring tertentu</string>
+    <string name="systemcleaner_customfilter_import_action">Impor filter baru</string>
+    <string name="systemcleaner_customfilter_export_action">Ekspor filter yang dipilih</string>
     <string name="appcleaner_tool_name">Pembersih Aplikasi</string>
     <string name="appcleaner_explanation_short">Data yang bisa dihapus milik aplikasi tertentu.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache publik bawaan</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi publik default. Dapat diakses di bawah Android/data pada versi Android yang lebih lama. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi publik bawaan. Dapat diakses di Android/data pada versi Android yang lebih lama. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache privat bawaan</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi pribadi default. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi pribadi bawaan. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
-    <string name="appcleaner_include_runningapps_summary">Menyertakan aplikasi yang sedang berjalan dapat menyebabkan gangguan.</string>
-    <string name="appcleaner_include_inaccessible_label">Sertakan tembolok yang tidak bisa diakses</string>
+    <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi yang sedang berjalan yang mungkin menyebabkan gangguan.</string>
+    <string name="appcleaner_include_inaccessible_label">Sertakan cache yang tidak bisa diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Menyertakan data yang tidak bisa diakses langsung namun dapat dihapus melalui pengaturan sistem dan diotomatisasi menggunakan layanan aksesibilitas. </string>
     <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
-    <string name="appcleaner_include_minimumsize_label">Ukuran minimal</string>
+    <string name="appcleaner_include_minimumsize_label">Ukuran minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Lewati aplikasi dimana jumlah data yang dapat dihapus di bawah batas minimum.</string>
     <string name="appcleaner_include_minimumage_label">Umur minimal</string>
     <string name="appcleaner_include_minimumage_summary">Atur umur minimal berkas.</string>

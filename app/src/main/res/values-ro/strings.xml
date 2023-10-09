@@ -111,6 +111,7 @@
     <string name="setup_shizuku_card_body2">Această setare nu are efect dacă aplicația Shizuku nu este configurată pe dispozitivul dvs.</string>
     <string name="setup_shizuku_state_ready_label">Link-ul Shizuku este gata.</string>
     <string name="setup_shizuku_state_waiting_label">Se așteaptă legătura cu Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utilizați Shizuku dacă este disponibil</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nu utiliza Shizuku</string>
     <string name="setup_dismiss_hint">Poți căuta partea de configurare din nou în meniul de setări.</string>
     <string name="setup_permission_granted_label">Permisiune acordată</string>
@@ -120,6 +121,7 @@
     <string name="setup_notification_title">Notificări</string>
     <string name="setup_notification_body">Acordă SD Maid de-a posta notificări pentru a te informa despre operații în curs de desfășurare sau evenimente importante.</string>
     <string name="setup_notification_hint">Notificările sunt folosite cu moderație 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor de configurare suplimentare: %s</string>
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
     <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interacționa cu ecranul tău și a automatiza acțiuni complexe, de ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>
@@ -301,6 +303,9 @@
     <string name="appcleaner_include_minimumsize_summary">Sari peste aplicațiile care suma de date consumabile este sub minimum.</string>
     <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
     <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Detectarea sistemului de operare</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatizarea bazată pe accesibilitate poate eşua dacă SD Maid nu detectează corect sistemul de operare. Utilizaţi această setare pentru a suprascrie tipul detectat.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automat (implicit)</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>
     <string name="appcleaner_filter_advertisement_label">Date de la reclame</string>
@@ -326,6 +331,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Fișiere WhatsApp primite</string>
     <string name="appcleaner_filter_whatsapp_received_label">Fişiere primite de la persoane prin WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fișiere WhatsApp trimise</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Fişiere trimise din WhatsApp către alţii.</string>
     <string name="appcleaner_filter_telegram_label">Fișiere media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fișiere primite sau trimise prin Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -379,6 +385,7 @@
     <string name="appcontrol_app_exclude_edit_title">Editează excluderea</string>
     <string name="appcontrol_app_exclude_edit_description">Această aplicație este în prezent exclusă de la una sau mai multe instrumente.</string>
     <string name="appcontrol_tag_user">Utilizator</string>
+    <string name="appcontrol_tag_active">Activ recent</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Activat</string>
     <string name="appcontrol_tag_disabled">Dezactivat</string>
@@ -486,6 +493,7 @@
     <string name="scheduler_schedule_time_label">Timp aproximativ</string>
     <string name="scheduler_schedule_repeat_label">Repetă intervalul în zile</string>
     <string name="scheduler_schedule_default_name">Program implicit</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s în jurul lui %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planificat pentru %s</string>
     <string name="scheduler_schedule_last_at_x">Ultimul executat la %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -502,6 +510,9 @@
     <string name="scheduler_setting_charging_summary">Dacă dispozitivul nu se încarcă, execuția programată va fi omisă.</string>
     <string name="scheduler_setting_automation_title">Serviciul de accesibilitate</string>
     <string name="scheduler_setting_automation_summary">Include acțiuni care utilizează un serviciu de accesibilitate. Acest lucru necesită ca ajutorul SD să poată interacționa cu ecranul (adică, este deblocat) atunci când sarcinile sunt executate.</string>
+    <string name="scheduler_notification_channel_label">Programator</string>
+    <string name="scheduler_notification_title">Sarcina programată</string>
+    <string name="scheduler_notification_message">Executare: \"%s\"</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
     <string name="updates_dashcard_body">O actualizare este disponibilă. Tu ai %1$s și ultima versiune este %2$s.</string>
     <string name="translation_encourage_title">Traduce SD Maid</string>

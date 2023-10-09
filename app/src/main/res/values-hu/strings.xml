@@ -109,6 +109,7 @@
     <string name="setup_shizuku_card_body2">Ez a beállítás nincs hatással, ha a Shizuku alkalmazás nincs beállítva a készüléken.</string>
     <string name="setup_shizuku_state_ready_label">A Shizuku link készen áll.</string>
     <string name="setup_shizuku_state_waiting_label">Várakozás a Shizuku-val való kapcsolatfelvételre.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku használata, ha lehetséges</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
     <string name="setup_permission_granted_label">Hozzáférés megadva</string>
@@ -118,6 +119,7 @@
     <string name="setup_notification_title">Értesítések</string>
     <string name="setup_notification_body">Engedélyezze az SD Maid számára, hogy értesítéseket tegyen közzé a folyamatban lévő műveletekről vagy fontos eseményekről.</string>
     <string name="setup_notification_hint">Az értesítéseket takarékosan használjuk 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
     <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>
@@ -295,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Hagyja ki azokat az alkalmazásokat, amelyekben a felhasználható adatok összege a minimum alatt van.</string>
     <string name="appcleaner_include_minimumage_label">Minimális kor</string>
     <string name="appcleaner_include_minimumage_summary">A minimális életkornál fiatalabb fájlok kihagyása.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Operációs rendszer észlelés</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Az akadálymentesítésen alapuló automatizálás sikertelen lehet, ha az SD Maid nem ismeri fel helyesen az operációs rendszert. Ezzel a beállítással felülbírálhatja az észlelt típust.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automatikus (alapbeállítás)</string>
     <string name="appcleaner_filter_codecache_label">Kód gyorsítótár</string>
     <string name="appcleaner_filter_codecache_summary">JVM kód gyorsítótár. Bájtkód blokkok natív kódba fordítva.</string>
     <string name="appcleaner_filter_advertisement_label">Hirdetési adatok</string>
@@ -320,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp érkezett fájlok</string>
     <string name="appcleaner_filter_whatsapp_received_label">Az emberektől WhatsAppon keresztül kapott fájlok.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp elküldött fájlok</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppról másoknak küldött fájlok.</string>
     <string name="appcleaner_filter_telegram_label">Telegram médiafájlok</string>
     <string name="appcleaner_filter_telegram_summary">Telegramon keresztül fogadott vagy elküldött fájlok.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -370,6 +376,7 @@
     <string name="appcontrol_app_exclude_edit_title">Kizárás szerkesztése</string>
     <string name="appcontrol_app_exclude_edit_description">Ez az alkalmazás jelenleg ki van zárva egy vagy több eszközből.</string>
     <string name="appcontrol_tag_user">Felhasználó</string>
+    <string name="appcontrol_tag_active">Nemrég aktív</string>
     <string name="appcontrol_tag_system">Rendszer</string>
     <string name="appcontrol_tag_enabled">Engedélyezve</string>
     <string name="appcontrol_tag_disabled">Letiltva</string>
@@ -474,6 +481,7 @@
     <string name="scheduler_schedule_time_label">Hozzávetőleges idő</string>
     <string name="scheduler_schedule_repeat_label">Ismétlődési időköz napokban mérve</string>
     <string name="scheduler_schedule_default_name">Alapértelmezett ütemezés</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s körül %2$s</string>
     <string name="scheduler_schedule_next_at_x">A tervezett időpont: %s</string>
     <string name="scheduler_schedule_last_at_x">Utoljára végrehajtva: %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -489,6 +497,9 @@
     <string name="scheduler_setting_charging_summary">Ha az eszköz nem töltődik, az ütemezett végrehajtás kimarad.</string>
     <string name="scheduler_setting_automation_title">Kisegítő lehetőségek</string>
     <string name="scheduler_setting_automation_summary">Tartalmazza az akadálymentesítési szolgáltatást használó műveleteket. Ehhez az szükséges, hogy az SD Maid a feladatok végrehajtásakor interakcióba léphessen a képernyővel (azaz az fel legyen oldva).</string>
+    <string name="scheduler_notification_channel_label">Ütemező</string>
+    <string name="scheduler_notification_title">Ütemezett terv</string>
+    <string name="scheduler_notification_message">Végrehajtás: \"%s\"</string>
     <string name="updates_dashcard_title">Frissítés elérhető</string>
     <string name="updates_dashcard_body">Frissítés elérhető. Önnek %1$s van, a legújabb verzió pedig %2$s.</string>
     <string name="translation_encourage_title">Az SD Maid fordítása</string>

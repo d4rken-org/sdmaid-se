@@ -23,6 +23,8 @@
     <string name="general_save_action">Opslaan</string>
     <string name="general_thanks_action">Bedankt</string>
     <string name="general_gotit_action">Begrepen</string>
+    <string name="general_fix_action">Repareren</string>
+    <string name="general_set_up_action">Instellen</string>
     <string name="general_edit_action">Bewerken</string>
     <string name="general_na_label">NVT</string>
     <string name="general_empty_label">Leeg</string>

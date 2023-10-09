@@ -123,7 +123,7 @@
     <string name="setup_notification_title">Oznámení</string>
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších nastavení: %s</string>
+    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
     <string name="setup_acs_card_title">Služba přístupnosti</string>
     <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. klepnutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>
@@ -337,7 +337,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Přijaté soubory WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Soubory, které jste obdrželi od osob prostřednictvím aplikace WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Odeslané soubory WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Soubory odeslané ostatním z aplikace WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Soubory odeslané z aplikace WhatsApp ostatním.</string>
     <string name="appcleaner_filter_telegram_label">Soubory médií Telegramu</string>
     <string name="appcleaner_filter_telegram_summary">Soubory přijaté nebo odeslané prostřednictvím aplikace Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -505,6 +505,7 @@
     <string name="scheduler_schedule_time_label">Přibližný čas</string>
     <string name="scheduler_schedule_repeat_label">Interval opakování ve dnech</string>
     <string name="scheduler_schedule_default_name">Výchozí plán</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s kolem %2$s</string>
     <string name="scheduler_schedule_next_at_x">Naplánováno na %s</string>
     <string name="scheduler_schedule_last_at_x">Poslední spuštění v/ve %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">

@@ -19,11 +19,11 @@
     <string name="general_wipe_action">Bersihkan</string>
     <string name="general_cancel_action">Batal</string>
     <string name="general_discard_action">Buang</string>
-    <string name="general_reset_action">Setel ulang</string>
+    <string name="general_reset_action">Mengatur ulang</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Mengerti</string>
-    <string name="general_fix_action">Perbaiki</string>
+    <string name="general_fix_action">Memperbaiki</string>
     <string name="general_set_up_action">Atur</string>
     <string name="general_edit_action">Ubah</string>
     <string name="general_na_label">N/A</string>
@@ -67,7 +67,7 @@
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <string name="general_result_failure_message">Pekerjaan gagal</string>
     <string name="general_result_x_space_freed">%s dibebaskan</string>
-    <string name="general_options_label">Pilihan</string>
+    <string name="general_options_label">Opsi</string>
     <string name="general_details_label">Detail</string>
     <string name="general_view_action">Lihat</string>
     <string name="general_update_action">Perbarui</string>
@@ -78,14 +78,14 @@
     <string name="general_show_all_action">Tampilkan semua</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d butir terpilih?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d objek yang dipilih?</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">Menghapus %1$d item dan membebaskan %2$s</item>
+        <item quantity="other">Menghapus %1$d objek dan membebaskan %2$s</item>
     </plurals>
     <string name="general_remove_action">Hapus</string>
     <string name="general_remove_selected_action">Hapus yang dipilih</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="other">%d barang dihapus</item>
+        <item quantity="other">%d barang telah dihapus</item>
     </plurals>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan perangkat yang di-root</string>
