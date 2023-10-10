@@ -53,7 +53,7 @@ class SAFGateway @Inject constructor(
      * SAFDocFiles need require a treeUri that actually gives us access though, i.e. the closet SAF permission we have.
      */
     private fun findDocFile(file: SAFPath): SAFDocFile {
-        val match = file.matchPermission(contentResolver.persistedUriPermissions)
+        val match = file.findPermission(contentResolver.persistedUriPermissions)
 
         if (match == null) {
             log(TAG, VERBOSE) { "No UriPermission match for $file" }
