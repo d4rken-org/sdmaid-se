@@ -148,13 +148,14 @@ class SAFSetupModule @Inject constructor(
                     val viableTargets = mutableListOf<LocalPath>()
 
                     // The newer `Files` app if updates through Google Play system updates, no longer supports selecting this
+                    // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DocumentsUI/src/com/android/documentsui/picker/ActionHandler.java;l=84;bpv=1;bpt=0;drc=901f1d6044aade190bb943ccc18d26244132648e;dlc=306a2b606a1f01498d2d83a1d8362962f114e6e8
                     if ((documentsPkg?.targetSdkVersion ?: 0) < 34) {
                         viableTargets.add(baseDir.child("Android", "data"))
+                        viableTargets.add(baseDir.child("Android", "obb"))
                     }
-                    viableTargets.add(baseDir.child("Android", "obb"))
 
                     // We don't need extra permission for this AFAIK
-//                    viableTargets.add(baseDir.child("Android", "media"))
+                    // viableTargets.add(baseDir.child("Android", "media"))
 
                     viableTargets
                 }
@@ -169,7 +170,6 @@ class SAFSetupModule @Inject constructor(
 
                     val matchedPermission = safPath.matchPermission(currentUriPerms)
 
-                    // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DocumentsUI/src/com/android/documentsui/picker/ActionHandler.java;l=84;bpv=1;bpt=0;drc=901f1d6044aade190bb943ccc18d26244132648e;dlc=306a2b606a1f01498d2d83a1d8362962f114e6e8
                     val grantIntentSDMOg = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
                         putExtra("android.content.extra.SHOW_ADVANCED", true)
 
