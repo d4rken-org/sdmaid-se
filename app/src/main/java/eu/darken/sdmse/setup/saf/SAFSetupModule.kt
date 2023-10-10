@@ -28,6 +28,8 @@ import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.matchPermission
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
@@ -39,6 +41,7 @@ import kotlinx.coroutines.flow.mapLatest
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class SAFSetupModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -49,6 +52,7 @@ class SAFSetupModule @Inject constructor(
     private val dataAreaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val deviceDetective: DeviceDetective,
+    private val pkgOps: PkgOps,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -136,13 +140,23 @@ class SAFSetupModule @Inject constructor(
          * On Android 13 this trick no longer works :(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
+            val documentsPkg = pkgOps.queryAppInfos("com.google.android.documentsui".toPkgId())
+            log(TAG) { "Files-DocumentsUI: $documentsPkg" }
+
             storageEnvironment.externalDirs
-                .map {
-                    listOf(
-                        it.child("Android", "data"),
-                        it.child("Android", "obb"),
-//                        it.child("Android", "media"),
-                    )
+                .map { baseDir ->
+                    val viableTargets = mutableListOf<LocalPath>()
+
+                    // The newer `Files` app if updates through Google Play system updates, no longer supports selecting this
+                    if ((documentsPkg?.targetSdkVersion ?: 0) < 34) {
+                        viableTargets.add(baseDir.child("Android", "data"))
+                    }
+                    viableTargets.add(baseDir.child("Android", "obb"))
+
+                    // We don't need extra permission for this AFAIK
+//                    viableTargets.add(baseDir.child("Android", "media"))
+
+                    viableTargets
                 }
                 .flatten()
                 .filter { it.exists(gatewaySwitch) }
@@ -155,16 +169,19 @@ class SAFSetupModule @Inject constructor(
 
                     val matchedPermission = safPath.matchPermission(currentUriPerms)
 
-                    val grantIntent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+                    // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DocumentsUI/src/com/android/documentsui/picker/ActionHandler.java;l=84;bpv=1;bpt=0;drc=901f1d6044aade190bb943ccc18d26244132648e;dlc=306a2b606a1f01498d2d83a1d8362962f114e6e8
+                    val grantIntentSDMOg = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
                         putExtra("android.content.extra.SHOW_ADVANCED", true)
-                        val navigationUri = safPath.pathUri.buildUpon().apply {
-                            path("")
-                            appendPath("document")
-                            safPath.pathUri.pathSegments.drop(1).forEach {
-                                appendPath(it)
-                            }
-                        }.build()
-                        putExtra(DocumentsContract.EXTRA_INITIAL_URI, navigationUri)
+
+                        // Works on Android 12, but not some devices with newer security patches
+                        // content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata/document/primary%3AAndroid%2Fdata
+                        val navTreeUri = DocumentsContract.buildDocumentUriUsingTree(
+                            safPath.pathUri,
+                            DocumentsContract.getTreeDocumentId(safPath.pathUri)
+                        )
+                        log(TAG) { "NAV-TREE-URI: $navTreeUri" }
+
+                        putExtra(DocumentsContract.EXTRA_INITIAL_URI, navTreeUri)
                     }
 
                     State.PathAccess(
@@ -172,7 +189,7 @@ class SAFSetupModule @Inject constructor(
                         safPath = safPath,
                         localPath = targetPath,
                         uriPermission = matchedPermission?.permission,
-                        grantIntent = grantIntent,
+                        grantIntent = grantIntentSDMOg,
                     ).run { requestObjects.add(this) }
                 }
         }
