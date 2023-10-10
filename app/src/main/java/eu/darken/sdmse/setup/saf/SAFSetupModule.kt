@@ -168,7 +168,10 @@ class SAFSetupModule @Inject constructor(
                     }
 
                     State.PathAccess(
-                        label = R.string.data_area_public_app_data_official_label.toCaString(),
+                        label = when (safPath.name) {
+                            "obb" -> R.string.data_area_public_app_assets_official_label.toCaString()
+                            else -> R.string.data_area_public_app_data_official_label.toCaString()
+                        },
                         safPath = safPath,
                         localPath = targetPath,
                         uriPermission = matchedPermission?.permission,

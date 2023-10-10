@@ -461,6 +461,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">This app occupies %1$s on \"%2$s\".</string>
 
     <string name="data_area_public_app_data_official_label">Default public app data</string>
+    <string name="data_area_public_app_assets_official_label">Default public app assets</string>
     <string name="data_area_public_storage_label">Public storage</string>
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Data areas</string>
