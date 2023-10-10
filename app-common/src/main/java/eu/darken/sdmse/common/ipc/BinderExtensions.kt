@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? = try {
     val fDescriptor = Class
         .forName(clazz.qualifiedName + "\$Stub")
-        .getDeclaredField("DESCRIPTOR")
+        .getField("DESCRIPTOR")
         .apply { isAccessible = true }
 
     val intf = queryLocalInterface(fDescriptor[this] as String)
