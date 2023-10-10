@@ -26,7 +26,7 @@ data class PermissionMatch(
     val missingSegments: List<String>,
 )
 
-fun SAFPath.matchPermission(permissions: Collection<UriPermission>): PermissionMatch? {
+fun SAFPath.findPermission(permissions: Collection<UriPermission>): PermissionMatch? {
     val targetSegments = mutableListOf<String>().apply {
         addAll(segments)
     }

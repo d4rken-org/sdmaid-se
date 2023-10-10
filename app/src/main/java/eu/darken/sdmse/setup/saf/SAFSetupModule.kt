@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.files.saf.SAFPath
-import eu.darken.sdmse.common.files.saf.matchPermission
+import eu.darken.sdmse.common.files.saf.findPermission
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -96,7 +96,7 @@ class SAFSetupModule @Inject constructor(
                         return@mapNotNull null
                     }
 
-                    val matchedPermission = safPath.matchPermission(currentUriPerms)
+                    val matchedPermission = safPath.findPermission(currentUriPerms)
 
                     val label = when (volume.isRemovable) {
                         true -> R.string.data_area_sdcard_label.toCaString()
@@ -168,7 +168,7 @@ class SAFSetupModule @Inject constructor(
                         return@mapNotNull null
                     }
 
-                    val matchedPermission = safPath.matchPermission(currentUriPerms)
+                    val matchedPermission = safPath.findPermission(currentUriPerms)
 
                     val grantIntentSDMOg = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
                         putExtra("android.content.extra.SHOW_ADVANCED", true)
