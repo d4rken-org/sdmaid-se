@@ -12,9 +12,19 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.core.billing.*
+import eu.darken.sdmse.common.upgrade.core.billing.BillingData
+import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
+import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
+import eu.darken.sdmse.common.upgrade.core.billing.Sku
+import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
@@ -113,7 +123,7 @@ class UpgradeRepoGplay @Inject constructor(
             ?.flatten()
             ?: emptySet()
 
-        override val isPro: Boolean = upgrades.isNotEmpty() || gracePeriod
+        override val isPro: Boolean = false
 
         override val upgradedAt: Instant? = upgrades
             .maxByOrNull { it.purchase.purchaseTime }

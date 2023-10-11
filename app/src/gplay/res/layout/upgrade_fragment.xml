@@ -31,19 +31,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="32dp"
-            android:paddingTop="16dp"
+            android:paddingTop="8dp"
             android:paddingBottom="32dp">
 
             <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="16dp"
                 android:src="@drawable/sdm_happy" />
 
             <com.google.android.material.card.MaterialCardView
                 style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textview.MaterialTextView
@@ -59,7 +59,7 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/upgrade_screen_benefits_title" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -72,14 +72,14 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/upgrade_screen_how_title" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/break_even_info"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
                 android:layout_height="wrap_content"
                 android:text="@string/upgrade_screen_how_body" />
 
@@ -88,7 +88,6 @@
                 style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/upgrade_screen_subscription_trial_action"
                 android:visibility="gone"
                 tools:visibility="visible" />
@@ -110,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 tools:visibility="visible"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/upgrade_screen_iap_action" />
 
             <com.google.android.material.textview.MaterialTextView
