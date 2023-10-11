@@ -3,9 +3,11 @@ package eu.darken.sdmse.scheduler.ui.manager.create
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -40,6 +42,15 @@ class ScheduleItemDialog : BottomSheetDialogFragment2() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (dialog as BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+        ui.nameInput.setOnEditorActionListener { _, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE || (event?.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
+                ui.timeEditAction.performClick()
+                true
+            } else {
+                false
+            }
+        }
 
         vm.state.observe2(ui) { state ->
             nameInput.apply {

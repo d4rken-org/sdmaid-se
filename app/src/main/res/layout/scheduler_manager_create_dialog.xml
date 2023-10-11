@@ -34,7 +34,8 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/scheduler_schedule_name_label" />
+                android:hint="@string/scheduler_schedule_name_label"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
