@@ -26,26 +26,30 @@ class SchedulerDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
 
         subtitle.isVisible = item.schedulerState.schedules.none { it.isEnabled }
 
-        val nextExecution = item.schedulerState.schedules
+        val nextSchedule = item.schedulerState.schedules
             .filter { it.isEnabled }
-            .maxOfOrNull { it.nextExecution!! }
-        executionNextLabel.isVisible = nextExecution != null
+            .maxByOrNull { it.nextExecution!! }
+        executionNextLabel.isVisible = nextSchedule != null
         executionNextValue.apply {
-            isVisible = nextExecution != null
-            text = nextExecution?.toSystemTimezone()?.format(formatter)
+            isVisible = nextSchedule != null
+            text = nextSchedule?.let {
+                "${it.nextExecution?.toSystemTimezone()?.format(formatter)} (${it.label})"
+            }
         }
 
-        val lastExecution = item.schedulerState.schedules
+        val lastSchedule = item.schedulerState.schedules
             .filter { it.executedAt != null }
-            .maxOfOrNull { it.executedAt!! }
-        executionLastLabel.isVisible = lastExecution != null
+            .maxByOrNull { it.executedAt!! }
+        executionLastLabel.isVisible = lastSchedule != null
         executionLastValue.apply {
-            isVisible = lastExecution != null
-            text = lastExecution?.toSystemTimezone()?.format(formatter)
+            isVisible = lastSchedule != null
+            text = lastSchedule?.let {
+                "${it.executedAt?.toSystemTimezone()?.format(formatter)} (${it.label})"
+            }
         }
 
         root.setOnClickListener { manageAction.performClick() }
