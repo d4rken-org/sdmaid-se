@@ -119,7 +119,6 @@
     <string name="setup_notification_title">Értesítések</string>
     <string name="setup_notification_body">Engedélyezze az SD Maid számára, hogy értesítéseket tegyen közzé a folyamatban lévő műveletekről vagy fontos eseményekről.</string>
     <string name="setup_notification_hint">Az értesítéseket takarékosan használjuk 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
     <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>
@@ -152,7 +151,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Tartalmazza a kívánatos maradványokat</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fájlok, amelyeket érdemes megtartani, még akkor is, ha az alkalmazást eltávolították, pl. az Ön által készített fényképek vagy biztonsági másolatok.</string>
     <string name="corpsefinder_settings_risk_common_title">Tartalmazzon általános neveket</string>
-    <string name="corpsefinder_settings_risk_common_summary">Túl gyakori elnevezésű adatok, pl. a „Jegyzetek” mappa túl sok ismeretlen alkalmazás tulajdonában van.</string>
     <string name="corpsefinder_watcher_title">Eltávolítás figyelő</string>
     <string name="corpsefinder_watcher_summary">Automatikusan keresi a maradványokat, ha egy alkalmazást eltávolított.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatikus törlés</string>
@@ -298,7 +296,6 @@
     <string name="appcleaner_include_minimumage_label">Minimális kor</string>
     <string name="appcleaner_include_minimumage_summary">A minimális életkornál fiatalabb fájlok kihagyása.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operációs rendszer észlelés</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Az akadálymentesítésen alapuló automatizálás sikertelen lehet, ha az SD Maid nem ismeri fel helyesen az operációs rendszert. Ezzel a beállítással felülbírálhatja az észlelt típust.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automatikus (alapbeállítás)</string>
     <string name="appcleaner_filter_codecache_label">Kód gyorsítótár</string>
     <string name="appcleaner_filter_codecache_summary">JVM kód gyorsítótár. Bájtkód blokkok natív kódba fordítva.</string>

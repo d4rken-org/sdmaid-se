@@ -136,7 +136,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa yang diingini</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fail yang mungkin mahu anda simpan, walaupun aplikasi dinyahpasang, mis. foto yang anda ambil atau sandaran yang anda buat.</string>
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang terlalu biasa, misalnya, folder \"Nota\" dimiliki oleh terlalu banyak aplikasi yang tidak diketahui.</string>
     <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
     <string name="corpsefinder_watcher_summary">Imbas secara automatik untuk saki-baki apabila aplikasi dialih keluar.</string>
     <string name="corpsefinder_watcher_autodelete_title">Pemadaman automatik</string>

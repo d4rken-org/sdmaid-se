@@ -134,7 +134,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Uključi poželjne ostatke</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Datoteke koje biste možda željeli zadržati, čak i ako je aplikacija deinstalirana, npr. fotografije koje ste snimili ili sigurnosne kopije koje ste izradili.</string>
     <string name="corpsefinder_settings_risk_common_title">Uključi uobičajena imena</string>
-    <string name="corpsefinder_settings_risk_common_summary">Podaci s previše čestim imenima, npr. mapa \"Bilješke\" u vlasništvu je previše nepoznatih aplikacija.</string>
     <string name="corpsefinder_watcher_title">Promatrač deinstalacije</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatsko brisanje</string>
     <plurals name="corpsefinder_watcher_notification_delete_result">

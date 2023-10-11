@@ -151,7 +151,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">পছন্দসই অবশিষ্টাংশ অন্তর্ভুক্ত করুন</string>
     <string name="corpsefinder_settings_risk_keeper_summary">অ্যাপটি আনইনস্টল করা থাকলেও আপনি যে ফাইলগুলি রাখতে চান, যেমন আপনার তোলা ফটো বা আপনার তৈরি করা ব্যাকআপ।</string>
     <string name="corpsefinder_settings_risk_common_title">পরিচিত নামগুলো অন্তর্ভুক্ত করুন</string>
-    <string name="corpsefinder_settings_risk_common_summary">খুব পরিচিত নাম-সহ ডেটা, যেমন একটি ফোল্ডার \"Notes\" অনেকগুলি অজানা অ্যাপের মালিকানাধীন৷</string>
     <string name="corpsefinder_watcher_title">আনইনস্টল ওয়াচার</string>
     <string name="corpsefinder_watcher_summary">একটি অ্যাপ আনইনস্টল করা হলে স্বয়ংক্রিয়ভাবে ওই অ্যাপের অপ্রয়োজনীয় ফাইল স্ক্যান করুন।</string>
     <string name="corpsefinder_watcher_autodelete_title">স্বয়ংক্রিয় মোছা</string>
@@ -297,7 +296,6 @@
     <string name="appcleaner_include_minimumage_label">ন্যূনতম বয়স</string>
     <string name="appcleaner_include_minimumage_summary">ন্যূনতম বয়সের চেয়ে কম সময়ের ফাইলগুলো এড়িয়ে যান৷</string>
     <string name="appcleaner_automation_romtype_detection_label">অপারেটিং সিস্টেম শনাক্তকরণ</string>
-    <string name="appcleaner_automation_romtype_detection_summary">SD Maid আপনার OS সঠিকভাবে সনাক্ত না করলে অ্যাক্সেসিবিলিটি ভিত্তিক অটোমেশন ব্যর্থ হতে পারে। শনাক্তের ধরন ওভাররাইড করতে এই সেটিং ব্যবহার করুন।</string>
     <string name="appcleaner_automation_romtype_auto_label">স্বয়ংক্রিয় (ডিফল্ট)</string>
     <string name="appcleaner_filter_codecache_label">কোড ক্যাশ</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Bytecode ব্লকগুলি নেটিভ কোডে কম্পাইল করা হয়েছে।</string>

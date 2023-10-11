@@ -119,7 +119,6 @@
     <string name="setup_notification_title">Notificacions</string>
     <string name="setup_notification_body">Permeteu que l\'SD Maid publiqui notificacions per informar-vos sobre operacions en curs o esdeveniments importants.</string>
     <string name="setup_notification_hint">Les notificacions s\'utilitzen amb moderació 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Aquesta característica requereix completar elements de configuració addicionals: %s</string>
     <string name="setup_acs_card_title">Servei d\'accessibilitat</string>
     <string name="setup_acs_card_body">El servei d\'accessibilitat permet a l\'SD Maid interactuar amb la vostra pantalla i automatitzar accions tedioses, p. ex. tocant «Esborra la memòria cau» a diverses pantalles.</string>
     <string name="setup_acs_card_body2">L\'SD Maid no utilitzarà el servei d\'accessibilitat sense el vostre consentiment, sempre mostrarà un indicador destacat (cancel·lable) mentre estigui actiu i no l\'utilitzarà per recollir informació.</string>
@@ -152,7 +151,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Inclou les restes desitjables</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fitxers que potser voldreu conservar, encara que l\'aplicació estigui desinstal·lada, p. ex. fotos que heu fet o còpies de seguretat que heu creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Inclou noms comuns</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dades amb noms massa comuns, p. ex. una carpeta «Notes» és propietat de massa aplicacions desconegudes.</string>
     <string name="corpsefinder_watcher_title">Desinstal·lació de l\'observador</string>
     <string name="corpsefinder_watcher_summary">Explora automàticament les restes quan s\'elimina una aplicació.</string>
     <string name="corpsefinder_watcher_autodelete_title">Eliminació automàtica</string>
@@ -298,7 +296,6 @@
     <string name="appcleaner_include_minimumage_label">Edat mínima</string>
     <string name="appcleaner_include_minimumage_summary">Omet els fitxers que siguin menors a l\'edat mínima.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detecció del sistema operatiu</string>
-    <string name="appcleaner_automation_romtype_detection_summary">L\'automatització basada en l\'accessibilitat pot fallar si l\'SD Maid no detecta correctament el vostre sistema operatiu. Utilitzeu aquesta configuració per corregir el tipus detectat.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automàtic (per defecte)</string>
     <string name="appcleaner_filter_codecache_label">Memòria cau de codi</string>
     <string name="appcleaner_filter_codecache_summary">Memòria cau de codi JVM. Blocs de «bytecode» compilats en codi natiu.</string>

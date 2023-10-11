@@ -119,7 +119,6 @@
     <string name="setup_notification_title">Bildirimler</string>
     <string name="setup_notification_body">SD Maid\'in devam eden işlemler veya önemli etkinlikler hakkında sizi bilgilendirmek için bildirimler yayınlamasına izin verin.</string>
     <string name="setup_notification_hint">Nadiren bildirim gösterilir 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Bu özellik için ek kurulum öğelerinin tamamlanması gerekir: %s</string>
     <string name="setup_acs_card_title">Erişilebilirlik hizmeti</string>
     <string name="setup_acs_card_body">Erişilebilirlik hizmeti, SD Maid\'in ekranınızla etkileşime girmesine ve birden fazla ekranda \"Önbelleği temizle\" seçeneğine tıklamak gibi sıkıcı eylemleri otomatikleştirmesine olanak tanır.</string>
     <string name="setup_acs_card_body2">SD Maid, izniniz olmadan erişilebilirlik hizmetini kullanmayacak, aktifken her zaman belirgin (iptal edilebilir) bir gösterge gösterecek ve bilgi toplamak için kullanmayacaktır.</string>
@@ -152,7 +151,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Özel kalıntıları dahil et</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Uygulama kaldırılmış olsa bile saklamak isteyebileceğin dosyaları içerir; çektiğin fotoğraflar ya da oluşturduğun yedekler gibi.</string>
     <string name="corpsefinder_settings_risk_common_title">Ortak adları dahil et</string>
-    <string name="corpsefinder_settings_risk_common_summary">Çok yaygın adlara sahip veriler, örneğin bir \"Notlar\" klasörünün çok fazla bilinmeyen uygulamaya ait olması.</string>
     <string name="corpsefinder_watcher_title">Uygulama kaldırma izleyicisi</string>
     <string name="corpsefinder_watcher_summary">Bir uygulama kaldırıldığında otomatik olarak kalıntıları tarar.</string>
     <string name="corpsefinder_watcher_autodelete_title">Otomatik silme</string>
@@ -298,7 +296,6 @@
     <string name="appcleaner_include_minimumage_label">Asgari dosya yaşı</string>
     <string name="appcleaner_include_minimumage_summary">Asgari sınırdan daha yeni dosyaları atlayın.</string>
     <string name="appcleaner_automation_romtype_detection_label">İşletim sistemi algılama</string>
-    <string name="appcleaner_automation_romtype_detection_summary">SD Maid işletim sisteminizi doğru algılamazsa erişilebilirlik tabanlı otomasyon başarısız olabilir. Algılanan türü geçersiz kılmak için bu ayarı kullanın.</string>
     <string name="appcleaner_automation_romtype_auto_label">Otomatik (varsayılan)</string>
     <string name="appcleaner_filter_codecache_label">Kod önbelleği</string>
     <string name="appcleaner_filter_codecache_summary">JVM kod önbelleği. Yerel kodda derlenen bayt kodu blokları.</string>

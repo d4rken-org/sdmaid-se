@@ -24,6 +24,7 @@
     <string name="general_thanks_action">ধন্যবাদ</string>
     <string name="general_gotit_action">বুঝেছি</string>
     <string name="general_fix_action">ঠিক করুন</string>
+    <string name="general_set_up_action">সেট আপ করুন</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>
     <string name="general_na_label">অপ্রযোজ্য</string>
     <string name="general_empty_label">খালি</string>

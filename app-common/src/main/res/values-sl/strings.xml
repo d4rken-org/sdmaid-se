@@ -4,6 +4,8 @@
     <string name="slogan_message_0">Pripravljen.</string>
     <string name="slogan_message_1">Čist in urejen.</string>
     <string name="slogan_message_2">Preprečevanje nereda.</string>
+    <string name="slogan_message_3">Čistimo navlako.</string>
+    <string name="slogan_message_4">Napravo spravimo v red.</string>
     <string name="slogan_message_5">Brezmadežen.</string>
     <string name="general_thank_you_label">Hvala!</string>
     <string name="general_error_type_mismatch_msg">Neujemanje vrste: zahtevano %1$s, dobljeno %2$s.</string>
@@ -48,8 +50,10 @@
     <string name="general_progress_loading_data_areas">Nalaganje podatkovnih področij</string>
     <string name="general_progress_loading_egg_0">Še vedno hitrejši od iPhonea.</string>
     <string name="general_progress_loading_egg_1">Prejemanje več RAM-a</string>
+    <string name="general_progress_loading_egg_2">Kmalu™</string>
     <string name="general_progress_loading_egg_3">CPE si je vzel trenutek za kavo.</string>
     <string name="general_progress_loading_egg_4">Čakanje na podatke od Pepeta Silvie</string>
+    <string name="general_progress_loading_egg_5">Superstroj se pripravlja</string>
     <string name="general_progress_loading_egg_6">Podajanje masla</string>
     <string name="general_progress_loading_egg_7">Torej, kako smo kaj?</string>
     <string name="general_help_action">Pomoč</string>

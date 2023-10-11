@@ -125,7 +125,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Përfshini mbetjet e dëshirueshme</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Skedarët që mund të dëshironi t\'i mbani, edhe nëse aplikacioni është i çinstaluar, p.sh. fotot që keni marrë ose kopjet rezervë që keni krijuar.</string>
     <string name="corpsefinder_settings_risk_common_title">Përfshini emra të zakonshëm</string>
-    <string name="corpsefinder_settings_risk_common_summary">Të dhëna me emra shumë të zakonshëm, p.sh. një dosje \"Shënime\" është në pronësi të shumë aplikacioneve të panjohura.</string>
     <string name="corpsefinder_watcher_title">Kontrolluesi i çinstalimit</string>
     <string name="corpsefinder_watcher_autodelete_title">Fshirje automatike</string>
     <string name="corpsefinder_filter_publicmedia_label">Media publike</string>

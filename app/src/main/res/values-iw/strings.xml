@@ -81,7 +81,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">לכלול שאריות רצויות</string>
     <string name="corpsefinder_settings_risk_keeper_summary">קבצים שאולי תרצו לשמור, גם אם האפליקציה כבר הוסרה, למשל. תמונות שצילמת או גיבויים שיצרת.</string>
     <string name="corpsefinder_settings_risk_common_title">לכלול שמות נפוצים</string>
-    <string name="corpsefinder_settings_risk_common_summary">נתונים עם שמות נפוצים מאוד, למשל, תיקייה של \"פתקים\" נמצאת בבעלות גישה של אפליקציות לא ידועות רבות.</string>
     <string name="corpsefinder_watcher_title">מאזין להסרת אפליקציות</string>
     <string name="corpsefinder_filter_publicmedia_label">מדיה ציבורית</string>
     <string name="corpsefinder_filter_publicmedia_summary">מדיה ציבורית, לדוגמה קבצים שהתקבלו דרך אפליקציות מסרים.</string>
