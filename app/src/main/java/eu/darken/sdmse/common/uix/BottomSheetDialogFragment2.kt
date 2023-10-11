@@ -45,7 +45,6 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onViewCreated(view=$view, savedInstanceState=$savedInstanceState)" }
-        super.onViewCreated(view, savedInstanceState)
 
         vm.navEvents.observe2(this, ui) { dir ->
             log(tag, VERBOSE) { "Nav event: $dir" }
@@ -55,6 +54,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
             log(tag, VERBOSE) { "Error event: $it" }
             it.asErrorDialogBuilder(requireActivity()).show()
         }
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
