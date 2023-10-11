@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,8 +38,9 @@ class ScheduleItemDialog : BottomSheetDialogFragment2() {
         }
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (dialog as BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
         vm.state.observe2(ui) { state ->
             nameInput.apply {
                 if (text.isNullOrEmpty()) {
