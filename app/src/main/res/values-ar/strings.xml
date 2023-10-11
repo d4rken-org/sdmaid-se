@@ -127,7 +127,6 @@
     <string name="setup_notification_title">الإشعارات</string>
     <string name="setup_notification_body">اسمح لـ SD Maid بنشر إشعارات لإبلاغك بالعمليات الجارية أو الأحداث المهمة.</string>
     <string name="setup_notification_hint">يتم استخدام الإخطارات باعتدال 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
     <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
     <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
     <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>
@@ -160,7 +159,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">قم بتضمين البقايا المرغوبة</string>
     <string name="corpsefinder_settings_risk_keeper_summary">الملفات التي قد ترغب في الاحتفاظ بها ، حتى إذا تم إلغاء تثبيت التطبيق ، على سبيل المثال الصور التي التقطتها أو النسخ الاحتياطية التي قمت بإنشائها.</string>
     <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
-    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء الشائعة جدًا, على سبيل المثال مجلد \"ملاحظات\" يمتلكه عدد كبير من التطبيقات غير المعروفة.</string>
     <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
     <string name="corpsefinder_watcher_summary">البحث تلقائياً عن بقايا عند إزالة التطبيق.</string>
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
@@ -322,7 +320,6 @@
     <string name="appcleaner_include_minimumage_label">الحد الأدنى للسن</string>
     <string name="appcleaner_include_minimumage_summary">تخطي الملفات التي هي أصغر من الحد الأدنى للعمر.</string>
     <string name="appcleaner_automation_romtype_detection_label">كشف نظام التشغيل</string>
-    <string name="appcleaner_automation_romtype_detection_summary">قد تفشل الأتمتة القائمة على إمكانية الوصول إذا لم يكتشف SD Maid نظام التشغيل الخاص بك بشكل صحيح. استخدم هذا الإعداد لتجاوز النوع المكتشف.</string>
     <string name="appcleaner_automation_romtype_auto_label">تلقائي (افتراضي)</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>

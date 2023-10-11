@@ -154,7 +154,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Zahrňte žiaduce pozostatky</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Súbory, ktoré si možno budete chcieť ponechať, aj keď je aplikácia odinštalovaná, napr. nasnímané fotografie alebo zálohy, ktoré ste vytvorili.</string>
     <string name="corpsefinder_settings_risk_common_title">Zahrnúť bežné názvy</string>
-    <string name="corpsefinder_settings_risk_common_summary">Údaje s príliš bežnými názvami, napr. priečinok „Poznámky“ vlastní príliš veľa neznámych aplikácií.</string>
     <string name="corpsefinder_watcher_title">Sledovač odinštalácií</string>
     <string name="corpsefinder_watcher_summary">Automaticky vyhľadať zvyšky po odstránení aplikácie.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>

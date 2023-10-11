@@ -123,7 +123,6 @@
     <string name="setup_notification_title">Oznámení</string>
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
     <string name="setup_acs_card_title">Služba přístupnosti</string>
     <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. klepnutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>
@@ -156,7 +155,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Zahrnout žádoucí pozůstatky</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Soubory, které budete chtít zachovat i po odinstalování aplikace, např. pořízené fotografie nebo vytvořené zálohy.</string>
     <string name="corpsefinder_settings_risk_common_title">Zahrnout běžné názvy</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data s příliš běžnými názvy, např. složka \"Poznámky\" je vlastněna příliš mnoha neznámými aplikacemi.</string>
     <string name="corpsefinder_watcher_title">Hlídač odinstalace</string>
     <string name="corpsefinder_watcher_summary">Automaticky skenovat pozůstatky, když je nějaká aplikace odinstalována.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstranění</string>
@@ -310,7 +308,6 @@
     <string name="appcleaner_include_minimumage_label">Minimální stáří</string>
     <string name="appcleaner_include_minimumage_summary">Přeskočit soubory, které jsou mladší než minimální stáří.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detekce operačního systému</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Automatizace založená na přístupnosti může selhat, pokud SD Maid nezjistí váš OS správně. Použijte toto nastavení pro přepsání zjištěného typu.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automaticky (výchozí)</string>
     <string name="appcleaner_filter_codecache_label">Mezipaměť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Mezipaměť kódu JVM. Bloky bajtového kódu zkompilované do nativního kódu.</string>

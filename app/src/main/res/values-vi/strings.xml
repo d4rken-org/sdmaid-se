@@ -117,7 +117,6 @@
     <string name="setup_notification_title">Thông báo</string>
     <string name="setup_notification_body">Cho phép SD Maid đăng thông báo cho bạn về các hoạt động đang diễn ra hoặc các sự kiện quan trọng.</string>
     <string name="setup_notification_hint">Thông báo được sử dụng một cách tiết kiệm 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
     <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấn \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>
@@ -150,7 +149,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Bao gồm tàn dư mong muốn</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Các tệp mà bạn có thể muốn giữ lại, ngay cả khi đã gỡ cài đặt ứng dụng, ví dụ: ảnh bạn đã chụp hoặc bản sao lưu bạn đã tạo.</string>
     <string name="corpsefinder_settings_risk_common_title">Bao gồm tên phổ biến</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên quá phổ biến, v.d. một thư mục \"Ghi chú\" thuộc sở hữu của quá nhiều ứng dụng không xác định.</string>
     <string name="corpsefinder_watcher_title">Trình theo dõi gỡ cài đặt</string>
     <string name="corpsefinder_watcher_summary">Tự động quét phần còn lại khi một ứng dụng bị xóa.</string>
     <string name="corpsefinder_watcher_autodelete_title">Tự động xóa</string>
@@ -292,7 +290,6 @@
     <string name="appcleaner_include_minimumage_label">Thời gian tối thiểu</string>
     <string name="appcleaner_include_minimumage_summary">Bỏ qua các tệp cũ hơn thời gian tối thiểu.</string>
     <string name="appcleaner_automation_romtype_detection_label">Phát hiện hệ điều hành</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Tự động hóa dựa trên khả năng truy cập có thể không thành công nếu SD Maid không phát hiện chính xác hệ điều hành của bạn. Sử dụng cài đặt này để ghi đè loại được phát hiện.</string>
     <string name="appcleaner_automation_romtype_auto_label">Tự động (mặc định)</string>
     <string name="appcleaner_filter_codecache_label">Mã bộ nhớ đệm</string>
     <string name="appcleaner_filter_codecache_summary">Bộ đệm mã JVM. Các khối mã byte được biên dịch thành mã gốc.</string>

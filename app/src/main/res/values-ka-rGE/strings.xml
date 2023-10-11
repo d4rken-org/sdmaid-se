@@ -110,7 +110,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">ჩართეთ სასურველი ნარჩენები</string>
     <string name="corpsefinder_settings_risk_keeper_summary">ფაილები, რომელთა შენახვაც გსურთ, მაშინაც კი, თუ აპი დეინსტალირებულია, მაგ. თქვენ მიერ გადაღებული ფოტოები ან თქვენ მიერ შექმნილი სარეზერვო ასლები.</string>
     <string name="corpsefinder_settings_risk_common_title">ჩართეთ საერთო სახელები</string>
-    <string name="corpsefinder_settings_risk_common_summary">მონაცემები ძალიან გავრცელებული სახელებით, მაგ. საქაღალდე \"Notes\" ეკუთვნის ძალიან ბევრ უცნობ აპს.</string>
     <string name="corpsefinder_watcher_title">Watcher_ის დეინსტალაცია</string>
     <string name="corpsefinder_filter_publicmedia_label">საზოგადოებრივი მედია</string>
     <string name="corpsefinder_filter_publicmedia_summary">საჯარო მედია ფაილები, მაგ. მესენჯერის აპების საშუალებით მიღებული ფაილები.</string>

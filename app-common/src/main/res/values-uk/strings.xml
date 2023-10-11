@@ -23,6 +23,8 @@
     <string name="general_save_action">Зберегти</string>
     <string name="general_thanks_action">Дякую</string>
     <string name="general_gotit_action">Зрозуміло</string>
+    <string name="general_fix_action">Виправити</string>
+    <string name="general_set_up_action">Налаштування</string>
     <string name="general_edit_action">Редагувати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>

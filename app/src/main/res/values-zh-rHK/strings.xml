@@ -117,7 +117,6 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允許 SD 女僕張貼通知以通知您正在進行的作業和重要活動。</string>
     <string name="setup_notification_hint">儘量不會使用通知 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
     <string name="setup_acs_card_title">無障礙服務</string>
     <string name="setup_acs_card_body">無障礙服務允許 SD 女僕與您的畫面進行互動，並使乏味的動作自動化，例如在多個畫面上輕觸「清除快取」。</string>
     <string name="setup_acs_card_body2">未經您同意之下，SD 女僕不會使用無障礙服務，在啟用時將一律顯示為一個顯著的 (可取消) 指示器，並且不會用它來收集資訊。</string>
@@ -150,7 +149,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">包含合理的殘餘項目</string>
     <string name="corpsefinder_settings_risk_keeper_summary">您可能想要保留的檔案，即使這個應用程式已被解除安裝，例如您拍攝的相片和您建立的備份。</string>
     <string name="corpsefinder_settings_risk_common_title">包含常見名稱</string>
-    <string name="corpsefinder_settings_risk_common_summary">具有常見名稱的資料，例如被過多未知應用程式擁有的「Notes」資料夾。</string>
     <string name="corpsefinder_watcher_title">解除安裝監看員</string>
     <string name="corpsefinder_watcher_summary">在應用程式被移除時自動掃描殘留項目。</string>
     <string name="corpsefinder_watcher_autodelete_title">自動刪除</string>
@@ -284,7 +282,6 @@
     <string name="appcleaner_include_minimumage_label">最小期限</string>
     <string name="appcleaner_include_minimumage_summary">跳過存在時間低於最小期限的檔案。</string>
     <string name="appcleaner_automation_romtype_detection_label">作業系統偵測</string>
-    <string name="appcleaner_automation_romtype_detection_summary">如果無法正確辨識您的作業系統，SD 女僕以無障礙服務為基礎的自動化動作可能會失敗。使用此設定來覆寫偵測類型。</string>
     <string name="appcleaner_automation_romtype_auto_label">自動 (預設)</string>
     <string name="appcleaner_filter_codecache_label">程式碼快取</string>
     <string name="appcleaner_filter_codecache_summary">JVM 程式碼快取，被編譯為機器碼的位元組程式碼區塊。</string>

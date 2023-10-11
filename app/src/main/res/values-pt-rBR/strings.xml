@@ -119,7 +119,6 @@
     <string name="setup_notification_title">Notificações</string>
     <string name="setup_notification_body">Permita que o SD Maid publique notificações para informá-lo sobre operações em andamento ou eventos importantes.</string>
     <string name="setup_notification_hint">Notificações são usadas com moderação 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Esta função requer a conclusão de itens de configuração adicionais: %s</string>
     <string name="setup_acs_card_title">Serviço de acessibilidade</string>
     <string name="setup_acs_card_body">O serviço de acessibilidade permite que o SD Maid interaja com sua tela e automatize ações tediosas, por exemplo, tocando em \"Limpar cache\" em várias telas.</string>
     <string name="setup_acs_card_body2">O SD Maid não usará o serviço de acessibilidade sem seu consentimento, sempre exibirá um indicador proeminente (cancelável) enquanto ativo e não o usará para coletar informações.</string>
@@ -152,7 +151,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Incluir remanescentes desejáveis</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Arquivos que você pode querer manter, mesmo que o aplicativo seja desinstalado, por exemplo, fotos tiradas ou backups que você criou.</string>
     <string name="corpsefinder_settings_risk_common_title">Incluir nomes comuns</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dados com nomes muito comuns, por exemplo, uma pasta \"Notas\" pertence a muitos aplicativos desconhecidos.</string>
     <string name="corpsefinder_watcher_title">Verificador de desinstalação</string>
     <string name="corpsefinder_watcher_summary">Procurar automaticamente vestígios quando um aplicativo for removido.</string>
     <string name="corpsefinder_watcher_autodelete_title">Exclusão automática</string>
@@ -298,7 +296,6 @@
     <string name="appcleaner_include_minimumage_label">Idade mínima</string>
     <string name="appcleaner_include_minimumage_summary">Pule arquivos que sejam mais novos do que a idade mínima.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detecção do sistema operacional</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Automação baseada em acessibilidade pode falhar se o SD Maid não detectar seu sistema operacional corretamente. Use essa configuração para substituir o tipo detectado.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automático (padrão)</string>
     <string name="appcleaner_filter_codecache_label">Cache de códigos</string>
     <string name="appcleaner_filter_codecache_summary">Cache de código JVM. Blocos de bytecode compilados em código nativo.</string>

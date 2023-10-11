@@ -136,7 +136,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">残しておくべき項目を含む</string>
     <string name="corpsefinder_settings_risk_keeper_summary">アプリが削除された後でも必要だと思われるファイル (例: 撮影した写真や作成したバックアップ)。</string>
     <string name="corpsefinder_settings_risk_common_title">一般的な名前を含める</string>
-    <string name="corpsefinder_settings_risk_common_summary">とても一般的な名前のデータ、例えば「Notes」フォルダは多くの不明なアプリが使用しています。</string>
     <string name="corpsefinder_watcher_title">アンインストールの監視</string>
     <string name="corpsefinder_watcher_summary">アプリが削除されたときに取り残されたデータを自動的にスキャンします。</string>
     <string name="corpsefinder_watcher_autodelete_title">自動削除</string>

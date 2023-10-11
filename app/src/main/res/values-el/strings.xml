@@ -150,7 +150,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Συμπεριλάβετε επιθυμητά υπολείμματα</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Αρχεία που ίσως θέλετε να διατηρήσετε, ακόμη και αν η εφαρμογή έχει απεγκατασταθεί, π.χ. φωτογραφίες που τραβήξατε ή αντίγραφα ασφαλείας που δημιουργήσατε.</string>
     <string name="corpsefinder_settings_risk_common_title">Συμπερίληψη κοινών ονομάτων</string>
-    <string name="corpsefinder_settings_risk_common_summary">Δεδομένα με πολύ κοινά ονόματα, π.χ. ένας φάκελος \"σημειώσεις\" ανήκει σε πάρα πολλές άγνωστες εφαρμογές.</string>
     <string name="corpsefinder_watcher_title">Απεγκαταστήστε το watcher</string>
     <string name="corpsefinder_watcher_summary">Αυτόματη σάρωση για υπολείμματα όταν αφαιρεθεί μια εφαρμογή.</string>
     <string name="corpsefinder_watcher_autodelete_title">Αυτόματη διαγραφή</string>

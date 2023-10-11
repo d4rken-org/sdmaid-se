@@ -121,7 +121,6 @@
     <string name="setup_notification_title">Notificări</string>
     <string name="setup_notification_body">Acordă SD Maid de-a posta notificări pentru a te informa despre operații în curs de desfășurare sau evenimente importante.</string>
     <string name="setup_notification_hint">Notificările sunt folosite cu moderație 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor de configurare suplimentare: %s</string>
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
     <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interacționa cu ecranul tău și a automatiza acțiuni complexe, de ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>
@@ -154,7 +153,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fișiere pe care vrei să le păstrezi, chiar dacă aplicația este dezinstalată, ex: fotografii pe care le-ai făcut sau copii de rezervă pe care le-ai creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
-    <string name="corpsefinder_settings_risk_common_summary">Date cu nume prea comune, ex: un dosar \"Notes\" este aparținută de prea multe aplicații necunoscute.</string>
     <string name="corpsefinder_watcher_title">Urmăritor de dezinstalare</string>
     <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ștergere automată</string>
@@ -304,7 +302,6 @@
     <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
     <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detectarea sistemului de operare</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Automatizarea bazată pe accesibilitate poate eşua dacă SD Maid nu detectează corect sistemul de operare. Utilizaţi această setare pentru a suprascrie tipul detectat.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automat (implicit)</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>

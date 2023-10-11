@@ -155,7 +155,6 @@
     <string name="corpsefinder_settings_risk_keeper_title">Уключаць пажаданыя рэшткі</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Файлы, якія вы хочаце захаваць, нават калі праграма выдалена, напрыклад, зробленыя вамі фатаграфіі або створаныя вамі рэзервовыя копіі.</string>
     <string name="corpsefinder_settings_risk_common_title">Уключаць агульныя назвы</string>
-    <string name="corpsefinder_settings_risk_common_summary">Даныя з занадта распаўсюджанымі назвамі, напрыклад, папка \"Notes\" належыць занадта вялікай колькасці невядомых праграм.</string>
     <string name="corpsefinder_watcher_title">Кантроль выдалення</string>
     <string name="corpsefinder_watcher_summary">Аўтаматычны пошук рэшткаў праграмы пры яе выдаленні.</string>
     <string name="corpsefinder_watcher_autodelete_title">Аўтавыдаленне</string>
@@ -308,6 +307,8 @@
     <string name="appcleaner_include_minimumsize_summary">Прапускаць праграмы, у якіх сума спажытых даных ніжэйшая за мінімум.</string>
     <string name="appcleaner_include_minimumage_label">Мінімальны ўзрост</string>
     <string name="appcleaner_include_minimumage_summary">Прапускаць файлы, узрост якіх меншы за мінімальны.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Вызначэнне аперацыйнай сістэмы</string>
+    <string name="appcleaner_automation_romtype_auto_label">Аўтаматычна (па змаўчанні)</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блокі байт-кода, скампіляваныя ва ўбудаваны код.</string>
     <string name="appcleaner_filter_advertisement_label">Даныя рэкламы</string>
@@ -333,6 +334,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Атрыманыя файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Файлы, якія вы атрымалі ад карыстальнікаў у WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Адпраўленыя файлы WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, адпраўленыя іншым карыстальнікам у WhatsApp.</string>
     <string name="appcleaner_filter_telegram_label">Медыяфайлы Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Файлы, атрыманыя або адпраўленыя праз Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -500,6 +502,7 @@
     <string name="scheduler_schedule_time_label">Прыблізны час</string>
     <string name="scheduler_schedule_repeat_label">Інтэрвал паўтарэння ў днях</string>
     <string name="scheduler_schedule_default_name">Стандартны расклад</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s каля %2$s</string>
     <string name="scheduler_schedule_next_at_x">Запланавана на %s</string>
     <string name="scheduler_schedule_last_at_x">Апошняе выкананне %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -517,6 +520,9 @@
     <string name="scheduler_setting_charging_summary">Калі прылада не зараджаецца, запланаванае выкананне будзе прапушчана.</string>
     <string name="scheduler_setting_automation_title">Служба спецыяльных магчымасцей</string>
     <string name="scheduler_setting_automation_summary">Уключэнне дзеянняў, якія выкарыстоўваюць службу спецыяльных магчымасцей. Для гэтага патрабуецца, каб SD Maid мог узаемадзейнічаць з вашым экранам падчас выканання задач (экран мае быць разблакіраваным).</string>
+    <string name="scheduler_notification_channel_label">Планіроўшчык</string>
+    <string name="scheduler_notification_title">Запланаванае заданне</string>
+    <string name="scheduler_notification_message">Выкананне: \"%s\"</string>
     <string name="updates_dashcard_title">Даступна абнаўленне</string>
     <string name="updates_dashcard_body">Даступна абнаўленне. У вас версія %1$s, а апошняя версія — %2$s.</string>
     <string name="translation_encourage_title">Перакласці SD Maid</string>
