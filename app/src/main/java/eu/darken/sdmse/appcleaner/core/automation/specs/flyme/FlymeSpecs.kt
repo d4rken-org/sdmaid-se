@@ -11,11 +11,15 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
-import eu.darken.sdmse.automation.core.common.CrawlerCommon
-import eu.darken.sdmse.automation.core.common.CrawlerCommon.getDefaultClearCacheClick
 import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.defaultWindowFilter
+import eu.darken.sdmse.automation.core.common.defaultWindowIntent
+import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
+import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
@@ -90,11 +94,11 @@ class FlymeSpecs @Inject constructor(
             val step = StepProcessor.Step(
                 parentTag = TAG,
                 label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
-                windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
-                windowEventFilter = CrawlerCommon.defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowIntent = defaultWindowIntent(pkg),
+                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
-                nodeRecovery = CrawlerCommon.getDefaultNodeRecovery(pkg),
+                nodeRecovery = getDefaultNodeRecovery(pkg),
                 action = getDefaultClearCacheClick(pkg, TAG)
             )
             stepper.withProgress(this) { process(step) }

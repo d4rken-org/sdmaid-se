@@ -6,9 +6,12 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.concurrent.LinkedBlockingDeque
+
+private val TAG: String = logTag("Automation", "Crawler", "Common")
 
 fun AccessibilityNodeInfo.toStringShort() =
     "className=${this.className}, text='${this.text}', isClickable=${this.isClickable}, isEnabled=${this.isEnabled}, viewIdResourceName=${this.viewIdResourceName}, pkgName=${this.packageName}"
@@ -106,10 +109,10 @@ fun AccessibilityNodeInfo.getRoot(maxNesting: Int = 15 /*AOSP*/): AccessibilityN
 fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> = sequence {
     try {
         if (this@crawl.getChild(0) == null) {
-            this@crawl.refresh().let { log(CrawlerCommon.TAG) { "Refresh success: $it" } }
+            this@crawl.refresh().let { log(TAG) { "Refresh success: $it" } }
         }
     } catch (e: Exception) {
-        log(CrawlerCommon.TAG, WARN) { "Null crawl failed to refresh: ${e.asLog()}" }
+        log(TAG, WARN) { "Null crawl failed to refresh: ${e.asLog()}" }
     }
 
     val queue = LinkedBlockingDeque<CrawledNode>()
@@ -118,7 +121,7 @@ fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> =
     while (!queue.isEmpty()) {
         val cur = queue.poll()!!
 
-        if (debug) log(CrawlerCommon.TAG) { cur.infoShort }
+        if (debug) log(TAG) { cur.infoShort }
 
         yield(cur)
 
@@ -132,7 +135,7 @@ fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> =
 fun AccessibilityNodeInfo.scrollNode(): Boolean {
     if (!isScrollable) return false
 
-    log(CrawlerCommon.TAG, VERBOSE) { "Scrolling node: ${toStringShort()}" }
+    log(TAG, VERBOSE) { "Scrolling node: ${toStringShort()}" }
     return performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)
 }
 

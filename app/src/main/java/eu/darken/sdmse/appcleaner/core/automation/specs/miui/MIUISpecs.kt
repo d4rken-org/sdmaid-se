@@ -13,10 +13,16 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.automation.core.common.CrawlerCommon
+
 import eu.darken.sdmse.automation.core.common.StepAbortException
 import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.defaultClick
+import eu.darken.sdmse.automation.core.common.defaultWindowIntent
+import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
+import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -24,6 +30,7 @@ import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
@@ -88,19 +95,19 @@ class MIUISpecs @Inject constructor(
         val step = StepProcessor.Step(
             parentTag = TAG,
             label = "Opening app settings screen",
-            windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
+            windowIntent = defaultWindowIntent(pkg),
             windowEventFilter = { event ->
                 // Some MIUI14 devices send the change event for the system settings app
                 event.pkgId == SETTINGS_PKG_MIUI || event.pkgId == SETTINGS_PKG_AOSP
             },
             windowNodeTest = {
                 when {
-                    CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg)(it) -> {
+                    windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg)(it) -> {
                         windowPkg = SETTINGS_PKG_MIUI
                         true
                     }
 
-                    CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_AOSP, ipcFunnel, pkg)(it) -> {
+                    windowCriteriaAppIdentifier(SETTINGS_PKG_AOSP, ipcFunnel, pkg)(it) -> {
                         windowPkg = SETTINGS_PKG_AOSP
                         true
                     }
@@ -143,9 +150,9 @@ class MIUISpecs @Inject constructor(
                 parentTag = tag,
                 label = "Find & click 'Storage' (targets=$storageEntryLabels)",
                 nodeTest = storageFilter,
-                nodeRecovery = CrawlerCommon.getDefaultNodeRecovery(pkg),
-                nodeMapping = CrawlerCommon.clickableParent(),
-                action = CrawlerCommon.defaultClick()
+                nodeRecovery = getDefaultNodeRecovery(pkg),
+                nodeMapping = clickableParent(),
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }
@@ -163,7 +170,7 @@ class MIUISpecs @Inject constructor(
                 parentTag = tag,
                 label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
                 nodeTest = buttonFilter,
-                action = CrawlerCommon.getDefaultClearCacheClick(pkg, tag)
+                action = getDefaultClearCacheClick(pkg, tag)
             )
             stepper.withProgress(this) { process(step) }
         }
@@ -207,15 +214,15 @@ class MIUISpecs @Inject constructor(
             val step = StepProcessor.Step(
                 parentTag = TAG,
                 label = "Find & click MIUI 'Clear data' (targets=$clearDataLabels)",
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
                 nodeTest = clearDataFilter,
-                nodeRecovery = CrawlerCommon.getDefaultNodeRecovery(pkg),
+                nodeRecovery = getDefaultNodeRecovery(pkg),
                 nodeMapping = when {
                     // MIUI 12 needs a node mapping, while in MIUI 11 the text is directly clickable.
-                    isMiui12Plus -> CrawlerCommon.clickableParent()
+                    isMiui12Plus -> clickableParent()
                     else -> null
                 },
-                action = CrawlerCommon.defaultClick()
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }
@@ -224,7 +231,7 @@ class MIUISpecs @Inject constructor(
             val alternativeStep: StepProcessor.Step = StepProcessor.Step(
                 parentTag = TAG,
                 label = "BRANCH: Find & Click 'Clear cache' (targets=$clearCacheLabels)",
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
                 nodeTest = when {
                     isMiui12Plus -> {
                         { it.isTextView() && it.textMatchesAny(clearCacheLabels) }
@@ -235,10 +242,10 @@ class MIUISpecs @Inject constructor(
                     }
                 },
                 nodeMapping = when {
-                    isMiui12Plus -> CrawlerCommon.clickableParent()
+                    isMiui12Plus -> clickableParent()
                     else -> null
                 },
-                action = CrawlerCommon.defaultClick()
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(alternativeStep) }
         } else {
@@ -264,7 +271,7 @@ class MIUISpecs @Inject constructor(
                 label = "Find & click 'Clear Cache' entry in bottom sheet (targets=$clearCacheLabels)",
                 windowNodeTest = windowCriteria,
                 nodeTest = entryFilter,
-                action = CrawlerCommon.defaultClick()
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }
@@ -303,7 +310,7 @@ class MIUISpecs @Inject constructor(
                 label = "Find & click 'OK' in confirmation dialog",
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,
-                action = CrawlerCommon.defaultClick()
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }

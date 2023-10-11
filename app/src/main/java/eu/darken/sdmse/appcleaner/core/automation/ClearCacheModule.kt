@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
+import android.content.res.Resources
 import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
@@ -30,7 +31,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.common.CrawlerCommon
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.SpecGenerator
@@ -42,6 +42,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
@@ -210,7 +211,13 @@ class ClearCacheModule @AssistedInject constructor(
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
 
         fun createUnsupportedError(tag: String): Throwable {
-            val locale = CrawlerCommon.getSysLocale()
+            val locale = if (hasApiLevel(24)) {
+                @Suppress("NewApi")
+                Resources.getSystem().configuration.locales[0]
+            } else {
+                @Suppress("DEPRECATION")
+                Resources.getSystem().configuration.locale
+            }
             val apiLevel = BuildWrap.VERSION.SDK_INT
             val rom = Build.MANUFACTURER
             return UnsupportedOperationException("$tag: ROM $rom($apiLevel) & Locale ($locale) is not supported.")

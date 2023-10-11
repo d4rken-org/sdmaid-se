@@ -11,14 +11,19 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
-import eu.darken.sdmse.automation.core.common.CrawlerCommon
-import eu.darken.sdmse.automation.core.common.CrawlerCommon.getDefaultClearCacheClick
 import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.defaultClick
+import eu.darken.sdmse.automation.core.common.defaultWindowFilter
+import eu.darken.sdmse.automation.core.common.defaultWindowIntent
+import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
@@ -81,12 +86,12 @@ open class AndroidTVSpecs @Inject constructor(
             val step = StepProcessor.Step(
                 parentTag = TAG,
                 label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
-                windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
-                windowEventFilter = CrawlerCommon.defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowIntent = defaultWindowIntent(pkg),
+                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeRecovery = { it.scrollNode() },
-                nodeMapping = CrawlerCommon.clickableParent(),
+                nodeMapping = clickableParent(),
                 action = getDefaultClearCacheClick(pkg, TAG)
             )
             stepper.withProgress(this) { process(step) }
@@ -127,8 +132,8 @@ open class AndroidTVSpecs @Inject constructor(
                 label = "Find & click 'OK' in confirmation dialog",
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,
-                nodeMapping = CrawlerCommon.clickableParent(),
-                action = CrawlerCommon.defaultClick()
+                nodeMapping = clickableParent(),
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }

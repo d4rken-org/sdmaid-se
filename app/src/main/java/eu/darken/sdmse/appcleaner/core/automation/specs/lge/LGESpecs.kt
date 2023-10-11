@@ -12,12 +12,20 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.appcleaner.core.automation.specs.huawei.HuaweiSpecs.Companion.SETTINGS_PKG
-import eu.darken.sdmse.automation.core.common.CrawlerCommon
+
 import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.clickableParent
+import eu.darken.sdmse.automation.core.common.defaultClick
+import eu.darken.sdmse.automation.core.common.defaultWindowFilter
+import eu.darken.sdmse.automation.core.common.defaultWindowIntent
+import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
+import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
@@ -83,13 +91,13 @@ class LGESpecs @Inject constructor(
             val step = StepProcessor.Step(
                 parentTag = tag,
                 label = "Find & click 'Storage' (targets=$storageEntryLabels)",
-                windowIntent = CrawlerCommon.defaultWindowIntent(context, pkg),
-                windowEventFilter = CrawlerCommon.defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowIntent = defaultWindowIntent(pkg),
+                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = storageFilter,
-                nodeRecovery = CrawlerCommon.getDefaultNodeRecovery(pkg),
-                nodeMapping = CrawlerCommon.clickableParent(),
-                action = CrawlerCommon.defaultClick()
+                nodeRecovery = getDefaultNodeRecovery(pkg),
+                nodeMapping = clickableParent(),
+                action = defaultClick()
             )
             stepper.withProgress(this) { process(step) }
         }
@@ -106,9 +114,9 @@ class LGESpecs @Inject constructor(
             val step = StepProcessor.Step(
                 parentTag = tag,
                 label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
-                windowNodeTest = CrawlerCommon.windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
-                action = CrawlerCommon.getDefaultClearCacheClick(pkg, tag)
+                action = getDefaultClearCacheClick(pkg, tag)
             )
             stepper.withProgress(this) { process(step) }
         }
