@@ -42,7 +42,7 @@ object CrawlerCommon {
         isDryRun: Boolean = false
     ): suspend (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
         log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
-        if (node.isEnabled) throw DisabledTargetException("Clickable target is disabled.")
+        if (!node.isEnabled) throw DisabledTargetException("Clickable target is disabled.")
         if (isDryRun) {
             node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
         } else {
