@@ -130,8 +130,7 @@ class SchedulerManager @Inject constructor(
 
         val nextExecutionAt = nextExecution!!
 
-        // Let the schedules start at the even minutes for a better user experience
-        val timeTillnextExecution = Duration.ofMinutes(Duration.between(Instant.now(), nextExecutionAt).toMinutes())
+        val timeTillnextExecution = Duration.between(Instant.now(), nextExecutionAt)
 
         log(TAG) { "schedule($label): Next execution is in $timeTillnextExecution, at $nextExecutionAt" }
 
