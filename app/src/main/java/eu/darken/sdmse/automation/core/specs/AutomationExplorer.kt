@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
+import eu.darken.sdmse.automation.core.common.PlanAbortException
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
@@ -72,9 +73,11 @@ class AutomationExplorer @AssistedInject constructor(
                     plan(context)
                     // Success :)
                     return@withTimeout
+                } catch (e: PlanAbortException) {
+                    log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
+                    throw e
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "Plan execution failed ($context) failed:\n${e.asLog()}" }
-                    attempts++
+                    log(TAG, WARN) { "Plan failed, retrying (attempts=$attempts):\n${e.asLog()}" }
                     delay(300)
                 }
             }

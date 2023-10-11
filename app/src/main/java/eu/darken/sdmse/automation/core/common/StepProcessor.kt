@@ -55,6 +55,9 @@ class StepProcessor @AssistedInject constructor(
                     doCrawl(step, attempts++)
                 }
                 return@withTimeout
+            } catch (e: PlanAbortException) {
+                log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
+                throw e
             } catch (e: StepAbortException) {
                 log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
                 break
