@@ -40,9 +40,9 @@ object CrawlerCommon {
 
     fun defaultClick(
         isDryRun: Boolean = false
-    ): (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
+    ): suspend (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
         log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
-        if (!node.isEnabled) throw IllegalStateException("Clickable target is disabled.")
+        if (node.isEnabled) throw DisabledTargetException("Clickable target is disabled.")
         if (isDryRun) {
             node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
         } else {
@@ -137,7 +137,7 @@ object CrawlerCommon {
     fun getDefaultClearCacheClick(
         pkg: Installed,
         tag: String
-    ): (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->
+    ): suspend (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->
         log(tag, VERBOSE) { "Clicking on ${node.toStringShort()} for $pkg:" }
 
         if (Bugs.isDryRun) {
@@ -145,8 +145,9 @@ object CrawlerCommon {
             return@scope true
         }
 
-        val success = defaultClick(isDryRun = Bugs.isDryRun).invoke(node, retryCount)
-        if (!success && !node.isEnabled) {
+        try {
+            defaultClick(isDryRun = Bugs.isDryRun).invoke(node, retryCount)
+        } catch (e: DisabledTargetException) {
             log(tag) { "Can't click on the clear cache button because it was disabled, but why..." }
             try {
                 val allButtonsAreDisabled = node.getRoot(maxNesting = 4).crawl().map { it.node }.all {
@@ -158,7 +159,7 @@ object CrawlerCommon {
                         "Clear cache button was disabled, but so are others, assuming size calculation going on."
                     }
                     log(tag) { "Sleeping for 1000ms to wait for calculation." }
-                    Thread.sleep((500 * retryCount).toLong())
+                    delay((500 * retryCount).toLong())
                     false
                 } else {
                     // https://github.com/d4rken/sdmaid-public/issues/2517
@@ -171,8 +172,6 @@ object CrawlerCommon {
                 log(tag, WARN) { "Error while trying to determine why the clear cache button is not enabled." }
                 false
             }
-        } else {
-            success
         }
     }
 
