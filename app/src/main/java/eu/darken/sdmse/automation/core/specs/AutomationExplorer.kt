@@ -1,7 +1,7 @@
 package eu.darken.sdmse.automation.core.specs
 
 import android.accessibilityservice.AccessibilityService
-import android.content.res.Resources
+import android.content.Context
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.Progress
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -24,7 +23,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
-import java.util.Locale
 
 
 class AutomationExplorer @AssistedInject constructor(
@@ -90,15 +88,10 @@ class AutomationExplorer @AssistedInject constructor(
 
         val service: AccessibilityService
 
-        val stepper: StepProcessor
+        val androidContext: android.content.Context
+            get() = service
 
-        fun getSysLocale(): Locale = if (hasApiLevel(24)) {
-            @Suppress("NewApi")
-            Resources.getSystem().configuration.locales[0]
-        } else {
-            @Suppress("DEPRECATION")
-            Resources.getSystem().configuration.locale
-        }
+        val stepper: StepProcessor
     }
 
     companion object {
