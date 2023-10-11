@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.shareLatest
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.CoroutineScope
@@ -73,9 +75,13 @@ class ShizukuManager @Inject constructor(
         }
     }
 
+    val pkgId: Pkg.Id
+        get() = PKG_ID
+
     suspend fun isInstalled(): Boolean {
         val installed = try {
-            context.packageManager.getPackageInfo(PKG, 0)
+            @Suppress("DEPRECATION")
+            context.packageManager.getPackageInfo(PKG_ID.name, 0)
             true
         } catch (e: PackageManager.NameNotFoundException) {
             false
@@ -113,6 +119,6 @@ class ShizukuManager @Inject constructor(
 
     companion object {
         private val TAG = logTag("Shizuku", "Manager")
-        private const val PKG = "moe.shizuku.privileged.api"
+        private val PKG_ID = "moe.shizuku.privileged.api".toPkgId()
     }
 }

@@ -1,8 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.scanner
 
-import android.content.Context
 import dagger.Reusable
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
@@ -33,7 +31,6 @@ import kotlin.reflect.KClass
 
 @Reusable
 class PostProcessorModule @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val rootManager: RootManager,
     private val shizukuManager: ShizukuManager,
     private val exclusionManager: ExclusionManager,
@@ -52,7 +49,7 @@ class PostProcessorModule @Inject constructor(
         val minCacheSize = settings.minCacheSizeBytes.value()
         val processed = apps
             .map { checkAliasedItems(it) }
-            .map { checkExclusions(it) }
+            .mapNotNull { checkExclusions(it) }
             .map { checkForHiddenModules(it) }
             .filter { it.size >= minCacheSize }
             .filter { !it.isEmpty() }
@@ -82,12 +79,18 @@ class PostProcessorModule @Inject constructor(
         return after
     }
 
-    private suspend fun checkExclusions(before: AppJunk): AppJunk {
+    private suspend fun checkExclusions(before: AppJunk): AppJunk? {
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
 
-        val useRoot = rootManager.canUseRootNow()
         val useShizuku = shizukuManager.canUseShizukuNow()
+
+        if (useShizuku && before.pkg.id == shizukuManager.pkgId) {
+            log(TAG, WARN) { "Shizuku is being used, excluding it." }
+            return null
+        }
+
+        val useRoot = rootManager.canUseRootNow()
 
         val edgeCaseMap = mutableMapOf<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>()
 
