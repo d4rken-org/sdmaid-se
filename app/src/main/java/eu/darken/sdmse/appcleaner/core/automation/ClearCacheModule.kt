@@ -31,6 +31,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.common.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.SpecGenerator
@@ -134,6 +135,10 @@ class ClearCacheModule @AssistedInject constructor(
                 processSpecForPkg(installed)
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
                 successful.add(target)
+            } catch (e: ScreenUnavailableException) {
+                log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
+                // TODO We don't have to abort here, but this is not a normal state and should show an error?
+                throw e
             } catch (e: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)

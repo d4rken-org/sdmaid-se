@@ -132,12 +132,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                     }
 
                     acv != null -> {
-                        log(
-                            TAG,
-                            VERBOSE
-                        ) { "Updating control view (isScreenAvailable=${screenState.isScreenAvailable})" }
-                        log(TAG, VERBOSE) { "Updating progress $progress" }
-                        acv.setProgress(if (screenState.isScreenAvailable) progressData else null)
+                        if (screenState.isScreenAvailable) {
+                            log(TAG, VERBOSE) { "Updating progress $progress" }
+                            acv.setProgress(progressData)
+                        } else {
+                            log(TAG, WARN) { "NULLing control view, screen is unavailable!" }
+                            acv.setProgress(null)
+                        }
                     }
 
                     else -> {

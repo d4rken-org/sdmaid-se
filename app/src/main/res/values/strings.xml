@@ -504,6 +504,8 @@
     <string name="automation_error_not_enabled_body">Accessibility service is disabled. Turn it on again.</string>
     <string name="automation_error_not_running_title">Service isn\'t running</string>
     <string name="automation_error_not_running_body">Accessibility service is not running. Try rebooting the device.</string>
+    <string name="automation_error_screen_unavailable_title">Screen unavailable</string>
+    <string name="automation_error_screen_unavailable_body">The operation was aborted because the screen became unavailable (e.g. display off or lockscreen active).</string>
 
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>

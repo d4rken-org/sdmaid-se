@@ -8,6 +8,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
+import eu.darken.sdmse.automation.core.ScreenState
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.toCaString
@@ -20,18 +21,23 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
 
 
 class StepProcessor @AssistedInject constructor(
     @Assisted private val host: AutomationHost,
+    private val screenState: ScreenState,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -47,23 +53,37 @@ class StepProcessor @AssistedInject constructor(
     suspend fun process(step: Step): Unit = withTimeout(20 * 1000) {
         log(TAG) { "crawl(): $step" }
         updateProgressPrimary(step.label)
-
         var attempts = 0
-        while (currentCoroutineContext().isActive) {
+
+        // If the lock screen becomes active, immediately cancel any ACS operations
+        // The user probably needs the phone. Normally, the screen does not turn off while our automation is active.
+        val screenGuard = screenState.state
+            .filter { !it.isScreenAvailable }
+            .take(1)
+            .onEach { throw ScreenUnavailableException("Screen is unavailable!") }
+
+        coroutineScope {
+            val screenGuardJob = screenGuard.launchIn(this)
+
             try {
-                withTimeout(5 * 1000) {
-                    doCrawl(step, attempts++)
+                while (currentCoroutineContext().isActive) {
+                    try {
+                        withTimeout(5 * 1000) { doCrawl(step, attempts++) }
+                        // Step was successful :))
+                        break
+                    } catch (e: PlanAbortException) {
+                        log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
+                        throw e
+                    } catch (e: StepAbortException) {
+                        log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
+                        break
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "crawl(): Attempt $attempts failed on $step:\n${e.asLog()}" }
+                        delay(300)
+                    }
                 }
-                return@withTimeout
-            } catch (e: PlanAbortException) {
-                log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
-                throw e
-            } catch (e: StepAbortException) {
-                log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
-                break
-            } catch (e: Exception) {
-                log(TAG, WARN) { "crawl(): Attempt $attempts failed on $step:\n${e.asLog()}" }
-                delay(300)
+            } finally {
+                screenGuardJob.cancel()
             }
         }
     }

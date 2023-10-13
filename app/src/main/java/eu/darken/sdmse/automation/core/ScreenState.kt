@@ -27,9 +27,9 @@ class ScreenState @Inject constructor(
     private val keyguardManager: KeyguardManager,
 ) {
 
-    suspend fun isScreenOn(): Boolean = powerManager.isInteractive
+    private suspend fun isScreenOn(): Boolean = powerManager.isInteractive
 
-    suspend fun isUnlocked(): Boolean = !keyguardManager.isKeyguardLocked
+    private suspend fun isUnlocked(): Boolean = !keyguardManager.isKeyguardLocked
 
     val state: Flow<State> = callbackFlow {
         trySendBlocking(State(isScreenOn = isScreenOn(), isUnlocked = isUnlocked()))

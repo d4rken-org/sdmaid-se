@@ -40,7 +40,7 @@ class AutomationExplorer @AssistedInject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun process(spec: AutomationSpec.Explorer): Unit {
+    suspend fun process(spec: AutomationSpec.Explorer) {
         log(TAG) { "process(): $spec" }
 
         var attempts = 0
@@ -61,22 +61,23 @@ class AutomationExplorer @AssistedInject constructor(
             override val stepper: StepProcessor = stepProcessorFactory.create(host)
         }
 
-        withTimeout(spec.executionTimeout.toMillis()) {
-            log(TAG, VERBOSE) { "Creating plan..." }
-            val plan = spec.createPlan()
-            log(TAG) { "Plan created: $plan" }
+        log(TAG, VERBOSE) { "Creating plan..." }
+        val plan = spec.createPlan()
+        log(TAG) { "Plan created: $plan" }
 
+        withTimeout(spec.executionTimeout.toMillis()) {
             while (currentCoroutineContext().isActive) {
                 try {
                     plan(context)
                     // Success :)
                     return@withTimeout
                 } catch (e: PlanAbortException) {
-                    log(TAG, WARN) { "ABORT Step due to ${e.asLog()}" }
+                    log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
                     throw e
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Plan failed, retrying (attempts=$attempts):\n${e.asLog()}" }
                     delay(300)
+                    attempts++
                 }
             }
         }
