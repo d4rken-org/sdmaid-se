@@ -117,6 +117,7 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允许 SD Maid 发布通知以告知您正在进行的操作或重要事件。</string>
     <string name="setup_notification_hint">我们不会滥用通知 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： \"%s\" 。</string>
     <string name="setup_acs_card_title">无障碍服务</string>
     <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
     <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。此过程可以随时取消，并且不会收集信息。</string>
@@ -149,6 +150,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">显示有用的残留</string>
     <string name="corpsefinder_settings_risk_keeper_summary">您可能想保留的已卸载应用的文件，例如您拍摄的照片或者创建的备份。</string>
     <string name="corpsefinder_settings_risk_common_title">包含常见名称</string>
+    <string name="corpsefinder_settings_risk_common_summary">名称过于常见的文件，例如很多应用都会有“Notes”文件夹。</string>
     <string name="corpsefinder_watcher_title">卸载监视器</string>
     <string name="corpsefinder_watcher_summary">卸载应用时自动扫描残留数据。</string>
     <string name="corpsefinder_watcher_autodelete_title">自动删除</string>
@@ -290,6 +292,7 @@
     <string name="appcleaner_include_minimumage_label">最短时间</string>
     <string name="appcleaner_include_minimumage_summary">跳过低于最短时间的文件。</string>
     <string name="appcleaner_automation_romtype_detection_label">自动识别操作系统类型</string>
+    <string name="appcleaner_automation_romtype_detection_summary">如果SDMaid没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，你需要在此手动选择你的系统类型。</string>
     <string name="appcleaner_automation_romtype_auto_label">自动(默认)</string>
     <string name="appcleaner_filter_codecache_label">代码缓存</string>
     <string name="appcleaner_filter_codecache_summary">JVM 代码缓存。将字节码块编译成本机代码。</string>
@@ -413,6 +416,7 @@
     <string name="analyzer_storage_content_app_extra_description">此应用放在默认路径之外的额外数据，例如图片或下载</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">此应用在“%2$s”上占用了 %1$s</string>
     <string name="data_area_public_app_data_official_label">默认公用应用数据</string>
+    <string name="data_area_public_app_assets_official_label">默认公用应用数据</string>
     <string name="data_area_public_storage_label">公共存储</string>
     <string name="data_area_sdcard_label">SD 卡</string>
     <string name="data_areas_label">数据区域</string>

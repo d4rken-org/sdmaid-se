@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Varsler</string>
     <string name="setup_notification_body">Tillat SD Maid å legge ut varsler for å informere deg om pågående operasjoner eller viktige hendelser.</string>
     <string name="setup_notification_hint">Varsler brukes sparsomt 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
     <string name="setup_acs_card_title">Tilgjengelighetstjeneste</string>
     <string name="setup_acs_card_body">Tilgjengelighetstjenesten lar SD Maid samhandle med skjermen din og automatisere kjedelige handlinger, f.eks. trykke \"Tøm hurtigbuffer\" på flere skjermer.</string>
     <string name="setup_acs_card_body2">SD Maid vil ikke bruke tilgjengelighetstjenesten uten ditt samtykke, vil alltid vise en fremtredende (kansellerbar) indikator mens den er aktiv og vil ikke bruke den for å hente informasjon.</string>
@@ -151,6 +152,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Ønskelige rester</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Filer som du kanskje vil beholde, selv om appen er avinstallert, f.eks. bilder du tok eller sikkerhetskopier du laget.</string>
     <string name="corpsefinder_settings_risk_common_title">Vanlige navn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data med ofte brukte navn, f.eks. en mappe \"Notater\" eies av for mange ukjente apper.</string>
     <string name="corpsefinder_watcher_title">Avinstalleringsovervåker</string>
     <string name="corpsefinder_watcher_summary">Søk etter rester automatisk når en app fjernes.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatisk sletting</string>
@@ -296,6 +298,7 @@
     <string name="appcleaner_include_minimumage_label">Minste alder</string>
     <string name="appcleaner_include_minimumage_summary">Hopp over filer som er yngre enn minste alder.</string>
     <string name="appcleaner_automation_romtype_detection_label">Deteksjon av operativsystem</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Tilgjengelighetsbasert automatisering kan mislykkes hvis SD Maid ikke oppdager operativsystemet ditt på riktig måte. Bruk denne innstillingen for å overstyre oppdaget OS.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automatisk (standard)</string>
     <string name="appcleaner_filter_codecache_label">Kodebuffer</string>
     <string name="appcleaner_filter_codecache_summary">JVM kodebuffer. Blokker med byte-kode kompilert til systemkode.</string>
@@ -424,6 +427,7 @@
     <string name="analyzer_storage_content_app_extra_description">Ekstra data som denne appen har plassert utenfor standardbanene, f.eks. bilder eller nedlastinger.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne appen bruker %1$s på \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
+    <string name="data_area_public_app_assets_official_label">Standard offentlige appressurser</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>
     <string name="data_area_sdcard_label">Minnekort</string>
     <string name="data_areas_label">Dataområder</string>

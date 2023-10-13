@@ -24,6 +24,7 @@
     <string name="general_thanks_action">Ευχαριστούμε</string>
     <string name="general_gotit_action">Το κατάλαβα</string>
     <string name="general_fix_action">Διόρθωση</string>
+    <string name="general_set_up_action">Εγκατάσταση</string>
     <string name="general_edit_action">Επεξεργασία</string>
     <string name="general_na_label">Μη διαθέσιμο</string>
     <string name="general_empty_label">Κενό</string>
