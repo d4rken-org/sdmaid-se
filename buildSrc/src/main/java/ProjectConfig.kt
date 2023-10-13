@@ -111,7 +111,7 @@ private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Un
 
 fun BaseExtension.setupKotlinOptions() {
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = "17"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-Xopt-in=kotlin.RequiresOptIn",
             "-Xopt-in=kotlin.ExperimentalStdlibApi",
