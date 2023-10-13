@@ -69,7 +69,6 @@ fun LibraryExtension.setupLibraryDefaults() {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
@@ -112,7 +111,7 @@ private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Un
 
 fun BaseExtension.setupKotlinOptions() {
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = JavaVersion.VERSION_17.toString()
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-Xopt-in=kotlin.RequiresOptIn",
             "-Xopt-in=kotlin.ExperimentalStdlibApi",
@@ -129,7 +128,6 @@ fun BaseExtension.setupCompileOptions() {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
