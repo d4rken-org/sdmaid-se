@@ -117,6 +117,7 @@
     <string name="setup_notification_title">Notifikasi</string>
     <string name="setup_notification_body">Izinkan SD Maid untuk mengirim notifikasi untuk memberitahu Anda mengenai perintah yang sedang dijalankan atau peristiwa penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan hemat 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Fitur ini mengharuskan Anda untuk melengkapi item pengaturan tambahan: %s</string>
     <string name="setup_acs_card_title">Layanan aksesibilitas</string>
     <string name="setup_acs_card_body">Layanan aksesibilitas memungkinkan SD Maid untuk berinteraksi dengan layar Anda dan mengotomatiskan tindakan yang membosankan, mis. mengetuk \"Hapus cache\" di beberapa layar.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan layanan aksesibilitas tanpa persetujuan Anda, akan selalu menampilkan indikator yang menonjol (dapat dibatalkan) saat aktif dan tidak akan menggunakannya untuk mengumpulkan informasi.</string>
@@ -149,6 +150,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa-sisa yang diinginkan</string>
     <string name="corpsefinder_settings_risk_keeper_summary">File yang mungkin ingin Anda simpan, meskipun aplikasi dihapus instalasinya, cth. foto yang Anda ambil atau cadangan yang Anda buat.</string>
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama umum</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data-data dengan nama-nama yang umum digunakan, contohnya folder \"Catatan\" dimiliki oleh terlalu banyak aplikasi-aplikasi yang tidak dikenal.</string>
     <string name="corpsefinder_watcher_title">Pemantau uninstall</string>
     <string name="corpsefinder_watcher_summary">Pindai otomatis sisa-sisa aplikasi yang dihapus.</string>
     <string name="corpsefinder_watcher_autodelete_title">Menghapus otomatis</string>
@@ -290,6 +292,7 @@
     <string name="appcleaner_include_minimumage_label">Umur minimal</string>
     <string name="appcleaner_include_minimumage_summary">Atur umur minimal berkas.</string>
     <string name="appcleaner_automation_romtype_detection_label">Deteksi sistem operasi</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automasi berbasis aksesibilitas dapat gagal jika SD Maid tidak mendeteksi OS Anda dengan benar. Gunakan pengaturan ini untuk mengganti OS yang sudah terdeteksi.</string>
     <string name="appcleaner_automation_romtype_auto_label">Otomatis (bawaan)</string>
     <string name="appcleaner_filter_codecache_label">Cache code</string>
     <string name="appcleaner_filter_codecache_summary">Cache kode JVM. Blok dari bytecode yang dikompilasi menjadi kode asli.</string>
@@ -413,6 +416,7 @@
     <string name="analyzer_storage_content_app_extra_description">Data lain yang ditempatkan di luar jalur umumnya oleh aplikasi ini, seperti foto atau unduhan.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi publik bawaan</string>
+    <string name="data_area_public_app_assets_official_label">Aset aplikasi publik bawaan</string>
     <string name="data_area_public_storage_label">Penyimpanan publik</string>
     <string name="data_area_sdcard_label">Kartu SD</string>
     <string name="data_areas_label">Area data</string>

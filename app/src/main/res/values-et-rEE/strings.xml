@@ -119,6 +119,7 @@
     <string name="setup_notification_title">Teated</string>
     <string name="setup_notification_body">Luba SD Maidil anda märku enda toimetustest või tähtsatest sündmustest.</string>
     <string name="setup_notification_hint">Saadame vaid olulisi teateid 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Selleks on vaja seadistada põhjalikumalt: %s</string>
     <string name="setup_acs_card_title">Juurdepääsetavusteenus</string>
     <string name="setup_acs_card_body">Juurdepääsetavusteenus lubab SD Maidil toimetada ekraanil ja teie eest ära teha tüütuid tegevusi, nt puudutada mitu korda \"Tühjenda vahemälu\".</string>
     <string name="setup_acs_card_body2">SD Maid ei kasuta juurdepääsetavusteenust ilma loata, näitab toimetamise ajal alati märgatavat (tühistamisvõimalusega) teadet ja ei kogu sellega teavet.</string>
@@ -151,6 +152,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Kaasake soovitud jäägid</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Isegi pärast rakenduse eemaldamist säilitamist vajavad failid, nt pildid või varundused.</string>
     <string name="corpsefinder_settings_risk_common_title">Kaasa sagedased nimed</string>
+    <string name="corpsefinder_settings_risk_common_summary">Sagedasti kasutatud nimedega andmete, nt kausta \"Märkmed\", omanikuks on liiga palju rakendusi.</string>
     <string name="corpsefinder_watcher_title">Eemaldamisjälgija</string>
     <string name="corpsefinder_watcher_summary">Rakenduse eemaldamisel skannige jääke automaatselt.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ise kustuv</string>
@@ -296,6 +298,7 @@
     <string name="appcleaner_include_minimumage_label">Väikseim vanus</string>
     <string name="appcleaner_include_minimumage_summary">Eira faile, mis varasemad kui väikseim vanus.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operatsioonisüsteemi tuvastamine</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Juurdepääsul põhinev automatiseerimine võib nurjuda, kui SD Maid ei tuvasta operatsioonisüsteemi korralikult. Selle seadega asendate tuvastatud operatsioonisüsteemi.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automaatne (tavaline)</string>
     <string name="appcleaner_filter_codecache_label">Koodi vahemälu</string>
     <string name="appcleaner_filter_codecache_summary">JVM-i koodi vahemälu. Baidikoodi plokid kompileeritud lähtekoodi.</string>
@@ -424,6 +427,7 @@
     <string name="analyzer_storage_content_app_extra_description">Lisaandmed, mis ei asu rakenduse tavapärastes asukohtades, nt pildid või alla laaditud sisu.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Sellele rakendusele kuulub kohas \"%2$s\" %1$s.</string>
     <string name="data_area_public_app_data_official_label">Tavalised avalikud rakenduse andmed</string>
+    <string name="data_area_public_app_assets_official_label">Rakenduse avalikud tavaandmed</string>
     <string name="data_area_public_storage_label">Avalik mälu</string>
     <string name="data_area_sdcard_label">SD-kaart</string>
     <string name="data_areas_label">Andmekogud</string>

@@ -109,6 +109,7 @@
     <string name="setup_shizuku_card_body2">Αυτή η ρύθμιση δεν έχει καμία επίδραση εάν η εφαρμογή Shizuku δεν έχει ρυθμιστεί στη συσκευή σας.</string>
     <string name="setup_shizuku_state_ready_label">Ο σύνδεσμος Shizuku είναι έτοιμος.</string>
     <string name="setup_shizuku_state_waiting_label">Αναμονή για σύνδεση με Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Χρήση Shizuku εάν είναι διαθέσιμη</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη ρύθμισης μέσω του μενού ρυθμίσεων.</string>
     <string name="setup_permission_granted_label">Δόθηκαν δικαιώματα</string>
@@ -118,6 +119,7 @@
     <string name="setup_notification_title">Ειδοποιήσεις</string>
     <string name="setup_notification_body">Επιτρέψτε στο SD Maid να δημοσιεύει ειδοποιήσεις για να σας ενημερώνει για συνεχιζόμενες λειτουργίες ή σημαντικά γεγονότα.</string>
     <string name="setup_notification_hint">Οι ειδοποιήσεις χρησιμοποιούνται με μέτρο🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Αυτή η λειτουργία απαιτεί την ολοκλήρωση πρόσθετων στοιχείων ρύθμισης: %s</string>
     <string name="setup_acs_card_title">Υπηρεσία προσβασιμότητας</string>
     <string name="setup_acs_card_body">Η υπηρεσία προσβασιμότητας επιτρέπει στο SD Maid να αλληλεπιδρά με την οθόνη σας και να αυτοματοποιεί κουραστικές ενέργειες, π.χ. πατώντας \"Clear cache\" σε πολλές οθόνες.</string>
     <string name="setup_acs_card_body2">Το SD Maid δε θα χρησιμοποιεί την υπηρεσία προσβασιμότητας χωρίς τη συγκατάθεσή σας, θα εμφανίζει πάντα μια εμφανή (ακυρώσιμη) ένδειξη ενώ είναι ενεργή και δε θα τη χρησιμοποιεί για τη συλλογή πληροφοριών.</string>
@@ -150,6 +152,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Συμπεριλάβετε επιθυμητά υπολείμματα</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Αρχεία που ίσως θέλετε να διατηρήσετε, ακόμη και αν η εφαρμογή έχει απεγκατασταθεί, π.χ. φωτογραφίες που τραβήξατε ή αντίγραφα ασφαλείας που δημιουργήσατε.</string>
     <string name="corpsefinder_settings_risk_common_title">Συμπερίληψη κοινών ονομάτων</string>
+    <string name="corpsefinder_settings_risk_common_summary">Δεδομένα με πολύ κοινά ονόματα, π.χ. ένας φάκελος \"σημειώσεις\" ανήκει σε πάρα πολλές άγνωστες εφαρμογές.</string>
     <string name="corpsefinder_watcher_title">Απεγκαταστήστε το watcher</string>
     <string name="corpsefinder_watcher_summary">Αυτόματη σάρωση για υπολείμματα όταν αφαιρεθεί μια εφαρμογή.</string>
     <string name="corpsefinder_watcher_autodelete_title">Αυτόματη διαγραφή</string>
@@ -294,6 +297,9 @@
     <string name="appcleaner_include_minimumsize_summary">Παράλειψη εφαρμογών όπου το άθροισμα των αναλώσιμων δεδομένων είναι κάτω από το ελάχιστο.</string>
     <string name="appcleaner_include_minimumage_label">Ελάχιστη ηλικία</string>
     <string name="appcleaner_include_minimumage_summary">Παράλειψη αρχείων που είναι μικρότερα από την ελάχιστη ηλικία.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Ανίχνευση λειτουργικού συστήματος</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Ο αυτοματισμός με βάση την προσβασιμότητα μπορεί να αποτύχει αν το SD Maid δεν ανιχνεύσει σωστά το λειτουργικό σας σύστημα. Χρησιμοποιήστε αυτήν τη ρύθμιση για να παρακάμψετε το λειτουργικό σύστημα που εντοπίστηκε.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Αυτόματη (προεπιλογή)</string>
     <string name="appcleaner_filter_codecache_label">Cache κώδικα</string>
     <string name="appcleaner_filter_codecache_summary">Cache κώδικα JVM. Μπλοκ bytecode μεταγλωττισμένα σε εγγενή κώδικα.</string>
     <string name="appcleaner_filter_advertisement_label">Δεδομένα διαφήμισης</string>
@@ -319,6 +325,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">Ληφθέντα αρχεία WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_received_label">Αρχεία που λάβατε από άτομα μέσω του WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Απεσταλμένα αρχεία WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Αρχεία που στείλατε από το WhatsApp σε αλλους.</string>
     <string name="appcleaner_filter_telegram_label">Αρχεία πολυμέσων Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Αρχεία που λήφθηκαν ή στάλθηκαν μέσω του Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -369,6 +376,7 @@
     <string name="appcontrol_app_exclude_edit_title">Επεξεργασία αποκλεισμού</string>
     <string name="appcontrol_app_exclude_edit_description">Αυτή η εφαρμογή εξαιρείται επί του παρόντος από ένα ή περισσότερα εργαλεία.</string>
     <string name="appcontrol_tag_user">Χρήστη</string>
+    <string name="appcontrol_tag_active">Πρόσφατα ενεργοί</string>
     <string name="appcontrol_tag_system">Συστήματος</string>
     <string name="appcontrol_tag_enabled">Ενεργοποιημένες</string>
     <string name="appcontrol_tag_disabled">Απενεργοποιημένες</string>
@@ -419,6 +427,7 @@
     <string name="analyzer_storage_content_app_extra_description">Επιπλέον δεδομένα που έχει τοποθετήσει αυτή η εφαρμογή εκτός των προεπιλεγμένων διαδρομών, π.χ. φωτογραφίες ή λήψεις.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Προεπιλεγμένα δημόσιας δεδομένα εφαρμογής</string>
+    <string name="data_area_public_app_assets_official_label">Προεπιλεγμένα στοιχεία δημόσιων εφαρμογών</string>
     <string name="data_area_public_storage_label">Δημόσια αποθήκευση</string>
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Περιοχές δεδομένων</string>
@@ -473,6 +482,7 @@
     <string name="scheduler_schedule_time_label">Κατά προσέγγιση χρόνος</string>
     <string name="scheduler_schedule_repeat_label">Διάστημα επανάληψης σε ημέρες</string>
     <string name="scheduler_schedule_default_name">Προεπιλεγμένο χρονοδιάγραμμα</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s περίπου %2$s</string>
     <string name="scheduler_schedule_next_at_x">Προγραμματισμένο για %s</string>
     <string name="scheduler_schedule_last_at_x">Τελευταία εκτέλεση στις %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -488,6 +498,9 @@
     <string name="scheduler_setting_charging_summary">Εάν η συσκευή δεν φορτίζει, η προγραμματισμένη εκτέλεση θα παραλειφθεί.</string>
     <string name="scheduler_setting_automation_title">Υπηρεσία προσβασιμότητας</string>
     <string name="scheduler_setting_automation_summary">Συμπεριλάβετε ενέργειες που χρησιμοποιούν μια υπηρεσία προσβασιμότητας. Αυτό απαιτεί ότι το SD Maid μπορεί να αλληλεπιδράσει με την οθόνη σας (δηλαδή ξεκλειδώνεται) όταν εκτελούνται οι εργασίες.</string>
+    <string name="scheduler_notification_channel_label">Πρόγραμμα</string>
+    <string name="scheduler_notification_title">Προγραμματισμένες εργασίες</string>
+    <string name="scheduler_notification_message">Εκτέλεσει: \"%s\"</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
