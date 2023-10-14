@@ -66,13 +66,13 @@ fun com.android.build.api.dsl.CommonExtension<
         >.setupModuleBuildTypes() {
     buildTypes {
         debug {
-            consumerProguardFiles("proguard-rules.pro")
+            consumerProguardFiles("consumer-rules.pro")
         }
         create("beta") {
-            consumerProguardFiles("proguard-rules.pro")
+            consumerProguardFiles("consumer-rules.pro")
         }
         release {
-            consumerProguardFiles("proguard-rules.pro")
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
 }
