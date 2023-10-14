@@ -13,6 +13,8 @@ import kotlin.reflect.KClass
  */
 @Suppress("UNCHECKED_CAST")
 fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? = try {
+    // Note: This requiers proguard rules, otherwise R8 removes the field
+    // e.g. eu.darken.sdmse.common.root.service.RootServiceConnection.DESCRIPTOR
     val fDescriptor = Class
         .forName(clazz.qualifiedName + "\$Stub")
         .getField("DESCRIPTOR")
