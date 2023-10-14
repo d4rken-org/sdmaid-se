@@ -10,12 +10,8 @@ apply(plugin = "dagger.hilt.android.plugin")
 
 android {
     namespace = "${ProjectConfig.packageName}.common"
-    compileSdk = ProjectConfig.compileSdk
 
-    defaultConfig {
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
-    }
+    setupLibraryDefaults()
 
     setupModuleBuildTypes()
 
