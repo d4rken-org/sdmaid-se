@@ -7,12 +7,8 @@ plugins {
 
 android {
     namespace = "eu.darken.sdmse.common"
-    compileSdk = ProjectConfig.compileSdk
 
-    defaultConfig {
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
-    }
+    setupLibraryDefaults()
 
     setupModuleBuildTypes()
 

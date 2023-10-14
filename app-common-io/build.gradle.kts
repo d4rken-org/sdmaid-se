@@ -10,14 +10,8 @@ apply(plugin = "dagger.hilt.android.plugin")
 
 android {
     namespace = "${ProjectConfig.packageName}.common.io"
-    compileSdk = ProjectConfig.compileSdk
 
-    defaultConfig {
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
-
-        consumerProguardFiles("consumer-rules.pro")
-    }
+    setupLibraryDefaults()
 
     setupModuleBuildTypes()
 
