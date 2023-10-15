@@ -150,7 +150,7 @@ class SystemCleaner @Inject constructor(
                         log(TAG) { "Deleted $targetContent!" }
                         deleted.add(targetContent)
                     } catch (e: WriteException) {
-                        log(TAG, WARN) { "Deletion failed for $targetContent" }
+                        log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
                     }
                 }
 
