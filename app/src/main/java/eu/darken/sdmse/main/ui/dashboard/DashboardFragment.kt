@@ -174,6 +174,14 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
 
+                is DashboardEvents.DeduplicatorDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                    setMessage(R.string.appcleaner_delete_all_confirmation_message)
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmDeduplicatorDeletion() }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showDeduplicatorDetails() }
+                }.show()
+
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
                         .make(

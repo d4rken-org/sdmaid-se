@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        app:icon="@drawable/baseline_looks_one_24"
+        app:key="protection.keepone.enabled"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_protection_keepone_summary"
+        app:title="@string/deduplicator_protection_keepone_title" />
+
+    <Preference
+        app:icon="@drawable/ic_file_chart_outline_24"
+        app:key="skip.minsize.bytes"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_skip_minsize_description"
+        app:title="@string/deduplicator_skip_minsize_title" />
+
+    <PreferenceCategory android:title="@string/deduplicator_detection_methods_label">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_sd_storage"
+            app:key="sleuth.hash.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/deduplicator_detection_method_hash_summary"
+            app:title="@string/deduplicator_detection_method_hash_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -28,8 +28,9 @@ fun RecyclerView.setupDefaults(
     adapter: RecyclerView.Adapter<*>? = null,
     dividers: Boolean = true,
     fastscroll: Boolean = true,
+    layouter: LinearLayoutManager = LinearLayoutManager(context)
 ) = apply {
-    layoutManager = LinearLayoutManager(context)
+    layoutManager = layouter
     itemAnimator = DefaultItemAnimator()
     if (dividers) addItemDecoration(
         DividerItemDecoration2(

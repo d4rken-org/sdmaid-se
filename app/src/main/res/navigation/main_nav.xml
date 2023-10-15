@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_deviceStorageFragment"
             app:destination="@id/deviceStorageFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_deduplicatorListFragment"
+            app:destination="@id/deduplicatorListFragment" />
     </fragment>
 
     <action
@@ -93,9 +96,9 @@
         tools:layout="@layout/setup_fragment">
         <argument
             android:name="options"
+            android:defaultValue="@null"
             app:argType="eu.darken.sdmse.setup.SetupScreenOptions"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <action
             android:id="@+id/action_setupFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
@@ -420,4 +423,8 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/deduplicatorListFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.list.DuplicateGroupListFragment"
+        tools:layout="@layout/deduplicator_group_list_fragment" />
 </navigation>
