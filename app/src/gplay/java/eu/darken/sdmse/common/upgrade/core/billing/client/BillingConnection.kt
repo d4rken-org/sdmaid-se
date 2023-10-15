@@ -1,7 +1,15 @@
 package eu.darken.sdmse.common.upgrade.core.billing.client
 
 import android.app.Activity
-import com.android.billingclient.api.*
+import com.android.billingclient.api.AcknowledgePurchaseParams
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingFlowParams
+import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
+import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryPurchasesParams
+import com.android.billingclient.api.queryPurchasesAsync
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -9,6 +17,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager.Companion.tryMapUserFriendly
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import eu.darken.sdmse.common.upgrade.core.billing.isPurchased
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -38,12 +47,11 @@ data class BillingConnection(
         combined.putAll(subCache)
 
         purchaseEvent
-            .takeIf { it?.first?.isSuccess == true }
-            .let { it?.second }
-            ?.forEach { combined[it.orderId] = it }
+            ?.takeIf { (result, _) -> result.isSuccess }
+            ?.let { (_, purchases) -> purchases?.filter { it.isPurchased } }
+            ?.forEach { purchase -> combined[purchase.orderId!!] = purchase }
 
-        combined.values
-            .sortedByDescending { it.purchaseTime }
+        combined.values.sortedByDescending { it.purchaseTime }
     }.setupCommonEventHandlers(TAG) { "purchases" }
 
     private suspend fun queryPurchases(@BillingClient.ProductType type: String): Collection<Purchase> {
@@ -58,7 +66,7 @@ data class BillingConnection(
 
         if (!billingResult.isSuccess) {
             log(TAG, WARN) { "queryPurchases() failed" }
-            throw  BillingClientException(billingResult)
+            throw BillingClientException(billingResult)
         }
 
         return purchaseData
@@ -70,7 +78,9 @@ data class BillingConnection(
             try {
                 val iaps = queryPurchases(BillingClient.ProductType.INAPP)
                 log(TAG) { "Refreshed IAPs: $iaps" }
-                queryCacheIaps.value = iaps.associateBy { it.orderId }
+                queryCacheIaps.value = iaps
+                    .filter { it.isPurchased }
+                    .associateBy { it.orderId!! }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
             }
@@ -79,7 +89,9 @@ data class BillingConnection(
             try {
                 val subs = queryPurchases(BillingClient.ProductType.SUBS)
                 log(TAG) { "Refreshed SUBs: $subs" }
-                queryCacheSubs.value = subs.associateBy { it.orderId }
+                queryCacheSubs.value = subs
+                    .filter { it.isPurchased }
+                    .associateBy { it.orderId!! }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
             }
