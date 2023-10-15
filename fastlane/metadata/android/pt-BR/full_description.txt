@@ -1,4 +1,4 @@
-<i>SD Maid SE</i> é seu assistente confiável do Android, para mantê-lo limpo e arrumado.
+<i>SD Maid SE</i> é a sua assistente confiável do Android, para mantê-la limpa e arrumada.
 
 Ninguém é perfeito e nem o Android.
 * Os aplicativos que você já removeu deixam algo para trás.
