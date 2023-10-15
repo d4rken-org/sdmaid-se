@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.upgrade.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -58,6 +59,7 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
                         text = getString(R.string.upgrade_screen_subscription_action)
                         setOnClickListener { vm.onGoSubscription(requireActivity()) }
                     }
+
                     else -> log(TAG) { "No sub available" }
                 }
                 isVisible = true
@@ -67,6 +69,9 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
                 text = getString(R.string.upgrade_screen_subscription_action_hint, "$subPrice")
                 isVisible = canSub
             }
+
+            actionBox.isVisible = true
+            actionProgress.isGone = true
         }
         super.onViewCreated(view, savedInstanceState)
     }

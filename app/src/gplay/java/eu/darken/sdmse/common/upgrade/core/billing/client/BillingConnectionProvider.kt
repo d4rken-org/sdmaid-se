@@ -110,7 +110,7 @@ class BillingConnectionProvider @Inject constructor(
             }
 
             log(TAG) { "Will retry BillingClient connection... *sigh*" }
-            delay(3000 * attempt)
+            delay(2000 * attempt)
             true
         }
 

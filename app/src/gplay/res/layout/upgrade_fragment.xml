@@ -43,8 +43,8 @@
             <com.google.android.material.card.MaterialCardView
                 style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/TextAppearance.Material3.BodyMedium"
@@ -79,50 +79,73 @@
                 android:id="@+id/break_even_info"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="24dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:text="@string/upgrade_screen_how_body" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/upgrade_sub_action"
-                style="@style/Widget.Material3.Button"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/upgrade_screen_subscription_trial_action"
-                android:visibility="gone"
-                tools:visibility="visible" />
+                android:layout_height="wrap_content">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/upgrade_sub_hint"
-                style="@style/TextAppearance.Material3.LabelSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/upgrade_screen_subscription_action_hint"
-                android:visibility="gone"
-                tools:visibility="visible" />
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/action_progress"
+                    style="@style/Widget.Material3.CircularProgressIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="32dp"
+                    android:indeterminate="true" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/upgrade_iap_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:layout_marginTop="8dp"
-                android:text="@string/upgrade_screen_iap_action" />
+                <LinearLayout
+                    android:id="@+id/action_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/upgrade_iap_hint"
-                style="@style/TextAppearance.Material3.LabelSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:gravity="center"
-                android:text="@string/upgrade_screen_iap_action_hint" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/upgrade_sub_action"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upgrade_screen_subscription_trial_action"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
 
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/upgrade_sub_hint"
+                        style="@style/TextAppearance.Material3.LabelSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/upgrade_screen_subscription_action_hint"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/upgrade_iap_action"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/upgrade_screen_iap_action"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/upgrade_iap_hint"
+                        style="@style/TextAppearance.Material3.LabelSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/upgrade_screen_iap_action_hint"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
