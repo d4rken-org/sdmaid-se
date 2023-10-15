@@ -123,6 +123,7 @@
     <string name="setup_notification_title">Obvestila</string>
     <string name="setup_notification_body">Dovoli SD Maidu objavo obvestil, da vas obvesti o tekočih opravilih ali pomembnih dogodkih.</string>
     <string name="setup_notification_hint">Uporaba obvestila je zmerna.🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Ta funkcija zahteva dokončanje dodatnih možnosti nastavitve: %s</string>
     <string name="setup_acs_card_title">Storitev dostopnosti</string>
     <string name="setup_acs_card_body">Storitev dostopnosti SD Maidu omogoča upravljanje z zaslonom s samodejnim opravljanjem dolgočasnih dejanj, npr. dotikanje gumba \"Počisti predpomnilnik\" na več zaslonih.</string>
     <string name="setup_acs_card_body2">SD Maid storitve dostopnosti ne bo uporabljal brez vašega soglasja, pri čemer bo med njeno dejavnostjo vedno prikazal vidni (opustljivi) kazalnik in je ne bo uporabljal za zbiranje podatkov.</string>
@@ -155,6 +156,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Vključi želene ostanke</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Datoteke, ki bi jih morda želeli obdržati, četudi je program odstranjen, npr. posnete fotografije ali varnostne kopije.</string>
     <string name="corpsefinder_settings_risk_common_title">Vključi pogosta imena</string>
+    <string name="corpsefinder_settings_risk_common_summary">Podatki s prepogostimi imeni, npr. mapo \"Zapiski\" si lasti preveč neznanih programov.</string>
     <string name="corpsefinder_watcher_title">Nadzornik odstranitev</string>
     <string name="corpsefinder_watcher_summary">Samodejno poišči ostanke, kadar odstranim program.</string>
     <string name="corpsefinder_watcher_autodelete_title">Samodejni izbris</string>
@@ -308,6 +310,7 @@
     <string name="appcleaner_include_minimumage_label">Najmanjša starost</string>
     <string name="appcleaner_include_minimumage_summary">Preskoči datoteke, ki mlajše od najmanjše starosti.</string>
     <string name="appcleaner_automation_romtype_detection_label">Zaznavanje operacijskega sistema</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Samodejna dejanja, ki uporabljajo dostopnost, lahko prenehajo delovati, če SD Maid pravilno ne zazna operacijskega sistema.  Uporabite to nastavitev, če želite preglasiti zaznan operacijski sistem.</string>
     <string name="appcleaner_automation_romtype_auto_label">Samodejno (privzeto)</string>
     <string name="appcleaner_filter_codecache_label">Kodni predpomnilnik</string>
     <string name="appcleaner_filter_codecache_summary">Kodni predpomnilnik JVM-ja.  Bloki bajtne kode, ki so prevedeni v izvirno kodo.</string>
@@ -446,6 +449,7 @@
     <string name="analyzer_storage_content_app_extra_description">Dodatni podatki, ki jih je ta program shranil zunaj privzetih poti, npr. fotografije ali prenosi.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ta program zaseda %1$s na \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Privzeti javni programski podatki</string>
+    <string name="data_area_public_app_assets_official_label">Privzeta javna programska sredstva</string>
     <string name="data_area_public_storage_label">Javna shramba</string>
     <string name="data_area_sdcard_label">Kartica SD</string>
     <string name="data_areas_label">Podatkovna področja</string>

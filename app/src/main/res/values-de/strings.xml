@@ -427,6 +427,7 @@
     <string name="analyzer_storage_content_app_extra_description">Zusätzliche Daten, die diese App außerhalb der Standardpfade platziert hat, z.B. Fotos oder Downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Diese App belegt %1$s auf \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Standardmäßige öffentliche App-Daten</string>
+    <string name="data_area_public_app_assets_official_label">Standardmäßige öffentliche App-Ressourcen</string>
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>
     <string name="data_area_sdcard_label">SD-Karte</string>
     <string name="data_areas_label">Datenbereiche</string>
