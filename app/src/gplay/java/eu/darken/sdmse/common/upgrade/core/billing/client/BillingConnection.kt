@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager.Companion.tryMapUserFriendly
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
-import eu.darken.sdmse.common.upgrade.core.billing.isPurchased
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -48,7 +47,7 @@ data class BillingConnection(
 
         purchaseEvent
             ?.takeIf { (result, _) -> result.isSuccess }
-            ?.let { (_, purchases) -> purchases?.filter { it.isPurchased } }
+            ?.let { (_, purchases) -> purchases?.filter { it.orderId != null } }
             ?.forEach { purchase -> combined[purchase.orderId!!] = purchase }
 
         combined.values.sortedByDescending { it.purchaseTime }
@@ -79,7 +78,7 @@ data class BillingConnection(
                 val iaps = queryPurchases(BillingClient.ProductType.INAPP)
                 log(TAG) { "Refreshed IAPs: $iaps" }
                 queryCacheIaps.value = iaps
-                    .filter { it.isPurchased }
+                    .filter { it.orderId != null }
                     .associateBy { it.orderId!! }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
@@ -90,7 +89,7 @@ data class BillingConnection(
                 val subs = queryPurchases(BillingClient.ProductType.SUBS)
                 log(TAG) { "Refreshed SUBs: $subs" }
                 queryCacheSubs.value = subs
-                    .filter { it.isPurchased }
+                    .filter { it.orderId != null }
                     .associateBy { it.orderId!! }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
