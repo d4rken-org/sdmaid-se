@@ -144,7 +144,7 @@ class AppJunkDeleter @Inject constructor(
                     log(TAG) { "Deleted $targetFile!" }
                     deleted.add(targetFile)
                 } catch (e: PathException) {
-                    log(TAG, WARN) { "Deletion failed for $targetFile" }
+                    log(TAG, WARN) { "Deletion failed for $targetFile: $e" }
                 }
             }
 
