@@ -38,7 +38,7 @@ class PathExclusionTest : BaseTest() {
         testFile.tryMkFile()
         val original = PathExclusion(
             path = LocalPath.build("test", "path"),
-            tags = setOf(Exclusion.Tag.GENERAL, Exclusion.Tag.APPCLEANER)
+            tags = setOf(Exclusion.Tag.DEDUPLICATOR, Exclusion.Tag.APPCLEANER)
         )
 
         val adapter = moshi.adapter(PathExclusion::class.java)
@@ -51,7 +51,7 @@ class PathExclusionTest : BaseTest() {
                     "pathType": "LOCAL"
                 },
                 "tags": [
-                    "GENERAL",
+                    "DEDUPLICATOR",
                     "APPCLEANER"
                 ]
             }
