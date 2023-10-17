@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
-import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.endsWith
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.walk
@@ -80,18 +80,19 @@ class SystemCrawler @Inject constructor(
             .toSet()
         log(TAG) { "Target areas wanted by filters: $targetAreas" }
 
-        val sdcardChildOverLaps = setOf(DataArea.Type.PUBLIC_DATA, DataArea.Type.PUBLIC_MEDIA, DataArea.Type.PUBLIC_OBB)
-        val sdcardOverlaps = currentAreas
-            .filter { sdcardChildOverLaps.contains(it.type) }
-            .map { it.path }
+        val sdcardSkips = mutableSetOf(
+            segs("Android", "data"),
+            segs("Android", "media"),
+            segs("Android", "obb"),
+        )
 
-        val skipSegments = mutableSetOf<Segments>()
+        val globalSkips = mutableSetOf<Segments>()
         if (targetAreas.all { it.path.segments != segs("", "data", "data") }) {
-            skipSegments.add(segs("", "data", "data"))
-            skipSegments.add(segs("", "data", "user", "0"))
+            globalSkips.add(segs("", "data", "data"))
+            globalSkips.add(segs("", "data", "user", "0"))
         }
-        skipSegments.add(segs("", "data", "media", "0"))
-        log(TAG) { "Skip segments: $skipSegments" }
+        globalSkips.add(segs("", "data", "media", "0"))
+        log(TAG) { "Global skip segments: $globalSkips" }
 
         val sieveContents = mutableMapOf<FilterIdentifier, Set<APathLookup<*>>>()
 
@@ -102,12 +103,12 @@ class SystemCrawler @Inject constructor(
                 .flatMapMerge(3) { area ->
                     val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
                         DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
-                            if (sdcardOverlaps.any { it.isAncestorOf(toCheck) }) return@filter false
+                            if (sdcardSkips.any { toCheck.segments.endsWith(it) }) return@filter false
                             exclusions.none { it.match(toCheck) }
                         }
 
                         else -> filter@{ toCheck: APathLookup<*> ->
-                            if (skipSegments.any { toCheck.segments.startsWith(it) }) {
+                            if (globalSkips.any { toCheck.segments.startsWith(it) }) {
                                 log(TAG, WARN) { "Skipping: $toCheck" }
                                 return@filter false
                             }
