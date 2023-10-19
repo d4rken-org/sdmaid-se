@@ -12,25 +12,31 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.*
-import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
-import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.tasks.*
+import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
+import eu.darken.sdmse.deduplicator.core.scanner.sleuth.Sleuth
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.deduplicator.core.types.Duplicate
-import eu.darken.sdmse.deduplicator.core.types.HashDuplicate
 import eu.darken.sdmse.exclusion.core.*
+import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -39,10 +45,11 @@ import javax.inject.Singleton
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
+    val sleuthFactories: Set<@JvmSuppressWildcards Sleuth.Factory>,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
-    settings: DeduplicatorSettings,
+    private val settings: DeduplicatorSettings,
+    private val scanner: DuplicatesScanner,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -100,74 +107,67 @@ class Deduplicator @Inject constructor(
 
         internalData.value = null
 
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
+        val sleuths = sleuthFactories
+            .asFlow()
+            .filter { it.isEnabled() }
+            .map { it.create() }
+            .onEach { log(TAG) { "Sleuth created: $it" } }
+            .toList()
 
-        val results: Collection<Duplicate.Group> = setOf(
-            HashDuplicate.Group(
-                identifier = Duplicate.Group.Identifier("TestId1"),
-                duplicates = LocalPath
-                    .build("/storage/emulated/0/DCIM/Camera")
-                    .lookupFiles(gatewaySwitch)
-                    .map {
-                        HashDuplicate(
-                            lookup = it
-                        )
-                    }
-            ),
-            HashDuplicate.Group(
-                identifier = Duplicate.Group.Identifier("TestId2"),
-                duplicates = LocalPath.build("/storage/emulated/0/Download")
-                    .lookupFiles(gatewaySwitch)
-                    .map {
-                        HashDuplicate(
-                            lookup = it
-                        )
-                    }
-            ),
-        )
+        val results = scanner.withProgress(this) {
+            scan(sleuths)
+        }
 
-        results.forEach { log(TAG, INFO) { "Result: $it" } }
+        log(TAG, INFO) { "${results.size} clusters found" }
+        results.forEach { log(TAG) { "Result: $it" } }
 
         log(TAG) { "Warming up fields..." }
-        results.forEach { it.size }
+        results.forEach { it.totalSize }
         log(TAG) { "Field warm up done." }
 
         internalData.value = Data(
-            groups = results
+            clusters = results
         )
 
         return DeduplicatorScanTask.Success(
             itemCount = results.size,
-            recoverableSpace = results.sumOf { it.size },
+            recoverableSpace = results.sumOf { it.totalSize },
         )
     }
 
-    suspend fun exclude(groups: Set<Duplicate.Group.Identifier>): Unit = toolLock.withLock {
-        log(TAG) { "exclude(): $groups" }
+    suspend fun exclude(targetIds: Set<Duplicate.Cluster.Identifier>): Unit = toolLock.withLock {
+        log(TAG) { "exclude(): $targetIds" }
 
-        TODO()
-//        val snapshot = internalData.value!!
 
-//        val targets = snapshot.corpses
-//            .filter { identifiers.contains(it.identifier) }
-//
-//        val exclusions = targets.map {
-//            PathExclusion(
-//                path = it.lookup.lookedUp,
-//                tags = setOf(Exclusion.Tag.CORPSEFINDER),
-//            )
-//        }.toSet()
-//        exclusionManager.save(exclusions)
-//
-//        internalData.value = snapshot.copy(
-//            corpses = snapshot.corpses.filter { corpse ->
-//                exclusions.none { it.match(corpse.lookup) }
-//            }
-//        )
+        val snapshot = internalData.value!!
+
+        val targets = snapshot.clusters
+            .filter { targetIds.contains(it.identifier) }
+
+        val exclusions = targets
+            .map { it.groups }
+            .flatten()
+            .map { it.duplicates }
+            .flatten()
+            .map { duplicate ->
+                PathExclusion(
+                    path = duplicate.path,
+                    tags = setOf(Exclusion.Tag.DEDUPLICATOR),
+                )
+            }
+            .toSet()
+
+        exclusionManager.save(exclusions)
+
+        internalData.value = snapshot.copy(
+            clusters = snapshot.clusters.filter {
+                !targetIds.contains(it.identifier)
+            }
+        )
     }
 
-    suspend fun exclude(group: Duplicate.Group.Identifier, files: Collection<APath>): Unit = toolLock.withLock {
-        log(TAG) { "exclude(): $group - $files" }
+    suspend fun exclude(cluster: Duplicate.Cluster.Identifier, files: Collection<APath>): Unit = toolLock.withLock {
+        log(TAG) { "exclude(): $cluster - $files" }
 
         TODO()
     }
@@ -178,11 +178,11 @@ class Deduplicator @Inject constructor(
     ) : SDMTool.State
 
     data class Data(
-        val groups: Collection<Duplicate.Group>,
+        val clusters: Collection<Duplicate.Cluster>,
         val lastResult: DeduplicatorTask.Result? = null,
     ) {
-        val totalSize: Long get() = groups.sumOf { it.size }
-        val totalCount: Int get() = groups.size
+        val totalSize: Long get() = clusters.sumOf { it.totalSize }
+        val totalCount: Int get() = clusters.size
     }
 
     @InstallIn(SingletonComponent::class)

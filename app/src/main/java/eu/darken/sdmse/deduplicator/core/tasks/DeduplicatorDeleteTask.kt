@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DeduplicatorDeleteTask(
-    val targetGroups: Set<Duplicate.Group.Identifier>? = null,
+    val targetGroups: Set<Duplicate.Cluster.Identifier>? = null,
     val targetDuplicates: Set<APath>? = null,
 ) : DeduplicatorTask {
 

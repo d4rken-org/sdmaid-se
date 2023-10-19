@@ -37,7 +37,7 @@ class DuplicateGroupListAdapter @Inject constructor() :
 
     interface Item : DifferItem, SelectableItem {
 
-        val group: Duplicate.Group
+        val cluster: Duplicate.Cluster
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->

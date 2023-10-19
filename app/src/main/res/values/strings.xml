@@ -387,10 +387,11 @@
 
     <string name="deduplicator_tool_name">Duplicates</string>
     <string name="deduplicator_explanation_short">Find duplicate data on your device.</string>
-    <plurals name="deduplicator_result_x_duplicates_found">
-        <item quantity="one">%d duplicate item found</item>
-        <item quantity="other">%d duplicate items found</item>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d duplicate cluster found</item>
+        <item quantity="other">%d duplicate clusters found</item>
     </plurals>
+    <string name="deduplicator_result_x_duplicates">%d copies</string>
     <string name="deduplicator_protection_keepone_title">Keep one</string>
     <string name="deduplicator_protection_keepone_summary">Prevent deletion of all duplicates. Ensure that one copy remains.</string>
     <string name="deduplicator_detection_methods_label">Detection methods</string>
@@ -398,6 +399,7 @@
     <string name="deduplicator_detection_method_hash_summary">Calculate file hashes to determine exact duplicates. Two files have different hashs if even one byte differs.</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
+    <string name="deduplicator_progress_comparing_files">Comparing files</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>

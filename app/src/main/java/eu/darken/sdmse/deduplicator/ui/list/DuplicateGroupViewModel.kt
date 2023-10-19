@@ -43,14 +43,14 @@ class DuplicateGroupViewModel @Inject constructor(
         deduplicator.state.map { it.data }.filterNotNull(),
         deduplicator.progress
     ) { data, progress ->
-        val rows = data.groups.map { group ->
-            when (group) {
-                else -> HashGroupRowVH.Item(
-                    group = group,
+        val rows = data.clusters
+            .sortedByDescending { it.averageSize }
+            .map { cluster ->
+                HashGroupRowVH.Item(
+                    cluster = cluster,
                     onItemClicked = { delete(setOf(it)) },
                 )
             }
-        }
         State(rows, progress)
     }.asLiveData2()
 
@@ -68,7 +68,7 @@ class DuplicateGroupViewModel @Inject constructor(
 
         val targets = items.mapNotNull {
             when (it) {
-                is DuplicateGroupListAdapter.Item -> it.group.identifier
+                is DuplicateGroupListAdapter.Item -> it.cluster.identifier
                 else -> null
             }
         }.toSet()
@@ -84,7 +84,7 @@ class DuplicateGroupViewModel @Inject constructor(
 
     fun exclude(items: Collection<DuplicateGroupListAdapter.Item>) = launch {
         log(TAG, INFO) { "exclude(): ${items.size}" }
-        val targets = items.map { it.group.identifier }.toSet()
+        val targets = items.map { it.cluster.identifier }.toSet()
         deduplicator.exclude(targets)
         events.postValue(DuplicateGroupListEvents.ExclusionsCreated(items.size))
     }

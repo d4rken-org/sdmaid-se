@@ -12,7 +12,7 @@
         android:id="@+id/preview_image"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         android:src="@drawable/splash_mascot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,1:1"
@@ -20,22 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/match_type"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:layout_margin="8dp"
-        android:src="@drawable/ic_file"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footer_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:background="?colorPrimaryContainer"
+        android:background="@drawable/bg_listitem_overlay_selectable"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +37,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:gravity="start"
             android:singleLine="true"
+            android:textColor="?colorOnBackground"
             app:layout_constraintBottom_toTopOf="@id/secondary"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/match_type"
             app:layout_constraintStart_toStartOf="parent"
+
             tools:text="900 MB" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -59,11 +52,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:gravity="start"
             android:singleLine="true"
+            android:textColor="?colorOnBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="999 items" />
+
+        <ImageView
+            android:id="@+id/match_type"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/baseline_calculate_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/primary"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

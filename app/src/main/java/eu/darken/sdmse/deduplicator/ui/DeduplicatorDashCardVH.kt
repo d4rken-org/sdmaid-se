@@ -38,7 +38,7 @@ class DeduplicatorDashCardVH(parent: ViewGroup) :
             progressBar.setProgress(item.progress)
         } else if (item.data != null) {
             statusPrimary.text = getQuantityString(
-                R.plurals.deduplicator_result_x_duplicates_found,
+                R.plurals.deduplicator_result_x_clusters_found,
                 item.data.totalCount
             )
             val space = Formatter.formatFileSize(context, item.data.totalSize)

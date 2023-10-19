@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.list.types
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.DeduplicatorGroupListHashItemBinding
@@ -31,23 +32,25 @@ class HashGroupRowVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        val group = item.group
+        val cluster = item.cluster
 
-        primary.text = Formatter.formatShortFileSize(context, group.size)
-        secondary.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, group.count)
+        previewImage.loadFilePreview(cluster.previewFile)
+
+        primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
+        secondary.text = getString(R.string.deduplicator_result_x_duplicates, cluster.count)
 
         root.setOnClickListener { item.onItemClicked(item) }
     }
 
     data class Item(
-        override val group: Duplicate.Group,
+        override val cluster: Duplicate.Cluster,
         val onItemClicked: (Item) -> Unit,
     ) : DuplicateGroupListAdapter.Item {
 
         override val itemSelectionKey: String
-            get() = group.identifier.toString()
+            get() = cluster.identifier.toString()
 
-        override val stableId: Long = group.identifier.hashCode().toLong()
+        override val stableId: Long = cluster.identifier.hashCode().toLong()
     }
 
 }

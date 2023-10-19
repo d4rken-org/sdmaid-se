@@ -91,7 +91,7 @@ class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fr
                         if (event.items.size == 1) {
                             getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                event.items.single().group.identifier
+                                event.items.single().cluster.identifier
                             )
                         } else {
                             getString(
