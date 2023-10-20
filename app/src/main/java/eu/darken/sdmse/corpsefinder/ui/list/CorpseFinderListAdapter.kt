@@ -16,9 +16,9 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import javax.inject.Inject
 
 
-class CorpseListAdapter @Inject constructor() :
-    ModularAdapter<CorpseListAdapter.BaseVH<CorpseListAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<CorpseListAdapter.Item> {
+class CorpseFinderListAdapter @Inject constructor() :
+    ModularAdapter<CorpseFinderListAdapter.BaseVH<CorpseFinderListAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<CorpseFinderListAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -26,7 +26,7 @@ class CorpseListAdapter @Inject constructor() :
 
     init {
         addMod(DataBinderMod(data))
-        addMod(TypedVHCreatorMod({ data[it] is CorpseRowVH.Item }) { CorpseRowVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is CorpseFinderListRowVH.Item }) { CorpseFinderListRowVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

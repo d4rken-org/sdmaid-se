@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
-class CorpseListViewModel @Inject constructor(
+class CorpseFinderListViewModel @Inject constructor(
     private val handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
@@ -38,14 +38,14 @@ class CorpseListViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-    val events = SingleLiveEvent<CorpseListEvents>()
+    val events = SingleLiveEvent<CorpseFinderListEvents>()
 
     val state = combine(
         corpseFinder.state.map { it.data }.filterNotNull(),
         corpseFinder.progress
     ) { data, progress ->
         val rows = data.corpses.map { corpse ->
-            CorpseRowVH.Item(
+            CorpseFinderListRowVH.Item(
                 corpse = corpse,
                 onItemClicked = { delete(setOf(it)) },
                 onDetailsClicked = { showDetails(it) }
@@ -55,20 +55,20 @@ class CorpseListViewModel @Inject constructor(
     }.asLiveData2()
 
     data class State(
-        val items: List<CorpseRowVH.Item>,
+        val items: List<CorpseFinderListRowVH.Item>,
         val progress: Progress.Data? = null,
     )
 
-    fun delete(items: Collection<CorpseListAdapter.Item>, confirmed: Boolean = false) = launch {
+    fun delete(items: Collection<CorpseFinderListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
         if (!confirmed) {
-            events.postValue(CorpseListEvents.ConfirmDeletion(items))
+            events.postValue(CorpseFinderListEvents.ConfirmDeletion(items))
             return@launch
         }
 
         val targets = items.mapNotNull {
             when (it) {
-                is CorpseRowVH.Item -> it.corpse.identifier
+                is CorpseFinderListRowVH.Item -> it.corpse.identifier
                 else -> null
             }
         }.toSet()
@@ -78,26 +78,26 @@ class CorpseListViewModel @Inject constructor(
 
         log(TAG) { "delete(): Result was $result" }
         when (result) {
-            is CorpseFinderDeleteTask.Success -> events.postValue(CorpseListEvents.TaskResult(result))
+            is CorpseFinderDeleteTask.Success -> events.postValue(CorpseFinderListEvents.TaskResult(result))
         }
     }
 
-    fun exclude(items: Collection<CorpseListAdapter.Item>) = launch {
+    fun exclude(items: Collection<CorpseFinderListAdapter.Item>) = launch {
         log(TAG, INFO) { "exclude(): ${items.size}" }
         val targets = items.mapNotNull {
             when (it) {
-                is CorpseRowVH.Item -> it.corpse.identifier
+                is CorpseFinderListRowVH.Item -> it.corpse.identifier
                 else -> null
             }
         }.toSet()
         corpseFinder.exclude(targets)
-        events.postValue(CorpseListEvents.ExclusionsCreated(items.size))
+        events.postValue(CorpseFinderListEvents.ExclusionsCreated(items.size))
     }
 
-    fun showDetails(item: CorpseListAdapter.Item) = launch {
+    fun showDetails(item: CorpseFinderListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(item=$item)" }
-        CorpseListFragmentDirections.actionCorpseFinderListFragmentToCorpseFinderDetailsFragment(
-            corpsePath = (item as CorpseRowVH.Item).corpse.identifier
+        CorpseFinderListFragmentDirections.actionCorpseFinderListFragmentToCorpseFinderDetailsFragment(
+            corpsePath = (item as CorpseFinderListRowVH.Item).corpse.identifier
         ).navigate()
     }
 
