@@ -13,8 +13,8 @@ import eu.darken.sdmse.corpsefinder.ui.labelRes
 import eu.darken.sdmse.databinding.CorpsefinderListItemBinding
 
 
-class CorpseRowVH(parent: ViewGroup) :
-    CorpseListAdapter.BaseVH<CorpseRowVH.Item, CorpsefinderListItemBinding>(
+class CorpseFinderListRowVH(parent: ViewGroup) :
+    CorpseFinderListAdapter.BaseVH<CorpseFinderListRowVH.Item, CorpsefinderListItemBinding>(
         R.layout.corpsefinder_list_item,
         parent
     ), SelectableVH {
@@ -73,7 +73,7 @@ class CorpseRowVH(parent: ViewGroup) :
         override val corpse: Corpse,
         val onItemClicked: (Item) -> Unit,
         val onDetailsClicked: (Item) -> Unit,
-    ) : CorpseListAdapter.Item {
+    ) : CorpseFinderListAdapter.Item {
 
         override val itemSelectionKey: String
             get() = corpse.identifier.toString()

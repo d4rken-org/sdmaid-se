@@ -21,9 +21,9 @@ import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.CorpsefinderListFragmentBinding
 
 @AndroidEntryPoint
-class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
+class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
 
-    override val vm: CorpseListViewModel by viewModels()
+    override val vm: CorpseFinderListViewModel by viewModels()
     override val ui: CorpsefinderListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,13 +36,13 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
             }
         }
 
-        val adapter = CorpseListAdapter()
+        val adapter = CorpseFinderListAdapter()
         ui.list.setupDefaults(adapter)
 
         val selectionTracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_corpsefinder_list_cab,
-            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseListAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseFinderListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_delete_selected -> {
                         vm.delete(selected)
@@ -75,13 +75,15 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is CorpseListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is CorpseFinderListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         if (event.items.size == 1) {
                             getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                (event.items.single() as CorpseRowVH.Item).corpse.lookup.userReadableName.get(context)
+                                (event.items.single() as CorpseFinderListRowVH.Item).corpse.lookup.userReadableName.get(
+                                    context
+                                )
                             )
                         } else {
                             getString(
@@ -104,18 +106,18 @@ class CorpseListFragment : Fragment3(R.layout.corpsefinder_list_fragment) {
                     }
                 }.show()
 
-                is CorpseListEvents.ExclusionsCreated -> Snackbar
+                is CorpseFinderListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
                         getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        CorpseListFragmentDirections.goToExclusions().navigate()
+                        CorpseFinderListFragmentDirections.goToExclusions().navigate()
                     }
                     .show()
 
-                is CorpseListEvents.TaskResult -> Snackbar.make(
+                is CorpseFinderListEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG

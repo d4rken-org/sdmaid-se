@@ -140,7 +140,7 @@
     </fragment>
     <fragment
         android:id="@+id/corpseFinderListFragment"
-        android:name="eu.darken.sdmse.corpsefinder.ui.list.CorpseListFragment"
+        android:name="eu.darken.sdmse.corpsefinder.ui.list.CorpseFinderListFragment"
         tools:layout="@layout/corpsefinder_list_fragment">
         <action
             android:id="@+id/action_corpseFinderListFragment_to_corpseFinderDetailsFragment"
