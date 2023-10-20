@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
-import eu.darken.sdmse.deduplicator.ui.list.types.HashGroupRowVH
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -22,7 +21,7 @@ import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
-class DuplicateGroupViewModel @Inject constructor(
+class DeduplicatorListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val deduplicator: Deduplicator,
     private val taskManager: TaskManager,
@@ -37,7 +36,7 @@ class DuplicateGroupViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-    val events = SingleLiveEvent<DuplicateGroupListEvents>()
+    val events = SingleLiveEvent<DeduplicatorListEvents>()
 
     val state = combine(
         deduplicator.state.map { it.data }.filterNotNull(),
@@ -46,7 +45,7 @@ class DuplicateGroupViewModel @Inject constructor(
         val rows = data.clusters
             .sortedByDescending { it.averageSize }
             .map { cluster ->
-                HashGroupRowVH.Item(
+                DeduplicatorListGridVH.Item(
                     cluster = cluster,
                     onItemClicked = { delete(setOf(it)) },
                 )
@@ -55,20 +54,20 @@ class DuplicateGroupViewModel @Inject constructor(
     }.asLiveData2()
 
     data class State(
-        val items: List<DuplicateGroupListAdapter.Item>,
+        val items: List<DeduplicatorListAdapter.Item>,
         val progress: Progress.Data? = null,
     )
 
-    fun delete(items: Collection<DuplicateGroupListAdapter.Item>, confirmed: Boolean = false) = launch {
+    fun delete(items: Collection<DeduplicatorListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
         if (!confirmed) {
-            events.postValue(DuplicateGroupListEvents.ConfirmDeletion(items))
+            events.postValue(DeduplicatorListEvents.ConfirmDeletion(items))
             return@launch
         }
 
         val targets = items.mapNotNull {
             when (it) {
-                is DuplicateGroupListAdapter.Item -> it.cluster.identifier
+                is DeduplicatorListAdapter.Item -> it.cluster.identifier
                 else -> null
             }
         }.toSet()
@@ -78,18 +77,18 @@ class DuplicateGroupViewModel @Inject constructor(
 
         log(TAG) { "delete(): Result was $result" }
         when (result) {
-            is DeduplicatorDeleteTask.Success -> events.postValue(DuplicateGroupListEvents.TaskResult(result))
+            is DeduplicatorDeleteTask.Success -> events.postValue(DeduplicatorListEvents.TaskResult(result))
         }
     }
 
-    fun exclude(items: Collection<DuplicateGroupListAdapter.Item>) = launch {
+    fun exclude(items: Collection<DeduplicatorListAdapter.Item>) = launch {
         log(TAG, INFO) { "exclude(): ${items.size}" }
         val targets = items.map { it.cluster.identifier }.toSet()
         deduplicator.exclude(targets)
-        events.postValue(DuplicateGroupListEvents.ExclusionsCreated(items.size))
+        events.postValue(DeduplicatorListEvents.ExclusionsCreated(items.size))
     }
 
-    fun showDetails(item: DuplicateGroupListAdapter.Item) = launch {
+    fun showDetails(item: DeduplicatorListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(item=$item)" }
 //        CorpseListFragmentDirections.actionCorpseFinderListFragmentToCorpseFinderDetailsFragment(
 //            corpsePath = (item as CorpseRowVH.Item).corpse.identifier

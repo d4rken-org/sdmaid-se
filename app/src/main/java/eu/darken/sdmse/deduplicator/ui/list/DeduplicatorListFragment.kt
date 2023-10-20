@@ -20,13 +20,13 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.DeduplicatorGroupListFragmentBinding
+import eu.darken.sdmse.databinding.DeduplicatorListFragmentBinding
 
 @AndroidEntryPoint
-class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fragment) {
+class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) {
 
-    override val vm: DuplicateGroupViewModel by viewModels()
-    override val ui: DeduplicatorGroupListFragmentBinding by viewBinding()
+    override val vm: DeduplicatorListViewModel by viewModels()
+    override val ui: DeduplicatorListFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -38,7 +38,7 @@ class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fr
             }
         }
 
-        val adapter = DuplicateGroupListAdapter()
+        val adapter = DeduplicatorListAdapter()
         ui.list.setupDefaults(
             adapter = adapter,
             layouter = GridLayoutManager(
@@ -52,7 +52,7 @@ class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fr
         val selectionTracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_deduplicator_list_cab,
-            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<DuplicateGroupListAdapter.Item> ->
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<DeduplicatorListAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_delete_selected -> {
                         vm.delete(selected)
@@ -85,7 +85,7 @@ class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fr
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is DuplicateGroupListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is DeduplicatorListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         if (event.items.size == 1) {
@@ -114,18 +114,18 @@ class DuplicateGroupListFragment : Fragment3(R.layout.deduplicator_group_list_fr
                     }
                 }.show()
 
-                is DuplicateGroupListEvents.ExclusionsCreated -> Snackbar
+                is DeduplicatorListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
                         getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        DuplicateGroupListFragmentDirections.goToExclusions().navigate()
+                        DeduplicatorListFragmentDirections.goToExclusions().navigate()
                     }
                     .show()
 
-                is DuplicateGroupListEvents.TaskResult -> Snackbar.make(
+                is DeduplicatorListEvents.TaskResult -> Snackbar.make(
                     requireView(),
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG

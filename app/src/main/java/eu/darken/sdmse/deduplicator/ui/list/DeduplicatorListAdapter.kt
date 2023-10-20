@@ -13,13 +13,12 @@ import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.deduplicator.core.types.Duplicate
-import eu.darken.sdmse.deduplicator.ui.list.types.HashGroupRowVH
 import javax.inject.Inject
 
 
-class DuplicateGroupListAdapter @Inject constructor() :
-    ModularAdapter<DuplicateGroupListAdapter.BaseVH<DuplicateGroupListAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<DuplicateGroupListAdapter.Item> {
+class DeduplicatorListAdapter @Inject constructor() :
+    ModularAdapter<DeduplicatorListAdapter.BaseVH<DeduplicatorListAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<DeduplicatorListAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -27,7 +26,7 @@ class DuplicateGroupListAdapter @Inject constructor() :
 
     init {
         addMod(DataBinderMod(data))
-        addMod(TypedVHCreatorMod({ data[it] is HashGroupRowVH.Item }) { HashGroupRowVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListGridVH.Item }) { DeduplicatorListGridVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

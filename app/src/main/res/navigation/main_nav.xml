@@ -425,6 +425,6 @@
     </fragment>
     <fragment
         android:id="@+id/deduplicatorListFragment"
-        android:name="eu.darken.sdmse.deduplicator.ui.list.DuplicateGroupListFragment"
-        tools:layout="@layout/deduplicator_group_list_fragment" />
+        android:name="eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment"
+        tools:layout="@layout/deduplicator_list_fragment" />
 </navigation>
