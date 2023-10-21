@@ -447,6 +447,8 @@
     <string name="automation_error_not_enabled_body">無障礙服務已停用，請將它重新開啟。</string>
     <string name="automation_error_not_running_title">服務未在執行</string>
     <string name="automation_error_not_running_body">無障礙服務未在執行，請嘗試重新啟動裝置。</string>
+    <string name="automation_error_screen_unavailable_title">螢幕無法使用</string>
+    <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
     <string name="history_label">歷史記錄</string>
     <string name="history_description">依照時間順序列出最近的動作和受影響的資料。</string>
     <string name="scheduler_label">時間表</string>

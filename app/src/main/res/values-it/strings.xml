@@ -469,6 +469,8 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="automation_error_not_enabled_body">Il servizio di accessibilità è disabilitato. Attivalo.</string>
     <string name="automation_error_not_running_title">Servizio non in esecuzione</string>
     <string name="automation_error_not_running_body">Il servizio di accessibilità non è in esecuzione. Prova a riavviare il dispositivo.</string>
+    <string name="automation_error_screen_unavailable_title">Schermo non disponibile</string>
+    <string name="automation_error_screen_unavailable_body">L\'operazione è stata interrotta perché lo schermo non era disponibile (ad es. schermo spento o schermata di blocco attiva).</string>
     <string name="history_label">Storia</string>
     <string name="history_description">Un cronologia delle azioni recenti e dei dati interessati.</string>
     <string name="scheduler_label">Pianificazione</string>

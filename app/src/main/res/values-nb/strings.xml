@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">Tilgjengelighetstjenesten er deaktivert. Slå den på igjen.</string>
     <string name="automation_error_not_running_title">Tjenesten kjører ikke</string>
     <string name="automation_error_not_running_body">Tilgjengelighetstjenesten kjører ikke. Prøv å starte enheten på nytt.</string>
+    <string name="automation_error_screen_unavailable_title">Skjerm utilgjengelig</string>
+    <string name="automation_error_screen_unavailable_body">Operasjonen ble avbrutt fordi skjermen ble utilgjengelig (f.eks. skjerm av eller låseskjerm aktiv).</string>
     <string name="history_label">Historie</string>
     <string name="history_description">En kronologisk liste over nylige handlinger og berørt data.</string>
     <string name="scheduler_label">Planlegger</string>

@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro ofrece mejores resultados, más características y opciones para usuarios avanzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Mejorar</string>
-    <string name="upgrades_gplay_unavailable_error">Los Servicios de Google Play no están disponibles.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play no está disponible</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid no puede conectarse a Google Play. ¿Está Google Play instalado y actualizado? ¿Has iniciado sesión con tu cuenta de Google? Intenta borrar la caché de la aplicación Google Play y reiniciar tu dispositivo.</string>
     <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
     <string name="upgrade_screen_title">Obtené SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por vos.</string>

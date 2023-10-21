@@ -123,7 +123,7 @@
     <string name="setup_notification_title">Powiadomienia</string>
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ta funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
+    <string name="setup_feature_requires_additional_setup_x">Funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
     <string name="setup_acs_card_title">Usługa ułatwień</string>
     <string name="setup_acs_card_body">Usługa ułatwień dostępu umożliwia SD Maid interakcję z ekranem i automatyzację żmudnych czynności, np. dotykając „Wyczyść pamięć podręczną” na wielu ekranach.</string>
     <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi ułatwień bez Twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas działania i nie będzie jej używać do zbierania danych.</string>
@@ -156,7 +156,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Uwzględnij pożądane pozostałości</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Pliki, które mogą być przydatne, nawet jeśli aplikacja jest odinstalowana, np. zdjęcia lub kopie zapasowe.</string>
     <string name="corpsefinder_settings_risk_common_title">Uwzględnij powszechne nazwy</string>
-    <string name="corpsefinder_settings_risk_common_summary">Dane o powszechnie używanych nazwach, np. folder „Notatki” jest własnością zbyt wielu nieznanych aplikacji.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dane o powszechnie używanych nazwach, np. folder „Notatki”, jest własnością zbyt wielu nieznanych aplikacji.</string>
     <string name="corpsefinder_watcher_title">Obserwator odinstalowania</string>
     <string name="corpsefinder_watcher_summary">Automatyczne skanowanie pozostałości po usunięciu aplikacji.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
@@ -302,7 +302,7 @@
     <string name="appcleaner_include_runningapps_label">Uwzględnij uruchomione aplikacje</string>
     <string name="appcleaner_include_runningapps_summary">Uwzględnia uruchomione aplikacje, które mogą powodować zakłócenia.</string>
     <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne pamięci podręczne</string>
-    <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień. </string>
+    <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, do których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień. </string>
     <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
     <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcleaner_include_minimumsize_label">Minimalny rozmiar</string>
@@ -310,7 +310,7 @@
     <string name="appcleaner_include_minimumage_label">Minimalny wiek</string>
     <string name="appcleaner_include_minimumage_summary">Pomiń pliki, które są młodsze niż minimalny wiek.</string>
     <string name="appcleaner_automation_romtype_detection_label">Wykrywanie systemu operacyjnego</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Automatyzacja oparta na dostępności może się nie powieść jeśli SD Maid nie wykryje poprawnie Twojego systemu operacyjnego. Użyj tego ustawienia aby zastąpić wykryty system operacyjny.</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatyzacja oparta na ułatwieniach dostępu może się nie powieść, jeśli SD Maid nie wykryje poprawnie systemu operacyjnego. Użyj tego ustawienia, aby zastąpić wykryty system operacyjny.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automatyczne (domyślnie)</string>
     <string name="appcleaner_filter_codecache_label">Pamięć podręczna kodu</string>
     <string name="appcleaner_filter_codecache_summary">Pamięć podręczna kodu JVM. Bloki kodu bajtowego kompilowane w kod natywny.</string>
@@ -449,7 +449,7 @@
     <string name="analyzer_storage_content_app_extra_description">Dodatkowe dane, które aplikacja umieściła poza domyślnymi ścieżkami, np. zdjęcia lub pobierania.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikacja zajmuje %1$s na \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Domyślne publiczne dane aplikacji</string>
-    <string name="data_area_public_app_assets_official_label">Domyślne publiczne dane aplikacji</string>
+    <string name="data_area_public_app_assets_official_label">Domyślne zasoby aplikacji publicznych</string>
     <string name="data_area_public_storage_label">Magazyn publiczny</string>
     <string name="data_area_sdcard_label">Karta SD</string>
     <string name="data_areas_label">Obszary danych</string>
@@ -491,6 +491,8 @@
     <string name="automation_error_not_enabled_body">Usługa ułatwień jest wyłączona. Włącz ją ponownie.</string>
     <string name="automation_error_not_running_title">Usługa nie jest uruchomiona</string>
     <string name="automation_error_not_running_body">Usługa ułatwień nie jest uruchomiona. Spróbuj ponownie uruchomić urządzenie.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran niedostępny</string>
+    <string name="automation_error_screen_unavailable_body">Operacja została przerwana ponieważ ekran stał się niedostępny (np. wyłączony wyświetlacz lub aktywna blokada ekranu).</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="scheduler_label">Harmonogram</string>

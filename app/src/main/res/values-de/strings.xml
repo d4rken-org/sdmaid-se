@@ -28,7 +28,7 @@
     <string name="tasks_result_subtext">Ergebnis der Aufgabe</string>
     <string name="onboarding_welcome_title">Willkommen</string>
     <string name="onboarding_welcome_body1">SD Maid SE verwaltet Dateien, Apps und Speicher.</string>
-    <string name="onboarding_welcome_body2">Mehr Speicherplatz schaffen, indem Reste von anderen Apps aufgeräumt werden. Entferne optionale Daten und zurückgebliebene Dateien.</string>
+    <string name="onboarding_welcome_body2">Erhalte Speicherplatz, indem Reste von anderen Apps aufgeräumt werden. Entferne optionale Daten und zurückgebliebene Dateien.</string>
     <string name="onboarding_welcome_body_beta">Dies ist eine Beta (Test) Version. Fortfahren mit etwas Sinn für Humor und einem Backup-Plan. Bitte gib mir Bescheid, wenn Du Probleme findest.</string>
     <string name="onboarding_welcome_continue_action">Weiter</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -45,7 +45,7 @@
     <string name="onboarding_privacy_continue_action">Weiter</string>
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid durchsucht alle zugänglichen Datenbereiche.</string>
-    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von deinem Gerät, der Android-Version und den gewährten Berechtigungen ab.</string>
+    <string name="onboarding_setup_body2">Was zugänglich ist, hängt von Deinem Gerät, der Android-Version und gewährten Berechtigungen ab.</string>
     <string name="onboarding_setup_body3">Beginne mit der Verwendung von SD Maid, indem Du Zugriff auf Bereiche einrichtest, die durchsucht werden sollen.</string>
     <string name="onboarding_setup_continue_action">Zugriff einrichten</string>
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
@@ -323,7 +323,7 @@
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp hat Dateien empfangen</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Dateien, die du von Personen über WhatsApp erhalten haben.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Dateien, die du von Personen über WhatsApp erhalten hast.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet wurden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>
@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">Der Barrierefreiheitsdienst ist deaktiviert. Schalte Ihn wieder ein.</string>
     <string name="automation_error_not_running_title">Der Dienst läuft nicht</string>
     <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
+    <string name="automation_error_screen_unavailable_title">Bildschirm nicht verfügbar</string>
+    <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
     <string name="history_label">Verlauf</string>
     <string name="history_description">Eine chronologische Liste der letzten Aktionen und betroffenen Daten.</string>
     <string name="scheduler_label">Planer</string>

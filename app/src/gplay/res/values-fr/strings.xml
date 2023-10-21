@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">Passer à SD Maid Pro</string>
     <string name="upgrades_dashcard_body">SD Maid Pro offre de meilleurs résultats, plus de fonctions et d’options pour les utilisateurs expérimentés.</string>
     <string name="upgrades_dashcard_upgrade_action">Passer Pro</string>
-    <string name="upgrades_gplay_unavailable_error">Les services Google Play sont inaccessibles.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play est inaccessible</string>
+    <string name="upgrades_gplay_unavailable_error_description">Maid SD ne peut pas se connecter à Google Play. L’appli Google Play est-elle installée et à jour ? Votre compte Google est-il connecté ? Essayez de vider le cache de l’appli Google Play et de redémarrer votre appareil.</string>
     <string name="upgrades_no_purchases_found_check_account">Aucun achat n’a été trouvé. Utilisez-vous le bon compte?</string>
     <string name="upgrade_screen_title">Obtenir SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ne présente aucune publicité et ne vend pas les données des utilisateurs. Mon travail est financé par vous ❤️.</string>

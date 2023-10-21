@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">SD Maidi täiendamine</string>
     <string name="upgrades_dashcard_body">SD Maid Pro pakub paremaid tulemusi, rohkem võimalusi ja valikuid edasijõudnutele.</string>
     <string name="upgrades_dashcard_upgrade_action">Täienda</string>
-    <string name="upgrades_gplay_unavailable_error">Google Play teenused pole saadaval.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play pole saadaval</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ei suuda ühenduda Google Playga. Kas Google Play on paigaldatud ja uuendatud? Olete Google\'i kontole sisse logitud? Üritage tühjendada Google Play rakenduse vahemälu ja taaskäivitada oma seadet.</string>
     <string name="upgrades_no_purchases_found_check_account">Oste ei leitud. Kas kasutate õiget kontot?</string>
     <string name="upgrade_screen_title">Hankige SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Minu tööd toetate teie ❤️.</string>

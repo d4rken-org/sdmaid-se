@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">El servei d\'accessibilitat està desactivat. Torneu-lo a activar.</string>
     <string name="automation_error_not_running_title">El servei no s\'està executant</string>
     <string name="automation_error_not_running_body">El servei d\'accessibilitat no s\'està executant. Proveu de reiniciar el dispositiu.</string>
+    <string name="automation_error_screen_unavailable_title">Pantalla no disponible</string>
+    <string name="automation_error_screen_unavailable_body">L\'operació s\'ha cancel·lat perquè la pantalla no estava disponible (p. ex. pantalla apagada o pantalla de bloqueig activa).</string>
     <string name="history_label">Historial</string>
     <string name="history_description">Una llista cronològica d\'accions recents i dades afectades.</string>
     <string name="scheduler_label">Programador</string>

@@ -4,5 +4,7 @@
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro talap etiledi</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>
+    <string name="upgrade_screen_how_title">Variantlar</string>
     <string name="upgrade_screen_subscription_action">Jazılıw</string>
+    <string name="nudge_betagoodbye_positive_action">Jazılıwdı bıykarlaw</string>
 </resources>

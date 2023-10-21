@@ -455,6 +455,8 @@
     <string name="automation_error_not_enabled_body">未启用服务，请重新启用。</string>
     <string name="automation_error_not_running_title">服务未运行</string>
     <string name="automation_error_not_running_body">无障碍服务未运行。请尝试重启设备。</string>
+    <string name="automation_error_screen_unavailable_title">屏幕不可用</string>
+    <string name="automation_error_screen_unavailable_body">操作已中止，原因为屏幕不可用（例如息屏或锁屏状态）</string>
     <string name="history_label">历史</string>
     <string name="history_description">将最近操作和涉及数据按时间排序的列表。</string>
     <string name="scheduler_label">计划任务</string>

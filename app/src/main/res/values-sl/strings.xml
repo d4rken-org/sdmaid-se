@@ -491,6 +491,8 @@
     <string name="automation_error_not_enabled_body">Storitev dostopnosti je onemogočena.  Vklopite jo.</string>
     <string name="automation_error_not_running_title">Storitev se ne izvaja.</string>
     <string name="automation_error_not_running_body">Storitev dostopnosti se ne izvaja.  Poizkusite s ponovnim zagonom naprave.</string>
+    <string name="automation_error_screen_unavailable_title">Zaslon ni na voljo.</string>
+    <string name="automation_error_screen_unavailable_body">Opravilo je bilo prekinjeno, ker zaslon ni več na voljo (npr. zaslon se je izklopil ali zaklenil).</string>
     <string name="history_label">Zgodovina</string>
     <string name="history_description">Časovni seznam nedavnih dejanj in podatki, na katere so dejanja vplivala.</string>
     <string name="scheduler_label">Urnik</string>

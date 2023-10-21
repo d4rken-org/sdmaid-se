@@ -6,7 +6,6 @@
     <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
     <string name="upgrades_dashcard_body">SD Maid Proは、パワーユーザーにより良い結果、より多くの機能、オプションを提供します。</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
-    <string name="upgrades_gplay_unavailable_error">Google Play servicesが利用できません。</string>
     <string name="upgrades_no_purchases_found_check_account">購入が確認できませんでした。正しいアカウントを使用していますでしょうか？</string>
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
     <string name="upgrade_screen_benefits_title">優位点</string>

@@ -455,6 +455,8 @@
     <string name="automation_error_not_enabled_body">Dịch vụ trợ năng đã bị tắt. Hãy bật nó lên lần nữa.</string>
     <string name="automation_error_not_running_title">Dịch vụ đang không chạy</string>
     <string name="automation_error_not_running_body">Dịch vụ trợ năng đang không chạy. Hãy thử khởi động lại thiết bị.</string>
+    <string name="automation_error_screen_unavailable_title">Màn hình không có sẵn</string>
+    <string name="automation_error_screen_unavailable_body">Thao tác đã bị hủy vì màn hình không khả dụng (ví dụ: tắt màn hình hoặc kích hoạt màn hình khóa).</string>
     <string name="history_label">Lịch sử</string>
     <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="scheduler_label">Lịch trình</string>

@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">El Servicio de accesibilidad está desactivado. Activalo de nuevo.</string>
     <string name="automation_error_not_running_title">El Servicio no se está ejecutando.</string>
     <string name="automation_error_not_running_body">El Servicio de accesibilidad no se está ejecutando. Intentá reiniciando el dispositivo.</string>
+    <string name="automation_error_screen_unavailable_title">Pantalla no disponible</string>
+    <string name="automation_error_screen_unavailable_body">La operación fue abortada porque la pantalla no estaba disponible (por ejemplo, pantalla apagada o pantalla de bloqueo activa).</string>
     <string name="history_label">Historial</string>
     <string name="history_description">Una lista cronológica de acciones recientes y datos afectados.</string>
     <string name="scheduler_label">Planificador</string>

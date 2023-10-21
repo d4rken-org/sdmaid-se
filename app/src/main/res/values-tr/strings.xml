@@ -468,6 +468,8 @@
     <string name="automation_error_not_enabled_body">Erişilebilirlik hizmeti devre dışı bırakıldı. Tekrar açın.</string>
     <string name="automation_error_not_running_title">Hizmet çalışmıyor</string>
     <string name="automation_error_not_running_body">Erişilebilirlik hizmeti çalışmıyor. Cihazı yeniden başlatmayı deneyin.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran kullanılamıyor</string>
+    <string name="automation_error_screen_unavailable_body">Ekran kullanılamaz hale geldiği için işlem iptal edildi (örn. ekran kapalı veya ekran kilidi etkin).</string>
     <string name="history_label">Geçmiş</string>
     <string name="history_description">Son eylemlerin ve etkilenen verilerin kronolojik listesi.</string>
     <string name="scheduler_label">Zamanlayıcı</string>

@@ -455,6 +455,8 @@
     <string name="automation_error_not_enabled_body">Layanan aksesibilitas dinonaktifkan. Aktifkan lagi.</string>
     <string name="automation_error_not_running_title">Layanan tidak dijalankan</string>
     <string name="automation_error_not_running_body">Layanan aksesibilitas tidak berjalan. Coba nyalakan ulang perangkat anda.</string>
+    <string name="automation_error_screen_unavailable_title">Layar tidak tersedia</string>
+    <string name="automation_error_screen_unavailable_body">Tindakan dibatalkan karena layar tidak tersedia (tampilan mati atau ponsel terkunci).</string>
     <string name="history_label">Riwayat</string>
     <string name="history_description">Daftar kronologis tindakan terbaru dan data yang terpengaruh.</string>
     <string name="scheduler_label">Penjadwal</string>
