@@ -7,6 +7,7 @@ import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
+import com.android.billingclient.api.Purchase.PurchaseState
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
 import com.android.billingclient.api.queryPurchasesAsync
@@ -32,25 +33,25 @@ data class BillingConnection(
     val purchaseEvents: Flow<Pair<BillingResult, Collection<Purchase>?>?>,
 ) {
 
-    private val queryCacheIaps = MutableStateFlow<Map<String, Purchase>?>(null)
-    private val queryCacheSubs = MutableStateFlow<Map<String, Purchase>?>(null)
+    private val queryCacheIaps = MutableStateFlow<Collection<Purchase>?>(null)
+    private val queryCacheSubs = MutableStateFlow<Collection<Purchase>?>(null)
 
     val purchases: Flow<Collection<Purchase>> = combine(
         purchaseEvents,
         queryCacheIaps.filterNotNull(),
         queryCacheSubs.filterNotNull(),
     ) { purchaseEvent, iapCache, subCache ->
-        val combined = mutableMapOf<String, Purchase>()
+        val combined = mutableSetOf<Purchase>()
 
-        combined.putAll(iapCache)
-        combined.putAll(subCache)
+        combined.addAll(iapCache)
+        combined.addAll(subCache)
 
         purchaseEvent
             ?.takeIf { (result, _) -> result.isSuccess }
-            ?.let { (_, purchases) -> purchases?.filter { it.orderId != null } }
-            ?.forEach { purchase -> combined[purchase.orderId!!] = purchase }
+            ?.let { (_, purchases) -> purchases?.filter { it.purchaseState == PurchaseState.PURCHASED } }
+            ?.let { combined.addAll(it) }
 
-        combined.values.sortedByDescending { it.purchaseTime }
+        combined.sortedByDescending { it.purchaseTime }
     }.setupCommonEventHandlers(TAG) { "purchases" }
 
     private suspend fun queryPurchases(@BillingClient.ProductType type: String): Collection<Purchase> {
@@ -77,9 +78,7 @@ data class BillingConnection(
             try {
                 val iaps = queryPurchases(BillingClient.ProductType.INAPP)
                 log(TAG) { "Refreshed IAPs: $iaps" }
-                queryCacheIaps.value = iaps
-                    .filter { it.orderId != null }
-                    .associateBy { it.orderId!! }
+                queryCacheIaps.value = iaps.filter { it.purchaseState == PurchaseState.PURCHASED }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
             }
@@ -88,9 +87,7 @@ data class BillingConnection(
             try {
                 val subs = queryPurchases(BillingClient.ProductType.SUBS)
                 log(TAG) { "Refreshed SUBs: $subs" }
-                queryCacheSubs.value = subs
-                    .filter { it.orderId != null }
-                    .associateBy { it.orderId!! }
+                queryCacheSubs.value = subs.filter { it.purchaseState == PurchaseState.PURCHASED }
             } catch (e: Exception) {
                 throw e.tryMapUserFriendly()
             }

@@ -56,10 +56,12 @@ class UpgradeRepoGplay @Inject constructor(
                     billingCache.lastProStateAt.value(now)
                     Info(billingData = data)
                 }
+
                 (now - lastProStateAt) < 7 * 24 * 60 * 1000L -> { // 7 days
                     log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                     Info(gracePeriod = true, billingData = null)
                 }
+
                 else -> {
                     Info(billingData = data)
                 }
@@ -114,8 +116,10 @@ class UpgradeRepoGplay @Inject constructor(
                 purchase.products.mapNotNull { productId ->
                     val sku = OurSku.PRO_SKUS.singleOrNull { it.id == productId }
                     if (sku == null) {
-                        log(ERROR) { "Unknown product: $productId" }
+                        log(TAG, ERROR) { "Unknown product: $productId ($purchase)" }
                         return@mapNotNull null
+                    } else {
+                        log(TAG) { "Mapped $productId to $sku ($purchase)" }
                     }
                     PurchasedSku(sku, purchase)
                 }
