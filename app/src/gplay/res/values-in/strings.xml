@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan pilihan untuk pengguna mahir.</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
-    <string name="upgrades_gplay_unavailable_error">Layanan Google Play sedang tidak tersedia.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play tidak tersedia</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid tidak bisa terhubung ke Google Play. Apakah Google Play sudah terpasang dan termutakhir? Apakah Anda sudah masuk ke Akun Google Anda? Coba bersihkan tembolok aplikasi Google Play Anda dan memulai ulang perangkat Anda.</string>
     <string name="upgrades_no_purchases_found_check_account">Pembelian tidak ditemukan. Apakah Anda menggunakan akun yang benar?</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda ❤️.</string>

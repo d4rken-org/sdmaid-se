@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">SD Maid 업그레이드</string>
     <string name="upgrades_dashcard_body">SD Maid 프로는 파워유저들을 위해 더 많은 기능과 설정을 제공합니다.</string>
     <string name="upgrades_dashcard_upgrade_action">업그레이드</string>
-    <string name="upgrades_gplay_unavailable_error">Google Play 서비스를 이용할 수 없습니다.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play에 연결할 수 없음</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid가 Google Play에 연결할 수 없습니다. Google Play가 설치되어 있고 최신 버전인가요? Google 계정이 로그인되어 있나요? Google Play 앱의 캐시를 지우고 기기를 재부팅해 보세요.</string>
     <string name="upgrades_no_purchases_found_check_account">구매 항목을 찾을 수 없습니다. 올바른 계정을 사용 중인가요?</string>
     <string name="upgrade_screen_title">SD Maid SE 프로 구매</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다. ❤️</string>

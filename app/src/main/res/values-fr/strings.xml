@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">Le service d’accessibilité est désactivé. Réactivez-le.</string>
     <string name="automation_error_not_running_title">Le service ne s’exécute pas</string>
     <string name="automation_error_not_running_body">Le service d’accessibilité ne s’exécute pas. Essayez de redémarrer l’appareil.</string>
+    <string name="automation_error_screen_unavailable_title">Écran inaccessible</string>
+    <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
     <string name="history_label">Historique</string>
     <string name="history_description">Liste chronologique des actions récentes et des données affectées.</string>
     <string name="scheduler_label">Programmateur</string>

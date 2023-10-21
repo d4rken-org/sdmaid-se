@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">অ্যাক্সেসিবিলিটি পরিষেবা নিষ্ক্রিয় করা হয়েছে৷ আবার চালু করুন।</string>
     <string name="automation_error_not_running_title">পরিষেবা চলছে না</string>
     <string name="automation_error_not_running_body">অ্যাক্সেসিবিলিটি পরিষেবা চলছে না। ডিভাইসটি রিবুট করার চেষ্টা করুন।</string>
+    <string name="automation_error_screen_unavailable_title">স্ক্রীন অনুপলব্ধ</string>
+    <string name="automation_error_screen_unavailable_body">স্ক্রীনটি অনুপলব্ধ হওয়ার কারণে অপারেশনটি বাতিল করা হয়েছে (যেমন ডিসপ্লে বন্ধ বা লকস্ক্রিন সক্রিয়)।</string>
     <string name="history_label">ইতিহাস</string>
     <string name="history_description">সাম্প্রতিক ক্রিয়াকলাপ এবং প্রভাবিত ডেটার একটি কালানুক্রমিক তালিকা।</string>
     <string name="scheduler_label">সময়সূচী</string>

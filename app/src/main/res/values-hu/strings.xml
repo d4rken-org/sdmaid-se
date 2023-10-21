@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">A kisegítő lehetőségek szolgáltatása le van tiltva. Kapcsolja be újra.</string>
     <string name="automation_error_not_running_title">A szolgáltatás nem fut</string>
     <string name="automation_error_not_running_body">A kisegítő lehetőségek szolgáltatás nem fut. Próbálja újraindítani az eszközt.</string>
+    <string name="automation_error_screen_unavailable_title">A képernyő nem elérhető</string>
+    <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő nem volt elérhető (pl. a kijelző kikapcsolt vagy a záróképernyő aktív).</string>
     <string name="history_label">Előzmények</string>
     <string name="history_description">A legutóbbi műveletek és az érintett adatok időrendi listája.</string>
     <string name="scheduler_label">Ütemező</string>

@@ -437,6 +437,8 @@
     <string name="automation_error_not_enabled_body">Сервіс спеціальних можливостей вимкнено. Увімкніть його знову.</string>
     <string name="automation_error_not_running_title">Сервіс не запущено</string>
     <string name="automation_error_not_running_body">Сервіс спеціальних можливостей не запущений. Спробуйте перезавантажити пристрій.</string>
+    <string name="automation_error_screen_unavailable_title">Екран недоступний</string>
+    <string name="automation_error_screen_unavailable_body">Операцію було перервано, оскільки екран став недоступним (наприклад, вимкнено дисплей або активовано екран блокування).</string>
     <string name="history_label">Історія</string>
     <string name="history_description">Хронологічний список нещодавніх дій та даних, на які вони вплинули.</string>
     <string name="scheduler_label">Планувальник</string>

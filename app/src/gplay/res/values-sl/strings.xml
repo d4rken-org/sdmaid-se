@@ -6,7 +6,7 @@
     <string name="upgrades_dashcard_title">Nadgradi SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro nudi boljše rezultate, več funkcij in možnosti za napredne uporabnike.</string>
     <string name="upgrades_dashcard_upgrade_action">Nadgradi</string>
-    <string name="upgrades_gplay_unavailable_error">Storitve Google Play niso na voljo.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play ni na voljo.</string>
     <string name="upgrades_no_purchases_found_check_account">Nakup ni bil najden.  Ali uporabljate pravi račun?</string>
     <string name="upgrade_screen_title">Dobi SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid je brez oglasov in ne prodaja uporabniških podatkov.  Moje delo financirajo uporabniki. ❤️</string>

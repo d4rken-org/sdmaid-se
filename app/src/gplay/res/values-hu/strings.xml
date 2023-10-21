@@ -6,7 +6,7 @@
     <string name="upgrades_dashcard_title">Az SD Maid frissítése</string>
     <string name="upgrades_dashcard_body">Az SD Maid Pro jobb eredményeket, több funkciót és lehetőséget kínál a nagy teljesítményű felhasználók számára.</string>
     <string name="upgrades_dashcard_upgrade_action">Frissítés</string>
-    <string name="upgrades_gplay_unavailable_error">A Google Play szolgáltatások nem érhetők el.</string>
+    <string name="upgrades_gplay_unavailable_error_title">A Google Play nem elérhető</string>
     <string name="upgrades_no_purchases_found_check_account">Nem található vásárlás. A megfelelő fiókot használja?</string>
     <string name="upgrade_screen_title">Szerezze be az SD Maid SE Pro-t</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>

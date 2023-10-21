@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_5">Íz joq.</string>
     <string name="general_thank_you_label">Raxmet</string>
     <string name="general_error_empty_result_msg">Bos nátiyje.</string>
     <string name="general_share_action">Bólisiw</string>
@@ -8,10 +9,13 @@
     <string name="general_copy_action">Kóshirip alıw</string>
     <string name="general_wipe_action">Tazalaw</string>
     <string name="general_cancel_action">Biykarlaw</string>
+    <string name="general_discard_action">Bıykarlaw</string>
     <string name="general_reset_action">Qayta ornatıw</string>
     <string name="general_save_action">Saqlaw</string>
     <string name="general_thanks_action">Raxmet</string>
     <string name="general_gotit_action">Túsinikli</string>
+    <string name="general_fix_action">Ońlaw ushın</string>
+    <string name="general_set_up_action">Ornatıw</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
     <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
@@ -24,6 +28,7 @@
     <string name="general_filter_action">Filtr</string>
     <string name="general_refresh_action">Jańalaw</string>
     <string name="general_progress_searching">Izlenbekte</string>
+    <string name="general_progress_preparing">Tayarlanıp atır</string>
     <string name="general_progress_loading">Júklenbekte</string>
     <string name="general_progress_loading_egg_2">Jaqın arada™</string>
     <string name="general_help_action">Járdem</string>

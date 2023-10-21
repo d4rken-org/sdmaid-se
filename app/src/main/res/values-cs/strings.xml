@@ -491,6 +491,8 @@
     <string name="automation_error_not_enabled_body">Služba přístupnosti je zakázána. Znovu ji povolte.</string>
     <string name="automation_error_not_running_title">Služba neběží</string>
     <string name="automation_error_not_running_body">Služba přístupnosti neběží. Zkuste restartovat zařízení.</string>
+    <string name="automation_error_screen_unavailable_title">Obrazovka je nedostupná</string>
+    <string name="automation_error_screen_unavailable_body">Operace byla přerušena, protože obrazovka se stala nedostupnou (např. vypnutý displej nebo aktivní zámek obrazovky).</string>
     <string name="history_label">Historie</string>
     <string name="history_description">Chronologický seznam nedávných akcí a dotčených dat.</string>
     <string name="scheduler_label">Plánovač</string>

@@ -6,7 +6,8 @@
     <string name="upgrades_dashcard_title">Upgradovat SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro nabízí lepší výsledky, více funkcí a možností pro zkušené uživatele.</string>
     <string name="upgrades_dashcard_upgrade_action">Upgradovat</string>
-    <string name="upgrades_gplay_unavailable_error">Služby Google Play nejsou k dispozici.</string>
+    <string name="upgrades_gplay_unavailable_error_title">Obchod Google Play není k dispozici</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid se nemůže připojit k Obchodu Google Play. Je Obchod Google Play nainstalován a aktualizován? Jste přihlášeni k účtu Google? Zkuste vymazat mezipaměť Obchodu Google Play a restartovat zařízení.</string>
     <string name="upgrades_no_purchases_found_check_account">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
     <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>

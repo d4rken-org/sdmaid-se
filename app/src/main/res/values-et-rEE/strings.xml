@@ -467,6 +467,8 @@
     <string name="automation_error_not_enabled_body">Juurdepääsetavusteenus on keelatud. Lubage see taas.</string>
     <string name="automation_error_not_running_title">Teenus ei tööta</string>
     <string name="automation_error_not_running_body">Juurdepääsetavusteenus ei tööta. Üritage seadet taaskäivitada.</string>
+    <string name="automation_error_screen_unavailable_title">Ekraan puhkab</string>
+    <string name="automation_error_screen_unavailable_body">Toiming tühistati, kuna ekraan lülitus välja või lukustus.</string>
     <string name="history_label">Ajalugu</string>
     <string name="history_description">Hiljutised toimingud ja mõjutatud andmed kronoloogilises loendis.</string>
     <string name="scheduler_label">Ajastaja</string>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="automation_error_screen_unavailable_title">A képernyő nem elérhető</string>
+    <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő elérhetetlenné vált (pl. a kijelző kikapcsolva vagy a képernyőzár aktív).</string>
+</resources>

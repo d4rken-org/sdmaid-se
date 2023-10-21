@@ -455,6 +455,8 @@
     <string name="automation_error_not_enabled_body">접근성 서비스가 비활성화 되었습니다. 설정에서 다시 켜주세요.</string>
     <string name="automation_error_not_running_title">서비스는 실행 중이 아닙니다</string>
     <string name="automation_error_not_running_body">접근성 서비스가 실행중이지 않습니다. 기기를 재부팅해보세요.</string>
+    <string name="automation_error_screen_unavailable_title">화면을 볼 수 없음</string>
+    <string name="automation_error_screen_unavailable_body">화면을 볼 수 없게 되어 작업이 중단되었습니다(예: 디스플레이가 꺼져 있거나 잠금 화면이 활성화되어있음).</string>
     <string name="history_label">이력</string>
     <string name="history_description">최근 활동과 영향을 받은 데이터의 시간순 목록</string>
     <string name="scheduler_label">스케쥴러</string>

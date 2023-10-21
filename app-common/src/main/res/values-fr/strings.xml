@@ -23,7 +23,8 @@
     <string name="general_save_action">Enregistrer</string>
     <string name="general_thanks_action">Remerciements</string>
     <string name="general_gotit_action">J’ai compris</string>
-    <string name="general_fix_action">Réparer</string>
+    <string name="general_fix_action">Corriger</string>
+    <string name="general_set_up_action">Configurer</string>
     <string name="general_edit_action">Modifier</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Vide</string>
