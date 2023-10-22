@@ -9,6 +9,7 @@ import eu.darken.sdmse.databinding.SchedulerDashboardItemBinding
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import eu.darken.sdmse.scheduler.core.SchedulerManager
+import java.time.Instant
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -29,15 +30,18 @@ class SchedulerDashCardVH(parent: ViewGroup) :
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
 
         subtitle.isVisible = item.schedulerState.schedules.none { it.isEnabled }
-
+        val now = Instant.now()
         val nextSchedule = item.schedulerState.schedules
             .filter { it.isEnabled }
-            .maxByOrNull { it.nextExecution!! }
+            .minByOrNull { it.calcExecutionEta(now, false)!! }
         executionNextLabel.isVisible = nextSchedule != null
         executionNextValue.apply {
             isVisible = nextSchedule != null
             text = nextSchedule?.let {
-                "${it.nextExecution?.toSystemTimezone()?.format(formatter)} (${it.label})"
+                val nextAt = now
+                    .plus(it.calcExecutionEta(now, false))
+                    .toSystemTimezone().format(formatter)
+                "$nextAt (${it.label})"
             }
         }
 

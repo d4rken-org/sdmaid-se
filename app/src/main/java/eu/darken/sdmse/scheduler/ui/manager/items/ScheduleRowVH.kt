@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.SchedulerManagerListScheduleItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.ui.manager.SchedulerAdapter
+import java.time.Instant
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -45,13 +46,12 @@ class ScheduleRowVH(parent: ViewGroup) :
         }
 
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
-
+        val now = Instant.now()
         primary.apply {
             isVisible = schedule.scheduledAt != null
-            text = schedule.nextExecution?.let { startedAt ->
-                val next = startedAt.toSystemTimezone()
-                val formatted = next.format(formatter)
-                getString(R.string.scheduler_schedule_next_at_x, formatted)
+            text = schedule.calcExecutionEta(now, false)?.let { eta ->
+                val next = now.plus(eta).toSystemTimezone().format(formatter)
+                getString(R.string.scheduler_schedule_next_at_x, next)
             }
         }
 

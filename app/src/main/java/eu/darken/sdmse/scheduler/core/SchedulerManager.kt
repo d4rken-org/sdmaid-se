@@ -1,14 +1,13 @@
 package eu.darken.sdmse.scheduler.core
 
-import android.content.Context
 import androidx.work.Constraints
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.await
 import androidx.work.workDataOf
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -20,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.withPrevious
+import eu.darken.sdmse.common.toSystemTimezone
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -32,7 +32,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
-import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -40,7 +39,6 @@ import javax.inject.Singleton
 
 @Singleton
 class SchedulerManager @Inject constructor(
-    @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val settings: SchedulerSettings,
@@ -96,7 +94,7 @@ class SchedulerManager @Inject constructor(
             state.first().schedules.forEach {
                 if (it.isScheduled()) {
                     it.cancel()
-                    it.schedule()
+                    it.schedule(reschedule = false)
                 }
             }
         }.launchIn(appScope)
@@ -121,32 +119,39 @@ class SchedulerManager @Inject constructor(
 
     suspend fun reschedule(id: ScheduleId) {
         log(TAG, INFO) { "Rescheduling $id" }
-        getSchedule(id)!!.schedule(initial = false)
+        getSchedule(id)!!.schedule(reschedule = true)
     }
 
-    private suspend fun Schedule.schedule(initial: Boolean = true) {
-        requireNotNull(scheduledAt) { "Can't schedule 'unscheduled' Schedule..." }
-        log(TAG, INFO) { "schedule($label): (initial=$initial) $this" }
+    private suspend fun Schedule.schedule(reschedule: Boolean) {
+        log(TAG, INFO) { "schedule($label): (reschedule=$reschedule) $this" }
 
-        val nextExecutionAt = nextExecution!!
+        val now = Instant.now()
 
-        val timeTillnextExecution = Duration.between(Instant.now(), nextExecutionAt)
+        val executionEta = calcExecutionEta(now, reschedule)
+            ?: throw IllegalArgumentException("Can't schedule 'unscheduled' Schedule...")
 
-        log(TAG) { "schedule($label): Next execution is in $timeTillnextExecution, at $nextExecutionAt" }
+        val executionAt = now.plus(executionEta)
+        val executionAtZoned = executionAt.toSystemTimezone()
+        log(TAG) { "schedule($label): Next execution in $executionEta @ $executionAt ($executionAtZoned)" }
 
         val workRequest = OneTimeWorkRequestBuilder<SchedulerWorker>().apply {
             addTag("Label: $label")
 
-            if (timeTillnextExecution.isNegative) {
-                log(TAG, WARN) { "schedule($label): Time till next execution was negative ($timeTillnextExecution)" }
-            } else {
-                setInitialDelay(timeTillnextExecution)
-            }
+            // https://issuetracker.google.com/issues?q=setInitialDelay%20
+            // Hmm https://issuetracker.google.com/issues/155936231
+            setInitialDelay(executionEta)
 
             setConstraints(
                 Constraints.Builder().apply {
-                    setRequiresBatteryNotLow(settings.skipWhenPowerSaving.value())
-                    setRequiresCharging(settings.skipWhenNotCharging.value())
+                    val noLowBattery = settings.skipWhenPowerSaving.value()
+                    setRequiresBatteryNotLow(noLowBattery)
+                    val onlyWhenCharging = settings.skipWhenNotCharging.value()
+                    setRequiresCharging(onlyWhenCharging)
+
+                    if (!noLowBattery && !onlyWhenCharging) {
+                        log(TAG, INFO) { "No constraints set, marking as expedited." }
+                        setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+                    }
                 }.build()
             )
 
@@ -155,12 +160,12 @@ class SchedulerManager @Inject constructor(
 
         workManager.enqueueUniqueWork(
             workName,
-            if (initial) ExistingWorkPolicy.REPLACE else ExistingWorkPolicy.APPEND,
+            if (reschedule) ExistingWorkPolicy.APPEND else ExistingWorkPolicy.REPLACE,
             workRequest
         ).await()
 
         if (isScheduled()) {
-            log(TAG, INFO) { "schedule($label): Scheduled for $nextExecution" }
+            log(TAG, INFO) { "schedule($label): Scheduled for $executionAt" }
         } else {
             log(TAG, WARN) { "schedule($label): Failed to schedule" }
         }
@@ -171,7 +176,7 @@ class SchedulerManager @Inject constructor(
 
         if (isEnabled && !isScheduled) {
             log(TAG, INFO) { "checkSchedulingState($id): Enabled, but not scheduled. Scheduling $this" }
-            schedule()
+            schedule(reschedule = false)
         } else if (!isEnabled && isScheduled) {
             log(TAG, INFO) { "checkSchedulingState($id): Disabled, but scheduled. Canceling $this" }
             cancel()

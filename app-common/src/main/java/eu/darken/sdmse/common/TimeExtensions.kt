@@ -10,3 +10,6 @@ fun OffsetDateTime.toSystemTimezone(): ZonedDateTime = this
 
 fun Instant.toSystemTimezone(): ZonedDateTime = this
     .atZone(ZoneId.systemDefault())
+
+fun Instant.toUtcTimezone(): ZonedDateTime = this
+    .atZone(ZoneId.of("UTC"))
