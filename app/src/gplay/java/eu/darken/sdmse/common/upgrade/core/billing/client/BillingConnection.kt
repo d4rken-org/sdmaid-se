@@ -114,6 +114,7 @@ data class BillingConnection(
     }
 
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> {
+        log(TAG) { "querySkus(skus=${skus.joinToString { it.print() }})..." }
         val productList = skus.map { sku ->
             QueryProductDetailsParams.Product.newBuilder().apply {
                 setProductId(sku.id)
@@ -137,7 +138,7 @@ data class BillingConnection(
         }
 
         log(TAG) {
-            "querySkus(skus=$skus): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
+            "querySkus(skus=${skus.joinToString { it.print() }}): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
         }
 
         if (!result.isSuccess) throw BillingClientException(result)

@@ -6,6 +6,8 @@ interface Sku {
     val id: String
     val type: Type
 
+    fun print(): String = "Sku(id=$id, type=$type)"
+
     interface Iap : Sku {
         override val id: String
         override val type: Type
