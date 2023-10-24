@@ -1,4 +1,4 @@
-package eu.darken.sdmse.deduplicator.ui.list
+package eu.darken.sdmse.deduplicator.ui.details.cluster
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -12,13 +12,15 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
-import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
 import javax.inject.Inject
 
 
-class DeduplicatorListAdapter @Inject constructor() :
-    ModularAdapter<DeduplicatorListAdapter.BaseVH<DeduplicatorListAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<DeduplicatorListAdapter.Item> {
+class ClusterAdapter @Inject constructor() :
+    ModularAdapter<ClusterAdapter.BaseVH<ClusterAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<ClusterAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
@@ -26,7 +28,9 @@ class DeduplicatorListAdapter @Inject constructor() :
 
     init {
         addMod(DataBinderMod(data))
-        addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListGridVH.Item }) { DeduplicatorListGridVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ClusterHeaderVH.Item }) { ClusterHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupHeaderVH.Item }) { ChecksumGroupHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupFileVH.Item }) { ChecksumGroupFileVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
@@ -35,12 +39,11 @@ class DeduplicatorListAdapter @Inject constructor() :
     ) : VH(layoutId, parent), BindableVH<D, B>
 
     interface Item : DifferItem, SelectableItem {
-
-        val cluster: Duplicate.Cluster
-
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null
             }
     }
+
+    interface HeaderVH
 }

@@ -24,17 +24,19 @@ class DeduplicatorSettings @Inject constructor(
         get() = context.dataStore
 
     val isKeepOneEnabled = dataStore.createValue("protection.keepone.enabled", true)
-    val minSizeBytes = dataStore.createValue<Long>("skip.minsize.bytes", MIN_CACHE_SIZE_DEFAULT)
-    val isHashSleuthEnabled = dataStore.createValue("sleuth.hash.enabled", true)
+    val minSizeBytes = dataStore.createValue<Long>("skip.minsize.bytes", MIN_FILE_SIZE)
+    val isSleuthChecksumEnabled = dataStore.createValue("sleuth.checksum.enabled", true)
+    val isSleuthPHashEnabled = dataStore.createValue("sleuth.phash.enabled", false)
 
     override val mapper = PreferenceStoreMapper(
         isKeepOneEnabled,
         minSizeBytes,
-        isHashSleuthEnabled,
+        isSleuthChecksumEnabled,
+        isSleuthPHashEnabled,
     )
 
     companion object {
-        const val MIN_CACHE_SIZE_DEFAULT = 48 * 1024L
+        const val MIN_FILE_SIZE = 512 * 1024L
         internal val TAG = logTag("Deduplicator", "Settings")
     }
 }

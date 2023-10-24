@@ -16,13 +16,20 @@
         app:summary="@string/deduplicator_skip_minsize_description"
         app:title="@string/deduplicator_skip_minsize_title" />
 
-    <PreferenceCategory android:title="@string/deduplicator_detection_methods_label">
+    <PreferenceCategory android:title="@string/deduplicator_detection_method_label">
         <CheckBoxPreference
-            app:icon="@drawable/ic_sd_storage"
-            app:key="sleuth.hash.enabled"
+            app:icon="@drawable/ic_code_equal_box_24"
+            app:key="sleuth.checksum.enabled"
             app:singleLineTitle="false"
-            app:summary="@string/deduplicator_detection_method_hash_summary"
-            app:title="@string/deduplicator_detection_method_hash_title" />
+            app:summary="@string/deduplicator_detection_method_checksum_summary"
+            app:title="@string/deduplicator_detection_method_checksum_title" />
+        <CheckBoxPreference
+            android:enabled="false"
+            app:icon="@drawable/ic_approximately_equal_box_24"
+            app:key="sleuth.phash.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/deduplicator_detection_method_phash_summary"
+            app:title="@string/deduplicator_detection_method_phash_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

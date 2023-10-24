@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
-import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -72,13 +71,13 @@ class DeduplicatorListViewModel @Inject constructor(
             }
         }.toSet()
 
-        val task = DeduplicatorDeleteTask(targetGroups = targets)
-        val result = taskManager.submit(task) as DeduplicatorDeleteTask.Result
-
-        log(TAG) { "delete(): Result was $result" }
-        when (result) {
-            is DeduplicatorDeleteTask.Success -> events.postValue(DeduplicatorListEvents.TaskResult(result))
-        }
+//        val task = DeduplicatorDeleteTask(targetGroups = targets)
+//        val result = taskManager.submit(task) as DeduplicatorDeleteTask.Result
+//
+//        log(TAG) { "delete(): Result was $result" }
+//        when (result) {
+//            is DeduplicatorDeleteTask.Success -> events.postValue(DeduplicatorListEvents.TaskResult(result))
+//        }
     }
 
     fun exclude(items: Collection<DeduplicatorListAdapter.Item>) = launch {
@@ -90,9 +89,9 @@ class DeduplicatorListViewModel @Inject constructor(
 
     fun showDetails(item: DeduplicatorListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(item=$item)" }
-//        CorpseListFragmentDirections.actionCorpseFinderListFragmentToCorpseFinderDetailsFragment(
-//            corpsePath = (item as CorpseRowVH.Item).corpse.identifier
-//        ).navigate()
+        DeduplicatorListFragmentDirections.actionDeduplicatorListFragmentToDeduplicatorDetailsFragment(
+            identifier = item.cluster.identifier
+        ).navigate()
     }
 
     companion object {

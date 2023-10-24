@@ -41,8 +41,8 @@ class DeduplicatorDashCardVH(parent: ViewGroup) :
                 R.plurals.deduplicator_result_x_clusters_found,
                 item.data.totalCount
             )
-            val space = Formatter.formatFileSize(context, item.data.totalSize)
-            statusSecondary.text = getString(eu.darken.sdmse.common.R.string.x_space_can_be_freed, space)
+            val space = Formatter.formatFileSize(context, item.data.redudantSize)
+            statusSecondary.text = getString(R.string.deduplicator_x_space_occupied_by_duplicates_msg, space)
         } else {
             statusPrimary.text = null
             statusSecondary.text = null

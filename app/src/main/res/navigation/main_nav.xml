@@ -426,5 +426,25 @@
     <fragment
         android:id="@+id/deduplicatorListFragment"
         android:name="eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment"
-        tools:layout="@layout/deduplicator_list_fragment" />
+        tools:layout="@layout/deduplicator_list_fragment">
+        <action
+            android:id="@+id/action_deduplicatorListFragment_to_deduplicatorDetailsFragment"
+            app:destination="@id/deduplicatorDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deduplicatorDetailsFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment"
+        tools:layout="@layout/deduplicator_details_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Identifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/clusterFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment"
+        tools:layout="@layout/deduplicator_cluster_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Identifier" />
+    </fragment>
 </navigation>

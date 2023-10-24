@@ -11,8 +11,7 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
-import eu.darken.sdmse.deduplicator.core.scanner.sleuth.Sleuth
-import eu.darken.sdmse.deduplicator.core.types.Duplicate
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

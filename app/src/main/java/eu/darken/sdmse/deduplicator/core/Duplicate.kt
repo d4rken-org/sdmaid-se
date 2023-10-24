@@ -1,12 +1,16 @@
-package eu.darken.sdmse.deduplicator.core.types
+package eu.darken.sdmse.deduplicator.core
 
 import android.os.Parcelable
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import kotlinx.parcelize.Parcelize
 
 interface Duplicate {
     val lookup: APathLookup<*>
+    val label: CaString
+        get() = lookup.userReadableName
 
     val path: APath
         get() = lookup.lookedUp
@@ -19,26 +23,34 @@ interface Duplicate {
 
     interface Group {
         val identifier: Identifier
+        val label: CaString
+            get() = identifier.value.toCaString()
         val duplicates: Collection<Duplicate>
 
-        val size: Long
+        val totalSize: Long
             get() = duplicates.sumOf { it.size }
+        val averageSize: Double
+            get() = duplicates.map { it.size }.average()
+        val redundantSize: Long
+            get() = duplicates.drop(1).sumOf { it.size }
         val count: Int
             get() = duplicates.size
 
         @Parcelize
-        data class Identifier(val string: String) : Parcelable
+        data class Identifier(val value: String) : Parcelable
     }
 
     data class Cluster(
         val identifier: Identifier,
         val groups: Collection<Group>,
+        val label: CaString = identifier.value.toCaString(),
     ) {
-
         val averageSize: Double
-            get() = groups.map { it.size }.average()
+            get() = groups.map { it.totalSize }.average()
         val totalSize: Long
-            get() = groups.sumOf { it.size }
+            get() = groups.sumOf { it.totalSize }
+        val redundantSize: Long
+            get() = groups.sumOf { it.redundantSize }
         val count: Int
             get() = groups.sumOf { it.count }
 
@@ -46,6 +58,6 @@ interface Duplicate {
             get() = groups.first().duplicates.first().lookup
 
         @Parcelize
-        data class Identifier(val string: String) : Parcelable
+        data class Identifier(val value: String) : Parcelable
     }
 }

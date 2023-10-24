@@ -61,7 +61,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
-                        settings.minSizeBytes.valueBlocking = DeduplicatorSettings.MIN_CACHE_SIZE_DEFAULT
+                        settings.minSizeBytes.valueBlocking = DeduplicatorSettings.MIN_FILE_SIZE
                     }
                 }.show()
                 true

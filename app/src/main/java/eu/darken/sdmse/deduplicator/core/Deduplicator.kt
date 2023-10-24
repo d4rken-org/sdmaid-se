@@ -18,11 +18,10 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
-import eu.darken.sdmse.deduplicator.core.scanner.sleuth.Sleuth
+import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
-import eu.darken.sdmse.deduplicator.core.types.Duplicate
 import eu.darken.sdmse.exclusion.core.*
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -45,7 +44,7 @@ import javax.inject.Singleton
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    val sleuthFactories: Set<@JvmSuppressWildcards Sleuth.Factory>,
+    private val sleuthFactories: Set<@JvmSuppressWildcards Sleuth.Factory>,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val settings: DeduplicatorSettings,
@@ -182,6 +181,7 @@ class Deduplicator @Inject constructor(
         val lastResult: DeduplicatorTask.Result? = null,
     ) {
         val totalSize: Long get() = clusters.sumOf { it.totalSize }
+        val redudantSize: Long get() = clusters.sumOf { it.redundantSize }
         val totalCount: Int get() = clusters.size
     }
 

@@ -16,6 +16,7 @@
     <string name="general_error_cant_access_msg">Can\'t access %s.</string>
     <string name="general_error_root_unavailable">Root access is unavailable.</string>
     <string name="general_error_empty_result_msg">The result was empty.</string>
+    <string name="general_error_no_compatible_app_found_msg">No compatible app found to handle this request.</string>
     <string name="general_todo_msg">This feature is still being worked on and currently not available.</string>
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>

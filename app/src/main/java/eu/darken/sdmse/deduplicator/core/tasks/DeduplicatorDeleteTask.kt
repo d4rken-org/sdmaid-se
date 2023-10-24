@@ -4,12 +4,13 @@ import android.text.format.Formatter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.deduplicator.core.types.Duplicate
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DeduplicatorDeleteTask(
-    val targetGroups: Set<Duplicate.Cluster.Identifier>? = null,
+    val targetClusters: Set<Duplicate.Cluster.Identifier>? = null,
+    val targetGroups: Set<Duplicate.Group.Identifier>? = null,
     val targetDuplicates: Set<APath>? = null,
 ) : DeduplicatorTask {
 

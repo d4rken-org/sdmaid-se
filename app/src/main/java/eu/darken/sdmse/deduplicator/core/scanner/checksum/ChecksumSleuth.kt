@@ -1,4 +1,4 @@
-package eu.darken.sdmse.deduplicator.core.scanner.sleuth
+package eu.darken.sdmse.deduplicator.core.scanner.checksum
 
 import dagger.Binds
 import dagger.Module
@@ -33,8 +33,8 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
-import eu.darken.sdmse.deduplicator.core.types.Duplicate
-import eu.darken.sdmse.deduplicator.core.types.HashDuplicate
+import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
@@ -51,7 +51,7 @@ import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 import javax.inject.Provider
 
-class HashSleuth @Inject constructor(
+class ChecksumSleuth @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
@@ -68,7 +68,7 @@ class HashSleuth @Inject constructor(
 
     override suspend fun investigate(): Collection<Duplicate.Group> {
         log(TAG) { "investigate():..." }
-        updateProgressPrimary(R.string.deduplicator_detection_method_hash_title)
+        updateProgressPrimary(R.string.deduplicator_detection_method_checksum_title)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressCount(Progress.Count.Indeterminate())
 
@@ -173,10 +173,10 @@ class HashSleuth @Inject constructor(
         val duplicates = hashBuckets.values
             .map { dupes: List<Triple<APathLookup<*>, Hasher.Result, String>> ->
                 val hexHash = dupes.first().third
-                HashDuplicate.Group(
+                ChecksumDuplicate.Group(
                     identifier = Duplicate.Group.Identifier(hexHash),
                     duplicates = dupes.map { (item, hash) ->
-                        HashDuplicate(
+                        ChecksumDuplicate(
                             lookup = item,
                             hash = hash,
                         )
@@ -190,9 +190,9 @@ class HashSleuth @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: DeduplicatorSettings,
-        private val sleuthProvider: Provider<HashSleuth>
+        private val sleuthProvider: Provider<ChecksumSleuth>
     ) : Sleuth.Factory {
-        override suspend fun isEnabled(): Boolean = settings.isHashSleuthEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.isSleuthChecksumEnabled.value()
         override suspend fun create(): Sleuth = sleuthProvider.get()
     }
 
