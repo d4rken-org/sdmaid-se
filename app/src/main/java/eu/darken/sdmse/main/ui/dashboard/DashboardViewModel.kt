@@ -210,8 +210,13 @@ class DashboardViewModel @Inject constructor(
                 launch { submitTask(DeduplicatorScanTask()) }
             },
             onDelete = {
-                val task = DeduplicatorDeleteTask()
-                events.postValue(DashboardEvents.DeduplicatorDeleteConfirmation(task))
+                launch {
+                    val event = DashboardEvents.DeduplicatorDeleteConfirmation(
+                        task = DeduplicatorDeleteTask(),
+                        clusters = deduplicator.state.first().data?.clusters?.sortedByDescending { it.averageSize }
+                    )
+                    events.postValue(event)
+                }
             },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
@@ -503,6 +508,21 @@ class DashboardViewModel @Inject constructor(
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
+                }
+            }
+        }
+        launch {
+            when (actionState) {
+                BottomBarState.Action.SCAN -> submitTask(DeduplicatorScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null) {
+                    submitTask(DeduplicatorDeleteTask())
+                }
+
+                BottomBarState.Action.ONECLICK -> {
+                    submitTask(DeduplicatorScanTask())
+                    submitTask(DeduplicatorDeleteTask())
                 }
             }
         }

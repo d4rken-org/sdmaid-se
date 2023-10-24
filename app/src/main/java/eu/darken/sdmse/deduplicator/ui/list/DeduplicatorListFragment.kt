@@ -10,7 +10,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -21,6 +20,7 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorListFragmentBinding
+import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 
 @AndroidEntryPoint
 class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) {
@@ -85,34 +85,22 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is DeduplicatorListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                    setMessage(
-                        if (event.items.size == 1) {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                event.items.single().cluster.identifier
-                            )
-                        } else {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
-                                event.items.size
-                            )
-                        }
-
-                    )
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                is DeduplicatorListEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
+                    previews = event.items
+                        .map { it.cluster.previewFile }
+                        .map { PreviewDeletionDialog.Item(it) },
+                    onPositive = {
                         vm.delete(event.items, confirmed = true)
                         selectionTracker.clearSelection()
+                    },
+                    onNegative = {
+
+                    },
+                    onNeutral = {
+                        vm.showDetails(event.items.first())
+                        selectionTracker.clearSelection()
                     }
-                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    if (event.items.size == 1) {
-                        setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ ->
-                            vm.showDetails(event.items.first())
-                            selectionTracker.clearSelection()
-                        }
-                    }
-                }.show()
+                )
 
                 is DeduplicatorListEvents.ExclusionsCreated -> Snackbar
                     .make(

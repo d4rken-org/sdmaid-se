@@ -406,6 +406,7 @@
     <string name="deduplicator_file_size_label">File size</string>
     <string name="deduplicator_average_size_label">Average size</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
+    <string name="deduplicator_delete_all_confirmation_message">Remove all but one copy of each set of duplicate files?</string>
 
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Cluster of duplicates</string>
