@@ -6,7 +6,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
-import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.DeduplicatorClusterElementChecksumgroupHeaderBinding
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
@@ -17,15 +16,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<ChecksumGroupHeaderVH.Item, DeduplicatorClusterElementChecksumgroupHeaderBinding>(
         R.layout.deduplicator_cluster_element_checksumgroup_header,
         parent
-    ), SelectableVH, ClusterAdapter.HeaderVH {
-
-    private var lastItem: Item? = null
-    override val itemSelectionKey: String?
-        get() = lastItem?.itemSelectionKey
-
-    override fun updatedSelectionState(selected: Boolean) {
-        itemView.isActivated = selected
-    }
+    ), ClusterAdapter.HeaderVH {
 
     override val viewBinding = lazy { DeduplicatorClusterElementChecksumgroupHeaderBinding.bind(itemView) }
 
@@ -33,7 +24,6 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        lastItem = item
         val group = item.group
 
         previewImage.loadFilePreview(group.preview)
@@ -51,10 +41,10 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
         val onViewActionClick: (Item) -> Unit,
     ) : ClusterAdapter.Item, SelectableItem {
 
-        override val itemSelectionKey: String
-            get() = group.identifier.toString()
+        override val itemSelectionKey: String?
+            get() = null
 
-        override val stableId: Long = itemSelectionKey.hashCode().toLong()
+        override val stableId: Long = group.identifier.hashCode().toLong()
     }
 
 }

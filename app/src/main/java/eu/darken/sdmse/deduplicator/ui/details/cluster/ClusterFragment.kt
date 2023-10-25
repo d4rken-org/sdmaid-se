@@ -67,6 +67,12 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
                         true
                     }
 
+                    R.id.action_exclude_selected -> {
+                        vm.exclude(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }

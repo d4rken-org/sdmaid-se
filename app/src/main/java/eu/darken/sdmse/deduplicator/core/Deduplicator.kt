@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
+import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
@@ -134,41 +135,82 @@ class Deduplicator @Inject constructor(
         )
     }
 
-    suspend fun exclude(targetIds: Set<Duplicate.Cluster.Identifier>): Unit = toolLock.withLock {
-        log(TAG) { "exclude(): $targetIds" }
-
+    suspend fun exclude(
+        identifier: Duplicate.Cluster.Identifier,
+        files: Collection<APath>
+    ): Unit = toolLock.withLock {
+        log(TAG) { "exclude(): $identifier - $files" }
 
         val snapshot = internalData.value!!
+        val cluster = snapshot.clusters.single { it.identifier == identifier }
 
-        val targets = snapshot.clusters
-            .filter { targetIds.contains(it.identifier) }
+        val paths = cluster.groups
+            .flatMap { it.duplicates }
+            .map { it.path }
+            .toSet()
 
-        val exclusions = targets
-            .map { it.groups }
-            .flatten()
-            .map { it.duplicates }
-            .flatten()
-            .map { duplicate ->
+        val exclusions = paths
+            .map {
                 PathExclusion(
-                    path = duplicate.path,
+                    path = it,
                     tags = setOf(Exclusion.Tag.DEDUPLICATOR),
                 )
             }
             .toSet()
-
         exclusionManager.save(exclusions)
 
+        val newCluster: Duplicate.Cluster? = cluster
+            .copy(
+                groups = cluster.groups.mapNotNull { group ->
+                    val newGroup = when (group) {
+                        is ChecksumDuplicate.Group -> group.copy(
+                            duplicates = group.duplicates.filter { !paths.contains(it.path) }
+                        )
+
+                        else -> throw NotImplementedError("Unsupported group $group")
+                    }
+                    if (newGroup.duplicates.size >= 2) {
+                        newGroup
+                    } else {
+                        log(TAG) { "Group is less than 2 entries: $newGroup" }
+                        null
+                    }
+                }
+            )
+            .takeIf { it.groups.isNotEmpty() }
+
+        if (newCluster == null) log(TAG) { "Cluster was empty after exclusion" }
+
         internalData.value = snapshot.copy(
-            clusters = snapshot.clusters.filter {
-                !targetIds.contains(it.identifier)
+            clusters = snapshot.clusters.mapNotNull { oldCluster ->
+                if (oldCluster.identifier == identifier) newCluster else oldCluster
             }
         )
     }
 
-    suspend fun exclude(cluster: Duplicate.Cluster.Identifier, files: Collection<APath>): Unit = toolLock.withLock {
-        log(TAG) { "exclude(): $cluster - $files" }
+    suspend fun exclude(
+        identifiers: Collection<Duplicate.Cluster.Identifier>
+    ): Unit = toolLock.withLock {
+        log(TAG) { "exclude(): $identifiers" }
 
-        TODO()
+        val snapshot = internalData.value!!
+
+        val exclusions = identifiers
+            .map { id -> snapshot.clusters.single { it.identifier == id } }
+            .flatMap { it.groups }
+            .flatMap { it.duplicates }
+            .map { dupe ->
+                PathExclusion(
+                    path = dupe.path,
+                    tags = setOf(Exclusion.Tag.DEDUPLICATOR),
+                )
+            }
+            .toSet()
+        exclusionManager.save(exclusions)
+
+        internalData.value = snapshot.copy(
+            clusters = snapshot.clusters.filter { !identifiers.contains(it.identifier) }
+        )
     }
 
     data class State(

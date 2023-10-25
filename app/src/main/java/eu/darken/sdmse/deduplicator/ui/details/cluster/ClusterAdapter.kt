@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
 import eu.darken.sdmse.common.lists.differ.DifferItem
@@ -46,4 +47,8 @@ class ClusterAdapter @Inject constructor() :
     }
 
     interface HeaderVH
+
+    interface FileItem {
+        val path: APath
+    }
 }

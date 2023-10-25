@@ -114,9 +114,18 @@ class ClusterViewModel @Inject constructor(
         log(TAG, INFO) { "exclude(): $items" }
         val cluster = clusterData.first()
 
-        if (items.singleOrNull() is ClusterAdapter.Item) {
-            deduplicator.exclude(setOf(cluster.identifier))
-        }
+        items
+            .filterIsInstance<ClusterHeaderVH.Item>()
+            .singleOrNull()
+            ?.let {
+                deduplicator.exclude(setOf(it.cluster.identifier))
+            }
+
+        items
+            .filterIsInstance<ClusterAdapter.FileItem>()
+            .map { it.path }
+            .takeIf { it.isNotEmpty() }
+            ?.let { deduplicator.exclude(cluster.identifier, it) }
     }
 
     companion object {
