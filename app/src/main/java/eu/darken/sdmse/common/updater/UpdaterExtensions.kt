@@ -45,4 +45,4 @@ suspend fun UpdateChecker.getUpdate(): UpdateChecker.Update? {
 }
 
 
-private val TAG = logTag("UpdateChecker")
+private val TAG = logTag("Updater", "Checker")

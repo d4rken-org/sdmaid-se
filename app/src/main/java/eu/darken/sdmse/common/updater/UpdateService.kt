@@ -59,6 +59,6 @@ class UpdateService @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("UpdateCheck", "Service")
+        private val TAG = logTag("Updater", "Service")
     }
 }
