@@ -66,6 +66,7 @@ class GeneralSettings @Inject constructor(
     )
 
     // Unused at the moment, but we keep this to remember the setting should we add this again in the future
+    @Suppress("unused")
     val isBugReporterEnabled = dataStore.createValue(
         "core.bugreporter.enabled",
         BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
