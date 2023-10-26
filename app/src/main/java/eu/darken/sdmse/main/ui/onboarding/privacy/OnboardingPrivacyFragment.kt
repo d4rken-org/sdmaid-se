@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingPrivacyFragmentBinding
@@ -21,6 +22,14 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
         }
 
         ui.privacyPolicyAction.setOnClickListener { vm.goPrivacyPolicy() }
+
+        ui.motdContainer.setOnClickListener {
+            vm.toggleMotd()
+        }
+
+        vm.state.observe2(ui) { state ->
+            motdToggle.setChecked2(state.isMotdEnabled, false)
+        }
 
         super.onViewCreated(view, savedInstanceState)
     }
