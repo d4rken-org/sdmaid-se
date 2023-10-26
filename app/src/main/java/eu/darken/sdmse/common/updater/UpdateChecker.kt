@@ -15,7 +15,7 @@ interface UpdateChecker {
 
     suspend fun isCheckSupported(): Boolean
 
-    suspend fun isEnabledByDefault(): Boolean
+    fun isEnabledByDefault(): Boolean
 
     interface Update {
         val channel: Channel

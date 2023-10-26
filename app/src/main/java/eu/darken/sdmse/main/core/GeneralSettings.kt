@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -52,7 +51,7 @@ class GeneralSettings @Inject constructor(
 
     val isUpdateCheckEnabled = dataStore.createValue(
         "update.check.enabled",
-        runBlocking { updateChecker.isEnabledByDefault() }
+        updateChecker.isEnabledByDefault()
     )
 
     override val mapper = PreferenceStoreMapper(

@@ -101,7 +101,7 @@ class FossUpdateChecker @Inject constructor(
         return settings.isDismissed(update)
     }
 
-    override suspend fun isEnabledByDefault(): Boolean {
+    override fun isEnabledByDefault(): Boolean {
         val pm = context.packageManager
         val installers: Set<String> = pm
             .getPackageInfo(context.packageName, 0)

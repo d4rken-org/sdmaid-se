@@ -10,6 +10,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -22,12 +25,25 @@ class UpdateService @Inject constructor(
 ) {
 
     private val updateCheckTrigger = MutableStateFlow(UUID.randomUUID())
-    val availableUpdate: Flow<UpdateChecker.Update?> = combine(
-        generalSettings.isUpdateCheckEnabled.flow,
-        updateCheckTrigger
-    ) { isEnabled, _ ->
-        if (isEnabled) updateChecker.getUpdate() else null
-    }
+    val availableUpdate: Flow<UpdateChecker.Update?> = flow { emit(updateChecker.isCheckSupported()) }
+        .flatMapLatest { isSupported ->
+            if (!isSupported) {
+                log(TAG) { "Update check is not supported!" }
+                return@flatMapLatest flowOf(null)
+            }
+
+            combine(
+                generalSettings.isUpdateCheckEnabled.flow,
+                updateCheckTrigger
+            ) { isEnabled, _ ->
+                if (isEnabled) {
+                    updateChecker.getUpdate()
+                } else {
+                    log(TAG) { "Update check is not enabled!" }
+                    null
+                }
+            }
+        }
         .setupCommonEventHandlers(TAG) { "availableUpdate" }
         .replayingShare(appScope)
 

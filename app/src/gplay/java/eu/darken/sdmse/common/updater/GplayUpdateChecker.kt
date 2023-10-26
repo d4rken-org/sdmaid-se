@@ -42,7 +42,7 @@ class GplayUpdateChecker @Inject constructor(
         return false
     }
 
-    override suspend fun isEnabledByDefault(): Boolean {
+    override fun isEnabledByDefault(): Boolean {
         return false
     }
 
