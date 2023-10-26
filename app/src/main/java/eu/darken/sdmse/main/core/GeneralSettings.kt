@@ -50,7 +50,7 @@ class GeneralSettings @Inject constructor(
     val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.enabled", false)
 
     val isUpdateCheckEnabled = dataStore.createValue(
-        "update.check.enabled",
+        "updater.check.enabled",
         updateChecker.isEnabledByDefault()
     )
 

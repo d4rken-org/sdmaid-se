@@ -41,7 +41,7 @@
         <CheckBoxPreference
             app:icon="@drawable/ic_creation_24"
             app:isPreferenceVisible="false"
-            app:key="update.check.enabled"
+            app:key="updater.check.enabled"
             app:summary="@string/updatecheck_setting_enabled_explanation"
             app:title="@string/updatecheck_setting_enabled_label"
             tools:isPreferenceVisible="true" />
