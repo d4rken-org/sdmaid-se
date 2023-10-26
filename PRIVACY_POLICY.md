@@ -44,6 +44,16 @@ The MOTD check is optional and can be disabled in settings.
 GitHubs privacy policy can be found here:
 https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
 
+## Update check
+
+The `FOSS` build flavor (i.e. not the Google Play version) of SD Maid includes an "update check" mechanism that can show a card on the dashboard if a newer version is available.
+SD Maid sends HTTP requests to GitHub`s servers to retrieve the [latest release](https://github.com/d4rken-org/sdmaid-se/releases/latest) information. A GitHub account is not required.
+
+The update check is optional and can be disabled during onboarding or in the settings.
+
+GitHubs privacy policy can be found here:
+https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+
 ## Debug log
 
 The app has a debug log feature that can be used to assist troubleshooting efforts.
