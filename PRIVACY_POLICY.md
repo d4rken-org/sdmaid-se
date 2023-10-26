@@ -39,7 +39,7 @@ Data for the messages is hosted on GitHub within SD Maid's respository.
 SD Maid sends HTTP GET requests (similar to visiting a link with a web browser) to GitHub's servers to check for new
 MOTDs. A GitHub account is not required.
 
-The MOTD check is optional and can be disabled in settings.
+The MOTD check is optional and can be disabled during onboarding or in the settings.
 
 GitHubs privacy policy can be found here:
 https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
