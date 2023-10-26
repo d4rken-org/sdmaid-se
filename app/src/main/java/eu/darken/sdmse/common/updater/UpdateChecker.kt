@@ -13,6 +13,10 @@ interface UpdateChecker {
 
     suspend fun isDismissed(update: Update): Boolean
 
+    suspend fun isCheckSupported(): Boolean
+
+    suspend fun isEnabledByDefault(): Boolean
+
     interface Update {
         val channel: Channel
         val versionName: String

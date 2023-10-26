@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
 import eu.darken.sdmse.main.ui.dashboard.items.*
@@ -20,16 +21,22 @@ class OnboardingPrivacyViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
-    val motdSettings: MotdSettings,
+    private val motdSettings: MotdSettings,
     private val webpageTool: WebpageTool,
+    private val updateChecker: UpdateChecker,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    val state = motdSettings.isMotdEnabled.flow
-        .map { isMotdEnabled ->
-            State(
-                isMotdEnabled = isMotdEnabled,
-            )
-        }
+    val state = combine(
+        motdSettings.isMotdEnabled.flow,
+        generalSettings.isUpdateCheckEnabled.flow,
+        flow { emit(updateChecker.isCheckSupported()) }
+    ) { isMotdEnabled, isUpdateCheckEnabled, isUpdateCheckSupported ->
+        State(
+            isMotdEnabled = isMotdEnabled,
+            isUpdateCheckEnabled = isUpdateCheckEnabled,
+            isUpdateCheckSupported = isUpdateCheckSupported,
+        )
+    }
         .asLiveData2()
 
     fun goPrivacyPolicy() {
@@ -42,8 +49,15 @@ class OnboardingPrivacyViewModel @Inject constructor(
         motdSettings.isMotdEnabled.valueBlocking = !motdSettings.isMotdEnabled.valueBlocking
     }
 
+    fun toggleUpdateCheck() {
+        log(TAG) { "toggleUpdateCheck()" }
+        generalSettings.isUpdateCheckEnabled.valueBlocking = !generalSettings.isUpdateCheckEnabled.valueBlocking
+    }
+
     data class State(
         val isMotdEnabled: Boolean,
+        val isUpdateCheckEnabled: Boolean,
+        val isUpdateCheckSupported: Boolean,
     )
 
     companion object {

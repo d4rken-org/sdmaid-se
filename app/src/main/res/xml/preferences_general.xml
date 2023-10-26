@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <PreferenceCategory android:title="@string/dashboard_settings_category">
         <CheckBoxPreference
@@ -38,7 +39,15 @@
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <CheckBoxPreference
-            app:icon="@drawable/baseline_message_24"
+            app:icon="@drawable/ic_creation_24"
+            app:isPreferenceVisible="false"
+            app:key="update.check.enabled"
+            app:summary="@string/updatecheck_setting_enabled_explanation"
+            app:title="@string/updatecheck_setting_enabled_label"
+            tools:isPreferenceVisible="true" />
+
+        <CheckBoxPreference
+            app:icon="@drawable/ic_message_alert_24"
             app:key="motd.enabled"
             app:summary="@string/motd_setting_enabled_explanation"
             app:title="@string/motd_setting_enabled_label" />

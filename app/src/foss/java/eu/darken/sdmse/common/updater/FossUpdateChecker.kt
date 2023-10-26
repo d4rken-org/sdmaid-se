@@ -1,19 +1,25 @@
 package eu.darken.sdmse.common.updater
 
+import android.content.Context
 import dagger.Reusable
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 
 @Reusable
 class FossUpdateChecker @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val checker: GithubReleaseCheck,
     private val webpageTool: WebpageTool,
     private val settings: FossUpdateSettings,
@@ -95,6 +101,34 @@ class FossUpdateChecker @Inject constructor(
         return settings.isDismissed(update)
     }
 
+    override suspend fun isEnabledByDefault(): Boolean {
+        val pm = context.packageManager
+        val installers: Set<String> = pm
+            .getPackageInfo(context.packageName, 0)
+            .getInstallerInfo(pm)
+            .allInstallers
+            .map { it.id.name }
+            .toSet()
+
+        val isEnabled = when {
+            installers.any { it.startsWith("org.fdroid.fdroid") } -> {
+                false
+            }
+
+            installers.any { FDROIDS.contains(it) } -> {
+                false
+            }
+
+            else -> true
+        }
+        log(TAG, INFO) { "Update check default isEnabled=$isEnabled, installers: $installers" }
+        return isEnabled
+    }
+
+    override suspend fun isCheckSupported(): Boolean {
+        return true
+    }
+
     data class Update(
         override val channel: UpdateChecker.Channel,
         override val versionName: String,
@@ -106,7 +140,13 @@ class FossUpdateChecker @Inject constructor(
         private val UPDATE_CHECK_INTERVAL = Duration.ofHours(6)
         private const val OWNER = "d4rken-org"
         private const val REPO = "sdmaid-se"
-
+        private val FDROIDS = setOf(
+            "org.fdroid.fdroid",
+            "com.machiav3lli.fdroid",
+            "com.looker.droidify",
+            "dev.imranr.obtainium",
+            "com.aurora.store",
+        )
         private val TAG = logTag("Updater", "Checker", "FOSS")
     }
 }

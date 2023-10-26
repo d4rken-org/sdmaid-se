@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -51,27 +52,94 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
                 android:text="@string/settings_privacy_policy_label" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/update_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/update_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_creation_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/update_title"
+                    style="@style/TextAppearance.Material3.TitleMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/updatecheck_setting_enabled_label"
+                    app:layout_constraintBottom_toTopOf="@id/update_description"
+                    app:layout_constraintEnd_toStartOf="@id/update_toggle"
+                    app:layout_constraintStart_toEndOf="@id/update_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/update_description"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/updatecheck_setting_enabled_explanation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/update_title"
+                    app:layout_constraintStart_toStartOf="@id/update_title"
+                    app:layout_constraintTop_toBottomOf="@id/update_title" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/update_toggle"
+                    style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:showText="false" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/motd_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:background="?selectableItemBackground"
-                android:paddingHorizontal="32dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp">
+
+                <ImageView
+                    android:id="@+id/motd_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_message_alert_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/motd_title"
                     style="@style/TextAppearance.Material3.TitleMedium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/motd_setting_enabled_label"
                     app:layout_constraintBottom_toTopOf="@id/motd_description"
                     app:layout_constraintEnd_toStartOf="@id/motd_toggle"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/motd_icon"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -79,11 +147,10 @@
                     style="@style/TextAppearance.Material3.BodyMedium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
                     android:text="@string/motd_setting_enabled_explanation"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/motd_toggle"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/motd_title"
+                    app:layout_constraintStart_toStartOf="@id/motd_title"
                     app:layout_constraintTop_toBottomOf="@id/motd_title" />
 
                 <com.google.android.material.materialswitch.MaterialSwitch

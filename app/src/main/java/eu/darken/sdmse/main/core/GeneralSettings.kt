@@ -14,7 +14,9 @@ import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
+import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,6 +26,7 @@ class GeneralSettings @Inject constructor(
     debugSettings: DebugSettings,
     moshi: Moshi,
     motdSettings: MotdSettings,
+    private val updateChecker: UpdateChecker
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_core")
@@ -47,10 +50,9 @@ class GeneralSettings @Inject constructor(
 
     val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.enabled", false)
 
-    // Unused at the moment, but we keep this to remember the setting should we add this again in the future
-    val isBugReporterEnabled = dataStore.createValue(
-        "core.bugreporter.enabled",
-        BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
+    val isUpdateCheckEnabled = dataStore.createValue(
+        "update.check.enabled",
+        runBlocking { updateChecker.isEnabledByDefault() }
     )
 
     override val mapper = PreferenceStoreMapper(
@@ -58,9 +60,15 @@ class GeneralSettings @Inject constructor(
         themeMode,
         themeStyle,
         usePreviews,
-        isBugReporterEnabled,
         enableDashboardOneClick,
         motdSettings.isMotdEnabled,
+        isUpdateCheckEnabled,
+    )
+
+    // Unused at the moment, but we keep this to remember the setting should we add this again in the future
+    val isBugReporterEnabled = dataStore.createValue(
+        "core.bugreporter.enabled",
+        BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
     )
 
     companion object {

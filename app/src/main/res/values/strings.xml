@@ -551,6 +551,9 @@
     <string name="translation_translators_title">This version is translated by</string>
     <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
 
-    <string name="motd_setting_enabled_label">Message of the day</string>
+    <string name="motd_setting_enabled_label">Important messages</string>
     <string name="motd_setting_enabled_explanation">Allow SD Maid to check for important messages from the developer.</string>
+
+    <string name="updatecheck_setting_enabled_label">Update check</string>
+    <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
 </resources>
