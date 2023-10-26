@@ -146,6 +146,7 @@ class FossUpdateChecker @Inject constructor(
             "com.looker.droidify",
             "dev.imranr.obtainium",
             "com.aurora.store",
+            "in.sunilpaulmathew.izzyondroid",
         )
         private val TAG = logTag("Updater", "Checker", "FOSS")
     }
