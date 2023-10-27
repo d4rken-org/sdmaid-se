@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.onboarding.privacy
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -23,12 +24,13 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
 
         ui.privacyPolicyAction.setOnClickListener { vm.goPrivacyPolicy() }
 
-        ui.motdContainer.setOnClickListener {
-            vm.toggleMotd()
-        }
+        ui.motdContainer.setOnClickListener { vm.toggleMotd() }
+        ui.updateContainer.setOnClickListener { vm.toggleUpdateCheck() }
 
         vm.state.observe2(ui) { state ->
             motdToggle.setChecked2(state.isMotdEnabled, false)
+            updateToggle.setChecked2(state.isUpdateCheckEnabled, false)
+            updateContainer.isVisible = state.isUpdateCheckSupported
         }
 
         super.onViewCreated(view, savedInstanceState)

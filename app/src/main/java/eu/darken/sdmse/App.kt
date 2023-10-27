@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.theming.Theming
-import eu.darken.sdmse.common.updater.UpdateChecker
+import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
@@ -41,7 +41,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var imageLoaderFactory: ImageLoaderFactory
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
-    @Inject lateinit var updateChecker: UpdateChecker
+    @Inject lateinit var updateService: UpdateService
     @Inject lateinit var theming: Theming
 
     private val logCatLogger = LogCatLogger()

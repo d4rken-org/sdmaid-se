@@ -34,8 +34,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.common.updater.UpdateChecker
-import eu.darken.sdmse.common.updater.isNewer
+import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -71,14 +70,14 @@ class DashboardViewModel @Inject constructor(
     private val corpseFinder: CorpseFinder,
     private val systemCleaner: SystemCleaner,
     private val appCleaner: AppCleaner,
-    private val appControl: AppControl,
-    private val analyzer: Analyzer,
-    private val debugCardProvider: DebugCardProvider,
+    appControl: AppControl,
+    analyzer: Analyzer,
+    debugCardProvider: DebugCardProvider,
     private val upgradeRepo: UpgradeRepo,
-    private val generalSettings: GeneralSettings,
+    generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
-    private val schedulerManager: SchedulerManager,
-    private val updateChecker: UpdateChecker,
+    schedulerManager: SchedulerManager,
+    private val updateService: UpdateService,
     private val recorderModule: RecorderModule,
     private val motdRepo: MotdRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
@@ -93,41 +92,27 @@ class DashboardViewModel @Inject constructor(
 
     val events = SingleLiveEvent<DashboardEvents>()
 
-    private val updateCheckTrigger = MutableStateFlow(UUID.randomUUID())
-    private val updateInfo: Flow<UpdateCardVH.Item?> = updateCheckTrigger
-        .map {
+    private val updateInfo: Flow<UpdateCardVH.Item?> = updateService.availableUpdate
+        .map { update ->
+            if (update == null) {
+                log(TAG, INFO) { "No update available" }
+                return@map null
+            }
+
             try {
-                val currentChannel = updateChecker.currentChannel()
-                val update = updateChecker.getLatest(currentChannel)
-
-                if (update == null) {
-                    log(TAG) { "No update available: ($currentChannel)" }
-                    return@map null
-                }
-
-                if (!update.isNewer()) {
-                    log(TAG) { "Latest update isn't newer: $update" }
-                    return@map null
-                }
-
-                if (updateChecker.isDismissed(update)) {
-                    log(TAG) { "Update was previously dismissed: $update" }
-                    return@map null
-                }
-
                 return@map UpdateCardVH.Item(
                     update = update,
                     onDismiss = {
                         launch {
-                            updateChecker.dismissUpdate(update)
-                            updateCheckTrigger.value = UUID.randomUUID()
+                            updateService.dismissUpdate(update)
+                            updateService.refresh()
                         }
                     },
                     onViewUpdate = {
-                        launch { updateChecker.viewUpdate(update) }
+                        launch { updateService.viewUpdate(update) }
                     },
                     onUpdate = {
-                        launch { updateChecker.startUpdate(update) }
+                        launch { updateService.startUpdate(update) }
                     }
                 )
             } catch (e: Exception) {

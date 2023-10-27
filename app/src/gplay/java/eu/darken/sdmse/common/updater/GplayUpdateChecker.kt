@@ -38,6 +38,14 @@ class GplayUpdateChecker @Inject constructor(
         return true
     }
 
+    override suspend fun isCheckSupported(): Boolean {
+        return false
+    }
+
+    override fun isEnabledByDefault(): Boolean {
+        return false
+    }
+
     companion object {
         private val TAG = logTag("Updater", "Checker", "Gplay")
     }
