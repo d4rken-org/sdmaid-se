@@ -113,6 +113,7 @@
     <string name="setup_shizuku_card_body2">Toto nastavenie nemá žiadny vplyv, ak na vašom zariadení nie je nastavená aplikácia Shizuku.</string>
     <string name="setup_shizuku_state_ready_label">Prepojenie na Shizuku je pripravené.</string>
     <string name="setup_shizuku_state_waiting_label">Čaká sa na spojenie so Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Použite Shizuku, ak je k dispozícii</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužiť Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
     <string name="setup_permission_granted_label">Povolenie udelené</string>
@@ -122,6 +123,7 @@
     <string name="setup_notification_title">Upozornenia</string>
     <string name="setup_notification_body">Povoľte SD Maid uverejňovať upozornenia, ktoré vás budú informovať o prebiehajúcich operáciách alebo dôležitých udalostiach.</string>
     <string name="setup_notification_hint">Upozornenia sa používajú s mierou 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Táto funkcia vyžaduje dokončenie ďalších položiek nastavenia: %s</string>
     <string name="setup_acs_card_title">Služba dostupnosti</string>
     <string name="setup_acs_card_body">Služba dostupnosti umožňuje SD Maid interakciu s vašou obrazovkou a automatizáciu únavných akcií, napr. klepnutím na „Vymazať vyrovnávaciu pamäť“ na viacerých obrazovkách.</string>
     <string name="setup_acs_card_body2">SD Maid nebude používať službu dostupnosti bez vášho súhlasu, bude vždy zobrazovať výrazný (zrušiteľný) indikátor, keď je aktívny a nebude ho používať na zhromažďovanie informácií.</string>
@@ -154,6 +156,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Zahrňte žiaduce pozostatky</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Súbory, ktoré si možno budete chcieť ponechať, aj keď je aplikácia odinštalovaná, napr. nasnímané fotografie alebo zálohy, ktoré ste vytvorili.</string>
     <string name="corpsefinder_settings_risk_common_title">Zahrnúť bežné názvy</string>
+    <string name="corpsefinder_settings_risk_common_summary">Údaje s bežne používanými názvami, napr. priečinok „Poznámky“ vlastní príliš veľa neznámych aplikácií.</string>
     <string name="corpsefinder_watcher_title">Sledovač odinštalácií</string>
     <string name="corpsefinder_watcher_summary">Automaticky vyhľadať zvyšky po odstránení aplikácie.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>
@@ -306,6 +309,9 @@
     <string name="appcleaner_include_minimumsize_summary">Preskočte aplikácie, v ktorých je súčet nepotrebných údajov nižší ako minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimálny vek</string>
     <string name="appcleaner_include_minimumage_summary">Preskočiť súbory, ktoré sú mladšie ako minimálny vek.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Detekcia operačného systému</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatizácia založená na dostupnosti môže zlyhať, ak SD Maid správne nerozpozná váš operačný systém. Toto nastavenie použite na prepísanie zisteného OS.</string>
+    <string name="appcleaner_automation_romtype_auto_label">Automaticky (predvolené)</string>
     <string name="appcleaner_filter_codecache_label">Vyrovnávacia pamäť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Vyrovnávacia pamäť kódu JVM. Bloky bajtového kódu skompilované do natívneho kódu.</string>
     <string name="appcleaner_filter_advertisement_label">Údaje o reklame</string>
@@ -331,6 +337,7 @@
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp prijaté súbory</string>
     <string name="appcleaner_filter_whatsapp_received_label">Súbory, ktoré ste dostali od ľudí cez WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp odoslané súbory</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Súbory odoslané z WhatsApp ostatným.</string>
     <string name="appcleaner_filter_telegram_label">Mediálne súbory Telegramu</string>
     <string name="appcleaner_filter_telegram_summary">Súbory prijaté alebo odoslané prostredníctvom Telegramu.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -387,6 +394,7 @@
     <string name="appcontrol_app_exclude_edit_title">Upraviť vylúčenie</string>
     <string name="appcontrol_app_exclude_edit_description">Táto aplikácia je momentálne vylúčená z jedného alebo viacerých nástrojov.</string>
     <string name="appcontrol_tag_user">Užívateľ</string>
+    <string name="appcontrol_tag_active">Nedávno aktívne</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_enabled">Povolené</string>
     <string name="appcontrol_tag_disabled">Zakázané</string>
@@ -441,6 +449,7 @@
     <string name="analyzer_storage_content_app_extra_description">Ďalšie údaje, ktoré táto aplikácia umiestnila mimo predvolených ciest, napr. fotografie alebo stiahnuté súbory.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Táto aplikácia zaberá %1$s na „%2$s“.</string>
     <string name="data_area_public_app_data_official_label">Predvolené verejné údaje aplikácie</string>
+    <string name="data_area_public_app_assets_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_storage_label">Verejné úložisko</string>
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Dátové oblasti</string>
@@ -482,6 +491,8 @@
     <string name="automation_error_not_enabled_body">Služba dostupnosti je zakázaná. Znovu ju zapnite.</string>
     <string name="automation_error_not_running_title">Služba nie je spustená</string>
     <string name="automation_error_not_running_body">Služba dostupnosti nie je spustená. Skúste reštartovať zariadenie.</string>
+    <string name="automation_error_screen_unavailable_title">Obrazovka je nedostupná</string>
+    <string name="automation_error_screen_unavailable_body">Operácia bola prerušená, pretože obrazovka bola nedostupná (napr. vypnutý displej alebo aktívna uzamknutá obrazovka).</string>
     <string name="history_label">História</string>
     <string name="history_description">Chronologický zoznam nedávnych akcií a ovplyvnených údajov.</string>
     <string name="scheduler_label">Plánovač</string>
@@ -497,6 +508,7 @@
     <string name="scheduler_schedule_time_label">Približný čas</string>
     <string name="scheduler_schedule_repeat_label">Interval opakovania v dňoch</string>
     <string name="scheduler_schedule_default_name">Predvolený plán</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s okolo %2$s</string>
     <string name="scheduler_schedule_next_at_x">Plánované na %s</string>
     <string name="scheduler_schedule_last_at_x">Naposledy spustené o %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -514,6 +526,9 @@
     <string name="scheduler_setting_charging_summary">Ak sa zariadenie nenabíja, naplánované spustenie sa preskočí.</string>
     <string name="scheduler_setting_automation_title">Služba dostupnosti</string>
     <string name="scheduler_setting_automation_summary">Zahrňte akcie, ktoré používajú službu dostupnosti. To si vyžaduje, aby SD Maid mohla interagovať s vašou obrazovkou (je odomknutá) pri vykonávaní úloh.</string>
+    <string name="scheduler_notification_channel_label">Plánovač</string>
+    <string name="scheduler_notification_title">Naplánovaná úloha</string>
+    <string name="scheduler_notification_message">Prebieha: \"%s\"</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>
     <string name="updates_dashcard_body">K dispozícii je aktualizácia. Máte %1$s a najnovšia verzia je %2$s.</string>
     <string name="translation_encourage_title">Preložiť SD Maid</string>

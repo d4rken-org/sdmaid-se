@@ -23,6 +23,8 @@
     <string name="general_save_action">Uložiť</string>
     <string name="general_thanks_action">Vďaka</string>
     <string name="general_gotit_action">Rozumiem</string>
+    <string name="general_fix_action">Opraviť</string>
+    <string name="general_set_up_action">Nastaviť</string>
     <string name="general_edit_action">Upraviť</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prázdne</string>

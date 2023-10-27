@@ -120,6 +120,7 @@ dashboard_motd_titel</string>
     <string name="setup_notification_title">Meldingen</string>
     <string name="setup_notification_body">Sta SD Maid toe om meldingen te plaatsen om je te informeren over lopende operaties of belangrijke gebeurtenissen.</string>
     <string name="setup_notification_hint">Meldingen worden spaarzaam gebruikt 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Voor deze functie zijn aanvullende installatie-items vereist: %s</string>
     <string name="setup_acs_card_title">Toegankelijkheidsdienst</string>
     <string name="setup_acs_card_body">Met de toegankelijkheidsservice kan SD Maid communiceren met je scherm en vervelende acties automatiseren, bijv. klikken op \"Cache wissen\" op meerdere schermen.</string>
     <string name="setup_acs_card_body2">SD Maid zal de toegankelijkheidsservice niet gebruiken zonder je toestemming, zal altijd een prominente (annuleerbare) indicator weergeven wanneer deze actief is en zal deze niet gebruiken om informatie te verzamelen.</string>
@@ -152,6 +153,7 @@ dashboard_motd_titel</string>
     <string name="corpsefinder_settings_risk_keeper_title">Inclusief gewenste restanten</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Bestanden die je misschien wilt bewaren, zelfs als de app wordt verwijderd, bijv. foto\'s die je hebt genomen of back-ups die je hebt gemaakt.</string>
     <string name="corpsefinder_settings_risk_common_title">Voeg veelvoorkomende namen toe</string>
+    <string name="corpsefinder_settings_risk_common_summary">Gegevens met veelgebruikte namen, bijv. een map \"Notities\" is eigendom van te veel onbekende apps.</string>
     <string name="corpsefinder_watcher_title">Deïnstalleer bewaker</string>
     <string name="corpsefinder_watcher_summary">Scan automatisch op restanten wanneer een app is verwijderd.</string>
     <string name="corpsefinder_watcher_autodelete_title">Automatische verwijdering</string>
@@ -297,6 +299,7 @@ dashboard_motd_titel</string>
     <string name="appcleaner_include_minimumage_label">Minimum leeftijd</string>
     <string name="appcleaner_include_minimumage_summary">Bestanden overslaan die jonger zijn dan de minimum leeftijd.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detectie van besturingssysteem</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Op toegankelijkheid gebaseerde automatisering kan mislukken als SD Maid uw besturingssysteem niet correct detecteert. Gebruik deze instelling om het gedetecteerde besturingssysteem te overschrijven.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automatisch (standaard)</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM-codecache. Blokken bytecode gecompileerd in native code.</string>
@@ -425,6 +428,7 @@ dashboard_motd_titel</string>
     <string name="analyzer_storage_content_app_extra_description">Extra gegevens die deze app buiten de standaard paden heeft geplaatst, bijv. foto\'s of downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Deze app neemt %1$s in beslag op \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app-gegevens</string>
+    <string name="data_area_public_app_assets_official_label">Standaard openbare app-items</string>
     <string name="data_area_public_storage_label">Openbare opslag</string>
     <string name="data_area_sdcard_label">SD-Kaart</string>
     <string name="data_areas_label">Gegevens gebieden</string>
@@ -464,6 +468,8 @@ dashboard_motd_titel</string>
     <string name="automation_error_not_enabled_body">Toegankelijkheidsservice is uitgeschakeld. Schakel het opnieuw in.</string>
     <string name="automation_error_not_running_title">Service is niet actief</string>
     <string name="automation_error_not_running_body">De toegankelijkheidsservice is niet actief. Probeer het apparaat opnieuw op te starten.</string>
+    <string name="automation_error_screen_unavailable_title">Scherm niet beschikbaar</string>
+    <string name="automation_error_screen_unavailable_body">De bewerking is afgebroken omdat het scherm niet meer beschikbaar was (bijv. weergave uit of vergrendelscherm actief).</string>
     <string name="history_label">Geschiedenis</string>
     <string name="history_description">Een chronologische lijst van recente acties en betrokken gegevens.</string>
     <string name="scheduler_label">Planner</string>

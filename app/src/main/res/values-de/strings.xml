@@ -7,7 +7,7 @@
     <string name="dashboard_motd_title">Nachricht vom Entwickler</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
-    <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
+    <string name="debug_notification_channel_label">Debug Benachrichtigungen</string>
     <string name="debug_debuglog_file_label">Aufgezeichnete Logdatei</string>
     <string name="debug_debuglog_recording_progress">Debug-Protokoll wird aufgezeichnet</string>
     <string name="debug_debuglog_record_action">Debug-Log aufzeichnen</string>

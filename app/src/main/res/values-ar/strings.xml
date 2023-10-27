@@ -127,6 +127,7 @@
     <string name="setup_notification_title">الإشعارات</string>
     <string name="setup_notification_body">اسمح لـ SD Maid بنشر إشعارات لإبلاغك بالعمليات الجارية أو الأحداث المهمة.</string>
     <string name="setup_notification_hint">يتم استخدام الإخطارات باعتدال 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
     <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
     <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
     <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>
@@ -159,6 +160,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">قم بتضمين البقايا المرغوبة</string>
     <string name="corpsefinder_settings_risk_keeper_summary">الملفات التي قد ترغب في الاحتفاظ بها ، حتى إذا تم إلغاء تثبيت التطبيق ، على سبيل المثال الصور التي التقطتها أو النسخ الاحتياطية التي قمت بإنشائها.</string>
     <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
+    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء شائعة الاستخدام ، على سبيل المثال مجلد \"ملاحظات\" مملوكة للعديد من التطبيقات غير المعروفة.</string>
     <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
     <string name="corpsefinder_watcher_summary">البحث تلقائياً عن بقايا عند إزالة التطبيق.</string>
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
@@ -320,6 +322,7 @@
     <string name="appcleaner_include_minimumage_label">الحد الأدنى للسن</string>
     <string name="appcleaner_include_minimumage_summary">تخطي الملفات التي هي أصغر من الحد الأدنى للعمر.</string>
     <string name="appcleaner_automation_romtype_detection_label">كشف نظام التشغيل</string>
+    <string name="appcleaner_automation_romtype_detection_summary">إذا تفشل الأتمتة القائمة على إمكانية الوصول إذا لم يكتشف SD Maid نظام التشغيل الخاص بك بشكل صحيح. استخدم هذا الإعداد لتجاوز نظام التشغيل المكتشف.</string>
     <string name="appcleaner_automation_romtype_auto_label">تلقائي (افتراضي)</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
@@ -468,6 +471,7 @@
     <string name="analyzer_storage_content_app_extra_description">بيانات إضافية وضعها هذا التطبيق خارج المسارات الافتراضية، مثل الصور أو التنزيلات.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
+    <string name="data_area_public_app_assets_official_label">أصول التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>
     <string name="data_area_sdcard_label">بطاقة الذاكرة SD</string>
     <string name="data_areas_label">مناطق البيانات</string>
@@ -511,6 +515,8 @@
     <string name="automation_error_not_enabled_body">خدمة الوصول معطلة. قم بتشغيله مرة أخرى.</string>
     <string name="automation_error_not_running_title">الخدمة لا تعمل</string>
     <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
+    <string name="automation_error_screen_unavailable_title">الشاشة غير متوفرة</string>
+    <string name="automation_error_screen_unavailable_body">تم إلغاء العملية لأن الشاشة أصبحت غير متاحة (على سبيل المثال ، إيقاف تشغيل الشاشة أو تنشيط شاشة القفل).</string>
     <string name="history_label">السجل</string>
     <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
     <string name="scheduler_label">الجدولة</string>
