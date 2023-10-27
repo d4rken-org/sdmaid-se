@@ -72,13 +72,15 @@ class TitleCardVH(parent: ViewGroup) :
 
     companion object {
         @StringRes
-        fun getRngSlogan() = when ((0..5).random()) {
+        fun getRngSlogan() = when ((0..6).random()) {
             0 -> eu.darken.sdmse.common.R.string.slogan_message_0
             1 -> eu.darken.sdmse.common.R.string.slogan_message_1
             2 -> eu.darken.sdmse.common.R.string.slogan_message_2
             3 -> eu.darken.sdmse.common.R.string.slogan_message_3
             4 -> eu.darken.sdmse.common.R.string.slogan_message_4
             5 -> eu.darken.sdmse.common.R.string.slogan_message_5
+            6 -> eu.darken.sdmse.common.R.string.slogan_message_6
+            7 -> eu.darken.sdmse.common.R.string.slogan_message_7
             else -> throw IllegalArgumentException()
         }
     }
