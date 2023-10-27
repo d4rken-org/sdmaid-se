@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
@@ -23,6 +24,7 @@ class ClusterViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val deduplicator: Deduplicator,
+    private val settings: DeduplicatorSettings,
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
@@ -38,8 +40,9 @@ class ClusterViewModel @Inject constructor(
 
     val state = combine(
         clusterData,
-        deduplicator.progress
-    ) { cluster, progress ->
+        deduplicator.progress,
+        settings.isKeepOneEnabled.flow,
+    ) { cluster, progress, keepOne ->
         val elements = mutableListOf<ClusterAdapter.Item>()
 
         ClusterHeaderVH.Item(
@@ -80,12 +83,17 @@ class ClusterViewModel @Inject constructor(
             }
             .run { elements.addAll(this) }
 
-        State(elements, progress)
+        State(
+            elements = elements,
+            progress = progress,
+            keepOne = keepOne,
+        )
     }.asLiveData2()
 
     data class State(
         val elements: List<ClusterAdapter.Item>,
         val progress: Progress.Data? = null,
+        val keepOne: Boolean = true,
     )
 
     fun delete(items: Collection<ClusterAdapter.Item>, confirmed: Boolean = false) = launch {

@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +57,9 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
             addItemDecoration(divDec)
         }
 
-        val selectionTracker = installListSelection(
+        var selectableMax = 0
+
+        selectionTracker = installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_deduplicator_cluster_cab,
             toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
@@ -75,13 +78,34 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
                     else -> false
                 }
-            }
+            },
+            selectionPredicate = object : SelectionPredicate<String>() {
+
+                private val selectionCount: Int
+                    get() = selectionTracker?.selection?.size() ?: selectableMax
+
+                override fun canSetStateForKey(key: String, nextState: Boolean): Boolean = if (nextState) {
+                    selectableMax > selectionCount
+                } else {
+                    true
+                }
+
+                override fun canSetStateAtPosition(position: Int, nextState: Boolean): Boolean = if (nextState) {
+                    selectableMax > selectionCount
+                } else {
+                    true
+                }
+
+                override fun canSelectMultiple(): Boolean = true
+            },
         )
 
         parentPager.addOnPageChangeListener(pageChangeListener)
 
         vm.state.observe2(ui) { state ->
             if (state.progress == null) adapter.update(state.elements)
+            selectableMax = state.elements.filterIsInstance<ClusterAdapter.FileItem>().count()
+            if (state.keepOne) selectableMax-- // Prevent last item selection
         }
 
         vm.events.observe2(ui) { event ->
@@ -116,7 +140,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.delete(event.items, confirmed = true)
-                        selectionTracker.clearSelection()
+                        selectionTracker?.clearSelection()
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()

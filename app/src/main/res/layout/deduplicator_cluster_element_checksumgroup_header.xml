@@ -28,7 +28,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="-16dp"
             android:alpha="0.5"
-            android:background="?colorPrimaryContainer"
+            android:background="?colorSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="@id/type_value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="-16dp"
             android:alpha="0.5"
-            android:background="?colorPrimaryContainer"
+            android:background="?colorSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/deduplicator_detection_method_label"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toEndOf="@id/type_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/deduplicator_detection_method_checksum_title"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toEndOf="@id/type_icon"
             app:layout_constraintTop_toBottomOf="@id/type_label" />
 
@@ -86,7 +86,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/deduplicator_file_size_label"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toTopOf="@id/size_value"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -97,7 +97,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="120,78 MB" />
@@ -120,7 +120,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/deduplicator_result_x_duplicates" />
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="@string/general_view_action"
-            android:textColor="?colorOnPrimaryContainer"
+            android:textColor="?colorOnSurfaceVariant"
             android:visibility="gone"
             app:icon="@drawable/ic_eye_24"
             app:layout_constraintEnd_toEndOf="parent"

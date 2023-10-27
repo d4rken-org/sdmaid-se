@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_listitem_selectable"
+    android:background="?selectableItemBackground"
     tools:layout_height="144dp"
     tools:layout_width="144dp">
 
@@ -19,6 +19,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/preview_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@drawable/fg_listitem_selectable"
+        app:layout_constraintBottom_toBottomOf="@id/preview_image"
+        app:layout_constraintEnd_toEndOf="@id/preview_image"
+        app:layout_constraintStart_toStartOf="@id/preview_image"
+        app:layout_constraintTop_toTopOf="@id/preview_image" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footer_container"
