@@ -7,6 +7,8 @@
     <string name="slogan_message_3">做好必要的工作</string>
     <string name="slogan_message_4">把事情安排得有條不紊</string>
     <string name="slogan_message_5">一塵不染</string>
+    <string name="slogan_message_6">位元組，退散！</string>
+    <string name="slogan_message_7">釋出空間，歡樂併兼</string>
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
     <string name="general_error_cant_access_msg">無法存取 %s。</string>
@@ -56,7 +58,10 @@
     <string name="general_progress_loading_egg_5">渦輪增壓裝置®正在初始化</string>
     <string name="general_progress_loading_egg_6">給我一包乖乖</string>
     <string name="general_progress_loading_egg_7">所以你是怎麼堅持下來的？</string>
-    <string name="general_progress_loading_egg_8">這裡有一隻狗勾 (並沒有)</string>
+    <string name="general_progress_loading_egg_8">嗶嗶，嘟嘟</string>
+    <string name="general_progress_loading_egg_9">正在緩衝人生的選擇</string>
+    <string name="general_progress_loading_egg_10">正在召喚克蘇魯</string>
+    <string name="general_progress_loading_egg_11">好！</string>
     <string name="general_help_action">說明</string>
     <string name="general_continue">繼續</string>
     <string name="general_progress_queued">在佇列中</string>

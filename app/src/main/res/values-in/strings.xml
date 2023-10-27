@@ -496,6 +496,7 @@
     <string name="translation_encourage_body">SD Maid diterjemahkan oleh sukarelawan. Saya menghargai bantuan terjemahan, peninjauan, maupun pengoreksian Anda!</string>
     <string name="translation_translators_title">Versi ini diterjemahkan oleh</string>
     <string name="translation_translators_people">M. Arif Majidi(m.arif.majidi@gmail.com);NekoSam395(newsamcool939@gmail.com);Muhammad Bintang</string>
-    <string name="motd_setting_enabled_label">Pesan hari ini</string>
+    <string name="motd_setting_enabled_label">Pesan penting</string>
     <string name="motd_setting_enabled_explanation">Izinkan SD Maid memeriksa pesan penting dari pengembang.</string>
+    <string name="updatecheck_setting_enabled_label">Pemeriksaan pembaruan</string>
 </resources>

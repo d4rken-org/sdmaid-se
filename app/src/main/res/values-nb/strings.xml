@@ -509,6 +509,5 @@
     <string name="translation_encourage_body">SD Maid er oversatt av frivillige. Oversettelse, gjennomgang eller korrekturlesing, din hjelp er verdsatt!</string>
     <string name="translation_translators_title">Denne versjonen er oversatt av</string>
     <string name="translation_translators_people">Kristoffer Vassbø (kristoffer@vassbo.net)</string>
-    <string name="motd_setting_enabled_label">Dagens melding</string>
     <string name="motd_setting_enabled_explanation">La SD Maid se etter viktige meldinger fra utvikleren.</string>
 </resources>

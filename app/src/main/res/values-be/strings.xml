@@ -535,6 +535,8 @@
     <string name="translation_encourage_body">SD Maid перакладаецца валанцёрамі. Пераклад, рэцэнзаванне або карэктура — за ўсё гэта мы будзем вельмі ўдзячныя!</string>
     <string name="translation_translators_title">Гэтая версія перакладзена</string>
     <string name="translation_translators_people">Goshaproject</string>
-    <string name="motd_setting_enabled_label">Паведамленне дня</string>
+    <string name="motd_setting_enabled_label">Важныя паведамленні</string>
     <string name="motd_setting_enabled_explanation">Дазволіць SD Maid правяраць наяўнасць важных паведамленняў ад распрацоўшчыка.</string>
+    <string name="updatecheck_setting_enabled_label">Праверка абнаўленняў</string>
+    <string name="updatecheck_setting_enabled_explanation">Дазвольце SD Maid правяраць наяўнасць абнаўленняў для апавяшчэння вас пра даступнасць новай версіі.</string>
 </resources>

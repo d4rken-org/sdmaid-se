@@ -496,6 +496,8 @@
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
     <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau)</string>
-    <string name="motd_setting_enabled_label">Tin nhắn mỗi ngày</string>
+    <string name="motd_setting_enabled_label">Tin nhắn quan trọng</string>
     <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
+    <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
+    <string name="updatecheck_setting_enabled_explanation">Cho phép SD Maid kiểm tra các bản cập nhật để cho bạn biết nếu có phiên bản mới hơn.</string>
 </resources>

@@ -534,6 +534,5 @@
     <string name="translation_encourage_title">Prevedi SD Maid</string>
     <string name="translation_encourage_body">SD Maid prevajajo prostovoljci.  Prevod, ocene, ali pregled – hvaležen sem za vašo pomoč!</string>
     <string name="translation_translators_title">To različico so prevedli</string>
-    <string name="motd_setting_enabled_label">Sporočilo dneva</string>
     <string name="motd_setting_enabled_explanation">Dovolite SD Maidu, da poizve za pomembna sporočila od razvijalca.</string>
 </resources>

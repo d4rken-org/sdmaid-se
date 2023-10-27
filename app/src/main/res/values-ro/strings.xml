@@ -516,6 +516,5 @@
     <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducerea, revizuire sau corectare, ajutorul tău este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
     <string name="translation_translators_people">Alexandru51 (Alexandru9035 pe crowdin)</string>
-    <string name="motd_setting_enabled_label">Mesajul zilei</string>
     <string name="motd_setting_enabled_explanation">Permiteți ca Maid SD să verifice pentru mesaje importante de la dezvoltator.</string>
 </resources>

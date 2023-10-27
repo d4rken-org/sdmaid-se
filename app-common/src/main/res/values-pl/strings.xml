@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Robienie tego, co konieczne.</string>
     <string name="slogan_message_4">Wszystkie Twoje sprawki w jednym miejscu.</string>
     <string name="slogan_message_5">Bez skazy.</string>
+    <string name="slogan_message_6">Bajty, znikajcie!</string>
+    <string name="slogan_message_7">Więcej miejsca, więcej radości.</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
@@ -56,7 +58,10 @@
     <string name="general_progress_loading_egg_5">Rozpoczynanie przyspieszania elektronów danych</string>
     <string name="general_progress_loading_egg_6">Podawanie masła</string>
     <string name="general_progress_loading_egg_7">Więc... jak tam się trzymasz?</string>
-    <string name="general_progress_loading_egg_8">Coś się tutaj święci... ale co?</string>
+    <string name="general_progress_loading_egg_8">Beep beep bop</string>
+    <string name="general_progress_loading_egg_9">Buforowanie życiowych wyborów</string>
+    <string name="general_progress_loading_egg_10">Przywoływanie Cthulhu</string>
+    <string name="general_progress_loading_egg_11">W porządeczku</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Dalej</string>
     <string name="general_progress_queued">W kolejce</string>
