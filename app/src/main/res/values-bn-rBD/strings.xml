@@ -509,6 +509,5 @@
     <string name="translation_encourage_body">SD Maid স্বেচ্ছাসেবকদের দ্বারা অনুবাদ করা হয়। অনুবাদ, পর্যালোচনা বা প্রুফরিডিং, আপনার সাহায্য প্রশংসনীয়!</string>
     <string name="translation_translators_title">এই সংস্করণটি অনুবাদ করেছেন</string>
     <string name="translation_translators_people">Fattain Naime(iamnaime@builderhall.com);মোরশেদুল আলম(morshedintouch@gmail.com)</string>
-    <string name="motd_setting_enabled_label">দিনের বার্তা</string>
     <string name="motd_setting_enabled_explanation">SD Maid-কে ডেভেলপারের কাছ থেকে গুরুত্বপূর্ণ বার্তাগুলি পরীক্ষা করার অনুমতি দিন।</string>
 </resources>

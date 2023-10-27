@@ -509,6 +509,5 @@
     <string name="translation_encourage_body">SD Maidi tõlgivad vabatahtlikud. Tõlkimine, toimetamine, täname!</string>
     <string name="translation_translators_title">Selle versiooni tõlkis</string>
     <string name="translation_translators_people">Olav Mägi(olav.magi@gmail.com)</string>
-    <string name="motd_setting_enabled_label">Päeva sõnum</string>
     <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
 </resources>

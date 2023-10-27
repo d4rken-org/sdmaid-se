@@ -475,6 +475,8 @@
     <string name="translation_encourage_body">SD Maid перекладено волонтерами. Переклад, рецензування чи коректура - ваша допомога буде вдячна!</string>
     <string name="translation_translators_title">Цю версію переклали</string>
     <string name="translation_translators_people">Особа 1;Особа 2 (optional@email.com)</string>
-    <string name="motd_setting_enabled_label">Повідомлення дня</string>
+    <string name="motd_setting_enabled_label">Важливі повідомлення</string>
     <string name="motd_setting_enabled_explanation">Дозвольте SD Maid перевіряти важливі повідомлення від розробника.</string>
+    <string name="updatecheck_setting_enabled_label">Перевірка оновлення</string>
+    <string name="updatecheck_setting_enabled_explanation">Дозвольте SD Maid перевіряти оновлення, щоб повідомити вас про появу нової версії.</string>
 </resources>

@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Fait ce qui est nécessaire.</string>
     <string name="slogan_message_4">Tout est bien organisé.</string>
     <string name="slogan_message_5">Impeccable.</string>
+    <string name="slogan_message_6">Adieu les octets !</string>
+    <string name="slogan_message_7">De l’espace libéré, pour le bonheur de votre Android.</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_error_type_mismatch_msg">Incompatibilité de type : %1$s désiré, mais %2$s obtenu.</string>
     <string name="general_error_cant_access_msg">Impossible d’accéder à %s.</string>
@@ -56,7 +58,10 @@
     <string name="general_progress_loading_egg_5">Initialisation du turboencabulator</string>
     <string name="general_progress_loading_egg_6">Passe le beurre</string>
     <string name="general_progress_loading_egg_7">Alors, vous tenez le coup ?</string>
-    <string name="general_progress_loading_egg_8">Est-ce que vous sentez quelque chose ? </string>
+    <string name="general_progress_loading_egg_8">Bip-bip-bip</string>
+    <string name="general_progress_loading_egg_9">Mise en mémoire tampon… des choix de vie</string>
+    <string name="general_progress_loading_egg_10">Invocation de Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Tout va bien</string>
     <string name="general_help_action">Aide</string>
     <string name="general_continue">Poursuivre</string>
     <string name="general_progress_queued">En attente</string>

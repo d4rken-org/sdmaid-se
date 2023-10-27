@@ -509,6 +509,5 @@
     <string name="translation_encourage_body">SD Maid wird von Freiwilligen übersetzt. Übersetzung, Überprüfung oder Korrekturlesen, Ihre Hilfe ist willkommen!</string>
     <string name="translation_translators_title">Diese Version wurde übersetzt von</string>
     <string name="translation_translators_people">Gamechanger181;Darken;uli;derPacifist</string>
-    <string name="motd_setting_enabled_label">Mitteilung des Tages</string>
     <string name="motd_setting_enabled_explanation">Erlaube SD Maid nach wichtigen Mitteilungen des Entwicklers zu suchen.</string>
 </resources>

@@ -535,6 +535,8 @@
     <string name="translation_encourage_body">SD Maid překládají dobrovolníci. Překlad, revize nebo korektury, vaše pomoc je vítána!</string>
     <string name="translation_translators_title">Tuto verzi přeložili</string>
     <string name="translation_translators_people">novas78@xda;OndraVa;Woytazzer</string>
-    <string name="motd_setting_enabled_label">Zpráva dne</string>
+    <string name="motd_setting_enabled_label">Důležité zprávy</string>
     <string name="motd_setting_enabled_explanation">Povolit aplikaci SD Maid kontrolu důležitých zpráv od vývojáře.</string>
+    <string name="updatecheck_setting_enabled_label">Kontrola aktualizací</string>
+    <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
 </resources>

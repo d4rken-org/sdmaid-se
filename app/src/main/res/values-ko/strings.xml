@@ -496,6 +496,8 @@
     <string name="translation_encourage_body">SD Maid는 자원 봉사자가 번역했습니다. 번역, 검토 또는 교정, 도와주셔서 감사합니다!</string>
     <string name="translation_translators_title">이 버전을 번역한 사람</string>
     <string name="translation_translators_people">Annyeong1(yoon0421@hotmail.com)</string>
-    <string name="motd_setting_enabled_label">오늘의 메시지</string>
+    <string name="motd_setting_enabled_label">중요한 메시지</string>
     <string name="motd_setting_enabled_explanation">SD Maid가 개발자의 중요한 메시지를 확인하도록 하용합니다.</string>
+    <string name="updatecheck_setting_enabled_label">업데이트 확인</string>
+    <string name="updatecheck_setting_enabled_explanation">새로운 버전을 사용할 수 있으면 알 수 있도록 SD Maid가 업데이트를 확인하도록 허용하세요.</string>
 </resources>

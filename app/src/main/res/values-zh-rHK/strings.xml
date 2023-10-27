@@ -488,6 +488,5 @@
     <string name="translation_encourage_body">SD 女僕由義工翻譯，無論是翻譯、審閱、還是校對，都非常感謝您的協助！</string>
     <string name="translation_translators_title">此版本的翻譯人員：</string>
     <string name="translation_translators_people">Adeptus2</string>
-    <string name="motd_setting_enabled_label">本日訊息</string>
     <string name="motd_setting_enabled_explanation">允許 SD 女僕檢查來自開發人員的重要訊息。</string>
 </resources>

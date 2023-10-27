@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Dělat to, co je nezbytné.</string>
     <string name="slogan_message_4">Všechny vaše karty jsou v pořádku.</string>
     <string name="slogan_message_5">Bez chyby.</string>
+    <string name="slogan_message_6">Bajty, zmizte!</string>
+    <string name="slogan_message_7">Volné místo, šťastné místo.</string>
     <string name="general_thank_you_label">Děkuji</string>
     <string name="general_error_type_mismatch_msg">Neshoda: Požadováno %1$s, ale obdrženo %2$s.</string>
     <string name="general_error_cant_access_msg">Nelze získat přístup k %s.</string>
@@ -56,7 +58,10 @@
     <string name="general_progress_loading_egg_5">Spouští se turbo enkabulátor</string>
     <string name="general_progress_loading_egg_6">Podávám máslo</string>
     <string name="general_progress_loading_egg_7">Takže. Jak se máš?</string>
-    <string name="general_progress_loading_egg_8">Je tu cítit čerstvý vzduch</string>
+    <string name="general_progress_loading_egg_8">Pípám píp bop</string>
+    <string name="general_progress_loading_egg_9">Ukládám do mezipaměti životní volby</string>
+    <string name="general_progress_loading_egg_10">Vyvolávám Cthulhu</string>
+    <string name="general_progress_loading_egg_11">To je v pořádku</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovat</string>
     <string name="general_progress_queued">Ve frontě</string>

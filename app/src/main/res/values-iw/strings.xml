@@ -123,6 +123,5 @@
     <string name="updates_dashcard_title">קיים עדכון</string>
     <string name="translation_encourage_title">תרגם את SD Maid</string>
     <string name="translation_translators_title">המתגרמים של גרסה זו</string>
-    <string name="motd_setting_enabled_label">הודעת היום</string>
     <string name="motd_setting_enabled_explanation">אפשר ל-SD Maid לבדוק אם יש הודעות חשובות מהמפתח.</string>
 </resources>

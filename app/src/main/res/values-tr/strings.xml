@@ -510,6 +510,5 @@
     <string name="translation_encourage_body">SD Maid gönüllüler tarafından tercüme edilmektedir. Tercüme, gözden geçirme veya redaksiyon olsun, her türlü yardımınızı takdir ederiz!</string>
     <string name="translation_translators_title">Bu sürümün tercümanları</string>
     <string name="translation_translators_people">Buğra Güngöz(gungozb@gmail.com);GheoLei(gheolei@gmail.com);Mustafa Şahin(3mustafasahin@gmail.com)</string>
-    <string name="motd_setting_enabled_label">Günün mesajı</string>
     <string name="motd_setting_enabled_explanation">SD Maid\'in geliştiriciden gelen önemli mesajları kontrol etmesine izin verin.</string>
 </resources>

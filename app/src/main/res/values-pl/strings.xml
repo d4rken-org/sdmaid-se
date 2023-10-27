@@ -535,6 +535,8 @@
     <string name="translation_encourage_body">Aplikacja SD Maid jest tłumaczona przez wolontariuszy. Tłumaczenie, recenzowanie lub korekta, każda pomoc jest mile widziana!</string>
     <string name="translation_translators_title">Ta wersja została przetłumaczona przez</string>
     <string name="translation_translators_people">Damian Stasik (sd@coded.pl);K4r0lSz</string>
-    <string name="motd_setting_enabled_label">Wiadomość dnia</string>
+    <string name="motd_setting_enabled_label">Ważne wiadomości</string>
     <string name="motd_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie ważnych wiadomości od twórcy.</string>
+    <string name="updatecheck_setting_enabled_label">Sprawdzanie aktualizacji</string>
+    <string name="updatecheck_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie aktualizacji, aby poinformować Cię, gdy nowa wersja będzie dostępna.</string>
 </resources>

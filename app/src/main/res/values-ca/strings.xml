@@ -509,6 +509,8 @@
     <string name="translation_encourage_body">L\'SD Maid és traduït per voluntaris. S\'agraeix la vostra ajuda en tasques de traducció, revisió o correcció de proves!</string>
     <string name="translation_translators_title">Aquesta versió està traduïda per</string>
     <string name="translation_translators_people">Jaime Muñoz</string>
-    <string name="motd_setting_enabled_label">Missatge del dia</string>
+    <string name="motd_setting_enabled_label">Missatges importants</string>
     <string name="motd_setting_enabled_explanation">Permeteu que l\'SD Maid comprovi si hi ha missatges importants del desenvolupador.</string>
+    <string name="updatecheck_setting_enabled_label">Comprova si hi ha actualitzacions</string>
+    <string name="updatecheck_setting_enabled_explanation">Permet que l\'SD Maid comprovi si hi ha actualitzacions per fer-vos saber si hi ha una versió més nova disponible.</string>
 </resources>

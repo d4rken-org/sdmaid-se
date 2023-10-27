@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Робити те, що потрібно.</string>
     <string name="slogan_message_4">Всі качки в ряд.</string>
     <string name="slogan_message_5">Бездоганно.</string>
+    <string name="slogan_message_6">Байти, йдіть геть!</string>
+    <string name="slogan_message_7">Вільний простір, щасливе місце.</string>
     <string name="general_thank_you_label">Дякую</string>
     <string name="general_error_type_mismatch_msg">Невідповідність типу: хотів %1$s, але отримав %2$s.</string>
     <string name="general_error_cant_access_msg">Неможливо отримати доступ до %s.</string>
@@ -56,7 +58,9 @@
     <string name="general_progress_loading_egg_5">Турбоенкабулятор запускається</string>
     <string name="general_progress_loading_egg_6">Кладемо вершкове масло</string>
     <string name="general_progress_loading_egg_7">Ну, як ти тримаєшся?</string>
-    <string name="general_progress_loading_egg_8">Тут щось готується</string>
+    <string name="general_progress_loading_egg_8">Звуковий сигнал буп-боп</string>
+    <string name="general_progress_loading_egg_10">Виклик Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Все гаразд</string>
     <string name="general_help_action">Допомога</string>
     <string name="general_continue">Продовжити</string>
     <string name="general_progress_queued">В черзі</string>

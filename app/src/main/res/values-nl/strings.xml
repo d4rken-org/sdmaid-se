@@ -510,6 +510,8 @@ dashboard_motd_titel</string>
     <string name="translation_encourage_body">SD Maid wordt vertaald door vrijwilligers. Vertalen, beoordelen of proeflezen, je hulp wordt op prijs gesteld!</string>
     <string name="translation_translators_title">Deze versie wordt vertaald door:</string>
     <string name="translation_translators_people">Erik Paelman</string>
-    <string name="motd_setting_enabled_label">Bericht van de dag</string>
+    <string name="motd_setting_enabled_label">Belangrijke berichten</string>
     <string name="motd_setting_enabled_explanation">Sta SD Maid toe om te controleren op belangrijke berichten van de ontwikkelaar.</string>
+    <string name="updatecheck_setting_enabled_label">Updatecontrole</string>
+    <string name="updatecheck_setting_enabled_explanation">Sta SD Maid toe om te controleren op updates om je te laten weten of er een nieuwere versie beschikbaar is.</string>
 </resources>

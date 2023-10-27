@@ -7,6 +7,8 @@
     <string name="slogan_message_3">只做必行之事。</string>
     <string name="slogan_message_4">万物归整。</string>
     <string name="slogan_message_5">一尘不染。</string>
+    <string name="slogan_message_6">字节，滚开！</string>
+    <string name="slogan_message_7">释放空间，乐似神仙</string>
     <string name="general_thank_you_label">感谢</string>
     <string name="general_error_type_mismatch_msg">类型不匹配：目标“%1$s”，却得到“%2$s”</string>
     <string name="general_error_cant_access_msg">无法访问“%s”</string>
@@ -56,7 +58,10 @@
     <string name="general_progress_loading_egg_5">正在启动超电磁炮</string>
     <string name="general_progress_loading_egg_6">正在递黄油</string>
     <string name="general_progress_loading_egg_7">你今天过的怎么样？</string>
-    <string name="general_progress_loading_egg_8">这里闻起来像狗狗</string>
+    <string name="general_progress_loading_egg_8">哔哔嘟嘟</string>
+    <string name="general_progress_loading_egg_9">正在缓冲人生选择</string>
+    <string name="general_progress_loading_egg_10">正在召唤克苏鲁</string>
+    <string name="general_progress_loading_egg_11">This is fine</string>
     <string name="general_help_action">帮助</string>
     <string name="general_continue">继续</string>
     <string name="general_progress_queued">排队中</string>

@@ -496,6 +496,8 @@
     <string name="translation_encourage_body">SD Maid 由志愿者贡献翻译。无论是翻译、审核还是校对，我们都非常感谢您的帮助！</string>
     <string name="translation_translators_title">此版本的翻译贡献者：</string>
     <string name="translation_translators_people">FrzHrzn</string>
-    <string name="motd_setting_enabled_label">今日消息</string>
+    <string name="motd_setting_enabled_label">重要消息</string>
     <string name="motd_setting_enabled_explanation">允许SD Maid接收来自开发者的重要消息。</string>
+    <string name="updatecheck_setting_enabled_label">检查更新</string>
+    <string name="updatecheck_setting_enabled_explanation">允许 SD Maid 检查更新，让您知道是否有新版本可用</string>
 </resources>
