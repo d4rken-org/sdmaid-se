@@ -51,16 +51,16 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
             addItemDecoration(divDec)
         }
 
-        val selectionTracker = installListSelection(
-            adapter = adapter,
-            cabMenuRes = R.menu.menu_corpsefinder_corpse_cab,
-            toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
-            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseElementsAdapter.Item> ->
-                when (item.itemId) {
-                    R.id.action_delete_selected -> {
-                        vm.delete(selected)
-                        true
-                    }
+         selectionTracker = installListSelection(
+             adapter = adapter,
+             cabMenuRes = R.menu.menu_corpsefinder_corpse_cab,
+             toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
+             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseElementsAdapter.Item> ->
+                 when (item.itemId) {
+                     R.id.action_delete_selected -> {
+                         vm.delete(selected)
+                         true
+                     }
 
                     else -> false
                 }
@@ -99,7 +99,7 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
                     )
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                         vm.delete(event.items, confirmed = true)
-                        selectionTracker.clearSelection()
+                        selectionTracker?.clearSelection()
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
