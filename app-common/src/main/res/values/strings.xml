@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Doing what is necessary.</string>
     <string name="slogan_message_4">All your ducks in a row.</string>
     <string name="slogan_message_5">Spotless.</string>
+    <string name="slogan_message_6">Bytes, be gone!</string>
+    <string name="slogan_message_7">Free space, happy place.</string>
 
     <string name="general_thank_you_label">Thank you</string>
 
@@ -58,7 +60,10 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator is initiating</string>
     <string name="general_progress_loading_egg_6">Passing the butter</string>
     <string name="general_progress_loading_egg_7">So. How are you holding up?</string>
-    <string name="general_progress_loading_egg_8">Smells like updog in here</string>
+    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
+    <string name="general_progress_loading_egg_9">Buffering life choices</string>
+    <string name="general_progress_loading_egg_10">Summoning Cthulhu</string>
+    <string name="general_progress_loading_egg_11">This is fine</string>
     <string name="general_help_action">Help</string>
     <string name="general_continue">Continue</string>
     <string name="general_progress_queued">In queue</string>
