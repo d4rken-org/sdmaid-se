@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.core.tasks
 
+import android.os.Parcelable
 import android.text.format.Formatter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
@@ -9,10 +10,31 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DeduplicatorDeleteTask(
-    val targetClusters: Set<Duplicate.Cluster.Identifier>? = null,
-    val targetGroups: Set<Duplicate.Group.Identifier>? = null,
-    val targetDuplicates: Set<APath>? = null,
+    val mode: TargetMode = TargetMode.All,
 ) : DeduplicatorTask {
+
+    sealed interface TargetMode : Parcelable {
+
+        @Parcelize
+        object All : TargetMode
+
+        @Parcelize
+        data class Clusters(
+            val targets: Set<Duplicate.Cluster.Identifier>,
+            val deleteAll: Boolean,
+        ) : TargetMode
+
+        @Parcelize
+        data class Groups(
+            val targets: Set<Duplicate.Group.Identifier>,
+            val deleteAll: Boolean,
+        ) : TargetMode
+
+        @Parcelize
+        data class Duplicates(
+            val targets: Set<APath>
+        ) : TargetMode
+    }
 
     sealed interface Result : DeduplicatorTask.Result
 

@@ -36,10 +36,10 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val group: ChecksumDuplicate.Group,
+        override val group: ChecksumDuplicate.Group,
         val onItemClick: (Item) -> Unit,
         val onViewActionClick: (Item) -> Unit,
-    ) : ClusterAdapter.Item, SelectableItem {
+    ) : ClusterAdapter.Item, SelectableItem, ClusterAdapter.GroupItem {
 
         override val itemSelectionKey: String?
             get() = null

@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.tasks.*
+import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -50,6 +51,7 @@ class Deduplicator @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val settings: DeduplicatorSettings,
     private val scanner: DuplicatesScanner,
+    private val deleter: DuplicatesDeleter,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -87,7 +89,7 @@ class Deduplicator @Inject constructor(
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
                     is DeduplicatorScanTask -> performScan(task)
-                    is DeduplicatorDeleteTask -> TODO()
+                    is DeduplicatorDeleteTask -> performDelete(task)
                 }
             }
             internalData.value = internalData.value?.copy(
@@ -132,6 +134,27 @@ class Deduplicator @Inject constructor(
         return DeduplicatorScanTask.Success(
             itemCount = results.size,
             recoverableSpace = results.sumOf { it.totalSize },
+        )
+    }
+
+    private suspend fun performDelete(task: DeduplicatorDeleteTask): DeduplicatorDeleteTask.Result {
+        log(TAG) { "performDelete(): $task" }
+
+        val snapshot = internalData.value!!
+
+        val result = deleter.delete(task, snapshot)
+
+        internalData.value = snapshot.copy(
+            clusters = snapshot.clusters
+                .filter { !result.deletedClusters.contains(it.identifier) }
+                .mapNotNull { oldCluster ->
+                    TODO()
+                }
+        )
+
+        return DeduplicatorDeleteTask.Success(
+            deletedItems = 7,
+            recoveredSpace = 9000L,
         )
     }
 

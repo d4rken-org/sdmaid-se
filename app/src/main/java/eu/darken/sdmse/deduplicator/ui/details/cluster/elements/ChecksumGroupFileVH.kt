@@ -2,7 +2,6 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
@@ -40,12 +39,9 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val duplicate: Duplicate,
+        override val duplicate: Duplicate,
         val onItemClick: (Item) -> Unit,
-    ) : ClusterAdapter.Item, ClusterAdapter.FileItem, SelectableItem {
-
-        override val path: APath
-            get() = duplicate.path
+    ) : ClusterAdapter.Item, ClusterAdapter.DuplicateItem, SelectableItem {
 
         override val itemSelectionKey: String
             get() = duplicate.lookup.toString()

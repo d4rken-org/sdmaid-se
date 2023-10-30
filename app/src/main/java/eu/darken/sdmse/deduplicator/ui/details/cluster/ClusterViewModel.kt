@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
@@ -41,8 +43,8 @@ class ClusterViewModel @Inject constructor(
     val state = combine(
         clusterData,
         deduplicator.progress,
-        settings.isKeepOneEnabled.flow,
-    ) { cluster, progress, keepOne ->
+        settings.allowDeleteAll.flow,
+    ) { cluster, progress, allowDeleteAll ->
         val elements = mutableListOf<ClusterAdapter.Item>()
 
         ClusterHeaderVH.Item(
@@ -60,10 +62,7 @@ class ClusterViewModel @Inject constructor(
                     is ChecksumDuplicate.Group -> {
                         ChecksumGroupHeaderVH.Item(
                             group = group,
-                            onItemClick = {
-//                                TODO()
-                                delete(setOf(it))
-                            },
+                            onItemClick = { delete(setOf(it)) },
                             onViewActionClick = {
                                 events.postValue(ClusterEvents.ViewItem(it.group.preview))
                             }
@@ -71,9 +70,7 @@ class ClusterViewModel @Inject constructor(
                         group.duplicates.map { dupe ->
                             ChecksumGroupFileVH.Item(
                                 duplicate = dupe,
-                                onItemClick = {
-//                                    TODO()
-                                }
+                                onItemClick = { delete(listOf(it)) }
                             )
                         }.run { items.addAll(this) }
                     }
@@ -86,36 +83,47 @@ class ClusterViewModel @Inject constructor(
         State(
             elements = elements,
             progress = progress,
-            keepOne = keepOne,
+            allowDeleteAll = allowDeleteAll,
         )
     }.asLiveData2()
 
     data class State(
         val elements: List<ClusterAdapter.Item>,
         val progress: Progress.Data? = null,
-        val keepOne: Boolean = true,
+        val allowDeleteAll: Boolean = false,
     )
 
-    fun delete(items: Collection<ClusterAdapter.Item>, confirmed: Boolean = false) = launch {
+    fun delete(
+        items: Collection<ClusterAdapter.Item>,
+        confirmed: Boolean = false,
+        deleteAll: Boolean = false,
+    ) = launch {
         log(TAG, INFO) { "delete(items=$items)" }
         if (!confirmed) {
-            events.postValue(ClusterEvents.ConfirmDeletion(items))
+            events.postValue(ClusterEvents.ConfirmDeletion(items, allowDeleteAll = settings.allowDeleteAll.value()))
             return@launch
         }
 
-//        val targets = items.mapNotNull {
-//            when (it) {
-//                is HashGroupFileVH.Item -> it.lookup.lookedUp
-//                else -> null
-//            }
-//        }.toSet()
-//
-//        val task = DeduplicatorDeleteTask(
-//            targetDuplicates = setOf(clusterData.first().identifier),
-//            targetGroups = targets.takeIf { it.isNotEmpty() }
-//        )
-//
-//        taskManager.submit(task)
+        val mode: DeduplicatorDeleteTask.TargetMode = when {
+            items.singleOrNull() is ClusterHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Clusters(
+                targets = setOf((items.single() as ClusterHeaderVH.Item).cluster.identifier),
+                deleteAll = deleteAll,
+            )
+
+            items.singleOrNull() is ChecksumGroupHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Groups(
+                targets = setOf((items.single() as ChecksumGroupHeaderVH.Item).group.identifier),
+                deleteAll = deleteAll,
+            )
+
+            items.all { it is ClusterAdapter.DuplicateItem } -> DeduplicatorDeleteTask.TargetMode.Duplicates(
+                targets = items.map { (it as ClusterAdapter.DuplicateItem).duplicate.path }.toSet()
+            )
+
+            else -> throw IllegalArgumentException("Unsupported items: $items")
+        }
+
+        val task = DeduplicatorDeleteTask(mode = mode)
+        taskManager.submit(task)
     }
 
     fun exclude(items: Collection<ClusterAdapter.Item>) = launch {
@@ -130,7 +138,7 @@ class ClusterViewModel @Inject constructor(
             }
 
         items
-            .filterIsInstance<ClusterAdapter.FileItem>()
+            .filterIsInstance<ClusterAdapter.DuplicateItem>()
             .map { it.path }
             .takeIf { it.isNotEmpty() }
             ?.let { deduplicator.exclude(cluster.identifier, it) }

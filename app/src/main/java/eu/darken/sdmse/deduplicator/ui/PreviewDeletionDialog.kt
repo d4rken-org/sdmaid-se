@@ -4,9 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.materialswitch.MaterialSwitch
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
@@ -23,23 +26,76 @@ import eu.darken.sdmse.common.lists.modular.mods.SimpleVHCreatorMod
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridItemBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewSingleBinding
+import eu.darken.sdmse.deduplicator.core.Duplicate
 
 class PreviewDeletionDialog(private val context: Context) {
+    sealed interface Mode {
+        val allowDeleteAll: Boolean
+        val count: Int
+        val previews: List<APathLookup<*>>
+
+        data class All(
+            val clusters: Collection<Duplicate.Cluster>,
+        ) : Mode {
+            override val allowDeleteAll: Boolean = false
+            override val count: Int
+                get() = clusters.size
+            override val previews: List<APathLookup<*>>
+                get() = clusters.map { it.previewFile }
+        }
+
+        data class Clusters(
+            val clusters: Collection<Duplicate.Cluster>,
+            override val allowDeleteAll: Boolean
+        ) : Mode {
+            override val count: Int
+                get() = clusters.size
+            override val previews: List<APathLookup<*>>
+                get() = clusters.map { it.previewFile }
+        }
+
+        data class Groups(
+            val groups: Collection<Duplicate.Group>,
+            override val allowDeleteAll: Boolean
+        ) : Mode {
+            override val count: Int
+                get() = groups.size
+            override val previews: List<APathLookup<*>>
+                get() = groups.map { it.previewFile }
+        }
+
+        data class Duplicates(
+            val duplicates: Collection<Duplicate>,
+        ) : Mode {
+            override val allowDeleteAll: Boolean = false
+            override val count: Int
+                get() = duplicates.size
+            override val previews: List<APathLookup<*>>
+                get() = duplicates.map { it.lookup }
+        }
+    }
 
     fun show(
-        previews: List<Item>,
-        onPositive: () -> Unit,
-        onNegative: () -> Unit,
-        onNeutral: () -> Unit,
+        mode: Mode,
+        onPositive: (Boolean) -> Unit,
+        onNegative: () -> Unit = {},
+        onNeutral: () -> Unit = {},
     ): AlertDialog {
-        val preview = if (previews.size == 1) {
+        var deleteAllToggle: MaterialSwitch? = null
+        val preview = if (mode.count == 1) {
             val binding = ViewDeleteConfirmationPreviewSingleBinding.inflate(
                 LayoutInflater.from(context),
                 null,
                 false
             )
 
-            binding.previewImage.loadFilePreview(previews.single().lookup)
+            binding.deleteAllToggle.apply {
+                isVisible = mode.allowDeleteAll
+                if (mode.allowDeleteAll) deleteAllToggle = this
+            }
+            binding.deleteAllIcon.isVisible = binding.deleteAllToggle.isVisible
+
+            binding.previewImage.loadFilePreview(mode.previews.single())
 
             binding.root
         } else {
@@ -49,8 +105,14 @@ class PreviewDeletionDialog(private val context: Context) {
                 false
             )
 
+            binding.deleteAllToggle.apply {
+                isVisible = mode.allowDeleteAll
+                if (mode.allowDeleteAll) deleteAllToggle = this
+            }
+            binding.deleteAllIcon.isVisible = binding.deleteAllToggle.isVisible
+
             val adapter = PreviewAdapter().apply {
-                update(previews)
+                update(mode.previews.map { Item(it) })
             }
 
             binding.apply {
@@ -78,15 +140,62 @@ class PreviewDeletionDialog(private val context: Context) {
             binding.root
         }
 
-
         val dialog = MaterialAlertDialogBuilder(context).apply {
             setView(preview)
             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-            setMessage(R.string.deduplicator_delete_all_confirmation_message)
-            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> onPositive() }
+            setMessage(
+                when (mode) {
+                    is Mode.All -> context.getString(R.string.deduplicator_delete_confirmation_message)
+                    is Mode.Clusters -> when (mode.count) {
+                        1 -> context.getString(R.string.deduplicator_delete_single_set_confirmation_message)
+                        else -> context.getString(R.string.deduplicator_delete_multiple_sets_confirmation_message)
+                    }
+
+                    is Mode.Groups -> when (mode.count) {
+                        1 -> context.getString(R.string.deduplicator_delete_single_set_confirmation_message)
+                        else -> context.getString(R.string.deduplicator_delete_multiple_sets_confirmation_message)
+                    }
+
+                    is Mode.Duplicates -> when (mode.count) {
+                        1 -> context.getString(
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                            mode.duplicates.single().lookup.userReadablePath.get(context),
+                        )
+
+                        else -> context.getString(
+                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            mode.count
+                        )
+                    }
+                }
+            )
+            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                onPositive(deleteAllToggle?.isChecked ?: false)
+            }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> onNegative() }
             setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> onNeutral() }
         }.show()
+
+
+        deleteAllToggle?.setOnCheckedChangeListener { _, isChecked ->
+            val newMsg = when (mode) {
+                is Mode.All -> throw IllegalStateException("deleteAllToggle is unsupported in Mode.All")
+                is Mode.Duplicates -> throw IllegalStateException("deleteAllToggle is unsupported in Mode.Duplicate")
+
+                is Mode.Clusters, is Mode.Groups -> when (mode.count) {
+                    1 -> when (isChecked) {
+                        true -> R.string.deduplicator_delete_single_set_keep_none_confirmation_message
+                        false -> R.string.deduplicator_delete_single_set_confirmation_message
+                    }
+
+                    else -> when (isChecked) {
+                        true -> R.string.deduplicator_delete_multiple_sets_keep_none_confirmation_message
+                        false -> R.string.deduplicator_delete_multiple_sets_confirmation_message
+                    }
+                }
+            }
+            dialog.findViewById<TextView>(android.R.id.message)!!.text = context.getString(newMsg)
+        }
 
         return dialog
     }

@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
@@ -21,7 +20,7 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorClusterFragmentBinding
-import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
 
@@ -104,46 +103,35 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
         vm.state.observe2(ui) { state ->
             if (state.progress == null) adapter.update(state.elements)
-            selectableMax = state.elements.filterIsInstance<ClusterAdapter.FileItem>().count()
-            if (state.keepOne) selectableMax-- // Prevent last item selection
+            selectableMax = state.elements.filterIsInstance<ClusterAdapter.DuplicateItem>().count()
+            if (!state.allowDeleteAll) selectableMax-- // Prevent last item selection
         }
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is ClusterEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                    setMessage(
-                        when {
-                            event.items.singleOrNull() is ClusterHeaderVH.Item -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                (event.items.singleOrNull() as ClusterHeaderVH.Item)
-                                    .cluster.label.get(requireContext()),
-                            )
+                is ClusterEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
+                    mode = when {
+                        event.items.singleOrNull() is ClusterHeaderVH.Item -> PreviewDeletionDialog.Mode.Clusters(
+                            clusters = listOf((event.items.single() as ClusterHeaderVH.Item).cluster),
+                            event.allowDeleteAll,
+                        )
 
-                            event.items.singleOrNull() is ChecksumGroupHeaderVH.Item -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                (event.items.singleOrNull() as ChecksumGroupHeaderVH.Item)
-                                    .group.label.get(requireContext()),
-                            )
+                        event.items.singleOrNull() is ChecksumGroupHeaderVH.Item -> PreviewDeletionDialog.Mode.Groups(
+                            groups = listOf((event.items.single() as ChecksumGroupHeaderVH.Item).group),
+                            event.allowDeleteAll,
+                        )
 
-                            event.items.singleOrNull() is ChecksumGroupFileVH.Item -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                (event.items.singleOrNull() as ChecksumGroupFileVH.Item)
-                                    .duplicate.label.get(requireContext()),
-                            )
+                        event.items.all { it is ClusterAdapter.DuplicateItem } -> PreviewDeletionDialog.Mode.Duplicates(
+                            duplicates = event.items.map { (it as ClusterAdapter.DuplicateItem).duplicate },
+                        )
 
-                            else -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
-                                event.items.size
-                            )
-                        }
-                    )
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.delete(event.items, confirmed = true)
+                        else -> throw IllegalArgumentException("Unexpected adapter items: ${event.items}")
+                    },
+                    onPositive = { deleteAll ->
+                        vm.delete(event.items, confirmed = true, deleteAll)
                         selectionTracker?.clearSelection()
-                    }
-                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                }.show()
+                    },
+                )
 
                 is ClusterEvents.ViewItem -> {
                     try {

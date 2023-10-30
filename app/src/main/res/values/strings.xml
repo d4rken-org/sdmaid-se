@@ -392,10 +392,10 @@
         <item quantity="other">%d duplicate clusters found</item>
     </plurals>
     <string name="deduplicator_result_x_duplicates">%d copies</string>
-    <string name="deduplicator_protection_keepone_title">Keep one</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">Make \"Delete all\" possible</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
-    <string name="deduplicator_protection_keepone_summary">Prevent deletion of all duplicates. Ensure that one copy remains.</string>
     <string name="deduplicator_detection_method_label">Detection method</string>
     <string name="deduplicator_detection_method_checksum_title">Content checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Calculate checksums for files to determine duplicates. Files with matching checksums have the exact same content.</string>
@@ -406,8 +406,12 @@
     <string name="deduplicator_file_size_label">File size</string>
     <string name="deduplicator_average_size_label">Average size</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
-    <string name="deduplicator_delete_all_confirmation_message">Remove all but one copy of each set of duplicate files?</string>
-
+    <string name="deduplicator_delete_confirmation_message">Delete all but one copy of all sets of duplicate files?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Delete all but one copy in this set of duplicate files?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Delete all files in this set of duplicate files? No file is left over!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Delete all but one copy in each selected set of duplicate files?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Delete all files in each selected set of duplicate files? No file is left over!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Delete all copies. No file is left over!</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Cluster of duplicates</string>
 

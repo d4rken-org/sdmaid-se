@@ -23,13 +23,13 @@ class DeduplicatorSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val isKeepOneEnabled = dataStore.createValue("protection.keepone.enabled", true)
+    val allowDeleteAll = dataStore.createValue("protection.deleteall.allowed", false)
     val minSizeBytes = dataStore.createValue<Long>("skip.minsize.bytes", MIN_FILE_SIZE)
     val isSleuthChecksumEnabled = dataStore.createValue("sleuth.checksum.enabled", true)
     val isSleuthPHashEnabled = dataStore.createValue("sleuth.phash.enabled", false)
 
     override val mapper = PreferenceStoreMapper(
-        isKeepOneEnabled,
+        allowDeleteAll,
         minSizeBytes,
         isSleuthChecksumEnabled,
         isSleuthPHashEnabled,

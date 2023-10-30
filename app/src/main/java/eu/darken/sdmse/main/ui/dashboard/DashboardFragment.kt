@@ -176,7 +176,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }.show()
 
                 is DashboardEvents.DeduplicatorDeleteConfirmation -> PreviewDeletionDialog(requireContext()).show(
-                    previews = event.clusters?.map { PreviewDeletionDialog.Item(it.previewFile) } ?: emptyList(),
+                    mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList()),
                     onPositive = { vm.confirmDeduplicatorDeletion() },
                     onNegative = { },
                     onNeutral = { vm.showDeduplicatorDetails() },

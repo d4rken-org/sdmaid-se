@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
@@ -48,7 +49,15 @@ class ClusterAdapter @Inject constructor() :
 
     interface HeaderVH
 
-    interface FileItem {
+    interface DuplicateItem {
+        val duplicate: Duplicate
         val path: APath
+            get() = duplicate.path
+    }
+
+    interface GroupItem {
+        val group: Duplicate.Group
+        val identifier: Duplicate.Group.Identifier
+            get() = group.identifier
     }
 }

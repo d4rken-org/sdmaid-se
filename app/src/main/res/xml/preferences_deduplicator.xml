@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <CheckBoxPreference
-        app:icon="@drawable/baseline_looks_one_24"
-        app:key="protection.keepone.enabled"
+        app:icon="@drawable/ic_numeric_0_box_24"
+        app:key="protection.deleteall.allowed"
         app:singleLineTitle="false"
-        app:summary="@string/deduplicator_protection_keepone_summary"
-        app:title="@string/deduplicator_protection_keepone_title" />
+        app:summary="@string/deduplicator_protection_deleteall_allowed_summary"
+        app:title="@string/deduplicator_protection_deleteall_allowed_title" />
 
     <Preference
         app:icon="@drawable/ic_file_chart_outline_24"

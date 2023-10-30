@@ -27,6 +27,9 @@ interface Duplicate {
             get() = identifier.value.toCaString()
         val duplicates: Collection<Duplicate>
 
+        val previewFile: APathLookup<*>
+            get() = duplicates.first().lookup
+
         val totalSize: Long
             get() = duplicates.sumOf { it.size }
         val averageSize: Double

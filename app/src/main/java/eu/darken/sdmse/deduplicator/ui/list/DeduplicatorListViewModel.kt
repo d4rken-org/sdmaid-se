@@ -3,13 +3,16 @@ package eu.darken.sdmse.deduplicator.ui.list
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.hasData
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -23,6 +26,7 @@ import javax.inject.Inject
 class DeduplicatorListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val deduplicator: Deduplicator,
+    private val settings: DeduplicatorSettings,
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -57,27 +61,25 @@ class DeduplicatorListViewModel @Inject constructor(
         val progress: Progress.Data? = null,
     )
 
-    fun delete(items: Collection<DeduplicatorListAdapter.Item>, confirmed: Boolean = false) = launch {
+    fun delete(
+        items: Collection<DeduplicatorListAdapter.Item>,
+        confirmed: Boolean = false,
+        deleteAll: Boolean = false,
+    ) = launch {
         log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
         if (!confirmed) {
-            events.postValue(DeduplicatorListEvents.ConfirmDeletion(items))
+            val event = DeduplicatorListEvents.ConfirmDeletion(items, settings.allowDeleteAll.value())
+            events.postValue(event)
             return@launch
         }
 
-        val targets = items.mapNotNull {
-            when (it) {
-                is DeduplicatorListAdapter.Item -> it.cluster.identifier
-                else -> null
-            }
-        }.toSet()
+        val mode: DeduplicatorDeleteTask.TargetMode = DeduplicatorDeleteTask.TargetMode.Clusters(
+            targets = items.map { it.cluster.identifier }.toSet(),
+            deleteAll = deleteAll,
+        )
 
-//        val task = DeduplicatorDeleteTask(targetGroups = targets)
-//        val result = taskManager.submit(task) as DeduplicatorDeleteTask.Result
-//
-//        log(TAG) { "delete(): Result was $result" }
-//        when (result) {
-//            is DeduplicatorDeleteTask.Success -> events.postValue(DeduplicatorListEvents.TaskResult(result))
-//        }
+        val task = DeduplicatorDeleteTask(mode = mode)
+        taskManager.submit(task)
     }
 
     fun exclude(items: Collection<DeduplicatorListAdapter.Item>) = launch {

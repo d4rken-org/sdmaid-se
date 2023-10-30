@@ -86,11 +86,12 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
         vm.events.observe2(ui) { event ->
             when (event) {
                 is DeduplicatorListEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
-                    previews = event.items
-                        .map { it.cluster.previewFile }
-                        .map { PreviewDeletionDialog.Item(it) },
-                    onPositive = {
-                        vm.delete(event.items, confirmed = true)
+                    mode = PreviewDeletionDialog.Mode.Clusters(
+                        clusters = event.items.map { it.cluster },
+                        allowDeleteAll = event.allowDeleteAll
+                    ),
+                    onPositive = { deleteAll ->
+                        vm.delete(event.items, confirmed = true, deleteAll = deleteAll)
                         selectionTracker.clearSelection()
                     },
                     onNegative = {
@@ -99,7 +100,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                     onNeutral = {
                         vm.showDetails(event.items.first())
                         selectionTracker.clearSelection()
-                    }
+                    },
                 )
 
                 is DeduplicatorListEvents.ExclusionsCreated -> Snackbar
