@@ -23,9 +23,9 @@ interface Duplicate {
 
     interface Group {
         val identifier: Identifier
+        val duplicates: Set<Duplicate>
         val label: CaString
             get() = identifier.value.toCaString()
-        val duplicates: Collection<Duplicate>
 
         val previewFile: APathLookup<*>
             get() = duplicates.first().lookup
@@ -45,8 +45,7 @@ interface Duplicate {
 
     data class Cluster(
         val identifier: Identifier,
-        val groups: Collection<Group>,
-        val label: CaString = identifier.value.toCaString(),
+        val groups: Set<Group>,
     ) {
         val averageSize: Double
             get() = groups.map { it.totalSize }.average()

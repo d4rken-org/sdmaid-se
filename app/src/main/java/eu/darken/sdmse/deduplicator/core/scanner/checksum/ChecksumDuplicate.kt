@@ -11,7 +11,7 @@ data class ChecksumDuplicate(
 
     data class Group(
         override val identifier: Duplicate.Group.Identifier,
-        override val duplicates: Collection<ChecksumDuplicate>
+        override val duplicates: Set<ChecksumDuplicate>
     ) : Duplicate.Group {
 
         val preview: APathLookup<*>

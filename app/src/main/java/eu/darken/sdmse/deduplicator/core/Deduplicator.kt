@@ -21,6 +21,7 @@ import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
@@ -66,13 +67,16 @@ class Deduplicator @Inject constructor(
     }
 
     private val internalData = MutableStateFlow(null as Data?)
+    private val lastResult = MutableStateFlow<DeduplicatorTask.Result?>(null)
 
     override val state: Flow<State> = combine(
         internalData,
+        lastResult,
         progress,
-    ) { data, progress ->
+    ) { data, lastResult, progress ->
         State(
             data = data,
+            lastResult = lastResult,
             progress = progress,
         )
     }.replayingShare(appScope)
@@ -92,9 +96,7 @@ class Deduplicator @Inject constructor(
                     is DeduplicatorDeleteTask -> performDelete(task)
                 }
             }
-            internalData.value = internalData.value?.copy(
-                lastResult = result,
-            )
+            lastResult.value = result
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } catch (e: CancellationException) {
@@ -144,17 +146,11 @@ class Deduplicator @Inject constructor(
 
         val result = deleter.delete(task, snapshot)
 
-        internalData.value = snapshot.copy(
-            clusters = snapshot.clusters
-                .filter { !result.deletedClusters.contains(it.identifier) }
-                .mapNotNull { oldCluster ->
-                    TODO()
-                }
-        )
+        internalData.value = snapshot.prune(result)
 
         return DeduplicatorDeleteTask.Success(
-            deletedItems = 7,
-            recoveredSpace = 9000L,
+            deletedItems = result.removed,
+            recoveredSpace = result.freed,
         )
     }
 
@@ -187,7 +183,7 @@ class Deduplicator @Inject constructor(
                 groups = cluster.groups.mapNotNull { group ->
                     val newGroup = when (group) {
                         is ChecksumDuplicate.Group -> group.copy(
-                            duplicates = group.duplicates.filter { !paths.contains(it.path) }
+                            duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
                         )
 
                         else -> throw NotImplementedError("Unsupported group $group")
@@ -198,16 +194,18 @@ class Deduplicator @Inject constructor(
                         log(TAG) { "Group is less than 2 entries: $newGroup" }
                         null
                     }
-                }
+                }.toSet()
             )
             .takeIf { it.groups.isNotEmpty() }
 
         if (newCluster == null) log(TAG) { "Cluster was empty after exclusion" }
 
         internalData.value = snapshot.copy(
-            clusters = snapshot.clusters.mapNotNull { oldCluster ->
-                if (oldCluster.identifier == identifier) newCluster else oldCluster
-            }
+            clusters = snapshot.clusters
+                .mapNotNull { oldCluster ->
+                    if (oldCluster.identifier == identifier) newCluster else oldCluster
+                }
+                .toSet()
         )
     }
 
@@ -232,18 +230,18 @@ class Deduplicator @Inject constructor(
         exclusionManager.save(exclusions)
 
         internalData.value = snapshot.copy(
-            clusters = snapshot.clusters.filter { !identifiers.contains(it.identifier) }
+            clusters = snapshot.clusters.filter { !identifiers.contains(it.identifier) }.toSet()
         )
     }
 
     data class State(
         val data: Data?,
         val progress: Progress.Data?,
+        val lastResult: DeduplicatorTask.Result? = null,
     ) : SDMTool.State
 
     data class Data(
-        val clusters: Collection<Duplicate.Cluster>,
-        val lastResult: DeduplicatorTask.Result? = null,
+        val clusters: Set<Duplicate.Cluster> = emptySet(),
     ) {
         val totalSize: Long get() = clusters.sumOf { it.totalSize }
         val redudantSize: Long get() = clusters.sumOf { it.redundantSize }
@@ -257,6 +255,64 @@ class Deduplicator @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Deduplicator")
+        internal val TAG = logTag("Deduplicator")
     }
 }
+
+internal fun Deduplicator.Data.prune(deleter: DuplicatesDeleter.Deleted): Deduplicator.Data = this.copy(
+    clusters = this.clusters
+        .asSequence()
+        .filter {
+            // Remove all clusters that where wholely deleted
+            val wasDeleted = deleter.clusters.contains(it.identifier)
+            if (wasDeleted) log(Deduplicator.TAG) { "Prune: Deleted cluster: $it" }
+            !wasDeleted
+        }
+        .map { oldCluster ->
+            // Remove whole groups from clusters
+            val newGroups = oldCluster.groups.filter {
+                val wasDeleted = deleter.groups.contains(it.identifier)
+                if (wasDeleted) log(Deduplicator.TAG) { "Prune: Deleted group: $it" }
+                !wasDeleted
+            }.toSet()
+            oldCluster.copy(groups = newGroups)
+        }
+        .map { oldCluster ->
+            // Remove duplicates from groups
+            val newGroups = oldCluster.groups
+                .map { oldGroup ->
+                    val newDuplicates: Set<Duplicate> = oldGroup.duplicates
+                        .filter {
+                            val wasDeleted = deleter.duplicates.contains(it.identifier)
+                            if (wasDeleted) log(Deduplicator.TAG) { "Prune: Deleted duplicate: $it" }
+                            !wasDeleted
+                        }
+                        .toSet()
+                    when (oldGroup) {
+                        is ChecksumDuplicate.Group -> oldGroup.copy(
+                            duplicates = newDuplicates as Set<ChecksumDuplicate>
+                        )
+
+                        is PHashDuplicate.Group -> oldGroup.copy(
+                            duplicates = newDuplicates as Set<PHashDuplicate>
+                        )
+
+                        else -> throw NotImplementedError("Unsupported duplicate type: $oldGroup")
+                    }
+                }
+                .filter {
+                    // group may be empty after removing duplicates
+                    val groupEmpty = it.duplicates.isEmpty()
+                    if (groupEmpty) log(Deduplicator.TAG) { "Prune: Empty group: $it" }
+                    !groupEmpty
+                }
+                .toSet()
+            oldCluster.copy(groups = newGroups)
+        }
+        .filter {
+            val clusterEmpty = it.groups.isEmpty()
+            if (clusterEmpty) log(Deduplicator.TAG) { "Prune: Empty cluster: $it" }
+            !clusterEmpty
+        }
+        .toSet()
+)

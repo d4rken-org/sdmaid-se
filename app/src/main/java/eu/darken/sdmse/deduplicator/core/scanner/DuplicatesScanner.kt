@@ -33,7 +33,7 @@ class DuplicatesScanner @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun scan(sleuths: Collection<Sleuth>): Collection<Duplicate.Cluster> {
+    suspend fun scan(sleuths: Collection<Sleuth>): Set<Duplicate.Cluster> {
         log(TAG) { "scan()" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
@@ -55,6 +55,7 @@ class DuplicatesScanner @Inject constructor(
                 }
             }
             .flatten()
+            .toSet()
 
         log(TAG) { "clusters=${clusters.size}" }
         return clusters

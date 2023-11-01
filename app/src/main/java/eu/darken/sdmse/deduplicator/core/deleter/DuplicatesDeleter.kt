@@ -30,25 +30,55 @@ class DuplicatesDeleter @Inject constructor(
     fun delete(
         task: DeduplicatorDeleteTask,
         data: Deduplicator.Data
-    ): Result {
+    ): Deleted {
         log(TAG) { "Processing $task" }
 
-        when (task.mode) {
-            DeduplicatorDeleteTask.TargetMode.All -> {}
-            is DeduplicatorDeleteTask.TargetMode.Clusters -> {}
-            is DeduplicatorDeleteTask.TargetMode.Duplicates -> {}
-            is DeduplicatorDeleteTask.TargetMode.Groups -> {}
+        return when (task.mode) {
+            is DeduplicatorDeleteTask.TargetMode.All -> targetAll(task.mode, data)
+            is DeduplicatorDeleteTask.TargetMode.Clusters -> targetClusters(task.mode, data)
+            is DeduplicatorDeleteTask.TargetMode.Groups -> targetGroups(task.mode, data)
+            is DeduplicatorDeleteTask.TargetMode.Duplicates -> targetDuplicates(task.mode, data)
         }
-
-        return TODO()
     }
 
-    data class Result(
-        val deletedClusters: Set<Duplicate.Cluster.Identifier>,
-        val deletedGroups: Set<Duplicate.Group.Identifier>,
-        val deletedDuplicates: Set<Duplicate>,
-        val removedFiles: Int,
-        val freedSpace: Long,
+    private fun targetAll(
+        mode: DeduplicatorDeleteTask.TargetMode.All,
+        data: Deduplicator.Data
+    ): Deleted {
+        log(TAG) { "targetAll(): $mode" }
+        TODO()
+    }
+
+    private fun targetClusters(
+        mode: DeduplicatorDeleteTask.TargetMode.Clusters,
+        data: Deduplicator.Data
+    ): Deleted {
+        log(TAG) { "targetClusters(): $mode" }
+        TODO()
+    }
+
+    private fun targetGroups(
+        mode: DeduplicatorDeleteTask.TargetMode.Groups,
+        data: Deduplicator.Data
+    ): Deleted {
+        log(TAG) { "targetGroups(): $mode" }
+        TODO()
+    }
+
+    private fun targetDuplicates(
+        mode: DeduplicatorDeleteTask.TargetMode.Duplicates,
+        data: Deduplicator.Data
+    ): Deleted {
+        log(TAG) { "targetDuplicates(): $mode" }
+        TODO()
+    }
+
+    data class Deleted(
+        val clusters: Set<Duplicate.Cluster.Identifier> = emptySet(),
+        val groups: Set<Duplicate.Group.Identifier> = emptySet(),
+        val duplicates: Set<String> = emptySet(),
+        val removed: Int = 0,
+        val freed: Long = 0L,
     )
 
     companion object {

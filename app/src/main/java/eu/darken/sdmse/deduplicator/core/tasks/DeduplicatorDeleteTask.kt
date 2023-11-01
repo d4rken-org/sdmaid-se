@@ -10,13 +10,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DeduplicatorDeleteTask(
-    val mode: TargetMode = TargetMode.All,
+    val mode: TargetMode = TargetMode.All(),
 ) : DeduplicatorTask {
 
     sealed interface TargetMode : Parcelable {
 
         @Parcelize
-        object All : TargetMode
+        data class All(
+            val placeHolder: String = ""
+        ) : TargetMode
 
         @Parcelize
         data class Clusters(

@@ -175,12 +175,14 @@ class ChecksumSleuth @Inject constructor(
                 val hexHash = dupes.first().third
                 ChecksumDuplicate.Group(
                     identifier = Duplicate.Group.Identifier(hexHash),
-                    duplicates = dupes.map { (item, hash) ->
-                        ChecksumDuplicate(
-                            lookup = item,
-                            hash = hash,
-                        )
-                    }
+                    duplicates = dupes
+                        .map { (item, hash) ->
+                            ChecksumDuplicate(
+                                lookup = item,
+                                hash = hash,
+                            )
+                        }
+                        .toSet()
                 )
             }
 
