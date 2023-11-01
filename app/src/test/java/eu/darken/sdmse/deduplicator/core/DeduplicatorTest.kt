@@ -15,7 +15,7 @@ import java.time.Instant
 class DeduplicatorTest : BaseTest() {
 
     @Test
-    fun `prune empties`() {
+    fun `post-deletion - prune empties and singles`() {
         val original = Deduplicator.Data(
             clusters = setOf(
                 Duplicate.Cluster(
@@ -34,7 +34,16 @@ class DeduplicatorTest : BaseTest() {
                             duplicates = setOf(
                                 ChecksumDuplicate(
                                     lookup = LocalPathLookup(
-                                        lookedUp = LocalPath(File("abc")),
+                                        lookedUp = LocalPath(File("aaa")),
+                                        fileType = FileType.FILE,
+                                        size = 16,
+                                        modifiedAt = Instant.EPOCH,
+                                        target = null,
+                                    ),
+                                    hash = Hasher.Result(hash = ByteArray(0), type = Hasher.Type.SHA1),
+                                ), ChecksumDuplicate(
+                                    lookup = LocalPathLookup(
+                                        lookedUp = LocalPath(File("bbb")),
                                         fileType = FileType.FILE,
                                         size = 16,
                                         modifiedAt = Instant.EPOCH,
@@ -59,7 +68,16 @@ class DeduplicatorTest : BaseTest() {
                             duplicates = setOf(
                                 ChecksumDuplicate(
                                     lookup = LocalPathLookup(
-                                        lookedUp = LocalPath(File("abc")),
+                                        lookedUp = LocalPath(File("aaa")),
+                                        fileType = FileType.FILE,
+                                        size = 16,
+                                        modifiedAt = Instant.EPOCH,
+                                        target = null,
+                                    ),
+                                    hash = Hasher.Result(hash = ByteArray(0), type = Hasher.Type.SHA1),
+                                ), ChecksumDuplicate(
+                                    lookup = LocalPathLookup(
+                                        lookedUp = LocalPath(File("bbb")),
                                         fileType = FileType.FILE,
                                         size = 16,
                                         modifiedAt = Instant.EPOCH,
@@ -76,7 +94,7 @@ class DeduplicatorTest : BaseTest() {
     }
 
     @Test
-    fun `prune all`() {
+    fun `post-deletion - prune all`() {
         val original = Deduplicator.Data(
             clusters = setOf(
                 Duplicate.Cluster(
@@ -95,7 +113,16 @@ class DeduplicatorTest : BaseTest() {
                             duplicates = setOf(
                                 ChecksumDuplicate(
                                     lookup = LocalPathLookup(
-                                        lookedUp = LocalPath(File("abc")),
+                                        lookedUp = LocalPath(File("aaa")),
+                                        fileType = FileType.FILE,
+                                        size = 16,
+                                        modifiedAt = Instant.EPOCH,
+                                        target = null,
+                                    ),
+                                    hash = Hasher.Result(hash = ByteArray(0), type = Hasher.Type.SHA1),
+                                ), ChecksumDuplicate(
+                                    lookup = LocalPathLookup(
+                                        lookedUp = LocalPath(File("bbb")),
                                         fileType = FileType.FILE,
                                         size = 16,
                                         modifiedAt = Instant.EPOCH,
@@ -112,7 +139,7 @@ class DeduplicatorTest : BaseTest() {
 
         original.prune(
             DuplicatesDeleter.Deleted(
-                duplicates = setOf(File("abc").path)
+                duplicates = setOf(File("aaa").path)
             )
         ) shouldBe Deduplicator.Data()
     }

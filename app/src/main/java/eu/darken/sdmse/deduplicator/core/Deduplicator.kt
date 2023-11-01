@@ -302,9 +302,9 @@ internal fun Deduplicator.Data.prune(deleter: DuplicatesDeleter.Deleted): Dedupl
                 }
                 .filter {
                     // group may be empty after removing duplicates
-                    val groupEmpty = it.duplicates.isEmpty()
-                    if (groupEmpty) log(Deduplicator.TAG) { "Prune: Empty group: $it" }
-                    !groupEmpty
+                    val soloOrEmpty = it.duplicates.size < 2
+                    if (soloOrEmpty) log(Deduplicator.TAG) { "Prune: Solo/Empty group: $it" }
+                    !soloOrEmpty
                 }
                 .toSet()
             oldCluster.copy(groups = newGroups)
