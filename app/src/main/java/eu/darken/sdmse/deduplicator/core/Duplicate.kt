@@ -15,15 +15,28 @@ interface Duplicate {
     val path: APath
         get() = lookup.lookedUp
 
-    val identifier: String
-        get() = lookup.path
+    val identifier: Id
+        get() = Id(lookup.path)
 
     val size: Long
         get() = lookup.size
 
+    val type: Type
+
+    enum class Type {
+        CHECKSUM,
+        PHASH
+    }
+
+    @Parcelize
+    data class Id(val value: String) : Parcelable
+
     interface Group {
-        val identifier: Identifier
+        val identifier: Id
         val duplicates: Set<Duplicate>
+
+        val type: Type
+
         val label: CaString
             get() = identifier.value.toCaString()
 
@@ -40,11 +53,11 @@ interface Duplicate {
             get() = duplicates.size
 
         @Parcelize
-        data class Identifier(val value: String) : Parcelable
+        data class Id(val value: String) : Parcelable
     }
 
     data class Cluster(
-        val identifier: Identifier,
+        val identifier: Id,
         val groups: Set<Group>,
     ) {
         val averageSize: Double
@@ -60,6 +73,6 @@ interface Duplicate {
             get() = groups.first().duplicates.first().lookup
 
         @Parcelize
-        data class Identifier(val value: String) : Parcelable
+        data class Id(val value: String) : Parcelable
     }
 }

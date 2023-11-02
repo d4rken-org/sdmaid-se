@@ -9,10 +9,16 @@ data class ChecksumDuplicate(
     val hash: Hasher.Result,
 ) : Duplicate {
 
+    override val type: Duplicate.Type
+        get() = Duplicate.Type.CHECKSUM
+
     data class Group(
-        override val identifier: Duplicate.Group.Identifier,
+        override val identifier: Duplicate.Group.Id,
         override val duplicates: Set<ChecksumDuplicate>
     ) : Duplicate.Group {
+
+        override val type: Duplicate.Type
+            get() = Duplicate.Type.CHECKSUM
 
         val preview: APathLookup<*>
             get() = duplicates.first().lookup

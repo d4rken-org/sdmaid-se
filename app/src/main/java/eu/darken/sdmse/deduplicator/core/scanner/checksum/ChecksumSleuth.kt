@@ -39,6 +39,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import kotlinx.coroutines.flow.DEFAULT_CONCURRENCY
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
@@ -142,14 +143,15 @@ class ChecksumSleuth @Inject constructor(
         updateProgressCount(Progress.Count.Percent(sizeBuckets.values.sumOf { it.size }))
         updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
 
+        val hashStart = System.currentTimeMillis()
         val hashBuckets = sizeBuckets.values
             .asFlow()
-            .flatMapMerge(4) { items ->
+            .flatMapMerge { items ->
                 flow {
                     val checksummedGroup = items.map { item ->
                         val start = System.currentTimeMillis()
 
-                        val hash = gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA1)
+                        val hash = gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
                         val hexHash = hash.formatAs(Hasher.Result.Format.HEX)
 
                         val stop = System.currentTimeMillis()
@@ -168,13 +170,16 @@ class ChecksumSleuth @Inject constructor(
             .groupBy { hexHash -> hexHash.third }
             .filter { it.value.size >= 2 }
 
+        val hashStop = System.currentTimeMillis()
+        log(TAG) { "Hashing took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
+
         log(TAG) { "${hashBuckets.size} hash buckets of 2 or more items" }
 
         val duplicates = hashBuckets.values
             .map { dupes: List<Triple<APathLookup<*>, Hasher.Result, String>> ->
                 val hexHash = dupes.first().third
                 ChecksumDuplicate.Group(
-                    identifier = Duplicate.Group.Identifier(hexHash),
+                    identifier = Duplicate.Group.Id(hexHash),
                     duplicates = dupes
                         .map { (item, hash) ->
                             ChecksumDuplicate(

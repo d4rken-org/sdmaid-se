@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
@@ -58,8 +59,9 @@ class ClusterViewModel @Inject constructor(
             .flatMap { group ->
                 val items = mutableListOf<ClusterAdapter.Item>()
 
-                when (group) {
-                    is ChecksumDuplicate.Group -> {
+                when (group.type) {
+                    Duplicate.Type.CHECKSUM -> {
+                        group as ChecksumDuplicate.Group
                         ChecksumGroupHeaderVH.Item(
                             group = group,
                             onItemClick = { delete(setOf(it)) },
@@ -74,6 +76,8 @@ class ClusterViewModel @Inject constructor(
                             )
                         }.run { items.addAll(this) }
                     }
+
+                    Duplicate.Type.PHASH -> TODO()
                 }
 
                 items
@@ -116,7 +120,7 @@ class ClusterViewModel @Inject constructor(
             )
 
             items.all { it is ClusterAdapter.DuplicateItem } -> DeduplicatorDeleteTask.TargetMode.Duplicates(
-                targets = items.map { (it as ClusterAdapter.DuplicateItem).duplicate.path }.toSet()
+                targets = items.map { (it as ClusterAdapter.DuplicateItem).duplicate.identifier }.toSet()
             )
 
             else -> throw IllegalArgumentException("Unsupported items: $items")

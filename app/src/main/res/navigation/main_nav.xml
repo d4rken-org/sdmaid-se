@@ -437,7 +437,7 @@
         tools:layout="@layout/deduplicator_details_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Identifier" />
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
     <fragment
         android:id="@+id/clusterFragment"
@@ -445,6 +445,6 @@
         tools:layout="@layout/deduplicator_cluster_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Identifier" />
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
 </navigation>

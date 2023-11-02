@@ -4,9 +4,9 @@ import android.os.Parcelable
 import android.text.format.Formatter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import kotlinx.parcelize.Parcelize
+import java.util.UUID
 
 @Parcelize
 data class DeduplicatorDeleteTask(
@@ -17,24 +17,24 @@ data class DeduplicatorDeleteTask(
 
         @Parcelize
         data class All(
-            val placeHolder: String = ""
+            val id: UUID = UUID.randomUUID(),
         ) : TargetMode
 
         @Parcelize
         data class Clusters(
-            val targets: Set<Duplicate.Cluster.Identifier>,
-            val deleteAll: Boolean,
+            val deleteAll: Boolean = false,
+            val targets: Set<Duplicate.Cluster.Id>,
         ) : TargetMode
 
         @Parcelize
         data class Groups(
-            val targets: Set<Duplicate.Group.Identifier>,
-            val deleteAll: Boolean,
+            val deleteAll: Boolean = false,
+            val targets: Set<Duplicate.Group.Id>,
         ) : TargetMode
 
         @Parcelize
         data class Duplicates(
-            val targets: Set<APath>
+            val targets: Set<Duplicate.Id>
         ) : TargetMode
     }
 

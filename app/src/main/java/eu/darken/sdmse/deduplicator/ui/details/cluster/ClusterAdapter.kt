@@ -57,7 +57,7 @@ class ClusterAdapter @Inject constructor() :
 
     interface GroupItem {
         val group: Duplicate.Group
-        val identifier: Duplicate.Group.Identifier
+        val identifier: Duplicate.Group.Id
             get() = group.identifier
     }
 }

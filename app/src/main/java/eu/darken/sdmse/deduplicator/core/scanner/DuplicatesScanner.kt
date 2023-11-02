@@ -1,10 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
-import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -12,19 +9,13 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.exclusion.core.ExclusionManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
 import javax.inject.Inject
 
 
-class DuplicatesScanner @Inject constructor(
-    private val dispatcherProvider: DispatcherProvider,
-    private val areaManager: DataAreaManager,
-    private val gatewaySwitch: GatewaySwitch,
-    private val exclusionManager: ExclusionManager,
-) : Progress.Host, Progress.Client {
+class DuplicatesScanner @Inject constructor() : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
@@ -49,7 +40,7 @@ class DuplicatesScanner @Inject constructor(
             .map { (sleuth, groups) ->
                 groups.map {
                     Duplicate.Cluster(
-                        identifier = Duplicate.Cluster.Identifier(UUID.randomUUID().toString()),
+                        identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
                         groups = setOf(it)
                     )
                 }

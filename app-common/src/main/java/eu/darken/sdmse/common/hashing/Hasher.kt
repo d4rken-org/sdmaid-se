@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.hashing
 
+import okio.ByteString
 import okio.ByteString.Companion.toByteString
 import okio.Source
 import okio.buffer
@@ -21,31 +22,15 @@ class Hasher(
             }
             md.digest()
         }
-        .let { Result(type, it) }
+        .let { Result(type, it.toByteString(0, it.size)) }
 
     data class Result(
         val type: Type,
-        val hash: ByteArray,
+        val hash: ByteString,
     ) {
         fun formatAs(format: Format): String = when (format) {
-            Format.HEX -> hash.joinToString(separator = "") { String.format("%02X", it) }.lowercase()
-            Format.BASE64 -> hash.toByteString().base64()
-        }
-
-        override fun equals(other: Any?): Boolean {
-            if (this === other) return true
-            if (other !is Result) return false
-
-            if (type != other.type) return false
-            if (!hash.contentEquals(other.hash)) return false
-
-            return true
-        }
-
-        override fun hashCode(): Int {
-            var result = type.hashCode()
-            result = 31 * result + hash.contentHashCode()
-            return result
+            Format.HEX -> hash.hex()
+            Format.BASE64 -> hash.base64()
         }
 
         enum class Format {

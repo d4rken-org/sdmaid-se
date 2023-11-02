@@ -23,7 +23,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     deduplicator: Deduplicator,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<DeduplicatorDetailsFragmentArgs>()
-    private var currentTarget: Duplicate.Cluster.Identifier? = null
+    private var currentTarget: Duplicate.Cluster.Id? = null
 
     init {
         deduplicator.state
@@ -54,11 +54,11 @@ class DeduplicatorDetailsViewModel @Inject constructor(
 
     data class State(
         val items: List<Duplicate.Cluster>,
-        val target: Duplicate.Cluster.Identifier?,
+        val target: Duplicate.Cluster.Id?,
         val progress: Progress.Data?,
     )
 
-    fun updatePage(identifier: Duplicate.Cluster.Identifier) {
+    fun updatePage(identifier: Duplicate.Cluster.Id) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
     }

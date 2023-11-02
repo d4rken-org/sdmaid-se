@@ -9,8 +9,14 @@ data class PHashDuplicate(
     val hash: Hasher.Result,
 ) : Duplicate {
 
+    override val type: Duplicate.Type
+        get() = Duplicate.Type.PHASH
+
     data class Group(
-        override val identifier: Duplicate.Group.Identifier,
+        override val identifier: Duplicate.Group.Id,
         override val duplicates: Set<PHashDuplicate>
-    ) : Duplicate.Group
+    ) : Duplicate.Group {
+        override val type: Duplicate.Type
+            get() = Duplicate.Type.PHASH
+    }
 }
