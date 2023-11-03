@@ -42,6 +42,7 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -51,8 +52,8 @@ class Deduplicator @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val settings: DeduplicatorSettings,
-    private val scanner: DuplicatesScanner,
-    private val deleter: DuplicatesDeleter,
+    private val scanner: Provider<DuplicatesScanner>,
+    private val deleter: Provider<DuplicatesDeleter>,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -118,7 +119,7 @@ class Deduplicator @Inject constructor(
             .onEach { log(TAG) { "Sleuth created: $it" } }
             .toList()
 
-        val results = scanner.withProgress(this) {
+        val results = scanner.get().withProgress(this) {
             scan(sleuths)
         }
 
@@ -153,7 +154,7 @@ class Deduplicator @Inject constructor(
 
         val snapshot = internalData.value!!
 
-        val result = deleter.delete(task, snapshot)
+        val result = deleter.get().delete(task, snapshot)
         val pruneResult = snapshot.prune(result)
         internalData.value = pruneResult.newData
 

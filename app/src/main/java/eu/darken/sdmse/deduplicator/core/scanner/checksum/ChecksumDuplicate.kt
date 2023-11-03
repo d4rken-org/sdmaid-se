@@ -13,8 +13,8 @@ data class ChecksumDuplicate(
         get() = Duplicate.Type.CHECKSUM
 
     data class Group(
-        override val identifier: Duplicate.Group.Id,
-        override val duplicates: Set<ChecksumDuplicate>
+        override val duplicates: Set<ChecksumDuplicate>,
+        override val identifier: Duplicate.Group.Id
     ) : Duplicate.Group {
 
         override val type: Duplicate.Type

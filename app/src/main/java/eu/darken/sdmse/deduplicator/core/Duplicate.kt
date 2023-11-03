@@ -6,9 +6,14 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import kotlinx.parcelize.Parcelize
+import java.time.Instant
 
 interface Duplicate {
     val lookup: APathLookup<*>
+
+    val modifiedAt: Instant
+        get() = lookup.modifiedAt
+
     val label: CaString
         get() = lookup.userReadableName
 
