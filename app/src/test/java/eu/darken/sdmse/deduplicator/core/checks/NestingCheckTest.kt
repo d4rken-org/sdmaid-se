@@ -24,21 +24,27 @@ class NestingCheckTest : BaseTest() {
 
     @Test
     fun `check mode - prefer deeper`() = runTest {
-        listOf(dupeShallow, dupeDeep).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_DEEPER))
+        create().favorite(
+            listOf(dupeShallow, dupeDeep),
+            ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_DEEPER),
         ) shouldBe listOf(dupeDeep, dupeShallow)
-        listOf(dupeDeep, dupeShallow).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_DEEPER))
+
+        create().favorite(
+            listOf(dupeDeep, dupeShallow),
+            ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_DEEPER),
         ) shouldBe listOf(dupeDeep, dupeShallow)
     }
 
     @Test
     fun `check mode - prefer shallow`() = runTest {
-        listOf(dupeShallow, dupeDeep).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW))
+        create().favorite(
+            listOf(dupeShallow, dupeDeep),
+            ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW),
         ) shouldBe listOf(dupeShallow, dupeDeep)
-        listOf(dupeDeep, dupeShallow).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW))
+
+        create().favorite(
+            listOf(dupeDeep, dupeShallow),
+            ArbiterCriterium.Nesting(ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW),
         ) shouldBe listOf(dupeShallow, dupeDeep)
     }
 }

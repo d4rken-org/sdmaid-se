@@ -25,21 +25,27 @@ class ModificationCheckTest : BaseTest() {
 
     @Test
     fun `check mode - prefer older`() = runTest {
-        listOf(dupeYoung, dupeOld).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_OLDER))
+        create().favorite(
+            listOf(dupeYoung, dupeOld),
+            ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_OLDER),
         ) shouldBe listOf(dupeOld, dupeYoung)
-        listOf(dupeOld, dupeYoung).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_OLDER))
+
+        create().favorite(
+            listOf(dupeOld, dupeYoung),
+            ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_OLDER),
         ) shouldBe listOf(dupeOld, dupeYoung)
     }
 
     @Test
     fun `check mode - prefer newer`() = runTest {
-        listOf(dupeYoung, dupeOld).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_NEWER))
+        create().favorite(
+            listOf(dupeYoung, dupeOld),
+            ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_NEWER),
         ) shouldBe listOf(dupeYoung, dupeOld)
-        listOf(dupeOld, dupeYoung).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_NEWER))
+
+        create().favorite(
+            listOf(dupeOld, dupeYoung),
+            ArbiterCriterium.Modified(ArbiterCriterium.Modified.Mode.PREFER_NEWER),
         ) shouldBe listOf(dupeYoung, dupeOld)
     }
 }

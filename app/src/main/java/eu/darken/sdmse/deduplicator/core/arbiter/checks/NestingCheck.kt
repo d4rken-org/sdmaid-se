@@ -8,8 +8,11 @@ import javax.inject.Inject
 
 @Reusable
 class NestingCheck @Inject constructor() : ArbiterCheck {
-    suspend fun checkDuplicate(criterium: ArbiterCriterium.Nesting): Comparator<Duplicate> = when (criterium.mode) {
-        ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW -> compareBy { it.path.segments.size }
-        ArbiterCriterium.Nesting.Mode.PREFER_DEEPER -> compareByDescending { it.path.segments.size }
+    suspend fun favorite(
+        before: List<Duplicate>,
+        criterium: ArbiterCriterium.Nesting
+    ): List<Duplicate> = when (criterium.mode) {
+        ArbiterCriterium.Nesting.Mode.PREFER_SHALLOW -> before.sortedBy { it.path.segments.size }
+        ArbiterCriterium.Nesting.Mode.PREFER_DEEPER -> before.sortedByDescending { it.path.segments.size }
     }
 }

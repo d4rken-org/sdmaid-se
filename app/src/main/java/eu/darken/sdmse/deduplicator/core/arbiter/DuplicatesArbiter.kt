@@ -38,18 +38,18 @@ class DuplicatesArbiter @Inject constructor(
         if (litigants.isEmpty()) throw IllegalArgumentException("Must pass at least 1 group!")
         if (litigants.any { it.duplicates.isEmpty() }) throw IllegalArgumentException("All groups must be non-empty!")
 
-        var workList = litigants
+        var workList = litigants.toList()
 
         strategy.criteria.forEach { crit ->
-            val comparator: Comparator<Duplicate.Group> = when (crit) {
-                is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.checkGroup(crit)
+            val favoritisedWorkList = when (crit) {
+                is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favoriteGroups(workList, crit)
                 is ArbiterCriterium.MediaProvider -> null
                 is ArbiterCriterium.Location -> null
                 is ArbiterCriterium.Nesting -> null
                 is ArbiterCriterium.Modified -> null
                 is ArbiterCriterium.Size -> null
             } ?: return@forEach
-            workList = workList.sortedWith(comparator)
+            workList = favoritisedWorkList
         }
 
         return workList.first() to workList.drop(1).toSet()
@@ -59,18 +59,18 @@ class DuplicatesArbiter @Inject constructor(
         log(TAG) { "decideDuplicates(): ${litigants.size} items, strategy=$strategy" }
         if (litigants.isEmpty()) throw IllegalArgumentException("Must pass at least 1 duplicate!")
 
-        var workList = litigants
+        var workList = litigants.toList()
 
         strategy.criteria.forEach { crit ->
-            val comparator: Comparator<Duplicate> = when (crit) {
-                is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.checkDuplicate(crit)
-                is ArbiterCriterium.MediaProvider -> mediaProviderCheck.checkDuplicate(crit) // TODO
-                is ArbiterCriterium.Location -> locationCheck.checkDuplicate(crit) // TODO
-                is ArbiterCriterium.Nesting -> nestingCheck.checkDuplicate(crit)
-                is ArbiterCriterium.Modified -> modificationCheck.checkDuplicate(crit) // TODO
-                is ArbiterCriterium.Size -> sizeCheck.checkDuplicate(crit)
+            val favoritisedWorkList = when (crit) {
+                is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favorite(workList, crit)
+                is ArbiterCriterium.MediaProvider -> mediaProviderCheck.favorite(workList, crit)
+                is ArbiterCriterium.Location -> locationCheck.favorite(workList, crit)
+                is ArbiterCriterium.Nesting -> nestingCheck.favorite(workList, crit)
+                is ArbiterCriterium.Modified -> modificationCheck.favorite(workList, crit)
+                is ArbiterCriterium.Size -> sizeCheck.favorite(workList, crit)
             }
-            workList = workList.sortedWith(comparator)
+            workList = favoritisedWorkList
         }
 
         workList.forEachIndexed { index, duplicate ->

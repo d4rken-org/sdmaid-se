@@ -23,21 +23,27 @@ class SizeCheckTest : BaseTest() {
 
     @Test
     fun `check mode - prefer larger`() = runTest {
-        listOf(dupeSmall, dupeLarge).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_LARGER))
+        create().favorite(
+            listOf(dupeSmall, dupeLarge),
+            ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_LARGER),
         ) shouldBe listOf(dupeLarge, dupeSmall)
-        listOf(dupeLarge, dupeSmall).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_LARGER))
+
+        create().favorite(
+            listOf(dupeLarge, dupeSmall),
+            ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_LARGER),
         ) shouldBe listOf(dupeLarge, dupeSmall)
     }
 
     @Test
     fun `check mode - prefer smaller`() = runTest {
-        listOf(dupeSmall, dupeLarge).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_SMALLER))
+        create().favorite(
+            listOf(dupeSmall, dupeLarge),
+            ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_SMALLER),
         ) shouldBe listOf(dupeSmall, dupeLarge)
-        listOf(dupeLarge, dupeSmall).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_SMALLER))
+
+        create().favorite(
+            listOf(dupeLarge, dupeSmall),
+            ArbiterCriterium.Size(ArbiterCriterium.Size.Mode.PREFER_SMALLER),
         ) shouldBe listOf(dupeSmall, dupeLarge)
     }
 }

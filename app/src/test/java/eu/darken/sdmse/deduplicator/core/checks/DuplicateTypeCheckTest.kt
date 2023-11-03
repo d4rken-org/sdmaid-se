@@ -24,21 +24,27 @@ class DuplicateTypeCheckTest : BaseTest() {
 
     @Test
     fun `check mode - prefer checksum`() = runTest {
-        listOf(dupeChecksum, dupePhash).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM))
+        create().favorite(
+            listOf(dupeChecksum, dupePhash),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM),
         ) shouldBe listOf(dupeChecksum, dupePhash)
-        listOf(dupePhash, dupeChecksum).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM))
+
+        create().favorite(
+            listOf(dupePhash, dupeChecksum),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM),
         ) shouldBe listOf(dupeChecksum, dupePhash)
     }
 
     @Test
     fun `check mode - prefer phash`() = runTest {
-        listOf(dupeChecksum, dupePhash).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH))
+        create().favorite(
+            listOf(dupeChecksum, dupePhash),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH),
         ) shouldBe listOf(dupePhash, dupeChecksum)
-        listOf(dupePhash, dupeChecksum).sortedWith(
-            create().checkDuplicate(ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH))
+
+        create().favorite(
+            listOf(dupePhash, dupeChecksum),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH),
         ) shouldBe listOf(dupePhash, dupeChecksum)
     }
 }

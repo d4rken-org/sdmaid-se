@@ -9,18 +9,20 @@ import javax.inject.Inject
 @Reusable
 class DuplicateTypeCheck @Inject constructor() : ArbiterCheck {
 
-    suspend fun checkGroup(
-        criterium: ArbiterCriterium.DuplicateType
-    ): Comparator<Duplicate.Group> = when (criterium.mode) {
-        ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM -> compareBy { it.type.toPriority() }
-        ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH -> compareByDescending { it.type.toPriority() }
+    suspend fun favorite(
+        before: List<Duplicate>,
+        criterium: ArbiterCriterium.DuplicateType,
+    ): List<Duplicate> = when (criterium.mode) {
+        ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM -> before.sortedBy { it.type.toPriority() }
+        ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH -> before.sortedByDescending { it.type.toPriority() }
     }
 
-    suspend fun checkDuplicate(
+    suspend fun favoriteGroups(
+        before: List<Duplicate.Group>,
         criterium: ArbiterCriterium.DuplicateType
-    ): Comparator<Duplicate> = when (criterium.mode) {
-        ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM -> compareBy { it.type.toPriority() }
-        ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH -> compareByDescending { it.type.toPriority() }
+    ): List<Duplicate.Group> = when (criterium.mode) {
+        ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM -> before.sortedBy { it.type.toPriority() }
+        ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH -> before.sortedByDescending { it.type.toPriority() }
     }
 
     // Smaller number is better

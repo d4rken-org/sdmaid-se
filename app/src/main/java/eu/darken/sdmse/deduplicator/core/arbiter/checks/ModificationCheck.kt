@@ -8,8 +8,11 @@ import javax.inject.Inject
 
 @Reusable
 class ModificationCheck @Inject constructor() : ArbiterCheck {
-    suspend fun checkDuplicate(criterium: ArbiterCriterium.Modified): Comparator<Duplicate> = when (criterium.mode) {
-        ArbiterCriterium.Modified.Mode.PREFER_OLDER -> compareBy { it.modifiedAt }
-        ArbiterCriterium.Modified.Mode.PREFER_NEWER -> compareByDescending { it.modifiedAt }
+    suspend fun favorite(
+        before: List<Duplicate>,
+        criterium: ArbiterCriterium.Modified
+    ): List<Duplicate> = when (criterium.mode) {
+        ArbiterCriterium.Modified.Mode.PREFER_OLDER -> before.sortedBy { it.modifiedAt }
+        ArbiterCriterium.Modified.Mode.PREFER_NEWER -> before.sortedByDescending { it.modifiedAt }
     }
 }
