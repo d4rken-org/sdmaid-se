@@ -2,6 +2,11 @@ package eu.darken.sdmse.deduplicator.core.arbiter.checks
 
 import dagger.Reusable
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCheck
@@ -14,7 +19,16 @@ class LocationCheck @Inject constructor(
 ) : ArbiterCheck {
 
     suspend fun favorite(before: List<Duplicate>, criterium: ArbiterCriterium.Location): List<Duplicate> {
-        val withAreaInfo = before.map { it to forensics.identifyArea(it.path) }
+        val withAreaInfo = before.map { dupe ->
+            val areaInfo = forensics.identifyArea(dupe.path)
+            if (areaInfo != null) {
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "${areaInfo.dataArea.type} - ${dupe.path}" }
+            } else {
+                log(TAG, WARN) { "Failed to determine area for $dupe" }
+
+            }
+            dupe to areaInfo
+        }
 
         val sorted = when (criterium.mode) {
             ArbiterCriterium.Location.Mode.PREFER_PRIMARY -> withAreaInfo.sortedByDescending {
@@ -27,5 +41,9 @@ class LocationCheck @Inject constructor(
         }
 
         return sorted.map { it.first }
+    }
+
+    companion object {
+        private val TAG = logTag("Deduplicator", "Arbiter", "LocationCheck")
     }
 }

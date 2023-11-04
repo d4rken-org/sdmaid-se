@@ -15,7 +15,7 @@ class MediaProviderCheck @Inject constructor(
         before: List<Duplicate>,
         criterium: ArbiterCriterium.MediaProvider,
     ): List<Duplicate> {
-        val withIndexInfo = before.map { it to mediaStoreTool.has(it.path) }
+        val withIndexInfo = before.map { it to mediaStoreTool.isIndexed(it.path) }
 
         val sorted = when (criterium.mode) {
             ArbiterCriterium.MediaProvider.Mode.PREFER_INDEXED -> withIndexInfo.sortedByDescending {

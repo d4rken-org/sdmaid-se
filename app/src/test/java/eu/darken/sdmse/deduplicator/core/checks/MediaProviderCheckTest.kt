@@ -26,8 +26,8 @@ class MediaProviderCheckTest : BaseTest() {
     }
 
     private val mediaStoreTool = mockk<MediaStoreTool>().apply {
-        coEvery { has(pathIndexed) } returns true
-        coEvery { has(pathUnknown) } returns false
+        coEvery { isIndexed(pathIndexed) } returns true
+        coEvery { isIndexed(pathUnknown) } returns false
     }
 
     private fun create() = MediaProviderCheck(
