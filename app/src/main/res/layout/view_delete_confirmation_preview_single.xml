@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/preview_image"
-        android:layout_width="192dp"
-        android:layout_height="192dp"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
         android:layout_gravity="center"
+        android:layout_margin="16dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/splash_mascot" />
+        app:shapeAppearanceOverlay="@style/PreviewRoundedBox.Large"
+        tools:src="@color/green" />
 
     <ImageView
         android:id="@+id/delete_all_icon"
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:textStyle="bold"
         android:layout_marginEnd="32dp"
         android:checked="false"
         android:text="@string/deduplicator_delete_all_toggle_msg"

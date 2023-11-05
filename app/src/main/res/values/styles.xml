@@ -169,4 +169,21 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="PreviewRoundedBox">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Small">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Large">
+        <item name="cornerSize">32dp</item>
+    </style>
+
 </resources>

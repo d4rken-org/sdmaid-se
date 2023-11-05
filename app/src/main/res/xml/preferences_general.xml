@@ -29,7 +29,7 @@
             app:summary="@string/ui_theme_style_setting_explanation" />
 
         <CheckBoxPreference
-            app:icon="@drawable/image_multiple"
+            app:icon="@drawable/ic_image_multiple_24"
             app:key="core.ui.previews.enabled"
             app:singleLineTitle="false"
             app:summary="@string/ui_previews_summary"

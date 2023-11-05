@@ -116,9 +116,10 @@ class PreviewDeletionDialog(private val context: Context) {
             }
 
             binding.apply {
+                val spanCount = 5
                 list.layoutManager = GridLayoutManager(
                     context,
-                    5,
+                    spanCount,
                     GridLayoutManager.VERTICAL,
                     false
                 )
