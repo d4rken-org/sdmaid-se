@@ -2,6 +2,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -10,6 +11,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -29,6 +32,7 @@ class ClusterViewModel @Inject constructor(
     private val deduplicator: Deduplicator,
     private val settings: DeduplicatorSettings,
     private val taskManager: TaskManager,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = ClusterFragmentArgs.fromSavedStateHandle(handle)
@@ -103,8 +107,14 @@ class ClusterViewModel @Inject constructor(
         deleteAll: Boolean = false,
     ) = launch {
         log(TAG, INFO) { "delete(items=$items)" }
+
         if (!confirmed) {
             events.postValue(ClusterEvents.ConfirmDeletion(items, allowDeleteAll = settings.allowDeleteAll.value()))
+            return@launch
+        }
+
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
 
