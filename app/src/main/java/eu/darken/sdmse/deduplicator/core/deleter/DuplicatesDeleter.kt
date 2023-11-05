@@ -104,11 +104,14 @@ class DuplicatesDeleter @Inject constructor(
             .filter { group -> targets.contains(group.identifier) }
             .map { group ->
                 log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier}" }
+                if (deleteAll) {
+                    targetDuplicates(group.duplicates.map { it.identifier }.toSet())
+                } else {
+                    val (favorite, rest) = arbiter.decideDuplicates(group.duplicates)
+                    log(TAG, VERBOSE) { "__targetGroups(): Our favorite is $favorite" }
 
-                val (favorite, rest) = arbiter.decideDuplicates(group.duplicates)
-                log(TAG, VERBOSE) { "__targetGroups(): Our favorite is $favorite" }
-
-                targetDuplicates(rest.map { it.identifier }.toSet())
+                    targetDuplicates(rest.map { it.identifier }.toSet())
+                }
             }
             .flatten()
     }
