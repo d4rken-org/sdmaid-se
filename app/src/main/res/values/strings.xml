@@ -396,6 +396,8 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
+    <string name="deduplicator_skip_uncommon_title">Skip uncommon file types</string>
+    <string name="deduplicator_skip_uncommon_description">Only include common media files, documents and archives.</string>
     <string name="deduplicator_detection_method_label">Detection method</string>
     <string name="deduplicator_detection_method_checksum_title">Content checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Calculate checksums for files to determine duplicates. Files with matching checksums have the exact same content.</string>

@@ -34,6 +34,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.scanner.CommonFilesCheck
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
@@ -58,6 +59,7 @@ class ChecksumSleuth @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val settings: DeduplicatorSettings,
+    private val commonFilesCheck: CommonFilesCheck,
 ) : Sleuth {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
@@ -103,6 +105,7 @@ class ChecksumSleuth @Inject constructor(
         log(TAG) { "Global skip segments: $globalSkips" }
 
         val minSize = settings.minSizeBytes.value()
+        val skipUncommon = settings.skipUncommon.value()
 
         val suspects = mutableSetOf<APathLookup<*>>()
 
@@ -131,7 +134,9 @@ class ChecksumSleuth @Inject constructor(
                     area.path.walk(gatewaySwitch, filter)
                 }
                 .buffer(1024)
-                .filter { it.isFile && it.size >= minSize }
+                .filter {
+                    it.isFile && it.size >= minSize && (!skipUncommon || commonFilesCheck.isCommon(it))
+                }
                 .collect { item -> suspects.add(item) }
         }
 

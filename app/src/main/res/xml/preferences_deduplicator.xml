@@ -16,6 +16,13 @@
         app:summary="@string/deduplicator_skip_minsize_description"
         app:title="@string/deduplicator_skip_minsize_title" />
 
+    <CheckBoxPreference
+        app:icon="@drawable/ic_multimedia_24"
+        app:key="skip.files.uncommon"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_skip_uncommon_description"
+        app:title="@string/deduplicator_skip_uncommon_title" />
+
     <PreferenceCategory android:title="@string/deduplicator_detection_method_label">
         <CheckBoxPreference
             app:icon="@drawable/ic_code_equal_box_24"
@@ -26,6 +33,7 @@
         <CheckBoxPreference
             android:enabled="false"
             app:icon="@drawable/ic_approximately_equal_box_24"
+            app:isPreferenceVisible="false"
             app:key="sleuth.phash.enabled"
             app:singleLineTitle="false"
             app:summary="@string/deduplicator_detection_method_phash_summary"
