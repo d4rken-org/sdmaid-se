@@ -102,6 +102,10 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                 isChecked = exclusion.tags.contains(Exclusion.Tag.APPCLEANER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.APPCLEANER) }
             }
+            ui.toolsDeduplicator.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.DEDUPLICATOR)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.DEDUPLICATOR) }
+            }
         }
 
         vm.events.observe2 {

@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
+import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -173,6 +174,13 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
+
+                is DashboardEvents.DeduplicatorDeleteConfirmation -> PreviewDeletionDialog(requireContext()).show(
+                    mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList()),
+                    onPositive = { vm.confirmDeduplicatorDeletion() },
+                    onNegative = { },
+                    onNeutral = { vm.showDeduplicatorDetails() },
+                )
 
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar

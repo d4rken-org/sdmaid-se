@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.uix
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
@@ -21,6 +22,9 @@ abstract class FragmentStatePagerAdapter4<T> @JvmOverloads constructor(
     private var currentTransaction: FragmentTransaction? = null
     private var savedStateArray = SparseArrayCompat<Fragment.SavedState?>()
     private var fragmentArray = SparseArrayCompat<Fragment>()
+
+    val context: Context
+        get() = activity
 
     var currentFragment: Fragment? = null
         private set

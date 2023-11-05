@@ -21,7 +21,7 @@
 
     <PreferenceCategory android:title="@string/settings_category_risklevel">
         <CheckBoxPreference
-            app:icon="@drawable/image_multiple"
+            app:icon="@drawable/ic_image_multiple_24"
             app:key="risk.include.keeper"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_settings_risk_keeper_summary"

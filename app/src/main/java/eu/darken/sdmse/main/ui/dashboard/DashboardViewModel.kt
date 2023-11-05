@@ -41,6 +41,10 @@ import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
+import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
@@ -73,6 +77,7 @@ class DashboardViewModel @Inject constructor(
     appControl: AppControl,
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
+    private val deduplicator: Deduplicator,
     private val upgradeRepo: UpgradeRepo,
     generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
@@ -197,6 +202,29 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
+    private val deduplicatorItem: Flow<DeduplicatorDashCardVH.Item?> = deduplicator.state.map { state ->
+        DeduplicatorDashCardVH.Item(
+            data = state.data,
+            progress = state.progress,
+            onScan = {
+                launch { submitTask(DeduplicatorScanTask()) }
+            },
+            onDelete = {
+                launch {
+                    val event = DashboardEvents.DeduplicatorDeleteConfirmation(
+                        task = DeduplicatorDeleteTask(),
+                        clusters = deduplicator.state.first().data?.clusters?.sortedByDescending { it.averageSize }
+                    )
+                    events.postValue(event)
+                }
+            },
+            onCancel = {
+                launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
+            },
+            onViewDetails = { showDeduplicatorDetails() }
+        )
+    }
+
     private val appControlItem: Flow<AppControlDashCardVH.Item?> = appControl.state.mapLatest { state ->
         AppControlDashCardVH.Item(
             data = state.data,
@@ -279,6 +307,7 @@ class DashboardViewModel @Inject constructor(
         corpseFinderItem,
         systemCleanerItem,
         appCleanerItem,
+        deduplicatorItem,
         appControlItem,
         analyzerItem,
         schedulerItem,
@@ -294,6 +323,7 @@ class DashboardViewModel @Inject constructor(
         corpseFinderItem: CorpseFinderDashCardVH.Item?,
         systemCleanerItem: SystemCleanerDashCardVH.Item?,
         appCleanerItem: AppCleanerDashCardVH.Item?,
+        deduplicatorItem: DeduplicatorDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
@@ -323,6 +353,7 @@ class DashboardViewModel @Inject constructor(
         corpseFinderItem?.let { items.add(it) }
         systemCleanerItem?.let { items.add(it) }
         appCleanerItem?.let { items.add(it) }
+        deduplicatorItem?.let { items.add(it) }
         appControlItem?.let { items.add(it) }
         analyzerItem?.let { items.add(it) }
 
@@ -480,6 +511,21 @@ class DashboardViewModel @Inject constructor(
                 }
             }
         }
+        launch {
+            when (actionState) {
+                BottomBarState.Action.SCAN -> submitTask(DeduplicatorScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null) {
+                    submitTask(DeduplicatorDeleteTask())
+                }
+
+                BottomBarState.Action.ONECLICK -> {
+                    submitTask(DeduplicatorScanTask())
+                    submitTask(DeduplicatorDeleteTask())
+                }
+            }
+        }
     }
 
     fun confirmCorpseDeletion() = launch {
@@ -515,6 +561,21 @@ class DashboardViewModel @Inject constructor(
     fun showAppCleanerDetails() {
         log(TAG, INFO) { "showAppCleanerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToAppCleanerListFragment().navigate()
+    }
+
+    fun showDeduplicatorDetails() {
+        log(TAG, INFO) { "showDeduplicatorDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorListFragment().navigate()
+    }
+
+    fun confirmDeduplicatorDeletion() = launch {
+        log(TAG, INFO) { "confirmDeduplicatorDeletion()" }
+
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+        submitTask(DeduplicatorDeleteTask())
     }
 
     fun undoSetupHide() = launch {

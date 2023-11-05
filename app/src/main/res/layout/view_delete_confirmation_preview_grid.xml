@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="5"
+        tools:listitem="@layout/view_delete_confirmation_preview_grid_item" />
+
+    <ImageView
+        android:id="@+id/delete_all_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_baseline_warning_24"
+        app:layout_constraintBottom_toBottomOf="@id/delete_all_toggle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/delete_all_toggle" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/delete_all_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:checked="false"
+        android:text="@string/deduplicator_delete_all_toggle_msg"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/delete_all_icon"
+        app:layout_constraintTop_toBottomOf="@id/list"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

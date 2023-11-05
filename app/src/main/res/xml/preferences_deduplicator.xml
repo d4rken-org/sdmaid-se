@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        app:icon="@drawable/ic_numeric_0_box_24"
+        app:key="protection.deleteall.allowed"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_protection_deleteall_allowed_summary"
+        app:title="@string/deduplicator_protection_deleteall_allowed_title" />
+
+    <Preference
+        app:icon="@drawable/ic_file_chart_outline_24"
+        app:key="skip.minsize.bytes"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_skip_minsize_description"
+        app:title="@string/deduplicator_skip_minsize_title" />
+
+    <CheckBoxPreference
+        app:icon="@drawable/ic_multimedia_24"
+        app:key="skip.files.uncommon"
+        app:singleLineTitle="false"
+        app:summary="@string/deduplicator_skip_uncommon_description"
+        app:title="@string/deduplicator_skip_uncommon_title" />
+
+    <PreferenceCategory android:title="@string/deduplicator_detection_method_label">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_code_equal_box_24"
+            app:key="sleuth.checksum.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/deduplicator_detection_method_checksum_summary"
+            app:title="@string/deduplicator_detection_method_checksum_title" />
+        <CheckBoxPreference
+            android:enabled="false"
+            app:icon="@drawable/ic_approximately_equal_box_24"
+            app:isPreferenceVisible="false"
+            app:key="sleuth.phash.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/deduplicator_detection_method_phash_summary"
+            app:title="@string/deduplicator_detection_method_phash_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

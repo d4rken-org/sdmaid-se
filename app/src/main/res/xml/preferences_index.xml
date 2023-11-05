@@ -32,6 +32,11 @@
             app:fragment="eu.darken.sdmse.appcleaner.ui.settings.AppCleanerSettingsFragment"
             app:summary="@string/appcleaner_explanation_short"
             app:title="@string/appcleaner_tool_name" />
+        <Preference
+            android:icon="@drawable/ic_content_duplicate_24"
+            app:fragment="eu.darken.sdmse.deduplicator.ui.settings.DeduplicatorSettingsFragment"
+            app:summary="@string/deduplicator_explanation_short"
+            app:title="@string/deduplicator_tool_name" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/general_device_label">
@@ -58,8 +63,8 @@
         <Preference
             android:icon="@drawable/ic_baseline_stars_24"
             android:key="core.sponsor.development"
-            app:singleLineTitle="false"
             app:isPreferenceVisible="false"
+            app:singleLineTitle="false"
             app:summary="@string/settings_sponsor_development_summary"
             app:title="@string/settings_sponsor_development_title"
             tools:isPreferenceVisible="true" />

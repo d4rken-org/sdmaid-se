@@ -133,6 +133,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/appcleaner_tool_name" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_deduplicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/deduplicator_tool_name" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
@@ -47,6 +48,7 @@ class DashboardAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is CorpseFinderDashCardVH.Item }) { CorpseFinderDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SystemCleanerDashCardVH.Item }) { SystemCleanerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppCleanerDashCardVH.Item }) { AppCleanerDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is DeduplicatorDashCardVH.Item }) { DeduplicatorDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })

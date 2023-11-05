@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_deviceStorageFragment"
             app:destination="@id/deviceStorageFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_deduplicatorListFragment"
+            app:destination="@id/deduplicatorListFragment" />
     </fragment>
 
     <action
@@ -93,9 +96,9 @@
         tools:layout="@layout/setup_fragment">
         <argument
             android:name="options"
+            android:defaultValue="@null"
             app:argType="eu.darken.sdmse.setup.SetupScreenOptions"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <action
             android:id="@+id/action_setupFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
@@ -419,5 +422,29 @@
             android:defaultValue="@null"
             app:argType="string"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/deduplicatorListFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment"
+        tools:layout="@layout/deduplicator_list_fragment">
+        <action
+            android:id="@+id/action_deduplicatorListFragment_to_deduplicatorDetailsFragment"
+            app:destination="@id/deduplicatorDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deduplicatorDetailsFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment"
+        tools:layout="@layout/deduplicator_details_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
+    </fragment>
+    <fragment
+        android:id="@+id/clusterFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment"
+        tools:layout="@layout/deduplicator_cluster_fragment">
+        <argument
+            android:name="identifier"
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
 </navigation>

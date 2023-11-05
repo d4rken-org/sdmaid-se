@@ -18,7 +18,8 @@ sealed interface Exclusion {
         @Json(name = "GENERAL") GENERAL,
         @Json(name = "CORPSEFINDER") CORPSEFINDER,
         @Json(name = "SYSTEMCLEANER") SYSTEMCLEANER,
-        @Json(name = "APPCLEANER") APPCLEANER
+        @Json(name = "APPCLEANER") APPCLEANER,
+        @Json(name = "DEDUPLICATOR") DEDUPLICATOR,
     }
 
     interface Pkg : Exclusion {
