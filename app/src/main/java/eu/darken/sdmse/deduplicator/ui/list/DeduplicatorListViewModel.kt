@@ -86,7 +86,7 @@ class DeduplicatorListViewModel @Inject constructor(
         log(TAG, INFO) { "exclude(): ${items.size}" }
         val targets = items.map { it.cluster.identifier }.toSet()
         deduplicator.exclude(targets)
-        events.postValue(DeduplicatorListEvents.ExclusionsCreated(items.size))
+        events.postValue(DeduplicatorListEvents.ExclusionsCreated(items.sumOf { it.cluster.count }))
     }
 
     fun showDetails(item: DeduplicatorListAdapter.Item) = launch {
