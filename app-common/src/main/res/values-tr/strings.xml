@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Gerekeni yapmak.</string>
     <string name="slogan_message_4">Tüm işleriniz hazır ve organize.</string>
     <string name="slogan_message_5">Tertemiz.</string>
+    <string name="slogan_message_6">Bitler, defolun!</string>
+    <string name="slogan_message_7">Boş alan, mutlu yer.</string>
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_error_type_mismatch_msg">Biçim eşleşmiyor: İstenen %1$s fakat bulunan %2$s.</string>
     <string name="general_error_cant_access_msg">%s\'ye erişilemiyor.</string>
@@ -56,10 +58,13 @@
     <string name="general_progress_loading_egg_5">Turbo kapsülleyici başlatılıyor</string>
     <string name="general_progress_loading_egg_6">Tereyağını uzatıyorum</string>
     <string name="general_progress_loading_egg_7">Nasıl oldun daha iyi misin?</string>
+    <string name="general_progress_loading_egg_8">Biip boop bop</string>
+    <string name="general_progress_loading_egg_9">Yaşam seçimleri yükleniyor</string>
+    <string name="general_progress_loading_egg_10">Cthulhu\'yu çağırıyorum</string>
+    <string name="general_progress_loading_egg_11">Her şey yolunda</string>
     <string name="general_help_action">Yardım</string>
     <string name="general_continue">Devam et</string>
     <string name="general_progress_queued">Sırada</string>
-    <string name="general_progress_deleting_x">%s siliniyor</string>
     <string name="general_sort_options_label">Sıralama seçenekleri</string>
     <string name="general_sort_reverse_action">Ters sıralama modu</string>
     <string name="general_tag_filter_label">Etiketlere göre filtrele</string>

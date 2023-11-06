@@ -54,7 +54,6 @@
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En espera</string>
-    <string name="general_progress_deleting_x">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar opciones</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>
     <string name="general_result_success_message">Operación exitosa</string>

@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Haciendo lo que es necesario.</string>
     <string name="slogan_message_4">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
+    <string name="slogan_message_6">Bytes, ¡desaparece!</string>
+    <string name="slogan_message_7">Espacio libre, sitio feliz.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Discordancia de tipo: Se quiso %1$s, pero se obtuvo %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
@@ -56,10 +58,13 @@
     <string name="general_progress_loading_egg_5">El turbo encabulator se está iniciando</string>
     <string name="general_progress_loading_egg_6">Pasando la manteca</string>
     <string name="general_progress_loading_egg_7">Así que ¿cómo se está manteniendo?</string>
+    <string name="general_progress_loading_egg_8">Pitido boop bop</string>
+    <string name="general_progress_loading_egg_9">Búfer de opciones de vida</string>
+    <string name="general_progress_loading_egg_10">Invocando a Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Esto está bien</string>
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En cola</string>
-    <string name="general_progress_deleting_x">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar las opciones</string>
     <string name="general_sort_reverse_action">Modo de clasificación inversa</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>

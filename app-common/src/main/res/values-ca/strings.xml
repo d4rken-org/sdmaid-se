@@ -65,7 +65,6 @@
     <string name="general_help_action">Ajuda</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">A la cua</string>
-    <string name="general_progress_deleting_x">Suprimint %s</string>
     <string name="general_sort_options_label">Opcions d\'ordenació</string>
     <string name="general_sort_reverse_action">Mode d\'ordenació inversa</string>
     <string name="general_tag_filter_label">Filtra per etiquetes</string>

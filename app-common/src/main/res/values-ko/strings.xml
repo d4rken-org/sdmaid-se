@@ -7,8 +7,10 @@
     <string name="slogan_message_3">필요한 일들을 합니다.</string>
     <string name="slogan_message_4">깨끗함을 유지합니다.</string>
     <string name="slogan_message_5">티끌 하나 없도록.</string>
+    <string name="slogan_message_6">Bytes, 사라져라!</string>
+    <string name="slogan_message_7">자유로운 공간, 행복한 장소.</string>
     <string name="general_thank_you_label">감사합니다</string>
-    <string name="general_error_type_mismatch_msg">형식 오류: %1$s 를 예상했으나, %2$s 를 받음.</string>
+    <string name="general_error_type_mismatch_msg">형식 오류: %1$s 을(를) 예상했으나, %2$s 을(를) 받음.</string>
     <string name="general_error_cant_access_msg">%s 를 접근할 수 없습니다.</string>
     <string name="general_error_root_unavailable">루트 권한이 없습니다.</string>
     <string name="general_error_empty_result_msg">결과가 비어 있습니다.</string>
@@ -56,10 +58,13 @@
     <string name="general_progress_loading_egg_5">(개발자가 쓴 재밌는 영어 장난)</string>
     <string name="general_progress_loading_egg_6">버터를 옮기는 중</string>
     <string name="general_progress_loading_egg_7">흠. 아직도 계신가요?</string>
+    <string name="general_progress_loading_egg_8">삐삐 삐삐</string>
+    <string name="general_progress_loading_egg_9">인생의 선택에 대한 버퍼링</string>
+    <string name="general_progress_loading_egg_10">크툴루 소환</string>
+    <string name="general_progress_loading_egg_11">괜찮아요</string>
     <string name="general_help_action">도움</string>
     <string name="general_continue">계속하기</string>
     <string name="general_progress_queued">대기 중</string>
-    <string name="general_progress_deleting_x">%s 삭제중</string>
     <string name="general_sort_options_label">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
     <string name="general_tag_filter_label">태그별로 필터</string>

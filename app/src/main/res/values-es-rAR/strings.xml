@@ -509,5 +509,8 @@
     <string name="translation_encourage_body">SD Maid está traducida por voluntarios. Traducción, review o corrección de pruebas, ¡tu ayuda es apreciada!</string>
     <string name="translation_translators_title">Esta versión está traducida por</string>
     <string name="translation_translators_people">Benjamín R.(benjaluth09@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Mensajes importantes</string>
     <string name="motd_setting_enabled_explanation">Permite a SD Maid para verificar si hay mensajes importantes del desarrollador.</string>
+    <string name="updatecheck_setting_enabled_label">Comprobación de actualización</string>
+    <string name="updatecheck_setting_enabled_explanation">Permite a SD Maid buscar actualizaciones y avisarte si hay una nueva versión disponible.</string>
 </resources>

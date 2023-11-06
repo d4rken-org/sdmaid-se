@@ -6,6 +6,8 @@
     <string name="upgrades_dashcard_title">Αναβάθμιση SD Maid</string>
     <string name="upgrades_dashcard_body">Το SD Maid Pro προσφέρει καλύτερα αποτελέσματα, περισσότερες δυνατότητες, και επιλογές για τους εξειδικευμένους χρήστες.</string>
     <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
+    <string name="upgrades_gplay_unavailable_error_title">Το Google Play δεν είναι διαθέσιμο</string>
+    <string name="upgrades_gplay_unavailable_error_description">Η εφαρμογή SD Maid δεν μπορεί να συνδεθεί με το Google Play. Είναι εγκατεστημένο και ενημερωμένο το Google Play; Είναι συνδεδεμένος ο λογαριασμός σας Google; Δοκιμάστε να καθαρίσετε την προσωρινή μνήμη cache της εφαρμογής Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
     <string name="upgrades_no_purchases_found_check_account">Δε βρέθηκαν αγορές. Χρησιμοποιείτε το σωστό λογαριασμό;</string>
     <string name="upgrade_screen_title">Απόκτησε το SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid δεν έχει διαφημίσεις και δεν πωλεί τα δεδομένα των χρηστών. Η εργασία μου χρηματοδοτείται από εσάς ❤️.</string>

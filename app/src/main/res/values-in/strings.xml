@@ -499,4 +499,5 @@
     <string name="motd_setting_enabled_label">Pesan penting</string>
     <string name="motd_setting_enabled_explanation">Izinkan SD Maid memeriksa pesan penting dari pengembang.</string>
     <string name="updatecheck_setting_enabled_label">Pemeriksaan pembaruan</string>
+    <string name="updatecheck_setting_enabled_explanation">Izinkan SD Maid memeriksa pembaruan untuk memberi tahu Anda jika ada versi baru yang tersedia.</string>
 </resources>
