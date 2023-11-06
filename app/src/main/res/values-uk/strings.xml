@@ -23,10 +23,10 @@
         <item quantity="other">Активні завдання: %d</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d завдання в черзі</item>
+        <item quantity="one">Завдань в черзі: %d</item>
         <item quantity="few">Завдань в черзі: %d</item>
         <item quantity="many">Завдань в черзі: %d</item>
-        <item quantity="other">%d завдань у черзі</item>
+        <item quantity="other">Завдань в черзі: %d</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Результати виконання завдання</string>
     <string name="tasks_result_subtext">Результат завдання</string>

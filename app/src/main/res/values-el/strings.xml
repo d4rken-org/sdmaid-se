@@ -15,7 +15,7 @@
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύστε.</string>
     <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. ένας προγραμματιστής που αντιμετωπίζει προβλήματα σε ένα ζήτημα).</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές εργασίες</string>
-    <string name="tasks_activity_working_notification_title">Το SD Maid λειτουργεί</string>
+    <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d ενεργή εργασία</item>
         <item quantity="other">%d ενεργές εργασίες</item>
@@ -125,7 +125,7 @@
     <string name="setup_acs_card_body2">Το SD Maid δε θα χρησιμοποιεί την υπηρεσία προσβασιμότητας χωρίς τη συγκατάθεσή σας, θα εμφανίζει πάντα μια εμφανή (ακυρώσιμη) ένδειξη ενώ είναι ενεργή και δε θα τη χρησιμοποιεί για τη συλλογή πληροφοριών.</string>
     <string name="setup_acs_state_enabled">Η υπηρεσία προσβασιμότητας είναι ενεργοποιημένη</string>
     <string name="setup_acs_state_disabled">Η υπηρεσία προσβασιμότητας είναι απενεργοποιημένη</string>
-    <string name="setup_acs_state_running">Η υπηρεσία προσβασιμότητας είναι ενεργές</string>
+    <string name="setup_acs_state_running">Η υπηρεσία προσβασιμότητας εκτελείται</string>
     <string name="setup_acs_state_ondemand">Η υπηρεσία θα ξεκινήσει κατόπιν αιτήματος</string>
     <string name="setup_acs_state_stopped">Η υπηρεσία προσβασιμότητας είναι σταματημένη</string>
     <string name="setup_acs_state_stopped_hint">Η υπηρεσία είναι ενεργοποιημένη, αλλά δεν εκτελείται. Απενεργοποιήστε / ενεργοποιήστε ή επανεκκινήστε τη συσκευή σας. Ελέγξτε ότι το SD Maid δε \"βελτιστοποιείται\" από το σύστημα.</string>
@@ -174,7 +174,7 @@
     <string name="corpsefinder_filter_publicdata_summary">Μην ευαίσθητα δεδομένα εφαρμογών, π.χ. κρυφές μνήμες χαρτών.</string>
     <string name="corpsefinder_filter_sdcard_label">Κάρτα SD</string>
     <string name="corpsefinder_filter_sdcard_summary">Γενικός δημόσιος αποθηκευτικός χώρος, εσωτερικός και εξωτερικός (π.χ. κάρτες SD).</string>
-    <string name="corpsefinder_filter_privatedata_label">Δεδομένα ιδιωτικής εφαρμογής</string>
+    <string name="corpsefinder_filter_privatedata_label">Ιδιωτικά δεδομένα εφαρμογών</string>
     <string name="corpsefinder_filter_privatedata_summary">Δεδομένα ιδιωτικών εφαρμογών, π.χ. διαπιστευτήρια, ρυθμίσεις εφαρμογών αλλά και κρυφές μνήμες προγράμματος περιήγησης.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Αποθηκευμένα δεδομένα εκτέλεσης εφαρμογών.</string>
@@ -242,7 +242,7 @@
     <string name="systemcleaner_filter_recenttasks_label">Πρόσφατες εργασίες</string>
     <string name="systemcleaner_filter_recenttasks_summary">Δεδομένα που σχετίζονται με το ιστορικό εργασιών στον διακόπτη εργασιών του συστήματος.</string>
     <string name="systemcleaner_filter_tombstones_label">Υπολείμματα συντριβής συστήματος</string>
-    <string name="systemcleaner_filter_tombstones_summary">Εάν συντριβούν εγγενείς διαδικασίες (π.χ. παιχνίδια), τότε δημιουργούνται αρχεία εδώ.</string>
+    <string name="systemcleaner_filter_tombstones_summary">Εάν καταρρεύσουν εγγενείς διεργασίες (π.χ. παιχνίδια), τότε δημιουργούνται αρχεία εδώ.</string>
     <string name="systemcleaner_filter_usagestats_label">Στατιστικά χρήσης</string>
     <string name="systemcleaner_filter_usagestats_summary">Αρχεία που σχετίζονται με στατιστικά χρήσης εφαρμογών.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Διαγραφή όλον των περιεχόμενων του φίλτρου;</string>
@@ -255,12 +255,12 @@
     <string name="systemcleaner_customfilter_editor_warning">Τα προσαρμοσμένα φίλτρα μπορεί να είναι επικίνδυνα. Ελέγξτε τα αποτελέσματα σάρωσης πριν διαγράψετε!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Περιοχές δεδομένων</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Εάν δεν έχει επιλεγεί περιοχή, τότε όλες οι προσβάσιμες περιοχές δεδομένων θα σαρωθούν και θα αντιστοιχιστούν.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Περιορισμοί τύπου αρχείου</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Περιορισμοί τύπων αρχείων</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Αρχεία</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Κατάλογοι</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Εάν δεν έχει επιλεγεί τύπος, τότε όλοι οι τύποι θα ταιριάζουν.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Κριτήρια διαδρομής</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Η διαδρομή στόχου πρέπει να ταιριάζει με τουλάχιστον μία καταχώρηση (π.χ. \"Downloads/oldapks/game -\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Η διαδρομή προορισμού πρέπει να ταιριάζει με τουλάχιστον μία καταχώρηση (π.χ. \"Downloads/oldapks/game-\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Κριτήρια ονόματος</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">Το όνομα προορισμού πρέπει να περιέχει τουλάχιστον μία από τις λέξεις-κλειδιά (π.χ. \"- απόδειξη\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Εξαιρέσεις</string>
@@ -289,15 +289,15 @@
     <string name="appcleaner_include_systemapps_summary">Συμπερίληψη εφαρμογών συστήματος στη σάρωση.</string>
     <string name="appcleaner_include_runningapps_label">Συμπερίληψη εκτελούμενων εφαρμογών</string>
     <string name="appcleaner_include_runningapps_summary">Συμπεριλάβετε εφαρμογές που εκτελούνται αυτήν τη στιγμή και ενδέχεται να προκαλέσουν παρεμβολές.</string>
-    <string name="appcleaner_include_inaccessible_label">Συμπεριλάβετε απρόσιτες κρυφές μνήμες</string>
+    <string name="appcleaner_include_inaccessible_label">Συμπερίληψη μη προσβάσιμων κρυφών μνημών</string>
     <string name="appcleaner_include_inaccessible_summary">Συμπεριλάβετε δεδομένα που δεν είναι άμεσα προσβάσιμα αλλά μπορούν να διαγραφούν μέσω ρυθμίσεων συστήματος και να αυτοματοποιηθούν χρησιμοποιώντας μια υπηρεσία προσβασιμότητας. </string>
-    <string name="appcleaner_include_multiuser_label">Συμπεριλάβετε άλλους χρήστες</string>
-    <string name="appcleaner_include_multiuser_summary">Συμπεριλάβετε εφαρμογές από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="appcleaner_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
+    <string name="appcleaner_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
     <string name="appcleaner_include_minimumsize_label">Ελάχιστο μέγεθος</string>
-    <string name="appcleaner_include_minimumsize_summary">Παράλειψη εφαρμογών όπου το άθροισμα των αναλώσιμων δεδομένων είναι κάτω από το ελάχιστο.</string>
+    <string name="appcleaner_include_minimumsize_summary">Παράλειψη εφαρμογών όπου το άθροισμα των αναλώσιμων δεδομένων είναι κάτω από το ελάχιστο όριο.</string>
     <string name="appcleaner_include_minimumage_label">Ελάχιστη ηλικία</string>
     <string name="appcleaner_include_minimumage_summary">Παράλειψη αρχείων που είναι μικρότερα από την ελάχιστη ηλικία.</string>
-    <string name="appcleaner_automation_romtype_detection_label">Ανίχνευση λειτουργικού συστήματος</string>
+    <string name="appcleaner_automation_romtype_detection_label">Εντοπισμός λειτουργικού συστήματος</string>
     <string name="appcleaner_automation_romtype_detection_summary">Ο αυτοματισμός με βάση την προσβασιμότητα μπορεί να αποτύχει αν το SD Maid δεν ανιχνεύσει σωστά το λειτουργικό σας σύστημα. Χρησιμοποιήστε αυτήν τη ρύθμιση για να παρακάμψετε το λειτουργικό σύστημα που εντοπίστηκε.</string>
     <string name="appcleaner_automation_romtype_auto_label">Αυτόματη (προεπιλογή)</string>
     <string name="appcleaner_filter_codecache_label">Cache κώδικα</string>
@@ -334,13 +334,13 @@
     <string name="appcleaner_filter_wechat_summary">Απεστελμένα ή ληφθέντα αρχεία σε συνομιλίες και WeChat στιγμές.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Αποθηκευμένα αρχεία πολυμέσων που λαμβάνονται ξανά όταν προβάλλονται στη συνομιλία.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Διαγραφή αναλώσιμων αντικειμένων για όλες τις εφαρμογές;</string>
+    <string name="appcleaner_delete_all_confirmation_message">Διαγραφή αναλώσιμων στοιχείων για όλες τις εφαρμογές;</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">Βρέθηκε %d εξερχόμενο στοιχείο</item>
-        <item quantity="other">Βρέθηκαν %d εξερχόμενα στοιχεία</item>
+        <item quantity="one">Βρέθηκε %d αναλώσιμο στοιχείο</item>
+        <item quantity="other">Βρέθηκαν %d αναλώσιμα στοιχεία</item>
     </plurals>
     <string name="appcleaner_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
-    <string name="appcleaner_automation_title">Αυτοματοποίηση AppCleaner</string>
+    <string name="appcleaner_automation_title">Αυτοματοποίηση εκκαθάρισης εφαρμογών</string>
     <string name="appcleaner_automation_subtitle_default_caches">Εκκαθάριση προεπιλεγμένων κρυφών μνήμης…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Προεπιλεγμένες κρυφές μνήμες</string>
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
@@ -508,5 +508,7 @@
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
     <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com);iplayradio;gogoboss_stampolidis;Vagelis1608;Nick Komninos</string>
+    <string name="motd_setting_enabled_label">Σημαντικά μηνύματα</string>
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
+    <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
 </resources>

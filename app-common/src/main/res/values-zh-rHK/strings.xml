@@ -59,7 +59,6 @@
     <string name="general_help_action">說明</string>
     <string name="general_continue">繼續</string>
     <string name="general_progress_queued">在佇列中</string>
-    <string name="general_progress_deleting_x">正在刪除 %s</string>
     <string name="general_sort_options_label">排序選項</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
     <string name="general_tag_filter_label">依標籤過濾</string>

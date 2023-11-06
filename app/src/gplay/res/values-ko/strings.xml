@@ -19,7 +19,7 @@
     <string name="upgrade_screen_subscription_action">구독하기</string>
     <string name="upgrade_screen_subscription_action_hint">구독은 매년 %s 가 청구됩니다.</string>
     <string name="upgrade_screen_iap_action">영구적 구매</string>
-    <string name="upgrade_screen_iap_action_hint">영구적으로 구매하면 %s 이 청구됩니다.</string>
+    <string name="upgrade_screen_iap_action_hint">영구적으로 구매하면 %s 이(가) 청구됩니다.</string>
     <string name="upgrade_screen_thanks_toast">감사합니다! ❤️</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">함께 정식 출시까지 왔네요! 테스트하는 것을 도와주셔서 감사합니다. 개발은 물론 계속되지만, 원한다면 더 안정한 빌드로 전환할 수 있습니다. 구글 플레이에서 베타 프로그램을 나가면 됩니다.</string>

@@ -535,5 +535,8 @@
     <string name="translation_encourage_body">SD Maid prekladajú dobrovoľníci. Preklad, recenzia alebo korektúra, vašu pomoc si ceníme!</string>
     <string name="translation_translators_title">Túto verziu preložil</string>
     <string name="translation_translators_people">dukelc</string>
+    <string name="motd_setting_enabled_label">Dôležité správy</string>
     <string name="motd_setting_enabled_explanation">Povoľte SD Maid kontrolovať dôležité správy od vývojára.</string>
+    <string name="updatecheck_setting_enabled_label">Kontrola aktualizácií</string>
+    <string name="updatecheck_setting_enabled_explanation">Umožnite aplikácii SD Maid skontrolovať aktualizácie, aby ste vedeli, či je k dispozícii novšia verzia.</string>
 </resources>

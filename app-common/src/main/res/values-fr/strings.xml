@@ -65,7 +65,6 @@
     <string name="general_help_action">Aide</string>
     <string name="general_continue">Poursuivre</string>
     <string name="general_progress_queued">En attente</string>
-    <string name="general_progress_deleting_x">Suppression de %s</string>
     <string name="general_sort_options_label">Options de tri</string>
     <string name="general_sort_reverse_action">Mode de tri inversé</string>
     <string name="general_tag_filter_label">Filtrer par étiquettes</string>

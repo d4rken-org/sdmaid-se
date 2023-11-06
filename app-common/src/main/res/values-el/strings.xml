@@ -59,7 +59,6 @@
     <string name="general_help_action">Βοήθεια</string>
     <string name="general_continue">Συνέχεια</string>
     <string name="general_progress_queued">Σε ουρά</string>
-    <string name="general_progress_deleting_x">Διαγραφή %s</string>
     <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
     <string name="general_sort_reverse_action">Λειτουργία αντίστροφης ταξινόμησης</string>
     <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>

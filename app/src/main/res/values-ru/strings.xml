@@ -538,5 +538,5 @@
     <string name="motd_setting_enabled_label">Важные сообщения</string>
     <string name="motd_setting_enabled_explanation">Разрешить SD Maid проверять важные сообщения от разработчика.</string>
     <string name="updatecheck_setting_enabled_label">Проверка обновлений</string>
-    <string name="updatecheck_setting_enabled_explanation">Разрешить SD Maid проверять наличие обновлений, чтобы уведомить вас о выходе новой версии.</string>
+    <string name="updatecheck_setting_enabled_explanation">Разрешить SD Maid проверять наличие обновлений, чтобы уведомить Вас о выходе новой версии.</string>
 </resources>

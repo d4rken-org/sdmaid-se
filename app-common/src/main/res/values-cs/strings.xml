@@ -65,7 +65,6 @@
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovat</string>
     <string name="general_progress_queued">Ve frontě</string>
-    <string name="general_progress_deleting_x">Mazání %s</string>
     <string name="general_sort_options_label">Možnosti řazení</string>
     <string name="general_sort_reverse_action">Obrátit režim řazení</string>
     <string name="general_tag_filter_label">Filtrovat podle štítků</string>

@@ -509,5 +509,8 @@
     <string name="translation_encourage_body">Az SD Maid-et önkéntesek fordítják. Fordítás, áttekintés vagy lektorálás, segítségét köszönjük!</string>
     <string name="translation_translators_title">Ezt a verziót fordította</string>
     <string name="translation_translators_people">Cubebanyasz (misimisimisi25@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Fontos üzenetek</string>
     <string name="motd_setting_enabled_explanation">Engedélyezze az SD Maid számára, hogy ellenőrizze a fejlesztőtől érkező fontos üzeneteket.</string>
+    <string name="updatecheck_setting_enabled_label">Frissítések ellenőrzése</string>
+    <string name="updatecheck_setting_enabled_explanation">Engedélyezd az SD Maid számára a frissítések keresését, hogy értesítsen, ha újabb verzió áll rendelkezésre.</string>
 </resources>

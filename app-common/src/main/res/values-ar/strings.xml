@@ -7,6 +7,8 @@
     <string name="slogan_message_3">القيام بما هو ضروري.</string>
     <string name="slogan_message_4">كل الملفات في صف لتنظيف.</string>
     <string name="slogan_message_5">نظيف.</string>
+    <string name="slogan_message_6">بايت، سوف تغادر!</string>
+    <string name="slogan_message_7">مساحة حرة، مكان سعيد.</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_error_type_mismatch_msg">نوع عدم المطابقة: المطلوب %1$s، ولكن حصلت على %2$s.</string>
     <string name="general_error_cant_access_msg">لا يمكن الوصول %s.</string>
@@ -56,10 +58,13 @@
     <string name="general_progress_loading_egg_5">بدء تشغيل Turbo encabulator</string>
     <string name="general_progress_loading_egg_6">تمرير الزبدة</string>
     <string name="general_progress_loading_egg_7">لذا. كيف حالك هل انت متماسك؟</string>
+    <string name="general_progress_loading_egg_8">توت توت توت</string>
+    <string name="general_progress_loading_egg_9">تخزين خيارات الحياة</string>
+    <string name="general_progress_loading_egg_10">استدعاء كثولو</string>
+    <string name="general_progress_loading_egg_11">هذا جيد</string>
     <string name="general_help_action">مساعدة</string>
     <string name="general_continue">متابعة</string>
     <string name="general_progress_queued">قيد الانتظار</string>
-    <string name="general_progress_deleting_x">يحذف %s</string>
     <string name="general_sort_options_label">خيارات الفرز</string>
     <string name="general_sort_reverse_action">وضع الفرز العكسي</string>
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>

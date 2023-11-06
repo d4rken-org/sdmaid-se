@@ -65,7 +65,6 @@
     <string name="general_help_action">Ajuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">Na fila</string>
-    <string name="general_progress_deleting_x">Excluindo %s</string>
     <string name="general_sort_options_label">Opções de classificação</string>
     <string name="general_sort_reverse_action">Modo de classificação inversa</string>
     <string name="general_tag_filter_label">Filtrar por tags</string>

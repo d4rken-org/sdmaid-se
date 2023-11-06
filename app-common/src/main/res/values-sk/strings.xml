@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Robím, čo je potrebné.</string>
     <string name="slogan_message_4">Všetky vaše kačice v rade.</string>
     <string name="slogan_message_5">Bez poškvrny.</string>
+    <string name="slogan_message_6">Bajty, zmiznite!</string>
+    <string name="slogan_message_7">Voľný miesto, šťastné miesto.</string>
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_error_type_mismatch_msg">Nezhoda typu: Chceli ste %1$s, ale dostali ste %2$s.</string>
     <string name="general_error_cant_access_msg">Nedá sa získať prístup k %s.</string>
@@ -56,10 +58,13 @@
     <string name="general_progress_loading_egg_5">Spúšťa sa turbo encabulátor</string>
     <string name="general_progress_loading_egg_6">Podávam maslo</string>
     <string name="general_progress_loading_egg_7">Takže. Ako sa držíš?</string>
+    <string name="general_progress_loading_egg_8">Pípam píp píp</string>
+    <string name="general_progress_loading_egg_9">Ukladanie životných rozhodnutí</string>
+    <string name="general_progress_loading_egg_10">Povolávam Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Toto je fajn</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovať</string>
     <string name="general_progress_queued">V poradí</string>
-    <string name="general_progress_deleting_x">Odstraňuje sa %s</string>
     <string name="general_sort_options_label">Možnosti zoradenia</string>
     <string name="general_sort_reverse_action">Obrátený režim triedenia</string>
     <string name="general_tag_filter_label">Filtrujte podľa štítkov</string>

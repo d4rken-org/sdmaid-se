@@ -59,7 +59,6 @@
     <string name="general_help_action">Ajutor</string>
     <string name="general_continue">Continuă</string>
     <string name="general_progress_queued">În coadă</string>
-    <string name="general_progress_deleting_x">Se șterge %s</string>
     <string name="general_sort_options_label">Opțiuni pentru sortare</string>
     <string name="general_sort_reverse_action">Modul de sortare inversă</string>
     <string name="general_tag_filter_label">Filtrează după etichete</string>

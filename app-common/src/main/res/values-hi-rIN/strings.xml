@@ -57,7 +57,6 @@
     <string name="general_help_action">सहायता</string>
     <string name="general_continue">जारी रखें</string>
     <string name="general_progress_queued">पंक्ति में</string>
-    <string name="general_progress_deleting_x">हटा रहा है %s</string>
     <string name="general_sort_options_label">क्रमबद्ध विकल्प</string>
     <string name="general_sort_reverse_action">रिवर्स क्रम मोड</string>
     <string name="general_tag_filter_label">टैग द्वारा फ़िल्टर करें</string>
