@@ -130,6 +130,17 @@ android {
     }
 }
 
+afterEvaluate {
+    tasks {
+        named("bundleGplayBeta") {
+            dependsOn("lintVitalGplayBeta")
+        }
+        named("bundleGplayRelease") {
+            dependsOn("lintVitalGplayRelease")
+        }
+    }
+}
+
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
 
