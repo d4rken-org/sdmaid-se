@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.databinding.DeduplicatorClusterElementChecksumgroupHeaderBinding
@@ -28,7 +29,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
 
         previewImage.loadFilePreview(group.preview)
 
-        countValue.text = getString(R.string.deduplicator_result_x_duplicates, group.count)
+        countValue.text = context.getQuantityString2(R.plurals.deduplicator_result_x_duplicates, group.count)
         sizeValue.text = Formatter.formatFileSize(context, group.averageSize.roundToLong())
 
         viewAction.setOnClickListener { item.onViewActionClick(item) }

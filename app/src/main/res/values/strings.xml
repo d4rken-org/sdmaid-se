@@ -391,7 +391,10 @@
         <item quantity="one">%d duplicate set found</item>
         <item quantity="other">%d duplicate sets found</item>
     </plurals>
-    <string name="deduplicator_result_x_duplicates">%d copies</string>
+    <plurals name="deduplicator_result_x_duplicates">
+        <item quantity="one">%d copy</item>
+        <item quantity="other">%d copies</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Make \"Delete all\" possible</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
