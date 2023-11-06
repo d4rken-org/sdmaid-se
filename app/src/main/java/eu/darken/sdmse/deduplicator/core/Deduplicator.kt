@@ -50,7 +50,6 @@ class Deduplicator @Inject constructor(
     private val sleuthFactories: Set<@JvmSuppressWildcards Sleuth.Factory>,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
-    private val settings: DeduplicatorSettings,
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
 ) : SDMTool, Progress.Client {
@@ -151,7 +150,8 @@ class Deduplicator @Inject constructor(
 
         val snapshot = internalData.value!!
 
-        val result = deleter.get().delete(task, snapshot)
+        val result = deleter.get().withProgress(this) { delete(task, snapshot) }
+        updateProgress { Progress.DEFAULT_STATE }
         val pruneResult = snapshot.prune(result)
         internalData.value = pruneResult.newData
 

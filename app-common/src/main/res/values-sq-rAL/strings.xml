@@ -56,7 +56,7 @@
     <string name="general_help_action">Ndihmë</string>
     <string name="general_continue">Vazhdo</string>
     <string name="general_progress_queued">Në radhë</string>
-    <string name="general_progress_deleting">Po fshin %s</string>
+    <string name="general_progress_deleting_x">Po fshin %s</string>
     <string name="general_sort_options_label">Opsionet e renditjes</string>
     <string name="general_tag_filter_label">Filtro sipas etiketave</string>
     <string name="general_result_success_message">Operation successful</string>

@@ -65,7 +65,7 @@
     <string name="general_help_action">Hjelp</string>
     <string name="general_continue">Fortsett</string>
     <string name="general_progress_queued">I kø</string>
-    <string name="general_progress_deleting">Sletter %s</string>
+    <string name="general_progress_deleting_x">Sletter %s</string>
     <string name="general_sort_options_label">Sorteringsalternativer</string>
     <string name="general_sort_reverse_action">Inverter sorteringsmodus</string>
     <string name="general_tag_filter_label">Filtrer etter etiketter</string>

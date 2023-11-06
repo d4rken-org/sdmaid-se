@@ -34,7 +34,7 @@
     <string name="general_help_action">Járdem</string>
     <string name="general_continue">Dawam etiw</string>
     <string name="general_progress_queued">Gezekte</string>
-    <string name="general_progress_deleting">%s óshirilmekte</string>
+    <string name="general_progress_deleting_x">%s óshirilmekte</string>
     <string name="general_view_action">Kóriw</string>
     <string name="general_update_action">Jańalaw</string>
     <string name="general_delete_action">Óshiriw</string>

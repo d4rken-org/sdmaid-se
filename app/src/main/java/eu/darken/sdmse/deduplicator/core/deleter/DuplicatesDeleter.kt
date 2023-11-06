@@ -7,6 +7,8 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
@@ -32,6 +34,8 @@ class DuplicatesDeleter @Inject constructor(
         data: Deduplicator.Data
     ): Deleted {
         log(TAG) { "Processing $task" }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_deleting)
 
         val deletedDupes = when (task.mode) {
             is DeduplicatorDeleteTask.TargetMode.All -> data.targetAll()
@@ -127,6 +131,7 @@ class DuplicatesDeleter @Inject constructor(
             .onEach { dupe ->
                 // targetDuplicates() get's direct targets, no need to make a specific selection
                 log(TAG, VERBOSE) { "___targetDuplicates(): Deleting ${dupe.identifier}" }
+                updateProgressSecondary(dupe.lookup.userReadablePath)
                 dupe.path.delete(gatewaySwitch)
             }
     }
