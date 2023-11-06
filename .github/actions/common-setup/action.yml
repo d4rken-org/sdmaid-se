@@ -9,6 +9,35 @@ runs:
         java-version: '17'
         distribution: 'adopt'
         cache: gradle
+
     - name: Grant execute permission for gradlew
       shell: bash
       run: chmod +x gradlew
+
+    - name: Cache Gradle Wrapper
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/wrapper
+          !~/.gradle/wrapper/dists/**/gradle*.zip
+        key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-wrapper-
+
+    - name: Cache Gradle Dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-caches-
+
+    - name: Cache Android Global Build-Cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.android/build-cache
+        key: ${{ runner.os }}-android-build-cache-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-android-build-cache-
