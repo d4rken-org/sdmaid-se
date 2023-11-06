@@ -21,12 +21,12 @@ jobs:
           echo $ENCODED_KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"
           echo "STORE_PATH=$(echo $TMP_KEYSTORE_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up project
+      - name: Setup project and build environment
         uses: ./.github/actions/common-setup
 
       - name: Get the version
@@ -104,12 +104,12 @@ jobs:
           echo $ENCODED_SERVICE_KEY | base64 -di > "${TMP_SERVICEKEY_FILE_PATH}"
           echo "SUPPLY_JSON_KEY=$(echo $TMP_SERVICEKEY_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up project
+      - name: Setup project and build environment
         uses: ./.github/actions/common-setup
 
       - name: Get the version

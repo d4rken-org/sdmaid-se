@@ -17,8 +17,10 @@ jobs:
         module: [ app ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/common-setup
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
 
       - name: Check for fatal lint issues
         run: ./gradlew lintVital${{ matrix.flavor }}${{ matrix.variant }}
@@ -33,8 +35,10 @@ jobs:
         module: [ app ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/common-setup
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
 
       - name: Build modules
         run: ./gradlew ${{ matrix.module }}:assemble${{ matrix.flavor }}${{ matrix.variant }}
@@ -48,8 +52,10 @@ jobs:
         flavor: [ test,testFoss,testGplay ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/common-setup
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
 
       - name: Test modules
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
