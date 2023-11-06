@@ -7,6 +7,29 @@ on:
     branches: [ main ]
 
 jobs:
+  lint-vital:
+    name: Lint vitals
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor: [ Foss,Gplay ]
+        variant: [ Beta,Release ]
+        module: [ app ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: gradle
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Check for fatal lint issues
+        run: ./gradlew lintVital{{ matrix.flavor }}${{ matrix.variant }}
+
   build-modules:
     name: Build apps
     strategy:
@@ -35,7 +58,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [ Debug,Release ]
+        variant: [ Debug,Beta,Release ]
         flavor: [ test,testFoss,testGplay ]
     runs-on: ubuntu-latest
     steps:
