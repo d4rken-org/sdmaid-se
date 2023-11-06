@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.databinding.DeduplicatorClusterElementHeaderBinding
@@ -26,13 +27,13 @@ class ClusterHeaderVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val cluster = item.cluster
 
-        methodChecksumCount.text = getString(
-            R.string.deduplicator_result_x_duplicates,
+        methodChecksumCount.text = context.getQuantityString2(
+            R.plurals.deduplicator_result_x_duplicates,
             cluster.groups.filterIsInstance<ChecksumDuplicate.Group>().sumOf { it.count }
         )
 
-        methodPhashValue.text = getString(
-            R.string.deduplicator_result_x_duplicates,
+        methodPhashValue.text = context.getQuantityString2(
+            R.plurals.deduplicator_result_x_duplicates,
             cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count }
         )
 

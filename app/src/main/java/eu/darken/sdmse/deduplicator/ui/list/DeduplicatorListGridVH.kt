@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.DeduplicatorListGridItemBinding
@@ -37,7 +38,7 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         previewImage.loadFilePreview(cluster.previewFile)
 
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
-        secondary.text = getString(R.string.deduplicator_result_x_duplicates, cluster.count)
+        secondary.text = context.getQuantityString2(R.plurals.deduplicator_result_x_duplicates, cluster.count)
 
         matchTypeChecksum.isInvisible = false
         matchTypePhash.isInvisible = true
