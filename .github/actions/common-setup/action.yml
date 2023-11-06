@@ -8,7 +8,6 @@ runs:
       with:
         java-version: '17'
         distribution: 'adopt'
-        cache: gradle
 
     - name: Grant execute permission for gradlew
       shell: bash
@@ -20,7 +19,7 @@ runs:
         path: |
           ~/.gradle/wrapper
           !~/.gradle/wrapper/dists/**/gradle*.zip
-        key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-wrapper-
 
