@@ -28,7 +28,7 @@ runs:
       with:
         path: |
           ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'buildSrc/**/*.kt',) }}
+        key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'buildSrc/**/*.kt') }}
         restore-keys: |
           ${{ runner.os }}-gradle-caches-
 
