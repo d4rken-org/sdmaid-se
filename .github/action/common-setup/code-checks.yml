@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/common-setup.yml
+      - uses: ./.github/actions/common-setup@v1
 
       - name: Check for fatal lint issues
         run: ./gradlew lintVital${{ matrix.flavor }}${{ matrix.variant }}
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/common-setup.yml
+      - uses: ./.github/actions/common-setup@v1
 
       - name: Build modules
         run: ./gradlew ${{ matrix.module }}:assemble${{ matrix.flavor }}${{ matrix.variant }}
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/common-setup.yml
+      - uses: ./.github/actions/common-setup@v1
 
       - name: Test modules
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
