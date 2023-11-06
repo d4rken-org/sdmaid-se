@@ -21,10 +21,13 @@ jobs:
           echo $ENCODED_KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"
           echo "STORE_PATH=$(echo $TMP_KEYSTORE_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
 
       - name: Get the version
         id: tagger
@@ -33,12 +36,6 @@ jobs:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
-
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
 
       - name: Assemble beta APK
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -107,10 +104,13 @@ jobs:
           echo $ENCODED_SERVICE_KEY | base64 -di > "${TMP_SERVICEKEY_FILE_PATH}"
           echo "SUPPLY_JSON_KEY=$(echo $TMP_SERVICEKEY_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
 
       - name: Get the version
         id: tagger
@@ -119,12 +119,6 @@ jobs:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
-
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
 
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
