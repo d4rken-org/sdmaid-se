@@ -59,7 +59,7 @@
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En cola</string>
-    <string name="general_progress_deleting">Borrando %s</string>
+    <string name="general_progress_deleting_x">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar las opciones</string>
     <string name="general_sort_reverse_action">Modo de clasificación inversa</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>

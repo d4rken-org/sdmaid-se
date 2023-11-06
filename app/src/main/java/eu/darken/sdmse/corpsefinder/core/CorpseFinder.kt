@@ -241,7 +241,7 @@ class CorpseFinder @Inject constructor(
                     .forEach { targetContent ->
                         updateProgressPrimary(caString {
                             it.getString(
-                                eu.darken.sdmse.common.R.string.general_progress_deleting,
+                                eu.darken.sdmse.common.R.string.general_progress_deleting_x,
                                 targetContent.userReadableName.get(it)
                             )
                         })
@@ -263,7 +263,7 @@ class CorpseFinder @Inject constructor(
             } else {
                 updateProgressPrimary(caString {
                     it.getString(
-                        eu.darken.sdmse.common.R.string.general_progress_deleting,
+                        eu.darken.sdmse.common.R.string.general_progress_deleting_x,
                         corpse.lookup.userReadableName.get(it)
                     )
                 })

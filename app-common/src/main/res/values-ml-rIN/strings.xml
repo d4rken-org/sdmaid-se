@@ -55,7 +55,7 @@
     <string name="general_help_action">ഹെല്പ്</string>
     <string name="general_continue">തുടരൂ</string>
     <string name="general_progress_queued">ക്യൂവിൽ</string>
-    <string name="general_progress_deleting">%s ഇല്ലാതാക്കുന്നു</string>
+    <string name="general_progress_deleting_x">%s ഇല്ലാതാക്കുന്നു</string>
     <string name="general_sort_options_label">ഓപ്‌ഷനുകൾ അടുക്കുക</string>
     <string name="general_tag_filter_label">ടാഗുകൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>

@@ -156,7 +156,7 @@ class Analyzer @Inject constructor(
 
         updateProgressPrimary {
             it.getString(
-                eu.darken.sdmse.common.R.string.general_progress_deleting,
+                eu.darken.sdmse.common.R.string.general_progress_deleting_x,
                 it.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, task.targets.size)
             )
         }
