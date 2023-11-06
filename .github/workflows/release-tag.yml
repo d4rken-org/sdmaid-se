@@ -26,6 +26,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up project
+        uses: ./.github/actions/common-setup
+
       - name: Get the version
         id: tagger
         uses: jimschubert/query-tag-action@v2
@@ -33,12 +36,6 @@ jobs:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
-
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
 
       - name: Assemble beta APK
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -112,6 +109,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up project
+        uses: ./.github/actions/common-setup
+
       - name: Get the version
         id: tagger
         uses: jimschubert/query-tag-action@v2
@@ -119,12 +119,6 @@ jobs:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
-
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
 
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
