@@ -3,7 +3,6 @@ package eu.darken.sdmse.scheduler.core
 import androidx.work.Constraints
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.await
@@ -147,11 +146,6 @@ class SchedulerManager @Inject constructor(
                     setRequiresBatteryNotLow(noLowBattery)
                     val onlyWhenCharging = settings.skipWhenNotCharging.value()
                     setRequiresCharging(onlyWhenCharging)
-
-                    if (!noLowBattery && !onlyWhenCharging) {
-                        log(TAG, INFO) { "No constraints set, marking as expedited." }
-                        setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
-                    }
                 }.build()
             )
 
