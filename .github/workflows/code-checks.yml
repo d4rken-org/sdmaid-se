@@ -28,7 +28,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Check for fatal lint issues
-        run: ./gradlew lintVital{{ matrix.flavor }}${{ matrix.variant }}
+        run: ./gradlew lintVital${{ matrix.flavor }}${{ matrix.variant }}
 
   build-modules:
     name: Build apps
