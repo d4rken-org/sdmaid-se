@@ -193,7 +193,9 @@ class Deduplicator @Inject constructor(
                             duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
                         )
 
-                        Duplicate.Type.PHASH -> TODO()
+                        Duplicate.Type.PHASH -> {
+                            group // TODO NOOP
+                        }
                     }
                     if (newGroup.duplicates.size >= 2) {
                         newGroup

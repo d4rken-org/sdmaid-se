@@ -81,7 +81,9 @@ class ClusterViewModel @Inject constructor(
                         }.run { items.addAll(this) }
                     }
 
-                    Duplicate.Type.PHASH -> TODO()
+                    Duplicate.Type.PHASH -> {
+                        // TODO NOOP
+                    }
                 }
 
                 items
