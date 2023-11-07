@@ -157,7 +157,7 @@ class ChecksumSleuth @Inject constructor(
                         val start = System.currentTimeMillis()
 
                         val hash = gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
-                        val hexHash = hash.formatAs(Hasher.Result.Format.HEX)
+                        val hexHash = hash.format()
 
                         val stop = System.currentTimeMillis()
                         log(TAG, VERBOSE) {

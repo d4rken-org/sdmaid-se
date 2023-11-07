@@ -25,11 +25,12 @@ class CommonFilesCheck @Inject constructor(
 
     companion object {
         private val IMAGES = setOf(
+            "image/x-ms-bmp",
             "image/jpeg",
             "image/png",
             "image/gif",
             "image/webp",
-            "image/svg+xml"
+            "image/svg+xml",
         )
 
         private val VIDEOS = setOf(

@@ -33,13 +33,12 @@ class PHashGroupFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        val duplicate = item.duplicate
+        val dupe = item.duplicate
 
-        previewImage.loadFilePreview(duplicate.lookup)
-
-        sizeValue.text = Formatter.formatShortFileSize(context, duplicate.size)
-
-        primary.text = duplicate.lookup.userReadablePath.get(context)
+        previewImage.loadFilePreview(dupe.lookup)
+        primary.text = dupe.lookup.userReadablePath.get(context)
+        secondary.text = String.format("%.2f%%", dupe.similarity * 100)
+        sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
 
         root.setOnClickListener { item.onItemClick(item) }
     }

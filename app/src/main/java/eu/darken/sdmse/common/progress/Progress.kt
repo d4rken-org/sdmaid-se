@@ -44,8 +44,8 @@ interface Progress {
                 return "${ceil(((current.toDouble() / max.toDouble()) * 100)).toInt()}%"
             }
 
-            fun increment(): Percent {
-                return Percent(current + 1, max)
+            fun increment(value: Int = 1): Percent {
+                return Percent(current + value, max)
             }
         }
 
@@ -57,7 +57,7 @@ interface Progress {
 
             override fun displayValue(context: Context): String = "$current/$max"
 
-            fun increment() = Counter(current + 1, max)
+            fun increment(value: Int = 1) = Counter(current + value, max)
         }
 
         data class Size(override val current: Long, override val max: Long) : Count {

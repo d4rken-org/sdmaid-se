@@ -65,11 +65,11 @@ fun <T : Progress.Client> T.updateProgressCount(count: Progress.Count) {
     updateProgress { (it ?: Progress.Data()).copy(count = count) }
 }
 
-fun <T : Progress.Client> T.increaseProgress() {
+fun <T : Progress.Client> T.increaseProgress(value: Int = 1) {
     updateProgress {
         when (it?.count) {
-            is Progress.Count.Counter -> it.copy(count = (it.count as Progress.Count.Counter).increment())
-            is Progress.Count.Percent -> it.copy(count = (it.count as Progress.Count.Percent).increment())
+            is Progress.Count.Counter -> it.copy(count = (it.count as Progress.Count.Counter).increment(value))
+            is Progress.Count.Percent -> it.copy(count = (it.count as Progress.Count.Percent).increment(value))
             else -> {
                 log(ERROR) { "Can't increaseProgress() on type: ${it?.count}" }
                 it
