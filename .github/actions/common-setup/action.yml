@@ -14,7 +14,7 @@ runs:
       run: chmod +x gradlew
 
     - name: Cache Gradle Wrapper
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           ~/.gradle/wrapper
@@ -24,7 +24,7 @@ runs:
           ${{ runner.os }}-gradle-wrapper-
 
     - name: Cache Gradle Dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           ~/.gradle/caches
@@ -33,7 +33,7 @@ runs:
           ${{ runner.os }}-gradle-caches-
 
     - name: Cache Android Global Build-Cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           ~/.android/build-cache
