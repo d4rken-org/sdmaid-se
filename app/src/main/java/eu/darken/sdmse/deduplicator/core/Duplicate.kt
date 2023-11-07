@@ -73,9 +73,11 @@ interface Duplicate {
             get() = groups.sumOf { it.redundantSize }
         val count: Int
             get() = groups.sumOf { it.count }
+        val types: Set<Type>
+            get() = groups.map { it.type }.toSet()
 
         val previewFile: APathLookup<*>
-            get() = groups.first().duplicates.first().lookup
+            get() = groups.first().previewFile
 
         @Parcelize
         data class Id(val value: String) : Parcelable

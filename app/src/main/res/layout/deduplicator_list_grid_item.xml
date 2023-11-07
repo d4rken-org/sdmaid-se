@@ -85,13 +85,15 @@
                 android:id="@+id/match_type_checksum"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
-                android:src="@drawable/ic_code_equal_box_24" />
+                android:src="@drawable/ic_code_equal_box_24"
+                app:tint="?colorPrimary" />
 
             <ImageView
                 android:id="@+id/match_type_phash"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
-                android:src="@drawable/ic_approximately_equal_box_24" />
+                android:src="@drawable/ic_approximately_equal_box_24"
+                app:tint="?colorSecondary" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

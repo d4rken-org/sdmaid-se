@@ -2,7 +2,7 @@ package eu.darken.sdmse.deduplicator.ui.list
 
 import android.text.format.Formatter
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.getQuantityString2
@@ -40,8 +40,8 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
         secondary.text = context.getQuantityString2(R.plurals.deduplicator_result_x_duplicates, cluster.count)
 
-        matchTypeChecksum.isInvisible = false
-        matchTypePhash.isInvisible = true
+        matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
+        matchTypePhash.isVisible = item.cluster.types.contains(Duplicate.Type.PHASH)
 
         root.setOnClickListener { item.onItemClicked(item) }
     }

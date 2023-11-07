@@ -23,6 +23,7 @@
             tools:src="@drawable/splash_mascot" />
 
         <FrameLayout
+            android:id="@+id/header"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="-16dp"
@@ -33,7 +34,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:alpha="0.7"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/footer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/bg_listitem_overlay_selectable"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/PreviewRoundedBox.Small"
+                app:tint="?colorSecondaryContainer" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/preview_path"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="?colorOnSecondaryContainer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="/storage/emulated/0/DCIM3/DCIM/Camera/PXL_20231026_114538496.PORTRAIT.ORIGINAL.jpg" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         <FrameLayout
+            android:id="@+id/footer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="-16dp"
@@ -72,7 +112,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/deduplicator_detection_method_checksum_title"
+            android:text="@string/deduplicator_detection_method_phash_title"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintStart_toEndOf="@id/type_icon"
             app:layout_constraintTop_toBottomOf="@id/type_label" />
@@ -84,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/deduplicator_file_size_label"
+            android:text="@string/deduplicator_average_size_label"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toTopOf="@id/size_value"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -115,14 +155,18 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/count_value"
             style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:textColor="?colorOnSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/size_value"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="9000" />
+            tools:text="r_result_x_duplicates" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"

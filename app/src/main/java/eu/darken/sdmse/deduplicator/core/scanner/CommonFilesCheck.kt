@@ -17,6 +17,12 @@ class CommonFilesCheck @Inject constructor(
         return COMMON_TYPES.contains(mimeType)
     }
 
+    suspend fun isImage(lookup: APathLookup<*>): Boolean {
+        val mimeType = mimeTypeTool.determineMimeType(lookup)
+        log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
+        return IMAGES.contains(mimeType)
+    }
+
     companion object {
         private val IMAGES = setOf(
             "image/jpeg",

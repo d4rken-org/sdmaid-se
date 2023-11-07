@@ -1,18 +1,20 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 
+import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
-import eu.darken.sdmse.databinding.DeduplicatorClusterElementChecksumgroupFileBinding
-import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.databinding.DeduplicatorClusterElementPhashgroupFileBinding
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
 
 
-class ChecksumGroupFileVH(parent: ViewGroup) :
-    ClusterAdapter.BaseVH<ChecksumGroupFileVH.Item, DeduplicatorClusterElementChecksumgroupFileBinding>(
-        R.layout.deduplicator_cluster_element_checksumgroup_file,
+class PHashGroupFileVH(parent: ViewGroup) :
+    ClusterAdapter.BaseVH<PHashGroupFileVH.Item, DeduplicatorClusterElementPhashgroupFileBinding>(
+        R.layout.deduplicator_cluster_element_phashgroup_file,
         parent
     ), SelectableVH {
 
@@ -24,14 +26,18 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { DeduplicatorClusterElementChecksumgroupFileBinding.bind(itemView) }
+    override val viewBinding = lazy { DeduplicatorClusterElementPhashgroupFileBinding.bind(itemView) }
 
-    override val onBindData: DeduplicatorClusterElementChecksumgroupFileBinding.(
+    override val onBindData: DeduplicatorClusterElementPhashgroupFileBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
         val duplicate = item.duplicate
+
+        previewImage.loadFilePreview(duplicate.lookup)
+
+        sizeValue.text = Formatter.formatShortFileSize(context, duplicate.size)
 
         primary.text = duplicate.lookup.userReadablePath.get(context)
 
@@ -39,7 +45,7 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val duplicate: ChecksumDuplicate,
+        override val duplicate: PHashDuplicate,
         val onItemClick: (Item) -> Unit,
     ) : ClusterAdapter.Item, ClusterAdapter.DuplicateItem, SelectableItem {
 

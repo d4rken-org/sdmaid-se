@@ -133,7 +133,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
                     },
                 )
 
-                is ClusterEvents.ViewItem -> {
+                is ClusterEvents.ViewDuplicate -> {
                     try {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
