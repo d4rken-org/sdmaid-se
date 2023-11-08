@@ -140,7 +140,7 @@ class PHashSleuth @Inject constructor(
                 }
                 .buffer(1024)
                 .filter {
-                    it.isFile && it.size >= minSize && (!skipUncommon || commonFilesCheck.isImage(it))
+                    it.isFile && it.size >= minSize && commonFilesCheck.isImage(it)
                 }
                 .collect { item -> suspects.add(item) }
         }
