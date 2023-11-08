@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 class PHasher {
 
     fun calc(source: Bitmap): Result {
-        val hash = SimplePHash().calc(source)
+        val hash = PHashAlgorithm().calc(source)
 
         return Result(
             hash = hash

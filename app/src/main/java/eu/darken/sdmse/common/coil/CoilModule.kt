@@ -32,6 +32,7 @@ class CoilModule {
         generalSettings: GeneralSettings,
         appIconFetcherFactory: AppIconFetcher.Factory,
         pathPreviewFetcher: PathPreviewFetcher.Factory,
+        bitmapFetcher: BitmapFetcher.Factory,
         dispatcherProvider: DispatcherProvider,
     ): ImageLoader = ImageLoader.Builder(context).apply {
 
@@ -48,6 +49,7 @@ class CoilModule {
             add(appIconFetcherFactory)
             add(VideoFrameDecoder.Factory())
             add(pathPreviewFetcher)
+            add(bitmapFetcher)
         }
         dispatcher(dispatcherProvider.Default)
     }.build()

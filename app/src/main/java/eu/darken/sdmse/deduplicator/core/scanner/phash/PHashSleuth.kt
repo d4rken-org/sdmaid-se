@@ -1,6 +1,10 @@
 package eu.darken.sdmse.deduplicator.core.scanner.phash
 
 import android.content.Context
+import androidx.core.graphics.drawable.toBitmap
+import coil.imageLoader
+import coil.request.ImageRequest
+import coil.request.SuccessResult
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -12,6 +16,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.coil.BitmapFetcher
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -37,7 +42,6 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.CommonFilesCheck
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
-import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.phash
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
@@ -153,22 +157,22 @@ class PHashSleuth @Inject constructor(
 
         val hashedItems: Map<APathLookup<*>, PHasher.Result> = suspects
             .asFlow()
+            .flowOn(dispatcherProvider.IO)
             .flatMapMerge { item ->
                 flow {
                     val start = System.currentTimeMillis()
 
                     val hash = try {
-                        item.phash(context)
+                        item.calculatePHash(context)
                     } catch (e: IOException) {
-                        log(TAG, WARN) { "Failed to determine phash for $item" }
+                        log(TAG, WARN) { "Failed to determine phash for $item: $e" }
                         null
                     }
-
 
                     if (Bugs.isTrace) {
                         val stop = System.currentTimeMillis()
                         log(TAG, VERBOSE) {
-                            "PHash: ${hash?.format()} - ${String.format("%4d", stop - start)}ms - ${item.path}"
+                            "PHash ${hash?.format()} took ${String.format("%4d", stop - start)}ms - ${item.path}"
                         }
                     }
 
@@ -210,7 +214,7 @@ class PHashSleuth @Inject constructor(
         }
 
         val hashStop = System.currentTimeMillis()
-        log(TAG) { "Hashing took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
+        log(TAG) { "PHash investigation took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
 
         return hashBuckets.map { items: Set<Pair<APathLookup<*>, Double>> ->
             PHashDuplicate.Group(
@@ -224,6 +228,23 @@ class PHashSleuth @Inject constructor(
                 }.toSet()
             )
         }.toSet()
+    }
+
+    private suspend fun APathLookup<*>.calculatePHash(context: Context): PHasher.Result {
+        val request = ImageRequest.Builder(context).apply {
+            data(BitmapFetcher.Request(this@calculatePHash))
+            // Hardware backed bitmaps don't support direct pixel access
+            allowHardware(false)
+            size(1024)
+        }.build()
+
+        val result = context.imageLoader.execute(request)
+
+        if (result !is SuccessResult) {
+            throw IOException("Failed to load bitmap for $this: $result")
+        }
+
+        return PHasher().calc(result.drawable.toBitmap())
     }
 
     @Reusable
