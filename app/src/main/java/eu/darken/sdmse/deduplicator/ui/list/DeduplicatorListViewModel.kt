@@ -55,6 +55,7 @@ class DeduplicatorListViewModel @Inject constructor(
                 DeduplicatorListGridVH.Item(
                     cluster = cluster,
                     onItemClicked = { delete(setOf(it)) },
+                    onFooterClicked = { showDetails(it) }
                 )
             }
         State(rows, progress)
