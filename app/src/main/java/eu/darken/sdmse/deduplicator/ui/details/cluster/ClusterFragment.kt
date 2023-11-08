@@ -48,8 +48,8 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
         val adapter = ClusterAdapter()
         ui.list.apply {
             setupDefaults(adapter, dividers = false)
-            val divDec = ViewHolderBasedDivider(requireContext()) { prev, cur, next ->
-                cur !is ClusterAdapter.ClusterItem && next !is ClusterAdapter.ClusterItem
+            val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, next ->
+                cur !is ClusterAdapter.ClusterItem.VH && next !is ClusterAdapter.GroupItem.VH
             }
             addItemDecoration(divDec)
         }
