@@ -407,7 +407,7 @@
     <string name="deduplicator_file_size_label">File size</string>
     <string name="deduplicator_average_size_label">Average size</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
-    <string name="deduplicator_delete_confirmation_message">Delete all but one copy of all sets of duplicate files?</string>
+    <string name="deduplicator_delete_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Delete all but one copy in this set of duplicate files?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Delete all files in this set of duplicate files? No file is left over!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Delete all but one copy in each selected set of duplicate files?</string>
