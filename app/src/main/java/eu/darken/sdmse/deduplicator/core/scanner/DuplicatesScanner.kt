@@ -1,5 +1,9 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -9,13 +13,20 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
 import javax.inject.Inject
 
 
-class DuplicatesScanner @Inject constructor() : Progress.Host, Progress.Client {
+class DuplicatesScanner @Inject constructor(
+    private val checksumFactory: ChecksumSleuth.Factory,
+    private val phashFactory: PHashSleuth.Factory,
+) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
@@ -24,31 +35,104 @@ class DuplicatesScanner @Inject constructor() : Progress.Host, Progress.Client {
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun scan(sleuths: Collection<Sleuth>): Set<Duplicate.Cluster> {
+    suspend fun scan(): Set<Duplicate.Cluster> {
         log(TAG) { "scan()" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
-        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+
+        val cksGroups: Set<ChecksumDuplicate.Group> = if (checksumFactory.isEnabled()) {
+            updateProgressPrimary(R.string.deduplicator_detection_method_checksum_title.toCaString())
+            log(TAG) { "$checksumFactory is enabled" }
+            withProgress(this) { checksumFactory.create().investigate() }
+        } else {
+            log(TAG) { "$checksumFactory is disabled" }
+            emptySet()
+        }
+
+        val phGroups = if (phashFactory.isEnabled()) {
+            updateProgressPrimary(R.string.deduplicator_detection_method_phash_title.toCaString())
+            log(TAG) { "$phashFactory is enabled" }
+            withProgress(this) { phashFactory.create().investigate() }
+        } else {
+            log(TAG) { "$phashFactory is disabled" }
+            emptySet()
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
+        updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val allSleuthResults = sleuths.map { sleuth ->
-            val sleuthResults = sleuth.withProgress(this) { investigate() }
-            sleuth to sleuthResults
-        }
-        log(TAG) { "allSleuthResults=${allSleuthResults.size}" }
+        val overlaps = mutableMapOf<ChecksumDuplicate.Group, Set<PHashDuplicate.Group>>()
+        val uniques = mutableSetOf<PHashDuplicate.Group>()
 
-        val clusters = allSleuthResults
-            .map { (sleuth, groups) ->
-                groups.map {
-                    Duplicate.Cluster(
-                        identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
-                        groups = setOf(it)
-                    )
+        // Sort phash results, which need to me grouped with others, and which are unique?
+        phGroups.forEach { phGrp ->
+            val phashPaths = phGrp.duplicates.map { it.path }.toSet()
+
+            val cksGroup = cksGroups.find { cksGrp ->
+                cksGrp.duplicates.any { phashPaths.contains(it.path) }
+            }
+
+            if (cksGroup != null) {
+                overlaps[cksGroup] = (overlaps[cksGroup] ?: emptySet()).plus(phGrp)
+            } else {
+                uniques.add(phGrp)
+            }
+        }
+
+        val clusters = mutableSetOf<Duplicate.Cluster>()
+
+        cksGroups
+            .map { cksGrp ->
+                val overlapping = overlaps.remove(cksGrp)
+                log(TAG, VERBOSE) { "${overlapping?.size} groups overlap with ChecksumGroup $cksGrp" }
+
+                if (Bugs.isTrace) overlapping?.forEachIndexed { index, group -> log(TAG, VERBOSE) { "#$index $group" } }
+
+                val coveredPaths = cksGrp.duplicates.map { it.path }.toSet()
+
+                val grps = mutableSetOf<Duplicate.Group>(cksGrp)
+
+                overlapping
+                    ?.map { phGrp ->
+                        val uniquePhDupes = phGrp.duplicates
+                            .filter { phDupe -> !coveredPaths.contains(phDupe.path) }
+                            .toSet()
+                        phGrp.copy(duplicates = uniquePhDupes)
+                    }
+                    ?.filter { it.duplicates.isNotEmpty() }
+                    ?.let { grps.addAll(it) }
+
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
+                    groups = grps
+                )
+            }
+            .run { clusters.addAll(this) }
+
+        uniques
+            .map { phGrp ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Unique PHGroup: $phGrp" }
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
+                    groups = setOf(phGrp)
+                )
+            }
+            .run { clusters.addAll(this) }
+
+        if (Bugs.isTrace) {
+            clusters.forEach { c ->
+                log(
+                    TAG,
+                    VERBOSE
+                ) { "performScan(): Cluster ${c.identifier}: ${c.groups.size} groups, ${c.count} dupes" }
+                c.groups.forEach { g ->
+                    log(TAG, VERBOSE) { "performScan():  Group ${g.identifier}: ${g.duplicates.size} dupes" }
+                    g.duplicates.forEach { d ->
+                        log(TAG, VERBOSE) { "performScan():   Duplicate: $d" }
+                    }
                 }
             }
-            .flatten()
-            .toSet()
-
-        log(TAG) { "clusters=${clusters.size}" }
+        }
         return clusters
     }
 

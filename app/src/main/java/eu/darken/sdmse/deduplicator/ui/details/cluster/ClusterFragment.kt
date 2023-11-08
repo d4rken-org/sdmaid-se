@@ -21,8 +21,6 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorClusterFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
-import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
-import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
 
 @AndroidEntryPoint
 class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
@@ -50,8 +48,8 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
         val adapter = ClusterAdapter()
         ui.list.apply {
             setupDefaults(adapter, dividers = false)
-            val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, _ ->
-                cur !is ClusterAdapter.HeaderVH
+            val divDec = ViewHolderBasedDivider(requireContext()) { prev, cur, next ->
+                cur !is ClusterAdapter.ClusterItem && next !is ClusterAdapter.ClusterItem
             }
             addItemDecoration(divDec)
         }
@@ -111,13 +109,13 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
             when (event) {
                 is ClusterEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
                     mode = when {
-                        event.items.singleOrNull() is ClusterHeaderVH.Item -> PreviewDeletionDialog.Mode.Clusters(
-                            clusters = listOf((event.items.single() as ClusterHeaderVH.Item).cluster),
+                        event.items.singleOrNull() is ClusterAdapter.ClusterItem -> PreviewDeletionDialog.Mode.Clusters(
+                            clusters = listOf((event.items.single() as ClusterAdapter.ClusterItem).cluster),
                             event.allowDeleteAll,
                         )
 
-                        event.items.singleOrNull() is ChecksumGroupHeaderVH.Item -> PreviewDeletionDialog.Mode.Groups(
-                            groups = listOf((event.items.single() as ChecksumGroupHeaderVH.Item).group),
+                        event.items.singleOrNull() is ClusterAdapter.GroupItem -> PreviewDeletionDialog.Mode.Groups(
+                            groups = listOf((event.items.single() as ClusterAdapter.GroupItem).group),
                             event.allowDeleteAll,
                         )
 

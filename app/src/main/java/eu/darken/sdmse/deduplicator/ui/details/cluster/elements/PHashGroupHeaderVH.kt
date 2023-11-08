@@ -22,7 +22,7 @@ class PHashGroupHeaderVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<PHashGroupHeaderVH.Item, DeduplicatorClusterElementPhashgroupHeaderBinding>(
         R.layout.deduplicator_cluster_element_phashgroup_header,
         parent
-    ), ClusterAdapter.HeaderVH, ModularAdapter.Module.RecyclerViewLifecycle {
+    ), ClusterAdapter.ClusterItem.VH, ModularAdapter.Module.RecyclerViewLifecycle {
 
     override val viewBinding = lazy { DeduplicatorClusterElementPhashgroupHeaderBinding.bind(itemView) }
     private var handler: Handler? = null
@@ -65,7 +65,7 @@ class PHashGroupHeaderVH(parent: ViewGroup) :
         root.setOnClickListener { item.onItemClick(item) }
     }
 
-    fun cleanup() {
+    private fun cleanup() {
         handler?.apply {
             callback?.let {
                 removeCallbacks(it)

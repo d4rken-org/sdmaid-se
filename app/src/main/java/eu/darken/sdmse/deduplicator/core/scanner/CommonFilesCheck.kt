@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -13,13 +14,13 @@ class CommonFilesCheck @Inject constructor(
 
     suspend fun isCommon(lookup: APathLookup<*>): Boolean {
         val mimeType = mimeTypeTool.determineMimeType(lookup)
-        log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
         return COMMON_TYPES.contains(mimeType)
     }
 
     suspend fun isImage(lookup: APathLookup<*>): Boolean {
         val mimeType = mimeTypeTool.determineMimeType(lookup)
-        log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
         return IMAGES.contains(mimeType)
     }
 

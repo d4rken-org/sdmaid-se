@@ -137,18 +137,18 @@ class ClusterViewModel @Inject constructor(
         }
 
         val mode: DeduplicatorDeleteTask.TargetMode = when {
-            items.singleOrNull() is ClusterHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Clusters(
-                targets = setOf((items.single() as ClusterHeaderVH.Item).cluster.identifier),
+            items.singleOrNull() is ClusterAdapter.ClusterItem -> DeduplicatorDeleteTask.TargetMode.Clusters(
+                targets = setOf((items.single() as ClusterAdapter.ClusterItem).identifier),
                 deleteAll = deleteAll,
             )
 
-            items.singleOrNull() is ChecksumGroupHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Groups(
-                targets = setOf((items.single() as ChecksumGroupHeaderVH.Item).group.identifier),
+            items.singleOrNull() is ClusterAdapter.GroupItem -> DeduplicatorDeleteTask.TargetMode.Groups(
+                targets = setOf((items.single() as ClusterAdapter.GroupItem).identifier),
                 deleteAll = deleteAll,
             )
 
             items.all { it is ClusterAdapter.DuplicateItem } -> DeduplicatorDeleteTask.TargetMode.Duplicates(
-                targets = items.map { (it as ClusterAdapter.DuplicateItem).duplicate.identifier }.toSet()
+                targets = items.map { (it as ClusterAdapter.DuplicateItem).identifier }.toSet()
             )
 
             else -> throw IllegalArgumentException("Unsupported items: $items")

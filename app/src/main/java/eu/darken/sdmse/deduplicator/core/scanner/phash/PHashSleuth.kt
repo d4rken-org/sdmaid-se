@@ -31,7 +31,6 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
-import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -78,11 +77,9 @@ class PHashSleuth @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    override suspend fun investigate(): Collection<Duplicate.Group> {
+    override suspend fun investigate(): Set<PHashDuplicate.Group> {
         log(TAG) { "investigate():..." }
-        updateProgressPrimary(R.string.deduplicator_detection_method_phash_title)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressCount(Progress.Count.Indeterminate())
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
 
@@ -119,7 +116,6 @@ class PHashSleuth @Inject constructor(
         val suspects = mutableSetOf<APathLookup<*>>()
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
-        updateProgressCount(Progress.Count.Indeterminate())
 
         gatewaySwitch.useRes {
             targetAreas
@@ -150,8 +146,8 @@ class PHashSleuth @Inject constructor(
         }
 
 
-        updateProgressCount(Progress.Count.Percent(suspects.size))
         updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
+        updateProgressCount(Progress.Count.Percent(suspects.size))
 
         val hashStart = System.currentTimeMillis()
 
@@ -227,7 +223,7 @@ class PHashSleuth @Inject constructor(
                     )
                 }.toSet()
             )
-        }
+        }.toSet()
     }
 
     @Reusable
@@ -236,7 +232,7 @@ class PHashSleuth @Inject constructor(
         private val sleuthProvider: Provider<PHashSleuth>
     ) : Sleuth.Factory {
         override suspend fun isEnabled(): Boolean = settings.isSleuthPHashEnabled.value()
-        override suspend fun create(): Sleuth = sleuthProvider.get()
+        override suspend fun create(): PHashSleuth = sleuthProvider.get()
     }
 
     @InstallIn(SingletonComponent::class)

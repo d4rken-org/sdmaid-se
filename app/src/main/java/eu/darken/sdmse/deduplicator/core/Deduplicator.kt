@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
-import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -32,12 +31,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -47,8 +41,7 @@ import javax.inject.Singleton
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val sleuthFactories: Set<@JvmSuppressWildcards Sleuth.Factory>,
-    private val gatewaySwitch: GatewaySwitch,
+    gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
@@ -108,28 +101,11 @@ class Deduplicator @Inject constructor(
 
         internalData.value = null
 
-        val sleuths = sleuthFactories
-            .asFlow()
-            .filter { it.isEnabled() }
-            .map { it.create() }
-            .onEach { log(TAG) { "Sleuth created: $it" } }
-            .toList()
-
         val results = scanner.get().withProgress(this) {
-            scan(sleuths)
+            scan()
         }
 
-        log(TAG, INFO) { "performScan():${results.size} clusters found" }
-
-        results.forEach { c ->
-            log(TAG, VERBOSE) { "performScan(): Cluster ${c.identifier}: ${c.groups.size} groups, ${c.count} dupes" }
-            c.groups.forEach { g ->
-                log(TAG, VERBOSE) { "performScan():  Group ${g.identifier}: ${g.duplicates.size} dupes" }
-                g.duplicates.forEach { d ->
-                    log(TAG, VERBOSE) { "performScan():   Duplicate: $d" }
-                }
-            }
-        }
+        log(TAG, INFO) { "performScan(): ${results.size} clusters found" }
 
         log(TAG) { "Warming up fields..." }
         results.forEach { it.totalSize }
@@ -151,13 +127,14 @@ class Deduplicator @Inject constructor(
         val snapshot = internalData.value!!
 
         val result = deleter.get().withProgress(this) { delete(task, snapshot) }
+
         updateProgress { Progress.DEFAULT_STATE }
-        val pruneResult = snapshot.prune(result)
-        internalData.value = pruneResult.newData
+
+        internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
 
         return DeduplicatorDeleteTask.Success(
-            deletedItems = pruneResult.count,
-            recoveredSpace = pruneResult.freed,
+            deletedItems = result.success.size,
+            recoveredSpace = result.success.sumOf { it.size },
         )
     }
 
@@ -268,17 +245,7 @@ class Deduplicator @Inject constructor(
     }
 }
 
-data class PruneResult(
-    val newData: Deduplicator.Data,
-    val removed: Collection<Duplicate>,
-    val freed: Long,
-) {
-    val count: Int
-        get() = removed.size
-}
-
-internal fun Deduplicator.Data.prune(deleter: DuplicatesDeleter.Deleted): PruneResult {
-    val removedDupes = mutableSetOf<Duplicate>()
+internal fun Deduplicator.Data.prune(deletedIds: Set<Duplicate.Id>): Deduplicator.Data {
     val newClusters = this.clusters
         .asSequence()
         .map { oldCluster ->
@@ -287,11 +254,8 @@ internal fun Deduplicator.Data.prune(deleter: DuplicatesDeleter.Deleted): PruneR
                 .map { oldGroup ->
                     val newDuplicates: Set<Duplicate> = oldGroup.duplicates
                         .filter { toDelete ->
-                            val wasDeleted = deleter.success.contains(toDelete.identifier)
-                            if (wasDeleted) {
-                                log(Deduplicator.TAG) { "Prune: Deleted duplicate: $toDelete" }
-                                removedDupes.add(toDelete)
-                            }
+                            val wasDeleted = deletedIds.contains(toDelete.identifier)
+                            if (wasDeleted) log(Deduplicator.TAG) { "Prune: Deleted duplicate: $toDelete" }
                             !wasDeleted
                         }
                         .toSet()
@@ -311,25 +275,19 @@ internal fun Deduplicator.Data.prune(deleter: DuplicatesDeleter.Deleted): PruneR
                 }
                 .filter {
                     // group may be empty after removing duplicates
-                    val solo = it.duplicates.size < 2
                     val empty = it.duplicates.isEmpty()
                     if (empty) log(Deduplicator.TAG) { "Prune: Empty group: $it" }
-                    if (solo) log(Deduplicator.TAG) { "Prune: Solo group: $it" }
-                    !solo && !empty
+                    !empty
                 }
                 .toSet()
             oldCluster.copy(groups = newGroups)
         }
         .filter {
-            val clusterEmpty = it.groups.isEmpty()
-            if (clusterEmpty) log(Deduplicator.TAG) { "Prune: Empty cluster: $it" }
-            !clusterEmpty
+            val isSolo = it.count < 2
+            if (isSolo) log(Deduplicator.TAG) { "Prune: Cluster only has one item: $it" }
+            !isSolo
         }
         .toSet()
 
-    return PruneResult(
-        newData = this.copy(clusters = newClusters),
-        removed = removedDupes,
-        freed = removedDupes.sumOf { it.size }
-    )
+    return this.copy(clusters = newClusters)
 }

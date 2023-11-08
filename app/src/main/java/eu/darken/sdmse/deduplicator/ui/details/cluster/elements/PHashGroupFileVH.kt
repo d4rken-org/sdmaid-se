@@ -16,7 +16,7 @@ class PHashGroupFileVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<PHashGroupFileVH.Item, DeduplicatorClusterElementPhashgroupFileBinding>(
         R.layout.deduplicator_cluster_element_phashgroup_file,
         parent
-    ), SelectableVH {
+    ), ClusterAdapter.DuplicateItem.VH, SelectableVH {
 
     private var lastItem: Item? = null
     override val itemSelectionKey: String?
@@ -46,7 +46,7 @@ class PHashGroupFileVH(parent: ViewGroup) :
     data class Item(
         override val duplicate: PHashDuplicate,
         val onItemClick: (Item) -> Unit,
-    ) : ClusterAdapter.Item, ClusterAdapter.DuplicateItem, SelectableItem {
+    ) : ClusterAdapter.DuplicateItem, SelectableItem {
 
         override val itemSelectionKey: String
             get() = duplicate.lookup.toString()

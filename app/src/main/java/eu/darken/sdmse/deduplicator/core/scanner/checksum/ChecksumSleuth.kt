@@ -30,7 +30,6 @@ import eu.darken.sdmse.common.hashing.hash
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
-import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -69,9 +68,8 @@ class ChecksumSleuth @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    override suspend fun investigate(): Collection<Duplicate.Group> {
+    override suspend fun investigate(): Set<ChecksumDuplicate.Group> {
         log(TAG) { "investigate():..." }
-        updateProgressPrimary(R.string.deduplicator_detection_method_checksum_title)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressCount(Progress.Count.Indeterminate())
 
@@ -110,7 +108,6 @@ class ChecksumSleuth @Inject constructor(
         val suspects = mutableSetOf<APathLookup<*>>()
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
-        updateProgressCount(Progress.Count.Indeterminate())
 
         gatewaySwitch.useRes {
             targetAreas
@@ -145,8 +142,8 @@ class ChecksumSleuth @Inject constructor(
             .filterValues { it.size >= 2 }
         log(TAG) { "${sizeBuckets.size} size buckets of 2 or more items" }
 
-        updateProgressCount(Progress.Count.Percent(sizeBuckets.values.sumOf { it.size }))
         updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
+        updateProgressCount(Progress.Count.Percent(sizeBuckets.values.sumOf { it.size }))
 
         val hashStart = System.currentTimeMillis()
         val hashBuckets = sizeBuckets.values
@@ -196,7 +193,7 @@ class ChecksumSleuth @Inject constructor(
                 )
             }
 
-        return duplicates
+        return duplicates.toSet()
     }
 
     @Reusable
@@ -205,7 +202,7 @@ class ChecksumSleuth @Inject constructor(
         private val sleuthProvider: Provider<ChecksumSleuth>
     ) : Sleuth.Factory {
         override suspend fun isEnabled(): Boolean = settings.isSleuthChecksumEnabled.value()
-        override suspend fun create(): Sleuth = sleuthProvider.get()
+        override suspend fun create(): ChecksumSleuth = sleuthProvider.get()
     }
 
     @InstallIn(SingletonComponent::class)

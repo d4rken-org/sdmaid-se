@@ -53,7 +53,7 @@ fun <T : Progress.Client> T.updateProgressSecondary(resolv: (Context) -> String)
     updateProgress { (it ?: Progress.Data()).copy(secondary = resolv.toCaString()) }
 }
 
-fun <T : Progress.Client> T.updateProgressSecondary(secondary: CaString) {
+fun <T : Progress.Client> T.updateProgressSecondary(secondary: CaString = CaString.EMPTY) {
     updateProgress { (it ?: Progress.Data()).copy(secondary = secondary) }
 }
 

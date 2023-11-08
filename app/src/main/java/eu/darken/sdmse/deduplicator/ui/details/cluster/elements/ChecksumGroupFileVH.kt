@@ -14,7 +14,7 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<ChecksumGroupFileVH.Item, DeduplicatorClusterElementChecksumgroupFileBinding>(
         R.layout.deduplicator_cluster_element_checksumgroup_file,
         parent
-    ), SelectableVH {
+    ), SelectableVH, ClusterAdapter.DuplicateItem.VH {
 
     private var lastItem: Item? = null
     override val itemSelectionKey: String?
@@ -41,7 +41,7 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
     data class Item(
         override val duplicate: ChecksumDuplicate,
         val onItemClick: (Item) -> Unit,
-    ) : ClusterAdapter.Item, ClusterAdapter.DuplicateItem, SelectableItem {
+    ) : ClusterAdapter.DuplicateItem, SelectableItem {
 
         override val itemSelectionKey: String
             get() = duplicate.lookup.toString()
