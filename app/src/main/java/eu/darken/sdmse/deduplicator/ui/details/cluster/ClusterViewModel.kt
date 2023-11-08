@@ -17,10 +17,13 @@ import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -70,7 +73,7 @@ class ClusterViewModel @Inject constructor(
                             group = group,
                             onItemClick = { delete(setOf(it)) },
                             onViewActionClick = {
-                                events.postValue(ClusterEvents.ViewItem(it.group.preview))
+                                events.postValue(ClusterEvents.ViewDuplicate(it.group.preview))
                             }
                         ).run { items.add(this) }
                         group.duplicates.map { dupe ->
@@ -82,7 +85,20 @@ class ClusterViewModel @Inject constructor(
                     }
 
                     Duplicate.Type.PHASH -> {
-                        // TODO NOOP
+                        group as PHashDuplicate.Group
+                        PHashGroupHeaderVH.Item(
+                            group = group,
+                            onItemClick = { delete(setOf(it)) },
+                            onViewActionClick = {
+//                                events.postValue(ClusterEvents.ViewDuplicate(it.group.preview))
+                            }
+                        ).run { items.add(this) }
+                        group.duplicates.map { dupe ->
+                            PHashGroupFileVH.Item(
+                                duplicate = dupe,
+                                onItemClick = { delete(listOf(it)) }
+                            )
+                        }.run { items.addAll(this) }
                     }
                 }
 
@@ -121,18 +137,18 @@ class ClusterViewModel @Inject constructor(
         }
 
         val mode: DeduplicatorDeleteTask.TargetMode = when {
-            items.singleOrNull() is ClusterHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Clusters(
-                targets = setOf((items.single() as ClusterHeaderVH.Item).cluster.identifier),
+            items.singleOrNull() is ClusterAdapter.ClusterItem -> DeduplicatorDeleteTask.TargetMode.Clusters(
+                targets = setOf((items.single() as ClusterAdapter.ClusterItem).identifier),
                 deleteAll = deleteAll,
             )
 
-            items.singleOrNull() is ChecksumGroupHeaderVH.Item -> DeduplicatorDeleteTask.TargetMode.Groups(
-                targets = setOf((items.single() as ChecksumGroupHeaderVH.Item).group.identifier),
+            items.singleOrNull() is ClusterAdapter.GroupItem -> DeduplicatorDeleteTask.TargetMode.Groups(
+                targets = setOf((items.single() as ClusterAdapter.GroupItem).identifier),
                 deleteAll = deleteAll,
             )
 
             items.all { it is ClusterAdapter.DuplicateItem } -> DeduplicatorDeleteTask.TargetMode.Duplicates(
-                targets = items.map { (it as ClusterAdapter.DuplicateItem).duplicate.identifier }.toSet()
+                targets = items.map { (it as ClusterAdapter.DuplicateItem).identifier }.toSet()
             )
 
             else -> throw IllegalArgumentException("Unsupported items: $items")

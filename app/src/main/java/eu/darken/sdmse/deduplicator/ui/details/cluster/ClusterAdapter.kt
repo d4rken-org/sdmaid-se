@@ -17,6 +17,8 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import javax.inject.Inject
 
 
@@ -33,6 +35,8 @@ class ClusterAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is ClusterHeaderVH.Item }) { ClusterHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupHeaderVH.Item }) { ChecksumGroupHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupFileVH.Item }) { ChecksumGroupFileVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is PHashGroupHeaderVH.Item }) { PHashGroupHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is PHashGroupFileVH.Item }) { PHashGroupFileVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
@@ -47,17 +51,29 @@ class ClusterAdapter @Inject constructor() :
             }
     }
 
-    interface HeaderVH
+    interface ClusterItem : Item {
+        val cluster: Duplicate.Cluster
+        val identifier: Duplicate.Cluster.Id
+            get() = cluster.identifier
 
-    interface DuplicateItem {
-        val duplicate: Duplicate
-        val path: APath
-            get() = duplicate.path
+        interface VH
     }
 
-    interface GroupItem {
+    interface GroupItem : Item {
         val group: Duplicate.Group
         val identifier: Duplicate.Group.Id
             get() = group.identifier
+
+        interface VH
+    }
+
+    interface DuplicateItem : Item {
+        val duplicate: Duplicate
+        val identifier: Duplicate.Id
+            get() = duplicate.identifier
+        val path: APath
+            get() = duplicate.path
+
+        interface VH
     }
 }

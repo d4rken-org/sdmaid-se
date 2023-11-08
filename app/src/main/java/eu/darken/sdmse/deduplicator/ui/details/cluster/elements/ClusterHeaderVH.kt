@@ -17,7 +17,7 @@ class ClusterHeaderVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<ClusterHeaderVH.Item, DeduplicatorClusterElementHeaderBinding>(
         R.layout.deduplicator_cluster_element_header,
         parent
-    ), ClusterAdapter.HeaderVH {
+    ), ClusterAdapter.ClusterItem.VH {
 
     override val viewBinding = lazy { DeduplicatorClusterElementHeaderBinding.bind(itemView) }
 
@@ -44,10 +44,10 @@ class ClusterHeaderVH(parent: ViewGroup) :
     }
 
     data class Item(
-        val cluster: Duplicate.Cluster,
+        override val cluster: Duplicate.Cluster,
         val onDeleteAllClicked: (Item) -> Unit,
         val onExcludeClicked: (Item) -> Unit,
-    ) : ClusterAdapter.Item, SelectableItem {
+    ) : ClusterAdapter.ClusterItem, SelectableItem {
 
         override val itemSelectionKey: String? = null
 

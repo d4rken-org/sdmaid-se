@@ -17,7 +17,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
     ClusterAdapter.BaseVH<ChecksumGroupHeaderVH.Item, DeduplicatorClusterElementChecksumgroupHeaderBinding>(
         R.layout.deduplicator_cluster_element_checksumgroup_header,
         parent
-    ), ClusterAdapter.HeaderVH {
+    ), ClusterAdapter.GroupItem.VH {
 
     override val viewBinding = lazy { DeduplicatorClusterElementChecksumgroupHeaderBinding.bind(itemView) }
 
@@ -40,7 +40,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
         override val group: ChecksumDuplicate.Group,
         val onItemClick: (Item) -> Unit,
         val onViewActionClick: (Item) -> Unit,
-    ) : ClusterAdapter.Item, SelectableItem, ClusterAdapter.GroupItem {
+    ) : ClusterAdapter.GroupItem, SelectableItem {
 
         override val itemSelectionKey: String?
             get() = null

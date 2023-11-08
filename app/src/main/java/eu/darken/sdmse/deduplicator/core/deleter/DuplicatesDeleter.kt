@@ -56,9 +56,7 @@ class DuplicatesDeleter @Inject constructor(
 
         log(TAG) { "Deletion finished, deleted ${deletedDupes.size} duplicates" }
 
-        return Deleted(
-            success = deletedDupes.map { it.identifier }.toSet(),
-        )
+        return Deleted(success = deletedDupes.toSet())
     }
 
     private suspend fun Deduplicator.Data.targetAll(): Collection<Duplicate> {
@@ -74,7 +72,7 @@ class DuplicatesDeleter @Inject constructor(
         return clusters
             .filter { cluster -> targets.contains(cluster.identifier) }
             .map { cluster ->
-                log(TAG, VERBOSE) { "_targetClusters(): Deleting from ${cluster.identifier}" }
+                log(TAG, VERBOSE) { "_targetClusters(): Deleting from ${cluster.identifier} (groups=${cluster.count})" }
                 if (deleteAll) {
                     targetGroups(
                         targets = cluster.groups.map { it.identifier }.toSet(),
@@ -107,8 +105,8 @@ class DuplicatesDeleter @Inject constructor(
             .flatMap { it.groups }
             .filter { group -> targets.contains(group.identifier) }
             .map { group ->
-                log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier}" }
-                if (deleteAll) {
+                log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier} (dupes=${group.count}" }
+                if (deleteAll || targets.size == 1) {
                     targetDuplicates(group.duplicates.map { it.identifier }.toSet())
                 } else {
                     val (favorite, rest) = arbiter.decideDuplicates(group.duplicates)
@@ -137,7 +135,7 @@ class DuplicatesDeleter @Inject constructor(
     }
 
     data class Deleted(
-        val success: Set<Duplicate.Id> = emptySet(),
+        val success: Set<Duplicate> = emptySet(),
     )
 
     companion object {

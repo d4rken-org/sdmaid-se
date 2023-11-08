@@ -62,31 +62,36 @@ class MediaStoreTool @Inject constructor(
     }
 
     suspend fun isIndexed(path: APath): Boolean {
-        contentResolver.query(
+        val cursor = contentResolver.query(
             MediaStore.Files.getContentUri("external"),
             arrayOf(MediaStore.MediaColumns.DATA),
             MediaStore.MediaColumns.DATA + "=?",
             arrayOf(path.path),
             null
-        )?.use { cursor ->
+        )
+
+        if (cursor == null) {
+            log(TAG, WARN) { "Cursor was null when querying media store: $path" }
+            return false
+        }
+
+        val indexed = cursor.use {
             if (cursor.moveToFirst()) {
                 val index = cursor.getColumnIndex(MediaStore.MediaColumns.DATA)
                 if (index == -1) {
                     log(TAG, WARN) { "DATA index was -1" }
-                    return false
+                    false
+                } else {
+                    cursor.getString(index) == path.path
                 }
-
-                val indexedPath = cursor.getString(index)
-                val isIndexed = indexedPath == path.path
-
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "isIndexed=$isIndexed # $indexedPath <-> $path" }
-                return isIndexed
             } else {
-                log(TAG, WARN) { "Cursor was empty for $path" }
+                false
             }
-        } ?: log(TAG, WARN) { "Cursor was null when querying media store files." }
+        }
 
-        return false
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "isIndexed=$indexed $path" }
+
+        return indexed
     }
 
     companion object {

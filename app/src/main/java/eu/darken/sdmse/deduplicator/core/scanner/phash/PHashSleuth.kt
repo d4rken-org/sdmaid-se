@@ -1,9 +1,11 @@
-package eu.darken.sdmse.deduplicator.core.scanner.checksum
+package eu.darken.sdmse.deduplicator.core.scanner.phash
 
+import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
@@ -12,6 +14,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,8 +28,6 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.hashing.Hasher
-import eu.darken.sdmse.common.hashing.hash
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -35,24 +36,32 @@ import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.CommonFilesCheck
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.phash
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.DEFAULT_CONCURRENCY
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.isActive
+import java.io.IOException
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Provider
 
-class ChecksumSleuth @Inject constructor(
+class PHashSleuth @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
@@ -68,10 +77,9 @@ class ChecksumSleuth @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    override suspend fun investigate(): Set<ChecksumDuplicate.Group> {
+    override suspend fun investigate(): Set<PHashDuplicate.Group> {
         log(TAG) { "investigate():..." }
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressCount(Progress.Count.Indeterminate())
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
 
@@ -132,77 +140,99 @@ class ChecksumSleuth @Inject constructor(
                 }
                 .buffer(1024)
                 .filter {
-                    it.isFile && it.size >= minSize && (!skipUncommon || commonFilesCheck.isCommon(it))
+                    it.isFile && it.size >= minSize && (!skipUncommon || commonFilesCheck.isImage(it))
                 }
                 .collect { item -> suspects.add(item) }
         }
 
-        val sizeBuckets: Map<Long, List<APathLookup<*>>> = suspects
-            .groupBy { it.size }
-            .filterValues { it.size >= 2 }
-        log(TAG) { "${sizeBuckets.size} size buckets of 2 or more items" }
 
         updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
-        updateProgressCount(Progress.Count.Percent(sizeBuckets.values.sumOf { it.size }))
+        updateProgressCount(Progress.Count.Percent(suspects.size))
 
         val hashStart = System.currentTimeMillis()
-        val hashBuckets = sizeBuckets.values
+
+        val hashedItems: Map<APathLookup<*>, PHasher.Result> = suspects
             .asFlow()
-            .flatMapMerge { items ->
+            .flatMapMerge { item ->
                 flow {
-                    val checksummedGroup = items.map { item ->
-                        val start = System.currentTimeMillis()
+                    val start = System.currentTimeMillis()
 
-                        val hash = gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
-                        val hexHash = hash.format()
+                    val hash = try {
+                        item.phash(context)
+                    } catch (e: IOException) {
+                        log(TAG, WARN) { "Failed to determine phash for $item" }
+                        null
+                    }
 
+
+                    if (Bugs.isTrace) {
                         val stop = System.currentTimeMillis()
                         log(TAG, VERBOSE) {
-                            "Checksum: $hexHash - ${String.format("%4d", stop - start)}ms - ${item.path}"
+                            "PHash: ${hash?.format()} - ${String.format("%4d", stop - start)}ms - ${item.path}"
                         }
-
-                        increaseProgress()
-                        Triple(item, hash, hexHash)
                     }
-                    emit(checksummedGroup)
+
+                    increaseProgress()
+                    emit(if (hash != null) item to hash else null)
                 }
             }
+            .filterNotNull()
             .toList()
-            .flatten()
-            .groupBy { hexHash -> hexHash.third }
-            .filter { it.value.size >= 2 }
+            .toMap()
+
+        val requiredSim = 0.95f
+        val remainingItems = hashedItems.keys.toMutableList()
+        val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
+
+        updateProgressCount(Progress.Count.Percent(remainingItems.size))
+
+        while (currentCoroutineContext().isActive && remainingItems.isNotEmpty()) {
+            val target = remainingItems.removeFirst()
+            val targetHash = hashedItems[target]!!
+
+            val others = remainingItems
+                .map { it to targetHash.similarityTo(hashedItems[it]!!) }
+                .onEach { (other, sim) ->
+                    if (Bugs.isTrace || sim > requiredSim) {
+                        log(TAG, VERBOSE) { "${String.format("%.2f%%", sim * 100)} : $target <-> $other" }
+                    }
+                }
+                .filter { it.second > requiredSim }
+
+            remainingItems.removeAll(others.map { it.first }.toSet())
+
+            if (others.isEmpty()) continue
+
+            // We group the target with others and use the average distance as it's distance
+            val targetWithOthers = others.plus(target to others.map { it.second }.average()).toSet()
+            hashBuckets.add(targetWithOthers)
+            increaseProgress(remainingItems.size)
+        }
 
         val hashStop = System.currentTimeMillis()
         log(TAG) { "Hashing took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
 
-        log(TAG) { "${hashBuckets.size} hash buckets of 2 or more items" }
-
-        val duplicates = hashBuckets.values
-            .map { dupes: List<Triple<APathLookup<*>, Hasher.Result, String>> ->
-                val hexHash = dupes.first().third
-                ChecksumDuplicate.Group(
-                    identifier = Duplicate.Group.Id(hexHash),
-                    duplicates = dupes
-                        .map { (item, hash) ->
-                            ChecksumDuplicate(
-                                lookup = item,
-                                hash = hash,
-                            )
-                        }
-                        .toSet()
-                )
-            }
-
-        return duplicates.toSet()
+        return hashBuckets.map { items: Set<Pair<APathLookup<*>, Double>> ->
+            PHashDuplicate.Group(
+                identifier = Duplicate.Group.Id(UUID.randomUUID().toString()),
+                duplicates = items.map { (item, similarity) ->
+                    PHashDuplicate(
+                        lookup = item,
+                        hash = hashedItems[item]!!,
+                        similarity = similarity,
+                    )
+                }.toSet()
+            )
+        }.toSet()
     }
 
     @Reusable
     class Factory @Inject constructor(
         private val settings: DeduplicatorSettings,
-        private val sleuthProvider: Provider<ChecksumSleuth>
+        private val sleuthProvider: Provider<PHashSleuth>
     ) : Sleuth.Factory {
-        override suspend fun isEnabled(): Boolean = settings.isSleuthChecksumEnabled.value()
-        override suspend fun create(): ChecksumSleuth = sleuthProvider.get()
+        override suspend fun isEnabled(): Boolean = settings.isSleuthPHashEnabled.value()
+        override suspend fun create(): PHashSleuth = sleuthProvider.get()
     }
 
     @InstallIn(SingletonComponent::class)
@@ -212,6 +242,6 @@ class ChecksumSleuth @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Deduplicator", "Sleuth", "Hash")
+        private val TAG = logTag("Deduplicator", "Sleuth", "PHash")
     }
 }

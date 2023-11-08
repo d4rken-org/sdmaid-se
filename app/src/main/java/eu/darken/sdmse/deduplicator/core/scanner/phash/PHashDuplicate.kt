@@ -1,12 +1,13 @@
 package eu.darken.sdmse.deduplicator.core.scanner.phash
 
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 
 data class PHashDuplicate(
     override val lookup: APathLookup<*>,
-    val hash: Hasher.Result,
+    val hash: PHasher.Result,
+    val similarity: Double,
 ) : Duplicate {
 
     override val type: Duplicate.Type

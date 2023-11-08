@@ -28,7 +28,7 @@ class Hasher(
         val type: Type,
         val hash: ByteString,
     ) {
-        fun formatAs(format: Format): String = when (format) {
+        fun format(format: Format = Format.HEX): String = when (format) {
             Format.HEX -> hash.hex()
             Format.BASE64 -> hash.base64()
         }

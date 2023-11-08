@@ -170,8 +170,8 @@ dependencies {
 
     implementation("com.airbnb.android:lottie:3.5.0")
 
-    implementation("io.coil-kt:coil:2.4.0")
-    implementation("io.coil-kt:coil-video:2.4.0")
+    implementation("io.coil-kt:coil:${Versions.Coil.core}")
+    implementation("io.coil-kt:coil-video:${Versions.Coil.core}")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0

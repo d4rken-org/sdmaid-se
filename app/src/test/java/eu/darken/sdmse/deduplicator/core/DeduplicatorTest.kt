@@ -5,8 +5,9 @@ import eu.darken.sdmse.common.files.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.hashing.Hasher
-import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 import io.kotest.matchers.shouldBe
 import okio.ByteString
 import org.junit.jupiter.api.Test
@@ -14,30 +15,41 @@ import testhelpers.BaseTest
 import java.time.Instant
 
 class DeduplicatorTest : BaseTest() {
+    val cksDupe1 = ChecksumDuplicate(
+        lookup = LocalPathLookup(
+            lookedUp = LocalPath(File("aaa")),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        ),
+        hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
+    )
+    val cksDupe2 = ChecksumDuplicate(
+        lookup = LocalPathLookup(
+            lookedUp = LocalPath(File("bbb")),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        ),
+        hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
+    )
+    val phDupe1 = PHashDuplicate(
+        lookup = LocalPathLookup(
+            lookedUp = LocalPath(File("ccc")),
+            fileType = FileType.FILE,
+            size = 16,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        ),
+        hash = PHasher.Result(1L),
+        similarity = 0.95
+    )
 
     @Test
     fun `post-deletion - prune empties and singles`() {
 
-        val dupe1 = ChecksumDuplicate(
-            lookup = LocalPathLookup(
-                lookedUp = LocalPath(File("aaa")),
-                fileType = FileType.FILE,
-                size = 16,
-                modifiedAt = Instant.EPOCH,
-                target = null,
-            ),
-            hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
-        )
-        val dupe2 = ChecksumDuplicate(
-            lookup = LocalPathLookup(
-                lookedUp = LocalPath(File("bbb")),
-                fileType = FileType.FILE,
-                size = 16,
-                modifiedAt = Instant.EPOCH,
-                target = null,
-            ),
-            hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
-        )
         val original = Deduplicator.Data(
             clusters = setOf(
                 Duplicate.Cluster(
@@ -53,56 +65,30 @@ class DeduplicatorTest : BaseTest() {
                         ),
                         ChecksumDuplicate.Group(
                             identifier = Duplicate.Group.Id("456"),
-                            duplicates = setOf(dupe1, dupe2),
+                            duplicates = setOf(cksDupe1, cksDupe2),
                         ),
                     )
                 ),
             )
         )
 
-        val pruneResult = PruneResult(
-            newData = Deduplicator.Data(
-                clusters = setOf(
-                    Duplicate.Cluster(
-                        identifier = Duplicate.Cluster.Id("edf"),
-                        groups = setOf(
-                            ChecksumDuplicate.Group(
-                                identifier = Duplicate.Group.Id("456"),
-                                duplicates = setOf(dupe1, dupe2),
-                            ),
-                        )
-                    ),
-                )
-            ),
-            freed = 0L,
-            removed = emptySet()
+        original.prune(emptySet()) shouldBe Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("edf"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("456"),
+                            duplicates = setOf(cksDupe1, cksDupe2),
+                        ),
+                    )
+                ),
+            )
         )
-
-        original.prune(DuplicatesDeleter.Deleted()) shouldBe pruneResult
     }
 
     @Test
     fun `post-deletion - prune all`() {
-        val dupe1 = ChecksumDuplicate(
-            lookup = LocalPathLookup(
-                lookedUp = LocalPath(File("aaa")),
-                fileType = FileType.FILE,
-                size = 16,
-                modifiedAt = Instant.EPOCH,
-                target = null,
-            ),
-            hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
-        )
-        val dupe2 = ChecksumDuplicate(
-            lookup = LocalPathLookup(
-                lookedUp = LocalPath(File("bbb")),
-                fileType = FileType.FILE,
-                size = 16,
-                modifiedAt = Instant.EPOCH,
-                target = null,
-            ),
-            hash = Hasher.Result(hash = ByteString.Companion.EMPTY, type = Hasher.Type.SHA1),
-        )
         val original = Deduplicator.Data(
             clusters = setOf(
                 Duplicate.Cluster(
@@ -118,23 +104,36 @@ class DeduplicatorTest : BaseTest() {
                         ),
                         ChecksumDuplicate.Group(
                             identifier = Duplicate.Group.Id("456"),
-                            duplicates = setOf(dupe1, dupe2),
+                            duplicates = setOf(cksDupe1, cksDupe2),
                         ),
                     )
                 ),
             )
         )
 
-        val pruneResult = PruneResult(
-            newData = Deduplicator.Data(),
-            freed = setOf(dupe1).sumOf { it.size },
-            removed = setOf(dupe1)
+        original.prune(setOf(Duplicate.Id("aaa"))) shouldBe Deduplicator.Data()
+    }
+
+    @Test
+    fun `post-deletion - a cluster can have two groups with one dupe each`() {
+        val original = Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("ccc"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("123"),
+                            duplicates = setOf(cksDupe1),
+                        ),
+                        PHashDuplicate.Group(
+                            identifier = Duplicate.Group.Id("456"),
+                            duplicates = setOf(phDupe1),
+                        ),
+                    )
+                ),
+            )
         )
 
-        original.prune(
-            DuplicatesDeleter.Deleted(
-                success = setOf(Duplicate.Id("aaa")),
-            )
-        ) shouldBe pruneResult
+        original.prune(emptySet()) shouldBe original
     }
 }

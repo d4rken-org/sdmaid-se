@@ -31,9 +31,7 @@
             app:summary="@string/deduplicator_detection_method_checksum_summary"
             app:title="@string/deduplicator_detection_method_checksum_title" />
         <CheckBoxPreference
-            android:enabled="false"
             app:icon="@drawable/ic_approximately_equal_box_24"
-            app:isPreferenceVisible="false"
             app:key="sleuth.phash.enabled"
             app:singleLineTitle="false"
             app:summary="@string/deduplicator_detection_method_phash_summary"

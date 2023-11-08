@@ -16,6 +16,10 @@ object Versions {
         const val core = "1.14.0"
     }
 
+    object Coil {
+        const val core = "2.4.0"
+    }
+
     object AndroidX {
         const val core = ""
 

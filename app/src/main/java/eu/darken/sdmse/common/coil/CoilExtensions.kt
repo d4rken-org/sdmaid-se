@@ -39,17 +39,22 @@ fun ImageView.loadAppIcon(pkg: Pkg): Disposable? {
     return context.imageLoader.enqueue(request)
 }
 
-fun ImageView.loadFilePreview(lookup: APathLookup<*>): Disposable? {
+fun ImageView.loadFilePreview(
+    lookup: APathLookup<*>,
+    options: ImageRequest.Builder.(APathLookup<*>) -> Unit = {
+        val alt = lookup.fileType.iconRes
+        fallback(alt)
+        error(alt)
+    }
+): Disposable? {
     val current = tag as? APathLookup<*>
     if (current?.lookedUp == lookup.lookedUp) return null
     tag = lookup
 
     val request = ImageRequest.Builder(context).apply {
         data(lookup)
-        val alt = lookup.fileType.iconRes
-        fallback(alt)
-        error(alt)
         target(this@loadFilePreview)
+        options(lookup)
     }.build()
 
     return context.imageLoader.enqueue(request)
