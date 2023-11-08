@@ -28,12 +28,12 @@ class ClusterHeaderVH(parent: ViewGroup) :
         val cluster = item.cluster
 
         methodChecksumCount.text = context.getQuantityString2(
-            R.plurals.deduplicator_result_x_duplicates,
+            eu.darken.sdmse.common.R.plurals.result_x_files,
             cluster.groups.filterIsInstance<ChecksumDuplicate.Group>().sumOf { it.count }
         )
 
         methodPhashValue.text = context.getQuantityString2(
-            R.plurals.deduplicator_result_x_duplicates,
+            eu.darken.sdmse.common.R.plurals.result_x_files,
             cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count }
         )
 

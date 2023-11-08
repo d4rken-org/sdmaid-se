@@ -29,7 +29,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
 
         previewImage.loadFilePreview(group.preview)
 
-        countValue.text = context.getQuantityString2(R.plurals.deduplicator_result_x_duplicates, group.count)
+        countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_files, group.count)
         sizeValue.text = Formatter.formatFileSize(context, group.averageSize.roundToLong())
 
         viewAction.setOnClickListener { item.onViewActionClick(item) }

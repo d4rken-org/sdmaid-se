@@ -145,4 +145,9 @@
     <string name="general_timeunit_days">Days</string>
     <string name="general_progress_ready">Ready</string>
     <string name="general_progress_done">Done</string>
+
+    <plurals name="result_x_files">
+        <item quantity="one">%s file</item>
+        <item quantity="other">%s files</item>
+    </plurals>
 </resources>
