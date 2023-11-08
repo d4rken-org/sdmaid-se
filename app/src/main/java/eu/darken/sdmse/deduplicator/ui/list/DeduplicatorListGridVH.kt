@@ -38,7 +38,7 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         previewImage.loadFilePreview(cluster.previewFile)
 
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
-        secondary.text = context.getQuantityString2(R.plurals.deduplicator_result_x_duplicates, cluster.count)
+        secondary.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, cluster.count)
 
         matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
         matchTypePhash.isVisible = item.cluster.types.contains(Duplicate.Type.PHASH)
