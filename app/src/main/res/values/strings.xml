@@ -391,10 +391,6 @@
         <item quantity="one">%d duplicate set found</item>
         <item quantity="other">%d duplicate sets found</item>
     </plurals>
-    <plurals name="deduplicator_result_x_duplicates">
-        <item quantity="one">%d copy</item>
-        <item quantity="other">%d copies</item>
-    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Make \"Delete all\" possible</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
@@ -419,6 +415,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Delete all copies. No file is left over!</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
+    <string name="deduplicator_matches_exact_label">Exact copies</string>
+    <string name="deduplicator_matches_similar_label">Similar files</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>

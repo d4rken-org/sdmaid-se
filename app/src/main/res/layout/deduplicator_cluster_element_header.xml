@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/deduplicator_detection_method_checksum_title"
+            android:text="@string/deduplicator_matches_exact_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/method_checksum_label"
-            tools:text="@string/deduplicator_result_x_duplicates" />
+            tools:text="99" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/method_phash_label"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/deduplicator_detection_method_phash_title"
+            android:text="@string/deduplicator_matches_similar_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/method_checksum_count" />
 
@@ -66,7 +66,7 @@
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="@id/method_phash_label"
             app:layout_constraintTop_toBottomOf="@id/method_phash_label"
-            tools:text="@string/deduplicator_result_x_duplicates" />
+            tools:text="12" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/hints_label"
