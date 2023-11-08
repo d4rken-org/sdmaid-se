@@ -173,7 +173,7 @@ class ChecksumSleuth @Inject constructor(
             .filter { it.value.size >= 2 }
 
         val hashStop = System.currentTimeMillis()
-        log(TAG) { "Hashing took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
+        log(TAG) { "Checksum investigation took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
 
         log(TAG) { "${hashBuckets.size} hash buckets of 2 or more items" }
 

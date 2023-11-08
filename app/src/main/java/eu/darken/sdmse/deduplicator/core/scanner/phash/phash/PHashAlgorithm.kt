@@ -15,7 +15,7 @@ import kotlin.math.sqrt
  * Author: Elliot Shepherd (elliot@jarofworms.com
  * Based On: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
  */
-class SimplePHash constructor(
+class PHashAlgorithm constructor(
     private val size: Int = 32,
     private val smallerSize: Int = 8,
 ) {
