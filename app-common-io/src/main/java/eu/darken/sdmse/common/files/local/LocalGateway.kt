@@ -510,7 +510,7 @@ class LocalGateway @Inject constructor(
                 hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "read($mode->ADB): $path" }
                     // We need to keep the resource alive until the caller is done with the Source object
-                    val resource = rootManager.serviceClient.get()
+                    val resource = shizukuManager.serviceClient.get()
                     adbOps { it.readFile(path).callbacks { resource.close() } }
                 }
 
@@ -550,7 +550,7 @@ class LocalGateway @Inject constructor(
                 hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "write($mode->ADB): $path" }
                     // We need to keep the resource alive until the caller is done with the Sink object
-                    val resource = rootManager.serviceClient.get()
+                    val resource = shizukuManager.serviceClient.get()
                     adbOps { it.writeFile(path).callbacks { resource.close() } }
                 }
 
