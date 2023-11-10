@@ -29,5 +29,7 @@ fun hasApiLevel(level: Int): Boolean = when {
     else -> false
 }
 
+const val UNTESTED_API = 35
+
 inline fun <reified R> ifApiLevel(level: Int, block: () -> R): R? = if (hasApiLevel(level)) block() else null
 
