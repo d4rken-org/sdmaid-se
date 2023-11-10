@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.UNTESTED_API
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -21,6 +22,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -51,6 +53,11 @@ class DalvikCorpseFilter @Inject constructor(
 
         if (!gateway.hasRoot()) {
             log(TAG) { "LocalGateway has no root, skipping." }
+            return emptySet()
+        }
+
+        if (hasApiLevel(UNTESTED_API)) {
+            log(TAG, WARN) { "Untested API level ($UNTESTED_API) skipping for safety." }
             return emptySet()
         }
 
