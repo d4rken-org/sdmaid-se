@@ -47,12 +47,13 @@ class GeneralSettings @Inject constructor(
     val hasPassedAppOpsRestrictions = dataStore.createValue("core.appops.restrictions.passed", false)
     val hasTriggeredRestrictions = dataStore.createValue("core.appops.restrictions.triggered", false)
 
-    val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.enabled", false)
+    val enableDashboardOneClick = dataStore.createValue("dashboard.oneclick.onepass.enabled", false)
+    val oneClickCorpseFinderEnabled = dataStore.createValue("dashboard.oneclick.corpsefinder.enabled", true)
+    val oneClickSystemCleanerEnabled = dataStore.createValue("dashboard.oneclick.systemcleaner.enabled", true)
+    val oneClickAppCleanerEnabled = dataStore.createValue("dashboard.oneclick.appcleaner.enabled", true)
+    val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
 
-    val isUpdateCheckEnabled = dataStore.createValue(
-        "updater.check.enabled",
-        updateChecker.isEnabledByDefault()
-    )
+    val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())
 
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.CheckBoxPreference
+import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
@@ -22,6 +23,7 @@ class GeneralSettingsFragment : PreferenceFragment2() {
     private val vm: GeneralSettingsViewModel by viewModels()
 
     @Inject lateinit var generalSettings: GeneralSettings
+    @Inject lateinit var oneClickToolDialog: OneClickOptionsDialog
 
     override val settings: GeneralSettings by lazy { generalSettings }
     override val preferenceFile: Int = R.xml.preferences_general
@@ -32,11 +34,17 @@ class GeneralSettingsFragment : PreferenceFragment2() {
         get() = findPreference(settings.themeStyle.keyName)!!
     private val updateCheck: CheckBoxPreference
         get() = findPreference(settings.isUpdateCheckEnabled.keyName)!!
+    private val oneClickTools: Preference
+        get() = findPreference("dashboard.oneclick.tools")!!
 
     override fun onPreferencesCreated() {
         themeModePref.setupWithEnum(settings.themeMode)
         themeStylePref.setupWithEnum(settings.themeStyle)
 
+        oneClickTools.setOnPreferenceClickListener {
+            oneClickToolDialog.show(requireContext())
+            true
+        }
         super.onPreferencesCreated()
     }
 
@@ -68,4 +76,5 @@ class GeneralSettingsFragment : PreferenceFragment2() {
 
         super.onViewCreated(view, savedInstanceState)
     }
+
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/corpsefinder_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/corpsefinder_tool_name" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/systemcleaner_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/systemcleaner_tool_name" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/appcleaner_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/appcleaner_tool_name" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/deduplicator_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deduplicator_tool_name" />
+
+</LinearLayout>
