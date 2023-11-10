@@ -72,7 +72,9 @@ class ShizukuHost(
                 }
 
                 if (options.recorderPath != null && currentFileLogger == null) {
-                    val logger = FileLogger(File(options.recorderPath + "_shizuku")).also {
+                    val ogPath = options.recorderPath!!
+                    val newPath = ogPath.replace(".log", "_shizuku.log")
+                    val logger = FileLogger(File(newPath)).also {
                         currentFileLogger = it
                         it.start()
                     }
