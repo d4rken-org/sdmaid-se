@@ -91,7 +91,7 @@ class AppCleaner @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as AppCleanerTask
         log(TAG) { "submit(): Starting...$task" }
-        updateProgress { Progress.DEFAULT_STATE }
+        updateProgress { Progress.Data() }
         try {
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {

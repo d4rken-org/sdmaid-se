@@ -51,7 +51,7 @@ class SystemCrawler @Inject constructor(
     private val exclusionManager: ExclusionManager,
 ) : Progress.Host, Progress.Client {
 
-    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
+    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {

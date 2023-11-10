@@ -43,7 +43,7 @@ class SdcardCorpseFilter @Inject constructor(
     private val corpseFinderSettings: CorpseFinderSettings,
     private val clutterRepo: ClutterRepo,
     private val pkgRepo: PkgRepo,
-) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
+) : CorpseFilter(TAG, Progress.Data(primary = R.string.corpsefinder_filter_sdcard_summary.toCaString())) {
 
     private val markerThatExistCache: MutableMap<CacheKey, Collection<AreaInfo>> = HashMap()
 
@@ -319,11 +319,6 @@ class SdcardCorpseFilter @Inject constructor(
     }
 
     companion object {
-        val DEFAULT_PROGRESS = Progress.Data(
-            primary = R.string.corpsefinder_filter_sdcard_summary.toCaString(),
-            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
-            count = Progress.Count.Indeterminate()
-        )
         val TAG: String = logTag("CorpseFinder", "Filter", "Sdcard")
     }
 }

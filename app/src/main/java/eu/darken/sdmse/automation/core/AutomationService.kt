@@ -283,7 +283,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             throw AutomationNoConsentException()
         }
 
-        updateProgress { Progress.DEFAULT_STATE }
+        updateProgress { Progress.Data() }
         val deferred = serviceScope.async {
             try {
                 automationProcessor.process(task)

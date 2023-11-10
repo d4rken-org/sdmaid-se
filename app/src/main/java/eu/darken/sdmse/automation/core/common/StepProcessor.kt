@@ -41,7 +41,7 @@ class StepProcessor @AssistedInject constructor(
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
-        Progress.DEFAULT_STATE.copy(primary = R.string.general_progress_preparing.toCaString())
+        Progress.Data(primary = R.string.general_progress_preparing.toCaString())
     )
 
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(50)

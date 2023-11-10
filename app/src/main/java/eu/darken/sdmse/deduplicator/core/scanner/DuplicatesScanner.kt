@@ -15,6 +15,7 @@ import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
@@ -26,7 +27,7 @@ class DuplicatesScanner @Inject constructor(
     private val phashFactory: PHashSleuth.Factory,
 ) : Progress.Host, Progress.Client {
 
-    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
+    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
@@ -44,7 +45,7 @@ class DuplicatesScanner @Inject constructor(
             log(TAG) { "$checksumFactory is disabled" }
             emptySet()
         }
-
+        delay(10 * 1000)
         val phGroups = if (phashFactory.isEnabled()) {
             log(TAG) { "$phashFactory is enabled" }
             phashFactory.create().withProgress(this) { investigate() }

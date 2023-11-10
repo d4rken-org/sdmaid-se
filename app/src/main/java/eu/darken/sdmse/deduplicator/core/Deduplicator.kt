@@ -77,7 +77,7 @@ class Deduplicator @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as DeduplicatorTask
         log(TAG, INFO) { "submit($task) starting..." }
-        updateProgress { Progress.DEFAULT_STATE }
+        updateProgress { Progress.Data() }
 
         try {
             val result = keepResourceHoldersAlive(usedResources) {
@@ -128,7 +128,7 @@ class Deduplicator @Inject constructor(
 
         val result = deleter.get().withProgress(this) { delete(task, snapshot) }
 
-        updateProgress { Progress.DEFAULT_STATE }
+        updateProgress { Progress.Data() }
 
         internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
 

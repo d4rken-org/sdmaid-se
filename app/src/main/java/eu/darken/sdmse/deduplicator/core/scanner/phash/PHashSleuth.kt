@@ -76,7 +76,7 @@ class PHashSleuth @Inject constructor(
     private val commonFilesCheck: CommonFilesCheck,
 ) : Sleuth {
 
-    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.DEFAULT_STATE)
+    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {

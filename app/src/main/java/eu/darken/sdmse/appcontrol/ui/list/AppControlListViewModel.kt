@@ -125,7 +125,7 @@ class AppControlListViewModel @Inject constructor(
             val initialState = State(
                 appInfos = null,
                 progressWorker = state.progress,
-                progressUI = Progress.DEFAULT_STATE,
+                progressUI = Progress.Data(),
                 options = displayOptions,
                 allowAppToggleActions = state.isAppToggleAvailable,
                 hasActiveInfo = state.isActiveInfoAvailable,
