@@ -13,9 +13,9 @@ interface Progress {
 
     data class Data(
         val icon: CaDrawable? = null,
-        val primary: CaString = CaString.EMPTY,
-        val secondary: CaString = CaString.EMPTY,
-        val count: Count = Count.None(),
+        val primary: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
+        val secondary: CaString = easterEggProgressMsg.toCaString(),
+        val count: Count = Count.Indeterminate(),
         val extra: Any? = null
     )
 
@@ -76,13 +76,4 @@ interface Progress {
             override fun displayValue(context: Context): String? = null
         }
     }
-
-    companion object {
-        val DEFAULT_STATE = Data(
-            primary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
-            secondary = easterEggProgressMsg.toCaString(),
-            count = Count.Indeterminate()
-        )
-    }
-
 }

@@ -36,7 +36,7 @@ class PublicMediaCorpseFilter @Inject constructor(
     private val fileForensics: FileForensics,
     private val corpseFinderSettings: CorpseFinderSettings,
     private val exclusionManager: ExclusionManager,
-) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
+) : CorpseFilter(TAG, Progress.Data(primary = R.string.corpsefinder_filter_publicmedia_label.toCaString())) {
 
     override suspend fun doScan(): Collection<Corpse> {
         log(TAG) { "Scanning..." }
@@ -131,11 +131,6 @@ class PublicMediaCorpseFilter @Inject constructor(
     }
 
     companion object {
-        val DEFAULT_PROGRESS = Progress.Data(
-            primary = R.string.corpsefinder_filter_publicmedia_label.toCaString(),
-            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
-            count = Progress.Count.Indeterminate()
-        )
         val TAG: String = logTag("CorpseFinder", "Filter", "PublicMedia")
     }
 }

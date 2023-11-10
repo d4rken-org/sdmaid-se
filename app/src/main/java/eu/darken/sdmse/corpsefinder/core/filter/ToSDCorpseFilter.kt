@@ -45,7 +45,7 @@ class ToSDCorpseFilter @Inject constructor(
     private val fileForensics: FileForensics,
     private val pkgRepo: PkgRepo,
     private val exclusionManager: ExclusionManager,
-) : CorpseFilter(TAG, DEFAULT_PROGRESS) {
+) : CorpseFilter(TAG, Progress.Data(primary = R.string.corpsefinder_filter_app2sd_label.toCaString())) {
 
 
     override suspend fun doScan(): Collection<Corpse> {
@@ -427,11 +427,6 @@ class ToSDCorpseFilter @Inject constructor(
 //    }
 
     companion object {
-        val DEFAULT_PROGRESS = Progress.Data(
-            primary = R.string.corpsefinder_filter_app2sd_label.toCaString(),
-            secondary = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
-            count = Progress.Count.Indeterminate()
-        )
         val TAG: String = logTag("CorpseFinder", "Filter", "App2SD")
         private val DALVIK_MATCHER by lazy { Regex("^(?:.+?@)+?([\\w._\\-]+)-\\d+\\.(?:apk|jar|zip)@\\w+\\.(?:dex|odex|jar|art)$") }
         private val APKDIR by lazy { Regex("^([\\w.\\-]+)-[0-9]{1,4}$") }

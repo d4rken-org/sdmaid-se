@@ -62,7 +62,7 @@ class StorageScanner @Inject constructor(
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
-        Progress.DEFAULT_STATE.copy(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
+        Progress.Data(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
     )
 
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(50)
@@ -213,7 +213,7 @@ class StorageScanner @Inject constructor(
     ): SystemCategory? {
         log(TAG) { "scanForSystem($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_system)
-        updateProgressSecondary(Progress.DEFAULT_STATE.secondary)
+        updateProgressSecondary(Progress.Data().secondary)
 
         if (storage.type != DeviceStorage.Type.PRIMARY) {
             log(TAG) { "Not a primary storage: $storage" }

@@ -84,7 +84,7 @@ class AppControl @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {
         task as AppControlTask
         log(TAG) { "submit($task) starting..." }
-        updateProgress { Progress.DEFAULT_STATE }
+        updateProgress { Progress.Data() }
         try {
             val result = when (task) {
                 is AppControlScanTask -> performScan(task)
