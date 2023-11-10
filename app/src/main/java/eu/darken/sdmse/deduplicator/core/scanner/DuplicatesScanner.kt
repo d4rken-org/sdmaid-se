@@ -15,7 +15,6 @@ import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
@@ -36,7 +35,6 @@ class DuplicatesScanner @Inject constructor(
 
     suspend fun scan(): Set<Duplicate.Cluster> {
         log(TAG) { "scan()" }
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
 
         val cksGroups: Set<ChecksumDuplicate.Group> = if (checksumFactory.isEnabled()) {
             log(TAG) { "$checksumFactory is enabled" }
@@ -45,7 +43,7 @@ class DuplicatesScanner @Inject constructor(
             log(TAG) { "$checksumFactory is disabled" }
             emptySet()
         }
-        delay(10 * 1000)
+
         val phGroups = if (phashFactory.isEnabled()) {
             log(TAG) { "$phashFactory is enabled" }
             phashFactory.create().withProgress(this) { investigate() }
