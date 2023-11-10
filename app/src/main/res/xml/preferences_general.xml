@@ -6,10 +6,18 @@
     <PreferenceCategory android:title="@string/dashboard_settings_category">
         <CheckBoxPreference
             app:icon="@drawable/ic_delete_alert_24"
-            app:key="dashboard.oneclick.enabled"
+            app:key="dashboard.oneclick.onepass.enabled"
             app:singleLineTitle="false"
             app:summary="@string/dashboard_settings_oneclick_summary"
             app:title="@string/dashboard_settings_oneclick_title" />
+
+        <Preference
+            android:summary="@string/dashboard_settings_oneclick_tools_desc"
+            app:icon="@drawable/ic_baseline_view_list_24"
+            app:key="dashboard.oneclick.tools"
+            app:persistent="false"
+            app:singleLineTitle="false"
+            app:title="@string/dashboard_settings_oneclick_tools_title" />
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_category_ui_label">

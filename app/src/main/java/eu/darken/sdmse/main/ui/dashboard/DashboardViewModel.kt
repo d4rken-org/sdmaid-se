@@ -79,7 +79,7 @@ class DashboardViewModel @Inject constructor(
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
     private val upgradeRepo: UpgradeRepo,
-    generalSettings: GeneralSettings,
+    private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
     schedulerManager: SchedulerManager,
     private val updateService: UpdateService,
@@ -459,6 +459,11 @@ class DashboardViewModel @Inject constructor(
     fun mainAction(actionState: BottomBarState.Action) {
         log(TAG) { "mainAction(actionState=$actionState)" }
         launch {
+            if (!generalSettings.oneClickCorpseFinderEnabled.value()) {
+                log(VERBOSE) { "CorpseFinder is disabled one-click mode." }
+                return@launch
+            }
+
             when (actionState) {
                 BottomBarState.Action.SCAN -> submitTask(CorpseFinderScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
@@ -474,6 +479,11 @@ class DashboardViewModel @Inject constructor(
             }
         }
         launch {
+            if (!generalSettings.oneClickSystemCleanerEnabled.value()) {
+                log(VERBOSE) { "SystemCleaner is disabled one-click mode." }
+                return@launch
+            }
+
             when (actionState) {
                 BottomBarState.Action.SCAN -> submitTask(SystemCleanerScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
@@ -489,6 +499,11 @@ class DashboardViewModel @Inject constructor(
             }
         }
         launch {
+            if (!generalSettings.oneClickAppCleanerEnabled.value()) {
+                log(VERBOSE) { "AppCleaner is disabled one-click mode." }
+                return@launch
+            }
+
             when (actionState) {
                 BottomBarState.Action.SCAN -> submitTask(AppCleanerScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
@@ -512,6 +527,11 @@ class DashboardViewModel @Inject constructor(
             }
         }
         launch {
+            if (!generalSettings.oneClickDeduplicatorEnabled.value()) {
+                log(VERBOSE) { "Deduplicator is disabled one-click mode." }
+                return@launch
+            }
+
             when (actionState) {
                 BottomBarState.Action.SCAN -> submitTask(DeduplicatorScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)

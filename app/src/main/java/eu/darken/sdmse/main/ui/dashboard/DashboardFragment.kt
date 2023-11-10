@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
+import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -29,6 +30,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     override val ui: DashboardFragmentBinding by viewBinding()
 
     @Inject lateinit var dashAdapter: DashboardAdapter
+    @Inject lateinit var oneClickOptions: OneClickOptionsDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.list.setupDefaults(dashAdapter, dividers = false, fastscroll = false)
@@ -82,23 +84,29 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
 
-            mainAction.isInvisible = !state.isReady
-            mainAction.isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
+            mainAction.apply {
+                isInvisible = !state.isReady
+                isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
 
-            mainAction.setOnClickListener {
-                if (state.actionState == DashboardViewModel.BottomBarState.Action.DELETE) {
-                    MaterialAlertDialogBuilder(requireContext()).apply {
-                        setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                        setMessage(R.string.dashboard_delete_all_message)
-                        setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                            vm.mainAction(
-                                state.actionState
-                            )
-                        }
-                        setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    }.show()
-                } else {
-                    vm.mainAction(state.actionState)
+                setOnClickListener {
+                    if (state.actionState == DashboardViewModel.BottomBarState.Action.DELETE) {
+                        MaterialAlertDialogBuilder(requireContext()).apply {
+                            setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                            setMessage(R.string.dashboard_delete_all_message)
+                            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                                vm.mainAction(
+                                    state.actionState
+                                )
+                            }
+                            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                        }.show()
+                    } else {
+                        vm.mainAction(state.actionState)
+                    }
+                }
+                setOnLongClickListener {
+                    oneClickOptions.show(requireContext())
+                    true
                 }
             }
 
