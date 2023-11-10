@@ -89,7 +89,7 @@ suspend fun <T : Progress.Host> T.forwardProgressTo(
 suspend fun <T : Progress.Host, R> T.withProgress(
     client: Progress.Client,
     onUpdate: (new: Progress.Data?, existing: Progress.Data?) -> Progress.Data? = { new, existing -> new },
-    onCompletion: (Progress.Data?) -> Progress.Data? = { null },
+    onCompletion: (Progress.Data?) -> Progress.Data? = { Progress.Data() },
     action: suspend T.() -> R
 ): R {
     val scope = CoroutineScope(EmptyCoroutineContext)
