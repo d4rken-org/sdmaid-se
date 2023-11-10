@@ -80,15 +80,15 @@ fun <T : Progress.Client> T.increaseProgress(value: Int = 1) {
 
 suspend fun <T : Progress.Host> T.forwardProgressTo(
     client: Progress.Client,
-    onUpdate: (new: Progress.Data?, existing: Progress.Data?) -> Progress.Data?,
+    onUpdate: (existing: Progress.Data?, new: Progress.Data?) -> Progress.Data?,
     onCompletion: (Progress.Data?) -> Progress.Data?,
 ) = progress
-    .onEach { new -> client.updateProgress { onUpdate(new, it) } }
+    .onEach { new -> client.updateProgress { onUpdate(it, new) } }
     .onCompletion { client.updateProgress { onCompletion(it) } }
 
 suspend fun <T : Progress.Host, R> T.withProgress(
     client: Progress.Client,
-    onUpdate: (new: Progress.Data?, existing: Progress.Data?) -> Progress.Data? = { new, existing -> new },
+    onUpdate: (existing: Progress.Data?, new: Progress.Data?) -> Progress.Data? = { _, new -> new },
     onCompletion: (Progress.Data?) -> Progress.Data? = { Progress.Data() },
     action: suspend T.() -> R
 ): R {
