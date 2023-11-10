@@ -1,7 +1,5 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
-import eu.darken.sdmse.R
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -40,18 +38,16 @@ class DuplicatesScanner @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
 
         val cksGroups: Set<ChecksumDuplicate.Group> = if (checksumFactory.isEnabled()) {
-            updateProgressPrimary(R.string.deduplicator_detection_method_checksum_title.toCaString())
             log(TAG) { "$checksumFactory is enabled" }
-            withProgress(this) { checksumFactory.create().investigate() }
+            checksumFactory.create().withProgress(this) { investigate() }
         } else {
             log(TAG) { "$checksumFactory is disabled" }
             emptySet()
         }
 
         val phGroups = if (phashFactory.isEnabled()) {
-            updateProgressPrimary(R.string.deduplicator_detection_method_phash_title.toCaString())
             log(TAG) { "$phashFactory is enabled" }
-            withProgress(this) { phashFactory.create().investigate() }
+            phashFactory.create().withProgress(this) { investigate() }
         } else {
             log(TAG) { "$phashFactory is disabled" }
             emptySet()

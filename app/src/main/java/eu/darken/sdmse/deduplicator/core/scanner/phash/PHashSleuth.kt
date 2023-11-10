@@ -16,6 +16,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coil.BitmapFetcher
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -36,6 +37,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -83,6 +85,7 @@ class PHashSleuth @Inject constructor(
 
     override suspend fun investigate(): Set<PHashDuplicate.Group> {
         log(TAG) { "investigate():..." }
+        updateProgressPrimary(R.string.deduplicator_detection_method_phash_title.toCaString())
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
