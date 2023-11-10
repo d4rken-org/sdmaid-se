@@ -10,6 +10,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -30,6 +31,7 @@ import eu.darken.sdmse.common.hashing.hash
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -70,8 +72,8 @@ class ChecksumSleuth @Inject constructor(
 
     override suspend fun investigate(): Set<ChecksumDuplicate.Group> {
         log(TAG) { "investigate():..." }
+        updateProgressPrimary(R.string.deduplicator_detection_method_checksum_title.toCaString())
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressCount(Progress.Count.Indeterminate())
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
 
