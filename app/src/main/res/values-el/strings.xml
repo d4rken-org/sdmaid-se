@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
     <string name="dashboard_settings_category">Πίνακας εργαλείων</string>
+    <string name="dashboard_motd_title">Μήνυμα από τον προγραμματιστή</string>
     <string name="dashboard_settings_oneclick_title">Λειτουργία με ένα πάτημα</string>
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
-    <string name="dashboard_motd_title">Μήνυμα από τον προγραμματιστή</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
@@ -353,6 +353,35 @@
         <item quantity="other">Διαγραφή επεκτάσιμων αρχείων για %d επιλεγμένες εφαρμογές;</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφών μνήμης χρησιμοποιώντας το Shizuku</string>
+    <string name="deduplicator_tool_name">Αποκωδικοποιητής</string>
+    <string name="deduplicator_explanation_short">Βρείτε διπλότυπα δεδομένα στη συσκευή σας.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d παρόμοιο set βρέθηκε</item>
+        <item quantity="other">%d παρόμοια set βρέθηκαν</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Κάντε δυνατή την \"Διαγραφή όλων\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Εμφάνιση επιλογών που σας επιτρέπουν να διαγράψετε όλα τα αρχεία σε ένα σύνολο διπλότυπων έτσι ώστε να μην μείνει κανένα αρχείο.</string>
+    <string name="deduplicator_skip_minsize_title">Ελάχιστο μέγεθος</string>
+    <string name="deduplicator_skip_minsize_description">Παράλειψη αρχείων που είναι μικρότερα από το ελάχιστο μέγεθος.</string>
+    <string name="deduplicator_skip_uncommon_title">Παράλειψη ασυνήθιστων τύπων αρχείων</string>
+    <string name="deduplicator_skip_uncommon_description">Περιλαμβάνουν μόνο κοινά αρχεία πολυμέσων, έγγραφα και αρχεία.</string>
+    <string name="deduplicator_detection_method_label">Μέθοδος εντοπισμού</string>
+    <string name="deduplicator_detection_method_checksum_title">Σύνολο ελέγχου περιεχομένου</string>
+    <string name="deduplicator_detection_method_checksum_summary">Προσδιορισμός διπλότυπων υπολογίζοντας τα ποσά ελέγχου για τα αρχεία. Τα αρχεία με αντίστοιχα ποσά ελέγχου έχουν ακριβώς το ίδιο περιεχόμενο.</string>
+    <string name="deduplicator_detection_method_phash_title">Αντιληπτικό κατακερματισμό</string>
+    <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τιμές αντιληπτικού κατακερματισμού.</string>
+    <string name="deduplicator_occupied_space_label">Αποθηκευτικός χώρος που χρησιμοποιείται</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s καταλαμβάνονται από διπλότυπα</string>
+    <string name="deduplicator_file_size_label">Μέγεθος αρχείου</string>
+    <string name="deduplicator_average_size_label">Μέσο μέγεθος</string>
+    <string name="deduplicator_cluster_x_label">Σύμπλεγμα %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Να διαγραφούν όλα εκτός από ένα αντίγραφο σε αυτό το σύνολο διπλότυπων αρχείων;</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Διαγραφή όλων των αρχείων σε αυτό το σύνολο διπλότυπων αρχείων; Δε θα παραμείνει κανένα αρχείο!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Διαγραφή όλων εκτός από ένα αντίγραφο σε κάθε επιλεγμένο σύνολο διπλότυπων αρχείων;</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Διαγραφή όλων των αρχείων σε κάθε επιλεγμένο σύνολο διπλότυπων αρχείων; Δε θα παραμείνει κανένα αρχείο!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Διαγραφή όλων των αντιγράφων. Δε θα παραμείνει κανένα αρχείο!</string>
+    <string name="deduplicator_progress_comparing_files">Σύγκριση αρχείων</string>
+    <string name="deduplicator_details_cluster_title">Σύνολο διπλότυπων</string>
     <string name="appcontrol_tool_name">Έλεγχος εφαρμογών</string>
     <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -468,6 +497,7 @@
     <string name="automation_error_not_running_title">Η υπηρεσία δεν εκτελείται</string>
     <string name="automation_error_not_running_body">Η υπηρεσία προσβασιμότητας δεν εκτελείται. Δοκιμάστε να επανεκκινήσετε τη συσκευή.</string>
     <string name="automation_error_screen_unavailable_title">Μη διαθέσιμη οθόνη</string>
+    <string name="automation_error_screen_unavailable_body">Η λειτουργία ματαιώθηκε επειδή η οθόνη δεν ήταν διαθέσιμη (π.χ. απενεργοποιημένη οθόνη ή ενεργή οθόνη κλειδώματος).</string>
     <string name="history_label">Ιστορικό</string>
     <string name="history_description">Μια χρονολογική λίστα των πρόσφατων ενεργειών και των επηρεαζόμενων δεδομένων.</string>
     <string name="scheduler_label">Χρονοδιάγραμμα</string>
@@ -511,4 +541,5 @@
     <string name="motd_setting_enabled_label">Σημαντικά μηνύματα</string>
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
+    <string name="updatecheck_setting_enabled_explanation">Επιτρέψτε στο SD Maid να ελέγχει για ενημερώσεις για να σας ειδοποιεί εάν είναι διαθέσιμη νεότερη έκδοση.</string>
 </resources>

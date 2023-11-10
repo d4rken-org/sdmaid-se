@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">%s 를 접근할 수 없습니다.</string>
     <string name="general_error_root_unavailable">루트 권한이 없습니다.</string>
     <string name="general_error_empty_result_msg">결과가 비어 있습니다.</string>
+    <string name="general_error_no_compatible_app_found_msg">이 요청을 처리할 수 있는 앱을 찾지 못했습니다.</string>
     <string name="general_todo_msg">이 기능은 아직 제작중이며, 아직 준비되지 않았습니다.</string>
     <string name="general_share_action">공유</string>
     <string name="general_done_action">완료</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">도움</string>
     <string name="general_continue">계속하기</string>
     <string name="general_progress_queued">대기 중</string>
+    <string name="general_progress_deleting">삭제 중</string>
+    <string name="general_progress_deleting_x">%s 삭제중</string>
     <string name="general_sort_options_label">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
     <string name="general_tag_filter_label">태그별로 필터</string>

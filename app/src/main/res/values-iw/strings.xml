@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
     <string name="dashboard_settings_category">לוח בקרה</string>
+    <string name="dashboard_motd_title">הודעה מהמפתח</string>
     <string name="dashboard_settings_oneclick_title">מצב לחיצה אחת</string>
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בדשבוארד, ללא אישורים נוספים.</string>
-    <string name="dashboard_motd_title">הודעה מהמפתח</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות דיבג</string>

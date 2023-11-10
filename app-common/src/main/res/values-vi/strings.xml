@@ -12,6 +12,7 @@
     <string name="general_error_cant_access_msg">Không thể truy cập %s.</string>
     <string name="general_error_root_unavailable">Quyền truy cập Root không khả dụng.</string>
     <string name="general_error_empty_result_msg">Không có kết quả.</string>
+    <string name="general_error_no_compatible_app_found_msg">Không tìm thấy ứng dụng tương thích để xử lý yêu cầu này.</string>
     <string name="general_todo_msg">Tính năng này vẫn đang được phát triển và hiện không khả dụng.</string>
     <string name="general_share_action">Chia sẻ</string>
     <string name="general_done_action">Xong</string>
@@ -59,6 +60,8 @@
     <string name="general_help_action">Trợ giúp</string>
     <string name="general_continue">Tiếp tục</string>
     <string name="general_progress_queued">Đang chờ</string>
+    <string name="general_progress_deleting">Đang xóa</string>
+    <string name="general_progress_deleting_x">Đang xoá %s</string>
     <string name="general_sort_options_label">Tùy chọn sắp xếp</string>
     <string name="general_sort_reverse_action">Chế độ sắp xếp ngược</string>
     <string name="general_tag_filter_label">Bộ lọc theo thẻ</string>

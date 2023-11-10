@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Izbriši rezultate v vseh orodjih?</string>
     <string name="dashboard_settings_category">Nadzorna plošča</string>
+    <string name="dashboard_motd_title">Sporočilo od razvijalca</string>
     <string name="dashboard_settings_oneclick_title">Način enega dotika</string>
     <string name="dashboard_settings_oneclick_summary">Z dotikom gumba dejanj na nadzorni plošči zaženi pregled in izbris za vsa orodja – brez dodatnih potrjevanj.</string>
-    <string name="dashboard_motd_title">Sporočilo od razvijalca</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Stisnjena velikost</string>
     <string name="debug_notification_channel_label">Obvestila o razhroščevanju</string>

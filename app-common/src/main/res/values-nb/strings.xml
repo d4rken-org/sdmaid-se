@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Får ikke tilgang til %s.</string>
     <string name="general_error_root_unavailable">Root-tilgang er utilgjengelig.</string>
     <string name="general_error_empty_result_msg">Resultatet var tomt.</string>
+    <string name="general_error_no_compatible_app_found_msg">Fant ingen kompatibel app for å håndtere denne forespørselen.</string>
     <string name="general_todo_msg">Denne funksjonen jobbes fortsatt med, og er for øyeblikket ikke tilgjengelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">Hjelp</string>
     <string name="general_continue">Fortsett</string>
     <string name="general_progress_queued">I kø</string>
+    <string name="general_progress_deleting">Sletter</string>
+    <string name="general_progress_deleting_x">Sletter %s</string>
     <string name="general_sort_options_label">Sorteringsalternativer</string>
     <string name="general_sort_reverse_action">Inverter sorteringsmodus</string>
     <string name="general_tag_filter_label">Filtrer etter etiketter</string>

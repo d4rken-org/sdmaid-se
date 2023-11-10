@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_settings_category">Panel de control</string>
+    <string name="dashboard_motd_title">Mensaje del desarrollador</string>
     <string name="dashboard_settings_oneclick_title">Modo de un toque</string>
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
-    <string name="dashboard_motd_title">Mensaje del desarrollador</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
@@ -353,6 +353,35 @@
         <item quantity="other">¿Eliminar archivos prescindibles para %d aplicaciones seleccionadas?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Borrar las cachés mediante Shizuku</string>
+    <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="deduplicator_explanation_short">Encuentra los datos duplicados en tu dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d conjunto duplicado encontrado</item>
+        <item quantity="other">%d conjuntos duplicados encontrados</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Posibilidad de \"Borrar todo\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar las opciones que permiten eliminar todos los archivos duplicados para que no quede ningún archivo.</string>
+    <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
+    <string name="deduplicator_skip_minsize_description">Omite los archivos que no alcanzan el tamaño mínimo.</string>
+    <string name="deduplicator_skip_uncommon_title">Omitir los tipos de archivos poco comunes</string>
+    <string name="deduplicator_skip_uncommon_description">Solo incluye archivos multimedia, documentos y archivos comunes.</string>
+    <string name="deduplicator_detection_method_label">Método de detección</string>
+    <string name="deduplicator_detection_method_checksum_title">Suma de comprobación del contenido</string>
+    <string name="deduplicator_detection_method_checksum_summary">Determina los duplicados calculando las sumas de verificación para los archivos. Los archivos con las sumas de comprobación coincidentes tienen exactamente el mismo contenido.</string>
+    <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
+    <string name="deduplicator_detection_method_phash_summary">Encuentra los archivos similares analizando las características del contenido y comparando los valores hash perceptuales.</string>
+    <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s están ocupados por duplicados</string>
+    <string name="deduplicator_file_size_label">Tamaño del archivo</string>
+    <string name="deduplicator_average_size_label">Tamaño promedio</string>
+    <string name="deduplicator_cluster_x_label">Agrupar %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">¿Borrar todas las copias menos una de estos archivos duplicados?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">¿Borrar todos los archivos de estos duplicados? ¡No sobra ningún archivo!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">¿Eliminar todas las copias menos una de la selección de los archivos duplicados?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">¿Eliminar todos los archivos duplicados seleccionados? ¡No sobra ningún archivo!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Borrar todas las copias. ¡No sobra ningún archivo!</string>
+    <string name="deduplicator_progress_comparing_files">Comparar los archivos</string>
+    <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

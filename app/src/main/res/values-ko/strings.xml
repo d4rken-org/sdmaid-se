@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">모든 도구의 결과를 삭제할까요?</string>
     <string name="dashboard_settings_category">대시보드</string>
+    <string name="dashboard_motd_title">개발자의 메시지</string>
     <string name="dashboard_settings_oneclick_title">원클릭 모드</string>
     <string name="dashboard_settings_oneclick_summary">대시보드의 버튼을 눌러 스캔과 삭제를 모두 진행할 수 있습니다. 추가로 확인이 필요하지 않습니다.</string>
-    <string name="dashboard_motd_title">개발자의 메시지</string>
     <string name="debug_debuglog_size_label">크기</string>
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
@@ -345,6 +345,12 @@
         <item quantity="other">%d 개의 선택된 앱의 임시 파일을 제거할까요?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku를 이용해 캐시 삭제 중</string>
+    <string name="deduplicator_tool_name">중복 파일 제거기</string>
+    <string name="deduplicator_explanation_short">기기의 중복된 파일을 찾습니다.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d 개의 중복 쌍 찾음</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"모두 삭제\" 옵션 활성화</string>
     <string name="appcontrol_tool_name">앱제어</string>
     <string name="appcontrol_explanation_short">장치에 설치한 앱입니다.</string>
     <plurals name="appcontrol_x_apps_detected_label">

@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_settings_category">Panel de control</string>
+    <string name="dashboard_motd_title">Un mensaje del desarrollador</string>
     <string name="dashboard_settings_oneclick_title">Modo de un toque</string>
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
-    <string name="dashboard_motd_title">Un mensaje del desarrollador</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>

@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Odstrániť výsledky vo všetkých nástrojoch?</string>
     <string name="dashboard_settings_category">Ovládací panel</string>
+    <string name="dashboard_motd_title">Správa od vývojára</string>
     <string name="dashboard_settings_oneclick_title">Režim jedným klepnutím</string>
     <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov klepnutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
-    <string name="dashboard_motd_title">Správa od vývojára</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia ladenia</string>
@@ -369,6 +369,31 @@
         <item quantity="other">Odstrániť nepotrebné položky pre %d zvolených aplikácií?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazanie vyrovnávacej pamäte pomocou Shizuku</string>
+    <string name="deduplicator_tool_name">Deduplikátor</string>
+    <string name="deduplicator_explanation_short">Nájdite duplicitné údaje vo svojom zariadení.</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">Povoľte možnosť „Odstrániť všetko“</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Zobraziť možnosti, ktoré vám umožnia odstrániť všetky súbory v sade duplikátov, takže nezostane žiadny súbor.</string>
+    <string name="deduplicator_skip_minsize_title">Minimálna veľkosť</string>
+    <string name="deduplicator_skip_minsize_description">Preskočte súbory, ktoré sú menšie ako minimálna veľkosť.</string>
+    <string name="deduplicator_skip_uncommon_title">Preskočte nezvyčajné typy súborov</string>
+    <string name="deduplicator_skip_uncommon_description">Zahrňte iba bežné mediálne súbory, dokumenty a archívy.</string>
+    <string name="deduplicator_detection_method_label">Metóda detekcie</string>
+    <string name="deduplicator_detection_method_checksum_title">Kontrolný súčet obsahu</string>
+    <string name="deduplicator_detection_method_checksum_summary">Určte duplikáty výpočtom kontrolných súčtov pre súbory. Súbory so zodpovedajúcimi kontrolnými súčtami majú presne rovnaký obsah.</string>
+    <string name="deduplicator_detection_method_phash_title">Percepčný hash</string>
+    <string name="deduplicator_detection_method_phash_summary">Nájdite podobné súbory analýzou funkcií obsahu a porovnaním hodnôt hash vnímania.</string>
+    <string name="deduplicator_occupied_space_label">Obsadené úložisko</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s je obsadených duplikátmi</string>
+    <string name="deduplicator_file_size_label">Veľkosť súboru</string>
+    <string name="deduplicator_average_size_label">Priemerná veľkosť</string>
+    <string name="deduplicator_cluster_x_label">Klaster %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Chcete odstrániť všetky kópie okrem jednej z tejto skupiny duplicitných súborov?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Odstrániť všetky súbory v tejto skupine duplicitných súborov? Nezostane žiadny súbor!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Chcete odstrániť všetky kópie okrem jednej v každej vybranej skupine duplicitných súborov?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Odstrániť všetky súbory v každej vybranej skupine duplicitných súborov? Nezostane žiadny súbor!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Odstrániť všetky kópie. Nezostane žiadny súbor!</string>
+    <string name="deduplicator_progress_comparing_files">Porovnávanie súborov</string>
+    <string name="deduplicator_details_cluster_title">Skupina duplikátov</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
