@@ -67,7 +67,9 @@ class RootHost constructor(_args: List<String>) : HasSharedResource<Any>, BaseRo
                 }
 
                 if (options.recorderPath != null && currentFileLogger == null) {
-                    val logger = FileLogger(File(options.recorderPath + "_root")).also {
+                    val ogPath = options.recorderPath!!
+                    val newPath = ogPath.replace(".log", "_root.log")
+                    val logger = FileLogger(File(newPath)).also {
                         currentFileLogger = it
                         it.start()
                     }
