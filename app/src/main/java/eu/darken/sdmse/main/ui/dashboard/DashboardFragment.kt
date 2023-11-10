@@ -58,13 +58,13 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         }
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
-                bottomBarText.apply {
+                bottomBarTextLeft.apply {
                     text = getQuantityString2(R.plurals.tasks_activity_active_notification_message, state.activeTasks)
                     append("\n")
                     append(getQuantityString2(R.plurals.tasks_activity_queued_notification_message, state.queuedTasks))
                 }
             } else if (state.totalItems > 0 || state.totalSize > 0L) {
-                bottomBarText.apply {
+                bottomBarTextLeft.apply {
                     text = requireContext().getString(
                         eu.darken.sdmse.common.R.string.x_space_can_be_freed,
                         Formatter.formatShortFileSize(requireContext(), state.totalSize)
@@ -73,9 +73,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     append(getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.totalItems))
                 }
             } else if (!state.isReady) {
-                bottomBarText.text = getString(easterEggProgressMsg)
+                bottomBarTextLeft.text = getString(easterEggProgressMsg)
             } else {
-                bottomBarText.text = ""
+                bottomBarTextLeft.text = ""
             }
 
             bottomBar.menu?.findItem(R.id.menu_action_upgrade)?.let {

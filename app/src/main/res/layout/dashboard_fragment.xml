@@ -22,13 +22,13 @@
         style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
         android:clipToPadding="false"
-        tools:visibility="visible"
         android:paddingBottom="100dp"
+        android:visibility="invisible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="1"
-        tools:listitem="@layout/dashboard_preview_layout" />
+        tools:listitem="@layout/dashboard_preview_layout"
+        tools:visibility="visible" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_bar"
@@ -45,18 +45,18 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/bottom_bar_text"
+                android:id="@+id/bottom_bar_text_left"
                 style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
                 android:maxLines="2"
+                android:text="@string/general_progress_loading"
                 android:textColor="?colorOnPrimarySurface"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/general_progress_loading"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.50" />
+                app:layout_constraintWidth_percent="0.40"
+                tools:text="a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -72,6 +72,6 @@
         app:layout_anchor="@id/bottom_bar"
         app:shapeAppearance="@style/Widget.Material3.FloatingActionButton.Primary"
         app:srcCompat="@drawable/ic_layer_search_24"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
