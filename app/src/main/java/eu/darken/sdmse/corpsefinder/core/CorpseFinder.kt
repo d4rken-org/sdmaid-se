@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -91,9 +90,7 @@ class CorpseFinder @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as CorpseFinderTask
         log(TAG, INFO) { "submit($task) starting..." }
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressSecondary(easterEggProgressMsg)
-        updateProgressCount(Progress.Count.Indeterminate())
+        updateProgress { Progress.Data() }
 
         try {
             val result = keepResourceHoldersAlive(usedResources) {
