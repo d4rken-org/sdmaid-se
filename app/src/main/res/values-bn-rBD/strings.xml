@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">সমস্ত টুল এর ফলাফল মুছবেন?</string>
     <string name="dashboard_settings_category">ড্যাশবোর্ড</string>
+    <string name="dashboard_motd_title">ডেভলপার থেকে একটি বার্তা</string>
     <string name="dashboard_settings_oneclick_title">এক-ট্যাপ মোড</string>
     <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
-    <string name="dashboard_motd_title">ডেভলপার থেকে একটি বার্তা</string>
     <string name="debug_debuglog_size_label">আকার</string>
     <string name="debug_debuglog_size_compressed_label">সংকুচিত আকার</string>
     <string name="debug_notification_channel_label">ডিবাগ নোটিফিকেশন</string>
@@ -353,6 +353,35 @@
         <item quantity="other">%d নির্বাচিত অ্যাপের জন্য ব্যয়যোগ্য ফাইল মুছবেন?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ব্যবহার করে ক্যাশ মুছে ফেলা হচ্ছে।</string>
+    <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
+    <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d সদৃশ সেট পাওয়া গেছে</item>
+        <item quantity="other">%d টি সদৃশ সেট পাওয়া গেছে</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"সমস্ত মুছুন\" সম্ভব করুন</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">এমন বিকল্পগুলি দেখান যা আপনাকে সদৃশগুলির একটি সেটের সমস্ত ফাইল মুছতে দেয় যাতে কোনও ফাইল অবশিষ্ট না থাকে।</string>
+    <string name="deduplicator_skip_minsize_title">ন্যূনতম আকার</string>
+    <string name="deduplicator_skip_minsize_description">ন্যূনতম আকারের নিচের ফাইলগুলি এড়িয়ে যান।</string>
+    <string name="deduplicator_skip_uncommon_title">অস্বাভাবিক ফাইলের ধরন এড়িয়ে যান</string>
+    <string name="deduplicator_skip_uncommon_description">শুধুমাত্র সাধারণ মিডিয়া ফাইল, ডকুমেন্ট এবং আর্কাইভ অন্তর্ভুক্ত</string>
+    <string name="deduplicator_detection_method_label">সনাক্তকরণ পদ্ধতি</string>
+    <string name="deduplicator_detection_method_checksum_title">কন্টেন্ট চেকসাম</string>
+    <string name="deduplicator_detection_method_checksum_summary">ফাইলের জন্য চেকসাম গণনা করে ডুপ্লিকেট নির্ধারণ করুন। ম্যাচিং চেকসাম সহ ফাইলগুলিতে একই কন্টেন্ট রয়েছে৷</string>
+    <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
+    <string name="deduplicator_detection_method_phash_summary">বিষয়বস্তু বৈশিষ্ট্য বিশ্লেষণ করে এবং উপলব্ধিগত হ্যাশ মান তুলনা করে একই ফাইল খুঁজুন।</string>
+    <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s ডুপ্লিকেট দ্বারা দখল করা হয়</string>
+    <string name="deduplicator_file_size_label">ফাইলের আকার</string>
+    <string name="deduplicator_average_size_label">গড় আকার</string>
+    <string name="deduplicator_cluster_x_label">ক্লাস্টার %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">এই সদৃশ ফাইলের একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">সদৃশ ফাইলের এই সেটের সমস্ত ফাইল মুছবেন? কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের সমস্ত ফাইল মুছে ফেলবেন? কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_delete_all_toggle_msg">সব কপি মুছুন. কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_progress_comparing_files">ফাইল তুলনা করা হচ্ছে</string>
+    <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">আপনার ডিভাইসে ইনস্টল করা অ্যাপসমূহ।.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -511,4 +540,6 @@
     <string name="translation_translators_people">Fattain Naime(iamnaime@builderhall.com);মোরশেদুল আলম(morshedintouch@gmail.com)</string>
     <string name="motd_setting_enabled_label">গুরুত্বপূর্ণ বার্তাসমূহ</string>
     <string name="motd_setting_enabled_explanation">SD Maid-কে ডেভেলপারের কাছ থেকে গুরুত্বপূর্ণ বার্তাগুলি পরীক্ষা করার অনুমতি দিন।</string>
+    <string name="updatecheck_setting_enabled_label">আপডেট চেক</string>
+    <string name="updatecheck_setting_enabled_explanation">একটি নতুন সংস্করণ উপলব্ধ কিনা তা জানাতে SD Maid কে আপডেটগুলি পরীক্ষা করার অনুমতি দিন৷</string>
 </resources>

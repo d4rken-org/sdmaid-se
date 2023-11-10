@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Sin acceso a %s.</string>
     <string name="general_error_root_unavailable">Sin permiso Root.</string>
     <string name="general_error_empty_result_msg">El resultado estaba vacío.</string>
+    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
     <string name="general_todo_msg">Esta característica está en desarrollo y aún no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Realizado</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En espera</string>
+    <string name="general_progress_deleting">Borrando</string>
+    <string name="general_progress_deleting_x">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar las opciones</string>
     <string name="general_sort_reverse_action">Modo de ordenación inversa</string>
     <string name="general_tag_filter_label">Filtrar por las etiquetas</string>

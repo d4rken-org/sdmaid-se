@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
     <string name="dashboard_settings_category">Tableau de bord</string>
+    <string name="dashboard_motd_title">Un message du développeur</string>
     <string name="dashboard_settings_oneclick_title">Mode toucher simple</string>
     <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
-    <string name="dashboard_motd_title">Un message du développeur</string>
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
@@ -353,6 +353,35 @@
         <item quantity="other">Supprimer les fichiers superflus pour %d applis sélectionnées ?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
+    <string name="deduplicator_tool_name">Déduplicateur</string>
+    <string name="deduplicator_explanation_short">Trouver les données dupliquées présentes sur votre appareil.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d jeu de doublons a été trouvé</item>
+        <item quantity="other">%d jeux de doublons ont été trouvés</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Rendre « Tout effacer » possible</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Afficher les options de suppression de tous les fichiers d\'un jeu de doublons afin qu’aucun fichier ne reste.</string>
+    <string name="deduplicator_skip_minsize_title">Taille minimale</string>
+    <string name="deduplicator_skip_minsize_description">Ignorer les fichiers inférieurs à taille minimale.</string>
+    <string name="deduplicator_skip_uncommon_title">Ignorer les types de fichier inhabituels</string>
+    <string name="deduplicator_skip_uncommon_description">N’inclure que les fichiers multimédias courants, les documents et les archives.</string>
+    <string name="deduplicator_detection_method_label">Méthode de détection</string>
+    <string name="deduplicator_detection_method_checksum_title">Somme de contrôle du contenu</string>
+    <string name="deduplicator_detection_method_checksum_summary">Déterminer les doublons en calculant les sommes de contrôle des fichiers. Le contenu des fichiers dont les sommes de contrôle correspondent est identique.</string>
+    <string name="deduplicator_detection_method_phash_title">Hachage perceptuel</string>
+    <string name="deduplicator_detection_method_phash_summary">Trouver des fichiers semblables en analysant les caractéristiques de contenu et en comparant les valeurs du hachage perceptuel.</string>
+    <string name="deduplicator_occupied_space_label">Espace de stockage occupé</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sont occupés par des doublons</string>
+    <string name="deduplicator_file_size_label">Taille du fichier</string>
+    <string name="deduplicator_average_size_label">Taille moyenne</string>
+    <string name="deduplicator_cluster_x_label">Grappe %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Supprimer tous les exemplaires de ce jeu de fichiers dupliqués sauf un ?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Supprimer tous les fichiers de ce jeu de fichiers dupliqués ? Il ne restera aucun fichier !</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Supprimer tous les exemplaires de chaque jeu de fichiers dupliqués sélectionnés sauf un ?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Supprimer tous les fichiers de chaque jeu de fichiers dupliqués sélectionnés ? Il ne restera aucun fichier !</string>
+    <string name="deduplicator_delete_all_toggle_msg">Supprimer tous les exemplaires ? Il ne restera aucun fichier !</string>
+    <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
+    <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
     <string name="appcontrol_tool_name">Vérificateur d’applis</string>
     <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">

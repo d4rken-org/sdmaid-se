@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_settings_category">儀表板</string>
+    <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
-    <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>

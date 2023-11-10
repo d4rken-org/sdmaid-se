@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Nelze získat přístup k %s.</string>
     <string name="general_error_root_unavailable">Přístup root není k dispozici.</string>
     <string name="general_error_empty_result_msg">Výsledek byl prázdný.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nebyla nalezena žádná kompatibilní aplikace, která by tento požadavek zpracovala.</string>
     <string name="general_todo_msg">Na této funkci se stále pracuje a v současné době není k dispozici.</string>
     <string name="general_share_action">Sdílet</string>
     <string name="general_done_action">Hotovo</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovat</string>
     <string name="general_progress_queued">Ve frontě</string>
+    <string name="general_progress_deleting">Mazání</string>
+    <string name="general_progress_deleting_x">Mazání %s</string>
     <string name="general_sort_options_label">Možnosti řazení</string>
     <string name="general_sort_reverse_action">Obrátit režim řazení</string>
     <string name="general_tag_filter_label">Filtrovat podle štítků</string>

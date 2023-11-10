@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả công cụ?</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
+    <string name="dashboard_motd_title">Tin nhắn từ nhà phát triển</string>
     <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
-    <string name="dashboard_motd_title">Tin nhắn từ nhà phát triển</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
@@ -345,6 +345,33 @@
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
+    <string name="deduplicator_tool_name">Trình xóa trùng lặp</string>
+    <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">Đã tìm thấy %d bộ trùng lặp</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Làm có thể \"Xóa tất cả\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Hiển thị các tùy chọn cho phép bạn xóa tất cả các tệp trong một tập hợp các bản sao để không còn tệp nào.</string>
+    <string name="deduplicator_skip_minsize_title">Kích thước tối thiểu</string>
+    <string name="deduplicator_skip_minsize_description">Bỏ qua các tập tin có kích thước dưới kích thước tối thiểu.</string>
+    <string name="deduplicator_skip_uncommon_title">Bỏ qua các loại tệp không phổ biến</string>
+    <string name="deduplicator_skip_uncommon_description">Chỉ bao gồm các tệp phương tiện, tài liệu và ưu trữ phổ biến.</string>
+    <string name="deduplicator_detection_method_label">Phương pháp phát hiện</string>
+    <string name="deduplicator_detection_method_checksum_title">Tổng kiểm tra nội dung</string>
+    <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
+    <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
+    <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s bị chiếm bởi các bản sao</string>
+    <string name="deduplicator_file_size_label">Kích thước tệp</string>
+    <string name="deduplicator_average_size_label">Kích thước trung bình</string>
+    <string name="deduplicator_cluster_x_label">Cụm %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Xóa tất cả trừ một bản sao trong tập hợp các tệp trùng lặp này?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Xóa tất cả các tệp trong tập hợp các tệp trùng lặp này? Không có tập tin nào còn sót lại!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Xóa tất cả trừ một bản sao trong mỗi tập hợp tệp trùng lặp đã chọn?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Xóa tất cả các tệp trong mỗi tập hợp tệp trùng lặp đã chọn? Không có tập tin nào còn sót lại!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Xóa tất cả các bản sao. Không có tập tin nào còn sót lại!</string>
+    <string name="deduplicator_progress_comparing_files">So sánh các tập tin</string>
+    <string name="deduplicator_details_cluster_title">Tập hợp các bản sao</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">

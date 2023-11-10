@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Няма доступу %s.</string>
     <string name="general_error_root_unavailable">Адсутнічае каранёвы доступ.</string>
     <string name="general_error_empty_result_msg">Пусты рэзультат.</string>
+    <string name="general_error_no_compatible_app_found_msg">Для апрацоўкі гэтага запыту не знойдзена сумяшчальных праграм.</string>
     <string name="general_todo_msg">Гэтая функцыя яшчэ знаходзіцца ў стадыі распрацоўкі і пакуль яна недаступна.</string>
     <string name="general_share_action">Падзяліцца</string>
     <string name="general_done_action">Гатова</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">Дапамога</string>
     <string name="general_continue">Працягнуць</string>
     <string name="general_progress_queued">У чарзе</string>
+    <string name="general_progress_deleting">Выдаленне</string>
+    <string name="general_progress_deleting_x">Выдаленне %s</string>
     <string name="general_sort_options_label">Опцыі сартавання</string>
     <string name="general_sort_reverse_action">Адваротны парадак сартавання</string>
     <string name="general_tag_filter_label">Фільтраваць паводле тэгаў</string>

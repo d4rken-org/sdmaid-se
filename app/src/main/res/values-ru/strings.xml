@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Удалить результаты во всех инструментах?</string>
     <string name="dashboard_settings_category">Панель управления</string>
+    <string name="dashboard_motd_title">Сообщение от разработчика</string>
     <string name="dashboard_settings_oneclick_title">Режим \"одного нажатия\"</string>
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
-    <string name="dashboard_motd_title">Сообщение от разработчика</string>
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
@@ -153,9 +153,9 @@
     <string name="corpsefinder_tool_name">Мусор</string>
     <string name="corpsefinder_explanation_short">Данные, принадлежащие уже удаленным приложениям.</string>
     <string name="corpsefinder_settings_summary">Настройка фильтров сканирования и уровней риска.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Включить желаемые остатки</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Включать желаемые остатки</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Файлы, которые Вы, возможно, захотите сохранить, даже если приложение будет удалено, например, сделанные Вами фотографии или созданные Вами резервные копии.</string>
-    <string name="corpsefinder_settings_risk_common_title">Включить общие названия</string>
+    <string name="corpsefinder_settings_risk_common_title">Включать общие названия</string>
     <string name="corpsefinder_settings_risk_common_summary">Данные с общими именами, например, папка \"Заметки\" принадлежит многим неизвестным приложениям.</string>
     <string name="corpsefinder_watcher_title">Контроль удаления</string>
     <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
@@ -369,6 +369,37 @@
         <item quantity="other">Удалить ненужные данные для %d выбранных приложений?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
+    <string name="deduplicator_tool_name">Дедупликатор</string>
+    <string name="deduplicator_explanation_short">Найти дубликаты данных на Вашем устройстве.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">Найдено групп дубликатов: %d</item>
+        <item quantity="few">Найдено групп дубликатов: %d</item>
+        <item quantity="many">Найдено групп дубликатов: %d</item>
+        <item quantity="other">Найдено групп дубликатов: %d</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Разрешить функцию \"Удалить всё\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Показать опцию, позволяющую удалить все файлы из набора дубликатов так, чтобы не осталось ни одного файла.</string>
+    <string name="deduplicator_skip_minsize_title">Минимальный размер</string>
+    <string name="deduplicator_skip_minsize_description">Пропускать файлы меньше заданного размера.</string>
+    <string name="deduplicator_skip_uncommon_title">Пропускать неизвестные типы файлов</string>
+    <string name="deduplicator_skip_uncommon_description">Искать только известные медиафайлы, документы и архивы.</string>
+    <string name="deduplicator_detection_method_label">Метод обнаружения</string>
+    <string name="deduplicator_detection_method_checksum_title">Контрольная сумма содержимого</string>
+    <string name="deduplicator_detection_method_checksum_summary">Выявлять дубликаты вычислением контрольной суммы файлов. Файлы с одинаковой контрольной суммой идентичны по содержимому.</string>
+    <string name="deduplicator_detection_method_phash_title">Похожее содержимое</string>
+    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов путем анализа и сравнения уникальных свойств содержимого.</string>
+    <string name="deduplicator_occupied_space_label">Используемая память</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">Дубликатами занято: %s</string>
+    <string name="deduplicator_file_size_label">Размер файла</string>
+    <string name="deduplicator_average_size_label">Средний размер</string>
+    <string name="deduplicator_cluster_x_label">Группа %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Удалить все копии, кроме одной, в этом наборе дубликатов?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Удалить все файлы в этом наборе дубликатов? Ни одного файла не останется!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Удалить все копии, кроме одной, в каждой выбранной группе дубликатов?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Удалить все файлы в каждой выбранной группе дубликатов? Ни одного файла не останется!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Удалить все копии. Ни одного файла не останется!</string>
+    <string name="deduplicator_progress_comparing_files">Сравнение файлов</string>
+    <string name="deduplicator_details_cluster_title">Группы дубликатов</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
     <plurals name="appcontrol_x_apps_detected_label">

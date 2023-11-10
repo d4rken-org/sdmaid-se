@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
     <string name="dashboard_settings_category">แดชบอร์ด</string>
+    <string name="dashboard_motd_title">ข้อความจากผู้พัฒนา</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
-    <string name="dashboard_motd_title">ข้อความจากผู้พัฒนา</string>
     <string name="debug_debuglog_size_label">ขนาด</string>
     <string name="debug_debuglog_size_compressed_label">ขนาดที่ถูกบีบอัด</string>
     <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>

@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_settings_category">儀表板</string>
+    <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
-    <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
@@ -345,6 +345,34 @@
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
+    <string name="deduplicator_tool_name">除重程式</string>
+    <string name="deduplicator_explanation_short">找出您裝置上的重複資料。</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d 組重複資料已找到</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">使「全部刪除」成為可能</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">顯示允許您刪除一組重複檔案中的所有檔案的選項，以便不留下任何檔案。</string>
+    <string name="deduplicator_skip_minsize_title">最小大小</string>
+    <string name="deduplicator_skip_minsize_description">跳過低於最小大小的檔案。</string>
+    <string name="deduplicator_skip_uncommon_title">跳過不常用的檔案類型</string>
+    <string name="deduplicator_skip_uncommon_description">僅包含常用的媒體檔案、文件和封存檔。</string>
+    <string name="deduplicator_detection_method_label">偵測方法</string>
+    <string name="deduplicator_detection_method_checksum_title">內容總和檢查碼</string>
+    <string name="deduplicator_detection_method_checksum_summary">透過計算檔案的總和檢查碼來確定重複項目，總和檢查碼相符的檔案具有完全相同的內容。</string>
+    <string name="deduplicator_detection_method_phash_title">感知雜湊</string>
+    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵並比較感知雜湊值來尋找相似檔案。</string>
+    <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s 被重複項目佔用</string>
+    <string name="deduplicator_file_size_label">檔案大小</string>
+    <string name="deduplicator_average_size_label">平均大小</string>
+    <string name="deduplicator_cluster_x_label">叢集 %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">刪除這組重複檔案中除一份複本之外的所有複本？</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">刪除這組重複檔案中的所有檔案？不會留下任何檔案！</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">刪除每組選取的重複檔案中除一份複本之外的所有複本？</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">刪除每組選取的重複檔案中的所有檔案？不會留下任何檔案！</string>
+    <string name="deduplicator_delete_all_toggle_msg">刪除所有複本，不會留下任何檔案！</string>
+    <string name="deduplicator_progress_comparing_files">正在比較檔案</string>
+    <string name="deduplicator_details_cluster_title">重複檔案組</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">

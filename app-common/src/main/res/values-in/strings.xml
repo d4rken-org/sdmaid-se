@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
     <string name="general_error_root_unavailable">Akses root tidak tersedia.</string>
     <string name="general_error_empty_result_msg">Hasilnya kosong.</string>
+    <string name="general_error_no_compatible_app_found_msg">Tidak menemukan aplikasi yang kompatibel untuk menangani permintaan ini.</string>
     <string name="general_todo_msg">Fitur ini masih dalam pengerjaan dan belum tersedia saat ini.</string>
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
@@ -61,9 +62,12 @@
     <string name="general_progress_loading_egg_8">Bip bup bop</string>
     <string name="general_progress_loading_egg_9">Memuat pilihan hidup</string>
     <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Ini tidak apa-apa</string>
     <string name="general_help_action">Bantuan</string>
     <string name="general_continue">Lanjut</string>
     <string name="general_progress_queued">Dalam antrean</string>
+    <string name="general_progress_deleting">Menghapus</string>
+    <string name="general_progress_deleting_x">Menghapus %s</string>
     <string name="general_sort_options_label">Pilihan pengurutan</string>
     <string name="general_sort_reverse_action">Mode penyortiran terbalik</string>
     <string name="general_tag_filter_label">Saring berdasarkan tag</string>

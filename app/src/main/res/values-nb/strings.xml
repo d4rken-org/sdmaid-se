@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Slette resultater i alle verktøy?</string>
     <string name="dashboard_settings_category">Kontrollpanel</string>
+    <string name="dashboard_motd_title">En melding fra utvikleren</string>
     <string name="dashboard_settings_oneclick_title">Ett-trykks modus</string>
     <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
-    <string name="dashboard_motd_title">En melding fra utvikleren</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
@@ -353,6 +353,35 @@
         <item quantity="other">Slette unødvendige filer for %d valgte apper?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
+    <string name="deduplicator_tool_name">Deduplisering</string>
+    <string name="deduplicator_explanation_short">Finn dupliserte data på enheten din.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d duplisert sett funnet</item>
+        <item quantity="other">%d dupliserte sett funnet</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Gjør \"Slett alle\" mulig</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Vis alternativer som lar deg slette alle filer i et sett med duplikater, slik at ingen filer blir igjen.</string>
+    <string name="deduplicator_skip_minsize_title">Minste størrelse</string>
+    <string name="deduplicator_skip_minsize_description">Hopp over filer som er under minste størrelse.</string>
+    <string name="deduplicator_skip_uncommon_title">Hopp over uvanlige filtyper</string>
+    <string name="deduplicator_skip_uncommon_description">Inkluder kun vanlige mediefiler, dokumenter og arkiver.</string>
+    <string name="deduplicator_detection_method_label">Deteksjonsmetode</string>
+    <string name="deduplicator_detection_method_checksum_title">Sjekksum i innhold</string>
+    <string name="deduplicator_detection_method_checksum_summary">Bestem duplikater ved å beregne sjekksummer for filer. Filer med samsvarende sjekksum har nøyaktig samme innhold.</string>
+    <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
+    <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdselementer og sammenligne perseptuelle hash-verdier.</string>
+    <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s er brukt av duplikater</string>
+    <string name="deduplicator_file_size_label">Filstørrelse</string>
+    <string name="deduplicator_average_size_label">Gjennomsnittlig størrelse</string>
+    <string name="deduplicator_cluster_x_label">Klynge %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Slette alle bortsett fra en kopi i dette settet med dupliserte filer?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Slette alle filene i dette settet med dupliserte filer? Ingen fil blir igjen!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Slette alle bortsett fra en kopi i hvert valgt sett med dupliserte filer?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Slette alle filene i hvert valgt sett med dupliserte filer? Ingen fil blir igjen!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Slett alle kopier. Ingen fil blir igjen!</string>
+    <string name="deduplicator_progress_comparing_files">Sammenligner filer</string>
+    <string name="deduplicator_details_cluster_title">Sett med duplikater</string>
     <string name="appcontrol_tool_name">Appkontroll</string>
     <string name="appcontrol_explanation_short">Apper installert på enheten din.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -509,5 +538,8 @@
     <string name="translation_encourage_body">SD Maid er oversatt av frivillige. Oversettelse, gjennomgang eller korrekturlesing, din hjelp er verdsatt!</string>
     <string name="translation_translators_title">Denne versjonen er oversatt av</string>
     <string name="translation_translators_people">Kristoffer Vassbø (kristoffer@vassbo.net)</string>
+    <string name="motd_setting_enabled_label">Viktige meldinger</string>
     <string name="motd_setting_enabled_explanation">La SD Maid se etter viktige meldinger fra utvikleren.</string>
+    <string name="updatecheck_setting_enabled_label">Oppdateringssjekk</string>
+    <string name="updatecheck_setting_enabled_explanation">La SD Maid se etter oppdateringer for å fortelle deg om en nyere versjon er tilgjengelig.</string>
 </resources>

@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Accesso negato a %s.</string>
     <string name="general_error_root_unavailable">Root non disponibile.</string>
     <string name="general_error_empty_result_msg">Il risultato era vuoto.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nessuna app compatibile trovata per gestire questa richiesta.</string>
     <string name="general_todo_msg">Questa funzione è ancora in fase di elaborazione e al momento non è disponibile.</string>
     <string name="general_share_action">Condividi</string>
     <string name="general_done_action">Fatto</string>
@@ -64,6 +65,8 @@
     <string name="general_help_action">Aiuto</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">In coda</string>
+    <string name="general_progress_deleting">Eliminazione</string>
+    <string name="general_progress_deleting_x">Eliminazione di %s</string>
     <string name="general_sort_options_label">Opzioni di ordinamento</string>
     <string name="general_sort_reverse_action">Inverti modalità di ordinamento</string>
     <string name="general_tag_filter_label">Filtra per tags</string>

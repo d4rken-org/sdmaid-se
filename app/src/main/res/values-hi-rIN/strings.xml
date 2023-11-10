@@ -2,6 +2,8 @@
 <resources>
     <string name="dashboard_delete_all_message">सभी टूल में परिणाम मिटाएं?</string>
     <string name="dashboard_settings_category">डैशबोर्ड</string>
+    <string name="dashboard_motd_title">बनाने वाले की और से एक सन्देश</string>
+    <string name="dashboard_settings_oneclick_summary">डैशबोर्ड क्रिया बटन पर एक क्लिक के साथ सभी सुविधाओ के लिए स्कैन और मिटाने का कार्य प्रारंभ करें, कोई अतिरिक्त पुष्टिकरण नहीं।</string>
     <string name="debug_debuglog_size_label">आकार</string>
     <string name="debug_debuglog_size_compressed_label">संकुचित आकार</string>
     <string name="debug_notification_channel_label">डिबग सूचनाएं</string>
@@ -29,8 +31,10 @@
     <string name="onboarding_welcome_body_beta">यह एक बीटा (परीक्षण) निर्माण है। प्रसन्नता की भावना और एक बैकअप योजना के साथ आगे बढ़ें। कृपया आने वाली समस्याओं की रिपोर्ट करें।</string>
     <string name="onboarding_welcome_continue_action">जारी रखें</string>
     <string name="onboarding_versus_title">SD मेड/ SD मेड SE</string>
+    <string name="onboarding_versus_body1">SD मेड SE (अर्थात SD मेड 2) SD मेड (अर्थात SD मेड 1) का उत्तराधिकारी है। आधुनिक एंड्रॉयड के लिए एक नया अनुकूलित ऐप है।</string>
     <string name="onboarding_versus_body2">इसके पूर्ववर्ती की वास्तुकला 7 वर्ष से अधिक पुरानी है और नए एंड्रॉयड संस्करणों की चुनौतियों के लिए इसे नहीं रचा गया है। इसका विकास जारी रखने के लिए एक पूर्ण नया स्वरूप आवश्यक था।</string>
     <string name="onboarding_versus_body3">बेहतर परिणामों के लिए SD मेड SE के प्रयोग का विचार करें।</string>
+    <string name="onboarding_versus_body4">SD मेड 1 का प्रो स्टेटस दुर्भाग्य से SD मेड 2 पर स्थानांतरित नहीं किया जा सकता. 12 साल तक फ्री अपडेट के बाद, भविष्य में चलाये रखने के लिए एक नया खरीद चाहिए होगा (बनाने वाले को मदद करने के लिए)</string>
     <string name="onboarding_versus_continue_action">जारी रखें</string>
     <string name="onboarding_privacy_title">निजता</string>
     <string name="onboarding_privacy_body1">SD मेड कोई विज्ञापन नहीं दिखाती है और यह उपयोगकर्ता के डेटा को नहीं बेचती है।</string>

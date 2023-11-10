@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">无法访问“%s”</string>
     <string name="general_error_root_unavailable">无法获取 Root 权限</string>
     <string name="general_error_empty_result_msg">结果为空</string>
+    <string name="general_error_no_compatible_app_found_msg">未找到兼容的应用来处理此请求</string>
     <string name="general_todo_msg">此功能仍在开发中，暂不可用</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">帮助</string>
     <string name="general_continue">继续</string>
     <string name="general_progress_queued">排队中</string>
+    <string name="general_progress_deleting">正在删除</string>
+    <string name="general_progress_deleting_x">正在删除“%s”</string>
     <string name="general_sort_options_label">排序选项</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
     <string name="general_tag_filter_label">按标签排序</string>

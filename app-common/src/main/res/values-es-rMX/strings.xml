@@ -2,10 +2,12 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A tu servicio.</string>
+    <string name="slogan_message_1">Limpio y ordenado.</string>
     <string name="slogan_message_2">Evitando el caos.</string>
     <string name="slogan_message_3">Haciendo lo que es necesario.</string>
     <string name="slogan_message_4">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
+    <string name="slogan_message_7">Espacio libre, lugar feliz.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>

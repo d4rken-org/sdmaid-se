@@ -2,9 +2,9 @@
 <resources>
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
+    <string name="dashboard_motd_title">Üzenet a fejlesztőtől</string>
     <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
     <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
-    <string name="dashboard_motd_title">Üzenet a fejlesztőtől</string>
     <string name="debug_debuglog_size_label">Méret</string>
     <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
@@ -353,6 +353,35 @@
         <item quantity="other">Felesleges fájlok törlése %d kiválasztott alkalmazásokhoz?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cache-ek törlése Shizuku használatával</string>
+    <string name="deduplicator_tool_name">Duplikátlt kereső</string>
+    <string name="deduplicator_explanation_short">Duplikált adatok keresése a készüléken.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d duplikált készletet találtunk</item>
+        <item quantity="other">%d duplikált készletet találtunk</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Lehetővé teszi az \"Összes törlése\" opciót</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Olyan beállítások megjelenítése, amelyek lehetővé teszik az összes duplikált fájljának törlését, hogy egyetlen fájl se maradjon meg.</string>
+    <string name="deduplicator_skip_minsize_title">Minimális méret</string>
+    <string name="deduplicator_skip_minsize_description">Minimális méret alatti fájlok kihagyása.</string>
+    <string name="deduplicator_skip_uncommon_title">Nem gyakori fájltípusok kihagyása</string>
+    <string name="deduplicator_skip_uncommon_description">Csak a szokásos médiafájlokat, dokumentumokat és archívumokat tartalmazza.</string>
+    <string name="deduplicator_detection_method_label">Érzékelési módszer</string>
+    <string name="deduplicator_detection_method_checksum_title">Tartalom ellenőrző összeg</string>
+    <string name="deduplicator_detection_method_checksum_summary">Duplikátumok meghatározása a fájlok ellenőrző összegének kiszámításával. Az egyező ellenőrzőösszegű fájlok tartalma pontosan megegyezik.</string>
+    <string name="deduplicator_detection_method_phash_title">Hasonló hash</string>
+    <string name="deduplicator_detection_method_phash_summary">Hasonló fájlok keresése a tartalmi jellemzők elemzésével és az érzékelési hash-értékek összehasonlításával.</string>
+    <string name="deduplicator_occupied_space_label">Foglalt tároló</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s-ot duplikátumok foglalják el</string>
+    <string name="deduplicator_file_size_label">Fájlméret</string>
+    <string name="deduplicator_average_size_label">Átlagos méret</string>
+    <string name="deduplicator_cluster_x_label">Halmaz %s</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Törölje a duplikált fájlok egy kivételével az összes másolatot?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Törölje az összes fájlt a duplikált fájlok halmazából? Egyetlen fájl sem marad meg!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Töröljön minden másolatot egy kivételével minden egyes kiválasztott duplikált fájlcsoportból?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Törölje az összes fájlt a duplikált fájlok kiválasztott csoportjában? Egyetlen fájl sem marad meg!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Törölje az összes másolatot. Egyetlen fájl sem marad meg!</string>
+    <string name="deduplicator_progress_comparing_files">Fájlok összehasonlítása</string>
+    <string name="deduplicator_details_cluster_title">Duplikátumok készlete</string>
     <string name="appcontrol_tool_name">AlkalmazásVezérlés</string>
     <string name="appcontrol_explanation_short">Az eszközre telepített alkalmazások.</string>
     <plurals name="appcontrol_x_apps_detected_label">
