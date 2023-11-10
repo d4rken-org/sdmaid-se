@@ -22,6 +22,7 @@ Features include:
 * Scheduling actions (Scheduler)
 * Controling/disabling apps (AppControl)
 * Storage overview (StorageAnalyzer)
+* Find duplicate data (Deduplicator)
 * Root and Shizuku support
 
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor
