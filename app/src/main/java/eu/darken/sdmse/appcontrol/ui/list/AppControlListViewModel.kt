@@ -55,9 +55,10 @@ class AppControlListViewModel @Inject constructor(
 
     private val queryCacheLabel = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.normalizedLabel: String
-        get() = queryCacheLabel[this.id] ?: this.label.get(context).lowercase().also {
-            queryCacheLabel[this.id] = it
-        }
+        get() = queryCacheLabel[this.id]
+            ?: this.label.get(context)
+                .lowercase().trim()
+                .also { queryCacheLabel[this.id] = it }
 
     private val queryCachePkg = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.normalizedPackageName: String
@@ -69,6 +70,7 @@ class AppControlListViewModel @Inject constructor(
     private val AppInfo.lablrLabel: String
         get() = lablrCacheLabel[this.id] ?: run {
             this.label.get(context)
+                .trim()
                 .take(1)
                 .uppercase()
                 .takeIf { it.toDoubleOrNull() == null } ?: "?"
@@ -83,6 +85,7 @@ class AppControlListViewModel @Inject constructor(
                 .removeSuffix(".")
                 .takeIf { it.toDoubleOrNull() == null } ?: "?"
         }.also { lablrCachePkg[this.id] = it }
+
     private val lablrCacheUpdated = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.lablrUpdated: String
         get() = lablrCacheUpdated[this.id] ?: run {
@@ -94,6 +97,7 @@ class AppControlListViewModel @Inject constructor(
                 }
                 ?: "?"
         }.also { lablrCacheUpdated[this.id] = it }
+
     private val lablrCacheInstalled = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.lablrInstalled: String
         get() = lablrCacheInstalled[this.id] ?: run {
