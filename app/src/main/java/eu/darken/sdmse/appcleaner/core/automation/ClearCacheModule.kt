@@ -149,7 +149,7 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
                 failed.add(target)
             } finally {
-                increaseProgress()
+                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
             }
         }
 
@@ -191,10 +191,10 @@ class ClearCacheModule @AssistedInject constructor(
         log(TAG) { "processExplorerSpec($pkg, $spec)" }
 
         val explorer = automationExplorerFactory.create(host)
+
         explorer.withProgress(
             client = this,
-            onUpdate = { new, existing -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
-            onCompletion = { it }
+            onUpdate = { existing, new -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
         ) {
             process(spec)
         }
