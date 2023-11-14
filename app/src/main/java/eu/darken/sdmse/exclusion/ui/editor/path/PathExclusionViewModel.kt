@@ -125,7 +125,7 @@ class PathExclusionViewModel @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Exclusion", "List", "Action", "ViewModel")
+        private val TAG = logTag("Exclusion", "Editor", "Path", "ViewModel")
     }
 
 }

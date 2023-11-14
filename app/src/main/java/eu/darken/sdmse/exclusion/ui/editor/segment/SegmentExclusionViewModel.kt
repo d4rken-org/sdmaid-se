@@ -46,12 +46,7 @@ class SegmentExclusionViewModel @Inject constructor(
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")
         }
 
-        val newExcl = origExclusion ?: SegmentExclusion(
-            segments = segs(),
-            allowPartial = true,
-            ignoreCase = true,
-            tags = setOf(Exclusion.Tag.GENERAL),
-        )
+        val newExcl = origExclusion ?: INITIAL
 
         State(
             original = origExclusion,
@@ -145,11 +140,17 @@ class SegmentExclusionViewModel @Inject constructor(
         val current: SegmentExclusion,
     ) {
         val canRemove: Boolean = original != null
-        val canSave: Boolean = original != current
+        val canSave: Boolean = original != current && current != INITIAL
     }
 
     companion object {
-        private val TAG = logTag("Exclusion", "Editor", "Pkg", "ViewModel")
+        private val TAG = logTag("Exclusion", "Editor", "Segment", "ViewModel")
+        private val INITIAL = SegmentExclusion(
+            segments = segs(""),
+            allowPartial = true,
+            ignoreCase = true,
+            tags = setOf(Exclusion.Tag.GENERAL),
+        )
     }
 
 }
