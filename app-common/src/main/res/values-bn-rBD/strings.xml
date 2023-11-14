@@ -130,4 +130,8 @@
     <string name="general_timeunit_days">দিন</string>
     <string name="general_progress_ready">প্রস্তুত</string>
     <string name="general_progress_done">সম্পন্ন হয়েছে</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s ফাইল</item>
+        <item quantity="other">%s ফাইল</item>
+    </plurals>
 </resources>

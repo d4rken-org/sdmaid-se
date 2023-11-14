@@ -8,8 +8,11 @@ Nikdo není dokonalý, ani systém Android.
 Nepokračujte v tom… SD Maid SE vám pomůže:
 
 * Vyčistit data z již odinstalovaných aplikací
-* Vyhledat skryté mezipaměti aplikací
-* Odstranit zbytečné systémové soubory
+* Vymazat nepotřebné soubory a skryté mezipaměti
+* Odstranit nepoužívané systémové soubory
+* Vytvořit vlastní filtry pro náhodné soubory
+* Vyhledat a smazat duplicitní data
+* Analyzovat úložiště a odstranit velké soubory, které zabírají místo
 
 SD Maid SE je bez reklam a zdarma. Některé funkce však vyžadují placený upgrade.
 

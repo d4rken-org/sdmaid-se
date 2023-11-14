@@ -58,7 +58,7 @@
     <string name="general_progress_loading_egg_4">En attente de données de Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">Initialisation du turboencabulator</string>
     <string name="general_progress_loading_egg_6">Passe le beurre</string>
-    <string name="general_progress_loading_egg_7">Alors, vous tenez le coup ?</string>
+    <string name="general_progress_loading_egg_7">Vous tenez le coup ?</string>
     <string name="general_progress_loading_egg_8">Bip-bip-bip</string>
     <string name="general_progress_loading_egg_9">Mise en mémoire tampon… des choix de vie</string>
     <string name="general_progress_loading_egg_10">Invocation de Cthulhu</string>
@@ -130,4 +130,8 @@
     <string name="general_timeunit_days">Jours</string>
     <string name="general_progress_ready">Prêt</string>
     <string name="general_progress_done">Terminé</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fichier</item>
+        <item quantity="other">%s fichiers</item>
+    </plurals>
 </resources>

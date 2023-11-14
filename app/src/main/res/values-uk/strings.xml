@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Повідомлення від розробника</string>
     <string name="dashboard_settings_oneclick_title">Режим одним дотиком</string>
     <string name="dashboard_settings_oneclick_summary">Почніть сканування та видалення для всіх інструментів, натиснувши кнопку дії на інформаційній панелі, без додаткових підтверджень.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Інструменти одним дотиком</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Які інструменти повинні бути включені в операції в один дотик?</string>
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
     <string name="debug_notification_channel_label">Сповіщення про налагодження</string>
@@ -357,6 +359,7 @@
     <string name="deduplicator_file_size_label">Розмір файлу</string>
     <string name="deduplicator_average_size_label">Середній розмір</string>
     <string name="deduplicator_cluster_x_label">Кластер %s</string>
+    <string name="deduplicator_delete_confirmation_message">Видалити всі копії, крім однієї, у всіх наборах дублікатів файлів?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Видалити всі копії, крім однієї, в цьому наборі дублікатів файлів?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Видалити всі файли в цьому наборі дублікатів? Не залишилося жодного файлу!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Видалити всі копії, крім однієї, у кожному вибраному наборі дублікатів файлів?</string>
@@ -364,6 +367,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Видалити всі копії. Жодного файлу не залишилося!</string>
     <string name="deduplicator_progress_comparing_files">Порівняння файлів</string>
     <string name="deduplicator_details_cluster_title">Набір дублікатів</string>
+    <string name="deduplicator_matches_exact_label">Точні копії</string>
+    <string name="deduplicator_matches_similar_label">Схожі файли</string>
     <string name="appcontrol_tool_name">Управління додатками</string>
     <string name="appcontrol_explanation_short">Додатки, встановлені на пристрої.</string>
     <string name="appcontrol_toggle_app_selection_action">Перемикання додатків</string>

@@ -127,4 +127,7 @@
     <string name="general_timeunit_days">일</string>
     <string name="general_progress_ready">준비</string>
     <string name="general_progress_done">완료</string>
+    <plurals name="result_x_files">
+        <item quantity="other">%s 파일</item>
+    </plurals>
 </resources>

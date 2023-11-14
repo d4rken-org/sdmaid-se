@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Un message du développeur</string>
     <string name="dashboard_settings_oneclick_title">Mode toucher simple</string>
     <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Outils à accès direct</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quels outils devraient faire partie des opérations à accès direct ?</string>
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
@@ -334,7 +336,7 @@
     <string name="appcleaner_filter_wechat_summary">Fichiers reçus ou envoyés dans les conversations et moments WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fichiers multimédias mis en cache retéléchargés après affichage dans une conversation.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Supprimer les éléments superflus pour toutes les applis?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Supprimer les fichiers superflus pour toutes les applis ?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d élément superflu a été trouvé</item>
         <item quantity="other">%d éléments superflus ont été trouvés</item>
@@ -370,11 +372,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Déterminer les doublons en calculant les sommes de contrôle des fichiers. Le contenu des fichiers dont les sommes de contrôle correspondent est identique.</string>
     <string name="deduplicator_detection_method_phash_title">Hachage perceptuel</string>
     <string name="deduplicator_detection_method_phash_summary">Trouver des fichiers semblables en analysant les caractéristiques de contenu et en comparant les valeurs du hachage perceptuel.</string>
-    <string name="deduplicator_occupied_space_label">Espace de stockage occupé</string>
+    <string name="deduplicator_occupied_space_label">Mémoire occupée</string>
     <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sont occupés par des doublons</string>
     <string name="deduplicator_file_size_label">Taille du fichier</string>
     <string name="deduplicator_average_size_label">Taille moyenne</string>
     <string name="deduplicator_cluster_x_label">Grappe %s</string>
+    <string name="deduplicator_delete_confirmation_message">Supprimer tous les exemplaires de tous les jeux de fichiers dupliqués sauf un ?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Supprimer tous les exemplaires de ce jeu de fichiers dupliqués sauf un ?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Supprimer tous les fichiers de ce jeu de fichiers dupliqués ? Il ne restera aucun fichier !</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Supprimer tous les exemplaires de chaque jeu de fichiers dupliqués sélectionnés sauf un ?</string>
@@ -382,6 +385,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Supprimer tous les exemplaires ? Il ne restera aucun fichier !</string>
     <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
     <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
+    <string name="deduplicator_matches_exact_label">Copies identiques</string>
+    <string name="deduplicator_matches_similar_label">Fichiers semblables</string>
     <string name="appcontrol_tool_name">Vérificateur d’applis</string>
     <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -420,7 +425,7 @@
     <string name="analyzer_tool_name">Analyseur de mémoire</string>
     <string name="analyzer_explanation_short">Découvrez ce qui occupe de l’espace sur votre appareil.</string>
     <string name="analyzer_progress_scanning_device">Recherche de périphériques de stockage</string>
-    <string name="analyzer_progress_scanning_storage">Analyse de l’espace de stockage</string>
+    <string name="analyzer_progress_scanning_storage">Analyse de la mémoire</string>
     <string name="analyzer_progress_scanning_apps">Analyse des applis</string>
     <string name="analyzer_progress_scanning_userfiles">Recherche de fichiers utilisateur</string>
     <string name="analyzer_progress_scanning_system">Analyse des données système</string>
@@ -457,7 +462,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Cette appli occupe %1$s sur \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Données d’applis publiques par défaut</string>
     <string name="data_area_public_app_assets_official_label">Ressources publiques par défaut d’applis</string>
-    <string name="data_area_public_storage_label">Espace de stockage public</string>
+    <string name="data_area_public_storage_label">Mémoire publique</string>
     <string name="data_area_sdcard_label">Carte SD</string>
     <string name="data_areas_label">Zones de données</string>
     <string name="data_areas_description">Les zones de données représentent les emplacements accessibles à SD Maid sur votre appareil. Différentes zones de données peuvent être accessibles selon votre version d’Android et les autorisations accordées.</string>
@@ -482,7 +487,7 @@
     <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
     <string name="exclusion_create_pkg_hint">Utilisez l’outil « Vérificateur d’applis » pour exclure des applis.</string>
-    <string name="exclusion_create_path_hint">Utilisez l’outil « Analyseur de mémoire » pour exclure des chemins.</string>
+    <string name="exclusion_create_path_hint">Utilisez l’Analyseur de mémoire pour créer des exclusions de chemin.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Une exclusion a été créée</item>
         <item quantity="other">%d exclusions ont été créées</item>

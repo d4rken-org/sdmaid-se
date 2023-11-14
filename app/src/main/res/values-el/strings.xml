@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Μήνυμα από τον προγραμματιστή</string>
     <string name="dashboard_settings_oneclick_title">Λειτουργία με ένα πάτημα</string>
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του ταμπλό, χωρίς επιπλέον επιβεβαιώσεις.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Εργαλεία με Ένα-Πάτημα</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Ποια εργαλεία πρέπει να περιλαμβάνονται στις λειτουργίες με ένα πάτημα;</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
@@ -375,6 +377,7 @@
     <string name="deduplicator_file_size_label">Μέγεθος αρχείου</string>
     <string name="deduplicator_average_size_label">Μέσο μέγεθος</string>
     <string name="deduplicator_cluster_x_label">Σύμπλεγμα %s</string>
+    <string name="deduplicator_delete_confirmation_message">Να διαγραφούν όλα τα αντίγραφα εκτός από ένα σε όλα τα σύνολα διπλότυπων αρχείων;</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Να διαγραφούν όλα εκτός από ένα αντίγραφο σε αυτό το σύνολο διπλότυπων αρχείων;</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Διαγραφή όλων των αρχείων σε αυτό το σύνολο διπλότυπων αρχείων; Δε θα παραμείνει κανένα αρχείο!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Διαγραφή όλων εκτός από ένα αντίγραφο σε κάθε επιλεγμένο σύνολο διπλότυπων αρχείων;</string>
@@ -382,6 +385,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Διαγραφή όλων των αντιγράφων. Δε θα παραμείνει κανένα αρχείο!</string>
     <string name="deduplicator_progress_comparing_files">Σύγκριση αρχείων</string>
     <string name="deduplicator_details_cluster_title">Σύνολο διπλότυπων</string>
+    <string name="deduplicator_matches_exact_label">Ακριβή αντίγραφα</string>
+    <string name="deduplicator_matches_similar_label">Παρόμοια αρχεία</string>
     <string name="appcontrol_tool_name">Έλεγχος εφαρμογών</string>
     <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -537,7 +542,7 @@
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
-    <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com);iplayradio;gogoboss_stampolidis;Vagelis1608;Nick Komninos</string>
+    <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com);iplayradio;gogoboss_stampolidis;Vagelis1608;Nick Komninos, Retrial</string>
     <string name="motd_setting_enabled_label">Σημαντικά μηνύματα</string>
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>

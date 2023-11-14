@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Un missatge del desenvolupador</string>
     <string name="dashboard_settings_oneclick_title">Mode d\'un toc</string>
     <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler, sense confirmacions addicionals.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Eines de només un toc</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions de només un toc?</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
@@ -375,6 +377,7 @@
     <string name="deduplicator_file_size_label">Mida del fitxer</string>
     <string name="deduplicator_average_size_label">Mida mitjana</string>
     <string name="deduplicator_cluster_x_label">Clúster %s</string>
+    <string name="deduplicator_delete_confirmation_message">Voleu suprimir totes les còpies menys una de tots els conjunts de fitxers duplicats?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Voleu suprimir totes les còpies menys una d\'aquest conjunt de fitxers duplicats?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Voleu suprimir tots els fitxers d\'aquest conjunt de fitxers duplicats? No sobra cap fitxer!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Voleu suprimir totes les còpies menys una de cada conjunt seleccionat de fitxers duplicats?</string>
@@ -382,6 +385,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Suprimeix totes les còpies. No sobra cap fitxer!</string>
     <string name="deduplicator_progress_comparing_files">Comparació de fitxers</string>
     <string name="deduplicator_details_cluster_title">Conjunt de duplicats</string>
+    <string name="deduplicator_matches_exact_label">Còpies exactes</string>
+    <string name="deduplicator_matches_similar_label">Fitxers similars</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
     <plurals name="appcontrol_x_apps_detected_label">

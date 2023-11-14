@@ -8,8 +8,11 @@ Niemand is perfect en Android ook niet.
 Laten we hier niet verder gaan... Laat SD Maid SE je helpen:
 
 * Ruim gegevens op van reeds verwijderde apps
-* Vind verborgen app-caches
-* Verwijder overbodige systeembestanden
+* Verwijder vervangbare bestanden en verborgen caches
+* Verwijder ongebruikte systeembestanden
+* Creëer je eigen filters voor willekeurige bestanden
+* Zoek en verwijder dubbele gegevens
+* Analyseer je opslag en verwijder grote bestanden die ruimte in beslag nemen
 
 SD Maid SE is advertentievrij. Voor sommige functies is een betaalde upgrade vereist.
 

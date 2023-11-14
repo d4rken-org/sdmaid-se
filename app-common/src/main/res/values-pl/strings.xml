@@ -136,4 +136,10 @@
     <string name="general_timeunit_days">Dni</string>
     <string name="general_progress_ready">Gotowe</string>
     <string name="general_progress_done">Wykonano</string>
+    <plurals name="result_x_files">
+        <item quantity="one">plik %s</item>
+        <item quantity="few">%s pliki</item>
+        <item quantity="many">%s plików</item>
+        <item quantity="other">%s plików</item>
+    </plurals>
 </resources>

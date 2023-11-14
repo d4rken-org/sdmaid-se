@@ -8,8 +8,11 @@ Nadie es perfecto y Android tampoco lo es.
 No sigamos aquí... Deje que SD Maid SE le ayude:
 
 * Limpia datos de aplicaciones ya desinstaladas
-* Encuentra cachés ocultas de aplicaciones
-* Elimina los archivos innecesarios del sistema
+* Borrar los archivos innecesarios y las cachés ocultas
+* Eliminar los archivos del sistema que no se usan
+* Crea tus propios filtros para archivos aleatorios
+* Encontrar y eliminar los datos duplicados
+* Analiza el almacenamiento y elimina los archivos grandes que ocupan espacio
 
 SD Maid SE no tiene publicidad. Algunas funciones requieren la versión de pago.
 

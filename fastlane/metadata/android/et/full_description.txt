@@ -8,8 +8,11 @@ Mitte keegi pole täiuslik ja sama kehtib Androidile.
 Aitab küll… Lase SD Maid SE-l end aidata:
 
 * Andmete tühjendamine juba eemaldatud rakendustest
-* Leidke peidetud rakenduse vahemälud
-* Eemaldage üleliigsed süsteemifailid
+* Kustutab ühekordsed failid ja peidetud vahemälud
+* Eemaldab kasutamata süsteemifailid
+* Looge suvaliste failide jaoks enda mõeldud filtreid
+* Leiab ja kustutab samad andmed
+* Analüüsib salvestusruumi ja kustutab palju ruumi võtvad mahukad failid
 
 SD Maid SE on reklaamivaba. Osa võimalusi vajab tasulist täiendust.
 

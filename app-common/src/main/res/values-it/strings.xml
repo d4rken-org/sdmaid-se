@@ -59,6 +59,7 @@
     <string name="general_progress_loading_egg_5">Avviando il turbo encabulator</string>
     <string name="general_progress_loading_egg_6">Passando il burro</string>
     <string name="general_progress_loading_egg_7">Dunque. Come te la passi?</string>
+    <string name="general_progress_loading_egg_8">Beep boop bop</string>
     <string name="general_progress_loading_egg_9">Bufferizzando le scelte di vita</string>
     <string name="general_progress_loading_egg_10">Evocazione di Cthulhu</string>
     <string name="general_progress_loading_egg_11">Questo va bene</string>
@@ -129,4 +130,8 @@
     <string name="general_timeunit_days">Giorni</string>
     <string name="general_progress_ready">Pronto</string>
     <string name="general_progress_done">Completato</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s file</item>
+        <item quantity="other">%s file</item>
+    </plurals>
 </resources>

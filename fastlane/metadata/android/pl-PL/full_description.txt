@@ -8,8 +8,11 @@ Nikt nie jest doskonały, podobnie jak Android.
 Nie tędy droga… Niech SD Maid SE Ci pomoże:
 
 * Posprzątać dane z odinstalowanych już aplikacji
-* Znaleźć ukryte pamięci podręczne aplikacji
-* Usunąć zbędne pliki systemowe
+* Usuń niepotrzebnie pliki i ukryte pamięci podręczne
+* Usuń nieużywane pliki systemowe
+* Utwórz własne filtry dla losowych plików
+* Znajdź i usuń duplikaty danych
+* Analizuj pamięć i usuń duże pliki zajmujące miejsce
 
 SD Maid SE nie wyświetla reklam. Niektóre funkcje wymagają płatnego ulepszenia.
 

@@ -8,8 +8,11 @@ Ninguém é perfeito e o Android também não.
 Não o deixe continuar… SD Maid SE está aqui para ajudar:
 
 * Limpar dados de aplicações desinstaladas
-* Encontrar caches ocultas
-* Remover ficheiros supérfluos do sistema
+Apagar ficheiros dispensáveis e caches ocultas
+* Remover ficheiros de sistema não utilizados
+* Crie os seus próprios filtros para ficheiros aleatórios
+Encontre e apague duplicados
+* Analise o armazenamento e apague ficheiros grandes
 
 SD Maid SE não tem publicidade. Algumas funcionalidades requerem uma versão paga.
 

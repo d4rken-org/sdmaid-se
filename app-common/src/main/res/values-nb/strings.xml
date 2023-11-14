@@ -130,4 +130,8 @@
     <string name="general_timeunit_days">Dager</string>
     <string name="general_progress_ready">Klar</string>
     <string name="general_progress_done">Ferdig</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fil</item>
+        <item quantity="other">%s filer</item>
+    </plurals>
 </resources>

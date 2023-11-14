@@ -5,11 +5,14 @@ Nessuno è perfetto, nemmeno Android.
 * Vengono continuamente creati file di Log, report sugli arresti anomali e altri file indesiderati.
 * La memoria accumula file e directory che non riconosci.
 
-Non andare oltre… Lascia che SD Maid SE ti aiuti:
+Non andare oltre… Lascia che SD Maid SE ti aiuti a:
 
 * Rimuove i residui dei dati delle app già disinstallate
-* Trova le cache nascoste delle app
-* Rimuove i file superflui di sistema
+* Eliminare i file non indispensabili e le cache nascoste
+* Rimuove i file di sistema superflui
+* Creare i tuoi filtri per i file casuali
+* Trovare ed eliminare i file duplicati
+* Analizzare la memoria ed eliminare file di grandi dimensioni che occupano spazio
 
 SD Maid SE non contiene pubblicità. Alcune funzionalità richiedono un aggiornamento a pagamento.
 
