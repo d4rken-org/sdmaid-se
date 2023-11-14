@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_listitem_selectable">
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/preview_image"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -16,7 +16,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/PreviewRoundedBox.Small"
         tools:src="?colorPrimary" />
 
     <com.google.android.material.textview.MaterialTextView

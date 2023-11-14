@@ -2,6 +2,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import coil.transform.RoundedCornersTransformation
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
@@ -35,7 +36,9 @@ class PHashGroupFileVH(parent: ViewGroup) :
         lastItem = item
         val dupe = item.duplicate
 
-        previewImage.loadFilePreview(dupe.lookup)
+        previewImage.loadFilePreview(dupe.lookup) {
+            transformations(RoundedCornersTransformation(36F))
+        }
         primary.text = dupe.lookup.userReadablePath.get(context)
         secondary.text = String.format("%.2f%%", dupe.similarity * 100)
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)

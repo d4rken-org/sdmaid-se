@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
+import android.graphics.Bitmap
 import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -35,7 +36,10 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         lastItem = item
         val cluster = item.cluster
 
-        previewImage.loadFilePreview(cluster.previewFile)
+        previewImage.loadFilePreview(cluster.previewFile) {
+            // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
+            bitmapConfig(Bitmap.Config.ARGB_8888)
+        }
 
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
         secondary.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, cluster.count)
