@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import coil.transform.RoundedCornersTransformation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
 import eu.darken.sdmse.R
@@ -95,7 +96,9 @@ class PreviewDeletionDialog(private val context: Context) {
             }
             binding.deleteAllIcon.isVisible = binding.deleteAllToggle.isVisible
 
-            binding.previewImage.loadFilePreview(mode.previews.single())
+            binding.previewImage.loadFilePreview(mode.previews.single()) {
+                transformations(RoundedCornersTransformation(36F))
+            }
 
             binding.root
         } else {
@@ -224,7 +227,9 @@ class PreviewDeletionDialog(private val context: Context) {
                 item: Item,
                 payloads: List<Any>
             ) -> Unit = { item, _ ->
-                previewImage.loadFilePreview(item.lookup)
+                previewImage.loadFilePreview(item.lookup) {
+                    transformations(RoundedCornersTransformation(36F))
+                }
             }
 
         }
