@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">%s\'ye erişilemiyor.</string>
     <string name="general_error_root_unavailable">Kök erişimi kullanılamıyor.</string>
     <string name="general_error_empty_result_msg">Sonuç boştu.</string>
+    <string name="general_error_no_compatible_app_found_msg">Bu isteği karşılamak için uygun uygulama bulunamadı.</string>
     <string name="general_todo_msg">Bu özellik hâlâ geliştirme aşamasında olduğundan şu anda kullanılamıyor.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamamlandı</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">Yardım</string>
     <string name="general_continue">Devam et</string>
     <string name="general_progress_queued">Sırada</string>
+    <string name="general_progress_deleting">Siliniyor</string>
+    <string name="general_progress_deleting_x">%s siliniyor</string>
     <string name="general_sort_options_label">Sıralama seçenekleri</string>
     <string name="general_sort_reverse_action">Ters sıralama modu</string>
     <string name="general_tag_filter_label">Etiketlere göre filtrele</string>
@@ -127,4 +130,8 @@
     <string name="general_timeunit_days">Günler</string>
     <string name="general_progress_ready">Hazır</string>
     <string name="general_progress_done">Tamamlandı</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s dosya</item>
+        <item quantity="other">%s dosyalar</item>
+    </plurals>
 </resources>

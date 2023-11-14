@@ -8,8 +8,11 @@ Ingen er perfekte, heller ikke Android.
 La oss ikke fortsette her… La SD Maid SE hjelpe deg:
 
 * Rydd opp i data fra apper som allerede er avinstallert
-* Finn skjulte hurtigbuffere fra apper
-* Fjern overflødige systemfiler
+* Slett unødvendige filer og skjulte buffere
+* Fjern ubrukte systemfiler
+* Lag dine egne filtre for tilfeldige filer
+* Finn og slett duplisert data
+* Analyser lagringen din og slett store filer som tar opp plass
 
 SD Maid SE er annonsefri. Noen funksjoner krever en betalt oppgradering.
 

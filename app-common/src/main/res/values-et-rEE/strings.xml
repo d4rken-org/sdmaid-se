@@ -121,4 +121,8 @@
     <string name="general_timeunit_days">Päeva</string>
     <string name="general_progress_ready">Valmis</string>
     <string name="general_progress_done">Valmis</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fail</item>
+        <item quantity="other">%s faili</item>
+    </plurals>
 </resources>

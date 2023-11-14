@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Kiri arendajalt</string>
     <string name="dashboard_settings_oneclick_title">Ühe puudutuse režiim</string>
     <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevat nuppu puudutades, ilma täiendavate nõusolekuteta.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Ühepuutelised vahendid</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Mis võimalused võiksid olla ühepuutelised?</string>
     <string name="debug_debuglog_size_label">Maht</string>
     <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
@@ -353,6 +355,9 @@
         <item quantity="other">Kustutada %d valitud rakenduse ühekordsed failid?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
+    <string name="deduplicator_delete_confirmation_message">Kustutada faili koopiad, nii et alles jääb vaid üks neist?</string>
+    <string name="deduplicator_matches_exact_label">Samad koopiad</string>
+    <string name="deduplicator_matches_similar_label">Sarnased failid</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>
     <plurals name="appcontrol_x_apps_detected_label">

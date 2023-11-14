@@ -8,8 +8,11 @@ Ningú és perfecte i l'Android tampoc.
 No continuem aquí... Deixeu que l'SD Maid SE us ajudi:
 
 * Neteja les dades d'aplicacions ja desinstal·lades
-* Cerca memòries cau d'aplicacions ocultes
-* Elimina fitxers del sistema superflus
+* Suprimeix fitxers fungibles i memòria cau oculta
+* Elimina fitxers del sistema no utilitzats
+* Creeu els vostres propis filtres per a fitxers aleatoris
+* Cerca i elimina dades duplicades
+* Analitza el vostre emmagatzematge i suprimeix fitxers grans que ocupen espai
 
 L'SD Maid SE no inclou anuncis. Algunes funcions requereixen una actualització de pagament.
 

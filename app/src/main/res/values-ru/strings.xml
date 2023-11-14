@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Сообщение от разработчика</string>
     <string name="dashboard_settings_oneclick_title">Режим \"одного нажатия\"</string>
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно касание</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного касания?</string>
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
@@ -393,6 +395,7 @@
     <string name="deduplicator_file_size_label">Размер файла</string>
     <string name="deduplicator_average_size_label">Средний размер</string>
     <string name="deduplicator_cluster_x_label">Группа %s</string>
+    <string name="deduplicator_delete_confirmation_message">Удалить все копии, кроме одной, в этом наборе дубликатов?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Удалить все копии, кроме одной, в этом наборе дубликатов?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Удалить все файлы в этом наборе дубликатов? Ни одного файла не останется!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Удалить все копии, кроме одной, в каждой выбранной группе дубликатов?</string>
@@ -400,6 +403,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Удалить все копии. Ни одного файла не останется!</string>
     <string name="deduplicator_progress_comparing_files">Сравнение файлов</string>
     <string name="deduplicator_details_cluster_title">Группы дубликатов</string>
+    <string name="deduplicator_matches_exact_label">Точные копии</string>
+    <string name="deduplicator_matches_similar_label">Похожие файлы</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
     <plurals name="appcontrol_x_apps_detected_label">

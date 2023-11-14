@@ -130,4 +130,8 @@
     <string name="general_timeunit_days">Dias</string>
     <string name="general_progress_ready">Pronto</string>
     <string name="general_progress_done">Concluído</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s arquivo</item>
+        <item quantity="other">%s arquivos</item>
+    </plurals>
 </resources>

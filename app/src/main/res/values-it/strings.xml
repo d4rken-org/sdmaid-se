@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Un messaggio dallo sviluppatore</string>
     <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
     <string name="dashboard_settings_oneclick_summary">Avvia la scansione e l\'eliminazione per tutti gli strumenti con un tocco del bottone principale della dashboard, nessuna richiesta di conferma aggiuntiva.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Strumenti A Singolo Tocco</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quali strumenti vuoi includere nelle operazioni a singolo tocco?</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>
@@ -354,8 +356,12 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
         <item quantity="other">Cancellare %d file inutili delle app selezionate?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cancella cache con Shizuku</string>
-    <string name="deduplicator_tool_name">Deduplicazione</string>
-    <string name="deduplicator_explanation_short">Trova dati duplicati sul dispositivo.</string>
+    <string name="deduplicator_tool_name">Deduplicatore</string>
+    <string name="deduplicator_explanation_short">Trova doppioni dei dati nel dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d set di duplicati trovato</item>
+        <item quantity="other">%d Set di duplicati trovati</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Rendi \"Elimina tutto\" selezionabile</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostra le opzioni che permettono di eliminare tutti i file in un insieme di duplicati in modo da non lasciare residui.</string>
     <string name="deduplicator_skip_minsize_title">Dimensione minima</string>
@@ -372,8 +378,16 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="deduplicator_file_size_label">Dimensione file</string>
     <string name="deduplicator_average_size_label">Dimensione media</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
+    <string name="deduplicator_delete_confirmation_message">Elimina tutto tranne una copia di ogni set dei file duplicati?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Elimina tutto tranne una copia di questo set di file duplicati?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Elimina tutti i file in questo set di file duplicati? Nessun file rimane!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Eliminare tutto tranne una copia di ogni set dei file duplicati selezionati?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Eliminare tutti i file dei set di file duplicati selezionati? Nessun file rimarrà!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Eliminare tutte le copie. Nessun file rimarrà!</string>
+    <string name="deduplicator_progress_comparing_files">Confrontando i file</string>
+    <string name="deduplicator_details_cluster_title">Set di duplicati</string>
+    <string name="deduplicator_matches_exact_label">Copie identiche</string>
+    <string name="deduplicator_matches_similar_label">File simili</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">App installate nel tuo dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

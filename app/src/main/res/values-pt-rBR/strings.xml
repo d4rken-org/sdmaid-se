@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Uma mensagem do desenvolvedor</string>
     <string name="dashboard_settings_oneclick_title">Modo apenas um toque</string>
     <string name="dashboard_settings_oneclick_summary">Iniciar a busca e exclusão em todas as ferramentas com apenas um toque no botão de ação do painel, sem confirmações extras.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Ferramentas Um-Toque</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas em operações de um clique?</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
@@ -371,6 +373,7 @@
     <string name="deduplicator_file_size_label">Tamanho do arquivo</string>
     <string name="deduplicator_average_size_label">Tamanho médio</string>
     <string name="deduplicator_cluster_x_label">Aglomerado %s</string>
+    <string name="deduplicator_delete_confirmation_message">Excluir todas as cópias, exceto uma, neste conjunto de arquivos duplicados?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Excluir todas as cópias, exceto uma, neste conjunto de arquivos duplicados?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Excluir todos os arquivos deste conjunto de arquivos duplicados? Nenhum arquivo sobra!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Excluir todas as cópias, exceto uma, em cada conjunto selecionado de arquivos duplicados?</string>
@@ -378,6 +381,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Excluir todas as cópias. Nenhum arquivo sobra!</string>
     <string name="deduplicator_progress_comparing_files">Comparando os arquivos</string>
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
+    <string name="deduplicator_matches_exact_label">Cópias exatas</string>
+    <string name="deduplicator_matches_similar_label">Arquivos similares</string>
     <string name="appcontrol_tool_name">Gerenciamento de aplicativos</string>
     <string name="appcontrol_explanation_short">Aplicativos instalados no seu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">

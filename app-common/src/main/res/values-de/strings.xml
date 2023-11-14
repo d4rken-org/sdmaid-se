@@ -130,4 +130,8 @@
     <string name="general_timeunit_days">Tage</string>
     <string name="general_progress_ready">Bereit</string>
     <string name="general_progress_done">Fertig</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s Datei</item>
+        <item quantity="other">%s Dateien</item>
+    </plurals>
 </resources>

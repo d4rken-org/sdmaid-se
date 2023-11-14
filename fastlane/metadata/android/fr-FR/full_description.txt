@@ -7,9 +7,12 @@ Personne n’est parfait et Android non plus.
 
 N’allons pas plus loin… Laissez SD Maid SE vous aider :
 
-* Nettoyer les données des applis déjà désinstallées
-* Trouver des caches d’appli cachés
-* Supprimer les fichiers système superflus
+* Nettoyez les données des applis déjà désinstallées
+* Supprimez les fichiers superflus et les caches dissimulés
+* Supprimez les fichiers système inutilisés
+* Créez vos propres filtres pour fichiers aléatoires
+* Trouvez et supprimez les données dupliquées
+* Analysez la mémoire et supprimez les fichiers volumineux
 
 Aucune publicité avec SD Maid SE. Certaines fonctions sont réservées à la version payante.
 
