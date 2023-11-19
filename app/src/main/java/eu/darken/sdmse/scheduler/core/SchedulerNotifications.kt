@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.ui.MainActivity
 import javax.inject.Inject
 
@@ -53,7 +54,7 @@ class SchedulerNotifications @Inject constructor(
         }
     }
 
-    fun getBuilder(schedule: Schedule?): NotificationCompat.Builder {
+    private fun getStateBuilder(schedule: Schedule?): NotificationCompat.Builder {
         if (schedule == null) {
             return builder.apply {
                 setStyle(null)
@@ -65,13 +66,13 @@ class SchedulerNotifications @Inject constructor(
         return builder.apply {
             setContentTitle(context.getString(R.string.scheduler_notification_title))
             setContentText(context.getString(R.string.scheduler_notification_message, schedule.label))
-            log(TAG) { "getBuilder(): $schedule" }
+            log(TAG) { "getStateBuilder(): $schedule" }
         }
     }
 
-    fun getNotification(schedule: Schedule?): Notification = getBuilder(schedule).build()
+    private fun getStateNotification(schedule: Schedule?): Notification = getStateBuilder(schedule).build()
 
-    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getBuilder(schedule).toForegroundInfo(schedule)
+    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getStateBuilder(schedule).toForegroundInfo(schedule)
 
     private fun NotificationCompat.Builder.toForegroundInfo(schedule: Schedule): ForegroundInfo = if (hasApiLevel(29)) {
         @Suppress("NewApi")
@@ -82,13 +83,13 @@ class SchedulerNotifications @Inject constructor(
 
     private fun ScheduleId.toNotificationid(): Int {
         val baseId = (this.hashCode() and Int.MAX_VALUE) % 101
-        return NOTIFICATION_ID_RANGE + baseId
+        return NOTIFICATION_ID_RANGE_STATE + baseId
     }
 
-    fun notify(schedule: Schedule) {
+    fun notifyState(schedule: Schedule) {
         val id = schedule.id.toNotificationid()
-        val notification = getNotification(schedule)
-        log(TAG) { "notify($id, $schedule)" }
+        val notification = getStateNotification(schedule)
+        log(TAG) { "notifyState($id, $schedule)" }
         notificationManager.notify(id, notification)
     }
 
@@ -98,9 +99,39 @@ class SchedulerNotifications @Inject constructor(
         notificationManager.cancel(id)
     }
 
+    private fun getResultBuilder(results: Set<Results>): NotificationCompat.Builder = builder.apply {
+        setContentTitle(context.getString(R.string.scheduler_notification_result_title))
+        val text = if (results.any { it.error != null }) {
+            context.getString(R.string.scheduler_notification_result_failure_message)
+        } else {
+            context.getString(R.string.scheduler_notification_result_success_message)
+        }
+        setContentText(text)
+        log(TAG) { "getResultBuilder(): $results" }
+    }
+
+    private fun Set<Results>.toNotificationid(): Int {
+        val baseId = (this.hashCode() and Int.MAX_VALUE) % 101
+        return NOTIFICATION_ID_RANGE_RESULT + baseId
+    }
+
+    fun notifyResult(results: Set<Results>) {
+        val id = results.toNotificationid()
+        val notification = getResultBuilder(results).build()
+        log(TAG) { "notifyResult($id, $results)" }
+        notificationManager.notify(id, notification)
+    }
+
+    data class Results(
+        val task: SDMTool.Task,
+        val result: SDMTool.Task.Result? = null,
+        val error: Exception? = null,
+    )
+
     companion object {
         val TAG = logTag("Scheduler", "Notifications", "Worker")
         private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler"
-        internal const val NOTIFICATION_ID_RANGE = 1000
+        internal const val NOTIFICATION_ID_RANGE_STATE = 1000
+        internal const val NOTIFICATION_ID_RANGE_RESULT = 1200
     }
 }

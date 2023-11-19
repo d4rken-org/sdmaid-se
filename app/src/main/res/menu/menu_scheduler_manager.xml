@@ -13,6 +13,14 @@
     <!--        tools:visible="true" />-->
 
     <item
+        android:id="@+id/menu_debug_schedule"
+        android:icon="@drawable/ic_play_arrow"
+        android:orderInCategory="90"
+        android:title="Launch schedule now"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_action_info"
         android:icon="@drawable/ic_baseline_info_24"
         android:orderInCategory="100"

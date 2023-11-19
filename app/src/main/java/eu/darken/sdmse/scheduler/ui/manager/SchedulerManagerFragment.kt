@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
@@ -33,9 +34,15 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
                         true
                     }
 
+                    R.id.menu_debug_schedule -> {
+                        vm.debugSchedule()
+                        true
+                    }
+
                     else -> false
                 }
             }
+            menu?.findItem(R.id.menu_debug_schedule)?.isVisible = Bugs.isDebug
         }
 
         ui.mainAction.setOnClickListener { vm.createNew() }

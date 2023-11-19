@@ -26,13 +26,13 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.joinAll
-import kotlinx.coroutines.launch
 
 
 @HiltWorker
@@ -43,7 +43,7 @@ class SchedulerWorker @AssistedInject constructor(
     private val taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,
     private val schedulerSettings: SchedulerSettings,
-    private val workerNotifications: SchedulerNotifications,
+    private val schedulerNotifications: SchedulerNotifications,
     private val notificationManager: NotificationManager,
     private val setupHealer: SetupHealer,
 ) : CoroutineWorker(context, params) {
@@ -63,7 +63,7 @@ class SchedulerWorker @AssistedInject constructor(
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
-        return workerNotifications.getForegroundInfo(getSchedule())
+        return schedulerNotifications.getForegroundInfo(getSchedule())
     }
 
     override suspend fun doWork(): Result = try {
@@ -75,7 +75,7 @@ class SchedulerWorker @AssistedInject constructor(
         log(TAG, INFO) { "Executing schedule $schedule" }
         Bugs.leaveBreadCrumb("Executing schedule")
 
-        workerNotifications.notify(schedule)
+        schedulerNotifications.notifyState(schedule)
 
         doDoWork(schedule)
 
@@ -97,7 +97,7 @@ class SchedulerWorker @AssistedInject constructor(
             Result.success()
         }
     } finally {
-        workerNotifications.cancel(scheduleId)
+        schedulerNotifications.cancel(scheduleId)
         workerScope.cancel("Worker finished (withError?=$finishedWithError).")
     }
 
@@ -124,18 +124,23 @@ class SchedulerWorker @AssistedInject constructor(
             .take(1)
             .first()
 
-        val taskJobs = tasks.map { task ->
-            workerScope.launch {
+        val taskJobs = tasks.mapNotNull { task ->
+            workerScope.async {
                 try {
-                    taskManager.submit(task)
+                    log(TAG) { "Launching $task" }
+                    val result = taskManager.submit(task)
+                    log(TAG) { "Finished $task -> $result" }
+                    SchedulerNotifications.Results(task, result = result)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Scheduler task failed ($task): ${e.asLog()}" }
+                    SchedulerNotifications.Results(task, error = e)
                 }
             }
         }
 
         log(TAG) { "Waiting for jobs to complete: $taskJobs" }
-        taskJobs.joinAll()
+        val taskResults = taskJobs.awaitAll().toSet()
+        schedulerNotifications.notifyResult(taskResults)
         log(TAG) { "All task jobs have finished." }
     }
 
