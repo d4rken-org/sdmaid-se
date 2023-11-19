@@ -84,8 +84,6 @@ class SchedulerWorker @AssistedInject constructor(
         val duration = System.currentTimeMillis() - start
         log(TAG, INFO) { "Execution finished after ${duration}ms: $schedule" }
 
-        schedulerManager.reschedule(scheduleId)
-
         Result.success(inputData)
     } catch (e: Throwable) {
         if (e !is CancellationException) {
@@ -99,6 +97,7 @@ class SchedulerWorker @AssistedInject constructor(
     } finally {
         schedulerNotifications.cancel(scheduleId)
         workerScope.cancel("Worker finished (withError?=$finishedWithError).")
+        schedulerManager.reschedule(scheduleId)
     }
 
     private suspend fun doDoWork(schedule: Schedule) {
