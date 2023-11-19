@@ -47,6 +47,7 @@ class ShizukuSetupModule @Inject constructor(
 
             val baseState = State(
                 useShizuku = useShizuku,
+                isInstalled = shizukuManager.isInstalled(),
                 isCompatible = shizukuManager.isCompatible(),
             )
 
