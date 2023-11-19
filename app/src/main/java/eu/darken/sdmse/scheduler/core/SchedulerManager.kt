@@ -154,7 +154,7 @@ class SchedulerManager @Inject constructor(
 
         workManager.enqueueUniqueWork(
             workName,
-            if (reschedule) ExistingWorkPolicy.APPEND else ExistingWorkPolicy.REPLACE,
+            if (reschedule) ExistingWorkPolicy.APPEND_OR_REPLACE else ExistingWorkPolicy.REPLACE,
             workRequest
         ).await()
 
