@@ -22,7 +22,9 @@ import eu.darken.sdmse.scheduler.core.SchedulerSettings
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
 import kotlinx.coroutines.flow.*
+import java.time.Duration
 import java.time.Instant
+import java.time.LocalTime
 import java.util.*
 import javax.inject.Inject
 
@@ -117,6 +119,21 @@ class SchedulerManagerViewModel @Inject constructor(
         SchedulerManagerFragmentDirections.actionSchedulerManagerFragmentToScheduleItemDialog(
             scheduleId = UUID.randomUUID().toString()
         ).navigate()
+    }
+
+    fun debugSchedule() = launch {
+        log(TAG) { "debugSchedule()" }
+        val id = UUID.randomUUID().toString()
+        val now = LocalTime.now().plusMinutes(1)
+        val testSchedule = Schedule(
+            id = id,
+            label = "Test Schedule $id",
+            hour = now.hour,
+            minute = now.minute,
+            repeatInterval = Duration.ofDays(1),
+            scheduledAt = Instant.now(),
+        )
+        schedulerManager.saveSchedule(testSchedule)
     }
 
     data class State(

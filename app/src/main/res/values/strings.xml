@@ -578,6 +578,9 @@
     <string name="scheduler_notification_channel_label">Scheduler</string>
     <string name="scheduler_notification_title">Scheduled task</string>
     <string name="scheduler_notification_message">Executing: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Scheduler finished</string>
+    <string name="scheduler_notification_result_success_message">All scheduled tasks ran successfully.</string>
+    <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered errors. Try running them manually.</string>
 
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>

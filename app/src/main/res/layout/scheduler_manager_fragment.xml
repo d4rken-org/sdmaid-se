@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_data_areas"
+        app:menu="@menu/menu_scheduler_manager"
         app:title="@string/scheduler_label" />
 
     <eu.darken.sdmse.common.progress.ProgressOverlayView
