@@ -1,5 +1,4 @@
 <resources>
-
     <style name="DashboardCardItem" parent="Widget.Material3.CardView.Elevated">
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">4dp</item>
@@ -25,11 +24,6 @@
     <style name="DashboardCardButton.Flat" parent="Widget.Material3.Button.IconButton">
         <item name="android:paddingHorizontal">20dp</item>
         <item name="iconPadding">4dp</item>
-    </style>
-
-    <style name="Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
-        <item name="android:layout_height">?actionBarSize</item>
-        <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="BaseRecyclerList">
@@ -184,6 +178,11 @@
 
     <style name="PreviewRoundedBox.Large">
         <item name="cornerSize">32dp</item>
+    </style>
+
+    <style name="SDMToolbar.Primary" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?actionBarSize</item>
     </style>
 
 </resources>
