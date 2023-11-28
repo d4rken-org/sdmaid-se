@@ -106,7 +106,15 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 } else {
                     null
                 }
-                menu.findItem(R.id.action_toggle_layout_mode).isVisible = state.progress == null
+                menu.findItem(R.id.action_toggle_layout_mode).apply {
+                    isVisible = state.progress == null
+                    setIcon(
+                        when (state.layoutMode) {
+                            LayoutMode.LINEAR -> R.drawable.baseline_grid_view_24
+                            LayoutMode.GRID -> R.drawable.baseline_list_alt_24
+                        }
+                    )
+                }
             }
         }
 
