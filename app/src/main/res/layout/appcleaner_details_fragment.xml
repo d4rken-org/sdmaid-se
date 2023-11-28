@@ -15,7 +15,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            style="@style/SDMToolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:subtitle="@string/general_details_label"

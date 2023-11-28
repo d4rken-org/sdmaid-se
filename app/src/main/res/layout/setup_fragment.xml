@@ -10,6 +10,7 @@
         style="@style/Widget.MaterialComponents.Toolbar.Surface"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,10 +36,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        style="@style/BaseRecyclerList"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

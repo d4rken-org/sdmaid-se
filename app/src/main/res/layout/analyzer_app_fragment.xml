@@ -9,6 +9,7 @@
         android:id="@+id/toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="0dp"
+        android:minHeight="?actionBarSize"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
