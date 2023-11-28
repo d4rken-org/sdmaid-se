@@ -8,8 +8,11 @@ Những ứng dụng bạn đã gỡ bỏ sẽ để lại các tập tin rá
 Đừng tiếp tục ở đây… Hãy để SD Maid SE giúp bạn:
 
 * Dọn dẹp dữ liệu từ các ứng dụng đã gỡ cài đặt
-* Tìm bộ nhớ đệm ẩn trong ứng dụng
-* Loại bỏ các tập tin hệ thống thừa
+Xóa các tập tin có thể sử dụng và bộ đệm ẩn
+* Xóa các tập tin hệ thống không sử dụng
+* Tạo bộ lọc của riêng bạn cho các tệp ngẫu nhiên
+* Tìm và xóa dữ liệu trùng lặp
+* Phân tích bộ nhớ của bạn và xóa các tệp chiếm dung lượng lớn
 
 SD Maid SE không có quảng cáo. Một số tính năng yêu cầu trả phí để nâng cấp.
 

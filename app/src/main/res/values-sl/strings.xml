@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Sporočilo od razvijalca</string>
     <string name="dashboard_settings_oneclick_title">Način enega dotika</string>
     <string name="dashboard_settings_oneclick_summary">Z dotikom gumba dejanj na nadzorni plošči zaženi pregled in izbris za vsa orodja – brez dodatnih potrjevanj.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Orodja za en dotik</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Katera orodja želite vključiti med opravila z enim dotikom?</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Stisnjena velikost</string>
     <string name="debug_notification_channel_label">Obvestila o razhroščevanju</string>
@@ -369,6 +371,40 @@
         <item quantity="other">Izbriši odvečne datoteke za %d izbranih programov?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje prepomnilnikov s Shizukujem</string>
+    <string name="deduplicator_tool_name">Odstranjevalec dvojnikov</string>
+    <string name="deduplicator_explanation_short">Na napravi poiščite podvojene podatke.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">Najden je bil %d podvojeni niz.</item>
+        <item quantity="two">Najdena sta bila %d podvojena niza.</item>
+        <item quantity="few">Najdeni so bili %d-je podvojeni nizi.</item>
+        <item quantity="other">Najdenih je bilo %d podvojenih nizov.</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Omogoči \"Izbriši vse\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">V nizih dvojnikov prikaži možnosti za izbris vseh datotek, tako da ne ostane nobena.</string>
+    <string name="deduplicator_skip_minsize_title">Najmanjša velikost</string>
+    <string name="deduplicator_skip_minsize_description">Preskoči datoteke, ki manjše od najmanjše velikosti.</string>
+    <string name="deduplicator_skip_uncommon_title">Preskoči redke vrste datotek</string>
+    <string name="deduplicator_skip_uncommon_description">Vključi samo pogoste predstavne datoteke, dokumente in arhive.</string>
+    <string name="deduplicator_detection_method_label">Način zaznavanja</string>
+    <string name="deduplicator_detection_method_checksum_title">Nadzorna vsota vsebine</string>
+    <string name="deduplicator_detection_method_checksum_summary">Zaznaj dvojnike z izračunom nadzornih vsot datotek.  Datoteke, katerih nadzorne vsote se ujemajo, imajo enako vsebino.</string>
+    <string name="deduplicator_detection_method_phash_title">Zaznavno razpršilo</string>
+    <string name="deduplicator_detection_method_phash_summary">Poiščite podobne datoteke s preučevanjem značilnosti vsebin in primerjanjem vrednosti njihovih zaznavnih razpršil.</string>
+    <string name="deduplicator_occupied_space_label">Zaseden prostor</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s zasedajo dvojniki.</string>
+    <string name="deduplicator_file_size_label">Velikost datoteke</string>
+    <string name="deduplicator_average_size_label">Povprečna velikost</string>
+    <string name="deduplicator_cluster_x_label">Gruča %s</string>
+    <string name="deduplicator_delete_confirmation_message">Izbriši vse razen ene kopije v vseh nizih podvojenih datotek?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Izbriši vse razen ene kopije v tem nizu podvojenih datotek?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Izbriši vse datoteke v tem nizu podvojenih datotek?  Nobena datoteka ne bo ostala!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Izbriši vse razen ene kopije v izbranih nizih podvojenih datotek?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Izbriši vse datoteke v izbranih nizih podvojenih datotek?  Nobena datoteka ne bo ostala!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Izbriši vse kopije.  Vse datoteke bodo izbrisane!</string>
+    <string name="deduplicator_progress_comparing_files">Primerjanje datotek</string>
+    <string name="deduplicator_details_cluster_title">Niz dvojnikov</string>
+    <string name="deduplicator_matches_exact_label">Natančne kopije</string>
+    <string name="deduplicator_matches_similar_label">Podobne datoteke</string>
     <string name="appcontrol_tool_name">Nazdor programov</string>
     <string name="appcontrol_explanation_short">Programi, ki so nameščeni na napravi.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -534,5 +570,8 @@
     <string name="translation_encourage_title">Prevedi SD Maid</string>
     <string name="translation_encourage_body">SD Maid prevajajo prostovoljci.  Prevod, ocene, ali pregled – hvaležen sem za vašo pomoč!</string>
     <string name="translation_translators_title">To različico so prevedli</string>
+    <string name="motd_setting_enabled_label">Pomembna sporočila</string>
     <string name="motd_setting_enabled_explanation">Dovolite SD Maidu, da poizve za pomembna sporočila od razvijalca.</string>
+    <string name="updatecheck_setting_enabled_label">Preveri za posodobitve</string>
+    <string name="updatecheck_setting_enabled_explanation">Dovoli SD Maidu, da preveri za posodobitve in sporoči, če je na voljo nova različica.</string>
 </resources>

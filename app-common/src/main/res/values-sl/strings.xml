@@ -7,11 +7,13 @@
     <string name="slogan_message_3">Čistimo navlako.</string>
     <string name="slogan_message_4">Napravo spravimo v red.</string>
     <string name="slogan_message_5">Brezmadežen.</string>
+    <string name="slogan_message_6">Bajti, pojdite stran!</string>
     <string name="general_thank_you_label">Hvala!</string>
     <string name="general_error_type_mismatch_msg">Neujemanje vrste: zahtevano %1$s, dobljeno %2$s.</string>
     <string name="general_error_cant_access_msg">Dostop do %s ni mogoč.</string>
     <string name="general_error_root_unavailable">Skrbniški dostop ni na voljo.</string>
     <string name="general_error_empty_result_msg">Ni rezultata.</string>
+    <string name="general_error_no_compatible_app_found_msg">Za obdelavo te zahteve ni bilo mogoče najti združljivega programa.</string>
     <string name="general_todo_msg">Ta funkcija je še v pripravi in trenutno ni na voljo.</string>
     <string name="general_share_action">Deli</string>
     <string name="general_done_action">Končano</string>
@@ -59,6 +61,8 @@
     <string name="general_help_action">Pomoč</string>
     <string name="general_continue">Nadaljuj</string>
     <string name="general_progress_queued">V čakalni vrsti</string>
+    <string name="general_progress_deleting">Brisanje</string>
+    <string name="general_progress_deleting_x">Brisanje %s</string>
     <string name="general_sort_options_label">Možnosti razvrščanja</string>
     <string name="general_sort_reverse_action">Obratni vrstni red razvrščanja</string>
     <string name="general_tag_filter_label">Filtriraj po oznakah</string>
@@ -67,7 +71,7 @@
     <string name="general_result_x_space_freed">Sproščeno je bilo %s.</string>
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
-    <string name="general_view_action">Pogled</string>
+    <string name="general_view_action">Pokaži</string>
     <string name="general_update_action">Posodobi</string>
     <string name="general_scan_action">Preglej</string>
     <string name="general_delete_action">Izbriši</string>
@@ -127,4 +131,10 @@
     <string name="general_timeunit_days">Dnevi</string>
     <string name="general_progress_ready">Pripravljen</string>
     <string name="general_progress_done">Končano</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s datoteka</item>
+        <item quantity="two">%s datoteki</item>
+        <item quantity="few">%s datoteke</item>
+        <item quantity="other">%s datotek</item>
+    </plurals>
 </resources>

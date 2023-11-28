@@ -355,7 +355,7 @@
         <item quantity="other">Überflüssige Dateien für %d ausgewählte Apps löschen?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
-    <string name="deduplicator_tool_name">Deduplizierer</string>
+    <string name="deduplicator_tool_name">Duplikat-Entferner</string>
     <string name="deduplicator_explanation_short">Finde doppelte Daten auf deinem Gerät.</string>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d Duplikatsatz gefunden</item>
@@ -364,16 +364,16 @@
     <string name="deduplicator_protection_deleteall_allowed_title">Ermögliche „Alle löschen“</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Zeige Optionen an, mit denen Du alle Dateien in einem Duplikatsatz löschen kannst, sodass keine Datei übrig bleibt.</string>
     <string name="deduplicator_skip_minsize_title">Mindestgröße</string>
-    <string name="deduplicator_skip_minsize_description">Überspringe Dateien, die die Mindestgröße unterschreiten.</string>
+    <string name="deduplicator_skip_minsize_description">Überspringe Dateien, die kleiner als die Mindestgröße sind.</string>
     <string name="deduplicator_skip_uncommon_title">Überspringe ungewöhnliche Dateitypen</string>
-    <string name="deduplicator_skip_uncommon_description">Schließe nur allgemeine Mediendateien, Dokumente und Archive ein.</string>
+    <string name="deduplicator_skip_uncommon_description">Nur gängige Mediendateien, Dokumente und Archive einbeziehen.</string>
     <string name="deduplicator_detection_method_label">Erkennungsmethode</string>
     <string name="deduplicator_detection_method_checksum_title">Inhaltsprüfsumme</string>
     <string name="deduplicator_detection_method_checksum_summary">Ermittele Duplikate durch die Berechnung von Prüfsummen für Dateien. Dateien mit übereinstimmenden Prüfsummen haben genau den gleichen Inhalt.</string>
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
     <string name="deduplicator_detection_method_phash_summary">Finde ähnliche Dateien, indem Inhaltsmerkmale analysiert und wahrnehmungsbezogene Hash-Werte verglichen werden.</string>
     <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sind durch Duplikate belegt</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sind von Duplikaten belegt</string>
     <string name="deduplicator_file_size_label">Dateigröße</string>
     <string name="deduplicator_average_size_label">Durchschnittliche Größe</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>

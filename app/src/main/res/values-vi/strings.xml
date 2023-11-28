@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Tin nhắn từ nhà phát triển</string>
     <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Công cụ một chạm</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Những công cụ nào nên được đưa vào thao tác một chạm?</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
@@ -71,7 +73,7 @@
     <string name="settings_support_label">Hỗ trợ</string>
     <string name="settings_support_description">Đọc tài liệu, báo cáo sự cố, trò chuyện với người khác hoặc ghi nhật ký gỡ lỗi.</string>
     <string name="documentation_label">Tài liệu</string>
-    <string name="issue_tracker_description">Trình theo dõi vấn đề công khai cho các báo cáo lỗi và yêu cầu tính năng.</string>
+    <string name="issue_tracker_description">Theo dõi vấn đề công khai cho các báo cáo lỗi và yêu cầu tính năng.</string>
     <string name="issue_tracker_label">Theo dõi vấn đề</string>
     <string name="support_installid_label">ID cài đặt</string>
     <string name="support_installid_desc">Báo cáo lỗi tự động là ẩn danh. Chia sẻ ID cài đặt của bạn nếu nhà phát triển cần tìm báo cáo lỗi của bạn.</string>
@@ -151,7 +153,7 @@
     <string name="corpsefinder_settings_risk_keeper_summary">Các tệp mà bạn có thể muốn giữ lại, ngay cả khi đã gỡ cài đặt ứng dụng, ví dụ: ảnh bạn đã chụp hoặc bản sao lưu bạn đã tạo.</string>
     <string name="corpsefinder_settings_risk_common_title">Bao gồm tên phổ biến</string>
     <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên thường được sử dụng, ví dụ: thư mục \"Ghi chú\" thuộc sở hữu của quá nhiều ứng dụng không xác định.</string>
-    <string name="corpsefinder_watcher_title">Trình theo dõi gỡ cài đặt</string>
+    <string name="corpsefinder_watcher_title">Theo dõi gỡ cài đặt</string>
     <string name="corpsefinder_watcher_summary">Tự động quét phần còn lại khi một ứng dụng bị xóa.</string>
     <string name="corpsefinder_watcher_autodelete_title">Tự động xóa</string>
     <string name="corpsefinder_watcher_autodelete_summary">Tự động xóa mọi phần còn lại liên quan đến ứng dụng đã gỡ cài đặt.</string>
@@ -193,7 +195,7 @@
     <string name="corpsefinder_owner_unknown">Chủ sở hữu không xác định</string>
     <string name="corpsefinder_corpse_hint_keeper">Mục này có thể chứa dữ liệu bạn muốn giữ mặc dù chủ sở hữu của nó đã bị gỡ cài đặt, ví dụ: ảnh hoặc bản sao lưu.</string>
     <string name="corpsefinder_corpse_hint_common">Mục này có một tên rất phổ biến và có thể thuộc về các ứng dụng vẫn được cài đặt mà SD Maid không biết.</string>
-    <string name="systemcleaner_tool_name">Trình dọn dẹp hệ thống</string>
+    <string name="systemcleaner_tool_name">Dọn dẹp hệ thống</string>
     <string name="systemcleaner_explanation_short">Dữ liệu thừa không thuộc về bất kỳ ứng dụng cụ thể nào.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d bộ lọc phù hợp</item>
@@ -273,7 +275,7 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">Tìm kiếm trực tiếp</string>
     <string name="systemcleaner_customfilter_import_action">Nhập bộ lọc mới</string>
     <string name="systemcleaner_customfilter_export_action">Xuất bộ lọc đã chọn</string>
-    <string name="appcleaner_tool_name">Trình dọn dẹp ứng dụng</string>
+    <string name="appcleaner_tool_name">Dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Bộ nhớ đệm ứng dụng công khai mặc định. Có thể truy cập trong Android/data trên các phiên bản Android cũ hơn. Đã xóa khi nhấn \"Xóa bộ nhớ cache\" trong cài đặt hệ thống.</string>
@@ -333,7 +335,7 @@
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
     </plurals>
     <string name="appcleaner_automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
-    <string name="appcleaner_automation_title">Trình dọn dẹp ứng dụng tự động</string>
+    <string name="appcleaner_automation_title">Dọn dẹp ứng dụng tự động</string>
     <string name="appcleaner_automation_subtitle_default_caches">Đang xóa bộ nhớ cache mặc định…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Bộ nhớ đệm mặc định</string>
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
@@ -345,7 +347,7 @@
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
-    <string name="deduplicator_tool_name">Trình xóa trùng lặp</string>
+    <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">Đã tìm thấy %d bộ trùng lặp</item>
@@ -359,12 +361,14 @@
     <string name="deduplicator_detection_method_label">Phương pháp phát hiện</string>
     <string name="deduplicator_detection_method_checksum_title">Tổng kiểm tra nội dung</string>
     <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
+    <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
     <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s bị chiếm bởi các bản sao</string>
     <string name="deduplicator_file_size_label">Kích thước tệp</string>
     <string name="deduplicator_average_size_label">Kích thước trung bình</string>
     <string name="deduplicator_cluster_x_label">Cụm %s</string>
+    <string name="deduplicator_delete_confirmation_message">Xóa tất cả trừ một bản sao trong tất cả các bộ tệp trùng lặp?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Xóa tất cả trừ một bản sao trong tập hợp các tệp trùng lặp này?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Xóa tất cả các tệp trong tập hợp các tệp trùng lặp này? Không có tập tin nào còn sót lại!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Xóa tất cả trừ một bản sao trong mỗi tập hợp tệp trùng lặp đã chọn?</string>
@@ -372,6 +376,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Xóa tất cả các bản sao. Không có tập tin nào còn sót lại!</string>
     <string name="deduplicator_progress_comparing_files">So sánh các tập tin</string>
     <string name="deduplicator_details_cluster_title">Tập hợp các bản sao</string>
+    <string name="deduplicator_matches_exact_label">Bản sao chính xác</string>
+    <string name="deduplicator_matches_similar_label">Các tập tin tương tự</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -449,7 +455,7 @@
     <string name="data_areas_label">Vùng dữ liệu</string>
     <string name="data_areas_description">Vùng dữ liệu đại diện cho các vị trí trên thiết bị của bạn mà SD Maid có thể truy cập được. Các vùng dữ liệu khác nhau có thể khả dụng tùy thuộc vào phiên bản Android của bạn và các quyền đã được cấp.</string>
     <string name="data_areas_short_summary">Các khu vực mà SD Maid có thể truy cập dựa trên các quyền hiện được cấp.</string>
-    <string name="exclusion_manager_title">Trình quản lí Loại trừ</string>
+    <string name="exclusion_manager_title">Quản lý loại trừ</string>
     <string name="exclusion_manager_desc">Quản lý loại trừ tệp và ứng dụng.</string>
     <string name="exclusion_explanation_body1">Loại trừ các tệp và ứng dụng khỏi hoạt động của SD Maid.</string>
     <string name="exclusion_add_new_hint">Thêm các loại trừ mới bằng cách trước tiên cho phép SD Maid tìm kiếm, sau đó sử dụng menu ngữ cảnh trên kết quả bạn muốn loại trừ.</string>

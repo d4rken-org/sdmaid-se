@@ -7,7 +7,7 @@
     <string name="slogan_message_3">Das Notwendige tun.</string>
     <string name="slogan_message_4">All Deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
-    <string name="slogan_message_6">!</string>
+    <string name="slogan_message_6">Bytes, verschwindet!</string>
     <string name="slogan_message_7">Freier Platz, glücklicher Platz.</string>
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
@@ -59,10 +59,10 @@
     <string name="general_progress_loading_egg_5">Turbo Encabulator wird initiiert</string>
     <string name="general_progress_loading_egg_6">Übergebe die Butter</string>
     <string name="general_progress_loading_egg_7">Na, wie geht es dir?</string>
-    <string name="general_progress_loading_egg_8">Piep Piep Piep</string>
-    <string name="general_progress_loading_egg_9">Lebensoptionen Puffern</string>
+    <string name="general_progress_loading_egg_8">Piep boop bop</string>
+    <string name="general_progress_loading_egg_9">Puffern von Lebensentscheidungen</string>
     <string name="general_progress_loading_egg_10">Beschwöre Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Dies ist in Ordnung</string>
+    <string name="general_progress_loading_egg_11">Das ist in Ordnung</string>
     <string name="general_help_action">Hilfe</string>
     <string name="general_continue">Weitermachen</string>
     <string name="general_progress_queued">Anstehend</string>

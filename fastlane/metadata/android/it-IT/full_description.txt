@@ -7,9 +7,9 @@ Nessuno è perfetto, nemmeno Android.
 
 Non andare oltre… Lascia che SD Maid SE ti aiuti a:
 
-* Rimuove i residui dei dati delle app già disinstallate
+* Rimuovere i residui dei dati delle app già disinstallate
 * Eliminare i file non indispensabili e le cache nascoste
-* Rimuove i file di sistema superflui
+* Rimuovere i file di sistema superflui
 * Creare i tuoi filtri per i file casuali
 * Trovare ed eliminare i file duplicati
 * Analizzare la memoria ed eliminare file di grandi dimensioni che occupano spazio
