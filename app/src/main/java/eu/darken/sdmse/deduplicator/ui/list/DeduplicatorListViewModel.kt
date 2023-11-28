@@ -5,15 +5,18 @@ import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -45,26 +48,63 @@ class DeduplicatorListViewModel @Inject constructor(
 
     val events = SingleLiveEvent<DeduplicatorListEvents>()
 
+    val layoutMode: LayoutMode
+        get() = settings.layoutMode.valueBlocking
+
     val state = combine(
         deduplicator.state.map { it.data }.filterNotNull(),
-        deduplicator.progress
-    ) { data, progress ->
+        deduplicator.progress,
+        settings.layoutMode.flow,
+    ) { data, progress, layoutMode ->
         val rows = data.clusters
             .sortedByDescending { it.averageSize }
             .map { cluster ->
-                DeduplicatorListGridVH.Item(
-                    cluster = cluster,
-                    onItemClicked = { delete(setOf(it)) },
-                    onFooterClicked = { showDetails(it) }
-                )
+                when (layoutMode) {
+                    LayoutMode.LINEAR -> DeduplicatorListLinearVH.Item(
+                        cluster = cluster,
+                        onItemClicked = { delete(setOf(it)) },
+                        onDupeClicked = { delete(setOf(it)) }
+                    )
+
+                    LayoutMode.GRID -> DeduplicatorListGridVH.Item(
+                        cluster = cluster,
+                        onItemClicked = { delete(setOf(it)) },
+                        onFooterClicked = { showDetails(cluster.identifier) }
+                    )
+                }
             }
-        State(rows, progress)
+        State(rows, progress, layoutMode)
     }.asLiveData2()
 
     data class State(
         val items: List<DeduplicatorListAdapter.Item>,
         val progress: Progress.Data? = null,
+        val layoutMode: LayoutMode,
     )
+
+    fun delete(
+        items: Collection<DeduplicatorListLinearSubAdapter.Item>,
+        confirmed: Boolean = false,
+    ) = launch {
+        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
+
+        if (!confirmed) {
+            val event = DeduplicatorListEvents.ConfirmDupeDeletion(items)
+            events.postValue(event)
+            return@launch
+        }
+
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        val mode: DeduplicatorDeleteTask.TargetMode = DeduplicatorDeleteTask.TargetMode.Duplicates(
+            targets = items.map { it.dupe.identifier }.toSet(),
+        )
+
+        taskManager.submit(DeduplicatorDeleteTask(mode = mode))
+    }
 
     fun delete(
         items: Collection<DeduplicatorListAdapter.Item>,
@@ -89,8 +129,7 @@ class DeduplicatorListViewModel @Inject constructor(
             deleteAll = deleteAll,
         )
 
-        val task = DeduplicatorDeleteTask(mode = mode)
-        taskManager.submit(task)
+        taskManager.submit(DeduplicatorDeleteTask(mode = mode))
     }
 
     fun exclude(items: Collection<DeduplicatorListAdapter.Item>) = launch {
@@ -100,11 +139,19 @@ class DeduplicatorListViewModel @Inject constructor(
         events.postValue(DeduplicatorListEvents.ExclusionsCreated(items.sumOf { it.cluster.count }))
     }
 
-    fun showDetails(item: DeduplicatorListAdapter.Item) = launch {
-        log(TAG, INFO) { "showDetails(item=$item)" }
+    fun showDetails(id: Duplicate.Cluster.Id) = launch {
+        log(TAG, INFO) { "showDetails(id=$id)" }
         DeduplicatorListFragmentDirections.actionDeduplicatorListFragmentToDeduplicatorDetailsFragment(
-            identifier = item.cluster.identifier
+            identifier = id
         ).navigate()
+    }
+
+    fun toggleLayoutMode() = launch {
+        log(TAG) { "toggleLayoutMode()" }
+        when (settings.layoutMode.value()) {
+            LayoutMode.LINEAR -> settings.layoutMode.value(LayoutMode.GRID)
+            LayoutMode.GRID -> settings.layoutMode.value(LayoutMode.LINEAR)
+        }
     }
 
     companion object {

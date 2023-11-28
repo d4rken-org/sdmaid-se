@@ -27,6 +27,7 @@ class DeduplicatorListAdapter @Inject constructor() :
     init {
         addMod(DataBinderMod(data))
         addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListGridVH.Item }) { DeduplicatorListGridVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListLinearVH.Item }) { DeduplicatorListLinearVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

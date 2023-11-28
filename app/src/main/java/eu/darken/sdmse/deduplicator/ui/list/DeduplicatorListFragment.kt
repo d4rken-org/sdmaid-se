@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,7 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorListFragmentBinding
@@ -33,20 +35,32 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_toggle_layout_mode -> {
+                        vm.toggleLayoutMode()
+                        true
+                    }
+
                     else -> super.onOptionsItemSelected(it)
                 }
             }
         }
 
+        val gridManager = GridLayoutManager(
+            context,
+            3, // Columns
+            VERTICAL, // orientation
+            false, // reverselayout
+        )
+        val linearManager = LinearLayoutManager(context, VERTICAL, false)
+
         val adapter = DeduplicatorListAdapter()
         ui.list.setupDefaults(
             adapter = adapter,
-            layouter = GridLayoutManager(
-                context,
-                3, // Columns
-                VERTICAL, // orientation
-                false, // reverselayout
-            )
+            layouter = when (vm.layoutMode) {
+                LayoutMode.LINEAR -> linearManager
+                LayoutMode.GRID -> gridManager
+            },
+            dividers = false,
         )
 
         val selectionTracker = installListSelection(
@@ -76,10 +90,23 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
             if (state.progress == null) adapter.update(state.items)
 
-            toolbar.subtitle = if (state.progress == null) {
-                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
-            } else {
-                null
+            when {
+                state.layoutMode == LayoutMode.LINEAR && list.layoutManager != linearManager -> {
+                    list.layoutManager = linearManager
+                }
+
+                state.layoutMode == LayoutMode.GRID && list.layoutManager != gridManager -> {
+                    list.layoutManager = gridManager
+                }
+            }
+
+            toolbar.apply {
+                subtitle = if (state.progress == null) {
+                    getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+                } else {
+                    null
+                }
+                menu.findItem(R.id.action_toggle_layout_mode).isVisible = state.progress == null
             }
         }
 
@@ -98,7 +125,25 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
                     },
                     onNeutral = {
-                        vm.showDetails(event.items.first())
+                        vm.showDetails(event.items.first().cluster.identifier)
+                        selectionTracker.clearSelection()
+                    },
+                )
+
+
+                is DeduplicatorListEvents.ConfirmDupeDeletion -> PreviewDeletionDialog(requireContext()).show(
+                    mode = PreviewDeletionDialog.Mode.Duplicates(
+                        duplicates = event.items.map { it.dupe },
+                    ),
+                    onPositive = { deleteAll ->
+                        vm.delete(event.items, confirmed = true)
+                        selectionTracker.clearSelection()
+                    },
+                    onNegative = {
+
+                    },
+                    onNeutral = {
+                        vm.showDetails(event.items.first().cluster.identifier)
                         selectionTracker.clearSelection()
                     },
                 )
