@@ -8,8 +8,11 @@ Tiada yang sempurna dan itu termasuk Android.
 Jangan lanjutkan di sini… Biarkan SD Maid SE membantu Anda:
 
 *Bersihkan data dari aplikasi yang baru saja dihapus
-* Temukan cache aplikasi yang tersembunyi
-Hapus file sistem yang tidak berguna
+* Menghapus file yang dapat dibuang dan cache tersembunyi
+* menghapus file sistem yang tidak terpakai
+* buat penyaringan punya mu untuk file acak
+* Temukan dan hapus data duplikat
+* Menganalisis penyimpanan Anda dan menghapus file besar yang menghabiskan ruang
 
 SD Maid SE bebas iklan. Beberapa fitur membutuhkan peningkatan berbayar.
 

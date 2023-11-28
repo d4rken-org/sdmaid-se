@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Паведамленне ад распрацоўшчыка</string>
     <string name="dashboard_settings_oneclick_title">Рэжым аднаго націскання</string>
     <string name="dashboard_settings_oneclick_summary">Запуск працэсу сканіравання і выдалення ва ўсіх інструментах націсканнем кнопкі дзеяння на панэлі кіравання без дадатковых пацвярджэнняў.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Інструменты ў рэжыме аднаго націскання</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у аперацыі аднаго націскання?</string>
     <string name="debug_debuglog_size_label">Памер</string>
     <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
     <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
@@ -393,6 +395,7 @@
     <string name="deduplicator_file_size_label">Памер файла</string>
     <string name="deduplicator_average_size_label">Сярэдні памер</string>
     <string name="deduplicator_cluster_x_label">Кластар %s</string>
+    <string name="deduplicator_delete_confirmation_message">Выдаліць усе копіі ўсіх пар дублікатаў, акрамя адной?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Выдаліць усе копіі з гэтай пары дублікатаў, акрамя адной?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Выдаліць усе файлы ў гэтай пары дублікатаў? Не застанецца ніводнага файла!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Выдаліць усе копіі, акрамя адной, у кожнай выбранай пары дублікатаў файлаў?</string>
@@ -400,6 +403,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Выдаліць усе копіі. Не застанецца ніводнага файла!</string>
     <string name="deduplicator_progress_comparing_files">Параўнанне файлаў</string>
     <string name="deduplicator_details_cluster_title">Пара дублікатаў</string>
+    <string name="deduplicator_matches_exact_label">Дакладныя копіі</string>
+    <string name="deduplicator_matches_similar_label">Падобныя файлы</string>
     <string name="appcontrol_tool_name">Менеджар</string>
     <string name="appcontrol_explanation_short">Усталяваныя на вашай прыладзе праграмы.</string>
     <plurals name="appcontrol_x_apps_detected_label">

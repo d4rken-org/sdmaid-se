@@ -8,8 +8,11 @@ Kimse mükemmel değildir ve Android de öyle.
 Daha fazla uzatmayalım... Bırakın SD Maid SE size yardımcı olsun:
 
 * Önceden kaldırılmış uygulamaların verilerini temizleyin
-* Gizli uygulama önbelleklerini bulun
-* Gereksiz sistem dosyalarını kaldırın
+* Gereksiz dosyaları ve gizli önbellekleri silin
+* Kullanılmayan sistem dosyalarını kaldırın
+* Rastgele dosyalar için kendi filtrelerinizi oluşturun
+* Yinelenen verileri bulun ve silin
+* Depolama alanınızı analiz edin ve çok yer kaplayan büyük dosyaları silin
 
 SD Maid SE reklamsızdır. Bazı özellikler ücretli yükseltme gerektirir.
 

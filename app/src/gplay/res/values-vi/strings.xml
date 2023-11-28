@@ -7,6 +7,7 @@
     <string name="upgrades_dashcard_body">SD Maid Pro cung cấp kết quả tốt hơn, nhiều tính năng và tùy chọn hơn cho người dùng thành thạo.</string>
     <string name="upgrades_dashcard_upgrade_action">Nâng cấp</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play không khả dụng</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid không thể kết nối với Google Play. Google Play đã được cài đặt và cập nhật chưa? Tài khoản Google của bạn đã đăng nhập chưa? Hãy thử xóa bộ nhớ đệm của ứng dụng Google Play và khởi động lại thiết bị của bạn.</string>
     <string name="upgrades_no_purchases_found_check_account">Không tìm thấy giao dịch nào. Bạn có đang sử dụng đúng tài khoản không?</string>
     <string name="upgrade_screen_title">Nhận SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn ❤️.</string>

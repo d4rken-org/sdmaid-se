@@ -6,7 +6,7 @@
     <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
     <string name="dashboard_settings_oneclick_summary">Avvia la scansione e l\'eliminazione per tutti gli strumenti con un tocco del bottone principale della dashboard, nessuna richiesta di conferma aggiuntiva.</string>
     <string name="dashboard_settings_oneclick_tools_title">Strumenti A Singolo Tocco</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Quali strumenti vuoi includere nelle operazioni a singolo tocco?</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quali strumenti dovrebbero essere inclusi nelle operazioni a singolo tocco?</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>
@@ -31,7 +31,7 @@
     <string name="onboarding_welcome_title">Benvenuto</string>
     <string name="onboarding_welcome_body1">SD Maid SE gestisce file, app e spazio di archiviazione.</string>
     <string name="onboarding_welcome_body2">Guadagna spazio di archiviazione rimuovendo i rimasugli delle altre app. Elimina i file inutili e rimuovi i dati rimasti di app disinstallate.</string>
-    <string name="onboarding_welcome_body_beta">Questa è una versione beta (di prova). Procedi con senso dell\'umorismo e un piano di backup. Ti prego di segnalare i problemi riscontrati.</string>
+    <string name="onboarding_welcome_body_beta">Questa è una versione beta (di prova). Procedi con senso dell\'umorismo e un piano di backup. Si prega di segnalare i problemi riscontrati.</string>
     <string name="onboarding_welcome_continue_action">Avanti</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (o SD Maid 2) è il successore di SD Maid (o SD Maid 1). Una nuova app, ottimizzata per le versioni Android moderne.</string>
@@ -110,7 +110,7 @@
     <string name="setup_shizuku_card_body">Concedi a SD Maid di utilizzare Shizuku dove possibile per migliorare i risultati e per abilitare le funzionalità.</string>
     <string name="setup_shizuku_card_body2">Questa impostazione non ha alcun effetto se l\'app Shizuku non è impostata nel tuo dispositivo.</string>
     <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
-    <string name="setup_shizuku_state_waiting_label">Attendere il collegamento con Shizuku.</string>
+    <string name="setup_shizuku_state_waiting_label">In attesa del collegamento con Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Usa Shizuku se disponibile</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
@@ -131,7 +131,7 @@
     <string name="setup_acs_state_ondemand">Il servizio verrà avviato on demand</string>
     <string name="setup_acs_state_stopped">Il servizio di accessibilità è stato arrestato</string>
     <string name="setup_acs_state_stopped_hint">Il servizio è abilitato, ma non è attivo. Disabilitalo e riabilitalo o riavvia il tuo dispositivo. Controlla che SD Maid non sia \"ottimizzato\" dal sistema.</string>
-    <string name="setup_acs_state_stopped_hint_miui">Se il servizio continua a disabilitarsi dopo poco, prova ad attivare l\'opzione \"Avvio Automatico\" per SD Maid nelle impostazioni di sistema.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Se il servizio continua a disabilitarsi dopo un po\', prova ad attivare l\'opzione \"Avvio automatico\" per SD Maid nelle impostazioni di sistema.</string>
     <string name="setup_acs_consent_positive_action">Abilita il servizio e concedi l\'accesso</string>
     <string name="setup_acs_consent_negative_action">Non utilizzare il servizio di accessibilità</string>
     <string name="setup_acs_allow_hint">Se vedi una piccola icona sul bordo dello schermo, hai abilitato accidentalmente l\'opzione \"scorciatoia\".</string>

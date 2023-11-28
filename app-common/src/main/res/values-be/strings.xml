@@ -136,4 +136,10 @@
     <string name="general_timeunit_days">Дні</string>
     <string name="general_progress_ready">Гатова</string>
     <string name="general_progress_done">Выканана</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s файл</item>
+        <item quantity="few">%s файлаў</item>
+        <item quantity="many">%s файлаў</item>
+        <item quantity="other">%s файлаў</item>
+    </plurals>
 </resources>

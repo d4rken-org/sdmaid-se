@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">لا يمكن الوصول %s.</string>
     <string name="general_error_root_unavailable">صَلاحِيَة الجذر غير متوفرة.</string>
     <string name="general_error_empty_result_msg">كانت النتيجة فارغة.</string>
+    <string name="general_error_no_compatible_app_found_msg">لم يتم العثور على تطبيق متوافق لمعالجة هذا الطلب.</string>
     <string name="general_todo_msg">ما زالت هذه المَيزية قيد العمل وهي غير متوفرة حاليًا.</string>
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
@@ -65,6 +66,8 @@
     <string name="general_help_action">مساعدة</string>
     <string name="general_continue">متابعة</string>
     <string name="general_progress_queued">قيد الانتظار</string>
+    <string name="general_progress_deleting">جار الحذف</string>
+    <string name="general_progress_deleting_x">يحذف %s</string>
     <string name="general_sort_options_label">خيارات الفرز</string>
     <string name="general_sort_reverse_action">وضع الفرز العكسي</string>
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>

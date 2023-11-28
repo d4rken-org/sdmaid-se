@@ -3,7 +3,7 @@
     <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
     <string name="dashboard_settings_category">Tableau de bord</string>
     <string name="dashboard_motd_title">Un message du développeur</string>
-    <string name="dashboard_settings_oneclick_title">Mode toucher simple</string>
+    <string name="dashboard_settings_oneclick_title">Mode d’accès direct</string>
     <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
     <string name="dashboard_settings_oneclick_tools_title">Outils à accès direct</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quels outils devraient faire partie des opérations à accès direct ?</string>
@@ -111,7 +111,7 @@
     <string name="setup_shizuku_card_body2">Ce paramètre n\'a aucun effet si l\'appli Shizuku n\'est pas configurée sur votre appareil.</string>
     <string name="setup_shizuku_state_ready_label">Le lien Shizuku est prêt.</string>
     <string name="setup_shizuku_state_waiting_label">En attente de lien avec Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Utiliser Shizuku s’il est proposé</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Utiliser Shizuku si l’appli est proposée</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne pas utiliser Shizuku</string>
     <string name="setup_dismiss_hint">Vous pouvez retrouver l’écran de configuration dans le menu des paramètres.</string>
     <string name="setup_permission_granted_label">L’autorisation a été accordée</string>

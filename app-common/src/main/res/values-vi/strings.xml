@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Đang làm những gì cần thiết.</string>
     <string name="slogan_message_4">Mọi thứ đều gọn gàng và ngăn nắp.</string>
     <string name="slogan_message_5">Không tì vết.</string>
+    <string name="slogan_message_6">Byte, biến đi!</string>
+    <string name="slogan_message_7">Không gian trống, nơi hạnh phúc.</string>
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>
     <string name="general_error_cant_access_msg">Không thể truy cập %s.</string>
@@ -57,6 +59,10 @@
     <string name="general_progress_loading_egg_5">Bộ mã hóa Turbo đang khởi tạo</string>
     <string name="general_progress_loading_egg_6">Đang truyền bơ</string>
     <string name="general_progress_loading_egg_7">Vậy, làm thế nào bạn đang giữ?</string>
+    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
+    <string name="general_progress_loading_egg_9">Chọn bước đệm cho cuôc sông</string>
+    <string name="general_progress_loading_egg_10">Triệu hồi Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Điều này ổn</string>
     <string name="general_help_action">Trợ giúp</string>
     <string name="general_continue">Tiếp tục</string>
     <string name="general_progress_queued">Đang chờ</string>
@@ -121,4 +127,7 @@
     <string name="general_timeunit_days">Ngày</string>
     <string name="general_progress_ready">Sẵn sàng</string>
     <string name="general_progress_done">Xong</string>
+    <plurals name="result_x_files">
+        <item quantity="other">%s tập tin</item>
+    </plurals>
 </resources>
