@@ -8,6 +8,10 @@ sealed class DeduplicatorListEvents {
         val allowDeleteAll: Boolean = false,
     ) : DeduplicatorListEvents()
 
+    data class ConfirmDupeDeletion(
+        val items: Collection<DeduplicatorListLinearSubAdapter.Item>,
+    ) : DeduplicatorListEvents()
+
     data class TaskResult(val result: DeduplicatorTask.Result) : DeduplicatorListEvents()
     data class ExclusionsCreated(val count: Int) : DeduplicatorListEvents()
 }
