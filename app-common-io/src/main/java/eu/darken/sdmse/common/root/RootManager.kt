@@ -1,14 +1,24 @@
 package eu.darken.sdmse.common.root
 
+import android.content.Context
+import android.content.pm.PackageManager
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.sync.Mutex
@@ -19,11 +29,32 @@ import javax.inject.Singleton
 
 @Singleton
 class RootManager @Inject constructor(
+    @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     val serviceClient: RootServiceClient,
     settings: RootSettings,
 ) {
+
+    val binder: Flow<RootServiceClient.Connection?> = settings.useRoot.flow
+        .flatMapLatest {
+            if (it != true) return@flatMapLatest emptyFlow()
+
+            callbackFlow<RootServiceClient.Connection?> {
+                val resource = serviceClient.get()
+                send(resource.item)
+                awaitClose {
+                    log(TAG) { "Closing binder resource" }
+                    resource.close()
+                }
+            }
+        }
+        .catch {
+            log(TAG, WARN) { "RootServiceClient.Connection was unavailable" }
+            emit(null)
+        }
+        .setupCommonEventHandlers(TAG) { "binder" }
+        .replayingShare(appScope)
 
     private var cachedState: Boolean? = null
     private val cacheLock = Mutex()
@@ -64,7 +95,26 @@ class RootManager @Inject constructor(
         .mapLatest { (it ?: false) && isRooted() }
         .shareLatest(appScope)
 
+    suspend fun isInstalled(): Boolean {
+        val installed =
+            KNOWN_ROOT_MANAGERS.any {
+                try {
+                    @Suppress("DEPRECATION")
+                    context.packageManager.getPackageInfo(it, 0)
+                    true
+                } catch (e: PackageManager.NameNotFoundException) {
+                    false
+                }
+            }
+
+        log(TAG) { "isInstalled(): $installed" }
+        return installed
+    }
+
     companion object {
         internal val TAG = logTag("Root", "Manager")
+        private val KNOWN_ROOT_MANAGERS = setOf(
+            "com.topjohnwu.magisk"
+        )
     }
 }
