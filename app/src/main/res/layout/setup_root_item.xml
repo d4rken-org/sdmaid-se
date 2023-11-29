@@ -41,18 +41,31 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/setup_root_card_body"
-            app:layout_constraintBottom_toTopOf="@id/allow_root_options"
+            app:layout_constraintBottom_toTopOf="@id/root_state"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/root_state"
+            style="@style/TextAppearance.Material3.LabelMedium"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/setup_root_state_waiting_label"
+            app:layout_constraintBottom_toTopOf="@id/allow_root_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/body" />
 
         <RadioGroup
             android:id="@+id/allow_root_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
-            app:layout_constraintTop_toBottomOf="@id/body">
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/root_state">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/allow_root_options_enable"

@@ -120,6 +120,8 @@
 
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Should SD Maid use root access if it is available? Root access can be used to check additional system folders and private application data.</string>
+    <string name="setup_root_state_ready_label">Root access is ready.</string>
+    <string name="setup_root_state_waiting_label">Waiting for root access.</string>
     <string name="setup_root_enable_root_use_label">Use root access if available</string>
     <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>

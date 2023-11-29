@@ -8,6 +8,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -16,11 +17,16 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,12 +40,31 @@ class RootSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger
-        .mapLatest {
-            return@mapLatest State(
-                useRoot = rootSettings.useRoot.value(),
-            )
-        }
+    override val state: Flow<SetupModule.State> = combine(refreshTrigger, rootSettings.useRoot.flow) { _, useRoot ->
+        val baseState = State(
+            useRoot = useRoot,
+            isInstalled = rootManager.isInstalled(),
+        )
+
+        if (useRoot != true) return@combine flowOf(baseState)
+
+        rootManager.binder
+            .onStart { emit(null) }
+            .map { connection ->
+                if (connection == null) return@map baseState
+
+                baseState.copy(
+                    ourService = try {
+                        connection.ipc.checkBase() != null
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Error while checking for root: $e" }
+                        false
+                    },
+                )
+            }
+    }
+        .flatMapLatest { it }
+        .onEach { log(TAG) { "New Root setup state: $it" } }
         .replayingShare(appScope)
 
     override suspend fun refresh() {
@@ -65,6 +90,8 @@ class RootSetupModule @Inject constructor(
 
     data class State(
         val useRoot: Boolean?,
+        val isInstalled: Boolean = false,
+        val ourService: Boolean = false,
     ) : SetupModule.State {
 
         override val type: SetupModule.Type
