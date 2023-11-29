@@ -93,7 +93,7 @@ sealed class Permission(
         }
     }
 
-    object WRITE_SECURE_SETTINGS
+    data object WRITE_SECURE_SETTINGS
         : Permission("android.permission.WRITE_SECURE_SETTINGS")
 
     fun Intent.resolveActivities(context: Context): Collection<ResolveInfo> =

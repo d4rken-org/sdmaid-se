@@ -9,8 +9,8 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
 
 sealed interface DashboardEvents {
 
-    object TodoHint : DashboardEvents
-    object SetupDismissHint : DashboardEvents
+    data object TodoHint : DashboardEvents
+    data object SetupDismissHint : DashboardEvents
 
     data class CorpseFinderDeleteConfirmation(
         val task: CorpseFinderDeleteTask,

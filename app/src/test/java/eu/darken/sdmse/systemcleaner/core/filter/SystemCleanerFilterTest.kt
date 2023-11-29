@@ -358,12 +358,12 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     sealed interface Flag {
-        object File : Flag
-        object Dir : Flag
+        data object File : Flag
+        data object Dir : Flag
 
         sealed interface Area : Flag {
-            object Primary : Area
-            object Secondary : Area
+            data object Primary : Area
+            data object Secondary : Area
         }
     }
 
