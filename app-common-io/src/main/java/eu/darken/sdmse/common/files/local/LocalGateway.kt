@@ -8,6 +8,10 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.core.local.createSymlink
+import eu.darken.sdmse.common.files.core.local.isReadable
+import eu.darken.sdmse.common.files.core.local.listFiles2
+import eu.darken.sdmse.common.files.core.local.parentsInclusive
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel

@@ -40,7 +40,7 @@ class ClipboardHelper @Inject constructor(
     }
 
     fun copyToClipboard(text: String) {
-        val clip = ClipData.newPlainText(context.getString(eu.darken.sdmse.common.R.string.app_name), text)
+        val clip = ClipData.newPlainText(context.getString(R.string.app_name), text)
         clipboard.setPrimaryClip(clip)
     }
 

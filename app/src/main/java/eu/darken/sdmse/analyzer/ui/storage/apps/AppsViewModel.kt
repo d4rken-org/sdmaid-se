@@ -21,7 +21,7 @@ import javax.inject.Inject
 class AppsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val analyzer: Analyzer,
+    analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<StorageContentFragmentArgs>()

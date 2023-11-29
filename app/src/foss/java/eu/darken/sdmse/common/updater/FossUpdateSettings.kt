@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 class FossUpdateSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val moshi: Moshi,
+    moshi: Moshi,
 ) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_updater_foss")

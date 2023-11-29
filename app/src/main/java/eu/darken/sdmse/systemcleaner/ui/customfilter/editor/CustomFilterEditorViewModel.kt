@@ -46,7 +46,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val filterRepo: CustomFilterRepo,
-    private val dataAreaManager: DataAreaManager,
+    dataAreaManager: DataAreaManager,
     private val crawler: SystemCrawler,
     private val filterFactory: CustomFilter.Factory,
     private val settings: SystemCleanerSettings,

@@ -1,6 +1,5 @@
 package eu.darken.sdmse.scheduler.core
 
-import android.app.NotificationManager
 import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
@@ -39,12 +38,11 @@ import kotlinx.coroutines.flow.take
 class SchedulerWorker @AssistedInject constructor(
     @Assisted private val context: Context,
     @Assisted private val params: WorkerParameters,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     private val taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,
     private val schedulerSettings: SchedulerSettings,
     private val schedulerNotifications: SchedulerNotifications,
-    private val notificationManager: NotificationManager,
     private val setupHealer: SetupHealer,
 ) : CoroutineWorker(context, params) {
 
@@ -123,7 +121,7 @@ class SchedulerWorker @AssistedInject constructor(
             .take(1)
             .first()
 
-        val taskJobs = tasks.mapNotNull { task ->
+        val taskJobs = tasks.map { task ->
             workerScope.async {
                 try {
                     log(TAG) { "Launching $task" }

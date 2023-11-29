@@ -54,7 +54,7 @@ internal fun InputStream.remoteInputStream(): RemoteInputStream.Stub = object : 
 
     override fun close() = try {
         this@remoteInputStream.close()
-    } catch (e: IOException) {
+    } catch (_: IOException) {
     }
 
 }

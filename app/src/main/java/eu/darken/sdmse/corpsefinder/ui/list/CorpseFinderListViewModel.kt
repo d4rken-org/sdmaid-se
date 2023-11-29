@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -23,8 +22,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CorpseFinderListViewModel @Inject constructor(
-    private val handle: SavedStateHandle,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {

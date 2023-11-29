@@ -18,7 +18,7 @@ class SetupManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val setupModules: Set<@JvmSuppressWildcards SetupModule>,
     private val generalSettings: GeneralSettings,
-    private val setupHealer: SetupHealer,
+    setupHealer: SetupHealer,
 ) {
 
     val state: Flow<State> = combine(

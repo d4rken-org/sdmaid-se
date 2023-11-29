@@ -20,7 +20,7 @@ class MainViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @Suppress("unused") private val handle: SavedStateHandle,
     private val upgradeRepo: UpgradeRepo,
-    private val taskManager: TaskManager,
+    taskManager: TaskManager,
 ) : ViewModel2(dispatcherProvider = dispatcherProvider) {
 
     private val stateFlow = MutableStateFlow(State())

@@ -33,7 +33,7 @@ import javax.inject.Inject
 @Reusable
 class Uninstaller @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val pkgRepo: PkgRepo,
     private val shellOps: ShellOps,

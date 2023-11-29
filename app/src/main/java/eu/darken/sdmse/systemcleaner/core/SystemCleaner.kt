@@ -46,7 +46,7 @@ class SystemCleaner @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val filterSource: FilterSource,
     pkgOps: PkgOps,
-    private val rootManager: RootManager,
+    rootManager: RootManager,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)

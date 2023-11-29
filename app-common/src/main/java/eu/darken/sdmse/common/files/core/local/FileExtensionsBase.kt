@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.local
+package eu.darken.sdmse.common.files.core.local
 
 import android.system.Os
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE

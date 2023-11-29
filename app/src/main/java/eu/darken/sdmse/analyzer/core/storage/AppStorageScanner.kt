@@ -18,7 +18,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.local.File
+import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel

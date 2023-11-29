@@ -4,6 +4,7 @@ import android.system.Os
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.core.local.isSymbolicLink
 import java.io.File
 
 fun File.getAPathFileType(): FileType? = when {
