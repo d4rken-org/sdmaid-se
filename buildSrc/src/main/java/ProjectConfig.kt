@@ -90,7 +90,8 @@ fun BaseExtension.setupKotlinOptions() {
             "-Xopt-in=kotlinx.coroutines.FlowPreview",
             "-Xopt-in=kotlin.time.ExperimentalTime",
             "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xjvm-default=all"
+            "-Xjvm-default=all",
+            "-XXLanguage:+DataObjects"
         )
     }
 }

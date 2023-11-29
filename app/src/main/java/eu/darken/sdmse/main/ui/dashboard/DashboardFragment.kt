@@ -211,7 +211,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     .setAnchorView(ui.mainAction)
                     .show()
 
-                DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
                 }.show()
             }
