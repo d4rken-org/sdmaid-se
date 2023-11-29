@@ -29,8 +29,8 @@ import javax.inject.Singleton
 class SetupHealer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
-    private val shizukuManager: ShizukuManager,
-    private val rootManager: RootManager,
+    shizukuManager: ShizukuManager,
+    rootManager: RootManager,
     private val setupHelper: SetupHelper,
     private val pkgOps: PkgOps,
     private val userManager2: UserManager2,

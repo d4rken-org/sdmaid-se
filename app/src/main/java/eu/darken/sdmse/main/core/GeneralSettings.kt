@@ -25,7 +25,7 @@ class GeneralSettings @Inject constructor(
     debugSettings: DebugSettings,
     moshi: Moshi,
     motdSettings: MotdSettings,
-    private val updateChecker: UpdateChecker
+    updateChecker: UpdateChecker
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_core")

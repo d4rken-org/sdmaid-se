@@ -179,7 +179,7 @@ class AppActionViewModel @Inject constructor(
                 excludeAction,
                 disableAction,
                 uninstallAction,
-            ).filterNotNull()
+            )
         )
     }
         .asLiveData2()

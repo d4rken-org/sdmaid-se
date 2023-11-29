@@ -48,7 +48,7 @@ import javax.inject.Singleton
 @Singleton
 class PkgOps @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,

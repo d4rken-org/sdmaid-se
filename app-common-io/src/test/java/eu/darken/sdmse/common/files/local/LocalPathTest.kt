@@ -4,6 +4,7 @@ import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.RawPath
+import eu.darken.sdmse.common.files.core.local.tryMkFile
 import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe

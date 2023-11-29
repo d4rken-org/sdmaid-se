@@ -34,7 +34,7 @@ class SchedulerManagerViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val taskManager: TaskManager,
+    taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,
     private val schedulerSettings: SchedulerSettings,
     private val upgradeRepo: UpgradeRepo,

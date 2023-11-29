@@ -1,7 +1,7 @@
 package eu.darken.sdmse.scheduler.core
 
 import android.content.Context
-import eu.darken.sdmse.common.files.local.deleteAll
+import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.matchers.shouldBe
 import io.mockk.every

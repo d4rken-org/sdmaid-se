@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.core.local.readLink
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
@@ -45,7 +46,7 @@ fun LocalPath.performLookup(): LocalPathLookup {
         size = file.length(),
         modifiedAt = Instant.ofEpochMilli(file.lastModified()),
 
-        target = file.readLink()?.let { LocalPath.Companion.build(it) }
+        target = file.readLink()?.let { LocalPath.build(it) }
     )
 }
 

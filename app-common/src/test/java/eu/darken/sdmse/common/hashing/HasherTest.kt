@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.hashing
 
-import eu.darken.sdmse.common.files.local.deleteAll
+import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.hashing.Hasher.Type
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest

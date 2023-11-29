@@ -6,7 +6,7 @@ import java.io.Closeable
 fun <T : Closeable?> T.closeQuietly() {
     try {
         this?.close()
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 }
 

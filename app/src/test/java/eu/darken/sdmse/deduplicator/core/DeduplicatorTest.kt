@@ -1,7 +1,7 @@
 package eu.darken.sdmse.deduplicator.core
 
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.local.File
+import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.hashing.Hasher

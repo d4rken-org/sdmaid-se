@@ -65,7 +65,7 @@ class DataModule @Inject constructor(
                     volume.path?.toLocalPath() ?: return@mapNotNull null
                 }
                 ?.filter { it.canRead(gatewaySwitch) }
-                ?.mapNotNull { path ->
+                ?.map { path ->
                     DataArea(
                         type = DataArea.Type.DATA,
                         path = path,

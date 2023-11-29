@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.local.File
+import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress

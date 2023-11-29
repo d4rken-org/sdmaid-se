@@ -24,7 +24,7 @@ import javax.inject.Singleton
 class CurriculumVitae @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    private val moshi: Moshi,
+    moshi: Moshi,
 ) {
 
     private val Context.dataStore by preferencesDataStore(name = "curriculum_vitae")

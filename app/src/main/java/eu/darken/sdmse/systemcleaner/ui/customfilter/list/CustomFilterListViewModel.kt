@@ -117,7 +117,7 @@ class CustomFilterListViewModel @Inject constructor(
         }
 
         val rawFilter = uris
-            .mapNotNull {
+            .map {
                 val result = it.readAsText(context) ?: throw IllegalArgumentException("Failed to read $it")
                 log(TAG) { "Read $it: $result" }
                 it to result

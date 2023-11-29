@@ -163,7 +163,7 @@ class AppControl @Inject constructor(
         val refreshed = pkgRepo.refresh()
 
         internalData.value = snapshot.copy(
-            apps = snapshot.apps.mapNotNull { app ->
+            apps = snapshot.apps.map { app ->
                 when {
                     successful.contains(app.installId) || failed.contains(app.installId) -> {
                         // TODO if the app is suddenly no longer installed, show the user an error?
@@ -212,7 +212,7 @@ class AppControl @Inject constructor(
         val refreshed = pkgRepo.refresh()
 
         internalData.value = snapshot.copy(
-            apps = snapshot.apps.mapNotNull { app ->
+            apps = snapshot.apps.map { app ->
                 when {
                     successful.contains(app.installId) || failed.contains(app.installId) -> {
                         refreshed.filter { it.id == app.id }.map { it.toAppInfo() }
