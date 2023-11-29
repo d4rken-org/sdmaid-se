@@ -169,6 +169,8 @@ class SetupViewModel @Inject constructor(
                 .sortedBy { item ->
                     if (screenOptions.showCompleted && !item.state.isComplete) {
                         Int.MIN_VALUE
+                    } else if (item is RootSetupCardVH.Item && item.state.isInstalled && item.state.useRoot == null) {
+                        Int.MIN_VALUE
                     } else {
                         DISPLAY_ORDER.indexOfFirst { it.isInstance(item) }
                     }
