@@ -7,8 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -17,6 +19,7 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.Schedule
+import eu.darken.sdmse.scheduler.core.ScheduleId
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
@@ -39,6 +42,8 @@ class SchedulerManagerViewModel @Inject constructor(
     private val schedulerSettings: SchedulerSettings,
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    val events = SingleLiveEvent<SchedulerManagerEvents>()
 
     init {
         schedulerManager.state
@@ -103,7 +108,11 @@ class SchedulerManagerViewModel @Inject constructor(
                     launch {
                         schedulerManager.saveSchedule(schedule.copy(useAppCleaner = !schedule.useAppCleaner))
                     }
-                }
+                },
+                onEditFinalCommands = {
+                    events.postValue(SchedulerManagerEvents.FinalCommandsEdit(schedule))
+                },
+                showCommands = true,
             )
         }.run { items.addAll(this) }
 
@@ -134,6 +143,18 @@ class SchedulerManagerViewModel @Inject constructor(
             scheduledAt = Instant.now(),
         )
         schedulerManager.saveSchedule(testSchedule)
+    }
+
+    fun updateCommandsAfterSchedule(id: ScheduleId, rawCmdInput: String) = launch {
+        log(TAG) { "updateCommandsAfterSchedule($id,$rawCmdInput)" }
+        val cmds = rawCmdInput
+            .split("\n")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+
+        log(TAG, INFO) { "New commands to execute after schedule: $cmds" }
+        val updatedSchedule = schedulerManager.getSchedule(id)!!.copy(commandsAfterSchedule = cmds)
+        schedulerManager.saveSchedule(updatedSchedule)
     }
 
     data class State(

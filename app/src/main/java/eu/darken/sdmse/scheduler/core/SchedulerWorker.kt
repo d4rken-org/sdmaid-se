@@ -17,6 +17,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -44,6 +48,9 @@ class SchedulerWorker @AssistedInject constructor(
     private val schedulerSettings: SchedulerSettings,
     private val schedulerNotifications: SchedulerNotifications,
     private val setupHealer: SetupHealer,
+    private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
+    private val shellOps: ShellOps,
 ) : CoroutineWorker(context, params) {
 
     init {
@@ -139,6 +146,19 @@ class SchedulerWorker @AssistedInject constructor(
         val taskResults = taskJobs.awaitAll().toSet()
         schedulerNotifications.notifyResult(taskResults)
         log(TAG) { "All task jobs have finished." }
+
+        schedule.commandsAfterSchedule.takeIf { it.isNotEmpty() }?.let { cmds ->
+            log(TAG, INFO) { "Post-schedule commands are available" }
+            cmds.forEachIndexed { index, s -> log(TAG, INFO) { "Command #$index: $s" } }
+
+            val shellOpsMode = when {
+                rootManager.isRooted() -> ShellOps.Mode.ROOT
+                shizukuManager.isShizukud() -> ShellOps.Mode.ADB
+                else -> ShellOps.Mode.NORMAL
+            }
+            val result = shellOps.execute(ShellOpsCmd(cmds = cmds), shellOpsMode)
+            log(TAG, INFO) { "Post-schedule ShellOps result: $result" }
+        }
     }
 
     companion object {
