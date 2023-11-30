@@ -523,6 +523,9 @@
     <string name="scheduler_notification_channel_label">Lịch trình</string>
     <string name="scheduler_notification_title">Hoạt động theo lịch trình</string>
     <string name="scheduler_notification_message">Đang thực thi: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Lch trình đã hoàn tất</string>
+    <string name="scheduler_notification_result_success_message">Tất cả các tác vụ theo lịch trình đã chạy thành công.</string>
+    <string name="scheduler_notification_result_failure_message">Một số tác vụ đã lên lịch không thành công hoặc gặp lỗi. Hãy thử chạy chúng bằng tay.</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>
     <string name="updates_dashcard_body">Một bản cập nhật khả dụng. Bạn có %1$s và phiên bản mới nhất là %2$s.</string>
     <string name="translation_encourage_title">Dịch SD Maid</string>

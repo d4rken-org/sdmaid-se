@@ -537,6 +537,9 @@
     <string name="scheduler_notification_channel_label">Planlegger</string>
     <string name="scheduler_notification_title">Planlagt oppgave</string>
     <string name="scheduler_notification_message">Utfører: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Planlegger ferdig</string>
+    <string name="scheduler_notification_result_success_message">Alle planlagte oppgaver kjørte vellykket.</string>
+    <string name="scheduler_notification_result_failure_message">Noen planlagte oppgaver mislyktes eller møtte feil. Prøv å kjøre dem manuelt.</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
     <string name="updates_dashcard_body">En oppdatering er tilgjengelig. Du har %1$s og den nyeste versjonen er %2$s.</string>
     <string name="translation_encourage_title">Oversett SD Maid</string>

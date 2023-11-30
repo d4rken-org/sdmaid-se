@@ -355,6 +355,20 @@
         <item quantity="other">Kustutada %d valitud rakenduse ühekordsed failid?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
+    <string name="deduplicator_tool_name">Koopiate eemaldaja</string>
+    <string name="deduplicator_explanation_short">Leidke seadmest samad andmed.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d sama kogum leiti</item>
+        <item quantity="other">%d sama kogumit leiti</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Luba kustutada kõik</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Näita valikuid, mis lubab kustutada kõik samad failid, nii et ühtki faili ei jää alles.</string>
+    <string name="deduplicator_skip_minsize_title">Väikseim maht</string>
+    <string name="deduplicator_skip_minsize_description">Eira faile, mis on väiksemad kui väikseim maht.</string>
+    <string name="deduplicator_skip_uncommon_title">Eira haruldasi failitüüpe</string>
+    <string name="deduplicator_skip_uncommon_description">Kaasa vaid tuntud meediafailid, dokumendid ja arhiivid.</string>
+    <string name="deduplicator_detection_method_label">Tuvastamise viis</string>
+    <string name="deduplicator_detection_method_checksum_title">Sisu kontrollsumma</string>
     <string name="deduplicator_delete_confirmation_message">Kustutada faili koopiad, nii et alles jääb vaid üks neist?</string>
     <string name="deduplicator_matches_exact_label">Samad koopiad</string>
     <string name="deduplicator_matches_similar_label">Sarnased failid</string>
@@ -508,6 +522,9 @@
     <string name="scheduler_notification_channel_label">Ajastaja</string>
     <string name="scheduler_notification_title">Ajastatud ülesanne</string>
     <string name="scheduler_notification_message">Käivitub: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Ajastatu lõppes</string>
+    <string name="scheduler_notification_result_success_message">Kõik ajastatud ülesanded lõppesid edukalt.</string>
+    <string name="scheduler_notification_result_failure_message">Osad ajastatud ülesanded nurjusid või sattusid vea otsa. Üritage neid ise teha.</string>
     <string name="updates_dashcard_title">Uuendus saadaval</string>
     <string name="updates_dashcard_body">Saadaval on uuendus. Teil on %1$s ja uusim versioon on %2$s.</string>
     <string name="translation_encourage_title">Tõlkige SD Maidi</string>

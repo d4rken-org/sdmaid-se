@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">刪除已選取的項目</string>
     <string name="general_show_details_action">顯示詳細資料</string>
     <string name="general_show_all_action">全部顯示</string>
+    <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
     <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>

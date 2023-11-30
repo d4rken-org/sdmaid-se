@@ -533,6 +533,9 @@
     <string name="scheduler_notification_channel_label">Agendador</string>
     <string name="scheduler_notification_title">Tarefa agendada</string>
     <string name="scheduler_notification_message">Executando: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Agendador finalizado</string>
+    <string name="scheduler_notification_result_success_message">Todas as tarefas agendadas foram executadas com sucesso.</string>
+    <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>
     <string name="updates_dashcard_title">Atualização disponível</string>
     <string name="updates_dashcard_body">Uma atualização está disponível. Sua versão é %1$s e a última versão é %2$s.</string>
     <string name="translation_encourage_title">Traduzir o SD Maid</string>

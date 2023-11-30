@@ -499,6 +499,9 @@
     <string name="scheduler_notification_channel_label">Планувальник</string>
     <string name="scheduler_notification_title">Заплановане завдання</string>
     <string name="scheduler_notification_message">Виконую: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Планувальник завершив роботу</string>
+    <string name="scheduler_notification_result_success_message">Всі заплановані завдання успішно виконані.</string>
+    <string name="scheduler_notification_result_failure_message">Деякі заплановані завдання не вдалося виконати або виникли помилки. Спробуйте запустити їх вручну.</string>
     <string name="updates_dashcard_title">Доступно оновлення</string>
     <string name="updates_dashcard_body">Доступно оновлення. У вас %1$s, а остання версія - %2$s.</string>
     <string name="translation_encourage_title">Переклад SD Maid</string>

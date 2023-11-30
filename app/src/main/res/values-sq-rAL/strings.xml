@@ -294,4 +294,7 @@
     <string name="automation_error_not_running_title">Shërbimi nuk funksionon</string>
     <string name="automation_error_not_running_body">Shërbimi i aksesueshmërisë nuk funksionon. Provoni të rindizni pajisjen.</string>
     <string name="history_label">Historia</string>
+    <string name="scheduler_notification_result_title">Programuesi përfundoi</string>
+    <string name="scheduler_notification_result_success_message">Të gjitha detyrat e planifikuara u kryen me sukses.</string>
+    <string name="scheduler_notification_result_failure_message">Disa detyra të planifikuara dështuan ose hasën në gabime. Provoni t\'i ekzekutoni ato manualisht.</string>
 </resources>

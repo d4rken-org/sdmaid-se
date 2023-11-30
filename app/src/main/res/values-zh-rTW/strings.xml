@@ -523,6 +523,9 @@
     <string name="scheduler_notification_channel_label">排程器</string>
     <string name="scheduler_notification_title">已排程的工作</string>
     <string name="scheduler_notification_message">正在執行：%s</string>
+    <string name="scheduler_notification_result_title">排程器已完成</string>
+    <string name="scheduler_notification_result_success_message">所有排程的工作已成功執行。</string>
+    <string name="scheduler_notification_result_failure_message">部分排程的工作失敗或發生錯誤，請嘗試手動執行。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用的更新項目。您已安裝 %1$s，而最新版本為 %2$s。</string>
     <string name="translation_encourage_title">翻譯 SD 女僕</string>

@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Nevojitet SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Përmirëso SD Maid</string>
+    <string name="upgrades_dashcard_body">Çelni veçori shtesë dhe bëhuni një mbrojtës për të mbështetur zhvillimin e vazhdueshëm!</string>
+    <string name="upgrades_dashcard_upgrade_action">Përmirëso</string>
+    <string name="upgrade_screen_title">Përmirëso SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit. Zhvillimi i vazhdueshëm bëhet i mundur vetëm nga ju.</string>
+    <string name="upgrade_screen_how_title">Si të ndihmoj</string>
+    <string name="upgrade_screen_how_body">Bëhuni një mbrojtës dhe sponsor i zhvillimit! Prekni butonin më poshtë për të aktivizuar të gjitha veçoritë shtesë dhe për të hapur profilin tim të sponsorëve të GitHub.</string>
+    <string name="upgrade_screen_why_title">Kjo ngjall 🪄</string>
+    <string name="upgrade_screen_why_body">• Funksionaliteti i fshirjes së AppCleaner 💯\n• Operacionet e planifikuara ⏰\n• Opsione shtesë për të gjitha mjetet ⚙️\n• Rregullat tuaja të fshirjes ✍️\n• Një zhvillues i motivuar 🧙\ndhe më shumë…</string>
+    <string name="upgrade_screen_sponsor_action">Zhvillimi i sponsorëve</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternativa janë reklamat, analitika dhe Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Faleminderit për mbështetjen e zhvillimit me burim të hapur ❤️</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Së bashku, ja arritëm në publikimin e parë! Faleminderit që më ndihmove të testoj! Zhvillimi sigurisht që do të vazhdojë, por tani mund të kaloni në ndërtime jo-beta. Bëni këtë duke shkarkuar versionin më të fundit të qëndrueshëm.</string>
+    <string name="nudge_betagoodbye_hint">Shënim i vogël: Vlerësimet e dhëna gjatë testimit janë të dukshme vetëm për mua, do ta vlerësoja nëse mund t\'i jepni SD Maid një vlerësim publik nëse jeni të kënaqur.</string>
+    <string name="nudge_betagoodbye_positive_action">Tërhiqu</string>
+    <string name="nudge_betagoodbye_negative_action">Vazhdo testimin</string>
+</resources>

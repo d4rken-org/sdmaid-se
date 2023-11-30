@@ -537,6 +537,9 @@
     <string name="scheduler_notification_channel_label">Zeitplaner</string>
     <string name="scheduler_notification_title">Geplante Aufgabe</string>
     <string name="scheduler_notification_message">Ausführen: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Planer beendet</string>
+    <string name="scheduler_notification_result_success_message">Alle geplanten Aufgaben wurden erfolgreich ausgeführt.</string>
+    <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
     <string name="updates_dashcard_body">Eine Aktualisierung ist verfügbar. Du hast %1$s und die neueste Version ist %2$s.</string>
     <string name="translation_encourage_title">Übersetze SD Maid</string>

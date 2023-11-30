@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Διαγραφή επιλεγμένου</string>
     <string name="general_show_details_action">Εμφάνιση λεπτομερειών</string>
     <string name="general_show_all_action">Εμφάνιση όλων</string>
+    <string name="general_toggle_layout_mode">Εναλλαγή λειτουργίας προβολής</string>
     <string name="general_delete_confirmation_title">Επιβεβαίωση διαγραφής</string>
     <string name="general_delete_confirmation_message_x">Διαγραφή \"%s\";</string>
     <string name="general_delete_confirmation_message_selected_x_items">Διαγραφή %d επιλεγμένων στοιχείων;</string>
