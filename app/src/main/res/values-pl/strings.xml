@@ -565,6 +565,9 @@
     <string name="scheduler_notification_channel_label">Harmonogram</string>
     <string name="scheduler_notification_title">Zaplanowane zadanie</string>
     <string name="scheduler_notification_message">Wykonywanie: „%s”</string>
+    <string name="scheduler_notification_result_title">Harmonogram zakończony</string>
+    <string name="scheduler_notification_result_success_message">Wszystkie zaplanowane zadania zostały pomyślnie uruchomione.</string>
+    <string name="scheduler_notification_result_failure_message">Niektóre zaplanowane zadania nie powiodły się lub wystąpiły błędy. Spróbuj uruchomić je ręcznie.</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
     <string name="updates_dashcard_body">Dostępna jest aktualizacja. Masz %1$s, a najnowsza wersja to %2$s.</string>
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>

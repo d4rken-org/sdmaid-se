@@ -7,11 +7,14 @@
     <string name="slogan_message_3">Vajaliku tegemine.</string>
     <string name="slogan_message_4">Tipp-topp.</string>
     <string name="slogan_message_5">Ei jäta jälgi maha.</string>
+    <string name="slogan_message_6">Baidid, tehke vehkat!</string>
+    <string name="slogan_message_7">Vaba ruum, minimalism on kuum.</string>
     <string name="general_thank_you_label">Aitäh</string>
     <string name="general_error_type_mismatch_msg">Trükiviga: tahtsite %1$s, kuid kirjutasite %2$s.</string>
     <string name="general_error_cant_access_msg">Ei pääse juurde %s.</string>
     <string name="general_error_root_unavailable">Juurpääsu pole saadaval.</string>
     <string name="general_error_empty_result_msg">Tulemust ei leitud.</string>
+    <string name="general_error_no_compatible_app_found_msg">Seda päringut tegevat rakendust ei leitud.</string>
     <string name="general_todo_msg">Seda võimalust alles luuakse ja praegu pole see saadaval.</string>
     <string name="general_share_action">Jaga</string>
     <string name="general_done_action">Valmis</string>
@@ -56,9 +59,13 @@
     <string name="general_progress_loading_egg_5">Turbo võtab hoogu</string>
     <string name="general_progress_loading_egg_6">Uurin inimmõistust</string>
     <string name="general_progress_loading_egg_7">Heips! Kuidas kärab?</string>
+    <string name="general_progress_loading_egg_9">Hmm, kas puhverdada või mitte?</string>
+    <string name="general_progress_loading_egg_11">Käib küll</string>
     <string name="general_help_action">Abi</string>
     <string name="general_continue">Jätka</string>
     <string name="general_progress_queued">Järjekorras</string>
+    <string name="general_progress_deleting">Kustutan</string>
+    <string name="general_progress_deleting_x">%s kustutamine</string>
     <string name="general_sort_options_label">Sortimise sätted</string>
     <string name="general_sort_reverse_action">Pööra järjestamisreziim pahupidi</string>
     <string name="general_tag_filter_label">Filtreeri siltide järgi</string>
@@ -74,6 +81,7 @@
     <string name="general_delete_selected_action">Kustuta märgitud</string>
     <string name="general_show_details_action">Näita andmeid</string>
     <string name="general_show_all_action">Kuva kõik</string>
+    <string name="general_toggle_layout_mode">Muuda vaaterežiimi</string>
     <string name="general_delete_confirmation_title">Kinnita kustutamine</string>
     <string name="general_delete_confirmation_message_x">Kustuta \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Kustutada %d valitud asja?</string>

@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Xóa mục đã chọn</string>
     <string name="general_show_details_action">Xem chi tiết</string>
     <string name="general_show_all_action">Hiển thị tất cả</string>
+    <string name="general_toggle_layout_mode">Chuyển đổi chế độ xem</string>
     <string name="general_delete_confirmation_title">Xác nhận xoá</string>
     <string name="general_delete_confirmation_message_x">Xoá \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Xóa %d mục đã chọn?</string>

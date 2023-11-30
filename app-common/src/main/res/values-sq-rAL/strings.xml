@@ -2,15 +2,19 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Në shërbimin tuaj.</string>
+    <string name="slogan_message_1">I pastër dhe i rregullt.</string>
     <string name="slogan_message_2">Parandalimi i kaosit.</string>
     <string name="slogan_message_3">Duke bërë atë që është e nevojshme.</string>
     <string name="slogan_message_4">Të gjitha sendet në rend</string>
     <string name="slogan_message_5">I panjollë.</string>
+    <string name="slogan_message_6">Bytes, largohuni!</string>
+    <string name="slogan_message_7">Hapësirë ​​e lirë, vend i lumtur.</string>
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_error_type_mismatch_msg">Mospërputhja e llojit: Kërkonte %1$s, por mori %2$s.</string>
     <string name="general_error_cant_access_msg">Nuk mund të qaset %s.</string>
     <string name="general_error_root_unavailable">Qasja në rrënjë (Root) është e padisponueshme.</string>
     <string name="general_error_empty_result_msg">Rezultati ishte bosh.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nuk u gjet asnjë aplikacion i përputhshëm për të trajtuar këtë kërkesë.</string>
     <string name="general_todo_msg">Kjo veçori është ende duke u punuar dhe aktualisht e pa disponueshme.</string>
     <string name="general_share_action">Shpërndaj</string>
     <string name="general_done_action">U krye</string>
@@ -22,6 +26,8 @@
     <string name="general_save_action">Ruaj</string>
     <string name="general_thanks_action">Faleminderit</string>
     <string name="general_gotit_action">E kuptova</string>
+    <string name="general_fix_action">Rregulloe</string>
+    <string name="general_set_up_action">Konfiguro</string>
     <string name="general_edit_action">Redakto</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Bosh</string>
@@ -53,10 +59,17 @@
     <string name="general_progress_loading_egg_5">Turbo encabulatori po fillon</string>
     <string name="general_progress_loading_egg_6">Duke kaluar gjalpin</string>
     <string name="general_progress_loading_egg_7">Kështu që. Si po mbaheni?</string>
+    <string name="general_progress_loading_egg_8">Bip boop bop</string>
+    <string name="general_progress_loading_egg_9">Buferimi i zgjedhjeve të jetës</string>
+    <string name="general_progress_loading_egg_10">Duke thirrur Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Kjo është mirë</string>
     <string name="general_help_action">Ndihmë</string>
     <string name="general_continue">Vazhdo</string>
     <string name="general_progress_queued">Në radhë</string>
+    <string name="general_progress_deleting">Po fshihet</string>
+    <string name="general_progress_deleting_x">Po fshihet %s</string>
     <string name="general_sort_options_label">Opsionet e renditjes</string>
+    <string name="general_sort_reverse_action">Modaliteti i renditjes së kundërt</string>
     <string name="general_tag_filter_label">Filtro sipas etiketave</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operacioni dështoi</string>
@@ -67,10 +80,23 @@
     <string name="general_update_action">Përditëso</string>
     <string name="general_scan_action">Skeno</string>
     <string name="general_delete_action">Fshije</string>
+    <string name="general_delete_selected_action">Fshij të zgjedhurin</string>
     <string name="general_show_details_action">Shfaq detajet</string>
+    <string name="general_show_all_action">Shfaq të gjitha</string>
+    <string name="general_toggle_layout_mode">Ndrysho modalitetin e shikimit</string>
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Të fshihen %d artikuj të zgjedhur?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">U fshi %1$d artikull dhe u lirua %2$s</item>
+        <item quantity="other">%1$d artikuj u fshinë dhe %2$s u lirua</item>
+    </plurals>
     <string name="general_remove_action">Hiq</string>
+    <string name="general_remove_selected_action">Hiq të zgjedhurin</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Një artikull u hoq</item>
+        <item quantity="other">%d artikuj u hoqën</item>
+    </plurals>
     <string name="general_root_required_label">Kërkon qasje rrënjë</string>
     <string name="general_root_required_message">Kërkon një pajisje të rrënjosur</string>
     <string name="general_search_action">Kërko</string>
@@ -88,10 +114,12 @@
     <string name="general_grant_access_action">Lejo qasje</string>
     <string name="general_enable_service_action">Aktivizo shërbimin</string>
     <string name="general_undo_action">Zhbëj</string>
+    <string name="general_list_select_all_action">Selekto të gjitha</string>
     <string name="general_path_label">Rrugë</string>
     <string name="general_type_label">Lloj</string>
     <string name="general_size_label">Madhësia</string>
     <string name="general_exclude_action">Përjashto</string>
+    <string name="general_exclude_selected_action">Përjashto/ni të përzgjedhurit</string>
     <string name="general_device_label">Pajisja</string>
     <string name="general_settings_title">Cilësimet</string>
     <string name="general_help_title">Ndihmë</string>
@@ -99,4 +127,12 @@
     <string name="file_type_directory">Drejtoria</string>
     <string name="file_type_file">Skedar</string>
     <string name="file_type_unknown">E panjohur</string>
+    <string name="general_timeunit_hours">Orët</string>
+    <string name="general_timeunit_days">Ditët</string>
+    <string name="general_progress_ready">Gati</string>
+    <string name="general_progress_done">E sosur</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s skedar</item>
+        <item quantity="other">%s skedarë</item>
+    </plurals>
 </resources>

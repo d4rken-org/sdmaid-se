@@ -537,6 +537,9 @@
     <string name="scheduler_notification_channel_label">Programmateur</string>
     <string name="scheduler_notification_title">Tâche programmée</string>
     <string name="scheduler_notification_message">Exécution : %s</string>
+    <string name="scheduler_notification_result_title">Le programmateur a terminé</string>
+    <string name="scheduler_notification_result_success_message">Toutes vos tâches programmées ont été effectuées correctement.</string>
+    <string name="scheduler_notification_result_failure_message">Certaines tâches ont échoué ou des erreurs sont survenues. Tentez de les effectuer manuellement.</string>
     <string name="updates_dashcard_title">Une mise à jour est proposée</string>
     <string name="updates_dashcard_body">Une mise à jour est proposée. Vous avez %1$s et %2$s est la version la plus récente.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>

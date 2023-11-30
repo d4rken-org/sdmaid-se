@@ -510,6 +510,7 @@
     <string name="scheduler_notification_channel_label">Penjadwal</string>
     <string name="scheduler_notification_title">Tugas terjadwal</string>
     <string name="scheduler_notification_message">Menjalankan: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Penjadwal selesai</string>
     <string name="updates_dashcard_title">Pembaruan tersedia</string>
     <string name="updates_dashcard_body">Pembaruan tersedia. Versi aplikasi Anda %1$s dan versi terbaru adalah %2$s.</string>
     <string name="translation_encourage_title">Terjemahkan SD Maid</string>

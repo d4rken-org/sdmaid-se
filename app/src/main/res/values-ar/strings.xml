@@ -593,6 +593,9 @@
     <string name="scheduler_notification_channel_label">الجدولة</string>
     <string name="scheduler_notification_title">المهام المجدولة</string>
     <string name="scheduler_notification_message">جارٍ التنفيذ: \"%s\"</string>
+    <string name="scheduler_notification_result_title">انتهت الجدولة</string>
+    <string name="scheduler_notification_result_success_message">تمت جميع المهام المجدولة بنجاح.</string>
+    <string name="scheduler_notification_result_failure_message">بعض المهام المجدولة فشلت أو واجهت أخطاء. حاول تشغيلها يدويا.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
     <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
     <string name="translation_encourage_title">ترجمة SD Maid</string>

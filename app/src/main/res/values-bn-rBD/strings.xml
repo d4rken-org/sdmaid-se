@@ -537,6 +537,8 @@
     <string name="scheduler_notification_channel_label">সময়সূচী</string>
     <string name="scheduler_notification_title">সূচীভুক্ত কাজ</string>
     <string name="scheduler_notification_message">কার্যকর করা হচ্ছে: \"%s\"</string>
+    <string name="scheduler_notification_result_success_message">সমস্ত নির্ধারিত কাজ সফলভাবে চালিত হয়েছে৷</string>
+    <string name="scheduler_notification_result_failure_message">কিছু নির্ধারিত কাজ ব্যর্থ হয়েছে বা ত্রুটির সম্মুখীন হয়েছে। এগুলোকে নিজে নিজে চালানোর চেষ্টা করুন।</string>
     <string name="updates_dashcard_title">আপডেট এসেছে</string>
     <string name="updates_dashcard_body">একটি নতুন আপডেট পাওয়া গেছে। আপনার কাছে %1$s সংস্করণ আছে এবং সর্বশেষ সংস্করণ হলো %2$s৷</string>
     <string name="translation_encourage_title">SD Maid অনুবাদ করুন</string>

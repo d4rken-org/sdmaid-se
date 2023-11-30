@@ -539,6 +539,9 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="scheduler_notification_channel_label">Pianificatore</string>
     <string name="scheduler_notification_title">Attività pianificata</string>
     <string name="scheduler_notification_message">Esecuzione di: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Pianificazione completata</string>
+    <string name="scheduler_notification_result_success_message">Tutte le attività pianificate sono state eseguite con successo.</string>
+    <string name="scheduler_notification_result_failure_message">Alcune attività pianificate sono fallite o hanno riscontrato errori. Provare ad eseguirle manualmente.</string>
     <string name="updates_dashcard_title">Aggiornamento disponibile</string>
     <string name="updates_dashcard_body">È disponibile un aggiornamento. Hai %1$s e l\'ultima versione è %2$s.</string>
     <string name="translation_encourage_title">Traduci SD Maid</string>

@@ -565,6 +565,9 @@
     <string name="scheduler_notification_channel_label">Plánovač</string>
     <string name="scheduler_notification_title">Naplánovaná úloha</string>
     <string name="scheduler_notification_message">Spouštím: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Plánovač doběhl</string>
+    <string name="scheduler_notification_result_success_message">Všechny naplánované úlohy proběhly úspěšně.</string>
+    <string name="scheduler_notification_result_failure_message">Některé naplánované úlohy selhaly nebo došlo k chybám. Zkuste je spustit ručně.</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
     <string name="updates_dashcard_body">Aktualizace je k dispozici. Máte %1$s a poslední verze je %2$s.</string>
     <string name="translation_encourage_title">Přeložit SD Maid</string>

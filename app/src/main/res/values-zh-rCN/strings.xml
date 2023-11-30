@@ -523,6 +523,9 @@
     <string name="scheduler_notification_channel_label">计划任务</string>
     <string name="scheduler_notification_title">计划任务</string>
     <string name="scheduler_notification_message">正在执行: \"%s\"</string>
+    <string name="scheduler_notification_result_title">计划任务已完成</string>
+    <string name="scheduler_notification_result_success_message">所有计划任务均成功运行。</string>
+    <string name="scheduler_notification_result_failure_message">部分计划任务运行失败或遇到错误。请尝试手动运行。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用更新。当前版本为 %1$s，最新版本为 %2$s。</string>
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>
