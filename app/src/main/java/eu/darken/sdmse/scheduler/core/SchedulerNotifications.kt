@@ -107,11 +107,26 @@ class SchedulerNotifications @Inject constructor(
     private fun getResultBuilder(results: Set<Results>): NotificationCompat.Builder = getBaseResultBuilder().apply {
         setContentTitle(context.getString(R.string.scheduler_notification_result_title))
         val text = if (results.any { it.error != null }) {
-            context.getString(R.string.scheduler_notification_result_failure_message)
+            val errorMsg = context.getString(R.string.scheduler_notification_result_failure_message)
+            val errorTools = results
+                .filter { it.error != null }
+                .map {
+                    val toolNameId = when (it.task.type) {
+                        SDMTool.Type.CORPSEFINDER -> R.string.corpsefinder_tool_name
+                        SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
+                        SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
+                        SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
+                        SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
+                        SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
+                    }
+                    context.getString(toolNameId) to it.error.toString()
+                }
+            "$errorMsg\n${errorTools.joinToString("\n") { "${it.first}: ${it.second}" }}"
         } else {
             context.getString(R.string.scheduler_notification_result_success_message)
         }
         setContentText(text)
+        setStyle(NotificationCompat.BigTextStyle().bigText(text))
         log(TAG) { "getResultBuilder(): $results" }
     }
 
