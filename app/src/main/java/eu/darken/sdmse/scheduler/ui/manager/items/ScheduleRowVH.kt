@@ -96,17 +96,26 @@ class ScheduleRowVH(parent: ViewGroup) :
             setChecked2(schedule.useAppCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
         }
-    }
 
+        commandsContainer.isVisible = item.showCommands
+        commandsInfo.text = if (schedule.commandsAfterSchedule.isNotEmpty()) {
+            schedule.commandsAfterSchedule.mapIndexed { index, s -> "#$index: $s" }.joinToString("\n")
+        } else {
+            getString(R.string.scheduler_commands_after_schedule_desc)
+        }
+        commandsEditAction.setOnClickListener { item.onEditFinalCommands() }
+    }
 
     data class Item(
         val schedule: Schedule,
+        val showCommands: Boolean,
         val onEdit: () -> Unit,
         val onToggle: () -> Unit,
         val onRemove: () -> Unit,
         val onToggleCorpseFinder: () -> Unit,
         val onToggleSystemCleaner: () -> Unit,
         val onToggleAppCleaner: () -> Unit,
+        val onEditFinalCommands: () -> Unit,
     ) : SchedulerAdapter.Item {
 
         override val stableId: Long = schedule.id.hashCode().toLong()
