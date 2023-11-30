@@ -59,7 +59,8 @@ class ScheduleStorageTest : BaseTest() {
                         "repeatInterval": "PT72H",
                         "corpsefinderEnabled": false,
                         "systemcleanerEnabled": false,
-                        "appcleanerEnabled": false
+                        "appcleanerEnabled": false,
+                        "commandsAfterSchedule": []
                     }
                 ]
             """.toComparableJson()
