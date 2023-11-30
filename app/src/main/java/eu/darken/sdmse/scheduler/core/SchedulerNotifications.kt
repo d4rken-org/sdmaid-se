@@ -26,15 +26,15 @@ class SchedulerNotifications @Inject constructor(
     private val notificationManager: NotificationManager,
 ) {
 
-    private val builder: NotificationCompat.Builder
-
     init {
         NotificationChannel(
             CHANNEL_ID,
             context.getString(R.string.scheduler_notification_channel_label),
             NotificationManager.IMPORTANCE_LOW
         ).run { notificationManager.createNotificationChannel(this) }
+    }
 
+    private fun getBaseBuilder() = NotificationCompat.Builder(context, CHANNEL_ID).apply {
         val openIntent = Intent(context, MainActivity::class.java)
         val openPi = PendingIntent.getActivity(
             context,
@@ -43,27 +43,32 @@ class SchedulerNotifications @Inject constructor(
             PendingIntentCompat.FLAG_IMMUTABLE
         )
 
-        builder = NotificationCompat.Builder(context, CHANNEL_ID).apply {
-            setChannelId(CHANNEL_ID)
-            setContentIntent(openPi)
-            priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.ic_notification_mascot_24)
-            setOngoing(true)
-            setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
-            setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
-        }
+        setChannelId(CHANNEL_ID)
+        setContentIntent(openPi)
+        priority = NotificationCompat.PRIORITY_LOW
+        setSmallIcon(R.drawable.ic_notification_mascot_24)
+        setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
+        setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
+    }
+
+    private fun getBaseStateBuilder() = getBaseBuilder().apply {
+        setOngoing(true)
+    }
+
+    private fun getBaseResultBuilder() = getBaseBuilder().apply {
+        setOngoing(false)
     }
 
     private fun getStateBuilder(schedule: Schedule?): NotificationCompat.Builder {
         if (schedule == null) {
-            return builder.apply {
+            return getBaseStateBuilder().apply {
                 setStyle(null)
                 setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
                 setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
             }
         }
 
-        return builder.apply {
+        return getBaseStateBuilder().apply {
             setContentTitle(context.getString(R.string.scheduler_notification_title))
             setContentText(context.getString(R.string.scheduler_notification_message, schedule.label))
             log(TAG) { "getStateBuilder(): $schedule" }
@@ -99,7 +104,7 @@ class SchedulerNotifications @Inject constructor(
         notificationManager.cancel(id)
     }
 
-    private fun getResultBuilder(results: Set<Results>): NotificationCompat.Builder = builder.apply {
+    private fun getResultBuilder(results: Set<Results>): NotificationCompat.Builder = getBaseResultBuilder().apply {
         setContentTitle(context.getString(R.string.scheduler_notification_result_title))
         val text = if (results.any { it.error != null }) {
             context.getString(R.string.scheduler_notification_result_failure_message)
