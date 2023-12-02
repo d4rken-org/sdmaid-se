@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
@@ -41,6 +43,8 @@ class SchedulerManagerViewModel @Inject constructor(
     private val schedulerManager: SchedulerManager,
     private val schedulerSettings: SchedulerSettings,
     private val upgradeRepo: UpgradeRepo,
+    private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<SchedulerManagerEvents>()
@@ -71,6 +75,8 @@ class SchedulerManagerViewModel @Inject constructor(
         if (schedulerState.schedules.any { it.isEnabled }) {
             items.add(AlarmHintRowVH.Item(schedulerState))
         }
+
+        val showCommands = rootManager.isRooted() || shizukuManager.isShizukud()
 
         schedulerState.schedules.map { schedule ->
             ScheduleRowVH.Item(
@@ -112,7 +118,7 @@ class SchedulerManagerViewModel @Inject constructor(
                 onEditFinalCommands = {
                     events.postValue(SchedulerManagerEvents.FinalCommandsEdit(schedule))
                 },
-                showCommands = true,
+                showCommands = showCommands,
             )
         }.run { items.addAll(this) }
 
