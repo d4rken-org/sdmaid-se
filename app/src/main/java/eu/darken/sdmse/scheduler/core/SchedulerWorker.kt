@@ -108,10 +108,18 @@ class SchedulerWorker @AssistedInject constructor(
     } finally {
         try {
             schedulerNotifications.cancel(scheduleId)
-            workerScope.cancel("Worker finished (withError?=$finishedWithError).")
             schedulerManager.reschedule(scheduleId)
         } catch (e: Exception) {
-            log(TAG, ERROR) { "Failed to clean up after scheduled work (error=$finishedWithError): ${e.asLog()}" }
+            log(
+                TAG,
+                ERROR
+            ) { "Failed to clean up notifications and reschedule (error=$finishedWithError): ${e.asLog()}" }
+        }
+
+        try {
+            workerScope.cancel("Worker finished (withError?=$finishedWithError).")
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to cancel worker scope (error=$finishedWithError): ${e.asLog()}" }
         }
     }
 
