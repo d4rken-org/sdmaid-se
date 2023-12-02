@@ -128,6 +128,10 @@ android {
             assets.srcDirs(files("$projectDir/schemas"))
         }
     }
+
+    androidResources {
+        generateLocaleConfig = true
+    }
 }
 
 afterEvaluate {
