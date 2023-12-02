@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -72,24 +73,29 @@ class SchedulerWorker @AssistedInject constructor(
     }
 
     override suspend fun doWork(): Result = try {
-        val start = System.currentTimeMillis()
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
 
         val schedule = getSchedule()
 
-        log(TAG, INFO) { "Executing schedule $schedule" }
-        Bugs.leaveBreadCrumb("Executing schedule")
+        if (runAttemptCount > 0) {
+            log(TAG, WARN) { "Repeat execution attempt ($runAttemptCount) for $schedule" }
+            Result.failure(inputData)
+        } else {
+            val start = System.currentTimeMillis()
+            log(TAG, INFO) { "Executing schedule $schedule" }
+            Bugs.leaveBreadCrumb("Executing schedule")
 
-        schedulerNotifications.notifyState(schedule)
+            schedulerNotifications.notifyState(schedule)
 
-        doDoWork(schedule)
+            doDoWork(schedule)
 
-        schedulerManager.updateExecutedNow(scheduleId)
+            schedulerManager.updateExecutedNow(scheduleId)
 
-        val duration = System.currentTimeMillis() - start
-        log(TAG, INFO) { "Execution finished after ${duration}ms: $schedule" }
+            val duration = System.currentTimeMillis() - start
+            log(TAG, INFO) { "Execution finished after ${duration}ms: $schedule" }
 
-        Result.success(inputData)
+            Result.success(inputData)
+        }
     } catch (e: Throwable) {
         if (e !is CancellationException) {
             log(TAG, ERROR) { "Execution failed: ${e.asLog()}" }
@@ -100,9 +106,13 @@ class SchedulerWorker @AssistedInject constructor(
             Result.success()
         }
     } finally {
-        schedulerNotifications.cancel(scheduleId)
-        workerScope.cancel("Worker finished (withError?=$finishedWithError).")
-        schedulerManager.reschedule(scheduleId)
+        try {
+            schedulerNotifications.cancel(scheduleId)
+            workerScope.cancel("Worker finished (withError?=$finishedWithError).")
+            schedulerManager.reschedule(scheduleId)
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to clean up after scheduled work (error=$finishedWithError): ${e.asLog()}" }
+        }
     }
 
     private suspend fun doDoWork(schedule: Schedule) {
