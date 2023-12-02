@@ -565,6 +565,9 @@
     <string name="scheduler_notification_channel_label">Планіроўшчык</string>
     <string name="scheduler_notification_title">Запланаванае заданне</string>
     <string name="scheduler_notification_message">Выкананне: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Планіроўшчык завяршыў працу</string>
+    <string name="scheduler_notification_result_success_message">Усе запланаваныя задачы паспяхова выкананы.</string>
+    <string name="scheduler_notification_result_failure_message">Некаторыя запланаваныя задачы не выкананы або пры іх выкананні ўзніклі памылкі. Паспрабуйце запусціць іх уручную.</string>
     <string name="updates_dashcard_title">Даступна абнаўленне</string>
     <string name="updates_dashcard_body">Даступна абнаўленне. У вас версія %1$s, а апошняя версія — %2$s.</string>
     <string name="translation_encourage_title">Перакласці SD Maid</string>

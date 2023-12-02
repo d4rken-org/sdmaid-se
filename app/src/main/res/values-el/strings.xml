@@ -155,7 +155,7 @@
     <string name="corpsefinder_settings_risk_keeper_summary">Αρχεία που ίσως θέλετε να διατηρήσετε, ακόμη και αν η εφαρμογή έχει απεγκατασταθεί, π.χ. φωτογραφίες που τραβήξατε ή αντίγραφα ασφαλείας που δημιουργήσατε.</string>
     <string name="corpsefinder_settings_risk_common_title">Συμπερίληψη κοινών ονομάτων</string>
     <string name="corpsefinder_settings_risk_common_summary">Δεδομένα με πολύ κοινά ονόματα, π.χ. ένας φάκελος \"σημειώσεις\" ανήκει σε πάρα πολλές άγνωστες εφαρμογές.</string>
-    <string name="corpsefinder_watcher_title">Απεγκαταστήστε το watcher</string>
+    <string name="corpsefinder_watcher_title">Παρατηρητής απεγκαταστάσεων</string>
     <string name="corpsefinder_watcher_summary">Αυτόματη σάρωση για υπολείμματα όταν αφαιρεθεί μια εφαρμογή.</string>
     <string name="corpsefinder_watcher_autodelete_title">Αυτόματη διαγραφή</string>
     <string name="corpsefinder_watcher_autodelete_summary">Διαγράψτε αυτόματα τυχόν υπολείμματα που σχετίζονται με την απεγκατεστημένη εφαρμογή.</string>
@@ -538,7 +538,7 @@
     <string name="scheduler_notification_title">Προγραμματισμένες εργασίες</string>
     <string name="scheduler_notification_message">Εκτέλεσει: \"%s\"</string>
     <string name="scheduler_notification_result_title">Ο προγραμματισμός ολοκληρώθηκε</string>
-    <string name="scheduler_notification_result_success_message">Όλες οι προγραμματισμένες εργασίες διεξήχθησαν επιτυχώς.</string>
+    <string name="scheduler_notification_result_success_message">Όλες οι προγραμματισμένες εργασίες εκτελέστηκαν με επιτυχία.</string>
     <string name="scheduler_notification_result_failure_message">Ορισμένες προγραμματισμένες εργασίες απέτυχαν ή αντιμετώπισαν σφάλματα. Δοκιμάστε να τις εκτελέσετε χειροκίνητα.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>

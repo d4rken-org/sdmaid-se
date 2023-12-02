@@ -1,15 +1,18 @@
-<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+<i>SD Maid SE</i> është asistenti i besuar i Android-it juaj, për ta mbajtur atë të pastër dhe të rregullt.
 
 Askush nuk është i përkryer dhe as Android.
 *Aplikacionet që keni hequr tashmë lënë diçka pas.
 * Regjistrat, raportet e dështimit dhe skedarët e tjerë që nuk i dëshironi vërtet po krijohen vazhdimisht.
 * Hapësira juaj ruajtëse po mbledh skedarë dhe drejtori që nuk i njihni.
 
-Let’s not go on here… Let SD Maid SE help you:
+Le të mos vazhdojmë këtu… Lëreni SD Maid SE t'ju ndihmojë:
 
 * Pastroni të dhënat nga aplikacionet tashmë të çinstaluara
-* Gjeni memoriet e fshehura të aplikacioneve
-* Hiq skedarët e tepërt dhe të panevojshëm të sistemit juaj
+* Fshini skedarët e shpenzuar dhe memoriet e fshehura
+* Hiq skedarët e sistemit të papërdorur
+* Krijoni filtrat tuaj për skedarë të rastësishëm
+* Gjeni dhe fshini të dhënat e kopjuara
+* Analizoni ruajtjen tuaj dhe fshini skedarët e mëdhenj që zënë hapësirë
 
 SD Maid SE është pa reklama. Disa veçori kërkojnë një përmirësim me pagesë.
 
