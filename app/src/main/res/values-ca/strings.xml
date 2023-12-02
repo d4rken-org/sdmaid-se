@@ -537,6 +537,9 @@
     <string name="scheduler_notification_channel_label">Programador</string>
     <string name="scheduler_notification_title">Tasca programada</string>
     <string name="scheduler_notification_message">Executant: «%s»</string>
+    <string name="scheduler_notification_result_title">El programador ha finalitat</string>
+    <string name="scheduler_notification_result_success_message">Totes les tasques programades s\'han executat correctament.</string>
+    <string name="scheduler_notification_result_failure_message">Algunes tasques programades han fallat o han trobat errors. Proveu d\'executar-les manualment.</string>
     <string name="updates_dashcard_title">Actualització disponible</string>
     <string name="updates_dashcard_body">Hi ha una actualització disponible. Teniu la versió %1$s i la darrera és %2$s.</string>
     <string name="translation_encourage_title">Traducció de l\'SD Maid</string>

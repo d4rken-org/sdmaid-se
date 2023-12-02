@@ -143,4 +143,12 @@
     <string name="general_timeunit_days">أيام</string>
     <string name="general_progress_ready">جاهز</string>
     <string name="general_progress_done">أكتمل</string>
+    <plurals name="result_x_files">
+        <item quantity="zero">ملف %s</item>
+        <item quantity="one">ملف %s</item>
+        <item quantity="two">%s ملفان</item>
+        <item quantity="few">%s ملفات</item>
+        <item quantity="many">%s ملفات</item>
+        <item quantity="other">%s ملفات</item>
+    </plurals>
 </resources>
