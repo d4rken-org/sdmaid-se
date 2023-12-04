@@ -22,7 +22,12 @@ class RealmeLabels @Inject constructor(
     ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
 
     fun getStorageEntryLabels(lang: String, script: String) = when {
-        "en".toLang() == lang -> setOf("Storage usage")
+        "en".toLang() == lang -> setOf(
+            "Storage usage",
+            // https://github.com/d4rken-org/sdmaid-se/issues/744
+            "Storage & cache"
+        )
+
         "de".toLang() == lang -> setOf("Speichernutzung")
         "fil".toLang() == lang -> setOf("Paggamit ng storage")
         "ru".toLang() == lang -> setOf("Использование памяти")
