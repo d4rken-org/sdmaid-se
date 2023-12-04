@@ -6,6 +6,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.isAncestorOf
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 
 suspend fun Exclusion.Path.match(candidate: APathLookup<*>): Boolean = match(candidate.lookedUp)
 
@@ -56,6 +58,14 @@ suspend fun <T : APath> Exclusion.Path.excludeNested(paths: Collection<T>): Set<
     }
 
     return afterSecondPass.toSet()
+}
+
+@OptIn(ExperimentalContracts::class)
+fun Exclusion.isDefault(): Boolean {
+    contract {
+        returns(true) implies (this@isDefault is DefaultExclusion)
+    }
+    return this is DefaultExclusion
 }
 
 private val TAG = logTag("Exclusion", "Extensions")

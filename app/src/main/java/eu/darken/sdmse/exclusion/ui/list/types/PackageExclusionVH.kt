@@ -1,6 +1,7 @@
 package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
@@ -33,7 +34,7 @@ class PackageExclusionVH(parent: ViewGroup) :
         lastItem = item
         item.pkg?.let { icon.loadAppIcon(it) }
         primary.text = item.exclusion.label.get(context)
-
+        tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
@@ -41,6 +42,7 @@ class PackageExclusionVH(parent: ViewGroup) :
         val pkg: Pkg?,
         override val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
+        override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {
         override val stableId: Long = exclusion.id.hashCode().toLong()
         override val itemSelectionKey: String = exclusion.id

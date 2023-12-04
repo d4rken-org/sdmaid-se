@@ -1,6 +1,7 @@
 package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.ExclusionListItemSegmentBinding
@@ -30,13 +31,14 @@ class SegmentExclusionVH(parent: ViewGroup) :
         lastItem = item
         val excl = item.exclusion
         primary.text = excl.label.get(context)
-
+        tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val exclusion: SegmentExclusion,
         val onItemClick: (Item) -> Unit,
+        override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {
         override val stableId: Long = exclusion.hashCode().toLong()
         override val itemSelectionKey: String = exclusion.id
