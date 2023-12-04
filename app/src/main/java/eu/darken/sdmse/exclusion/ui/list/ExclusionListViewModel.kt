@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.DefaultExclusions
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -22,6 +21,7 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
 import eu.darken.sdmse.exclusion.core.types.isDefault
+import eu.darken.sdmse.exclusion.core.types.tryAsPathExclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
@@ -43,80 +43,94 @@ class ExclusionListViewModel @Inject constructor(
 
     val events = SingleLiveEvent<ExclusionListEvents>()
 
-    val state = exclusionManager.exclusions
-        .map { exclusions ->
-            val items = exclusions.map { _exclusion ->
-                when (val exclusion = if (_exclusion is DefaultExclusion) _exclusion.exclusion else _exclusion) {
-                    is PkgExclusion -> PackageExclusionVH.Item(
-                        pkg = pkgRepo.getPkg(exclusion.pkgId).firstOrNull(),
-                        exclusion = exclusion,
-                        isDefault = _exclusion.isDefault(),
-                        onItemClick = {
-                            if (_exclusion.isDefault()) {
-                                webpageTool.open(_exclusion.reason)
-                            } else {
-                                ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
-                                    exclusionId = exclusion.id,
-                                    initial = null
-                                ).navigate()
-                            }
-                        }
-                    )
-
-                    is PathExclusion -> PathExclusionVH.Item(
-                        lookup = try {
-                            gatewaySwitch.lookup(exclusion.path)
-                        } catch (e: Exception) {
-                            log(TAG, VERBOSE) { "Path exclusion lookup failed: $e" }
-                            null
-                        },
-                        exclusion = exclusion,
-                        isDefault = _exclusion.isDefault(),
-                        onItemClick = {
-                            if (_exclusion.isDefault()) {
-                                webpageTool.open(_exclusion.reason)
-                            } else {
-                                ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
-                                    exclusionId = exclusion.id,
-                                    initial = null
-                                ).navigate()
-                            }
-                        }
-                    )
-
-                    is SegmentExclusion -> SegmentExclusionVH.Item(
-                        exclusion = exclusion,
-                        isDefault = _exclusion.isDefault(),
-                        onItemClick = {
-                            if (_exclusion.isDefault()) {
-                                webpageTool.open(_exclusion.reason)
-                            } else {
-                                ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
-                                    exclusionId = exclusion.id,
-                                    initial = null
-                                ).navigate()
-                            }
-                        }
-                    )
-
-                    else -> throw NotImplementedError()
-                }
-            }
-            val sortedItems = items.sortedWith(
-                compareBy<ExclusionListAdapter.Item> { it.isDefault }
-                    .thenBy {
-                        when (it) {
-                            is PackageExclusionVH.Item -> 0
-                            is PathExclusionVH.Item -> 1
-                            is SegmentExclusionVH.Item -> 2
-                            else -> -1
-                        }
-                    }.thenBy {
-                        it.exclusion.label.get(context)
+    private val lookups = exclusionManager.exclusions
+        .map { excls -> excls.mapNotNull { it.tryAsPathExclusion() }.map { it.path } }
+        .map { paths ->
+            paths
+                .mapNotNull { path ->
+                    try {
+                        gatewaySwitch.lookup(path)
+                    } catch (e: Exception) {
+                        log(TAG, VERBOSE) { "Path exclusion lookup failed: $e" }
+                        null
                     }
-            )
-            State(sortedItems, loading = false)
+                }
+                .groupBy { it.lookedUp }
+                .mapValues { it.value.first() }
         }
+
+    val state = combine(
+        exclusionManager.exclusions,
+        pkgRepo.pkgs.onStart { emit(emptySet()) },
+        lookups.onStart { emit(emptyMap()) }
+    ) { exclusions, pkgs, lookups ->
+        val items = exclusions.map { _exclusion ->
+            when (val exclusion = if (_exclusion is DefaultExclusion) _exclusion.exclusion else _exclusion) {
+                is PkgExclusion -> PackageExclusionVH.Item(
+                    pkg = pkgs.firstOrNull { it.id == exclusion.pkgId },
+                    exclusion = exclusion,
+                    isDefault = _exclusion.isDefault(),
+                    onItemClick = {
+                        if (_exclusion.isDefault()) {
+                            webpageTool.open(_exclusion.reason)
+                        } else {
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
+                                exclusionId = exclusion.id,
+                                initial = null
+                            ).navigate()
+                        }
+                    }
+                )
+
+                is PathExclusion -> PathExclusionVH.Item(
+                    lookup = lookups[exclusion.path],
+                    exclusion = exclusion,
+                    isDefault = _exclusion.isDefault(),
+                    onItemClick = {
+                        if (_exclusion.isDefault()) {
+                            webpageTool.open(_exclusion.reason)
+                        } else {
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
+                                exclusionId = exclusion.id,
+                                initial = null
+                            ).navigate()
+                        }
+                    }
+                )
+
+                is SegmentExclusion -> SegmentExclusionVH.Item(
+                    exclusion = exclusion,
+                    isDefault = _exclusion.isDefault(),
+                    onItemClick = {
+                        if (_exclusion.isDefault()) {
+                            webpageTool.open(_exclusion.reason)
+                        } else {
+                            ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
+                                exclusionId = exclusion.id,
+                                initial = null
+                            ).navigate()
+                        }
+                    }
+                )
+
+                else -> throw NotImplementedError()
+            }
+        }
+        val sortedItems = items.sortedWith(
+            compareBy<ExclusionListAdapter.Item> { it.isDefault }
+                .thenBy {
+                    when (it) {
+                        is PackageExclusionVH.Item -> 0
+                        is PathExclusionVH.Item -> 1
+                        is SegmentExclusionVH.Item -> 2
+                        else -> -1
+                    }
+                }.thenBy {
+                    it.exclusion.label.get(context)
+                }
+        )
+        State(sortedItems, loading = false)
+    }
         .onStart { emit(State()) }
         .asLiveData2()
 

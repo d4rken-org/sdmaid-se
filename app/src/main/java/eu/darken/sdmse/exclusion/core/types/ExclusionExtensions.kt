@@ -68,4 +68,9 @@ fun Exclusion.isDefault(): Boolean {
     return this is DefaultExclusion
 }
 
+fun Exclusion.tryAsPathExclusion(): PathExclusion? {
+    val unwrapped = if (this is DefaultExclusion) this.exclusion else this
+    return unwrapped as? PathExclusion
+}
+
 private val TAG = logTag("Exclusion", "Extensions")
