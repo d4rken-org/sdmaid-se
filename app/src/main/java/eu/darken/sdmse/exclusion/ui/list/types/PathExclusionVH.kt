@@ -1,6 +1,7 @@
 package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APathLookup
@@ -33,7 +34,7 @@ class PathExclusionVH(parent: ViewGroup) :
         lastItem = item
         item.lookup?.let { icon.loadFilePreview(it) }
         primary.text = item.exclusion.label.get(context)
-
+        tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
@@ -41,6 +42,7 @@ class PathExclusionVH(parent: ViewGroup) :
         val lookup: APathLookup<*>?,
         override val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
+        override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {
         override val stableId: Long = exclusion.hashCode().toLong()
         override val itemSelectionKey: String = exclusion.id

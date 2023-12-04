@@ -43,6 +43,8 @@ class ExclusionListAdapter @Inject constructor() :
     interface Item : DifferItem, SelectableItem {
 
         val exclusion: Exclusion
+        val isDefault: Boolean
+
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
                 if (new::class.isInstance(old)) new else null

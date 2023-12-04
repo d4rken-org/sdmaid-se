@@ -2,6 +2,7 @@ package eu.darken.sdmse.exclusion.core
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
@@ -9,6 +10,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
@@ -20,12 +22,29 @@ class ExclusionManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val exclusionStorage: ExclusionStorage,
+    private val defaultExclusions: DefaultExclusions,
 ) {
 
     private val _exclusions = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
         exclusionStorage.load() ?: emptySet()
     }
-    val exclusions: Flow<Collection<Exclusion>> = _exclusions.flow
+    val exclusions: Flow<Collection<Exclusion>> = combine(
+        _exclusions.flow,
+        defaultExclusions.exclusions,
+    ) { user, defaults ->
+        val exclusions = mutableSetOf<Exclusion>()
+        exclusions.addAll(user)
+        defaults.forEach { def ->
+            if (exclusions.none { it.id == def.id }) {
+                log(TAG, VERBOSE) { "Injecting default $def" }
+                exclusions.add(def)
+            } else {
+                log(TAG, VERBOSE) { "User exclusions overlap with $def" }
+            }
+        }
+        exclusions
+    }
+
 
     init {
         _exclusions.flow
@@ -55,6 +74,8 @@ class ExclusionManager @Inject constructor(
         val targets = currentExclusions().filter { ids.contains(it.id) }.toSet()
         log(TAG) { "remove(): $targets" }
         _exclusions.updateBlocking { this - targets }
+
+        defaultExclusions.remove(ids)
     }
 
     companion object {

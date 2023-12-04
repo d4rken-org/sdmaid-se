@@ -10,4 +10,11 @@
         android:title="@string/general_info_label"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/menu_restore_default_exclusions"
+        android:icon="@drawable/baseline_settings_backup_restore_24"
+        android:orderInCategory="100"
+        android:title="@string/exclusion_reset_default_exclusions"
+        app:showAsAction="never" />
+
 </menu>

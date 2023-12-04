@@ -46,6 +46,11 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                         true
                     }
 
+                    R.id.menu_restore_default_exclusions -> {
+                        vm.resetDefaultExclusions()
+                        true
+                    }
+
                     else -> false
                 }
             }

@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -13,11 +14,14 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.exclusion.core.DefaultExclusions
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import eu.darken.sdmse.exclusion.core.types.isDefault
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
@@ -33,22 +37,29 @@ class ExclusionListViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,
+    private val defaultExclusions: DefaultExclusions,
+    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<ExclusionListEvents>()
 
     val state = exclusionManager.exclusions
         .map { exclusions ->
-            val items = exclusions.map { exclusion ->
-                when (exclusion) {
+            val items = exclusions.map { _exclusion ->
+                when (val exclusion = if (_exclusion is DefaultExclusion) _exclusion.exclusion else _exclusion) {
                     is PkgExclusion -> PackageExclusionVH.Item(
                         pkg = pkgRepo.getPkg(exclusion.pkgId).firstOrNull(),
                         exclusion = exclusion,
+                        isDefault = _exclusion.isDefault(),
                         onItemClick = {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
-                            ).navigate()
+                            if (_exclusion.isDefault()) {
+                                webpageTool.open(_exclusion.reason)
+                            } else {
+                                ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
+                                    exclusionId = exclusion.id,
+                                    initial = null
+                                ).navigate()
+                            }
                         }
                     )
 
@@ -60,21 +71,31 @@ class ExclusionListViewModel @Inject constructor(
                             null
                         },
                         exclusion = exclusion,
+                        isDefault = _exclusion.isDefault(),
                         onItemClick = {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
-                            ).navigate()
+                            if (_exclusion.isDefault()) {
+                                webpageTool.open(_exclusion.reason)
+                            } else {
+                                ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
+                                    exclusionId = exclusion.id,
+                                    initial = null
+                                ).navigate()
+                            }
                         }
                     )
 
                     is SegmentExclusion -> SegmentExclusionVH.Item(
                         exclusion = exclusion,
+                        isDefault = _exclusion.isDefault(),
                         onItemClick = {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
-                            ).navigate()
+                            if (_exclusion.isDefault()) {
+                                webpageTool.open(_exclusion.reason)
+                            } else {
+                                ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
+                                    exclusionId = exclusion.id,
+                                    initial = null
+                                ).navigate()
+                            }
                         }
                     )
 
@@ -82,16 +103,17 @@ class ExclusionListViewModel @Inject constructor(
                 }
             }
             val sortedItems = items.sortedWith(
-                compareBy<ExclusionListAdapter.Item> {
-                    when (it) {
-                        is PackageExclusionVH.Item -> 0
-                        is PathExclusionVH.Item -> 1
-                        is SegmentExclusionVH.Item -> 2
-                        else -> -1
+                compareBy<ExclusionListAdapter.Item> { it.isDefault }
+                    .thenBy {
+                        when (it) {
+                            is PackageExclusionVH.Item -> 0
+                            is PathExclusionVH.Item -> 1
+                            is SegmentExclusionVH.Item -> 2
+                            else -> -1
+                        }
+                    }.thenBy {
+                        it.exclusion.label.get(context)
                     }
-                }.thenBy {
-                    it.exclusion.label.get(context)
-                }
             )
             State(sortedItems, loading = false)
         }
@@ -113,6 +135,11 @@ class ExclusionListViewModel @Inject constructor(
         val exclusions = items.map { it.exclusion }.toSet()
         exclusionManager.remove(exclusions.map { it.id }.toSet())
         events.postValue(ExclusionListEvents.UndoRemove(exclusions))
+    }
+
+    fun resetDefaultExclusions() = launch {
+        log(TAG) { "resetDefaultExclusions()" }
+        defaultExclusions.reset()
     }
 
     companion object {
