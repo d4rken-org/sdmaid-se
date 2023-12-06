@@ -20,8 +20,25 @@ class OnePlusLabels31Plus @Inject constructor(
         "storage_use"
     ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
 
-    fun getStorageEntryLabels(lang: String, script: String): Collection<String> =
-        onePlusLabels29Plus.getStorageEntryLabels(lang, script)
+    fun getStorageEntryLabels(lang: String, script: String): Collection<String> = when {
+        "en".toLang() == lang -> setOf(
+            // Guessed based on AOSP usage
+            "Storage & cache",
+            // Guessed based on AOSP usage
+            "Storage and cache",
+            // Guessed based on AOSP usage
+            "Storage usage"
+        )
+
+        "de".toLang() == lang -> setOf(
+            // OnePlus/OnePlus9Pro/OnePlus9Pro:13/TP1A.220905.001/R.12ee130-1f9aa-ffaae:user/release-keys
+            "Speicher und Cache",
+            // Guessed based on AOSP usage
+            "Speicher & Cache",
+        )
+
+        else -> emptySet()
+    }.tryAppend { onePlusLabels29Plus.getStorageEntryLabels(lang, script) }
 
     fun getClearCacheDynamic(): Set<String>? = onePlusLabels29Plus.getClearCacheDynamic()
 
