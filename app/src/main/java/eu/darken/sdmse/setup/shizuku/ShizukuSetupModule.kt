@@ -14,10 +14,12 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuSettings
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -74,7 +76,7 @@ class ShizukuSetupModule @Inject constructor(
 
     suspend fun toggleUseShizuku(useShizuku: Boolean?) {
         log(TAG) { "toggleUseShizuku(useShizuku=$useShizuku)" }
-
+        val couldUseShizuku = shizukuManager.canUseShizukuNow()
         if (useShizuku == true && shizukuManager.isGranted() == false) {
             val grantResult = coroutineScope {
                 val eventResult = async {
@@ -93,6 +95,12 @@ class ShizukuSetupModule @Inject constructor(
             shizukuSettings.useShizuku.value(grantResult.takeIf { it == true })
         } else {
             shizukuSettings.useShizuku.value(useShizuku)
+        }
+
+        if (!couldUseShizuku && useShizuku == true) {
+            // TODO find a smarter way to do this, i.e. by waiting for a specific event.
+            // Small delay to allow Shizuku service to bind
+            delay(1500)
         }
 
         dataAreaManager.reload()
