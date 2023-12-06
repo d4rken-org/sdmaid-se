@@ -14,6 +14,8 @@
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="SystemCleaner filter content"
+        tools:ignore="HardcodedText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/systemcleaner_filtercontent_element_header" />

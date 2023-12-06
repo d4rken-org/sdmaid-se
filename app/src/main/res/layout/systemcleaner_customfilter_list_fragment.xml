@@ -51,6 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:contentDescription="SystemCleaner custom filters"
+        tools:ignore="HardcodedText"
         android:paddingVertical="4dp"
         android:paddingBottom="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

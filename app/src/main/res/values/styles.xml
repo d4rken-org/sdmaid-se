@@ -183,6 +183,7 @@
     <style name="SDMToolbar.Primary" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">?actionBarSize</item>
+        <item name="navigationContentDescription">Navigate back</item>
     </style>
 
 </resources>

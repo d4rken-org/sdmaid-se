@@ -49,6 +49,8 @@
         android:id="@+id/list"
         style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
+        android:contentDescription="Exclusions"
+        tools:ignore="HardcodedText"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingVertical="4dp"

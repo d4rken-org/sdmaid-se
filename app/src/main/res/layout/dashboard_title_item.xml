@@ -13,25 +13,27 @@
         android:id="@+id/mascot_container"
         android:layout_width="56dp"
         android:layout_height="72dp"
+        android:contentDescription="SD Maid mascot"
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toStartOf="@id/title_container"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="@id/title_container">
+        app:layout_constraintTop_toTopOf="@id/title_container"
+        tools:ignore="HardcodedText">
 
         <ImageView
             android:id="@+id/mascot_rigid"
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_gravity="center"
-            android:visibility="invisible"
-            android:src="@drawable/vector_mascot_nobroom" />
+            android:src="@drawable/vector_mascot_nobroom"
+            android:visibility="invisible" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/mascot_animated"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:layout_gravity="center"
+            android:scaleType="centerCrop"
             app:lottie_autoPlay="true"
             app:lottie_fallbackRes="@drawable/splash_mascot"
             app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
