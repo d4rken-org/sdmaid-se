@@ -22,10 +22,12 @@
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="Slider for minimum appjunk age"
         app:layout_constraintBottom_toTopOf="@id/time_scale_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/slider_value" />
+        app:layout_constraintTop_toBottomOf="@id/slider_value"
+        tools:ignore="HardcodedText" />
 
     <RadioGroup
         android:id="@+id/time_scale_group"

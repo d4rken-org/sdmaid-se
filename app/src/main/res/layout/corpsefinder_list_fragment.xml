@@ -23,6 +23,8 @@
         android:visibility="invisible"
         tools:visibility="visible"
         style="@style/BaseRecyclerList"
+        android:contentDescription="CorpseFinder results"
+        tools:ignore="HardcodedText"
         android:clipToPadding="false"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"

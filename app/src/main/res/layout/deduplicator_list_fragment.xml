@@ -25,6 +25,8 @@
         style="@style/BaseRecyclerList"
         android:clipToPadding="false"
         android:paddingVertical="4dp"
+        android:contentDescription="Deduplicator result"
+        tools:ignore="HardcodedText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

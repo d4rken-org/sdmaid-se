@@ -9,6 +9,8 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="Delete confirmation previews"
+        tools:ignore="HardcodedText"
         android:layout_margin="16dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"

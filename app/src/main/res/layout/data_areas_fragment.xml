@@ -80,6 +80,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
+        android:contentDescription="Data areas"
+        tools:ignore="HardcodedText"
         style="@style/BaseRecyclerList"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
