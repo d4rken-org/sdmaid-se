@@ -57,6 +57,15 @@ class DeviceDetective @Inject constructor(
 
     suspend fun isLineageROM(): Boolean = Build.DISPLAY.lowercase().contains("lineage")
             || Build.PRODUCT.lowercase().contains("lineage")
+            || LINEAGE_PKGS.any { context.isInstalled(it) }
 
     suspend fun isCustomROM() = isLineageROM()
+
+    companion object {
+        private val LINEAGE_PKGS = setOf(
+            "org.lineageos.lineagesettings",
+            "lineageos.platform",
+            "org.lineageos.settings.device",
+        )
+    }
 }
