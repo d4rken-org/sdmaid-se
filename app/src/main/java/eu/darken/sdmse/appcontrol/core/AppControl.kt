@@ -29,11 +29,11 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -49,6 +49,7 @@ class AppControl @Inject constructor(
     private val uninstaller: Uninstaller,
     private val pkgOps: PkgOps,
     usageStatsSetupModule: UsageStatsSetupModule,
+    storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
 ) : SDMTool, Progress.Client {
@@ -65,18 +66,20 @@ class AppControl @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.APPCONTROL
 
-    override val state: Flow<State> = combine(
+    override val state: Flow<State> = eu.darken.sdmse.common.flow.combine(
         usageStatsSetupModule.state,
+        storageSetupModule.state,
         rootManager.useRoot,
         shizukuManager.useShizuku,
         internalData,
         progress,
-    ) { usageState, useRoot, useShizuku, data, progress ->
+    ) { usageState, storageState, useRoot, useShizuku, data, progress ->
         State(
             data = data,
             progress = progress,
             isActiveInfoAvailable = usageState.isComplete || useRoot || useShizuku,
             isAppToggleAvailable = useRoot || useShizuku,
+            isSizeInfoAvailable = usageState.isComplete || storageState.isComplete,
         )
     }.replayingShare(appScope)
 
@@ -228,9 +231,12 @@ class AppControl @Inject constructor(
 
     private suspend fun Installed.toAppInfo(): AppInfo {
         val determineActive = state.first().isActiveInfoAvailable
+        val determineSizes = state.first().isSizeInfoAvailable
+
         return AppInfo(
             pkg = this,
             isActive = if (determineActive) pkgOps.isRunning(installId) else null,
+            sizes = if (determineSizes) pkgOps.querySizeStats(installId) else null,
         )
     }
 
@@ -239,6 +245,7 @@ class AppControl @Inject constructor(
         val progress: Progress.Data?,
         val isAppToggleAvailable: Boolean,
         val isActiveInfoAvailable: Boolean,
+        val isSizeInfoAvailable: Boolean,
     ) : SDMTool.State
 
     data class Data(

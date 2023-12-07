@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.text.format.Formatter
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -10,6 +11,7 @@ import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -110,6 +112,18 @@ class AppControlListViewModel @Inject constructor(
                 ?: "?"
         }.also { lablrCacheInstalled[this.id] = it }
 
+    private val lablrCacheSize = mutableMapOf<Pkg.Id, String>()
+
+    private val AppInfo.lablrSize: String
+        get() = lablrCacheSize[this.id] ?: run {
+            this.sizes?.total
+                ?.let {
+                    val hundredMB = 104857600
+                    if (it % hundredMB == 0L) it else ((it / hundredMB) + 1L) * hundredMB
+                }
+                ?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
+        }.also { lablrCacheSize[this.id] = it }
+
     data class DisplayOptions(
         val searchQuery: String,
         val listSort: SortSettings,
@@ -175,6 +189,10 @@ class AppControlListViewModel @Inject constructor(
                         SortSettings.Mode.INSTALLED_AT -> compareBy {
                             (it.pkg as? ExtendedInstallData)?.installedAt ?: Instant.EPOCH
                         }
+
+                        SortSettings.Mode.SIZE -> compareBy {
+                            it.sizes?.total ?: 0L
+                        }
                     }
                 )
                 ?.let { if (listSort.reversed) it.reversed() else it }
@@ -185,6 +203,7 @@ class AppControlListViewModel @Inject constructor(
                         lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
                         lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
                         lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
+                        lablrSize = if (listSort.mode == SortSettings.Mode.SIZE) content.lablrSize else null,
                         onItemClicked = {
                             AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
                                 content.pkg.id
@@ -209,8 +228,16 @@ class AppControlListViewModel @Inject constructor(
         searchQuery.value = query
     }
 
+    fun ackSizeSortCaveat() = launch {
+        log(TAG) { "ackSizeSortCaveat()" }
+        settings.ackSizeSortCaveat.value(true)
+    }
+
     fun updateSortMode(mode: SortSettings.Mode) = launch {
         log(TAG) { "updateSortMode($mode)" }
+        if (!settings.ackSizeSortCaveat.value() && mode == SortSettings.Mode.SIZE) {
+            events.postValue(AppControlListEvents.ShowSizeSortCaveat)
+        }
         settings.listSort.update {
             it.copy(mode = mode)
         }

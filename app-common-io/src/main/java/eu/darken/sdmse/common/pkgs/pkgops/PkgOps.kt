@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops
 
+import android.app.usage.StorageStatsManager
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.pm.ApplicationInfo
@@ -8,6 +9,7 @@ import android.content.pm.PackageManager.*
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
+import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -42,6 +44,7 @@ import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.*
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -55,6 +58,7 @@ class PkgOps @Inject constructor(
     private val rootManager: RootManager,
     private val shizukuManager: ShizukuManager,
     private val usageStatsManager: UsageStatsManager,
+    private val storageStatsManager: StorageStatsManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -400,6 +404,38 @@ class PkgOps @Inject constructor(
             }
             throw PkgOpsException(message = "setAppOps($id, $key, $value $mode) failed", cause = e)
         }
+    }
+
+    data class SizeStats(
+        val appBytes: Long,
+        val cacheBytes: Long,
+        val externalCacheBytes: Long?,
+        val dataBytes: Long,
+    ) {
+        val total: Long
+            get() = appBytes + dataBytes + cacheBytes
+    }
+
+    suspend fun querySizeStats(
+        installId: Installed.InstallId,
+        storageUUID: UUID = StorageManager.UUID_DEFAULT
+    ): SizeStats? = try {
+        val stats = storageStatsManager.queryStatsForPackage(
+            storageUUID,
+            installId.pkgId.name,
+            installId.userHandle.asUserHandle(),
+        )
+        SizeStats(
+            appBytes = stats.appBytes,
+            cacheBytes = stats.cacheBytes,
+            externalCacheBytes = if (hasApiLevel(31)) {
+                @Suppress("NewApi")
+                stats.externalCacheBytes
+            } else null,
+            dataBytes = stats.dataBytes,
+        )
+    } catch (e: NameNotFoundException) {
+        null
     }
 
     enum class AppOpsKey(val raw: String) {

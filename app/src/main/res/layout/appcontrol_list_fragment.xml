@@ -157,6 +157,15 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:text="@string/appcontrol_list_sortmode_packagename_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_size"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_size_label" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <com.google.android.material.button.MaterialButton

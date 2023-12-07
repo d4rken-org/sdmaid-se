@@ -52,12 +52,30 @@
         style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@id/tag_container"
-        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintEnd_toStartOf="@id/sizes"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/secondary"
         app:layout_goneMarginBottom="8dp"
         tools:text="v0.0.0 (0000000000)" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sizes"
+        style="@style/TextAppearance.Material3.LabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tertiary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tertiary"
+        app:layout_constraintTop_toTopOf="@id/tertiary"
+        app:layout_goneMarginBottom="8dp"
+        tools:text="345 MB"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/tag_container"

@@ -14,6 +14,7 @@ data class SortSettings(
         @Json(name = "LAST_UPDATE") LAST_UPDATE,
         @Json(name = "INSTALLED_AT") INSTALLED_AT,
         @Json(name = "PACKAGENAME") PACKAGENAME,
+        @Json(name = "SIZE") SIZE,
         ;
     }
 }

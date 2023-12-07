@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -17,6 +18,7 @@ import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
@@ -79,6 +81,26 @@ class AppActionViewModel @Inject constructor(
         appControl.state.mapNotNull { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } },
         appControl.progress,
     ) { exclusions, state, appInfo, progress ->
+
+        val sizeAction = appInfo.sizes?.let {
+            SizeInfoVH.Item(
+                appInfo,
+                onSizeClicked = {
+                    // TODO nicer target than this?
+                    val intent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    try {
+                        context.startActivity(intent)
+                    } catch (e: ActivityNotFoundException) {
+                        errorEvents.postValue(e)
+                    } catch (e: SecurityException) {
+                        errorEvents.postValue(e)
+                    }
+                }
+            )
+        }
+
         val launchAction = context.packageManager
             .getLaunchIntentForPackage(appInfo.pkg.packageName)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
@@ -173,6 +195,7 @@ class AppActionViewModel @Inject constructor(
             progress = progress,
             appInfo = appInfo,
             actions = listOfNotNull(
+                sizeAction,
                 launchAction,
                 systemSettingsAction,
                 appStoreAction,

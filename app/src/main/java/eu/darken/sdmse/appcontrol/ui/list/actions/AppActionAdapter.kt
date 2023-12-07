@@ -6,6 +6,7 @@ import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
@@ -30,6 +31,7 @@ class AppActionAdapter @Inject constructor() :
 
     init {
         addMod(DataBinderMod(data))
+        addMod(TypedVHCreatorMod({ data[it] is SizeInfoVH.Item }) { SizeInfoVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is LaunchActionVH.Item }) { LaunchActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UninstallActionVH.Item }) { UninstallActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ToggleActionVH.Item }) { ToggleActionVH(it) })
