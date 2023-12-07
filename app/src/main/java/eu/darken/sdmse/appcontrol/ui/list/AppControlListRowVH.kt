@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
+import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.children
 import androidx.core.view.isGone
@@ -44,6 +45,11 @@ class AppControlListRowVH(parent: ViewGroup) :
 
         tertiary.text = "${appInfo.pkg.versionName}  (${appInfo.pkg.versionCode})"
 
+        sizes.apply {
+            text = appInfo.sizes?.let { Formatter.formatShortFileSize(context, it.total) }
+            isVisible = appInfo.sizes != null
+        }
+
         tagSystem.tagSystem.isInvisible = !appInfo.pkg.isSystemApp
         tagDisabled.tagDisabled.isInvisible = appInfo.pkg.isEnabled
         tagActive.tagActive.isInvisible = !(appInfo.isActive ?: false)
@@ -58,6 +64,7 @@ class AppControlListRowVH(parent: ViewGroup) :
         val lablrPkg: String?,
         val lablrUpdated: String?,
         val lablrInstalled: String?,
+        val lablrSize: String?,
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item, SelectableItem {
 
