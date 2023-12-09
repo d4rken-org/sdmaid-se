@@ -11,6 +11,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_action_import"
+        android:icon="@drawable/ic_file_import_outline_24"
+        android:orderInCategory="100"
+        android:title="@string/exclusion_import_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_restore_default_exclusions"
         android:icon="@drawable/baseline_settings_backup_restore_24"
         android:orderInCategory="100"

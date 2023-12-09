@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.exclusion.core.types
+package eu.darken.sdmse.exclusion.core.types
 
 import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.local.tryMkFile

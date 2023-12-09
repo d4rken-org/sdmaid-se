@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.exclusion.core
+package eu.darken.sdmse.exclusion.core
 
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.segs
