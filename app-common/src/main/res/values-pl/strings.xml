@@ -83,7 +83,6 @@
     <string name="general_delete_selected_action">Usuń zaznaczone</string>
     <string name="general_show_details_action">Pokaż szczegóły</string>
     <string name="general_show_all_action">Pokaż wszystkie</string>
-    <string name="general_toggle_layout_mode">Przełącz tryb przeglądania</string>
     <string name="general_delete_confirmation_title">Potwierdź usunięcie</string>
     <string name="general_delete_confirmation_message_x">Usunąć \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Usunąć %d wybranych elementów?</string>

@@ -83,7 +83,6 @@
     <string name="general_delete_selected_action">Excluir selecionados</string>
     <string name="general_show_details_action">Mostrar detalhes</string>
     <string name="general_show_all_action">Exibir tudo</string>
-    <string name="general_toggle_layout_mode">Alternar modo de visualização</string>
     <string name="general_delete_confirmation_title">Confirmar exclusão</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>

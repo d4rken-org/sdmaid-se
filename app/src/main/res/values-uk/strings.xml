@@ -107,6 +107,8 @@
     <string name="setup_manage_storage_card_body2">Базовий доступ до загального сховища, наприклад, \"Download/\" і \"DCIM/\", але не завжди \"Android/data\".</string>
     <string name="setup_root_card_title">Root доступ</string>
     <string name="setup_root_card_body">Чи повинна SD Maid використовувати Root доступ, якщо він доступний? Рут доступ може бути використаний для перевірки додаткових системних папок і приватних даних програми.</string>
+    <string name="setup_root_state_ready_label">Root доступ готовий.</string>
+    <string name="setup_root_state_waiting_label">Очікування root-доступу.</string>
     <string name="setup_root_enable_root_use_label">Використовувати Root доступ, якщо він доступний</string>
     <string name="setup_root_disable_root_use_label">Не використовувати Root доступ</string>
     <string name="setup_root_card_body2">Доступно лише на рутованих пристроях. Якщо ви не зробили цю модифікацію, то ваш пристрій не є рутованим і цей параметр не має жодного ефекту.</string>
@@ -502,6 +504,8 @@
     <string name="scheduler_notification_result_title">Планувальник завершив роботу</string>
     <string name="scheduler_notification_result_success_message">Всі заплановані завдання успішно виконані.</string>
     <string name="scheduler_notification_result_failure_message">Деякі заплановані завдання не вдалося виконати або виникли помилки. Спробуйте запустити їх вручну.</string>
+    <string name="scheduler_commands_after_schedule_label">Команди після розкладу</string>
+    <string name="scheduler_commands_after_schedule_desc">Команди оболонки Android, які будуть виконані в кінці розкладу.</string>
     <string name="updates_dashcard_title">Доступно оновлення</string>
     <string name="updates_dashcard_body">Доступно оновлення. У вас %1$s, а остання версія - %2$s.</string>
     <string name="translation_encourage_title">Переклад SD Maid</string>

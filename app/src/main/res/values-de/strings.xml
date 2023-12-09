@@ -113,7 +113,7 @@
     <string name="setup_shizuku_state_waiting_label">Warte auf Verbindung mit Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Verwende Shizuku, falls verfügbar</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku nicht verwenden</string>
-    <string name="setup_dismiss_hint">Du kannst das Setup im Einstellungsmenü wiederfinden.</string>
+    <string name="setup_dismiss_hint">Du kannst die Einrichtung im Einstellungsmenü wiederfinden.</string>
     <string name="setup_permission_granted_label">Erlaubnis erteilt</string>
     <string name="setup_usagestats_title">Nutzungsstatistiken</string>
     <string name="setup_usagestats_body">Die Nutzungsstatistik-Berechtigung gewährt Zugriff auf weitere App-Details. SD Maid verwendet sie, um zusätzliche Cache-Größen zu bestimmen.</string>
@@ -135,7 +135,7 @@
     <string name="setup_acs_consent_positive_action">Dienst aktivieren und Zugriff gewähren</string>
     <string name="setup_acs_consent_negative_action">Verwende keinen Barrierefreiheitsdienst</string>
     <string name="setup_acs_allow_hint">Wenn Du am Bildschirmrand ein kleines Symbol siehst, hast Du versehentlich die Option \"Verknüpfung\" aktiviert.</string>
-    <string name="setup_acs_disallow_hint">Wenn Du Deine Meinung änderst, kannst Du diese Option erneut ändern, indem Du in die Einstellungen gehst und das Setup neu startest.</string>
+    <string name="setup_acs_disallow_hint">Wenn Du Deine Meinung änderst, kannst Du diese Option erneut ändern, indem Du in die Einstellungen gehst und die Einrichtung neu startest.</string>
     <string name="setup_acs_appops_restriction_title">Eingeschränkte Einstellungen</string>
     <string name="setup_acs_appops_restriction_body">Kann der Zugriffsdienst von SD Maid nicht aktiviert werden? Ab Android 13 gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Deaktiviere diese Einschränkungen auf der Detailseite des Systems für SD Maid. Die Option befindet sich im Kontextmenü oben rechts.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>

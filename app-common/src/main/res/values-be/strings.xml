@@ -83,7 +83,6 @@
     <string name="general_delete_selected_action">Выдаліць выбраныя</string>
     <string name="general_show_details_action">Паказаць падрабязнасці</string>
     <string name="general_show_all_action">Паказаць усе</string>
-    <string name="general_toggle_layout_mode">Пераключыць рэжым адлюстравання</string>
     <string name="general_delete_confirmation_title">Пацвердзіць выдаленне</string>
     <string name="general_delete_confirmation_message_x">Выдаліць \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Выдаліць %d выбраных элементаў?</string>

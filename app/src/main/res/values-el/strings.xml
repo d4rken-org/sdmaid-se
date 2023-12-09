@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Βασική πρόσβαση σε δημόσιο χώρο, π.χ. \"Download/\" και \"DCIM/\", αλλά όχι πάντα \"Android/data\".</string>
     <string name="setup_root_card_title">Πρόσβαση root</string>
     <string name="setup_root_card_body">Πρέπει το SD Maid να χρησιμοποιεί πρόσβαση root εάν είναι διαθέσιμο; Η πρόσβαση Root μπορεί να χρησιμοποιηθεί για τον έλεγχο πρόσθετων φακέλων συστήματος και δεδομένων ιδιωτικών εφαρμογών.</string>
+    <string name="setup_root_state_ready_label">Η πρόσβαση root είναι έτοιμη.</string>
+    <string name="setup_root_state_waiting_label">Αναμονή για πρόσβαση root.</string>
     <string name="setup_root_enable_root_use_label">Χρησιμοποιήστε την πρόσβαση root εάν είναι διαθέσιμη</string>
     <string name="setup_root_disable_root_use_label">Μην χρησιμοποιείτε πρόσβαση root</string>
     <string name="setup_root_card_body2">Διατίθεται μόνο σε συσκευές με root. Εάν δεν κάνατε αυτήν την τροποποίηση, τότε η συσκευή σας δεν έχει root και αυτή η ρύθμιση δεν έχει αποτέλεσμα.</string>
@@ -540,6 +542,8 @@
     <string name="scheduler_notification_result_title">Ο προγραμματισμός ολοκληρώθηκε</string>
     <string name="scheduler_notification_result_success_message">Όλες οι προγραμματισμένες εργασίες εκτελέστηκαν με επιτυχία.</string>
     <string name="scheduler_notification_result_failure_message">Ορισμένες προγραμματισμένες εργασίες απέτυχαν ή αντιμετώπισαν σφάλματα. Δοκιμάστε να τις εκτελέσετε χειροκίνητα.</string>
+    <string name="scheduler_commands_after_schedule_label">Εντολές μεταχρονοδιαγράμματος</string>
+    <string name="scheduler_commands_after_schedule_desc">Εντολές κελύφους Android που θα εκτελεστούν στο τέλος ενός χρονοδιαγράμματος.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>

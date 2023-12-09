@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Acesso básico ao armazenamento público, por exemplo, \"Download/\" e \"DCIM/\", mas nem sempre \"Android/data\".</string>
     <string name="setup_root_card_title">Permissão root</string>
     <string name="setup_root_card_body">O SD Maid deve usar acesso root se estiver disponível? O acesso root pode ser usado para verificar pastas adicionais do sistema e dados de aplicativos privados.</string>
+    <string name="setup_root_state_ready_label">O acesso root está pronto.</string>
+    <string name="setup_root_state_waiting_label">Aguardando o acesso root.</string>
     <string name="setup_root_enable_root_use_label">Usar permissão root se disponível</string>
     <string name="setup_root_disable_root_use_label">Não utilizar permissão root</string>
     <string name="setup_root_card_body2">Apenas disponível em dispositivos com root. Se você não fez essa modificação, então seu dispositivo não tem root e essa configuração não tem efeito.</string>
@@ -357,6 +359,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Excluindo caches usando Shizuku</string>
     <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d conjunto duplicado encontrado</item>
+        <item quantity="other">%d conjuntos duplicados encontrados</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Permitir \"Excluir todos\" possíveis</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitem que você exclua todos os arquivos em um conjunto de duplicados para que nenhum arquivo fique sobrando.</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
@@ -536,6 +542,8 @@
     <string name="scheduler_notification_result_title">Agendador finalizado</string>
     <string name="scheduler_notification_result_success_message">Todas as tarefas agendadas foram executadas com sucesso.</string>
     <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>
+    <string name="scheduler_commands_after_schedule_label">Comandos pós-agendado</string>
+    <string name="scheduler_commands_after_schedule_desc">Comandos de shell do Android que serão executados no final de um cronograma.</string>
     <string name="updates_dashcard_title">Atualização disponível</string>
     <string name="updates_dashcard_body">Uma atualização está disponível. Sua versão é %1$s e a última versão é %2$s.</string>
     <string name="translation_encourage_title">Traduzir o SD Maid</string>

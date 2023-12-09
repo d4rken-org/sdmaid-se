@@ -111,6 +111,8 @@
     <string name="setup_manage_storage_card_body2">الوصول الأساسي إلى التخزين العام ، على سبيل المثال \"Download /\" و \"DCIM /\" ، ولكن ليس دائمًا \"Android / data\".</string>
     <string name="setup_root_card_title">صلاحيّة الجذر</string>
     <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid استخدام صلاحيات الروت إذا كان متاحاً؟ يمكن استخدام صلاحيات الروت للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>
+    <string name="setup_root_state_ready_label">صلاحيات Root جاهزة.</string>
+    <string name="setup_root_state_waiting_label">في انتظار الوصول إلى الجذر.</string>
     <string name="setup_root_enable_root_use_label">استخدم صَلاحِيَة الجذر عند توفرها</string>
     <string name="setup_root_disable_root_use_label">لا تستخدم صَلاحِيَة الجذر</string>
     <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
@@ -596,6 +598,8 @@
     <string name="scheduler_notification_result_title">انتهت الجدولة</string>
     <string name="scheduler_notification_result_success_message">تمت جميع المهام المجدولة بنجاح.</string>
     <string name="scheduler_notification_result_failure_message">بعض المهام المجدولة فشلت أو واجهت أخطاء. حاول تشغيلها يدويا.</string>
+    <string name="scheduler_commands_after_schedule_label">أوامر ما بعد الجدولة</string>
+    <string name="scheduler_commands_after_schedule_desc">أوامر هيكل أندرويد التي ستُنفَّذ في نهاية الجدول الزمني.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
     <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
     <string name="translation_encourage_title">ترجمة SD Maid</string>

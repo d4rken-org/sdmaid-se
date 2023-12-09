@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Accesso base all\'archiviazione, ad esempio \"Download/\" e \"DCMI/\", non sempre a \"Android/data\".</string>
     <string name="setup_root_card_title">Permessi di root</string>
     <string name="setup_root_card_body">SD Maid può accedere ai permessi di root se disponibili? I permessi di root vengono usati per controllare cartelle di sistema aggiuntive e dati privati delle applicazioni.</string>
+    <string name="setup_root_state_ready_label">I permessi di root sono disponibili.</string>
+    <string name="setup_root_state_waiting_label">In attesa dei permessi di root.</string>
     <string name="setup_root_enable_root_use_label">Usa i permessi di root se disponibili</string>
     <string name="setup_root_disable_root_use_label">Non utilizzare i permessi di root</string>
     <string name="setup_root_card_body2">Disponibile solo su dispositivi rootati. Se non hai effettuato questa modifica, il tuo dispositivo non è rootato e questa impostazione non ha alcun effetto.</string>
@@ -542,6 +544,8 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="scheduler_notification_result_title">Pianificazione completata</string>
     <string name="scheduler_notification_result_success_message">Tutte le attività pianificate sono state eseguite con successo.</string>
     <string name="scheduler_notification_result_failure_message">Alcune attività pianificate sono fallite o hanno riscontrato errori. Provare ad eseguirle manualmente.</string>
+    <string name="scheduler_commands_after_schedule_label">Comandi post-pianificazione</string>
+    <string name="scheduler_commands_after_schedule_desc">Comandi del terminale di Android che verranno eseguiti alla fine di una pianificazione.</string>
     <string name="updates_dashcard_title">Aggiornamento disponibile</string>
     <string name="updates_dashcard_body">È disponibile un aggiornamento. Hai %1$s e l\'ultima versione è %2$s.</string>
     <string name="translation_encourage_title">Traduci SD Maid</string>

@@ -107,6 +107,8 @@
     <string name="setup_manage_storage_card_body2">Základní přístup k veřejnému úložišti, např. \"Download/\" a \"DCIM/\", ale ne vždy \"Android/data\".</string>
     <string name="setup_root_card_title">Root přístup</string>
     <string name="setup_root_card_body">Má SD Maid použít root přístup, pokud je k dispozici? Root přístup může být použit pro kontrolu dalších systémových složek a soukromých dat aplikací.</string>
+    <string name="setup_root_state_ready_label">Root přístup je připraven.</string>
+    <string name="setup_root_state_waiting_label">Čekání na root přístup.</string>
     <string name="setup_root_enable_root_use_label">Použít root přístup pokud je k dispozici</string>
     <string name="setup_root_disable_root_use_label">Nepoužívat root přístup</string>
     <string name="setup_root_card_body2">K dispozici pouze na zařízeních s root přístupem. Pokud jste tuto úpravu neprovedli, vaše zařízení nemá root přístup a toto nastavení nemá žádný vliv.</string>
@@ -565,9 +567,11 @@
     <string name="scheduler_notification_channel_label">Plánovač</string>
     <string name="scheduler_notification_title">Naplánovaná úloha</string>
     <string name="scheduler_notification_message">Spouštím: \"%s\"</string>
-    <string name="scheduler_notification_result_title">Plánovač doběhl</string>
+    <string name="scheduler_notification_result_title">Plánování dokončeno</string>
     <string name="scheduler_notification_result_success_message">Všechny naplánované úlohy proběhly úspěšně.</string>
     <string name="scheduler_notification_result_failure_message">Některé naplánované úlohy selhaly nebo došlo k chybám. Zkuste je spustit ručně.</string>
+    <string name="scheduler_commands_after_schedule_label">Příkazy po naplánování</string>
+    <string name="scheduler_commands_after_schedule_desc">Příkazy Android shell, které budou provedeny na konci plánu.</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
     <string name="updates_dashcard_body">Aktualizace je k dispozici. Máte %1$s a poslední verze je %2$s.</string>
     <string name="translation_encourage_title">Přeložit SD Maid</string>

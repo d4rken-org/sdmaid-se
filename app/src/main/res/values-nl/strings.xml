@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Basistoegang tot openbare opslag, bijv. \"Download/\" en \"DCIM/\", maar niet altijd \"Android/data\".</string>
     <string name="setup_root_card_title">Root toegang</string>
     <string name="setup_root_card_body">Moet SD Maid root-toegang gebruiken als deze beschikbaar is? Root-toegang kan worden gebruikt om aanvullende systeemmappen en privétoepassingsgegevens te controleren.</string>
+    <string name="setup_root_state_ready_label">Roottoegang is klaar.</string>
+    <string name="setup_root_state_waiting_label">Wachten op root-toegang.</string>
     <string name="setup_root_enable_root_use_label">Gebruik root toegang indien beschikbaar</string>
     <string name="setup_root_disable_root_use_label">Gebruik geen root toegang</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
@@ -537,6 +539,11 @@
     <string name="scheduler_notification_channel_label">Planner</string>
     <string name="scheduler_notification_title">Geplande taak</string>
     <string name="scheduler_notification_message">Wordt uitgevoerd: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Planner is klaar</string>
+    <string name="scheduler_notification_result_success_message">Alle geplande taken werden succesvol uitgevoerd.</string>
+    <string name="scheduler_notification_result_failure_message">Sommige geplande taken zijn mislukt of er zijn fouten opgetreden. Probeer ze handmatig uit te voeren.</string>
+    <string name="scheduler_commands_after_schedule_label">Opdrachten na het plannen</string>
+    <string name="scheduler_commands_after_schedule_desc">Android-shellopdrachten die aan het einde van een planning worden uitgevoerd.</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
     <string name="updates_dashcard_body">Een update is beschikbaar. Je hebt %1$s en de nieuwste versie is %2$s.</string>
     <string name="translation_encourage_title">Vertaal SD Maid</string>

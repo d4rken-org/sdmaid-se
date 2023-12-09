@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Acceso básico al almacenamiento público, por ejemplo \"Download/\" y \"DCIM/\", y a veces  \"Android/data\".</string>
     <string name="setup_root_card_title">Acceso root</string>
     <string name="setup_root_card_body">¿Debería SD Maid utilizar el acceso root si está disponible? El acceso root puede utilizarse para comprobar las carpetas adicionales del sistema y los datos privados de las aplicaciones.</string>
+    <string name="setup_root_state_ready_label">El acceso root está listo.</string>
+    <string name="setup_root_state_waiting_label">Esperando el acceso root.</string>
     <string name="setup_root_enable_root_use_label">Utiliza el acceso root si está disponible</string>
     <string name="setup_root_disable_root_use_label">No usar el acceso root</string>
     <string name="setup_root_card_body2">Solo disponible en dispositivos rooteados. Si no realizaste esta modificación, tu dispositivo no está rooteado y esta configuración no tiene ningún efecto.</string>
@@ -540,6 +542,8 @@
     <string name="scheduler_notification_result_title">El programador ha terminado</string>
     <string name="scheduler_notification_result_success_message">Todas las tareas programadas se han ejecutado correctamente.</string>
     <string name="scheduler_notification_result_failure_message">Algunas tareas programadas fallaron o encontraron errores. Intente ejecutarlas manualmente.</string>
+    <string name="scheduler_commands_after_schedule_label">Comandos posteriores a la programación</string>
+    <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android que se ejecutarán al final de una programación.</string>
     <string name="updates_dashcard_title">Actualización disponible</string>
     <string name="updates_dashcard_body">Hay disponible una actualización. Tienes %1$s y la última versión es %2$s.</string>
     <string name="translation_encourage_title">Traducir SD Maid</string>
