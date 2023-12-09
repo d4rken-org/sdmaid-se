@@ -5,6 +5,8 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 
 sealed class ExclusionListEvents {
     data class UndoRemove(val exclusions: Set<Exclusion>) : ExclusionListEvents()
+    data class ImportSuccess(val exclusions: Set<Exclusion>) : ExclusionListEvents()
+    data class ExportSuccess(val exclusions: Set<Exclusion>) : ExclusionListEvents()
     data class ImportEvent(val intent: Intent) : ExclusionListEvents()
     data class ExportEvent(val intent: Intent, val filter: Collection<Exclusion>) : ExclusionListEvents()
 }

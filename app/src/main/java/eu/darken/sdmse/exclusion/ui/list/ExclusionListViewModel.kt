@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.MimeTypes
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -23,6 +24,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.DefaultExclusions
+import eu.darken.sdmse.exclusion.core.ExclusionImporter
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.LegacyImporter
 import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
@@ -53,6 +55,7 @@ class ExclusionListViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     private val upgradeRepo: UpgradeRepo,
     private val legacyImporter: LegacyImporter,
+    private val exclusionImporter: ExclusionImporter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<ExclusionListEvents>()
@@ -190,11 +193,19 @@ class ExclusionListViewModel @Inject constructor(
             }
             .mapNotNull { raw ->
                 try {
-                    legacyImporter.tryConvert(raw)
+                    exclusionImporter.import(raw).also {
+                        log(TAG, INFO) { "Imported ${it.size}: $it" }
+                    }
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "Import failed for $raw:\n${e.asLog()}" }
-                    errorEvents.postValue(e)
-                    null
+                    log(TAG, WARN) { "This is not valid exclusion data, maybe legacy data?" }
+                    try {
+                        legacyImporter.tryConvert(raw).also {
+                            log(TAG, INFO) { "Imported (legacy) ${it.size}: $it" }
+                        }
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Legacy import failed for $raw:\n${e.asLog()}" }
+                        null
+                    }
                 }
             }
             .flatten()
@@ -205,9 +216,11 @@ class ExclusionListViewModel @Inject constructor(
         } catch (e: Exception) {
             errorEvents.postValue(e)
         }
+
+        events.postValue(ExclusionListEvents.ImportSuccess(exclusion))
     }
 
-    private var stagedExport: Collection<Exclusion>? = null
+    private var stagedExport: Set<Exclusion>? = null
     fun exportExclusions(items: Collection<ExclusionListAdapter.Item>) = launch {
         log(TAG) { "exportExclusions($items)" }
 
@@ -218,7 +231,7 @@ class ExclusionListViewModel @Inject constructor(
         }
 
         val exclusion = items.map { it.exclusion }
-        stagedExport = exclusion
+        stagedExport = exclusion.toSet()
 
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
         events.postValue(ExclusionListEvents.ExportEvent(intent, exclusion))
@@ -235,16 +248,19 @@ class ExclusionListViewModel @Inject constructor(
         val saveDir = DocumentFile.fromTreeUri(context, directoryUri)
             ?: throw IOException("Failed to access $directoryUri")
 
-        exportData.forEach { rawFilter ->
-//            val targetFile = saveDir.createFile(MimeTypes.Json.value, rawFilter.name)
-//                ?: throw IOException("Failed to create ${rawFilter.name} in $saveDir")
-//
-//            context.contentResolver.openOutputStream(targetFile.uri)?.use { out ->
-//                out.write(rawFilter.payload.toByteArray())
-//            }
+        val filename = "SD Maid 2/SE Exclusions ${System.currentTimeMillis()}"
 
-//            log(TAG) { "Wrote ${rawFilter.name} to $targetFile" }
+        val targetFile = saveDir.createFile(MimeTypes.Json.value, filename)
+            ?: throw IOException("Failed to create ${filename} in $saveDir")
+
+        val rawContainer = exclusionImporter.export(exportData)
+        context.contentResolver.openOutputStream(targetFile.uri)?.use { out ->
+            out.write(rawContainer.toByteArray())
         }
+
+        log(TAG, VERBOSE) { "Wrote $rawContainer to ${targetFile.uri}" }
+
+        events.postValue(ExclusionListEvents.ExportSuccess(exportData))
     }
 
     companion object {
