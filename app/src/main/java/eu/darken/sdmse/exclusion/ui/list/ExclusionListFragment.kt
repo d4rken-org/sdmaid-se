@@ -154,6 +154,12 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                         true
                     }
 
+                    R.id.menu_action_export -> {
+                        vm.exportExclusions(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             },
@@ -192,6 +198,25 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                 is ExclusionListEvents.ExportEvent -> {
                     exportPickerLauncher.launch(event.intent)
                 }
+
+                is ExclusionListEvents.ImportSuccess -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(
+                            R.plurals.exclusion_x_new_exclusions,
+                            event.exclusions.size
+                        ),
+                        Snackbar.LENGTH_INDEFINITE
+                    )
+                    .show()
+
+                is ExclusionListEvents.ExportSuccess -> Snackbar
+                    .make(
+                        requireView(),
+                        getString(eu.darken.sdmse.common.R.string.general_result_success_message),
+                        Snackbar.LENGTH_INDEFINITE
+                    )
+                    .show()
             }
         }
 

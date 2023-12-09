@@ -533,6 +533,7 @@
     <string name="exclusion_editor_unsaved_confirmation_message">You have unsaved changes!</string>
     <string name="exclusion_reset_default_exclusions">Restore default exclusions</string>
     <string name="exclusion_import_action">Import exclusions</string>
+    <string name="exclusion_export_action">Export exclusions</string>
 
     <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
     <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
