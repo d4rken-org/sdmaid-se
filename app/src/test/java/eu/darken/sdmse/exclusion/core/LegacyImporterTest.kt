@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -23,9 +24,13 @@ class LegacyImporterTest : BaseTest() {
     fun `invalid data returns null`() = runTest {
         val importer = create()
 
-        importer.tryConvert("") shouldBe null
-        importer.tryConvert("{\"exclusions\": [], \"version\": 5}") shouldBe null
+        shouldThrow<IllegalArgumentException> {
+            importer.tryConvert("")
+        }
 
+        shouldThrow<IllegalArgumentException> {
+            importer.tryConvert("{\"exclusions\": [], \"version\": 5}") shouldBe null
+        }
     }
 
     @Test
