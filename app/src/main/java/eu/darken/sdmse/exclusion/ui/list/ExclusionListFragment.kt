@@ -1,9 +1,14 @@
 package eu.darken.sdmse.exclusion.ui.list
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +19,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -31,7 +39,41 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
     override val ui: ExclusionListFragmentBinding by viewBinding()
     @Inject lateinit var webpageTool: WebpageTool
 
+    private lateinit var importPickerLauncher: ActivityResultLauncher<Intent>
+    private lateinit var exportPickerLauncher: ActivityResultLauncher<Intent>
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        importPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                log(TAG, WARN) { "importPickerLauncher returned ${result.resultCode}: ${result.data}" }
+                return@registerForActivityResult
+            }
+
+            val uriList = mutableListOf<Uri>()
+
+            val clipData = result.data?.clipData
+            if (clipData != null) {
+                (0 until clipData.itemCount).forEach {
+                    uriList.add(clipData.getItemAt(it).uri)
+                }
+            } else {
+                result.data?.data?.let { uriList.add(it) }
+            }
+
+            vm.importExclusions(uriList)
+        }
+
+        exportPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                log(TAG, WARN) { "exportPickerLauncher returned ${result.resultCode}: ${result.data}" }
+                return@registerForActivityResult
+            }
+
+            result.data?.data?.let { uri ->
+                vm.performExport(uri)
+            }
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
@@ -48,6 +90,11 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
 
                     R.id.menu_restore_default_exclusions -> {
                         vm.resetDefaultExclusions()
+                        true
+                    }
+
+                    R.id.menu_action_import -> {
+                        vm.importExclusions()
                         true
                     }
 
@@ -137,10 +184,21 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                         vm.restore(event.exclusions)
                     }
                     .show()
+
+                is ExclusionListEvents.ImportEvent -> {
+                    importPickerLauncher.launch(event.intent)
+                }
+
+                is ExclusionListEvents.ExportEvent -> {
+                    exportPickerLauncher.launch(event.intent)
+                }
             }
         }
 
         super.onViewCreated(view, savedInstanceState)
     }
 
+    companion object {
+        private val TAG = logTag("Exclusions", "List")
+    }
 }

@@ -1,20 +1,30 @@
 package eu.darken.sdmse.exclusion.ui.list
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.MimeTypes
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.DefaultExclusions
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.LegacyImporter
 import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -26,7 +36,9 @@ import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
 import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragmentDirections
 import kotlinx.coroutines.flow.*
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,6 +51,8 @@ class ExclusionListViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val defaultExclusions: DefaultExclusions,
     private val webpageTool: WebpageTool,
+    private val upgradeRepo: UpgradeRepo,
+    private val legacyImporter: LegacyImporter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<ExclusionListEvents>()
@@ -154,6 +168,83 @@ class ExclusionListViewModel @Inject constructor(
     fun resetDefaultExclusions() = launch {
         log(TAG) { "resetDefaultExclusions()" }
         defaultExclusions.reset()
+    }
+
+    fun importExclusions(uris: Collection<Uri>? = null) = launch {
+        log(TAG) { "importExclusions($uris)" }
+        if (uris == null) {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = MimeTypes.Json.value
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            }
+            events.postValue(ExclusionListEvents.ImportEvent(intent))
+            return@launch
+        }
+
+        val exclusion = uris
+            .map {
+                val result = it.readAsText(context) ?: throw IllegalArgumentException("Failed to read $it")
+                log(TAG) { "Read $it ->  $result" }
+                result
+            }
+            .mapNotNull { raw ->
+                try {
+                    legacyImporter.tryConvert(raw)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Import failed for $raw:\n${e.asLog()}" }
+                    errorEvents.postValue(e)
+                    null
+                }
+            }
+            .flatten()
+            .toSet()
+
+        try {
+            exclusionManager.save(exclusion)
+        } catch (e: Exception) {
+            errorEvents.postValue(e)
+        }
+    }
+
+    private var stagedExport: Collection<Exclusion>? = null
+    fun exportExclusions(items: Collection<ExclusionListAdapter.Item>) = launch {
+        log(TAG) { "exportExclusions($items)" }
+
+        if (!upgradeRepo.isPro()) {
+            log(TAG) { "Pro upgrade required" }
+            CustomFilterListFragmentDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        val exclusion = items.map { it.exclusion }
+        stagedExport = exclusion
+
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
+        events.postValue(ExclusionListEvents.ExportEvent(intent, exclusion))
+    }
+
+    fun performExport(directoryUri: Uri?) = launch {
+        if (directoryUri == null) {
+            log(TAG, WARN) { "Export failed, no path picked" }
+            return@launch
+        }
+
+        val exportData = stagedExport ?: throw IllegalStateException("No staged export data available")
+
+        val saveDir = DocumentFile.fromTreeUri(context, directoryUri)
+            ?: throw IOException("Failed to access $directoryUri")
+
+        exportData.forEach { rawFilter ->
+//            val targetFile = saveDir.createFile(MimeTypes.Json.value, rawFilter.name)
+//                ?: throw IOException("Failed to create ${rawFilter.name} in $saveDir")
+//
+//            context.contentResolver.openOutputStream(targetFile.uri)?.use { out ->
+//                out.write(rawFilter.payload.toByteArray())
+//            }
+
+//            log(TAG) { "Wrote ${rawFilter.name} to $targetFile" }
+        }
     }
 
     companion object {
