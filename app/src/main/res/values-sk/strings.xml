@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Správa od vývojára</string>
     <string name="dashboard_settings_oneclick_title">Režim jedným klepnutím</string>
     <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov klepnutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutie</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Ktoré nástroje by mali byť zahrnuté do operácií jedným klepnutím?</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia ladenia</string>
@@ -105,6 +107,8 @@
     <string name="setup_manage_storage_card_body2">Základný prístup k verejnému úložisku, napr. „Download/“ a „DCIM/“, ale nie vždy „Android/data“.</string>
     <string name="setup_root_card_title">Root prístup</string>
     <string name="setup_root_card_body">Má SD Maid používať root prístup, ak je k dispozícii? Prístup root možno použiť na kontrolu ďalších systémových priečinkov a údajov súkromných aplikácií.</string>
+    <string name="setup_root_state_ready_label">Prístup root je pripravený.</string>
+    <string name="setup_root_state_waiting_label">Čakanie na root prístup.</string>
     <string name="setup_root_enable_root_use_label">Použite root prístup, ak je k dispozícii</string>
     <string name="setup_root_disable_root_use_label">Nepoužívajte root prístup</string>
     <string name="setup_root_card_body2">Dostupné iba na rootovaných zariadeniach. Ak ste túto úpravu nevykonali, vaše zariadenie nie je rootované a toto nastavenie nemá žiadny vplyv.</string>
@@ -371,6 +375,12 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazanie vyrovnávacej pamäte pomocou Shizuku</string>
     <string name="deduplicator_tool_name">Deduplikátor</string>
     <string name="deduplicator_explanation_short">Nájdite duplicitné údaje vo svojom zariadení.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">Nájdená %d skupina duplikátov</item>
+        <item quantity="few">Nájdené %d skupiny duplikátov</item>
+        <item quantity="many">Nájdených %d skupín duplikátov</item>
+        <item quantity="other">Nájdených %d skupín duplikátov</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Povoľte možnosť „Odstrániť všetko“</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobraziť možnosti, ktoré vám umožnia odstrániť všetky súbory v sade duplikátov, takže nezostane žiadny súbor.</string>
     <string name="deduplicator_skip_minsize_title">Minimálna veľkosť</string>
@@ -387,6 +397,7 @@
     <string name="deduplicator_file_size_label">Veľkosť súboru</string>
     <string name="deduplicator_average_size_label">Priemerná veľkosť</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
+    <string name="deduplicator_delete_confirmation_message">Chcete odstrániť všetky kópie okrem jednej zo všetkých skupín duplicitných súborov?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Chcete odstrániť všetky kópie okrem jednej z tejto skupiny duplicitných súborov?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Odstrániť všetky súbory v tejto skupine duplicitných súborov? Nezostane žiadny súbor!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Chcete odstrániť všetky kópie okrem jednej v každej vybranej skupine duplicitných súborov?</string>
@@ -394,6 +405,8 @@
     <string name="deduplicator_delete_all_toggle_msg">Odstrániť všetky kópie. Nezostane žiadny súbor!</string>
     <string name="deduplicator_progress_comparing_files">Porovnávanie súborov</string>
     <string name="deduplicator_details_cluster_title">Skupina duplikátov</string>
+    <string name="deduplicator_matches_exact_label">Presné kópie</string>
+    <string name="deduplicator_matches_similar_label">Podobné súbory</string>
     <string name="appcontrol_tool_name">Kontrola aplikácií</string>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -554,6 +567,11 @@
     <string name="scheduler_notification_channel_label">Plánovač</string>
     <string name="scheduler_notification_title">Naplánovaná úloha</string>
     <string name="scheduler_notification_message">Prebieha: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Plánovač skončil</string>
+    <string name="scheduler_notification_result_success_message">Všetky naplánované úlohy prebehli úspešne.</string>
+    <string name="scheduler_notification_result_failure_message">Niektoré naplánované úlohy zlyhali alebo sa vyskytli chyby. Skúste ich spustiť manuálne.</string>
+    <string name="scheduler_commands_after_schedule_label">Príkazy po rozvrhu</string>
+    <string name="scheduler_commands_after_schedule_desc">Príkazy prostredia Android, ktoré sa vykonajú na konci plánu.</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>
     <string name="updates_dashcard_body">K dispozícii je aktualizácia. Máte %1$s a najnovšia verzia je %2$s.</string>
     <string name="translation_encourage_title">Preložiť SD Maid</string>

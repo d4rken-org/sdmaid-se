@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Accès de base à la mémoire publique, p. ex. \"Download/\" et \"DCIM/\", mais pas toujours à \"Android/data\".</string>
     <string name="setup_root_card_title">Accès superutilisateur</string>
     <string name="setup_root_card_body">SD Maid doit-elle utiliser l’accès superutilisateur s’il est proposé ? L’accès superutilisateur peut être utilisé pour vérifier d’autres dossiers système et des données privées d’application.</string>
+    <string name="setup_root_state_ready_label">L’accès superutilisateur est prêt.</string>
+    <string name="setup_root_state_waiting_label">En attente de l’accès superutilisateur.</string>
     <string name="setup_root_enable_root_use_label">Utiliser l\'accès superutilisateur s’il est proposé</string>
     <string name="setup_root_disable_root_use_label">Ne pas utiliser l\'accès superutilisateur</string>
     <string name="setup_root_card_body2">Seulement proposé pour les appareils débridés. Si vous n’avez pas effectué cette modification, alors votre appareil n’est pas débridé et ce paramètre n’a aucun effet.</string>
@@ -540,6 +542,8 @@
     <string name="scheduler_notification_result_title">Le programmateur a terminé</string>
     <string name="scheduler_notification_result_success_message">Toutes vos tâches programmées ont été effectuées correctement.</string>
     <string name="scheduler_notification_result_failure_message">Certaines tâches ont échoué ou des erreurs sont survenues. Tentez de les effectuer manuellement.</string>
+    <string name="scheduler_commands_after_schedule_label">Commandes postprogramme</string>
+    <string name="scheduler_commands_after_schedule_desc">Commandes de l’interpréteur de commandes Android qui seront exécutées à la fin d’un programme.</string>
     <string name="updates_dashcard_title">Une mise à jour est proposée</string>
     <string name="updates_dashcard_body">Une mise à jour est proposée. Vous avez %1$s et %2$s est la version la plus récente.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>

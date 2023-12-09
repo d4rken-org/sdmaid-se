@@ -101,6 +101,8 @@
     <string name="setup_manage_storage_card_body2">对公共存储的基本访问权限，如“Download/”和“DCIM/”，但有时不包含“Android/data”。</string>
     <string name="setup_root_card_title">Root 权限</string>
     <string name="setup_root_card_body">如果 SD Maid 要扫描额外的系统文件夹和应用数据，则需使用 Root 权限。</string>
+    <string name="setup_root_state_ready_label">Root 权限已就绪。</string>
+    <string name="setup_root_state_waiting_label">正在获取 Root 权限。</string>
     <string name="setup_root_enable_root_use_label">使用 Root 权限（如果可用）</string>
     <string name="setup_root_disable_root_use_label">不使用 Root 权限</string>
     <string name="setup_root_card_body2">仅在 Root 过的设备上可用。若您没有进行过此项修改，那么您的设备就未经 Root，此选项也就没有效果。</string>
@@ -526,6 +528,8 @@
     <string name="scheduler_notification_result_title">计划任务已完成</string>
     <string name="scheduler_notification_result_success_message">所有计划任务均成功运行。</string>
     <string name="scheduler_notification_result_failure_message">部分计划任务运行失败或遇到错误。请尝试手动运行。</string>
+    <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
+    <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用更新。当前版本为 %1$s，最新版本为 %2$s。</string>
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>

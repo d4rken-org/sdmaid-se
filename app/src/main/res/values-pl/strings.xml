@@ -107,6 +107,8 @@
     <string name="setup_manage_storage_card_body2">Podstawowy dostęp do pamięci publicznej, np. \"Download/\" i \"DCIM/\", ale nie zawsze \"Android/data\".</string>
     <string name="setup_root_card_title">Dostęp root</string>
     <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu root, jeśli jest dostępny? Dostęp root może zostać wykorzystany do sprawdzenia dodatkowych folderów systemowych i prywatnych danych aplikacji.</string>
+    <string name="setup_root_state_ready_label">Dostęp do roota jest gotowy.</string>
+    <string name="setup_root_state_waiting_label">Oczekiwanie na dostęp do roota.</string>
     <string name="setup_root_enable_root_use_label">Użyj dostępu root, jeśli jest dostępny</string>
     <string name="setup_root_disable_root_use_label">Nie używaj dostępu root</string>
     <string name="setup_root_card_body2">Dostępne tylko na urządzeniach z uprawnieniami root. Jeśli nie dokonałeś tej modyfikacji, to Twoje urządzenie nie ma uprawnień root i wybór nie ma wpływu na działanie aplikacji.</string>
@@ -568,6 +570,8 @@
     <string name="scheduler_notification_result_title">Harmonogram zakończony</string>
     <string name="scheduler_notification_result_success_message">Wszystkie zaplanowane zadania zostały pomyślnie uruchomione.</string>
     <string name="scheduler_notification_result_failure_message">Niektóre zaplanowane zadania nie powiodły się lub wystąpiły błędy. Spróbuj uruchomić je ręcznie.</string>
+    <string name="scheduler_commands_after_schedule_label">Polecenia po harmonogramie</string>
+    <string name="scheduler_commands_after_schedule_desc">Polecenia powłoki Androida, które będą wykonywane na końcu harmonogramu.</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
     <string name="updates_dashcard_body">Dostępna jest aktualizacja. Masz %1$s, a najnowsza wersja to %2$s.</string>
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>

@@ -101,6 +101,8 @@
     <string name="setup_manage_storage_card_body2">對公用儲存空間的基本存取，例如「Download/」和「DCIM/」，但不一定都是「Android/data」。</string>
     <string name="setup_root_card_title">Root 存取</string>
     <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
+    <string name="setup_root_state_ready_label">Root 存取已就緒。</string>
+    <string name="setup_root_state_waiting_label">正在等候 Root 存取權。</string>
     <string name="setup_root_enable_root_use_label">使用 Root 存取 (如果可用)</string>
     <string name="setup_root_disable_root_use_label">不要使用 Root 存取</string>
     <string name="setup_root_card_body2">僅適用於已 Root 的裝置。如果您的裝置並未作此修改，那麼您的裝置並未被 Root，這個設定就不會有任何作用。</string>
@@ -526,6 +528,8 @@
     <string name="scheduler_notification_result_title">排程器已完成</string>
     <string name="scheduler_notification_result_success_message">所有排程的工作已成功執行。</string>
     <string name="scheduler_notification_result_failure_message">部分排程的工作失敗或發生錯誤，請嘗試手動執行。</string>
+    <string name="scheduler_commands_after_schedule_label">排程後命令</string>
+    <string name="scheduler_commands_after_schedule_desc">將會在排程結束後執行的 Android 殼層命令。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用的更新項目。您已安裝 %1$s，而最新版本為 %2$s。</string>
     <string name="translation_encourage_title">翻譯 SD 女僕</string>

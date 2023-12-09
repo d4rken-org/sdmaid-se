@@ -101,6 +101,8 @@
     <string name="setup_manage_storage_card_body2">기본적인 저장 공간에 (예: \"Download/\" 혹은 \"DCIM/\") 대한 접근 권한을 부여하나, 일부 공간 (예: \"Android/data\")에는 접근하지 못할 수 있습니다.</string>
     <string name="setup_root_card_title">루트 권한</string>
     <string name="setup_root_card_body">사용할 수 있으면 루트 권한을 사용할까요? 루트 권한이 존재한다면 이를 이용해 추가적인 시스템 폴더나 개인 애플리케이션 데이터 등에 접근할 수 있습니다.</string>
+    <string name="setup_root_state_ready_label">루트 권한이 준비되었습니다.</string>
+    <string name="setup_root_state_waiting_label">루트 권한을 얻는 중입니다.</string>
     <string name="setup_root_enable_root_use_label">가능하다면 루트 권한 사용</string>
     <string name="setup_root_disable_root_use_label">루트 권한 미사용</string>
     <string name="setup_root_card_body2">루팅된 기기에서만 사용할 수 있습니다. 루팅을 진행하지 않았거나 루팅이 무엇인지 모르신다면, 본 설정은 앱에 변화를 주지 않습니다.</string>
@@ -523,6 +525,8 @@
     <string name="scheduler_notification_channel_label">예약관리자</string>
     <string name="scheduler_notification_title">예약 작</string>
     <string name="scheduler_notification_message">실행 : \"%s\"</string>
+    <string name="scheduler_notification_result_title">스케쥴 완료</string>
+    <string name="scheduler_notification_result_success_message">스케줄된 모든 작업을 성공적으로 완료했습니다.</string>
     <string name="updates_dashcard_title">사용할 수 있는 업데이트</string>
     <string name="updates_dashcard_body">업데이트를 사용할 수 있습니다. 지금은 %1$s(을)를 사용하고 있고 최신 버전은 %2$s입니다.</string>
     <string name="translation_encourage_title">SD Maid 번역하기</string>

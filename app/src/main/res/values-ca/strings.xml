@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Accés bàsic a l\'emmagatzematge públic, p. ex. «Download/» i «DCIM/», però no sempre «Android/data».</string>
     <string name="setup_root_card_title">Accés «root»</string>
     <string name="setup_root_card_body">L\'SD Maid hauria d\'utilitzar l\'accés «root» si està disponible? L\'accés «root» es pot utilitzar per comprovar carpetes addicionals del sistema i dades privades d\'aplicacions.</string>
+    <string name="setup_root_state_ready_label">L\'accés «root» està llest.</string>
+    <string name="setup_root_state_waiting_label">S\'està esperant l\'accés «root».</string>
     <string name="setup_root_enable_root_use_label">Utilitza l\'accés «root» si està disponible</string>
     <string name="setup_root_disable_root_use_label">No utilitzis l\'accés «root»</string>
     <string name="setup_root_card_body2">Només disponible en dispositius amb «root». Si no heu fet aquesta modificació, el vostre dispositiu no té «root» i aquesta configuració no té cap efecte.</string>
@@ -540,6 +542,8 @@
     <string name="scheduler_notification_result_title">El programador ha finalitat</string>
     <string name="scheduler_notification_result_success_message">Totes les tasques programades s\'han executat correctament.</string>
     <string name="scheduler_notification_result_failure_message">Algunes tasques programades han fallat o han trobat errors. Proveu d\'executar-les manualment.</string>
+    <string name="scheduler_commands_after_schedule_label">Ordres posteriors a la programació</string>
+    <string name="scheduler_commands_after_schedule_desc">Ordres del shell d\'Android que s\'executaran al final d\'una programació.</string>
     <string name="updates_dashcard_title">Actualització disponible</string>
     <string name="updates_dashcard_body">Hi ha una actualització disponible. Teniu la versió %1$s i la darrera és %2$s.</string>
     <string name="translation_encourage_title">Traducció de l\'SD Maid</string>

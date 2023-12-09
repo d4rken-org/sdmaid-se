@@ -2,6 +2,7 @@
 <resources>
     <string name="dashboard_delete_all_message">نتایج در همه ابزارها حذف شود؟</string>
     <string name="dashboard_settings_category">پیشخوان</string>
+    <string name="dashboard_motd_title">A message from the developer</string>
     <string name="debug_debuglog_size_label">اندازه</string>
     <string name="debug_debuglog_size_compressed_label">اندازه فشرده</string>
     <string name="tasks_activity_notification_channel_label">وظایف فعال</string>

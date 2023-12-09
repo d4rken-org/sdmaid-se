@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Grunnleggende tilgang til offentlig lagring, f.eks. \"Download/\" og \"DCIM/\", men ikke alltid \"Android/data\".</string>
     <string name="setup_root_card_title">Root-tilgang</string>
     <string name="setup_root_card_body">Bør SD Maid bruke root-tilgang hvis det er tilgjengelig? Root-tilgang kan brukes til å sjekke flere systemmapper og privat applikasjonsdata.</string>
+    <string name="setup_root_state_ready_label">Root-tilgang er klar.</string>
+    <string name="setup_root_state_waiting_label">Venter på root-tilgang.</string>
     <string name="setup_root_enable_root_use_label">Bruk root-tilgang hvis tilgjengelig</string>
     <string name="setup_root_disable_root_use_label">Ikke bruk root-tilgang</string>
     <string name="setup_root_card_body2">Kun tilgjengelig på enheter med root. Hvis du ikke gjorde denne modifikasjonen, har ikke enheten din root, og denne innstillingen har ingen effekt.</string>
@@ -540,6 +542,8 @@
     <string name="scheduler_notification_result_title">Planlegger ferdig</string>
     <string name="scheduler_notification_result_success_message">Alle planlagte oppgaver kjørte vellykket.</string>
     <string name="scheduler_notification_result_failure_message">Noen planlagte oppgaver mislyktes eller møtte feil. Prøv å kjøre dem manuelt.</string>
+    <string name="scheduler_commands_after_schedule_label">Kommandoer etter planlegging</string>
+    <string name="scheduler_commands_after_schedule_desc">Android skall-kommandoer som vil bli utført på slutten av en tidsplan.</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
     <string name="updates_dashcard_body">En oppdatering er tilgjengelig. Du har %1$s og den nyeste versjonen er %2$s.</string>
     <string name="translation_encourage_title">Oversett SD Maid</string>

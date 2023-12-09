@@ -136,4 +136,10 @@
     <string name="general_timeunit_days">Dní</string>
     <string name="general_progress_ready">Pripravené</string>
     <string name="general_progress_done">Hotovo</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s súbor</item>
+        <item quantity="few">%s súbory</item>
+        <item quantity="many">%s súborov</item>
+        <item quantity="other">%s súborov</item>
+    </plurals>
 </resources>
