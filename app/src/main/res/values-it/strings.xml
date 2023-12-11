@@ -424,7 +424,13 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_list_sortmode_updated_label">Ultimo aggiornamento</string>
     <string name="appcontrol_list_sortmode_installed_label">Data d\'installazione</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nome del pacchetto</string>
+    <string name="appcontrol_list_sortmode_size_label">Dimensione</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Le dimensioni delle app sono stimate per ragioni di prestazioni. Utilizzare lo StorageAnalyzer per dati più accurati.</string>
     <string name="appcontrol_progress_uninstalling_app">Rimozione app</string>
+    <string name="appcontrol_app_sizes_title">Dimensioni app</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Dati</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Scopri cosa sta occupando lo spazio del tuo dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Cercando dispositivi di memoria</string>
@@ -490,6 +496,9 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
 Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Rimuovere questa esclusione?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Ci sono modifiche non salvate!</string>
+    <string name="exclusion_reset_default_exclusions">Ripristina esclusioni predefinite</string>
+    <string name="exclusion_import_action">Importa esclusioni</string>
+    <string name="exclusion_export_action">Esporta esclusioni</string>
     <string name="exclusion_create_pkg_hint">Utilizzare lo strumento AppControl per creare esclusioni di app.</string>
     <string name="exclusion_create_path_hint">Utilizzare lo strumento StorageAnalyzer per creare esclusioni di percorsi.</string>
     <plurals name="exclusion_x_new_exclusions">

@@ -423,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Laatst bijgewerkt</string>
     <string name="appcontrol_list_sortmode_installed_label">Eerst geïnstalleerd</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakketnaam</string>
+    <string name="appcontrol_list_sortmode_size_label">Grootte</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">App-grootes worden geschat om prestatieredenen. Gebruik de StorageAnalyzer-tool voor nauwkeurigere gegevens.</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
+    <string name="appcontrol_app_sizes_title">App-grootte</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Gegevens</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
@@ -488,6 +494,9 @@
     <string name="exclusion_editor_segment_explanation">Een op segmenten gebaseerde uitsluiting is vergelijkbaar met een paduitsluiting, maar staat gedeeltelijke overeenkomsten toe. Voorbeeld: \"DCIM/Camera\" sluit \"/sdcard/DCIM/Camera/photo.png\" uit.</string>
     <string name="exclusion_editor_remove_confirmation_message">Deze uitsluiting verwijderen?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Je hebt niet-opgeslagen wijzigingen!</string>
+    <string name="exclusion_reset_default_exclusions">Standaarduitsluitingen herstellen</string>
+    <string name="exclusion_import_action">Import uitsluitingen</string>
+    <string name="exclusion_export_action">Export uitsluitingen</string>
     <string name="exclusion_create_pkg_hint">Gebruik de AppControl-tool om app-uitsluitingen te maken.</string>
     <string name="exclusion_create_path_hint">Gebruik het hulpprogramma StorageAnalyzer om paduitsluitingen te maken.</string>
     <plurals name="exclusion_x_new_exclusions">

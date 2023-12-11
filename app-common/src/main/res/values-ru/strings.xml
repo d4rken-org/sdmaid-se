@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Удалить выбранные</string>
     <string name="general_show_details_action">Показать детали</string>
     <string name="general_show_all_action">Показать все</string>
+    <string name="general_toggle_layout_mode">Переключить режим просмотра</string>
     <string name="general_delete_confirmation_title">Подтвердить удаление</string>
     <string name="general_delete_confirmation_message_x">Удалить \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Удалить %d выбранных элементов?</string>

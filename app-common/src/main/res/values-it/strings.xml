@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Elimina selezionato</string>
     <string name="general_show_details_action">Mostra dettagli</string>
     <string name="general_show_all_action">Mostra tutto</string>
+    <string name="general_toggle_layout_mode">Cambia modalità di visualizzazione</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>

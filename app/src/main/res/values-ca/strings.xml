@@ -423,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Darrera actualització</string>
     <string name="appcontrol_list_sortmode_installed_label">Primera instal·lació</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nom del paquet</string>
+    <string name="appcontrol_list_sortmode_size_label">Mida</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Les mides de les aplicacions s\'estimen per raons de rendiment. Utilitzeu l\'eina Analitzador d\'emmagatzematge per obtenir dades més precises.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstal·lant l\'aplicació</string>
+    <string name="appcontrol_app_sizes_title">Mida de l\'aplicació</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplicació</string>
+    <string name="appcontrol_app_sizes_data_label">Dades</string>
+    <string name="appcontrol_app_sizes_cache_label">Memòria cau</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>
@@ -488,8 +494,11 @@
     <string name="exclusion_editor_segment_explanation">Una exclusió basada en segments és similar a una exclusió de ruta, però permet coincidències parcials. Exemple: «DCIM/Camera» exclou «/sdcard/DCIM/Camera/photo.png».</string>
     <string name="exclusion_editor_remove_confirmation_message">Voleu eliminar aquesta exclusió?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
+    <string name="exclusion_reset_default_exclusions">Restaura les exclusions per defecte</string>
+    <string name="exclusion_import_action">Importa exclusions</string>
+    <string name="exclusion_export_action">Exporta exclusions</string>
     <string name="exclusion_create_pkg_hint">Utilitzeu l\'eina de Control d\'aplicacions per crear exclusions d\'aplicacions.</string>
-    <string name="exclusion_create_path_hint">Utilitzeu l\'eina d\'Anàlisi d\'emmagatzematge per crear exclusions de rutes.</string>
+    <string name="exclusion_create_path_hint">Utilitzeu l\'eina Analitzador d\'emmagatzematge per crear exclusions de rutes.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">S\'ha creat una exclusió</item>
         <item quantity="other">S\'han creat %d exclusions</item>

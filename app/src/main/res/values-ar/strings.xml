@@ -463,7 +463,13 @@
     <string name="appcontrol_list_sortmode_updated_label">آخر تحديث</string>
     <string name="appcontrol_list_sortmode_installed_label">وقت التثبيت الأول</string>
     <string name="appcontrol_list_sortmode_packagename_label">اسم الحُزْمَة</string>
+    <string name="appcontrol_list_sortmode_size_label">الحجم</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">أحجام التطبيقات مقدرة لأسباب تتعلق بالأداء. استخدم أداة تحليل التخزين للحصول على بيانات أدق.</string>
     <string name="appcontrol_progress_uninstalling_app">إلغاء تثبيت التطبيق</string>
+    <string name="appcontrol_app_sizes_title">حجم التطبيق</string>
+    <string name="appcontrol_app_sizes_apk_label">التطبيق</string>
+    <string name="appcontrol_app_sizes_data_label">البيانات</string>
+    <string name="appcontrol_app_sizes_cache_label">ذاكرة التخزين المؤقت</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>
@@ -536,6 +542,9 @@
     <string name="exclusion_editor_segment_explanation">والاستبعاد القائم على الشريحة مماثل لاستبعاد المسار ولكنه يسمح بمطابقة جزئية. مثال: \"DCIM/Camera\" لا يشمل \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">إزالة هذا الاستبعاد؟</string>
     <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
+    <string name="exclusion_reset_default_exclusions">استعادة الاستثناءات الإفتراضية</string>
+    <string name="exclusion_import_action">استيراد استثناءات</string>
+    <string name="exclusion_export_action">تصدير استثناءات</string>
     <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
     <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
     <plurals name="exclusion_x_new_exclusions">

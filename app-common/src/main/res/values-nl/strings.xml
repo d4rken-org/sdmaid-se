@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Verwijder selectie</string>
     <string name="general_show_details_action">Toon details</string>
     <string name="general_show_all_action">Toon alles</string>
+    <string name="general_toggle_layout_mode">Wijzig de weergavemodus</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d geselecteerde items verwijderen?</string>

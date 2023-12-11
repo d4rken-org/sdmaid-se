@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">حذف المُحدد</string>
     <string name="general_show_details_action">عرض التفاصيل</string>
     <string name="general_show_all_action">عرض الكل</string>
+    <string name="general_toggle_layout_mode">غير نمط العرض</string>
     <string name="general_delete_confirmation_title">تأكيد الحذف</string>
     <string name="general_delete_confirmation_message_x">حذف \"%s\"؟</string>
     <string name="general_delete_confirmation_message_selected_x_items">حذف %d من العناصر المحددة؟</string>
