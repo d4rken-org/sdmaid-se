@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Hapus yang dipilih</string>
     <string name="general_show_details_action">Tampilkan detail</string>
     <string name="general_show_all_action">Tampilkan semua</string>
+    <string name="general_toggle_layout_mode">Ganti mode tampilan</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Hapus %d objek yang dipilih?</string>
@@ -127,4 +128,7 @@
     <string name="general_timeunit_days">Hari</string>
     <string name="general_progress_ready">Siap</string>
     <string name="general_progress_done">Selesai</string>
+    <plurals name="result_x_files">
+        <item quantity="other">%s berkas</item>
+    </plurals>
 </resources>

@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">删除所选</string>
     <string name="general_show_details_action">显示详细信息</string>
     <string name="general_show_all_action">全部显示</string>
+    <string name="general_toggle_layout_mode">切换视图模式</string>
     <string name="general_delete_confirmation_title">确认删除</string>
     <string name="general_delete_confirmation_message_x">是否删除“%s”？</string>
     <string name="general_delete_confirmation_message_selected_x_items">删除选中的 %d 个项目吗？</string>

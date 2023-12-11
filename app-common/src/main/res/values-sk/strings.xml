@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Zmazať vybrané</string>
     <string name="general_show_details_action">Zobraziť podrobnosti</string>
     <string name="general_show_all_action">Zobraziť všetko</string>
+    <string name="general_toggle_layout_mode">Prepnúť zobrazovací mód</string>
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Odstrániť %d vybraté položky?</string>

@@ -413,7 +413,13 @@
     <string name="appcontrol_list_sortmode_updated_label">最後更新</string>
     <string name="appcontrol_list_sortmode_installed_label">首次安裝</string>
     <string name="appcontrol_list_sortmode_packagename_label">套件名稱</string>
+    <string name="appcontrol_list_sortmode_size_label">大小</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">應用程式大小是因節約效能原因而估計的，可使用儲存分析器工具以取得更精確的資料。</string>
     <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
+    <string name="appcontrol_app_sizes_title">應用程式大小</string>
+    <string name="appcontrol_app_sizes_apk_label">應用程式</string>
+    <string name="appcontrol_app_sizes_data_label">資料</string>
+    <string name="appcontrol_app_sizes_cache_label">快取</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>
@@ -476,6 +482,9 @@
     <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
     <string name="exclusion_editor_remove_confirmation_message">移除這個排除？</string>
     <string name="exclusion_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
+    <string name="exclusion_reset_default_exclusions">還原預設排除</string>
+    <string name="exclusion_import_action">匯入排除</string>
+    <string name="exclusion_export_action">匯出排除</string>
     <string name="exclusion_create_pkg_hint">使用應用控制工具建立應用程式排除。</string>
     <string name="exclusion_create_path_hint">使用儲存分析器工具建立路徑排除。</string>
     <plurals name="exclusion_x_new_exclusions">

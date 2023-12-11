@@ -423,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Última modificación</string>
     <string name="appcontrol_list_sortmode_installed_label">Primera instalación</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nombre del paquete</string>
+    <string name="appcontrol_list_sortmode_size_label">Tamaño</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Los tamaños de las aplicaciones se estiman por motivos de rendimiento. Utilice la herramienta StorageAnalyzer para obtener datos más precisos.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalar la aplicación</string>
+    <string name="appcontrol_app_sizes_title">Tamaño de la aplicación</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplicación</string>
+    <string name="appcontrol_app_sizes_data_label">Datos</string>
+    <string name="appcontrol_app_sizes_cache_label">Caché</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
     <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>
@@ -488,6 +494,9 @@
     <string name="exclusion_editor_segment_explanation">Una exclusión basada en segmentos es similar a una exclusión de ruta, pero permite coincidencias parciales. Por ejemplo: \"DCIM/Camera\" excluye \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">¿Eliminar esta exclusión?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
+    <string name="exclusion_reset_default_exclusions">Restaurar las exclusiones por defecto</string>
+    <string name="exclusion_import_action">Importar exclusiones</string>
+    <string name="exclusion_export_action">Exportar exclusiones</string>
     <string name="exclusion_create_pkg_hint">Utilice la herramienta AppControl para crear exclusiones de aplicaciones.</string>
     <string name="exclusion_create_path_hint">Utilice la herramienta StorageAnalyzer para crear exclusiones de rutas.</string>
     <plurals name="exclusion_x_new_exclusions">

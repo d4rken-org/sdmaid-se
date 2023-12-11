@@ -6,11 +6,16 @@
     <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
     <string name="upgrades_dashcard_body">SD Maid Proは、パワーユーザーにより良い結果、より多くの機能、オプションを提供します。</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Playは利用できません</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid は Google Play に接続できません。 Google Playはインストールされており、最新の状態ですか? あなたのGoogleアカウントはログインしていますか? Google Playアプリのキャッシュをクリアしてデバイスを再起動してみてください。</string>
     <string name="upgrades_no_purchases_found_check_account">購入が確認できませんでした。正しいアカウントを使用していますでしょうか？</string>
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
+    <string name="upgrade_screen_preamble">SDメイドは広告がなく、ユーザーデータを販売していません。私の作品はあなたによって賄われています❤️。</string>
     <string name="upgrade_screen_benefits_title">優位点</string>
     <string name="upgrade_screen_benefits_body">• アプリの整頓 💯\n• 予定されている動作 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 意欲的な開発🧙\nそれ以外にも…</string>
     <string name="upgrade_screen_how_title">オプション</string>
+    <string name="upgrade_screen_how_body">サブスクリプションは14日間の無料トライアルから始まり、その後1年に1回課金されます。\n試用版もサブスクリプションもいつでもキャンセル可能です。</string>
+    <string name="upgrade_screen_subscription_trial_action">14日間の無料トライアルを開始</string>
     <string name="upgrade_screen_subscription_action">登録</string>
     <string name="upgrade_screen_subscription_action_hint">サブスクライブには年 %s 円かかります。</string>
     <string name="upgrade_screen_iap_action">1 回限りの購入</string>

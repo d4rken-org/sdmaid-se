@@ -8,8 +8,11 @@ Nikto nie je dokonalý a Android tiež nie.
 Nepokračujme tu... Nechajte SD Maid SE pomôcť vám:
 
 * Vyčistite údaje z už odinštalovaných aplikácií
-* Nájdite skryté vyrovnávacie pamäte aplikácií
-* Odstráňte nadbytočné systémové súbory
+* Odstráňte nepotrebné súbory a skryté vyrovnávacie pamäte
+* Odstráňte nepoužívané systémové súbory
+* Vytvorte si vlastné filtre pre náhodné súbory
+* Nájdite a odstráňte duplicitné údaje
+* Analyzujte svoje úložisko a odstráňte veľké súbory, ktoré zaberajú miesto
 
 SD Maid SE je bez reklám. Niektoré funkcie vyžadujú platenú inováciu.
 
