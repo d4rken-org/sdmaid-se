@@ -113,10 +113,12 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             when (state.actionState) {
                 DashboardViewModel.BottomBarState.Action.SCAN -> {
                     mainAction.setImageResource(R.drawable.ic_layer_search_24)
-                    mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnPrimaryContainer))
-                    mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer))
+                    mainAction.imageTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorOnPrimaryContainer)
+                    )
+                    mainAction.backgroundTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer)
+                    )
                 }
 
                 DashboardViewModel.BottomBarState.Action.DELETE -> {
@@ -141,18 +143,22 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
                 DashboardViewModel.BottomBarState.Action.WORKING -> {
                     mainAction.setImageDrawable(null)
-                    mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnSecondaryContainer))
-                    mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorSecondaryContainer))
+                    mainAction.imageTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorOnSecondaryContainer)
+                    )
+                    mainAction.backgroundTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorSecondaryContainer)
+                    )
                 }
 
                 DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE -> {
                     mainAction.setImageResource(R.drawable.ic_cancel)
-                    mainAction.imageTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorOnTertiaryContainer))
-                    mainAction.backgroundTintList =
-                        ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorTertiaryContainer))
+                    mainAction.imageTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorOnTertiaryContainer)
+                    )
+                    mainAction.backgroundTintList = ColorStateList.valueOf(
+                        getColorForAttr(com.google.android.material.R.attr.colorTertiaryContainer)
+                    )
                 }
             }
         }

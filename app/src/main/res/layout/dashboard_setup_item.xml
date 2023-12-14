@@ -47,7 +47,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dismiss_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SDMButton.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_dismiss_action"

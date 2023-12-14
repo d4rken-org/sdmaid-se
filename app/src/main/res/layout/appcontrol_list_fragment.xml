@@ -124,7 +124,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_name"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:insetTop="0dp"
@@ -133,7 +133,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_updated"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:insetTop="0dp"
@@ -142,7 +142,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_installed"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:insetTop="0dp"
@@ -151,7 +151,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_packagename"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:insetTop="0dp"
@@ -160,7 +160,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_size"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:insetTop="0dp"
@@ -170,7 +170,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sortmode_direction"
-                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                style="@style/SDMButton.Icon.Filled.Tonal"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
@@ -196,7 +196,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/tag_filter_clear_action"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/SDMButton.Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end|center_vertical"

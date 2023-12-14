@@ -107,7 +107,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/upgrade_sub_action"
-                        style="@style/Widget.Material3.Button"
+                        style="@style/SDMButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/upgrade_screen_subscription_trial_action"
@@ -126,7 +126,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/upgrade_iap_action"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        style="@style/SDMButton.Outlined"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
