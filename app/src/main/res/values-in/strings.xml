@@ -376,6 +376,7 @@
     <string name="deduplicator_delete_all_toggle_msg">Menghapus semua salinan. Tidak ada berkas lagi yang tersisa!</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan berkas-berkas</string>
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
+    <string name="deduplicator_matches_similar_label">Berkas-berkas serupa</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -409,7 +410,12 @@
     <string name="appcontrol_list_sortmode_updated_label">Terakhir diperbarui</string>
     <string name="appcontrol_list_sortmode_installed_label">Diinstal pertama kali</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nama paket</string>
+    <string name="appcontrol_list_sortmode_size_label">Ukuran</string>
     <string name="appcontrol_progress_uninstalling_app">Mencopot aplikasi</string>
+    <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Tembolok</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
@@ -472,6 +478,9 @@
     <string name="exclusion_editor_segment_explanation">Pengecualian berbasis segmen mirip dengan pengecualian jalur namun memungkinkan untuk pencocokan sebagian. Misalnya: \"DCIM/Camera\" mengecualikan \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Buang pengecualian ini?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Anda memiliki perubahan yang belum tersimpan!</string>
+    <string name="exclusion_reset_default_exclusions">Kembalikan pengecualian bawaan</string>
+    <string name="exclusion_import_action">Impor pengecualian</string>
+    <string name="exclusion_export_action">Ekspor pengecualian</string>
     <string name="exclusion_create_pkg_hint">Gunakan alat PengendaliApp untuk membuat pengecualian app.</string>
     <string name="exclusion_create_path_hint">Gunakan alat PenganalisaPenyimpanan untuk membuat jejak pengecualian.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -522,6 +531,7 @@
     <string name="scheduler_notification_title">Tugas terjadwal</string>
     <string name="scheduler_notification_message">Menjalankan: \"%s\"</string>
     <string name="scheduler_notification_result_title">Penjadwal selesai</string>
+    <string name="scheduler_notification_result_success_message">Semua tugas yang dijadwalkan berhasil dijalankan.</string>
     <string name="scheduler_commands_after_schedule_label">Perintah pasca-penjadwalan</string>
     <string name="updates_dashcard_title">Pembaruan tersedia</string>
     <string name="updates_dashcard_body">Pembaruan tersedia. Versi aplikasi Anda %1$s dan versi terbaru adalah %2$s.</string>

@@ -408,7 +408,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Viimati uuendatud</string>
     <string name="appcontrol_list_sortmode_installed_label">Esmapaigaldus</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paki nimi</string>
+    <string name="appcontrol_list_sortmode_size_label">Maht</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Rakenduse mahtu uuritakse jõudluse eesmärkidel. Täpsemad andmed saad hoiustamisruumi analüüsijaga.</string>
     <string name="appcontrol_progress_uninstalling_app">Rakenduse eemaldamine</string>
+    <string name="appcontrol_app_sizes_title">Rakenduse maht</string>
+    <string name="appcontrol_app_sizes_apk_label">Rakendus</string>
+    <string name="appcontrol_app_sizes_data_label">Andmed</string>
+    <string name="appcontrol_app_sizes_cache_label">Vahemälu</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>
     <string name="analyzer_progress_scanning_device">Hoiustamiseks kasutatavate seadmete otsimine</string>
@@ -473,6 +479,9 @@
     <string name="exclusion_editor_segment_explanation">Segmendil põhinev erand sarnaneb asukoha erandile, ent erinevus seisneb osalise leiu poolest. Näiteks \"DCIM/Camera\" kataloog eirab \"/sdcard/DCIM/Camera/photo.png\" faili.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eemaldada see erand?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
+    <string name="exclusion_reset_default_exclusions">Taasta tavaerandid</string>
+    <string name="exclusion_import_action">Impordi erandid</string>
+    <string name="exclusion_export_action">Ekspordi erandid</string>
     <string name="exclusion_create_pkg_hint">Looge rakenduste erandeid rakenduse kontrolliga.</string>
     <string name="exclusion_create_path_hint">Looge asukoha erandeid hoiustamisruumi analüüsijaga.</string>
     <plurals name="exclusion_x_new_exclusions">

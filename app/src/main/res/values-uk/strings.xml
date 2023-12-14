@@ -372,7 +372,7 @@
     <string name="deduplicator_matches_exact_label">Точні копії</string>
     <string name="deduplicator_matches_similar_label">Схожі файли</string>
     <string name="appcontrol_tool_name">Управління додатками</string>
-    <string name="appcontrol_explanation_short">Додатки, встановлені на пристрої.</string>
+    <string name="appcontrol_explanation_short">Додатки, встановлені на вашому пристрої.</string>
     <string name="appcontrol_toggle_app_selection_action">Перемикання додатків</string>
     <string name="appcontrol_toggle_app_enable_action">Увімкнути додаток</string>
     <string name="appcontrol_toggle_app_disable_action">Вимкнути додаток</string>
@@ -401,7 +401,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Останнє оновлення</string>
     <string name="appcontrol_list_sortmode_installed_label">Вперше встановлено</string>
     <string name="appcontrol_list_sortmode_packagename_label">Назва пакету</string>
+    <string name="appcontrol_list_sortmode_size_label">Розмір</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Розміри додатків оцінюються з міркувань продуктивності. Використовуйте інструмент Аналізатор сховища для отримання більш точних даних.</string>
     <string name="appcontrol_progress_uninstalling_app">Видалення додатка</string>
+    <string name="appcontrol_app_sizes_title">Розмір додатка</string>
+    <string name="appcontrol_app_sizes_apk_label">Додаток</string>
+    <string name="appcontrol_app_sizes_data_label">Дані</string>
+    <string name="appcontrol_app_sizes_cache_label">Кеш</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>
@@ -458,6 +464,9 @@
     <string name="exclusion_editor_segment_explanation">Виняток на основі сегмента подібне до винятку на основі шляху, але допускає часткові збіги. Приклад: \"DCIM/Camera\" виключає \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Видалити виняток?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
+    <string name="exclusion_reset_default_exclusions">Відновити виключення за замовчуванням</string>
+    <string name="exclusion_import_action">Винятки для імпорту</string>
+    <string name="exclusion_export_action">Винятки для експорту</string>
     <string name="exclusion_create_pkg_hint">Використовуйте інструмент \"Управління додатками\" для створення винятків для додатків.</string>
     <string name="exclusion_create_path_hint">Використовуйте інструмент \"Аналізатор сховища\" для створення винятків шляхів.</string>
     <string name="automation_accessibility_service_description">Користувачі з особливими потребами можуть увімкнути цю службу, щоб дозволити SD Maid автоматизувати завдання, які інакше вимагали б нудної ручної взаємодії користувача (наприклад, видалення кешу).\n\nПриклад: Якщо ви доручили SD Maid зупинити кілька програм, то SD Maid може використовувати цю послугу, щоб відкрити екран налаштувань кожної програми, знайти кнопку \"Примусова зупинка\" і натиснути її.\n\nПід час використання цієї послуги SD Maid завжди буде на видному місці і надасть користувачеві простий спосіб негайно скасувати будь-яку взаємодію.\n\nНіякі дії не будуть виконуватися без попереднього схвалення користувача. Цю послугу можна вимкнути знову в будь-який час без жодних негативних наслідків.</string>
