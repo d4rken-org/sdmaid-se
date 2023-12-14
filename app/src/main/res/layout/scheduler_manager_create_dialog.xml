@@ -67,7 +67,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/time_edit_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/SDMButton.Tonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_edit_action"
@@ -89,7 +89,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_less_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/SDMButton.Tonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
@@ -114,7 +114,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_more_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/SDMButton.Tonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
@@ -125,7 +125,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_action"
-            style="@style/Widget.Material3.Button"
+            style="@style/SDMButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

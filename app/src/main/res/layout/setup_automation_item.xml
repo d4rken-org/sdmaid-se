@@ -132,7 +132,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/restriction_appops_hint_help_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/SDMButton.Outlined"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -144,7 +144,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/restriction_appops_hint_show_action"
-                style="@style/Widget.Material3.Button"
+                style="@style/SDMButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -191,7 +191,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/allow_action"
-            style="@style/Widget.Material3.Button"
+            style="@style/SDMButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -216,7 +216,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/disallow_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/SDMButton.Tonal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -243,7 +243,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/help_action"
-        style="@style/Widget.Material3.Button.IconButton"
+        style="@style/SDMButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"

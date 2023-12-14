@@ -103,7 +103,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/details_action"
-                style="@style/Widget.Material3.Button.IconButton"
+                style="@style/SDMButton.Icon"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_eye_24"

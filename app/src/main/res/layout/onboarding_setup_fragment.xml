@@ -71,13 +71,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/go_action"
-            style="@style/Widget.Material3.Button"
+            style="@style/SDMButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/onboarding_setup_continue_action" />
+            android:text="@string/onboarding_setup_continue_action">
+
+            <requestFocus />
+        </com.google.android.material.button.MaterialButton>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

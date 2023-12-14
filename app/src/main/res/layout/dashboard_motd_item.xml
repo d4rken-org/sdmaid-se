@@ -43,7 +43,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/translate_action"
-            style="@style/Widget.Material3.Button.IconButton"
+            style="@style/SDMButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackgroundBorderless"
@@ -72,7 +72,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dismiss_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SDMButton.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

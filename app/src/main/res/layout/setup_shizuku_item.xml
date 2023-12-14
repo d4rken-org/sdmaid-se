@@ -99,7 +99,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/help_action"
-        style="@style/Widget.Material3.Button.IconButton"
+        style="@style/SDMButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"

@@ -121,7 +121,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exclude_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/SDMButton.Tonal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -136,7 +136,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_action"
-            style="@style/Widget.Material3.Button"
+            style="@style/SDMButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"

@@ -55,14 +55,14 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/areas_reload_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/SDMButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Reload data areas" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/pkgs_reload_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/SDMButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Reload apps" />
@@ -77,7 +77,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/root_test_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/SDMButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test root" />
@@ -92,21 +92,21 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/shizuku_test_action"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/SDMButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test Shizuku" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"
-                style="@style/Widget.Material3.Button.TonalButton"
+                style="@style/SDMButton.Tonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Run tests" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/logview_action"
-                style="@style/Widget.Material3.Button"
+                style="@style/SDMButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View log" />

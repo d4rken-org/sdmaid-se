@@ -126,7 +126,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SDMButton.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_remove_action"
@@ -140,7 +140,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancel_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SDMButton.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_cancel_action"
@@ -148,7 +148,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_action"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SDMButton.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_save_action"
