@@ -464,6 +464,11 @@
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirm action</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Change enabled/disabled state of %d app?</item>
+        <item quantity="other">Change enabled/disabled states for %d apps?</item>
+    </plurals>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
