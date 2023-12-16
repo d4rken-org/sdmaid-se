@@ -309,14 +309,22 @@ class AppControlListViewModel @Inject constructor(
         events.postValue(AppControlListEvents.ExclusionsCreated(createdExclusions.size))
     }
 
-    fun toggle(items: Collection<AppControlListAdapter.Item>) = launch {
-        log(TAG) { "toggle(${items.size})" }
+    fun toggle(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "toggle(${items.size}, confirmed=$confirmed)" }
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmToggle(items.toList()))
+            return@launch
+        }
         val targets = items.map { it.appInfo.installId }.toSet()
         appControl.submit(AppControlToggleTask(targets = targets))
     }
 
-    fun uninstall(items: Collection<AppControlListAdapter.Item>) = launch {
-        log(TAG) { "uninstall(${items.size})" }
+    fun uninstall(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "uninstall(${items.size}, confirmed=$confirmed)" }
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmDeletion(items.toList()))
+            return@launch
+        }
         val targets = items.map { it.appInfo.installId }.toSet()
         appControl.submit(UninstallTask(targets = targets))
     }

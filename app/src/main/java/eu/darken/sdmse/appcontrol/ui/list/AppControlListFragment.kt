@@ -152,27 +152,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     }
 
                     R.id.action_uninstall_selection -> {
-                        MaterialAlertDialogBuilder(requireContext()).apply {
-                            setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                            setMessage(
-                                if (selected.size > 1) {
-                                    getString(
-                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
-                                        selected.size
-                                    )
-                                } else {
-                                    getString(
-                                        eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                        selected.single().appInfo.label.get(requireContext())
-                                    )
-                                }
-                            )
-                            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                                vm.uninstall(selected)
-                                tracker.clearSelection()
-                            }
-                            setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                        }.show()
+                        vm.uninstall(selected)
+                        tracker.clearSelection()
                         true
                     }
 
@@ -273,13 +254,34 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             }
         }
 
-        vm.events.observe2(ui) {
-            when (it) {
-                is AppControlListEvents.ConfirmDeletion -> {}
+        vm.events.observe2(ui) { event ->
+            when (event) {
+                is AppControlListEvents.ConfirmDeletion -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
+                    setMessage(
+                        if (event.items.size > 1) {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                event.items.size
+                            )
+                        } else {
+                            getString(
+                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
+                                event.items.single().appInfo.label.get(requireContext())
+                            )
+                        }
+                    )
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                        vm.uninstall(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+
                 is AppControlListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, it.count),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
@@ -292,6 +294,16 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_gotit_action) { _, _ ->
                         vm.ackSizeSortCaveat()
                     }
+                }.show()
+
+                is AppControlListEvents.ConfirmToggle -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.appcontrol_toggle_confirmation_title)
+                    setMessage(getQuantityString2(R.plurals.appcontrol_toggle_confirmation_message_x, event.items.size))
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_continue) { _, _ ->
+                        vm.toggle(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
             }
         }

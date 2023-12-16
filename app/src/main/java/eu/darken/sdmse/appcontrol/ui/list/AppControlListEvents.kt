@@ -1,9 +1,8 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
-import eu.darken.sdmse.appcleaner.core.AppJunk
-
 sealed class AppControlListEvents {
-    data class ConfirmDeletion(val appJunk: AppJunk) : AppControlListEvents()
+    data class ConfirmDeletion(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
     data class ExclusionsCreated(val count: Int) : AppControlListEvents()
     data object ShowSizeSortCaveat : AppControlListEvents()
+    data class ConfirmToggle(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
 }
