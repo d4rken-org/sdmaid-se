@@ -77,10 +77,11 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/apk_size"
-                style="@style/TextAppearance.Material3.LabelSmall"
+                style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:ems="4"
                 android:layout_weight="0"
                 android:gravity="end"
                 tools:text="123 MB" />
@@ -106,6 +107,7 @@
                 style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ems="4"
                 android:layout_marginStart="8dp"
                 android:layout_weight="0"
                 android:gravity="end"
@@ -133,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:ems="4"
                 android:layout_weight="0"
                 android:gravity="end"
                 tools:text="43 MB" />
