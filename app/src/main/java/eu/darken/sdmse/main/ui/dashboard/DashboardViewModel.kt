@@ -296,23 +296,42 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
+    private var dashloadingStart = -1L
+    private var dashloadingEmitters = mutableMapOf<String, Any>()
+    private fun <T : Any?> Flow<T>.logDashEmitters(tag: String) = this
+        .onStart {
+            if (dashloadingEmitters.isEmpty()) dashloadingStart = System.currentTimeMillis()
+            dashloadingEmitters[tag] = this@logDashEmitters
+        }
+        .onEach {
+            dashloadingEmitters.remove(tag)
+            if (dashloadingEmitters.isEmpty() && dashloadingStart != -1L) {
+                val time = (System.currentTimeMillis() - dashloadingStart)
+                dashloadingStart = -1L
+                log(TAG, VERBOSE) { "Finished loading dashboard in ${time}ms" }
+            } else {
+                val keyCopy = dashloadingEmitters.keys.toList()
+                log(TAG, VERBOSE) { "Waiting for $keyCopy" }
+            }
+        }
+
     private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
-        recorderModule.state,
-        debugCardProvider.create(this),
-        titleCardItem,
-        upgradeInfo,
-        updateInfo,
-        setupManager.state,
-        dataAreaItem,
-        corpseFinderItem,
-        systemCleanerItem,
-        appCleanerItem,
-        deduplicatorItem,
-        appControlItem,
-        analyzerItem,
-        schedulerItem,
-        motdItem,
-        refreshTrigger,
+        recorderModule.state.logDashEmitters("recorder"),
+        debugCardProvider.create(this).logDashEmitters("debug"),
+        titleCardItem.logDashEmitters("title"),
+        upgradeInfo.logDashEmitters("upgrade info"),
+        updateInfo.logDashEmitters("update info"),
+        setupManager.state.logDashEmitters("setup"),
+        dataAreaItem.logDashEmitters("datarea warning"),
+        corpseFinderItem.logDashEmitters("corpsefinder"),
+        systemCleanerItem.logDashEmitters("systemcleaner"),
+        appCleanerItem.logDashEmitters("appcleaner"),
+        deduplicatorItem.logDashEmitters("deduplicator"),
+        appControlItem.logDashEmitters("appcontrol"),
+        analyzerItem.logDashEmitters("analyzer"),
+        schedulerItem.logDashEmitters("scheduler"),
+        motdItem.logDashEmitters("motd"),
+        refreshTrigger.logDashEmitters("refreshtrigger"),
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
         titleInfo: TitleCardVH.Item,
