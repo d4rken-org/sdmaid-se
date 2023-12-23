@@ -121,14 +121,15 @@
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/progress"
-                style="@style/Widget.Material3.CircularProgressIndicator.Small"
+                style="@style/Widget.Material3.CircularProgressIndicator.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_margin="16dp"
+                tools:progress="90"
+                tools:max="100"
                 android:indeterminate="true"
-                app:layout_constraintBottom_toBottomOf="@id/subtitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/title"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -136,7 +137,6 @@
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="7sp"
                 app:layout_constraintBottom_toBottomOf="@id/progress"
                 app:layout_constraintEnd_toEndOf="@id/progress"
                 app:layout_constraintStart_toStartOf="@id/progress"
