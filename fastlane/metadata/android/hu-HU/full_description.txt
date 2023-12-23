@@ -1,21 +1,24 @@
-A <i>SD Maid SE</i> az Ön Androidjának megbízható asszisztense, hogy tisztán és rendben tartsa azt.
+Az <i>SD Maid SE</i> az Androidod megbízható asszisztense, hogy tisztán és rendben tartsa azt.
 
-Senki sem tökéletes, és az Android sem.
-* A már eltávolított alkalmazások hagynak maguk után valamit.
-* Folyamatosan készülnek a naplók, összeomlási jelentések és más olyan fájlok, amelyeket nem igazán szeretne.
-* A tárhely olyan fájlokat és könyvtárakat gyűjt, amelyeket Ön nem ismer fel.
+Semmi sem tökéletes, még az Android sem.
+* Az eltávolított alkalmazásaid hagynak maguk után valamit.
+* Folyamatosan készülnek a naplók, összeomlási jelentések és más olyan fájlok, amelyeket nem igazán szeretnél.
+* A tárhelyed olyan fájlokat és könyvtárakat gyűjt, amelyeket nem ismersz fel.
 
-Ne folytassuk tovább... Hagyja, hogy az SD Maid SE segítsen Önnek:
+Ne folytassuk tovább… Hagyd, hogy az SD Maid SE segítsen neked:
 
-* Tisztítsa meg az adatokat a már eltávolított alkalmazásokból
-* Találja meg a rejtett alkalmazás-gyorsítótárakat
-* Távolítsa el a felesleges rendszerfájlokat
+* Megtisztítja az adatokat az eltávolított alkalmazásokból
+* Törli a felesleges fájlokat és a rejtett gyorsítótárakat
+* Eltávolítja a nem használt rendszerfájlokat
+* Hozz létre saját szűrőket a véletlenszerű fájlokhoz
+* Megtalálja és törli az ismétlődő adatokat
+* Elemzi a tárhelyet, és törli a nagy fájlokat
 
 Az SD Maid SE reklámmentes. Egyes funkciók fizetős frissítést igényelnek.
 
 Az SD Maid 2/SE az SD Maid 1/Legacy utódja.
-Az újabb Android-verziókra optimalizálva, és a tisztításra összpontosít.
+Újabb Android-verziókra optimalizálva, és a tisztításra összpontosítva.
 
 Az SD Maid SE olyan opcionális funkciókkal rendelkezik, amelyek az AccessibilityService API-t használják az unalmas műveletek automatizálására.
 Az AccessibilityService API használatával az SD Maid SE gombokra kattintva több alkalmazáson is végrehajthat műveleteket, pl. gyorsítótárak törlése.
-Az SD Maid SE nem használja az Kisegítő lehetőségek API-t információgyűjtésre.
+Az SD Maid nem használja az AccessibilityService API-t információgyűjtésre.

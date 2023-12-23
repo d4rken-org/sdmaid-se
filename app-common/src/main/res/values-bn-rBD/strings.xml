@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">নির্বাচিত অংশ মুছুন</string>
     <string name="general_show_details_action">বিস্তারিত প্রদর্শন</string>
     <string name="general_show_all_action">সবগুলো দেখান </string>
+    <string name="general_toggle_layout_mode">ভিউ মোড পরিবর্তন করুন</string>
     <string name="general_delete_confirmation_title">মুছে ফেলা নিশ্চিত করুন</string>
     <string name="general_delete_confirmation_message_x">\"%s\" মুছবেন?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%dটি নির্বাচিত আইটেম মুছবেন?</string>

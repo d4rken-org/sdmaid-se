@@ -423,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">সর্বশেষ আপডেট</string>
     <string name="appcontrol_list_sortmode_installed_label">প্রথমবার ইনস্টল করা</string>
     <string name="appcontrol_list_sortmode_packagename_label">প্যাকেজের নাম</string>
+    <string name="appcontrol_list_sortmode_size_label">আকার</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
+    <string name="appcontrol_app_sizes_title">অ্যাপের সাইজ</string>
+    <string name="appcontrol_app_sizes_apk_label">অ্যাপ</string>
+    <string name="appcontrol_app_sizes_data_label">ডাটা</string>
+    <string name="appcontrol_app_sizes_cache_label">ক্যাশ</string>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>
@@ -488,6 +494,9 @@
     <string name="exclusion_editor_segment_explanation">একটি সেগমেন্ট ভিত্তিক বর্জন একটি পথ বর্জনের অনুরূপ কিন্তু আংশিক মিলের জন্য অনুমতি দেয়। উদাহরণ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" বাদ দেওয়া।</string>
     <string name="exclusion_editor_remove_confirmation_message">এই বর্জন সরাবেন?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
+    <string name="exclusion_reset_default_exclusions">ডিফল্ট বর্জন পুনরুদ্ধার করুন</string>
+    <string name="exclusion_import_action">বর্জন ইমপোর্ট করুন</string>
+    <string name="exclusion_export_action">এক্সপোর্ট এক্সক্লুশন</string>
     <string name="exclusion_create_pkg_hint">অ্যাপ এক্সক্লুশন তৈরি করতে AppControl টুল ব্যবহার করুন।</string>
     <string name="exclusion_create_path_hint">পাথ এক্সক্লুশন তৈরি করতে স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
     <plurals name="exclusion_x_new_exclusions">
