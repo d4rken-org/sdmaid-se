@@ -6,11 +6,13 @@
     <string name="slogan_message_3">Radi ono što je potrebno.</string>
     <string name="slogan_message_4">Sve vaše patke redom.</string>
     <string name="slogan_message_5">Besprijekoran.</string>
+    <string name="slogan_message_6">Bajtovi, nestanite!</string>
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_error_type_mismatch_msg">Nepodudaranje tipa: Htio sam %1$s, ali sam dobio %2$s.</string>
     <string name="general_error_cant_access_msg">Nije moguće pristupiti %s.</string>
     <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>
     <string name="general_error_empty_result_msg">Rezultat je bio prazan.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
     <string name="general_todo_msg">Na ovoj značajci još uvijek se radi i trenutno nije dostupna.</string>
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
@@ -22,6 +24,8 @@
     <string name="general_save_action">Spremi</string>
     <string name="general_thanks_action">Hvala</string>
     <string name="general_gotit_action">Shvaćam</string>
+    <string name="general_fix_action">Popravi</string>
+    <string name="general_set_up_action">Postavljanje</string>
     <string name="general_edit_action">Uredi</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_dismiss_action">Odbaci</string>
@@ -52,9 +56,13 @@
     <string name="general_progress_loading_egg_5">Turbo enkabulator se pokreće</string>
     <string name="general_progress_loading_egg_6">Dodavanje maslaca</string>
     <string name="general_progress_loading_egg_7">Tako. Kako se držiš?</string>
+    <string name="general_progress_loading_egg_10">Prizivanje Cthulhua</string>
+    <string name="general_progress_loading_egg_11">Ovo je u redu</string>
     <string name="general_help_action">Pomoć</string>
     <string name="general_continue">Nastavi</string>
     <string name="general_progress_queued">U redu čekanja</string>
+    <string name="general_progress_deleting">Brisanje</string>
+    <string name="general_progress_deleting_x">Brisanje %s</string>
     <string name="general_sort_options_label">Mogućnosti sortiranja</string>
     <string name="general_sort_reverse_action">Obrnuti način sortiranja</string>
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
@@ -69,6 +77,8 @@
     <string name="general_delete_action">Izbriši</string>
     <string name="general_delete_selected_action">Izbriši odabrano</string>
     <string name="general_show_details_action">Prikaži detalje</string>
+    <string name="general_show_all_action">Prikaži sve</string>
+    <string name="general_toggle_layout_mode">Promjena načina prikaza</string>
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
@@ -115,4 +125,13 @@
     <string name="file_type_directory">Direktorij</string>
     <string name="file_type_file">Datoteka</string>
     <string name="file_type_unknown">Nepoznato</string>
+    <string name="general_timeunit_hours">Sati</string>
+    <string name="general_timeunit_days">Dani</string>
+    <string name="general_progress_ready">Spremno</string>
+    <string name="general_progress_done">Gotovo</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s datoteka</item>
+        <item quantity="few">%s datoteke</item>
+        <item quantity="other">%s datoteka</item>
+    </plurals>
 </resources>

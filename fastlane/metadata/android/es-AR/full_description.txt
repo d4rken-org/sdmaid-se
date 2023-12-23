@@ -1,21 +1,24 @@
 <i>SD Maid SE</i> es el asistente de confianza para tu Android, para mantenerlo limpio y ordenado.
 
-Nadie es perfecto y tampoco Android lo es.
-* Apps que borraste ya dejaron algo detrás.
-* Logs, reportes de errores y otros archivos que realmente no querés están constantemente siendo creados.
+Nadie es perfecto y Android tampoco lo es.
+* Las aplicaciones que ya borraste dejan algo detrás.
+* Registros, reportes de errores y otros archivos que realmente no querés están constantemente siendo creados.
 * Tu almacenamiento está agarrando archivos y directorios que no reconocés.
 
-No sigamos aquí... Deje que SD Maid SE te ayude:
+No sigamos acá... Dejá que SD Maid SE te ayude:
 
-* Limpiá datos de apps ya desinstaladas
-* Encontrá cachés de app escondidos
-* Eliminá archivos del sistema innecesarios
+* Limpiá datos de aplicaciones ya desinstaladas
+* Delete expendable files and hidden caches
+* Remove unused system files
+* Create your own filters for random files
+* Find and delete duplicate data
+* Analyze your storage and delete large files taking up space
 
-SD Maid SE no tiene anuncios. Algunas características requieren la versión de paga.
+SD Maid SE está libre de anuncios. Algunas características requieren la versión de paga.
 
 SD Maid 2/SE es la sucesora de SD Maid 1/Legacy.
-Optimizado para versiones nuevas de Android y está enfocado en limpiar.
+Optimizado para versiones nuevas de Android y enfocado en limpiar.
 
-SD Maid SE tiene características opcionales que usan la API de AccessibilityService para automatizar acciones tediosas.
-Usando la API de AccessibilityService, SD Maid SE puede hacer clic en botones para que vos hagas operaciones en apps múltiples, por ejemplo. eliminando cachés.
-SD Maid SE no usa la API de AccessibilityService para coleccionar información.
+SD Maid SE tiene características opcionales que usan la API de AccessibilityService para automatizar acciones que te podrían resultar tediosas.
+Usando la API de AccessibilityService, SD Maid SE puede hacer clic en botones para que vos hagas operaciones en múltiples aplicaciones, por ejemplo. eliminando cachés.
+SD Maid SE no usa la API de AccessibilityService para recolectar información.
