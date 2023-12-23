@@ -195,6 +195,7 @@ class ClearCacheModule @AssistedInject constructor(
         explorer.withProgress(
             client = this,
             onUpdate = { existing, new -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
+            onCompletion = { current -> current }
         ) {
             process(spec)
         }

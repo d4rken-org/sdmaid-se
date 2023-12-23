@@ -11,6 +11,8 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.Progress.Count
 import eu.darken.sdmse.common.ui.layoutInflator
@@ -29,6 +31,7 @@ class AutomationControlView @JvmOverloads constructor(
     private var clickCount = 0
 
     fun setProgress(data: Progress.Data?) {
+        log(VERBOSE) { "setProgress($data)" }
         isVisible = data != null
 
         if (data == null) {
@@ -59,14 +62,17 @@ class AutomationControlView @JvmOverloads constructor(
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
+
                 is Count.Percent -> {
                     isIndeterminate = data.count.current == 0L
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
+
                 is Count.Indeterminate -> {
                     isIndeterminate = true
                 }
+
                 is Count.Size -> {}
                 is Count.None -> {}
             }
