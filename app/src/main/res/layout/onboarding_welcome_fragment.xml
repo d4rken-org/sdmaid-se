@@ -19,17 +19,13 @@
             android:padding="32dp"
             android:orientation="vertical">
 
-            <com.airbnb.lottie.LottieAnimationView
+            <eu.darken.sdmse.common.MascotView
                 android:id="@+id/mascot_animated"
-                android:layout_width="144dp"
-                android:layout_height="144dp"
+                android:layout_width="wrap_content"
+                android:layout_height="256dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="32dp"
-                android:scaleType="centerCrop"
-                app:lottie_autoPlay="true"
-                app:lottie_fallbackRes="@drawable/splash_mascot"
-                app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
-                app:lottie_loop="true" />
+                android:scaleType="centerCrop" />
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.Material3.HeadlineMedium"

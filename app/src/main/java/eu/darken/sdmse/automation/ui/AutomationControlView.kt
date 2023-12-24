@@ -35,11 +35,11 @@ class AutomationControlView @JvmOverloads constructor(
         isVisible = data != null
 
         if (data == null) {
-            ui.mascotAnimated.pauseAnimation()
+            ui.clickScreenMascotContainer.pauseAnimation()
             return
         }
 
-        ui.mascotAnimated.apply {
+        ui.clickScreenMascotContainer.apply {
             if (!isAnimating) playAnimation()
         }
 

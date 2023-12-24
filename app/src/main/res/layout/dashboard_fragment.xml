@@ -5,17 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.airbnb.lottie.LottieAnimationView
+    <eu.darken.sdmse.common.MascotView
         android:id="@+id/list_progress"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="64dp"
-        android:scaleType="centerCrop"
-        app:lottie_autoPlay="true"
-        app:lottie_fallbackRes="@drawable/splash_mascot"
-        app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
-        app:lottie_loop="true" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
