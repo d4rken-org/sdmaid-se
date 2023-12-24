@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/mascot_rigid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:src="@drawable/vector_mascot_nobroom"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mascot_animated"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fallbackRes="@drawable/splash_mascot"
+            app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
+            app:lottie_loop="true" />
+
+        <ImageView
+            android:id="@+id/mascot_overlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:rotation="31"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:src="@drawable/mascot_hat_xmas_crop"
+            app:layout_constraintBottom_toBottomOf="@id/mascot_animated"
+            app:layout_constraintDimensionRatio="W,1:2"
+            app:layout_constraintEnd_toEndOf="@id/mascot_animated"
+            app:layout_constraintHeight_percent="0.36"
+            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintStart_toStartOf="@id/mascot_animated"
+            app:layout_constraintTop_toTopOf="@id/mascot_animated"
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintWidth_percent="0.36" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

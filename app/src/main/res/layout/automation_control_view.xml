@@ -17,48 +17,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
+    <eu.darken.sdmse.common.MascotView
         android:id="@+id/click_screen_mascot_container"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:focusableInTouchMode="true"
         app:layout_constraintBottom_toTopOf="@id/click_screen_explanation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
-
-        <ImageView
-            android:id="@+id/click_screen_icon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/splash_mascot"
-            android:visibility="gone" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/mascot_animated"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:lottie_fallbackRes="@drawable/splash_mascot"
-            app:lottie_fileName="lottie/mascot_animation_coffee_relaxed.json"
-            app:lottie_loop="true" />
-    </FrameLayout>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/click_screen_explanation"
         style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
         android:paddingHorizontal="32dp"
         android:paddingVertical="16dp"
         android:text="@string/automation_screenoverlay_explanation"
         android:textColor="?colorOnBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/control_card"
         app:layout_constraintEnd_toEndOf="@id/click_screen"
         app:layout_constraintStart_toStartOf="@id/click_screen"
-        app:layout_constraintTop_toBottomOf="@id/click_screen_icon" />
+        app:layout_constraintTop_toBottomOf="@id/click_screen_mascot_container" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/control_card"
@@ -125,12 +107,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                tools:progress="90"
-                tools:max="100"
                 android:indeterminate="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:max="100"
+                tools:progress="90" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/progress_text"
