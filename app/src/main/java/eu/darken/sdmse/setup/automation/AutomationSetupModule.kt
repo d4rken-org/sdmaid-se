@@ -53,6 +53,9 @@ class AutomationSetupModule @Inject constructor(
         val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
+        val canSelfEnable = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
+        log(TAG) { "canSelfEnable=$canSelfEnable" }
+
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()
         log(TAG) { "mightBeRestricted=$mightBeRestricted" }
 
@@ -63,16 +66,16 @@ class AutomationSetupModule @Inject constructor(
         log(TAG) { "hasTriggeredRestrictions=$hasTriggeredRestrictions" }
 
         // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java;l=520
-        val showAppOpsRestrictionHint = !hasPassedRestrictions && hasTriggeredRestrictions && mightBeRestricted
+        val showAppOpsRestrictionHint = !hasPassedRestrictions
+                && hasTriggeredRestrictions
+                && mightBeRestricted
+                && !canSelfEnable
         log(TAG) { "showAppOpsRestrictionHint=$showAppOpsRestrictionHint" }
 
         // Settings details screen needs to have the system UID, not ours, otherwise the appops setting is invisible
         val liftRestrictionsIntent = Intent(Settings.ACTION_APPLICATION_SETTINGS).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-
-        val canSelfEnable = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
-        log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         log(TAG) { "useShizuku: $useShizuku" }
         log(TAG) { "useRoot: $useRoot" }
