@@ -85,7 +85,8 @@ class MIUISpecs @Inject constructor(
         }
     }
 
-    private val isMiui12Plus: Boolean = VERSION_STARTS_CURRENT.any { Build.VERSION.INCREMENTAL.startsWith(it) }
+    private val isMiui12Plus: Boolean =
+        VERSION_STARTS_CURRENT.any { Build.VERSION.INCREMENTAL.startsWith(it) } || hasApiLevel(34)
 
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
@@ -251,7 +252,6 @@ class MIUISpecs @Inject constructor(
         } else {
             // This may be skipped when MIUI just shows a 'Clear cache' option
 
-
             // Clear data
             // -> Clear data
             // -> Clear cache
@@ -336,6 +336,8 @@ class MIUISpecs @Inject constructor(
             "V13",
             // Xiaomi/plato_id/plato:13/TP1A.220624.014/V14.0.1.0.TLQIDXM:user/release-keys
             "V14",
+            // POCO/mondrian_global/mondrian:14/UKQ1.230804.001/V816.0.1.0.UMNMIXM:user/release-keys,
+            "V816", // wtf poco
         )
         private val VERSION_STARTS = VERSION_STARTS_LEGACY + VERSION_STARTS_CURRENT
     }
