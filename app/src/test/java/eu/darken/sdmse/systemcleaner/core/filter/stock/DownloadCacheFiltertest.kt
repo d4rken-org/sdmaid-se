@@ -54,8 +54,8 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
 
         neg(DataArea.Type.DOWNLOAD_CACHE, "magisk", Flag.Dir)
         neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/test", Flag.Dir)
-        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk/testfile", Flag.File)
-        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk/test/file", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/testfile", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/test/file", Flag.File)
         neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/zygisk_lsposed", Flag.Dir)
         neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/zygisk_lsposed/sepolicy.rule", Flag.File)
         confirm(create())
