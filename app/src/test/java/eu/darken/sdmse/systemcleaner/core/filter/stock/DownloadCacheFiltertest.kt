@@ -45,11 +45,19 @@ class DownloadCacheFiltertest : SystemCleanerFilterTest() {
         neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_postrecovery", Flag.File)
         neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_data_partition_info", Flag.File)
         neg(DataArea.Type.DOWNLOAD_CACHE, "recovery/last_dataresizing", Flag.File)
+
         neg(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.Dir)
         pos(DataArea.Type.DOWNLOAD_CACHE, rngString, Flag.File)
         pos(DataArea.Type.DOWNLOAD_CACHE, "recovery/$rngString", Flag.File)
         pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log", Flag.File)
         pos(DataArea.Type.DOWNLOAD_CACHE, "magisk.log.bak", Flag.File)
+
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/test", Flag.Dir)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk/testfile", Flag.File)
+        pos(DataArea.Type.DOWNLOAD_CACHE, "magisk/test/file", Flag.File)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/zygisk_lsposed", Flag.Dir)
+        neg(DataArea.Type.DOWNLOAD_CACHE, "magisk/zygisk_lsposed/sepolicy.rule", Flag.File)
         confirm(create())
     }
 
