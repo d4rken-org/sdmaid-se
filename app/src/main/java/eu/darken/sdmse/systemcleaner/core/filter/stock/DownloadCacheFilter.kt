@@ -58,6 +58,7 @@ class DownloadCacheFilter @Inject constructor(
                 SegmentCriterium(segs("last_postrecovery"), mode = Mode.Contain()),
                 SegmentCriterium(segs("last_data_partition_info"), mode = Mode.Contain()),
                 SegmentCriterium(segs("last_dataresizing"), mode = Mode.Contain()),
+                SegmentCriterium(segs("magisk", "zygisk_lsposed"), mode = Mode.Ancestor()),
             )
         )
         sieve = baseSieveFactory.create(config)
