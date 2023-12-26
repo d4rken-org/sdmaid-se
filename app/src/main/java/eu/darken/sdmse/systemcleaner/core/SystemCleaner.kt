@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
@@ -22,11 +23,12 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
-import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.FilterSource
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.filter.excludeNestedLookups
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
@@ -41,7 +43,7 @@ import javax.inject.Singleton
 class SystemCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     fileForensics: FileForensics,
-    private val gatewaySwitch: GatewaySwitch,
+    gatewaySwitch: GatewaySwitch,
     private val crawler: SystemCrawler,
     private val exclusionManager: ExclusionManager,
     private val filterSource: FilterSource,
@@ -85,10 +87,10 @@ class SystemCleaner @Inject constructor(
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
                     is SystemCleanerScanTask -> performScan(task)
-                    is SystemCleanerDeleteTask -> performDelete(task)
+                    is SystemCleanerProcessingTask -> performProcessing(task)
                     is SystemCleanerSchedulerTask -> {
                         performScan(SystemCleanerScanTask())
-                        performDelete(SystemCleanerDeleteTask())
+                        performProcessing(SystemCleanerProcessingTask())
                     }
                 }
             }
@@ -123,57 +125,65 @@ class SystemCleaner @Inject constructor(
         )
     }
 
-    private suspend fun performDelete(task: SystemCleanerDeleteTask): SystemCleanerTask.Result {
-        log(TAG, VERBOSE) { "performDelete(): $task" }
+    private suspend fun performProcessing(task: SystemCleanerProcessingTask): SystemCleanerTask.Result {
+        log(TAG, VERBOSE) { "performProcessing(): $task" }
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        val deletedContents = mutableMapOf<FilterContent, Set<APath>>()
+        val processedContents = mutableMapOf<FilterContent, Set<SystemCleanerFilter.Match>>()
 
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
+        val filters = filterSource.create()
+
         targetFilters.forEach { targetIdentifier ->
             val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
             updateProgressPrimary(caString { filterContent.label.get(it) })
 
-            val deleted = mutableSetOf<APath>()
-            val targetContents = task.targetContent ?: filterContent.items.map { it.lookedUp }
-            targetContents
-                .filterDistinctRoots()
-                .forEach { targetContent ->
-                    log(TAG) { "Deleting $targetContent..." }
-                    updateProgressSecondary(targetContent.userReadablePath)
-                    try {
-                        targetContent.deleteAll(gatewaySwitch)
-                        log(TAG) { "Deleted $targetContent!" }
-                        deleted.add(targetContent)
-                    } catch (e: WriteException) {
-                        log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
-                    }
-                }
+            val filter = filters.singleOrNull { it.identifier == targetIdentifier }
+                ?: throw IllegalStateException("No active filter matches $targetIdentifier")
 
-            deletedContents[filterContent] = deleted
+            val processed = mutableSetOf<SystemCleanerFilter.Match>()
+            val targetMatches = filterContent.items.filter {
+                task.targetContent == null || task.targetContent.contains(it.path)
+            }
+
+            filter.withProgress(
+                client = this,
+                onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
+                onCompletion = { null }
+            ) {
+                try {
+                    process(targetMatches)
+                    log(TAG) { "Processed $targetMatches!" }
+                    processed.addAll(targetMatches)
+                } catch (e: WriteException) {
+                    log(TAG, ERROR) { "Failed to process $targetMatches: ${e.asLog()}" }
+                }
+            }
+
+            processedContents[filterContent] = processed
         }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary(CaString.EMPTY)
 
-        var deletedContentSize = 0L
-        var deletedContentCount = 0
+        var gainedContentSize = 0L
+        var processedContentCount = 0
 
         internalData.value = snapshot.copy(
             filterContents = snapshot.filterContents
                 .map { filterContent ->
                     when {
-                        deletedContents.containsKey(filterContent) -> filterContent.copy(
+                        processedContents.containsKey(filterContent) -> filterContent.copy(
                             items = filterContent.items.filter { contentItem ->
-                                val isDeleted = deletedContents[filterContent]!!.any { deleted ->
-                                    deleted.isAncestorOf(contentItem) || deleted.matches(contentItem)
+                                val isProcessed = processedContents[filterContent]!!.any { processed ->
+                                    processed.path.isAncestorOf(contentItem.path) || processed.path.matches(contentItem.path)
                                 }
-                                if (isDeleted) {
-                                    deletedContentSize += contentItem.size
-                                    deletedContentCount++
+                                if (isProcessed) {
+                                    gainedContentSize += contentItem.expectedGain
+                                    processedContentCount++
                                 }
-                                !isDeleted
+                                !isProcessed
                             }
                         )
 
@@ -183,9 +193,9 @@ class SystemCleaner @Inject constructor(
                 .filter { it.items.isNotEmpty() }
         )
 
-        return SystemCleanerDeleteTask.Success(
-            deletedItems = deletedContentCount,
-            recoveredSpace = deletedContentSize
+        return SystemCleanerProcessingTask.Success(
+            processedItems = processedContentCount,
+            recoveredSpace = gainedContentSize
         )
     }
 

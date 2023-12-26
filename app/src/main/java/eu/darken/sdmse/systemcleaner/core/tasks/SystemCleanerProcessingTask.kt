@@ -8,7 +8,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class SystemCleanerDeleteTask(
+data class SystemCleanerProcessingTask(
     val targetFilters: Set<FilterIdentifier>? = null,
     val targetContent: Set<APath>? = null,
 ) : SystemCleanerTask {
@@ -17,7 +17,7 @@ data class SystemCleanerDeleteTask(
 
     @Parcelize
     data class Success(
-        private val deletedItems: Int,
+        private val processedItems: Int,
         private val recoveredSpace: Long
     ) : Result {
         override val primaryInfo: CaString

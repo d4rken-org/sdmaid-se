@@ -25,7 +25,7 @@ class LostDirFilterFactoryTest : SystemCleanerFilterTest() {
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
-        areaManager = areaManager,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testFilter() = runTest {

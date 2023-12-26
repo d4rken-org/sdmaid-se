@@ -3,10 +3,12 @@ package eu.darken.sdmse.systemcleaner.core.filter
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.progress.Progress
 import kotlin.reflect.KClass
 
-interface SystemCleanerFilter {
+interface SystemCleanerFilter : Progress.Host, Progress.Client {
 
     val identifier: FilterIdentifier
         get() = this::class.qualifiedName!!
@@ -21,7 +23,24 @@ interface SystemCleanerFilter {
 
     suspend fun initialize()
 
-    suspend fun matches(item: APathLookup<*>): Boolean
+    suspend fun match(item: APathLookup<*>): Match?
+
+    suspend fun process(matches: Collection<Match>)
+
+    interface Match {
+        val expectedGain: Long
+        val lookup: APathLookup<*>
+
+        val path: APath
+            get() = lookup.lookedUp
+
+        data class Deletion(
+            override val lookup: APathLookup<*>,
+        ) : Match {
+            override val expectedGain: Long
+                get() = lookup.size
+        }
+    }
 
     interface Factory {
         suspend fun isEnabled(): Boolean

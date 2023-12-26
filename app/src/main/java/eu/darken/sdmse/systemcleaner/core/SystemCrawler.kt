@@ -26,12 +26,12 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
+import eu.darken.sdmse.systemcleaner.core.filter.excludeNestedLookups
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -94,7 +94,7 @@ class SystemCrawler @Inject constructor(
         globalSkips.add(segs("", "data", "media", "0"))
         log(TAG) { "Global skip segments: $globalSkips" }
 
-        val sieveContents = mutableMapOf<FilterIdentifier, Set<APathLookup<*>>>()
+        val sieveContents = mutableMapOf<FilterIdentifier, Set<SystemCleanerFilter.Match>>()
 
         gatewaySwitch.useRes {
             targetAreas
@@ -121,26 +121,28 @@ class SystemCrawler @Inject constructor(
                 .collect { (area, item) ->
                     if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
                     updateProgressSecondary(item.path)
-                    val matched = filters
+                    val matched: Pair<SystemCleanerFilter, SystemCleanerFilter.Match>? = filters
                         .filter { it.targetAreas().contains(area.type) }
-                        .firstOrNull {
-                            try {
-                                it.matches(item)
+                        .firstNotNullOfOrNull { filter ->
+                            val match = try {
+                                filter.match(item)
                             } catch (e: CancellationException) {
                                 throw e
                             } catch (e: IOException) {
-                                log(TAG, WARN) { "IO error while matching ($it): ${e.asLog()}" }
-                                false
+                                log(TAG, WARN) { "IO error while matching ($filter): ${e.asLog()}" }
+                                null
                             } catch (e: Exception) {
-                                log(TAG, ERROR) { "Sieve failed ($it): ${e.asLog()}" }
-                                throw SystemCleanerFilterException(it, e)
+                                log(TAG, ERROR) { "Sieve failed ($filter): ${e.asLog()}" }
+                                throw SystemCleanerFilterException(filter, e)
                             }
+                            if (match != null) filter to match else null
                         }
 
                     if (matched != null) {
                         log(TAG, INFO) { "Filter match: $matched <- $item" }
-                        sieveContents[matched.identifier] = (sieveContents[matched.identifier] ?: emptySet()).plus(item)
-                        matchesInternal.emit(MatchEvent(matched, item))
+                        sieveContents[matched.first.identifier] =
+                            (sieveContents[matched.first.identifier] ?: emptySet()).plus(matched.second)
+                        matchesInternal.emit(MatchEvent(matched.first, item))
                     }
                 }
         }

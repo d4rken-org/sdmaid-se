@@ -25,7 +25,6 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
         baseSieveFactory = object : BaseSieve.Factory {
             override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
         },
-        areaManager = areaManager,
         gatewaySwitch = gatewaySwitch,
     )
 

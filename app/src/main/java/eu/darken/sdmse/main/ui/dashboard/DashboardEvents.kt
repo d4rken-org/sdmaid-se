@@ -5,7 +5,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 
 sealed interface DashboardEvents {
 
@@ -17,7 +17,7 @@ sealed interface DashboardEvents {
     ) : DashboardEvents
 
     data class SystemCleanerDeleteConfirmation(
-        val task: SystemCleanerDeleteTask,
+        val task: SystemCleanerProcessingTask,
     ) : DashboardEvents
 
     data class AppCleanerDeleteConfirmation(

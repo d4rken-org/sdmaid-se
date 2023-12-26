@@ -20,21 +20,24 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import java.lang.String
 import javax.inject.Inject
 import javax.inject.Provider
 
 class AnrFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
-) : SystemCleanerFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_running_with_errors_24.toCaDrawable()
 
@@ -78,11 +81,15 @@ class AnrFilter @Inject constructor(
     }
 
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
-        return sieve.match(item).matches
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
+        return sieve.match(item).toDeletion()
     }
 
-    override fun toString(): kotlin.String = "${this::class.simpleName}(${hashCode()})"
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
+    }
+
+    override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
 
     @Reusable
     class Factory @Inject constructor(
