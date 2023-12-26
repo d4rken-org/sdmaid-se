@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
@@ -18,11 +17,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
@@ -34,8 +35,8 @@ class SuperfluousApksFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
-    private val areaManager: DataAreaManager,
-) : SystemCleanerFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_app_extra_24.toCaDrawable()
 
@@ -59,14 +60,14 @@ class SuperfluousApksFilter @Inject constructor(
     }
 
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
+        if (!sieveResult.matches) return null
         log(TAG, VERBOSE) { "Passed sieve, checking $item" }
 
-        val apkInfo = pkgOps.viewArchive(item.lookedUp) ?: return false
+        val apkInfo = pkgOps.viewArchive(item.lookedUp) ?: return null
         // TODO Multiple profiles can't have different versions of the same APK, right?
-        val installed = pkgRepo.getPkg(apkInfo.id).firstOrNull() ?: return false
+        val installed = pkgRepo.getPkg(apkInfo.id).firstOrNull() ?: return null
 
         val superfluos = installed.versionCode >= apkInfo.versionCode
         if (superfluos) {
@@ -74,7 +75,11 @@ class SuperfluousApksFilter @Inject constructor(
                 "Superfluos: ${installed.packageName} installed=${installed.versionCode}, archive=${apkInfo.versionCode}"
             }
         }
-        return superfluos
+        return if (superfluos) SystemCleanerFilter.Match.Deletion(item) else null
+    }
+
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

@@ -13,7 +13,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.filterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.stock.EmptyDirectoryFilter
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 import kotlinx.coroutines.flow.*
@@ -50,14 +50,14 @@ class FilterContentViewModel @Inject constructor(
         ).run { elements.add(this) }
 
         val sorted = when (filterContent.identifier) {
-            EmptyDirectoryFilter::class.filterIdentifier -> filterContent.items.sortedBy { it.path }
-            else -> filterContent.items.sortedByDescending { it.size }
+            EmptyDirectoryFilter::class.filterIdentifier -> filterContent.items.sortedBy { it.path.path }
+            else -> filterContent.items.sortedByDescending { it.expectedGain }
         }
 
         sorted.map { item ->
             FilterContentElementFileVH.Item(
                 filterContent = filterContent,
-                lookup = item,
+                match = item,
                 onItemClick = { delete(setOf(it)) },
             )
         }.run { elements.addAll(this) }
@@ -76,15 +76,15 @@ class FilterContentViewModel @Inject constructor(
         }
 
         val task = when {
-            items.singleOrNull() is FilterContentElementHeaderVH.Item -> SystemCleanerDeleteTask(
+            items.singleOrNull() is FilterContentElementHeaderVH.Item -> SystemCleanerProcessingTask(
                 targetFilters = setOf(args.identifier)
             )
 
-            else -> SystemCleanerDeleteTask(
+            else -> SystemCleanerProcessingTask(
                 setOf(args.identifier),
                 items.mapNotNull {
                     when (it) {
-                        is FilterContentElementFileVH.Item -> it.lookup.lookedUp
+                        is FilterContentElementFileVH.Item -> it.match.path
                         else -> null
                     }
                 }.toSet()
@@ -97,8 +97,8 @@ class FilterContentViewModel @Inject constructor(
         log(TAG) { "exclude(): ${items.size}" }
         val toExclude = items.mapNotNull { item ->
             when (item) {
-                is FilterContentElementFileVH.Item -> setOf(item.lookup.lookedUp)
-                is FilterContentElementHeaderVH.Item -> item.filterContent.items.map { it.lookedUp }
+                is FilterContentElementFileVH.Item -> setOf(item.match.path)
+                is FilterContentElementHeaderVH.Item -> item.filterContent.items.map { it.path }
                 else -> null
             }
         }.flatten().toSet()

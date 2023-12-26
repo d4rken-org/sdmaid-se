@@ -34,6 +34,7 @@ class BaseSieve @AssistedInject constructor(
     }
 
     data class Result(
+        val item: APathLookup<*>,
         val matches: Boolean,
         val areaInfo: AreaInfo? = null,
     )
@@ -44,31 +45,31 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
                 if (subject.isFile && !types.contains(TargetType.FILE)) {
-                    return Result(matches = false)
+                    return Result(subject, matches = false)
                 } else if (subject.isDirectory && !types.contains(TargetType.DIRECTORY)) {
-                    return Result(matches = false)
+                    return Result(subject, matches = false)
                 }
             }
 
         config.maximumSize?.let {
             // Is our subject too large?
-            if (subject.size > it) return Result(matches = false)
+            if (subject.size > it) return Result(subject, matches = false)
         }
 
         config.minimumSize?.let {
             // Maybe it's too small
-            if (subject.size < it) return Result(matches = false)
+            if (subject.size < it) return Result(subject, matches = false)
         }
 
         config.maximumAge?.let {
             if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it.toMillis()) {
-                return Result(matches = false)
+                return Result(subject, matches = false)
             }
         }
 
         config.minimumAge?.let {
             if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it.toMillis()) {
-                return Result(matches = false)
+                return Result(subject, matches = false)
             }
         }
 
@@ -106,7 +107,7 @@ class BaseSieve @AssistedInject constructor(
                         )
                     }
                 }
-                if (!hasMatch) return Result(matches = false)
+                if (!hasMatch) return Result(subject, matches = false)
             }
 
         config.nameCriteria
@@ -137,7 +138,7 @@ class BaseSieve @AssistedInject constructor(
                     }
                 }
 
-                if (!hasMatch) return Result(matches = false)
+                if (!hasMatch) return Result(subject, matches = false)
             }
 
         config.pathExclusions
@@ -175,19 +176,19 @@ class BaseSieve @AssistedInject constructor(
                         )
                     }
                 }
-                if (isExcluded) return Result(matches = false)
+                if (isExcluded) return Result(subject, matches = false)
             }
 
         config.pathRegexes
             ?.takeIf { it.isNotEmpty() }
             ?.let { regexes ->
-                if (regexes.none { it.matches(subject.path) }) return Result(matches = false)
+                if (regexes.none { it.matches(subject.path) }) return Result(subject, matches = false)
             }
 
         val areaInfo = fileForensics.identifyArea(subject)
         if (areaInfo == null) {
             log(TAG, WARN) { "Couldn't identify area for $subject" }
-            return Result(matches = false)
+            return Result(subject, matches = false)
         }
         val pfpSegments = areaInfo.prefixFreeSegments
 
@@ -195,7 +196,7 @@ class BaseSieve @AssistedInject constructor(
             ?.takeIf { it.isNotEmpty() }
             ?.let { types ->
                 if (!types.contains(areaInfo.type)) {
-                    return Result(matches = false)
+                    return Result(subject, matches = false)
                 }
             }
 
@@ -236,7 +237,7 @@ class BaseSieve @AssistedInject constructor(
                         )
                     }
                 }
-                if (isExcluded) return Result(matches = false)
+                if (isExcluded) return Result(subject, matches = false)
             }
 
         config.pfpCriteria
@@ -273,10 +274,11 @@ class BaseSieve @AssistedInject constructor(
                         )
                     }
                 }
-                if (!hasMatch) return Result(matches = false)
+                if (!hasMatch) return Result(subject, matches = false)
             }
 
         return Result(
+            subject,
             matches = true,
             areaInfo = areaInfo
         )

@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -61,11 +61,11 @@ class SystemCleanerListViewModel @Inject constructor(
             events.postValue(SystemCleanerListEvents.ConfirmDeletion(items))
             return@launch
         }
-        val task = SystemCleanerDeleteTask(targetFilters = items.map { it.content.identifier }.toSet())
-        val result = taskManager.submit(task) as SystemCleanerDeleteTask.Result
+        val task = SystemCleanerProcessingTask(targetFilters = items.map { it.content.identifier }.toSet())
+        val result = taskManager.submit(task) as SystemCleanerProcessingTask.Result
         log(TAG) { "doDelete(): Result was $result" }
         when (result) {
-            is SystemCleanerDeleteTask.Success -> events.postValue(SystemCleanerListEvents.TaskResult(result))
+            is SystemCleanerProcessingTask.Success -> events.postValue(SystemCleanerListEvents.TaskResult(result))
         }
     }
 

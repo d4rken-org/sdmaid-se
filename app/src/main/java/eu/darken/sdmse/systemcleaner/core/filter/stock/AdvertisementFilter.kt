@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
@@ -31,7 +32,8 @@ import javax.inject.Provider
 class AdvertisementFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
     private val areaManager: DataAreaManager,
-) : SystemCleanerFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_ads_click_24.toCaDrawable()
 
@@ -175,10 +177,19 @@ class AdvertisementFilter @Inject constructor(
         log(TAG) { "initialized()" }
     }
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
-        return !item.name.endsWith("chartboost") || item.isDirectory
+        if (!sieveResult.matches) return null
+
+        if (item.name.endsWith("chartboost") && !item.isDirectory) {
+            return null
+        }
+
+        return SystemCleanerFilter.Match.Deletion(item)
+    }
+
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

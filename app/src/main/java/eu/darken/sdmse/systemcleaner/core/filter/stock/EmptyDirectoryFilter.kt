@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
@@ -20,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
@@ -30,9 +30,8 @@ import javax.inject.Provider
 
 class EmptyDirectoryFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
-    private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
-) : SystemCleanerFilter {
+) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_folder_open_24.toCaDrawable()
 
@@ -98,35 +97,39 @@ class EmptyDirectoryFilter @Inject constructor(
         log(TAG) { "initialized()" }
     }
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return false
+        if (!sieveResult.matches) return null
 
         if (Bugs.isTrace) log(TAG, VERBOSE) { "Sieve match: ${item.path}" }
 
         val areaInfo = sieveResult.areaInfo!!
         val prefixFreePath = areaInfo.prefixFreeSegments
-        if (prefixFreePath.isEmpty()) return false
+        if (prefixFreePath.isEmpty()) return null
 
-        if (protectedBaseDirs.any { it.matches(prefixFreePath, ignoreCase = true) }) return false
+        if (protectedBaseDirs.any { it.matches(prefixFreePath, ignoreCase = true) }) return null
 
         // Exclude toplvl package folders in Android/data
-        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 1) return false
+        if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 1) return null
 
         // Exclude Android/.../<pkg>/files
         if (pkgAreas.contains(areaInfo.type) && prefixFreePath.size == 2 && protectedSubDirs.contains(prefixFreePath[1])) {
-            return false
+            return null
         }
 
-        if (item.size > 4096) return false
+        if (item.size > 4096) return null
 
         // Check for nested empty directories
         val content = item.lookupFiles(gatewaySwitch)
         return when {
-            content.isEmpty() -> true
-            content.any { it.fileType != FileType.DIRECTORY } -> false
-            else -> content.all { matches(it) }
+            content.isEmpty() -> SystemCleanerFilter.Match.Deletion(item)
+            content.any { it.fileType != FileType.DIRECTORY } -> null
+            else -> if (content.all { match(it) != null }) SystemCleanerFilter.Match.Deletion(item) else null
         }
+    }
+
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

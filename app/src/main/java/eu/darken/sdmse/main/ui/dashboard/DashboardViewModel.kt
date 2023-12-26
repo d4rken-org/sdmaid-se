@@ -55,7 +55,7 @@ import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerDeleteTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
@@ -171,7 +171,7 @@ class DashboardViewModel @Inject constructor(
                 launch { submitTask(SystemCleanerScanTask()) }
             },
             onDelete = {
-                val task = SystemCleanerDeleteTask()
+                val task = SystemCleanerProcessingTask()
                 events.postValue(DashboardEvents.SystemCleanerDeleteConfirmation(task))
             },
             onCancel = {
@@ -489,12 +489,12 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (systemCleaner.state.first().data != null) {
-                    submitTask(SystemCleanerDeleteTask())
+                    submitTask(SystemCleanerProcessingTask())
                 }
 
                 BottomBarState.Action.ONECLICK -> {
                     submitTask(SystemCleanerScanTask())
-                    submitTask(SystemCleanerDeleteTask())
+                    submitTask(SystemCleanerProcessingTask())
                 }
             }
         }
@@ -560,7 +560,7 @@ class DashboardViewModel @Inject constructor(
 
     fun confirmFilterContentDeletion() = launch {
         log(TAG, INFO) { "confirmFilterContentDeletion()" }
-        submitTask(SystemCleanerDeleteTask())
+        submitTask(SystemCleanerProcessingTask())
     }
 
     fun showSystemCleanerDetails() {
@@ -618,7 +618,7 @@ class DashboardViewModel @Inject constructor(
             is SystemCleanerTask.Result -> when (result) {
                 is SystemCleanerScanTask.Success -> {}
                 is SystemCleanerSchedulerTask.Success -> {}
-                is SystemCleanerDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is SystemCleanerProcessingTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
 
             is AppCleanerTask.Result -> when (result) {

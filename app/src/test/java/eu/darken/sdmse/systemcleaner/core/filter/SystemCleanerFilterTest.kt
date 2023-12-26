@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.every
@@ -315,7 +316,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         withClue("No filter should just match a random file") {
             doMock(Type.SDCARD, UUID.randomUUID().toString(), null, Flag.File).forEach {
-                filter.matches(it) shouldBe false
+                filter.match(it) shouldBe null
             }
         }
 
@@ -327,7 +328,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 addAll(doMock(Type.SDCARD, "$randomFolder/$randomFile", null, Flag.File))
             }
 
-            randoms.forEach { filter.matches(it) shouldBe false }
+            randoms.forEach { filter.match(it) shouldBe null }
         }
 
         withClue("No filter should match the root of a data area") {
@@ -339,19 +340,19 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                     modifiedAt = Instant.EPOCH,
                     target = null,
                 )
-                filter.matches(lookup) shouldBe false
+                filter.match(lookup) shouldBe null
             }
         }
 
         positives.forEach { canidate ->
             withClue("Should match ${canidate.path} (${canidate.fileType})") {
-                filter.matches(canidate) shouldBe true
+                filter.match(canidate) shouldNotBe null
             }
             log { "Matched: ${canidate.path}" }
         }
         negatives.forEach { canidate ->
             withClue("Should NOT match ${canidate.path} (${canidate.fileType})") {
-                filter.matches(canidate) shouldBe false
+                filter.match(canidate) shouldBe null
             }
             log { "Didn't match: ${canidate.path}" }
         }

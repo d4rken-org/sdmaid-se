@@ -4,13 +4,13 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
-import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.SystemcleanerFiltercontentElementFileBinding
 import eu.darken.sdmse.systemcleaner.core.FilterContent
+import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentElementsAdapter
 
 
@@ -35,14 +35,14 @@ class FilterContentElementFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        icon.loadFilePreview(item.lookup)
+        icon.loadFilePreview(item.match.lookup)
 
-        primary.text = item.lookup.userReadablePath.get(context)
+        primary.text = item.match.lookup.userReadablePath.get(context)
 
-        secondary.text = if (item.lookup.fileType == FileType.FILE) {
-            Formatter.formatFileSize(context, item.lookup.size)
+        secondary.text = if (item.match.lookup.fileType == FileType.FILE) {
+            Formatter.formatFileSize(context, item.match.expectedGain)
         } else {
-            getString(item.lookup.fileType.labelRes)
+            getString(item.match.lookup.fileType.labelRes)
         }
 
         root.setOnClickListener { item.onItemClick(item) }
@@ -50,14 +50,14 @@ class FilterContentElementFileVH(parent: ViewGroup) :
 
     data class Item(
         val filterContent: FilterContent,
-        val lookup: APathLookup<*>,
+        val match: SystemCleanerFilter.Match,
         val onItemClick: (Item) -> Unit,
     ) : FilterContentElementsAdapter.Item {
 
         override val itemSelectionKey: String
-            get() = lookup.lookedUp.path
+            get() = match.path.path
 
-        override val stableId: Long = lookup.hashCode().toLong()
+        override val stableId: Long = match.lookup.hashCode().toLong()
     }
 
 }

@@ -8,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
@@ -18,11 +17,14 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
+import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.*
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
@@ -32,8 +34,8 @@ import javax.inject.Provider
 
 class RecentTasksFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
-    private val areaManager: DataAreaManager,
-) : SystemCleanerFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_task_onsurface.toCaDrawable()
 
@@ -61,8 +63,12 @@ class RecentTasksFilter @Inject constructor(
     }
 
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
-        return sieve.match(item).matches
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
+        return sieve.match(item).toDeletion()
+    }
+
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

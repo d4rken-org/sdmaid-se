@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
@@ -20,7 +22,8 @@ import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 class CustomFilter @AssistedInject constructor(
     @Assisted private val filterConfig: CustomFilterConfig,
     private val baseSieveFactory: BaseSieve.Factory,
-) : SystemCleanerFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseSystemCleanerFilter() {
 
     override val identifier: FilterIdentifier = filterConfig.identifier
 
@@ -58,8 +61,14 @@ class CustomFilter @AssistedInject constructor(
         log(TAG) { "initialized()" }
     }
 
-    override suspend fun matches(item: APathLookup<*>): Boolean {
-        return sieve.match(item).matches
+    override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
+        if (!sieve.match(item).matches) return null
+
+        return SystemCleanerFilter.Match.Deletion(item)
+    }
+
+    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${filterConfig.label})"

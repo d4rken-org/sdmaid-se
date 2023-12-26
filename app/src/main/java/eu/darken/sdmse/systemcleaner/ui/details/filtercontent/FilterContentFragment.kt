@@ -94,7 +94,7 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
                             event.items.singleOrNull() is FilterContentElementFileVH.Item -> getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
                                 (event.items.single() as FilterContentElementFileVH.Item)
-                                    .lookup.userReadablePath.get(context)
+                                    .match.lookup.userReadablePath.get(context)
                             )
 
                             else -> getString(
