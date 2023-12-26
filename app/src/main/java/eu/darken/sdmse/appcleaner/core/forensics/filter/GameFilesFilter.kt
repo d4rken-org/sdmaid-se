@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import javax.inject.Inject
@@ -23,8 +25,9 @@ import javax.inject.Provider
 
 @Reusable
 class GameFilesFilter @Inject constructor(
-    private val jsonBasedSieveFactory: JsonBasedSieve.Factory
-) : ExpendablesFilter {
+    private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private lateinit var sieve: JsonBasedSieve
 
@@ -33,20 +36,20 @@ class GameFilesFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_downloaded_game_files.json")
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
+    ): ExpendablesFilter.Match? {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1].lowercase())) {
-            return false
+            return null
         }
 
         //    0      1     2
         // basedir/offlinecache/file
         if (segments.size >= 3 && TARGET_FOLDERS.contains(segments[1].lowercase())) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2     3
@@ -55,10 +58,18 @@ class GameFilesFilter @Inject constructor(
             && "files" == segments[1].lowercase()
             && TARGET_FOLDERS.contains(segments[2].lowercase())
         ) {
-            return true
+            return target.toDeletionMatch()
         }
 
-        return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
+        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

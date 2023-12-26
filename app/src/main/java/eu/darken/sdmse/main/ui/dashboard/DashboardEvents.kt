@@ -1,6 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard
 
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -21,7 +21,7 @@ sealed interface DashboardEvents {
     ) : DashboardEvents
 
     data class AppCleanerDeleteConfirmation(
-        val task: AppCleanerDeleteTask,
+        val task: AppCleanerProcessingTask,
     ) : DashboardEvents
 
     data class DeduplicatorDeleteConfirmation(

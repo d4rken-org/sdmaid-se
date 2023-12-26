@@ -31,6 +31,7 @@ class ThumbnailsFilterTest : BaseFilterTest() {
     private fun create() = ThumbnailsFilter(
         jsonBasedSieveFactory = createJsonSieveFactory(),
         environment = storageEnvironment,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testHiddenCacheDefaults() = runTest {

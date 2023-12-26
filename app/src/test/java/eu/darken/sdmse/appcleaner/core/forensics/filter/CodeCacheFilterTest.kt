@@ -23,6 +23,7 @@ class CodeCacheFilterTest : BaseFilterTest() {
 
     private fun create() = CodeCacheFilter(
         environment = storageEnvironment,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testDefaultFilter() = runTest {

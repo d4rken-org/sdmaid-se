@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
@@ -60,26 +60,26 @@ class AppJunkViewModel @Inject constructor(
 
         junk.expendables
             ?.filter { it.value.isNotEmpty() }
-            ?.map { (category, paths) ->
+            ?.map { (category, matches) ->
                 val categoryGroup = mutableListOf<AppJunkElementsAdapter.Item>()
 
                 AppJunkElementFileCategoryVH.Item(
                     appJunk = junk,
                     category = category,
-                    paths = paths,
+                    matches = matches,
                     onItemClick = { delete(setOf(it)) },
                 ).run { categoryGroup.add(this) }
 
-                paths
-                    .map { lookup ->
+                matches
+                    .map { match ->
                         AppJunkElementFileVH.Item(
                             appJunk = junk,
                             category = category,
-                            lookup = lookup,
+                            match = match,
                             onItemClick = { delete(setOf(it)) },
                         )
                     }
-                    .sortedByDescending { it.lookup.size }
+                    .sortedByDescending { it.match.expectedGain }
                     .run { categoryGroup.addAll(this) }
 
                 categoryGroup
@@ -106,7 +106,7 @@ class AppJunkViewModel @Inject constructor(
 
         val paths = selected.mapNotNull {
             when (it) {
-                is AppJunkElementFileVH.Item -> it.lookup.lookedUp
+                is AppJunkElementFileVH.Item -> it.match.path
                 else -> null
             }
         }.toSet()
@@ -131,7 +131,7 @@ class AppJunkViewModel @Inject constructor(
 
         val junk = currentAppJunk.first()
 
-        val deleteTask = AppCleanerDeleteTask(
+        val deleteTask = AppCleanerProcessingTask(
             setOf(junk.identifier),
             targetFilters = items.mapNotNull {
                 when (it) {
@@ -142,8 +142,8 @@ class AppJunkViewModel @Inject constructor(
             }.takeIf { it.isNotEmpty() }?.toSet(),
             targetContents = items.mapNotNull { item ->
                 when (item) {
-                    is AppJunkElementFileCategoryVH.Item -> item.paths.map { it.lookedUp }
-                    is AppJunkElementFileVH.Item -> listOf(item.lookup.lookedUp)
+                    is AppJunkElementFileCategoryVH.Item -> item.matches.map { it.path }
+                    is AppJunkElementFileVH.Item -> listOf(item.match.path)
                     else -> null
                 }
             }.flatten().takeIf { it.isNotEmpty() }?.toSet(),

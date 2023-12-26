@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -26,7 +28,8 @@ import javax.inject.Provider
 class AdvertisementFilter @Inject constructor(
     private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
     environment: StorageEnvironment,
-) : ExpendablesFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private val cacheFolderPrefixes = environment.ourCacheDirs.map { it.name }
 
@@ -37,49 +40,57 @@ class AdvertisementFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_advertisement_files.json")
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
+    ): ExpendablesFilter.Match? {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
-            return false
+            return null
         }
 
         // Default case, we don't handle that.
         // package/cache/file
         if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
             // Case matching is important here as all paths that differ in casing are hidden caches (e.g. not system made)
-            return false
+            return null
         }
 
         val lcsegments = segments.lowercase()
 
         // package/cache.dat
         if (lcsegments.size == 2 && HIDDEN_CACHE_FILES.contains(lcsegments[1])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0       1      2
         // package/files/cache.dat
         if (lcsegments.size == 3 && HIDDEN_CACHE_FILES.contains(lcsegments[2])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0       1       2
         // package/adcache/...
         if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1      2      3
         // package/files/adcache/...
         if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_CACHE_FOLDERS.contains(lcsegments[2])) {
-            return true
+            return target.toDeletionMatch()
         }
 
-        return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
+        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -22,8 +23,9 @@ import javax.inject.Provider
 
 @Reusable
 class WebViewCacheFilter @Inject constructor(
-    private val jsonBasedSieveFactory: JsonBasedSieve.Factory
-) : ExpendablesFilter {
+    private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private lateinit var sieve: JsonBasedSieve
 
@@ -32,21 +34,29 @@ class WebViewCacheFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_webcaches.json")
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
+    ): ExpendablesFilter.Match? {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
-            return false
+            return null
         }
 
         if (WEBVIEW_CACHES.any { it.prepend(pkgId.name).isAncestorOf(segments) }) {
-            return true
+            return target.toDeletionMatch()
         }
 
-        return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
+        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

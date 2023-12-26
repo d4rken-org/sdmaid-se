@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -80,11 +80,11 @@ class AppCleanerListViewModel @Inject constructor(
             events.postValue(AppCleanerListEvents.ConfirmDeletion(items))
             return@launch
         }
-        val task = AppCleanerDeleteTask(targetPkgs = items.map { it.junk.identifier }.toSet())
-        val result = taskManager.submit(task) as AppCleanerDeleteTask.Result
+        val task = AppCleanerProcessingTask(targetPkgs = items.map { it.junk.identifier }.toSet())
+        val result = taskManager.submit(task) as AppCleanerProcessingTask.Result
         log(TAG) { "delete(): Result was $result" }
         when (result) {
-            is AppCleanerDeleteTask.Success -> events.postValue(AppCleanerListEvents.TaskResult(result))
+            is AppCleanerProcessingTask.Success -> events.postValue(AppCleanerListEvents.TaskResult(result))
         }
     }
 

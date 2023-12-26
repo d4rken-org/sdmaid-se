@@ -5,9 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.deleter.AppJunkDeleter
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
@@ -47,13 +47,14 @@ class AppCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     fileForensics: FileForensics,
     private val appScannerProvider: Provider<AppScanner>,
-    private val appJunkDeleterProvider: Provider<AppJunkDeleter>,
+    private val inaccessibleDeleterProvider: Provider<InaccessibleDeleter>,
     private val exclusionManager: ExclusionManager,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
     usageStatsSetupModule: UsageStatsSetupModule,
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
+    private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -96,10 +97,10 @@ class AppCleaner @Inject constructor(
             val result = keepResourceHoldersAlive(usedResources) {
                 when (task) {
                     is AppCleanerScanTask -> performScan(task)
-                    is AppCleanerDeleteTask -> performDelete(task)
+                    is AppCleanerProcessingTask -> performProcessing(task)
                     is AppCleanerSchedulerTask -> {
                         performScan(AppCleanerScanTask())
-                        performDelete(AppCleanerDeleteTask(useAutomation = task.useAutomation))
+                        performProcessing(AppCleanerProcessingTask(useAutomation = task.useAutomation))
                     }
                 }
             }
@@ -137,34 +138,76 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    private suspend fun performDelete(task: AppCleanerDeleteTask): AppCleanerDeleteTask.Result {
-        log(TAG, VERBOSE) { "performDelete(): $task" }
+    private suspend fun performProcessing(task: AppCleanerProcessingTask): AppCleanerProcessingTask.Result {
+        log(TAG, VERBOSE) { "performProcessing(): $task" }
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
 
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
         updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
 
-        val deleter = appJunkDeleterProvider.get()
-
-        deleter.initialize()
+        val filters = filterFactories
+            .map { it.create() }
+            .onEach { it.initialize() }
 
         val accessibleDeletionMap = if (!task.onlyInaccessible) {
-            deleter.withProgress(this) {
-                deleter.deleteAccessible(
-                    snapshot = snapshot,
-                    targetPkgs = task.targetPkgs,
-                    targetFilters = task.targetFilters,
-                    targetContents = task.targetContents,
-                )
-            }
+            val deletionMap = mutableMapOf<Installed.InstallId, Set<ExpendablesFilter.Match>>()
+
+            val targetJunk = task.targetPkgs
+                ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
+                ?: snapshot.junks
+
+            targetJunk
+                .sortedByDescending { it.size }
+                .forEach { appJunk ->
+                    updateProgressPrimary(appJunk.label)
+
+                    val targetFilters = task.targetFilters
+                        ?: appJunk.expendables?.keys
+                        ?: emptySet()
+
+                    val targetMatches: Collection<ExpendablesFilter.Match> = task.targetContents
+                        ?.map { tc ->
+                            val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
+                            allFiles.single { tc.matches(it.path) }
+                        }
+                        ?: appJunk.expendables?.filterKeys { targetFilters.contains(it) }?.values?.flatten()
+                        ?: emptySet()
+
+                    val deleted = mutableSetOf<ExpendablesFilter.Match>()
+
+                    targetMatches.groupBy { it.identifier }.forEach { (filterIdentifier, matches) ->
+                        val filter = filters.singleOrNull { it.identifier == filterIdentifier }
+                            ?: throw IllegalStateException("Can't find filter for $filterIdentifier")
+
+                        filter.withProgress(
+                            client = this,
+                            onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
+                            onCompletion = { null }
+                        ) {
+                            try {
+                                process(matches)
+                                log(TAG) { "Processed ${matches.size} for $filterIdentifier at ${appJunk.pkg}!" }
+                                deleted.addAll(matches)
+                            } catch (e: PathException) {
+                                log(TAG, ERROR) { "Deletion failed for $filterIdentifier at ${appJunk.pkg}: $e" }
+                            }
+                        }
+                    }
+
+
+                    deletionMap[appJunk.identifier] = deleted
+                }
+
+            deletionMap
         } else {
             emptyMap()
         }
 
         val inaccessibleSuccesses = if (task.includeInaccessible) {
-            deleter.withProgress(this) {
-                deleter.deleteInaccessible(
+            inaccessibleDeleterProvider.get().withProgress(this) {
+                deleteInaccessible(
                     snapshot = snapshot,
                     targetPkgs = task.targetPkgs,
                     useAutomation = task.useAutomation,
@@ -183,10 +226,10 @@ class AppCleaner @Inject constructor(
                     updateProgressSecondary(appJunk.label)
                     // Remove all files we deleted or children of deleted files
                     val updatedExpendables = appJunk.expendables
-                        ?.mapValues { (type, typeFiles) ->
-                            typeFiles.filter { file ->
+                        ?.mapValues { (type, matches) ->
+                            matches.filter { match ->
                                 val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
-                                    it.isAncestorOf(file) || it.matches(file)
+                                    it.path.isAncestorOf(match.path) || it.path.matches(match.path)
                                 }
                                 !isDeleted
                             }
@@ -213,9 +256,9 @@ class AppCleaner @Inject constructor(
             .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
             .sumOf { it.cacheBytes }
 
-        return AppCleanerDeleteTask.Success(
+        return AppCleanerProcessingTask.Success(
             deletedCount = accessibleDeletionMap.values.sumOf { it.size } + automationCount,
-            recoveredSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.size } } + automationSize,
+            recoveredSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.expectedGain } } + automationSize,
         )
     }
 
@@ -256,9 +299,9 @@ class AppCleaner @Inject constructor(
                     junk.copy(
                         expendables = junk.expendables?.entries
                             ?.map { entry ->
-                                entry.key to entry.value.filter { junkFile ->
-                                    val hit = exclusions.any { it.match(junkFile.lookedUp) }
-                                    if (hit) log(TAG) { "exclude(): Excluded $junkFile" }
+                                entry.key to entry.value.filter { match ->
+                                    val hit = exclusions.any { it.match(match.path) }
+                                    if (hit) log(TAG) { "exclude(): Excluded $match" }
                                     !hit
                                 }
                             }

@@ -9,7 +9,6 @@ import eu.darken.sdmse.appcleaner.ui.descriptionRes
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.appcleaner.ui.iconsRes
 import eu.darken.sdmse.appcleaner.ui.labelRes
-import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileCategoryBinding
@@ -31,8 +30,15 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
         icon.setImageResource(item.category.iconsRes)
         primary.text = getString(item.category.labelRes)
         secondary.apply {
-            text = Formatter.formatFileSize(context, item.paths.sumOf { it.size })
-            append(" (${context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, item.paths.size)})")
+            text = Formatter.formatFileSize(context, item.matches.sumOf { it.expectedGain })
+            append(
+                " (${
+                    context.getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.result_x_items,
+                        item.matches.size
+                    )
+                })"
+            )
         }
         description.text = getString(item.category.descriptionRes)
 
@@ -42,7 +48,7 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
     data class Item(
         val appJunk: AppJunk,
         val category: KClass<out ExpendablesFilter>,
-        val paths: Collection<APathLookup<*>>,
+        val matches: Collection<ExpendablesFilter.Match>,
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 

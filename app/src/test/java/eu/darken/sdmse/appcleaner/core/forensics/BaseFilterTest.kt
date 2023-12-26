@@ -7,7 +7,11 @@ import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -19,6 +23,7 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.every
@@ -342,18 +347,19 @@ abstract class BaseFilterTest : BaseTest() {
                         c.pkgs.forEach { pkg ->
                             c.prefixFreePaths.forEach { segs ->
                                 withClue("Should match $pkg, $loc $segs") {
-                                    filter.isExpendable(pkg, target, loc, segs) shouldBe true
+                                    filter.match(pkg, target, loc, segs) shouldNotBe null
                                 }
                             }
                         }
                     }
                 }
+
                 Candidate.Type.NEGATIVE -> {
                     c.areaTypes.forEach { loc ->
                         c.pkgs.forEach { pkg ->
                             c.prefixFreePaths.forEach { segs ->
                                 withClue("Should NOT match $pkg, $loc $segs") {
-                                    filter.isExpendable(pkg, target, loc, segs) shouldBe false
+                                    filter.match(pkg, target, loc, segs) shouldBe null
                                 }
                             }
                         }

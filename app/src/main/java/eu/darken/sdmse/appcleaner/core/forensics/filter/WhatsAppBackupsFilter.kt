@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
@@ -22,30 +23,38 @@ import javax.inject.Provider
 
 
 @Reusable
-class WhatsAppBackupsFilter @Inject constructor() : ExpendablesFilter {
+class WhatsAppBackupsFilter @Inject constructor(
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
+    ): ExpendablesFilter.Match? {
+        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
 
-        if (!VALID_LOCS.contains(DataArea.Type.SDCARD)) return false
-        if (!VALID_PKGS.contains(pkgId)) return false
-        if (VALID_PREFIXES.none { segments.startsWith(it) }) return false
-        if (FILE_REGEXES.none { it.matches(segments.last()) }) return false
+        if (!VALID_LOCS.contains(DataArea.Type.SDCARD)) return null
+        if (!VALID_PKGS.contains(pkgId)) return null
+        if (VALID_PREFIXES.none { segments.startsWith(it) }) return null
+        if (FILE_REGEXES.none { it.matches(segments.last()) }) return null
 
         return if (target.modifiedAt == Instant.EPOCH) {
-            false
+            null
+        } else if (Duration.between(target.modifiedAt, Instant.now()) > Duration.ofDays(1)) {
+            target.toDeletionMatch()
         } else {
-            Duration.between(target.modifiedAt, Instant.now()) > Duration.ofDays(1)
+            null
         }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

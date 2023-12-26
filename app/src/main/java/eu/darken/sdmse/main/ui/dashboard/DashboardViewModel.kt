@@ -8,7 +8,7 @@ import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerDeleteTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
@@ -192,7 +192,7 @@ class DashboardViewModel @Inject constructor(
                 launch { submitTask(AppCleanerScanTask()) }
             },
             onDelete = {
-                val task = AppCleanerDeleteTask()
+                val task = AppCleanerProcessingTask()
                 events.postValue(DashboardEvents.AppCleanerDeleteConfirmation(task))
             },
             onCancel = {
@@ -510,7 +510,7 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.state.first().data != null && upgradeRepo.isPro()) {
-                        submitTask(AppCleanerDeleteTask())
+                        submitTask(AppCleanerProcessingTask())
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
@@ -519,7 +519,7 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isPro()) {
                         submitTask(AppCleanerScanTask())
-                        submitTask(AppCleanerDeleteTask())
+                        submitTask(AppCleanerProcessingTask())
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
@@ -575,7 +575,7 @@ class DashboardViewModel @Inject constructor(
             MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
-        submitTask(AppCleanerDeleteTask())
+        submitTask(AppCleanerProcessingTask())
     }
 
     fun showAppCleanerDetails() {
@@ -624,7 +624,7 @@ class DashboardViewModel @Inject constructor(
             is AppCleanerTask.Result -> when (result) {
                 is AppCleanerScanTask.Success -> {}
                 is AppCleanerSchedulerTask.Success -> {}
-                is AppCleanerDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is AppCleanerProcessingTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }
