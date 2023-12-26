@@ -249,6 +249,7 @@ class AppCleaner @Inject constructor(
                 .filter { !it.isEmpty() }
         )
 
+        // Force check via !! because we should not have ran automation for any junk without inaccessible data
         val automationCount = inaccessibleSuccesses
             .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
             .sumOf { it.itemCount }

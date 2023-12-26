@@ -75,11 +75,13 @@ class InaccessibleDeleter @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
+        val targetJunk = targetPkgs
+            ?.mapNotNull { tp -> snapshot.junks.singleOrNull { it.identifier == tp } }
+            ?: snapshot.junks
+
         val currentUser = userManager.currentUser()
-        val targetInaccessible = targetPkgs
-            ?.mapNotNull { tp ->
-                snapshot.junks.singleOrNull { it.identifier == tp }
-            } ?: snapshot.junks
+
+        val targetInaccessible = targetJunk
             .filter { it.inaccessibleCache != null }
             .filter {
                 // Without root, we shouldn't have inaccessible caches from other users
@@ -93,7 +95,7 @@ class InaccessibleDeleter @Inject constructor(
 
         return deleteInaccessible(
             targetInaccessible,
-            isAllApps = targetPkgs == null,
+            isAllApps = targetJunk == null,
             useAutomation = useAutomation
         )
     }
