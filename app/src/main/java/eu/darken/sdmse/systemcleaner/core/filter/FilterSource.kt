@@ -24,10 +24,10 @@ class FilterSource @Inject constructor(
         filterFactories.forEach { log(TAG) { "Available filter: $it" } }
     }
 
-    suspend fun create(): Set<SystemCleanerFilter> {
+    suspend fun create(onlyEnabled: Boolean): Set<SystemCleanerFilter> {
         val builtInFilters = filterFactories
             .asFlow()
-            .filter { it.isEnabled() }
+            .filter { onlyEnabled && it.isEnabled() }
             .map { it.create() }
             .onEach {
                 log(TAG) { "Initializing $it" }
@@ -38,7 +38,7 @@ class FilterSource @Inject constructor(
         val customFilters = customFilterRepo.configs.first()
             .asFlow()
             .map { customFilterLoader.create(it) }
-            .filter { it.isEnabled() }
+            .filter { onlyEnabled && it.isEnabled() }
             .map { it.create() }
             .onEach {
                 log(TAG) { "Initializing $it" }

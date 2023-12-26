@@ -1,7 +1,13 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import androidx.core.util.Pair
-import eu.darken.sdmse.appcleaner.core.forensics.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import kotlinx.coroutines.test.runTest
@@ -22,7 +28,8 @@ class WhatsAppSentFilterTest : BaseFilterTest() {
     }
 
     private fun create() = WhatsAppSentFilter(
-        dynamicSieveFactory = createDynamicSieveFactory()
+        dynamicSieveFactory = createDynamicSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     // TODO refactor to non-legacy test methods

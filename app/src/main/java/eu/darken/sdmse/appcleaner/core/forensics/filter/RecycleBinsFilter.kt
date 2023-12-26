@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -25,8 +27,9 @@ import javax.inject.Provider
 
 @Reusable
 class RecycleBinsFilter @Inject constructor(
-    private val jsonBasedSieveFactory: JsonBasedSieve.Factory
-) : ExpendablesFilter {
+    private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private lateinit var sieve: JsonBasedSieve
 
@@ -35,28 +38,28 @@ class RecycleBinsFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_trash_files.json")
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
+    ): ExpendablesFilter.Match? {
         val hierarchy = segments.lowercase()
 
         // package/trashfile
         if (hierarchy.size == 2 && TRASH_FILES.contains(hierarchy[1])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         // package/files/trashfile
         if (hierarchy.size == 3 && "files" == hierarchy[1] && TRASH_FILES.contains(hierarchy[2])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2
         // package/.trash/file
         if (hierarchy.size >= 3 && TRASH_FOLDERS.contains(hierarchy[1])) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2     3
@@ -65,10 +68,18 @@ class RecycleBinsFilter @Inject constructor(
             && "files" == hierarchy[1]
             && (TRASH_FOLDERS.contains(hierarchy[2]) || "cache" == hierarchy[2])
         ) {
-            return true
+            return target.toDeletionMatch()
         }
 
-        return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
+        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

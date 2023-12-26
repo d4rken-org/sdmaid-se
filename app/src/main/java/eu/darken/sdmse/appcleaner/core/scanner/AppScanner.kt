@@ -5,6 +5,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.areas.DataArea
@@ -65,7 +66,6 @@ import kotlinx.coroutines.flow.toList
 import okio.IOException
 import java.time.Instant
 import javax.inject.Inject
-import kotlin.reflect.KClass
 
 
 class AppScanner @Inject constructor(
@@ -142,9 +142,10 @@ class AppScanner @Inject constructor(
 
         log(TAG) { "${allCurrentPkgs.size} apps to check :)" }
 
-        val expendablesFromAppData: Map<Installed.InstallId, Collection<FilterMatch>> = buildSearchMap(allCurrentPkgs)
-            .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
-            .let { readAppDirs(it) }
+        val expendablesFromAppData: Map<Installed.InstallId, Collection<ExpendablesFilter.Match>> =
+            buildSearchMap(allCurrentPkgs)
+                .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
+                .let { readAppDirs(it) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
 
@@ -153,14 +154,13 @@ class AppScanner @Inject constructor(
             var inaccessible = inaccessibleCaches.firstOrNull { pkg.installId == it.identifier }
             if (expendables.isNullOrEmpty() && inaccessible == null) return@mapNotNull null
 
-            val byFilterType: Map<KClass<out ExpendablesFilter>, Collection<APathLookup<*>>>? = expendables
-                ?.groupBy { it.type }
-                ?.mapValues { matches -> matches.value.map { it.file } }
+            val byFilterType: Map<ExpendablesFilterIdentifier, Collection<ExpendablesFilter.Match>>? =
+                expendables?.groupBy { it.identifier }
 
             // For <API31 we can improve accuracy manually
             if (inaccessible != null && byFilterType != null && inaccessible.externalCacheBytes == null) {
                 inaccessible = inaccessible.copy(
-                    externalCacheBytes = byFilterType[DefaultCachesPublicFilter::class]?.sumOf { it.size }
+                    externalCacheBytes = byFilterType[DefaultCachesPublicFilter::class]?.sumOf { it.expectedGain }
                 )
                 log(TAG) { "Guesstimated external cache size as ${inaccessible.externalCacheBytes}" }
             }
@@ -379,14 +379,9 @@ class AppScanner @Inject constructor(
         return areaDataMap
     }
 
-    data class FilterMatch(
-        val file: APathLookup<*>,
-        val type: KClass<out ExpendablesFilter>,
-    )
-
     private suspend fun readAppDirs(
         searchPathsOfInterest: Map<AreaInfo, Collection<Installed.InstallId>>
-    ): Map<Installed.InstallId, Collection<FilterMatch>> {
+    ): Map<Installed.InstallId, Collection<ExpendablesFilter.Match>> {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Percent(searchPathsOfInterest.size))
@@ -395,7 +390,7 @@ class AppScanner @Inject constructor(
         val cutOffAge = Instant.now().minusMillis(minCacheAgeMs)
         log(TAG) { "minCacheAgeMs=$minCacheAgeMs -> Cut off after $cutOffAge" }
 
-        val results = HashMap<Installed.InstallId, Collection<FilterMatch>>()
+        val results = HashMap<Installed.InstallId, Collection<ExpendablesFilter.Match>>()
 
         val systemUser = userManager.systemUser()
 
@@ -434,20 +429,18 @@ class AppScanner @Inject constructor(
 
             pathsOfInterest.forEach { (path, segments) ->
                 for (installId in ownersOfInterest) {
-                    val type: KClass<out ExpendablesFilter> = enabledFilters
-                        .firstOrNull { filter ->
-                            filter.isExpendable(
-                                pkgId = installId.pkgId,
-                                target = path,
-                                areaType = searchPath.type,
-                                segments = segments,
-                            )
-                        }
-                        ?.javaClass?.kotlin
-                        ?: continue
+                    val match = enabledFilters.firstNotNullOfOrNull { filter ->
+                        filter.match(
+                            pkgId = installId.pkgId,
+                            target = path,
+                            areaType = searchPath.type,
+                            segments = segments,
+                        )
 
-                    log(TAG, INFO) { "${type.simpleName} matched ${searchPath.type}:$segments" }
-                    results[installId] = (results[installId] ?: emptySet()).plus(FilterMatch(path, type))
+                    } ?: continue
+
+                    log(TAG, INFO) { "${match.identifier.simpleName} matched ${searchPath.type}:$segments" }
+                    results[installId] = (results[installId] ?: emptySet()).plus(match)
                     break
                 }
             }

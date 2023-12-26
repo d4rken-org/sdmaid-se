@@ -1,15 +1,16 @@
-package eu.darken.sdmse.systemcleaner.core.filter
+package eu.darken.sdmse.appcleaner.core.forensics
 
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.deleteAll
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
-abstract class BaseSystemCleanerFilter : SystemCleanerFilter {
+abstract class BaseExpendablesFilter : ExpendablesFilter {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
@@ -18,14 +19,17 @@ abstract class BaseSystemCleanerFilter : SystemCleanerFilter {
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun Collection<SystemCleanerFilter.Match>.deleteAll(
+    suspend fun Collection<ExpendablesFilter.Match>.deleteAll(
         gatewaySwitch: GatewaySwitch
     ) = this
-        .map { it as SystemCleanerFilter.Match.Deletion }
+        .map { it as ExpendablesFilter.Match.Deletion }
         .map { it.lookup }
         .filterDistinctRoots()
         .forEach { targetContent ->
-            updateProgressPrimary(targetContent.userReadablePath)
+            updateProgressSecondary(targetContent.userReadablePath)
             targetContent.deleteAll(gatewaySwitch)
         }
+
+    suspend fun APathLookup<*>.toDeletionMatch() = ExpendablesFilter.Match.Deletion(identifier, this)
+
 }

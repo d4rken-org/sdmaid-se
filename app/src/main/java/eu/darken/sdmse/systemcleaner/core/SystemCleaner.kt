@@ -108,7 +108,7 @@ class SystemCleaner @Inject constructor(
         internalData.value = null
 
         val results = crawler.withProgress(this) {
-            crawl(filterSource.create())
+            crawl(filterSource.create(onlyEnabled = true))
         }
 
         log(TAG) { "Warming up fields..." }
@@ -133,14 +133,14 @@ class SystemCleaner @Inject constructor(
         val processedContents = mutableMapOf<FilterContent, Set<SystemCleanerFilter.Match>>()
 
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
-        val filters = filterSource.create()
+        val filters = filterSource.create(onlyEnabled = false)
 
         targetFilters.forEach { targetIdentifier ->
             val filterContent = snapshot.filterContents.single { it.identifier == targetIdentifier }
             updateProgressPrimary(caString { filterContent.label.get(it) })
 
             val filter = filters.singleOrNull { it.identifier == targetIdentifier }
-                ?: throw IllegalStateException("No active filter matches $targetIdentifier")
+                ?: throw IllegalStateException("No filter matches $targetIdentifier")
 
             val processed = mutableSetOf<SystemCleanerFilter.Match>()
             val targetMatches = filterContent.items.filter {
@@ -149,15 +149,15 @@ class SystemCleaner @Inject constructor(
 
             filter.withProgress(
                 client = this,
-                onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
+                onUpdate = { old, new -> old?.copy(primary = new?.secondary ?: CaString.EMPTY) },
                 onCompletion = { null }
             ) {
                 try {
                     process(targetMatches)
-                    log(TAG) { "Processed $targetMatches!" }
+                    log(TAG) { "Processed ${targetMatches.size} for ${filter.identifier}!" }
                     processed.addAll(targetMatches)
-                } catch (e: WriteException) {
-                    log(TAG, ERROR) { "Failed to process $targetMatches: ${e.asLog()}" }
+                } catch (e: PathException) {
+                    log(TAG, ERROR) { "Failed to process for ${filter.identifier}: ${e.asLog()}" }
                 }
             }
 

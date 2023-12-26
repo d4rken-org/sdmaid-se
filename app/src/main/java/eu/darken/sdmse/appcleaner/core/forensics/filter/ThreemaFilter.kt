@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic.DynamicSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -24,7 +26,8 @@ import javax.inject.Provider
 @Reusable
 class ThreemaFilter @Inject constructor(
     private val dynamicSieveFactory: DynamicSieve.Factory,
-) : ExpendablesFilter {
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private lateinit var sieve: DynamicSieve
 
@@ -44,15 +47,23 @@ class ThreemaFilter @Inject constructor(
         sieve = dynamicSieveFactory.create(setOf(config))
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return false
+    ): ExpendablesFilter.Match? {
+        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
 
-        return segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)
+        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

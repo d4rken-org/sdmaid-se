@@ -24,7 +24,9 @@ class WhatsAppBackupsFilterTest : BaseFilterTest() {
         super.teardown()
     }
 
-    private fun create() = WhatsAppBackupsFilter()
+    private fun create() = WhatsAppBackupsFilter(
+        gatewaySwitch = gatewaySwitch,
+    )
 
     @Test fun `delete WhatsApp msgstore`() = runTest {
         addDefaultNegatives()

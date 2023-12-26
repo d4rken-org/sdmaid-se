@@ -7,7 +7,6 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.coil.loadFilePreview
-import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
@@ -38,14 +37,14 @@ class AppJunkElementFileVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         lastItem = item
 
-        icon.loadFilePreview(item.lookup)
+        icon.loadFilePreview(item.match.lookup)
 
-        primary.text = item.lookup.userReadablePath.get(context)
+        primary.text = item.match.lookup.userReadablePath.get(context)
 
-        secondary.text = if (item.lookup.fileType == FileType.FILE) {
-            Formatter.formatFileSize(context, item.lookup.size)
+        secondary.text = if (item.match.lookup.fileType == FileType.FILE) {
+            Formatter.formatFileSize(context, item.match.expectedGain)
         } else {
-            getString(item.lookup.fileType.labelRes)
+            getString(item.match.lookup.fileType.labelRes)
         }
 
         root.setOnClickListener { item.onItemClick(item) }
@@ -54,12 +53,12 @@ class AppJunkElementFileVH(parent: ViewGroup) :
     data class Item(
         val appJunk: AppJunk,
         val category: KClass<out ExpendablesFilter>,
-        val lookup: APathLookup<*>,
+        val match: ExpendablesFilter.Match,
         val onItemClick: (Item) -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
-        override val itemSelectionKey: String = lookup.path
-        override val stableId: Long = lookup.hashCode().toLong()
+        override val itemSelectionKey: String = match.lookup.path
+        override val stableId: Long = match.lookup.hashCode().toLong()
     }
 
 }

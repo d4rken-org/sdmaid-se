@@ -27,7 +27,8 @@ class WeChatFilterTest : BaseFilterTest() {
     }
 
     private fun create() = WeChatFilter(
-        dynamicSieveFactory = createDynamicSieveFactory()
+        dynamicSieveFactory = createDynamicSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testFilter() = runTest {

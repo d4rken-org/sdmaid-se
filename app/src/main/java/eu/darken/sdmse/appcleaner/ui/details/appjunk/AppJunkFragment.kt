@@ -106,7 +106,7 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
 
                             event.items.singleOrNull() is AppJunkElementFileVH.Item -> getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                (event.items.singleOrNull() as AppJunkElementFileVH.Item).lookup.userReadableName
+                                (event.items.singleOrNull() as AppJunkElementFileVH.Item).match.path.userReadableName
                                     .get(requireContext()),
                             )
 

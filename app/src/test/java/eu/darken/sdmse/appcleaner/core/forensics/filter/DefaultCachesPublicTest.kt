@@ -23,6 +23,7 @@ class DefaultCachesPublicTest : BaseFilterTest() {
 
     private fun create() = DefaultCachesPublicFilter(
         environment = storageEnvironment,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testDefaultFilter() = runTest {

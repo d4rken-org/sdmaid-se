@@ -1,7 +1,15 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
-import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -21,7 +29,8 @@ class RecycleBinsFilterTest : BaseFilterTest() {
     }
 
     private fun create() = RecycleBinsFilter(
-        jsonBasedSieveFactory = createJsonSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testDefaults() = runTest {

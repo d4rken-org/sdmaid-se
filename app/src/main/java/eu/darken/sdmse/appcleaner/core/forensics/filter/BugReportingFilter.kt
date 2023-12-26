@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.*
@@ -24,8 +26,9 @@ import javax.inject.Provider
 
 @Reusable
 class BugReportingFilter @Inject constructor(
-    private val jsonBasedSieveFactory: JsonBasedSieve.Factory
-) : ExpendablesFilter {
+    private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    private val gatewaySwitch: GatewaySwitch,
+) : BaseExpendablesFilter() {
 
     private lateinit var sieve: JsonBasedSieve
 
@@ -34,38 +37,38 @@ class BugReportingFilter @Inject constructor(
         sieve = jsonBasedSieveFactory.create("expendables/db_bug_reporting_files.json")
     }
 
-    override suspend fun isExpendable(
+    override suspend fun match(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         segments: Segments
-    ): Boolean {
+    ): ExpendablesFilter.Match? {
         if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1].lowercase())) {
-            return false
+            return null
         }
 
         //    0      1
         // basedir/update_component_log
         if (segments.size >= 2 && LOGFILE_PATTERNS.any { it.matches(segments[1].lowercase()) }) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1
         // basedir/update_component_log
         if (segments.size >= 2 && FILES.contains(segments[1].lowercase())) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2
         // basedir/Logfiles/file
         if (segments.size >= 3 && FOLDERS.contains(segments[1].lowercase())) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2
         // basedir/files/log.txt
         if (segments.size >= 3 && FILES.contains(segments[2].lowercase())) {
-            return true
+            return target.toDeletionMatch()
         }
 
         //    0      1     2     3
@@ -76,10 +79,18 @@ class BugReportingFilter @Inject constructor(
             && "files" == segments[1].lowercase()
             && FOLDERS.contains(segments[2].lowercase())
         ) {
-            return true
+            return target.toDeletionMatch()
         }
 
-        return sieve.matches(pkgId, areaType, segments)
+        return if (sieve.matches(pkgId, areaType, segments)) {
+            target.toDeletionMatch()
+        } else {
+            null
+        }
+    }
+
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
+        matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

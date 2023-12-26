@@ -1,7 +1,15 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
-import eu.darken.sdmse.appcleaner.core.forensics.*
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
+import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
+import eu.darken.sdmse.appcleaner.core.forensics.locs
+import eu.darken.sdmse.appcleaner.core.forensics.neg
+import eu.darken.sdmse.appcleaner.core.forensics.pkgs
+import eu.darken.sdmse.appcleaner.core.forensics.pos
+import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -20,7 +28,8 @@ class WebViewCacheFilterTest : BaseFilterTest() {
     }
 
     private fun create() = WebViewCacheFilter(
-        jsonBasedSieveFactory = createJsonSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testGeneral() = runTest {

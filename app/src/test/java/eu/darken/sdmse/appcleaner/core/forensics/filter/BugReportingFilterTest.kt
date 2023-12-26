@@ -30,7 +30,8 @@ class BugReportingFilterTest : BaseFilterTest() {
     }
 
     private fun create() = BugReportingFilter(
-        jsonBasedSieveFactory = createJsonSieveFactory()
+        jsonBasedSieveFactory = createJsonSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testFilterFabric() = runTest {

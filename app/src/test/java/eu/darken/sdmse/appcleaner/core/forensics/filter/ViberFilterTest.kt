@@ -23,7 +23,8 @@ class ViberFilterTest : BaseFilterTest() {
     }
 
     private fun create() = ViberFilter(
-        dynamicSieveFactory = createDynamicSieveFactory()
+        dynamicSieveFactory = createDynamicSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun `Delete all files`() = runTest {

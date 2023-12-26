@@ -32,6 +32,7 @@ class HiddenFilterTest : BaseFilterTest() {
     private fun create() = HiddenFilter(
         jsonBasedSieveFactory = createJsonSieveFactory(),
         environment = storageEnvironment,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun testHiddenCacheDefaults() = runTest {

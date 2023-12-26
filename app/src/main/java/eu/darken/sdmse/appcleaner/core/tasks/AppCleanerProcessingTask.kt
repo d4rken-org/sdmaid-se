@@ -13,7 +13,7 @@ import kotlin.reflect.KClass
 
 @Parcelize
 @TypeParceler<KClass<out ExpendablesFilter>, KClassParcelizer>()
-data class AppCleanerDeleteTask(
+data class AppCleanerProcessingTask(
     val targetPkgs: Set<Installed.InstallId>? = null,
     val targetFilters: Set<KClass<out ExpendablesFilter>>? = null,
     val targetContents: Set<APath>? = null,

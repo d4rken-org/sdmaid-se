@@ -23,7 +23,8 @@ class TelegramFilterTest : BaseFilterTest() {
     }
 
     private fun create() = TelegramFilter(
-        dynamicSieveFactory = createDynamicSieveFactory()
+        dynamicSieveFactory = createDynamicSieveFactory(),
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test fun telegram() = runTest {

@@ -1,11 +1,7 @@
-package eu.darken.sdmse.appcleaner.core.deleter
+package eu.darken.sdmse.appcleaner.core
 
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.AppCleaner
-import eu.darken.sdmse.appcleaner.core.AppJunk
-import eu.darken.sdmse.appcleaner.core.InaccessibleDeletionException
 import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
-import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationManager
@@ -20,13 +16,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.PathException
-import eu.darken.sdmse.common.files.deleteAll
-import eu.darken.sdmse.common.files.filterDistinctRoots
-import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
@@ -52,13 +41,11 @@ import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.isActive
 import javax.inject.Inject
-import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.seconds
 
 
-class AppJunkDeleter @Inject constructor(
+class InaccessibleDeleter @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
-    private val gatewaySwitch: GatewaySwitch,
     private val userManager: UserManager2,
     private val automationManager: AutomationManager,
     private val shizukuManager: ShizukuManager,
@@ -74,81 +61,6 @@ class AppJunkDeleter @Inject constructor(
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
         progressPub.value = update(progressPub.value)
     }
-
-    suspend fun initialize() {
-        log(TAG, VERBOSE) { "initialize()" }
-    }
-
-    suspend fun deleteAccessible(
-        snapshot: AppCleaner.Data,
-        targetPkgs: Set<Installed.InstallId>?,
-        targetFilters: Set<KClass<out ExpendablesFilter>>?,
-        targetContents: Set<APath>?,
-    ): Map<Installed.InstallId, Set<APathLookup<*>>> {
-        log(TAG, INFO) {
-            "deleteAccessible() pkgs=${targetPkgs?.size}, filters=${targetFilters?.size}, contents=${targetContents?.size}"
-        }
-
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
-        updateProgressSecondary(CaString.EMPTY)
-        updateProgressCount(Progress.Count.Indeterminate())
-
-        val deletionMap = mutableMapOf<Installed.InstallId, Set<APathLookup<*>>>()
-
-        val targetJunk = targetPkgs
-            ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
-            ?: snapshot.junks
-
-        targetJunk
-            .sortedByDescending { it.size }
-            .forEach { appJunk ->
-                val deleted = deleteDirectAccess(appJunk, targetFilters, targetContents)
-                deletionMap[appJunk.identifier] = deleted
-            }
-
-        return deletionMap
-    }
-
-    private suspend fun deleteDirectAccess(
-        appJunk: AppJunk,
-        _targetFilters: Set<KClass<out ExpendablesFilter>>?,
-        _targetContents: Set<APath>?,
-    ): Set<APathLookup<*>> {
-        log(TAG) { "Processing ${appJunk.identifier}" }
-
-        updateProgressPrimary(appJunk.label)
-
-        val targetFilters = _targetFilters
-            ?: appJunk.expendables?.keys
-            ?: emptySet()
-
-        val targetFiles: Collection<APathLookup<*>> = _targetContents
-            ?.map { tc ->
-                val allFiles = appJunk.expendables?.values?.flatten() ?: emptySet()
-                allFiles.single { tc.matches(it) }
-            }
-            ?: appJunk.expendables?.filterKeys { targetFilters.contains(it) }?.values?.flatten()
-            ?: emptySet()
-
-        val deleted = mutableSetOf<APathLookup<*>>()
-
-        targetFiles
-            .filterDistinctRoots()
-            .forEach { targetFile ->
-                log(TAG) { "Deleting $targetFile..." }
-                updateProgressSecondary(targetFile.userReadablePath)
-                try {
-                    targetFile.deleteAll(gatewaySwitch)
-                    log(TAG) { "Deleted $targetFile!" }
-                    deleted.add(targetFile)
-                } catch (e: PathException) {
-                    log(TAG, WARN) { "Deletion failed for $targetFile: $e" }
-                }
-            }
-
-        return deleted
-    }
-
 
     suspend fun deleteInaccessible(
         snapshot: AppCleaner.Data,
