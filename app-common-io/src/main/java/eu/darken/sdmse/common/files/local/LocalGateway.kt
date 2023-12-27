@@ -580,7 +580,6 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
                     log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
-                    if (!canNormalWrite) throw WriteException(path)
 
                     var success = if (Bugs.isDryRun) {
                         log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
@@ -591,7 +590,11 @@ class LocalGateway @Inject constructor(
 
                     if (!success) {
                         success = !javaFile.exists()
-                        if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                        if (success) {
+                            log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                        } else if (!canNormalWrite) {
+                            throw WriteException(path)
+                        }
                     }
 
                     if (!success) {
@@ -635,12 +638,12 @@ class LocalGateway @Inject constructor(
                         }
 
                         if (!success) {
-                            // TODO We could move this into the root service for better performance?
+                            // TODO We could move this into the ADB service for better performance?
                             success = !it.exists(path)
                             if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                         }
 
-                        if (!success) throw IOException("Adb delete() call returned false")
+                        if (!success) throw IOException("ADB delete() call returned false")
                     }
                 }
 
