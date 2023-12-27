@@ -27,17 +27,41 @@ class LocalPathTest : BaseTest() {
     }
 
     @Test
-    fun `test direct serialization`() {
+    fun `direct serialization with transient fields`() {
         testFile.tryMkFile()
         val original = LocalPath.build(file = testFile)
 
         val adapter = moshi.adapter(LocalPath::class.java)
+
+        // segmentsCache needs to be ignored during serialization
+        println(original.segments.toString())
 
         val json = adapter.toJson(original)
         json.toComparableJson() shouldBe """
             {
                 "file": "${testFile.path}",
                 "pathType":"LOCAL"
+            }
+        """.toComparableJson()
+
+        adapter.fromJson(json) shouldBe original
+    }
+
+    @Test
+    fun `deserialization needs to respect transient fields`() {
+        testFile.tryMkFile()
+        val original = LocalPath.build(file = testFile)
+
+        val adapter = moshi.adapter(LocalPath::class.java)
+
+        val json = """
+            {
+                "file": "${testFile.path}",
+                "pathType":"LOCAL",
+                "segmentsCache": [
+                    ".",
+                    "testfile"
+                ]
             }
         """.toComparableJson()
 
