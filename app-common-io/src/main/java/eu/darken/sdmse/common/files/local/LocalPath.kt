@@ -32,7 +32,7 @@ data class LocalPath(
     @IgnoredOnParcel override val name: String
         get() = file.name
 
-    @IgnoredOnParcel internal var segmentsCache: Segments? = null
+    @IgnoredOnParcel @Transient internal var segmentsCache: Segments? = null
 
     @IgnoredOnParcel
     override val segments: Segments
