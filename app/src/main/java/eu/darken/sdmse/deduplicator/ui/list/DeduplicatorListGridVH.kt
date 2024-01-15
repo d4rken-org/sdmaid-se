@@ -36,9 +36,11 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         lastItem = item
         val cluster = item.cluster
 
-        previewImage.loadFilePreview(cluster.previewFile) {
-            // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
-            bitmapConfig(Bitmap.Config.ARGB_8888)
+        previewImage.apply {
+            loadFilePreview(cluster.previewFile) {
+                // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
+                bitmapConfig(Bitmap.Config.ARGB_8888)
+            }
         }
 
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)

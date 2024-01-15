@@ -63,13 +63,14 @@ class DeduplicatorListViewModel @Inject constructor(
                     LayoutMode.LINEAR -> DeduplicatorListLinearVH.Item(
                         cluster = cluster,
                         onItemClicked = { delete(setOf(it)) },
-                        onDupeClicked = { delete(setOf(it)) }
+                        onDupeClicked = { delete(setOf(it)) },
+                        onPreviewClicked = { events.postValue(DeduplicatorListEvents.PreviewEvent(it.cluster.previewFile.lookedUp)) }
                     )
 
                     LayoutMode.GRID -> DeduplicatorListGridVH.Item(
                         cluster = cluster,
                         onItemClicked = { delete(setOf(it)) },
-                        onFooterClicked = { showDetails(cluster.identifier) }
+                        onFooterClicked = { showDetails(cluster.identifier) },
                     )
                 }
             }

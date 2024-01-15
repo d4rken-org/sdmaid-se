@@ -69,4 +69,9 @@
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Light.Floating</item>
     </style>
 
+    <style name="DialogTheme" parent="BaseAppTheme">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
 </resources>

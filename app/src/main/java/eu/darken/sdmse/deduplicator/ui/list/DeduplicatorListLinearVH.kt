@@ -45,9 +45,12 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
         lastItem = item
         val cluster = item.cluster
 
-        previewImage.loadFilePreview(cluster.previewFile) {
-            // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
-            bitmapConfig(Bitmap.Config.ARGB_8888)
+        previewImage.apply {
+            loadFilePreview(cluster.previewFile) {
+                // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
+                bitmapConfig(Bitmap.Config.ARGB_8888)
+            }
+            setOnClickListener { item.onPreviewClicked(item) }
         }
 
         primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
@@ -62,7 +65,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
                 DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item(
                     cluster = cluster,
                     dupe = dupe,
-                    onItemClicked = { item.onDupeClicked(it) }
+                    onItemClicked = { item.onDupeClicked(it) },
                 )
             }
         adapter.update(subItems)
@@ -74,6 +77,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
         override val cluster: Duplicate.Cluster,
         val onItemClicked: (Item) -> Unit,
         val onDupeClicked: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit,
+        val onPreviewClicked: (Item) -> Unit,
     ) : DeduplicatorListAdapter.Item {
 
         override val itemSelectionKey: String

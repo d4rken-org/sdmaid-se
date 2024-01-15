@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,17 +19,21 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.previews.PreviewFragmentArgs
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorListFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) {
 
     override val vm: DeduplicatorListViewModel by viewModels()
     override val ui: DeduplicatorListFragmentBinding by viewBinding()
+
+    @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
@@ -120,7 +125,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is DeduplicatorListEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
+                is DeduplicatorListEvents.ConfirmDeletion -> previewDialog.show(
                     mode = PreviewDeletionDialog.Mode.Clusters(
                         clusters = event.items.map { it.cluster },
                         allowDeleteAll = event.allowDeleteAll
@@ -139,7 +144,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 )
 
 
-                is DeduplicatorListEvents.ConfirmDupeDeletion -> PreviewDeletionDialog(requireContext()).show(
+                is DeduplicatorListEvents.ConfirmDupeDeletion -> previewDialog.show(
                     mode = PreviewDeletionDialog.Mode.Duplicates(
                         duplicates = event.items.map { it.dupe },
                     ),
@@ -172,6 +177,13 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                     event.result.primaryInfo.get(requireContext()),
                     Snackbar.LENGTH_LONG
                 ).show()
+
+                is DeduplicatorListEvents.PreviewEvent -> {
+                    findNavController().navigate(
+                        resId = R.id.goToPreview,
+                        args = PreviewFragmentArgs(path = event.path).toBundle()
+                    )
+                }
             }
         }
 

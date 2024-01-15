@@ -447,4 +447,17 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
+
+    <action
+        android:id="@+id/goToPreview"
+        app:destination="@id/previewFragment" />
+
+    <dialog
+        android:id="@+id/previewFragment"
+        android:name="eu.darken.sdmse.common.previews.PreviewFragment"
+        tools:layout="@layout/preview_fragment">
+        <argument
+            android:name="path"
+            app:argType="eu.darken.sdmse.common.files.APath" />
+    </dialog>
 </navigation>

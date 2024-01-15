@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,13 +8,16 @@ import android.view.ViewTreeObserver
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import coil.transform.RoundedCornersTransformation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
+import dagger.hilt.android.qualifiers.ActivityContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
@@ -24,12 +28,24 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.SimpleVHCreatorMod
+import eu.darken.sdmse.common.previews.PreviewFragmentArgs
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridItemBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewSingleBinding
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import javax.inject.Inject
 
-class PreviewDeletionDialog(private val context: Context) {
+class PreviewDeletionDialog @Inject constructor(
+    @ActivityContext private val context: Context,
+) {
+
+    private fun openPreview(path: APath) {
+        (context as Activity).findNavController(R.id.nav_host).navigate(
+            resId = R.id.goToPreview,
+            args = PreviewFragmentArgs(path = path).toBundle()
+        )
+    }
+
     sealed interface Mode {
         val allowDeleteAll: Boolean
         val count: Int
@@ -100,6 +116,8 @@ class PreviewDeletionDialog(private val context: Context) {
                 transformations(RoundedCornersTransformation(36F))
             }
 
+            binding.root.setOnClickListener { openPreview(mode.previews.single().lookedUp) }
+
             binding.root
         } else {
             val binding = ViewDeleteConfirmationPreviewGridBinding.inflate(
@@ -115,7 +133,12 @@ class PreviewDeletionDialog(private val context: Context) {
             binding.deleteAllIcon.isVisible = binding.deleteAllToggle.isVisible
 
             val adapter = PreviewAdapter().apply {
-                update(mode.previews.map { Item(it) })
+                update(mode.previews.map {
+                    Item(
+                        lookup = it,
+                        onPreview = { openPreview(it.lookedUp) }
+                    )
+                })
             }
 
             binding.apply {
@@ -230,6 +253,7 @@ class PreviewDeletionDialog(private val context: Context) {
                 previewImage.loadFilePreview(item.lookup) {
                     transformations(RoundedCornersTransformation(36F))
                 }
+                previewImage.setOnClickListener { item.onPreview() }
             }
 
         }
@@ -237,6 +261,7 @@ class PreviewDeletionDialog(private val context: Context) {
 
     data class Item(
         val lookup: APathLookup<*>,
+        val onPreview: () -> Unit,
     ) : DifferItem {
         override val stableId: Long = lookup.path.hashCode().toLong()
     }
