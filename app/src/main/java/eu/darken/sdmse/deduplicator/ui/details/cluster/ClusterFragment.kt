@@ -21,12 +21,15 @@ import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorClusterFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
     override val vm: ClusterViewModel by viewModels()
     override val ui: DeduplicatorClusterFragmentBinding by viewBinding()
+
+    @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     private var selectionTracker: SelectionTracker<String>? = null
 
@@ -107,7 +110,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
         vm.events.observe2(ui) { event ->
             when (event) {
-                is ClusterEvents.ConfirmDeletion -> PreviewDeletionDialog(requireContext()).show(
+                is ClusterEvents.ConfirmDeletion -> previewDialog.show(
                     mode = when {
                         event.items.singleOrNull() is ClusterAdapter.ClusterItem -> PreviewDeletionDialog.Mode.Clusters(
                             clusters = listOf((event.items.single() as ClusterAdapter.ClusterItem).cluster),

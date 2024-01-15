@@ -31,6 +31,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
     @Inject lateinit var dashAdapter: DashboardAdapter
     @Inject lateinit var oneClickOptions: OneClickOptionsDialog
+    @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.list.setupDefaults(dashAdapter, dividers = false, fastscroll = false)
@@ -189,7 +190,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
                 }.show()
 
-                is DashboardEvents.DeduplicatorDeleteConfirmation -> PreviewDeletionDialog(requireContext()).show(
+                is DashboardEvents.DeduplicatorDeleteConfirmation -> previewDialog.show(
                     mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList()),
                     onPositive = { vm.confirmDeduplicatorDeletion() },
                     onNegative = { },
