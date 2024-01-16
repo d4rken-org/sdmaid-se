@@ -23,5 +23,6 @@ enum class SpecRomType(override val label: CaString) : EnumPreference<SpecRomTyp
     @Json(name = "REALME") REALME("Realme".toCaString()),
     @Json(name = "SAMSUNG") SAMSUNG("Samsung".toCaString()),
     @Json(name = "VIVO") VIVO("VIVO".toCaString()),
+    @Json(name = "HONOR") HONOR("HONOR".toCaString()),
     ;
 }
