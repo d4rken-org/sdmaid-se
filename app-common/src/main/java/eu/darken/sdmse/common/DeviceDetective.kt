@@ -43,6 +43,8 @@ class DeviceDetective @Inject constructor(
 
     suspend fun isHuawei(): Boolean = checkManufactor("huawei")
 
+    suspend fun isHonor(): Boolean = checkManufactor("HONOR")
+
     suspend fun isLGE(): Boolean = checkManufactor("lge")
 
     suspend fun isXiaomi(): Boolean = checkManufactor("Xiaomi")
