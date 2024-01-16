@@ -149,8 +149,12 @@ class SystemCleaner @Inject constructor(
 
             filter.withProgress(
                 client = this,
-                onUpdate = { old, new -> old?.copy(primary = new?.secondary ?: CaString.EMPTY) },
-                onCompletion = { null }
+                onUpdate = { old, new ->
+                    old?.copy(
+                        secondary = new?.primary ?: CaString.EMPTY,
+                        count = new?.count ?: Progress.Data().count,
+                    )
+                },
             ) {
                 try {
                     process(targetMatches)
