@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
@@ -50,7 +51,7 @@ class AnrFilter @Inject constructor(
         DataArea.Type.DOWNLOAD_CACHE,
     )
 
-    private lateinit var sieve: BaseSieve
+    private var sieve: BaseSieve? = null
 
     override suspend fun initialize() {
         val regexPairs = areaManager.currentAreas()
@@ -65,24 +66,27 @@ class AnrFilter @Inject constructor(
                 path to regex
             }
 
-        require(regexPairs.isNotEmpty()) { "Filter underdefined" }
+        if (regexPairs.isNotEmpty()) {
+            val config = BaseSieve.Config(
+                targetTypes = setOf(BaseSieve.TargetType.FILE),
+                areaTypes = targetAreas(),
+                pfpCriteria = setOf(
+                    SegmentCriterium(segs("anr"), mode = SegmentCriterium.Mode.Ancestor())
+                ),
+                pathRegexes = regexPairs.map { Regex(it.second) }.toSet(),
+            )
+            sieve = baseSieveFactory.create(config)
+        } else {
+            log(TAG, WARN) { "Sieve is underdefined" }
+        }
 
-        val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
-            areaTypes = targetAreas(),
-            pfpCriteria = setOf(
-                SegmentCriterium(segs("anr"), mode = SegmentCriterium.Mode.Ancestor())
-            ),
-            pathRegexes = regexPairs.map { Regex(it.second) }.toSet(),
-        )
-
-        sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
 
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        return sieve.match(item).toDeletion()
+        if (sieve == null) log(TAG, INFO) { "Sieve is underdefined, skipping match" }
+        return sieve?.match(item)?.toDeletion()
     }
 
     override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
