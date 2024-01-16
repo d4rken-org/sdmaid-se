@@ -20,6 +20,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.coloros.ColorOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.flyme.FlymeSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.honor.HonorSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.huawei.HuaweiSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.lge.LGESpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.miui.MIUISpecs
@@ -83,6 +84,7 @@ class ClearCacheModule @AssistedInject constructor(
                 is AndroidTVSpecs -> 70
                 is NubiaSpecs -> 60
                 is OnePlusSpecs -> 30
+                is HonorSpecs -> 20
                 is AOSPSpecs -> -5
                 else -> 0
             }
