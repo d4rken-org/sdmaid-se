@@ -5,6 +5,8 @@ import eu.darken.sdmse.common.files.deleteAll
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,8 +26,10 @@ abstract class BaseSystemCleanerFilter : SystemCleanerFilter {
         .map { it as SystemCleanerFilter.Match.Deletion }
         .map { it.lookup }
         .filterDistinctRoots()
+        .also { updateProgressCount(Progress.Count.Percent(it.size)) }
         .forEach { targetContent ->
             updateProgressPrimary(targetContent.userReadablePath)
             targetContent.deleteAll(gatewaySwitch)
+            increaseProgress()
         }
 }
