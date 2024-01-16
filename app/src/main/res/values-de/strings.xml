@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Grundlegender Zugriff auf öffentlichen Speicher, z.B. „Download/“ und „DCIM/“, aber nicht immer „Android/data“.</string>
     <string name="setup_root_card_title">Root Zugriff</string>
     <string name="setup_root_card_body">Sollte SD Maid den Root-Zugriff verwenden, wenn er verfügbar ist? Über den Root-Zugriff können zusätzliche Systemordner und private Anwendungsdaten geprüft werden.</string>
+    <string name="setup_root_state_ready_label">Root-Zugriff ist bereit.</string>
+    <string name="setup_root_state_waiting_label">Warte auf Root-Zugriff.</string>
     <string name="setup_root_enable_root_use_label">Root-Zugriff verwenden, falls verfügbar</string>
     <string name="setup_root_disable_root_use_label">Root-Zugriff nicht verwenden</string>
     <string name="setup_root_card_body2">Nur auf gerooteten Geräten verfügbar. Wenn Du diese Änderung nicht vorgenommen hast, ist Dein Gerät nicht gerootet und diese Einstellung hat keine Auswirkung.</string>
@@ -421,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Letzte Aktualisierung</string>
     <string name="appcontrol_list_sortmode_installed_label">Erstmals installiert</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paketname</string>
+    <string name="appcontrol_list_sortmode_size_label">Größe</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">App-Größen werden aus Leistungsgründen geschätzt. Verwende das Storage Analysator-Tool für genauere Daten.</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstalliert App</string>
+    <string name="appcontrol_app_sizes_title">App-Größe</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Daten</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>
@@ -486,6 +494,9 @@
     <string name="exclusion_editor_segment_explanation">Ein segmentbasierter Ausschluss ähnelt einem Pfadausschluss, ermöglicht jedoch teilweise Übereinstimmungen. Beispiel: „DCIM/Camera“ schließt „/sdcard/DCIM/Camera/photo.png“ aus.</string>
     <string name="exclusion_editor_remove_confirmation_message">Diesen Ausschluss entfernen?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
+    <string name="exclusion_reset_default_exclusions">Wiederherstellung der standardmäßigen Ausschlüsse</string>
+    <string name="exclusion_import_action">Ausschlüsse importieren</string>
+    <string name="exclusion_export_action">Ausschlüsse exportieren</string>
     <string name="exclusion_create_pkg_hint">Verwende das App-Kontrolle-Tool, um App-Ausnahmen zu erstellen.</string>
     <string name="exclusion_create_path_hint">Verwende das Speicheranalyse-Tool, um Pfadausschlüsse zu erstellen.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -540,6 +551,8 @@
     <string name="scheduler_notification_result_title">Planer beendet</string>
     <string name="scheduler_notification_result_success_message">Alle geplanten Aufgaben wurden erfolgreich ausgeführt.</string>
     <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
+    <string name="scheduler_commands_after_schedule_label">Befehle nach Zeitplan</string>
+    <string name="scheduler_commands_after_schedule_desc">Androide Shell-Befehle, die am Ende eines Zeitplans ausgeführt werden.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
     <string name="updates_dashcard_body">Eine Aktualisierung ist verfügbar. Du hast %1$s und die neueste Version ist %2$s.</string>
     <string name="translation_encourage_title">Übersetze SD Maid</string>

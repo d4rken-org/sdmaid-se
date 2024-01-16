@@ -373,9 +373,12 @@
     <string name="deduplicator_delete_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message"></string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Menghapus semua salinan kecuali satu dari setiap berkas duplikat yang dipilih?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Menghapus semua berkas dalam setiap set berkas duplikat yang dipilih? Tidak ada berkas yang tersisa!</string>
     <string name="deduplicator_delete_all_toggle_msg">Menghapus semua salinan. Tidak ada berkas lagi yang tersisa!</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan berkas-berkas</string>
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
+    <string name="deduplicator_matches_exact_label">Salinan yang persis</string>
     <string name="deduplicator_matches_similar_label">Berkas-berkas serupa</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
@@ -411,6 +414,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Diinstal pertama kali</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nama paket</string>
     <string name="appcontrol_list_sortmode_size_label">Ukuran</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Ukuran aplikasi diperkirakan untuk alasan kinerja. Gunakan alat StorageAnalyzer untuk data yang lebih akurat.</string>
     <string name="appcontrol_progress_uninstalling_app">Mencopot aplikasi</string>
     <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
@@ -532,7 +536,9 @@
     <string name="scheduler_notification_message">Menjalankan: \"%s\"</string>
     <string name="scheduler_notification_result_title">Penjadwal selesai</string>
     <string name="scheduler_notification_result_success_message">Semua tugas yang dijadwalkan berhasil dijalankan.</string>
+    <string name="scheduler_notification_result_failure_message">Beberapa tugas terjadwal gagal atau mengalami kesalahan. Cobalah menjalankannya secara manual.</string>
     <string name="scheduler_commands_after_schedule_label">Perintah pasca-penjadwalan</string>
+    <string name="scheduler_commands_after_schedule_desc">Perintah shell Android yang akan dieksekusi pada akhir jadwal.</string>
     <string name="updates_dashcard_title">Pembaruan tersedia</string>
     <string name="updates_dashcard_body">Pembaruan tersedia. Versi aplikasi Anda %1$s dan versi terbaru adalah %2$s.</string>
     <string name="translation_encourage_title">Terjemahkan SD Maid</string>

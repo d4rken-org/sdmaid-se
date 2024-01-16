@@ -7,11 +7,13 @@
     <string name="slogan_message_3">Melakukan apa yang perlu.</string>
     <string name="slogan_message_4">Semua itik anda dalam barisan.</string>
     <string name="slogan_message_5">Tanpa noda.</string>
+    <string name="slogan_message_6">Terhapuslah, bait!</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Jenis tidak sepadan: Inginkan %1$s, tetapi mendapat %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
     <string name="general_error_root_unavailable">Akses Root tidak tersedia.</string>
     <string name="general_error_empty_result_msg">Hasilnya kosong.</string>
+    <string name="general_error_no_compatible_app_found_msg">Tiada aplikasi yang sesuai untuk melaksanakan permintaan ini.</string>
     <string name="general_todo_msg">Ciri ini masih diusahakan dan tidak tersedia pada masa ini.</string>
     <string name="general_share_action">Kongsi</string>
     <string name="general_done_action">Selesai</string>
@@ -23,6 +25,7 @@
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Faham</string>
+    <string name="general_fix_action">Baiki</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
@@ -54,6 +57,7 @@
     <string name="general_progress_loading_egg_5">Encabulator turbo sedang dimulakan</string>
     <string name="general_progress_loading_egg_6">Melepasi mentega</string>
     <string name="general_progress_loading_egg_7">Jadi. Bagaimana anda bertahan?</string>
+    <string name="general_progress_loading_egg_8">Bip bip bup bup</string>
     <string name="general_help_action">Bantuan</string>
     <string name="general_continue">Teruskan</string>
     <string name="general_progress_queued">Dalam barisan</string>
@@ -111,4 +115,11 @@
     <string name="file_type_directory">Direktori</string>
     <string name="file_type_file">Fail</string>
     <string name="file_type_unknown">Tidak diketahui</string>
+    <string name="general_timeunit_hours">Jam</string>
+    <string name="general_timeunit_days">Hari</string>
+    <string name="general_progress_ready">Sedia</string>
+    <string name="general_progress_done">Selesai</string>
+    <plurals name="result_x_files">
+        <item quantity="other">%s fail</item>
+    </plurals>
 </resources>

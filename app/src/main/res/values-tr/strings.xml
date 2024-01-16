@@ -103,6 +103,8 @@
     <string name="setup_manage_storage_card_body2">Genel depolamaya temel erişim, örn. \"İndirilenler/\" ve \"DCIM/\", ancak \"Android/data\" için her zaman mümkün değil.</string>
     <string name="setup_root_card_title">Kök erişimi</string>
     <string name="setup_root_card_body">SD Maid mevcutsa root erişimini kullansın mı? Kök erişimi, ek sistem klasörlerini ve özel uygulama verilerini kontrol etmek için kullanılabilir.</string>
+    <string name="setup_root_state_ready_label">Root erişimi hazır.</string>
+    <string name="setup_root_state_waiting_label">Root erişimi için bekleniyor.</string>
     <string name="setup_root_enable_root_use_label">Varsa kök erişimi kullan</string>
     <string name="setup_root_disable_root_use_label">Kök erişimi kullanma</string>
     <string name="setup_root_card_body2">Yalnızca köklü cihazlarda kullanılabilir. Bu değişikliği siz yapmadıysanız, cihazınız rootlu değildir ve bu ayarın bir etkisi yoktur.</string>
@@ -421,7 +423,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Son güncelleme</string>
     <string name="appcontrol_list_sortmode_installed_label">İlk kurulum</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paket adı</string>
+    <string name="appcontrol_list_sortmode_size_label">Boyut</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Uygulama boyutları performans nedeniyle tahmini olarak verilmiştir. Daha doğru veriler için StorageAnalyzer aracını kullanın.</string>
     <string name="appcontrol_progress_uninstalling_app">Uygulama kaldırılıyor</string>
+    <string name="appcontrol_app_sizes_title">Uygulama boyutu</string>
+    <string name="appcontrol_app_sizes_apk_label">Uygulama</string>
+    <string name="appcontrol_app_sizes_data_label">Veri</string>
+    <string name="appcontrol_app_sizes_cache_label">Önbellek</string>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
@@ -487,6 +495,9 @@
 Örneğin: \"DCIM/Camera\", \"/sdcard/DCIM/Camera/photo.png\"i hariç tutar.</string>
     <string name="exclusion_editor_remove_confirmation_message">Bu hariç tutma silinsin mi?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
+    <string name="exclusion_reset_default_exclusions">Varsayılan dışlamaları geri yükle</string>
+    <string name="exclusion_import_action">İstisnaları dışa aktar</string>
+    <string name="exclusion_export_action">İstisnaları içe aktar</string>
     <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
     <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için DepolamaAnalizcisini kullan.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -538,6 +549,11 @@
     <string name="scheduler_notification_channel_label">Zamanlayıcı</string>
     <string name="scheduler_notification_title">Planlanmış görev</string>
     <string name="scheduler_notification_message">Yürütülüyor: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Zamanlayıcı tamamlandı</string>
+    <string name="scheduler_notification_result_success_message">Tüm zamanlanmış görevler başarıyla çalıştı.</string>
+    <string name="scheduler_notification_result_failure_message">Bazı zamanlanmış görevler başarısız oldu veya hatalarla karşılaştı. Bunları manuel olarak çalıştırmayı deneyin.</string>
+    <string name="scheduler_commands_after_schedule_label">Program sonrası komutlar</string>
+    <string name="scheduler_commands_after_schedule_desc">Bir zamanlamanın sonunda çalıştırılacak Android shell komutları.</string>
     <string name="updates_dashcard_title">Güncelleme mevcut</string>
     <string name="updates_dashcard_body">Güncelleme mevcut. Cihazınızda %1$s sürümü var. En son sürüm: %2$s.</string>
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>

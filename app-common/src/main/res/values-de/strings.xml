@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Ausgewähltes löschen</string>
     <string name="general_show_details_action">Zeige Details</string>
     <string name="general_show_all_action">Zeige alles</string>
+    <string name="general_toggle_layout_mode">Ansichtsmodus wechseln</string>
     <string name="general_delete_confirmation_title">Löschung bestätigen</string>
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d ausgewählte Objekte löschen?</string>

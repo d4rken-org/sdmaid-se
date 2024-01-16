@@ -2,11 +2,18 @@
 <resources>
     <string name="dashboard_delete_all_message">Burahin ang mga resulta sa lahat ng mga kagamitan?</string>
     <string name="dashboard_settings_category">Dashboard</string>
+    <string name="dashboard_motd_title">Mensahe mula sa developer</string>
+    <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
+    <string name="dashboard_settings_oneclick_summary">Simulan ang pag-scan at pagbura para sa lahat ng mga kagamitan sa pamamagitan ng pag-pindut ng aksyon buton ng dashboard, walang karagdagang kumpirmasyon.</string>
+    <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Anong mga kagamitan ang dapat kasama sa one-tap operasyon?</string>
     <string name="debug_debuglog_size_label">Laki</string>
     <string name="debug_debuglog_size_compressed_label">Laki pagka-compress</string>
     <string name="debug_notification_channel_label">Mga notipikasyon pang-debug</string>
     <string name="debug_debuglog_file_label">Naitala ang log file</string>
+    <string name="debug_debuglog_recording_progress">Nagta-tala ng debug log</string>
     <string name="debug_debuglog_record_action">Itala ang debug log</string>
+    <string name="debug_debuglog_stop_action">Itigil ang pagta-tala</string>
     <string name="debug_debuglog_sensitive_information_message">Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo.</string>
     <string name="settings_debuglog_explanation">Itinatala ng feature na ito lahat ng mga ginagawa ng app sa isang maibabahaging file. Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo (hal. isang developer na sinusubukang mag-ayos ng problema).</string>
     <string name="tasks_activity_notification_channel_label">Mga aktibong gawain</string>
@@ -27,6 +34,7 @@
     <string name="onboarding_welcome_body_beta">Isa itong beta (pagsubok) na build. Magpatuloy nang may pagkamapagpatawa at backup na plano. Mangyaring iulat ang mga problemang mararanasan mo.</string>
     <string name="onboarding_welcome_continue_action">Magpatuloy</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">Ang SD Maid DE (o SD Maid 2) ay ang bagong bersyon ng SD Maid (o SD Maid 1). Bagong app, naka-optimize para sa modernong Android.</string>
     <string name="onboarding_versus_body3">Konsidarang lumipat sa SD Maid SE para sa napabuting resulta.</string>
     <string name="onboarding_versus_continue_action">Pagpatuloy</string>
     <string name="onboarding_privacy_body1">Ang SD Maid ay walang patalastas at hindi nag bebenta ng datos ng mga gumagamit neto.</string>

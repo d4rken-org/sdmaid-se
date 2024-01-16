@@ -7,11 +7,14 @@
     <string name="slogan_message_3">Att göra det som behövs.</string>
     <string name="slogan_message_4">Alla dina ankor i rad.</string>
     <string name="slogan_message_5">Skinande rent.</string>
+    <string name="slogan_message_6">Bytes, försvinn!</string>
+    <string name="slogan_message_7">Ledig rymd, lyckligt rum.</string>
     <string name="general_thank_you_label">Tack</string>
     <string name="general_error_type_mismatch_msg">Typ som inte matchar: Ville ha %1$s, men fick %2$s.</string>
     <string name="general_error_cant_access_msg">Kan inte komma åt %s.</string>
     <string name="general_error_root_unavailable">Rotåtkomst är inte tillgänglig.</string>
     <string name="general_error_empty_result_msg">Resultatet var tomt.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ingen kompatibel app hittades för att hantera denna begäran.</string>
     <string name="general_todo_msg">Den här funktionen pågår fortfarande och är inte tillgänglig för närvarande.</string>
     <string name="general_share_action">Dela med sig</string>
     <string name="general_done_action">Gjort</string>
@@ -23,6 +26,8 @@
     <string name="general_save_action">Spara</string>
     <string name="general_thanks_action">Tack</string>
     <string name="general_gotit_action">Jag fattar</string>
+    <string name="general_fix_action">Fixa</string>
+    <string name="general_set_up_action">Konfigurera</string>
     <string name="general_edit_action">Redigera</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Tömma</string>
@@ -54,9 +59,15 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator startar</string>
     <string name="general_progress_loading_egg_6">Passerar smöret</string>
     <string name="general_progress_loading_egg_7">Så. Hur håller du dig?</string>
+    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
+    <string name="general_progress_loading_egg_9">Buffrar livsval</string>
+    <string name="general_progress_loading_egg_10">Kallar Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Det här är okej</string>
     <string name="general_help_action">Hjälp</string>
     <string name="general_continue">Fortsätta</string>
     <string name="general_progress_queued">I kö</string>
+    <string name="general_progress_deleting">Tar bort</string>
+    <string name="general_progress_deleting_x">Tar bort %s</string>
     <string name="general_sort_options_label">Sorteringsalternativ</string>
     <string name="general_sort_reverse_action">Omvänt sorteringsläge</string>
     <string name="general_tag_filter_label">Filtrera efter taggar</string>
@@ -72,6 +83,7 @@
     <string name="general_delete_selected_action">Radera valda</string>
     <string name="general_show_details_action">Visa detaljer</string>
     <string name="general_show_all_action">Visa allt</string>
+    <string name="general_toggle_layout_mode">Växla visningsläge</string>
     <string name="general_delete_confirmation_title">Bekräfta radering</string>
     <string name="general_delete_confirmation_message_x">Ta bort \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ta bort %d markerade objekt?</string>
@@ -117,4 +129,10 @@
     <string name="file_type_unknown">Okänd</string>
     <string name="general_timeunit_hours">Timmar</string>
     <string name="general_timeunit_days">Dagar</string>
+    <string name="general_progress_ready">Redo</string>
+    <string name="general_progress_done">Klar</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fil</item>
+        <item quantity="other">%s filer</item>
+    </plurals>
 </resources>

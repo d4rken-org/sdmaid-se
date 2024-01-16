@@ -90,6 +90,10 @@
     <string name="appcontrol_list_sortmode_packagename_label">ପ୍ୟାକେଜ୍‌_ନାମ</string>
     <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
     <string name="analyzer_device_storage_title">ଡିଵାଇସ୍ ଷ୍ଟୋରେଜ୍</string>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ବ୍ୟବହୃତ</item>
+        <item quantity="other">%s ବ୍ୟବହୃତ</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="analyzer_storage_type_primary_description">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ର ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍। ଯହିଁରେ ଅନ୍ତଃ SD card, ଆପ୍ ଏବଂ ସିଷ୍ଟମ୍ ତଥ୍ୟ ପାଇଁ ଘରୋଇ ଷ୍ଟୋରେଜ୍ ରହିଥାଏ।</string>
     <string name="analyzer_storage_type_secondary_title">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>
@@ -104,6 +108,7 @@
     <string name="data_area_public_storage_label">ସାର୍ବଜନୀନ ଷ୍ଟୋରେଜ୍</string>
     <string name="data_area_sdcard_label">SD card</string>
     <string name="exclusion_manager_desc">ଫାଇଲ୍ ଏବଂ ଆପ୍ ବାଦ୍ ପକାଇବା ପରିଚାଳନା କରିବା।</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ଆପଣଙ୍କ ଡିଵାଇସ୍ ସହ ମିଥଷ୍କ୍ରିୟା କରୁଛି। ଏକାସାଙ୍ଗରେ ସ୍କ୍ରୀନ୍ ବ୍ୟବହାର କରିବା ସମ୍ଭବ ନୁହେଁ। ପ୍ରକ୍ରିୟା ଶେଷ ହେବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରନ୍ତୁ କିମ୍ବା ଏହାକୁ ବାତିଲ୍ କରନ୍ତୁ।</string>
     <string name="automation_active_title">SD Maid କାମ କରୁଅଛି</string>
     <string name="automation_error_not_enabled_title">ସେଵା ସକ୍ଷମ ହୋଇନି</string>
     <string name="automation_error_not_running_title">ସେଵା ଚାଲୁନି</string>

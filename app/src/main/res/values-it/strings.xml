@@ -560,7 +560,7 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="translation_encourage_title">Traduci SD Maid</string>
     <string name="translation_encourage_body">SD Maid è tradotto da volontari. Traduzioni, revisioni o correzioni di bozze, il vostro aiuto è apprezzato!</string>
     <string name="translation_translators_title">Questa versione è tradotta da</string>
-    <string name="translation_translators_people">Lolli Filippo</string>
+    <string name="translation_translators_people">Filippo Lolli (IG: @lolli_filippo)</string>
     <string name="motd_setting_enabled_label">Messaggi importanti</string>
     <string name="motd_setting_enabled_explanation">Consenti a SD Maid di controllare la presenza di messaggi importanti dallo sviluppatore.</string>
     <string name="updatecheck_setting_enabled_label">Controlla aggiornamenti</string>
