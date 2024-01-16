@@ -8,8 +8,11 @@ Nimeni nu este perfect și nici Android nu este.
 Hai să nu mergem aici… Lasă SD Maid SE să te ajute:
 
 * Curăță date din aplicații deja dezinstalate
-* Găsește cache-uri ascunse de la aplicații
-* Elimină fișiere de sistem superfluu
+* Ştergeţi fişierele ce pot fi găsite şi geocutiile ascunse
+* Eliminaţi fişierele de sistem neutilizate
+* Creați-vă propriile filtre pentru fișiere aleatoare
+* Găsește și șterge date duplicat
+* Analizează spațiul de stocare și șterge fișiere mari care preiau spațiu
 
 SD Maid SE este fără reclame. Unele funcții necesită o actualizare plătită.
 

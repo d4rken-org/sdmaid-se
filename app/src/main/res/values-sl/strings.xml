@@ -107,6 +107,8 @@
     <string name="setup_manage_storage_card_body2">Osnovni dostop do javne shrambe, npr. \"Download/\" in \"DSIM/\", vendar ne vedno \"Android/data\".</string>
     <string name="setup_root_card_title">Skrbniški dostop</string>
     <string name="setup_root_card_body">Ali naj SD Maid uporablja skrbniško dostop, če je na voljo.  Skrbniški dostop se uporablja za pregledovanje dodatnih sistemskih map in zasebnih programskih podatkov.</string>
+    <string name="setup_root_state_ready_label">Skrbniški dostop je pripravljen.</string>
+    <string name="setup_root_state_waiting_label">Čakanje na skrbniški dostop.</string>
     <string name="setup_root_enable_root_use_label">Uporabi skrbniški dostop, če je na voljo</string>
     <string name="setup_root_disable_root_use_label">Ne uporabi skrbniškega dostopa</string>
     <string name="setup_root_card_body2">Na voljo samo na napravah s skrbniškim dostopom.  Če te spremembe niste naredili, potem naprava nima skrbniškega dostopa in ta nastavitev nima nobenega učinka.</string>
@@ -405,7 +407,7 @@
     <string name="deduplicator_details_cluster_title">Niz dvojnikov</string>
     <string name="deduplicator_matches_exact_label">Natančne kopije</string>
     <string name="deduplicator_matches_similar_label">Podobne datoteke</string>
-    <string name="appcontrol_tool_name">Nazdor programov</string>
+    <string name="appcontrol_tool_name">Nadzor programov</string>
     <string name="appcontrol_explanation_short">Programi, ki so nameščeni na napravi.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">Zaznan je bil %d program.</item>
@@ -441,7 +443,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Nazadnje posodobljeno</string>
     <string name="appcontrol_list_sortmode_installed_label">Datum namestitve</string>
     <string name="appcontrol_list_sortmode_packagename_label">Ime paketa</string>
+    <string name="appcontrol_list_sortmode_size_label">Velikost</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti programov se določajo zaradi zmogljivosti.  Za natančnejše podatke uporabite Analizatorja shrambe.</string>
     <string name="appcontrol_progress_uninstalling_app">Odstranjevanje programa</string>
+    <string name="appcontrol_app_sizes_title">Velikost programa</string>
+    <string name="appcontrol_app_sizes_apk_label">Program</string>
+    <string name="appcontrol_app_sizes_data_label">Podatki</string>
+    <string name="appcontrol_app_sizes_cache_label">Predpomnilnik</string>
     <string name="analyzer_tool_name">Analizator shrambe</string>
     <string name="analyzer_explanation_short">Izvédite, kaj zaseda prostor na napravi.</string>
     <string name="analyzer_progress_scanning_device">Iskanje pomnilniških naprav</string>
@@ -510,6 +518,9 @@
     <string name="exclusion_editor_segment_explanation">Izključitev dela poti je podobna izključitvi poti, vendar omogoča delna ujemanja.  Primer: \"DCIM/Camera\" izključi \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstrani to izjemo?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Spremembe še niso shranjene!</string>
+    <string name="exclusion_reset_default_exclusions">Obnovi privzete izključitve</string>
+    <string name="exclusion_import_action">Uvozi izključitve</string>
+    <string name="exclusion_export_action">Izvozi izključitve</string>
     <string name="exclusion_create_pkg_hint">Za ustvarjanje izključitev programov uporabite orodje \'Nadzor programov\'.</string>
     <string name="exclusion_create_path_hint">Za ustvarjanje izključitev poti uporabite orodje \'Analizator shrambe\'.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -565,6 +576,11 @@
     <string name="scheduler_notification_channel_label">Urejevalec urnikov</string>
     <string name="scheduler_notification_title">Načrtovano opravilo</string>
     <string name="scheduler_notification_message">Izvajanje: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Urnik je končan.</string>
+    <string name="scheduler_notification_result_success_message">Vsa načrtovana opravila so se uspešno izvedla.</string>
+    <string name="scheduler_notification_result_failure_message">Nekatera načrtovana opravila se niso uspešno končala ali so naletela na napake.  Poizkusite jih ročno zagnati.</string>
+    <string name="scheduler_commands_after_schedule_label">Ukazi, ki se izvedejo po urniku</string>
+    <string name="scheduler_commands_after_schedule_desc">Ukazi Androidove lupine, ki bodo izvedeni po koncu urnika.</string>
     <string name="updates_dashcard_title">Na voljo je posodobitev.</string>
     <string name="updates_dashcard_body">Na voljo je posodobitev.  Vaša različica: %1$s, najnovejša: %2$s.</string>
     <string name="translation_encourage_title">Prevedi SD Maid</string>

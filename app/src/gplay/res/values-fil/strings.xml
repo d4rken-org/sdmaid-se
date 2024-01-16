@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Nangangailangan ng SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">I-upgrade ang SD Maid</string>
+    <string name="upgrades_dashcard_body">Ang SD Maid Pro ay nag-aalok ng mas mahusay na mga resulta, mas maraming mga feature, at mga opsyon para sa mga power user.</string>
+    <string name="upgrades_dashcard_upgrade_action">I-upgrade</string>
+    <string name="upgrades_gplay_unavailable_error_title">Ang Google Play ay kasalukoyang hindi magagamit</string>
+    <string name="upgrades_gplay_unavailable_error_description">Ang SD Maid ay hindi maka-konekta sa Google Play. Naka-installed ba ang Google Play at na-update? Naka-logged in ba ang iyong Google Account? Subukan ang paglilinis ng cache ng Google Play app at i-reboot ang iyong aparato.</string>
+    <string name="upgrades_no_purchases_found_check_account">Walang nahanap na mga binili. Ginagamit mo ba ang iyong tamang account?</string>
+</resources>

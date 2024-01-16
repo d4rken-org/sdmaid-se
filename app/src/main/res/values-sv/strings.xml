@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_delete_all_message">Ta bort resultat i alla verktyg?</string>
+    <string name="dashboard_settings_category">Kontrollpanel</string>
+    <string name="dashboard_motd_title">Ett meddelande från utvecklaren</string>
+    <string name="dashboard_settings_oneclick_title">One-Tap läge</string>
+    <string name="dashboard_settings_oneclick_summary">Starta skanning och borttagning av alla verktyg med ett tryck på instrumentpanelens åtgärdsknapp, inga extra bekräftelser.</string>
+    <string name="dashboard_settings_oneclick_tools_title">One-Tap verktyg</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Vilka verktyg ska inkluderas i en knapptryckning?</string>
+    <string name="debug_debuglog_size_label">Storlek</string>
+    <string name="debug_debuglog_size_compressed_label">Komprimerad storlek</string>
+    <string name="debug_notification_channel_label">Felsök aviseringar</string>
+    <string name="debug_debuglog_file_label">Sparad loggfil</string>
+    <string name="debug_debuglog_recording_progress">Spelar in felsökningslogg</string>
+    <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>
+    <string name="debug_debuglog_stop_action">Avsluta inspelning</string>
+    <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter.</string>
+    <string name="settings_debuglog_explanation">Den här funktionen spelar in allt som appen gör i en delbar fil. Den genererade filen innehåller känslig information (e.. filnamn och installerade appar). Dela endast med betrodda parter (t.ex. en utvecklare som felsöker ett problem).</string>
+    <string name="tasks_activity_notification_channel_label">Aktiva uppgifter</string>
+    <string name="tasks_activity_working_notification_title">SD Maid fungerar</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d aktiv uppgift</item>
+        <item quantity="other">Aktiva uppgifter</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d uppgift i kö</item>
+        <item quantity="other">%d köade uppgifter</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Uppgiftens resultat</string>
+    <string name="tasks_result_subtext">Uppgiftens resultat</string>
+    <string name="onboarding_welcome_title">Välkommen</string>
+    <string name="onboarding_welcome_body1">SD Maid SE hanterar filer, appar och lagring.</string>
+    <string name="onboarding_welcome_body2">Få lagringsutrymme genom att rensa upp bakom andra appar. Ta bort förbrukningsbara filer och ta bort överblivna data.</string>
+    <string name="onboarding_welcome_body_beta">Detta är en beta (testa) bygga. Fortsätt med en känsla av humor och en backupplan. Vänligen rapportera problem du stöter.</string>
+    <string name="onboarding_welcome_continue_action">Fortsätt</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) är efterföljaren till SD Maid (aka. SD Maid 1). En ny app, optimerad för modern Android.</string>
+    <string name="onboarding_versus_body2">Det är föregångarens arkitektur är över 7 år gammal och inte utformad för de utmaningar som nyare Android-versioner. En fullständig omkonstruktion var nödvändig för att fortsätta utvecklingen.</string>
+    <string name="onboarding_versus_body3">Överväg att byta till SD Maid SE för bättre resultat.</string>
+    <string name="onboarding_versus_body4">SD Maid 1 s \"pro status\" kan tyvärr inte överföras till SD Maid 2/SE. Efter 12 år av gratis uppdateringar krävs ett nytt köp för att upprätthålla utvecklingen (mata utvecklaren).</string>
+    <string name="onboarding_versus_continue_action">Fortsätt</string>
+    <string name="onboarding_privacy_title">Integritet</string>
+    <string name="onboarding_privacy_body1">SD Maid har inga annonser och säljer inte användardata.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Felrapporter skickas när fel inträffar och kan innehålla information om appar och filer på din enhet. Rapporter hjälper mig att åtgärda fel och förbättra appen.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Tillåt automatiska felrapporter</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Dessa alternativ kan ändras i inställningarna.</string>
+    <string name="onboarding_privacy_continue_action">Fortsätt</string>
+    <string name="onboarding_setup_title">Uppstart</string>
+    <string name="onboarding_setup_body1">SD Maid kommer att söka i alla tillgängliga datarealer.</string>
+    <string name="onboarding_setup_body2">Vad som är tillgängligt beror på din enhet, Android-version och beviljade behörigheter.</string>
+    <string name="onboarding_setup_body3">Börja använda SD Maid genom att ställa in åtkomst till områden som ska sökas.</string>
+    <string name="onboarding_setup_continue_action">Ställ in åtkomst</string>
+    <string name="settings_privacy_policy_label">Sekretesspolicy</string>
+    <string name="settings_privacy_policy_desc">Hantering av uppgifter på ett ansvarsfullt sätt.</string>
+    <string name="settings_licenses_label">Licenser</string>
+    <string name="settings_category_other_label">Övriga</string>
+    <string name="settings_category_filter_generic">Generellt filter</string>
+    <string name="settings_category_filter_specific">Specifikt filter</string>
     <string name="translation_translators_title">Denna version är översatt av</string>
     <string name="translation_translators_people">Gamechanger181;Google Översätt</string>
 </resources>

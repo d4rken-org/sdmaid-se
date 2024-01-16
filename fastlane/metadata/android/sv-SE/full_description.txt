@@ -8,8 +8,11 @@ Ingen är perfekt och inte Android heller.
 Låt oss inte fortsätta här... Låt SD Maid SE hjälpa dig:
 
 * Rensa upp data från redan avinstallerade appar
-* Hitta dolda appcacher
-* Ta bort överflödiga systemfiler
+* Ta bort förbrukningsbara filer och gömda cacher
+* Ta bort oanvända systemfiler
+* Skapa dina egna filter för slumpmässiga filer
+* Hitta och ta bort dubblettdata
+* Analysera ditt lagringsutrymme och ta bort stora filer som tar upp utrymme
 
 SD Maid SE är annonsfritt. Vissa funktioner kräver en betald uppgradering.
 

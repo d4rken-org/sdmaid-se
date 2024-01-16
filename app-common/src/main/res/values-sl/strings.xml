@@ -58,6 +58,9 @@
     <string name="general_progress_loading_egg_5">Superstroj se pripravlja</string>
     <string name="general_progress_loading_egg_6">Podajanje masla</string>
     <string name="general_progress_loading_egg_7">Torej, kako smo kaj?</string>
+    <string name="general_progress_loading_egg_9">Predpomnenje življenjskih odločitev</string>
+    <string name="general_progress_loading_egg_10">Klicanje Cthulhuja</string>
+    <string name="general_progress_loading_egg_11">To je čisto v redu.</string>
     <string name="general_help_action">Pomoč</string>
     <string name="general_continue">Nadaljuj</string>
     <string name="general_progress_queued">V čakalni vrsti</string>
@@ -78,6 +81,7 @@
     <string name="general_delete_selected_action">Izbriši izbrano</string>
     <string name="general_show_details_action">Prikaži podrobnosti</string>
     <string name="general_show_all_action">Prikaži vse</string>
+    <string name="general_toggle_layout_mode">Preklopi način pogleda</string>
     <string name="general_delete_confirmation_title">Potrdi brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbriši \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Izbriši %d izbranih predmetov?</string>

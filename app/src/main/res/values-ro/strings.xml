@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">Un mesaj de la dezvoltator</string>
     <string name="dashboard_settings_oneclick_title">Mod o singură apăsare</string>
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Instrumente cu o singură atingere </string>
+    <string name="dashboard_settings_oneclick_tools_desc">Ce instrumente ar trebui incluse în operaţiunile cu o singură atingere?</string>
     <string name="debug_debuglog_size_label">Dimensiune</string>
     <string name="debug_debuglog_size_compressed_label">Dimensiunea comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
@@ -103,6 +105,8 @@
     <string name="setup_manage_storage_card_body2">Acces de bază la stocarea publică, ex: \"Download/\" și \"DCIM/\", dar nu întotdeauna \"Android/data\".</string>
     <string name="setup_root_card_title">Acces root</string>
     <string name="setup_root_card_body">Ar trebui ca SD Maid să folosească accesul root dacă este disponibil? Accesul root poate fi folosit pentru a verifica folderele de sistem și datele private ale aplicației.</string>
+    <string name="setup_root_state_ready_label">Accesul root este gata.</string>
+    <string name="setup_root_state_waiting_label">Aşteptare acces root.</string>
     <string name="setup_root_enable_root_use_label">Folosește accesul root dacă este disponibil</string>
     <string name="setup_root_disable_root_use_label">Nu folosi accesul root</string>
     <string name="setup_root_card_body2">Disponibil numai la dispozitivele rootate. Dacă nu ai făcut această modificare, atunci dispozitivul tău nu este rootat și această setare nu are efect.</string>
@@ -121,6 +125,7 @@
     <string name="setup_notification_title">Notificări</string>
     <string name="setup_notification_body">Acordă SD Maid de-a posta notificări pentru a te informa despre operații în curs de desfășurare sau evenimente importante.</string>
     <string name="setup_notification_hint">Notificările sunt folosite cu moderație 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor adiționale de configurare: %s</string>
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
     <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interacționa cu ecranul tău și a automatiza acțiuni complexe, de ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>
@@ -153,6 +158,7 @@
     <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fișiere pe care vrei să le păstrezi, chiar dacă aplicația este dezinstalată, ex: fotografii pe care le-ai făcut sau copii de rezervă pe care le-ai creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
+    <string name="corpsefinder_settings_risk_common_summary">Date cu nume utilizate în mod obișnuit, de ex. un dosar \"Note\" este deținut de prea multe aplicații necunoscute.</string>
     <string name="corpsefinder_watcher_title">Urmăritor de dezinstalare</string>
     <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ștergere automată</string>
@@ -302,6 +308,7 @@
     <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
     <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detectarea sistemului de operare</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatizarea bazată pe accesibilitate poate eşua dacă SD Maid nu detectează corect sistemul de operare. Utilizaţi această setare pentru a suprascrie sistemul de operare detectat.</string>
     <string name="appcleaner_automation_romtype_auto_label">Automat (implicit)</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>
@@ -358,6 +365,39 @@
         <item quantity="other">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Ştergerea cache-urilor folosind Shizuku</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d duplicat setat găsit</item>
+        <item quantity="few">%d duplicat setat găsit</item>
+        <item quantity="other">S-au găsit seturi duplicat %d</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Faceți posibil \"Ștergeți toate\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
+    <string name="deduplicator_skip_minsize_title">Dimensiunea minimă</string>
+    <string name="deduplicator_skip_minsize_description">Sari peste fișierele care sunt sub dimensiunea minimă.</string>
+    <string name="deduplicator_skip_uncommon_title">Sari peste tipurile de fișiere mai puțin frecvente</string>
+    <string name="deduplicator_skip_uncommon_description">Include doar fișiere media, documente și arhive comune.</string>
+    <string name="deduplicator_detection_method_label">Metoda de detectare</string>
+    <string name="deduplicator_detection_method_checksum_title">Sumă verificare conținut</string>
+    <string name="deduplicator_detection_method_checksum_summary">Determinați duplicate prin calcularea sumelor de verificare pentru fișiere. Fișierele cu sumele corespunzătoare de verificare au exact același conținut.</string>
+    <string name="deduplicator_detection_method_phash_title">Hash Perceptual</string>
+    <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile conținutului și comparând valorile hash perceptuale.</string>
+    <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sunt ocupate de duplicate</string>
+    <string name="deduplicator_file_size_label">Dimensiune fişier</string>
+    <string name="deduplicator_average_size_label">Dimensiune medie</string>
+    <string name="deduplicator_cluster_x_label">Cluster %s</string>
+    <string name="deduplicator_delete_confirmation_message">Ștergeți toate copiile, cu o singură excepție, din toate seturile de fișiere duplicate?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Ștergeți toate copiile, cu excepția unei singure copii, din acest set de fișiere duplicate?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Ştergeţi toate fişierele din acest set de fişiere duplicate? Nici un fişier rămas înapoi!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Ştergeţi toate copiile cu excepţia câte o copie din fiecare set selectat de fişiere duplicate?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Ştergeţi toate fişierele din fiecare set selectat de fişiere duplicate? Nu a mai rămas nici un fişier!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Ştergeţi toate copiile. Nici un fişier nu a rămas înapoi!</string>
+    <string name="deduplicator_progress_comparing_files">Compararea fişierelor</string>
+    <string name="deduplicator_details_cluster_title">Set de dubluri</string>
+    <string name="deduplicator_matches_exact_label">Copii exacte</string>
+    <string name="deduplicator_matches_similar_label">Fișiere similare</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicațiile instalate în dispozitivul tău.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -393,7 +433,13 @@
     <string name="appcontrol_list_sortmode_updated_label">Ultima actualizare</string>
     <string name="appcontrol_list_sortmode_installed_label">Prima dată instalată</string>
     <string name="appcontrol_list_sortmode_packagename_label">Numele pachetului</string>
+    <string name="appcontrol_list_sortmode_size_label">Dimensiune</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
+    <string name="appcontrol_app_sizes_title">Dimensiunea aplicației</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplicație</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Memorie cache</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -435,6 +481,7 @@
     <string name="analyzer_storage_content_app_extra_description">Date suplimentare pe care această aplicație le-a plasat în afara căilor implicite, de exemplu fotografii sau descărcări.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Această aplicație ocupă %1$s pe \"%2$s\".</string>
     <string name="data_area_public_app_data_official_label">Date implicite ale aplicațiilor publice</string>
+    <string name="data_area_public_app_assets_official_label">Proprietăți implicite ale aplicației publice</string>
     <string name="data_area_public_storage_label">Spațiu de stocare public</string>
     <string name="data_area_sdcard_label">Card SD</string>
     <string name="data_areas_label">Zone de date</string>
@@ -459,6 +506,9 @@
     <string name="exclusion_editor_segment_explanation">O excludere bazată pe segment este similară unei excluderi a rutei, dar permite potriviri parţiale. Exemplu: \"DCIM/Camera\" exclude \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Eliminați această excludere?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Ai modificări nesalvate!</string>
+    <string name="exclusion_reset_default_exclusions">Restabilire excluderi implicite</string>
+    <string name="exclusion_import_action">Excluderi de import</string>
+    <string name="exclusion_export_action">Excluderi de export</string>
     <string name="exclusion_create_pkg_hint">Utilizați instrumentul Controlul aplicațiilor pentru a crea excluderi de aplicații.</string>
     <string name="exclusion_create_path_hint">Utilizați instrumentul Analizor de stocare pentru a crea căi de excludere.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -475,6 +525,8 @@
     <string name="automation_error_not_enabled_body">Serviciul de accesibilitate este dezactivată. Pornește-l din nou.</string>
     <string name="automation_error_not_running_title">Serviciul nu rulează</string>
     <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încearcă să repornești dispozitivul.</string>
+    <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
+    <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
     <string name="history_label">Istoric</string>
     <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
     <string name="scheduler_label">Programator</string>
@@ -510,11 +562,19 @@
     <string name="scheduler_notification_channel_label">Programator</string>
     <string name="scheduler_notification_title">Sarcina programată</string>
     <string name="scheduler_notification_message">Executare: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Programator terminat</string>
+    <string name="scheduler_notification_result_success_message">Toate sarcinile programate au fost rulate cu succes.</string>
+    <string name="scheduler_notification_result_failure_message">Unele sarcini programate au eșuat sau au întâmpinat erori. Încercați să le rulați manual.</string>
+    <string name="scheduler_commands_after_schedule_label">Comenzi post-program</string>
+    <string name="scheduler_commands_after_schedule_desc">Comenzi Android shell care vor fi executate la sfârșitul unui program.</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
     <string name="updates_dashcard_body">O actualizare este disponibilă. Tu ai %1$s și ultima versiune este %2$s.</string>
     <string name="translation_encourage_title">Traduce SD Maid</string>
     <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducerea, revizuire sau corectare, ajutorul tău este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
     <string name="translation_translators_people">Alexandru51 (Alexandru9035 pe crowdin)</string>
+    <string name="motd_setting_enabled_label">Mesaje importante</string>
     <string name="motd_setting_enabled_explanation">Permiteți ca Maid SD să verifice pentru mesaje importante de la dezvoltator.</string>
+    <string name="updatecheck_setting_enabled_label">Verificare actualizare</string>
+    <string name="updatecheck_setting_enabled_explanation">Permiteți ca SD Maid să verifice actualizările pentru a vă anunța dacă este disponibilă o versiune mai nouă.</string>
 </resources>

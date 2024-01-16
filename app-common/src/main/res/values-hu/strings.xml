@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Kijelöltek törlése</string>
     <string name="general_show_details_action">Részletek mutatása</string>
     <string name="general_show_all_action">Összes megjelenítése</string>
+    <string name="general_toggle_layout_mode">Nézetmód váltása</string>
     <string name="general_delete_confirmation_title">A törlés megerősítésére</string>
     <string name="general_delete_confirmation_message_x">Törli a \"%s\" fájlt?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Töröljük a kiválasztott %d tételt?</string>
@@ -130,4 +131,8 @@
     <string name="general_timeunit_days">Napok</string>
     <string name="general_progress_ready">Készen áll</string>
     <string name="general_progress_done">Kész</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fájl</item>
+        <item quantity="other">%s fájl</item>
+    </plurals>
 </resources>

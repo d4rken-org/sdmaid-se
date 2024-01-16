@@ -7,11 +7,14 @@
     <string name="slogan_message_3">Face ceea ce este necesar.</string>
     <string name="slogan_message_4">Toate rațele tale la rând.</string>
     <string name="slogan_message_5">Imaculat.</string>
+    <string name="slogan_message_6">Octeți, plecați!</string>
+    <string name="slogan_message_7">Spațiu liber, loc fericit.</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_error_type_mismatch_msg">Nepotrivire de tip: Am vrut %1$s, dar am primit %2$s.</string>
     <string name="general_error_cant_access_msg">Nu se poate accesa %s.</string>
     <string name="general_error_root_unavailable">Accesul la root nu este disponibil.</string>
     <string name="general_error_empty_result_msg">Rezultatul a fost gol.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nu s-a găsit nicio aplicație compatibilă care să gestioneze această cerere.</string>
     <string name="general_todo_msg">Această funcție încă se lucrează și nu este disponibil în prezent.</string>
     <string name="general_share_action">Partajează</string>
     <string name="general_done_action">Terminat</string>
@@ -56,9 +59,15 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator se inițiază</string>
     <string name="general_progress_loading_egg_6">Trecând untul</string>
     <string name="general_progress_loading_egg_7">Deci. Cum reziști?</string>
+    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
+    <string name="general_progress_loading_egg_9">Opțiuni de viață tampon</string>
+    <string name="general_progress_loading_egg_10">Invocând-ul pe Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Asta e în regulă</string>
     <string name="general_help_action">Ajutor</string>
     <string name="general_continue">Continuă</string>
     <string name="general_progress_queued">În coadă</string>
+    <string name="general_progress_deleting">Se sterge</string>
+    <string name="general_progress_deleting_x">Se șterge %s</string>
     <string name="general_sort_options_label">Opțiuni pentru sortare</string>
     <string name="general_sort_reverse_action">Modul de sortare inversă</string>
     <string name="general_tag_filter_label">Filtrează după etichete</string>
@@ -74,6 +83,7 @@
     <string name="general_delete_selected_action">Ştergeţi selecţia</string>
     <string name="general_show_details_action">Vezi detalii</string>
     <string name="general_show_all_action">Arată tot</string>
+    <string name="general_toggle_layout_mode">Schimbă modul de vizualizare</string>
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ștergi %d elemente selectate?</string>
@@ -124,4 +134,9 @@
     <string name="general_timeunit_days">Zile</string>
     <string name="general_progress_ready">Pregătit</string>
     <string name="general_progress_done">Terminat</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s Fişier</item>
+        <item quantity="few">%s Fişier</item>
+        <item quantity="other">%s Fişier</item>
+    </plurals>
 </resources>
