@@ -7,13 +7,13 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getLabel2
@@ -179,10 +179,8 @@ fun AutomationExplorer.Context.getDefaultClearCacheClick(
     }
 }
 
-fun AutomationExplorer.Context.getSysLocale(): Locale = if (hasApiLevel(24)) {
-    @Suppress("NewApi")
-    Resources.getSystem().configuration.locales[0]
-} else {
-    @Suppress("DEPRECATION")
-    Resources.getSystem().configuration.locale
+fun AutomationExplorer.Context.getSysLocale(): Locale {
+    val locales = Resources.getSystem().configuration.locales
+    log(INFO) { "getSysLocale(): $locales" }
+    return locales[0]
 }
