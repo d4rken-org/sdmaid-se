@@ -623,7 +623,10 @@ class LocalGateway @Inject constructor(
                             if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                         }
 
-                        if (!success) throw IOException("Root delete() call returned false")
+                        if (!success) {
+                            it
+                            throw IOException("Root delete() call returned false")
+                        }
                     }
                 }
 
