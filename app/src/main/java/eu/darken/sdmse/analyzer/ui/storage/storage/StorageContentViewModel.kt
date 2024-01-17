@@ -21,6 +21,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -28,7 +30,8 @@ import javax.inject.Inject
 class StorageContentViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val analyzer: Analyzer,
+    analyzer: Analyzer,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<StorageContentFragmentArgs>()
@@ -38,7 +41,7 @@ class StorageContentViewModel @Inject constructor(
         analyzer.data
             .filter { it.categories[targetStorageId].isNullOrEmpty() }
             .take(1)
-            .onEach { analyzer.submit(StorageScanTask(targetStorageId)) }
+            .onEach { taskManager.submit(StorageScanTask(targetStorageId)) }
             .catch {
                 log(TAG, WARN) { "Storage unavailable $navArgs: ${it.asLog()}" }
                 StorageContentFragmentDirections.goToDashboard().navigate()
@@ -103,7 +106,12 @@ class StorageContentViewModel @Inject constructor(
 
     fun refresh() = launch {
         log(TAG) { "refresh()" }
-        analyzer.submit(StorageScanTask(target = targetStorageId))
+        taskManager.submit(StorageScanTask(target = targetStorageId))
+    }
+
+    fun cancel() = launch {
+        log(TAG) { "cancel()" }
+        taskManager.cancel(SDMTool.Type.ANALYZER)
     }
 
     data class State(
