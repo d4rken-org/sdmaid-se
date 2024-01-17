@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.storage
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -20,6 +21,18 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
 
     override val vm: StorageContentViewModel by viewModels()
     override val ui: AnalyzerStorageFragmentBinding by viewBinding()
+
+    private val onBackPressedcallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            vm.cancel()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressedcallback)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
@@ -28,7 +41,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
                     else -> false
                 }
             }
-
+            setNavigationOnClickListener { vm.cancel() }
         }
 
         val adapter = StorageContentAdapter()
