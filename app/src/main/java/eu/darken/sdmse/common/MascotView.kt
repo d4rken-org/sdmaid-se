@@ -9,6 +9,8 @@ import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.ui.layoutInflator
 import eu.darken.sdmse.databinding.ViewMascotBinding
 import java.time.LocalDate
@@ -26,19 +28,22 @@ class MascotView @JvmOverloads constructor(
 
     private val ui = ViewMascotBinding.inflate(layoutInflator, this)
     private val wiggleAnim = AnimationUtils.loadAnimation(context, R.anim.anim_wiggle)
+    private val rotateAnim = AnimationUtils.loadAnimation(context, R.anim.anim_rotate)
 
     private val widthScale = 0.7f
     private val heightScale = 0.6f
+    private var isScaled = false
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val child = getChildAt(0)
-
-        val scaledWidth = (child.measuredWidth * widthScale).toInt()
-        val scaledHeight = (child.measuredHeight * heightScale).toInt()
-
-        setMeasuredDimension(scaledWidth, scaledHeight)
+        if (!isScaled) {
+            isScaled = true
+            val child = getChildAt(0)
+            val scaledWidth = (child.measuredWidth * widthScale).toInt()
+            val scaledHeight = (child.measuredHeight * heightScale).toInt()
+            setMeasuredDimension(scaledWidth, scaledHeight)
+        }
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -61,7 +66,17 @@ class MascotView @JvmOverloads constructor(
             var clickCount = 0
             setOnClickListener {
                 clickCount++
-                if (clickCount % 5 == 0) startAnimation(wiggleAnim)
+                when {
+                    clickCount % 5 == 0 -> {
+                        log(VERBOSE) { "wiggle wiggle ;)" }
+                        startAnimation(wiggleAnim)
+                    }
+
+                    clickCount % 12 == 0 -> {
+                        log(VERBOSE) { "wooooshh :D" }
+                        startAnimation(rotateAnim)
+                    }
+                }
             }
         }
 
