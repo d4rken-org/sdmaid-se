@@ -1,5 +1,8 @@
 package eu.darken.sdmse.common.preferences
 
+import android.graphics.PorterDuff
+import androidx.annotation.ColorInt
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
@@ -29,3 +32,12 @@ val PreferenceGroup.children: Sequence<Preference>
             yield(getPreference(i))
         }
     }
+
+
+fun Preference.tintIcon(@ColorInt color: Int) {
+    if (icon == null) return
+    icon = DrawableCompat.wrap(icon!!).apply {
+        DrawableCompat.setTint(this, color)
+        DrawableCompat.setTintMode(this, PorterDuff.Mode.SRC_IN)
+    }
+}

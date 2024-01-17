@@ -11,7 +11,9 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
+import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.observe2
+import eu.darken.sdmse.common.preferences.tintIcon
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupScreenOptions
@@ -29,6 +31,8 @@ class SettingsIndexFragment : PreferenceFragment2() {
 
     private val sponsorPref: Preference
         get() = findPreference("core.sponsor.development")!!
+    private val setupPref: Preference
+        get() = findPreference("setup.show.forced")!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupMenu(R.menu.menu_settings_index) { item ->
@@ -38,8 +42,14 @@ class SettingsIndexFragment : PreferenceFragment2() {
                 }
             }
         }
-        vm.state.observe2(this) {
-            sponsorPref.isVisible = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !it.isPro
+        vm.state.observe2(this) { state ->
+            sponsorPref.isVisible = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.isPro
+            setupPref.tintIcon(
+                requireContext().getColorForAttr(
+                    if (state.setupDone) com.google.android.material.R.attr.colorControlNormal
+                    else com.google.android.material.R.attr.colorTertiary
+                )
+            )
         }
         super.onViewCreated(view, savedInstanceState)
     }
