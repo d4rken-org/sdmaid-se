@@ -2,7 +2,7 @@ package eu.darken.sdmse.setup.storage
 
 import android.content.res.ColorStateList
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.BindableVH
@@ -52,7 +52,7 @@ class LocalPathCardAdapter @Inject constructor() :
                     if (item.pathAccess.hasAccess) R.drawable.folder_lock_open else R.drawable.folder_lock
                 )
                 imageTintList = if (item.pathAccess.hasAccess) {
-                    ColorStateList.valueOf(ContextCompat.getColor(context, R.color.state_positive_3))
+                    ColorStateList.valueOf(context.getColorForAttr(com.google.android.material.R.attr.colorPrimary))
                 } else {
                     ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorControlNormal))
                 }
@@ -60,7 +60,7 @@ class LocalPathCardAdapter @Inject constructor() :
 
             primary.text = item.pathAccess.label.get(context)
             secondary.text = item.pathAccess.localPath.userReadablePath.get(context)
-
+            tertiary.isVisible = item.pathAccess.hasAccess
             itemView.setOnClickListener { item.onClicked(item.pathAccess) }
         }
 

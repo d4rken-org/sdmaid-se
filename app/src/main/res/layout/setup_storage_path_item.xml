@@ -35,10 +35,22 @@
         style="@style/SmallListItemSecondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tertiary"
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
         tools:text="/storage/emulated/0/Android/data" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tertiary"
+        style="@style/TextAppearance.Material3.LabelMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_permission_granted_label"
+        android:textColor="?colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintStart_toStartOf="@id/primary"
+        app:layout_constraintTop_toBottomOf="@id/secondary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
