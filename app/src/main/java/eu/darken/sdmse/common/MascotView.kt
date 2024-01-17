@@ -29,16 +29,18 @@ class MascotView @JvmOverloads constructor(
 
     private val widthScale = 0.7f
     private val heightScale = 0.6f
+    private var isScaled = false
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val child = getChildAt(0)
-
-        val scaledWidth = (child.measuredWidth * widthScale).toInt()
-        val scaledHeight = (child.measuredHeight * heightScale).toInt()
-
-        setMeasuredDimension(scaledWidth, scaledHeight)
+        if (!isScaled) {
+            isScaled = true
+            val child = getChildAt(0)
+            val scaledWidth = (child.measuredWidth * widthScale).toInt()
+            val scaledHeight = (child.measuredHeight * heightScale).toInt()
+            setMeasuredDimension(scaledWidth, scaledHeight)
+        }
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
