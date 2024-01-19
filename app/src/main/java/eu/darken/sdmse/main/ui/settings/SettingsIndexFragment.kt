@@ -83,7 +83,6 @@ class SettingsIndexFragment : PreferenceFragment2() {
             summary = BuildConfigWrap.VERSION_DESCRIPTION
             this.setOnLongClickListener {
                 vm.showVersionInfos()
-                Snackbar.make(requireView(), R.string.general_copied_to_clipboard_msg, Snackbar.LENGTH_SHORT).show()
                 true
             }
         }
