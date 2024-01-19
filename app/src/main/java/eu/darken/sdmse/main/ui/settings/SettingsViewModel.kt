@@ -49,7 +49,7 @@ class SettingsViewModel @Inject constructor(
     }
 
     private suspend fun getVersionText() = """
-            Build:`${BuildConfigWrap.VERSION_DESCRIPTION}`
+            Build: `${BuildConfigWrap.VERSION_DESCRIPTION}`
             Update history: `${curriculumVitae.history.first()}`
             ROM: `${Build.FINGERPRINT}`
         """.trimIndent()
