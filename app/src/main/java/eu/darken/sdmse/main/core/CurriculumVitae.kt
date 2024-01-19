@@ -80,6 +80,8 @@ class CurriculumVitae @Inject constructor(
         _launchedCountBeta.value(newLaunchCount)
     }
 
+    val history = _updateHistory.flow
+
     private suspend fun updateVersionHistory() {
         val history = _updateHistory.value()
         log(TAG) { "Current version history is $history" }
