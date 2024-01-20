@@ -3,7 +3,11 @@ package eu.darken.sdmse.common.upgrade.ui
 import android.app.Activity
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
@@ -24,6 +28,8 @@ class UpgradeViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
+
+    val events = SingleLiveEvent<UpgradeEvents>()
 
     init {
         if (!navArgs.forced) {
@@ -81,6 +87,23 @@ class UpgradeViewModel @Inject constructor(
     fun onGoSubscriptionTrial(activity: Activity) {
         log(TAG) { "onGoSubscription($activity)" }
         upgradeRepo.launchBillingFlow(activity, OurSku.Sub.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER)
+    }
+
+    fun restorePurchase() = launch {
+        log(TAG) { "restorePurchase()" }
+
+        log(TAG, VERBOSE) { "Refreshing" }
+        upgradeRepo.refresh()
+
+        val refreshedState = upgradeRepo.upgradeInfo.first()
+        log(TAG) { "Refreshed purchase state: $refreshedState" }
+
+        if (refreshedState.isPro) {
+            log(TAG, INFO) { "Restored purchase :))" }
+        } else {
+            log(TAG, WARN) { "Restore purchase failed" }
+            events.postValue(UpgradeEvents.RestoreFailed)
+        }
     }
 
     companion object {
