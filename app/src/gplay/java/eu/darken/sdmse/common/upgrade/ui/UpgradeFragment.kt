@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.log
@@ -55,6 +56,7 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
                         text = getString(R.string.upgrade_screen_subscription_trial_action)
                         setOnClickListener { vm.onGoSubscriptionTrial(requireActivity()) }
                     }
+
                     subOffer != null -> {
                         text = getString(R.string.upgrade_screen_subscription_action)
                         setOnClickListener { vm.onGoSubscription(requireActivity()) }
@@ -72,6 +74,31 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
 
             actionBox.isVisible = true
             actionProgress.isGone = true
+
+            restoreAction.setOnClickListener {
+                vm.restorePurchase()
+            }
+        }
+
+        vm.events.observe2(ui) { event ->
+            when (event) {
+                UpgradeEvents.RestoreFailed -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setMessage(
+                        """
+                        ${getString(R.string.upgrade_screen_restore_purchase_message)}
+                        
+                        ${getString(R.string.upgrade_screen_restore_troubleshooting_msg)}
+                        
+                        ${getString(R.string.upgrade_screen_restore_sync_patience_hint)}  
+                        
+                        ${getString(R.string.upgrade_screen_restore_multiaccount_hint)}
+                        """.trimIndent()
+                    )
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_dismiss_action) { _, _ ->
+
+                    }
+                }.show()
+            }
         }
         super.onViewCreated(view, savedInstanceState)
     }

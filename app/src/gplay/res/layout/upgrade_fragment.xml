@@ -9,8 +9,8 @@
         android:id="@+id/toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Surface"
         android:layout_width="0dp"
-        android:minHeight="?actionBarSize"
         android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -143,6 +143,14 @@
                         android:text="@string/upgrade_screen_iap_action_hint"
                         android:visibility="gone"
                         tools:visibility="visible" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/restore_action"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/upgrade_screen_restore_purchase_action" />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
