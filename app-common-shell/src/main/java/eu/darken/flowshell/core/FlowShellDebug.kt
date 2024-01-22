@@ -1,9 +1,7 @@
 package eu.darken.flowshell.core
 
-import eu.darken.sdmse.common.BuildConfigWrap
-
 object FlowShellDebug {
-    var isDebug: Boolean = BuildConfigWrap.DEBUG
+    var isDebug: Boolean = false
 
     fun logTag(vararg tags: String): String {
         val sb = StringBuilder("SDMSE:")
