@@ -13,8 +13,10 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
@@ -155,7 +157,12 @@ class ChecksumSleuth @Inject constructor(
                     val checksummedGroup = items.map { item ->
                         val start = System.currentTimeMillis()
 
-                        val hash = gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
+                        val hash = try {
+                            gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
+                        } catch (e: Exception) {
+                            log(TAG, ERROR) { "Failed to read $item: ${e.asLog()}" }
+                            return@flow
+                        }
                         val hexHash = hash.format()
 
                         val stop = System.currentTimeMillis()
