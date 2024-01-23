@@ -30,7 +30,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG) { "listFiles($path): $it" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     /**
@@ -41,7 +41,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG) { "listFilesStream($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
@@ -49,7 +49,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path): $it" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun lookUp(path: LocalPath): LocalPathLookup = try {
@@ -57,7 +57,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookup($path): $it" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     /**
@@ -68,7 +68,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     /**
@@ -82,89 +82,90 @@ class FileOpsClient @AssistedInject constructor(
             ) { "lookupFilesExtendedStream($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun readFile(path: LocalPath): Source = try {
         fileOpsConnection.readFile(path).source()
-    } catch (e: IOException) {
-        throw fakeIOException(e.getRootCause())
+    } catch (e: Exception) {
+        throw e.toFakeIOException()
     }
 
     fun writeFile(path: LocalPath): Sink = try {
         fileOpsConnection.writeFile(path).sink()
-    } catch (e: IOException) {
-        throw fakeIOException(e.getRootCause())
+    } catch (e: Exception) {
+        throw e.toFakeIOException()
     }
 
     fun mkdirs(path: LocalPath): Boolean = try {
         fileOpsConnection.mkdirs(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun createNewFile(path: LocalPath): Boolean = try {
         fileOpsConnection.createNewFile(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun canRead(path: LocalPath): Boolean = try {
         fileOpsConnection.canRead(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun canWrite(path: LocalPath): Boolean = try {
         fileOpsConnection.canWrite(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun exists(path: LocalPath): Boolean = try {
         fileOpsConnection.exists(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun delete(path: LocalPath): Boolean = try {
         fileOpsConnection.delete(path)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun createSymlink(linkPath: LocalPath, targetPath: LocalPath): Boolean = try {
         fileOpsConnection.createSymlink(linkPath, targetPath)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun setModifiedAt(path: LocalPath, modifiedAt: Instant): Boolean = try {
         fileOpsConnection.setModifiedAt(path, modifiedAt.toEpochMilli())
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun setPermissions(path: LocalPath, permissions: Permissions): Boolean = try {
         fileOpsConnection.setPermissions(path, permissions)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
     fun setOwnership(path: LocalPath, ownership: Ownership): Boolean = try {
         fileOpsConnection.setOwnership(path, ownership)
     } catch (e: Exception) {
-        throw fakeIOException(e.getRootCause())
+        throw e.toFakeIOException()
     }
 
-    private fun fakeIOException(e: Throwable): IOException {
-        val gulpExceptionPrefix = "java.io.IOException: "
+    private fun Exception.toFakeIOException(): IOException {
+        val org = this.getRootCause()
+        val gulpPrefix = "java.io.IOException: "
         val message = when {
-            e.message.isNullOrEmpty() -> e.toString()
-            e.message?.startsWith(gulpExceptionPrefix) == true -> e.message!!.replace(gulpExceptionPrefix, "")
+            org.message.isNullOrEmpty() -> org.toString()
+            org.message?.startsWith(gulpPrefix) == true -> org.message!!.replace(gulpPrefix, "")
             else -> ""
         }
-        return IOException(message, e.cause)
+        return IOException(message, org.cause)
     }
 
     companion object {

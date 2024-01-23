@@ -240,8 +240,7 @@ class FileOpsHost @Inject constructor(
     }
 
     private fun wrapPropagating(e: Exception): Exception {
-        return if (e is UnsupportedOperationException) e
-        else UnsupportedOperationException(e)
+        return if (e is UnsupportedOperationException) e else UnsupportedOperationException(e)
     }
 
     companion object {
