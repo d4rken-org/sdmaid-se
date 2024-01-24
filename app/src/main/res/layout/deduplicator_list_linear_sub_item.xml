@@ -6,6 +6,20 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground">
 
+    <ImageView
+        android:id="@+id/preview_image"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="?colorPrimary"
+        tools:visibility="visible" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/name"
         style="@style/TextAppearance.Material3.BodyMedium"
@@ -17,7 +31,7 @@
         android:maxLines="2"
         android:textColor="?colorOnBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/preview_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="somefilename.apk" />
 
@@ -32,7 +46,7 @@
         android:textColor="?colorOnBackground"
         app:layout_constraintBottom_toTopOf="@id/secondary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/preview_image"
         app:layout_constraintTop_toBottomOf="@id/name"
         tools:text="/storage/emulated/0/Downloads/something" />
 
@@ -49,7 +63,7 @@
         android:textColor="?colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/preview_image"
         app:layout_constraintTop_toBottomOf="@id/path"
         tools:text="999.99 MB" />
 

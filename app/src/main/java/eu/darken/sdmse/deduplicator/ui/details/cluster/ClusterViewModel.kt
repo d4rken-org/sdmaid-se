@@ -90,13 +90,16 @@ class ClusterViewModel @Inject constructor(
                             group = group,
                             onItemClick = { delete(setOf(it)) },
                             onViewActionClick = {
-//                                events.postValue(ClusterEvents.ViewDuplicate(it.group.preview))
+                                events.postValue(ClusterEvents.ViewDuplicate(it.lookup))
                             }
                         ).run { items.add(this) }
                         group.duplicates.map { dupe ->
                             PHashGroupFileVH.Item(
                                 duplicate = dupe,
-                                onItemClick = { delete(listOf(it)) }
+                                onItemClick = { delete(listOf(it)) },
+                                onPreviewClick = {
+                                    events.postValue(ClusterEvents.ViewDuplicate(it.duplicate.lookup))
+                                }
                             )
                         }.run { items.addAll(this) }
                     }
@@ -174,6 +177,11 @@ class ClusterViewModel @Inject constructor(
             .map { it.path }
             .takeIf { it.isNotEmpty() }
             ?.let { deduplicator.exclude(cluster.identifier, it) }
+    }
+
+    fun open(item: ClusterAdapter.DuplicateItem) = launch {
+        log(TAG, INFO) { "open(): $item" }
+        events.postValue(ClusterEvents.OpenDuplicate(item.duplicate.lookup))
     }
 
     companion object {

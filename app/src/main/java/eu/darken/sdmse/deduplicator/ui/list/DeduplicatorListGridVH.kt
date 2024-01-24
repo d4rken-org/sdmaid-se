@@ -49,6 +49,7 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
         matchTypePhash.isVisible = item.cluster.types.contains(Duplicate.Type.PHASH)
 
+        previewAction.setOnClickListener { item.onPreviewClicked(item) }
         footerContainer.setOnClickListener { item.onFooterClicked(item) }
         root.setOnClickListener { item.onItemClicked(item) }
     }
@@ -57,6 +58,7 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
         override val cluster: Duplicate.Cluster,
         val onItemClicked: (Item) -> Unit,
         val onFooterClicked: (Item) -> Unit,
+        val onPreviewClicked: (Item) -> Unit,
     ) : DeduplicatorListAdapter.Item {
 
         override val itemSelectionKey: String

@@ -3,8 +3,12 @@ package eu.darken.sdmse.deduplicator.ui.list
 import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
+import coil.transform.RoundedCornersTransformation
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
@@ -68,6 +72,16 @@ class DeduplicatorListLinearSubAdapter @Inject constructor() :
             lastItem = item
             val dupe = item.dupe
 
+            previewImage.apply {
+                isGone = item.dupe.type == Duplicate.Type.CHECKSUM
+                if (isVisible) {
+                    loadFilePreview(item.dupe.lookup) {
+                        transformations(RoundedCornersTransformation(36F))
+                    }
+                }
+                setOnClickListener { item.onPreviewClicked(item) }
+            }
+
             val fileName = dupe.path.userReadableName.get(context)
             name.text = fileName
             path.text = dupe.path.userReadablePath.get(context).replace(fileName, "")
@@ -81,6 +95,7 @@ class DeduplicatorListLinearSubAdapter @Inject constructor() :
             override val cluster: Duplicate.Cluster,
             override val dupe: Duplicate,
             val onItemClicked: (Item) -> Unit,
+            val onPreviewClicked: (Item) -> Unit,
         ) : DeduplicatorListLinearSubAdapter.Item {
 
             override val itemSelectionKey: String

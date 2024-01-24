@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate
 import androidx.viewpager.widget.ViewPager
@@ -17,6 +18,7 @@ import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.previews.PreviewFragmentArgs
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorClusterFragmentBinding
@@ -132,20 +134,31 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
                         vm.delete(event.items, confirmed = true, deleteAll)
                         selectionTracker?.clearSelection()
                     },
+                    onNeutral = event.items
+                        .filterIsInstance<ClusterAdapter.DuplicateItem>()
+                        .takeIf { it.size == 1 }
+                        ?.let {
+                            { vm.open(it.single()) }
+                        }
                 )
 
-                is ClusterEvents.ViewDuplicate -> {
+                is ClusterEvents.OpenDuplicate -> {
                     try {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
                             Uri.parse(event.lookup.userReadablePath.get(requireContext()))
                         )
-                        if (intent.resolveActivity(requireContext().packageManager) != null) {
-                            startActivity(intent)
-                        }
+                        startActivity(intent)
                     } catch (e: ActivityNotFoundException) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }
+                }
+
+                is ClusterEvents.ViewDuplicate -> {
+                    findNavController().navigate(
+                        resId = R.id.goToPreview,
+                        args = PreviewFragmentArgs(path = event.lookup.lookedUp).toBundle()
+                    )
                 }
             }
         }

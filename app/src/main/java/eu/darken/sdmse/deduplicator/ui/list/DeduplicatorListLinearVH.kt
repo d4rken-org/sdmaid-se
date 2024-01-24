@@ -66,6 +66,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
                     cluster = cluster,
                     dupe = dupe,
                     onItemClicked = { item.onDupeClicked(it) },
+                    onPreviewClicked = { item.onItemPreviewClick(it) }
                 )
             }
         adapter.update(subItems)
@@ -78,6 +79,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
         val onItemClicked: (Item) -> Unit,
         val onDupeClicked: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit,
         val onPreviewClicked: (Item) -> Unit,
+        val onItemPreviewClick: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit
     ) : DeduplicatorListAdapter.Item {
 
         override val itemSelectionKey: String
