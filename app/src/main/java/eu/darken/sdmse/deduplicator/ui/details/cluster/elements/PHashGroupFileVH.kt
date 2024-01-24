@@ -39,6 +39,7 @@ class PHashGroupFileVH(parent: ViewGroup) :
         previewImage.loadFilePreview(dupe.lookup) {
             transformations(RoundedCornersTransformation(36F))
         }
+        previewImage.setOnClickListener { item.onPreviewClick(item) }
         primary.text = dupe.lookup.userReadablePath.get(context)
         secondary.text = String.format("%.2f%%", dupe.similarity * 100)
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
@@ -49,6 +50,7 @@ class PHashGroupFileVH(parent: ViewGroup) :
     data class Item(
         override val duplicate: PHashDuplicate,
         val onItemClick: (Item) -> Unit,
+        val onPreviewClick: (Item) -> Unit,
     ) : ClusterAdapter.DuplicateItem, SelectableItem {
 
         override val itemSelectionKey: String

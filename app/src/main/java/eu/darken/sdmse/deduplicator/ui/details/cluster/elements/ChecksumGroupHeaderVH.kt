@@ -32,8 +32,9 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
         countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_files, group.count)
         sizeValue.text = Formatter.formatFileSize(context, group.averageSize.roundToLong())
 
-        viewAction.setOnClickListener { item.onViewActionClick(item) }
-        root.setOnClickListener { item.onItemClick(item) }
+        headerContainer.setOnClickListener { item.onItemClick(item) }
+        footerContainer.setOnClickListener { item.onItemClick(item) }
+        root.setOnClickListener { item.onViewActionClick(item) }
     }
 
     data class Item(

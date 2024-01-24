@@ -92,6 +92,7 @@
             android:id="@+id/cluster_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:listitem="@layout/deduplicator_list_linear_sub_item"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp" />
 

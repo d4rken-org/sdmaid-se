@@ -39,30 +39,31 @@ class PHashGroupHeaderVH(parent: ViewGroup) :
         } else {
             callback?.let { handler!!.removeCallbacks(it) }
         }
-
+        val dupesOrdered = group.duplicates.toList()
         var imageIndex = 0
         val imageChanger = {
-            val previews = group.duplicates.map { it.lookup }
+            val previews = dupesOrdered.map { it.lookup }
             if (previews.isNotEmpty()) {
+                imageIndex = (imageIndex + 1) % previews.size
                 val preview = previews[imageIndex]
                 previewImage.loadFilePreview(preview)
                 @SuppressLint("SetTextI18n")
                 previewPath.text = preview.userReadablePath.get(context)
-                imageIndex = (imageIndex + 1) % previews.size
             }
         }
         previewImage.post(object : Runnable {
             override fun run() {
                 imageChanger()
                 previewImage.postDelayed(this, 3000)
+                previewImage.setOnClickListener { item.onViewActionClick(dupesOrdered[imageIndex]) }
             }
         })
 
         countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_files, group.count)
         sizeValue.text = Formatter.formatFileSize(context, group.averageSize.roundToLong())
 
-        viewAction.setOnClickListener { item.onViewActionClick(item) }
-        root.setOnClickListener { item.onItemClick(item) }
+        header.setOnClickListener { item.onItemClick(item) }
+        footer.setOnClickListener { item.onItemClick(item) }
     }
 
     private fun cleanup() {
@@ -87,7 +88,7 @@ class PHashGroupHeaderVH(parent: ViewGroup) :
     data class Item(
         override val group: PHashDuplicate.Group,
         val onItemClick: (Item) -> Unit,
-        val onViewActionClick: (Item) -> Unit,
+        val onViewActionClick: (PHashDuplicate) -> Unit,
     ) : ClusterAdapter.Item, SelectableItem, ClusterAdapter.GroupItem {
 
         override val itemSelectionKey: String?

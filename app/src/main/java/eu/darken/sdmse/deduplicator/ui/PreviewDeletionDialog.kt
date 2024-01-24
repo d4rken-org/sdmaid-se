@@ -96,7 +96,7 @@ class PreviewDeletionDialog @Inject constructor(
         mode: Mode,
         onPositive: (Boolean) -> Unit,
         onNegative: () -> Unit = {},
-        onNeutral: () -> Unit = {},
+        onNeutral: (() -> Unit)?,
     ): AlertDialog {
         var deleteAllToggle: MaterialSwitch? = null
         val preview = if (mode.count == 1) {
@@ -200,7 +200,9 @@ class PreviewDeletionDialog @Inject constructor(
                 onPositive(deleteAllToggle?.isChecked ?: false)
             }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> onNegative() }
-            setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> onNeutral() }
+            if (onNeutral != null) {
+                setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> onNeutral() }
+            }
         }.show()
 
 

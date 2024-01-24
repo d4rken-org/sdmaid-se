@@ -8,5 +8,7 @@ sealed class ClusterEvents {
         val allowDeleteAll: Boolean
     ) : ClusterEvents()
 
+    data class OpenDuplicate(val lookup: APathLookup<*>) : ClusterEvents()
+
     data class ViewDuplicate(val lookup: APathLookup<*>) : ClusterEvents()
 }

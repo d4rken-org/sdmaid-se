@@ -45,7 +45,7 @@ fun ImageView.loadFilePreview(
         val alt = lookup.fileType.iconRes
         fallback(alt)
         error(alt)
-    }
+    },
 ): Disposable? {
     val current = tag as? APathLookup<*>
     if (current?.lookedUp == lookup.lookedUp) return null
