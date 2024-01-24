@@ -46,10 +46,8 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
 
         log(TAG, INFO) { "$pkg was uninstalled" }
 
-        // TODO did we uninstall this?
         if (AppControl.lastUninstalledPkg == pkg) {
-            log(TAG, INFO) { "Skipping check, SD Maid was open, we did this" }
-            return
+            log(TAG, INFO) { "We uninstall this app, but let's still do our thing :)" }
         }
 
         val asyncPi = goAsync()
