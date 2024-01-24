@@ -3,6 +3,8 @@ package eu.darken.sdmse.common.pkgs
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -40,7 +42,10 @@ class PkgRepo @Inject constructor(
     data class CacheContainer(
         val isInitialized: Boolean = false,
         val pkgData: Map<CacheKey, CachedInfo> = emptyMap(),
-    )
+    ) {
+        internal val pkgCount: Int
+            get() = pkgData.count { it.value.data != null }
+    }
 
     private val cacheLock = Mutex()
     private val pkgCache = MutableStateFlow(CacheContainer())
@@ -52,7 +57,7 @@ class PkgRepo @Inject constructor(
         .onStart {
             cacheLock.withLock {
                 if (!pkgCache.value.isInitialized) {
-                    log(TAG) { "Init due to pkgs subscription" }
+                    log(TAG, INFO) { "Init due to pkgs subscription" }
                     load()
                 }
             }
@@ -62,7 +67,7 @@ class PkgRepo @Inject constructor(
     init {
         pkgEventListener.events
             .onEach {
-                log(TAG) { "Refreshing package cache due to event: $it" }
+                log(TAG, INFO) { "Refreshing package cache due to event: $it" }
                 Bugs.leaveBreadCrumb("Installed package data has changed")
                 refresh()
             }
@@ -78,7 +83,7 @@ class PkgRepo @Inject constructor(
     }
 
     private suspend fun generatePkgcache(): Map<CacheKey, CachedInfo> {
-        log(TAG) { "Generating package cache" }
+        log(TAG, INFO) { "Generating package cache" }
         return gatewaySwitch.useRes {
             pkgOps.useRes {
                 val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = pkgSources.associate { source ->
@@ -114,8 +119,8 @@ class PkgRepo @Inject constructor(
                         mergedData.putAll(extraPkgs)
                     }
 
-                log(TAG) { "Pkgs total: ${mergedData.size}" }
-                mergedData.values.forEach { log(TAG, VERBOSE) { "Installed package: $it" } }
+                log(TAG, INFO) { "Pkgs total: ${mergedData.size}" }
+                mergedData.values.forEach { log(TAG, DEBUG) { "Installed package: $it" } }
 
                 mergedData
             }
@@ -172,8 +177,9 @@ class PkgRepo @Inject constructor(
     }
 
     suspend fun refresh(): Collection<Installed> = cacheLock.withLock {
-        log(TAG) { "refresh()" }
+        log(TAG) { "refresh()... (before=${pkgCache.value.pkgCount})" }
         load()
+        log(TAG, INFO) { "...refresh()ed (after=${pkgCache.value.pkgCount})" }
         pkgCache.value.pkgData.mapNotNull { it.value.data }
     }
 
