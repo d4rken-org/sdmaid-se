@@ -294,9 +294,9 @@ class AppControlListViewModel @Inject constructor(
         settings.listFilter.update { old -> old.copy(tags = emptySet()) }
     }
 
-    fun refresh() = launch {
+    fun refresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "refresh()" }
-        appControl.submit(AppControlScanTask())
+        appControl.submit(AppControlScanTask(refreshPkgCache = refreshPkgCache))
     }
 
     fun exclude(items: Collection<AppControlListAdapter.Item>) = launch {

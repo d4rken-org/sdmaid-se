@@ -110,8 +110,8 @@ class AppControl @Inject constructor(
         internalData.value = null
 
         val currentUserHandle = userManager.currentUser().handle
-
-        val appInfos = pkgRepo.currentPkgs()
+        val pkgs = if (task.refreshPkgCache) pkgRepo.refresh() else pkgRepo.currentPkgs()
+        val appInfos = pkgs
             .filter { it.userHandle == currentUserHandle }
             .map { it.toAppInfo() }
 

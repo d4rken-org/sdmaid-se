@@ -308,9 +308,16 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             }
         }
 
-        ui.refreshAction.setOnClickListener {
-            tracker.clearSelection()
-            vm.refresh()
+        ui.refreshAction.apply {
+            setOnClickListener {
+                tracker.clearSelection()
+                vm.refresh()
+            }
+            setOnLongClickListener {
+                tracker.clearSelection()
+                vm.refresh(refreshPkgCache = true)
+                true
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)
