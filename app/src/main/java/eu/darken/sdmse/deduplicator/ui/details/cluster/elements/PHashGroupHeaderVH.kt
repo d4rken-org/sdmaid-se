@@ -48,7 +48,7 @@ class PHashGroupHeaderVH(parent: ViewGroup) :
                 val preview = previews[imageIndex]
                 previewImage.loadFilePreview(preview)
                 @SuppressLint("SetTextI18n")
-                previewPath.text = preview.userReadablePath.get(context)
+                previewPath.text = "#${imageIndex + 1}: ${preview.userReadablePath.get(context)}"
             }
         }
         previewImage.post(object : Runnable {
