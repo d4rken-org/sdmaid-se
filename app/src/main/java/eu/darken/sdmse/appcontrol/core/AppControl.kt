@@ -183,7 +183,7 @@ class AppControl @Inject constructor(
 
     private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {
         log(TAG) { "performUninstall(): $task" }
-        updateProgressCount(Progress.Count.Percent(task.targets.size))
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<Installed.InstallId>()
@@ -196,7 +196,7 @@ class AppControl @Inject constructor(
                 updateProgressSecondary(R.string.appcontrol_progress_uninstalling_app)
 
                 try {
-                    uninstaller.uninstall(target.installId)
+                    uninstaller.uninstall(target)
                     successful.add(target.installId)
                     log(TAG, INFO) { "Successfully uninstalled $target" }
                 } catch (e: Exception) {

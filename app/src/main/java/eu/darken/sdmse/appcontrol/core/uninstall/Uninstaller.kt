@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.appcontrol.core.AppControl
+import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -29,6 +28,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
+import kotlin.math.roundToLong
 
 @Reusable
 class Uninstaller @Inject constructor(
@@ -43,9 +43,9 @@ class Uninstaller @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    suspend fun uninstall(installId: Installed.InstallId) {
-        log(TAG, VERBOSE) { "uninstall($installId)" }
-
+    suspend fun uninstall(app: AppInfo) {
+        log(TAG, VERBOSE) { "uninstall($app)" }
+        val installId = app.installId
         when {
             rootManager.canUseRootNow() -> {
                 log(TAG) { "Using ROOT to uninstall $installId" }
@@ -88,8 +88,15 @@ class Uninstaller @Inject constructor(
         }
 
         try {
+            val timeoutSeconds = maxOf(
+                // Default
+                60,
+                // 15s per 100MB
+                app.sizes?.total?.let { 15 * (it / (100f * 1048576)) }?.roundToLong() ?: 0L
+            )
+            log(TAG) { "Waiting for system uninstall process (timeout=$timeoutSeconds)" }
             // Wait until the app is no longer installed
-            withTimeout(30 * 1000) {
+            withTimeout(timeoutSeconds * 1000) {
                 pkgRepo.pkgs.first { pkgs ->
                     pkgs.none { it.installId == installId }
                 }
