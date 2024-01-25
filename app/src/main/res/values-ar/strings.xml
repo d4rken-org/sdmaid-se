@@ -470,6 +470,7 @@
     <string name="appcontrol_app_sizes_apk_label">التطبيق</string>
     <string name="appcontrol_app_sizes_data_label">البيانات</string>
     <string name="appcontrol_app_sizes_cache_label">ذاكرة التخزين المؤقت</string>
+    <string name="appcontrol_toggle_confirmation_title">تأكيد الإجراء</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>

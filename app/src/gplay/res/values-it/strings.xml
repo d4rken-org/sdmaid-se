@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Acquisto una tantum</string>
     <string name="upgrade_screen_iap_action_hint">L\'acquisto una tantum costa %s.</string>
     <string name="upgrade_screen_thanks_toast">Sei il migliore! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Ripristina acquisto</string>
+    <string name="upgrade_screen_restore_purchase_message">La versione PRO è valida per tutti i dispositivi connessi all\'account Google con cui hai effettuato l\'acquisto.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Suggerimenti di risoluzione dei problemi per gli acquisti non riconosciuti:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">La sincronizzazione del Play Store potrebbe richiedere tempo. Prova a riavviare, cancellare la cache di Google Play o semplicemente ad aspettare.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Più account possono confondere Google Play. Esci dagli altri account o installare da PC attraverso il sito web di Google Play, che costringe le associazioni con un account specifico.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Insieme, siamo arrivati alla prima versione! Grazie per avermi aiutato! Naturalmente lo sviluppo continuerà, ma adesso è possibile passare a versioni più stabili. Puoi farlo uscendo dal programma beta su Google Play.</string>
     <string name="nudge_betagoodbye_hint">Piccola nota: le valutazioni fornite durante i test sono visibili soltanto a me, Gradirei se potreste dare a SD Maid una valutazione pubblica se siete soddisfatti.</string>

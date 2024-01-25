@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Sekali bayar</string>
     <string name="upgrade_screen_iap_action_hint">Sekali bayar harganya %s.</string>
     <string name="upgrade_screen_thanks_toast">Terbaik! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
+    <string name="upgrade_screen_restore_purchase_message">Peningkatan Anda valid antarperangkat untuk akun Google yang sama.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Tips untuk memperbaiki peningkatan yang tidak dikenali:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store dapat memakan waktu. Coba restart, bersihkan tembolok Google Play, atau tunggu saja.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Akun yang berbeda-beda dapat membuat pusing Google Play. Keluarlah dari akun-akun yang lain atau pasang aplikasinya dari situs web Google Play yang akan memaksa penghubungan dengan akun tertentu.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Bersama, kita telah mencapai peluncuran pertama! Terima kasih karena telah membantu saya! Pengembangannya pasti akan terus berlanjut, tetapi Anda sekarang bisa memakai versi yang lebih stabil kalau Anda mau. Kamu bisa melakukannya dengan keluar dari pengujian di Google Play.</string>
     <string name="nudge_betagoodbye_hint">Catatan kecil: Penilaian yang diberikan saat pengujian hanya dapat dilihat saya, saya akan sangat mengapresiasi jika Anda memberikan penilaian publik kepada SD Maid kalau Anda menyukainya.</string>

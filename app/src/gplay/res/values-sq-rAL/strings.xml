@@ -6,6 +6,8 @@
     <string name="upgrades_dashcard_title">Përmirëso SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro ofron rezultate më të mira, më shumë veçori dhe opsione për përdoruesit e fuqishëm.</string>
     <string name="upgrades_dashcard_upgrade_action">Aktualizo</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play dyqani është i padisponueshëm</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid nuk mund të lidhet me Google Play dyqanin. A është Google Play dyqani i instaluar dhe i përditësuar? A është identifikuar llogaria juaj e Google? Provoni të pastroni cache-in e aplikacionit Google Play dhe të rindizni pajisjen tuaj.</string>
     <string name="upgrades_no_purchases_found_check_account">Nuk u gjet asnjë blerje. A po përdorni llogarinë e duhur?</string>
     <string name="upgrade_screen_title">Merr SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit. Puna ime financohet nga ju ❤️.</string>
@@ -19,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Blerje një herë</string>
     <string name="upgrade_screen_iap_action_hint">Blerja një herë kushton %s.</string>
     <string name="upgrade_screen_thanks_toast">Ti je më i miri! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Rivendos blerjen</string>
+    <string name="upgrade_screen_restore_purchase_message">Përmirësimi yt(blerja) është i vlefshëm në të gjitha pajisjet në të njëjtën llogari të Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Këshilla për zgjidhjen e problemeve për përmirësimet e panjohura:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Llogaritë e shumta mund të habisin Google Play. Dilni nga llogaritë e tjera ose instaloni përmes faqes së internetit të Google Play, gjë që detyron lidhjet me një llogari specifike.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Së bashku, arritëm në publikimin e parë! Faleminderit që më ndihmove! Zhvillimi sigurisht që do të vazhdojë, por tani mund të kaloni në ndërtime më të qëndrueshme, nëse dëshironi. Bëni këtë duke hequr dorë nga testimi në Google Play.</string>
     <string name="nudge_betagoodbye_hint">Shënim i vogël: Vlerësimet e dhëna gjatë testimit janë të dukshme vetëm për mua, do ta vlerësoja nëse mund t\'i jepni SD Maid një vlerësim publik nëse jeni të kënaqur.</string>

@@ -430,6 +430,7 @@
     <string name="appcontrol_app_sizes_apk_label">Aplicación</string>
     <string name="appcontrol_app_sizes_data_label">Datos</string>
     <string name="appcontrol_app_sizes_cache_label">Caché</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirmar la acción</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
     <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>

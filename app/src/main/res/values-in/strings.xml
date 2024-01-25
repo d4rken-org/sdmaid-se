@@ -420,6 +420,10 @@
     <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
     <string name="appcontrol_app_sizes_cache_label">Tembolok</string>
+    <string name="appcontrol_toggle_confirmation_title">Konfirmasi tindakan</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">Ganti keadaan aktif/nonaktif %d aplikasi?</item>
+    </plurals>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
