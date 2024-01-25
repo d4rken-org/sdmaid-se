@@ -24,7 +24,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            vm.cancel()
+            vm.onNavigateBack()
         }
     }
 
@@ -41,7 +41,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
                     else -> false
                 }
             }
-            setNavigationOnClickListener { vm.cancel() }
+            setNavigationOnClickListener { vm.onNavigateBack() }
         }
 
         val adapter = StorageContentAdapter()
