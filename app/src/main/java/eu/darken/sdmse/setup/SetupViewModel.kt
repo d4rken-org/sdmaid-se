@@ -1,9 +1,13 @@
 package eu.darken.sdmse.setup
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -12,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
@@ -35,6 +40,7 @@ import javax.inject.Inject
 class SetupViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
     private val setupManager: SetupManager,
     private val storageSetupModule: StorageSetupModule,
     private val safSetupModule: SAFSetupModule,
@@ -161,6 +167,15 @@ class SetupViewModel @Inject constructor(
                             onHelp = {
                                 webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
                             },
+                            onOpen = {
+                                state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {
+                                    try {
+                                        context.startActivity(it)
+                                    } catch (e: ActivityNotFoundException) {
+                                        errorEvents.postValue(e)
+                                    }
+                                }
+                            }
                         )
 
                         else -> throw IllegalArgumentException("Unknown state: $state")

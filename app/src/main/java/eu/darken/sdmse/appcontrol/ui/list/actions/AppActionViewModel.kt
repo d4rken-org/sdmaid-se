@@ -31,6 +31,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -101,8 +102,7 @@ class AppActionViewModel @Inject constructor(
             )
         }
 
-        val launchAction = context.packageManager
-            .getLaunchIntentForPackage(appInfo.pkg.packageName)
+        val launchAction = appInfo.pkg.id.getLaunchIntent(context)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
             ?.let { intent ->
                 LaunchActionVH.Item(

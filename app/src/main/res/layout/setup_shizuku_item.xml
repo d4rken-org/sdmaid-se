@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -49,14 +50,29 @@
             android:id="@+id/shizuku_state"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/setup_shizuku_state_waiting_label"
-            app:layout_constraintBottom_toTopOf="@id/allow_shizuku_options"
+            app:layout_constraintBottom_toTopOf="@id/shizuku_open_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shizuku_open_action"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/setup_shizuku_card_title"
+            app:icon="@drawable/ic_default_app_icon_24"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/allow_shizuku_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shizuku_state" />
 
         <RadioGroup
             android:id="@+id/allow_shizuku_options"
@@ -65,7 +81,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
             app:layout_constraintBottom_toTopOf="@id/shizuku_install_info"
-            app:layout_constraintTop_toBottomOf="@id/shizuku_state">
+            app:layout_constraintTop_toBottomOf="@id/shizuku_open_action">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/allow_shizuku_options_enable"
