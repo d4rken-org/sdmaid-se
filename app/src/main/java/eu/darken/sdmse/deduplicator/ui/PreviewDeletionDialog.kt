@@ -17,7 +17,6 @@ import dagger.hilt.android.qualifiers.ActivityContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
@@ -29,6 +28,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.SimpleVHCreatorMod
 import eu.darken.sdmse.common.previews.PreviewFragmentArgs
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewGridItemBinding
 import eu.darken.sdmse.databinding.ViewDeleteConfirmationPreviewSingleBinding
@@ -39,10 +39,10 @@ class PreviewDeletionDialog @Inject constructor(
     @ActivityContext private val context: Context,
 ) {
 
-    private fun openPreview(path: APath) {
+    private fun openPreview(options: PreviewOptions) {
         (context as Activity).findNavController(R.id.nav_host).navigate(
             resId = R.id.goToPreview,
-            args = PreviewFragmentArgs(path = path).toBundle()
+            args = PreviewFragmentArgs(options = options).toBundle()
         )
     }
 
@@ -116,7 +116,7 @@ class PreviewDeletionDialog @Inject constructor(
                 transformations(RoundedCornersTransformation(36F))
             }
 
-            binding.root.setOnClickListener { openPreview(mode.previews.single().lookedUp) }
+            binding.root.setOnClickListener { openPreview(PreviewOptions(mode.previews.single().lookedUp)) }
 
             binding.root
         } else {
@@ -133,10 +133,16 @@ class PreviewDeletionDialog @Inject constructor(
             binding.deleteAllIcon.isVisible = binding.deleteAllToggle.isVisible
 
             val adapter = PreviewAdapter().apply {
-                update(mode.previews.map {
+                update(mode.previews.map { lookup ->
                     Item(
-                        lookup = it,
-                        onPreview = { openPreview(it.lookedUp) }
+                        lookup = lookup,
+                        onPreview = {
+                            val options = PreviewOptions(
+                                paths = mode.previews.map { it.lookedUp },
+                                position = mode.previews.indexOf(lookup)
+                            )
+                            openPreview(options)
+                        }
                     )
                 })
             }

@@ -157,7 +157,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
                 is ClusterEvents.ViewDuplicate -> {
                     findNavController().navigate(
                         resId = R.id.goToPreview,
-                        args = PreviewFragmentArgs(path = event.lookup.lookedUp).toBundle()
+                        args = PreviewFragmentArgs(options = event.options).toBundle()
                     )
                 }
             }

@@ -457,7 +457,7 @@
         android:name="eu.darken.sdmse.common.previews.PreviewFragment"
         tools:layout="@layout/preview_fragment">
         <argument
-            android:name="path"
-            app:argType="eu.darken.sdmse.common.files.APath" />
+            android:name="options"
+            app:argType="eu.darken.sdmse.common.previews.PreviewOptions" />
     </dialog>
 </navigation>

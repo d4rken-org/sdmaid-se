@@ -21,22 +21,43 @@ class PreviewViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = PreviewFragmentArgs.fromSavedStateHandle(handle)
+    private val options = args.options
+    private val currentPosition = MutableStateFlow(options.position)
 
     val events = SingleLiveEvent<PreviewEvents>()
 
-    val state = flowOf(args.path)
-        .map { previewPath ->
-            State(preview = previewPath.lookup(gatewaySwitch))
-        }
+    val state = combine(
+        currentPosition,
+        flowOf(options.paths)
+    ) { pos, paths ->
+        State(
+            position = pos,
+            previews = paths.map { it.lookup(gatewaySwitch) }
+        )
+    }
         .onStart { emit(State(progress = Progress.Data())) }
         .asLiveData2()
 
     data class State(
-        val preview: APathLookup<*>? = null,
+        val position: Int = 0,
+        val previews: List<APathLookup<*>>? = null,
         val progress: Progress.Data? = null,
-    )
+    ) {
+        val preview: APathLookup<*>?
+            get() = previews
+                ?.takeIf { it.isNotEmpty() }
+                ?.let { it[position] }
+    }
+
+    fun next() {
+        currentPosition.value = (currentPosition.value + 1) % options.paths.size
+    }
+
+    fun previous() {
+        currentPosition.value = (currentPosition.value - 1 + options.paths.size) % options.paths.size
+    }
 
     companion object {
-        private val TAG = logTag("CorpseFinder", "Details", "ViewModel")
+        private val TAG = logTag("Preview", "ViewModel")
     }
 }

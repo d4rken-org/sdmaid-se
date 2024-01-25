@@ -48,6 +48,8 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
         }
 
         ui.backAction.setOnClickListener { popBackStack() }
+        ui.nextAction.setOnClickListener { vm.next() }
+        ui.previousAction.setOnClickListener { vm.previous() }
 
         vm.state.observe2(ui) { state ->
             previewImage.apply {
@@ -58,7 +60,9 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
             previewTitle.text = state.preview?.path
             previewSubtitle.text = state.preview?.let { Formatter.formatFileSize(requireContext(), it.size) }
 
-            previewInfoContainer.isGone = state.preview == null
+            headerTitle.text = "${state.position + 1} / ${state.previews?.size ?: 1}"
+
+            previewFooterContainer.isGone = state.preview == null
             progress.isGone = state.progress == null
         }
 
