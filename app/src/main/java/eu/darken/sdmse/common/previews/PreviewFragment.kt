@@ -1,14 +1,13 @@
 package eu.darken.sdmse.common.previews
 
 import android.os.Bundle
-import android.text.format.Formatter
 import android.view.View
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
-import coil.load
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.hasApiLevel
@@ -51,19 +50,32 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
         ui.nextAction.setOnClickListener { vm.next() }
         ui.previousAction.setOnClickListener { vm.previous() }
 
-        vm.state.observe2(ui) { state ->
-            previewImage.apply {
-                isGone = state.preview == null
-                load(state.preview)
-            }
+        val pagerAdapter = PreviewAdapter(requireActivity(), childFragmentManager)
+        ui.viewpager.apply {
+            adapter = pagerAdapter
+            addOnPageChangeListener(object : OnPageChangeListener {
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
-            previewTitle.text = state.preview?.path
-            previewSubtitle.text = state.preview?.let { Formatter.formatFileSize(requireContext(), it.size) }
+                override fun onPageSelected(position: Int) {
+                    vm.onNewPage(position)
+                }
+
+                override fun onPageScrollStateChanged(state: Int) {}
+            })
+        }
+
+        vm.state.observe2(ui) { state ->
+            viewpager.isGone = state.preview == null
+            nextAction.isGone = state.previews.isNullOrEmpty() || state.previews.size < 2
+            previousAction.isGone = state.previews.isNullOrEmpty() || state.previews.size < 2
 
             headerTitle.text = "${state.position + 1} / ${state.previews?.size ?: 1}"
 
-            previewFooterContainer.isGone = state.preview == null
-            progress.isGone = state.progress == null
+            pagerAdapter.apply {
+                setData(state.previews)
+                notifyDataSetChanged()
+            }
+            viewpager.setCurrentItem(state.position, false)
         }
 
         vm.events.observe2(ui) { event ->
