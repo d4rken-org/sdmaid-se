@@ -1,6 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
-import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 
 sealed class DeduplicatorListEvents {
@@ -16,5 +16,5 @@ sealed class DeduplicatorListEvents {
     data class TaskResult(val result: DeduplicatorTask.Result) : DeduplicatorListEvents()
     data class ExclusionsCreated(val count: Int) : DeduplicatorListEvents()
 
-    data class PreviewEvent(val path: APath) : DeduplicatorListEvents()
+    data class PreviewEvent(val options: PreviewOptions) : DeduplicatorListEvents()
 }

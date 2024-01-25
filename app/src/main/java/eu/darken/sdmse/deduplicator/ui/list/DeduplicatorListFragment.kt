@@ -181,7 +181,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 is DeduplicatorListEvents.PreviewEvent -> {
                     findNavController().navigate(
                         resId = R.id.goToPreview,
-                        args = PreviewFragmentArgs(path = event.path).toBundle()
+                        args = PreviewFragmentArgs(options = event.options).toBundle()
                     )
                 }
             }

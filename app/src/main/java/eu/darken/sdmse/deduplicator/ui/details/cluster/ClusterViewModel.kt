@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -72,8 +73,11 @@ class ClusterViewModel @Inject constructor(
                         ChecksumGroupHeaderVH.Item(
                             group = group,
                             onItemClick = { delete(setOf(it)) },
-                            onViewActionClick = {
-                                events.postValue(ClusterEvents.ViewDuplicate(it.group.preview))
+                            onViewActionClick = { item ->
+                                val options = PreviewOptions(
+                                    paths = item.group.duplicates.map { it.path }
+                                )
+                                events.postValue(ClusterEvents.ViewDuplicate(options))
                             }
                         ).run { items.add(this) }
                         group.duplicates.map { dupe ->
@@ -89,16 +93,26 @@ class ClusterViewModel @Inject constructor(
                         PHashGroupHeaderVH.Item(
                             group = group,
                             onItemClick = { delete(setOf(it)) },
-                            onViewActionClick = {
-                                events.postValue(ClusterEvents.ViewDuplicate(it.lookup))
+                            onViewActionClick = { item ->
+                                val paths = group.duplicates.map { it.path }
+                                val options = PreviewOptions(
+                                    paths = paths,
+                                    position = paths.indexOf(item.path)
+                                )
+                                events.postValue(ClusterEvents.ViewDuplicate(options))
                             }
                         ).run { items.add(this) }
                         group.duplicates.map { dupe ->
                             PHashGroupFileVH.Item(
                                 duplicate = dupe,
                                 onItemClick = { delete(listOf(it)) },
-                                onPreviewClick = {
-                                    events.postValue(ClusterEvents.ViewDuplicate(it.duplicate.lookup))
+                                onPreviewClick = { item ->
+                                    val paths = group.duplicates.map { it.path }
+                                    val options = PreviewOptions(
+                                        paths = paths,
+                                        position = paths.indexOf(item.path)
+                                    )
+                                    events.postValue(ClusterEvents.ViewDuplicate(options))
                                 }
                             )
                         }.run { items.addAll(this) }

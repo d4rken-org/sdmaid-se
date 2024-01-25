@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -64,15 +65,32 @@ class DeduplicatorListViewModel @Inject constructor(
                         cluster = cluster,
                         onItemClicked = { delete(setOf(it)) },
                         onDupeClicked = { delete(setOf(it)) },
-                        onPreviewClicked = { events.postValue(DeduplicatorListEvents.PreviewEvent(it.cluster.previewFile.lookedUp)) },
-                        onItemPreviewClick = { events.postValue(DeduplicatorListEvents.PreviewEvent(it.dupe.path)) }
+                        onPreviewClicked = { item ->
+                            val options = PreviewOptions(
+                                paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+                            )
+                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
+                        },
+                        onItemPreviewClick = { item ->
+                            val paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+                            val options = PreviewOptions(
+                                paths = paths,
+                                position = paths.indexOf(item.dupe.path)
+                            )
+                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
+                        }
                     )
 
                     LayoutMode.GRID -> DeduplicatorListGridVH.Item(
                         cluster = cluster,
                         onItemClicked = { delete(setOf(it)) },
                         onFooterClicked = { showDetails(cluster.identifier) },
-                        onPreviewClicked = { events.postValue(DeduplicatorListEvents.PreviewEvent(it.cluster.previewFile.lookedUp)) }
+                        onPreviewClicked = { item ->
+                            val options = PreviewOptions(
+                                paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+                            )
+                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
+                        }
                     )
                 }
             }
