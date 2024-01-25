@@ -52,13 +52,15 @@ class PathTreeFlow<
                 .filter {
                     val allowed = onFilter(it)
                     if (Bugs.isTrace) {
-                        if (allowed) log(tag, VERBOSE) { "Walking: $it" }
-                        else log(tag, VERBOSE) { "Not walking (filter): $it" }
+                        if (!allowed) log(tag, VERBOSE) { "Skipping (filter): $it" }
                     }
                     allowed
                 }
                 .forEach { child ->
-                    if (child.isDirectory) queue.addFirst(child)
+                    if (child.isDirectory) {
+                        if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
+                        queue.addFirst(child)
+                    }
                     collector.emit(child)
                 }
         }

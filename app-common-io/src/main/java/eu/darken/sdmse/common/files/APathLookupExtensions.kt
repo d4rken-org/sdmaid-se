@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import kotlinx.coroutines.flow.Flow
 import okio.Sink
 import okio.Source
 
@@ -15,10 +16,10 @@ val APathLookup<*>.isSymlink: Boolean
 val APathLookup<*>.isFile: Boolean
     get() = fileType == FileType.FILE
 
-fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> PL.walk(
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> PL.walk(
     gateway: GT,
-    filter: suspend (PL) -> Boolean = { true }
-): PathTreeFlow<P, PL, PLE, GT> = lookedUp.walk(gateway, filter)
+    filter: (suspend (PL) -> Boolean)? = null
+): Flow<PL> = lookedUp.walk(gateway, filter)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.exists(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
