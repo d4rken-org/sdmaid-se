@@ -5,9 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.lookup
+import eu.darken.sdmse.common.previews.item.PreviewItem
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.*
@@ -17,7 +15,6 @@ import javax.inject.Inject
 class PreviewViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = PreviewFragmentArgs.fromSavedStateHandle(handle)
@@ -32,7 +29,7 @@ class PreviewViewModel @Inject constructor(
     ) { pos, paths ->
         State(
             position = pos,
-            previews = paths.map { it.lookup(gatewaySwitch) }
+            previews = paths.map { PreviewItem(it) }
         )
     }
         .onStart { emit(State(progress = Progress.Data())) }
@@ -40,10 +37,10 @@ class PreviewViewModel @Inject constructor(
 
     data class State(
         val position: Int = 0,
-        val previews: List<APathLookup<*>>? = null,
+        val previews: List<PreviewItem>? = null,
         val progress: Progress.Data? = null,
     ) {
-        val preview: APathLookup<*>?
+        val preview: PreviewItem?
             get() = previews
                 ?.takeIf { it.isNotEmpty() }
                 ?.let { it[position] }
@@ -55,6 +52,10 @@ class PreviewViewModel @Inject constructor(
 
     fun previous() {
         currentPosition.value = (currentPosition.value - 1 + options.paths.size) % options.paths.size
+    }
+
+    fun onNewPage(position: Int) {
+        currentPosition.value = position
     }
 
     companion object {
