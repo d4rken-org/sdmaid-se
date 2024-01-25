@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuSettings
@@ -48,6 +49,7 @@ class ShizukuSetupModule @Inject constructor(
         combine(refreshTrigger, shizukuSettings.useShizuku.flow) { _, useShizuku ->
 
             val baseState = State(
+                pkg = shizukuManager.pkgId,
                 useShizuku = useShizuku,
                 isInstalled = shizukuManager.isInstalled(),
                 isCompatible = shizukuManager.isCompatible(),
@@ -107,6 +109,7 @@ class ShizukuSetupModule @Inject constructor(
     }
 
     data class State(
+        val pkg: Pkg.Id,
         val useShizuku: Boolean?,
         val isCompatible: Boolean = false,
         val isInstalled: Boolean = false,

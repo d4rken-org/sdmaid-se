@@ -22,3 +22,6 @@ val Pkg.isSystemApp: Boolean
 
 val Pkg.isUpdatedSystemApp: Boolean
     get() = (this !is ExtendedInstallData) || this.isUpdatedSystemApp
+
+fun Pkg.Id.getLaunchIntent(context: Context) =
+    context.packageManager.getLaunchIntentForPackage(this.name)
