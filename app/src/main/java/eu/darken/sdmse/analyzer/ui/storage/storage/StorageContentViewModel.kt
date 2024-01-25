@@ -109,9 +109,17 @@ class StorageContentViewModel @Inject constructor(
         taskManager.submit(StorageScanTask(target = targetStorageId))
     }
 
-    fun cancel() = launch {
-        log(TAG) { "cancel()" }
-        taskManager.cancel(SDMTool.Type.ANALYZER)
+    fun onNavigateBack() = launch {
+        log(TAG) { "onNavigateBack()" }
+        val activeAnalyzerTasks = taskManager.state.first().tasks
+            .filter { it.tool.type == SDMTool.Type.ANALYZER }
+            .any { it.isActive }
+        if (activeAnalyzerTasks) {
+            log(TAG) { "Canceling active tasks" }
+            taskManager.cancel(SDMTool.Type.ANALYZER)
+        } else {
+            popNavStack()
+        }
     }
 
     data class State(
