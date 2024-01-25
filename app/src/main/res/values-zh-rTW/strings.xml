@@ -420,6 +420,10 @@
     <string name="appcontrol_app_sizes_apk_label">應用程式</string>
     <string name="appcontrol_app_sizes_data_label">資料</string>
     <string name="appcontrol_app_sizes_cache_label">快取</string>
+    <string name="appcontrol_toggle_confirmation_title">確認動作</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">要變更 %d 個應用程式的啟用/停用狀態嗎？</item>
+    </plurals>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>

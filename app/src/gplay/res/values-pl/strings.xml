@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Jednorazowy zakup</string>
     <string name="upgrade_screen_iap_action_hint">Jednorazowy zakup kosztuje %s.</string>
     <string name="upgrade_screen_thanks_toast">Dziękuje! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Przywróć zakup</string>
+    <string name="upgrade_screen_restore_purchase_message">Twoje uaktualnienie obowiązuje na wszystkich urządzeniach znajdujących się na tym samym koncie Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Wskazówki dotyczące rozwiązywania problemów z nierozpoznanymi uaktualnieniami:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Synchronizacja Sklepu Play może zająć trochę czasu. Spróbuj uruchomić ponownie, wyczyścić pamięć podręczną Google Play lub po prostu poczekać.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Wiele kont może zdezorientować Google Play. Wyloguj się z innych kont lub zainstaluj poprzez stronę Google Play, wymuszając powiązanie z konkretnym kontem.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Razem udało nam się przygotować pierwszą wersję! Dziękuję za pomoc w testowaniu! Praca nad aplikacją oczywiście będzie kontynuowana, ale jeśli chcesz, możesz teraz przełączyć się na stabilną wersję. Możesz to zrobić, opuszczając program beta testów w Google Play.</string>
     <string name="nudge_betagoodbye_hint">Mała uwaga: Oceny udzielone podczas testów są widoczne tylko dla mnie. Byłbym wdzięczny, gdybyś wystawił publiczną ocenę SD Maid, jeśli jesteś zadowolony.</string>

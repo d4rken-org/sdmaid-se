@@ -430,6 +430,11 @@
     <string name="appcontrol_app_sizes_apk_label">Εφαρμογή</string>
     <string name="appcontrol_app_sizes_data_label">Δεδομένα</string>
     <string name="appcontrol_app_sizes_cache_label">Προσωρινή μνήμη cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Επιβεβαίωση ενέργειας</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Αλλαγή ενεργοποίηση/απενεργοποίηση κατάστασης %d εφαρμογής;</item>
+        <item quantity="other">Αλλαγή ενεργοποίηση/απενεργοποίηση καταστάσεων για %d εφαρμογές;</item>
+    </plurals>
     <string name="analyzer_tool_name">Ανάλυση αποθηκευτικού χώρου</string>
     <string name="analyzer_explanation_short">Μάθετε τι καταλαμβάνει χώρο στη συσκευή σας.</string>
     <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>

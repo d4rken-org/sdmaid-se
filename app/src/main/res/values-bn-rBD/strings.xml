@@ -430,6 +430,11 @@
     <string name="appcontrol_app_sizes_apk_label">অ্যাপ</string>
     <string name="appcontrol_app_sizes_data_label">ডাটা</string>
     <string name="appcontrol_app_sizes_cache_label">ক্যাশ</string>
+    <string name="appcontrol_toggle_confirmation_title">কর্ম নিশ্চিত করুন</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d অ্যাপের সক্ষম/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
+        <item quantity="other">%d অ্যাপের জন্য সক্রিয়/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
+    </plurals>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>

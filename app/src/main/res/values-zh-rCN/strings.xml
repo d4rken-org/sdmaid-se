@@ -420,6 +420,10 @@
     <string name="appcontrol_app_sizes_apk_label">应用</string>
     <string name="appcontrol_app_sizes_data_label">数据</string>
     <string name="appcontrol_app_sizes_cache_label">缓存</string>
+    <string name="appcontrol_toggle_confirmation_title">确认操作</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">更改 %d 个应用的启用/禁用状态？</item>
+    </plurals>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>

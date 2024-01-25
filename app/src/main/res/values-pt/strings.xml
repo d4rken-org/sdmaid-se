@@ -431,6 +431,11 @@ Recursos dos jogos.</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicação</string>
     <string name="appcontrol_app_sizes_data_label">Dados</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirme a ação</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Alterar o estado ativado/desativado da aplicação %d?</item>
+        <item quantity="other">Alterar estados habilitado/desativado das aplicações %d?</item>
+    </plurals>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>

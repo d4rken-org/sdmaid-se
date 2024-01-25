@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Εφάπαξ αγορά</string>
     <string name="upgrade_screen_iap_action_hint">Το κόστος της εφάπαξ αγοράς είναι %s.</string>
     <string name="upgrade_screen_thanks_toast">Είστε οι καλύτεροι! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
+    <string name="upgrade_screen_restore_purchase_message">Η αναβάθμιση σας είναι έγκυρη σε συσκευές στον ίδιο λογαριασμό Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Συμβουλές αντιμετώπισης προβλημάτων για μη αναγνωρισμένες αναβαθμίσεις:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Ο συγχρονισμός του Play Store ενδέχεται να πάρει χρόνο. Δοκιμάστε να κάνετε επανεκκίνηση, να καθαρίσετε την προσωρινή μνήμη του Google Play ή απλώς να περιμένετε.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Πολλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Αποσυνδεθείτε από άλλους λογαριασμούς ή εγκαταστήστε το μέσω του ιστότοπου Google Play, κάτι που αναγκάζει τους συσχετισμούς με έναν συγκεκριμένο λογαριασμό.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Μαζί, τα καταφέραμε να φτάσουμε στην πρώτη κυκλοφορία! Σας ευχαριστώ που με βοηθήσατε! Η ανάπτυξη θα συνεχιστεί, αλλά τώρα μπορείτε να μεταβείτε σε πιο σταθερές εκδόσεις, αν θέλετε. Κάντε αυτό επιλέγοντας να απεγραφείτε στο Google Play.</string>
     <string name="nudge_betagoodbye_hint">Μικρή σημείωση: Οι αξιολογήσεις που δόθηκαν κατά τη διάρκεια της δοκιμής είναι ορατές μόνο σε μένα, Θα το εκτιμούσα αν θα μπορούσατε να δώσετε SD Maid μια δημόσια βαθμολογία αν είστε ευχαριστημένοι.</string>

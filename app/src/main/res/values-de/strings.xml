@@ -430,6 +430,11 @@
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Daten</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Bestätige die Aktion</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Aktiviert/deaktiviert Status der App %d ändern?</item>
+        <item quantity="other">Aktiviert/deaktiviert Status der Apps %d ändern?</item>
+    </plurals>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>

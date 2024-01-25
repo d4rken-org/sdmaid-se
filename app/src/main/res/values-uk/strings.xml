@@ -408,6 +408,7 @@
     <string name="appcontrol_app_sizes_apk_label">Додаток</string>
     <string name="appcontrol_app_sizes_data_label">Дані</string>
     <string name="appcontrol_app_sizes_cache_label">Кеш</string>
+    <string name="appcontrol_toggle_confirmation_title">Підтвердити дію</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>

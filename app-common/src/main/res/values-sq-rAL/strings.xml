@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">Në shërbimin tuaj.</string>
+    <string name="slogan_message_0">Në shërbimin juaj.</string>
     <string name="slogan_message_1">I pastër dhe i rregullt.</string>
     <string name="slogan_message_2">Parandalimi i kaosit.</string>
     <string name="slogan_message_3">Duke bërë atë që është e nevojshme.</string>
@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Fshij të zgjedhurin</string>
     <string name="general_show_details_action">Shfaq detajet</string>
     <string name="general_show_all_action">Shfaq të gjitha</string>
+    <string name="general_toggle_layout_mode">Ndëro modusin e pamjes</string>
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Të fshihen %d artikuj të zgjedhur?</string>

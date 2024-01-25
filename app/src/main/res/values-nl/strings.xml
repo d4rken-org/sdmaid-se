@@ -3,7 +3,7 @@
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">Een bericht van de ontwikkelaar</string>
-    <string name="dashboard_settings_oneclick_title">Modus met één tik</string>
+    <string name="dashboard_settings_oneclick_title">Eén-tikmodus</string>
     <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="dashboard_settings_oneclick_tools_title">Hulpmiddelen met één tik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welke hulpmiddelen moeten worden opgenomen in bewerkingen met één tik?</string>
@@ -11,7 +11,7 @@
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
     <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
-    <string name="debug_debuglog_recording_progress">Maak een foutopsporingslog</string>
+    <string name="debug_debuglog_recording_progress">Foutopsporingslogboek opnemen</string>
     <string name="debug_debuglog_record_action">Sla het foutopsporingslogboek op</string>
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
@@ -430,6 +430,7 @@
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Gegevens</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Bevestig actie</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>

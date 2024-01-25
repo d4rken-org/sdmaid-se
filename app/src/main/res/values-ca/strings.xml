@@ -430,6 +430,11 @@
     <string name="appcontrol_app_sizes_apk_label">Aplicació</string>
     <string name="appcontrol_app_sizes_data_label">Dades</string>
     <string name="appcontrol_app_sizes_cache_label">Memòria cau</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirma l\'acció</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Voleu canviar l\'estat d\'activació/desactivació d\'%d aplicació?</item>
+        <item quantity="other">Voleu canviar l\'estat d\'activació/desactivació de %d aplicacions?</item>
+    </plurals>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>

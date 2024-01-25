@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">영구적 구매</string>
     <string name="upgrade_screen_iap_action_hint">영구적으로 구매하면 %s 이(가) 청구됩니다.</string>
     <string name="upgrade_screen_thanks_toast">감사합니다! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">구매 복원</string>
+    <string name="upgrade_screen_restore_purchase_message">업그레이드는 동일한 Google 계정의 모든 기기에서 유효합니다.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">인식할 수 없는 업그레이드에 대한 문제 해결 팁:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play 스토어 동기화는 시간이 걸릴 수 있습니다. 재부팅하거나 Google Play 캐시를 지우거나 잠시 기다려 보세요.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">기기에 등록된 여러 개의 계정으로 인해 Google Play가 혼동될 수 있습니다. 다른 계정을 로그아웃하거나 Google Play 웹사이트를 통해 설치하면 특정 계정과 강제로 연결됩니다.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">함께 정식 출시까지 왔네요! 테스트하는 것을 도와주셔서 감사합니다. 개발은 물론 계속되지만, 원한다면 더 안정한 빌드로 전환할 수 있습니다. 구글 플레이에서 베타 프로그램을 나가면 됩니다.</string>
     <string name="nudge_betagoodbye_hint">메모: 테스트 기간의 앱 별점은 저에게만 표시됩니다. 앱 사용을 즐기고 있다면 공개 별점을 주시면 감사하겠습니다.</string>

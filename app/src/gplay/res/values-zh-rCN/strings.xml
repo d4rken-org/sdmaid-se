@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">一次性购买</string>
     <string name="upgrade_screen_iap_action_hint">一次性购买费用为 %s。</string>
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
+    <string name="upgrade_screen_restore_purchase_message">购买在同一 Google 账户的所有设备上都有效</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">无法识别购买的故障排除提示：</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">多个账户可能会导致 Google Play 混乱。注销其他账户或通过 Google Play 网站进行安装，这可强制与特定账户关联。</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">我们一起开发了第一个版本！谢您你帮助我！开发当然会继续，但如果您愿意，您现在可以切换到更稳定的版本。为此，请选择退出在 Google Play 上的测试。</string>
     <string name="nudge_betagoodbye_hint">温馨提示：测试期间您的的评分仅对我可见，如果您满意，请给 SD Maid 一个公开评分，我将不胜感激。</string>

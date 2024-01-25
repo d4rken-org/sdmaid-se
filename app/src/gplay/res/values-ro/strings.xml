@@ -21,6 +21,11 @@
     <string name="upgrade_screen_iap_action">Achiziție unică</string>
     <string name="upgrade_screen_iap_action_hint">Achiziția unică costă %s.</string>
     <string name="upgrade_screen_thanks_toast">Ești cel mai bun! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Restabiliți achiziția</string>
+    <string name="upgrade_screen_restore_purchase_message">Actualizarea dvs. este valabilă pe toate dispozitivele dvs. pe același cont Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Sfaturi depanare pentru upgrade-uri nerecunoscute:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sincronizarea Magazinului Play poate dura timp. Încercați repornirea, ștergeți memoria cache Google Play sau doar așteptați.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Conturile multiple pot deruta Google Play. Deconectați-vă din alte conturi sau instalați prin site-ul Google Play, care forțează asociațiile cu un anumit cont.</string>
     <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
     <string name="nudge_betagoodbye_body">Împreună, am putut să facem prima lansare! Mulțumesc pentru că m-ai ajutat. Dezvoltarea va continua bineînțeles, dar acum pot să treci pe mai multe construcții stabile, dacă dorești să faci asta. Fă asta prin renunțarea la testare în Google Play.</string>
     <string name="nudge_betagoodbye_hint">Mică notă: Evaluările primite în timpul testelor sunt vizibili numai mie. Apreciez dacă pot să îi dai SD Maid o evaluare publică dacă ești fericit.</string>

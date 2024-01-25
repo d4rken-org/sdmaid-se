@@ -413,7 +413,17 @@
     <string name="appcontrol_list_sortmode_updated_label">최근 업데이트</string>
     <string name="appcontrol_list_sortmode_installed_label">최초 설치</string>
     <string name="appcontrol_list_sortmode_packagename_label">패키지 이름</string>
+    <string name="appcontrol_list_sortmode_size_label">크기</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">앱 크기는 성능상의 이유로 추정된 것입니다. 보다 정확한 데이터를 확인하려면 StorageAnalyzer tool을 사용하세요.</string>
     <string name="appcontrol_progress_uninstalling_app">앱 제거하기</string>
+    <string name="appcontrol_app_sizes_title">앱 크기</string>
+    <string name="appcontrol_app_sizes_apk_label">앱</string>
+    <string name="appcontrol_app_sizes_data_label">데이터</string>
+    <string name="appcontrol_app_sizes_cache_label">캐시</string>
+    <string name="appcontrol_toggle_confirmation_title">동작 확인</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">%d 앱의 활성화/비활성화 상태를 변경하시겠습니까?</item>
+    </plurals>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>
@@ -476,6 +486,9 @@
     <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
     <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
+    <string name="exclusion_reset_default_exclusions">기본 제외 항목 복원</string>
+    <string name="exclusion_import_action">가져오기 제외 항목</string>
+    <string name="exclusion_export_action">내보내기 제외 항목</string>
     <string name="exclusion_create_pkg_hint">AppControl 도구를 이용해 앱 제외를 만드세요.</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer 도구를 이용해 경로 제외를 만드세요.</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -527,6 +540,9 @@
     <string name="scheduler_notification_message">실행 : \"%s\"</string>
     <string name="scheduler_notification_result_title">스케쥴 완료</string>
     <string name="scheduler_notification_result_success_message">스케줄된 모든 작업을 성공적으로 완료했습니다.</string>
+    <string name="scheduler_notification_result_failure_message">일부 예약된 작업이 실패했거나 오류가 발생했습니다. 수동으로 실행해 보세요.</string>
+    <string name="scheduler_commands_after_schedule_label">일정 후 명령</string>
+    <string name="scheduler_commands_after_schedule_desc">일정이 끝날 때 실행되는 Android shell 명령입니다.</string>
     <string name="updates_dashcard_title">사용할 수 있는 업데이트</string>
     <string name="updates_dashcard_body">업데이트를 사용할 수 있습니다. 지금은 %1$s(을)를 사용하고 있고 최신 버전은 %2$s입니다.</string>
     <string name="translation_encourage_title">SD Maid 번역하기</string>

@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_0">На ваша услуга.</string>
+    <string name="slogan_message_1">Чисто и уредно.</string>
+    <string name="slogan_message_2">Спречување на хаос.</string>
+    <string name="slogan_message_3">Правејќи го тоа што е потребно.</string>
+    <string name="slogan_message_4">Сите ваши патки по ред.</string>
+    <string name="slogan_message_5">Без дамка.</string>
+    <string name="slogan_message_6">Бајти, исчезнете!</string>
+    <string name="slogan_message_7">Слободен простор, среќно место.</string>
+    <string name="general_thank_you_label">Ви благодарам</string>
+    <string name="general_error_type_mismatch_msg">Несовпаѓање на типот: Се бараше %1$s, но добив %2$s.</string>
+    <string name="general_error_cant_access_msg">Не може да се пристапи до %s.</string>
+    <string name="general_error_root_unavailable">Пристапот до коренот е недостапен.</string>
+    <string name="general_error_empty_result_msg">Резултатот беше празен.</string>
+    <string name="general_error_no_compatible_app_found_msg">Не е пронајдена компатибилна апликација за да се справи со ова барање.</string>
+    <string name="general_todo_msg">На оваа функција сè уште се работи и моментално не е достапна.</string>
+    <string name="general_share_action">Споделете</string>
+    <string name="general_done_action">Готово</string>
+    <string name="general_copy_action">Копирај</string>
+    <string name="general_wipe_action">Избриши</string>
+    <string name="general_cancel_action">Откажи</string>
+    <string name="general_discard_action">Отфрли</string>
+    <string name="general_reset_action">Ресетирај</string>
+    <string name="general_save_action">Зачувај</string>
+    <string name="general_thanks_action">Благодарност до</string>
+    <string name="general_gotit_action">Разбрав</string>
+    <string name="general_fix_action">Поправки</string>
+    <string name="general_set_up_action">Постави</string>
+    <string name="general_edit_action">Уредување</string>
+    <string name="general_na_label">N/A</string>
+    <string name="general_empty_label">Празен</string>
+    <string name="general_dismiss_action">Отфрли</string>
+    <string name="general_maybe_later_action">Можеби подоцна</string>
+    <string name="general_manage_action">Управувај</string>
+    <string name="general_sync_action">Синхронизирај</string>
+    <string name="general_error_label">Грешка</string>
+    <string name="general_tap_hint_msg">Допрете за повеќе опции</string>
+    <string name="general_upgrade_action">Надградба</string>
+    <string name="general_donate_action">Донирајте</string>
+</resources>
