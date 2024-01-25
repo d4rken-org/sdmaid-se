@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.files.saf.crumbsTo
 import eu.darken.sdmse.common.files.saf.isAncestorOf
 import eu.darken.sdmse.common.files.saf.isParentOf
 import eu.darken.sdmse.common.files.saf.startsWith
+import kotlinx.coroutines.flow.Flow
 import okio.Sink
 import okio.Source
 import java.io.File
@@ -39,11 +40,11 @@ fun APath.asFile(): File = when (this) {
     else -> File(this.path)
 }
 
-fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> P.walk(
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> P.walk(
     gateway: GT,
-    filter: suspend (PL) -> Boolean = { true }
-): PathTreeFlow<P, PL, PLE, GT> {
-    return PathTreeFlow(gateway, this, filter)
+    filter: (suspend (PL) -> Boolean)? = null
+): Flow<PL> {
+    return PathTreeFlow(gateway, this, filter ?: { true })
 }
 
 suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
