@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
+import kotlinx.coroutines.flow.Flow
 import okio.Sink
 import okio.Source
 import java.time.Instant
@@ -22,6 +23,12 @@ interface APathGateway<
     suspend fun lookupFiles(path: P): Collection<PLU>
 
     suspend fun lookupFilesExtended(path: P): Collection<PLUE>
+
+    suspend fun walk(
+        path: P,
+        onFilter: (suspend (PLU) -> Boolean)? = null,
+        onError: (suspend (PLU, Exception) -> Boolean)? = null
+    ): Flow<PLU>
 
     suspend fun exists(path: P): Boolean
 

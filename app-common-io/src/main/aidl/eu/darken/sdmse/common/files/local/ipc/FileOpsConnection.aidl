@@ -34,6 +34,8 @@ interface FileOpsConnection {
     List<LocalPathLookupExtended> lookupFilesExtended(in LocalPath path);
     RemoteInputStream lookupFilesExtendedStream(in LocalPath path);
 
+    RemoteInputStream walkStream(in LocalPath path);
+
     boolean createSymlink(in LocalPath linkPath, in LocalPath targetPath);
 
     boolean setModifiedAt(in LocalPath path, in long modifiedAt);

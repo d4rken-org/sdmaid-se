@@ -12,7 +12,7 @@ import java.util.LinkedList
 
 // TODO support symlinks?
 // TODO unit test coverage
-class PathTreeFlow<
+class PathWalker<
         P : APath,
         PL : APathLookup<P>,
         PLE : APathLookupExtended<P>,

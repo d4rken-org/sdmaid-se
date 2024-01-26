@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -19,8 +20,14 @@ import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.Sink
@@ -30,6 +37,7 @@ import okio.sink
 import okio.source
 import java.io.IOException
 import java.time.Instant
+import java.util.LinkedList
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -262,6 +270,59 @@ class SAFGateway @Inject constructor(
             throw ReadException(path, cause = e)
         }
     }
+
+    override suspend fun walk(
+        path: SAFPath,
+        onFilter: (suspend (SAFPathLookup) -> Boolean)?,
+        onError: (suspend (SAFPathLookup, Exception) -> Boolean)?,
+    ): Flow<SAFPathLookup> = flow {
+        val start = lookup(path)
+        log(TAG, VERBOSE) { "walk($path) -> $start" }
+
+        if (start.isFile) {
+            emit(start)
+            return@flow
+        }
+
+        val queue = LinkedList(listOf(start))
+
+        while (!queue.isEmpty()) {
+            val lookUp = queue.removeFirst()
+
+            val newBatch = try {
+                lookupFiles(lookUp.lookedUp)
+            } catch (e: IOException) {
+                log(TAG, ERROR) { "Failed to read $lookUp: $e" }
+                if (onError != null && onError(lookUp, e)) {
+                    emptyList()
+                } else {
+                    throw e
+                }
+            }
+
+            newBatch
+                .filter {
+                    val allowed = onFilter == null || onFilter(it)
+                    if (Bugs.isTrace) {
+                        if (!allowed) log(TAG, VERBOSE) { "Skipping (filter): $it" }
+                    }
+                    allowed
+                }
+                .forEach { child ->
+                    if (child.isDirectory) {
+                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Walking: $child" }
+                        queue.addFirst(child)
+                    }
+                    emit(child)
+                }
+        }
+    }
+        .flowOn(dispatcherProvider.IO)
+        .catch { e ->
+            log(TAG, WARN) { "walk($path) failed." }
+            throw ReadException(path, cause = e)
+        }
+
 
     override suspend fun read(path: SAFPath): Source = runIO {
         try {
