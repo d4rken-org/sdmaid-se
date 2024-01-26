@@ -188,7 +188,9 @@ class SdcardCorpseFilter @Inject constructor(
             // <sdcard(level0|1)>/(level1|2)/(level2|3)/(level3|4)/corpse
             val files = candidateResolved.walk(
                 gatewaySwitch,
-                filter = { item -> item.segments.size <= (4 + area.path.segments.size) }
+                options = APathGateway.WalkOptions(
+                    onFilter = { item -> item.segments.size <= (4 + area.path.segments.size) }
+                )
             )
                 .onEach { log(TAG, INFO) { "Walking: $it" } }
                 .toList()

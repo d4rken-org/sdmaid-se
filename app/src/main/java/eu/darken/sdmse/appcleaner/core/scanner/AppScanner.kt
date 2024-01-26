@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -405,13 +406,12 @@ class AppScanner @Inject constructor(
                 searchPath.file
                     .walk(
                         gatewaySwitch,
-                        filter = {
-                            when {
-                                it.path.contains("/org.winehq.wine/files/prefix") -> false
-                                it.path.contains("/.wine/") -> false
-                                else -> true
-                            }
-                        }
+                        options = APathGateway.WalkOptions(
+                            pathDoesNotContain = setOf(
+                                "/org.winehq.wine/files/prefix",
+                                "/.wine/",
+                            )
+                        )
                     )
                     .toList()
             } catch (e: IOException) {

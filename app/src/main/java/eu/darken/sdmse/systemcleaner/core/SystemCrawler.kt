@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
@@ -115,7 +116,12 @@ class SystemCrawler @Inject constructor(
                             exclusions.none { it.match(toCheck) }
                         }
                     }
-                    area.path.walk(gatewaySwitch, filter).map { area to it }
+                    area.path.walk(
+                        gatewaySwitch,
+                        options = APathGateway.WalkOptions(
+                            onFilter = filter
+                        )
+                    ).map { area to it }
                 }
                 .buffer(1024)
                 .collect { (area, item) ->

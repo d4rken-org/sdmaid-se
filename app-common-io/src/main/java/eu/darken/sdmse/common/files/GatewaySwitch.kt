@@ -106,10 +106,9 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun walk(
         path: APath,
-        filter: (suspend (APathLookup<APath>) -> Boolean)?,
-        onError: (suspend (APathLookup<APath>, Exception) -> Boolean)?
+        options: APathGateway.WalkOptions<APath, APathLookup<APath>>
     ): Flow<APathLookup<APath>> {
-        return useGateway(path) { walk(path, filter, onError) }
+        return useGateway(path) { walk(path, options) }
     }
 
     override suspend fun listFiles(path: APath): Collection<APath> {

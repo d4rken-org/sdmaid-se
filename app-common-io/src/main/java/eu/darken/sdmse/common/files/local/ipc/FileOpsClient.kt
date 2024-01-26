@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.getRootCause
+import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -88,10 +89,20 @@ class FileOpsClient @AssistedInject constructor(
     /**
      * Doesn't run into IPC buffer overflows on large directories
      */
-    fun walk(path: LocalPath): Collection<LocalPathLookup> = try {
-        fileOpsConnection.walkStream(path).toLocalPathLookups().also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "walk($path) finished streaming, ${it.size} items" }
-        }
+    fun walk(
+        path: LocalPath,
+        options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
+    ): Collection<LocalPathLookup> = try {
+        if (!options.isDirect) throw IllegalArgumentException("Only direct walk options are supported")
+        fileOpsConnection
+            .walkStream(
+                path,
+                (options.pathDoesNotContain ?: emptyList()).toMutableList(),
+            )
+            .toLocalPathLookups()
+            .also {
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "walk($path) finished streaming, ${it.size} items" }
+            }
     } catch (e: Exception) {
         throw e.toFakeIOException()
     }

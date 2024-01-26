@@ -273,8 +273,7 @@ class SAFGateway @Inject constructor(
 
     override suspend fun walk(
         path: SAFPath,
-        onFilter: (suspend (SAFPathLookup) -> Boolean)?,
-        onError: (suspend (SAFPathLookup, Exception) -> Boolean)?,
+        options: APathGateway.WalkOptions<SAFPath, SAFPathLookup>,
     ): Flow<SAFPathLookup> = flow {
         val start = lookup(path)
         log(TAG, VERBOSE) { "walk($path) -> $start" }
@@ -293,7 +292,7 @@ class SAFGateway @Inject constructor(
                 lookupFiles(lookUp.lookedUp)
             } catch (e: IOException) {
                 log(TAG, ERROR) { "Failed to read $lookUp: $e" }
-                if (onError != null && onError(lookUp, e)) {
+                if (options.onError?.invoke(lookUp, e) != false) {
                     emptyList()
                 } else {
                     throw e
@@ -302,7 +301,7 @@ class SAFGateway @Inject constructor(
 
             newBatch
                 .filter {
-                    val allowed = onFilter == null || onFilter(it)
+                    val allowed = options.onFilter?.invoke(it) ?: true
                     if (Bugs.isTrace) {
                         if (!allowed) log(TAG, VERBOSE) { "Skipping (filter): $it" }
                     }
