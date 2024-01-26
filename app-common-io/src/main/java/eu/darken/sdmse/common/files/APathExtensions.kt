@@ -44,7 +44,7 @@ suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : 
     gateway: GT,
     filter: (suspend (PL) -> Boolean)? = null
 ): Flow<PL> {
-    return PathTreeFlow(gateway, this, filter ?: { true })
+    return gateway.walk(this, filter)
 }
 
 suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {

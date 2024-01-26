@@ -25,6 +25,9 @@ import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.*
@@ -273,7 +276,7 @@ class LocalGateway @Inject constructor(
 
     override suspend fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
 
-    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookup> = runIO {
+    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPathLookup> = runIO {
         try {
             val javaFile = path.asFile()
             val nonRootList = try {
@@ -322,7 +325,7 @@ class LocalGateway @Inject constructor(
         path: LocalPath
     ): Collection<LocalPathLookupExtended> = lookupFilesExtended(path, Mode.AUTO)
 
-    suspend fun lookupFilesExtended(path: LocalPath, mode: Mode = Mode.ROOT): Collection<LocalPathLookupExtended> =
+    suspend fun lookupFilesExtended(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPathLookupExtended> =
         runIO {
             try {
                 val javaFile = path.asFile()
@@ -367,6 +370,84 @@ class LocalGateway @Inject constructor(
                 throw ReadException(path, cause = e)
             }
         }
+
+    override suspend fun walk(
+        path: LocalPath,
+        onFilter: (suspend (LocalPathLookup) -> Boolean)?,
+        onError: (suspend (LocalPathLookup, Exception) -> Boolean)?,
+    ): Flow<LocalPathLookup> = walk(path, onFilter, onError, Mode.AUTO)
+
+    suspend fun walk(
+        path: LocalPath,
+        onFilter: (suspend (LocalPathLookup) -> Boolean)?,
+        onError: (suspend (LocalPathLookup, Exception) -> Boolean)?,
+        mode: Mode = Mode.AUTO
+    ): Flow<LocalPathLookup> = runIO {
+        try {
+            val javaFile = path.asFile()
+            val canRead = if (mode == Mode.ROOT) {
+                false
+            } else {
+                javaFile.canRead()
+            }
+
+            when {
+                mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "walk($mode->NORMAL): $path" }
+                    if (!canRead) throw ReadException(path)
+                    DirectLocalWalker(
+                        start = path,
+                        onFilter = { file: LocalPathLookup ->
+                            onFilter?.invoke(file) ?: true
+                        },
+                        onError = { file: LocalPathLookup, exception: Exception ->
+                            onError?.invoke(file, exception) ?: true
+                        }
+                    )
+                }
+
+                hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
+                    if (onFilter != null || onError != null) {
+                        log(TAG, VERBOSE) { "walk($mode->ROOT, indirect): $path" }
+                        // Can't pass functions via IPC
+                        PathWalker(
+                            this@LocalGateway,
+                            path,
+                            onFilter = { lookup -> onFilter?.invoke(lookup) ?: true },
+                            onError = { lookup, exception -> onError?.invoke(lookup, exception) ?: true },
+                        )
+                    } else {
+                        log(TAG, VERBOSE) { "walk($mode->ROOT, direct): $path" }
+                        rootOps { it.walk(path) }.asFlow()
+                    }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                    if (onFilter != null || onError != null) {
+                        log(TAG, VERBOSE) { "walk($mode->ADB, indirect): $path" }
+                        // Can't pass functions via IPC
+                        PathWalker(
+                            this@LocalGateway,
+                            path,
+                            onFilter = { lookup -> onFilter?.invoke(lookup) ?: true },
+                            onError = { lookup, exception -> onError?.invoke(lookup, exception) ?: true },
+                        )
+                    } else {
+                        log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
+                        adbOps { it.walk(path) }.asFlow()
+                    }
+                }
+
+                else -> throw IOException("No matching mode available.")
+            }
+                .onEach {
+                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Walked $it" }
+                }
+        } catch (e: IOException) {
+            log(TAG, WARN) { "walk(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+            throw ReadException(path, cause = e)
+        }
+    }
 
     override suspend fun exists(path: LocalPath): Boolean = exists(path, Mode.AUTO)
 
@@ -625,7 +706,6 @@ class LocalGateway @Inject constructor(
                         }
 
                         if (!success) {
-                            it
                             throw IOException("Root delete() call returned false")
                         }
                     }

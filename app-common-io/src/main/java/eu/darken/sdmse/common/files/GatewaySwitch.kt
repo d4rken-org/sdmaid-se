@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.storage.PathMapper
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.plus
 import okio.IOException
 import okio.Sink
@@ -104,6 +104,14 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { lookupFilesExtended(path) }
     }
 
+    override suspend fun walk(
+        path: APath,
+        filter: (suspend (APathLookup<APath>) -> Boolean)?,
+        onError: (suspend (APathLookup<APath>, Exception) -> Boolean)?
+    ): Flow<APathLookup<APath>> {
+        return useGateway(path) { walk(path, filter, onError) }
+    }
+
     override suspend fun listFiles(path: APath): Collection<APath> {
         return useGateway(path) { listFiles(path) }
     }
@@ -158,11 +166,6 @@ class GatewaySwitch @Inject constructor(
 
     override suspend fun setOwnership(path: APath, ownership: Ownership): Boolean {
         return useGateway(path) { setOwnership(path, ownership) }
-    }
-
-    suspend fun walk(path: APath): Collection<APathLookup<APath>> {
-        // TODO use safMapper to change path types if error occurs?
-        return path.walk(this).toList()
     }
 
     private suspend fun APath.toTargetType(type: Type): APath = when (type) {

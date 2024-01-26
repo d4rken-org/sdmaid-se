@@ -85,6 +85,17 @@ class FileOpsClient @AssistedInject constructor(
         throw e.toFakeIOException()
     }
 
+    /**
+     * Doesn't run into IPC buffer overflows on large directories
+     */
+    fun walk(path: LocalPath): Collection<LocalPathLookup> = try {
+        fileOpsConnection.walkStream(path).toLocalPathLookups().also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "walk($path) finished streaming, ${it.size} items" }
+        }
+    } catch (e: Exception) {
+        throw e.toFakeIOException()
+    }
+
     fun readFile(path: LocalPath): Source = try {
         fileOpsConnection.readFile(path).source()
     } catch (e: Exception) {
