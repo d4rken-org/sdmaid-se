@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
@@ -143,7 +144,12 @@ class PHashSleuth @Inject constructor(
                             exclusions.none { it.match(toCheck) }
                         }
                     }
-                    area.path.walk(gatewaySwitch, filter)
+                    area.path.walk(
+                        gatewaySwitch,
+                        options = APathGateway.WalkOptions(
+                            onFilter = filter,
+                        )
+                    )
                 }
                 .buffer(1024)
                 .filter {

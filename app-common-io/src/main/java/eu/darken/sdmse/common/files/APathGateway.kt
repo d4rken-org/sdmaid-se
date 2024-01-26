@@ -26,9 +26,17 @@ interface APathGateway<
 
     suspend fun walk(
         path: P,
-        onFilter: (suspend (PLU) -> Boolean)? = null,
-        onError: (suspend (PLU, Exception) -> Boolean)? = null
+        options: WalkOptions<P, PLU> = WalkOptions()
     ): Flow<PLU>
+
+    data class WalkOptions<P : APath, PLU : APathLookup<P>>(
+        val pathDoesNotContain: Set<String>? = null,
+        val onFilter: (suspend (PLU) -> Boolean)? = null,
+        val onError: (suspend (PLU, Exception) -> Boolean)? = null
+    ) {
+        val isDirect: Boolean
+            get() = onFilter == null && onError == null
+    }
 
     suspend fun exists(path: P): Boolean
 

@@ -373,14 +373,12 @@ class LocalGateway @Inject constructor(
 
     override suspend fun walk(
         path: LocalPath,
-        onFilter: (suspend (LocalPathLookup) -> Boolean)?,
-        onError: (suspend (LocalPathLookup, Exception) -> Boolean)?,
-    ): Flow<LocalPathLookup> = walk(path, onFilter, onError, Mode.AUTO)
+        options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
+    ): Flow<LocalPathLookup> = walk(path, options, Mode.AUTO)
 
     suspend fun walk(
         path: LocalPath,
-        onFilter: (suspend (LocalPathLookup) -> Boolean)?,
-        onError: (suspend (LocalPathLookup, Exception) -> Boolean)?,
+        options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
         mode: Mode = Mode.AUTO
     ): Flow<LocalPathLookup> = runIO {
         try {
@@ -393,48 +391,50 @@ class LocalGateway @Inject constructor(
 
             when {
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
-                    log(TAG, VERBOSE) { "walk($mode->NORMAL): $path" }
+                    log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
                     if (!canRead) throw ReadException(path)
                     DirectLocalWalker(
                         start = path,
                         onFilter = { file: LocalPathLookup ->
-                            onFilter?.invoke(file) ?: true
+                            options.onFilter?.invoke(file) ?: true
                         },
                         onError = { file: LocalPathLookup, exception: Exception ->
-                            onError?.invoke(file, exception) ?: true
+                            options.onError?.invoke(file, exception) ?: true
                         }
                     )
                 }
 
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
-                    if (onFilter != null || onError != null) {
+                    if (options.isDirect) {
+                        log(TAG, VERBOSE) { "walk($mode->ROOT, direct): $path" }
+                        rootOps { it.walk(path, options) }.asFlow()
+                    } else {
                         log(TAG, VERBOSE) { "walk($mode->ROOT, indirect): $path" }
                         // Can't pass functions via IPC
-                        PathWalker(
+                        IndirectLocalWalker(
                             this@LocalGateway,
+                            mode = Mode.ROOT,
                             path,
-                            onFilter = { lookup -> onFilter?.invoke(lookup) ?: true },
-                            onError = { lookup, exception -> onError?.invoke(lookup, exception) ?: true },
+                            onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
+                            onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
                         )
-                    } else {
-                        log(TAG, VERBOSE) { "walk($mode->ROOT, direct): $path" }
-                        rootOps { it.walk(path) }.asFlow()
                     }
                 }
 
                 hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
-                    if (onFilter != null || onError != null) {
+                    if (options.isDirect) {
+                        log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
+                        adbOps { it.walk(path, options) }.asFlow()
+                    } else {
                         log(TAG, VERBOSE) { "walk($mode->ADB, indirect): $path" }
                         // Can't pass functions via IPC
-                        PathWalker(
+                        IndirectLocalWalker(
                             this@LocalGateway,
+                            mode = Mode.ADB,
                             path,
-                            onFilter = { lookup -> onFilter?.invoke(lookup) ?: true },
-                            onError = { lookup, exception -> onError?.invoke(lookup, exception) ?: true },
+                            onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
+                            onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
                         )
-                    } else {
-                        log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
-                        adbOps { it.walk(path) }.asFlow()
                     }
                 }
 

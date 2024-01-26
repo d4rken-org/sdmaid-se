@@ -42,9 +42,9 @@ fun APath.asFile(): File = when (this) {
 
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> P.walk(
     gateway: GT,
-    filter: (suspend (PL) -> Boolean)? = null
+    options: APathGateway.WalkOptions<P, PL> = APathGateway.WalkOptions()
 ): Flow<PL> {
-    return gateway.walk(this, filter)
+    return gateway.walk(this, options)
 }
 
 suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {
