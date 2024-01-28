@@ -1,6 +1,6 @@
 {
-  "id": "5f9d6b61-3bd4-4c8a-978c-4314829450f0",
-  "message": "This is a test message (GPLAY EN DEV).",
-  "primaryLink": null,
-  "versionMinimum": 1100001
+  "id": "451e8c54-6738-4620-80a0-39045827bd51",
+  "message": "Unfortunately, the upgrade check has an error making the pro functions unavailable. Update v0.19.1 will fix this, it's currently waiting for Google's review.  Sorry :(! I wish you a good week!",
+  "versionMinimum": 1700000,
+  "versionMaximum": 1900000
 }
