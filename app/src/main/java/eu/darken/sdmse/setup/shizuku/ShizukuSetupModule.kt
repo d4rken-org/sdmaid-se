@@ -24,6 +24,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -45,8 +46,17 @@ class ShizukuSetupModule @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(rngString)
 
+    private val permissionRequester = shizukuManager.shizukuBinder
+        .filterNotNull()
+        .onEach {
+            if (shizukuSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
+                log(TAG) { "Requesting Shizuku permission for us..." }
+                shizukuManager.requestPermission()
+            }
+        }
+
     override val state: Flow<SetupModule.State> =
-        combine(refreshTrigger, shizukuSettings.useShizuku.flow) { _, useShizuku ->
+        combine(refreshTrigger, permissionRequester, shizukuSettings.useShizuku.flow) { _, _, useShizuku ->
 
             val baseState = State(
                 pkg = shizukuManager.pkgId,

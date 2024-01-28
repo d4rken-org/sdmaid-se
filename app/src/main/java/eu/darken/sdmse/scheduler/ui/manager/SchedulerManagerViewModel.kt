@@ -14,7 +14,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
@@ -76,7 +78,7 @@ class SchedulerManagerViewModel @Inject constructor(
             items.add(AlarmHintRowVH.Item(schedulerState))
         }
 
-        val showCommands = rootManager.isRooted() || shizukuManager.isShizukud()
+        val showCommands = rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()
 
         schedulerState.schedules.map { schedule ->
             ScheduleRowVH.Item(
