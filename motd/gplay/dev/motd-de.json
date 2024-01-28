@@ -1,6 +1,6 @@
 {
-  "id": "5f9d6b61-3bd4-4c8a-978c-4314829450f0",
-  "message": "Dies ist eine Test-Nachricht (GPLAY DE DEV).",
-  "primaryLink": null,
-  "versionMinimum": 1100001
+  "id": "451e8c54-6738-4620-80a0-39045827bd51",
+  "message": "Der Upgrade Check hat leider einen Fehler wodurch die Pro Funktionen nicht freigeschaltet werden. Update v0.19.1 behebt es, wartet aber noch auf Freigabe durch Google.  Sorry :(! Guten Start in die Woche!",
+  "versionMinimum": 1700000,
+  "versionMaximum": 1900000
 }
