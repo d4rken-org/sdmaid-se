@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup
 
 import dagger.Reusable
 import eu.darken.sdmse.common.SystemSettingsProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -40,22 +41,36 @@ class SetupHelper @Inject constructor(
         return false
     }
 
-    suspend fun checkSecureSettings(): Boolean {
-        if (settingsProvider.hasSecureWriteAccess()) {
-            log(TAG, VERBOSE) { "ensureSecureSettings(): We already have secure settings access" }
+    suspend fun hasSecureSettings(): Boolean = settingsProvider.hasSecureWriteAccess().also {
+        log(TAG, VERBOSE) { "hasSecureSettings(): $it" }
+    }
+
+    suspend fun setSecureSettings(granted: Boolean): Boolean {
+        log(TAG) { "setSecureSettings(granted=$granted)" }
+
+        if (granted == settingsProvider.hasSecureWriteAccess()) {
+            log(TAG, VERBOSE) { "setSecureSettings(granted=$granted): We already have desired access state" }
             return true
         }
 
         if (!checkGrantPermissions()) {
-            log(TAG) { "ensureSecureSettings(): Can't gain grant permissions" }
+            log(TAG) { "setSecureSettings(granted=$granted): Can't gain grant permissions" }
             return false
         }
-        pkgOps.grantPermission(userManager2.ourInstall(), Permission.WRITE_SECURE_SETTINGS)
 
-        return settingsProvider.hasSecureWriteAccess().also {
-            if (it) log(TAG, INFO) { "We were able to gain secure settings access :)" }
-            else log(TAG, INFO) { "We were not able to gain secure settings access :(" }
+        if (granted) {
+            pkgOps.grantPermission(userManager2.ourInstall(), Permission.WRITE_SECURE_SETTINGS)
+        } else {
+            pkgOps.revokePermission(userManager2.ourInstall(), Permission.WRITE_SECURE_SETTINGS)
         }
+
+        if (granted == settingsProvider.hasSecureWriteAccess()) {
+            log(TAG, INFO) { "setSecureSettings(granted=$granted): We achieved desired access state :)" }
+        } else {
+            log(TAG, ERROR) { "setSecureSettings(granted=$granted): Failed to achieve desired access state :(" }
+        }
+
+        return true
     }
 
     companion object {

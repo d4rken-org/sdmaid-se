@@ -5,6 +5,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -14,6 +15,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.ourInstall
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.notification.NotificationSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
@@ -38,6 +40,7 @@ class SetupHealer @Inject constructor(
     private val notificationSetupModule: NotificationSetupModule,
     private val storageSetupModule: StorageSetupModule,
     private val dataAreaManager: DataAreaManager,
+    private val automationSetupModule: AutomationSetupModule,
 ) {
 
     private val internalState = MutableStateFlow(State())
@@ -50,12 +53,18 @@ class SetupHealer @Inject constructor(
             usageStatsSetupModule.state,
             notificationSetupModule.state,
             storageSetupModule.state,
+            automationSetupModule.state,
         ) { useRoot, useShizuku,
-            usageState, notifState, storageState ->
+            usageState, notifState, storageState, automationState ->
 
             val hasHealingPowers = useRoot || useShizuku
 
-            val hasIncomplete = !usageState.isComplete || !notifState.isComplete || !storageState.isComplete
+            val hasIncomplete = listOf(
+                usageState.isComplete,
+                notifState.isComplete,
+                storageState.isComplete,
+                automationState.isComplete,
+            ).any { !it }
 
             if (hasHealingPowers && hasIncomplete) {
                 internalState.value = internalState.value.copy(isWorking = true)
@@ -63,6 +72,7 @@ class SetupHealer @Inject constructor(
 
             var reloadDataAreas = false
             try {
+                if (automationState.tryHeal()) automationSetupModule.refresh()
                 if (usageState.tryHeal()) usageStatsSetupModule.refresh()
                 if (notifState.tryHeal()) notificationSetupModule.refresh()
                 if (storageState.tryHeal()) {
@@ -145,6 +155,21 @@ class SetupHealer @Inject constructor(
         log(TAG) { "NOTIFICATIONS: allGranted=$allGranted" }
 
         return allGranted
+    }
+
+    private suspend fun AutomationSetupModule.State.tryHeal(): Boolean {
+        if (isComplete || hasConsent != true) {
+            return false
+        }
+
+        if (!setupHelper.checkGrantPermissions()) {
+            log(TAG) { "AUTOMATION: We don't have grant permission powers :(" }
+            return false
+        }
+
+        return setupHelper.setSecureSettings(true).also {
+            log(TAG, INFO) { "AUTOMATION: Heal attempt succes=$it" }
+        }
     }
 
     data class State(

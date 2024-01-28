@@ -102,7 +102,7 @@ class AutomationManager @Inject constructor(
             return service
         }
 
-        if (!setupHelper.checkSecureSettings()) {
+        if (!setupHelper.hasSecureSettings()) {
             log(TAG, WARN) { "startService(): Service is not running and we don't have secure settings access." }
             throw AutomationNotEnabledException()
         }
@@ -141,7 +141,7 @@ class AutomationManager @Inject constructor(
 
     private suspend fun stopService() {
         log(TAG, VERBOSE) { "stopService()" }
-        if (!setupHelper.checkSecureSettings()) {
+        if (!setupHelper.hasSecureSettings()) {
             throw IllegalStateException("stopService(): Trying to stop service but secure settings permission isn't available")
         }
 
@@ -166,7 +166,7 @@ class AutomationManager @Inject constructor(
         val serviceWasRunning = isServiceLaunched()
         log(TAG) { "serviceLauncher: serviceWasRunning=$serviceWasRunning" }
 
-        val canToggle = setupHelper.checkSecureSettings()
+        val canToggle = setupHelper.hasSecureSettings()
         log(TAG) { "serviceLauncher: canToggle=$canToggle" }
 
         val service = if (canToggle) {

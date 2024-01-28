@@ -27,5 +27,7 @@ interface PkgOpsConnection {
 
     boolean grantPermission(String packageName, int handleId, String permissionId);
 
+    boolean revokePermission(String packageName, int handleId, String permissionId);
+
     boolean setAppOps(String packageName, int handleId, String key, String value);
 }
