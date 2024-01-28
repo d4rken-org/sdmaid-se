@@ -50,7 +50,7 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
 
         shizukuOpenAction.apply {
             setOnClickListener { item.onOpen() }
-            isGone = !item.state.isInstalled || item.state.useShizuku != true
+            isGone = !item.state.isInstalled || item.state.useShizuku != true || item.state.isComplete
         }
 
         helpAction.setOnClickListener { item.onHelp() }
