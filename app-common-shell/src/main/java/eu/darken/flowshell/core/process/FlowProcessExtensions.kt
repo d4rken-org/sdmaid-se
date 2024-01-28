@@ -38,9 +38,9 @@ internal val Process.processPid: Int?
         .takeIf { it.matches() }
         ?.let { it.group(1).toInt() }
 
-suspend fun Process.killWithRootPid(): Boolean {
-    if (FlowShellDebug.isDebug) log(TAG) { "kill($this)" }
-    if (!this.isAlive) {
+suspend fun Process.killWithRootPid(shell: String = "su"): Boolean {
+    if (FlowShellDebug.isDebug) log(TAG) { "killWithRootPid($this,$shell)" }
+    if (!this.isAlive2) {
         if (FlowShellDebug.isDebug) log(TAG) { "Process is no longer alive, skipping kill." }
         return true
     }
@@ -50,55 +50,63 @@ suspend fun Process.killWithRootPid(): Boolean {
         if (FlowShellDebug.isDebug) log(TAG, ERROR) { "Can't find PID for $this" }
         return false
     }
-    val pidFamily = this.pidFamily()
+    val pidFamily = this.pidFamily(shell)
     if (FlowShellDebug.isDebug) log(TAG) { "Pid family pids: $pidFamily" }
 
     return pidFamily?.destroyPids() ?: false
 }
 
 // use 'ps' to get this pid and all pids that are related to it (e.g. spawned by it)
-internal fun Process.pidFamily(): PidFamily? {
+internal suspend fun Process.pidFamily(shell: String = "su"): PidFamily? {
     val parentPid = processPid ?: return null
     var process: Process? = null
     val childPids = try {
-        process = processFactory!!.start("su")
+        process = ProcessBuilder(shell).start()
         val os = OutputStreamWriter(process.outputStream)
-        val errorsHarvester = makeMiniHarvester(process.errorStream)
-        errorsHarvester.subscribe()
-        val outputHarvester = makeMiniHarvester(process.inputStream)
-        outputHarvester.subscribe()
-        os.write("ps" + LineReader.getLineSeparator())
-        os.write("exit" + LineReader.getLineSeparator())
-        os.flush()
-        os.close()
-        val exitcode = process.waitFor()
-        errorsHarvester.blockingGet()
-        val output = outputHarvester.blockingGet()
-        if (FlowShellDebug.isDebug) Timber.tag(TAG).d("getAllPids() exitcode: %d", exitcode)
-        if (exitcode == RxProcess.ExitCode.OK) {
-            for (s in output) {
-                if (output.indexOf(s) == 0) continue  // SKIP title row
-                val line = SPACES_PATTERN.split(s)
-                if (line.size >= 3) {
-                    try {
-                        if (parentPid == line[2].toInt()) result.add(line[1].toInt())
-                    } catch (e: NumberFormatException) {
-                        Timber.tag(TAG).w(e, "getAllPids(parentPid=%d) parse failure: %s", parentPid, line)
-                    }
-                }
+
+        val output = coroutineScope {
+            val errorsHarvester = process.errorStream.miniHarvester().launchIn(this + Dispatchers.IO)
+            val outputHarvester = process.inputStream.miniHarvester().launchIn(this + Dispatchers.IO)
+
+            os.write("ps${System.lineSeparator()}")
+            os.write("exit${System.lineSeparator()}")
+            os.flush()
+            os.close()
+            val exitcode = process.waitFor()
+            if (FlowShellDebug.isDebug) log(TAG) { "pidFamily($parentPid) exitcode: $exitcode" }
+            if (exitcode == 0) {
+                listOf<String>()
+            } else {
+                null
             }
         }
+
+        output
+            ?.asSequence()
+            ?.drop(1)
+            ?.map { SPACES_PATTERN.split(it) }
+            ?.filter { it.size >= 3 }
+            ?.filter { parentPid == it[2].toInt() }
+            ?.mapNotNull { line ->
+                try {
+                    line[1].toInt()
+                } catch (e: NumberFormatException) {
+                    if (FlowShellDebug.isDebug) log(TAG, WARN) { "pidFamily(parentPid) parse failure: $line" }
+                    null
+                }
+            }
+            ?.toSet()
     } catch (interrupt: InterruptedException) {
-        Timber.tag(TAG).w(interrupt, "Interrupted!")
+        if (FlowShellDebug.isDebug) log(TAG, WARN) { "Interrupted" }
         return null
     } catch (e: IOException) {
-        Timber.tag(TAG).w(e, "IOException, IOException, pipe broke?")
+        if (FlowShellDebug.isDebug) log(TAG, WARN) { "IOException, pipe broke?" }
         return null
     } finally {
         process?.destroy()
     }
 
-    return PidFamily(parentPid, childPids)
+    return PidFamily(parentPid, childPids ?: emptySet())
 }
 
 internal data class PidFamily(

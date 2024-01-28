@@ -17,12 +17,8 @@ import kotlinx.coroutines.runBlocking
 
 class FlowProcess(
     sessionLaunch: suspend () -> Process,
-    sessionCheck: suspend (Process) -> Boolean = {
-        it.isAlive2
-    },
-    sessionKill: suspend (Process) -> Unit = {
-        it.destroyForcibly()
-    },
+    sessionCheck: suspend (Process) -> Boolean = { it.isAlive2 },
+    sessionKill: suspend (Process) -> Unit = { it.destroyForcibly() },
 ) {
 
     private val processCreator = callbackFlow {
