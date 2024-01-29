@@ -1,6 +1,6 @@
 {
   "id": "451e8c54-6738-4620-80a0-39045827bd51",
   "message": "The upgrade check unfortunately has an error making the pro functions unavailable. Update '0.19.1+' fixes this, but it's currently waiting for Google to review it. Sorry :(! I wish you a good week!",
-  "versionMinimum": 1700000,
+  "versionMinimum": 1900000,
   "versionMaximum": 1900000
 }
