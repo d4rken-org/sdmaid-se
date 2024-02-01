@@ -157,6 +157,19 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
+    override fun revokePermission(packageName: String, handleId: Int, permissionId: String): Boolean = try {
+        log(TAG, VERBOSE) { "revokePermission($packageName, $handleId, $permissionId)..." }
+        val result = runBlocking {
+            sharedShell.useRes {
+                Cmd.builder("pm revoke --user $handleId $packageName $permissionId").execute(it)
+            }
+        }
+        result.exitCode == Cmd.ExitCode.OK
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "revokePermission($packageName, $handleId, $permissionId) failed: $e" }
+        throw wrapPropagating(e)
+    }
+
     override fun setAppOps(packageName: String, handleId: Int, key: String, value: String): Boolean = try {
         log(TAG, VERBOSE) { "setAppOps($packageName, $handleId, $key, $value)..." }
         val result = runBlocking {

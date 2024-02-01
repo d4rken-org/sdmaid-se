@@ -374,6 +374,33 @@ class PkgOps @Inject constructor(
         }
     }
 
+    suspend fun revokePermission(id: Installed.InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
+        try {
+            log(TAG) { "revokePermission($id, $permission, $mode)" }
+            if (mode == Mode.NORMAL) throw PkgOpsException("revokePermission($id, $permission) does not support mode=NORMAL")
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "revokePermission($id, $permission, $mode->ADB)" }
+                return adbOps { it.revokePermission(id, permission) }
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "revokePermission($id, $permission, $mode->ROOT)" }
+                return rootOps { it.revokePermission(id, permission) }
+
+            }
+
+            throw ModeUnavailableException("Mode $mode is unavailable")
+        } catch (e: Exception) {
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "grantPermission(...): $mode unavailable for $id" }
+            } else {
+                log(TAG, WARN) { "grantPermission($id, $permission, $mode) failed: ${e.asLog()}" }
+            }
+            throw PkgOpsException(message = "grantPermission($id, $permission, $mode) failed", cause = e)
+        }
+    }
+
     suspend fun setAppOps(
         id: Installed.InstallId,
         key: AppOpsKey,

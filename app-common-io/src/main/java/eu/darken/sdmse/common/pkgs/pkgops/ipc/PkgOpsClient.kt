@@ -137,6 +137,13 @@ class PkgOpsClient @AssistedInject constructor(
         throw fakeIOException(e.getRootCause())
     }
 
+    fun revokePermission(id: Installed.InstallId, permission: Permission): Boolean = try {
+        connection.revokePermission(id.pkgId.name, id.userHandle.handleId, permission.permissionId)
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "revokePermission(id=$id, permission=$permission) failed: ${e.asLog()}" }
+        throw fakeIOException(e.getRootCause())
+    }
+
     fun setAppOps(id: Installed.InstallId, key: String, value: String): Boolean = try {
         connection.setAppOps(id.pkgId.name, id.userHandle.handleId, key, value)
     } catch (e: Exception) {
