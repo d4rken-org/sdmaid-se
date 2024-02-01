@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import com.android.billingclient.api.Purchase
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -28,7 +29,10 @@ class UpgradeRepoGplayTest : BaseTest() {
         UpgradeRepoGplay.Info(
             gracePeriod = false,
             billingData = null
-        ).isPro shouldBe false
+        ).apply {
+            isPro shouldBe false
+            type shouldBe UpgradeRepo.Type.GPLAY
+        }
 
         UpgradeRepoGplay.Info(
             gracePeriod = true,
@@ -48,5 +52,6 @@ class UpgradeRepoGplayTest : BaseTest() {
         )
         info.isPro shouldBe true
         info.upgradedAt shouldBe Instant.parse("2023-12-10T00:00:00Z")
+        info.type
     }
 }
