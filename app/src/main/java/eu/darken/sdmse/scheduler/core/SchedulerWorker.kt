@@ -19,9 +19,11 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -170,8 +172,8 @@ class SchedulerWorker @AssistedInject constructor(
             cmds.forEachIndexed { index, s -> log(TAG, INFO) { "Command #$index: $s" } }
 
             val shellOpsMode = when {
-                rootManager.isRooted() -> ShellOps.Mode.ROOT
-                shizukuManager.isShizukud() -> ShellOps.Mode.ADB
+                rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
+                shizukuManager.canUseShizukuNow() -> ShellOps.Mode.ADB
                 else -> ShellOps.Mode.NORMAL
             }
             val result = shellOps.execute(ShellOpsCmd(cmds = cmds), shellOpsMode)
