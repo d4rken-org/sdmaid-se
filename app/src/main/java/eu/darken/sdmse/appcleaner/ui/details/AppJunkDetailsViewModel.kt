@@ -65,6 +65,7 @@ class AppJunkDetailsViewModel @Inject constructor(
 
         // If the target is no longer with us, use the new item that is now at the same position
         val availableTarget = when {
+            newJunks.isEmpty() -> null
             currentIndex != -1 -> requestedTarget
             lastPosition != null -> newJunks[min(lastPosition!!, newJunks.size - 1)].identifier
             else -> requestedTarget
