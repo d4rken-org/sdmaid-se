@@ -6,6 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -17,8 +18,8 @@ import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
@@ -42,7 +43,11 @@ class ShizukuManager @Inject constructor(
         .replayingShare(appScope)
 
     val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = settings.useShizuku.flow
-        .flatMapLatest { if (it == true) shizukuWrapper.baseServiceBinder else emptyFlow() }
+        .flatMapLatest { if (it == true) shizukuWrapper.baseServiceBinder else flowOf(null) }
+        .catch { e ->
+            log(TAG, WARN) { "Shizuku binder access failed: ${e.asLog()}" }
+            emit(null)
+        }
         .setupCommonEventHandlers(TAG) { "binder" }
         .replayingShare(appScope)
 
