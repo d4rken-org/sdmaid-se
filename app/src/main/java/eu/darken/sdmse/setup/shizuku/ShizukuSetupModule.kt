@@ -24,7 +24,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -47,39 +46,44 @@ class ShizukuSetupModule @Inject constructor(
     private val refreshTrigger = MutableStateFlow(rngString)
 
     private val permissionRequester = shizukuManager.shizukuBinder
-        .filterNotNull()
         .onEach {
             if (shizukuSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
                 log(TAG) { "Requesting Shizuku permission for us..." }
                 shizukuManager.requestPermission()
             }
         }
+        .map { }
+        .onStart { emit(Unit) }
 
-    override val state: Flow<SetupModule.State> =
-        combine(refreshTrigger, permissionRequester, shizukuSettings.useShizuku.flow) { _, _, useShizuku ->
+    override val state: Flow<SetupModule.State> = combine(
+        refreshTrigger,
+        shizukuSettings.useShizuku.flow,
+    ) { _, useShizuku ->
 
-            val baseState = State(
-                pkg = shizukuManager.pkgId,
-                useShizuku = useShizuku,
-                isInstalled = shizukuManager.isInstalled(),
-                isCompatible = shizukuManager.isCompatible(),
+        val baseState = State(
+            pkg = shizukuManager.pkgId,
+            useShizuku = useShizuku,
+            isInstalled = shizukuManager.isInstalled(),
+            isCompatible = shizukuManager.isCompatible(),
+        )
+
+        if (useShizuku != true) return@combine flowOf(baseState)
+
+        combine(
+            // Just tie the lifecycle of the requester to the state's subscribers
+            permissionRequester,
+            shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) },
+            shizukuManager.shizukuBinder.onStart { emit(null) },
+        ) { _, _, binder ->
+            baseState.copy(
+                basicService = binder?.pingBinder() ?: false,
+                ourService = shizukuManager.isShizukuServiceAvailable(),
             )
-
-            if (useShizuku != true) return@combine flowOf(baseState)
-
-            combine(
-                shizukuManager.shizukuBinder.onStart { emit(null) },
-                shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) }
-            ) { binder, _ ->
-                baseState.copy(
-                    basicService = binder?.pingBinder() ?: false,
-                    ourService = shizukuManager.isShizukuServiceAvailable(),
-                )
-            }
         }
-            .flatMapLatest { it }
-            .onEach { log(TAG) { "New Shizuku setup state: $it" } }
-            .replayingShare(appScope)
+    }
+        .flatMapLatest { it }
+        .onEach { log(TAG) { "New Shizuku setup state: $it" } }
+        .replayingShare(appScope)
 
     override suspend fun refresh() {
         log(TAG) { "refresh()" }
