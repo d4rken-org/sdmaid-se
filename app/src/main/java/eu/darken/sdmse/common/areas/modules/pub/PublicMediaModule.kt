@@ -18,11 +18,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.canWrite
-import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
-import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
@@ -50,19 +48,11 @@ class PublicMediaModule @Inject constructor(
 
                 try {
                     path.lookup(gatewaySwitch)
-                } catch (e: IOException) {
-                    log(TAG, ERROR) { "Failed lookup() for $area: ${e.asLog()}" }
-                    return@filter false
+                    true
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    false
                 }
-
-                try {
-                    path.listFiles(gatewaySwitch)
-                } catch (e: IOException) {
-                    log(TAG, ERROR) { "Failed listFiles() for $area: ${e.asLog()}" }
-                    return@filter false
-                }
-
-                true
             }
             .map { (parentArea, path) ->
                 DataArea(
