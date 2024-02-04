@@ -317,22 +317,22 @@ class PkgOps @Inject constructor(
     suspend fun isRunning(id: Installed.InstallId, mode: Mode = Mode.AUTO): Boolean {
         try {
             if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG) { "isRunning($id, $mode->ADB)" }
+                log(TAG, VERBOSE) { "isRunning($id, $mode->ADB)" }
                 return adbOps { it.isRunning(id.pkgId) }
             }
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "isRunning($id, $mode->ROOT)" }
+                log(TAG, VERBOSE) { "isRunning($id, $mode->ROOT)" }
                 return rootOps { it.isRunning(id.pkgId) }
             }
 
             if (PACKAGE_USAGE_STATS.isGranted(context) && (mode == Mode.AUTO || mode == Mode.NORMAL)) {
-                log(TAG) { "isRunning($id, $mode->NORMAL)" }
+                log(TAG, VERBOSE) { "isRunning($id, $mode->NORMAL)" }
                 val now = System.currentTimeMillis()
                 val stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, now - 60 * 1000, now)
                 val stat = stats.find { it.packageName == id.pkgId.name }
                 val secondsSinceLastUse = stat?.let { (System.currentTimeMillis() - it.lastTimeUsed) / 1000L }
-                log(TAG) { "isRunning($id): ${secondsSinceLastUse}s" }
+                log(TAG, VERBOSE) { "isRunning($id): ${secondsSinceLastUse}s" }
                 return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } ?: false
             }
 
