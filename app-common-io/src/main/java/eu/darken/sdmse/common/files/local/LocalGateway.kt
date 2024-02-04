@@ -241,6 +241,7 @@ class LocalGateway @Inject constructor(
                     else -> if (javaFile.canRead()) javaFile.listFiles2() else null
                 }
             } catch (e: Exception) {
+                log(TAG) { "listFiles($path, $mode) failed: $e" }
                 null
             }
 
