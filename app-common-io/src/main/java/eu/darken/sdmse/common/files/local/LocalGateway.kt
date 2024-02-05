@@ -402,14 +402,14 @@ class LocalGateway @Inject constructor(
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
                     if (!canRead) throw ReadException(path)
-                    DirectLocalWalker(
+                    // The `canRead` check for Mode.NORMAL can return true even if we lack permissions for subdirectories
+                    // We need the indirect walker here to be able to escalate to other available modes
+                    IndirectLocalWalker(
+                        gateway = this@LocalGateway,
+                        mode = Mode.AUTO,
                         start = path,
-                        onFilter = { file: LocalPathLookup ->
-                            options.onFilter?.invoke(file) ?: true
-                        },
-                        onError = { file: LocalPathLookup, exception: Exception ->
-                            options.onError?.invoke(file, exception) ?: true
-                        }
+                        onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
+                        onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
                     )
                 }
 
