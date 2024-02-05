@@ -18,7 +18,7 @@ import java.util.LinkedList
 // TODO unit test coverage
 class DirectLocalWalker constructor(
     private val start: LocalPath,
-    private val onFilter: suspend (LocalPathLookup) -> Boolean,
+    private val onFilter: suspend (LocalPathLookup) -> Boolean = { true },
     private val onError: suspend (LocalPathLookup, Exception) -> Boolean = { _, _ -> true },
 ) : AbstractFlow<LocalPathLookup>() {
     private val tag = "$TAG#${hashCode()}"
