@@ -379,7 +379,7 @@ class LocalGateway @Inject constructor(
     suspend fun walk(
         path: LocalPath,
         options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
-        mode: Mode = Mode.AUTO
+        mode: Mode = Mode.AUTO,
     ): Flow<LocalPathLookup> = runIO {
         try {
             val javaFile = path.asFile()
@@ -388,7 +388,7 @@ class LocalGateway @Inject constructor(
                     try {
                         javaFile.listFiles2()
                         true
-                    } catch (e: Exception) {
+                    } catch (e: IOException) {
                         false
                     }
                 } else {
@@ -402,11 +402,8 @@ class LocalGateway @Inject constructor(
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
                     if (!canRead) throw ReadException(path)
-                    // The `canRead` check for Mode.NORMAL can return true even if we lack permissions for subdirectories
-                    // We need the indirect walker here to be able to escalate to other available modes
-                    IndirectLocalWalker(
+                    EscalatingWalker(
                         gateway = this@LocalGateway,
-                        mode = Mode.AUTO,
                         start = path,
                         onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
                         onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
