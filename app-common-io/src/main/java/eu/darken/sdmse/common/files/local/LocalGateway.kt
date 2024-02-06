@@ -399,9 +399,18 @@ class LocalGateway @Inject constructor(
             }
 
             when {
-                mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
+                mode == Mode.NORMAL -> {
                     log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
                     if (!canRead) throw ReadException(path)
+                    DirectLocalWalker(
+                        start = path,
+                        onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
+                        onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
+                    )
+                }
+
+                canRead && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
                     EscalatingWalker(
                         gateway = this@LocalGateway,
                         start = path,

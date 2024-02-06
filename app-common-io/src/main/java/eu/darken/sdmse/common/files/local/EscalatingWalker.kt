@@ -18,6 +18,9 @@ import java.util.LinkedList
 
 // TODO support symlinks?
 // TODO unit test coerage
+/**
+ * Prevents unnecessary lookups in Mode.NORMAL for nested directories
+ */
 class EscalatingWalker constructor(
     private val gateway: LocalGateway,
     private val start: LocalPath,
