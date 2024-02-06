@@ -8,13 +8,14 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.local.toLocalPath
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
-import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -25,11 +26,12 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
+import java.io.File
 import java.util.UUID
 import javax.inject.Inject
 
@@ -143,18 +145,15 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 vm.launch {
-                    shizukuClient.useRes {
-                        val base = it.ipc.pkgOps.forceStop("com.android.vending")
-                        log(TAG) { "###BASE Shizuku: $base" }
-                        delay(10 * 60 * 1000L)
-                    }
-                }
-                vm.launch {
-                    rootClient.useRes {
-                        val base = it.ipc.pkgOps.forceStop("com.android.vending")
-                        log(TAG) { "###BASE Root: $base" }
-                        delay(10 * 60 * 1000L)
-                    }
+                    File("/data/system/graphicsstats")
+                        .toLocalPath()
+                        .walk(
+                            gatewaySwitch
+                        )
+                        .toList()
+                        .forEach {
+                            log(TAG) { "###TEST walked: $it" }
+                        }
                 }
             }
         )

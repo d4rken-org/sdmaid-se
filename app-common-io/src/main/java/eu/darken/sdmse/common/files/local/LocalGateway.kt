@@ -405,8 +405,7 @@ class LocalGateway @Inject constructor(
                     EscalatingWalker(
                         gateway = this@LocalGateway,
                         start = path,
-                        onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
-                        onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
+                        options = options,
                     )
                 }
 
