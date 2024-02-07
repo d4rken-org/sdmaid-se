@@ -3,6 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="eu.darken.sdmse.main.ui.MainActivity">
     <item
+        android:id="@+id/menu_item_donate"
+        android:icon="@drawable/ic_coffee_24"
+        android:orderInCategory="90"
+        android:tooltipText="Donate"
+        android:title="Donate"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_item_twitter"
         android:icon="@drawable/ic_twitter"
         android:orderInCategory="100"

@@ -468,4 +468,12 @@
             android:name="item"
             app:argType="eu.darken.sdmse.common.previews.item.PreviewItem" />
     </fragment>
+
+    <action
+        android:id="@+id/goToDonateFragment"
+        app:destination="@id/donateFragment" />
+    <fragment
+        android:id="@+id/donateFragment"
+        android:name="eu.darken.sdmse.common.donate.ui.DonateFragment"
+        tools:layout="@layout/donate_fragment" />
 </navigation>
