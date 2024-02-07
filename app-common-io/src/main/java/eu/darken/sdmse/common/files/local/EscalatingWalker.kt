@@ -57,8 +57,8 @@ class EscalatingWalker constructor(
                             .map { it.toLocalPath().performLookup() }
                             .filter {
                                 val allowed = options.onFilter?.invoke(it) ?: true
-                                if (Bugs.isTrace) {
-                                    if (!allowed) log(tag, VERBOSE) { "Skipping (filter): $it" }
+                                if (Bugs.isTrace && !allowed) {
+                                    log(tag, VERBOSE) { "Skipping (filter): $it" }
                                 }
                                 allowed
                             }
@@ -85,9 +85,7 @@ class EscalatingWalker constructor(
                                 mode = item.targetMode
                             )
                             .collect { child ->
-                                if (child.isDirectory) {
-                                    queue.addFirst(item.toSubItem(child))
-                                }
+                                // `walk` already processes all subdirectories, no need to queue them again
                                 collector.emit(child)
                             }
                         continue
