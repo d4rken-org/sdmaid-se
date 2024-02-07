@@ -48,7 +48,7 @@ class FilterContentDetailsViewModel @Inject constructor(
             },
     ) { progress, data ->
         State(
-            items = data.filterContents.toList(),
+            items = data.filterContents.sortedByDescending { it.size },
             target = currentTarget ?: args.filterIdentifier,
             progress = progress,
         )
