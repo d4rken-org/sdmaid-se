@@ -42,13 +42,15 @@ class SystemCleanerListViewModel @Inject constructor(
         systemCleaner.state.map { it.data }.filterNotNull(),
         systemCleaner.progress,
     ) { data, progress ->
-        val items = data.filterContents.map { content ->
-            SystemCleanerListRowVH.Item(
-                content = content,
-                onItemClicked = { events.postValue(SystemCleanerListEvents.ConfirmDeletion(listOf(it))) },
-                onDetailsClicked = { showDetails(it) }
-            )
-        }
+        val items = data.filterContents
+            .sortedByDescending { it.size }
+            .map { content ->
+                SystemCleanerListRowVH.Item(
+                    content = content,
+                    onItemClicked = { events.postValue(SystemCleanerListEvents.ConfirmDeletion(listOf(it))) },
+                    onDetailsClicked = { showDetails(it) }
+                )
+            }
         State(
             items = items,
             progress = progress,
