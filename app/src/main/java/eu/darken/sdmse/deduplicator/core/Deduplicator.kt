@@ -150,6 +150,7 @@ class Deduplicator @Inject constructor(
         val paths = cluster.groups
             .flatMap { it.duplicates }
             .map { it.path }
+            .filter { files.isEmpty() || files.contains(it) }
             .toSet()
 
         val exclusions = paths
@@ -170,9 +171,9 @@ class Deduplicator @Inject constructor(
                             duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
                         )
 
-                        Duplicate.Type.PHASH -> {
-                            group // TODO NOOP
-                        }
+                        Duplicate.Type.PHASH -> (group as PHashDuplicate.Group).copy(
+                            duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
+                        )
                     }
                     if (newGroup.duplicates.size >= 2) {
                         newGroup
