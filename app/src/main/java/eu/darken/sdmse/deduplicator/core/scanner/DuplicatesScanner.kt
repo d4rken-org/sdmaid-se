@@ -59,22 +59,32 @@ class DuplicatesScanner @Inject constructor(
         val overlaps = mutableMapOf<ChecksumDuplicate.Group, Set<PHashDuplicate.Group>>()
         val uniques = mutableSetOf<PHashDuplicate.Group>()
 
-        // Sort phash results, which need to me grouped with others, and which are unique?
+        // Sort phash results, which need to be grouped with others, and which are unique?
         phGroups.forEach { phGrp ->
             val phashPaths = phGrp.duplicates.map { it.path }.toSet()
 
-            val cksGroup = cksGroups.find { cksGrp ->
+            val cksOverlaps = cksGroups.filter { cksGrp ->
                 cksGrp.duplicates.any { phashPaths.contains(it.path) }
             }
 
-            if (cksGroup != null) {
-                overlaps[cksGroup] = (overlaps[cksGroup] ?: emptySet()).plus(phGrp)
-            } else {
-                uniques.add(phGrp)
+            when {
+                cksOverlaps.isNotEmpty() -> {
+                    cksOverlaps.forEach { overlaps[it] = (overlaps[it] ?: emptySet()).plus(phGrp) }
+                }
+
+                else -> {
+                    uniques.add(phGrp)
+                }
             }
         }
 
         val clusters = mutableSetOf<Duplicate.Cluster>()
+
+        val cksCoveredPaths = cksGroups
+            .map { it.duplicates }
+            .flatten()
+            .map { it.path }
+            .toSet()
 
         cksGroups
             .map { cksGrp ->
@@ -83,14 +93,15 @@ class DuplicatesScanner @Inject constructor(
 
                 if (Bugs.isTrace) overlapping?.forEachIndexed { index, group -> log(TAG, VERBOSE) { "#$index $group" } }
 
-                val coveredPaths = cksGrp.duplicates.map { it.path }.toSet()
 
                 val grps = mutableSetOf<Duplicate.Group>(cksGrp)
 
                 overlapping
                     ?.map { phGrp ->
+                        // If some dupes are already covered by checksum matches, then they take precedence
+                        // A similarity match that already has a checksum match, will not be shown as similarity match
                         val uniquePhDupes = phGrp.duplicates
-                            .filter { phDupe -> !coveredPaths.contains(phDupe.path) }
+                            .filter { phDupe -> !cksCoveredPaths.contains(phDupe.path) }
                             .toSet()
                         phGrp.copy(duplicates = uniquePhDupes)
                     }
