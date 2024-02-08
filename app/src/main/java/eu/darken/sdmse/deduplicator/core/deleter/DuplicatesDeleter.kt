@@ -105,8 +105,8 @@ class DuplicatesDeleter @Inject constructor(
             .flatMap { it.groups }
             .filter { group -> targets.contains(group.identifier) }
             .map { group ->
-                log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier} (dupes=${group.count}" }
-                if (deleteAll || targets.size == 1) {
+                log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier} (dupes=${group.count})" }
+                if (deleteAll || group.duplicates.size == 1) {
                     targetDuplicates(group.duplicates.map { it.identifier }.toSet())
                 } else {
                     val (favorite, rest) = arbiter.decideDuplicates(group.duplicates)
