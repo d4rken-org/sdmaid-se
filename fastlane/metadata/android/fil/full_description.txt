@@ -8,8 +8,11 @@ Walang sinumang perpekto, kahit na ang Android.
 Let’s not go on here… Let SD Maid SE help you:
 
 * Linisin ang datos na naiwan ng mga na-uninstall nang app
-* Hanapin ang nakatagong cache ng mga app
-* Tanggalin ang mga walang saysay na file ng sistema
+*Burahin ang mga expendable na files at mga nakatagong caches
+*Tanggalin ang mga di-ginagamit na system files
+* Gumawa ng sarili mong mga filters para sa random files
+* Hanapin at burahin ang mga parehong data
+* Analyze your storage and delete large files taking up space
 
 Walang mga ad sa SD Maid SE. Nangangailangan ng bayad na upgrade ang ilang feature.
 

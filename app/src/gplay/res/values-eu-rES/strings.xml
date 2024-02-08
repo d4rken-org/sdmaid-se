@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">SD Maid Pro behar da</string>
+    <string name="upgrades_dashcard_title">SD Maid goratu</string>
+    <string name="upgrades_dashcard_body">SD Maid Prok emaitza hobeak, ezaugarri eta aukera gehiago eskaintzen dizkie argindar erabiltzaileei.</string>
+    <string name="upgrades_dashcard_upgrade_action">Goratu</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play ez dago erabilgarri</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ezin da Google Playrekin konektatu. Google Play instalatuta eta eguneratuta dago? Zure Google kontua sartu da? Saiatu Google Play aplikazioaren katxea garbitzen eta zure gailua berrabiarazten.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ez dira erosketarik aurkitu. Kontu zuzena erabiltzen ari zara?</string>
+    <string name="upgrade_screen_title">SD Maid Pro lortu</string>
+    <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Abantailak</string>
+    <string name="upgrade_screen_benefits_body">• Garbitzeko aplikazioa 💯\n• Programatutako eragiketak ⏰\n• Aukera gehigarriak erraminta guztietarako⚙️\n• Zure ezabaketa-arau propioak ✍️\n• Garatzaile motibatua 🧙\nEta gehiago...</string>
+    <string name="upgrade_screen_how_title">Ezarpenak</string>
+    <string name="upgrade_screen_how_body">Aukera dezakezu erosketa bakarra eta urteko harpidetza merkeagoa.\nHarpidetza 14 eguneko doako epaiketa batekin hasten da. Ondoren, urtean behin kobratuko duzu. Epaiketa eta harpidetza edozein unetan ezeztatu daitezke.\nEzaugarri berdinak, prezio eredu desberdinak.</string>
+    <string name="upgrade_screen_subscription_trial_action">14 eguneko proba doan hasi</string>
+    <string name="upgrade_screen_subscription_action">Harpidetu</string>
+    <string name="upgrade_screen_subscription_action_hint">Harpidetza urtero %s-ko prezioa du.</string>
+    <string name="upgrade_screen_iap_action">Erosketa bakarra</string>
+    <string name="upgrade_screen_iap_action_hint">Erosketa bakarraren prezioa %s-koa da.</string>
+    <string name="upgrade_screen_thanks_toast">Hoberena zara! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Berreskuratu erosketa</string>
+    <string name="upgrade_screen_restore_purchase_message">Zure igoera baliozkoa da Googleko kontu berean dauden gailuen bidez.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Aitortu gabeko eguneratze-arazoak konpontzeko aholkuak:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Storeren sinkronizazioak denbora behar izan dezake. Saiatu berrabiarazten, Google Play katxea ezabatzen edo, besterik gabe, itxaron.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Kontu anitzek Google Play nahas dezakete. Beste kontu batzuetatik atera edo Google Play webgunearen bidez instalatu, eta horrek elkarteak kontu zehatz batekin behartzen ditu.</string>
+    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
+    <string name="nudge_betagoodbye_body">Elkarrekin, lehen askapenera iritsi gara! Mila esker laguntzeagatik! Garapenak aurrera jarraituko du, noski, baina orain eraikin egonkorragoetara joan zaitezke, nahi baduzu. Egin ezazu Google Playn probatik kanpo.</string>
+    <string name="nudge_betagoodbye_hint">Ohar txiki bat: Probetan emandako kalifikazioak bakarrik ikusten ditut, eskertuko nizuke SD Neskameari kalifikazio publikoa ematea pozik bazaude.</string>
+    <string name="nudge_betagoodbye_positive_action">Ez aukeratu</string>
+    <string name="nudge_betagoodbye_negative_action">Segi probatzen</string>
+</resources>

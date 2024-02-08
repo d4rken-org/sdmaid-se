@@ -450,6 +450,7 @@
     <string name="appcontrol_app_sizes_apk_label">Aplikácia</string>
     <string name="appcontrol_app_sizes_data_label">Dáta</string>
     <string name="appcontrol_app_sizes_cache_label">Vyrovnávacia pamäť</string>
+    <string name="appcontrol_toggle_confirmation_title">Potvrdiť akciu</string>
     <string name="analyzer_tool_name">Analyzátor úložiska</string>
     <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
     <string name="analyzer_progress_scanning_device">Vyhľadávanie úložných zariadení</string>
