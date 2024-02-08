@@ -430,6 +430,11 @@
     <string name="appcontrol_app_sizes_apk_label">Uygulama</string>
     <string name="appcontrol_app_sizes_data_label">Veri</string>
     <string name="appcontrol_app_sizes_cache_label">Önbellek</string>
+    <string name="appcontrol_toggle_confirmation_title">İşlemi onayla</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d uygulamasının etkin/devre dışı durumunu değiştir?</item>
+        <item quantity="other">%d uygulamaları için etkin/devre dışı durumlarını değiştir?</item>
+    </plurals>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>

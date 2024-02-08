@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message"></string>
+    <string name="dashboard_settings_category"></string>
+</resources>

@@ -431,6 +431,10 @@
     <string name="appcontrol_app_sizes_data_label">Gegevens</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Bevestig actie</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Ingeschakelde/uitgeschakelde status van %d app wijzigen?</item>
+        <item quantity="other">Ingeschakelde/uitgeschakelde status voor %d apps wijzigen?</item>
+    </plurals>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
