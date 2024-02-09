@@ -65,6 +65,8 @@
     <string name="general_progress_loading_egg_9">Buffering life choices</string>
     <string name="general_progress_loading_egg_10">Summoning Cthulhu</string>
     <string name="general_progress_loading_egg_11">This is fine</string>
+    <string name="general_progress_loading_egg_12">Please hold</string>
+    <string name="general_progress_loading_egg_13">At least you\'re not on hold</string>
     <string name="general_help_action">Help</string>
     <string name="general_continue">Continue</string>
     <string name="general_progress_queued">In queue</string>
