@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 
 @get:StringRes
 val easterEggProgressMsg: Int
-    get() = when ((0..11).random()) {
+    get() = when ((0..13).random()) {
         0 -> R.string.general_progress_loading_egg_0
         1 -> R.string.general_progress_loading_egg_1
         2 -> R.string.general_progress_loading_egg_2
@@ -17,5 +17,7 @@ val easterEggProgressMsg: Int
         9 -> R.string.general_progress_loading_egg_9
         10 -> R.string.general_progress_loading_egg_10
         11 -> R.string.general_progress_loading_egg_11
+        12 -> R.string.general_progress_loading_egg_12
+        13 -> R.string.general_progress_loading_egg_13
         else -> throw IllegalArgumentException()
     }
