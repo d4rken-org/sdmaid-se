@@ -26,6 +26,13 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         val storage = item.storage
 
         primary.text = storage.label.get(context)
+
+        identifier.apply {
+            val internalId = storage.id.internalId
+            isVisible = internalId != null
+            text = internalId
+        }
+
         secondary.text = when (storage.type) {
             DeviceStorage.Type.PRIMARY -> getString(R.string.analyzer_storage_type_primary_description)
             DeviceStorage.Type.SECONDARY -> getString(R.string.analyzer_storage_type_secondary_description)
