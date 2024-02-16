@@ -54,11 +54,27 @@
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:singleLine="true"
-            app:layout_constraintBottom_toTopOf="@id/secondary"
+            app:layout_constraintBottom_toTopOf="@id/identifier"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/progress"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Primary storage" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/identifier"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textIsSelectable="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/secondary"
+            app:layout_constraintEnd_toEndOf="@id/primary"
+            app:layout_constraintStart_toStartOf="@id/primary"
+            app:layout_constraintTop_toBottomOf="@id/primary"
+            tools:text="8765-4321"
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/secondary"
@@ -70,7 +86,7 @@
             app:layout_constraintBottom_toTopOf="@id/tertiary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/progress"
-            app:layout_constraintTop_toBottomOf="@id/primary"
+            app:layout_constraintTop_toBottomOf="@id/identifier"
             tools:text="Your primary storage, e.g. the device's build in storage chip." />
 
         <com.google.android.material.textview.MaterialTextView
@@ -79,8 +95,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textStyle="bold"
             android:textColor="?colorError"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/secondary"
             app:layout_constraintStart_toStartOf="@id/secondary"
             app:layout_constraintTop_toBottomOf="@id/secondary"
