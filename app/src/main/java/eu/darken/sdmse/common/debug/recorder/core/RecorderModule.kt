@@ -45,13 +45,15 @@ class RecorderModule @Inject constructor(
     private val debugSettings: DebugSettings,
 ) {
 
-    private val triggerFile = try {
-        File(context.getExternalFilesDir(null), FORCE_FILE)
-    } catch (e: Exception) {
-        File(
-            Environment.getExternalStorageDirectory(),
-            "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE"
-        )
+    private val triggerFile by lazy {
+        try {
+            File(context.getExternalFilesDir(null), FORCE_FILE)
+        } catch (e: Exception) {
+            File(
+                Environment.getExternalStorageDirectory(),
+                "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE"
+            )
+        }
     }
 
     private val internalState = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
