@@ -83,6 +83,7 @@
     <string name="general_delete_selected_action">Eliminar seleccionados</string>
     <string name="general_show_details_action">Mostrar detalles</string>
     <string name="general_show_all_action">Mostrar todo</string>
+    <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
@@ -130,4 +131,8 @@
     <string name="general_timeunit_days">Días</string>
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Hecho</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s Archivo</item>
+        <item quantity="other">%s archivos</item>
+    </plurals>
 </resources>
