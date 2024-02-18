@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.hasFlags
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -149,6 +150,7 @@ class AppScanner @Inject constructor(
                 .let { readAppDirs(it) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
+        log(TAG) { "Determined ${inaccessibleCaches.size} in accessible caches" }
 
         val appJunks = allCurrentPkgs.mapNotNull { pkg ->
             val expendables = expendablesFromAppData[pkg.installId]
@@ -454,10 +456,17 @@ class AppScanner @Inject constructor(
     private suspend fun determineInaccessibleCaches(
         pkgs: Collection<Installed>,
     ): Collection<InaccessibleCache> {
-        if (!settings.includeInaccessibleEnabled.value() || rootManager.canUseRootNow()) return emptyList()
-        if (!settings.filterDefaultCachesPublicEnabled.value() || !settings.filterDefaultCachesPrivateEnabled.value()) {
+        log(TAG, VERBOSE) { "determineInaccessibleCaches(${pkgs.size})" }
+        if (!settings.includeInaccessibleEnabled.value() || rootManager.canUseRootNow()) {
+            log(TAG) { "determineInaccessibleCaches(...) SKIPPING, better options are available" }
             return emptyList()
         }
+        if (!settings.filterDefaultCachesPublicEnabled.value() || !settings.filterDefaultCachesPrivateEnabled.value()) {
+            log(TAG) { "determineInaccessibleCaches(...) SKIPPING, filter for default caches are not enabled" }
+            return emptyList()
+        }
+
+        // If we skip detection if ACS is disable, users might not be aware of the ACS option's capabilities?
         val acsEnabled = settings.useAccessibilityService.value()
         val isSamsungRom = BuildWrap.MANUFACTOR == "Samsung"
         val currentUser = userManager.currentUser()
@@ -471,6 +480,7 @@ class AppScanner @Inject constructor(
             .filterIsInstance<NormalPkg>()
             .mapNotNull { inaccessibleCacheProvider.determineCache(it) }
             .filter { !it.isEmpty }
+            .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "determineInaccessibleCaches(...) -> $it" } }
     }
 
     companion object {
