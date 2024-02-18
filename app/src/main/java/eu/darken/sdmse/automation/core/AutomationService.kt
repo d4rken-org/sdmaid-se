@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.isValidAndroidEntryPoint
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
@@ -81,11 +82,24 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     private var controlView: AutomationControlView? = null
 
+    private fun checkLaunch(): Boolean = if (!isValidAndroidEntryPoint()) {
+        log(TAG, ERROR) { "Invalid launch: Launched by foreign application: $application" }
+        // stopSelf()/disableSelf() doesn't work in onCreate()
+        disableSelf()
+        false
+    } else {
+        true
+    }
+
     override fun onCreate() {
         log(TAG) { "onCreate(application=$application)" }
-        super.onCreate()
-
         Bugs.leaveBreadCrumb("Automation service launched")
+
+        try {
+            super.onCreate()
+        } catch (e: IllegalStateException) {
+            if (checkLaunch()) throw e else return
+        }
 
         if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
             log(TAG, INFO) { "We are not restricted by app ops." }
@@ -155,6 +169,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     override fun onServiceConnected() {
         log(TAG) { "onServiceConnected()" }
+        if (!checkLaunch()) return
+
         instance = this
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
@@ -175,11 +191,17 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override fun onDestroy() {
         log(TAG) { "onDestroy()" }
         Bugs.leaveBreadCrumb("Automation service destroyed")
+
+        if (!checkLaunch()) return
+
         serviceScope.cancel()
         super.onDestroy()
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
+        log(TAG) { "onAccessibilityEvent(eventType=${event.eventType})" }
+        if (!checkLaunch()) return
+
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
             return
