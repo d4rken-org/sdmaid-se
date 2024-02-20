@@ -52,6 +52,7 @@ class AppControl @Inject constructor(
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
+    private val settings: AppControlSettings,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -67,19 +68,22 @@ class AppControl @Inject constructor(
     override val type: SDMTool.Type = SDMTool.Type.APPCONTROL
 
     override val state: Flow<State> = eu.darken.sdmse.common.flow.combine(
+        internalData,
+        progress,
         usageStatsSetupModule.state,
         storageSetupModule.state,
         rootManager.useRoot,
         shizukuManager.useShizuku,
-        internalData,
-        progress,
-    ) { usageState, storageState, useRoot, useShizuku, data, progress ->
+        settings.moduleSizingEnabled.flow,
+        settings.moduleActivityEnabled.flow,
+    ) { data, progress, usageState, storageState, useRoot, useShizuku, sizingEnabled, activityEnabled ->
+
         State(
             data = data,
             progress = progress,
-            isActiveInfoAvailable = usageState.isComplete || useRoot || useShizuku,
-            isAppToggleAvailable = useRoot || useShizuku,
-            isSizeInfoAvailable = usageState.isComplete && storageState.isComplete,
+            isActiveInfoAvailable = activityEnabled && (usageState.isComplete || useRoot || useShizuku),
+            isAppToggleAvailable = (useRoot || useShizuku),
+            isSizeInfoAvailable = sizingEnabled && usageState.isComplete && storageState.isComplete,
         )
     }.replayingShare(appScope)
 

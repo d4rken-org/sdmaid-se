@@ -37,6 +37,11 @@
             app:fragment="eu.darken.sdmse.deduplicator.ui.settings.DeduplicatorSettingsFragment"
             app:summary="@string/deduplicator_explanation_short"
             app:title="@string/deduplicator_tool_name" />
+        <Preference
+            android:icon="@drawable/ic_apps"
+            app:fragment="eu.darken.sdmse.appcontrol.ui.settings.AppControlSettingsFragment"
+            app:summary="@string/appcontrol_explanation_short"
+            app:title="@string/appcontrol_tool_name" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/general_device_label">
