@@ -141,8 +141,9 @@ class DashboardViewModel @Inject constructor(
     ) { upgradeInfo, taskState ->
         TitleCardVH.Item(
             upgradeInfo = upgradeInfo,
+            webpageTool = webpageTool,
             isWorking = !taskState.isIdle,
-            onRibbonClicked = { webpageTool.open(SdmSeLinks.ISSUES) }
+            onRibbonClicked = { webpageTool.open(SdmSeLinks.ISSUES) },
         )
     }
 
