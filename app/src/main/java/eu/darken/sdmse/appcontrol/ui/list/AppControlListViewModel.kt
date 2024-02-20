@@ -144,9 +144,14 @@ class AppControlListViewModel @Inject constructor(
                 appInfos = null,
                 progressWorker = state.progress,
                 progressUI = Progress.Data(),
-                options = displayOptions,
+                options = if (displayOptions.listSort.mode == SortSettings.Mode.SIZE && !state.isSizeInfoAvailable) {
+                    displayOptions.copy(listSort = SortSettings())
+                } else {
+                    displayOptions
+                },
                 allowAppToggleActions = state.isAppToggleAvailable,
                 hasActiveInfo = state.isActiveInfoAvailable,
+                hasSizeInfo = state.isSizeInfoAvailable,
             )
             emit(initialState)
 
@@ -335,6 +340,7 @@ class AppControlListViewModel @Inject constructor(
         val progressUI: Progress.Data?,
         val options: DisplayOptions,
         val allowAppToggleActions: Boolean,
+        val hasSizeInfo: Boolean = false,
         val hasActiveInfo: Boolean = false,
     ) {
         val progress: Progress.Data?

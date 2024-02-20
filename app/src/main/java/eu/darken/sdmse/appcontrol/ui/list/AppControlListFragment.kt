@@ -12,6 +12,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.viewModels
@@ -225,6 +226,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     vm.updateSortMode(mode)
                 }
             }
+            sortmodeSize.isVisible = state.hasSizeInfo
 
             sortmodeDirection.setIconResource(
                 if (state.options.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
