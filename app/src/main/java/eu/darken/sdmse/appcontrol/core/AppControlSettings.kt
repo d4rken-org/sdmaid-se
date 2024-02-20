@@ -28,9 +28,12 @@ class AppControlSettings @Inject constructor(
     val listSort = dataStore.createValue("list.sort.settings", SortSettings(), moshi)
     val listFilter = dataStore.createValue("list.filter.settings", FilterSettings(), moshi)
     val ackSizeSortCaveat = dataStore.createValue("list.filter.sizesort.caveat.ack", false)
+    val moduleSizingEnabled = dataStore.createValue("module.sizing.enabled", true)
+    val moduleActivityEnabled = dataStore.createValue("module.activity.enabled", true)
 
     override val mapper = PreferenceStoreMapper(
-
+        moduleSizingEnabled,
+        moduleActivityEnabled
     )
 
     companion object {
