@@ -39,9 +39,12 @@ class TitleCardVH(parent: ViewGroup) :
         subtitle.apply {
             text = getString(slogan)
             if (slogan == eu.darken.sdmse.common.R.string.slogan_message_8) {
-                setOnClickListener { item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ") }
+                setOnLongClickListener {
+                    item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                    true
+                }
             } else {
-                setOnClickListener(null)
+                setOnLongClickListener(null)
             }
         }
 
