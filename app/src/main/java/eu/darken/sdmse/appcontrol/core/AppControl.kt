@@ -79,7 +79,7 @@ class AppControl @Inject constructor(
             progress = progress,
             isActiveInfoAvailable = usageState.isComplete || useRoot || useShizuku,
             isAppToggleAvailable = useRoot || useShizuku,
-            isSizeInfoAvailable = usageState.isComplete || storageState.isComplete,
+            isSizeInfoAvailable = usageState.isComplete && storageState.isComplete,
         )
     }.replayingShare(appScope)
 
