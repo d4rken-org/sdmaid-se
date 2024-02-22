@@ -8,6 +8,7 @@ import android.text.format.Formatter
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
@@ -24,6 +25,8 @@ import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import kotlinx.coroutines.delay
@@ -41,6 +44,7 @@ class AppControlListViewModel @Inject constructor(
     private val appControl: AppControl,
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -335,6 +339,11 @@ class AppControlListViewModel @Inject constructor(
 
     fun export(items: Collection<AppControlListAdapter.Item>, saveDir: Uri? = null) = launch {
         log(TAG) { "export(${items.size}, saveDir=$saveDir)" }
+        if (items.size > 1 && !upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
         if (saveDir == null) {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
             events.postValue(AppControlListEvents.ExportSelectPath(items.toList(), intent))
