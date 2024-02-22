@@ -4,11 +4,12 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.children
 import androidx.core.view.isGone
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.common.coil.loadAppIcon
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
@@ -43,6 +44,7 @@ class AppControlListRowVH(parent: ViewGroup) :
         primary.text = appInfo.label.get(context)
         secondary.text = appInfo.pkg.packageName
 
+        @Suppress("SetTextI18n")
         tertiary.text = "${appInfo.pkg.versionName}  (${appInfo.pkg.versionCode})"
 
         sizes.apply {
@@ -50,9 +52,11 @@ class AppControlListRowVH(parent: ViewGroup) :
             isVisible = appInfo.sizes != null
         }
 
-        tagSystem.tagSystem.isInvisible = !appInfo.pkg.isSystemApp
-        tagDisabled.tagDisabled.isInvisible = appInfo.pkg.isEnabled
-        tagActive.tagActive.isInvisible = !(appInfo.isActive ?: false)
+        tagSystem.tagSystem.isGone = !appInfo.pkg.isSystemApp
+        tagDisabled.tagDisabled.isGone = appInfo.pkg.isEnabled
+        tagActive.tagActive.isGone = appInfo.isActive != true
+        tagApkBase.tagApkBase.isGone = appInfo.exportType != AppExportType.APK && Bugs.isDebug
+        tagApkBundle.tagApkBundle.isGone = appInfo.exportType != AppExportType.BUNDLE && Bugs.isDebug
         tagContainer.isGone = tagContainer.children.none { it.isVisible }
 
         itemView.setOnClickListener { item.onItemClicked(appInfo) }

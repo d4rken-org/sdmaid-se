@@ -198,7 +198,7 @@ data class SAFDocFile(
         }
     }
 
-    internal fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
+    fun openPFD(contentResolver: ContentResolver, mode: FileMode): ParcelFileDescriptor {
         return contentResolver.openFileDescriptor(uri, mode.value) ?: throw IOException("Couldn't open $uri")
     }
 

@@ -447,6 +447,8 @@
     <string name="appcontrol_app_exclude_edit_description">This app is currently excluded from one or more tools.</string>
     <string name="appcontrol_tag_user">User</string>
     <string name="appcontrol_tag_active">Recently active</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
     <string name="appcontrol_tag_disabled">Disabled</string>
@@ -473,6 +475,10 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Get a rough estimate of each app\'s size.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determine activity</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Find out if an app is (or recently was) active.</string>
+    <string name="appcontrol_export_app_selection_action">Export apps</string>
+    <string name="appcontrol_export_title">Export app</string>
+    <string name="appcontrol_export_description">Save this app\'s install files to your device. This does not include app data.</string>
+    <string name="appcontrol_progress_exporting_x">Exporting %s</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>

@@ -2,11 +2,14 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.text.format.Formatter
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.*
+import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
@@ -19,8 +22,6 @@ import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -40,8 +41,6 @@ class AppControlListViewModel @Inject constructor(
     private val appControl: AppControl,
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,
-    private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -332,6 +331,19 @@ class AppControlListViewModel @Inject constructor(
         }
         val targets = items.map { it.appInfo.installId }.toSet()
         appControl.submit(UninstallTask(targets = targets))
+    }
+
+    fun export(items: Collection<AppControlListAdapter.Item>, saveDir: Uri? = null) = launch {
+        log(TAG) { "export(${items.size}, saveDir=$saveDir)" }
+        if (saveDir == null) {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
+            events.postValue(AppControlListEvents.ExportSelectPath(items.toList(), intent))
+            return@launch
+        }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        val result = appControl.submit(AppExportTask(targets = targets, saveDir)) as AppExportTask.Result
+
+        events.postValue(AppControlListEvents.ExportResult(result.success, result.failed))
     }
 
     data class State(

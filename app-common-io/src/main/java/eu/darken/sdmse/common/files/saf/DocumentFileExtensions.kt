@@ -16,7 +16,7 @@ import java.io.IOException
 import java.util.Date
 
 
-internal enum class FileMode constructor(val value: String) {
+enum class FileMode constructor(val value: String) {
     WRITE("w"), READ("r")
 }
 

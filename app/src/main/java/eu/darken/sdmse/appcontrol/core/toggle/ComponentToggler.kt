@@ -33,5 +33,4 @@ class ComponentToggler @Inject constructor(
     companion object {
         private val TAG = logTag("AppControl", "ComponentToggler")
     }
-
 }

@@ -1,3 +1,18 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
-sealed class AppActionEvents
+import android.content.Intent
+import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.export.AppExporter
+import eu.darken.sdmse.common.pkgs.features.Installed
+
+sealed class AppActionEvents {
+    data class SelectExportPath(
+        val appInfo: AppInfo,
+        val intent: Intent,
+    ) : AppActionEvents()
+
+    data class ExportResult(
+        val successful: Collection<AppExporter.Result>,
+        val failed: Collection<Installed.InstallId>,
+    ) : AppActionEvents()
+}

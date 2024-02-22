@@ -18,6 +18,11 @@
         android:title="@string/appcontrol_toggle_app_selection_action"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_export_selection"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:title="@string/appcontrol_export_app_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/baseline_select_all_24"
         android:title="@string/general_list_select_all_action"

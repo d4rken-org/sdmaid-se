@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.provider.Settings
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,11 +13,13 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
+import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
@@ -25,6 +28,7 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -40,7 +44,7 @@ import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
@@ -76,12 +80,17 @@ class AppActionViewModel @Inject constructor(
 
     val events = SingleLiveEvent<AppActionEvents>()
 
-    val state = combine(
-        exclusionManager.exclusions,
-        appControl.state,
+    val state = combineTransform(
         appControl.state.mapNotNull { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } },
+        appControl.state,
+        exclusionManager.exclusions,
         appControl.progress,
-    ) { exclusions, state, appInfo, progress ->
+    ) { appInfo, state, _, progress ->
+        val baseState = State(
+            appInfo = appInfo,
+            progress = progress ?: Progress.Data(),
+        )
+        emit(baseState)
 
         val sizeAction = appInfo.sizes?.let {
             SizeInfoVH.Item(
@@ -191,9 +200,14 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
-        State(
-            progress = progress,
+        val exportaction = ExportActionVH.Item(
             appInfo = appInfo,
+            onBackup = {
+                events.postValue(AppActionEvents.SelectExportPath(it, Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)))
+            }
+        )
+
+        val finalState = baseState.copy(
             actions = listOfNotNull(
                 sizeAction,
                 launchAction,
@@ -202,19 +216,38 @@ class AppActionViewModel @Inject constructor(
                 excludeAction,
                 disableAction,
                 uninstallAction,
-            )
+                exportaction,
+            ),
+            progress = progress,
         )
+        emit(finalState)
     }
         .asLiveData2()
 
+    fun exportApp(saveDir: Uri?) = launch {
+        if (saveDir == null) {
+            log(TAG, WARN) { "Export failed, no path picked" }
+            return@launch
+        }
+        log(TAG) { "exportApp($saveDir)" }
+
+        val result = appControl.submit(
+            AppExportTask(
+                targets = setOf(state.value!!.appInfo.installId),
+                savePath = saveDir,
+            )
+        ) as AppExportTask.Result
+
+        events.postValue(AppActionEvents.ExportResult(result.success, result.failed))
+    }
+
     data class State(
-        val progress: Progress.Data?,
         val appInfo: AppInfo,
-        val actions: List<AppActionAdapter.Item>?,
+        val progress: Progress.Data?,
+        val actions: List<AppActionAdapter.Item>? = null,
     )
 
     companion object {
         private val TAG = logTag("AppControl", "Action", "Dialog", "ViewModel")
     }
-
 }

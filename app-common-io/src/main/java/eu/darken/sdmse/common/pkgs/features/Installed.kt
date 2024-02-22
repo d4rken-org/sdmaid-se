@@ -17,6 +17,9 @@ interface Installed : PkgInfo {
     val sourceDir: APath?
         get() = applicationInfo?.sourceDir?.let { LocalPath.build(it) }
 
+    val splitSources: Set<APath>?
+        get() = applicationInfo?.splitSourceDirs?.map { LocalPath.build(it) }?.toSet()
+
     @Parcelize
     data class InstallId(
         val pkgId: Pkg.Id,
