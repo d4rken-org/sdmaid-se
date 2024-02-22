@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.export.AppExportTask
+import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
@@ -34,10 +36,15 @@ import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -53,6 +60,7 @@ class AppControl @Inject constructor(
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
     private val settings: AppControlSettings,
+    private val appExporterProvider: Provider<AppExporter>,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -97,6 +105,7 @@ class AppControl @Inject constructor(
                 is AppControlScanTask -> performScan(task)
                 is AppControlToggleTask -> performToggle(task)
                 is UninstallTask -> performUninstall(task)
+                is AppExportTask -> performExportSave(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -231,6 +240,39 @@ class AppControl @Inject constructor(
         )
 
         return UninstallTask.Result(successful, failed)
+    }
+
+    private suspend fun performExportSave(task: AppExportTask): AppExportTask.Result {
+        log(TAG) { "performExportSave(): $task" }
+        updateProgressPrimary { it.getString(R.string.appcontrol_progress_exporting_x, "...") }
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+
+        val exporter = appExporterProvider.get()
+
+        val exportResults = task.targets
+            .asFlow()
+            .map { targetId -> snapshot.apps.single { it.installId == targetId } }
+            .map { appInfo ->
+                updateProgressPrimary {
+                    it.getString(R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
+                }
+                exporter.withProgress(
+                    client = this,
+                    onUpdate = { existing, new -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
+                    onCompletion = { current -> current }
+                ) {
+                    exporter.save(appInfo, task.savePath)
+                }
+            }
+            .onEach { increaseProgress() }
+            .toList()
+
+        return AppExportTask.Result(
+            success = exportResults.toSet(),
+            failed = emptySet(),
+        )
     }
 
     private suspend fun Installed.toAppInfo(): AppInfo {

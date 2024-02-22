@@ -52,8 +52,8 @@
         style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:singleLine="true"
         android:layout_marginEnd="16dp"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/tag_container"
         app:layout_constraintEnd_toStartOf="@id/sizes"
         app:layout_constraintStart_toStartOf="@id/primary"
@@ -77,7 +77,7 @@
         tools:text="345 MB"
         tools:visibility="visible" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tag_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,9 +104,27 @@
         <include
             android:id="@+id/tag_active"
             layout="@layout/appcontrol_tag_active_view"
-            android:visibility="invisible"
             tools:visibility="visible" />
 
-    </LinearLayout>
+        <include
+            android:id="@+id/tag_apk_base"
+            layout="@layout/appcontrol_tag_apk_base_view"
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/tag_apk_bundle"
+            layout="@layout/appcontrol_tag_apk_bundle_view"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/tag_flow"
+            style="@style/AppControlTagContainerFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tag_apk_base,tag_apk_bundle,tag_system,tag_disabled,tag_active"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Menu
@@ -8,9 +10,12 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SearchView
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
@@ -26,6 +31,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.hasApiLevel
@@ -57,10 +64,20 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             if (ui.drawer.isDrawerOpen) ui.drawer.toggle()
         }
     }
+    private var lastSelection: Collection<AppControlListAdapter.Item>? = null
+    private lateinit var exportPath: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressedcallback)
+        exportPath = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                log(TAG, WARN) { "exportPathPickerLauncher returned ${result.resultCode}: ${result.data}" }
+                return@registerForActivityResult
+            }
+            log(TAG) { "lastSelection.size=${lastSelection?.size}" }
+            lastSelection?.let { vm.export(it, result.data?.data) }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -158,6 +175,12 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         true
                     }
 
+                    R.id.action_export_selection -> {
+                        vm.export(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -199,7 +222,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             showAppToggleActions = state.allowAppToggleActions
 
             loadingOverlay.setProgress(state.progress)
-            list.isInvisible = state.progress != null
+            list.isGone = state.progress != null
             fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()
             refreshAction.isInvisible = state.progress != null
 
@@ -248,11 +271,14 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 toolbar.subtitle = getQuantityString2(
                     eu.darken.sdmse.common.R.plurals.result_x_items, state.appInfos.size
                 )
-                adapter.update(state.appInfos)
             } else if (state.progress != null) {
                 toolbar.subtitle = getString(eu.darken.sdmse.common.R.string.general_progress_loading)
             } else {
                 toolbar.subtitle = null
+            }
+
+            if (state.appInfos != null && state.progress == null) {
+                adapter.update(state.appInfos)
             }
         }
 
@@ -307,6 +333,23 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
+
+                is AppControlListEvents.ExportSelectPath -> {
+                    lastSelection = event.items
+                    exportPath.launch(event.intent)
+                }
+
+                is AppControlListEvents.ExportResult -> {
+                    val msgSuccessful = getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.result_x_successful,
+                        event.successful.size
+                    )
+                    val msgFailed = getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.result_x_failed,
+                        event.failed.size
+                    )
+                    Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
+                }
             }
         }
 

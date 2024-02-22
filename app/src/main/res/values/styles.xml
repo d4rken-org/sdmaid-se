@@ -150,7 +150,7 @@
     </style>
 
     <style name="AppControlTagStyle" parent="TextAppearance.Material3.LabelSmall">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginLeft">2dp</item>
@@ -162,6 +162,16 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppControlTagContainerFlow">
+        <item name="flow_horizontalBias">0</item>
+        <item name="flow_horizontalGap">2dp</item>
+        <item name="flow_horizontalStyle">packed</item>
+        <item name="flow_verticalBias">0</item>
+        <item name="flow_verticalGap">2dp</item>
+        <item name="flow_verticalStyle">packed</item>
+        <item name="flow_wrapMode">chain2</item>
     </style>
 
     <style name="PreviewRoundedBox">
@@ -191,7 +201,7 @@
         <item name="backgroundTint">@color/sdm_button_bg_tint</item>
     </style>
 
-    <style name="SDMButton.Icon" parent="Widget.Material3.Button.IconButton"></style>
+    <style name="SDMButton.Icon" parent="Widget.Material3.Button.IconButton" />
 
     <style name="SDMButton.Icon.Outlined" parent="Widget.Material3.Button.IconButton.Outlined">
 

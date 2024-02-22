@@ -118,6 +118,14 @@
         <item quantity="one">%s item</item>
         <item quantity="other">%s items</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d successful</item>
+        <item quantity="other">%d successful</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d failed</item>
+        <item quantity="other">%d failed</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s can be freed</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Count</string>

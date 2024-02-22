@@ -5,6 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
@@ -38,6 +39,7 @@ class AppActionAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is AppStoreActionVH.Item }) { AppStoreActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SystemSettingsActionVH.Item }) { SystemSettingsActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ExcludeActionVH.Item }) { ExcludeActionVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ExportActionVH.Item }) { ExportActionVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

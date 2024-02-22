@@ -10,10 +10,6 @@ class MimeTypeTool @Inject constructor() {
 
     suspend fun determineMimeType(lookup: APathLookup<*>): String {
         val ext = MimeTypeMap.getFileExtensionFromUrl(lookup.name)
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: UNKNOWN_TYPE
-    }
-
-    companion object {
-        private const val UNKNOWN_TYPE = "application/octet-stream"
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: MimeTypes.Unknown.value
     }
 }
