@@ -169,6 +169,7 @@
 
     <string name="setup_inventory_card_title">App inventory</string>
     <string name="setup_inventory_card_body">SD Maid needs to know which apps you have to find files that don\'t belong to any installed apps.</string>
+    <string name="setup_inventory_card_extra">Look for a permission called \"App list\" or \"Query all packages\".</string>
 
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
     <string name="dataarea_warningcard_label">Data areas</string>
