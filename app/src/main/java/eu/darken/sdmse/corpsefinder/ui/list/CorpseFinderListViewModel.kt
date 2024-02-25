@@ -42,13 +42,15 @@ class CorpseFinderListViewModel @Inject constructor(
         corpseFinder.state.map { it.data }.filterNotNull(),
         corpseFinder.progress
     ) { data, progress ->
-        val rows = data.corpses.map { corpse ->
-            CorpseFinderListRowVH.Item(
-                corpse = corpse,
-                onItemClicked = { delete(setOf(it)) },
-                onDetailsClicked = { showDetails(it) }
-            )
-        }
+        val rows = data.corpses
+            .sortedByDescending { it.size }
+            .map { corpse ->
+                CorpseFinderListRowVH.Item(
+                    corpse = corpse,
+                    onItemClicked = { delete(setOf(it)) },
+                    onDetailsClicked = { showDetails(it) }
+                )
+            }
         State(rows, progress)
     }.asLiveData2()
 

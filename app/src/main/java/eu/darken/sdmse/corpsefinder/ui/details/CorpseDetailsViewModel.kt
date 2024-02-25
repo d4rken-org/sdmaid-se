@@ -45,7 +45,9 @@ class CorpseDetailsViewModel @Inject constructor(
             .distinctUntilChangedBy { data -> data.corpses.map { it.identifier }.toSet() },
     ) { progress, data ->
         State(
-            items = data.corpses.toList(),
+            items = data.corpses
+                .sortedByDescending { it.size }
+                .toList(),
             target = currentTarget ?: args.corpsePath,
             progress = progress,
         )
