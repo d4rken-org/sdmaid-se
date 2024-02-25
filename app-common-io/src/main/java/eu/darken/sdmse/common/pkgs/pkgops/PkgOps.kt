@@ -130,7 +130,13 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun queryPkgs(flags: Int, userHandle: UserHandle2): Collection<Installed> {
-        val rawPkgs = rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+        val rawPkgs = if (rootManager.canUseRootNow()) {
+            rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+        } else if (shizukuManager.canUseShizukuNow()) {
+            adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+        } else {
+            throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+        }
 
         return ipcFunnel.use {
             rawPkgs.map {

@@ -17,6 +17,8 @@ import eu.darken.sdmse.common.pkgs.pkgops.IllegalPkgDataException
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
 import java.util.*
 import javax.inject.Inject
@@ -27,6 +29,7 @@ class PackageManagerPkgSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
 ) : PkgDataSource {
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
@@ -36,7 +39,7 @@ class PackageManagerPkgSource @Inject constructor(
 
         pkgs.addAll(getCoreList())
 
-        if (rootManager.canUseRootNow()) {
+        if (rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()) {
             val extraPkgs = getUserSpecificPkgs()
                 .filter { pkg -> !pkgs.any { it.id == pkg.id && it.userHandle == pkg.userHandle } }
 
