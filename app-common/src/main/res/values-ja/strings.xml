@@ -63,6 +63,7 @@
     <string name="general_progress_loading_egg_9">ライフの選択肢のバッファリング中</string>
     <string name="general_progress_loading_egg_10">Cthulhuを召喚中</string>
     <string name="general_progress_loading_egg_11">問題ありません</string>
+    <string name="general_progress_loading_egg_12">お待ちください。</string>
     <string name="general_help_action">ヘルプ</string>
     <string name="general_continue">続ける</string>
     <string name="general_progress_queued">待機中</string>

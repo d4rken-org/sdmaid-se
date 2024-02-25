@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Buffering life choices</string>
     <string name="general_progress_loading_egg_10">Κλήση Cthulhu</string>
     <string name="general_progress_loading_egg_11">Αυτό είναι μια Χαρά</string>
+    <string name="general_progress_loading_egg_12">Παρακαλώ περιμένετε</string>
+    <string name="general_progress_loading_egg_13">Τουλάχιστον δεν είσαι σε αναμονή</string>
     <string name="general_help_action">Βοήθεια</string>
     <string name="general_continue">Συνέχεια</string>
     <string name="general_progress_queued">Σε ουρά</string>

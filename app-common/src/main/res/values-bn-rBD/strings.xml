@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">জীবন পছন্দ বাফারিং</string>
     <string name="general_progress_loading_egg_10">চথুলহুকে তলব করা</string>
     <string name="general_progress_loading_egg_11">এটা ঠিক আছে</string>
+    <string name="general_progress_loading_egg_12">একটু অপেক্ষা করুন</string>
+    <string name="general_progress_loading_egg_13">অন্তত আপনি হোল্ডে নেই</string>
     <string name="general_help_action">সহায়তা</string>
     <string name="general_continue">চালিয়ে যান</string>
     <string name="general_progress_queued">লাইনে আছে</string>

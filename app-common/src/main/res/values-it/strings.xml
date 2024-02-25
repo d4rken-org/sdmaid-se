@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Bufferizzando le scelte di vita</string>
     <string name="general_progress_loading_egg_10">Evocazione di Cthulhu</string>
     <string name="general_progress_loading_egg_11">Questo va bene</string>
+    <string name="general_progress_loading_egg_12">Attendere prego</string>
+    <string name="general_progress_loading_egg_13">Almeno non sei in attesa</string>
     <string name="general_help_action">Aiuto</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">In coda</string>

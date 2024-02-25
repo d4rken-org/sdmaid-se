@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Буферизация жизненных решений</string>
     <string name="general_progress_loading_egg_10">Призываем Ктулху</string>
     <string name="general_progress_loading_egg_11">Это нормально</string>
+    <string name="general_progress_loading_egg_12">Подождите, пожалуйста</string>
+    <string name="general_progress_loading_egg_13">По крайней мере, Вы не на паузе</string>
     <string name="general_help_action">Помощь</string>
     <string name="general_continue">Продолжить</string>
     <string name="general_progress_queued">В очереди</string>

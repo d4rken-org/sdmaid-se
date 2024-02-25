@@ -14,6 +14,7 @@
     <string name="general_error_cant_access_msg">Неможливо отримати доступ до %s.</string>
     <string name="general_error_root_unavailable">Root доступ недоступний.</string>
     <string name="general_error_empty_result_msg">Результат був порожній.</string>
+    <string name="general_error_no_compatible_app_found_msg">Не знайдено сумісного додатка для обробки цього запиту.</string>
     <string name="general_todo_msg">Над цією функцією ще працюють і наразі вона недоступна.</string>
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
@@ -61,9 +62,13 @@
     <string name="general_progress_loading_egg_8">Звуковий сигнал буп-боп</string>
     <string name="general_progress_loading_egg_10">Виклик Cthulhu</string>
     <string name="general_progress_loading_egg_11">Все гаразд</string>
+    <string name="general_progress_loading_egg_12">Будь ласка, зачекайте</string>
+    <string name="general_progress_loading_egg_13">Принаймні ви не на очікуванні</string>
     <string name="general_help_action">Допомога</string>
     <string name="general_continue">Продовжити</string>
     <string name="general_progress_queued">В черзі</string>
+    <string name="general_progress_deleting">Видалення</string>
+    <string name="general_progress_deleting_x">Видалення %s</string>
     <string name="general_sort_options_label">Параметри сортування</string>
     <string name="general_sort_reverse_action">Зворотне сортування</string>
     <string name="general_tag_filter_label">Фільтрувати за тегами</string>
@@ -79,6 +84,7 @@
     <string name="general_delete_selected_action">Видалити вибране</string>
     <string name="general_show_details_action">Показати подробиці</string>
     <string name="general_show_all_action">Показати все</string>
+    <string name="general_toggle_layout_mode">Перемкнути режим перегляду</string>
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>

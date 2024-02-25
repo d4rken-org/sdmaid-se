@@ -451,6 +451,12 @@
     <string name="appcontrol_app_sizes_data_label">Data</string>
     <string name="appcontrol_app_sizes_cache_label">Mezipaměť</string>
     <string name="appcontrol_toggle_confirmation_title">Potvrdit akci</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Změnit zapnutý/vypnutý stav %d aplikace?</item>
+        <item quantity="few">Změnit zapnutý/vypnutý stav %d aplikací?</item>
+        <item quantity="many">Změnit zapnutý/vypnutý stav %d aplikací?</item>
+        <item quantity="other">Změnit zapnutý/vypnutý stav %d aplikací?</item>
+    </plurals>
     <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>
     <string name="analyzer_progress_scanning_device">Vyhledávání úložných zařízení</string>

@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Acumulant opcions de vida</string>
     <string name="general_progress_loading_egg_10">Invocant a Cthulhu</string>
     <string name="general_progress_loading_egg_11">Això està bé</string>
+    <string name="general_progress_loading_egg_12">Espereu</string>
+    <string name="general_progress_loading_egg_13">Almenys no esteu en espera</string>
     <string name="general_help_action">Ajuda</string>
     <string name="general_continue">Continua</string>
     <string name="general_progress_queued">A la cua</string>

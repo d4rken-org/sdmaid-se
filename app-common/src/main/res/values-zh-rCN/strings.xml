@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">正在缓冲人生选择</string>
     <string name="general_progress_loading_egg_10">正在召唤克苏鲁</string>
     <string name="general_progress_loading_egg_11">This is fine</string>
+    <string name="general_progress_loading_egg_12">请稍等</string>
+    <string name="general_progress_loading_egg_13">至少你没被撂在这</string>
     <string name="general_help_action">帮助</string>
     <string name="general_continue">继续</string>
     <string name="general_progress_queued">排队中</string>

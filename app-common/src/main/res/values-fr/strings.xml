@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Mise en mémoire tampon… des choix de vie</string>
     <string name="general_progress_loading_egg_10">Invocation de Cthulhu</string>
     <string name="general_progress_loading_egg_11">Tout va bien</string>
+    <string name="general_progress_loading_egg_12">Veuillez patienter</string>
+    <string name="general_progress_loading_egg_13">C’est mieux que d’attendre au téléphone</string>
     <string name="general_help_action">Aide</string>
     <string name="general_continue">Poursuivre</string>
     <string name="general_progress_queued">En attente</string>

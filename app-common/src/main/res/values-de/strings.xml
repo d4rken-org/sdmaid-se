@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Puffern von Lebensentscheidungen</string>
     <string name="general_progress_loading_egg_10">Beschwöre Cthulhu</string>
     <string name="general_progress_loading_egg_11">Das ist in Ordnung</string>
+    <string name="general_progress_loading_egg_12">Bitte warten</string>
+    <string name="general_progress_loading_egg_13">Zumindest bist du nicht in der Warteschleife</string>
     <string name="general_help_action">Hilfe</string>
     <string name="general_continue">Weitermachen</string>
     <string name="general_progress_queued">Anstehend</string>

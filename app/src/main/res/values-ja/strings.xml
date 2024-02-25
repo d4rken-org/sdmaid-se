@@ -60,7 +60,7 @@
     <string name="general_settings_desc">アプリ全体に影響を与える一般的な調整。</string>
     <string name="settings_category_ui_label">ユーザーインターフェース</string>
     <string name="ui_theme_mode_setting_label">テーマモード</string>
-    <string name="ui_theme_mode_setting_explanation">アプリのテーマ設定時に使用するモード(例：夜や昼)。</string>
+    <string name="ui_theme_mode_setting_explanation">アプリのテーマ設定時に使用するモード(例：ダークモード)。</string>
     <string name="ui_theme_mode_dark_label">ダーク</string>
     <string name="ui_theme_mode_light_label">ライト</string>
     <string name="ui_theme_mode_system_label">システム</string>
@@ -73,7 +73,7 @@
     <string name="settings_support_label">サポート</string>
     <string name="settings_support_description">ドキュメントの読み取り、問題の報告、他のユーザーとのチャット、またはデバッグログの記録を行います。</string>
     <string name="documentation_label">ドキュメント</string>
-    <string name="issue_tracker_description">バグの報告や機能追加の要望を行なうIssue Trackerです。</string>
+    <string name="issue_tracker_description">バグの報告や機能追加の要望を行なうフォームです。</string>
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="support_installid_label">インストールID</string>
     <string name="support_installid_desc">自動送信されるエラーレポートは匿名です。開発者がユーザーのエラーレポートを特定する必要がある場合はインストール IDを共有してください。</string>
@@ -85,8 +85,8 @@
     <string name="settings_acknowledgements_label">謝辞</string>
     <string name="setup_label">セットアップ</string>
     <string name="setup_incomplete_card_title">セットアップが完了していません</string>
-    <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させるとより良い結果が得られます。</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid はセットアップの問題の修正に努めています。</string>
+    <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させると、利用できる機能が増えます。</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid はセットアップの問題の修復をしています。</string>
     <string name="setup_incomplete_card_dismiss_action">破棄</string>
     <string name="setup_incomplete_card_continue_action">セットアップを続行</string>
     <string name="setup_title">セットアップ</string>
@@ -95,7 +95,7 @@
     <string name="setup_saf_card_body">SD Maidに追加領域のアクセスを許可する事で効果を改善します。</string>
     <string name="setup_saf_card_body2">殆どの場合、正しいパスが事前に選択された状態でウィンドウが表示されます。アクセスが許可されると項目が緑色に変ります。 </string>
     <string name="setup_saf_error_wrong_path">間違ったパスを選択しています</string>
-    <string name="setup_saf_missing_app_error">Documents UIアプリは使用できません。システムアプリに内蔵されており、すべてのAndroidで使用できるはずです。</string>
+    <string name="setup_saf_missing_app_error">Documents UIアプリは使用できません。システムアプリに内蔵されており、ほとんどのAndroidで使用できます。</string>
     <string name="setup_manage_storage_card_title">ストレージの管理</string>
     <string name="setup_manage_storage_card_body">SD Maidにストレージの管理を許可します。</string>
     <string name="setup_manage_storage_card_body2">\"Download/\"や\"DCIM/\"などのパブリックストレージへの基本的なアクセスですが、\"Android/data\"が含まれるとは限りません。</string>
@@ -103,7 +103,7 @@
     <string name="setup_root_card_body">Rootアクセスが利用可能な場合、SDメイドがそれを使用する必要はありますか? Rootアクセスを使用して、追加のシステムフォルダとプライベートアプリケーションデータを確認できます。</string>
     <string name="setup_root_state_ready_label">ルートアクセスの準備ができました。</string>
     <string name="setup_root_state_waiting_label">Root権限の許可を待機しています</string>
-    <string name="setup_root_enable_root_use_label">もし可能ならrootアクセスを使用する</string>
+    <string name="setup_root_enable_root_use_label">利用可能な場合、rootアクセスを使用する</string>
     <string name="setup_root_disable_root_use_label">Rootアクセスを使用しない</string>
     <string name="setup_root_card_body2">Root 化されたデバイスでのみ利用できます。特別なシステムの改変をしていない場合、お使いのデバイスは Root 化されておらず、この設定は効果がありません。</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
@@ -420,6 +420,10 @@
     <string name="appcontrol_app_sizes_apk_label">アプリ</string>
     <string name="appcontrol_app_sizes_data_label">データ</string>
     <string name="appcontrol_app_sizes_cache_label">キャッシュ</string>
+    <string name="appcontrol_toggle_confirmation_title">操作の確認</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">%dの有効/無効を変更しますか？</item>
+    </plurals>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>
     <string name="analyzer_progress_scanning_device">ストレージデバイスを検索中</string>

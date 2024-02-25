@@ -20,12 +20,12 @@
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d sarcină activă</item>
-        <item quantity="few">Sarcina %d activă</item>
+        <item quantity="few">%d sarcini active</item>
         <item quantity="other">%d sarcini active</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d sarcină în coadă</item>
-        <item quantity="few">Sarcina %d în coadă</item>
+        <item quantity="few">%d sarcini în coadă</item>
         <item quantity="other">%d sarcini în coadă</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Rezultatele sarcinii</string>
@@ -152,7 +152,7 @@
     <string name="settings_category_tools_label">Instrumente</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Nivel de risc</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_tool_name">Găsitor de cadavre</string>
     <string name="corpsefinder_explanation_short">Date care aparțin la aplicații deja eliminate.</string>
     <string name="corpsefinder_settings_summary">Ajustează filtrele de scanare și nivelele de risc.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
@@ -164,14 +164,14 @@
     <string name="corpsefinder_watcher_autodelete_title">Ștergere automată</string>
     <string name="corpsefinder_watcher_autodelete_summary">Șterge automat resturile legate de aplicația dezinstalată.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d restant găsit după dezinstalarea %2$s.</item>
-        <item quantity="few">%1$d restant găsit după dezinstalarea %2$s.</item>
-        <item quantity="other">Rămășițe %1$d găsite după dezinstalarea %2$s.</item>
+        <item quantity="one">%1$d Rămășiță găsită după dezinstalarea %2$s.</item>
+        <item quantity="few">%1$d Rămășițe găsite după dezinstalarea %2$s.</item>
+        <item quantity="other">%1$d Rămășițe găsite după dezinstalarea %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">Curățat cu succes (%1$s): Gratuit %2$s și a eliminat elementul %3$d.</item>
-        <item quantity="few">Curățat cu succes (%1$s): Gratuit %2$s și a eliminat elementul %3$d.</item>
-        <item quantity="other">Curățat cu succes (%1$s): Gratuit %2$s și a eliminat %3$d elemente.</item>
+        <item quantity="one">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementul %3$d.</item>
+        <item quantity="few">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementele %3$d.</item>
+        <item quantity="other">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementele %3$d.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Șterge resturile</string>
     <string name="corpsefinder_filter_publicmedia_label">Media public</string>
@@ -197,9 +197,9 @@
     <string name="corpsefinder_filter_app2sd_summary">Date mutate în stocarea externă de modificările App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d aplicație restantă descoperită</item>
-        <item quantity="few">%d aplicație restantă descoperită</item>
-        <item quantity="other">Resturi de aplicații %d descoperite</item>
+        <item quantity="one">A fost descoperită %d rămășiță de aplicație</item>
+        <item quantity="few">Au fost descoperite %d rămășițe de aplicație</item>
+        <item quantity="other">Au fost descoperite %d rămășițe de aplicație</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Ștergeți toate resturile aplicațiilor?</string>
     <string name="corpsefinder_owners_label">Proprietarii</string>
@@ -207,11 +207,11 @@
     <string name="corpsefinder_owner_unknown">Propietar necunoscut</string>
     <string name="corpsefinder_corpse_hint_keeper">Acest articol poate conține date pe care doriți să le păstrați, deși proprietarul său este dezinstalat, ex: fotografii sau copii de rezervă.</string>
     <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și poate să aparțină încă la aplicații instalate pe care SD Maid nu știe.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_tool_name">Curățitor de sistem</string>
     <string name="systemcleaner_explanation_short">Date de prisos care nu aparțin unei anumite aplicații.</string>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d potrivire de filtru</item>
-        <item quantity="few">Filtru %d potrivire</item>
+        <item quantity="few">%d potriviri de filtru</item>
         <item quantity="other">%d potriviri de filtru</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Filtru personalizat</string>
@@ -225,7 +225,7 @@
     <string name="systemcleaner_filter_anr_summary">Urme de la evenimente \"Aplicația nu răspunde\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Directoare goale</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Directoare goale de pe tot dispozitivul. Directoarele imbricate pot necesita mai multe treceri.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">APK-uri superflue</string>
+    <string name="systemcleaner_filter_superfluosapks_label">APK-uri inutile</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fișiere de configurare care sunt vechi sau egale la versiuni de aplicații care sunt deja instalate.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosare LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fișiere temporare care sunt create când transferi date dintre dispozitive Android.</string>
@@ -240,14 +240,14 @@
     <string name="systemcleaner_filter_tempfiles_label">Fișiere temporare</string>
     <string name="systemcleaner_filter_tempfiles_summary">Fișiere temporare, de obicei, cache de scurtă durată pentru operațiuni active.</string>
     <string name="systemcleaner_filter_analytics_label">Fișiere de analize</string>
-    <string name="systemcleaner_filter_analytics_summary">Date legate de analize și tracker pentru bug-uri.</string>
+    <string name="systemcleaner_filter_analytics_summary">Date legate de analiză și de urmărire a erorilor.</string>
     <string name="systemcleaner_filter_downloadcache_label">Memoria cache descărcată</string>
     <string name="systemcleaner_filter_downloadcache_summary">Dosare de sistem prin cache folosit pentru o varietate de chestii (ex: actualizări OTA).</string>
     <string name="systemcleaner_filter_localtmp_label">Fișiere temporare locale</string>
     <string name="systemcleaner_filter_localtmp_summary">Fișiere temporare legate de sistem (ex: de la Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">Fișiere de jurnal de sistem</string>
     <string name="systemcleaner_filter_datalogger_summary">Fișiere de jurnal specifice serviciului de sistem.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Casetă de drop pentru jurnal</string>
+    <string name="systemcleaner_filter_logdropbox_label">Jurnal DropBox</string>
     <string name="systemcleaner_filter_logdropbox_summary">O zonă pentru sistem pentru a arunca fișierele de jurnal în.</string>
     <string name="systemcleaner_filter_recenttasks_label">Sarcini recente</string>
     <string name="systemcleaner_filter_recenttasks_summary">Date legate de istoricul sarcinilor din comutatorul de sarcini al sistemului.</string>
@@ -272,7 +272,7 @@
     <string name="systemcleaner_customfilter_editor_path_label">Criterii de cale</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Calea ţintă trebuie să se potrivească cu cel puţin o intrare (de ex. \"Descărcări/oldapks/game-\"). Apăsaţi lung intrările pentru mai multe opţiuni.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criterii de nume</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Numele țintă trebuie să conțină cel puțin unul dintre cuvintele-cheie (de ex. \"-receipt\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Numele țintă trebuie să conțină cel puțin unul dintre cuvintele-cheie (de ex. \"-chitanță\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Excluderi</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultatul va fi exclus dacă calea se potrivește cu orice intrare (de ex. \"DCIM\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modul de comparare a căilor</string>
@@ -289,7 +289,7 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">Căutare live</string>
     <string name="systemcleaner_customfilter_import_action">Importă filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Exportă filtrul selectat</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_tool_name">Curățitor de aplicații</string>
     <string name="appcleaner_explanation_short">Date consumabile aparținând unor aplicații specifice.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache-uri implicite publice</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache-uri implicite ale aplicației publice. Accesibil sub Android/date despre versiuni mai vechi de Android. Șterse când se apasă \"Golește cache\" în setările de sistem.</string>
@@ -315,13 +315,13 @@
     <string name="appcleaner_filter_advertisement_label">Date de la reclame</string>
     <string name="appcleaner_filter_advertisement_summary">Fișiere relatate la reclame, ex: media stocate în cache.</string>
     <string name="appcleaner_filter_bugreporting_label">Rapoarte bug-uri</string>
-    <string name="appcleaner_filter_bugreporting_summary">Date relatate la rapoarte de bug-uri, ex: jurnal de erori sau gropi de blocaj.</string>
+    <string name="appcleaner_filter_bugreporting_summary">Date legate de raportarea erorilor, de ex. jurnalele de erori sau depozitele de erori.</string>
     <string name="appcleaner_filter_analytics_label">Analize</string>
     <string name="appcleaner_filter_analytics_summary">Statistici analitice legate de date, de ex. statistici cache pentru ceea ce atingi într-o aplicație.</string>
-    <string name="appcleaner_filter_hiddencaches_label">Cache ascunși</string>
+    <string name="appcleaner_filter_hiddencaches_label">Cache-uri ascunse</string>
     <string name="appcleaner_filter_hiddencaches_summary">Cache-uri generale stocate în afara razei de acțiune a sistemului.</string>
     <string name="appcleaner_filter_thumbnails_label">Miniaturi media</string>
-    <string name="appcleaner_filter_thumbnails_summary">Imagini, imagini video şi imagini de previzualizare a imaginii.</string>
+    <string name="appcleaner_filter_thumbnails_summary">Imagini, video şi imagini de previzualizare a imaginii.</string>
     <string name="appcleaner_filter_gamefiles_label">Fișiere de joc</string>
     <string name="appcleaner_filter_gamefiles_summary">Resurse legate de joc pe care jocul le va reîncărca la următoarea lansare, dacă este necesar.</string>
     <string name="appcleaner_filter_offlinecache_label">Cache offline</string>
@@ -346,12 +346,12 @@
     <string name="appcleaner_filter_viber_summary">Fișiere media cache care sunt descărcate din nou când sunt vizualizate în chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Ștergeți elementele consumabile pentru toate aplicațiile?</string>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">S-a găsit %d element expandabil</item>
-        <item quantity="few">%d obiect consumabil găsit</item>
-        <item quantity="other">S-a găsit %d elemente expandabile</item>
+        <item quantity="one">A fost găsit %d articol consumabil</item>
+        <item quantity="few">Au fost găsite %d articole consumabile</item>
+        <item quantity="other">Au fost găsite %d articole consumabile</item>
     </plurals>
     <string name="appcleaner_automation_loading">Se așteaptă automatizația prin serviciul de accesibilitate</string>
-    <string name="appcleaner_automation_title">Automatizație AppCleaner</string>
+    <string name="appcleaner_automation_title">Automatizare Curățitor de Aplicații</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
@@ -360,17 +360,17 @@
     <string name="appcleaner_junk_userprofile_label">Utilizator</string>
     <string name="appcleaner_delete_confirmation_message_x">Ștergeți fișierele consumabile pentru %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
-        <item quantity="few">Ștergeți fișierele compatibile pentru aplicația selectată %d?</item>
+        <item quantity="one">Ștergeți fișierele consumabile pentru aplicația selectată %d?</item>
+        <item quantity="few">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
         <item quantity="other">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Ştergerea cache-urilor folosind Shizuku</string>
-    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_tool_name">Curățitor de duplicate</string>
     <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d duplicat setat găsit</item>
-        <item quantity="few">%d duplicat setat găsit</item>
-        <item quantity="other">S-au găsit seturi duplicat %d</item>
+        <item quantity="one">%d set duplicat găsit</item>
+        <item quantity="few">%d seturi duplicate găsite</item>
+        <item quantity="other">%d seturi duplicate găsite</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Faceți posibil \"Ștergeți toate\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
@@ -381,7 +381,7 @@
     <string name="deduplicator_detection_method_label">Metoda de detectare</string>
     <string name="deduplicator_detection_method_checksum_title">Sumă verificare conținut</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinați duplicate prin calcularea sumelor de verificare pentru fișiere. Fișierele cu sumele corespunzătoare de verificare au exact același conținut.</string>
-    <string name="deduplicator_detection_method_phash_title">Hash Perceptual</string>
+    <string name="deduplicator_detection_method_phash_title">Hash veșnic</string>
     <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile conținutului și comparând valorile hash perceptuale.</string>
     <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
     <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sunt ocupate de duplicate</string>
@@ -402,7 +402,7 @@
     <string name="appcontrol_explanation_short">Aplicațiile instalate în dispozitivul tău.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplicație detectată</item>
-        <item quantity="few">%d aplicație detectată</item>
+        <item quantity="few">%d aplicații detectate</item>
         <item quantity="other">%d aplicații detectate</item>
     </plurals>
     <string name="appcontrol_toggle_app_selection_action">Comutare aplicații</string>
