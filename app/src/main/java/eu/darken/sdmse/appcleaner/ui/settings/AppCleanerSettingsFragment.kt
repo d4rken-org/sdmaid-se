@@ -173,13 +173,13 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
         }
 
         includeOtherUsers.badgedAction = {
-            listOf(SetupModule.Type.ROOT).showFixSetupHint(this)
+            setOf(SetupModule.Type.ROOT).showFixSetupHint(this)
         }
         includeRunningApps.badgedAction = {
-            listOf(SetupModule.Type.USAGE_STATS).showFixSetupHint(this)
+            setOf(SetupModule.Type.USAGE_STATS).showFixSetupHint(this)
         }
         includeInaccessibleCaches.badgedAction = {
-            listOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.AUTOMATION).showFixSetupHint(this)
+            setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.AUTOMATION).showFixSetupHint(this)
         }
     }
 

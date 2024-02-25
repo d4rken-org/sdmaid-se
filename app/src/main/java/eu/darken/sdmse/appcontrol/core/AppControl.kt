@@ -31,6 +31,10 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
@@ -59,8 +63,9 @@ class AppControl @Inject constructor(
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
-    private val settings: AppControlSettings,
+    settings: AppControlSettings,
     private val appExporterProvider: Provider<AppExporter>,
+    private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -121,6 +126,11 @@ class AppControl @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
         internalData.value = null
+
+        if (!appInventorySetupModule.isComplete()) {
+            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+        }
 
         val currentUserHandle = userManager.currentUser().handle
         val pkgs = if (task.refreshPkgCache) pkgRepo.refresh() else pkgRepo.currentPkgs()

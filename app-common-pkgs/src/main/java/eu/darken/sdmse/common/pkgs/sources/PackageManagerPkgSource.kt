@@ -1,16 +1,21 @@
 package eu.darken.sdmse.common.pkgs.sources
 
+import android.content.Context
 import android.content.pm.PackageManager
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.IllegalPkgDataException
@@ -24,6 +29,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PackageManagerPkgSource @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
@@ -58,8 +64,12 @@ class PackageManagerPkgSource @Inject constructor(
     private suspend fun getCoreList(): Collection<Installed> {
         log(TAG, VERBOSE) { "getCoreList()" }
 
-        val result = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
+        if (hasApiLevel(34) && !Permission.QUERY_ALL_PACKAGES.isGranted(context)) {
+            log(TAG, ERROR) { "QUERY_ALL_PACKAGES is not granted !?" }
+            throw QueryAllPkgsPermissionMissing()
+        }
 
+        val result = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
         if (result.isEmpty()) {
             throw IllegalPkgDataException("No installed packages")
         }

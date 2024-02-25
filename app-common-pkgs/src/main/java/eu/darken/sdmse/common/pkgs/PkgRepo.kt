@@ -40,6 +40,7 @@ class PkgRepo @Inject constructor(
 ) {
 
     data class CacheContainer(
+        val isSetupDone: Boolean = false,
         val isInitialized: Boolean = false,
         val pkgData: Map<CacheKey, CachedInfo> = emptyMap(),
     ) {

@@ -20,6 +20,8 @@ import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
+import eu.darken.sdmse.setup.inventory.InventorySetupCardVH
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
 import eu.darken.sdmse.setup.notification.NotificationSetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardVH
@@ -40,7 +42,7 @@ import javax.inject.Inject
 class SetupViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
+    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val setupManager: SetupManager,
     private val storageSetupModule: StorageSetupModule,
     private val safSetupModule: SAFSetupModule,
@@ -178,6 +180,18 @@ class SetupViewModel @Inject constructor(
                             }
                         )
 
+                        is InventorySetupModule.State -> InventorySetupCardVH.Item(
+                            state = state,
+                            onGrantAction = {
+                                state.missingPermission.firstOrNull()?.let {
+                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
+                                }
+                            },
+                            onHelp = {
+                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory")
+                            }
+                        )
+
                         else -> throw IllegalArgumentException("Unknown state: $state")
                     }
                 }
@@ -226,6 +240,7 @@ class SetupViewModel @Inject constructor(
                 Permission.PACKAGE_USAGE_STATS -> {}
                 Permission.POST_NOTIFICATIONS -> {}
                 Permission.WRITE_SECURE_SETTINGS -> {}
+                Permission.QUERY_ALL_PACKAGES -> {}
                 null -> {}
             }
             setupManager.refresh()
@@ -247,6 +262,8 @@ class SetupViewModel @Inject constructor(
 
     companion object {
         private val DISPLAY_ORDER = listOf(
+            InventorySetupCardVH.Item::class,
+            NotificationSetupCardVH.Item::class,
             StorageSetupCardVH.Item::class,
             SAFSetupCardVH.Item::class,
             UsageStatsSetupCardVH.Item::class,

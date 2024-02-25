@@ -57,14 +57,14 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
             true
         }
 
-        filterAnrEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterLocalTmpEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterDownloadCacheEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterDataLoggerEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterLogDropboxEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterRecentTasksEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterTombstonesEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterUsageStatsEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterAnrEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterLocalTmpEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterDownloadCacheEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterDataLoggerEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterLogDropboxEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterRecentTasksEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterTombstonesEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterUsageStatsEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

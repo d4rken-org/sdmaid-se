@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.first
 
 suspend fun SetupModule.isComplete() = state.first()?.isComplete ?: false
 
-fun Collection<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
+fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
     // If the user navigates back while the snackbar is still showing
     // then we don't have access to the fragment anymore to get the navcontroller
     val navController = fragment.findNavController()
@@ -29,7 +29,7 @@ fun Collection<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
             val direction = SettingsFragmentDirections.goToSetup(
                 options = SetupScreenOptions(
                     showCompleted = true,
-                    typeFilter = this.toList()
+                    typeFilter = this
                 )
             )
             navController.navigate(direction)
