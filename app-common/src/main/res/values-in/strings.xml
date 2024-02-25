@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Memuat pilihan hidup</string>
     <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
     <string name="general_progress_loading_egg_11">Ini tidak apa-apa</string>
+    <string name="general_progress_loading_egg_12">Harap tunggu</string>
+    <string name="general_progress_loading_egg_13">Setidaknya kamu tidak dighosting</string>
     <string name="general_help_action">Bantuan</string>
     <string name="general_continue">Lanjut</string>
     <string name="general_progress_queued">Dalam antrean</string>

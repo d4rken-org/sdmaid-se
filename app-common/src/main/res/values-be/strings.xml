@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Буферызацыя жыццёвых выбараў</string>
     <string name="general_progress_loading_egg_10">Гукаем Ктулху</string>
     <string name="general_progress_loading_egg_11">Усё добра</string>
+    <string name="general_progress_loading_egg_12">Калі ласка, пачакайце</string>
+    <string name="general_progress_loading_egg_13">Прынамсі вы не паўзе</string>
     <string name="general_help_action">Дапамога</string>
     <string name="general_continue">Працягнуць</string>
     <string name="general_progress_queued">У чарзе</string>

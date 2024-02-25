@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Yaşam seçimleri yükleniyor</string>
     <string name="general_progress_loading_egg_10">Cthulhu\'yu çağırıyorum</string>
     <string name="general_progress_loading_egg_11">Her şey yolunda</string>
+    <string name="general_progress_loading_egg_12">Lütfen bekleyin</string>
+    <string name="general_progress_loading_egg_13">En azından beklemede değilsin</string>
     <string name="general_help_action">Yardım</string>
     <string name="general_continue">Devam et</string>
     <string name="general_progress_queued">Sırada</string>

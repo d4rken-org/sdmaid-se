@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Buforowanie życiowych wyborów</string>
     <string name="general_progress_loading_egg_10">Przywoływanie Cthulhu</string>
     <string name="general_progress_loading_egg_11">W porządeczku</string>
+    <string name="general_progress_loading_egg_12">Proszę poczekać</string>
+    <string name="general_progress_loading_egg_13">To dobrze, że nie jesteś wstrzymywany</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Dalej</string>
     <string name="general_progress_queued">W kolejce</string>

@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Ukládám do mezipaměti životní volby</string>
     <string name="general_progress_loading_egg_10">Vyvolávám Cthulhu</string>
     <string name="general_progress_loading_egg_11">To je v pořádku</string>
+    <string name="general_progress_loading_egg_12">Prosím vydržte</string>
+    <string name="general_progress_loading_egg_13">Alespoň že nejste ve frontě</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovat</string>
     <string name="general_progress_queued">Ve frontě</string>

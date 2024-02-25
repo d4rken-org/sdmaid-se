@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Chọn bước đệm cho cuôc sông</string>
     <string name="general_progress_loading_egg_10">Triệu hồi Cthulhu</string>
     <string name="general_progress_loading_egg_11">Điều này ổn</string>
+    <string name="general_progress_loading_egg_12">Vui lòng giữ</string>
+    <string name="general_progress_loading_egg_13">Ít nhất bạn đã không giữ lại</string>
     <string name="general_help_action">Trợ giúp</string>
     <string name="general_continue">Tiếp tục</string>
     <string name="general_progress_queued">Đang chờ</string>

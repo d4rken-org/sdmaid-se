@@ -63,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Opțiuni de viață tampon</string>
     <string name="general_progress_loading_egg_10">Invocând-ul pe Cthulhu</string>
     <string name="general_progress_loading_egg_11">Asta e în regulă</string>
+    <string name="general_progress_loading_egg_12">Te rog așteaptă</string>
+    <string name="general_progress_loading_egg_13">Cel puțin nu ești în așteptare</string>
     <string name="general_help_action">Ajutor</string>
     <string name="general_continue">Continuă</string>
     <string name="general_progress_queued">În coadă</string>
