@@ -484,7 +484,7 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Find out if an app is (or recently was) active.</string>
     <string name="appcontrol_export_app_selection_action">Export apps</string>
     <string name="appcontrol_export_title">Export app</string>
-    <string name="appcontrol_export_description">Save this app\'s install files to your device. This does not include app data.</string>
+    <string name="appcontrol_export_description">Save this app\’s installation files. This does not include app data.</string>
     <string name="appcontrol_progress_exporting_x">Exporting %s</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
