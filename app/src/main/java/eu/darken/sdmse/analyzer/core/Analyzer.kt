@@ -34,6 +34,10 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -50,6 +54,7 @@ class Analyzer @Inject constructor(
     private val deviceScanner: Provider<DeviceStorageScanner>,
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
+    private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
@@ -132,6 +137,12 @@ class Analyzer @Inject constructor(
 
     private suspend fun scanStorageContents(task: StorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageContents(): $task" }
+
+        if (!appInventorySetupModule.isComplete()) {
+            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+        }
+
         val target = storageDevices.value.singleOrNull { it.id == task.target }
             ?: throw IllegalStateException("Couldn't find ${task.target}")
 

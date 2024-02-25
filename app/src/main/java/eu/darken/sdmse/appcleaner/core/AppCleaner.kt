@@ -31,6 +31,10 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -55,6 +59,7 @@ class AppCleaner @Inject constructor(
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
+    private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
 
     private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
@@ -113,6 +118,11 @@ class AppCleaner @Inject constructor(
 
     private suspend fun performScan(task: AppCleanerScanTask): AppCleanerScanTask.Result {
         log(TAG, VERBOSE) { "performScan(): $task" }
+
+        if (!appInventorySetupModule.isComplete()) {
+            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+        }
 
         internalData.value = null
 

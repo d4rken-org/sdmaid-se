@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
+import eu.darken.sdmse.setup.inventory.InventorySetupCardVH
 import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
 import eu.darken.sdmse.setup.root.RootSetupCardVH
 import eu.darken.sdmse.setup.saf.SAFSetupCardVH
@@ -38,6 +39,7 @@ class SetupAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is RootSetupCardVH.Item }) { RootSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is NotificationSetupCardVH.Item }) { NotificationSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ShizukuSetupCardVH.Item }) { ShizukuSetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is InventorySetupCardVH.Item }) { InventorySetupCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

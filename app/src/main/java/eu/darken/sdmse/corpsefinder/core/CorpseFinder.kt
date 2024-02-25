@@ -31,6 +31,10 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -53,6 +57,7 @@ class CorpseFinder @Inject constructor(
     private val watcherNotifications: UninstallWatcherNotifications,
     rootManager: RootManager,
     settings: CorpseFinderSettings,
+    private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
@@ -154,6 +159,11 @@ class CorpseFinder @Inject constructor(
 
     private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result {
         log(TAG) { "performScan(): $task" }
+
+        if (!appInventorySetupModule.isComplete()) {
+            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+        }
 
         internalData.value = null
 

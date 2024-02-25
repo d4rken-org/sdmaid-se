@@ -22,5 +22,6 @@ interface SetupModule {
         NOTIFICATION(R.string.setup_notification_title),
         SAF(R.string.setup_saf_card_title),
         STORAGE(R.string.setup_manage_storage_card_title),
+        INVENTORY(R.string.setup_inventory_card_title),
     }
 }

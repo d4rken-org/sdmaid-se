@@ -135,6 +135,15 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory? {
         log(TAG) { "scanForApps($storage)" }
+        if (!Permission.QUERY_ALL_PACKAGES.isGranted(context)) {
+            log(TAG, WARN) { "Permission QUERY_ALL_PACKAGES is missing, can't scan apps." }
+            return AppCategory(
+                storageId = storage.id,
+                setupIncomplete = true,
+                pkgStats = emptyMap()
+            )
+        }
+
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
             log(TAG, WARN) { "Permission PACKAGE_USAGE_STATS is missing, can't scan apps." }
             return AppCategory(

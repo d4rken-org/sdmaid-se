@@ -48,12 +48,12 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
-        filterPrivateDataEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterAppSourceAsecEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterDalvikCacheEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterAppLibEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterAppSourceEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
-        filterAppSourcePrivateEnabled.badgedAction = { listOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterPrivateDataEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterAppSourceAsecEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterDalvikCacheEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterAppLibEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterAppSourceEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterAppSourcePrivateEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
