@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">Ứng dụng này hiện bị loại trừ khỏi một hoặc nhiều công cụ.</string>
     <string name="appcontrol_tag_user">Người dùng</string>
     <string name="appcontrol_tag_active">Hoạt động gần đây</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Đóng gói</string>
     <string name="appcontrol_tag_system">Hệ thống</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
     <string name="appcontrol_tag_disabled">Đã tắt</string>
@@ -424,6 +426,14 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">Thay đổi trạng thái bật/tắt cho %d ứng dụng?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Xác định kích thước</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Nhận ước tính sơ bộ về kích thước của từng ứng dụng.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Xác định hoạt động</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
+    <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
+    <string name="appcontrol_export_title">Xuất ứng dụng</string>
+    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này vào thiết bị của bạn. Điều này không bao gồm dữ liệu ứng dụng.</string>
+    <string name="appcontrol_progress_exporting_x">Đang xuất %s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>

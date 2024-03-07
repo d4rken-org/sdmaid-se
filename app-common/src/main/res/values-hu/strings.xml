@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Hibátlan.</string>
     <string name="slogan_message_6">Bájtok, tűnjetek el!</string>
     <string name="slogan_message_7">Terület felszabadítása, boldog hely.</string>
+    <string name="slogan_message_8">Soha nem adlak fel.</string>
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_error_type_mismatch_msg">Típuseltérés: %1$s keresett, de %2$s lett.</string>
     <string name="general_error_cant_access_msg">A(z) %s nem érhető el.</string>
@@ -105,6 +106,19 @@
     <plurals name="result_x_items">
         <item quantity="one">%s elem</item>
         <item quantity="other">%s elemek</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d sikeres 
+
+%d sikeres</item>
+        <item quantity="other">%d sikeres
+%d sikeres</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d hibás
+%d hibás</item>
+        <item quantity="other">%d hibás
+%d hibás</item>
     </plurals>
     <string name="x_space_can_be_freed">%s felszabadítható</string>
     <string name="general_info_label">Info</string>

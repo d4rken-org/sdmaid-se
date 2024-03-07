@@ -371,7 +371,20 @@
     <string name="deduplicator_skip_uncommon_description">Kaasa vaid tuntud meediafailid, dokumendid ja arhiivid.</string>
     <string name="deduplicator_detection_method_label">Tuvastamise viis</string>
     <string name="deduplicator_detection_method_checksum_title">Sisu kontrollsumma</string>
+    <string name="deduplicator_detection_method_checksum_summary">Tuvasta koopiad failide kontrollsummade arvutamisel. Kattuvate kontrollsummadega failide sisu on sama.</string>
+    <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s kasutavad koopiad</string>
+    <string name="deduplicator_file_size_label">Faili maht</string>
+    <string name="deduplicator_average_size_label">Keskmine maht</string>
+    <string name="deduplicator_cluster_x_label">Klaster %s</string>
     <string name="deduplicator_delete_confirmation_message">Kustutada faili koopiad, nii et alles jääb vaid üks neist?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Kustutada faili koopiad, nii et alles jääb vaid üks neist?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Kustutada kõik failide koopiad, sh originaal? Alles ei jää ühtki faili!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Kustutada faili koopiad, nii et alles jääb vaid üks neist igas valitud paketis?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Kustutada igast valitud paketist kõik failide koopiad, sh originaal? Alles ei jää ühtki faili!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Kustuta kõik koopiad. Alles ei jää ühtki faili!</string>
+    <string name="deduplicator_progress_comparing_files">Failide võrdlemine</string>
+    <string name="deduplicator_details_cluster_title">Koopiate pakett</string>
     <string name="deduplicator_matches_exact_label">Samad koopiad</string>
     <string name="deduplicator_matches_similar_label">Sarnased failid</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
@@ -398,6 +411,8 @@
     <string name="appcontrol_app_exclude_edit_description">Selle rakendusega ei toimeta vähemalt üks tööriist.</string>
     <string name="appcontrol_tag_user">Kasutaja</string>
     <string name="appcontrol_tag_active">Hiljuti aktiivne</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pakk</string>
     <string name="appcontrol_tag_system">Süsteem</string>
     <string name="appcontrol_tag_enabled">Lubatud</string>
     <string name="appcontrol_tag_disabled">Keelatud</string>
@@ -420,6 +435,14 @@
         <item quantity="one">Muuda %d rakenduse lubatud/keelatud olekut?</item>
         <item quantity="other">Muuda %d rakenduse lubatud/keelatud olekut?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Arvuta mahud</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Hangi iga rakenduse umbkaudne maht.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Kontrolli kasutamist</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Uudista, kas rakendus on (või hiljuti oli) kasutusel.</string>
+    <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
+    <string name="appcontrol_export_title">Ekspordi rakendus</string>
+    <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid oma seadmesse. See ei hõlma rakenduse andmeid.</string>
+    <string name="appcontrol_progress_exporting_x">%s eksportimine</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>
     <string name="analyzer_progress_scanning_device">Hoiustamiseks kasutatavate seadmete otsimine</string>
@@ -549,5 +572,6 @@
     <string name="translation_encourage_body">SD Maidi tõlgivad vabatahtlikud. Tõlkimine, toimetamine, täname!</string>
     <string name="translation_translators_title">Selle versiooni tõlkis</string>
     <string name="translation_translators_people">Olav Mägi(olav.magi@gmail.com)</string>
+    <string name="motd_setting_enabled_label">Tähtsad sõnumid</string>
     <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
 </resources>

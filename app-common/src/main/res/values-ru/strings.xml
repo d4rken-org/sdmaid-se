@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Без следов.</string>
     <string name="slogan_message_6">Байты, прочь!</string>
     <string name="slogan_message_7">Свободное место - счастливое место.</string>
+    <string name="slogan_message_8">Никогда не сдавайтесь.</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_error_type_mismatch_msg">Несоответствие: хотели %1$s, а получили %2$s.</string>
     <string name="general_error_cant_access_msg">Нет доступа к %s.</string>
@@ -113,6 +114,18 @@
         <item quantity="few">%s элем.</item>
         <item quantity="many">%s элем.</item>
         <item quantity="other">%s элем.</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">Выполнено %d</item>
+        <item quantity="few">Выполнено %d</item>
+        <item quantity="many">Выполнено %d</item>
+        <item quantity="other">Выполнено %d</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">Ошибка %d</item>
+        <item quantity="few">Ошибка %d</item>
+        <item quantity="many">Ошибка %d</item>
+        <item quantity="other">Ошибка %d</item>
     </plurals>
     <string name="x_space_can_be_freed">%s может быть освобождено</string>
     <string name="general_info_label">Информация</string>

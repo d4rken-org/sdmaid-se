@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Bez skazy.</string>
     <string name="slogan_message_6">Bajty, znikajcie!</string>
     <string name="slogan_message_7">Więcej miejsca, więcej radości.</string>
+    <string name="slogan_message_8">Nigdy się nie poddawaj.</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
@@ -113,6 +114,12 @@
         <item quantity="few">%s elementy</item>
         <item quantity="many">%s elementów</item>
         <item quantity="other">%s elementów</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d pomyślnie</item>
+        <item quantity="few">%d pomyślnie</item>
+        <item quantity="many">%d pomyślnie</item>
+        <item quantity="other">%d pomyślnie</item>
     </plurals>
     <string name="x_space_can_be_freed">Można zwolnić %s</string>
     <string name="general_info_label">Informacje</string>

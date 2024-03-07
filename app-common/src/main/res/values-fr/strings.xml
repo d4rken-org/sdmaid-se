@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Impeccable.</string>
     <string name="slogan_message_6">Adieu les octets !</string>
     <string name="slogan_message_7">De l’espace libéré, pour le bonheur de votre Android.</string>
+    <string name="slogan_message_8">Jamais je ne t’abandonnerai.</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_error_type_mismatch_msg">Incompatibilité de type : %1$s désiré, mais %2$s obtenu.</string>
     <string name="general_error_cant_access_msg">Impossible d’accéder à %s.</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s élément</item>
         <item quantity="other">%s éléments</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d action réussie</item>
+        <item quantity="other">%d actions réussies</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d en échec</item>
+        <item quantity="other">%d en échec</item>
     </plurals>
     <string name="x_space_can_be_freed">%s peuvent être libérés</string>
     <string name="general_info_label">Renseignements</string>

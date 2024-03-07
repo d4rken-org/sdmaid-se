@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Tak bernoda.</string>
     <string name="slogan_message_6">Bita, habislah kamu!</string>
     <string name="slogan_message_7">Ruang kosong, tempat yang bahagia.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Ketidakcocokan jenis: Menginginkan %1$s, tapi mendapatkan %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
@@ -104,6 +105,12 @@
     <string name="general_open_system_settings_action">Buka pengaturan sistem</string>
     <plurals name="result_x_items">
         <item quantity="other">%s barang</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d sukses</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d gagal</item>
     </plurals>
     <string name="x_space_can_be_freed">%s bisa dibebaskan</string>
     <string name="general_info_label">Info</string>

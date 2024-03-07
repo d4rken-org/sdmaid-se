@@ -357,7 +357,7 @@
         <item quantity="other">Felesleges fájlok törlése %d kiválasztott alkalmazásokhoz?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cache-ek törlése Shizuku használatával</string>
-    <string name="deduplicator_tool_name">Duplikátlt kereső</string>
+    <string name="deduplicator_tool_name">Duplikált kereső</string>
     <string name="deduplicator_explanation_short">Duplikált adatok keresése a készüléken.</string>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d duplikált készletet találtunk</item>
@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Ez az alkalmazás jelenleg ki van zárva egy vagy több eszközből.</string>
     <string name="appcontrol_tag_user">Felhasználó</string>
     <string name="appcontrol_tag_active">Nemrég aktív</string>
+    <string name="appcontrol_tag_apk_base">App</string>
+    <string name="appcontrol_tag_apk_bundle">Csomag</string>
     <string name="appcontrol_tag_system">Rendszer</string>
     <string name="appcontrol_tag_enabled">Engedélyezve</string>
     <string name="appcontrol_tag_disabled">Letiltva</string>
@@ -430,6 +432,15 @@
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Adat</string>
     <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Tevékenység megerősítése</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Méretek megállapítása</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Egy körülbelüli méret megállapítása minden egyes appnak.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Tevékenység megállapítása</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Nézze meg, hogy egy alkalmazás aktív (vagy nemrégiben volt-e) aktív.</string>
+    <string name="appcontrol_export_app_selection_action">Appok exportálása</string>
+    <string name="appcontrol_export_title">App exportálása</string>
+    <string name="appcontrol_export_description">Mentse el ennek az appnak a telepítési fájljait. Ez nem tartalmazza az app adagokat.</string>
+    <string name="appcontrol_progress_exporting_x">Exportálás %s</string>
     <string name="analyzer_tool_name">TárhelyElemző</string>
     <string name="analyzer_explanation_short">Tudja meg, mi foglalja a helyet a készülékén.</string>
     <string name="analyzer_progress_scanning_device">Tárolóeszközök keresése</string>

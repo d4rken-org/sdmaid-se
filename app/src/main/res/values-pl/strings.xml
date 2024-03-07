@@ -433,6 +433,8 @@
     <string name="appcontrol_app_exclude_edit_description">Ta aplikacja jest obecnie wykluczona z jednego lub więcej narzędzi.</string>
     <string name="appcontrol_tag_user">Użytkownik</string>
     <string name="appcontrol_tag_active">Ostatnio aktywny</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pakiet</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_enabled">Włączona</string>
     <string name="appcontrol_tag_disabled">Wyłączona</string>
@@ -457,6 +459,14 @@
         <item quantity="many">Zmienić stan włączony/wyłączony dla %d aplikacji?</item>
         <item quantity="other">Zmienić stan włączony/wyłączony dla %d aplikacji?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Określ rozmiary</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Uzyskaj przybliżony szacunkowy rozmiar każdej aplikacji.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Określ aktywność</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
+    <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
+    <string name="appcontrol_export_title">Eksportuj aplikację</string>
+    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji na urządzeniu. Nie uwzględnia danych aplikacji.</string>
+    <string name="appcontrol_progress_exporting_x">Eksportowanie %s</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
     <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>

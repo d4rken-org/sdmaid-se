@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Brandschoon.</string>
     <string name="slogan_message_6">Bytes, wegwezen!</string>
     <string name="slogan_message_7">Vrije ruimte, fijne plek.</string>
+    <string name="slogan_message_8">Ik Geef Je Nooit Op.</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_error_type_mismatch_msg">Type komt niet overeen: %1$s gevraagd, maar %2$s gekregen.</string>
     <string name="general_error_cant_access_msg">Geen toegang tot %s.</string>
@@ -82,7 +83,7 @@
     <string name="general_update_action">Updaten</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_delete_action">Verwijderen</string>
-    <string name="general_delete_selected_action">Verwijder selectie</string>
+    <string name="general_delete_selected_action">Verwijder geselecteerde</string>
     <string name="general_show_details_action">Toon details</string>
     <string name="general_show_all_action">Toon alles</string>
     <string name="general_toggle_layout_mode">Wijzig de weergavemodus</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s items</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d succesvol</item>
+        <item quantity="other">%d succesvol</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d mislukt</item>
+        <item quantity="other">%d mislukt</item>
     </plurals>
     <string name="x_space_can_be_freed">%s kan worden vrijgemaakt</string>
     <string name="general_info_label">Info</string>

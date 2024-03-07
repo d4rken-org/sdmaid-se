@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Impecável.</string>
     <string name="slogan_message_6">Bytes, desapareçam!</string>
     <string name="slogan_message_7">Espaço livre, lugar feliz.</string>
+    <string name="slogan_message_8">Nunca vamos desistir de ti.</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Disparidade: desejava %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não foi possível aceder a %s.</string>

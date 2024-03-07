@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Tertemiz.</string>
     <string name="slogan_message_6">Bitler, defolun!</string>
     <string name="slogan_message_7">Boş alan, mutlu yer.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_error_type_mismatch_msg">Biçim eşleşmiyor: İstenen %1$s fakat bulunan %2$s.</string>
     <string name="general_error_cant_access_msg">%s\'ye erişilemiyor.</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s öğe</item>
         <item quantity="other">%s öğeler</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d başarılı</item>
+        <item quantity="other">%d başarılı</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d başarısız</item>
+        <item quantity="other">%d başarısız</item>
     </plurals>
     <string name="x_space_can_be_freed">%s serbest bırakılabilir</string>
     <string name="general_info_label">Bilgi</string>

@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Αυτή η εφαρμογή εξαιρείται επί του παρόντος από ένα ή περισσότερα εργαλεία.</string>
     <string name="appcontrol_tag_user">Χρήστη</string>
     <string name="appcontrol_tag_active">Πρόσφατα ενεργοί</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Πακέτο</string>
     <string name="appcontrol_tag_system">Συστήματος</string>
     <string name="appcontrol_tag_enabled">Ενεργοποιημένες</string>
     <string name="appcontrol_tag_disabled">Απενεργοποιημένες</string>
@@ -435,6 +437,14 @@
         <item quantity="one">Αλλαγή ενεργοποίηση/απενεργοποίηση κατάστασης %d εφαρμογής;</item>
         <item quantity="other">Αλλαγή ενεργοποίηση/απενεργοποίηση καταστάσεων για %d εφαρμογές;</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Προσδιορισμός μεγεθών</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Λάβετε μια πρόχειρη εκτίμηση του μεγέθους κάθε εφαρμογής.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Προσδιορισμός δραστηριότητας</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Μάθετε εάν μια εφαρμογή είναι (ή ήταν πρόσφατα) ενεργή.</string>
+    <string name="appcontrol_export_app_selection_action">Εξαγωγή εφαρμογών</string>
+    <string name="appcontrol_export_title">Εξαγωγή εφαρμογής</string>
+    <string name="appcontrol_export_description">Αποθηκεύστε τα αρχεία εγκατάστασης αυτής της εφαρμογής στη συσκευή σας. Αυτό δεν περιλαμβάνει δεδομένα εφαρμογής.</string>
+    <string name="appcontrol_progress_exporting_x">Εξαγωγή %s</string>
     <string name="analyzer_tool_name">Ανάλυση αποθηκευτικού χώρου</string>
     <string name="analyzer_explanation_short">Μάθετε τι καταλαμβάνει χώρο στη συσκευή σας.</string>
     <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>

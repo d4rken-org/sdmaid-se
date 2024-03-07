@@ -9,13 +9,14 @@
     <string name="slogan_message_5">Imaculat.</string>
     <string name="slogan_message_6">Octeți, plecați!</string>
     <string name="slogan_message_7">Spațiu liber, loc fericit.</string>
+    <string name="slogan_message_8">Nu renunț la tine niciodată.</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_error_type_mismatch_msg">Nepotrivire de tip: Am vrut %1$s, dar am primit %2$s.</string>
     <string name="general_error_cant_access_msg">Nu se poate accesa %s.</string>
     <string name="general_error_root_unavailable">Accesul la root nu este disponibil.</string>
     <string name="general_error_empty_result_msg">Rezultatul a fost gol.</string>
     <string name="general_error_no_compatible_app_found_msg">Nu s-a găsit nicio aplicație compatibilă care să gestioneze această cerere.</string>
-    <string name="general_todo_msg">Această funcție încă se lucrează și nu este disponibil în prezent.</string>
+    <string name="general_todo_msg">Această funcție este încă în lucru și nu este disponibilă în prezent.</string>
     <string name="general_share_action">Partajează</string>
     <string name="general_done_action">Terminat</string>
     <string name="general_copy_action">Copiază</string>
@@ -41,10 +42,10 @@
     <string name="general_donate_action">Donează</string>
     <string name="general_check_action">Verifică</string>
     <string name="general_filter_action">Filtrează</string>
-    <string name="general_internal_not_available_msg">Conexiunea la internet nu este disponibil</string>
+    <string name="general_internal_not_available_msg">Conexiunea la internet nu este disponibilă</string>
     <string name="general_refresh_action">Reîncarcă</string>
     <string name="general_progress_searching">Se caută</string>
-    <string name="general_progress_generating_searchpaths">Se generează căutare pentru căi</string>
+    <string name="general_progress_generating_searchpaths">Generarea căilor de căutare</string>
     <string name="general_progress_filtering">Se filtrează</string>
     <string name="general_progress_preparing">Se pregătește</string>
     <string name="general_progress_processing_x">Se procesează %s</string>
@@ -110,6 +111,16 @@
         <item quantity="one">%s articol</item>
         <item quantity="few">%s articole</item>
         <item quantity="other">%s articole</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d reușit</item>
+        <item quantity="few">%d reușite</item>
+        <item quantity="other">%d reușite</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d eșuat</item>
+        <item quantity="few">%d eșuate</item>
+        <item quantity="other">%d eșuate</item>
     </plurals>
     <string name="x_space_can_be_freed">%s pot fi eliberați</string>
     <string name="general_info_label">Informații</string>

@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Πεντακάθαρο.</string>
     <string name="slogan_message_6">Bytes, εξαφανιστείτε!</string>
     <string name="slogan_message_7">Ελεύθερος χώρος, ευτυχισμένος τόπος.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Σας ευχαριστώ</string>
     <string name="general_error_type_mismatch_msg">Αναντιστοιχία τύπου: Αναμενόταν %1$s, αλλά εμφανίστηκε %2$s.</string>
     <string name="general_error_cant_access_msg">Δεν είναι δυνατή η πρόσβαση στο %s.</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s στοιχείο</item>
         <item quantity="other">%s στοιχεία</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d επιτυχής</item>
+        <item quantity="other">%d επιτυχής</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d απέτυχε</item>
+        <item quantity="other">%d απέτυχαν</item>
     </plurals>
     <string name="x_space_can_be_freed">%s μπορούν να απελευθερωθούν</string>
     <string name="general_info_label">Πληροφορίες</string>

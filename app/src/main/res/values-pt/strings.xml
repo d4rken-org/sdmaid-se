@@ -414,6 +414,8 @@ Recursos dos jogos.</string>
     <string name="appcontrol_app_exclude_edit_description">Este app está excluído de uma ou mais ferramentas.</string>
     <string name="appcontrol_tag_user">Utilizador</string>
     <string name="appcontrol_tag_active">Recentemente ativo</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pacote</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Ativado</string>
     <string name="appcontrol_tag_disabled">Desativado</string>
@@ -436,6 +438,14 @@ Recursos dos jogos.</string>
         <item quantity="one">Alterar o estado ativado/desativado da aplicação %d?</item>
         <item quantity="other">Alterar estados habilitado/desativado das aplicações %d?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determine tamanhos</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obtenha uma estimativa aproximada do tamanho de cada aplicativo.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determine a atividade</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Descubra se uma aplicação está ativa (ou esteve recentemente).</string>
+    <string name="appcontrol_export_app_selection_action">Exportar aplicações</string>
+    <string name="appcontrol_export_title">Exportar aplicações</string>
+    <string name="appcontrol_export_description">Guarde arquivos de instalação desta aplicação no seu dispositivo. Isso não inclui os dados.</string>
+    <string name="appcontrol_progress_exporting_x">A exportar %s</string>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>
