@@ -8,6 +8,8 @@ on:
 jobs:
   release-github:
     name: Create GitHub release
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     environment: foss-production
     steps:
