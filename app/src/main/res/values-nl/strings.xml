@@ -81,7 +81,7 @@
     <string name="support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel je installatie-ID als de ontwikkelaar je foutmeldingen moet vinden.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Noteer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
-    <string name="discord_label">Onenigheid</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="changelog_label">Wijzigingslogboek</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Deze app is momenteel uitgesloten van één of meer hulpprogramma\'s.</string>
     <string name="appcontrol_tag_user">Gebruiker</string>
     <string name="appcontrol_tag_active">Sinds kort actief</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundel</string>
     <string name="appcontrol_tag_system">Systeem</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
@@ -435,6 +437,14 @@
         <item quantity="one">Ingeschakelde/uitgeschakelde status van %d app wijzigen?</item>
         <item quantity="other">Ingeschakelde/uitgeschakelde status voor %d apps wijzigen?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal grootte</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Activiteit bepalen</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of recentelijk was).</string>
+    <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
+    <string name="appcontrol_export_title">App exporteren</string>
+    <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op op je apparaat. Dit bevat geen app-gegevens.</string>
+    <string name="appcontrol_progress_exporting_x">Bezig met exporteren van %s</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>

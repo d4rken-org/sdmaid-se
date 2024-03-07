@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Ștergi toate rezultatele la toate instrumentele?</string>
+    <string name="dashboard_delete_all_message">Ștergeți rezultatele din toate instrumentele?</string>
     <string name="dashboard_settings_category">Tablou de bord</string>
     <string name="dashboard_motd_title">Un mesaj de la dezvoltator</string>
     <string name="dashboard_settings_oneclick_title">Mod o singură apăsare</string>
@@ -31,9 +31,9 @@
     <string name="tasks_result_notification_channel_label">Rezultatele sarcinii</string>
     <string name="tasks_result_subtext">Rezultatul sarcinii</string>
     <string name="onboarding_welcome_title">Bine ai venit</string>
-    <string name="onboarding_welcome_body1">SD Maid SE gestionează fișierele, aplicații și stocarea.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gestionează fișierele, aplicațiile și spațiul de stocare.</string>
     <string name="onboarding_welcome_body2">Obține spațiu de stocare prin curățarea din spatele altor aplicații. Șterge fișiere consumabile și elimină datele rămase.</string>
-    <string name="onboarding_welcome_body_beta">Acesta este o construcție beta (testare). Procedează cu sens de umor și un plan de rezervă. Vă rugăm raportează probleme pe care le vei întâlni.</string>
+    <string name="onboarding_welcome_body_beta">Aceasta este o versiune beta (de testare). Continuați cu simțul umorului și un plan de rezervă. Vă rugăm să raportați problemele pe care le întâlniți.</string>
     <string name="onboarding_welcome_continue_action">Continuă</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) este succesorul aplicației SD Maid(aka. SD Maid 1). O aplicație nouă, optimizat pentru o versiune modernă Android.</string>
@@ -77,8 +77,8 @@
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Citește documentația, raportează probleme, discută cu alții sau înregistrează jurnale de depanare.</string>
     <string name="documentation_label">Documentație</string>
-    <string name="issue_tracker_description">Un tracker de probleme public pentru rapoarte de bug-uri și cereri (În engleză, dar folosirea Google Translate este acceptată).</string>
-    <string name="issue_tracker_label">Tracker probleme</string>
+    <string name="issue_tracker_description">Un instrument public de urmărire a problemelor pentru rapoartele de erori și solicitările de funcții.</string>
+    <string name="issue_tracker_label">Detector de probleme</string>
     <string name="support_installid_label">ID instalare</string>
     <string name="support_installid_desc">Rapoarte de erori automatic sunt anonime. Partajează-ți ID-ul de instalare dacă dezvoltatorul are nevoie pentru a căuta rapoartele tale de erori.</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
@@ -153,13 +153,13 @@
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Nivel de risc</string>
     <string name="corpsefinder_tool_name">Găsitor de cadavre</string>
-    <string name="corpsefinder_explanation_short">Date care aparțin la aplicații deja eliminate.</string>
+    <string name="corpsefinder_explanation_short">Date care aparțin aplicațiilor deja eliminate.</string>
     <string name="corpsefinder_settings_summary">Ajustează filtrele de scanare și nivelele de risc.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Fișiere pe care vrei să le păstrezi, chiar dacă aplicația este dezinstalată, ex: fotografii pe care le-ai făcut sau copii de rezervă pe care le-ai creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
     <string name="corpsefinder_settings_risk_common_summary">Date cu nume utilizate în mod obișnuit, de ex. un dosar \"Note\" este deținut de prea multe aplicații necunoscute.</string>
-    <string name="corpsefinder_watcher_title">Urmăritor de dezinstalare</string>
+    <string name="corpsefinder_watcher_title">Urmăritor de dezinstalări</string>
     <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ștergere automată</string>
     <string name="corpsefinder_watcher_autodelete_summary">Șterge automat resturile legate de aplicația dezinstalată.</string>
@@ -178,7 +178,7 @@
     <string name="corpsefinder_filter_publicmedia_summary">Fișiere media publice, ex: fișiere primite prin aplicații de mesagerie.</string>
     <string name="corpsefinder_filter_publicobb_label">Resurse OBB</string>
     <string name="corpsefinder_filter_publicobb_summary">Resurse suplimentare ale aplicației, ex: active de joc.</string>
-    <string name="corpsefinder_filter_publicdata_label">Datele aplicației publice</string>
+    <string name="corpsefinder_filter_publicdata_label">Date publice ale aplicației</string>
     <string name="corpsefinder_filter_publicdata_summary">Date nesensibile ale aplicației, ex: cache pentru hărți.</string>
     <string name="corpsefinder_filter_sdcard_label">Card SD</string>
     <string name="corpsefinder_filter_sdcard_summary">Stocarea generale publice, intern și extern (ex: Carduri SD).</string>
@@ -194,7 +194,7 @@
     <string name="corpsefinder_filter_appsource_private_summary">Date restricționate de instalare a aplicației, ex: aplicații terță parte protejate.</string>
     <string name="corpsefinder_filter_appasec_label">Resurse a aplicației criptat</string>
     <string name="corpsefinder_filter_appasec_summary">Resurse criptate a aplicației, ex: activele jocului.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Date mutate în stocarea externă de modificările App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Datele mutate în stocarea externă de către modurile aplicației App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">A fost descoperită %d rămășiță de aplicație</item>
@@ -206,7 +206,7 @@
     <string name="corpsefinder_corpse_hints_label">Înștiințare</string>
     <string name="corpsefinder_owner_unknown">Propietar necunoscut</string>
     <string name="corpsefinder_corpse_hint_keeper">Acest articol poate conține date pe care doriți să le păstrați, deși proprietarul său este dezinstalat, ex: fotografii sau copii de rezervă.</string>
-    <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și poate să aparțină încă la aplicații instalate pe care SD Maid nu știe.</string>
+    <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și ar putea aparține unor aplicații încă instalate pe care SD Maid nu le cunoaște.</string>
     <string name="systemcleaner_tool_name">Curățitor de sistem</string>
     <string name="systemcleaner_explanation_short">Date de prisos care nu aparțin unei anumite aplicații.</string>
     <plurals name="systemcleaner_result_x_items_found">
@@ -254,7 +254,7 @@
     <string name="systemcleaner_filter_tombstones_label">Reziduuri ale erorilor de sistemului</string>
     <string name="systemcleaner_filter_tombstones_summary">Dacă procesele native se blochează (ex: jocuri), atunci fișierele sunt create aici.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistici de utilizare</string>
-    <string name="systemcleaner_filter_usagestats_summary">Fișiere relatate la statistici de utilizare a aplicației.</string>
+    <string name="systemcleaner_filter_usagestats_summary">Fișiere legate de statisticile de utilizare a aplicației.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Ștergi tot conținutul filtrului?</string>
     <string name="systemcleaner_customfilter_label">Filtru personalizat</string>
     <string name="systemcleaner_customfilter_create_action">Crează filtru personalizat</string>
@@ -304,7 +304,7 @@
     <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
     <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcleaner_include_minimumsize_label">Dimensiunea minimă</string>
-    <string name="appcleaner_include_minimumsize_summary">Sari peste aplicațiile care suma de date consumabile este sub minimum.</string>
+    <string name="appcleaner_include_minimumsize_summary">Omiteți aplicațiile în care suma datelor consumabile este sub minimul selectat.</string>
     <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
     <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detectarea sistemului de operare</string>
@@ -350,7 +350,7 @@
         <item quantity="few">Au fost găsite %d articole consumabile</item>
         <item quantity="other">Au fost găsite %d articole consumabile</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Se așteaptă automatizația prin serviciul de accesibilitate</string>
+    <string name="appcleaner_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="appcleaner_automation_title">Automatizare Curățitor de Aplicații</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
@@ -398,8 +398,8 @@
     <string name="deduplicator_details_cluster_title">Set de dubluri</string>
     <string name="deduplicator_matches_exact_label">Copii exacte</string>
     <string name="deduplicator_matches_similar_label">Fișiere similare</string>
-    <string name="appcontrol_tool_name">AppControl</string>
-    <string name="appcontrol_explanation_short">Aplicațiile instalate în dispozitivul tău.</string>
+    <string name="appcontrol_tool_name">Controlul Aplicațiilor</string>
+    <string name="appcontrol_explanation_short">Aplicațiile instalate pe dispozitivul tău.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplicație detectată</item>
         <item quantity="few">%d aplicații detectate</item>
@@ -423,6 +423,8 @@
     <string name="appcontrol_app_exclude_edit_description">Această aplicație este în prezent exclusă de la una sau mai multe instrumente.</string>
     <string name="appcontrol_tag_user">Utilizator</string>
     <string name="appcontrol_tag_active">Activ recent</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pachet</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Activat</string>
     <string name="appcontrol_tag_disabled">Dezactivat</string>
@@ -446,6 +448,14 @@
         <item quantity="few">Schimbați starea activată/dezactivată a aplicației %d?</item>
         <item quantity="other">Schimbați stările activate/dezactivate pentru %d aplicații?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determină dimensiunile</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
+    <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
+    <string name="appcontrol_export_title">Exportă aplicația</string>
+    <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
+    <string name="appcontrol_progress_exporting_x">Exportat %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -492,11 +502,11 @@
     <string name="data_area_sdcard_label">Card SD</string>
     <string name="data_areas_label">Zone de date</string>
     <string name="data_areas_description">Zone de date reprezintă locații în dispozitivul tău care sunt accesibile la SD Maid. Zonele de date diferite pot fi disponibile în funcție de versiunea ta de Android și de permisiunile care au fost acordate.</string>
-    <string name="data_areas_short_summary">Zone care SD Maid poate accesa bazat pe permisiunile acordate în prezent.</string>
+    <string name="data_areas_short_summary">Zonele pe care SD Maid le poate accesa pe baza permisiunilor acordate în prezent.</string>
     <string name="exclusion_manager_title">Gestionare Excluderi</string>
-    <string name="exclusion_manager_desc">Gestionează excluderi al fișierului și aplicației.</string>
+    <string name="exclusion_manager_desc">Gestionați excluderile de fișiere și aplicații.</string>
     <string name="exclusion_explanation_body1">Exclude fișiere și aplicații din operațiile SD Maid.</string>
-    <string name="exclusion_add_new_hint">Adaugă excluderi noi prin lăsarea SD Maid să caute întâi și după să folosească meniul contextual în rezultatul pe care vrei să îl excludi.</string>
+    <string name="exclusion_add_new_hint">Adăugați noi excluderi permițând mai întâi SD Maid să caute și apoi folosind meniul contextual pentru rezultatul pe care doriți să îl excludeți.</string>
     <string name="exclusion_create_action">Creează excludere</string>
     <string name="exclusion_edit_action">Editează excluderea</string>
     <string name="exclusion_type_package">Excludere aplicație</string>
@@ -523,14 +533,14 @@
         <item quantity="other">Excluderi %d create</item>
     </plurals>
     <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot permite acestui serviciu să permită SD Maid să automatizeze sarcini care altfel ar necesita interacțiunea manuală dificilă a utilizatorului (e.. ştergere cache).\n\nExemplu: Dacă dați instrucțiuni de ajutor SD pentru a opri mai multe aplicații, atunci ajutorul SD poate folosi acest serviciu pentru a deschide ecranul de setări al fiecărei aplicații, găsește butonul „Oprește forțata” și apasă pe el.\n\nSD Maid va arăta întotdeauna în mod vizibil când se utilizează acest serviciu și va oferi o modalitate ușoară utilizatorului de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
-    <string name="automation_screenoverlay_explanation">SD Maid interoghează cu dispozitivul tău. Nu este posibil să utilizezi ecranul în același timp. Așteaptă până când operația este terminată sau anulează-l.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interacționează cu dispozitivul dvs. Nu este posibil să utilizați ecranul în același timp. Așteptați până la finalizarea operației sau anulați-o.</string>
     <string name="automation_active_title">SD Maid funcționează</string>
-    <string name="automation_error_no_consent_title">Automatizație eroare</string>
-    <string name="automation_error_no_consent_body">Serviciul de accesibilitate nu este confugurat. Completează partea de configurare și dă consimțământul.</string>
+    <string name="automation_error_no_consent_title">Eroare de automatizare</string>
+    <string name="automation_error_no_consent_body">Serviciul de accesibilitate nu este configurat. Finalizați configurarea și acordați consimțământul.</string>
     <string name="automation_error_not_enabled_title">Serviciul nu este activat</string>
-    <string name="automation_error_not_enabled_body">Serviciul de accesibilitate este dezactivată. Pornește-l din nou.</string>
+    <string name="automation_error_not_enabled_body">Serviciul de accesibilitate este dezactivat. Activați-l din nou.</string>
     <string name="automation_error_not_running_title">Serviciul nu rulează</string>
-    <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încearcă să repornești dispozitivul.</string>
+    <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încercați să reporniți dispozitivul.</string>
     <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
     <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
     <string name="history_label">Istoric</string>
@@ -539,12 +549,12 @@
     <string name="scheduler_execution_label">Următoarea execuție (aproximativ)</string>
     <string name="scheduler_execution_last_label">Ultima execuție</string>
     <string name="scheduler_settings_label">Programator</string>
-    <string name="scheduler_settings_summary">Ajustează setările legate de programator.</string>
-    <string name="scheduler_new_schedule_action">Creează un program</string>
+    <string name="scheduler_settings_summary">Ajustați setările legate de planificator.</string>
+    <string name="scheduler_new_schedule_action">Creați un program</string>
     <string name="scheduler_schedule_name_label">Numele programului</string>
     <string name="scheduler_schedule_toggle_enabled">Programul este activat</string>
     <string name="scheduler_schedule_toggle_disabled">Programul este dezactivat</string>
-    <string name="scheduler_edit_schedule_action">Editează programul</string>
+    <string name="scheduler_edit_schedule_action">Editați programul</string>
     <string name="scheduler_schedule_time_label">Timp aproximativ</string>
     <string name="scheduler_schedule_repeat_label">Repetă intervalul în zile</string>
     <string name="scheduler_schedule_default_name">Program implicit</string>
@@ -574,9 +584,9 @@
     <string name="scheduler_commands_after_schedule_label">Comenzi post-program</string>
     <string name="scheduler_commands_after_schedule_desc">Comenzi Android shell care vor fi executate la sfârșitul unui program.</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
-    <string name="updates_dashcard_body">O actualizare este disponibilă. Tu ai %1$s și ultima versiune este %2$s.</string>
-    <string name="translation_encourage_title">Traduce SD Maid</string>
-    <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducerea, revizuire sau corectare, ajutorul tău este apreciat!</string>
+    <string name="updates_dashcard_body">Este disponibilă o actualizare. Aveți %1$s și cea mai recentă versiune este %2$s.</string>
+    <string name="translation_encourage_title">Traduceți SD Maid</string>
+    <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducere, revizuire sau corectare, ajutorul dumneavoastră este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
     <string name="translation_translators_people">Alex (alecsio on Crowdin);Alexandru51 (Alexandru 9035 on Crowdin)</string>
     <string name="motd_setting_enabled_label">Mesaje importante</string>

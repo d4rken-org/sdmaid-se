@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">此应用目前被排除在一个或多个工具之外。</string>
     <string name="appcontrol_tag_user">用户</string>
     <string name="appcontrol_tag_active">最近的活动</string>
+    <string name="appcontrol_tag_apk_base">安装包文件</string>
+    <string name="appcontrol_tag_apk_bundle">捆绑垃圾</string>
     <string name="appcontrol_tag_system">系统</string>
     <string name="appcontrol_tag_enabled">已启用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
@@ -424,6 +426,14 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">更改 %d 个应用的启用/禁用状态？</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">确定大小</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">粗略估计每个应用的大小</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">活动识别</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否活动（或最近活动）</string>
+    <string name="appcontrol_export_app_selection_action">导出应用</string>
+    <string name="appcontrol_export_title">导出应用</string>
+    <string name="appcontrol_export_description">保存此应用的安装文件到你的设备（不包括应用数据）</string>
+    <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>

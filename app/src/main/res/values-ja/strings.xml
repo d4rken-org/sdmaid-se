@@ -38,8 +38,8 @@
     <string name="onboarding_versus_body4">SD Maid 1の「プロステータス」は、残念ながらSD Maid 2/SEに引き継ぐことはできません。 無料アップデートを12年間続けてきましたが、開発を継続するために改めて購入していただく必要があります。</string>
     <string name="onboarding_versus_continue_action">次へ</string>
     <string name="onboarding_privacy_title">プライバシー</string>
-    <string name="onboarding_privacy_body1">SD Maidは広告がなく、ユーザーデータを販売することもありません。</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">バグレポートはエラーの発生時に送信され、使用しているデバイスやアプリやファイルに関する詳細情報が含まれている場合があります。レポートはバグの修正や改善に役立てられます。</string>
+    <string name="onboarding_privacy_body1">SD Maidは広告がなく、第三者にユーザー情報を販売することもありません。</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">バグ報告はエラーの発生時に送信され、使用しているデバイスやアプリやファイルに関する詳細情報が含まれている場合があります。報告はバグの修正や改善に役立てられます。</string>
     <string name="onboarding_privacy_bugreport_toggle">自動的にバグ報告を行うことを許可する</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">これらのオプションは設定で変更できます。</string>
     <string name="onboarding_privacy_continue_action">次へ</string>
@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">このアプリは現在、1つ以上のツールから除外されています。</string>
     <string name="appcontrol_tag_user">ユーザー</string>
     <string name="appcontrol_tag_active">最近の活動</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">バンドル</string>
     <string name="appcontrol_tag_system">システム</string>
     <string name="appcontrol_tag_enabled">有効</string>
     <string name="appcontrol_tag_disabled">無効化済み</string>
@@ -424,6 +426,14 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">%dの有効/無効を変更しますか？</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">サイズの決定</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">各アプリのサイズの大まかな推定値を取得します。</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">アクティビティの決定</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">アプリがアクティブであるか(または最近アクティブであったか)を確認します。</string>
+    <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
+    <string name="appcontrol_export_title">アプリをエクスポート</string>
+    <string name="appcontrol_export_description">このアプリのインストールファイルをお使いのデバイスに保存します。アプリのデータは含まれていません。</string>
+    <string name="appcontrol_progress_exporting_x">%s をエクスポート中</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>
     <string name="analyzer_progress_scanning_device">ストレージデバイスを検索中</string>

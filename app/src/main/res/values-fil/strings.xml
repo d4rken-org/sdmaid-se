@@ -44,6 +44,8 @@
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_licenses_label">Mga Lisensya</string>
     <string name="settings_category_other_label">Iba</string>
+    <string name="ui_theme_mode_dark_label">Dilim</string>
+    <string name="ui_theme_mode_light_label">Liwanag</string>
     <string name="settings_support_label">Suporta</string>
     <string name="documentation_label">Dokumentasyon</string>
     <string name="issue_tracker_label">Issue tracker</string>

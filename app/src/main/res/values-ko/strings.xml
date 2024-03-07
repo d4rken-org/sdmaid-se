@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">이 앱은 한 개 이상의 도구의 기능에서 제외되어 있습니다.</string>
     <string name="appcontrol_tag_user">사용자</string>
     <string name="appcontrol_tag_active">최근에 사용됨</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">번들</string>
     <string name="appcontrol_tag_system">시스템</string>
     <string name="appcontrol_tag_enabled">사용하고 있습니다</string>
     <string name="appcontrol_tag_disabled">사용하지 않고 있습니다</string>
@@ -424,6 +426,14 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">%d 앱의 활성화/비활성화 상태를 변경하시겠습니까?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">크기 추정</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">앱 크기의 대략적인 값을 확인합니다.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">앱 활성 여부 확인</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">앱이 실행되고 있는지 (또는 최근에 실행되었는지) 확인합니다.</string>
+    <string name="appcontrol_export_app_selection_action">앱들 내보내기</string>
+    <string name="appcontrol_export_title">앱 내보내기</string>
+    <string name="appcontrol_export_description">이 앱의 설치 파일을 기기에 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
+    <string name="appcontrol_progress_exporting_x">%s 내보내는 중</string>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>

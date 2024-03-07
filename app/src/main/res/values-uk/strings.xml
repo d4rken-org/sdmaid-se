@@ -409,6 +409,14 @@
     <string name="appcontrol_app_sizes_data_label">Дані</string>
     <string name="appcontrol_app_sizes_cache_label">Кеш</string>
     <string name="appcontrol_toggle_confirmation_title">Підтвердити дію</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Визначення розмірів</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Отримайте приблизну оцінку розміру кожного додатка.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Визначення активності</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Дізнайтеся, чи є додаток активним (або нещодавно був активним).</string>
+    <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
+    <string name="appcontrol_export_title">Експорт додатка</string>
+    <string name="appcontrol_export_description">Збережіть інсталяційні файли цієї програми на своєму пристрої. Сюди не входять дані програми.</string>
+    <string name="appcontrol_progress_exporting_x">Експорт %s</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>

@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Este aplicativo está excluído de uma ou mais ferramentas.</string>
     <string name="appcontrol_tag_user">Usuário</string>
     <string name="appcontrol_tag_active">Recentemente ativo</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pacote</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Ativado</string>
     <string name="appcontrol_tag_disabled">Desativado</string>
@@ -435,6 +437,14 @@
         <item quantity="one">Alterar o estado habilitado/desabilitado de %d app?</item>
         <item quantity="other">Alterar os estados habilitados/desabilitados de %d apps?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determinar os tamanhos</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obtenha uma estimativa aproximada do tamanho de cada aplicativo.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determinar a atividade</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Descubra se um aplicativo está ativo (ou recentemente estava) ativo.</string>
+    <string name="appcontrol_export_app_selection_action">Exportar os aplicativos</string>
+    <string name="appcontrol_export_title">Exportar o aplicativo</string>
+    <string name="appcontrol_export_description">Salvar os arquivos de instalação deste app no seu dispositivo. Isso não inclui os dados do app.</string>
+    <string name="appcontrol_progress_exporting_x">Exportando %s</string>
     <string name="analyzer_tool_name">Analisador de Armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>

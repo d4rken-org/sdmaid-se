@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Ei jäta jälgi maha.</string>
     <string name="slogan_message_6">Baidid, tehke vehkat!</string>
     <string name="slogan_message_7">Vaba ruum, minimalism on kuum.</string>
+    <string name="slogan_message_8">Alati Sinule toeks.</string>
     <string name="general_thank_you_label">Aitäh</string>
     <string name="general_error_type_mismatch_msg">Trükiviga: tahtsite %1$s, kuid kirjutasite %2$s.</string>
     <string name="general_error_cant_access_msg">Ei pääse juurde %s.</string>
@@ -105,6 +106,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s kirje</item>
         <item quantity="other">%s kirjet</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d õnnestus</item>
+        <item quantity="other">%d õnnestus</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d nurjus</item>
+        <item quantity="other">%d nurjus</item>
     </plurals>
     <string name="x_space_can_be_freed">%s saab vabastada</string>
     <string name="general_info_label">Teave</string>

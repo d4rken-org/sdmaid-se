@@ -9,6 +9,7 @@
     <string name="slogan_message_5">티끌 하나 없도록.</string>
     <string name="slogan_message_6">Bytes, 사라져라!</string>
     <string name="slogan_message_7">자유로운 공간, 행복한 장소.</string>
+    <string name="slogan_message_8">당신을 실망시키지 않을 거에요.</string>
     <string name="general_thank_you_label">감사합니다</string>
     <string name="general_error_type_mismatch_msg">형식 오류: %1$s 을(를) 예상했으나, %2$s 을(를) 받음.</string>
     <string name="general_error_cant_access_msg">%s 를 접근할 수 없습니다.</string>
@@ -63,6 +64,8 @@
     <string name="general_progress_loading_egg_9">인생의 선택에 대한 버퍼링</string>
     <string name="general_progress_loading_egg_10">크툴루 소환</string>
     <string name="general_progress_loading_egg_11">괜찮아요</string>
+    <string name="general_progress_loading_egg_12">잠시 기다려 주세요</string>
+    <string name="general_progress_loading_egg_13">그래도 통화 대기는 아니잖아요</string>
     <string name="general_help_action">도움</string>
     <string name="general_continue">계속하기</string>
     <string name="general_progress_queued">대기 중</string>
@@ -102,6 +105,12 @@
     <string name="general_open_system_settings_action">시스템 설정 열기</string>
     <plurals name="result_x_items">
         <item quantity="other">%s개 항목</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d개 성공</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d개 실패</item>
     </plurals>
     <string name="x_space_can_be_freed">%s 확보 가능</string>
     <string name="general_info_label">정보</string>

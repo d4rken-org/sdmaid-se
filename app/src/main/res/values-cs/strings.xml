@@ -433,6 +433,8 @@
     <string name="appcontrol_app_exclude_edit_description">Tato aplikace je nyní vyloučena z jednoho nebo více nástrojů.</string>
     <string name="appcontrol_tag_user">Uživatel</string>
     <string name="appcontrol_tag_active">Nedávná aktivita</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Balíček</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
@@ -457,6 +459,14 @@
         <item quantity="many">Změnit zapnutý/vypnutý stav %d aplikací?</item>
         <item quantity="other">Změnit zapnutý/vypnutý stav %d aplikací?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Stanovit velikost</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Získejte hrubý odhad velikosti každé aplikace.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Zjistit aktivitu</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Zjistěte, zda je (nebo nedávno byla) aplikace aktivní.</string>
+    <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
+    <string name="appcontrol_export_title">Exportovat aplikaci</string>
+    <string name="appcontrol_export_description">Uloží instalační soubory této aplikace do vašeho zařízení. To se netýká dat aplikace.</string>
+    <string name="appcontrol_progress_exporting_x">Exportování %s</string>
     <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>
     <string name="analyzer_progress_scanning_device">Vyhledávání úložných zařízení</string>

@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">Bytes, desapareixeu!</string>
     <string name="slogan_message_7">Espai lliure, lloc feliç.</string>
+    <string name="slogan_message_8">Mai us abandonaré.</string>
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_error_type_mismatch_msg">Error tipogràfic: volíeu %1$s, però heu obtingut %2$s.</string>
     <string name="general_error_cant_access_msg">No es pot accedir a %s.</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s ítem</item>
         <item quantity="other">%s ítems</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d correcte</item>
+        <item quantity="other">%d correctes</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ha fallat</item>
+        <item quantity="other">%d han fallat</item>
     </plurals>
     <string name="x_space_can_be_freed">Es poden alliberar %s</string>
     <string name="general_info_label">Info</string>

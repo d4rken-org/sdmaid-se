@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">Aplikasi ini dikecualikan dari satu atau lebih peralatan.</string>
     <string name="appcontrol_tag_user">Pengguna</string>
     <string name="appcontrol_tag_active">Baru-baru ini aktif</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundel</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Diaktifkan</string>
     <string name="appcontrol_tag_disabled">Dinonaktifkan</string>
@@ -424,6 +426,14 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">Ganti keadaan aktif/nonaktif %d aplikasi?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Tentukan ukuran</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan perkiraan kasar ukuran masing-masing aplikasi.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Tentukan aktivitas</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Ketahui apakah suatu aplikasi sedang (atau baru-baru ini) aktif.</string>
+    <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
+    <string name="appcontrol_export_title">Ekspor aplikasi</string>
+    <string name="appcontrol_export_description">Simpan berkas-berkas pemasangan aplikasi ini pada perangkat Anda. Data-data aplikasi tidak dimasukkan.</string>
+    <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>

@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Strøkent.</string>
     <string name="slogan_message_6">Bytes, forsvinn!</string>
     <string name="slogan_message_7">Ledig plass, glad plass.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_error_type_mismatch_msg">Type-avvik: Ønsket %1$s, men fikk %2$s.</string>
     <string name="general_error_cant_access_msg">Får ikke tilgang til %s.</string>
@@ -63,6 +64,8 @@
     <string name="general_progress_loading_egg_9">Mellomlagrede livsvalg</string>
     <string name="general_progress_loading_egg_10">Tilkaller Cthulhu</string>
     <string name="general_progress_loading_egg_11">Dette går fint</string>
+    <string name="general_progress_loading_egg_12">Vennligst vent</string>
+    <string name="general_progress_loading_egg_13">Du er i det minste på vent</string>
     <string name="general_help_action">Hjelp</string>
     <string name="general_continue">Fortsett</string>
     <string name="general_progress_queued">I kø</string>
@@ -105,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
         <item quantity="other">%s elementer</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d vellykket</item>
+        <item quantity="other">%d vellykket</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d mislyktes</item>
+        <item quantity="other">%d mislyktes</item>
     </plurals>
     <string name="x_space_can_be_freed">%s kan frigjøres</string>
     <string name="general_info_label">Info</string>

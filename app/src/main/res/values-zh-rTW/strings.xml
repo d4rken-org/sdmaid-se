@@ -403,6 +403,8 @@
     <string name="appcontrol_app_exclude_edit_description">這個應用程式目前已從一個或多個工具中排除。</string>
     <string name="appcontrol_tag_user">使用者</string>
     <string name="appcontrol_tag_active">最近使用</string>
+    <string name="appcontrol_tag_apk_base">安裝包</string>
+    <string name="appcontrol_tag_apk_bundle">組合包</string>
     <string name="appcontrol_tag_system">系統</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
@@ -424,6 +426,10 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">要變更 %d 個應用程式的啟用/停用狀態嗎？</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">已確認大小</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>

@@ -5,6 +5,8 @@
     <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
+    <string name="dashboard_settings_oneclick_tools_title">一鍵式工具</string>
+    <string name="dashboard_settings_oneclick_tools_desc">什麼工具應當被包含在一鍵式工具中？</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
@@ -99,6 +101,8 @@
     <string name="setup_manage_storage_card_body2">對公用儲存空間的基本存取，例如「Download/」和「DCIM/」，但不一定都是「Android/data」。</string>
     <string name="setup_root_card_title">Root 存取</string>
     <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
+    <string name="setup_root_state_ready_label">Root 訪問已就緒。</string>
+    <string name="setup_root_state_waiting_label">正在等待 Root 授權。</string>
     <string name="setup_root_enable_root_use_label">使用 Root 存取 (如果可用)</string>
     <string name="setup_root_disable_root_use_label">不要使用 Root 存取</string>
     <string name="setup_root_card_body2">僅適用於已 Root 的裝置。如果您的裝置並未作此修改，那麼您的裝置並未被 Root，這個設定就不會有任何作用。</string>
@@ -260,7 +264,15 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">排除</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路徑符合任何項目 (例如「DCIM」)，結果將被排除，長按項目以取得更多選項。</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">路徑比較模式</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">路徑以關鍵詞開頭</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">路徑包含關鍵詞</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">路徑以關鍵詞結尾</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">路徑等同於關鍵詞</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">名稱比較模式</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">名稱以關鍵字開頭</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">名稱包含關鍵字</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">名稱以關鍵字結尾</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">名稱等同於關鍵字</string>
     <string name="systemcleaner_customfilter_last_edit">上次編輯：%s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">即時搜尋</string>
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
@@ -337,6 +349,8 @@
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
+    <string name="deduplicator_tool_name">複製器</string>
+    <string name="deduplicator_explanation_short">查找設備上重複的數據。</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">

@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Actualment aquesta aplicació està exclosa d\'una o més eines.</string>
     <string name="appcontrol_tag_user">Usuari</string>
     <string name="appcontrol_tag_active">Actiu recentment</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paquet</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Habilitat</string>
     <string name="appcontrol_tag_disabled">Inhabilitat</string>
@@ -435,6 +437,14 @@
         <item quantity="one">Voleu canviar l\'estat d\'activació/desactivació d\'%d aplicació?</item>
         <item quantity="other">Voleu canviar l\'estat d\'activació/desactivació de %d aplicacions?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determina les mides</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obteniu una estimació aproximada de la mida de cada aplicació.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determina l\'activitat</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Esbrineu si una aplicació està (o ha estat recentment) activa.</string>
+    <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
+    <string name="appcontrol_export_title">Exporta l\'aplicació</string>
+    <string name="appcontrol_export_description">Deseu els fitxers d\'instal·lació d\'aquesta aplicació al vostre dispositiu. Això no inclou les dades de l\'aplicació.</string>
+    <string name="appcontrol_progress_exporting_x">S\'està exportant %s</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>

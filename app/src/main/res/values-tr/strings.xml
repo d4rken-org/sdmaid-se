@@ -413,6 +413,8 @@
     <string name="appcontrol_app_exclude_edit_description">Bu uygulama şu anda bir veya daha fazla araçtan hariç tutulmaktadır.</string>
     <string name="appcontrol_tag_user">Kullanıcı</string>
     <string name="appcontrol_tag_active">Yakın zamanda aktif</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paket</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Etkin</string>
     <string name="appcontrol_tag_disabled">Devre dışı</string>
@@ -435,6 +437,14 @@
         <item quantity="one">%d uygulamasının etkin/devre dışı durumunu değiştir?</item>
         <item quantity="other">%d uygulamaları için etkin/devre dışı durumlarını değiştir?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Boyutları belirle</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Her uygulamanın boyutu hakkında kabaca bir tahminde bulunun.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Faaliyeti belirleyin</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Bir uygulamanın etkin olup olmadığını (veya yakın zamanda etkin olup olmadığını) öğrenin.</string>
+    <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
+    <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
+    <string name="appcontrol_export_description">Bu uygulamanın yükleme dosyalarını cihazınıza kaydedin. Bu, uygulama verilerini içermez.</string>
+    <string name="appcontrol_progress_exporting_x">Dışa aktarılıyor %s</string>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>

@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Impecável.</string>
     <string name="slogan_message_6">Bytes, desapareça!</string>
     <string name="slogan_message_7">Espaço livre, lugar feliz.</string>
+    <string name="slogan_message_8">Nunca vou desistir de você.</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: Procurado %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
@@ -107,6 +108,10 @@
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s itens</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%s com sucesso</item>
+        <item quantity="other">%d com sucesso</item>
     </plurals>
     <string name="x_space_can_be_freed">%s podem ser liberados</string>
     <string name="general_info_label">Info</string>

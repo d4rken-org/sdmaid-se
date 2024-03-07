@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Makellos.</string>
     <string name="slogan_message_6">Bytes, verschwindet!</string>
     <string name="slogan_message_7">Freier Platz, glücklicher Platz.</string>
+    <string name="slogan_message_8">Gebe dich nie auf.</string>
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
@@ -107,6 +108,14 @@
     <plurals name="result_x_items">
         <item quantity="one">%s Objekt</item>
         <item quantity="other">%s Objekte</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d erfolgreich</item>
+        <item quantity="other">%d erfolgreich</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d fehlgeschlagen</item>
+        <item quantity="other">%d fehlgeschlagen</item>
     </plurals>
     <string name="x_space_can_be_freed">%s können freigegeben werden</string>
     <string name="general_info_label">Info</string>

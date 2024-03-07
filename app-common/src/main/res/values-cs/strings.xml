@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Bez chyby.</string>
     <string name="slogan_message_6">Bajty, zmizte!</string>
     <string name="slogan_message_7">Volné místo, šťastné místo.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Děkuji</string>
     <string name="general_error_type_mismatch_msg">Neshoda: Požadováno %1$s, ale obdrženo %2$s.</string>
     <string name="general_error_cant_access_msg">Nelze získat přístup k %s.</string>
@@ -113,6 +114,18 @@
         <item quantity="few">%s položky</item>
         <item quantity="many">%s položek</item>
         <item quantity="other">%s položek</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d úspěšná</item>
+        <item quantity="few">%d úspěšné</item>
+        <item quantity="many">%d úspěšných</item>
+        <item quantity="other">%d úspěšných</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d neúspěšná</item>
+        <item quantity="few">%d neúspěšné</item>
+        <item quantity="many">%d neúspěšných</item>
+        <item quantity="other">%d neúspěšných</item>
     </plurals>
     <string name="x_space_can_be_freed">Je možné uvolnit %s</string>
     <string name="general_info_label">Informace</string>

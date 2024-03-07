@@ -414,6 +414,8 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_app_exclude_edit_description">Questa app è attualmente esclusa da uno o più strumenti.</string>
     <string name="appcontrol_tag_user">Utente</string>
     <string name="appcontrol_tag_active">Recentemente attivo</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pacchetto</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Attivo</string>
     <string name="appcontrol_tag_disabled">Disabilitato</string>
@@ -436,6 +438,14 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
         <item quantity="one">Cambiare lo stato abilitato/disabilitato dell\'app %d?</item>
         <item quantity="other">Cambiare lo stato abilitato/disabilitato delle app %d?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determina dimensioni</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Ottieni una stima delle dimensioni di ogni app.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Controllo attività</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Scopri se un\'app è in esecuzione (o se lo è stata di recente).</string>
+    <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
+    <string name="appcontrol_export_title">Esporta app</string>
+    <string name="appcontrol_export_description">Salva l\'APK di quest\'app nel tuo dispositivo. Non sono inclusi i dati dell\'app.</string>
+    <string name="appcontrol_progress_exporting_x">Esportazione %s</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Scopri cosa sta occupando lo spazio del tuo dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Cercando dispositivi di memoria</string>
