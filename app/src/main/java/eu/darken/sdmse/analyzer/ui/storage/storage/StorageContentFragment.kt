@@ -45,7 +45,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
         }
 
         val adapter = StorageContentAdapter()
-        ui.list.setupDefaults(adapter, dividers = false)
+        ui.list.setupDefaults(adapter, verticalDividers = false)
 
         vm.state.observe2(ui) { state ->
             toolbar.subtitle = state.storage.label.get(requireContext())

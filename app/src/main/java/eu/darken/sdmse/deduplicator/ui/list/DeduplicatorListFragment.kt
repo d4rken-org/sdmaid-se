@@ -65,7 +65,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 LayoutMode.LINEAR -> linearManager
                 LayoutMode.GRID -> gridManager
             },
-            dividers = false,
+            verticalDividers = false,
         )
 
         val selectionTracker = installListSelection(

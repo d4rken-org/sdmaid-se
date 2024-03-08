@@ -50,7 +50,7 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
         ui.mainAction.setOnClickListener { vm.createNew() }
 
         val adapter = SchedulerAdapter()
-        ui.list.setupDefaults(adapter, dividers = false)
+        ui.list.setupDefaults(adapter, verticalDividers = false)
 
         vm.items.observe2(ui) {
             adapter.update(it.listItems)

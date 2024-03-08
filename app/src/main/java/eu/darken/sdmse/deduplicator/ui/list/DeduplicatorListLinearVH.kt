@@ -34,7 +34,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
     private val adapter = DeduplicatorListLinearSubAdapter()
     override val viewBinding = lazy {
         DeduplicatorListLinearItemBinding.bind(itemView).apply {
-            clusterList.setupDefaults(adapter, dividers = false, fastscroll = false)
+            clusterList.setupDefaults(adapter, verticalDividers = false, fastscroll = false)
         }
     }
 

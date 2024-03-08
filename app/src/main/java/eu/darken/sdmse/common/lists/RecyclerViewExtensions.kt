@@ -27,19 +27,30 @@ import me.zhanghai.android.fastscroll.FastScrollerBuilder
 
 fun RecyclerView.setupDefaults(
     adapter: RecyclerView.Adapter<*>? = null,
-    dividers: Boolean = true,
+    verticalDividers: Boolean = true,
+    horizontalDividers: Boolean = false,
     fastscroll: Boolean = true,
     layouter: LayoutManager = LinearLayoutManager(context)
 ) = apply {
     layoutManager = layouter
     itemAnimator = DefaultItemAnimator()
-    if (dividers) addItemDecoration(
+
+    if (verticalDividers) addItemDecoration(
         DividerItemDecoration2(
             context,
             DividerItemDecoration.VERTICAL,
             drawAfterLastItem = false
         )
     )
+
+    if (horizontalDividers) addItemDecoration(
+        DividerItemDecoration2(
+            context,
+            DividerItemDecoration.HORIZONTAL,
+            drawAfterLastItem = false
+        )
+    )
+
     if (adapter != null) this.adapter = adapter
 
     if (fastscroll) {

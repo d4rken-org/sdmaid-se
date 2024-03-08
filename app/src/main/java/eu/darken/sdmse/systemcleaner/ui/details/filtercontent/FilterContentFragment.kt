@@ -44,7 +44,7 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = FilterContentElementsAdapter()
         ui.list.apply {
-            setupDefaults(adapter, dividers = false)
+            setupDefaults(adapter, verticalDividers = false)
             val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, _ ->
                 cur !is FilterContentElementHeaderVH
             }
