@@ -8,7 +8,6 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,19 +37,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Ends up as 3 columns on a medium phones (e.g. Pixel 5)
-        val spanCount = getSpanCount(widthDp = 390)
-        val layouter = if (spanCount > 1) {
-            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
-        } else {
-            LinearLayoutManager(requireContext())
-        }
-
         ui.list.setupDefaults(
             dashAdapter,
             verticalDividers = false,
             fastscroll = false,
-            layouter = layouter,
+            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false)
         )
 
         vm.listItems.observe2(ui) {

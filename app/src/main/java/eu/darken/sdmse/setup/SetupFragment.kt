@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,15 +72,11 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Ends up as 2 columns on a 11" tablet
-        val spanCount = getSpanCount(widthDp = 720)
-        val layouter = if (spanCount > 1) {
-            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
-        } else {
-            LinearLayoutManager(requireContext())
-        }
-
-        ui.list.setupDefaults(setupAdapter, verticalDividers = false, layouter = layouter)
+        ui.list.setupDefaults(
+            setupAdapter,
+            verticalDividers = false,
+            layouter = GridLayoutManager(context, getSpanCount(widthDp = 720), GridLayoutManager.VERTICAL, false),
+        )
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())

@@ -25,7 +25,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -88,18 +87,10 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        // Ends up as 2 columns on a medium phone in landscape (e.g. Pixel 5)
-        val spanCount = getSpanCount(widthDp = 390)
-        val layouter = if (spanCount > 1) {
-            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
-        } else {
-            LinearLayoutManager(requireContext())
-        }
         ui.list.setupDefaults(
             adapter = adapter,
             horizontalDividers = true,
-            layouter = layouter
+            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false)
         )
 
         ui.toolbar.apply {
